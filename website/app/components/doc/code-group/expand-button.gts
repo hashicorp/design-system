@@ -7,10 +7,13 @@ import { on } from '@ember/modifier';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
+import docTrackEvent from 'website/modifiers/doc-track-event';
+
 interface DocCodeGroupExpandButtonSignature {
   Args: {
     isExpanded: boolean;
     onToggleExpand: () => void;
+    eventName: string;
   };
   Element: HTMLButtonElement;
 }
@@ -25,6 +28,7 @@ export default class DocCodeGroupExpandButton extends Component<DocCodeGroupExpa
       type="button"
       class="doc-code-group__expand-button"
       {{on "click" @onToggleExpand}}
+      {{docTrackEvent eventName=@eventName}}
       aria-expanded={{if @isExpanded "true" "false"}}
       aria-label="Expand .gts snippet"
       ...attributes
