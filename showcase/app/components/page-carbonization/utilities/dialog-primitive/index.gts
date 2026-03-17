@@ -32,36 +32,30 @@ const DialogPrimitiveCarbonizationIndex: TemplateOnlyComponent = <template>
       @label="Header + Description + Body + Footer"
     >
       <:theming>
-        <div class="shw-utility-dialog-primitive-base-container">
-          <HdsDialogPrimitiveWrapper open>
-            <:header>
-              <HdsDialogPrimitiveHeader
-                @icon="info"
-                @tagline="Tagline"
-              >Title</HdsDialogPrimitiveHeader>
-              <HdsDialogPrimitiveDescription
-              >Description</HdsDialogPrimitiveDescription>
-            </:header>
-            <:body>
-              <HdsDialogPrimitiveBody>
-                <p class="hds-typography-body-300 hds-foreground-primary">Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </HdsDialogPrimitiveBody>
-            </:body>
-            <:footer>
-              <HdsDialogPrimitiveFooter>
-                <HdsButtonSet>
-                  <HdsButton type="submit" @text="Primary" />
-                  <HdsButton
-                    type="button"
-                    @text="Secondary"
-                    @color="secondary"
-                  />
-                </HdsButtonSet>
-              </HdsDialogPrimitiveFooter>
-            </:footer>
-          </HdsDialogPrimitiveWrapper>
-        </div>
+        <HdsDialogPrimitiveWrapper open>
+          <:header>
+            <HdsDialogPrimitiveHeader
+              @icon="info"
+              @tagline="Tagline"
+            >Title</HdsDialogPrimitiveHeader>
+            <HdsDialogPrimitiveDescription
+            >Description</HdsDialogPrimitiveDescription>
+          </:header>
+          <:body>
+            <HdsDialogPrimitiveBody>
+              <p class="hds-typography-body-300 hds-foreground-primary">Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </HdsDialogPrimitiveBody>
+          </:body>
+          <:footer>
+            <HdsDialogPrimitiveFooter>
+              <HdsButtonSet>
+                <HdsButton type="submit" @text="Primary" />
+                <HdsButton type="button" @text="Secondary" @color="secondary" />
+              </HdsButtonSet>
+            </HdsDialogPrimitiveFooter>
+          </:footer>
+        </HdsDialogPrimitiveWrapper>
       </:theming>
     </ShwCarbonizationComparisonGrid>
 
