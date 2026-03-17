@@ -49,75 +49,84 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Content</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Only text">
       <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <HdsButton @text="Lorem ipsum" />
-          </SF.Item>
-          <SF.Item>
-            <HdsButton
-              @icon="plus"
-              @iconPosition="leading"
-              @text="Lorem ipsum"
-            />
-          </SF.Item>
-          <SF.Item>
-            <HdsButton
-              @icon="arrow-right"
-              @iconPosition="trailing"
-              @text="Lorem ipsum"
-            />
-          </SF.Item>
-          <SF.Item>
-            <HdsButton @icon="plus" @isIconOnly={{true}} @text="Lorem ipsum" />
-          </SF.Item>
-          <SF.Item {{style width="200px"}}>
-            <HdsButton
-              @icon="plus"
-              @text="This is a very long text that should go on multiple lines"
-            />
-          </SF.Item>
-          <SF.Item {{style width="150px"}}>
-            <HdsButton @text="Loading" @icon="loading" @isFullWidth={{true}} />
-          </SF.Item>
-        </ShwFlex>
+        <HdsButton @text="Lorem ipsum" />
       </:theming>
       <:reference>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <cds-button size="md" kind="primary">Lorem ipsum</cds-button>
-          </SF.Item>
-          <SF.Item>
-            <cds-button size="md" kind="primary"><HdsIcon
-                @name="plus"
-                slot="icon"
-              />Lorem ipsum</cds-button>
-          </SF.Item>
-          <SF.Item>
-            {{! same as 'cds-icon-button' - see: https://ibm-studios.slack.com/archives/C08Q3RGAGR5/p1759864437238719?thread_ts=1759863653.216359&cid=C08Q3RGAGR5 }}
-            <cds-button
-              size="md"
-              kind="primary"
-              tooltip-text="cds-button description (via attribute)"
-              tooltip-position="top"
-            >
-              <HdsIcon @name="plus" slot="icon" />
-            </cds-button>
-          </SF.Item>
-          <SF.Item>
-            <cds-button size="md" kind="primary"><HdsIcon
-                @name="plus"
-                slot="icon"
-              />This is a very long text that should go on multiple lines</cds-button>
-          </SF.Item>
-          <SF.Item {{style width="150px"}}>
-            <cds-button size="md" kind="primary"><HdsIcon
-                @name="loading"
-                slot="icon"
-              />Loading</cds-button>
-          </SF.Item>
-        </ShwFlex>
+        <cds-button size="md" kind="primary">Lorem ipsum</cds-button>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Text + Leading icon">
+      <:theming>
+        <HdsButton @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
+      </:theming>
+      <:reference>
+        <cds-button size="md" kind="primary"><HdsIcon
+            @name="plus"
+            slot="icon"
+          />Lorem ipsum</cds-button>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Text + Trailing icon">
+      <:theming>
+        <HdsButton
+          @icon="arrow-right"
+          @iconPosition="trailing"
+          @text="Lorem ipsum"
+        />
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Icon only">
+      <:theming>
+        <HdsButton @icon="plus" @isIconOnly={{true}} @text="Lorem ipsum" />
+      </:theming>
+      <:reference>
+        {{! same as 'cds-icon-button' - see: https://ibm-studios.slack.com/archives/C08Q3RGAGR5/p1759864437238719?thread_ts=1759863653.216359&cid=C08Q3RGAGR5 }}
+        <cds-button
+          size="md"
+          kind="primary"
+          tooltip-text="cds-button description (via attribute)"
+          tooltip-position="top"
+        >
+          <HdsIcon @name="plus" slot="icon" />
+        </cds-button>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Icon + Long text">
+      <:theming>
+        <div {{style width="200px"}}>
+          <HdsButton
+            @icon="plus"
+            @text="This is a very long text that should go on multiple lines"
+          />
+        </div>
+      </:theming>
+      <:reference>
+        <div {{style width="200px" overflow="scroll"}}>
+          <cds-button size="md" kind="primary"><HdsIcon
+              @name="plus"
+              slot="icon"
+            />This is a very long text that should go on multiple lines</cds-button>
+        </div>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Loading state">
+      <:theming>
+        <div {{style width="150px"}}>
+          <HdsButton @text="Loading" @icon="loading" @isFullWidth={{true}} />
+        </div>
+      </:theming>
+      <:reference>
+        <div {{style width="150px"}}>
+          <cds-button size="md" kind="primary"><HdsIcon
+              @name="loading"
+              slot="icon"
+            />Loading</cds-button>
+        </div>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
