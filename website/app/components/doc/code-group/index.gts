@@ -135,12 +135,23 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return this.currentView === 'gts';
   }
 
+  get normalizedCurrentRouteName() {
+    const path = this.router.currentURL?.split('?')[0] ?? '';
+    const lastSegment = path.split('/').filter(Boolean).pop() ?? '';
+
+    return lastSegment
+      .split(/[-_]/g)
+      .filter(Boolean)
+      .map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
+      .join(' ');
+  }
+
   get codeExpandEventName() {
-    return `Code Demo Snippet Expanded - ${this.router.currentRouteName}`;
+    return `Code Demo Snippet Expanded - ${this.normalizedCurrentRouteName}`;
   }
 
   getCodeLanguageEventName = (value: string) => {
-    return `Code Demo Language Tab Selected - ${this.router.currentRouteName} - ${value}`;
+    return `Code Demo Language Tab Selected - ${this.normalizedCurrentRouteName} - ${value}`;
   };
 
   handleLanguageChange = (event: Event) => {
