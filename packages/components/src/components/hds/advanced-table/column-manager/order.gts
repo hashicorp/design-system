@@ -95,6 +95,14 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     this._columnOrder = value;
   }
 
+  get visibleColumnOrder(): string[] {
+    const visibleKeys = new Set(
+      this.args.columns.map((column) => this._getColumnKey(column))
+    );
+
+    return this._columnOrder.filter((key) => visibleKeys.has(key));
+  }
+
   get orderedColumns(): HdsAdvancedTableNormalizedColumn[] {
     const { hasReorderableColumns, columns } = this.args;
 
@@ -278,20 +286,23 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
       let nextOrder = this._columnOrder;
 
       if (columnOrder !== undefined) {
-        const sameLength = columnOrder.length === this._lastColumnOrder.length;
-        const sameOrder =
-          sameLength &&
-          columnOrder.every(
-            (value, index) => value === this._lastColumnOrder[index]
-          );
+        const visibleSet = new Set(columnOrder);
+        const hiddenKeys = nextOrder.filter((key) => !visibleSet.has(key));
 
-        if (!sameOrder) {
-          nextOrder = [...columnOrder];
+        const reordered: string[] = [];
+
+        let visibleIdx = 0;
+        let hiddenIdx = 0;
+
+        for (let i = 0; i < nextOrder.length; i++) {
+          if (hiddenKeys.includes(nextOrder[i]!)) {
+            reordered.push(hiddenKeys[hiddenIdx++]!);
+          } else {
+            reordered.push(columnOrder[visibleIdx++]!);
+          }
         }
-      }
 
-      if (nextOrder.length === 0) {
-        nextOrder = [...columnKeys];
+        nextOrder = reordered;
       }
 
       const missingKeys = columnKeys.filter((key) => !nextOrder.includes(key));
@@ -323,7 +334,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     {{yield
       (hash
         orderedColumns=this.orderedColumns
-        columnOrder=this.columnOrder
+        columnOrder=this.visibleColumnOrder
         draggedColumnKey=this.draggedColumnKey
         reorderHoveredColumnKey=this.reorderHoveredColumnKey
         firstColumnKey=this.firstColumnKey
