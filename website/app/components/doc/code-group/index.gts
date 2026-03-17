@@ -17,7 +17,6 @@ import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-b
 import DocCodeGroupLanguagePicker from 'website/components/doc/code-group/language-picker';
 import DocCopyButton from 'website/components/doc/copy-button';
 import DynamicTemplate from 'website/components/dynamic-template';
-import EventTrackingService from 'website/services/event-tracking';
 
 interface DocCodeGroupSignature {
   Args: {
@@ -42,7 +41,6 @@ const unescapeCode = (code: string) => {
 };
 
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
-  @service declare readonly eventTracking: EventTrackingService;
   @service declare readonly router: RouterService;
 
   @tracked currentView = 'hbs';
@@ -137,23 +135,23 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return this.currentView === 'gts';
   }
 
+  getCodeLanguageEventName = (value: string) => {
+    return `Code Demo Language Tab Selected - ${this.router.currentRouteName} - ${value}`;
+  };
+
+  getCodeExpandEventName = () => {
+    return `Code Demo Snippet Expanded - ${this.router.currentRouteName}`;
+  };
+
   handleLanguageChange = (event: Event) => {
     const input = event.target as HTMLInputElement;
     if (input.checked) {
       this.currentView = input.value;
     }
-
-    this.eventTracking.trackEvent(
-      `Code Demo Language Tab Selected - ${this.router.currentRouteName} - ${input.value}`,
-    );
   };
 
   handleExpandClick = () => {
     this.isExpanded = !this.isExpanded;
-
-    this.eventTracking.trackEvent(
-      `Code Demo Snippet Expanded - ${this.router.currentRouteName}`,
-    );
   };
 
   // NOTE: we don't have access to the code element inside the CodeBlock component, so we need to set the tabindex using query selectors (need to set tabindex because the code element can be scrollable and it needs to be focusable for keyboard users)
@@ -177,6 +175,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
             @currentLanguage={{this.currentView}}
             @options={{this.languageOptions}}
             @onLanguageChange={{this.handleLanguageChange}}
+            @getEventName={{this.getCodeLanguageEventName}}
           />
         </:primary>
         <:secondary>
@@ -206,6 +205,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
             <DocCodeGroupExpandButton
               @isExpanded={{this.isExpanded}}
               @onToggleExpand={{this.handleExpandClick}}
+              @eventName={{this.getCodeExpandEventName}}
             />
           </div>
         {{/if}}

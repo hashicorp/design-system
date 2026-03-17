@@ -7,11 +7,14 @@ import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
 import { guidFor } from '@ember/object/internals';
 
+import docTrackEvent from 'website/modifiers/doc-track-event';
+
 interface DocCodeGroupLanguagePickerSignature {
   Args: {
     currentLanguage: string;
     options: Array<{ label: string; value: string }>;
     onLanguageChange: (event: Event) => void;
+    getEventName: (value: string) => string;
   };
   Element: HTMLFieldSetElement;
 }
@@ -35,6 +38,10 @@ export default class DocCodeGroupLanguagePicker extends Component<DocCodeGroupLa
             value="{{option.value}}"
             checked={{eq @currentLanguage option.value}}
             {{on "change" @onLanguageChange}}
+            {{docTrackEvent
+              triggerEvent="change"
+              eventName=(@getEventName option.value)
+            }}
           />
         </label>
       {{/each}}
