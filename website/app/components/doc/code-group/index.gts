@@ -10,6 +10,7 @@ import { modifier } from 'ember-modifier';
 import { service } from '@ember/service';
 
 import type Owner from '@ember/owner';
+import type RouterService from '@ember/routing/router-service';
 
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
@@ -42,6 +43,7 @@ const unescapeCode = (code: string) => {
 
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @service declare readonly eventTracking: EventTrackingService;
+  @service declare readonly router: RouterService;
 
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
@@ -142,7 +144,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
 
     this.eventTracking.trackEvent(
-      `Demo - ${this.args.filename} - Language Picker - ${input.value}`,
+      `Code Demo Language Tab Selected - ${this.router.currentRouteName} - ${input.value}`,
     );
   };
 
@@ -150,7 +152,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     this.isExpanded = !this.isExpanded;
 
     this.eventTracking.trackEvent(
-      `Demo - ${this.args.filename} - Expand Button - ${this.isExpanded}`,
+      `Code Demo Snippet Expanded - ${this.router.currentRouteName}`,
     );
   };
 
