@@ -105,7 +105,7 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
               <HdsIcon @name="plus" slot="icon" />
             </cds-button>
           </SF.Item>
-          <SF.Item>
+          <SF.Item {{style width="200px" overflow="scroll"}}>
             <cds-button size="md" kind="primary"><HdsIcon
                 @name="plus"
                 slot="icon"
