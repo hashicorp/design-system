@@ -137,13 +137,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   get normalizedCurrentRouteName() {
     const path = this.router.currentURL?.split('?')[0] ?? '';
-    const lastSegment = path.split('/').filter(Boolean).pop() ?? '';
-
-    return lastSegment
-      .split(/[-_]/g)
-      .filter(Boolean)
-      .map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
-      .join(' ');
+    return path.replace(/^\/+/, '').replace(/\/+$/, '');
   }
 
   get codeExpandEventName() {
