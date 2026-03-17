@@ -135,12 +135,12 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return this.currentView === 'gts';
   }
 
+  get codeExpandEventName() {
+    return `Code Demo Snippet Expanded - ${this.router.currentRouteName}`;
+  }
+
   getCodeLanguageEventName = (value: string) => {
     return `Code Demo Language Tab Selected - ${this.router.currentRouteName} - ${value}`;
-  };
-
-  getCodeExpandEventName = () => {
-    return `Code Demo Snippet Expanded - ${this.router.currentRouteName}`;
   };
 
   handleLanguageChange = (event: Event) => {
@@ -205,7 +205,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
             <DocCodeGroupExpandButton
               @isExpanded={{this.isExpanded}}
               @onToggleExpand={{this.handleExpandClick}}
-              @eventName={{this.getCodeExpandEventName}}
+              @eventName={{this.codeExpandEventName}}
             />
           </div>
         {{/if}}
