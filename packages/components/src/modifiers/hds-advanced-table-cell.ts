@@ -19,7 +19,7 @@ export interface HdsAdvancedTableCellModifierSignature {
     Named: {
       handleEnableFocusTrap: () => void;
       shouldTrapFocus: boolean;
-      setCellElement?: (el: HTMLDivElement) => void;
+      setCellElement: (el: HTMLDivElement) => void;
     };
   };
   Element: HTMLDivElement;

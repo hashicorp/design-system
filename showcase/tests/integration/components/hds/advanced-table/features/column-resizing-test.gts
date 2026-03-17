@@ -8,7 +8,6 @@ import { array, hash, get } from '@ember/helper';
 import {
   click,
   find,
-  findAll,
   focus,
   render,
   settled,

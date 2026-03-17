@@ -139,7 +139,16 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
 
-    this._labelId = this.args.newLabel ?? guidFor(this);
+    const { newLabel, rowspan, colspan, isStickyColumn } = args;
+
+    if (isStickyColumn) {
+      assert(
+        'Cannot have custom rowspan or colspan if there are nested rows.',
+        rowspan === undefined || colspan === undefined
+      );
+    }
+
+    this._labelId = newLabel ?? guidFor(this);
   }
 
   get isSortable(): boolean {

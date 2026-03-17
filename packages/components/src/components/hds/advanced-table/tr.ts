@@ -8,6 +8,7 @@ import { assert } from '@ember/debug';
 
 // import { HdsAdvancedTableScopeValues } from './types.ts';
 import type {
+  HdsAdvancedTableCell,
   HdsAdvancedTableScope,
   HdsAdvancedTableThSortOrder,
 } from './types.ts';
@@ -73,11 +74,6 @@ export interface BaseHdsAdvancedTableTrSignature {
 // Union type to combine both possible states
 export type HdsAdvancedTableTrSignature = BaseHdsAdvancedTableTrSignature;
 // | SelectableHdsAdvancedTableTrArgs;
-
-interface HdsAdvancedTableCell {
-  columnKey: string;
-  content: unknown;
-}
 
 export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
   get selectionKey(): string | undefined {
