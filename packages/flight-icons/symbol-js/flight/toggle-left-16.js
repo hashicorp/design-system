@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-toggle-left-16" viewBox="0 0 16 16"><path d="M11 3a5 5 0 010 10H5A5 5 0 015 3h6zM5 4.5a3.5 3.5 0 100 7h6a3.5 3.5 0 100-7H5zM5 6a2 2 0 110 4 2 2 0 010-4z"/></symbol>`;
