@@ -16,6 +16,31 @@
             }
           }
         }
+      },
+      "outline": {
+        "width": {
+          "$type": "dimension",
+            "$value": "2",
+            "unit": "px",
+            "$modes": {
+              "default": "2",
+              "cds-g0": "1",
+              "cds-g10": "1",
+              "cds-g90": "1",
+              "cds-g100": "1"
+            }
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{color.focus.action.internal}",
+          "$modes": {
+            "default": "{color.focus.action.internal}",
+            "cds-g0": "{carbon.themes.white.focus}",
+            "cds-g10": "{carbon.themes.g10.focus}",
+            "cds-g90": "{carbon.themes.g90.focus}",
+            "cds-g100": "{carbon.themes.g100.focus}"
+          }
+        }
       }
     }
   }

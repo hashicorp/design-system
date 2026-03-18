@@ -1,6 +1,18 @@
 {
   "link": {
     "standalone": {
+      "gap": {
+        "$type": "dimension",
+        "$value": "0.375",
+        "unit": "rem",
+        "$modes": {
+          "default": "0.375",
+          "cds-g0": "0.5",
+          "cds-g10": "0.5",
+          "cds-g90": "0.5",
+          "cds-g100": "0.5"
+        }
+      },
       "padding": {
         "vertical": {
           "$type": "dimension",
