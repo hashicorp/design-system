@@ -325,6 +325,9 @@ importers:
 
   packages/flight-icons:
     devDependencies:
+      '@carbon/icons':
+        specifier: ^11.76.0
+        version: 11.76.0
       '@figma-export/cli':
         specifier: ^6.0.2
         version: 6.2.2
@@ -423,22 +426,22 @@ importers:
     devDependencies:
       '@carbon/colors':
         specifier: ^11.39.0
-        version: 11.39.0
+        version: 11.42.0
       '@carbon/grid':
         specifier: ^11.42.0
-        version: 11.42.0
+        version: 11.45.0
       '@carbon/layout':
         specifier: ^11.40.0
-        version: 11.40.0
+        version: 11.43.0
       '@carbon/motion':
         specifier: ^11.34.0
-        version: 11.34.0
+        version: 11.37.0
       '@carbon/themes':
         specifier: ^11.59.0
-        version: 11.59.0
+        version: 11.62.0
       '@carbon/type':
         specifier: ^11.46.0
-        version: 11.46.0
+        version: 11.49.0
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -1928,23 +1931,26 @@ packages:
   '@bundled-es-modules/memfs@4.17.0':
     resolution: {integrity: sha512-ykdrkEmQr9BV804yd37ikXfNnvxrwYfY9Z2/EtMHFEFadEjsQXJ1zL9bVZrKNLDtm91UdUOEHso6Aweg93K6xQ==}
 
-  '@carbon/colors@11.39.0':
-    resolution: {integrity: sha512-H1hL9NW1I1vks469KuIV/YY4zHUiDQJ/MOlJgv8iCLi0SQS4DWkDslccXAhce8U8qRtx1JPfePhiYkRBbjgKgw==}
+  '@carbon/colors@11.42.0':
+    resolution: {integrity: sha512-kfEGVk2vzokkRrVwqUGYK8YLQ1Cn7cDhJ/lEz31kdBrUbR8vlgKSFq9GTqAgZiqxbTC0surR3nBF2kU3NTNPOg==}
 
-  '@carbon/grid@11.42.0':
-    resolution: {integrity: sha512-l91wFV7uMhaf2PX89cW1zS5iMnzrFVY2d81Xf7U9OdNu8sBTQWxUPtj1RnZyep4F7v/HG8U4DOzfa+nO5GgZeA==}
+  '@carbon/grid@11.45.0':
+    resolution: {integrity: sha512-J8hh5li0Q0RRS6IGg+MVPQVfjp1ePxzQsyMyjQOHLux8i8HwiWJmKLQ+4lKMzRXorLG2RtEoPVl00EaKlQEgKQ==}
 
-  '@carbon/layout@11.40.0':
-    resolution: {integrity: sha512-2wIOPJZFjt5Y+TZ7NwPTf0l3zif14hBiPwv/nQo76J2Wr1i/NJrYNfBTpUnKxoq6IZEsVd0e6Ab4RLGGIP2eVA==}
+  '@carbon/icons@11.76.0':
+    resolution: {integrity: sha512-e9XnUWPgxsyvgCL/ti/Ee2fItqRs/WrHkwy7GPqbEGdGZKSd9pBvO+jN7nxBT5TLdA50q26t5hR0U2taEyc5Kg==}
 
-  '@carbon/motion@11.34.0':
-    resolution: {integrity: sha512-Gc5VcfXO70un5jeCUqlplKal8PpRLzUfxg8x8b1LwKfzjWrgxilHtNk3B4dGj190M9dyrTKVfCCrLKlVtyhEQw==}
+  '@carbon/layout@11.43.0':
+    resolution: {integrity: sha512-aOUNqVv/5TGhNTn1HV+620ZlqhE7+Chs0TJoxwe/CCsLOdziCX9st3c5inyINPZDyvDK46mas1RmqvZwNYe/mA==}
 
-  '@carbon/themes@11.59.0':
-    resolution: {integrity: sha512-vnFuKTuThYVGQ9f8G/amO0laun6pyr8Nze1KuD6LrOJl6waEC2LPJqNz3rg4ySLievFg9+993R0GNUI9HjC2bw==}
+  '@carbon/motion@11.37.0':
+    resolution: {integrity: sha512-bjFzY8Wy5Umj+g41ZGj3L3b/z2gDBDKfzfc9M3ZAHaj73PZ7Z/Z5jT0IFlihEv8wUwZfbhbtnb4jeNhckfLINA==}
 
-  '@carbon/type@11.46.0':
-    resolution: {integrity: sha512-Xt2lhYsRuRrpEESy8BW+xjsf1TXnzv4CdxgAvjL+YSQxzdD0gbMnIhEIpJiDAyWddviqH8ZwxIdlnlfqKrA9rg==}
+  '@carbon/themes@11.62.0':
+    resolution: {integrity: sha512-/sPOiGaC4YtXBiA4uNx2PuBxPOAjVMOThrsHfdDbroUvm2yigvRZUJcJTivunOFKtfIC5EOoKxxAP3XzxWjf0Q==}
+
+  '@carbon/type@11.49.0':
+    resolution: {integrity: sha512-5SwbuMj7VO7QAxB273MQVMoVLEvwcMVflhmriWA4I+YWMDwtoprPHiXseO6ueoRGJp+TOqnItvkPMPOdKz5sjQ==}
 
   '@changesets/apply-release-plan@7.0.12':
     resolution: {integrity: sha512-EaET7As5CeuhTzvXTQCRZeBUcisoYPDDcXvgTE/2jmmypKp0RC7LxKj/yzqeh/1qFTZI7oDGFcL1PHRuQuketQ==}
@@ -12926,35 +12932,39 @@ snapshots:
       stream: 0.0.3
       util: 0.12.5
 
-  '@carbon/colors@11.39.0':
+  '@carbon/colors@11.42.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/grid@11.42.0':
+  '@carbon/grid@11.45.0':
     dependencies:
-      '@carbon/layout': 11.40.0
+      '@carbon/layout': 11.43.0
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/layout@11.40.0':
-    dependencies:
-      '@ibm/telemetry-js': 1.10.1
-
-  '@carbon/motion@11.34.0':
+  '@carbon/icons@11.76.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/themes@11.59.0':
+  '@carbon/layout@11.43.0':
     dependencies:
-      '@carbon/colors': 11.39.0
-      '@carbon/layout': 11.40.0
-      '@carbon/type': 11.46.0
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/motion@11.37.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/themes@11.62.0':
+    dependencies:
+      '@carbon/colors': 11.42.0
+      '@carbon/layout': 11.43.0
+      '@carbon/type': 11.49.0
       '@ibm/telemetry-js': 1.10.1
       color: 4.2.3
 
-  '@carbon/type@11.46.0':
+  '@carbon/type@11.49.0':
     dependencies:
-      '@carbon/grid': 11.42.0
-      '@carbon/layout': 11.40.0
+      '@carbon/grid': 11.45.0
+      '@carbon/layout': 11.43.0
       '@ibm/telemetry-js': 1.10.1
 
   '@changesets/apply-release-plan@7.0.12':
