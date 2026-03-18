@@ -1,20 +1,6 @@
 {
   "link": {
     "inline": {
-      "border": {
-        "radius": {
-          "$type": "dimension",
-          "$value": "2",
-          "unit": "px",
-          "$modes": {
-            "default": "2",
-            "cds-g0": "0",
-            "cds-g10": "0",
-            "cds-g90": "0",
-            "cds-g100": "0"
-          }
-        }
-      },
       "icon": {
         "margin": {
           "horizontal": {
