@@ -108,8 +108,11 @@ const plugins = [
   // Ensure that .gjs files are properly integrated as Javascript
   addon.gjs(),
 
-  // Emit .d.ts declaration files
-  addon.declarations('declarations'),
+  // Emit .d.ts declaration files via Glint v2
+  addon.declarations(
+    'declarations',
+    'pnpm ember-tsc --declaration --project tsconfig.json'
+  ),
 
   // This babel config should *not* apply presets or compile away ES modules.
   // It exists only to provide development niceties for you, like automatic
