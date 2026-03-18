@@ -1,6 +1,3 @@
-import '@glint/environment-ember-loose';
-import '@glint/environment-ember-template-imports';
-
 import { Portal, PortalTarget } from 'ember-stargate';
 
 import type HdsComponentsRegistry from '../src/template-registry';
@@ -17,7 +14,7 @@ import type EmberComposableHelpersRegistry from '@nullvoxpopuli/ember-composable
 import type EmberIntlRegistry from 'ember-intl/template-registry';
 import type EmberA11yRefocusRegistry from 'ember-a11y-refocus/template-registry';
 
-declare module '@glint/environment-ember-loose/registry' {
+declare module '@glint/environment-ember-template-imports/registry' {
   export default interface Registry
     extends HdsComponentsRegistry,
       EmberElementHelperRegistry,
