@@ -9,17 +9,13 @@ The Inline Link Ember component inherits the typographic styles of the text arou
 
 The most basic invocation requires some content to be passed as children and either an `@href` or `@route` argument.
 
-```handlebars
-Lorem <Hds::Link::Inline @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-```
+[[code-snippets/link-inline-basic]]
 
 ### Color
 
 There are two available colors for an Inline Link: `primary` and `secondary`. The default is `primary`.
 
-```handlebars
-Lorem <Hds::Link::Inline @color="secondary" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-```
+[[code-snippets/link-inline-color]]
 
 ### Icon
 
@@ -27,17 +23,13 @@ To add an icon to the Inline Link, give the `@icon` argument any [icon](/icons/l
 
 `Hds::Link::Inline` does not have an intrinsic size. Instead, the size of the icon is calculated proportionally (via `em`) in relation to the font-size of the text.
 
-```handlebars
-Lorem <Hds::Link::Inline @icon="external-link" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-```
+[[code-snippets/link-inline-icon]]
 
 ### Icon position
 
 By default, if you define an icon, it‘s placed in the trailing (end) position. If you would like to position the icon in the leading (start) position, define `@iconPosition`.
 
-```handlebars
-Lorem <Hds::Link::Inline @icon="external-link" @iconPosition="leading" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-```
+[[code-snippets/link-inline-icon-position]]
 
 ### URL and route handling
 
@@ -51,9 +43,7 @@ To generate an `<a>` link, pass an `@href` argument with a URL as the value.
 
 By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
-```handlebars
-Lorem <Hds::Link::Inline @icon="external-link" @href="https://www.hashicorp.com">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-```
+[[code-snippets/link-inline-href]]
 
 If the `@href` argument points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
@@ -65,9 +55,7 @@ All the standard arguments for the `<LinkTo/LinkToExternal>` components are supp
 
 To generate an `<a>` link using a `<LinkTo>` Ember component, pass a `@route` argument.
 
-```handlebars
-Lorem <Hds::Link::Inline @route="my.page.route" @model="my.page.model">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-```
+[[code-snippets/link-inline-link-to]]
 
 ##### For `<LinkToExternal>`
 
