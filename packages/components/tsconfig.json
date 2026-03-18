@@ -1,11 +1,9 @@
 {
   "extends": "@tsconfig/ember",
   "include": ["src/**/*", "unpublished-development-types/**/*"],
-  "glint": {
-    "environment": ["ember-loose", "ember-template-imports"]
-  },
   "compilerOptions": {
     "allowJs": true,
+    "declaration": true,
     "declarationDir": "declarations",
     /**
       https://www.typescriptlang.org/tsconfig#noEmit
@@ -47,6 +45,6 @@
     */
     "allowImportingTsExtensions": true,
 
-    "types": ["ember-source/types"]
+    "types": ["ember-source/types", "@glint/ember-tsc/types"]
   }
 }

@@ -129,6 +129,7 @@ module(
     test('the default `scope` attribute can not be overwritten', async function (assert) {
       await render(
         <template>
+          {{! @glint-expect-error }}
           <HdsAdvancedTableThSort scope="row">Artist</HdsAdvancedTableThSort>
         </template>,
       );

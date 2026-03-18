@@ -7,7 +7,10 @@ import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
 import { notEq } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
+import { service } from '@ember/service';
+
 import type Owner from '@ember/owner';
+import type RouterService from '@ember/routing/router-service';
 
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
@@ -38,6 +41,8 @@ const unescapeCode = (code: string) => {
 };
 
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
+  @service declare readonly router: RouterService;
+
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
   @tracked languageOptions: Array<{ label: string; value: string }> = [];
@@ -130,6 +135,19 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return this.currentView === 'gts';
   }
 
+  get normalizedCurrentRouteName() {
+    const path = this.router.currentURL?.split('?')[0] ?? '';
+    return path.replace(/^\/+/, '').replace(/\/+$/, '');
+  }
+
+  get codeExpandEventName() {
+    return `Code Demo Snippet Expanded - ${this.normalizedCurrentRouteName}`;
+  }
+
+  getCodeLanguageEventName = (value: string) => {
+    return `Code Demo Language Tab Selected - ${this.normalizedCurrentRouteName} - ${value}`;
+  };
+
   handleLanguageChange = (event: Event) => {
     const input = event.target as HTMLInputElement;
     if (input.checked) {
@@ -162,6 +180,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
             @currentLanguage={{this.currentView}}
             @options={{this.languageOptions}}
             @onLanguageChange={{this.handleLanguageChange}}
+            @getEventName={{this.getCodeLanguageEventName}}
           />
         </:primary>
         <:secondary>
@@ -191,6 +210,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
             <DocCodeGroupExpandButton
               @isExpanded={{this.isExpanded}}
               @onToggleExpand={{this.handleExpandClick}}
+              @eventName={{this.codeExpandEventName}}
             />
           </div>
         {{/if}}

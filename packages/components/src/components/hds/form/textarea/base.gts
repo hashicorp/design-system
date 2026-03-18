@@ -16,7 +16,7 @@ export interface HdsFormTextareaBaseSignature {
     id?: string;
     ariaDescribedBy?: string;
   };
-  Element: HTMLElement;
+  Element: HTMLTextAreaElement;
 }
 
 export default class HdsFormTextareaBase extends Component<HdsFormTextareaBaseSignature> {

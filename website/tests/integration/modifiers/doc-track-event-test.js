@@ -43,4 +43,13 @@ module('Integration | Modifier | doc-track-event', function (hooks) {
 
     assert.ok(trackEventSpy.calledOnceWith('testEvent'));
   });
+
+  test('it adds a change event listener and tracks an event', async function (assert) {
+    await render(
+      hbs`<input type="checkbox" {{doc-track-event triggerEvent='change' eventName='checkboxChanged'}} />`,
+    );
+    await click('input');
+
+    assert.ok(trackEventSpy.calledOnceWith('checkboxChanged'));
+  });
 });
