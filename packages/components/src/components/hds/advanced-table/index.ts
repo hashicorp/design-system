@@ -503,6 +503,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       const { isSelectable = false } = this.args;
 
       const newTableHeight = element.offsetHeight;
+
       const newDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
@@ -515,12 +516,22 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
           return;
         }
 
+        const isSameBottom =
+          this.scrollIndicatorDimensions.bottom === newDimensions.bottom;
+        const isSameHeight =
+          this.scrollIndicatorDimensions.height === newDimensions.height;
         const isSameLeft =
           this.scrollIndicatorDimensions.left === newDimensions.left;
         const isSameRight =
           this.scrollIndicatorDimensions.right === newDimensions.right;
 
-        if (isSameLeft && isSameRight && this._tableHeight === newTableHeight) {
+        if (
+          isSameBottom &&
+          isSameHeight &&
+          isSameLeft &&
+          isSameRight &&
+          this._tableHeight === newTableHeight
+        ) {
           return;
         }
 
