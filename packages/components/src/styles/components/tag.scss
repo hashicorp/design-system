@@ -52,7 +52,7 @@
 .hds-tag__text,
 .hds-tag__link {
   flex: 1 0 0;
-  max-width: 166px; // account for excess horizontal padding of text in non-dismissible variant
+  max-width: var(--token-tag-max-width); // account for excess horizontal padding of text in non-dismissible variant
   padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom)
     var(--token-tag-padding-left);
   background-color: var(--token-tag-surface-color-default);
@@ -71,6 +71,7 @@
   font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-tag-typography-font-size);
   line-height: var(--token-tag-typography-line-height);
+  letter-spacing: var(--token-tag-typography-letter-spacing);
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -79,7 +80,7 @@
 
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
-  max-width: 160px;
+  max-width: calc(var(--token-tag-max-width) - 6px);
   padding: var(--token-tag-padding-top) 8px var(--token-tag-padding-bottom) 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;

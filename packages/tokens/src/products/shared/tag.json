@@ -1,5 +1,17 @@
 {
   "tag": {
+    "max-width": {
+      "$type": "dimension",
+      "$value": "166",
+      "unit": "px",
+      "$modes": {
+        "default": "166",
+        "cds-g0": "208",
+        "cds-g10": "208",
+        "cds-g90": "208",
+        "cds-g100": "208"
+      }
+    },
     "padding": {
       "top": {
         "$type": "dimension",
@@ -123,10 +135,22 @@
         "unit": "px",
         "$modes": {
           "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+          "cds-g0": "{carbon.typography.label01.font-size}",
+          "cds-g10": "{carbon.typography.label01.font-size}",
+          "cds-g90": "{carbon.typography.label01.font-size}",
+          "cds-g100": "{carbon.typography.label01.font-size}"
+        }
+      },
+      "letter-spacing": {
+        "$type": "letter-spacing",
+        "$value": 0,
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.label01.letter-spacing}",
+          "cds-g10": "{carbon.typography.label01.letter-spacing}",
+          "cds-g90": "{carbon.typography.label01.letter-spacing}",
+          "cds-g100": "{carbon.typography.label01.letter-spacing}"
         }
       },
       "line-height": {
@@ -134,10 +158,10 @@
         "$value": 1.2308,
         "$modes": {
           "default": 1.2308,
-          "cds-g0": 1.3333,
-          "cds-g10": 1.3333,
-          "cds-g90": 1.3333,
-          "cds-g100": 1.3333
+          "cds-g0": "{carbon.typography.label01.line-height}",
+          "cds-g10": "{carbon.typography.label01.line-height}",
+          "cds-g90": "{carbon.typography.label01.line-height}",
+          "cds-g100": "{carbon.typography.label01.line-height}"
         }
       }
     },
