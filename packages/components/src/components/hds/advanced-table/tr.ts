@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-// import { HdsAdvancedTableScopeValues } from './types.ts';
 import type {
   HdsAdvancedTableCell,
   HdsAdvancedTableScope,
