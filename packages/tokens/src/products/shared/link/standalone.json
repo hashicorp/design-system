@@ -149,36 +149,6 @@
             }
           }
         }
-      },
-      "surface": {
-        "color": {
-          "primary": {
-            "active": {
-              "$type": "color",
-              "$value": "var(--token-color-surface-action)",
-              "$modes": {
-                "default": "var(--token-color-surface-action)",
-                "cds-g0": "transparent",
-                "cds-g10": "transparent",
-                "cds-g90": "transparent",
-                "cds-g100": "transparent"
-              }
-            }
-          },
-          "secondary": {
-            "active": {
-              "$type": "color",
-              "$value": "var(--token-color-surface-interactive-active)",
-              "$modes": {
-                "default": "var(--token-color-surface-interactive-active)",
-                "cds-g0": "transparent",
-                "cds-g10": "transparent",
-                "cds-g90": "transparent",
-                "cds-g100": "transparent"
-              }
-            }
-          }
-        }
       }
     }
   }
