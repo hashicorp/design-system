@@ -3221,7 +3221,8 @@ button.hds-button[href]::after {
  */
 .hds-card__container {
   position: relative;
-  background-color: #fff;
+  padding: var(--token-card-padding);
+  background-color: var(--token-card-surface-color-primary);
   border-radius: var(--token-border-radius-medium);
 }
 
@@ -3310,11 +3311,11 @@ button.hds-button[href]::after {
 }
 
 .hds-card__container--background-neutral-primary {
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-card-surface-color-primary);
 }
 
 .hds-card__container--background-neutral-secondary {
-  background-color: var(--token-color-surface-faint);
+  background-color: var(--token-card-surface-color-secondary);
 }
 
 .hds-card__container--overflow-hidden {
