@@ -236,4 +236,8 @@ body {
   main section:not([data-test-percy]) {
     display: none !important;
   }
+  // disable icons animations when Percy is taking screenshots
+  .hds-icon--animation-loading {
+    animation: none !important;
+  }
 }
