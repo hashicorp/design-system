@@ -484,6 +484,7 @@
   --token-tag-foreground-color-default: #3b3d45;
   --token-tag-typography-font-size: 0.8125rem;
   --token-tag-typography-line-height: 1.2308;
+  --token-tag-icon-color: #3b3d45;
   --token-tag-link-border-color-primary: #3b3d4566;
   --token-tag-link-border-color-secondary: #3b3d4566;
   --token-tag-link-surface-color-primary-default: #ffffff;
@@ -492,6 +493,8 @@
   --token-tag-link-foreground-color-primary-hover: #0c56e9;
   --token-tag-link-foreground-color-primary-active: #0046d1;
   --token-tag-link-foreground-color-secondary-default: #0c0c0e;
+  --token-tag-link-icon-color-primary: #3b3d45;
+  --token-tag-link-icon-color-secondary: #3b3d45;
   --token-tooltip-max-width: 280px;
   --token-tooltip-padding-horizontal: 12px;
   --token-tooltip-padding-vertical: 8px;

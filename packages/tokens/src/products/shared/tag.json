@@ -141,6 +141,19 @@
         }
       }
     },
+    "icon": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.foreground.primary}",
+        "$modes": {
+          "default": "{color.foreground.primary}",
+          "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+          "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+          "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+          "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+        }
+      }
+    },
     "link": {
       "border": {
         "color": {
@@ -244,6 +257,32 @@
                 "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
                 "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
               }
+            }
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "primary": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
             }
           }
         }
