@@ -17,7 +17,7 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
 
 .hds-link-standalone {
   display: flex;
-  gap: 0.375rem;
+  gap: var(--token-link-standalone-gap);
   align-items: center;
   justify-content: center;
   width: fit-content;

@@ -17,7 +17,7 @@
   &.mock-focus,
   &:focus-visible {
     text-decoration: none;
-    outline: 2px solid var(--token-color-focus-action-internal);
+    outline: var(--token-link-inline-outline-width) solid var(--token-link-inline-outline-color);
     outline-offset: 1px;
   }
 }
