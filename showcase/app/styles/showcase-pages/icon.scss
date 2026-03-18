@@ -29,4 +29,18 @@ body.page-components-icon {
     background: #0c0c0e;
     outline: 2px solid #0c0c0e;
   }
+
+  // LIBRARY
+
+  .shw-component-icon-library-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .shw-component-icon-library-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
 }

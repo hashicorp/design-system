@@ -9,6 +9,7 @@ import { array } from '@ember/helper';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
+import ShwDivider from 'showcase/components/shw/divider';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
@@ -76,6 +77,8 @@ const SubSectionDisplay: TemplateOnlyComponent = <template>
 
     {{/each}}
   {{/let}}
+
+  <ShwDivider />
 </template>;
 
 export default SubSectionDisplay;
