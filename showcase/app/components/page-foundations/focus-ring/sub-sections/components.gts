@@ -1069,7 +1069,9 @@ func main() {
                 <HdsAdvancedTableTh
                   @isExpandable={{true}}
                   @hasExpandAllButton={{true}}
-                  @column={{(hash isSortable=true)}}
+                  @column={{(hash
+                    isSortable=true key="lorem" label="Lorem ipsum"
+                  )}}
                   @tooltip="Here is more information"
                   mock-state-value="focus"
                   mock-state-selector={{selector}}
