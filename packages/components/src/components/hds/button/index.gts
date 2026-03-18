@@ -49,7 +49,7 @@ export interface HdsButtonSignature {
 
 export default class HdsButton extends Component<HdsButtonSignature> {
   get text(): string {
-    // TEST
+    // TEST2
     const { text } = this.args;
 
     assert(
