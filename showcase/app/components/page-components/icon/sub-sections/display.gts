@@ -23,7 +23,7 @@ const SubSectionDisplay: TemplateOnlyComponent = <template>
           "Block (default)"
         }}</ShwTextH4>
 
-      <ShwFlex class="shw-foundation-outline-icons" as |SF|>
+      <ShwFlex class="shw-component-outline-icons" as |SF|>
         <SF.Item @label="single icon">
           <HdsIcon @name="bookmark" @isInline={{isInline}} />
         </SF.Item>
@@ -34,26 +34,26 @@ const SubSectionDisplay: TemplateOnlyComponent = <template>
         </SF.Item>
       </ShwFlex>
 
-      <ShwFlex class="shw-foundation-outline-icons" @gap="4rem" as |SG|>
+      <ShwFlex class="shw-component-outline-icons" @gap="4rem" as |SG|>
         <SG.Item @label="icon + inline text">
           <HdsIcon @name="bookmark" @isInline={{isInline}} />
           <span class="hds-typography-body-200">Lorem ipsum dolor</span>
         </SG.Item>
         <SG.Item @label="icon + inline text (inside flexbox)">
-          <div class="shw-foundation-icon-container-flex">
             <HdsIcon @name="bookmark" @isInline={{isInline}} />
+          <div class="shw-component-icon-container-flex">
             <span class="hds-typography-body-200">Lorem ipsum dolor</span>
           </div>
         </SG.Item>
         <SG.Item @label="icon + inline text (inside grid)">
-          <div class="shw-foundation-icon-container-grid">
             <HdsIcon @name="bookmark" @isInline={{isInline}} />
+          <div class="shw-component-icon-container-grid">
             <span class="hds-typography-body-200">Lorem ipsum dolor</span>
           </div>
         </SG.Item>
       </ShwFlex>
 
-      <ShwFlex class="shw-foundation-outline-icons" @gap="4rem" as |SF|>
+      <ShwFlex class="shw-component-outline-icons" @gap="4rem" as |SF|>
         <SF.Item @label="icons interleaved with inline text">
           <span class="hds-typography-body-200">Lorem ipsum dolor</span>
           <HdsIcon @name="bookmark" @isInline={{isInline}} />
