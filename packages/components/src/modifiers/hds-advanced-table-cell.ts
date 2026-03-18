@@ -55,7 +55,7 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
 
     if (!this._didSetup) {
       this.#setupObserver(element, positional, named);
-      named.setCellElement?.(element);
+      named.setCellElement(element);
       this._didSetup = true;
       this._element = element;
     }
