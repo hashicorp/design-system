@@ -34,7 +34,7 @@ import type {
   HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
 
-import type { HdsFilterBarSignature } from '../filter-bar/index.ts';
+import type { HdsFilterBarSignature } from '../filter-bar/index.gts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
@@ -236,6 +236,99 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // row expansion properties
   expandedRowIds = new TrackedSet<string>();
+
+  private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
+    this._scrollWrapperElement = element;
+
+    const updateHorizontalScrollIndicators = () => {
+      this.showScrollIndicatorRight = element.clientWidth < element.scrollWidth;
+    };
+
+    this._scrollHandler = () => {
+      this._updateScrollIndicators(element);
+    };
+
+    element.addEventListener('scroll', this._scrollHandler);
+
+    const updateMeasurements = () => {
+      const { isSelectable = false } = this.args;
+
+      const newTableHeight = element.offsetHeight;
+
+      const newDimensions = getScrollIndicatorDimensions(
+        element,
+        this._theadElement,
+        this.hasStickyFirstColumn ? true : false,
+        this.isStickyColumnPinned
+      );
+
+      const setUpdatedMeasurements = () => {
+        if (this.isDestroying || this.isDestroyed) {
+          return;
+        }
+
+        const isSameBottom =
+          this.scrollIndicatorDimensions.bottom === newDimensions.bottom;
+        const isSameHeight =
+          this.scrollIndicatorDimensions.height === newDimensions.height;
+        const isSameLeft =
+          this.scrollIndicatorDimensions.left === newDimensions.left;
+        const isSameRight =
+          this.scrollIndicatorDimensions.right === newDimensions.right;
+
+        if (
+          isSameBottom &&
+          isSameHeight &&
+          isSameLeft &&
+          isSameRight &&
+          this._tableHeight === newTableHeight
+        ) {
+          return;
+        }
+
+        this._tableHeight = newTableHeight;
+        this.scrollIndicatorDimensions = newDimensions;
+
+        if (this.hasStickyFirstColumn) {
+          this.stickyColumnOffset = getStickyColumnLeftOffset(
+            this._theadElement,
+            isSelectable,
+            this.isStickyColumnPinned
+          );
+        }
+      };
+
+      window.requestAnimationFrame(setUpdatedMeasurements);
+    };
+
+    this._resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach(() => {
+        updateMeasurements();
+        updateHorizontalScrollIndicators();
+      });
+    });
+
+    this._resizeObserver.observe(element);
+
+    updateMeasurements();
+
+    // on render check if should show right scroll indicator
+    updateHorizontalScrollIndicators();
+
+    // on render check if should show bottom scroll indicator
+    if (element.clientHeight < element.scrollHeight) {
+      this.showScrollIndicatorBottom = true;
+    }
+
+    return () => {
+      element.removeEventListener('scroll', this._scrollHandler);
+      this._resizeObserver.disconnect();
+    };
+  });
+
+  private _setUpThead = modifier((element: HTMLDivElement) => {
+    this._theadElement = element;
+  });
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
@@ -485,95 +578,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     traverse(model);
   }
 
-  private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
-    this._scrollWrapperElement = element;
-
-    const updateHorizontalScrollIndicators = () => {
-      this.showScrollIndicatorRight = element.clientWidth < element.scrollWidth;
-    };
-
-    this._scrollHandler = () => {
-      this._updateScrollIndicators(element);
-    };
-
-    element.addEventListener('scroll', this._scrollHandler);
-
-    const updateMeasurements = () => {
-      const { isSelectable = false } = this.args;
-
-      const newTableHeight = element.offsetHeight;
-
-      const newDimensions = getScrollIndicatorDimensions(
-        element,
-        this._theadElement,
-        this.hasStickyFirstColumn ? true : false,
-        this.isStickyColumnPinned
-      );
-
-      const setUpdatedMeasurements = () => {
-        if (this.isDestroying || this.isDestroyed) {
-          return;
-        }
-
-        const isSameBottom =
-          this.scrollIndicatorDimensions.bottom === newDimensions.bottom;
-        const isSameHeight =
-          this.scrollIndicatorDimensions.height === newDimensions.height;
-        const isSameLeft =
-          this.scrollIndicatorDimensions.left === newDimensions.left;
-        const isSameRight =
-          this.scrollIndicatorDimensions.right === newDimensions.right;
-
-        if (
-          isSameBottom &&
-          isSameHeight &&
-          isSameLeft &&
-          isSameRight &&
-          this._tableHeight === newTableHeight
-        ) {
-          return;
-        }
-
-        this._tableHeight = newTableHeight;
-        this.scrollIndicatorDimensions = newDimensions;
-
-        if (this.hasStickyFirstColumn) {
-          this.stickyColumnOffset = getStickyColumnLeftOffset(
-            this._theadElement,
-            isSelectable,
-            this.isStickyColumnPinned
-          );
-        }
-      };
-
-      window.requestAnimationFrame(setUpdatedMeasurements);
-    };
-
-    this._resizeObserver = new ResizeObserver((entries) => {
-      entries.forEach(() => {
-        updateMeasurements();
-        updateHorizontalScrollIndicators();
-      });
-    });
-
-    this._resizeObserver.observe(element);
-
-    updateMeasurements();
-
-    // on render check if should show right scroll indicator
-    updateHorizontalScrollIndicators();
-
-    // on render check if should show bottom scroll indicator
-    if (element.clientHeight < element.scrollHeight) {
-      this.showScrollIndicatorBottom = true;
-    }
-
-    return () => {
-      element.removeEventListener('scroll', this._scrollHandler);
-      this._resizeObserver.disconnect();
-    };
-  });
-
   private _runAssertions() {
     const {
       columns,
@@ -616,10 +620,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       );
     }
   }
-
-  private _setUpThead = modifier((element: HTMLDivElement) => {
-    this._theadElement = element;
-  });
 
   private _onColumnReorder: HdsAdvancedTableColumnReorderCallback = ({
     column,

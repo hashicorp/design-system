@@ -73,6 +73,15 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   transientColumnWidths = new TrackedMap<string, HdsAdvancedTablePixelString>();
   columnDebts = new TrackedMap<string, Record<string, number>>(); // key -> { lenderKey -> amount }
 
+  syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(() => {
+    const { columns } = this.args;
+
+    for (const column of columns) {
+      this.columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
+      this.originalColumnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
+    }
+  });
+
   get gridTemplateColumns(): string {
     const { isSelectable, orderedColumns } = this.args;
 
@@ -410,15 +419,6 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
 
     return fundsSourced;
   }
-
-  syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(() => {
-    const { columns } = this.args;
-
-    for (const column of columns) {
-      this.columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
-      this.originalColumnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
-    }
-  });
 
   <template>
     {{yield

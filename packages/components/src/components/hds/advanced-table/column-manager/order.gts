@@ -79,7 +79,51 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     | HdsAdvancedTableNormalizedColumn['key']
     | null = null;
   @tracked private _columnOrder: string[] = [];
-  @tracked private _lastColumnOrder: string[] = [];
+
+  syncColumnOrder = modifier<HdsAdvancedTableSyncColumnOrderSignature>(
+    (_element, [columns, columnOrder]) => {
+      const columnKeys = columns.map((column) => this._getColumnKey(column));
+
+      let nextOrder = this._columnOrder;
+
+      if (columnOrder !== undefined) {
+        const visibleSet = new Set(columnOrder);
+        const hiddenKeys = nextOrder.filter((key) => !visibleSet.has(key));
+
+        const reordered: string[] = [];
+
+        let visibleIdx = 0;
+        let hiddenIdx = 0;
+
+        for (let i = 0; i < nextOrder.length; i++) {
+          if (hiddenKeys.includes(nextOrder[i]!)) {
+            reordered.push(hiddenKeys[hiddenIdx++]!);
+          } else {
+            reordered.push(columnOrder[visibleIdx++]!);
+          }
+        }
+
+        nextOrder = reordered;
+      }
+
+      const missingKeys = columnKeys.filter((key) => !nextOrder.includes(key));
+
+      if (missingKeys.length > 0) {
+        nextOrder = [...nextOrder, ...missingKeys];
+      }
+
+      const isSame =
+        nextOrder.length === this._columnOrder.length &&
+        nextOrder.every((value, index) => value === this._columnOrder[index]);
+
+      const setColumnOrder = () => (this.columnOrder = nextOrder);
+
+      if (!isSame) {
+        // eslint-disable-next-line ember/no-runloop
+        scheduleOnce('afterRender', this, setColumnOrder);
+      }
+    }
+  );
 
   get columnOrder(): string[] {
     return this._columnOrder.length > 0
@@ -273,57 +317,6 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
   private _getColumnKey(column: HdsAdvancedTableNormalizedColumn): string {
     return column.key ?? guidFor(column);
   }
-
-  syncColumnOrder = modifier<HdsAdvancedTableSyncColumnOrderSignature>(
-    (_element, [columns, columnOrder]) => {
-      const columnKeys = columns.map((column) => this._getColumnKey(column));
-
-      let nextOrder = this._columnOrder;
-
-      if (columnOrder !== undefined) {
-        const visibleSet = new Set(columnOrder);
-        const hiddenKeys = nextOrder.filter((key) => !visibleSet.has(key));
-
-        const reordered: string[] = [];
-
-        let visibleIdx = 0;
-        let hiddenIdx = 0;
-
-        for (let i = 0; i < nextOrder.length; i++) {
-          if (hiddenKeys.includes(nextOrder[i]!)) {
-            reordered.push(hiddenKeys[hiddenIdx++]!);
-          } else {
-            reordered.push(columnOrder[visibleIdx++]!);
-          }
-        }
-
-        nextOrder = reordered;
-      }
-
-      const missingKeys = columnKeys.filter((key) => !nextOrder.includes(key));
-
-      if (missingKeys.length > 0) {
-        nextOrder = [...nextOrder, ...missingKeys];
-      }
-
-      const isSame =
-        nextOrder.length === this._columnOrder.length &&
-        nextOrder.every((value, index) => value === this._columnOrder[index]);
-
-      const setColumnOrder = () => {
-        this.columnOrder = nextOrder;
-
-        if (columnOrder !== undefined) {
-          this._lastColumnOrder = [...columnOrder];
-        }
-      };
-
-      if (!isSame) {
-        // eslint-disable-next-line ember/no-runloop
-        scheduleOnce('afterRender', this, setColumnOrder);
-      }
-    }
-  );
 
   <template>
     {{yield
