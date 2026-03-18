@@ -307,6 +307,7 @@
   --token-tag-link-icon-color-secondary: #161616;
   --token-tag-link-surface-color-primary-default: #d0e2ff;
   --token-tag-link-surface-color-primary-hover: #b8d3ff;
+  --token-tag-max-width: 208px;
   --token-tag-padding-bottom: 4px;
   --token-tag-padding-left: 8px;
   --token-tag-padding-right: 8px;
@@ -315,7 +316,8 @@
   --token-tag-surface-color-default: #e0e0e0;
   --token-tag-surface-color-hover: #d1d1d1;
   --token-tag-typography-font-size: 0.75rem;
-  --token-tag-typography-line-height: 1.3333;
+  --token-tag-typography-letter-spacing: 0.32px;
+  --token-tag-typography-line-height: 1.33333;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -709,6 +711,7 @@
     --token-tag-link-icon-color-secondary: #161616;
     --token-tag-link-surface-color-primary-default: #d0e2ff;
     --token-tag-link-surface-color-primary-hover: #b8d3ff;
+    --token-tag-max-width: 208px;
     --token-tag-padding-bottom: 4px;
     --token-tag-padding-left: 8px;
     --token-tag-padding-right: 8px;
@@ -717,7 +720,8 @@
     --token-tag-surface-color-default: #e0e0e0;
     --token-tag-surface-color-hover: #d1d1d1;
     --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-line-height: 1.3333;
+    --token-tag-typography-letter-spacing: 0.32px;
+    --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1112,6 +1116,7 @@
     --token-tag-link-icon-color-secondary: #f4f4f4;
     --token-tag-link-surface-color-primary-default: #0043ce;
     --token-tag-link-surface-color-primary-hover: #0053ff;
+    --token-tag-max-width: 208px;
     --token-tag-padding-bottom: 4px;
     --token-tag-padding-left: 8px;
     --token-tag-padding-right: 8px;
@@ -1120,7 +1125,8 @@
     --token-tag-surface-color-default: #525252;
     --token-tag-surface-color-hover: #636363;
     --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-line-height: 1.3333;
+    --token-tag-typography-letter-spacing: 0.32px;
+    --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1509,6 +1515,7 @@
   --token-tag-link-icon-color-secondary: #161616;
   --token-tag-link-surface-color-primary-default: #d0e2ff;
   --token-tag-link-surface-color-primary-hover: #b8d3ff;
+  --token-tag-max-width: 208px;
   --token-tag-padding-bottom: 4px;
   --token-tag-padding-left: 8px;
   --token-tag-padding-right: 8px;
@@ -1517,7 +1524,8 @@
   --token-tag-surface-color-default: #e0e0e0;
   --token-tag-surface-color-hover: #d1d1d1;
   --token-tag-typography-font-size: 0.75rem;
-  --token-tag-typography-line-height: 1.3333;
+  --token-tag-typography-letter-spacing: 0.32px;
+  --token-tag-typography-line-height: 1.33333;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -1905,6 +1913,7 @@
   --token-tag-link-icon-color-secondary: #f4f4f4;
   --token-tag-link-surface-color-primary-default: #0043ce;
   --token-tag-link-surface-color-primary-hover: #0053ff;
+  --token-tag-max-width: 208px;
   --token-tag-padding-bottom: 4px;
   --token-tag-padding-left: 8px;
   --token-tag-padding-right: 8px;
@@ -1913,7 +1922,8 @@
   --token-tag-surface-color-default: #525252;
   --token-tag-surface-color-hover: #636363;
   --token-tag-typography-font-size: 0.75rem;
-  --token-tag-typography-line-height: 1.3333;
+  --token-tag-typography-letter-spacing: 0.32px;
+  --token-tag-typography-line-height: 1.33333;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
