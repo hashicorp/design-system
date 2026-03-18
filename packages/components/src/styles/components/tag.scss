@@ -41,6 +41,7 @@
 .hds-tag__dismiss-icon {
   width: 12px;
   height: 12px;
+  color: var(--token-tag-icon-color);
 }
 
 .hds-tag__dismiss,
@@ -129,28 +130,46 @@
 
   .hds-tag__link,
   &:has(.hds-tag__link) .hds-tag__dismiss {
-    color: var(--token-tag-link-foreground-color-primary-default);
     background-color: var(--token-tag-link-surface-color-primary-default);
 
     &:hover,
     &.mock-hover {
-      color: var(--token-tag-link-foreground-color-primary-hover);
       background-color: var(--token-tag-link-surface-color-primary-hover);
     }
 
     &:active,
     &.mock-active {
-      color: var(--token-tag-link-foreground-color-primary-active);
       background-color: var(--token-tag-link-surface-color-primary-hover);
     }
+  }
+
+  .hds-tag__link {
+    color: var(--token-tag-link-foreground-color-primary-default);
+
+    &:hover,
+    &.mock-hover {
+      color: var(--token-tag-link-foreground-color-primary-hover);
+    }
+
+    &:active,
+    &.mock-active {
+      color: var(--token-tag-link-foreground-color-primary-active);
+    }
+  }
+
+  .hds-tag__dismiss-icon {
+    color: var(--token-tag-link-icon-color-primary);
   }
 }
 
 .hds-tag--color-secondary {
   border: 1px solid var(--token-tag-link-border-color-secondary);
 
-  .hds-tag__link,
-  &:has(.hds-tag__link) .hds-tag__dismiss {
+  .hds-tag__link {
     color: var(--token-tag-link-foreground-color-secondary-default);
+  }
+
+  .hds-tag__dismiss-icon {
+    color: var(--token-tag-link-icon-color-secondary);
   }
 }
