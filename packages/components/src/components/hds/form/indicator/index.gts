@@ -36,7 +36,7 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
     {{#if @isOptional}}
       <HdsTextBody
         class={{this.classNames}}
-        tag="span"
+        @tag="span"
         @size="100"
         @weight="regular"
       >
