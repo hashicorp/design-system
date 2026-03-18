@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
+// TEST
 
 import {
   HdsButtonSizeValues,
@@ -48,6 +49,7 @@ export interface HdsButtonSignature {
 
 export default class HdsButton extends Component<HdsButtonSignature> {
   get text(): string {
+    // TEST
     const { text } = this.args;
 
     assert(
