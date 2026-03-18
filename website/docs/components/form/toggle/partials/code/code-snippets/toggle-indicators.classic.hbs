@@ -1,0 +1,17 @@
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::Toggle::Group @isRequired={{true}} as |G|>
+      <G.Legend>Visibility</G.Legend>
+      <G.ToggleField name="demo-private" @id="visibility-private" as |F|>
+        <F.Label>Private</F.Label>
+      </G.ToggleField>
+    </Hds::Form::Toggle::Group>
+
+    <Hds::Form::Toggle::Group @isOptional={{true}} as |G|>
+      <G.Legend>Visibility</G.Legend>
+      <G.ToggleField name="demo-private" @id="visibility-private-optional" as |F|>
+        <F.Label>Private</F.Label>
+      </G.ToggleField>
+    </Hds::Form::Toggle::Group>
+  </FORM.Section>
+</Hds::Form>
