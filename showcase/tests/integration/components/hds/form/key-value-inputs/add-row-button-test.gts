@@ -92,8 +92,8 @@ module(
         .dom('#test-form-key-value-add-row-button')
         .hasAttribute(
           'aria-description',
-          /.+/,
-          'aria-description should not be empty',
+          'Adds a new row of one or more inputs at the end of the form field. Press shift tab to move focus back to the newly added row.',
+          'aria-description contains the default value',
         );
     });
   },
