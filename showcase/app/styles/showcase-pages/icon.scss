@@ -4,22 +4,20 @@
  */
 
 // ICON
-// The icon page is currently displayed in 2 places,
-// foundations for FlightIcon and components for Hds::icon
 body.page-components-icon {
-  .shw-foundation-outline-icons {
+  .shw-component-outline-icons {
     .hds-icon {
       outline: 1px dotted #CCC;
     }
   }
 
-  .shw-foundation-icon-container-flex {
+  .shw-component-icon-container-flex {
     display: flex;
     gap: 4px;
     align-items: center;
   }
 
-  .shw-foundation-icon-container-grid {
+  .shw-component-icon-container-grid {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 4px;
@@ -30,5 +28,19 @@ body.page-components-icon {
     width: fit-content;
     background: #0c0c0e;
     outline: 2px solid #0c0c0e;
+  }
+
+  // LIBRARY
+
+  .shw-component-icon-library-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .shw-component-icon-library-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 }

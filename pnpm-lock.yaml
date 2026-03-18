@@ -568,6 +568,9 @@ importers:
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
+      '@hashicorp/flight-icons':
+        specifier: workspace:*
+        version: link:../packages/flight-icons
       '@nullvoxpopuli/ember-composable-helpers':
         specifier: ^5.2.11
         version: 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
