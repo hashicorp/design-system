@@ -98,7 +98,7 @@ func main() {
 const SubSectionComponents: TemplateOnlyComponent = <template>
   <ShwTextH2>Components with focus ring</ShwTextH2>
 
-  <ShwTextH4 tag="h3">Accordion</ShwTextH4>
+  <ShwTextH4 @tag="h3">Accordion</ShwTextH4>
 
   <ShwFlex
     @direction="column"
@@ -135,7 +135,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">AppFooter</ShwTextH4>
+  <ShwTextH4 @tag="h3">AppFooter</ShwTextH4>
 
   <HdsAppFooter
     mock-state-value="focus"
@@ -154,7 +154,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">AppHeader</ShwTextH4>
+  <ShwTextH4 @tag="h3">AppHeader</ShwTextH4>
 
   <div mock-state-value="focus" mock-state-selector="button, a">
     <HdsAppHeader @hasA11yRefocus={{false}}>
@@ -188,7 +188,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">AppSideNav</ShwTextH4>
+  <ShwTextH4 @tag="h3">AppSideNav</ShwTextH4>
 
   <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
     <HdsAppSideNavListBackLink @text="Back to parent page" @href="#" />
@@ -222,7 +222,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">Breadcrumb</ShwTextH4>
+  <ShwTextH4 @tag="h3">Breadcrumb</ShwTextH4>
 
   <HdsBreadcrumb aria-label="breadcrumb in focus state example">
     <HdsBreadcrumbItem
@@ -253,7 +253,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">Button</ShwTextH4>
+  <ShwTextH4 @tag="h3">Button</ShwTextH4>
   <ShwGrid @columns={{4}} @gap="1rem" as |SG|>
     {{#each BUTTON_COLORS as |color|}}
       <SG.Item @label={{capitalize color}}>
@@ -535,7 +535,7 @@ func main() {
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">Filterbar</ShwTextH4>
+  <ShwTextH4 @tag="h3">Filterbar</ShwTextH4>
   <ShwTextBody>Complete</ShwTextBody>
   <div mock-state-value="focus" mock-state-selector="button,input">
     <FilterBarCodeFragmentWithGenericContent
@@ -568,7 +568,7 @@ func main() {
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">Form</ShwTextH4>
+  <ShwTextH4 @tag="h3">Form</ShwTextH4>
 
   <ShwTextBody>Checkbox</ShwTextBody>
   <ShwFlex
@@ -803,7 +803,7 @@ func main() {
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">Link</ShwTextH4>
+  <ShwTextH4 @tag="h3">Link</ShwTextH4>
 
   <ShwTextBody>Inline</ShwTextBody>
   <div class="hds-typography-body-300">Lorem
@@ -829,7 +829,7 @@ func main() {
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">Pagination</ShwTextH4>
+  <ShwTextH4 @tag="h3">Pagination</ShwTextH4>
   <ShwFlex
     @gap="0.5rem"
     mock-state-value="focus"
@@ -860,13 +860,13 @@ func main() {
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">Reveal</ShwTextH4>
+  <ShwTextH4 @tag="h3">Reveal</ShwTextH4>
 
   <HdsRevealToggleButton @text="More options" mock-state-value="focus" />
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">RichTooltip</ShwTextH4>
+  <ShwTextH4 @tag="h3">RichTooltip</ShwTextH4>
 
   <ShwFlex @direction="column" mock-state-value="focus" as |SF|>
     <SF.Item @label="block">
@@ -949,7 +949,7 @@ func main() {
             @text="Lorem ipsum"
             @color="neutral"
             @icon="hexagon"
-            type="outlined"
+            @type="outlined"
           />
         </RT.Toggle>
         <RT.Bubble>
@@ -971,7 +971,7 @@ func main() {
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">StepperNav</ShwTextH4>
+  <ShwTextH4 @tag="h3">StepperNav</ShwTextH4>
 
   <ShwFlex class="shw-component-stepper-wrapper" @direction="column" as |SF|>
     <SF.Item @label="Complete">
@@ -1306,7 +1306,7 @@ func main() {
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 tag="h3">Tooltip</ShwTextH4>
+  <ShwTextH4 @tag="h3">Tooltip</ShwTextH4>
 
   <ShwFlex mock-state-value="focus" mock-state-selector="button,a" as |SF|>
     <SF.Item>

@@ -149,7 +149,7 @@ const SubSectionStates: TemplateOnlyComponent = <template>
                   @text="Lorem ipsum"
                   @color="neutral"
                   @icon="hexagon"
-                  type="outlined"
+                  @type="outlined"
                 />
               {{/if}}
               {{#if (eq toggle "tag")}}

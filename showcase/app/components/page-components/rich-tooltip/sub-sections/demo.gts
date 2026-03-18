@@ -266,7 +266,7 @@ export default class SubSectionDemo extends Component {
           <A.Description>This user is assigned to an
             <HdsRichTooltip as |RT|>
               <RT.Toggle @text="admin role" @isInline={{true}} /><RT.Bubble>
-                <HdsTextBody @tag="p" size="100">Admin role enables a couple of
+                <HdsTextBody @tag="p" @size="100">Admin role enables a couple of
                   pretty cool features and permissions within the app. For
                   details on what an admin can do, reference
                   <HdsLinkInline @href="#">the documentation</HdsLinkInline>.</HdsTextBody>

@@ -333,7 +333,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
         <HdsCodeBlock
           @value="test"
           @hasCopyButton={{true}}
-          onCopy={{copySpy}}
+          @onCopy={{copySpy}}
         />
       </template>,
     );
@@ -361,7 +361,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
           @value="test"
           @hasCopyButton={{true}}
           @copySuccessMessageText="Custom success message"
-          onCopy={{copySpy}}
+          @onCopy={{copySpy}}
         />
       </template>,
     );
