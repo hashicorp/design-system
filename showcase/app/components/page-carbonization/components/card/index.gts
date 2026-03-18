@@ -33,6 +33,10 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Basic Content</ShwTextH2>
 
+    <ShwTextBody>Note: The Carbon Tile has padding, but the HDS component does
+      not. This difference is intentional to maintain existing layouts of card
+      content across themes.</ShwTextBody>
+
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <HdsCardContainer>
