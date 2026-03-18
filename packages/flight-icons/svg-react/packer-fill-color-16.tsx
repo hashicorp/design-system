@@ -24,9 +24,9 @@ export const IconPackerFillColor16 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
-                    fill="#02A8EF"
+                    fill="#02a8ef"
                     fillRule="evenodd"
-                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm7.828 5.03L6.227 3v1.408l2.45 1.384v4.228l1.152.647c.713.403 1.296.166 1.296-.535V7.029c0-.697-.586-1.596-1.297-2zm-4.953-.808l3.313 1.873V13l-3.313-1.873V4.222z"
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm7.828 5.03L6.227 3v1.408l2.45 1.384v4.228l1.152.647c.713.403 1.296.166 1.296-.535V7.029c0-.697-.586-1.596-1.297-2m-4.953-.808 3.313 1.873V13l-3.313-1.873z"
                     clipRule="evenodd"
                 />
             </svg>

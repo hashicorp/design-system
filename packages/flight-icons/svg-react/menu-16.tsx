@@ -25,7 +25,7 @@ export const IconMenu16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M14.25 11a.75.75 0 010 1.5H1.75a.75.75 0 010-1.5h12.5zm0-4a.75.75 0 010 1.5H1.75a.75.75 0 010-1.5h12.5zm0-4a.75.75 0 010 1.5H1.75a.75.75 0 010-1.5h12.5z"
+                    d="M14.25 11a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5zm0-4a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5zm0-4a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5z"
                 />
             </svg>
         );

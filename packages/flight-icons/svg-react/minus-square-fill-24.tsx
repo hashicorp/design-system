@@ -26,7 +26,7 @@ export const IconMinusSquareFill24 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M2 4.75A2.75 2.75 0 014.75 2h14.5A2.75 2.75 0 0122 4.75v14.5A2.75 2.75 0 0119.25 22H4.75A2.75 2.75 0 012 19.25V4.75zM8.25 11a.75.75 0 000 1.5h7.5a.75.75 0 000-1.5h-7.5z"
+                    d="M2 4.75A2.75 2.75 0 0 1 4.75 2h14.5A2.75 2.75 0 0 1 22 4.75v14.5A2.75 2.75 0 0 1 19.25 22H4.75A2.75 2.75 0 0 1 2 19.25zM8.25 11a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5z"
                     clipRule="evenodd"
                 />
             </svg>

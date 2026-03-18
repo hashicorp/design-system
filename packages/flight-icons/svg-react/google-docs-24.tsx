@@ -23,11 +23,11 @@ export const IconGoogleDocs24 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <path fill="#0C67D6" d="M14.266 2l4.984 5h-4.984V2z" />
+                <path fill="#0c67d6" d="m14.266 2 4.984 5h-4.984z" />
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M6.11 22h11.78c.748 0 1.36-.614 1.36-1.364V7l-4.984-5H6.109c-.747 0-1.359.614-1.359 1.364v17.272c0 .75.612 1.364 1.36 1.364zm1.812-11.136h8.156V9.727H7.922v1.137zm0 1.59h8.156v1.137H7.922v-1.136zm0 2.728h5.89v1.136h-5.89v-1.136z"
+                    d="M6.11 22h11.78c.748 0 1.36-.614 1.36-1.364V7l-4.984-5H6.109c-.747 0-1.359.614-1.359 1.364v17.272c0 .75.612 1.364 1.36 1.364m1.812-11.136h8.156V9.727H7.922zm0 1.59h8.156v1.137H7.922zm0 2.728h5.89v1.136h-5.89z"
                     clipRule="evenodd"
                 />
             </svg>

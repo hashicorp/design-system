@@ -25,7 +25,7 @@ export const IconFilter24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M14.25 16a.75.75 0 010 1.5h-4.5a.75.75 0 010-1.5h4.5zm3-5a.75.75 0 010 1.5H6.75a.75.75 0 010-1.5h10.5zm3-5a.75.75 0 010 1.5H3.75a.75.75 0 010-1.5h16.5z"
+                    d="M14.25 16a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5zm3-5a.75.75 0 0 1 0 1.5H6.75a.75.75 0 0 1 0-1.5zm3-5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1 0-1.5z"
                 />
             </svg>
         );

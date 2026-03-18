@@ -23,7 +23,7 @@ export const IconVercel24 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <path fill={color} d="M12 3.75l9.25 15.417H2.75L12 3.75z" />
+                <path fill={color} d="m12 3.75 9.25 15.417H2.75z" />
             </svg>
         );
     }

@@ -24,10 +24,10 @@ export const IconGoogleSlides24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <g fill={color}>
-                    <path d="M15.398 10.864H8.602v3.863h6.796v-3.863z" />
+                    <path d="M15.398 10.864H8.602v3.863h6.796z" />
                     <path
                         fillRule="evenodd"
-                        d="M6.11 22h11.78c.748 0 1.36-.614 1.36-1.364V7l-4.984-5H6.109c-.747 0-1.359.614-1.359 1.364v17.272c0 .75.612 1.364 1.36 1.364zM16.53 9.727H7.47v6.137h9.062V9.727z"
+                        d="M6.11 22h11.78c.748 0 1.36-.614 1.36-1.364V7l-4.984-5H6.109c-.747 0-1.359.614-1.359 1.364v17.272c0 .75.612 1.364 1.36 1.364M16.53 9.727H7.47v6.137h9.062z"
                         clipRule="evenodd"
                     />
                 </g>

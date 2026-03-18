@@ -15,7 +15,6 @@ overrides:
   minimatch@<3.0.5: 3.1.2
   qs: 6.14.1
   serialize-javascript: 7.0.3
-  svgo: 3.3.3
   systeminformation: 5.31.0
   undici: 6.24.0
   underscore: 1.13.8
@@ -344,8 +343,8 @@ importers:
         specifier: ^6.0.1
         version: 6.2.2
       '@figma-export/transform-svg-with-svgo':
-        specifier: ^6.0.2
-        version: 6.2.2
+        specifier: ^6.4.0
+        version: 6.4.0
       '@figma-export/types':
         specifier: ^6.0.0
         version: 6.2.4
@@ -376,9 +375,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.2
         version: 19.1.7(@types/react@19.1.9)
-      '@types/svgo':
-        specifier: ~3.0.0
-        version: 3.0.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.18.1
         version: 8.38.0(@typescript-eslint/parser@8.38.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1)(typescript@5.9.2)
@@ -416,8 +412,8 @@ importers:
         specifier: ^3.4.2
         version: 3.6.2
       svgo:
-        specifier: 3.3.3
-        version: 3.3.3
+        specifier: ^4.0.1
+        version: 4.0.1
       svgstore:
         specifier: ^3.0.1
         version: 3.0.1
@@ -2670,12 +2666,16 @@ packages:
     resolution: {integrity: sha512-yhQWcktWdtIdyeMvLaOoyK8ZwcKRmidAVkvLEOFxwNLbOiCLuOgBQOtQh52R3K1ufJBIz7DFZvqjB/SMPGYpcQ==}
     engines: {node: '>= 18.18'}
 
-  '@figma-export/transform-svg-with-svgo@6.2.2':
-    resolution: {integrity: sha512-rVlf/84FK+wljWq4HNDMyCMTcFXGYuCWbl/ZgpTDtZsGeiJa+laJA5D2gNAI0hUQ5jVtnKNNW/TNc5k1Y7iMSg==}
+  '@figma-export/transform-svg-with-svgo@6.4.0':
+    resolution: {integrity: sha512-Nm3DpcJ9bBEOCUqsbU8IDjGMQhhi0DTT3dNFMwlR1n/K370OjWs3GRNARUy+swOt8A31mJ2/IPvORIl0P6pxdw==}
     engines: {node: '>= 18.18'}
 
   '@figma-export/types@6.2.4':
     resolution: {integrity: sha512-mIe/TZDuKNP08tqWlaNm3Zi6VHu709acQR5ohTj1q1si0wXsCJTA2AoiZOTTE4uhbA39cQelIdoi4phDvNJGpw==}
+    engines: {node: '>= 18.18'}
+
+  '@figma-export/types@6.4.0':
+    resolution: {integrity: sha512-lpamT+DcidQ+YpSnKCV6KT9fxpAS/XkUxhyRZ8dt1IKxHOnZJMfwBxN2j1PjgiwCijzy9k794E/5NeFvdd1x3g==}
     engines: {node: '>= 18.18'}
 
   '@figma/rest-api-spec@0.22.0':
@@ -3837,10 +3837,6 @@ packages:
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
-
-  '@types/svgo@3.0.0':
-    resolution: {integrity: sha512-G5qLWNq/rMvSM1EyY4E2iEd+s9km/PxLkzPkA2lghrgWJ2jrVMuB1ZsGOzL4YAWCy5sAoUw7SEQseHE2qypF2w==}
-    deprecated: This is a stub types definition. svgo provides its own type definitions, so you do not need this installed.
 
   '@types/symlink-or-copy@1.2.2':
     resolution: {integrity: sha512-MQ1AnmTLOncwEf9IVU+B2e4Hchrku5N67NkgcAHW0p3sdzPe0FNMANxEm6OJUzPniEQGkeT3OROLlCwZJLWFZA==}
@@ -5257,6 +5253,10 @@ packages:
 
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
+
+  commander@11.1.0:
+    resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
+    engines: {node: '>=16'}
 
   commander@12.1.0:
     resolution: {integrity: sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==}
@@ -10919,6 +10919,11 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
+  svgo@4.0.1:
+    resolution: {integrity: sha512-XDpWUOPC6FEibaLzjfe0ucaV0YrOjYotGJO1WpF0Zd+n6ZGEQUsSugaoLq9QkEZtAfQIxT42UChcssDVPP3+/w==}
+    engines: {node: '>=16'}
+    hasBin: true
+
   svgstore@3.0.1:
     resolution: {integrity: sha512-nL6WTxYnsVl3e0G/mwGEFSnPAWUrzIwHAPOwInD4QUuLDKxaKMnXduf0Ipw3m/g9AldPhp1Y8E/nkReFBukJrA==}
     engines: {node: '>= 12'}
@@ -13827,12 +13832,16 @@ snapshots:
     dependencies:
       '@figma-export/types': 6.2.4
 
-  '@figma-export/transform-svg-with-svgo@6.2.2':
+  '@figma-export/transform-svg-with-svgo@6.4.0':
     dependencies:
-      '@figma-export/types': 6.2.4
+      '@figma-export/types': 6.4.0
       svgo: 3.3.3
 
   '@figma-export/types@6.2.4':
+    dependencies:
+      '@figma/rest-api-spec': 0.34.0
+
+  '@figma-export/types@6.4.0':
     dependencies:
       '@figma/rest-api-spec': 0.34.0
 
@@ -15416,10 +15425,6 @@ snapshots:
   '@types/sizzle@2.3.9': {}
 
   '@types/stack-utils@2.0.3': {}
-
-  '@types/svgo@3.0.0':
-    dependencies:
-      svgo: 3.3.3
 
   '@types/symlink-or-copy@1.2.2': {}
 
@@ -17646,6 +17651,8 @@ snapshots:
       delayed-stream: 1.0.0
 
   comma-separated-tokens@2.0.3: {}
+
+  commander@11.1.0: {}
 
   commander@12.1.0: {}
 
@@ -25393,6 +25400,16 @@ snapshots:
       commander: 7.2.0
       css-select: 5.1.0
       css-tree: 2.3.1
+      css-what: 6.1.0
+      csso: 5.0.5
+      picocolors: 1.1.1
+      sax: 1.6.0
+
+  svgo@4.0.1:
+    dependencies:
+      commander: 11.1.0
+      css-select: 5.1.0
+      css-tree: 3.1.0
       css-what: 6.1.0
       csso: 5.0.5
       picocolors: 1.1.1

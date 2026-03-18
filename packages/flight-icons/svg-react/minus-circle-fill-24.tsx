@@ -25,7 +25,7 @@ export const IconMinusCircleFill24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1zM8.25 11a.75.75 0 000 1.5h7.5a.75.75 0 000-1.5h-7.5z"
+                    d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1M8.25 11a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5z"
                 />
             </svg>
         );

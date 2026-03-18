@@ -24,13 +24,13 @@ export const IconGoogleDocsColor24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
-                    fill="#3086F6"
-                    d="M17.89 22H6.11c-.748 0-1.36-.614-1.36-1.364V3.364C4.75 2.614 5.362 2 6.11 2h8.156l4.984 5v13.636c0 .75-.612 1.364-1.36 1.364z"
+                    fill="#3086f6"
+                    d="M17.89 22H6.11c-.748 0-1.36-.614-1.36-1.364V3.364C4.75 2.614 5.362 2 6.11 2h8.156l4.984 5v13.636c0 .75-.612 1.364-1.36 1.364"
                 />
-                <path fill="#0C67D6" d="M14.25 2l5 5h-5V2z" />
+                <path fill="#0c67d6" d="m14.25 2 5 5h-5z" />
                 <path
-                    fill="#FDFFFF"
-                    d="M15.688 10.864H7.811V9.727h7.875v1.137zm0 1.59H7.811v1.137h7.875v-1.136zM13.5 15.183H7.812v1.136H13.5v-1.136z"
+                    fill="#fdffff"
+                    d="M15.688 10.864H7.812V9.727h7.876zm0 1.59H7.812v1.137h7.876zM13.5 15.183H7.813v1.136H13.5z"
                 />
             </svg>
         );

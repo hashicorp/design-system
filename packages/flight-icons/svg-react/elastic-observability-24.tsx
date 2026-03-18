@@ -26,7 +26,7 @@ export const IconElasticObservability24 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M15.75 22h5.625V7.143c0-2.81-1.959-5.098-4.392-5.128L15.75 2v20zm-1.875 0V7H8.25v4.375H2.625v6.248C2.625 20.04 4.371 22 6.524 22h7.351z"
+                    d="M15.75 22h5.625V7.143c0-2.81-1.959-5.098-4.392-5.128L15.75 2zm-1.875 0V7H8.25v4.375H2.625v6.249C2.625 20.04 4.371 22 6.524 22z"
                     clipRule="evenodd"
                 />
             </svg>
