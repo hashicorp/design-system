@@ -10970,6 +10970,74 @@
     ]
   },
   {
+    "key": "{card.surface.color.primary}",
+    "$type": "color",
+    "$value": "#262626",
+    "$modes": {
+      "default": "#262626",
+      "cds-g0": "#f4f4f4",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.gray.90}",
+      "$modes": {
+        "default": "{color.surface.primary}",
+        "cds-g0": "{carbon.color.gray.10}",
+        "cds-g10": "{carbon.color.white.0}",
+        "cds-g90": "{carbon.color.gray.80}",
+        "cds-g100": "{carbon.color.gray.90}"
+      },
+      "key": "{card.surface.color.primary}"
+    },
+    "name": "token-card-surface-color-primary",
+    "attributes": {
+      "category": "card"
+    },
+    "path": [
+      "card",
+      "surface",
+      "color",
+      "primary"
+    ]
+  },
+  {
+    "key": "{card.surface.color.secondary}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#262626",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#f4f4f4",
+      "cds-g90": "#525252",
+      "cds-g100": "#393939"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.gray.80}",
+      "$modes": {
+        "default": "{color.surface.faint}",
+        "cds-g0": "{carbon.color.white.0}",
+        "cds-g10": "{carbon.color.gray.10}",
+        "cds-g90": "{carbon.color.gray.70}",
+        "cds-g100": "{carbon.color.gray.80}"
+      },
+      "key": "{card.surface.color.secondary}"
+    },
+    "name": "token-card-surface-color-secondary",
+    "attributes": {
+      "category": "card"
+    },
+    "path": [
+      "card",
+      "surface",
+      "color",
+      "secondary"
+    ]
+  },
+  {
     "key": "{dismiss-button.size}",
     "$type": "dimension",
     "$value": "48px",
