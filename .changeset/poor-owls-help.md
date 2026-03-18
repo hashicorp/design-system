@@ -2,4 +2,6 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`Stepper` - Translated strings for types
+<!-- START components/stepper -->
+`Stepper` - Translated strings for `StepperNav` and `StepperList` `Step` status value types
+<!-- END -->
