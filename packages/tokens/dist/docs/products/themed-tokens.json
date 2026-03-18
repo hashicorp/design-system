@@ -13767,6 +13767,40 @@
         "height"
       ]
     },
+    "token-tag-max-width": {
+      "key": "{tag.max-width}",
+      "$type": "dimension",
+      "$value": "166px",
+      "unit": "px",
+      "$modes": {
+        "default": "166",
+        "cds-g0": "208",
+        "cds-g10": "208",
+        "cds-g90": "208",
+        "cds-g100": "208"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "166",
+        "unit": "px",
+        "$modes": {
+          "default": "166",
+          "cds-g0": "208",
+          "cds-g10": "208",
+          "cds-g90": "208",
+          "cds-g100": "208"
+        },
+        "key": "{tag.max-width}"
+      },
+      "name": "token-tag-max-width",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "max-width"
+      ]
+    },
     "token-tag-padding-top": {
       "key": "{tag.padding.top}",
       "$type": "dimension",
@@ -14085,10 +14119,10 @@
       "unit": "px",
       "$modes": {
         "default": "13",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
+        "cds-g0": "0.75rem",
+        "cds-g10": "0.75rem",
+        "cds-g90": "0.75rem",
+        "cds-g100": "0.75rem"
       },
       "original": {
         "$type": "font-size",
@@ -14096,10 +14130,10 @@
         "unit": "px",
         "$modes": {
           "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+          "cds-g0": "{carbon.typography.label01.font-size}",
+          "cds-g10": "{carbon.typography.label01.font-size}",
+          "cds-g90": "{carbon.typography.label01.font-size}",
+          "cds-g100": "{carbon.typography.label01.font-size}"
         },
         "key": "{tag.typography.font-size}"
       },
@@ -14113,26 +14147,61 @@
         "font-size"
       ]
     },
+    "token-tag-typography-letter-spacing": {
+      "key": "{tag.typography.letter-spacing}",
+      "$type": "letter-spacing",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": 0,
+        "cds-g0": "0.32px",
+        "cds-g10": "0.32px",
+        "cds-g90": "0.32px",
+        "cds-g100": "0.32px"
+      },
+      "original": {
+        "$type": "letter-spacing",
+        "$value": 0,
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.label01.letter-spacing}",
+          "cds-g10": "{carbon.typography.label01.letter-spacing}",
+          "cds-g90": "{carbon.typography.label01.letter-spacing}",
+          "cds-g100": "{carbon.typography.label01.letter-spacing}"
+        },
+        "key": "{tag.typography.letter-spacing}"
+      },
+      "name": "token-tag-typography-letter-spacing",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "typography",
+        "letter-spacing"
+      ]
+    },
     "token-tag-typography-line-height": {
       "key": "{tag.typography.line-height}",
       "$type": "number",
       "$value": 1.2308,
       "$modes": {
         "default": 1.2308,
-        "cds-g0": 1.3333,
-        "cds-g10": 1.3333,
-        "cds-g90": 1.3333,
-        "cds-g100": 1.3333
+        "cds-g0": 1.33333,
+        "cds-g10": 1.33333,
+        "cds-g90": 1.33333,
+        "cds-g100": 1.33333
       },
       "original": {
         "$type": "number",
         "$value": 1.2308,
         "$modes": {
           "default": 1.2308,
-          "cds-g0": 1.3333,
-          "cds-g10": 1.3333,
-          "cds-g90": 1.3333,
-          "cds-g100": 1.3333
+          "cds-g0": "{carbon.typography.label01.line-height}",
+          "cds-g10": "{carbon.typography.label01.line-height}",
+          "cds-g90": "{carbon.typography.label01.line-height}",
+          "cds-g100": "{carbon.typography.label01.line-height}"
         },
         "key": "{tag.typography.line-height}"
       },
@@ -30143,6 +30212,40 @@
         "height"
       ]
     },
+    "token-tag-max-width": {
+      "key": "{tag.max-width}",
+      "$type": "dimension",
+      "$value": "208px",
+      "unit": "px",
+      "$modes": {
+        "default": "166",
+        "cds-g0": "208",
+        "cds-g10": "208",
+        "cds-g90": "208",
+        "cds-g100": "208"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "208",
+        "unit": "px",
+        "$modes": {
+          "default": "166",
+          "cds-g0": "208",
+          "cds-g10": "208",
+          "cds-g90": "208",
+          "cds-g100": "208"
+        },
+        "key": "{tag.max-width}"
+      },
+      "name": "token-tag-max-width",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "max-width"
+      ]
+    },
     "token-tag-padding-top": {
       "key": "{tag.padding.top}",
       "$type": "dimension",
@@ -30461,21 +30564,21 @@
       "unit": "px",
       "$modes": {
         "default": "13",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
+        "cds-g0": "0.75rem",
+        "cds-g10": "0.75rem",
+        "cds-g90": "0.75rem",
+        "cds-g100": "0.75rem"
       },
       "original": {
         "$type": "font-size",
-        "$value": "12",
+        "$value": "{carbon.typography.label01.font-size}",
         "unit": "px",
         "$modes": {
           "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+          "cds-g0": "{carbon.typography.label01.font-size}",
+          "cds-g10": "{carbon.typography.label01.font-size}",
+          "cds-g90": "{carbon.typography.label01.font-size}",
+          "cds-g100": "{carbon.typography.label01.font-size}"
         },
         "key": "{tag.typography.font-size}"
       },
@@ -30489,26 +30592,61 @@
         "font-size"
       ]
     },
+    "token-tag-typography-letter-spacing": {
+      "key": "{tag.typography.letter-spacing}",
+      "$type": "letter-spacing",
+      "$value": "0.32px",
+      "unit": "px",
+      "$modes": {
+        "default": 0,
+        "cds-g0": "0.32px",
+        "cds-g10": "0.32px",
+        "cds-g90": "0.32px",
+        "cds-g100": "0.32px"
+      },
+      "original": {
+        "$type": "letter-spacing",
+        "$value": "{carbon.typography.label01.letter-spacing}",
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.label01.letter-spacing}",
+          "cds-g10": "{carbon.typography.label01.letter-spacing}",
+          "cds-g90": "{carbon.typography.label01.letter-spacing}",
+          "cds-g100": "{carbon.typography.label01.letter-spacing}"
+        },
+        "key": "{tag.typography.letter-spacing}"
+      },
+      "name": "token-tag-typography-letter-spacing",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "typography",
+        "letter-spacing"
+      ]
+    },
     "token-tag-typography-line-height": {
       "key": "{tag.typography.line-height}",
       "$type": "number",
-      "$value": 1.3333,
+      "$value": 1.33333,
       "$modes": {
         "default": 1.2308,
-        "cds-g0": 1.3333,
-        "cds-g10": 1.3333,
-        "cds-g90": 1.3333,
-        "cds-g100": 1.3333
+        "cds-g0": 1.33333,
+        "cds-g10": 1.33333,
+        "cds-g90": 1.33333,
+        "cds-g100": 1.33333
       },
       "original": {
         "$type": "number",
-        "$value": 1.3333,
+        "$value": "{carbon.typography.label01.line-height}",
         "$modes": {
           "default": 1.2308,
-          "cds-g0": 1.3333,
-          "cds-g10": 1.3333,
-          "cds-g90": 1.3333,
-          "cds-g100": 1.3333
+          "cds-g0": "{carbon.typography.label01.line-height}",
+          "cds-g10": "{carbon.typography.label01.line-height}",
+          "cds-g90": "{carbon.typography.label01.line-height}",
+          "cds-g100": "{carbon.typography.label01.line-height}"
         },
         "key": "{tag.typography.line-height}"
       },
@@ -46519,6 +46657,40 @@
         "height"
       ]
     },
+    "token-tag-max-width": {
+      "key": "{tag.max-width}",
+      "$type": "dimension",
+      "$value": "208px",
+      "unit": "px",
+      "$modes": {
+        "default": "166",
+        "cds-g0": "208",
+        "cds-g10": "208",
+        "cds-g90": "208",
+        "cds-g100": "208"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "208",
+        "unit": "px",
+        "$modes": {
+          "default": "166",
+          "cds-g0": "208",
+          "cds-g10": "208",
+          "cds-g90": "208",
+          "cds-g100": "208"
+        },
+        "key": "{tag.max-width}"
+      },
+      "name": "token-tag-max-width",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "max-width"
+      ]
+    },
     "token-tag-padding-top": {
       "key": "{tag.padding.top}",
       "$type": "dimension",
@@ -46837,21 +47009,21 @@
       "unit": "px",
       "$modes": {
         "default": "13",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
+        "cds-g0": "0.75rem",
+        "cds-g10": "0.75rem",
+        "cds-g90": "0.75rem",
+        "cds-g100": "0.75rem"
       },
       "original": {
         "$type": "font-size",
-        "$value": "12",
+        "$value": "{carbon.typography.label01.font-size}",
         "unit": "px",
         "$modes": {
           "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+          "cds-g0": "{carbon.typography.label01.font-size}",
+          "cds-g10": "{carbon.typography.label01.font-size}",
+          "cds-g90": "{carbon.typography.label01.font-size}",
+          "cds-g100": "{carbon.typography.label01.font-size}"
         },
         "key": "{tag.typography.font-size}"
       },
@@ -46865,26 +47037,61 @@
         "font-size"
       ]
     },
+    "token-tag-typography-letter-spacing": {
+      "key": "{tag.typography.letter-spacing}",
+      "$type": "letter-spacing",
+      "$value": "0.32px",
+      "unit": "px",
+      "$modes": {
+        "default": 0,
+        "cds-g0": "0.32px",
+        "cds-g10": "0.32px",
+        "cds-g90": "0.32px",
+        "cds-g100": "0.32px"
+      },
+      "original": {
+        "$type": "letter-spacing",
+        "$value": "{carbon.typography.label01.letter-spacing}",
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.label01.letter-spacing}",
+          "cds-g10": "{carbon.typography.label01.letter-spacing}",
+          "cds-g90": "{carbon.typography.label01.letter-spacing}",
+          "cds-g100": "{carbon.typography.label01.letter-spacing}"
+        },
+        "key": "{tag.typography.letter-spacing}"
+      },
+      "name": "token-tag-typography-letter-spacing",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "typography",
+        "letter-spacing"
+      ]
+    },
     "token-tag-typography-line-height": {
       "key": "{tag.typography.line-height}",
       "$type": "number",
-      "$value": 1.3333,
+      "$value": 1.33333,
       "$modes": {
         "default": 1.2308,
-        "cds-g0": 1.3333,
-        "cds-g10": 1.3333,
-        "cds-g90": 1.3333,
-        "cds-g100": 1.3333
+        "cds-g0": 1.33333,
+        "cds-g10": 1.33333,
+        "cds-g90": 1.33333,
+        "cds-g100": 1.33333
       },
       "original": {
         "$type": "number",
-        "$value": 1.3333,
+        "$value": "{carbon.typography.label01.line-height}",
         "$modes": {
           "default": 1.2308,
-          "cds-g0": 1.3333,
-          "cds-g10": 1.3333,
-          "cds-g90": 1.3333,
-          "cds-g100": 1.3333
+          "cds-g0": "{carbon.typography.label01.line-height}",
+          "cds-g10": "{carbon.typography.label01.line-height}",
+          "cds-g90": "{carbon.typography.label01.line-height}",
+          "cds-g100": "{carbon.typography.label01.line-height}"
         },
         "key": "{tag.typography.line-height}"
       },
@@ -62895,6 +63102,40 @@
         "height"
       ]
     },
+    "token-tag-max-width": {
+      "key": "{tag.max-width}",
+      "$type": "dimension",
+      "$value": "208px",
+      "unit": "px",
+      "$modes": {
+        "default": "166",
+        "cds-g0": "208",
+        "cds-g10": "208",
+        "cds-g90": "208",
+        "cds-g100": "208"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "208",
+        "unit": "px",
+        "$modes": {
+          "default": "166",
+          "cds-g0": "208",
+          "cds-g10": "208",
+          "cds-g90": "208",
+          "cds-g100": "208"
+        },
+        "key": "{tag.max-width}"
+      },
+      "name": "token-tag-max-width",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "max-width"
+      ]
+    },
     "token-tag-padding-top": {
       "key": "{tag.padding.top}",
       "$type": "dimension",
@@ -63213,21 +63454,21 @@
       "unit": "px",
       "$modes": {
         "default": "13",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
+        "cds-g0": "0.75rem",
+        "cds-g10": "0.75rem",
+        "cds-g90": "0.75rem",
+        "cds-g100": "0.75rem"
       },
       "original": {
         "$type": "font-size",
-        "$value": "12",
+        "$value": "{carbon.typography.label01.font-size}",
         "unit": "px",
         "$modes": {
           "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+          "cds-g0": "{carbon.typography.label01.font-size}",
+          "cds-g10": "{carbon.typography.label01.font-size}",
+          "cds-g90": "{carbon.typography.label01.font-size}",
+          "cds-g100": "{carbon.typography.label01.font-size}"
         },
         "key": "{tag.typography.font-size}"
       },
@@ -63241,26 +63482,61 @@
         "font-size"
       ]
     },
+    "token-tag-typography-letter-spacing": {
+      "key": "{tag.typography.letter-spacing}",
+      "$type": "letter-spacing",
+      "$value": "0.32px",
+      "unit": "px",
+      "$modes": {
+        "default": 0,
+        "cds-g0": "0.32px",
+        "cds-g10": "0.32px",
+        "cds-g90": "0.32px",
+        "cds-g100": "0.32px"
+      },
+      "original": {
+        "$type": "letter-spacing",
+        "$value": "{carbon.typography.label01.letter-spacing}",
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.label01.letter-spacing}",
+          "cds-g10": "{carbon.typography.label01.letter-spacing}",
+          "cds-g90": "{carbon.typography.label01.letter-spacing}",
+          "cds-g100": "{carbon.typography.label01.letter-spacing}"
+        },
+        "key": "{tag.typography.letter-spacing}"
+      },
+      "name": "token-tag-typography-letter-spacing",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "typography",
+        "letter-spacing"
+      ]
+    },
     "token-tag-typography-line-height": {
       "key": "{tag.typography.line-height}",
       "$type": "number",
-      "$value": 1.3333,
+      "$value": 1.33333,
       "$modes": {
         "default": 1.2308,
-        "cds-g0": 1.3333,
-        "cds-g10": 1.3333,
-        "cds-g90": 1.3333,
-        "cds-g100": 1.3333
+        "cds-g0": 1.33333,
+        "cds-g10": 1.33333,
+        "cds-g90": 1.33333,
+        "cds-g100": 1.33333
       },
       "original": {
         "$type": "number",
-        "$value": 1.3333,
+        "$value": "{carbon.typography.label01.line-height}",
         "$modes": {
           "default": 1.2308,
-          "cds-g0": 1.3333,
-          "cds-g10": 1.3333,
-          "cds-g90": 1.3333,
-          "cds-g100": 1.3333
+          "cds-g0": "{carbon.typography.label01.line-height}",
+          "cds-g10": "{carbon.typography.label01.line-height}",
+          "cds-g90": "{carbon.typography.label01.line-height}",
+          "cds-g100": "{carbon.typography.label01.line-height}"
         },
         "key": "{tag.typography.line-height}"
       },
@@ -79271,6 +79547,40 @@
         "height"
       ]
     },
+    "token-tag-max-width": {
+      "key": "{tag.max-width}",
+      "$type": "dimension",
+      "$value": "208px",
+      "unit": "px",
+      "$modes": {
+        "default": "166",
+        "cds-g0": "208",
+        "cds-g10": "208",
+        "cds-g90": "208",
+        "cds-g100": "208"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "208",
+        "unit": "px",
+        "$modes": {
+          "default": "166",
+          "cds-g0": "208",
+          "cds-g10": "208",
+          "cds-g90": "208",
+          "cds-g100": "208"
+        },
+        "key": "{tag.max-width}"
+      },
+      "name": "token-tag-max-width",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "max-width"
+      ]
+    },
     "token-tag-padding-top": {
       "key": "{tag.padding.top}",
       "$type": "dimension",
@@ -79589,21 +79899,21 @@
       "unit": "px",
       "$modes": {
         "default": "13",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
+        "cds-g0": "0.75rem",
+        "cds-g10": "0.75rem",
+        "cds-g90": "0.75rem",
+        "cds-g100": "0.75rem"
       },
       "original": {
         "$type": "font-size",
-        "$value": "12",
+        "$value": "{carbon.typography.label01.font-size}",
         "unit": "px",
         "$modes": {
           "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+          "cds-g0": "{carbon.typography.label01.font-size}",
+          "cds-g10": "{carbon.typography.label01.font-size}",
+          "cds-g90": "{carbon.typography.label01.font-size}",
+          "cds-g100": "{carbon.typography.label01.font-size}"
         },
         "key": "{tag.typography.font-size}"
       },
@@ -79617,26 +79927,61 @@
         "font-size"
       ]
     },
+    "token-tag-typography-letter-spacing": {
+      "key": "{tag.typography.letter-spacing}",
+      "$type": "letter-spacing",
+      "$value": "0.32px",
+      "unit": "px",
+      "$modes": {
+        "default": 0,
+        "cds-g0": "0.32px",
+        "cds-g10": "0.32px",
+        "cds-g90": "0.32px",
+        "cds-g100": "0.32px"
+      },
+      "original": {
+        "$type": "letter-spacing",
+        "$value": "{carbon.typography.label01.letter-spacing}",
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.label01.letter-spacing}",
+          "cds-g10": "{carbon.typography.label01.letter-spacing}",
+          "cds-g90": "{carbon.typography.label01.letter-spacing}",
+          "cds-g100": "{carbon.typography.label01.letter-spacing}"
+        },
+        "key": "{tag.typography.letter-spacing}"
+      },
+      "name": "token-tag-typography-letter-spacing",
+      "attributes": {
+        "category": "tag"
+      },
+      "path": [
+        "tag",
+        "typography",
+        "letter-spacing"
+      ]
+    },
     "token-tag-typography-line-height": {
       "key": "{tag.typography.line-height}",
       "$type": "number",
-      "$value": 1.3333,
+      "$value": 1.33333,
       "$modes": {
         "default": 1.2308,
-        "cds-g0": 1.3333,
-        "cds-g10": 1.3333,
-        "cds-g90": 1.3333,
-        "cds-g100": 1.3333
+        "cds-g0": 1.33333,
+        "cds-g10": 1.33333,
+        "cds-g90": 1.33333,
+        "cds-g100": 1.33333
       },
       "original": {
         "$type": "number",
-        "$value": 1.3333,
+        "$value": "{carbon.typography.label01.line-height}",
         "$modes": {
           "default": 1.2308,
-          "cds-g0": 1.3333,
-          "cds-g10": 1.3333,
-          "cds-g90": 1.3333,
-          "cds-g100": 1.3333
+          "cds-g0": "{carbon.typography.label01.line-height}",
+          "cds-g10": "{carbon.typography.label01.line-height}",
+          "cds-g90": "{carbon.typography.label01.line-height}",
+          "cds-g100": "{carbon.typography.label01.line-height}"
         },
         "key": "{tag.typography.line-height}"
       },

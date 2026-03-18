@@ -477,6 +477,7 @@
   --token-tabs-indicator-transition-function: cubic-bezier(0.5, 1, 0.89, 1);
   --token-tabs-indicator-transition-duration: 0.6s;
   --token-tabs-divider-height: 1px;
+  --token-tag-max-width: 166px;
   --token-tag-padding-top: 3px;
   --token-tag-padding-bottom: 5px;
   --token-tag-padding-right: 10px;
@@ -487,6 +488,7 @@
   --token-tag-surface-color-active: #dedfe3;
   --token-tag-foreground-color-default: #3b3d45;
   --token-tag-typography-font-size: 0.8125rem;
+  --token-tag-typography-letter-spacing: 0px;
   --token-tag-typography-line-height: 1.2308;
   --token-tag-icon-color: #3b3d45;
   --token-tag-link-border-color-primary: #3b3d4566;
@@ -9696,7 +9698,7 @@ button.hds-button[href]::after {
 .hds-tag__text,
 .hds-tag__link {
   flex: 1 0 0;
-  max-width: 166px;
+  max-width: var(--token-tag-max-width);
   padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom) var(--token-tag-padding-left);
   background-color: var(--token-tag-surface-color-default);
   border-radius: inherit;
@@ -9715,6 +9717,7 @@ button.hds-button[href]::after {
   font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-tag-typography-font-size);
   line-height: var(--token-tag-typography-line-height);
+  letter-spacing: var(--token-tag-typography-letter-spacing);
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -9723,7 +9726,7 @@ button.hds-button[href]::after {
 
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
-  max-width: 160px;
+  max-width: calc(var(--token-tag-max-width) - 6px);
   padding: var(--token-tag-padding-top) 8px var(--token-tag-padding-bottom) 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
