@@ -24,7 +24,7 @@ export const IconWaypoint24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <g fill={color}>
-                    <path d="M6 8.468h2L15 20.6l5-8.666L16 5h-4l4 6.934-1 1.733L10 5H0l9 15.6 2-3.466-5-8.666zM21.003 10.194L24 5h-5.994l2.997 5.194z" />
+                    <path d="M6 8.468h2L15 20.6l5-8.666L16 5h-4l4 6.934-1 1.733L10 5H0l9 15.6 2-3.466zM21.003 10.194 24 5h-5.994z" />
                 </g>
             </svg>
         );

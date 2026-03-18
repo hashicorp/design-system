@@ -1,1 +1,1 @@
-export default `<symbol id="hds-icon-flight-pause-16" viewBox="0 0 16 16"><path d="M5.25 3a.75.75 0 01.75.75v8.5a.75.75 0 01-1.5 0v-8.5A.75.75 0 015.25 3zm5.5 0a.75.75 0 01.75.75v8.5a.75.75 0 01-1.5 0v-8.5a.75.75 0 01.75-.75z"/></symbol>`;
+export default `<symbol id="hds-icon-flight-pause-16" viewBox="0 0 16 16"><path d="M5.25 3a.75.75 0 0 1 .75.75v8.5a.75.75 0 0 1-1.5 0v-8.5A.75.75 0 0 1 5.25 3m5.5 0a.75.75 0 0 1 .75.75v8.5a.75.75 0 0 1-1.5 0v-8.5a.75.75 0 0 1 .75-.75"/></symbol>`;

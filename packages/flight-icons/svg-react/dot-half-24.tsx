@@ -26,7 +26,7 @@ export const IconDotHalf24 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M12 5a7 7 0 100 14 7 7 0 000-14zm0 1.5v11a5.5 5.5 0 100-11z"
+                    d="M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14m0 1.5v11a5.5 5.5 0 1 0 0-11"
                     clipRule="evenodd"
                 />
             </svg>

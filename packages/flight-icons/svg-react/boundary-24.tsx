@@ -24,8 +24,8 @@ export const IconBoundary24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <g fill={color}>
-                    <path d="M6.586 22v-1.55H9.8v-.958H8.241v-1.56h7.356L12.18 12l3.417-5.934H8.058v8.229H4V2h13.964l2.33 4.046L16.866 12l3.498 6.074L18.103 22H6.586z" />
-                    <path d="M7.21 17.932H5.656v1.56H7.21v-1.56zM4 20.438h1.556v1.56H4v-1.56z" />
+                    <path d="M6.586 22v-1.55H9.8v-.958H8.241v-1.56h7.356L12.18 12l3.417-5.934H8.058v8.229H4V2h13.964l2.33 4.046L16.866 12l3.498 6.074L18.103 22z" />
+                    <path d="M7.21 17.932H5.656v1.56H7.21zM4 20.438h1.556v1.56H4z" />
                 </g>
             </svg>
         );

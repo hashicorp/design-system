@@ -25,7 +25,7 @@ export const IconFilterFill16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M8 0a8 8 0 110 16A8 8 0 018 0zM7 10a.75.75 0 000 1.5h2A.75.75 0 009 10H7zM5.75 7.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4.25 5a.75.75 0 000 1.5h7.5a.75.75 0 000-1.5h-7.5z"
+                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M7 10a.75.75 0 0 0 0 1.5h2A.75.75 0 0 0 9 10zM5.75 7.5a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5zM4.25 5a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5z"
                 />
             </svg>
         );

@@ -23,8 +23,8 @@ export const IconWaypointColor16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill="#14C6CB">
-                    <path d="M16 3l-1.998 3.463L12.004 3H16zM5.334 5.312H4l3.332 5.777L6 13.4 0 3h6.667L10 8.778l.666-1.155L8 3h2.666l2.668 4.623L10 13.4 5.334 5.312z" />
+                <g fill="#14c6cb">
+                    <path d="m16 3-1.998 3.463L12.004 3zM5.334 5.312H4l3.332 5.777L6 13.4 0 3h6.667L10 8.778l.666-1.155L8 3h2.666l2.668 4.623L10 13.4z" />
                 </g>
             </svg>
         );

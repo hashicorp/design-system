@@ -24,8 +24,8 @@ export const IconPacker24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <g fill={color}>
-                    <path d="M8.028.5l8.067 4.668c1.593.928 2.903 2.996 2.905 4.6v7.134c0 1.614-1.306 2.158-2.903 1.233l-2.58-1.49V6.922L8.027 3.738V.5z" />
-                    <path d="M12.42 7.62L5 3.31v15.88l7.42 4.309V7.62z" />
+                    <path d="m8.028.5 8.067 4.668c1.593.928 2.903 2.996 2.905 4.6v7.134c0 1.614-1.306 2.158-2.903 1.233l-2.58-1.49V6.922L8.027 3.738z" />
+                    <path d="M12.42 7.62 5 3.31v15.88l7.42 4.309z" />
                 </g>
             </svg>
         );

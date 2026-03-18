@@ -25,7 +25,7 @@ export const IconMinus16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M11.75 7a.75.75 0 010 1.5h-7.5a.75.75 0 010-1.5h7.5z"
+                    d="M11.75 7a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1 0-1.5z"
                 />
             </svg>
         );

@@ -25,7 +25,7 @@ export const IconAlignCenter24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M18.25 17a.75.75 0 010 1.5H5.75a.75.75 0 010-1.5h12.5zm3-4a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5h18.5zm-3-4a.75.75 0 010 1.5H5.75a.75.75 0 010-1.5h12.5zm3-4a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5h18.5z"
+                    d="M18.25 17a.75.75 0 0 1 0 1.5H5.75a.75.75 0 0 1 0-1.5zm3-4a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5zm-3-4a.75.75 0 0 1 0 1.5H5.75a.75.75 0 0 1 0-1.5zm3-4a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5z"
                 />
             </svg>
         );

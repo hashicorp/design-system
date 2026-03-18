@@ -26,7 +26,7 @@ export const IconArrowDownLeft16 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M11.72 3.22a.75.75 0 111.06 1.06L5.56 11.5h3.69a.75.75 0 010 1.5h-5.5a.748.748 0 01-.75-.75v-5.5a.75.75 0 011.5 0v3.69l7.22-7.22z"
+                    d="M11.72 3.22a.75.75 0 1 1 1.06 1.06L5.56 11.5h3.69a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75v-5.5a.75.75 0 0 1 1.5 0v3.69z"
                     clipRule="evenodd"
                 />
             </svg>

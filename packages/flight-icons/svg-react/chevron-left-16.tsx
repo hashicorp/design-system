@@ -25,7 +25,7 @@ export const IconChevronLeft16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M9.735 3.204a.75.75 0 011.03 1.09L6.843 8l3.922 3.704a.75.75 0 01-1.03 1.09l-4.5-4.25a.751.751 0 010-1.09l4.5-4.25z"
+                    d="M9.735 3.204a.75.75 0 0 1 1.03 1.09L6.843 8l3.922 3.704a.75.75 0 0 1-1.03 1.09l-4.5-4.25a.75.75 0 0 1 0-1.09z"
                 />
             </svg>
         );

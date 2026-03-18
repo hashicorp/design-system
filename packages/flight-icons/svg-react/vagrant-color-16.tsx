@@ -23,8 +23,8 @@ export const IconVagrantColor16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill="#1868F2">
-                    <path d="M1 1.559h4.667v3.4l4.666 9.482H5.667L1 4.959v-3.4zM10.333 4.96V1.559H15v3.4l-4.269 8.672-2.335-4.74 1.937-3.931z" />
+                <g fill="#1868f2">
+                    <path d="M1 1.559h4.667v3.4l4.666 9.482H5.667L1 4.96zM10.333 4.96V1.559H15v3.4l-4.269 8.672-2.335-4.74z" />
                 </g>
             </svg>
         );

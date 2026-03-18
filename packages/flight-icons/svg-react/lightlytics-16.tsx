@@ -25,7 +25,7 @@ export const IconLightlytics16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M8 1h5.658l-3.98 5.766H15L9.34 15H3.683l2.284-3.16.357-.504H1L8 1z"
+                    d="M8 1h5.658l-3.98 5.766H15L9.34 15H3.683l2.284-3.16.357-.504H1z"
                 />
             </svg>
         );
