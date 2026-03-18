@@ -1,8 +1,3 @@
-/**
- * TODOs
- * - Make sure that removed keys are no longer tracked
- */
-
 import Component from '@glimmer/component';
 import { fn, hash } from '@ember/helper';
 import { assert } from '@ember/debug';

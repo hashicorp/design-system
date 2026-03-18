@@ -421,7 +421,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return valign;
   }
 
-  // returns the grid-template-columns CSS attribute for the grid
   get classNames(): string {
     const classes = ['hds-advanced-table'];
 
