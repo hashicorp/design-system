@@ -7,7 +7,6 @@ import { module, test } from 'qunit';
 import { array, hash, get } from '@ember/helper';
 import { findAll, render, settled, resetOnerror } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
-import style from 'ember-style-modifier';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 import type {
@@ -478,8 +477,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           id="data-test-advanced-table"
           @model={{context.model}}
           @columns={{DEFAULT_BASIC_COLUMNS}}
+          @maxHeight="50px"
           aria-label="data test table"
-          {{style height="50px" overflow="auto"}}
         />
       </template>,
     );
