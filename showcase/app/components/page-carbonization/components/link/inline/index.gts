@@ -88,12 +88,16 @@ const BadgeLinkInlineIndex: TemplateOnlyComponent = <template>
             </div>
           </:theming>
           <:reference>
-            {{#if (eq state "default")}}
-              <cds-link href="#" inline size="lg">
-                Lorem ipsum dolor
-              </cds-link>
+            {{#if (eq color "secondary")}}
+              <pre>Not available</pre>
             {{else}}
-              <pre>TODO: add static image here</pre>
+              {{#if (eq state "default")}}
+                <cds-link href="#" inline size="lg">
+                  Lorem ipsum dolor
+                </cds-link>
+              {{else}}
+                <pre>TODO: add static image here</pre>
+              {{/if}}
             {{/if}}
           </:reference>
         </ShwCarbonizationComparisonGrid>
