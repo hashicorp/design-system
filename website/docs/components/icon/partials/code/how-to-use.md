@@ -2,9 +2,7 @@
 
 The most basic invocation of the Icon component requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](/icons/library):
 
-```handlebars
-<Hds::Icon @name="alert-circle" />
-```
+[[code-snippets/icon-basic]]
 
 It renders to this (where the `id` will be unique each time):
 
@@ -30,9 +28,7 @@ Because the icons are hidden to assistive technology, they cannot be used on the
 
 The default size is 16px. To use the alternative 24px icon size, set the `@size` value:
 
-```handlebars
-<Hds::Icon @name="zap" @size="24" />
-```
+[[code-snippets/icon-size]]
 
 ### Color
 
@@ -45,46 +41,29 @@ We don’t validate the CSS color string to ensure that the value used is correc
 
 The default value is `currentColor` which uses the inherited text color as the icon color. When setting a custom value, we recommend using one of the pre-defined **foreground** color variables to ensure consistency with our design language:
 
-```handlebars
-<Hds::Icon @name="zap" @color="success" />
-```
+[[code-snippets/icon-color]]
 
 For the list of possible foreground colors supported, refer to the [Component API](#component-api) section for details.
 
 It’s also possible to provide a CSS color as a string (in this case the color will be applied as SVG `fill` property). The string can be a CSS `var()` that uses one of the [predefined color tokens](/foundations/colors?tab=palette):
 
-```handlebars
-<Hds::Icon @name="zap" @color="var(--token-color-boundary-brand)" />
-```
+[[code-snippets/icon-color-token]]
 
 Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, named color, etc.):
 
-```handlebars
-<Hds::Icon @name="zap" @color="rebeccapurple" />
-```
-
-```handlebars
-<Hds::Icon @name="zap" @color="rgb(46, 113, 229)" />
-```
+[[code-snippets/icon-color-custom]]
 
 ### Stretched
 
 To have the icon fill the parent container (width: 100%, height: 100%), set the `@stretched` attribute to true:
 
-```handlebars
-<div class="doc-icon-demo--constrain-max-width">
-  <Hds::Icon @name="zap" @size="24" @stretched={{true}} />
-</div>
-```
+[[code-snippets/icon-stretched]]
 
 ### Block vs. inline display
 
 To change the default display from `block` to `inline-block`, set `@isInline` to true:
 
-```handlebars
-<Hds::Icon @name="triangle" @isInline={{true}} />
-<Hds::Icon @name="triangle-fill" @isInline={{true}} />
-```
+[[code-snippets/icon-display]]
 
 ### Aligning icons
 
@@ -105,16 +84,10 @@ For example, to visually center an icon with a generic text node, you will need 
 
 The loading and running icons are animated by default, meaning no additional properties are needed:
 
-```handlebars
-<Hds::Icon @name="loading" @size="24" />
-```
+[[code-snippets/icon-loading]]
 
 A prefers-reduced-motion media query will automatically disable the animation if users set this preference in their environment.
 
-If you need the non-animated version of these icons, use the corresponding loading-static and running-static:
-
 If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
 
-```handlebars
-<Hds::Icon @name="loading-static" @size="24" />
-```
+[[code-snippets/icon-loading-static]]
