@@ -25,7 +25,7 @@ export const IconToggleRight24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M16 5a7 7 0 110 14H8A7 7 0 118 5h8zM8 6.5a5.5 5.5 0 100 11h8a5.5 5.5 0 100-11H8zM16 8a4 4 0 110 8 4 4 0 010-8zm0 1.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"
+                    d="M16 5a7 7 0 1 1 0 14H8A7 7 0 1 1 8 5zM8 6.5a5.5 5.5 0 1 0 0 11h8a5.5 5.5 0 1 0 0-11zM16 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8m0 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5"
                 />
             </svg>
         );

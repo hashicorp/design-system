@@ -26,7 +26,7 @@ export const IconVagrantFill16 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.542 3.974H3.625V6.1l2.917 5.926h2.916L6.542 6.1V3.974zm2.916 0V6.1l-1.21 2.457 1.459 2.962 2.668-5.42V3.975H9.458z"
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm4.542 3.974H3.625V6.1l2.917 5.926h2.916L6.542 6.1zm2.916 0V6.1l-1.21 2.457 1.459 2.962 2.668-5.42V3.975z"
                     clipRule="evenodd"
                 />
             </svg>

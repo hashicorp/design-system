@@ -25,7 +25,7 @@ export const IconCheckCircleFill16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M8 0a8 8 0 110 16A8 8 0 018 0zm3.78 5.22a.75.75 0 00-1.06 0L6.75 9.19 5.28 7.72a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4.5-4.5a.75.75 0 000-1.06z"
+                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0m3.78 5.22a.75.75 0 0 0-1.06 0L6.75 9.19 5.28 7.72a.75.75 0 1 0-1.06 1.06l2 2a.75.75 0 0 0 1.06 0l4.5-4.5a.75.75 0 0 0 0-1.06"
                 />
             </svg>
         );

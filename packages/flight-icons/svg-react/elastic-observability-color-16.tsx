@@ -27,13 +27,13 @@ export const IconElasticObservabilityColor16 = forwardRef<
             {title ? <title id={titleId}>{title}</title> : null}
             <g fillRule="evenodd" clipRule="evenodd">
                 <path
-                    fill="#F04E98"
-                    d="M5.375 15H4.167c-1.507 0-2.73-1.372-2.73-3.064V7.563h3.938V15z"
+                    fill="#f04e98"
+                    d="M5.375 15H4.167c-1.507 0-2.73-1.372-2.73-3.064V7.563h3.938z"
                 />
-                <path fill="#343741" d="M5.375 15h3.938V4.5H5.374V15z" />
+                <path fill="#343741" d="M5.375 15h3.938V4.5H5.374z" />
                 <path
-                    fill="#07C"
-                    d="M14.563 15h-3.938V1l.863.01c1.703.021 3.075 1.622 3.075 3.59V15z"
+                    fill="#07c"
+                    d="M14.563 15h-3.938V1l.863.01c1.703.021 3.075 1.622 3.075 3.59z"
                 />
             </g>
         </svg>

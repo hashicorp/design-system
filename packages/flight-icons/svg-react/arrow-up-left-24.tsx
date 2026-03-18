@@ -25,7 +25,7 @@ export const IconArrowUpLeft24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M15.25 5a.75.75 0 010 1.5H7.56l11.22 11.22a.75.75 0 11-1.06 1.06L6.5 7.56v7.69a.75.75 0 01-1.5 0v-9.5c0-.206.083-.393.218-.528l.004-.004A.748.748 0 015.75 5h9.5z"
+                    d="M15.25 5a.75.75 0 0 1 0 1.5H7.56l11.22 11.22a.75.75 0 1 1-1.06 1.06L6.5 7.56v7.69a.75.75 0 0 1-1.5 0v-9.5c0-.206.083-.393.218-.528l.004-.004A.75.75 0 0 1 5.75 5z"
                 />
             </svg>
         );

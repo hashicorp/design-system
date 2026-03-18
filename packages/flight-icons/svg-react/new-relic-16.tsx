@@ -26,7 +26,7 @@ export const IconNewRelic16 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M8 3.693l3.692 2.153v4.308L8 12.308V15l6-3.5v-7L8 1 2 4.5v2.693l3.691 2.154v4.307L8.001 15V8L4.307 5.846 8 3.693z"
+                    d="m8 3.693 3.692 2.153v4.308L8 12.308V15l6-3.5v-7L8 1 2 4.5v2.693l3.691 2.154v4.307L8.001 15V8L4.307 5.846z"
                     clipRule="evenodd"
                 />
             </svg>

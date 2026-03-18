@@ -23,13 +23,13 @@ export const IconPackerColor24 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill="#02A8EF">
+                <g fill="#02a8ef">
                     <path
                         fillRule="evenodd"
-                        d="M5 3.311l7.42 4.308V23.5L5 19.192V3.312z"
+                        d="m5 3.311 7.42 4.308V23.5L5 19.192z"
                         clipRule="evenodd"
                     />
-                    <path d="M16.095 5.168L8.028.5v3.238l5.488 3.184v9.723l2.58 1.49c1.598.925 2.904.38 2.904-1.233V9.768c-.002-1.604-1.312-3.672-2.905-4.6z" />
+                    <path d="M16.095 5.168 8.028.5v3.238l5.488 3.184v9.723l2.58 1.49c1.598.925 2.904.38 2.904-1.233V9.768c-.002-1.604-1.312-3.672-2.905-4.6" />
                 </g>
             </svg>
         );

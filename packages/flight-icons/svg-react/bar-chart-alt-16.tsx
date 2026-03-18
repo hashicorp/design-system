@@ -24,7 +24,7 @@ export const IconBarChartAlt16 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <g fill={color}>
-                    <path d="M8 2a1 1 0 011 1v10a1 1 0 11-2 0V3a1 1 0 011-1zM12 6a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1zM5 9a1 1 0 00-2 0v4a1 1 0 102 0V9z" />
+                    <path d="M8 2a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1M12 6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V7a1 1 0 0 1 1-1M5 9a1 1 0 0 0-2 0v4a1 1 0 1 0 2 0z" />
                 </g>
             </svg>
         );
