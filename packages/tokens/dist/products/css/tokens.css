@@ -495,6 +495,7 @@
   --token-tabs-indicator-transition-function: cubic-bezier(0.5, 1, 0.89, 1);
   --token-tabs-indicator-transition-duration: 0.6s;
   --token-tabs-divider-height: 1px;
+  --token-tag-max-width: 166px;
   --token-tag-padding-top: 3px;
   --token-tag-padding-bottom: 5px;
   --token-tag-padding-right: 10px;
@@ -505,6 +506,7 @@
   --token-tag-surface-color-active: #dedfe3;
   --token-tag-foreground-color-default: #3b3d45;
   --token-tag-typography-font-size: 0.8125rem;
+  --token-tag-typography-letter-spacing: 0px;
   --token-tag-typography-line-height: 1.2308;
   --token-tag-icon-color: #3b3d45;
   --token-tag-link-border-color-primary: #3b3d4566;
