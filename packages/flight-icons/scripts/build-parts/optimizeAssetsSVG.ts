@@ -6,10 +6,7 @@
 import fs from 'fs-extra';
 import chalk from 'chalk';
 
-// Notice: we're using SVGO vs 1.3.2 instead of 2.x.x because the new version has a terrible API, the documentation is still missing
-// and I couldn't set it up to work in a node script; since what it does is just optimize an SVG and the SVG format hasn't changed in years
-// is safe to use this older version, nothing groundbreaking is lost.
-import SVGO from 'svgo';
+import { optimize, type Config } from 'svgo';
 
 import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
@@ -18,14 +15,13 @@ import { AssetsCatalog } from '../@types/AssetsCatalog';
 // is not a problem of SVGO configuration, is Figma adding it to the exported SVGs when the content of a frame/component
 // touches the borders of the bounding box. The solution is to uncheck the "Clip content" flag in the Figma UI for that element.
 // See: https://forum.figma.com/t/setting-an-explicit-svg-viewbox/2504/7
-const svgo = new SVGO({
+const svgoConfig = {
     plugins: [
+        { name: 'preset-default' },
         // IMPORTANT: this is needed so SVGO will add the icon name (see below) as prefix for the IDs
-        { prefixIds: true },
-        { removeViewBox: false },
-        { sortAttrs: true },
+        { name: 'prefixIds' },
     ]
-});
+} satisfies Config;
 
 
 // if in the future this does more than simply optimize, we can rename it to "preprocessAssetsSVG"
@@ -47,7 +43,10 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
                 const svgSource = await fs.readFile(srcAssetPath, 'utf8');
 
                 // IMPORTANT: the "path" is used by SVGO to extract the icon name and add it as prefix to the IDs
-                const svgOptimized = await svgo.optimize(svgSource, { path: asset.fileName });
+                const svgOptimized = optimize(svgSource, {
+                    ...svgoConfig,
+                    path: asset.fileName,
+                });
 
                 await fs.outputFile(tempAssetPath, svgOptimized.data);
 
