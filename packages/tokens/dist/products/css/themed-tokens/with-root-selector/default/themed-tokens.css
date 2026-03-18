@@ -275,12 +275,15 @@
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --token-tag-border-radius: 50px;
   --token-tag-foreground-color-default: var(--token-color-foreground-primary);
+  --token-tag-icon-color: var(--token-color-foreground-primary);
   --token-tag-link-border-color-primary: var(--token-color-border-strong);
   --token-tag-link-border-color-secondary: var(--token-color-border-strong);
   --token-tag-link-foreground-color-primary-active: var(--token-color-foreground-action-active);
   --token-tag-link-foreground-color-primary-default: var(--token-color-foreground-action);
   --token-tag-link-foreground-color-primary-hover: var(--token-color-foreground-action-hover);
   --token-tag-link-foreground-color-secondary-default: var(--token-color-foreground-strong);
+  --token-tag-link-icon-color-primary: var(--token-color-foreground-primary);
+  --token-tag-link-icon-color-secondary: var(--token-color-foreground-primary);
   --token-tag-link-surface-color-primary-default: var(--token-color-surface-interactive);
   --token-tag-link-surface-color-primary-hover: var(--token-color-surface-interactive-hover);
   --token-tag-padding-bottom: 5px;

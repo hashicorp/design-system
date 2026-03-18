@@ -275,12 +275,15 @@
   --token-surface-overlay-box-shadow: none;
   --token-tag-border-radius: 16px;
   --token-tag-foreground-color-default: #f4f4f4;
+  --token-tag-icon-color: #f4f4f4;
   --token-tag-link-border-color-primary: #4589ff;
   --token-tag-link-border-color-secondary: #8d8d8d;
   --token-tag-link-foreground-color-primary-active: #d0e2ff;
   --token-tag-link-foreground-color-primary-default: #d0e2ff;
   --token-tag-link-foreground-color-primary-hover: #d0e2ff;
   --token-tag-link-foreground-color-secondary-default: #f4f4f4;
+  --token-tag-link-icon-color-primary: #d0e2ff;
+  --token-tag-link-icon-color-secondary: #f4f4f4;
   --token-tag-link-surface-color-primary-default: #0043ce;
   --token-tag-link-surface-color-primary-hover: #0053ff;
   --token-tag-padding-bottom: 4px;
