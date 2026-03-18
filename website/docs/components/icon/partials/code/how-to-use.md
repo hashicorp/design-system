@@ -6,21 +6,7 @@ The most basic invocation of the Icon component requires only the `@name` proper
 
 It renders to this (where the `id` will be unique each time):
 
-```markup
-<svg
-  id="icon-ember115"
-  class="hds-icon hds-icon-alert-circle"
-  width="16"
-  height="16"
-  viewBox="0 0 16 16"
-  xmlns="http://www.w3.org/2000/svg"
-  fill="currentColor"
-  aria-hidden="true"
-  data-test-icon="alert-circle"
->
-  <use href="#flight-alert-circle-16"></use>
-</svg>
-```
+[[code-snippets/icon-rendered execute=false]]
 
 Because the icons are hidden to assistive technology, they cannot be used on their own and must be used inside of an element with an accessible name. See the [Accessibility](/components/icon?tab=accessibility) section for more details on how to best use this component in different contexts.
 

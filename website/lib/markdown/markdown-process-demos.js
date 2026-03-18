@@ -29,6 +29,7 @@ const SUPPORTED_FILE_EXTENSIONS = [
   '.scss',
   '.yaml',
   '.bash',
+  '.html',
 ];
 
 // Helper to remove template-lint ignore comments
@@ -159,7 +160,12 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 );
               }
 
-              if (ext === '.scss' || ext === '.yaml' || ext === '.bash') {
+              if (
+                ext === '.scss' ||
+                ext === '.yaml' ||
+                ext === '.bash' ||
+                ext === '.html'
+              ) {
                 codeSnippets.custom = escapeCode(code);
                 codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
               }
@@ -199,6 +205,7 @@ module.exports = function (folder) {
       '**/*.scss',
       '**/*.yaml',
       '**/*.bash',
+      '**/*.html',
     ],
   });
 
