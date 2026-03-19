@@ -364,8 +364,13 @@
   --token-button-icon-size-small: 12px;
   --token-button-icon-size-medium: 16px;
   --token-button-icon-size-large: 24px;
+  --token-copy-button-foreground-color: #3b3d45;
+  --token-copy-button-surface-color-default: #fafafa;
+  --token-copy-button-surface-color-hover: #ffffff;
+  --token-copy-button-surface-color-active: #dedfe3;
   --token-copy-button-icon-color-default: #1060ff;
   --token-copy-button-icon-color-hover: #0c56e9;
+  --token-copy-button-icon-color-focus: #0c56e9;
   --token-copy-button-icon-color-active: #0046d1;
   --token-copy-button-icon-color-success: #008a22;
   --token-copy-button-icon-color-error: #e52228;
@@ -4417,13 +4422,24 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-copy-button {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-default);
   cursor: pointer;
 }
 .hds-copy-button .hds-button__icon {
   color: var(--token-copy-button-icon-color-default);
 }
+.hds-copy-button:hover, .hds-copy-button.mock-hover {
+  background-color: var(--token-copy-button-surface-color-hover);
+}
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
   color: var(--token-copy-button-icon-color-hover);
+}
+.hds-copy-button:focus, .hds-copy-button.mock-focus {
+  background-color: var(--token-copy-button-surface-color-focus);
+}
+.hds-copy-button:active, .hds-copy-button.mock-active {
+  background-color: var(--token-copy-button-surface-color-active);
 }
 .hds-copy-button:active .hds-button__icon, .hds-copy-button.mock-active .hds-button__icon {
   color: var(--token-copy-button-icon-color-active);
