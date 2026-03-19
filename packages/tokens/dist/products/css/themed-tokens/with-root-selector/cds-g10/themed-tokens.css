@@ -215,11 +215,16 @@
   --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-  --token-copy-button-icon-color-active: #ffffff;
-  --token-copy-button-icon-color-default: #ffffff;
-  --token-copy-button-icon-color-error: #fa4d56;
-  --token-copy-button-icon-color-hover: #ffffff;
-  --token-copy-button-icon-color-success: #42be65;
+  --token-copy-button-foreground-color: #161616;
+  --token-copy-button-icon-color-active: #161616;
+  --token-copy-button-icon-color-default: #161616;
+  --token-copy-button-icon-color-error: #da1e28;
+  --token-copy-button-icon-color-focus: #161616;
+  --token-copy-button-icon-color-hover: #161616;
+  --token-copy-button-icon-color-success: #24a148;
+  --token-copy-button-surface-color-active: #c6c6c6;
+  --token-copy-button-surface-color-default: #ffffff;
+  --token-copy-button-surface-color-hover: #e8e8e8;
   --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
   --token-dismiss-button-foreground-color-active: #161616;
   --token-dismiss-button-foreground-color-default: #161616;

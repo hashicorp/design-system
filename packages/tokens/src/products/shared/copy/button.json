@@ -1,6 +1,56 @@
 {
   "copy": {
     "button": {
+      "foreground": {
+        "color": {
+          "$type": "color",
+          "$value": "{button.foreground.color.secondary.default}",
+          "$modes": {
+            "default": "{button.foreground.color.secondary.default}",
+            "cds-g0": "{carbon.themes.white.iconPrimary}",
+            "cds-g10": "{carbon.themes.g10.iconPrimary}",
+            "cds-g90": "{carbon.themes.g90.iconPrimary}",
+            "cds-g100": "{carbon.themes.g100.iconPrimary}"
+          }
+        }
+      },
+      "surface": {
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{button.surface.color.secondary.default}",
+            "$modes": {
+              "default": "{button.surface.color.secondary.default}",
+              "cds-g0": "{carbon.themes.white.layer01}",
+              "cds-g10": "{carbon.themes.g10.layer01}",
+              "cds-g90": "{carbon.themes.g90.layer01}",
+              "cds-g100": "{carbon.themes.g100.layer01}"
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{button.surface.color.secondary.hover}",
+            "$modes": {
+              "default": "{button.surface.color.secondary.hover}",
+              "cds-g0": "{carbon.themes.white.layerHover01}",
+              "cds-g10": "{carbon.themes.g10.layerHover01}",
+              "cds-g90": "{carbon.themes.g90.layerHover01}",
+              "cds-g100": "{carbon.themes.g100.layerHover01}"
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{button.surface.color.secondary.active}",
+            "$modes": {
+              "default": "{button.surface.color.secondary.active}",
+              "cds-g0": "{carbon.themes.white.layerActive01}",
+              "cds-g10": "{carbon.themes.g10.layerActive01}",
+              "cds-g90": "{carbon.themes.g90.layerActive01}",
+              "cds-g100": "{carbon.themes.g100.layerActive01}"
+            }
+          }
+        }
+      },
       "icon": {
         "color": {
           "default": {
@@ -8,10 +58,10 @@
             "$value": "{color.foreground.action}",
             "$modes": {
               "default": "{color.foreground.action}",
-              "cds-g0": "{carbon.themes.white.textOnColor}",
-              "cds-g10": "{carbon.themes.g10.textOnColor}",
-              "cds-g90": "{carbon.themes.g90.textOnColor}",
-              "cds-g100": "{carbon.themes.g100.textOnColor}"
+              "cds-g0": "{carbon.themes.white.iconPrimary}",
+              "cds-g10": "{carbon.themes.g10.iconPrimary}",
+              "cds-g90": "{carbon.themes.g90.iconPrimary}",
+              "cds-g100": "{carbon.themes.g100.iconPrimary}"
             }
           },
           "hover": {
@@ -19,10 +69,21 @@
             "$value": "{color.foreground.action-hover}",
             "$modes": {
               "default": "{color.foreground.action-hover}",
-              "cds-g0": "{carbon.themes.white.textOnColor}",
-              "cds-g10": "{carbon.themes.g10.textOnColor}",
-              "cds-g90": "{carbon.themes.g90.textOnColor}",
-              "cds-g100": "{carbon.themes.g100.textOnColor}"
+              "cds-g0": "{carbon.themes.white.iconPrimary}",
+              "cds-g10": "{carbon.themes.g10.iconPrimary}",
+              "cds-g90": "{carbon.themes.g90.iconPrimary}",
+              "cds-g100": "{carbon.themes.g100.iconPrimary}"
+            }
+          },
+          "focus": {
+            "$type": "color",
+            "$value": "{color.foreground.action-hover}",
+            "$modes": {
+              "default": "{color.foreground.action-hover}",
+              "cds-g0": "{carbon.themes.white.iconPrimary}",
+              "cds-g10": "{carbon.themes.g10.iconPrimary}",
+              "cds-g90": "{carbon.themes.g90.iconPrimary}",
+              "cds-g100": "{carbon.themes.g100.iconPrimary}"
             }
           },
           "active": {
@@ -30,10 +91,10 @@
             "$value": "{color.foreground.action-active}",
             "$modes": {
               "default": "{color.foreground.action-active}",
-              "cds-g0": "{carbon.themes.white.textOnColor}",
-              "cds-g10": "{carbon.themes.g10.textOnColor}",
-              "cds-g90": "{carbon.themes.g90.textOnColor}",
-              "cds-g100": "{carbon.themes.g100.textOnColor}"
+              "cds-g0": "{carbon.themes.white.iconPrimary}",
+              "cds-g10": "{carbon.themes.g10.iconPrimary}",
+              "cds-g90": "{carbon.themes.g90.iconPrimary}",
+              "cds-g100": "{carbon.themes.g100.iconPrimary}"
             }
           },
           "success": {
@@ -41,10 +102,10 @@
             "$value": "{color.foreground.success}",
             "$modes": {
               "default": "{color.foreground.success}",
-              "cds-g0": "{carbon.themes.white.supportSuccessInverse}",
-              "cds-g10": "{carbon.themes.g10.supportSuccessInverse}",
-              "cds-g90": "{carbon.themes.g90.supportSuccess}",
-              "cds-g100": "{carbon.themes.g100.supportSuccess}"
+              "cds-g0": "{carbon.themes.white.supportSuccess}",
+              "cds-g10": "{carbon.themes.g10.supportSuccess}",
+              "cds-g90": "{carbon.themes.g90.supportSuccessInverse}",
+              "cds-g100": "{carbon.themes.g100.supportSuccessInverse}"
             }
           },
           "error": {
@@ -52,10 +113,10 @@
             "$value": "{color.foreground.critical}",
             "$modes": {
               "default": "{color.foreground.critical}",
-              "cds-g0": "{carbon.themes.white.supportErrorInverse}",
-              "cds-g10": "{carbon.themes.g10.supportErrorInverse}",
-              "cds-g90": "{carbon.themes.g90.supportError}",
-              "cds-g100": "{carbon.themes.g100.supportError}"
+              "cds-g0": "{carbon.themes.white.supportError}",
+              "cds-g10": "{carbon.themes.g10.supportError}",
+              "cds-g90": "{carbon.themes.g90.supportErrorInverse}",
+              "cds-g100": "{carbon.themes.g100.supportErrorInverse}"
             }
           }
         }

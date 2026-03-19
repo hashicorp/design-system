@@ -3800,13 +3800,24 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-copy-button {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-default);
   cursor: pointer;
 }
 .hds-copy-button .hds-button__icon {
   color: var(--token-copy-button-icon-color-default);
 }
+.hds-copy-button:hover, .hds-copy-button.mock-hover {
+  background-color: var(--token-copy-button-surface-color-hover);
+}
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
   color: var(--token-copy-button-icon-color-hover);
+}
+.hds-copy-button:focus, .hds-copy-button.mock-focus {
+  background-color: var(--token-copy-button-surface-color-focus);
+}
+.hds-copy-button:active, .hds-copy-button.mock-active {
+  background-color: var(--token-copy-button-surface-color-active);
 }
 .hds-copy-button:active .hds-button__icon, .hds-copy-button.mock-active .hds-button__icon {
   color: var(--token-copy-button-icon-color-active);
