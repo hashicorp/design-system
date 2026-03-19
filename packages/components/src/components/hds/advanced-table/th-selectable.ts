@@ -8,6 +8,9 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
+import { service } from '@ember/service';
+
+import type HdsIntlService from '../../../services/hds-intl';
 
 import {
   HdsAdvancedTableThSortOrderValues,
@@ -45,6 +48,7 @@ export interface HdsAdvancedTableThSelectableSignature {
 }
 
 export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedTableThSelectableSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
   @tracked private _isSelected = this.args.isSelected ?? false;
 
   private _guid = guidFor(this);
@@ -57,7 +61,11 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
 
   get ariaLabel(): string {
     const { selectionAriaLabelSuffix = 'row' } = this.args;
-    return `Select ${selectionAriaLabelSuffix}`;
+    const defaultString = `Select ${selectionAriaLabelSuffix}`;
+    return this.hdsIntl.t('hds.advanced-table.select', {
+      default: defaultString,
+      suffix: selectionAriaLabelSuffix,
+    });
   }
 
   get ariaSort(): HdsAdvancedTableThSortOrderLabels | undefined {
