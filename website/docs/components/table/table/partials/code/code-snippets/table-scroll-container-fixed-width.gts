@@ -3,7 +3,7 @@ import { array, hash } from '@ember/helper';
 
 import { HdsTable } from '@hashicorp/design-system-components/components';
 
-import USER_WITH_MORE_COLUMNS from 'website/mocks/user-with-more-columns';
+import USER_WITH_MORE_COLUMNS from 'website/mocks/user-with-more-columns-data';
 
 export default class LocalComponent extends Component {
   get model() {
