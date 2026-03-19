@@ -14,6 +14,7 @@ import {
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
+import { waitForLayout } from '../utils';
 import { TrackedObject } from 'tracked-built-ins';
 import sinon from 'sinon';
 import style from 'ember-style-modifier';
@@ -72,6 +73,8 @@ async function simulateRightPointerDrag(handle: Element | null) {
   await triggerEvent(handle, 'pointerdown', { clientX: 100, button: 0 });
   await triggerEvent(handle, 'pointermove', { clientX: 130, buttons: 1 });
   await triggerEvent(window, 'pointerup', { button: 0 });
+
+  await waitForLayout();
 }
 
 async function simulateLeftPointerDrag(handle: Element | null) {
@@ -80,6 +83,8 @@ async function simulateLeftPointerDrag(handle: Element | null) {
   await triggerEvent(handle, 'pointerdown', { clientX: 100, button: 0 });
   await triggerEvent(handle, 'pointermove', { clientX: 70, buttons: 1 });
   await triggerEvent(window, 'pointerup', { button: 0 });
+
+  await waitForLayout();
 }
 
 const DEFAULT_RESIZABLE_COLUMNS: HdsAdvancedTableColumn[] = [
@@ -180,6 +185,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         // Send ArrowLeft key
         await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
 
+        await waitForLayout();
+
         newGridValues = getTableGridValues(table);
 
         assert.ok(
@@ -202,6 +209,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         await triggerEvent(handle, 'pointerdown', { clientX: 100 });
         await triggerEvent(window, 'pointermove', { clientX: 1 });
         await triggerEvent(window, 'pointerup');
+
+        await waitForLayout();
 
         const newGridValues = getTableGridValues(table);
         assert.notEqual(
@@ -234,6 +243,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         await triggerEvent(handle, 'pointerdown', { clientX: 100 });
         await triggerEvent(window, 'pointermove', { clientX: 10000 });
         await triggerEvent(window, 'pointerup');
+
+        await waitForLayout();
 
         // Check the new width
         const newGridValues = getTableGridValues(table);
@@ -271,6 +282,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
         }
 
+        await waitForLayout();
+
         const newGridValues = getTableGridValues(table);
         assert.notEqual(
           newGridValues,
@@ -305,6 +318,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           // moves right 10px each time
           await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
         }
+
+        await waitForLayout();
 
         const newGridValues = getTableGridValues(table);
         assert.notEqual(
@@ -403,8 +418,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       await performContextMenuAction(col2Th ?? null, 'reset-column-width');
 
-      await new Promise((resolve) => requestAnimationFrame(resolve));
-      await settled();
+      await waitForLayout();
 
       assert.ok(
         gridValuesAreEqual(originalGridValues, getTableGridValues(table)),
@@ -477,6 +491,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           handle.closest('.hds-advanced-table__th'),
           'reset-column-width',
         );
+
+        await waitForLayout();
+
         assert.ok(
           onColumnResizeSpy.calledTwice,
           'onColumnResize was called again after resetting column width',

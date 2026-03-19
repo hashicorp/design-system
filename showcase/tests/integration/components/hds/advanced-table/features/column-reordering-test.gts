@@ -20,6 +20,7 @@ import { TrackedObject, TrackedArray } from 'tracked-built-ins';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 import type { HdsAdvancedTableColumnReorderSide } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
+import { waitForLayout } from '../utils';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
@@ -143,6 +144,8 @@ const simulateColumnReorderDrop = async ({
 
   await triggerEvent(target, 'drop', eventOptions);
   await triggerEvent(handleElement, 'dragend');
+
+  await waitForLayout();
 };
 
 const DEFAULT_REORDERABLE_COLUMNS = [
@@ -420,6 +423,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         await click(firstContextMenuToggle);
         await click('[data-test-context-option-key="reorder-column"]');
 
+        await waitForLayout();
+
         const firstReorderHandle = thElements[0]?.querySelector(
           '.hds-advanced-table__th-reorder-handle',
         );
@@ -440,6 +445,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       if (secondContextMenuToggle) {
         await click(secondContextMenuToggle);
         await click('[data-test-context-option-key="move-column-to-start"]');
+
+        await waitForLayout();
 
         const columnOrder = getColumnOrder();
         assert.deepEqual(
@@ -501,8 +508,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         assert.dom(firstReorderHandle).isFocused();
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
+
+        await waitForLayout();
+
         let columnOrder = getColumnOrder();
-        await settled();
 
         assert.deepEqual(
           columnOrder,
@@ -516,9 +525,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         assert.dom(firstReorderHandle).isFocused();
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
+
+        await waitForLayout();
+
         columnOrder = getColumnOrder();
-        // doing this because request animation frame stuff
-        await settled();
 
         assert.deepEqual(
           columnOrder,
@@ -532,9 +542,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         assert.dom(firstReorderHandle).isFocused();
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowLeft');
+
+        await waitForLayout();
+
         columnOrder = getColumnOrder();
-        // doing this because request animation frame stuff
-        await settled();
 
         assert.deepEqual(
           columnOrder,
