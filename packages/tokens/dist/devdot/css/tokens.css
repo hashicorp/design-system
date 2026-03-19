@@ -200,6 +200,33 @@
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --token-accordion-gap-small: 4px;
+  --token-accordion-gap-medium: 8px;
+  --token-accordion-gap-large: 12px;
+  --token-accordion-item-toggle-padding-small: 8px;
+  --token-accordion-item-toggle-padding-medium: 12px;
+  --token-accordion-item-toggle-padding-large: 16px;
+  --token-accordion-item-toggle-padding-left-small: 8px;
+  --token-accordion-item-toggle-padding-left-medium: 8px;
+  --token-accordion-item-toggle-padding-left-large: 12px;
+  --token-accordion-item-toggle-gap-small: 8px;
+  --token-accordion-item-toggle-gap-medium: 12px;
+  --token-accordion-item-toggle-gap-large: 12px;
+  --token-accordion-item-toggle-icon-size-small: 16px;
+  --token-accordion-item-toggle-icon-size-medium: 20px;
+  --token-accordion-item-toggle-icon-size-large: 24px;
+  --token-accordion-content-padding-top-small: 4px;
+  --token-accordion-content-padding-top-medium: 4px;
+  --token-accordion-content-padding-top-large: 4px;
+  --token-accordion-content-padding-right-small: 8px;
+  --token-accordion-content-padding-right-medium: 12px;
+  --token-accordion-content-padding-right-large: 16px;
+  --token-accordion-content-padding-bottom-small: 8px;
+  --token-accordion-content-padding-bottom-medium: 12px;
+  --token-accordion-content-padding-bottom-large: 16px;
+  --token-accordion-content-padding-left-small: 12px;
+  --token-accordion-content-padding-left-medium: 12px;
+  --token-accordion-content-padding-left-large: 16px;
   --token-app-footer-focus-color-action-internal: var(--token-color-focus-action-internal);
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
@@ -286,7 +313,6 @@
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-large: 16px;
   --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
-  --token-breadcrumb-typography-letter-spacing: 0;
   --token-breadcrumb-divider-color: #c2c5cb;
   --token-breadcrumb-link-foreground-color-default: #656a76;
   --token-breadcrumb-link-foreground-color-hover: #3b3d45;
@@ -313,9 +339,9 @@
   --token-button-typography-font-size-small: 0.8125rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-large: 1rem;
-  --token-button-typography-line-height-small: 0.9286; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-  --token-button-typography-line-height-medium: 1.1429; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-large: 1.5; /** 24px = 1.5 */
+  --token-button-typography-line-height-small: 0.9286;
+  --token-button-typography-line-height-medium: 1.1429;
+  --token-button-typography-line-height-large: 1.5;
   --token-button-foreground-color-primary-default: #ffffff;
   --token-button-foreground-color-primary-hover: #ffffff;
   --token-button-foreground-color-primary-focus: #ffffff;
@@ -354,7 +380,7 @@
   --token-button-border-radius: 5px;
   --token-button-border-color-primary-default: #0c56e9;
   --token-button-border-color-primary-hover: #0c56e9;
-  --token-button-border-color-primary-focus-internal: #0c56e9; /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-primary-focus-internal: #ffffff; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-focus-external: #5990ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-primary-active: #0046d1;
   --token-button-border-color-secondary-default: #3b3d4566;
@@ -377,6 +403,15 @@
   --token-button-icon-size-small: 12px;
   --token-button-icon-size-medium: 16px;
   --token-button-icon-size-large: 24px;
+  --token-card-surface-color-primary: #ffffff;
+  --token-card-surface-color-secondary: #fafafa;
+  --token-dialog-primitive-padding-horizontal: 24px;
+  --token-dialog-primitive-padding-vertical: 16px;
+  --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+  --token-dialog-primitive-header-border-color-primary: #656a7633;
+  --token-dialog-primitive-header-border-color-warning: #fbeabf;
+  --token-dialog-primitive-header-border-color-critical: #fbd4d4;
+  --token-dialog-primitive-title-font-weight: 600;
   --token-dismiss-button-size: 24px;
   --token-dismiss-button-foreground-color-default: #656a76;
   --token-dismiss-button-foreground-color-active: #0c0c0e;
@@ -461,9 +496,30 @@
   --token-icon-tile-border-color-overlay: #656a7633;
   --token-icon-tile-border-color-logo: #656a7633;
   --token-icon-tile-surface-color-overlay: #ffffff;
+  --token-link-inline-icon-margin-horizontal: 0.25em;
+  --token-link-inline-outline-width: 2px;
+  --token-link-inline-outline-color: #0c56e9;
+  --token-link-standalone-gap: 0.375rem;
+  --token-link-standalone-padding-vertical: 4px;
+  --token-link-standalone-typography-font-size-small: 0.8125rem;
+  --token-link-standalone-typography-font-size-medium: 0.875rem;
+  --token-link-standalone-typography-font-size-large: 1rem;
+  --token-link-standalone-typography-letter-spacing-small: 0px;
+  --token-link-standalone-typography-letter-spacing-medium: 0px;
+  --token-link-standalone-typography-letter-spacing-large: 0px;
+  --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
+  --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
+  --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
+  --token-link-standalone-icon-size-small: 0.75rem;
+  --token-link-standalone-icon-size-medium: 1rem;
+  --token-link-standalone-icon-size-large: 1.5rem;
+  --token-pagination-bar-surface-color-default: #ffffff;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
+  --token-pagination-nav-control-foreground-color-action: #1060ff;
+  --token-pagination-nav-control-foreground-color-action-hover: #0c56e9;
+  --token-pagination-nav-control-foreground-color-action-active: #0046d1;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
@@ -478,6 +534,8 @@
   --token-rich-tooltip-toggle-foreground-color-hover: #3b3d45;
   --token-rich-tooltip-toggle-foreground-color-active: #656a76;
   --token-rich-tooltip-toggle-icon-size: 1em;
+  --token-tabs-foreground-color-selected-default: var(--token-color-foreground-action);
+  --token-tabs-foreground-color-selected-hover: var(--token-color-foreground-action-hover);
   --token-tabs-tab-height-medium: 36px;
   --token-tabs-tab-height-large: 48px;
   --token-tabs-tab-padding-horizontal-medium: 12px;
@@ -490,6 +548,30 @@
   --token-tabs-indicator-transition-function: cubic-bezier(0.5, 1, 0.89, 1);
   --token-tabs-indicator-transition-duration: 0.6s;
   --token-tabs-divider-height: 1px;
+  --token-tag-max-width: 166px;
+  --token-tag-padding-top: 3px;
+  --token-tag-padding-bottom: 5px;
+  --token-tag-padding-right: 10px;
+  --token-tag-padding-left: 10px;
+  --token-tag-border-radius: 50px;
+  --token-tag-surface-color-default: #ffffff;
+  --token-tag-surface-color-hover: #f1f2f3;
+  --token-tag-surface-color-active: #dedfe3;
+  --token-tag-foreground-color-default: #3b3d45;
+  --token-tag-typography-font-size: 0.8125rem;
+  --token-tag-typography-letter-spacing: 0px;
+  --token-tag-typography-line-height: 1.2308;
+  --token-tag-icon-color: #3b3d45;
+  --token-tag-link-border-color-primary: #3b3d4566;
+  --token-tag-link-border-color-secondary: #3b3d4566;
+  --token-tag-link-surface-color-primary-default: #ffffff;
+  --token-tag-link-surface-color-primary-hover: #f1f2f3;
+  --token-tag-link-foreground-color-primary-default: #1060ff;
+  --token-tag-link-foreground-color-primary-hover: #0c56e9;
+  --token-tag-link-foreground-color-primary-active: #0046d1;
+  --token-tag-link-foreground-color-secondary-default: #0c0c0e;
+  --token-tag-link-icon-color-primary: #3b3d45;
+  --token-tag-link-icon-color-secondary: #3b3d45;
   --token-tooltip-max-width: 280px;
   --token-tooltip-padding-horizontal: 12px;
   --token-tooltip-padding-vertical: 8px;
