@@ -263,11 +263,11 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   .hds-breadcrumb__link {
     width: 100%;
-    color: var(--token-breadcrumb-truncation-content-foreground-color-default);
+    color: var(--token-color-foreground-faint);
 
     &:hover,
     &.mock-hover {
-      color: var(--token-breadcrumb-truncation-content-foreground-color-hover);
+      color: var(--token-color-foreground-primary);
     }
 
     @include hds-apply-only-if-carbon() {

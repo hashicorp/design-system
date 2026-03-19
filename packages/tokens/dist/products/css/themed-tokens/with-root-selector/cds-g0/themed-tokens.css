@@ -59,8 +59,6 @@
   --token-breadcrumb-link-foreground-color-default: #0f62fe;
   --token-breadcrumb-link-foreground-color-hover: #0043ce;
   --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  --token-breadcrumb-truncation-content-foreground-color-default: #525252;
-  --token-breadcrumb-truncation-content-foreground-color-hover: #161616;
   --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
   --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
   --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
