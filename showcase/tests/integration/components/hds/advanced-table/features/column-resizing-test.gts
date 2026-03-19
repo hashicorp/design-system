@@ -403,6 +403,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       await performContextMenuAction(col2Th ?? null, 'reset-column-width');
 
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+      await settled();
+
       assert.ok(
         gridValuesAreEqual(originalGridValues, getTableGridValues(table)),
         'grid returns to original after resetting column with no explicit width',
