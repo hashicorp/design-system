@@ -109,7 +109,7 @@ const DEFAULT_RESIZABLE_MODEL = [
 const createResizableTable = async (options: {
   onColumnResize?: (key: string) => void;
 }) => {
-  return await render(
+  await render(
     <template>
       <div {{style width="1000px"}}>
         <HdsAdvancedTable
@@ -130,6 +130,8 @@ const createResizableTable = async (options: {
         </HdsAdvancedTable></div>
     </template>,
   );
+
+  await waitForLayout();
 };
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
