@@ -40,6 +40,7 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
   get statuses() {
     return HdsAppFooterStatusLinkStatusValues(this.hdsIntl);
   }
+
   constructor(owner: Owner, args: HdsInteractiveSignature['Args']) {
     super(owner, args);
 
