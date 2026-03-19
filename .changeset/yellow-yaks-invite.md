@@ -3,7 +3,7 @@
 ---
 
 <!-- START components/advanced-table -->
-`AdvancedTable` - Translated string for ThSelectable ariaLabel
+`AdvancedTable` - Translated strings for ThSelectable ariaLabel and context menu Dropdown ToggleIcon
 <!-- END -->
 
 <!-- START components/table -->
