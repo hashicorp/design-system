@@ -68,17 +68,23 @@ interface HdsAdvancedTableColumnManagerWidthSignature {
 }
 
 export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdvancedTableColumnManagerWidthSignature> {
-  columnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
-  originalColumnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
-  transientColumnWidths = new TrackedMap<string, HdsAdvancedTablePixelString>();
-  columnDebts = new TrackedMap<string, Record<string, number>>(); // key -> { lenderKey -> amount }
+  private _columnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
+  private _originalColumnWidths = new TrackedMap<
+    string,
+    HdsAdvancedTableColumnWidth
+  >();
+  private _transientColumnWidths = new TrackedMap<
+    string,
+    HdsAdvancedTablePixelString
+  >();
+  private _columnDebts = new TrackedMap<string, Record<string, number>>(); // key -> { lenderKey -> amount }
 
   syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(() => {
     const { columns } = this.args;
 
     for (const column of columns) {
-      this.columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
-      this.originalColumnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
+      this._columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
+      this._originalColumnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
     }
   });
 
@@ -99,8 +105,8 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   getAppliedWidth = (
     columnKey: HdsAdvancedTableNormalizedColumn['key']
   ): HdsAdvancedTableNormalizedColumn['width'] => {
-    const width = this.columnWidths.get(columnKey);
-    const transientWidth = this.transientColumnWidths.get(columnKey);
+    const width = this._columnWidths.get(columnKey);
+    const transientWidth = this._transientColumnWidths.get(columnKey);
 
     return (
       transientWidth ??
@@ -136,7 +142,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   };
 
   private _getPxWidth(key: string): number {
-    const width = this.columnWidths.get(key);
+    const width = this._columnWidths.get(key);
 
     if (width !== undefined && isPixelSize(width)) {
       return pixelToNumber(width as `${number}px`);
@@ -159,9 +165,9 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       return;
     }
 
-    const transientWidth = this.transientColumnWidths.get(columnKey);
+    const transientWidth = this._transientColumnWidths.get(columnKey);
 
-    this.columnWidths.set(columnKey, transientWidth);
+    this._columnWidths.set(columnKey, transientWidth);
   };
 
   setTransientColumnWidths = (
@@ -169,7 +175,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   ): void => {
     const roundValues = options.roundValues ?? false;
 
-    this.columnWidths.forEach((width, key) => {
+    this._columnWidths.forEach((width, key) => {
       let _width: number;
 
       if (width !== undefined && isPixelSize(width)) {
@@ -178,7 +184,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
         _width = this.args.thElements.get(key)?.offsetWidth ?? 0;
       }
 
-      this.transientColumnWidths.set(
+      this._transientColumnWidths.set(
         key,
         `${roundValues ? Math.round(_width) : _width}px`
       );
@@ -186,7 +192,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   };
 
   resetTransientColumnWidths = (): void => {
-    this.transientColumnWidths.clear();
+    this._transientColumnWidths.clear();
   };
 
   setTransientColumnWidth = (
@@ -213,12 +219,12 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
         maxWidthInPixels
       );
 
-      this.transientColumnWidths.set(
+      this._transientColumnWidths.set(
         columnKey,
         `${transientColumnWidthInPixels}px`
       );
     } else {
-      this.transientColumnWidths.set(columnKey, width);
+      this._transientColumnWidths.set(columnKey, width);
     }
   };
 
@@ -242,7 +248,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     let amount = Math.abs(delta);
 
     // check if lender has existing debt to borrower
-    const lenderDebts = this.columnDebts.get(lenderKey) ?? {};
+    const lenderDebts = this._columnDebts.get(lenderKey) ?? {};
     const existingDebt = lenderDebts[borrowerKey] ?? 0;
 
     if (existingDebt > 0) {
@@ -257,16 +263,16 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
         updatedDebts[borrowerKey] = newDebt;
       }
 
-      this.columnDebts.set(lenderKey, updatedDebts);
+      this._columnDebts.set(lenderKey, updatedDebts);
 
       amount = amount - paymentAmount;
     }
 
     // if amount remains, create new debt
     if (amount > 0) {
-      const borrowerDebts = this.columnDebts.get(borrowerKey) ?? {};
+      const borrowerDebts = this._columnDebts.get(borrowerKey) ?? {};
 
-      this.columnDebts.set(borrowerKey, {
+      this._columnDebts.set(borrowerKey, {
         ...borrowerDebts,
         [lenderKey]: (borrowerDebts[lenderKey] ?? 0) + amount,
       });
@@ -281,11 +287,11 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     this._settleWidthDebts(columnKey);
 
     // restore original width
-    const originalWidth = this.originalColumnWidths.get(columnKey);
+    const originalWidth = this._originalColumnWidths.get(columnKey);
 
     if (originalWidth) {
-      this.columnWidths.set(columnKey, originalWidth);
-      this.transientColumnWidths.delete(columnKey);
+      this._columnWidths.set(columnKey, originalWidth);
+      this._transientColumnWidths.delete(columnKey);
     }
   };
 
@@ -301,7 +307,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
         return;
       }
 
-      const debtorDebts = this.columnDebts.get(debtorKey);
+      const debtorDebts = this._columnDebts.get(debtorKey);
       const debtToCollect = debtorDebts?.[collectorKey] ?? 0;
 
       if (debtToCollect <= 0) {
@@ -315,15 +321,15 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
         // add funds to collector
         const currentCollectorWidth = this._getPxWidth(collectorKey);
 
-        this.columnWidths.set(
+        this._columnWidths.set(
           collectorKey,
           `${currentCollectorWidth + amountPaid}px`
         );
-        this.transientColumnWidths.delete(collectorKey);
+        this._transientColumnWidths.delete(collectorKey);
 
         // update debtors ledger
         const remainingDebt = debtToCollect - amountPaid;
-        const currentDebts = this.columnDebts.get(debtorKey) ?? {};
+        const currentDebts = this._columnDebts.get(debtorKey) ?? {};
         const updatedDebts = { ...currentDebts };
 
         if (remainingDebt > 0) {
@@ -332,13 +338,13 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
           delete updatedDebts[collectorKey];
         }
 
-        this.columnDebts.set(debtorKey, updatedDebts);
+        this._columnDebts.set(debtorKey, updatedDebts);
       }
     });
   }
 
   private _payWidthDebts(payerKey: string): void {
-    const debts = this.columnDebts.get(payerKey);
+    const debts = this._columnDebts.get(payerKey);
 
     if (debts === undefined) {
       return;
@@ -348,12 +354,12 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       // give width back to lender
       const currentLenderWidth = this._getPxWidth(lenderKey);
 
-      this.columnWidths.set(lenderKey, `${currentLenderWidth + amount}px`);
-      this.transientColumnWidths.delete(lenderKey);
+      this._columnWidths.set(lenderKey, `${currentLenderWidth + amount}px`);
+      this._transientColumnWidths.delete(lenderKey);
     });
 
     // lear payers debts
-    this.columnDebts.delete(payerKey);
+    this._columnDebts.delete(payerKey);
   }
 
   private _sourceFundsForPayment(key: string, amountNeeded: number): number {
@@ -366,8 +372,8 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     const paymentFromSurplus = Math.min(amountNeeded, surplus);
 
     if (paymentFromSurplus > 0) {
-      this.columnWidths.set(key, `${currentWidth - paymentFromSurplus}px`);
-      this.transientColumnWidths.delete(key);
+      this._columnWidths.set(key, `${currentWidth - paymentFromSurplus}px`);
+      this._transientColumnWidths.delete(key);
 
       fundsSourced = fundsSourced + paymentFromSurplus;
     }
@@ -378,7 +384,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     if (shortfall > 0) {
       // find who owes this column (key)
       const ourDebtors = this.args.columnOrder.filter((debtorKey) => {
-        const debtorDebts = this.columnDebts.get(debtorKey);
+        const debtorDebts = this._columnDebts.get(debtorKey);
 
         return debtorDebts && debtorDebts[key] && debtorDebts[key] > 0;
       });
@@ -390,7 +396,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
           break;
         }
 
-        const subDebtorDebts = this.columnDebts.get(subDebtorKey)!;
+        const subDebtorDebts = this._columnDebts.get(subDebtorKey)!;
         const subDebtOwed = subDebtorDebts[key] ?? 0;
         const amountToRequest = Math.min(amountStillNeeded, subDebtOwed);
 
@@ -412,7 +418,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
             delete updatedSubDebts[key];
           }
 
-          this.columnDebts.set(subDebtorKey, updatedSubDebts);
+          this._columnDebts.set(subDebtorKey, updatedSubDebts);
         }
       }
     }
