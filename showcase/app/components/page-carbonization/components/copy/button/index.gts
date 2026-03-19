@@ -4,7 +4,6 @@
  */
 import Component from '@glimmer/component';
 import { pageTitle } from 'ember-page-title';
-import { array } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
 import style from 'ember-style-modifier';
@@ -84,16 +83,12 @@ export default class CopyButtonCarbonizationIndex extends Component {
         <:reference>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
-              <cds-button size="md" kind="secondary">
-                <HdsIcon @name="clipboard-copy" slot="icon" />
-                Copy
-              </cds-button>
+              <pre>n/a</pre>
             </SF.Item>
             <SF.Item>
-              <cds-icon-button size="md" kind="secondary">
-                <HdsIcon @name="clipboard-copy" slot="icon" />
-                <span slot="tooltip-content">Copy</span>
-              </cds-icon-button>
+              <cds-copy-button>
+                Copy
+              </cds-copy-button>
             </SF.Item>
           </ShwFlex>
         </:reference>
@@ -124,20 +119,6 @@ export default class CopyButtonCarbonizationIndex extends Component {
             </SF.Item>
           </ShwFlex>
         </:theming>
-        <:reference>
-          <ShwFlex @direction="column" as |SF|>
-            {{#let (array "sm" "md") as |SIZES|}}
-              {{#each SIZES as |size|}}
-                <SF.Item>
-                  <cds-button size={{size}} kind="secondary">
-                    <HdsIcon @name="clipboard-copy" slot="icon" />
-                    Copy
-                  </cds-button>
-                </SF.Item>
-              {{/each}}
-            {{/let}}
-          </ShwFlex>
-        </:reference>
       </ShwCarbonizationComparisonGrid>
 
       <ShwDivider @level={{2}} />
@@ -169,16 +150,12 @@ export default class CopyButtonCarbonizationIndex extends Component {
             {{#if (eq state "default")}}
               <ShwFlex @direction="column" @gap="0.75rem" as |SF|>
                 <SF.Item>
-                  <cds-button size="md" kind="secondary">
-                    <HdsIcon @name="clipboard-copy" slot="icon" />
-                    Copy
-                  </cds-button>
+                  <pre>n/a</pre>
                 </SF.Item>
                 <SF.Item>
-                  <cds-icon-button size="md" kind="secondary">
-                    <HdsIcon @name="clipboard-copy" slot="icon" />
-                    <span slot="tooltip-content">Copy</span>
-                  </cds-icon-button>
+                  <cds-copy-button>
+                    Copy
+                  </cds-copy-button>
                 </SF.Item>
               </ShwFlex>
             {{else}}
