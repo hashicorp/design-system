@@ -2882,10 +2882,10 @@
 }
 .hds-breadcrumb__truncation-content .hds-breadcrumb__link {
   width: 100%;
-  color: var(--token-breadcrumb-truncation-content-foreground-color-default);
+  color: var(--token-color-foreground-faint);
 }
 .hds-breadcrumb__truncation-content .hds-breadcrumb__link:hover, .hds-breadcrumb__truncation-content .hds-breadcrumb__link.mock-hover {
-  color: var(--token-breadcrumb-truncation-content-foreground-color-hover);
+  color: var(--token-color-foreground-primary);
 }
 .hds-mode-cds-g0 .hds-breadcrumb__truncation-content .hds-breadcrumb__link,
 .hds-mode-cds-g10 .hds-breadcrumb__truncation-content .hds-breadcrumb__link,
