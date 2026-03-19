@@ -6,7 +6,10 @@
   <Hds::Dropdown class="hds-advanced-table__th-context-menu" @enableCollisionDetection={{true}} ...attributes as |D|>
     <D.ToggleIcon
       @icon="more-vertical"
-      @text="Additional actions for {{@column.label}}"
+      @text={{hds-t
+        "hds.advanced-table.th-context-menu.actions"
+        default=(concat "Additional actions for " @column.label)
+      }}
       @hasChevron={{false}}
       @size="small"
       {{this._registerDropdownToggleElement}}
