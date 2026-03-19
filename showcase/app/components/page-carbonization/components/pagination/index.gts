@@ -13,7 +13,6 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwDivider from 'showcase/components/shw/divider';
-// import ShwOutliner from 'showcase/components/shw/outliner';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 import ShwFlex from 'showcase/components/shw/flex';
 
@@ -48,17 +47,15 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH3>Closest Carbon equivalent</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid
-      @label="minimal, without truncation"
-      @layout="side-by-side"
+      @label="minimal features, without truncation"
+      @layout="column"
     >
       <:theming>
-        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
         <HdsPaginationNumbered
           @totalItems={{40}}
           @showInfo={{false}}
           @showSizeSelector={{false}}
         />
-        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <cds-pagination-nav size="sm" total-items="4"></cds-pagination-nav>
@@ -66,17 +63,15 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
     </ShwCarbonizationComparisonGrid>
 
     <ShwCarbonizationComparisonGrid
-      @label="minimal, with truncation"
+      @label="minimal features, with truncation"
       @layout="side-by-side"
     >
       <:theming>
-        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
         <HdsPaginationNumbered
           @totalItems={{100}}
           @showInfo={{false}}
           @showSizeSelector={{false}}
         />
-        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <cds-pagination-nav
@@ -98,9 +93,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       @layout="side-by-side"
     >
       <:theming>
-        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
         <HdsPaginationCompact />
-        {{! </ShwOutliner> }}
       </:theming>
     </ShwCarbonizationComparisonGrid>
 
@@ -111,12 +104,10 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       @layout="column"
     >
       <:theming>
-        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
         <HdsPaginationCompact
           @showLabels={{false}}
           @showSizeSelector={{true}}
         />
-        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <cds-pagination
@@ -145,7 +136,6 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
         <ShwFlex @direction="column" as |SF|>
           {{#let (array "default" "hover" "active" "focus") as |states|}}
             {{#each states as |state|}}
@@ -202,7 +192,6 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
             </SF.Item>
           {{/let}}
         </ShwFlex>
-        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <ShwFlex @direction="column" as |SF|>
@@ -329,7 +318,6 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
         <ShwFlex @direction="column" as |SF|>
           {{#let (array "default" "hover" "active" "focus") as |states|}}
             {{#each states as |state|}}
@@ -386,7 +374,6 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
             {{/each}}
           {{/let}}
         </ShwFlex>
-        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <code>???</code>
