@@ -4,6 +4,9 @@
 
 @mixin hds-theme-default() {
   :root {
+    --token-accordion-gap-large: 12px;
+    --token-accordion-gap-medium: 8px;
+    --token-accordion-gap-small: 4px;
     --token-app-footer-focus-color-action-internal: var(
       --token-color-focus-action-internal
     );
@@ -554,6 +557,9 @@
 
 @mixin hds-theme-light() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-app-footer-focus-color-action-internal: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -894,6 +900,9 @@
 
 @mixin hds-theme-dark() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-app-footer-focus-color-action-internal: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1234,6 +1243,9 @@
 
 @mixin hds-mode-cds0() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-app-footer-focus-color-action-internal: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1574,6 +1586,9 @@
 
 @mixin hds-mode-cds10() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-app-footer-focus-color-action-internal: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1914,6 +1929,9 @@
 
 @mixin hds-mode-cds90() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-app-footer-focus-color-action-internal: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -2254,6 +2272,9 @@
 
 @mixin hds-mode-cds100() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-app-footer-focus-color-action-internal: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -2594,6 +2615,30 @@
 
 @mixin hds-theme-common() {
   :root {
+    --token-accordion-content-padding-bottom-large: 16px;
+    --token-accordion-content-padding-bottom-medium: 12px;
+    --token-accordion-content-padding-bottom-small: 8px;
+    --token-accordion-content-padding-left-large: 16px;
+    --token-accordion-content-padding-left-medium: 12px;
+    --token-accordion-content-padding-left-small: 12px;
+    --token-accordion-content-padding-right-large: 16px;
+    --token-accordion-content-padding-right-medium: 12px;
+    --token-accordion-content-padding-right-small: 8px;
+    --token-accordion-content-padding-top-large: 4px;
+    --token-accordion-content-padding-top-medium: 4px;
+    --token-accordion-content-padding-top-small: 4px;
+    --token-accordion-item-toggle-gap-large: 12px;
+    --token-accordion-item-toggle-gap-medium: 12px;
+    --token-accordion-item-toggle-gap-small: 8px;
+    --token-accordion-item-toggle-icon-size-large: 24px;
+    --token-accordion-item-toggle-icon-size-medium: 20px;
+    --token-accordion-item-toggle-icon-size-small: 16px;
+    --token-accordion-item-toggle-padding-large: 16px;
+    --token-accordion-item-toggle-padding-left-large: 12px;
+    --token-accordion-item-toggle-padding-left-medium: 8px;
+    --token-accordion-item-toggle-padding-left-small: 8px;
+    --token-accordion-item-toggle-padding-medium: 12px;
+    --token-accordion-item-toggle-padding-small: 8px;
     --token-app-header-height: 60px;
     --token-app-header-home-link-size: 36px;
     --token-app-header-logo-size: 28px;
