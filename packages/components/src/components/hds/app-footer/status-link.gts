@@ -9,6 +9,9 @@ import { assert } from '@ember/debug';
 
 import type { SafeString } from '@ember/template';
 import type Owner from '@ember/owner';
+import type HdsIntlService from '../../../services/hds-intl';
+
+import { service } from '@ember/service';
 
 import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
 import HdsAppFooterLink from './link.gts';
@@ -18,7 +21,7 @@ import type { HdsAppFooterLinkSignature } from './link.gts';
 import type { HdsIconSignature } from '../icon/index.gts';
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
 
-export const STATUSES = HdsAppFooterStatusLinkStatusValues;
+// STATUSES are generated at runtime using the injected `hdsIntl` service
 
 export interface HdsAppFooterStatusLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -32,6 +35,11 @@ export interface HdsAppFooterStatusLinkSignature {
 }
 
 export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatusLinkSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
+  get statuses() {
+    return HdsAppFooterStatusLinkStatusValues(this.hdsIntl);
+  }
   constructor(owner: Owner, args: HdsInteractiveSignature['Args']) {
     super(owner, args);
 
@@ -47,10 +55,10 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
       status = this.args.status.toLowerCase();
       assert(
         `@status for "Hds::AppFooter" must be one of the following: ${Object.keys(
-          STATUSES
+          this.statuses
         ).join(', ')} received: ${this.args.status}`,
 
-        status in STATUSES
+        status in this.statuses
       );
       return status as HdsAppFooterStatusTypes;
     }
@@ -60,7 +68,9 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
   get statusIcon(): HdsIconSignature['Args']['name'] | undefined {
     return (
       this.args.statusIcon ??
-      (this.status !== undefined ? STATUSES[this.status]?.iconName : undefined)
+      (this.status !== undefined
+        ? this.statuses[this.status]?.iconName
+        : undefined)
     );
   }
 
@@ -76,7 +86,7 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
 
   get text(): string | undefined {
     if (!this.args.text && this.status) {
-      return STATUSES[this.status]?.text;
+      return this.statuses[this.status]?.text;
     }
     return this.args.text;
   }
