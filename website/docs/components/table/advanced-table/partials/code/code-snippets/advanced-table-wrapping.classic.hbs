@@ -1,0 +1,51 @@
+<Hds::AdvancedTable
+  @model={{this.myDemoData}}
+  @hasResizableColumns={{true}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.artist}}
+          </span>
+        </div>
+      </B.Td>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.album}}
+          </span>
+        </div>
+      </B.Td>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.year}}
+          </span>
+        </div>
+      </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+
+{{! template-lint-disable no-forbidden-elements }}
+<style>
+  .doc-advanced-table-cell-content-div {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .doc-advanced-table-text-truncate {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+</style>
