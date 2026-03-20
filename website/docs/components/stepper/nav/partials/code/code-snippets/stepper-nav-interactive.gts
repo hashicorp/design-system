@@ -15,7 +15,7 @@ export default class LocalComponent extends Component {
       @currentStep={{this.demoCurrentStep}}
       @ariaLabel="Interactive"
       @onStepChange={{this.demoOnStepChange}}
-      @interactive={{true}}
+      @isInteractive={{true}}
       as |S|
     >
       <S.Step>
