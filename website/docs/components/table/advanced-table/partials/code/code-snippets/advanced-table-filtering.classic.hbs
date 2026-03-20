@@ -1,0 +1,37 @@
+<Hds::AdvancedTable
+  @model={{this.demoFilteredData}}
+  @columns={{array
+    (hash key="artist" label="Artist")
+    (hash key="album" label="Album")
+    (hash key="year" label="Release Year")
+  }}
+>
+  <:actions as |A|>
+    <A.FilterBar @filters={{this.demoFilters}} @hasSearch={{true}} @onFilter={{this.demoUpdateFilters}} as |F|>
+      <F.FiltersDropdown as |D|>
+        <D.FilterGroup @key="artist" @text="Artist" @type="multi-select" as |F|>
+          <F.Checkbox @value="Nick Drake" @label="Nick Drake" />
+          <F.Checkbox @value="The Beatles" @label="The Beatles" />
+          <F.Checkbox @value="Melanie" @label="Melanie" />
+          <F.Checkbox @value="Bob Dylan" @label="Bob Dylan" />
+          <F.Checkbox @value="James Taylor" @label="James Taylor" />
+          <F.Checkbox @value="Simon and Garfunkel" @label="Simon and Garfunkel" />
+        </D.FilterGroup>
+        <D.FilterGroup @key="year" @text="Release year" @type="single-select" as |F|>
+          <F.Radio @value="1965" @label="1965" />
+          <F.Radio @value="1969" @label="1969" />
+          <F.Radio @value="1970" @label="1970" />
+          <F.Radio @value="1971" @label="1971" />
+          <F.Radio @value="1972" @label="1972" />
+        </D.FilterGroup>
+      </F.FiltersDropdown>
+    </A.FilterBar>
+  </:actions>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>

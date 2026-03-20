@@ -1,0 +1,20 @@
+<Hds::AdvancedTable
+  @model={{this.myDemoData}}
+  @columns={{array
+    (hash key="id" label="ID")
+    (hash key="name" label="Name" isSortable=true)
+    (hash key="email" label="Email")
+    (hash key="role" label="Role" isSortable=true)
+  }}
+  @hasStickyHeader={{true}}
+  @maxHeight="500px"
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.id}}</B.Td>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.email}}</B.Td>
+      <B.Td>{{B.data.role}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>

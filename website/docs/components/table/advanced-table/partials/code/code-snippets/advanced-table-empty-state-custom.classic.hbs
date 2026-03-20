@@ -1,0 +1,26 @@
+<Hds::AdvancedTable
+  @model={{this.emptyData}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+  @density="short"
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+  <:emptyState>
+    <Hds::ApplicationState as |A|>
+      <A.Header @title="No data to display" />
+      <A.Body @text="No results were found with the selected filters. Please clear or update the filters." />
+      <A.Footer as |F|>
+        <F.Button @text="Clear filters" />
+      </A.Footer>
+    </Hds::ApplicationState>
+  </:emptyState>
+</Hds::AdvancedTable>
