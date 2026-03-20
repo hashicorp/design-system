@@ -1,0 +1,20 @@
+<Hds::Stepper::Nav
+  @currentStep={{this.demoCurrentStep}}
+  @ariaLabel="Status"
+  @onStepChange={{this.demoOnStepChange}}
+  as |S|
+>
+  <S.Step>
+    <:title>Step 1</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Step 2</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Step 3</:title>
+  </S.Step>
+
+  <S.Panel>Content 1</S.Panel>
+  <S.Panel>Content 2</S.Panel>
+  <S.Panel>Content 3</S.Panel>
+</Hds::Stepper::Nav>
