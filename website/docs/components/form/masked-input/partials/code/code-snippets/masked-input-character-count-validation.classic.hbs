@@ -1,0 +1,13 @@
+<Hds::Form::MaskedInput::Field
+  @value={{this.value}}
+  @isInvalid={{this.fieldIsInvalid}}
+  name="demo-team-token"
+  {{on "input" this.updateValue}}
+  as |F|
+>
+  <F.Label>Terraform Cloud team token</F.Label>
+  <F.CharacterCount @minLength={{this.minLength}} />
+  {{#if this.fieldIsInvalid}}
+    <F.Error>Length should be at least 40 characters</F.Error>
+  {{/if}}
+</Hds::Form::MaskedInput::Field>

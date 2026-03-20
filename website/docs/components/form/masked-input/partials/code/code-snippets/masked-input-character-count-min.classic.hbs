@@ -1,0 +1,4 @@
+<Hds::Form::MaskedInput::Field @value={{this.value}} name="demo-team-token" {{on "input" this.updateValue}} as |F|>
+  <F.Label>Terraform Cloud team token</F.Label>
+  <F.CharacterCount @minLength={{30}} />
+</Hds::Form::MaskedInput::Field>
