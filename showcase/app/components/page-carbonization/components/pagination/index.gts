@@ -21,6 +21,7 @@ import {
   HdsPaginationCompact,
   HdsPaginationNavArrow,
   HdsPaginationNavNumber,
+  HdsPaginationSizeSelector,
 } from '@hashicorp/design-system-components/components';
 
 import NOOP from 'showcase/utils/noop';
@@ -131,6 +132,37 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     <ShwTextH2>Base element states</ShwTextH2>
+
+    <ShwTextH3>PaginationSizeSelector</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item as |SFI|>
+            <SFI.Label>Base (default)</SFI.Label>
+            <HdsPaginationSizeSelector @pageSizes={{array 10 30 50}} />
+          </SF.Item>
+          <SF.Item as |SFI|>
+            <SFI.Label>With
+              <code>@currentPageSize</code>
+              (selected option)</SFI.Label>
+            <HdsPaginationSizeSelector
+              @pageSizes={{array 10 30 50}}
+              @selectedSize={{30}}
+            />
+          </SF.Item>
+          <SF.Item as |SFI|>
+            <SFI.Label>With
+              <code>@label</code>
+              to add custom label text</SFI.Label>
+            <HdsPaginationSizeSelector
+              @pageSizes={{array 10 30 50}}
+              @label="Items"
+            />
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
 
     <ShwTextH3>PaginationNavArrow</ShwTextH3>
 
