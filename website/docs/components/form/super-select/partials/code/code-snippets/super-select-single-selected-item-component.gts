@@ -25,12 +25,12 @@ export default class LocalComponent extends Component {
     },
   ];
 
-  SELECTED_OPTION = this.OPTIONS[1];
+  SELECTED_OPTIONS = this.OPTIONS[1];
 
   <template>
     <HdsFormSuperSelectSingleField
-      @onChange={{fn (mut this.SELECTED_OPTION)}}
-      @selected={{this.SELECTED_OPTION}}
+      @onChange={{fn (mut this.SELECTED_OPTIONS)}}
+      @selected={{this.SELECTED_OPTIONS}}
       @selectedItemComponent={{PowerSelectSelectedOptionSingle}}
       @options={{this.OPTIONS}}
       as |F|
