@@ -1,0 +1,12 @@
+<Hds::Form::Select::Base
+  aria-label="Target infrastructure"
+  required={{true}}
+  name="demo-target-infrastructure"
+  {{on "blur" this.yourOnBlurFunction}}
+  as |S|
+>
+  <S.Options>
+    <option value="Kubernetes">Kubernetes</option>
+    <option value="Other">Other</option>
+  </S.Options>
+</Hds::Form::Select::Base>
