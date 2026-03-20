@@ -25,70 +25,25 @@ We recommend using the Field variation as it provides built-in accessibility fun
 
 In cases where the [Dropdown](/components/dropdown) or [Form Select](/components/form/select) components are not suitable, use `SuperSelect::Single`.
 
-```handlebars
-<Hds::Form::SuperSelect::Single::Field
-  @onChange={{fn (mut this.SELECTED_OPTION)}}
-  @selected={{this.SELECTED_OPTION}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  as |F|
->
-  <F.Label>This is the label</F.Label>
-  <F.Options>{{F.options}}</F.Options>
-</Hds::Form::SuperSelect::Single::Field>
-```
+[[code-snippets/super-select-single-basic]]
 
 ### Form::SuperSelect::Multiple
 
 Use `SuperSelect::Multiple` to allow users to select multiple options.
 
-```handlebars
-<Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{fn (mut this.SELECTED_OPTIONS)}}
-  @selected={{this.SELECTED_OPTIONS}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  as |F|
->
-  <F.Label>This is the label</F.Label>
-  <F.Options>{{F.options}}</F.Options>
-</Hds::Form::SuperSelect::Multiple::Field>
-```
+[[code-snippets/super-select-multiple-basic]]
 
 ### Pre-selected options
 
 To pre-select an option, declare a value for the `selected` argument:
 
-```handlebars
-<Hds::Form::SuperSelect::Single::Field
-  @onChange={{fn (mut this.PRE_SELECTED_OPTION)}}
-  @selected={{this.PRE_SELECTED_OPTION}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  as |F|
->
-  <F.Label>Label</F.Label>
-  <F.Options>{{F.options}}</F.Options>
-</Hds::Form::SuperSelect::Single::Field>
-```
+[[code-snippets/super-select-single-pre-selected]]
 
 ### Placeholder
 
 Placeholder text can be added to provide additional context. However, this information should not be necessary for users to complete a task.
 
-```handlebars
-<Hds::Form::SuperSelect::Single::Field
-  @onChange={{fn (mut this.PLACEHOLDER_SELECTED_OPTION)}}
-  @selected={{this.PLACEHOLDER_SELECTED_OPTION}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  @placeholder="Your location"
-  as |F|
->
-  <F.Label>Select your location of residence</F.Label>
-  <F.Options>{{F.options}}</F.Options>
-</Hds::Form::SuperSelect::Single::Field>
-```
+[[code-snippets/super-select-single-placeholder]]
 
 ### Grouped options
 
@@ -101,28 +56,9 @@ To group similar sets of options, pass a nested data structure specifying the `g
 If options are implemented as an array of strings and have the same name, they will be treated as the same, so selecting one will select others with the same name. To avoid this, implement your options using objects. (e.g. [{name: "name", label: "label"}, ...])
 !!!
 
-**Nested data structure example:**
+Note that the options in the JavaScript in this example are stored as a nested array.
 
-```javascript
-[
-  { groupName: 'Most common', options: ['Kubernetes', 'AWS'] },
-  { groupName: 'Others', options: ['CloudWise', 'SWA', 'Other'] },
-]
-```
-
-**Component invocation:**
-
-```handlebars
-<Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{fn (mut this.SELECTED_GROUPED_OPTIONS)}}
-  @selected={{this.SELECTED_GROUPED_OPTIONS}}
-  @options={{this.GROUPED_OPTIONS}}
-  as |F|
->
-  <F.Label>Grouped options</F.Label>
-  <F.Options>{{F.options}}</F.Options>
-</Hds::Form::SuperSelect::Multiple::Field>
-```
+[[code-snippets/super-select-multiple-grouped]]
 
 ### Rich-content options
 
@@ -130,152 +66,41 @@ Super Select allows you to add HTML tags within options to lay out and structure
 
 #### Rich content with default display in SuperSelect::Single
 
-```handlebars
-<Hds::Form::SuperSelect::Single::Field
-  @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTION)}}
-  @selected={{this.SELECTED_CLUSTER_SIZE_OPTION}}
-  @options={{this.CLUSTER_SIZE_OPTIONS}}
-  as |F|
->
-  <F.Label>Size</F.Label>
-  <F.Options>
-    {{#let F.options as |option|}}
-      <Hds::Text::Body @size="200">
-        <div class="doc-super-select-option-rich-header">
-          <strong>{{option.size}}</strong>
-          <strong>{{option.price}}</strong>
-        </div>
-        <div>{{option.description}}</div>
-      </Hds::Text::Body>
-    {{/let}}
-  </F.Options>
-</Hds::Form::SuperSelect::Single::Field>
-```
+[[code-snippets/super-select-single-rich-content]]
 
 #### Rich content with default display in SuperSelect::Multiple
 
 By default, all content of selected options displays in the “trigger”. Visually, this looks ok in `SuperSelect::Single`. However, in `SuperSelect::Multiple` the selected items are displayed as pill-shaped “tags” so can look quite busy.
 
-```handlebars
-<Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTIONS)}}
-  @selected={{this.SELECTED_CLUSTER_SIZE_OPTIONS}}
-  @options={{this.CLUSTER_SIZE_OPTIONS}}
-  as |F|
->
-  <F.Label>Size</F.Label>
-  <F.Options>
-    {{#let F.options as |option|}}
-      <Hds::Text::Body @size="200">
-        <div class="doc-super-select-option-rich-header">
-          <strong>{{option.size}}</strong>
-          <strong>{{option.price}}</strong>
-        </div>
-        <div>{{option.description}}</div>
-      </Hds::Text::Body>
-    {{/let}}
-  </F.Options>
-</Hds::Form::SuperSelect::Multiple::Field>
-```
+[[code-snippets/super-select-multiple-rich-content]]
 
 ### Selected item component
 
 To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
 
-An example of a custom `selectedItemComponent` example:
+An example of a custom `selectedItemComponent`:
 
-```markup
-<span>
-  {{@option.size}}
-</span>
-```
+[[code-snippets/example-selected-item-component execute=false]]
 
 `SuperSelect::Multiple` invocation with `selectedItemComponent` specified:
 
-```handlebars
-<Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTIONS)}}
-  @selected={{this.SELECTED_CLUSTER_SIZE_OPTIONS}}
-  @selectedItemComponent={{component "power-select/selected-option-multiple"}}
-  @options={{this.CLUSTER_SIZE_OPTIONS}}
-  as |F|
->
-  <F.Label>Size</F.Label>
-  <F.Options>
-    {{#let F.options as |option|}}
-      <Hds::Text::Body @size="200">
-        <div class="doc-super-select-option-rich-header">
-          <strong>{{option.size}}</strong>
-          <strong>{{option.price}}</strong>
-        </div>
-        <div>{{option.description}}</div>
-      </Hds::Text::Body>
-    {{/let}}
-  </F.Options>
-</Hds::Form::SuperSelect::Multiple::Field>
-```
+[[code-snippets/super-select-multiple-selected-item-component]]
 
 `SuperSelect::Single` invocation with `selectedItemComponent` specified:
 
-```handlebars
-<Hds::Form::SuperSelect::Single::Field
-  @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTION)}}
-  @selected={{this.SELECTED_CLUSTER_SIZE_OPTION}}
-  @selectedItemComponent={{component "power-select/selected-option-single"}}
-  @options={{this.CLUSTER_SIZE_OPTIONS}}
-  as |F|
->
-  <F.Label>Size</F.Label>
-  <F.Options>
-    {{#let F.options as |option|}}
-      <Hds::Text::Body @size="200">
-        <div class="doc-super-select-option-rich-header">
-          <strong>{{option.size}}</strong>
-          <strong>{{option.price}}</strong>
-        </div>
-        <div>{{option.description}}</div>
-      </Hds::Text::Body>
-    {{/let}}
-  </F.Options>
-</Hds::Form::SuperSelect::Single::Field>
-```
+[[code-snippets/super-select-single-selected-item-component]]
 
 ### Limiting width
 
 If needed, you can use `dropdownMaxWidth` to limit the width of the dropdown content. Setting a value for `dropdownMaxWidth` automatically sets `matchTriggerWidth` to `false` meaning that the width of the dropdown content will not necessarily match the list of the toggle or trigger element as it does by default.
 
-```handlebars
-<div class="doc-super-select-constrain-width">
-  <Hds::Form::SuperSelect::Single::Field
-    @onChange={{fn (mut this.SELECTED_LONG_OPTION)}}
-    @selected="API code"
-    @options={{this.LONG_OPTIONS}}
-    @dropdownMaxWidth="25em"
-    as |F|
-  >
-    <F.Label>Choose one</F.Label>
-    <F.Options>{{F.options}}</F.Options>
-  </Hds::Form::SuperSelect::Single::Field>
-</div>
-```
+[[code-snippets/super-select-single-width]]
 
 ### Helper text
 
 You can add extra information to the field using [Helper Text](/components/form/primitives#formhelpertext). When helper text is added, the component automatically adds an `aria-describedby` attribute to the Super Select control, associating it with the automatically generated `ID` of the helper text element.
 
-```handlebars
-<Hds::Form::SuperSelect::Single::Field
-  @onChange={{fn (mut this.SELECTED_GROUPED_OPTION)}}
-  @selected={{this.SELECTED_GROUPED_OPTION}}
-  @options={{this.GROUPED_OPTIONS}}
-  @ariaLabel="Label"
-  as |F|
->
-  <F.Label>Target infrastructure</F.Label>
-  <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
-  <F.Options>{{F.options}}</F.Options>
-</Hds::Form::SuperSelect::Single::Field>
-```
+[[code-snippets/super-select-single-helper-text]]
 
 #### Extra content in label and helper text
 
@@ -290,67 +115,16 @@ The `Label` and `HelperText` contextual components used in the Field component y
 
 For example:
 
-```handlebars
-<Hds::Form::SuperSelect::Single::Field
-  @onChange={{fn (mut this.EXTRA_SELECTED_GROUPED_OPTION)}}
-  @selected={{this.EXTRA_SELECTED_GROUPED_OPTION}}
-  @options={{this.GROUPED_OPTIONS}}
-  @ariaLabel="Label"
-  as |F|
->
-  <F.Label>Target infrastructure <Hds::Badge @size="small" @text="Beta" /></F.Label>
-  <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
-  <F.Options>{{F.options}}</F.Options>
-</Hds::Form::SuperSelect::Single::Field>
-```
+[[code-snippets/super-select-single-extra-content]]
 
 #### Required vs. optional
 
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
-```handlebars
-<Hds::Form as |FORM|>
-  <FORM.Section>
-    <Hds::Form::SuperSelect::Single::Field
-      @isRequired={{true}}
-      @onChange={{fn (mut this.SELECTED_OPTION)}}
-      @selected={{this.SELECTED_OPTION}}
-      @options={{this.OPTIONS}}
-      @searchEnabled={{true}}
-      as |F|
-    >
-      <F.Label>This is the label</F.Label>
-      <F.Options>{{F.options}}</F.Options>
-    </Hds::Form::SuperSelect::Single::Field>
-
-    <Hds::Form::SuperSelect::Single::Field
-      @isOptional={{true}}
-      @onChange={{fn (mut this.SELECTED_OPTION)}}
-      @selected={{this.SELECTED_OPTION}}
-      @options={{this.OPTIONS}}
-      @searchEnabled={{true}}
-      as |F|
-    >
-      <F.Label>This is the label</F.Label>
-      <F.Options>{{F.options}}</F.Options>
-    </Hds::Form::SuperSelect::Single::Field>
-  </FORM.Section>
-</Hds::Form>
-```
+[[code-snippets/super-select-single-indicators]]
 
 ### Base components
 
 The Base components are intended for rare cases where the Field components can’t be used and a custom implementation is needed. Most of the details for the Field components also apply to the Base components, but see the [Component API](#component-api) for more details.
 
-```handlebars
-<Hds::Form::SuperSelect::Multiple::Base
-  @onChange={{fn (mut this.SELECTED_MULTIPLE)}}
-  @selected={{this.SELECTED_MULTIPLE}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  @ariaLabel="Select server preferences"
-  as |options|
->
-  {{options}}
-</Hds::Form::SuperSelect::Multiple::Base>
-```
+[[code-snippets/super-select-base]]

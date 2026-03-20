@@ -1,0 +1,10 @@
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{fn (mut this.SELECTED_OPTION)}}
+  @selected={{this.SELECTED_OPTION}}
+  @options={{this.OPTIONS}}
+  @searchEnabled={{true}}
+  as |F|
+>
+  <F.Label>Label</F.Label>
+  <F.Options>{{F.options}}</F.Options>
+</Hds::Form::SuperSelect::Single::Field>
