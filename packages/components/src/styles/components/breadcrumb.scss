@@ -238,7 +238,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   padding: 6px 12px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-breadcrumb-truncation-content-box-shadow);
+  box-shadow: var(--token-breadcrumb-truncation-menu-box-shadow);
 
   @include hds-apply-only-if-carbon() {
     padding: 0;

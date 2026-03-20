@@ -8530,7 +8530,7 @@
     ]
   },
   {
-    "key": "{breadcrumb.truncation.content.box-shadow}",
+    "key": "{breadcrumb.truncation.menu.box-shadow}",
     "$value": "0 2px 6px rgba(0, 0, 0, 0.3)",
     "$modes": {
       "default": "none",
@@ -8548,16 +8548,16 @@
         "cds-g90": "0 2px 6px {carbon.themes.g90.shadow}",
         "cds-g100": "0 2px 6px {carbon.themes.g100.shadow}"
       },
-      "key": "{breadcrumb.truncation.content.box-shadow}"
+      "key": "{breadcrumb.truncation.menu.box-shadow}"
     },
-    "name": "token-breadcrumb-truncation-content-box-shadow",
+    "name": "token-breadcrumb-truncation-menu-box-shadow",
     "attributes": {
       "category": "breadcrumb"
     },
     "path": [
       "breadcrumb",
       "truncation",
-      "content",
+      "menu",
       "box-shadow"
     ]
   },

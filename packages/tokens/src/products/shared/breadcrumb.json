@@ -67,7 +67,7 @@
       }
     },
     "truncation": {
-      "content": {
+      "menu": {
         "box-shadow": {
           "$value": "{surface.high.box-shadow}",
           "$modes": {
