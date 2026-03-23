@@ -40,6 +40,14 @@ function stripTemplateLintIgnores(code) {
   );
 }
 
+// Helper to remove eslint ignore comments
+function stripEslintIgnores(code) {
+  return code.replace(
+    /^[ \t]*\/\*\s*eslint-(?:disable|enable)\b[^\n\r]*\*\/[ \t]*(?:\r?\n)?/gm,
+    '',
+  );
+}
+
 // Helper to escape code for attribute usage
 function escapeCode(code) {
   return code
@@ -151,7 +159,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 ext === '.classic.js' &&
                 shouldIncludeBackingClass !== 'false'
               ) {
-                codeSnippets.js = escapeCode(code);
+                codeSnippets.js = escapeCode(stripEslintIgnores(code));
               }
 
               if (ext === '.gts') {
