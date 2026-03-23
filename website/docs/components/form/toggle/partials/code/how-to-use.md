@@ -17,15 +17,7 @@ It’s unlikely you’ll need to use `Form::Toggle::Group`, instead consider usi
 
 There may be use cases in which you need to create a Toggle group that contains a single field element (e.g., to show the `Legend` in a similar position for other control’s labels). 
 
-```handlebars
-<Hds::Form::Toggle::Group as |G|>
-  <G.Legend>Visibility</G.Legend>
-  <G.ToggleField name="demo-private" @id="visibility-private" as |F|>
-    <F.Label>Private</F.Label>
-    <F.HelperText>Making a box private prevents users from accessing it unless given permission.</F.HelperText>
-  </G.ToggleField>
-</Hds::Form::Toggle::Group>
-```
+[[code-snippets/toggle-group-single]]
 
 {{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
 
@@ -38,31 +30,19 @@ The basic invocation creates:
 - a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute.
 - a `<input type="checkbox">` control with an automatically generated `ID` attribute.
 
-```handlebars
-<Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-basic]]
 
 #### Input value
 
 Pass a `@value` argument.
 
-```handlebars
-<Hds::Form::Toggle::Field @value="enable" name="demo-cost-estimate" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-value]]
 
 #### Checked
 
 Pass the standard HTML `checked` attribute to set the Toggle to “checked”.
 
-```handlebars
-<Hds::Form::Toggle::Field @value="enable" name="demo-cost-estimate" checked as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-checked]]
 
 #### Extra content in label and helper text
 
@@ -77,12 +57,7 @@ The `Label` and `HelperText` contextual components used in the Field component y
 
 When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID`.
 
-```handlebars
-<Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
-  <F.Label>Enable cost estimation <Hds::Badge @size="small" @text="Beta" @color="highlight" /></F.Label>
-  <F.HelperText>See <Hds::Link::Inline @href="#">our pricing</Hds::Link::Inline> for more information.</F.HelperText>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-extra-content]]
 
 #### Required vs. optional
 
@@ -90,25 +65,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication nex
 
 Note: While the Toggle component is already normally required by the nature of its use for on/off selection, there may be rare instances in which a Toggle is turned off by default but requires the user to interact with it before submitting a form. For example, for accepting terms and conditions.
 
-```handlebars
-<Hds::Form as |FORM|>
-  <FORM.Section>
-    <Hds::Form::Toggle::Group @isRequired={{true}} as |G|>
-      <G.Legend>Visibility</G.Legend>
-      <G.ToggleField name="demo-private" @id="visibility-private" as |F|>
-        <F.Label>Private</F.Label>
-      </G.ToggleField>
-    </Hds::Form::Toggle::Group>
-
-    <Hds::Form::Toggle::Group @isOptional={{true}} as |G|>
-      <G.Legend>Visibility</G.Legend>
-      <G.ToggleField name="demo-private" @id="visibility-private" as |F|>
-        <F.Label>Private</F.Label>
-      </G.ToggleField>
-    </Hds::Form::Toggle::Group>
-  </FORM.Section>
-</Hds::Form>
-```
+[[code-snippets/toggle-indicators]]
 
 #### Validation
 
@@ -116,12 +73,7 @@ To indicate a field is invalid, provide an error message using the `Error` conte
 
 Unlike the `TextInput/Textarea/Select` components, you don’t need to pass an `@isInvalid` argument, because the Toggle doesn’t have an “invalid” visual state.
 
-```handlebars
-<Hds::Form::Toggle::Field name="demo-approve-change" as |F|>
-  <F.Label>I approve the changes.</F.Label>
-  <F.Error>Error: it is necessary to explicitly approve the changes to continue.</F.Error>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-validation]]
 
 #### Custom control ID
 
@@ -129,43 +81,25 @@ If needing a custom ID for the control instead of the one automatically generate
 
 In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated and will use the custom ID provided.
 
-```handlebars
-<Hds::Form::Toggle::Field @id="my-control" name="demo-cost-estimate" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-  <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-custom-id]]
 
 #### Additional `aria-describedby`
 
 Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
-```handlebars
-<Hds::Form::Toggle::Field @extraAriaDescribedBy="my-extra-element-ID" name="demo-cost-estimate" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-  <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-extra-describedby]]
 
 #### HTML native attributes
 
 This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control).
 
-```handlebars
-<Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-attrs]]
 
 #### Events handling
 
 Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `change`), validation, etc. 
 
-```handlebars
-<Hds::Form::Toggle::Field name="demo-cost-estimate" {{on "change" this.yourOnChangeFunction}} as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
+[[code-snippets/toggle-events]]
 
 {{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
 
@@ -175,11 +109,4 @@ The Base element is intended for rare cases where the Field or Group components 
 
 This Base component creates the `<input type="checkbox">` control with an automatically generated `ID` attribute.
 
-```handlebars
-<Hds::Form::Toggle::Base
-  name="demo-cost-estimate"
-  aria-label="Enable cost estimation"
-  @value="enable"
-  {{on "change" this.yourOnChangeFunction}}
-/>
-```
+[[code-snippets/toggle-base]]
