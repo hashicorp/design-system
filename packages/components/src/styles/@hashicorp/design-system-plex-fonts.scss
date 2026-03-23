@@ -37,17 +37,21 @@ $selected-weights: (
 );
 /* stylelint-enable value-keyword-case */
 
+// Define a Sass variable for the assets path, so it can be overwritten if needed (to compile the CSS from Sass)
+//
+$hds-ibm-plex-fonts-assets-path: "/assets" !default;
+
 // Plex Sans (imported from `node_modules/@ibm/plex-sans`)
 //
 @use "plex-sans/scss/index.scss" as PlexSans with (
-  $font-prefix: "/assets",
+  $font-prefix: $hds-ibm-plex-fonts-assets-path,
   $font-weights: $selected-weights
 );
 
 // Plex Mono (imported from `node_modules/@ibm/plex-mono`)
 //
 @use "plex-mono/scss/index.scss" as PlexMono with (
-  $font-prefix: "/assets",
+  $font-prefix: $hds-ibm-plex-fonts-assets-path,
   $font-weights: $selected-weights
 );
 
