@@ -11,6 +11,9 @@ import { on } from '@ember/modifier';
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
+import { service } from '@ember/service';
+
+import type HdsIntlService from '../../../services/hds-intl';
 
 import type Owner from '@ember/owner';
 
@@ -52,6 +55,7 @@ export interface HdsTableThSelectableSignature {
 }
 
 export default class HdsTableThSelectable extends Component<HdsTableThSelectableSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
   @tracked isSelected: boolean;
   private _guid = guidFor(this);
 
@@ -69,7 +73,11 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
 
   get ariaLabel(): string {
     const { selectionAriaLabelSuffix = 'row' } = this.args;
-    return `Select ${selectionAriaLabelSuffix}`;
+    const defaultString = `Select ${selectionAriaLabelSuffix}`;
+    return this.hdsIntl.t('hds.table.select', {
+      default: defaultString,
+      suffix: selectionAriaLabelSuffix,
+    });
   }
 
   get ariaSort(): HdsTableThSortOrderLabels | undefined {
