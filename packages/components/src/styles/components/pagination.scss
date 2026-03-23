@@ -11,6 +11,9 @@
 @use "../mixins/breakpoints" as *;
 @use "../mixins/carbonization" as *;
 
+// Note: the equivalant token was removed in Figma so we are now using a Sass variable for this value
+$pagination-nav-control-padding-horizontal: 12px;
+
 // * Pagination Parent (wrapper) component
 // -------------------------------------------------------------------
 
@@ -159,7 +162,7 @@
   align-items: center;
   height: var(--token-pagination-nav-control-height);
   // border width is subtracted from padding:
-  padding: 0 calc(var(--token-pagination-nav-control-padding-horizontal) - 1px);
+  padding: 0 calc(#{$pagination-nav-control-padding-horizontal} - 1px);
   color: var(--token-color-foreground-primary);
   text-decoration: none;
   background-color: transparent;
@@ -251,7 +254,7 @@
   display: flex;
   align-items: center;
   height: var(--token-pagination-nav-control-height);
-  padding: 0 var(--token-pagination-nav-control-padding-horizontal);
+  padding: 0 $pagination-nav-control-padding-horizontal;
   color: var(--token-color-foreground-faint);
 }
 
