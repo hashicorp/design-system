@@ -10,6 +10,8 @@
 // see https://github.com/hashicorp/design-system-components/issues/132
 //
 
+@use "../../mixins/carbonization" as *;
+
 .hds-link-inline {
   border-radius: var(--token-border-radius-x-small); // this is used by the outline too
 
@@ -19,6 +21,10 @@
     text-decoration: none;
     outline: var(--token-link-inline-outline-width) solid var(--token-link-inline-outline-color);
     outline-offset: 1px;
+  }
+
+  @include hds-apply-only-if-carbon() {
+    text-decoration: underline;
   }
 }
 
