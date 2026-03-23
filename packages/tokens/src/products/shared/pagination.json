@@ -35,13 +35,6 @@
           "$value": "36",
           "unit": "px"
         },
-        "padding": {
-          "horizontal": {
-            "$type": "dimension",
-            "$value": "12",
-            "unit": "px"
-          }
-        },
         "focus-inset": {
           "$type": "dimension",
           "$value": "4",
