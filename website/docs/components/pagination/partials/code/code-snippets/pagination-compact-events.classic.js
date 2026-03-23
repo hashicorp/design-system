@@ -3,11 +3,7 @@ import { action } from '@ember/object';
 
 export default class LocalComponent extends Component {
   @action
-  handlePageChange(page, pageSize) {
-    console.log(
-      pageSize !== undefined
-        ? `Page changed to "${page}" with page size equal to "${pageSize}"!`
-        : `Page changed to "${page}"!`
-    );
+  handlePageChange(page) {
+    console.log(`Page changed to "${page}"!`);
   }
 }

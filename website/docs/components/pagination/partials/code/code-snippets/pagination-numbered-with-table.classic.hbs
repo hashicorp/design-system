@@ -7,9 +7,6 @@
       (hash key="email" label="Email")
       (hash key="role" label="Role")
     }}
-    @sortBy={{this.demoCurrentSortBy}}
-    @sortOrder={{this.demoCurrentSortOrder}}
-    @onSort={{this.demoOnTableSort}}
     @density={{if (eq this.demoCurrentPageSize 30) "short" "medium"}}
   >
     <:body as |B|>

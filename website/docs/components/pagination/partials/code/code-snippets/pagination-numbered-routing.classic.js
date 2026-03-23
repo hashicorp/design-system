@@ -16,7 +16,7 @@ export default class LocalComponent extends Component {
 
   get demoRouteName() {
     // eg. 'components.pagination';
-    return this.router.currentRouteName;
+    return this.router.currentRouteName ?? '';
   }
 
   get demoTotalItems() {

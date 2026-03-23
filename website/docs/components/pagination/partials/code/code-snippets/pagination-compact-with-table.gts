@@ -66,11 +66,6 @@ const getNewPrevNextCursors = (
 export default class LocalComponent extends Component {
   @service declare readonly router: RouterService;
 
-  private toPositiveInt(value: unknown, fallback: number): number {
-    const parsed = Number(value);
-    return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
-  }
-
   get routeQueryParams(): DemoQueryParams {
     return (this.router.currentRoute?.queryParams ?? {}) as DemoQueryParams;
   }
@@ -81,7 +76,7 @@ export default class LocalComponent extends Component {
 
   get demoRouteName() {
     // eg. 'components.pagination';
-    return this.router.currentRouteName;
+    return this.router.currentRouteName ?? '';
   }
 
   get demoCurrentPageSize() {

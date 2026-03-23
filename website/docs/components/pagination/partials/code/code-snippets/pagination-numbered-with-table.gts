@@ -39,7 +39,7 @@ export default class LocalComponent extends Component {
 
   get demoRouteName() {
     // eg. 'components.pagination';
-    return this.router.currentRouteName;
+    return this.router.currentRouteName ?? '';
   }
 
   get demoTotalItems() {
@@ -52,6 +52,12 @@ export default class LocalComponent extends Component {
 
   get demoCurrentPageSize() {
     return this.toPositiveInt(this.routeQueryParams.demoCurrentPageSize, 5);
+  }
+
+  get demoPaginatedDataNumbered() {
+    const start = (this.demoCurrentPage - 1) * this.demoCurrentPageSize;
+    const end = this.demoCurrentPage * this.demoCurrentPageSize;
+    return this.model.records.slice(start, end);
   }
 
   get demoQueryFunctionNumbered(): (
@@ -102,9 +108,6 @@ export default class LocalComponent extends Component {
           (hash key="email" label="Email")
           (hash key="role" label="Role")
         }}
-        @sortBy={{this.demoCurrentSortBy}}
-        @sortOrder={{this.demoCurrentSortOrder}}
-        @onSort={{this.demoOnTableSort}}
         @density={{if (eq this.demoCurrentPageSize 30) "short" "medium"}}
       >
         <:body as |B|>

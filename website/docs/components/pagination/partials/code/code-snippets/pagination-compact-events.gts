@@ -2,13 +2,11 @@ import Component from '@glimmer/component';
 
 import { HdsPaginationCompact } from '@hashicorp/design-system-components/components';
 
+import type { HdsPaginationDirections } from '@hashicorp/design-system-components/components/hds/pagination/types';
+
 export default class LocalComponent extends Component {
-  handlePageChange = (page: number, pageSize?: number) => {
-    console.log(
-      pageSize !== undefined
-        ? `Page changed to "${page}" with page size equal to "${pageSize}"!`
-        : `Page changed to "${page}"!`,
-    );
+  handlePageChange = (page: HdsPaginationDirections) => {
+    console.log(`Page changed to "${page}"!`);
   };
 
   <template>
