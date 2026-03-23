@@ -6,11 +6,7 @@ You can apply a border radius to a UI element via design tokens.
 
 Use the border radius [design tokens](../foundations/tokens) directly in your CSS definitions.
 
-```css
-.your-selector {
-  border-radius: var(--token-border-radius-medium);
-}
-```
+[[code-snippets/border-token]]
 
 #### Available CSS variables
 
