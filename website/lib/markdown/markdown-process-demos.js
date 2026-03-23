@@ -33,9 +33,10 @@ const SUPPORTED_FILE_EXTENSIONS = [
 
 // Helper to remove template-lint ignore comments
 function stripTemplateLintIgnores(code) {
-  return code
-    .replace(/\{\{!\s*template-lint-disable.*?\}\}\n?/g, '')
-    .replace(/\{\{!\s*template-lint-enable.*?\}\}\n?/g, '');
+  return code.replace(
+    /^[ \t]*\{\{!\s*template-lint-(?:disable|enable)\b[^\n\r]*\}\}[ \t]*(?:\r?\n)?/gm,
+    '',
+  );
 }
 
 // Helper to escape code for attribute usage

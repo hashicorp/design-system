@@ -1,0 +1,15 @@
+<Hds::Button @text="Open basic modal" @color="secondary" {{on "click" this.activateModal}} />
+
+{{#if this.isOpen}}
+  <Hds::Modal id="basic-modal" @onClose={{this.deactivateModal}} as |M|>
+    <M.Header>
+      Modal title
+    </M.Header>
+    <M.Body>
+      <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+    </M.Body>
+    <M.Footer as |F|>
+      <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+    </M.Footer>
+  </Hds::Modal>
+{{/if}}

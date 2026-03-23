@@ -26,31 +26,7 @@ When the Modal has been closed, the browser automatically returns the focus to t
 
 ## How to use this component
 
-```handlebars
-<Hds::Button
-  @text="Open basic modal"
-  @color="secondary"
-  {{on "click" (fn this.activateModal "basicModalActive")}}
-/>
-
-{{#if this.basicModalActive}}
-  <Hds::Modal
-    id="basic-modal"
-    @onClose={{fn this.deactivateModal "basicModalActive"}}
-    as |M|
-  >
-    <M.Header>
-      Modal title
-    </M.Header>
-    <M.Body>
-      <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-    </M.Body>
-    <M.Footer as |F|>
-      <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
-    </M.Footer>
-  </Hds::Modal>
-{{/if}}
-```
+[[code-snippets/modal-basic]]
 
 ### Form within a Modal dialog
 
@@ -60,49 +36,4 @@ The `<form>` element should be placed in the yielded `Body` subcomponent. We als
 
 When the Modal dialog contains information that might be lost on close, use a confirmation message before discarding it.
 
-```handlebars
-<Hds::Button
-  @text="Open form modal"
-  @color="secondary"
-  {{on "click" (fn this.activateModal "formModalActive")}}
-/>
-
-{{#if this.formModalActive}}
-  <Hds::Modal
-    id="form-modal"
-    @onClose={{fn this.deactivateModal "formModalActive"}}
-    as |M|
-  >
-    <M.Header>
-      Why do you want to leave the beta?
-    </M.Header>
-    <M.Body>
-      <Hds::Form
-        id="leaving-beta-form"
-        {{on "submit" (fn this.submitForm)}}
-        as |FORM|
-      >
-        <FORM.Section>
-          <Hds::Form::Select::Field autofocus @width="100%" as |F|>
-            <F.Label>Select the primary reason</F.Label>
-            <F.Options>
-              <option></option>
-            </F.Options>
-          </Hds::Form::Select::Field>
-          <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
-            <F.Label>Your feedback</F.Label>
-          </Hds::Form::Textarea::Field>
-        </FORM.Section>
-      </Hds::Form>
-    </M.Body>
-    <M.Footer as |F|>
-      <Hds::ButtonSet>
-        <Hds::Button type="submit" form="leaving-beta-form" @text="Leave Beta" />
-        <Hds::Button type="button" @text="Cancel" @color="secondary"
-          {{on "click" F.close}}
-        />
-      </Hds::ButtonSet>
-    </M.Footer>
-  </Hds::Modal>
-{{/if}}
-```
+[[code-snippets/modal-with-form]]
