@@ -286,6 +286,11 @@ $pagination-nav-control-padding-horizontal: 12px;
     background-position: center right 5px;
 
     @include hds-apply-only-if-carbon() {
+      margin-left: 0;
+      // Note: In Figma, a token for pagination-selector-surface-color-default is used
+      // so that the dropdown doesn't have a background in the default state in CDS modes.
+      // Check if this is necessary to add when the Select component is being "carbonized"
+      background-color: transparent;
       border: 0;
     }
   }
