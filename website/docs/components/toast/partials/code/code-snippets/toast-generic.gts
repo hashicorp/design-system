@@ -1,0 +1,19 @@
+import Component from '@glimmer/component';
+
+import { HdsToast } from '@hashicorp/design-system-components/components';
+
+export default class LocalComponent extends Component {
+  yourOnDismissFunction = () => {
+    console.log('Clicked the "dismiss" button in the "toast"!');
+  };
+
+  <template>
+    <HdsToast @onDismiss={{this.yourOnDismissFunction}} as |T|>
+      <T.Title>Title here</T.Title>
+      <T.Description>Description here</T.Description>
+      <T.Generic>
+        [your content here]
+      </T.Generic>
+    </HdsToast>
+  </template>
+}
