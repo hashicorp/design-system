@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class Index extends Component {
-  @tracked value = '036215df4996ca649928d8864b4df9e42cba0d';
+  @tracked value = '036215df4996ca649928d8864b4df9e42';
 
   @action updateValue(event) {
     this.value = event.target.value;
