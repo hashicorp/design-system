@@ -20,8 +20,9 @@ export default class LocalComponent extends Component {
     >
       <F.Label>Terraform Cloud team token</F.Label>
       <F.CharacterCount @maxLength={{40}} as |CC|>
+        You have
         {{CC.remaining}}
-        characters remaining
+        characters remaining.
       </F.CharacterCount>
     </HdsFormMaskedInputField>
   </template>
