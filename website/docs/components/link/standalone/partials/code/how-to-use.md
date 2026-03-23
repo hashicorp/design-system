@@ -14,37 +14,25 @@ Due to differences in text rendering between Figma and web browsers, the `Link::
 
 The most basic invocation requires both `@icon` and `@text`, and either an `@href` or `@route` argument.
 
-```handlebars
-<Hds::Link::Standalone @icon="film" @text="Watch tutorial video" @href="..." />
-```
+[[code-snippets/link-standalone-basic]]
 
 ### Icon position
 
 By default the icon is placed before the text. If you would like to position it after the text, set `@iconPosition` to `trailing`.
 
-```handlebars
-<Hds::Link::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" @href="..." />
-```
+[[code-snippets/link-standalone-icon-position]]
 
 ### Color
 
 There are two available colors for a Standalone Link: `primary` and `secondary`. The default is `primary`. To use the other option, set `@color` to `secondary`.
 
-```handlebars
-<Hds::Link::Standalone @color="secondary" @icon="collections" @text="Read tutorial" @href="..." />
-```
+[[code-snippets/link-standalone-color]]
 
 ### Size
 
 There are three sizes available: `small`, `medium`, and `large`. The default is `medium`. To use a different size, set a value for `@size`:
 
-```handlebars
-<Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" @href="..." />
-```
-
-```handlebars
-<Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="large" @href="..." />
-```
+[[code-snippets/link-standalone-size]]
 
 ### URL and route handling
 
@@ -58,9 +46,7 @@ To generate an `<a>` link, pass an `@href` argument with a URL as the value.
 
 By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
-```handlebars
-<Hds::Link::Standalone @icon="terraform" @text="Request a demo" @href="https://www.hashicorp.com/request-demo/terraform" />
-```
+[[code-snippets/link-standalone-href]]
 
 If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
@@ -72,9 +58,7 @@ All the standard arguments for the `<LinkTo/LinkToExternal>` components are supp
 
 To generate an `<a>` link using a `<LinkTo>` Ember component, pass a `@route` argument.
 
-```handlebars
-<Hds::Link::Standalone @icon="collections" @text="Go to the index page" @route="my.page.route" @model="my.page.model" />
-```
+[[code-snippets/link-standalone-link-to]]
 
 ##### For `<LinkToExternal>`
 
