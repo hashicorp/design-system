@@ -8,7 +8,8 @@
     <M.Body>
       <Hds::Form id="leaving-beta-form" {{on "submit" this.submitForm}} as |FORM|>
         <FORM.Section>
-          <Hds::Form::Select::Field @width="100%" as |F|>
+          {{! template-lint-disable no-autofocus-attribute }}
+          <Hds::Form::Select::Field autofocus @width="100%" as |F|>
             <F.Label>Select the primary reason</F.Label>
             <F.Options>
               <option></option>

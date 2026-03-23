@@ -45,7 +45,8 @@ export default class LocalComponent extends Component {
             as |FORM|
           >
             <FORM.Section>
-              <HdsFormSelectField @width="100%" as |F|>
+              {{! template-lint-disable no-autofocus-attribute }}
+              <HdsFormSelectField autofocus @width="100%" as |F|>
                 <F.Label>Select the primary reason</F.Label>
                 <F.Options>
                   <option></option>
