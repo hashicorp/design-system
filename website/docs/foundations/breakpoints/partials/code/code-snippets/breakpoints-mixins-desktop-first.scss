@@ -1,0 +1,19 @@
+// from @hashicorp/design-system-components package
+@use "mixins/breakpoints" as *;
+
+.my-responsive-layout {
+  // this is the default behavior
+  display: flex;
+  gap: 2rem;
+  direction: row;
+
+  // at smaller viewports we decrease the spacing between the items
+  @include hds-breakpoint-below('xl') {
+    gap: 1rem;
+  }
+
+  // at 768px the layout changes, from an horizontal stack to a vertical one
+  @include hds-breakpoint-below('md') {
+    direction: column;
+  }
+}

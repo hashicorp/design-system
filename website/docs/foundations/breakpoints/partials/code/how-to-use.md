@@ -14,10 +14,7 @@ If you are not able to import the file using the example declaration, [contact t
 To use the Sass helpers provided by the design system, you must import the corresponding Sass file (via `@use`, [as recommended](https://sass-lang.com/documentation/at-rules/use/#differences-from-import)) from the `@hashicorp/design-system-components` package:
 
 
-```scss
-// from @hashicorp/design-system-components package
-@use "mixins/breakpoints" as *;
-```
+[[code-snippets/breakpoints-import]]
 
 Once the file is imported, you will have access to the Sass helpers described below.
 
@@ -31,51 +28,11 @@ Sass mixins offer the simplest, most efficient way to implement responsive layou
 
 Here is an example of how the mixins could be used in a mobile-first responsive layout:
 
-```scss
-// from @hashicorp/design-system-components package
-@use "mixins/breakpoints" as *;
-
-.my-responsive-layout {
-  // this is the default behavior, that covers the range 0px–767px
-  display: flex;
-  direction: column;
-  gap: 1rem;
-
-  // at 768px the layout changes, from a vertical stack to an horizontal one
-  @include hds-breakpoint-above('md') {
-    direction: row;
-  }
-
-  // at larger viewports we increase the spacing between the items
-  @include hds-breakpoint-above('xl') {
-    gap: 2rem;
-  }
-}
-```
+[[code-snippets/breakpoints-mixins]]
 
 The same layout could be achieved using a desktop-first approach in a similar way:
 
-```scss
-// from @hashicorp/design-system-components package
-@use "mixins/breakpoints" as *;
-
-.my-responsive-layout {
-  // this is the default behavior
-  display: flex;
-  direction: row;
-  gap: 2rem;
-
-  // at smaller viewports we decrease the spacing between the items
-  @include hds-breakpoint-below('xl') {
-    gap: 1rem;
-  }
-
-  // at 768px the layout changes, from an horizontal stack to a vertical one
-  @include hds-breakpoint-below('md') {
-    direction: column;
-  }
-}
-```
+[[code-snippets/breakpoints-mixins-desktop-first]]
 
 Of course, these are oversimplified examples. In your implementation, you will have to choose which mixin is best suited to achieve the desired responsive layout. This will  depend on the design specifications, the context of the layout within the page, and how it relates with other UI elements.
 
@@ -83,18 +40,7 @@ Of course, these are oversimplified examples. In your implementation, you will h
 
 For special use cases, we also provide a Sass map–`$hds-breakpoints`–which is a lower level helper than the mixins. Here's an example of how this map could be used:
 
-```scss
-// explicit import of `map` module (required by Sass)
-@use "sass:map";
-// from @hashicorp/design-system-components package
-@use "mixins/breakpoints" as *;
-
-@each $name, $size in $hds-breakpoints {
-  .my-custom-breakpoint-class--#{$name} {
-    // here you have access to the breakpoint name and its value (width in px)
-  }
-}
-```
+[[code-snippets/breakpoints-mixins-map]]
 
 ### JavaScript
 
