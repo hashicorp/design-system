@@ -8274,6 +8274,8 @@ button.hds-button[href]::after {
 .hds-mode-cds-g10 .hds-pagination-size-selector > select,
 .hds-mode-cds-g90 .hds-pagination-size-selector > select,
 .hds-mode-cds-g100 .hds-pagination-size-selector > select {
+  margin-left: 0;
+  background-color: transparent;
   border: 0;
 }
 
