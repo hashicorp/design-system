@@ -175,6 +175,6 @@ Instead, when the text is not masked it will respect the newline characters: thi
 Something to keep in mind when designing and implementing functionality that requires this component.
 !!!
 
-When the `@isMultiline` argument is set to `true`, it creates a `<textarea>` control with an automatically generated `ID` attribute. You can also adjust the height of `<textarea>` either by using the `rows` attribute or by setting a custom `@height` value.
+When the `@isMultiline` argument is set to `true`, it creates a `<textarea>` control with an automatically generated `ID` attribute. You can adjust the height of `<textarea>` either by using the `rows` attribute or by setting a custom `@height` value.
 
 [[code-snippets/masked-input-base-multiline]]
