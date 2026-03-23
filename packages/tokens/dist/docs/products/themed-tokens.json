@@ -13058,29 +13058,6 @@
         "height"
       ]
     },
-    "token-pagination-nav-control-padding-horizontal": {
-      "key": "{pagination.nav.control.padding.horizontal}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "key": "{pagination.nav.control.padding.horizontal}"
-      },
-      "name": "token-pagination-nav-control-padding-horizontal",
-      "attributes": {
-        "category": "pagination"
-      },
-      "path": [
-        "pagination",
-        "nav",
-        "control",
-        "padding",
-        "horizontal"
-      ]
-    },
     "token-pagination-nav-control-focus-inset": {
       "key": "{pagination.nav.control.focus-inset}",
       "$type": "dimension",
@@ -28854,29 +28831,6 @@
         "nav",
         "control",
         "height"
-      ]
-    },
-    "token-pagination-nav-control-padding-horizontal": {
-      "key": "{pagination.nav.control.padding.horizontal}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "key": "{pagination.nav.control.padding.horizontal}"
-      },
-      "name": "token-pagination-nav-control-padding-horizontal",
-      "attributes": {
-        "category": "pagination"
-      },
-      "path": [
-        "pagination",
-        "nav",
-        "control",
-        "padding",
-        "horizontal"
       ]
     },
     "token-pagination-nav-control-focus-inset": {
@@ -44654,29 +44608,6 @@
         "height"
       ]
     },
-    "token-pagination-nav-control-padding-horizontal": {
-      "key": "{pagination.nav.control.padding.horizontal}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "key": "{pagination.nav.control.padding.horizontal}"
-      },
-      "name": "token-pagination-nav-control-padding-horizontal",
-      "attributes": {
-        "category": "pagination"
-      },
-      "path": [
-        "pagination",
-        "nav",
-        "control",
-        "padding",
-        "horizontal"
-      ]
-    },
     "token-pagination-nav-control-focus-inset": {
       "key": "{pagination.nav.control.focus-inset}",
       "$type": "dimension",
@@ -60452,29 +60383,6 @@
         "height"
       ]
     },
-    "token-pagination-nav-control-padding-horizontal": {
-      "key": "{pagination.nav.control.padding.horizontal}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "key": "{pagination.nav.control.padding.horizontal}"
-      },
-      "name": "token-pagination-nav-control-padding-horizontal",
-      "attributes": {
-        "category": "pagination"
-      },
-      "path": [
-        "pagination",
-        "nav",
-        "control",
-        "padding",
-        "horizontal"
-      ]
-    },
     "token-pagination-nav-control-focus-inset": {
       "key": "{pagination.nav.control.focus-inset}",
       "$type": "dimension",
@@ -76248,29 +76156,6 @@
         "nav",
         "control",
         "height"
-      ]
-    },
-    "token-pagination-nav-control-padding-horizontal": {
-      "key": "{pagination.nav.control.padding.horizontal}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "key": "{pagination.nav.control.padding.horizontal}"
-      },
-      "name": "token-pagination-nav-control-padding-horizontal",
-      "attributes": {
-        "category": "pagination"
-      },
-      "path": [
-        "pagination",
-        "nav",
-        "control",
-        "padding",
-        "horizontal"
       ]
     },
     "token-pagination-nav-control-focus-inset": {

@@ -451,7 +451,6 @@
   --token-pagination-bar-border-color: rgba(0, 0, 0, 0);
   --token-pagination-bar-surface-color-default: #ffffff;
   --token-pagination-nav-control-height: 36px;
-  --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
   --token-pagination-nav-control-foreground-color-action: #1060ff;
   --token-pagination-nav-control-foreground-color-action-hover: #0c56e9;
@@ -8154,7 +8153,7 @@ button.hds-button[href]::after {
   display: flex;
   align-items: center;
   height: var(--token-pagination-nav-control-height);
-  padding: 0 calc(var(--token-pagination-nav-control-padding-horizontal) - 1px);
+  padding: 0 calc(12px - 1px);
   color: var(--token-color-foreground-primary);
   text-decoration: none;
   background-color: transparent;
@@ -8244,7 +8243,7 @@ button.hds-button[href]::after {
   display: flex;
   align-items: center;
   height: var(--token-pagination-nav-control-height);
-  padding: 0 var(--token-pagination-nav-control-padding-horizontal);
+  padding: 0 12px;
   color: var(--token-color-foreground-faint);
 }
 
