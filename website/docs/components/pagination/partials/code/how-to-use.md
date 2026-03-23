@@ -37,9 +37,7 @@ If instead you need to update the URL directly when the user clicks on one of th
 
 The basic invocation of Numbered Pagination requires the `@totalItems` argument to be provided (plus the event/routing handlers, see below):
 
-```handlebars
-<Hds::Pagination::Numbered @totalItems={{40}} />
-```
+[[code-snippets/pagination-numbered-basic]]
 
 By default the Info and SizeSelector sub-components are displayed, and the component takes care of updating the values and the states of the different elements, according to the user interactions with the component.
 
@@ -49,55 +47,27 @@ It’s possible to customize the Info, Controls, and SizeSelector components by 
 
 Below is an example of some of these extra arguments:
 
-```handlebars
-<Hds::Pagination::Numbered
-  @totalItems={{40}}
-  @showTotalItems={{false}}
-  @showSizeSelector={{false}}
-  @pageSizes={{array 5 20 60}}
-  @currentPageSize={{20}}
-/>
-```
+[[code-snippets/pagination-numbered-args]]
 
 Example of custom label text for `Pagination::SizeSelector`
 
-```handlebars
-<Hds::Pagination::Numbered
-  @totalItems={{40}}
-  @sizeSelectorLabel="Per page"
-/>
-```
+[[code-snippets/pagination-numbered-size-selector-label]]
 
 ### Truncation
 
 When there is a large number of items and consequently the number of pages is also large, by default the component automatically "truncates" the number of visible pages (using "ellipses"):
 
-```handlebars
-<Hds::Pagination::Numbered
-  @totalItems={{120}}
-/>
-```
+[[code-snippets/pagination-numbered-truncation]]
 
 If necessary, it’s possible to disable this functionality using the `@isTruncated` argument:
 
-```handlebars
-<Hds::Pagination::Numbered
-  @totalItems={{120}}
-  @isTruncated={{false}}
-/>
-```
+[[code-snippets/pagination-numbered-no-truncation]]
 
 ### Events handling
 
 The component exposes two callback functions that can be used to respond to specific events:
 
-```handlebars
-<Hds::Pagination::Numbered
-  @totalItems={{40}}
-  @onPageChange={{this.handlePageChange}}
-  @onPageSizeChange={{this.handlePageSizeChange}}
-/>
-```
+[[code-snippets/pagination-numbered-events]]
 
 The first `onPageChange` function is invoked when a user interacts with a navigation control ("prev/next" or "page number") and so can be used to respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).
 
@@ -107,32 +77,7 @@ The second `onPageSizeChange` function is invoked when a user interacts with the
 
 If you want the Pagination to change the URL of the page directly (eg. updating the query parameters) you need to pass the routing parameters to the component:
 
-```handlebars
-<Hds::Pagination::Numbered
-  @totalItems={{this.demoTotalItems}}
-  @currentPage={{this.demoCurrentPage}}
-  @pageSizes={{this.demoPageSizes}}
-  @currentPageSize={{this.demoCurrentPageSize}}
-  @route={{this.demoRouteName}}
-  @queryFunction={{this.demoQueryFunctionNumbered}}
-  @onPageChange={{this.handlePageChange}}
-  @onPageSizeChange={{this.handlePageSizeChangeNumbered}}
-/>
-```
-
-where the `@queryFunction` function will be something like this (this is just an example, you will have to adapt the code to how your routing and query parameters are handled, see a reference [in Cloud UI](https://github.com/hashicorp/cloud-ui/blob/f49947bab0422165804049a018a7198f2e8c97e3/engines/role-assignments/addon/components/page/list.gts#L254-L259) or [in Atlas](https://github.com/hashicorp/atlas/blob/d6f0feee5a603d16fb331e1d697d12191a9bc1a3/frontend/atlas/app/controllers/v2/organization/workspaces-beta.js#L62C3-L69C4)):
-
-```javascript
-get demoQueryFunctionNumbered() {
-  return (page, pageSize) => {
-    return {
-      demoCurrentPage: page,
-      demoCurrentPageSize: pageSize,
-      demoExtraParam: 'hello',
-    };
-  };
-}
-```
+[[code-snippets/pagination-numbered-routing]]
 
 When the routing parameters are provided, the "navigation controls" are rendered as links and if the user clicks on one of them the page URL is automatically updated. This means that the component’s state is persisted **outside** of the component and so its whole state **must** be "controlled" by the consumer’s code (otherwise there would be conflicting states).
 
@@ -152,42 +97,7 @@ Even if the Pagination is based on routing, the `onPageChange/onPageSizeChange` 
 
 Below you can find an example of an integration between the sortable [`Table`](/components/table/table) component and the `Pagination::Numbered` component that uses query parameters in the URL to preserve the UI state:
 
-```handlebars
-<div class="doc-pagination-table-demo">
-  <Hds::Table
-    @model={{this.demoPaginatedDataNumbered}}
-    @columns={{array
-      (hash key="id" label="ID" isSortable=true)
-      (hash key="name" label="Name" isSortable=true)
-      (hash key="email" label="Email")
-      (hash key="role" label="Role")
-    }}
-    @sortBy={{this.demoCurrentSortBy}}
-    @sortOrder={{this.demoCurrentSortOrder}}
-    @onSort={{this.demoOnTableSort}}
-    @density={{if (eq this.demoCurrentPageSize 30) "short" "medium"}}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.id}}</B.Td>
-        <B.Td>{{B.data.name}}</B.Td>
-        <B.Td>{{B.data.email}}</B.Td>
-        <B.Td>{{B.data.role}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <Hds::Pagination::Numbered
-    @totalItems={{this.demoTotalItems}}
-    @currentPage={{this.demoCurrentPage}}
-    @pageSizes={{this.demoPageSizes}}
-    @currentPageSize={{this.demoCurrentPageSize}}
-    @route={{this.demoRouteName}}
-    @queryFunction={{this.demoQueryFunctionNumbered}}
-    @onPageChange={{this.handlePageChange}}
-    @onPageSizeChange={{this.handlePageSizeChangeNumbered}}
-  />
-</div>
-```
+[[code-snippets/pagination-numbered-with-table]]
 
 ## How to use Compact Pagination
 
@@ -195,11 +105,7 @@ By default, the basic use of the Pagination provides:
 
 The basic invocation of the Compact Pagination doesn’t require any arguments (apart from the event/routing handlers, see below):
 
-```handlebars
-<Hds::Pagination::Compact />
-```
-
-Renders to:
+[[code-snippets/pagination-compact-basic]]
 
 In this variant, only the "prev" and "next" navigation controls are displayed.
 
@@ -207,15 +113,11 @@ In this variant, only the "prev" and "next" navigation controls are displayed.
 
 If necessary, it’s possible to hide the control labels:
 
-```handlebars
-<Hds::Pagination::Compact @showLabels={{false}} />
-```
+[[code-snippets/pagination-compact-hidden-labels]]
 
 It is also possible to show the SizeSelector (hidden by default):
 
-```handlebars
-<Hds::Pagination::Compact @showSizeSelector={{true}} />
-```
+[[code-snippets/pagination-compact-with-size-selector]]
 
 !!! Info
 
@@ -230,11 +132,7 @@ When the "page size" is used in the context of a cursor-based pagination, it can
 
 The component exposes a callback function that can be used to respond to page changes:
 
-```handlebars
-<Hds::Pagination::Compact
-  @onPageChange={{this.handlePageChange}}
-/>
-```
+[[code-snippets/pagination-compact-events]]
 
 The `onPageChange` function is invoked when a user interacts with a "prev" or "next" navigation control and so can be used to respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).
 
@@ -242,27 +140,7 @@ The `onPageChange` function is invoked when a user interacts with a "prev" or "n
 
 If you want the Pagination to change the URL of the page directly (eg. updating the query parameters) you need to pass the routing parameters to the component:
 
-```handlebars
-<Hds::Pagination::Compact
-  @route={{this.demoRouteName}}
-  @queryFunction={{this.demoQueryFunctionCompact}}
-  @isDisabledPrev={{this.demoIsDisabledPrev}}
-  @isDisabledNext={{this.demoIsDisabledNext}}
-/>
-```
-
-where the `@queryFunction` function will be something like this (this is just an example, you will have to adapt the code to how your routing and query parameters are handled, see a reference [in Cloud UI](https://github.com/hashicorp/cloud-ui/blob/f49947bab0422165804049a018a7198f2e8c97e3/hcp/app/components/page/projects/list.gjs#L149-L165) or [in Atlas](https://github.com/hashicorp/atlas/blob/75086ea986e1e15488486996a8d949c4bc68633c/frontend/atlas/app/controllers/v2/organization/settings/policies/index.js#L9-L13)):
-
-```javascript
-get demoQueryFunctionCompact() {
-  return (page) => {
-    return {
-      demoCurrentToken: page === 'prev' ? this.getPrevToken : this.getNextToken,
-      demoExtraParam: 'hello',
-    };
-  };
-}
-```
+[[code-snippets/pagination-compact-routing]]
 
 When the routing parameters are provided, the "prev/next" controls are rendered as links and the page URL is automatically updated when the user clicks them. This means that the component’s state is persisted **outside** of the component and so its whole state **must** be "controlled" by the consumer’s code (otherwise there would be conflicting states).
 
@@ -274,31 +152,4 @@ Even if the Pagination is based on routing, the `onPageChange/onPageSizeChange` 
 
 Below you can find an example of an integration between the [`Table`](/components/table/table) component and the `Pagination::Compact` component that uses query parameters in the URL to preserve the UI state:
 
-```handlebars
-<div class="doc-pagination-table-demo">
-  <Hds::Table
-    @model={{this.demoPaginatedDataCompact}}
-    @columns={{array
-      (hash key="id" label="ID")
-      (hash key="name" label="Name")
-      (hash key="email" label="Email")
-      (hash key="role" label="Role")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.id}}</B.Td>
-        <B.Td>{{B.data.name}}</B.Td>
-        <B.Td>{{B.data.email}}</B.Td>
-        <B.Td>{{B.data.role}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <Hds::Pagination::Compact
-    @route={{this.demoRouteName}}
-    @queryFunction={{this.demoQueryFunctionCompact}}
-    @isDisabledPrev={{this.demoIsDisabledPrev}}
-    @isDisabledNext={{this.demoIsDisabledNext}}
-  />
-</div>
-```
+[[code-snippets/pagination-compact-with-table]]
