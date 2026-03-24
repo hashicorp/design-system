@@ -302,8 +302,10 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-border-color-default: #e0e0e0;
   --token-tabs-foreground-color-selected-default: #161616;
   --token-tabs-foreground-color-selected-hover: #161616;
+  --token-tabs-indicator-height: 2px;
   --token-tag-border-radius: 16px;
   --token-tag-foreground-color-default: #161616;
   --token-tag-icon-color: #161616;

@@ -302,8 +302,10 @@
   --token-surface-low-box-shadow: 0 0 0 1px #656a7626, 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
   --token-surface-mid-box-shadow: 0 0 0 1px #656a7626, 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --token-tabs-border-color-default: rgba(0, 0, 0, 0);
   --token-tabs-foreground-color-selected-default: var(--token-color-foreground-action);
   --token-tabs-foreground-color-selected-hover: var(--token-color-foreground-action-hover);
+  --token-tabs-indicator-height: 3px;
   --token-tag-border-radius: 50px;
   --token-tag-foreground-color-default: var(--token-color-foreground-primary);
   --token-tag-icon-color: var(--token-color-foreground-primary);
