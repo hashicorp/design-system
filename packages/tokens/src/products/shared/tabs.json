@@ -1,5 +1,18 @@
 {
   "tabs": {
+    "border-color": {
+      "default": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.white.borderSubtle01}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+        }
+      }
+    },
     "foreground-color": {
       "selected": {
         "default": {
@@ -78,7 +91,14 @@
       "height": {
         "$type": "dimension",
         "$value": "3",
-        "unit": "px"
+        "unit": "px",
+        "$modes": {
+          "default": "3",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        }
       },
       "transition": {
         "function": {
