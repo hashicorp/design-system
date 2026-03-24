@@ -177,6 +177,13 @@ $pagination-nav-control-padding-horizontal: 12px;
     $left: var(--token-pagination-nav-control-focus-inset)
   );
 
+  @include hds-apply-only-if-carbon() {
+    // Adjust positioning of focus ring for Carbon themes
+    &::before {
+      inset: 0;
+    }
+  }
+
   &:hover,
   &.mock-hover {
     color: var(--token-pagination-nav-control-foreground-color-action-hover);
