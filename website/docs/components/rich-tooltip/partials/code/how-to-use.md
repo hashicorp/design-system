@@ -40,15 +40,7 @@ By default, the `Toggle` element is rendered as a block. This means it can easil
 
 As mentioned above, the invocation requires a "toggle" and a "bubble" element to be passed as yielded sub-components. The "toggle" accepts a `@text` argument and an optional `@icon` argument. The "bubble" element instead yields its content inside the popover tooltip:
 
-```handlebars
-<Hds::RichTooltip as |RT|>
-  <RT.Toggle @text="More info" @icon="info" />
-  <RT.Bubble>
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-basic]]
 
 As one can see, by default the text of the toggle doesn't get a typographic style (it inherits it from the parent).
 
@@ -57,66 +49,25 @@ As one can see, by default the text of the toggle doesn't get a typographic styl
 
 To apply a predefined typographic style, it's necessary to pass a `@size` argument:
 
-```handlebars
-<Hds::RichTooltip as |RT|>
-  <RT.Toggle @size="large" @text="More info" @icon="info" />
-  <RT.Bubble>
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-size]]
 
 ##### Visual organization
 
 To align the toggle with other UI elements, consumers should use a parent element that wraps the content and provides the desired layout (e.g., using flexbox):
 
-```handlebars
-<div class="doc-rich-tooltip-standalone-block-flex-layout">
-  <Hds::Button @text="Your action" {{on "click" this.onClickButton}} />
-  <Hds::RichTooltip as |RT|>
-    <RT.Toggle @size="medium" @text="More info" @icon="info" />
-    <RT.Bubble>
-      <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-      <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-    </RT.Bubble>
-  </Hds::RichTooltip>
-</div>
-```
+[[code-snippets/rich-tooltip-flex-layout]]
 
 #### Inline with other text
 
 If the toggle needs to be inline with other text, use the `@isInline` argument:
 
-```handlebars
-Lorem
-<Hds::RichTooltip as |RT|>
-  <RT.Toggle @isInline={{true}} @text="ipsum dolor" />
-  <RT.Bubble>
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-sit amet consectetur adipiscing elit.
-```
+[[code-snippets/rich-tooltip-inline]]
 
 In this case, it is better not to assign a `@size` to the `Toggle`, so that its typographic style is the same as the text that comes before/after the toggle text.
 
 To apply a typographic style to the whole paragraph, consumers can use a [Text](/components/text) component as a wrapper:
 
-```handlebars
-<Hds::Text::Body @tag="p" @size="300">
-  Lorem
-  <Hds::RichTooltip as |RT|>
-    <RT.Toggle @isInline={{true}} @text="ipsum dolor" />
-    <RT.Bubble>
-      <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-      <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-    </RT.Bubble>
-  </Hds::RichTooltip>
-  sit amet consectetur adipiscing elit.
-</Hds::Text::Body>
-```
+[[code-snippets/rich-tooltip-inline-with-styles]]
 
 Similarly, a typographic class (or a custom CSS class) can be applied to a parent container.
 
@@ -124,14 +75,7 @@ Similarly, a typographic class (or a custom CSS class) can be applied to a paren
 
 There may be cases in which the tooltip text is preceded/followed by non-whitespace characters. In this case, extra whitespace could appear between these characters and the toggle text. Unfortunately the only solution we have found is to remove all whitespace before/after the `<Hds::RichTooltip>` tag, and before/after the `<RT.Toggle>` and `<RT.Bubble>` tags:
 
-```handlebars
-<Hds::Text::Body @tag="p" @size="300">
-  Lorem "<Hds::RichTooltip as |RT|><RT.Toggle @isInline={{true}} @text="ipsum dolor" /><RT.Bubble>
-      <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-      <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-    </RT.Bubble></Hds::RichTooltip>" sit amet consectetur adipiscing elit.
-</Hds::Text::Body>
-```
+[[code-snippets/rich-tooltip-whitespace-fix]]
 
 ### Interactivity
 
@@ -139,15 +83,7 @@ By default, the visibility of the tooltip is toggled via "soft" event listeners 
 
 To change this behavior and opt for a more explicit user interaction using click events (in this case the "soft" events are disabled) set the argument `@enableClickEvents` to `true`:
 
-```handlebars
-<Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
-  <RT.Toggle @size="medium" @text="More info" @icon="info" />
-  <RT.Bubble>
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-click-events]]
 
 Independent of which interaction is used, the tooltip can be dismissed by clicking outside of the component or with the `esc` key (this "light dismiss" behavior is automatically provided by the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss)).
 
@@ -155,15 +91,7 @@ Independent of which interaction is used, the tooltip can be dismissed by clicki
 
 By default the tooltip is shown below the toggle, visually centered. It's possible to change the initial position of the tooltip using the `@placement` argument:
 
-```handlebars
-<Hds::RichTooltip as |RT|>
-  <RT.Toggle @size="medium" @text="Lorem ipsum" @icon="info" />
-  <RT.Bubble @placement="top-start">
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information that spans multiple lines</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-placement]]
 
 ### Collision detection
 
@@ -187,29 +115,13 @@ More in-depth explanations about the different alignment algorithms and how they
 
 In the example below, we use an `auto` placement: try scrolling and/or resizing the page and see how the tooltip changes its position automatically:
 
-```handlebars
-<Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
-  <RT.Toggle @size="medium" @text="More info" @icon="info" />
-  <RT.Bubble @enableCollisionDetection="auto">
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information that spans multiple lines</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-collision-detection]]
 
 ### Fixed width/height
 
 By default, the size of the tooltip automatically adapts to the size of its content (with a max-width of `280px`). It's possible to assign a fixed `width` and/or `height` to the tooltip by providing the `@width` or `@height` arguments:
 
-```handlebars
-<Hds::RichTooltip as |RT|>
-  <RT.Toggle @size="medium" @text="More info" @icon="info" />
-  <RT.Bubble @width="450px" @height="200px">
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-fixed-dimensions]]
 
 ### Generic toggle
 
@@ -222,17 +134,7 @@ There may be special use cases in which the standard text or icon-based toggle d
 When used in this way, it's up to the consumer to make sure the implementation is compliant with the [accessibility requirements](/components/rich-tooltip?tab=accessibility).
 !!!
 
-```handlebars
-<Hds::RichTooltip as |RT|>
-  <RT.Toggle>
-    <Hds::Tag @text="My text tag" />
-  </RT.Toggle>
-  <RT.Bubble>
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-generic-toggle]]
 
 ### Advanced options
 
@@ -247,15 +149,7 @@ There might be special use cases in which consumers may need to fine tune the Ri
 
 The default spacing between the toggle and the tooltip itself can be tweaked using the `@offset` argument:
 
-```handlebars
-<Hds::RichTooltip as |RT|>
-  <RT.Toggle @size="medium" @text="More info" @icon="info" />
-  <RT.Bubble @offset={{24}}>
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-offset]]
 
 #### Open
 
@@ -269,12 +163,4 @@ This option should be considered carefully before being implemented in productio
 
 The tooltip can be rendered as initially opened using the `@isOpen` argument:
 
-```handlebars
-<Hds::RichTooltip @isOpen={{true}} as |RT|>
-  <RT.Toggle @size="medium" @text="More info" @icon="info" @iconPosition="leading" />
-  <RT.Bubble @placement="right">
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
-  </RT.Bubble>
-</Hds::RichTooltip>
-```
+[[code-snippets/rich-tooltip-open]]

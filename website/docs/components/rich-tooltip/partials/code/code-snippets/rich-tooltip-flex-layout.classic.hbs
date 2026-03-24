@@ -1,0 +1,10 @@
+<div class="doc-rich-tooltip-standalone-block-flex-layout">
+  <Hds::Button @text="Your action" {{on "click" this.onClickButton}} />
+  <Hds::RichTooltip as |RT|>
+    <RT.Toggle @size="medium" @text="More info" @icon="info" />
+    <RT.Bubble>
+      <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+      <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+    </RT.Bubble>
+  </Hds::RichTooltip>
+</div>
