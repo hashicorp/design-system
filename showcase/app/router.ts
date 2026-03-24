@@ -184,6 +184,7 @@ Router.map(function () {
       this.route('rich-tooltip');
       this.route('segmented-group');
       this.route('separator');
+      this.route('tabs');
       this.route('tooltip');
     });
     this.route('utilities', function () {
