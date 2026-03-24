@@ -209,7 +209,7 @@ export default class FlyoutCarbonizationIndex extends Component {
       <ShwTextH3 @tag="h2">Body</ShwTextH3>
 
       <ShwCarbonizationComparisonGrid
-        @label="With basic style"
+        @label="With basic style + Generic content"
         @layout="side-by-side"
       >
         <:theming>
@@ -223,6 +223,9 @@ export default class FlyoutCarbonizationIndex extends Component {
             <F.Body tabindex="0">
               <p class="hds-typography-body-300 hds-foreground-primary">Lorem
                 ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>This is some unstyled generic content to test the inheritance
+                of styles, in particular the text color.</p>
+
             </F.Body>
           </HdsFlyout>
         </:theming>
