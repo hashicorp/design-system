@@ -14,12 +14,13 @@ import {
   HdsTag,
   HdsTextBody,
 } from '@hashicorp/design-system-components/components';
+import type { HdsAccordionForceStates } from '@hashicorp/design-system-components/components/hds/accordion/types';
 
 import USERS_WITH_ORG_DATA from 'website/mocks/user-with-org-data';
 
 export default class Index extends Component {
   @tracked filterFlyoutActive = false;
-  @tracked state = 'close';
+  @tracked state: HdsAccordionForceStates = 'close';
 
   @tracked demoUsers = USERS_WITH_ORG_DATA;
 
