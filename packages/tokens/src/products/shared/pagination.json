@@ -33,7 +33,14 @@
         "height": {
           "$type": "dimension",
           "$value": "36",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "36",
+            "cds-g0": "40",
+            "cds-g10": "40",
+            "cds-g90": "40",
+            "cds-g100": "40"
+          }
         },
         "focus-inset": {
           "$type": "dimension",
