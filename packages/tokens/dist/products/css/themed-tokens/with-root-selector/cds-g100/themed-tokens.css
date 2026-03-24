@@ -243,6 +243,7 @@
   --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+  --token-pagination-nav-control-height: 40px;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-rich-tooltip-bubble-arrow-size: 12px;

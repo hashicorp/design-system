@@ -443,6 +443,7 @@
   --token-pagination-nav-control-foreground-color-action: var(
     --token-color-foreground-action
   );
+  --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
   --token-rich-tooltip-bubble-arrow-size: 20px;
@@ -800,6 +801,7 @@
     --token-pagination-nav-control-foreground-color-action-active: #161616;
     --token-pagination-nav-control-foreground-color-action-hover: #161616;
     --token-pagination-nav-control-foreground-color-action: #161616;
+    --token-pagination-nav-control-height: 40px;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
@@ -1147,6 +1149,7 @@
     --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+    --token-pagination-nav-control-height: 40px;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
@@ -1494,6 +1497,7 @@
   --token-pagination-nav-control-foreground-color-action-active: #161616;
   --token-pagination-nav-control-foreground-color-action-hover: #161616;
   --token-pagination-nav-control-foreground-color-action: #161616;
+  --token-pagination-nav-control-height: 40px;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-rich-tooltip-bubble-arrow-size: 12px;
@@ -1840,6 +1844,7 @@
   --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+  --token-pagination-nav-control-height: 40px;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-rich-tooltip-bubble-arrow-size: 12px;
@@ -2185,6 +2190,7 @@
   --token-pagination-nav-control-foreground-color-action-active: #161616;
   --token-pagination-nav-control-foreground-color-action-hover: #161616;
   --token-pagination-nav-control-foreground-color-action: #161616;
+  --token-pagination-nav-control-height: 40px;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-rich-tooltip-bubble-arrow-size: 12px;
@@ -2530,6 +2536,7 @@
   --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+  --token-pagination-nav-control-height: 40px;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-rich-tooltip-bubble-arrow-size: 12px;
@@ -2923,7 +2930,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-pagination-child-spacing-horizontal: 20px;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-nav-control-focus-inset: 4px;
-  --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-tabs-divider-height: 1px;
