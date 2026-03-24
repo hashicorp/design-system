@@ -1,0 +1,20 @@
+<div class="doc-table-multi-select-role-example">
+  <button {{on "click" this.updateSelectedCount}} type="button">
+    Add to count
+  </button>
+  <div class="doc-table-multi-select-pattern-wrapper">
+    <Hds::Text::Body role="status" @tag="p" @size="200" @color="foreground-primary">
+      {{this.selectedCount}}
+      selected out of
+      {{this.totalCount}}
+    </Hds::Text::Body>
+    <Hds::Dropdown as |D|>
+      <D.ToggleButton @size="small" @text="Actions" @color="secondary" />
+      <D.Interactive @icon="edit">Edit</D.Interactive>
+      <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
+      <D.Separator />
+      <D.Interactive>Select all</D.Interactive>
+      <D.Interactive>Reset selection</D.Interactive>
+    </Hds::Dropdown>
+  </div>
+</div>
