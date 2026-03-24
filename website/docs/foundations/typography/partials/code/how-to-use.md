@@ -16,9 +16,7 @@ For details about this component, [see the `Text` page](/components/text).
 
 In a single declaration, these predefined CSS classes contain everything to apply a standard typographic style to an element: `font-family`, `font-size`, `line-height`, and a reset for `margin` and `padding` to match the intended design language.
 
-```markup
-<p class="hds-typography-display-300">The quick brown fox jumps over the lazy dog.</p>
-```
+[[code-snippets/typography-helper-class]]
 
 #### Font styles
 
@@ -30,9 +28,7 @@ In a single declaration, these predefined CSS classes contain everything to appl
 
 While we don’t recommend using custom styles often, `font-family` helpers are available to change the font family of an element.
 
-```markup
-<p class="hds-font-family-sans-text">The quick brown fox jumps over the lazy dog.</p>
-```
+[[code-snippets/typography-font-family]]
 
 | `font-family` helpers         | Use for                  |
 | ------------------------------| ------------------------ |
@@ -49,13 +45,7 @@ While we don’t recommend using custom styles often, `font-family` helpers are 
 
 Use the `font-weight` helpers to change the weight of text in an element.
 
-```markup
-<!-- with font-family CSS helpers -->
-<p class="hds-font-family-sans-text hds-font-weight-medium">The quick brown fox jumps over the lazy dog.</p>
-
-<!-- with typographic style CSS helpers -->
-<p class="hds-typography-display-300 hds-font-weight-semibold">The quick brown fox jumps over the lazy dog.</p>
-```
+[[code-snippets/typography-font-weight]]
 
 <!-- algolia-ignore-start -->
 <Doc::FontHelpersList @items={{this.cssHelpers.weights}} />
