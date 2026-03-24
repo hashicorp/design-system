@@ -196,7 +196,8 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <HdsModal open id="modal-example-tagline-icon" @size="small" as |M|>
           <M.Header @tagline="Tagline" @icon="info">
-            Title
+            A very, very long title that spans multiple lines to test this
+            element
           </M.Header>
           <M.Body>
             <p class="hds-typography-body-300 hds-foreground-primary">
@@ -238,26 +239,19 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH2>Body</ShwTextH2>
 
     <ShwCarbonizationComparisonGrid
-      @label="With basic style"
+      @label="With basic style + Generic content"
       @layout="side-by-side"
     >
       <:theming>
         <HdsModal open id="modal-example-basic-content" @size="small" as |M|>
           <M.Header @tagline="Tagline" @icon="info">
-            A very, very long title that spans multiple lines to test this
-            element
+            Title
           </M.Header>
           <M.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp
-              uses data collected by cookies and JavaScript libraries to improve
-              your browsing experience, analyze site traffic, and increase the
-              overall performance of our site. By using our website, you're
-              agreeing to our Privacy Policy and Cookie Policy.</p>
-            <br />
-            <p class="hds-typography-body-300 hds-foreground-primary">The
-              categories below outline which companies and tools we use for
-              collecting data. To opt out of a category of data collection, set
-              the toggle to "Off" and save your preferences.</p>
+            <p class="hds-typography-body-300 hds-foreground-primary">Lorem
+              ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>This is some unstyled generic content to test the inheritance of
+              styles, in particular the text color.</p>
           </M.Body>
           <M.Footer>
             <HdsButtonSet>
