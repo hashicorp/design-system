@@ -45,6 +45,8 @@ const DialogPrimitiveCarbonizationIndex: TemplateOnlyComponent = <template>
             <HdsDialogPrimitiveBody>
               <p class="hds-typography-body-300 hds-foreground-primary">Lorem
                 ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>This is some unstyled generic content to test the inheritance
+                of styles, in particular the text color.</p>
             </HdsDialogPrimitiveBody>
           </:body>
           <:footer>
@@ -145,6 +147,16 @@ const DialogPrimitiveCarbonizationIndex: TemplateOnlyComponent = <template>
           <HdsDialogPrimitiveBody>
             <p class="hds-typography-body-300 hds-foreground-primary">Lorem
               ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </HdsDialogPrimitiveBody>
+        </div>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwCarbonizationComparisonGrid @label="With generic content">
+      <:theming>
+        <div class="hds-dialog-primitive__wrapper-body">
+          <HdsDialogPrimitiveBody>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </HdsDialogPrimitiveBody>
         </div>
       </:theming>
