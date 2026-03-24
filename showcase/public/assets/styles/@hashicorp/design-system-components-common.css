@@ -7647,6 +7647,13 @@ button.hds-button[href]::after {
 .hds-pagination-nav__control:focus:active::before, .hds-pagination-nav__control.mock-focus.mock-active::before {
   box-shadow: none;
 }
+.hds-mode-cds-g0 .hds-pagination-nav__control::before,
+.hds-mode-cds-g10 .hds-pagination-nav__control::before,
+.hds-mode-cds-g90 .hds-pagination-nav__control::before,
+.hds-mode-cds-g100 .hds-pagination-nav__control::before {
+  inset: 0;
+}
+
 .hds-pagination-nav__control:hover, .hds-pagination-nav__control.mock-hover {
   color: var(--token-pagination-nav-control-foreground-color-action-hover);
   background-color: var(--token-pagination-nav-surface-color-hover);
