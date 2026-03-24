@@ -13503,6 +13503,39 @@
     ]
   },
   {
+    "key": "{tabs.border-color.default}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#6f6f6f",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.themes.white.borderSubtle01}",
+        "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+        "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+        "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+      },
+      "key": "{tabs.border-color.default}"
+    },
+    "name": "token-tabs-border-color-default",
+    "attributes": {
+      "category": "tabs"
+    },
+    "path": [
+      "tabs",
+      "border-color",
+      "default"
+    ]
+  },
+  {
     "key": "{tabs.foreground-color.selected.default}",
     "$type": "color",
     "$value": "var(--token-color-foreground-action)",
@@ -13750,10 +13783,24 @@
     "$type": "dimension",
     "$value": "3px",
     "unit": "px",
+    "$modes": {
+      "default": "3",
+      "cds-g0": "2",
+      "cds-g10": "2",
+      "cds-g90": "2",
+      "cds-g100": "2"
+    },
     "original": {
       "$type": "dimension",
       "$value": "3",
       "unit": "px",
+      "$modes": {
+        "default": "3",
+        "cds-g0": "2",
+        "cds-g10": "2",
+        "cds-g90": "2",
+        "cds-g100": "2"
+      },
       "key": "{tabs.indicator.height}"
     },
     "name": "token-tabs-indicator-height",

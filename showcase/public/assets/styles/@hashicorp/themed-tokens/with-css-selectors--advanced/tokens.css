@@ -459,12 +459,14 @@
     0 0 0 1px #656a7626, 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --token-surface-overlay-box-shadow:
     0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --token-tabs-border-color-default: rgba(0, 0, 0, 0);
   --token-tabs-foreground-color-selected-default: var(
     --token-color-foreground-action
   );
   --token-tabs-foreground-color-selected-hover: var(
     --token-color-foreground-action-hover
   );
+  --token-tabs-indicator-height: 3px;
   --token-tooltip-border-radius: var(--token-border-radius-small);
   --token-tooltip-caret-clip-path: path(
     "M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z"
@@ -804,8 +806,10 @@
     --token-surface-low-box-shadow: none;
     --token-surface-mid-box-shadow: none;
     --token-surface-overlay-box-shadow: none;
+    --token-tabs-border-color-default: #c6c6c6;
     --token-tabs-foreground-color-selected-default: #161616;
     --token-tabs-foreground-color-selected-hover: #161616;
+    --token-tabs-indicator-height: 2px;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1146,8 +1150,10 @@
     --token-surface-low-box-shadow: none;
     --token-surface-mid-box-shadow: none;
     --token-surface-overlay-box-shadow: none;
+    --token-tabs-border-color-default: #525252;
     --token-tabs-foreground-color-selected-default: #f4f4f4;
     --token-tabs-foreground-color-selected-hover: #f4f4f4;
+    --token-tabs-indicator-height: 2px;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1488,8 +1494,10 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-border-color-default: #c6c6c6;
   --token-tabs-foreground-color-selected-default: #161616;
   --token-tabs-foreground-color-selected-hover: #161616;
+  --token-tabs-indicator-height: 2px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -1829,8 +1837,10 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-border-color-default: #525252;
   --token-tabs-foreground-color-selected-default: #f4f4f4;
   --token-tabs-foreground-color-selected-hover: #f4f4f4;
+  --token-tabs-indicator-height: 2px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -2169,8 +2179,10 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-border-color-default: #e0e0e0;
   --token-tabs-foreground-color-selected-default: #161616;
   --token-tabs-foreground-color-selected-hover: #161616;
+  --token-tabs-indicator-height: 2px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -2509,8 +2521,10 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-border-color-default: #6f6f6f;
   --token-tabs-foreground-color-selected-default: #f4f4f4;
   --token-tabs-foreground-color-selected-hover: #f4f4f4;
+  --token-tabs-indicator-height: 2px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -2890,7 +2904,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-tabs-divider-height: 1px;
-  --token-tabs-indicator-height: 3px;
   --token-tabs-indicator-transition-duration: 0.6s;
   --token-tabs-indicator-transition-function: cubic-bezier(0.5, 1, 0.89, 1);
   --token-tabs-tab-border-radius: 5px;

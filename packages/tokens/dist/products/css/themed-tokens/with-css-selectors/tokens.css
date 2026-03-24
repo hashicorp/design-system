@@ -258,8 +258,10 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-border-color-default: #c6c6c6;
   --token-tabs-foreground-color-selected-default: #161616;
   --token-tabs-foreground-color-selected-hover: #161616;
+  --token-tabs-indicator-height: 2px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -599,8 +601,10 @@
     --token-surface-low-box-shadow: none;
     --token-surface-mid-box-shadow: none;
     --token-surface-overlay-box-shadow: none;
+    --token-tabs-border-color-default: #c6c6c6;
     --token-tabs-foreground-color-selected-default: #161616;
     --token-tabs-foreground-color-selected-hover: #161616;
+    --token-tabs-indicator-height: 2px;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -941,8 +945,10 @@
     --token-surface-low-box-shadow: none;
     --token-surface-mid-box-shadow: none;
     --token-surface-overlay-box-shadow: none;
+    --token-tabs-border-color-default: #525252;
     --token-tabs-foreground-color-selected-default: #f4f4f4;
     --token-tabs-foreground-color-selected-hover: #f4f4f4;
+    --token-tabs-indicator-height: 2px;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1282,8 +1288,10 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-border-color-default: #c6c6c6;
   --token-tabs-foreground-color-selected-default: #161616;
   --token-tabs-foreground-color-selected-hover: #161616;
+  --token-tabs-indicator-height: 2px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -1622,8 +1630,10 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-border-color-default: #525252;
   --token-tabs-foreground-color-selected-default: #f4f4f4;
   --token-tabs-foreground-color-selected-hover: #f4f4f4;
+  --token-tabs-indicator-height: 2px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -1998,7 +2008,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-tabs-divider-height: 1px;
-  --token-tabs-indicator-height: 3px;
   --token-tabs-indicator-transition-duration: 0.6s;
   --token-tabs-indicator-transition-function: cubic-bezier(0.5, 1, 0.89, 1);
   --token-tabs-tab-border-radius: 5px;

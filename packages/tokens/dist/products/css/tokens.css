@@ -461,6 +461,7 @@
   --token-rich-tooltip-toggle-foreground-color-hover: #3b3d45;
   --token-rich-tooltip-toggle-foreground-color-active: #656a76;
   --token-rich-tooltip-toggle-icon-size: 1em;
+  --token-tabs-border-color-default: rgba(0, 0, 0, 0);
   --token-tabs-foreground-color-selected-default: var(--token-color-foreground-action);
   --token-tabs-foreground-color-selected-hover: var(--token-color-foreground-action-hover);
   --token-tabs-tab-height-medium: 36px;
