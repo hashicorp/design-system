@@ -180,11 +180,13 @@ $pagination-nav-control-padding-horizontal: 12px;
   &:hover,
   &.mock-hover {
     color: var(--token-pagination-nav-control-foreground-color-action-hover);
+    background-color: var(--token-pagination-nav-surface-color-hover);
   }
 
   &:active,
   &.mock-active {
     color: var(--token-pagination-nav-control-foreground-color-action-active);
+    background-color: var(--token-pagination-nav-surface-color-hover);
   }
 }
 
