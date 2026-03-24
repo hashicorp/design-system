@@ -13262,6 +13262,40 @@
     ]
   },
   {
+    "key": "{pagination.nav.surface-color.hover}",
+    "$type": "color",
+    "$value": "rgba(141, 141, 141, 0.16)",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "rgba(141, 141, 141, 0.12)",
+      "cds-g10": "rgba(141, 141, 141, 0.12)",
+      "cds-g90": "rgba(141, 141, 141, 0.16)",
+      "cds-g100": "rgba(141, 141, 141, 0.16)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.backgroundHover}",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.themes.white.backgroundHover}",
+        "cds-g10": "{carbon.themes.g10.backgroundHover}",
+        "cds-g90": "{carbon.themes.g90.backgroundHover}",
+        "cds-g100": "{carbon.themes.g100.backgroundHover}"
+      },
+      "key": "{pagination.nav.surface-color.hover}"
+    },
+    "name": "token-pagination-nav-surface-color-hover",
+    "attributes": {
+      "category": "pagination"
+    },
+    "path": [
+      "pagination",
+      "nav",
+      "surface-color",
+      "hover"
+    ]
+  },
+  {
     "key": "{pagination.child.spacing.vertical}",
     "$type": "dimension",
     "$value": "8px",

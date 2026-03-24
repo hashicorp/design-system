@@ -458,6 +458,7 @@
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
+  --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-rich-tooltip-bubble-max-width: 280px;
@@ -8187,9 +8188,11 @@ button.hds-button[href]::after {
 }
 .hds-pagination-nav__control:hover, .hds-pagination-nav__control.mock-hover {
   color: var(--token-pagination-nav-control-foreground-color-action-hover);
+  background-color: var(--token-pagination-nav-surface-color-hover);
 }
 .hds-pagination-nav__control:active, .hds-pagination-nav__control.mock-active {
   color: var(--token-pagination-nav-control-foreground-color-action-active);
+  background-color: var(--token-pagination-nav-surface-color-hover);
 }
 
 .hds-pagination-nav__arrow {
