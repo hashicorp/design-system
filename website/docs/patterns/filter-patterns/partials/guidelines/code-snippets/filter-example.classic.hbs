@@ -1,0 +1,87 @@
+<div class="doc-filter-patterns-wrapper">
+  <div class="doc-filter-patterns-filter-bar">
+    <Hds::SegmentedGroup as |SG|>
+      {{#each this.model.demoFilters as |filter|}}
+        <SG.Dropdown @listPosition="bottom-left" as |D|>
+          <D.ToggleButton @color="secondary" @text={{filter.name}} />
+          {{#each filter.options as |option|}}
+            <D.Checkbox>{{option.name}}</D.Checkbox>
+          {{/each}}
+        </SG.Dropdown>
+      {{/each}}
+    </Hds::SegmentedGroup>
+    <Hds::Button
+      @text="More filters"
+      @icon="filter"
+      @iconPosition="leading"
+      @color="secondary"
+      {{on "click" this.activateFlyout}}
+    />
+  </div>
+
+  {{#if this.filterFlyoutActive}}
+    <Hds::Flyout id="filter-flyout" @onClose={{this.deactivateFlyout}} as |F|>
+      <F.Header @icon="filter">More filters</F.Header>
+      <F.Body>
+        <div class="doc-filter-patterns-flyout-label">
+          <Hds::Text::Display @size="300" @color="strong">Diet</Hds::Text::Display>
+          <Hds::Button
+            @text={{if (eq this.state "open") "Collapse all" "Expand all"}}
+            @icon={{if (eq this.state "open") "unfold-close" "unfold-open"}}
+            @iconPosition="leading"
+            @size="small"
+            @color="tertiary"
+            {{on "click" this.toggleState}}
+          />
+        </div>
+        <Hds::Accordion @forceState={{this.state}} @type="flush" @size="small" as |A|>
+          {{#each this.model.demoOverflowFilters as |overflowFilter|}}
+            <A.Item>
+              <:toggle>{{overflowFilter.label}}</:toggle>
+              <:content>
+                <Hds::Form::Checkbox::Group @name={{overflowFilter.label}} as |G|>
+                  {{#each overflowFilter.values as |value|}}
+                    <G.CheckboxField as |F|>
+                      <F.Label>{{value.name}}</F.Label>
+                    </G.CheckboxField>
+                  {{/each}}
+                </Hds::Form::Checkbox::Group>
+              </:content>
+            </A.Item>
+          {{/each}}
+        </Hds::Accordion>
+      </F.Body>
+      <F.Footer>
+        <Hds::ButtonSet>
+          <Hds::Button @color="primary" @text="Apply filters" {{on "click" this.deactivateFlyout}} />
+          <Hds::Button @text="Cancel" @color="secondary" {{on "click" this.deactivateFlyout}} />
+        </Hds::ButtonSet>
+      </F.Footer>
+    </Hds::Flyout>
+  {{/if}}
+
+  <Hds::Accordion @size="small" @type="card" as |A|>
+    <A.Item @containsInteractive={{true}}>
+      <:toggle>
+        <div class="doc-filter-patterns-accordion-toggle">
+          <Hds::Text::Body @color="strong" @size="200" @weight="semibold">Applied filters (25)</Hds::Text::Body>
+          <Hds::Button
+            @size="small"
+            @color="tertiary"
+            @icon="x"
+            @iconPosition="leading"
+            @text="Clear all filters"
+            {{on "click" this.clearAllFilters}}
+          />
+        </div>
+      </:toggle>
+      <:content>
+        <div class="doc-filter-patterns-applied-filters">
+          {{#each this.model.demoAppliedFilters as |appliedFilter|}}
+            <Hds::Tag @text={{appliedFilter}} @onDismiss={{this.filterDismissFunction}} />
+          {{/each}}
+        </div>
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+</div>
