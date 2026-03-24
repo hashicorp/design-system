@@ -31,6 +31,7 @@ const SUPPORTED_FILE_EXTENSIONS = [
   '.bash',
   '.html',
   '.md',
+  '.js.md',
 ];
 
 // Helper to remove template-lint ignore comments
@@ -181,8 +182,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
               }
 
-              // this option is an escape hatch. if it is too difficult to make a code snippet comply with linting rules or if we want to include a different file that doesn't follow the naming convention, we can use a .md file and specify the language in the block declaration (e.g. [[code-snippets/breakpoints-loop lang=js]])
-              if (ext === '.md') {
+              // this option is an escape hatch. if it is too difficult to make a code snippet comply with linting rules or if we want to include a different file that doesn't follow the naming convention, we can use a .js.md file and specify the language in the block declaration (e.g. [[code-snippets/breakpoints-loop lang=js]])
+              if (ext === '.js.md') {
                 codeSnippets.custom = escapeCode(code);
                 codeSnippets.customLang = lang || 'md';
               }
