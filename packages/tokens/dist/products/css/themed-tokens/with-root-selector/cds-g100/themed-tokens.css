@@ -255,6 +255,7 @@
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
   --token-tabs-border-color-default: #525252;
+  --token-tabs-border-color-hover: var(--token-color-border-strong);
   --token-tabs-foreground-color-selected-default: #f4f4f4;
   --token-tabs-foreground-color-selected-hover: #f4f4f4;
   --token-tabs-indicator-height: 2px;

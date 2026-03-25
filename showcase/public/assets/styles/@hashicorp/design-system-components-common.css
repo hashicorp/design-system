@@ -9012,16 +9012,18 @@ button.hds-button[href]::after {
 .hds-mode-cds-g90 .hds-tabs__tab,
 .hds-mode-cds-g100 .hds-tabs__tab {
   border-bottom: var(--token-tabs-indicator-height) solid var(--token-tabs-border-color-default);
+  transition: border 70ms cubic-bezier(0.2, 0, 0.38, 0.9), outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
 }
 
 .hds-tabs__tab:hover, .hds-tabs__tab.mock-hover {
-  color: var(--token-color-foreground-action);
+  color: var(--token-tabs-foreground-color-hover);
+  border-color: var(--token-tabs-border-color-hover);
 }
 .hds-tabs__tab.hds-tabs__tab--is-selected {
-  color: var(--tabs-foreground-color-selected-default);
+  color: var(--token-tabs-foreground-color-selected-default);
 }
 .hds-tabs__tab.hds-tabs__tab--is-selected:hover {
-  color: var(--tabs-foreground-color-selected-hover);
+  color: var(--token-tabs-foreground-color-selected-hover);
 }
 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator {
   background: var(--token-color-foreground-action-hover);
@@ -9073,6 +9075,13 @@ button.hds-button[href]::after {
 .hds-tabs__tab-button:focus:active::before, .hds-tabs__tab-button.mock-focus.mock-active::before {
   box-shadow: none;
 }
+.hds-mode-cds-g0 .hds-tabs__tab-button::before,
+.hds-mode-cds-g10 .hds-tabs__tab-button::before,
+.hds-mode-cds-g90 .hds-tabs__tab-button::before,
+.hds-mode-cds-g100 .hds-tabs__tab-button::before {
+  inset: 3px 3px 1px 3px;
+}
+
 .hds-tabs__tab-button::after {
   position: absolute;
   content: "";
