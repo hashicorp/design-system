@@ -52,44 +52,6 @@
             "unit": "rem"
           }
         },
-        "letter-spacing": {
-          "small": {
-            "$type": "letter-spacing",
-            "$value": 0,
-            "unit": "px",
-            "$modes": {
-              "default": 0,
-              "cds-g0": "{carbon.typography.helperText01.letter-spacing}",
-              "cds-g10": "{carbon.typography.helperText01.letter-spacing}",
-              "cds-g90": "{carbon.typography.helperText01.letter-spacing}",
-              "cds-g100": "{carbon.typography.helperText01.letter-spacing}"
-            }
-          },
-          "medium": {
-            "$type": "letter-spacing",
-            "$value": 0,
-            "unit": "px",
-            "$modes": {
-              "default": 0,
-              "cds-g0": "{carbon.typography.bodyCompact01.letter-spacing}",
-              "cds-g10": "{carbon.typography.bodyCompact01.letter-spacing}",
-              "cds-g90": "{carbon.typography.bodyCompact01.letter-spacing}",
-              "cds-g100": "{carbon.typography.bodyCompact01.letter-spacing}"
-            }
-          },
-          "large": {
-            "$type": "letter-spacing",
-            "$value": 0,
-            "unit": "px",
-            "$modes": {
-              "default": 0,
-              "cds-g0": "{carbon.typography.bodyCompact02.letter-spacing}",
-              "cds-g10": "{carbon.typography.bodyCompact02.letter-spacing}",
-              "cds-g90": "{carbon.typography.bodyCompact02.letter-spacing}",
-              "cds-g100": "{carbon.typography.bodyCompact02.letter-spacing}"
-            }
-          }
-        },
         "line-height": {
           "small": {
             "$type": "number",

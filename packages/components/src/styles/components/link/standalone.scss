@@ -58,7 +58,6 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
     .hds-link-standalone__text {
       font-size: var(--token-link-standalone-typography-font-size-#{$size});
       line-height: var(--token-link-standalone-typography-line-height-#{$size});
-      letter-spacing: var(--token-link-standalone-typography-letter-spacing-#{$size});
     }
   }
 }

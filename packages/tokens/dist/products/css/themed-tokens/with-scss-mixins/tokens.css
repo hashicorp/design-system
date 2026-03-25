@@ -444,9 +444,6 @@
     --token-link-standalone-icon-size-small: 0.75rem;
     --token-link-standalone-padding-vertical: 4px;
     --token-link-standalone-typography-font-size-small: 0.8125rem;
-    --token-link-standalone-typography-letter-spacing-large: 0px;
-    --token-link-standalone-typography-letter-spacing-medium: 0px;
-    --token-link-standalone-typography-letter-spacing-small: 0px;
     --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
@@ -813,9 +810,6 @@
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
     --token-link-standalone-typography-font-size-small: 0.75rem;
-    --token-link-standalone-typography-letter-spacing-large: 0px;
-    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
-    --token-link-standalone-typography-letter-spacing-small: 0.32px;
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
@@ -1167,9 +1161,6 @@
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
     --token-link-standalone-typography-font-size-small: 0.75rem;
-    --token-link-standalone-typography-letter-spacing-large: 0px;
-    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
-    --token-link-standalone-typography-letter-spacing-small: 0.32px;
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
@@ -1521,9 +1512,6 @@
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
     --token-link-standalone-typography-font-size-small: 0.75rem;
-    --token-link-standalone-typography-letter-spacing-large: 0px;
-    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
-    --token-link-standalone-typography-letter-spacing-small: 0.32px;
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
@@ -1875,9 +1863,6 @@
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
     --token-link-standalone-typography-font-size-small: 0.75rem;
-    --token-link-standalone-typography-letter-spacing-large: 0px;
-    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
-    --token-link-standalone-typography-letter-spacing-small: 0.32px;
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
@@ -2229,9 +2214,6 @@
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
     --token-link-standalone-typography-font-size-small: 0.75rem;
-    --token-link-standalone-typography-letter-spacing-large: 0px;
-    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
-    --token-link-standalone-typography-letter-spacing-small: 0.32px;
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
@@ -2583,9 +2565,6 @@
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
     --token-link-standalone-typography-font-size-small: 0.75rem;
-    --token-link-standalone-typography-letter-spacing-large: 0px;
-    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
-    --token-link-standalone-typography-letter-spacing-small: 0.32px;
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */

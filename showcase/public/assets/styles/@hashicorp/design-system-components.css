@@ -456,9 +456,6 @@
   --token-link-standalone-typography-font-size-small: 0.8125rem;
   --token-link-standalone-typography-font-size-medium: 0.875rem;
   --token-link-standalone-typography-font-size-large: 1rem;
-  --token-link-standalone-typography-letter-spacing-small: 0px;
-  --token-link-standalone-typography-letter-spacing-medium: 0px;
-  --token-link-standalone-typography-letter-spacing-large: 0px;
   --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
   --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
@@ -7840,7 +7837,6 @@ button.hds-button[href]::after {
 .hds-link-standalone--size-small .hds-link-standalone__text {
   font-size: var(--token-link-standalone-typography-font-size-small);
   line-height: var(--token-link-standalone-typography-line-height-small);
-  letter-spacing: var(--token-link-standalone-typography-letter-spacing-small);
 }
 
 .hds-link-standalone--size-medium .hds-link-standalone__icon {
@@ -7850,7 +7846,6 @@ button.hds-button[href]::after {
 .hds-link-standalone--size-medium .hds-link-standalone__text {
   font-size: var(--token-link-standalone-typography-font-size-medium);
   line-height: var(--token-link-standalone-typography-line-height-medium);
-  letter-spacing: var(--token-link-standalone-typography-letter-spacing-medium);
 }
 
 .hds-link-standalone--size-large .hds-link-standalone__icon {
@@ -7860,7 +7855,6 @@ button.hds-button[href]::after {
 .hds-link-standalone--size-large .hds-link-standalone__text {
   font-size: var(--token-link-standalone-typography-font-size-large);
   line-height: var(--token-link-standalone-typography-line-height-large);
-  letter-spacing: var(--token-link-standalone-typography-letter-spacing-large);
 }
 
 .hds-link-standalone--color-primary {

@@ -7289,7 +7289,6 @@ button.hds-button[href]::after {
 .hds-link-standalone--size-small .hds-link-standalone__text {
   font-size: var(--token-link-standalone-typography-font-size-small);
   line-height: var(--token-link-standalone-typography-line-height-small);
-  letter-spacing: var(--token-link-standalone-typography-letter-spacing-small);
 }
 
 .hds-link-standalone--size-medium .hds-link-standalone__icon {
@@ -7299,7 +7298,6 @@ button.hds-button[href]::after {
 .hds-link-standalone--size-medium .hds-link-standalone__text {
   font-size: var(--token-link-standalone-typography-font-size-medium);
   line-height: var(--token-link-standalone-typography-line-height-medium);
-  letter-spacing: var(--token-link-standalone-typography-letter-spacing-medium);
 }
 
 .hds-link-standalone--size-large .hds-link-standalone__icon {
@@ -7309,7 +7307,6 @@ button.hds-button[href]::after {
 .hds-link-standalone--size-large .hds-link-standalone__text {
   font-size: var(--token-link-standalone-typography-font-size-large);
   line-height: var(--token-link-standalone-typography-line-height-large);
-  letter-spacing: var(--token-link-standalone-typography-letter-spacing-large);
 }
 
 .hds-link-standalone--color-primary {
