@@ -192,6 +192,19 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         <ShwPlaceholder @text="generic content" width="100%" @height="100%" />
       </HdsRichTooltipBubble>
     </SF.Item>
+    <SF.Item
+      @label="With generic text content"
+      class="shw-component-rich-tooltip-bubble-standalone"
+    >
+      {{! @glint-expect-error - @setupPrimitivePopper is a required arg, but we are not passing to test the bubble in isolation }}
+      <HdsRichTooltipBubble
+        @isOpen={{true}}
+        @popoverId="unique-popover-id"
+        @arrowId="unique-arrow-id"
+      >
+        Generic text content
+      </HdsRichTooltipBubble>
+    </SF.Item>
   </ShwFlex>
 </template>;
 
