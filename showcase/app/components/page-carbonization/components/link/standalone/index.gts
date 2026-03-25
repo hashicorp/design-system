@@ -122,8 +122,10 @@ const BadgeLinkStandaloneIndex: TemplateOnlyComponent = <template>
               mock-state-value={{state}}
             />
           </:theming>
-          <:reference>
-            {{#if (eq state "default")}}
+          <:reference as |R|>
+            {{#if (eq color "secondary")}}
+              <R.NoEquivalent @isCompact={{true}} />
+            {{else if (eq state "default")}}
               <cds-link href="#" size="md">Lorem ipsum
                 <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
             {{else}}

@@ -87,9 +87,9 @@ const BadgeLinkInlineIndex: TemplateOnlyComponent = <template>
               >Lorem ipsum dolor</HdsLinkInline>
             </div>
           </:theming>
-          <:reference>
+          <:reference as |R|>
             {{#if (eq color "secondary")}}
-              <pre>Not available</pre>
+              <R.NoEquivalent @isCompact={{true}} />
             {{else}}
               {{#if (eq state "default")}}
                 <cds-link href="#" inline size="lg">
