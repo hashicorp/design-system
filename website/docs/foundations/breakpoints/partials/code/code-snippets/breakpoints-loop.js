@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
 
 // do something with a specific breakpoint value

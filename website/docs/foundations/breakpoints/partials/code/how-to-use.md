@@ -48,4 +48,4 @@ We also provide helpers in case you need to access the breakpoints names/values 
 
 You have access to the list of breakpoint names and values using the `hdsBreakpoints` map:
 
-[[code-snippets/breakpoints-loop lang=js]]
+[[code-snippets/breakpoints-loop]]

@@ -12,7 +12,7 @@ const path = require('path');
 const walkSync = require('walk-sync');
 
 const demoBlockRegex =
-  /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?(?:\s+expanded=(true|false))?(?:\s+lang=(js))?\s*\]\]/g;
+  /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(true|false))?(?:\s+expanded=(true|false))?\s*\]\]/g;
 
 /*
  * NOTE: if need to add a code snippet to another section of the site, you need to update this regex
@@ -30,8 +30,7 @@ const SUPPORTED_FILE_EXTENSIONS = [
   '.yaml',
   '.bash',
   '.html',
-  '.md',
-  '.js.md',
+  '.js',
 ];
 
 // Helper to remove template-lint ignore comments
@@ -126,9 +125,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           _match,
           fileName,
           shouldExecute,
-          shouldIncludeBackingClass,
           isExpanded,
-          lang,
         ) => {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
 
@@ -159,8 +156,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
               }
 
               if (
-                ext === '.classic.js' &&
-                shouldIncludeBackingClass !== 'false'
+                ext === '.classic.js' || ext === '.js'
               ) {
                 codeSnippets.js = escapeCode(stripEslintIgnores(code));
               }
@@ -180,12 +176,6 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
               ) {
                 codeSnippets.custom = escapeCode(code);
                 codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
-              }
-
-              // this option is an escape hatch. if it is too difficult to make a code snippet comply with linting rules or if we want to include a different file that doesn't follow the naming convention, we can use a .js.md file and specify the language in the block declaration (e.g. [[code-snippets/breakpoints-loop lang=js]])
-              if (ext === '.js.md') {
-                codeSnippets.custom = escapeCode(code);
-                codeSnippets.customLang = lang || 'md';
               }
             }
           });
