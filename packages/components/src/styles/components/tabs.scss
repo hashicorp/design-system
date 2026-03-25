@@ -59,18 +59,22 @@ $hds-tabs-sizes: ("medium", "large");
 
   @include hds-apply-only-if-carbon() {
     border-bottom: var(--token-tabs-indicator-height) solid var(--token-tabs-border-color-default);
+    transition:
+      border 70ms cubic-bezier(0.2, 0, 0.38, 0.9),
+      outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
   }
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action);
+    color: var(--token-tabs-foreground-color-hover);
+    border-color: var(--token-tabs-border-color-hover); // only applicable to carbon themes
   }
 
   &.hds-tabs__tab--is-selected {
-    color: var(--tabs-foreground-color-selected-default);
+    color: var(--token-tabs-foreground-color-selected-default);
 
     &:hover {
-      color: var(--tabs-foreground-color-selected-hover);
+      color: var(--token-tabs-foreground-color-selected-hover);
 
       // the underline under the current selected Tab
       // Note: in HDS tan li with role=presentation is used for the indicator so its position can be animated
@@ -95,6 +99,13 @@ $hds-tabs-sizes: ("medium", "large");
     $bottom: var(--token-tabs-tab-focus-inset),
     $left: var(--token-tabs-tab-focus-inset)
   );
+
+  @include hds-apply-only-if-carbon() {
+    &::before {
+      inset: 3px 3px 1px 3px;
+    }
+  }
+
   position: static;
   display: flex;
   gap: var(--token-tabs-tab-gutter);
