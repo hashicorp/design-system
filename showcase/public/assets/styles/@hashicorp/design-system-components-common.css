@@ -9396,7 +9396,6 @@ button.hds-button[href]::after {
   font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-tag-typography-font-size);
   line-height: var(--token-tag-typography-line-height);
-  letter-spacing: var(--token-tag-typography-letter-spacing);
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
