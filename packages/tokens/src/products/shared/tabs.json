@@ -11,6 +11,17 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle01}",
           "cds-g100": "{carbon.themes.g100.borderSubtle01}"
         }
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{color.border.strong}",
+          "cds-g10": "{color.border.strong}",
+          "cds-g90": "{color.border.strong}",
+          "cds-g100": "{color.border.strong}"
+        }
       }
     },
     "foreground-color": {
