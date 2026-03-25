@@ -450,6 +450,9 @@ importers:
       '@carbon/type':
         specifier: ^11.46.0
         version: 11.49.0
+      '@cnakazawa/watch':
+        specifier: ^1.0.4
+        version: 1.0.4
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
