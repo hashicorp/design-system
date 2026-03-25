@@ -5,6 +5,7 @@
 
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
+import { fileURLToPath } from 'url';
 import copy from 'rollup-plugin-copy';
 import process from 'process';
 import path from 'node:path';
@@ -28,6 +29,13 @@ function addScssCompilationPlugins(options) {
           sourceMap: true,
           loadPaths,
         });
+
+        // Add all loaded files as watch dependencies in development mode
+        if (process.env.development && result.loadedUrls) {
+          for (const url of result.loadedUrls) {
+            this.addWatchFile(fileURLToPath(url));
+          }
+        }
 
         // Emit the compiled CSS
         this.emitFile({
