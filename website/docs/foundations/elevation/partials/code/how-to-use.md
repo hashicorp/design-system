@@ -13,11 +13,7 @@ Note that `border-radius` is not included with this token and needs to be set ac
 
 Use the `elevation` and `surface` [design tokens](./tokens) directly in your CSS definitions. Note that they can only be used with the `box-shadow` property.
 
-```css
-.your-selector {
-  box-shadow: var(--token-elevation-high-box-shadow);
-}
-```
+[[code-snippets/elevation-tokens]]
 
 #### Available CSS variables
 
@@ -36,19 +32,13 @@ Use the `elevation` and `surface` [design tokens](./tokens) directly in your CSS
 
 1. Ensure you’ve imported the relevant CSS file. 
 
-```scss
-// for product applications
-@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
-
-// for hashicorp developer platform
-@import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/elevation.css";
-```
+[[code-snippets/elevation-imports]]
 
 2. Use a predefined CSS helper class.
 
-```handlebars
-<div class="hds-elevation-high">...</div>
-```
+
+[[code-snippets/elevation-helper-class-usage]]
+
 #### Available CSS helper classes
 
 ##### Elevation helpers
