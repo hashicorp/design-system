@@ -333,7 +333,7 @@ export default class Index extends Component {
     //
   };
 
-  // Show browser alert with the Clear all filters button is clicked
+  // Show browser alert when the Clear all filters button is clicked
   clearAllFilters = () => {
     alert('You cleared all of the filters!');
   };
