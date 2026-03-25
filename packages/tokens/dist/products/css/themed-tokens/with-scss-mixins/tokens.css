@@ -436,6 +436,22 @@
     --token-icon-tile-border-color-logo: var(--token-color-border-primary);
     --token-icon-tile-border-color-overlay: var(--token-color-border-primary);
     --token-icon-tile-surface-color-overlay: var(--token-color-surface-primary);
+    --token-pagination-bar-border-color: rgba(0, 0, 0, 0);
+    --token-pagination-bar-surface-color-default: var(
+      --token-color-surface-primary
+    );
+    --token-pagination-nav-control-foreground-color-action-active: var(
+      --token-color-foreground-action-active
+    );
+    --token-pagination-nav-control-foreground-color-action-hover: var(
+      --token-color-foreground-action-hover
+    );
+    --token-pagination-nav-control-foreground-color-action: var(
+      --token-color-foreground-action
+    );
+    --token-pagination-nav-control-height: 36px;
+    --token-pagination-nav-indicator-height: 2px;
+    --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
     --token-rich-tooltip-bubble-arrow-size: 20px;
     --token-rich-tooltip-bubble-border-color: #656a7633;
     --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
@@ -791,6 +807,14 @@
     --token-icon-tile-border-color-logo: #c6c6c6;
     --token-icon-tile-border-color-overlay: #e0e0e0;
     --token-icon-tile-surface-color-overlay: #ffffff;
+    --token-pagination-bar-border-color: #c6c6c6;
+    --token-pagination-bar-surface-color-default: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action-active: #161616;
+    --token-pagination-nav-control-foreground-color-action-hover: #161616;
+    --token-pagination-nav-control-foreground-color-action: #161616;
+    --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-indicator-height: 4px;
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1131,6 +1155,14 @@
     --token-icon-tile-border-color-logo: #525252;
     --token-icon-tile-border-color-overlay: #6f6f6f;
     --token-icon-tile-surface-color-overlay: #393939;
+    --token-pagination-bar-border-color: #525252;
+    --token-pagination-bar-surface-color-default: #262626;
+    --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+    --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-indicator-height: 4px;
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1471,6 +1503,14 @@
     --token-icon-tile-border-color-logo: #c6c6c6;
     --token-icon-tile-border-color-overlay: #e0e0e0;
     --token-icon-tile-surface-color-overlay: #ffffff;
+    --token-pagination-bar-border-color: #c6c6c6;
+    --token-pagination-bar-surface-color-default: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action-active: #161616;
+    --token-pagination-nav-control-foreground-color-action-hover: #161616;
+    --token-pagination-nav-control-foreground-color-action: #161616;
+    --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-indicator-height: 4px;
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1811,6 +1851,14 @@
     --token-icon-tile-border-color-logo: #e0e0e0;
     --token-icon-tile-border-color-overlay: #c6c6c6;
     --token-icon-tile-surface-color-overlay: #f4f4f4;
+    --token-pagination-bar-border-color: #e0e0e0;
+    --token-pagination-bar-surface-color-default: #ffffff;
+    --token-pagination-nav-control-foreground-color-action-active: #161616;
+    --token-pagination-nav-control-foreground-color-action-hover: #161616;
+    --token-pagination-nav-control-foreground-color-action: #161616;
+    --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-indicator-height: 4px;
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2151,6 +2199,14 @@
     --token-icon-tile-border-color-logo: #6f6f6f;
     --token-icon-tile-border-color-overlay: #8d8d8d;
     --token-icon-tile-surface-color-overlay: #525252;
+    --token-pagination-bar-border-color: #6f6f6f;
+    --token-pagination-bar-surface-color-default: #393939;
+    --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+    --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-indicator-height: 4px;
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2491,6 +2547,14 @@
     --token-icon-tile-border-color-logo: #525252;
     --token-icon-tile-border-color-overlay: #6f6f6f;
     --token-icon-tile-surface-color-overlay: #393939;
+    --token-pagination-bar-border-color: #525252;
+    --token-pagination-bar-surface-color-default: #262626;
+    --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+    --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-indicator-height: 4px;
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2865,10 +2929,7 @@
     --token-pagination-child-spacing-horizontal: 20px;
     --token-pagination-child-spacing-vertical: 8px;
     --token-pagination-nav-control-focus-inset: 4px;
-    --token-pagination-nav-control-height: 36px;
     --token-pagination-nav-control-icon-spacing: 6px;
-    --token-pagination-nav-control-padding-horizontal: 12px;
-    --token-pagination-nav-indicator-height: 2px;
     --token-pagination-nav-indicator-spacing: 6px;
     --token-tabs-divider-height: 1px;
     --token-tabs-indicator-height: 3px;

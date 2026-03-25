@@ -1,23 +1,88 @@
 {
   "pagination": {
+    "bar": {
+      "border-color": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.white.borderSubtle01}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+        }
+      },
+      "surface": {
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.primary}",
+            "$modes": {
+              "default": "{color.surface.primary}",
+              "cds-g0": "{carbon.themes.white.layer01}",
+              "cds-g10": "{carbon.themes.g10.layer01}",
+              "cds-g90": "{carbon.themes.g90.layer01}",
+              "cds-g100": "{carbon.themes.g100.layer01}"
+            }
+          }
+        }
+      }
+    },
     "nav": {
       "control": {
         "height": {
           "$type": "dimension",
           "$value": "36",
-          "unit": "px"
-        },
-        "padding": {
-          "horizontal": {
-            "$type": "dimension",
-            "$value": "12",
-            "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "36",
+            "cds-g0": "40",
+            "cds-g10": "40",
+            "cds-g90": "40",
+            "cds-g100": "40"
           }
         },
         "focus-inset": {
           "$type": "dimension",
           "$value": "4",
           "unit": "px"
+        },
+        "foreground": {
+          "color": {
+            "action": {
+              "$type": "color",
+              "$value": "{color.foreground.action}",
+              "$modes": {
+                "default": "{color.foreground.action}",
+                "cds-g0": "{carbon.themes.white.textPrimary}",
+                "cds-g10": "{carbon.themes.g10.textPrimary}",
+                "cds-g90": "{carbon.themes.g90.textPrimary}",
+                "cds-g100": "{carbon.themes.g100.textPrimary}"
+              }
+            },
+            "action-hover": {
+              "$type": "color",
+              "$value": "{color.foreground.action-hover}",
+              "$modes": {
+                "default": "{color.foreground.action-hover}",
+                "cds-g0": "{carbon.themes.white.textPrimary}",
+                "cds-g10": "{carbon.themes.g10.textPrimary}",
+                "cds-g90": "{carbon.themes.g90.textPrimary}",
+                "cds-g100": "{carbon.themes.g100.textPrimary}"
+              }
+            },
+            "action-active": {
+              "$type": "color",
+              "$value": "{color.foreground.action-active}",
+              "$modes": {
+                "default": "{color.foreground.action-active}",
+                "cds-g0": "{carbon.themes.white.textPrimary}",
+                "cds-g10": "{carbon.themes.g10.textPrimary}",
+                "cds-g90": "{carbon.themes.g90.textPrimary}",
+                "cds-g100": "{carbon.themes.g100.textPrimary}"
+              }
+            }
+          }
         },
         "icon-spacing": {
           "$type": "dimension",
@@ -29,13 +94,33 @@
         "height": {
           "$type": "dimension",
           "$value": "2",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "2",
+            "cds-g0": "4",
+            "cds-g10": "4",
+            "cds-g90": "4",
+            "cds-g100": "4"
+          }
         },
         "spacing": {
           "$type": "dimension",
           "$value": "6",
           "unit": "px"
         }
+      },
+      "surface-color": {
+        "hover": {
+          "$type": "color",
+          "$value": "transparent",
+          "$modes": {
+            "default": "transparent",
+            "cds-g0": "{carbon.themes.white.backgroundHover}",
+            "cds-g10": "{carbon.themes.g10.backgroundHover}",
+            "cds-g90": "{carbon.themes.g90.backgroundHover}",
+            "cds-g100": "{carbon.themes.g100.backgroundHover}"
+          }
+        },
       }
     },
     "child": {
