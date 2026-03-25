@@ -40,57 +40,20 @@
       }
     },
     "header": {
-      "border": {
-        "color": {
-          "primary": {
-            "$type": "color",
-            "$value": "{color.border.primary}",
-            "$modes": {
-              "default": "{color.border.primary}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
+      "title": {
+        "font-weight": {
+          "$type": "font-weight",
+          "$value": "{typography.font-weight.semibold}",
+          "$modes": {
+            "default": "{typography.font-weight.semibold}",
+            "cds-g0": "{carbon.typography.heading03.font-weight}",
+            "cds-g10": "{carbon.typography.heading03.font-weight}",
+            "cds-g90": "{carbon.typography.heading03.font-weight}",
+            "cds-g100": "{carbon.typography.heading03.font-weight}"
           },
-          "warning": {
-            "$type": "color",
-            "$value": "{color.border.warning}",
-            "$modes": {
-              "default": "{color.border.warning}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
-          },
-          "critical": {
-            "$type": "color",
-            "$value": "{color.border.critical}",
-            "$modes": {
-              "default": "{color.border.critical}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
+          "comments": {
+            "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
           }
-        }
-      }
-    },
-    "title": {
-      "font-weight": {
-        "$type": "font-weight",
-        "$value": "{typography.font-weight.semibold}",
-        "$modes": {
-          "default": "{typography.font-weight.semibold}",
-          "cds-g0": "{carbon.typography.heading03.font-weight}",
-          "cds-g10": "{carbon.typography.heading03.font-weight}",
-          "cds-g90": "{carbon.typography.heading03.font-weight}",
-          "cds-g100": "{carbon.typography.heading03.font-weight}"
-        },
-        "comments": {
-          "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
         }
       }
     }

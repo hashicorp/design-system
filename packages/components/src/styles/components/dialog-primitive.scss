@@ -36,13 +36,17 @@
 .hds-dialog-primitive__wrapper-header {
   flex: none;
   background: var(--token-color-surface-faint);
-  border-bottom: 1px solid var(--token-dialog-primitive-header-border-color-primary);
+  border-bottom: 1px solid var(--token-color-border-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
   // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
   &:not(:has(> *)) {
     display: none;
+  }
+
+  @include hds-apply-only-if-carbon() {
+    border-bottom: none;
   }
 }
 
@@ -57,13 +61,17 @@
 
 .hds-dialog-primitive__wrapper-footer {
   flex: none;
-  border-top: 1px solid var(--token-dialog-primitive-header-border-color-primary);
+  border-top: 1px solid var(--token-color-border-primary);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
   // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
   &:not(:has(> *)) {
     display: none;
+  }
+
+  @include hds-apply-only-if-carbon() {
+    border-top: none;
   }
 }
 
@@ -74,7 +82,7 @@
   gap: 16px;
   align-items: flex-start;
   padding: var(--token-dialog-primitive-padding-vertical) var(--token-dialog-primitive-padding-horizontal);
-  color: var(--token-color-foreground-strong); // default color (applied to both the title and the icon)
+  color: var(--token-color-foreground-strong); // applied to both the title and the icon
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
@@ -92,7 +100,7 @@
   flex-grow: 1;
   margin: 0;
   // we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title
-  font-weight: var(--token-dialog-primitive-title-font-weight);
+  font-weight: var(--token-dialog-primitive-header-title-font-weight);
   // we need to use local tokens instead of `<HdsTextDisplay>` to account for the custom font weight above
   font-size: var(--token-typography-display-300-font-size);
   font-family: var(--token-typography-display-300-font-family);
@@ -101,7 +109,7 @@
 
 .hds-dialog-primitive__tagline {
   margin-bottom: 4px;
-  color: var(--token-color-foreground-faint); // default color
+  color: var(--token-color-foreground-faint);
 }
 
 .hds-dialog-primitive__dismiss {
@@ -128,6 +136,10 @@
 
 .hds-dialog-primitive__body {
   padding: var(--token-dialog-primitive-padding-horizontal);
+
+  @include hds-apply-only-if-carbon() {
+    padding-top: 0;
+  }
 }
 
 // FOOTER
