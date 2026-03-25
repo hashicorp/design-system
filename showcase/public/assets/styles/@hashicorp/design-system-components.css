@@ -512,7 +512,6 @@
   --token-tag-surface-color-active: #dedfe3;
   --token-tag-foreground-color-default: #3b3d45;
   --token-tag-typography-font-size: 0.8125rem;
-  --token-tag-typography-letter-spacing: 0px;
   --token-tag-typography-line-height: 1.2308;
   --token-tag-icon-color: #3b3d45;
   --token-tag-link-border-color-primary: #3b3d4566;
@@ -9862,7 +9861,6 @@ button.hds-button[href]::after {
   font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-tag-typography-font-size);
   line-height: var(--token-tag-typography-line-height);
-  letter-spacing: var(--token-tag-typography-letter-spacing);
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;

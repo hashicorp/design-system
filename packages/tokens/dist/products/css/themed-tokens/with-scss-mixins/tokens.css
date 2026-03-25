@@ -543,7 +543,6 @@
       --token-color-surface-interactive-hover
     );
     --token-tag-typography-font-size: 0.8125rem;
-    --token-tag-typography-letter-spacing: 0px;
     --token-tag-typography-line-height: 1.2308;
     --token-tooltip-border-radius: var(--token-border-radius-small);
     --token-tooltip-caret-clip-path: path(
@@ -927,7 +926,6 @@
     --token-tag-surface-color-default: #e0e0e0;
     --token-tag-surface-color-hover: #d1d1d1;
     --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-letter-spacing: 0.32px;
     --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
@@ -1310,7 +1308,6 @@
     --token-tag-surface-color-default: #525252;
     --token-tag-surface-color-hover: #636363;
     --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-letter-spacing: 0.32px;
     --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
@@ -1693,7 +1690,6 @@
     --token-tag-surface-color-default: #e0e0e0;
     --token-tag-surface-color-hover: #d1d1d1;
     --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-letter-spacing: 0.32px;
     --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
@@ -2076,7 +2072,6 @@
     --token-tag-surface-color-default: #e0e0e0;
     --token-tag-surface-color-hover: #d1d1d1;
     --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-letter-spacing: 0.32px;
     --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
@@ -2459,7 +2454,6 @@
     --token-tag-surface-color-default: #525252;
     --token-tag-surface-color-hover: #636363;
     --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-letter-spacing: 0.32px;
     --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
@@ -2842,7 +2836,6 @@
     --token-tag-surface-color-default: #525252;
     --token-tag-surface-color-hover: #636363;
     --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-letter-spacing: 0.32px;
     --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);

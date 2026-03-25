@@ -14895,41 +14895,6 @@
         "font-size"
       ]
     },
-    "token-tag-typography-letter-spacing": {
-      "key": "{tag.typography.letter-spacing}",
-      "$type": "letter-spacing",
-      "$value": "0px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.32px",
-        "cds-g10": "0.32px",
-        "cds-g90": "0.32px",
-        "cds-g100": "0.32px"
-      },
-      "original": {
-        "$type": "letter-spacing",
-        "$value": 0,
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.label01.letter-spacing}",
-          "cds-g10": "{carbon.typography.label01.letter-spacing}",
-          "cds-g90": "{carbon.typography.label01.letter-spacing}",
-          "cds-g100": "{carbon.typography.label01.letter-spacing}"
-        },
-        "key": "{tag.typography.letter-spacing}"
-      },
-      "name": "token-tag-typography-letter-spacing",
-      "attributes": {
-        "category": "tag"
-      },
-      "path": [
-        "tag",
-        "typography",
-        "letter-spacing"
-      ]
-    },
     "token-tag-typography-line-height": {
       "key": "{tag.typography.line-height}",
       "$type": "number",
@@ -32086,41 +32051,6 @@
         "tag",
         "typography",
         "font-size"
-      ]
-    },
-    "token-tag-typography-letter-spacing": {
-      "key": "{tag.typography.letter-spacing}",
-      "$type": "letter-spacing",
-      "$value": "0.32px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.32px",
-        "cds-g10": "0.32px",
-        "cds-g90": "0.32px",
-        "cds-g100": "0.32px"
-      },
-      "original": {
-        "$type": "letter-spacing",
-        "$value": "{carbon.typography.label01.letter-spacing}",
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.label01.letter-spacing}",
-          "cds-g10": "{carbon.typography.label01.letter-spacing}",
-          "cds-g90": "{carbon.typography.label01.letter-spacing}",
-          "cds-g100": "{carbon.typography.label01.letter-spacing}"
-        },
-        "key": "{tag.typography.letter-spacing}"
-      },
-      "name": "token-tag-typography-letter-spacing",
-      "attributes": {
-        "category": "tag"
-      },
-      "path": [
-        "tag",
-        "typography",
-        "letter-spacing"
       ]
     },
     "token-tag-typography-line-height": {
@@ -49281,41 +49211,6 @@
         "font-size"
       ]
     },
-    "token-tag-typography-letter-spacing": {
-      "key": "{tag.typography.letter-spacing}",
-      "$type": "letter-spacing",
-      "$value": "0.32px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.32px",
-        "cds-g10": "0.32px",
-        "cds-g90": "0.32px",
-        "cds-g100": "0.32px"
-      },
-      "original": {
-        "$type": "letter-spacing",
-        "$value": "{carbon.typography.label01.letter-spacing}",
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.label01.letter-spacing}",
-          "cds-g10": "{carbon.typography.label01.letter-spacing}",
-          "cds-g90": "{carbon.typography.label01.letter-spacing}",
-          "cds-g100": "{carbon.typography.label01.letter-spacing}"
-        },
-        "key": "{tag.typography.letter-spacing}"
-      },
-      "name": "token-tag-typography-letter-spacing",
-      "attributes": {
-        "category": "tag"
-      },
-      "path": [
-        "tag",
-        "typography",
-        "letter-spacing"
-      ]
-    },
     "token-tag-typography-line-height": {
       "key": "{tag.typography.line-height}",
       "$type": "number",
@@ -66474,41 +66369,6 @@
         "font-size"
       ]
     },
-    "token-tag-typography-letter-spacing": {
-      "key": "{tag.typography.letter-spacing}",
-      "$type": "letter-spacing",
-      "$value": "0.32px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.32px",
-        "cds-g10": "0.32px",
-        "cds-g90": "0.32px",
-        "cds-g100": "0.32px"
-      },
-      "original": {
-        "$type": "letter-spacing",
-        "$value": "{carbon.typography.label01.letter-spacing}",
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.label01.letter-spacing}",
-          "cds-g10": "{carbon.typography.label01.letter-spacing}",
-          "cds-g90": "{carbon.typography.label01.letter-spacing}",
-          "cds-g100": "{carbon.typography.label01.letter-spacing}"
-        },
-        "key": "{tag.typography.letter-spacing}"
-      },
-      "name": "token-tag-typography-letter-spacing",
-      "attributes": {
-        "category": "tag"
-      },
-      "path": [
-        "tag",
-        "typography",
-        "letter-spacing"
-      ]
-    },
     "token-tag-typography-line-height": {
       "key": "{tag.typography.line-height}",
       "$type": "number",
@@ -83665,41 +83525,6 @@
         "tag",
         "typography",
         "font-size"
-      ]
-    },
-    "token-tag-typography-letter-spacing": {
-      "key": "{tag.typography.letter-spacing}",
-      "$type": "letter-spacing",
-      "$value": "0.32px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.32px",
-        "cds-g10": "0.32px",
-        "cds-g90": "0.32px",
-        "cds-g100": "0.32px"
-      },
-      "original": {
-        "$type": "letter-spacing",
-        "$value": "{carbon.typography.label01.letter-spacing}",
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.label01.letter-spacing}",
-          "cds-g10": "{carbon.typography.label01.letter-spacing}",
-          "cds-g90": "{carbon.typography.label01.letter-spacing}",
-          "cds-g100": "{carbon.typography.label01.letter-spacing}"
-        },
-        "key": "{tag.typography.letter-spacing}"
-      },
-      "name": "token-tag-typography-letter-spacing",
-      "attributes": {
-        "category": "tag"
-      },
-      "path": [
-        "tag",
-        "typography",
-        "letter-spacing"
       ]
     },
     "token-tag-typography-line-height": {
