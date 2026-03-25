@@ -22,6 +22,7 @@
     "lint": "pnpm eslint --quiet --ext .js,.ts",
     "extract-carbon-tokens": "tsx ./scripts/extract-carbon-tokens",
     "build": "tsx ./scripts/build",
+    "start": "watch 'pnpm build' src",
     "postbuild": "cp -R dist/products/css/themed-tokens/with-css-selectors/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors &&  cp -R dist/products/css/themed-tokens/with-css-selectors--migration/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors--migration && cp -R dist/products/css/themed-tokens/with-css-selectors--advanced/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors--advanced"
   },
   "devDependencies": {
@@ -31,6 +32,7 @@
     "@carbon/motion": "^11.34.0",
     "@carbon/themes": "^11.59.0",
     "@carbon/type": "^11.46.0",
+    "@cnakazawa/watch": "^1.0.4",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.10.2",
