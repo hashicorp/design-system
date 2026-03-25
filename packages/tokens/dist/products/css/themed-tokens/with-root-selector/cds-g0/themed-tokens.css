@@ -303,6 +303,7 @@
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
   --token-tabs-border-color-default: #c6c6c6;
+  --token-tabs-border-color-hover: var(--token-color-border-strong);
   --token-tabs-foreground-color-selected-default: #161616;
   --token-tabs-foreground-color-selected-hover: #161616;
   --token-tabs-indicator-height: 2px;

@@ -15926,6 +15926,39 @@
         "default"
       ]
     },
+    "token-tabs-border-color-hover": {
+      "key": "{tabs.border-color.hover}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#3b3d4566",
+        "cds-g10": "#3b3d4566",
+        "cds-g90": "#3b3d4566",
+        "cds-g100": "#3b3d4566"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{color.border.strong}",
+          "cds-g10": "{color.border.strong}",
+          "cds-g90": "{color.border.strong}",
+          "cds-g100": "{color.border.strong}"
+        },
+        "key": "{tabs.border-color.hover}"
+      },
+      "name": "token-tabs-border-color-hover",
+      "attributes": {
+        "category": "tabs"
+      },
+      "path": [
+        "tabs",
+        "border-color",
+        "hover"
+      ]
+    },
     "token-tabs-foreground-color-selected-default": {
       "key": "{tabs.foreground-color.selected.default}",
       "$type": "color",
@@ -34839,6 +34872,39 @@
         "tabs",
         "border-color",
         "default"
+      ]
+    },
+    "token-tabs-border-color-hover": {
+      "key": "{tabs.border-color.hover}",
+      "$type": "color",
+      "$value": "#8d8d8d",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#8d8d8d",
+        "cds-g10": "#8d8d8d",
+        "cds-g90": "#8d8d8d",
+        "cds-g100": "#8d8d8d"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.border.strong}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{color.border.strong}",
+          "cds-g10": "{color.border.strong}",
+          "cds-g90": "{color.border.strong}",
+          "cds-g100": "{color.border.strong}"
+        },
+        "key": "{tabs.border-color.hover}"
+      },
+      "name": "token-tabs-border-color-hover",
+      "attributes": {
+        "category": "tabs"
+      },
+      "path": [
+        "tabs",
+        "border-color",
+        "hover"
       ]
     },
     "token-tabs-foreground-color-selected-default": {
@@ -53756,6 +53822,39 @@
         "default"
       ]
     },
+    "token-tabs-border-color-hover": {
+      "key": "{tabs.border-color.hover}",
+      "$type": "color",
+      "$value": "#8d8d8d",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#8d8d8d",
+        "cds-g10": "#8d8d8d",
+        "cds-g90": "#8d8d8d",
+        "cds-g100": "#8d8d8d"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.border.strong}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{color.border.strong}",
+          "cds-g10": "{color.border.strong}",
+          "cds-g90": "{color.border.strong}",
+          "cds-g100": "{color.border.strong}"
+        },
+        "key": "{tabs.border-color.hover}"
+      },
+      "name": "token-tabs-border-color-hover",
+      "attributes": {
+        "category": "tabs"
+      },
+      "path": [
+        "tabs",
+        "border-color",
+        "hover"
+      ]
+    },
     "token-tabs-foreground-color-selected-default": {
       "key": "{tabs.foreground-color.selected.default}",
       "$type": "color",
@@ -72671,6 +72770,39 @@
         "default"
       ]
     },
+    "token-tabs-border-color-hover": {
+      "key": "{tabs.border-color.hover}",
+      "$type": "color",
+      "$value": "#8d8d8d",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#8d8d8d",
+        "cds-g10": "#8d8d8d",
+        "cds-g90": "#8d8d8d",
+        "cds-g100": "#8d8d8d"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.border.strong}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{color.border.strong}",
+          "cds-g10": "{color.border.strong}",
+          "cds-g90": "{color.border.strong}",
+          "cds-g100": "{color.border.strong}"
+        },
+        "key": "{tabs.border-color.hover}"
+      },
+      "name": "token-tabs-border-color-hover",
+      "attributes": {
+        "category": "tabs"
+      },
+      "path": [
+        "tabs",
+        "border-color",
+        "hover"
+      ]
+    },
     "token-tabs-foreground-color-selected-default": {
       "key": "{tabs.foreground-color.selected.default}",
       "$type": "color",
@@ -91584,6 +91716,39 @@
         "tabs",
         "border-color",
         "default"
+      ]
+    },
+    "token-tabs-border-color-hover": {
+      "key": "{tabs.border-color.hover}",
+      "$type": "color",
+      "$value": "#6f6f6f",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#6f6f6f",
+        "cds-g10": "#6f6f6f",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#6f6f6f"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.border.strong}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{color.border.strong}",
+          "cds-g10": "{color.border.strong}",
+          "cds-g90": "{color.border.strong}",
+          "cds-g100": "{color.border.strong}"
+        },
+        "key": "{tabs.border-color.hover}"
+      },
+      "name": "token-tabs-border-color-hover",
+      "attributes": {
+        "category": "tabs"
+      },
+      "path": [
+        "tabs",
+        "border-color",
+        "hover"
       ]
     },
     "token-tabs-foreground-color-selected-default": {

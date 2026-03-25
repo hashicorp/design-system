@@ -15920,6 +15920,39 @@
     ]
   },
   {
+    "key": "{tabs.border-color.hover}",
+    "$type": "color",
+    "$value": "#6f6f6f",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "#6f6f6f",
+      "cds-g10": "#6f6f6f",
+      "cds-g90": "#6f6f6f",
+      "cds-g100": "#6f6f6f"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{color.border.strong}",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{color.border.strong}",
+        "cds-g10": "{color.border.strong}",
+        "cds-g90": "{color.border.strong}",
+        "cds-g100": "{color.border.strong}"
+      },
+      "key": "{tabs.border-color.hover}"
+    },
+    "name": "token-tabs-border-color-hover",
+    "attributes": {
+      "category": "tabs"
+    },
+    "path": [
+      "tabs",
+      "border-color",
+      "hover"
+    ]
+  },
+  {
     "key": "{tabs.foreground-color.selected.default}",
     "$type": "color",
     "$value": "#f4f4f4",
