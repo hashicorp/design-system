@@ -121,12 +121,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
       let dependencies = [fullInputPath];
       markdownFileContent = markdownFileContent.replace(
         demoBlockRegex,
-        (
-          _match,
-          fileName,
-          shouldExecute,
-          isExpanded,
-        ) => {
+        (_match, fileName, shouldExecute, isExpanded) => {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
 
           const codeSnippets = {
@@ -155,9 +150,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 fileNameToForward = filePath.match(fileNameRegex)?.[1];
               }
 
-              if (
-                ext === '.classic.js' || ext === '.js'
-              ) {
+              if (ext === '.classic.js' || ext === '.js') {
                 codeSnippets.js = escapeCode(stripEslintIgnores(code));
               }
 
