@@ -112,7 +112,7 @@
     "rollup": "^4.59.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-scss": "^4.0.1",
-    "sass": "^1.89.2",
+    "sass": "^1.98.0",
     "stylelint": "^16.17.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^14.0.0",
