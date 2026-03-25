@@ -7,6 +7,8 @@
 // CARD COMPONENT > CONTAINER
 //
 
+@use "../../mixins/carbonization" as *;
+
 $hds-card-container-style: ("surface", "elevation");
 $hds-card-container-levels: ("base", "mid", "high");
 
@@ -32,6 +34,10 @@ $hds-card-container-levels: ("base", "mid", "high");
     .hds-card__container--hover-level-#{$style}-#{$level}:hover,
     .hds-card__container--hover-level-#{$style}-#{$level}.mock-hover {
       box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
+
+      @include hds-apply-only-if-carbon() {
+        background-color: var(--token-color-surface-interactive-hover);
+      }
     }
   }
 
