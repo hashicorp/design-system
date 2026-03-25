@@ -4535,6 +4535,7 @@ button.hds-button[href]::after {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: var(--token-color-foreground-primary);
   background: var(--token-color-surface-primary);
   border: 1px solid var(--token-dialog-primitive-border-color);
 }
@@ -5641,7 +5642,6 @@ button.hds-button[href]::after {
   inset: 0;
   height: 100vh;
   max-height: 100vh;
-  background: var(--token-color-surface-primary);
   border: none;
   box-shadow: var(--token-elevation-overlay-box-shadow);
 }
