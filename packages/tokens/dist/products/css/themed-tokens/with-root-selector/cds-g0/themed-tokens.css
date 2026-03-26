@@ -255,12 +255,12 @@
   --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
   --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
   --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
-  --token-modal-header-foreground-critical: #161616;
-  --token-modal-header-foreground-warning: #161616;
-  --token-modal-header-surface-critical: var(--token-color-surface-faint);
-  --token-modal-header-surface-warning: var(--token-color-surface-faint);
-  --token-modal-header-tagline-critical: #525252;
-  --token-modal-header-tagline-warning: #525252;
+  --token-modal-header-foreground-color-critical: #161616;
+  --token-modal-header-foreground-color-warning: #161616;
+  --token-modal-header-surface-color-critical: var(--token-color-surface-faint);
+  --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
+  --token-modal-header-tagline-color-critical: #525252;
+  --token-modal-header-tagline-color-warning: #525252;
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(--token-color-palette-alpha-200);
   --token-rich-tooltip-bubble-border-radius: 2px;

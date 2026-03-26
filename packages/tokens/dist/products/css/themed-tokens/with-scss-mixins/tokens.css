@@ -459,18 +459,22 @@
     --token-modal-header-border-color-warning: var(
       --token-color-border-warning
     );
-    --token-modal-header-foreground-critical: var(
+    --token-modal-header-foreground-color-critical: var(
       --token-color-foreground-critical-on-surface
     );
-    --token-modal-header-foreground-warning: var(
+    --token-modal-header-foreground-color-warning: var(
       --token-color-foreground-warning-on-surface
     );
-    --token-modal-header-surface-critical: var(--token-color-surface-critical);
-    --token-modal-header-surface-warning: var(--token-color-surface-warning);
-    --token-modal-header-tagline-critical: var(
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-critical
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-warning
+    );
+    --token-modal-header-tagline-color-critical: var(
       --token-color-foreground-critical-on-surface
     );
-    --token-modal-header-tagline-warning: var(
+    --token-modal-header-tagline-color-warning: var(
       --token-color-foreground-warning-on-surface
     );
     --token-rich-tooltip-bubble-arrow-size: 20px;
@@ -845,12 +849,16 @@
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
     --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
-    --token-modal-header-foreground-critical: #161616;
-    --token-modal-header-foreground-warning: #161616;
-    --token-modal-header-surface-critical: var(--token-color-surface-faint);
-    --token-modal-header-surface-warning: var(--token-color-surface-faint);
-    --token-modal-header-tagline-critical: #525252;
-    --token-modal-header-tagline-warning: #525252;
+    --token-modal-header-foreground-color-critical: #161616;
+    --token-modal-header-foreground-color-warning: #161616;
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-tagline-color-critical: #525252;
+    --token-modal-header-tagline-color-warning: #525252;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1208,12 +1216,16 @@
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
     --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
-    --token-modal-header-foreground-critical: #f4f4f4;
-    --token-modal-header-foreground-warning: #f4f4f4;
-    --token-modal-header-surface-critical: var(--token-color-surface-faint);
-    --token-modal-header-surface-warning: var(--token-color-surface-faint);
-    --token-modal-header-tagline-critical: #c6c6c6;
-    --token-modal-header-tagline-warning: #c6c6c6;
+    --token-modal-header-foreground-color-critical: #f4f4f4;
+    --token-modal-header-foreground-color-warning: #f4f4f4;
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-tagline-color-critical: #c6c6c6;
+    --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1571,12 +1583,16 @@
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
     --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
-    --token-modal-header-foreground-critical: #161616;
-    --token-modal-header-foreground-warning: #161616;
-    --token-modal-header-surface-critical: var(--token-color-surface-faint);
-    --token-modal-header-surface-warning: var(--token-color-surface-faint);
-    --token-modal-header-tagline-critical: #525252;
-    --token-modal-header-tagline-warning: #525252;
+    --token-modal-header-foreground-color-critical: #161616;
+    --token-modal-header-foreground-color-warning: #161616;
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-tagline-color-critical: #525252;
+    --token-modal-header-tagline-color-warning: #525252;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1934,12 +1950,16 @@
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
     --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
-    --token-modal-header-foreground-critical: #161616;
-    --token-modal-header-foreground-warning: #161616;
-    --token-modal-header-surface-critical: var(--token-color-surface-faint);
-    --token-modal-header-surface-warning: var(--token-color-surface-faint);
-    --token-modal-header-tagline-critical: #525252;
-    --token-modal-header-tagline-warning: #525252;
+    --token-modal-header-foreground-color-critical: #161616;
+    --token-modal-header-foreground-color-warning: #161616;
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-tagline-color-critical: #525252;
+    --token-modal-header-tagline-color-warning: #525252;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2297,12 +2317,16 @@
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
     --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
-    --token-modal-header-foreground-critical: #f4f4f4;
-    --token-modal-header-foreground-warning: #f4f4f4;
-    --token-modal-header-surface-critical: var(--token-color-surface-faint);
-    --token-modal-header-surface-warning: var(--token-color-surface-faint);
-    --token-modal-header-tagline-critical: #c6c6c6;
-    --token-modal-header-tagline-warning: #c6c6c6;
+    --token-modal-header-foreground-color-critical: #f4f4f4;
+    --token-modal-header-foreground-color-warning: #f4f4f4;
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-tagline-color-critical: #c6c6c6;
+    --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2660,12 +2684,16 @@
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
     --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
-    --token-modal-header-foreground-critical: #f4f4f4;
-    --token-modal-header-foreground-warning: #f4f4f4;
-    --token-modal-header-surface-critical: var(--token-color-surface-faint);
-    --token-modal-header-surface-warning: var(--token-color-surface-faint);
-    --token-modal-header-tagline-critical: #c6c6c6;
-    --token-modal-header-tagline-warning: #c6c6c6;
+    --token-modal-header-foreground-color-critical: #f4f4f4;
+    --token-modal-header-foreground-color-warning: #f4f4f4;
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-tagline-color-critical: #c6c6c6;
+    --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200

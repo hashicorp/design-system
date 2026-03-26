@@ -13580,8 +13580,8 @@
         "large"
       ]
     },
-    "token-modal-header-foreground-warning": {
-      "key": "{modal.header.foreground.warning}",
+    "token-modal-header-foreground-color-warning": {
+      "key": "{modal.header.foreground.color.warning}",
       "$type": "color",
       "$value": "#9e4b00",
       "$modes": {
@@ -13601,9 +13601,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.warning}"
+        "key": "{modal.header.foreground.color.warning}"
       },
-      "name": "token-modal-header-foreground-warning",
+      "name": "token-modal-header-foreground-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -13611,11 +13611,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-foreground-critical": {
-      "key": "{modal.header.foreground.critical}",
+    "token-modal-header-foreground-color-critical": {
+      "key": "{modal.header.foreground.color.critical}",
       "$type": "color",
       "$value": "#c00005",
       "$modes": {
@@ -13635,9 +13636,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.critical}"
+        "key": "{modal.header.foreground.color.critical}"
       },
-      "name": "token-modal-header-foreground-critical",
+      "name": "token-modal-header-foreground-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -13645,11 +13646,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "critical"
       ]
     },
-    "token-modal-header-surface-warning": {
-      "key": "{modal.header.surface.warning}",
+    "token-modal-header-surface-color-warning": {
+      "key": "{modal.header.surface.color.warning}",
       "$type": "color",
       "$value": "#fff9e8",
       "$modes": {
@@ -13669,9 +13671,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.warning}"
+        "key": "{modal.header.surface.color.warning}"
       },
-      "name": "token-modal-header-surface-warning",
+      "name": "token-modal-header-surface-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -13679,11 +13681,12 @@
         "modal",
         "header",
         "surface",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-surface-critical": {
-      "key": "{modal.header.surface.critical}",
+    "token-modal-header-surface-color-critical": {
+      "key": "{modal.header.surface.color.critical}",
       "$type": "color",
       "$value": "#fff5f5",
       "$modes": {
@@ -13703,9 +13706,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.critical}"
+        "key": "{modal.header.surface.color.critical}"
       },
-      "name": "token-modal-header-surface-critical",
+      "name": "token-modal-header-surface-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -13713,6 +13716,7 @@
         "modal",
         "header",
         "surface",
+        "color",
         "critical"
       ]
     },
@@ -13786,8 +13790,8 @@
         "critical"
       ]
     },
-    "token-modal-header-tagline-warning": {
-      "key": "{modal.header.tagline.warning}",
+    "token-modal-header-tagline-color-warning": {
+      "key": "{modal.header.tagline.color.warning}",
       "$type": "color",
       "$value": "#9e4b00",
       "$modes": {
@@ -13807,9 +13811,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.warning}"
+        "key": "{modal.header.tagline.color.warning}"
       },
-      "name": "token-modal-header-tagline-warning",
+      "name": "token-modal-header-tagline-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -13817,11 +13821,12 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-tagline-critical": {
-      "key": "{modal.header.tagline.critical}",
+    "token-modal-header-tagline-color-critical": {
+      "key": "{modal.header.tagline.color.critical}",
       "$type": "color",
       "$value": "#c00005",
       "$modes": {
@@ -13841,9 +13846,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.critical}"
+        "key": "{modal.header.tagline.color.critical}"
       },
-      "name": "token-modal-header-tagline-critical",
+      "name": "token-modal-header-tagline-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -13851,6 +13856,7 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "critical"
       ]
     },
@@ -30074,8 +30080,8 @@
         "large"
       ]
     },
-    "token-modal-header-foreground-warning": {
-      "key": "{modal.header.foreground.warning}",
+    "token-modal-header-foreground-color-warning": {
+      "key": "{modal.header.foreground.color.warning}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -30095,9 +30101,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.warning}"
+        "key": "{modal.header.foreground.color.warning}"
       },
-      "name": "token-modal-header-foreground-warning",
+      "name": "token-modal-header-foreground-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -30105,11 +30111,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-foreground-critical": {
-      "key": "{modal.header.foreground.critical}",
+    "token-modal-header-foreground-color-critical": {
+      "key": "{modal.header.foreground.color.critical}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -30129,9 +30136,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.critical}"
+        "key": "{modal.header.foreground.color.critical}"
       },
-      "name": "token-modal-header-foreground-critical",
+      "name": "token-modal-header-foreground-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -30139,11 +30146,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "critical"
       ]
     },
-    "token-modal-header-surface-warning": {
-      "key": "{modal.header.surface.warning}",
+    "token-modal-header-surface-color-warning": {
+      "key": "{modal.header.surface.color.warning}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -30163,9 +30171,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.warning}"
+        "key": "{modal.header.surface.color.warning}"
       },
-      "name": "token-modal-header-surface-warning",
+      "name": "token-modal-header-surface-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -30173,11 +30181,12 @@
         "modal",
         "header",
         "surface",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-surface-critical": {
-      "key": "{modal.header.surface.critical}",
+    "token-modal-header-surface-color-critical": {
+      "key": "{modal.header.surface.color.critical}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -30197,9 +30206,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.critical}"
+        "key": "{modal.header.surface.color.critical}"
       },
-      "name": "token-modal-header-surface-critical",
+      "name": "token-modal-header-surface-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -30207,6 +30216,7 @@
         "modal",
         "header",
         "surface",
+        "color",
         "critical"
       ]
     },
@@ -30280,8 +30290,8 @@
         "critical"
       ]
     },
-    "token-modal-header-tagline-warning": {
-      "key": "{modal.header.tagline.warning}",
+    "token-modal-header-tagline-color-warning": {
+      "key": "{modal.header.tagline.color.warning}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -30301,9 +30311,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.warning}"
+        "key": "{modal.header.tagline.color.warning}"
       },
-      "name": "token-modal-header-tagline-warning",
+      "name": "token-modal-header-tagline-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -30311,11 +30321,12 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-tagline-critical": {
-      "key": "{modal.header.tagline.critical}",
+    "token-modal-header-tagline-color-critical": {
+      "key": "{modal.header.tagline.color.critical}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -30335,9 +30346,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.critical}"
+        "key": "{modal.header.tagline.color.critical}"
       },
-      "name": "token-modal-header-tagline-critical",
+      "name": "token-modal-header-tagline-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -30345,6 +30356,7 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "critical"
       ]
     },
@@ -46568,8 +46580,8 @@
         "large"
       ]
     },
-    "token-modal-header-foreground-warning": {
-      "key": "{modal.header.foreground.warning}",
+    "token-modal-header-foreground-color-warning": {
+      "key": "{modal.header.foreground.color.warning}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -46589,9 +46601,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.warning}"
+        "key": "{modal.header.foreground.color.warning}"
       },
-      "name": "token-modal-header-foreground-warning",
+      "name": "token-modal-header-foreground-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -46599,11 +46611,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-foreground-critical": {
-      "key": "{modal.header.foreground.critical}",
+    "token-modal-header-foreground-color-critical": {
+      "key": "{modal.header.foreground.color.critical}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -46623,9 +46636,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.critical}"
+        "key": "{modal.header.foreground.color.critical}"
       },
-      "name": "token-modal-header-foreground-critical",
+      "name": "token-modal-header-foreground-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -46633,11 +46646,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "critical"
       ]
     },
-    "token-modal-header-surface-warning": {
-      "key": "{modal.header.surface.warning}",
+    "token-modal-header-surface-color-warning": {
+      "key": "{modal.header.surface.color.warning}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -46657,9 +46671,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.warning}"
+        "key": "{modal.header.surface.color.warning}"
       },
-      "name": "token-modal-header-surface-warning",
+      "name": "token-modal-header-surface-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -46667,11 +46681,12 @@
         "modal",
         "header",
         "surface",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-surface-critical": {
-      "key": "{modal.header.surface.critical}",
+    "token-modal-header-surface-color-critical": {
+      "key": "{modal.header.surface.color.critical}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -46691,9 +46706,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.critical}"
+        "key": "{modal.header.surface.color.critical}"
       },
-      "name": "token-modal-header-surface-critical",
+      "name": "token-modal-header-surface-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -46701,6 +46716,7 @@
         "modal",
         "header",
         "surface",
+        "color",
         "critical"
       ]
     },
@@ -46774,8 +46790,8 @@
         "critical"
       ]
     },
-    "token-modal-header-tagline-warning": {
-      "key": "{modal.header.tagline.warning}",
+    "token-modal-header-tagline-color-warning": {
+      "key": "{modal.header.tagline.color.warning}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -46795,9 +46811,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.warning}"
+        "key": "{modal.header.tagline.color.warning}"
       },
-      "name": "token-modal-header-tagline-warning",
+      "name": "token-modal-header-tagline-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -46805,11 +46821,12 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-tagline-critical": {
-      "key": "{modal.header.tagline.critical}",
+    "token-modal-header-tagline-color-critical": {
+      "key": "{modal.header.tagline.color.critical}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -46829,9 +46846,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.critical}"
+        "key": "{modal.header.tagline.color.critical}"
       },
-      "name": "token-modal-header-tagline-critical",
+      "name": "token-modal-header-tagline-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -46839,6 +46856,7 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "critical"
       ]
     },
@@ -63062,8 +63080,8 @@
         "large"
       ]
     },
-    "token-modal-header-foreground-warning": {
-      "key": "{modal.header.foreground.warning}",
+    "token-modal-header-foreground-color-warning": {
+      "key": "{modal.header.foreground.color.warning}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -63083,9 +63101,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.warning}"
+        "key": "{modal.header.foreground.color.warning}"
       },
-      "name": "token-modal-header-foreground-warning",
+      "name": "token-modal-header-foreground-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -63093,11 +63111,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-foreground-critical": {
-      "key": "{modal.header.foreground.critical}",
+    "token-modal-header-foreground-color-critical": {
+      "key": "{modal.header.foreground.color.critical}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -63117,9 +63136,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.critical}"
+        "key": "{modal.header.foreground.color.critical}"
       },
-      "name": "token-modal-header-foreground-critical",
+      "name": "token-modal-header-foreground-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -63127,11 +63146,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "critical"
       ]
     },
-    "token-modal-header-surface-warning": {
-      "key": "{modal.header.surface.warning}",
+    "token-modal-header-surface-color-warning": {
+      "key": "{modal.header.surface.color.warning}",
       "$type": "color",
       "$value": "#393939",
       "$modes": {
@@ -63151,9 +63171,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.warning}"
+        "key": "{modal.header.surface.color.warning}"
       },
-      "name": "token-modal-header-surface-warning",
+      "name": "token-modal-header-surface-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -63161,11 +63181,12 @@
         "modal",
         "header",
         "surface",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-surface-critical": {
-      "key": "{modal.header.surface.critical}",
+    "token-modal-header-surface-color-critical": {
+      "key": "{modal.header.surface.color.critical}",
       "$type": "color",
       "$value": "#393939",
       "$modes": {
@@ -63185,9 +63206,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.critical}"
+        "key": "{modal.header.surface.color.critical}"
       },
-      "name": "token-modal-header-surface-critical",
+      "name": "token-modal-header-surface-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -63195,6 +63216,7 @@
         "modal",
         "header",
         "surface",
+        "color",
         "critical"
       ]
     },
@@ -63268,8 +63290,8 @@
         "critical"
       ]
     },
-    "token-modal-header-tagline-warning": {
-      "key": "{modal.header.tagline.warning}",
+    "token-modal-header-tagline-color-warning": {
+      "key": "{modal.header.tagline.color.warning}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -63289,9 +63311,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.warning}"
+        "key": "{modal.header.tagline.color.warning}"
       },
-      "name": "token-modal-header-tagline-warning",
+      "name": "token-modal-header-tagline-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -63299,11 +63321,12 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-tagline-critical": {
-      "key": "{modal.header.tagline.critical}",
+    "token-modal-header-tagline-color-critical": {
+      "key": "{modal.header.tagline.color.critical}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -63323,9 +63346,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.critical}"
+        "key": "{modal.header.tagline.color.critical}"
       },
-      "name": "token-modal-header-tagline-critical",
+      "name": "token-modal-header-tagline-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -63333,6 +63356,7 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "critical"
       ]
     },
@@ -79556,8 +79580,8 @@
         "large"
       ]
     },
-    "token-modal-header-foreground-warning": {
-      "key": "{modal.header.foreground.warning}",
+    "token-modal-header-foreground-color-warning": {
+      "key": "{modal.header.foreground.color.warning}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -79577,9 +79601,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.warning}"
+        "key": "{modal.header.foreground.color.warning}"
       },
-      "name": "token-modal-header-foreground-warning",
+      "name": "token-modal-header-foreground-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -79587,11 +79611,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-foreground-critical": {
-      "key": "{modal.header.foreground.critical}",
+    "token-modal-header-foreground-color-critical": {
+      "key": "{modal.header.foreground.color.critical}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -79611,9 +79636,9 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{modal.header.foreground.critical}"
+        "key": "{modal.header.foreground.color.critical}"
       },
-      "name": "token-modal-header-foreground-critical",
+      "name": "token-modal-header-foreground-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -79621,11 +79646,12 @@
         "modal",
         "header",
         "foreground",
+        "color",
         "critical"
       ]
     },
-    "token-modal-header-surface-warning": {
-      "key": "{modal.header.surface.warning}",
+    "token-modal-header-surface-color-warning": {
+      "key": "{modal.header.surface.color.warning}",
       "$type": "color",
       "$value": "#262626",
       "$modes": {
@@ -79645,9 +79671,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.warning}"
+        "key": "{modal.header.surface.color.warning}"
       },
-      "name": "token-modal-header-surface-warning",
+      "name": "token-modal-header-surface-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -79655,11 +79681,12 @@
         "modal",
         "header",
         "surface",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-surface-critical": {
-      "key": "{modal.header.surface.critical}",
+    "token-modal-header-surface-color-critical": {
+      "key": "{modal.header.surface.color.critical}",
       "$type": "color",
       "$value": "#262626",
       "$modes": {
@@ -79679,9 +79706,9 @@
           "cds-g90": "{color.surface.faint}",
           "cds-g100": "{color.surface.faint}"
         },
-        "key": "{modal.header.surface.critical}"
+        "key": "{modal.header.surface.color.critical}"
       },
-      "name": "token-modal-header-surface-critical",
+      "name": "token-modal-header-surface-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -79689,6 +79716,7 @@
         "modal",
         "header",
         "surface",
+        "color",
         "critical"
       ]
     },
@@ -79762,8 +79790,8 @@
         "critical"
       ]
     },
-    "token-modal-header-tagline-warning": {
-      "key": "{modal.header.tagline.warning}",
+    "token-modal-header-tagline-color-warning": {
+      "key": "{modal.header.tagline.color.warning}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -79783,9 +79811,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.warning}"
+        "key": "{modal.header.tagline.color.warning}"
       },
-      "name": "token-modal-header-tagline-warning",
+      "name": "token-modal-header-tagline-color-warning",
       "attributes": {
         "category": "modal"
       },
@@ -79793,11 +79821,12 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "warning"
       ]
     },
-    "token-modal-header-tagline-critical": {
-      "key": "{modal.header.tagline.critical}",
+    "token-modal-header-tagline-color-critical": {
+      "key": "{modal.header.tagline.color.critical}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -79817,9 +79846,9 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{modal.header.tagline.critical}"
+        "key": "{modal.header.tagline.color.critical}"
       },
-      "name": "token-modal-header-tagline-critical",
+      "name": "token-modal-header-tagline-color-critical",
       "attributes": {
         "category": "modal"
       },
@@ -79827,6 +79856,7 @@
         "modal",
         "header",
         "tagline",
+        "color",
         "critical"
       ]
     },

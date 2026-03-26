@@ -255,12 +255,12 @@
   --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
   --token-modal-header-border-color-critical: var(--token-color-border-critical);
   --token-modal-header-border-color-warning: var(--token-color-border-warning);
-  --token-modal-header-foreground-critical: var(--token-color-foreground-critical-on-surface);
-  --token-modal-header-foreground-warning: var(--token-color-foreground-warning-on-surface);
-  --token-modal-header-surface-critical: var(--token-color-surface-critical);
-  --token-modal-header-surface-warning: var(--token-color-surface-warning);
-  --token-modal-header-tagline-critical: var(--token-color-foreground-critical-on-surface);
-  --token-modal-header-tagline-warning: var(--token-color-foreground-warning-on-surface);
+  --token-modal-header-foreground-color-critical: var(--token-color-foreground-critical-on-surface);
+  --token-modal-header-foreground-color-warning: var(--token-color-foreground-warning-on-surface);
+  --token-modal-header-surface-color-critical: var(--token-color-surface-critical);
+  --token-modal-header-surface-color-warning: var(--token-color-surface-warning);
+  --token-modal-header-tagline-color-critical: var(--token-color-foreground-critical-on-surface);
+  --token-modal-header-tagline-color-warning: var(--token-color-foreground-warning-on-surface);
   --token-rich-tooltip-bubble-arrow-size: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
