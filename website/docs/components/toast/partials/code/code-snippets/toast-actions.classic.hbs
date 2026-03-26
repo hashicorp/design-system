@@ -1,0 +1,6 @@
+<Hds::Toast @color="critical" @onDismiss={{this.yourOnDismissFunction}} as |T|>
+  <T.Title>Title here</T.Title>
+  <T.Description>Description here</T.Description>
+  <T.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
+  <T.LinkStandalone @color="secondary" @icon="plus" @text="Another action" @route="components" />
+</Hds::Toast>
