@@ -1,0 +1,26 @@
+<div class="doc-pagination-table-demo">
+  <Hds::Table
+    @model={{this.demoPaginatedDataCompact}}
+    @columns={{array
+      (hash key="id" label="ID")
+      (hash key="name" label="Name")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <Hds::Pagination::Compact
+    @route={{this.demoRouteName}}
+    @queryFunction={{this.demoQueryFunctionCompact}}
+    @isDisabledPrev={{this.demoIsDisabledPrev}}
+    @isDisabledNext={{this.demoIsDisabledNext}}
+  />
+</div>

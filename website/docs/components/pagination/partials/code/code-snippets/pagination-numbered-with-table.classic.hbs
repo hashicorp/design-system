@@ -1,0 +1,31 @@
+<div class="doc-pagination-table-demo">
+  <Hds::Table
+    @model={{this.demoPaginatedDataNumbered}}
+    @columns={{array
+      (hash key="id" label="ID" isSortable=true)
+      (hash key="name" label="Name" isSortable=true)
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+    @density={{if (eq this.demoCurrentPageSize 30) "short" "medium"}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <Hds::Pagination::Numbered
+    @totalItems={{this.demoTotalItems}}
+    @currentPage={{this.demoCurrentPage}}
+    @pageSizes={{this.demoPageSizes}}
+    @currentPageSize={{this.demoCurrentPageSize}}
+    @route={{this.demoRouteName}}
+    @queryFunction={{this.demoQueryFunctionNumbered}}
+    @onPageChange={{this.handlePageChange}}
+    @onPageSizeChange={{this.handlePageSizeChangeNumbered}}
+  />
+</div>
