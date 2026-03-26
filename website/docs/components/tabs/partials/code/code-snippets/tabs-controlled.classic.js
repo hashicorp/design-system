@@ -16,7 +16,7 @@ export default class LocalComponent extends Component {
     const routeQueryParams = this?.router?.currentRoute?.queryParams ?? {};
     let queryParams = Object.assign({}, routeQueryParams);
     if (index !== undefined) {
-      // important: in order for this to work, the query param name needs to be added to the list of query params in the controller:
+      // important: For this to work, the query param name must be added to the query param list in the controller:
       // see: https://github.com/hashicorp/design-system/blob/main/website/app/controllers/show.js#L42-L53
       queryParams.demoSelectedTab = index;
       // see: https://github.com/DockYard/ember-router-scroll#preservescrollposition-with-queryparams
