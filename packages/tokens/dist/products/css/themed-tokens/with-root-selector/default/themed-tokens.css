@@ -238,6 +238,17 @@
   --token-icon-tile-border-color-logo: var(--token-color-border-primary);
   --token-icon-tile-border-color-overlay: var(--token-color-border-primary);
   --token-icon-tile-surface-color-overlay: var(--token-color-surface-primary);
+  --token-link-inline-icon-margin-horizontal: 0.25em;
+  --token-link-inline-outline-color: var(--token-color-focus-action-internal);
+  --token-link-inline-outline-width: 2px;
+  --token-link-standalone-gap: 0.375rem;
+  --token-link-standalone-icon-size-large: 1.5rem;
+  --token-link-standalone-icon-size-small: 0.75rem;
+  --token-link-standalone-padding-vertical: 4px;
+  --token-link-standalone-typography-font-size-small: 0.8125rem;
+  --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
+  --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
+  --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
   --token-rich-tooltip-bubble-arrow-size: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);

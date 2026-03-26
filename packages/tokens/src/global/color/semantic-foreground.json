@@ -91,10 +91,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.blue-400}",
-          "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
-          "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
-          "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
-          "cds-g100": "{carbon.themes.g100.linkPrimaryHover}"
+          "cds-g0": "{carbon.themes.white.linkPrimary}",
+          "cds-g10": "{carbon.themes.g10.linkPrimary}",
+          "cds-g90": "{carbon.themes.g90.linkPrimary}",
+          "cds-g100": "{carbon.themes.g100.linkPrimary}"
         }
       },
       "highlight": {
