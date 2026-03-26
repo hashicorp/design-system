@@ -28,10 +28,7 @@ export function HdsStepperStatusToSrOnlyText(
   hdsIntl: HdsIntlService
 ): Record<HdsStepperStatusesValues, string> {
   return {
-    [HdsStepperStatusesValues.Incomplete]: ''
-      'hds.stepper.status.incomplete',
-      { default: '' }
-    ),
+    [HdsStepperStatusesValues.Incomplete]: '',
     [HdsStepperStatusesValues.Progress]: hdsIntl.t(
       'hds.stepper.status.progress',
       { default: '(current)' }
@@ -87,10 +84,7 @@ export function HdsStepperNavStatusToSrOnlyText(
   hdsIntl: HdsIntlService
 ): Record<HdsStepperNavStatusesValues, string> {
   return {
-    [HdsStepperNavStatusesValues.Incomplete]: ''
-      'hds.stepper.nav.incomplete',
-      { default: '' }
-    ),
+    [HdsStepperNavStatusesValues.Incomplete]: '',
     [HdsStepperNavStatusesValues.Active]: hdsIntl.t('hds.stepper.nav.active', {
       default: '(current)',
     }),
