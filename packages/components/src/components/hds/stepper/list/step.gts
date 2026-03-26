@@ -28,7 +28,6 @@ export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
 export const STATUSES: HdsStepperStatuses[] = Object.values(
   HdsStepperStatusesValues
 );
-// mapping is generated at runtime with the injected `hdsIntl` service
 
 export interface HdsStepperListStepSignature {
   Args: {
