@@ -38,6 +38,15 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
+
+Upgraded `ember-truth-helpers` from `4.0.3` to `5.0.0`
+
+Upgraded `@ember/test-waiters` from `3.1.0` to `4.1.1`
+
+<small class="doc-whats-new-changelog-metadata">[#3609](https://github.com/hashicorp/design-system/pull/3609)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ### Patch Changes
 
 
