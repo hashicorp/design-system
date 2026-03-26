@@ -217,7 +217,8 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
           <cds-modal-header>
             <cds-modal-close-button></cds-modal-close-button>
             <cds-modal-label>Tagline</cds-modal-label>
-            <cds-modal-heading>Title</cds-modal-heading>
+            <cds-modal-heading>A very, very long title that spans multiple lines
+              to test this element</cds-modal-heading>
           </cds-modal-header>
           <cds-modal-body>
             <cds-modal-body-content>
@@ -266,20 +267,15 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
           <cds-modal-header>
             <cds-modal-close-button></cds-modal-close-button>
             <cds-modal-label>Tagline</cds-modal-label>
-            <cds-modal-heading>A very, very long title that spans multiple lines
-              to test this element</cds-modal-heading>
+            <cds-modal-heading>Title</cds-modal-heading>
           </cds-modal-header>
           <cds-modal-body>
-            <cds-modal-body-content description>
-              HashiCorp uses data collected by cookies and JavaScript libraries
-              to improve your browsing experience, analyze site traffic, and
-              increase the overall performance of our site. By using our
-              website, you're agreeing to our Privacy Policy and Cookie Policy.
+            <cds-modal-body-content>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </cds-modal-body-content>
-            <cds-modal-body-content description>
-              The categories below outline which companies and tools we use for
-              collecting data. To opt out of a category of data collection, set
-              the toggle to "Off" and save your preferences.
+            <cds-modal-body-content description="FOO BAR BAZ">
+              This is some unstyled generic content to test the inheritance of
+              styles, in particular the text color.
             </cds-modal-body-content>
           </cds-modal-body>
           <cds-modal-footer>
@@ -321,7 +317,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
             <cds-modal-heading>Title</cds-modal-heading>
           </cds-modal-header>
           <cds-modal-body>
-            <cds-modal-body-content description>
+            <cds-modal-body-content>
               Modal content
             </cds-modal-body-content>
           </cds-modal-body>
@@ -358,7 +354,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
             <cds-modal-heading>Title</cds-modal-heading>
           </cds-modal-header>
           <cds-modal-body>
-            <cds-modal-body-content description>
+            <cds-modal-body-content>
               Modal content
             </cds-modal-body-content>
           </cds-modal-body>
@@ -407,7 +403,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
             <cds-modal-heading>Title</cds-modal-heading>
           </cds-modal-header>
           <cds-modal-body>
-            <cds-modal-body-content description>
+            <cds-modal-body-content>
               Modal content
             </cds-modal-body-content>
           </cds-modal-body>
