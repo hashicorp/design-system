@@ -47,12 +47,12 @@
 
 .hds-modal--color-warning {
   .hds-dialog-primitive__wrapper-header {
-    background: var(--token-modal-header-surface-warning);
+    background: var(--token-modal-header-surface-color-warning);
     border-bottom-color: var(--token-modal-header-border-color-critical);
   }
 
   .hds-dialog-primitive__header {
-    color: var(--token-modal-header-foreground-warning);
+    color: var(--token-modal-header-foreground-color-warning);
   }
 
   .hds-dialog-primitive__tagline {
@@ -62,12 +62,12 @@
 
 .hds-modal--color-critical {
   .hds-dialog-primitive__wrapper-header {
-    background: var(--token-modal-header-surface-critical);
+    background: var(--token-modal-header-surface-color-critical);
     border-bottom-color: var(--token-modal-header-border-color-critical);
   }
 
   .hds-dialog-primitive__header {
-    color: var(--token-modal-header-foreground-critical);
+    color: var(--token-modal-header-foreground-color-critical);
   }
 
   .hds-dialog-primitive__tagline {

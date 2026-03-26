@@ -136,6 +136,7 @@
 // BODY
 
 .hds-dialog-primitive__body {
+  // by design, the vertical padding for the "body" element is the same value as the horizontal one
   padding: var(--token-dialog-primitive-padding-horizontal);
 
   @include hds-apply-only-if-carbon() {
