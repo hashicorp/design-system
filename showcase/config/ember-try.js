@@ -15,10 +15,10 @@ module.exports = async function () {
     packageManager: 'pnpm',
     scenarios: [
       {
-        name: 'ember-lts-4.12',
+        name: 'ember-lts-5.12',
         npm: {
           devDependencies: {
-            'ember-source': '~4.12.3',
+            'ember-source': '~5.12.0',
           },
         },
       },
@@ -27,22 +27,6 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('release'),
-          },
-        },
-      },
-      {
-        name: 'ember-beta',
-        npm: {
-          devDependencies: {
-            'ember-source': await getChannelURL('beta'),
-          },
-        },
-      },
-      {
-        name: 'ember-canary',
-        npm: {
-          devDependencies: {
-            'ember-source': await getChannelURL('canary'),
           },
         },
       },
