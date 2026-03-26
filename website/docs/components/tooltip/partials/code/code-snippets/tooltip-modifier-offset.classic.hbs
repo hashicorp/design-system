@@ -1,0 +1,12 @@
+<Hds::Form::Field @layout="vertical" as |F|>
+  <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
+  <F.Control>
+    <Hds::Form::TextInput::Base
+      {{hds-tooltip "Hello!" options=(hash placement="top" offset=(array 0 30))}}
+      @type="text"
+      @value="Jane"
+      id="tooltip-example-control-id"
+      @width="200px"
+    />
+  </F.Control>
+</Hds::Form::Field>
