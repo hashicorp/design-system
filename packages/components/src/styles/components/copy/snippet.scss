@@ -61,6 +61,11 @@
     color: var(--token-color-foreground-action-active);
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
+
+    // For Carbon themes there is a color contrast issue with foreground-action-active so foreground-primary is used instead
+    @include hds-apply-only-if-carbon() {
+      color: var(--token-color-foreground-primary);
+    }
   }
 
   @include hds-copy-snippet-success-error();
