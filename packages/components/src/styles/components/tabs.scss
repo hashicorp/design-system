@@ -81,6 +81,10 @@ $hds-tabs-sizes: ("medium", "large");
       // In Carbon themes, this type of animation is not used so using a separate HTML element may not make sense (vs. a border)
       & ~ .hds-tabs__tab-indicator {
         background: var(--token-color-foreground-action-hover);
+
+        @include hds-apply-only-if-carbon() {
+          background: var(--token-color-foreground-action);
+        }
       }
     }
 
