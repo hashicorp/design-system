@@ -21,6 +21,15 @@ You can chose between importing styles as Sass or CSS.
 
 #### Sass
 
+!!! Warning
+
+**Consumer responsibility**
+
+Our internal Sass files for mixins, component styles, etc. are not considered a part of our public API. However, we do ensure that any existing paths to these files will not change outside of a major release.
+
+!!!
+
+
 1. Install and configure Sass to preprocess styles, handle source maps, and include paths in your application.
 
 [[code-snippets/install-ember-cli-sass]]
@@ -55,12 +64,6 @@ minifyCSS: {
 
 #### CSS
 
-Import the CSS by adding this configuration in `ember-cli-build.js`.
-
-```js
-app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css');
-```
-
 !!! Warning
 
 **Consumer responsibility**
@@ -70,6 +73,12 @@ Our component library assumes that a box-sizing reset is applied globally in you
 `*, *::before, *::after { box-sizing: border-box; }`
 !!!
 
+
+Import the CSS by adding this configuration in `ember-cli-build.js`.
+
+```js
+app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css');
+```
 ### Single file components
 
 If you are are using single file components (i.e., `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path. To use a component's signature, you must import it from the definition file.
