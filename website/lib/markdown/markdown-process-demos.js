@@ -49,6 +49,20 @@ function stripEslintIgnores(code) {
   );
 }
 
+// Helper to remove ts-expect-error comments
+function stripTsExpectErrors(code) {
+  return code.replace(
+    /^[ \t]*\/\/\s*@ts-expect-error\b[^\n\r]*(?:\r?\n)?/gm,
+    '',
+  );
+}
+
+function stripAllIgnores(code) {
+  return stripTsExpectErrors(
+    stripEslintIgnores(stripTemplateLintIgnores(code)),
+  );
+}
+
 // Helper to escape code for attribute usage
 function escapeCode(code) {
   return code
@@ -144,20 +158,20 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
               dependencies.push(filePath);
 
               if (ext === '.classic.hbs') {
-                codeSnippets.hbs = escapeCode(stripTemplateLintIgnores(code));
+                codeSnippets.hbs = escapeCode(stripAllIgnores(code));
 
                 // need to use the classic.hbs file path for forwarding because the DynamicTemplate relies on the hbs/js files to render the preview - so the fileName must include the .classic extension
                 fileNameToForward = filePath.match(fileNameRegex)?.[1];
               }
 
               if (ext === '.classic.js' || ext === '.js') {
-                codeSnippets.js = escapeCode(stripEslintIgnores(code));
+                codeSnippets.js = escapeCode(stripAllIgnores(code));
               }
 
               if (ext === '.gts') {
-                codeSnippets.gts = escapeCode(stripTemplateLintIgnores(code));
+                codeSnippets.gts = escapeCode(stripAllIgnores(code));
                 codeSnippets.compactGts = escapeCode(
-                  stripTemplateLintIgnores(getCompactGtsSnippet(code)),
+                  stripAllIgnores(getCompactGtsSnippet(code)),
                 );
               }
 
