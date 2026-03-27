@@ -9955,6 +9955,13 @@ button.hds-button[href]::after {
 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator {
   background: var(--token-color-foreground-action-hover);
 }
+.hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator,
+.hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator,
+.hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator,
+.hds-mode-cds-g100 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator {
+  background: var(--token-color-foreground-action);
+}
+
 .hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
 .hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
 .hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,

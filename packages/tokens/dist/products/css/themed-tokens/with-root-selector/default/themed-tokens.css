@@ -307,6 +307,10 @@
   --token-tabs-foreground-color-selected-default: var(--token-color-foreground-action);
   --token-tabs-foreground-color-selected-hover: var(--token-color-foreground-action-hover);
   --token-tabs-indicator-height: 3px;
+  --token-tabs-tab-height-large: 48px;
+  --token-tabs-tab-height-medium: 36px;
+  --token-tabs-tab-padding-horizontal-large: 12px;
+  --token-tabs-tab-padding-horizontal-medium: 12px;
   --token-tag-border-radius: 50px;
   --token-tag-foreground-color-default: var(--token-color-foreground-primary);
   --token-tag-icon-color: var(--token-color-foreground-primary);

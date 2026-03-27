@@ -16032,10 +16032,24 @@
       "$type": "dimension",
       "$value": "36px",
       "unit": "px",
+      "$modes": {
+        "default": "36",
+        "cds-g0": "40",
+        "cds-g10": "40",
+        "cds-g90": "40",
+        "cds-g100": "40"
+      },
       "original": {
         "$type": "dimension",
         "$value": "36",
         "unit": "px",
+        "$modes": {
+          "default": "36",
+          "cds-g0": "40",
+          "cds-g10": "40",
+          "cds-g90": "40",
+          "cds-g100": "40"
+        },
         "key": "{tabs.tab.height.medium}"
       },
       "name": "token-tabs-tab-height-medium",
@@ -16054,10 +16068,24 @@
       "$type": "dimension",
       "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "48",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
         "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "48",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{tabs.tab.height.large}"
       },
       "name": "token-tabs-tab-height-large",
@@ -16076,10 +16104,24 @@
       "$type": "dimension",
       "$value": "12px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
         "$value": "12",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.medium}"
       },
       "name": "token-tabs-tab-padding-horizontal-medium",
@@ -16097,12 +16139,26 @@
     "token-tabs-tab-padding-horizontal-large": {
       "key": "{tabs.tab.padding.horizontal.large}",
       "$type": "dimension",
-      "$value": "20px",
+      "$value": "12px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "20",
+        "$value": "12",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.large}"
       },
       "name": "token-tabs-tab-padding-horizontal-large",
@@ -34978,12 +35034,26 @@
     "token-tabs-tab-height-medium": {
       "key": "{tabs.tab.height.medium}",
       "$type": "dimension",
-      "$value": "36px",
+      "$value": "40px",
       "unit": "px",
+      "$modes": {
+        "default": "36",
+        "cds-g0": "40",
+        "cds-g10": "40",
+        "cds-g90": "40",
+        "cds-g100": "40"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "36",
+        "$value": "40",
         "unit": "px",
+        "$modes": {
+          "default": "36",
+          "cds-g0": "40",
+          "cds-g10": "40",
+          "cds-g90": "40",
+          "cds-g100": "40"
+        },
         "key": "{tabs.tab.height.medium}"
       },
       "name": "token-tabs-tab-height-medium",
@@ -35002,10 +35072,24 @@
       "$type": "dimension",
       "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "48",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
         "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "48",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{tabs.tab.height.large}"
       },
       "name": "token-tabs-tab-height-large",
@@ -35022,12 +35106,26 @@
     "token-tabs-tab-padding-horizontal-medium": {
       "key": "{tabs.tab.padding.horizontal.medium}",
       "$type": "dimension",
-      "$value": "12px",
+      "$value": "16px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "12",
+        "$value": "16",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.medium}"
       },
       "name": "token-tabs-tab-padding-horizontal-medium",
@@ -35045,12 +35143,26 @@
     "token-tabs-tab-padding-horizontal-large": {
       "key": "{tabs.tab.padding.horizontal.large}",
       "$type": "dimension",
-      "$value": "20px",
+      "$value": "16px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "20",
+        "$value": "16",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.large}"
       },
       "name": "token-tabs-tab-padding-horizontal-large",
@@ -53926,12 +54038,26 @@
     "token-tabs-tab-height-medium": {
       "key": "{tabs.tab.height.medium}",
       "$type": "dimension",
-      "$value": "36px",
+      "$value": "40px",
       "unit": "px",
+      "$modes": {
+        "default": "36",
+        "cds-g0": "40",
+        "cds-g10": "40",
+        "cds-g90": "40",
+        "cds-g100": "40"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "36",
+        "$value": "40",
         "unit": "px",
+        "$modes": {
+          "default": "36",
+          "cds-g0": "40",
+          "cds-g10": "40",
+          "cds-g90": "40",
+          "cds-g100": "40"
+        },
         "key": "{tabs.tab.height.medium}"
       },
       "name": "token-tabs-tab-height-medium",
@@ -53950,10 +54076,24 @@
       "$type": "dimension",
       "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "48",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
         "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "48",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{tabs.tab.height.large}"
       },
       "name": "token-tabs-tab-height-large",
@@ -53970,12 +54110,26 @@
     "token-tabs-tab-padding-horizontal-medium": {
       "key": "{tabs.tab.padding.horizontal.medium}",
       "$type": "dimension",
-      "$value": "12px",
+      "$value": "16px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "12",
+        "$value": "16",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.medium}"
       },
       "name": "token-tabs-tab-padding-horizontal-medium",
@@ -53993,12 +54147,26 @@
     "token-tabs-tab-padding-horizontal-large": {
       "key": "{tabs.tab.padding.horizontal.large}",
       "$type": "dimension",
-      "$value": "20px",
+      "$value": "16px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "20",
+        "$value": "16",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.large}"
       },
       "name": "token-tabs-tab-padding-horizontal-large",
@@ -72874,12 +73042,26 @@
     "token-tabs-tab-height-medium": {
       "key": "{tabs.tab.height.medium}",
       "$type": "dimension",
-      "$value": "36px",
+      "$value": "40px",
       "unit": "px",
+      "$modes": {
+        "default": "36",
+        "cds-g0": "40",
+        "cds-g10": "40",
+        "cds-g90": "40",
+        "cds-g100": "40"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "36",
+        "$value": "40",
         "unit": "px",
+        "$modes": {
+          "default": "36",
+          "cds-g0": "40",
+          "cds-g10": "40",
+          "cds-g90": "40",
+          "cds-g100": "40"
+        },
         "key": "{tabs.tab.height.medium}"
       },
       "name": "token-tabs-tab-height-medium",
@@ -72898,10 +73080,24 @@
       "$type": "dimension",
       "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "48",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
         "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "48",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{tabs.tab.height.large}"
       },
       "name": "token-tabs-tab-height-large",
@@ -72918,12 +73114,26 @@
     "token-tabs-tab-padding-horizontal-medium": {
       "key": "{tabs.tab.padding.horizontal.medium}",
       "$type": "dimension",
-      "$value": "12px",
+      "$value": "16px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "12",
+        "$value": "16",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.medium}"
       },
       "name": "token-tabs-tab-padding-horizontal-medium",
@@ -72941,12 +73151,26 @@
     "token-tabs-tab-padding-horizontal-large": {
       "key": "{tabs.tab.padding.horizontal.large}",
       "$type": "dimension",
-      "$value": "20px",
+      "$value": "16px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "20",
+        "$value": "16",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.large}"
       },
       "name": "token-tabs-tab-padding-horizontal-large",
@@ -91822,12 +92046,26 @@
     "token-tabs-tab-height-medium": {
       "key": "{tabs.tab.height.medium}",
       "$type": "dimension",
-      "$value": "36px",
+      "$value": "40px",
       "unit": "px",
+      "$modes": {
+        "default": "36",
+        "cds-g0": "40",
+        "cds-g10": "40",
+        "cds-g90": "40",
+        "cds-g100": "40"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "36",
+        "$value": "40",
         "unit": "px",
+        "$modes": {
+          "default": "36",
+          "cds-g0": "40",
+          "cds-g10": "40",
+          "cds-g90": "40",
+          "cds-g100": "40"
+        },
         "key": "{tabs.tab.height.medium}"
       },
       "name": "token-tabs-tab-height-medium",
@@ -91846,10 +92084,24 @@
       "$type": "dimension",
       "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "48",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
         "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "48",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{tabs.tab.height.large}"
       },
       "name": "token-tabs-tab-height-large",
@@ -91866,12 +92118,26 @@
     "token-tabs-tab-padding-horizontal-medium": {
       "key": "{tabs.tab.padding.horizontal.medium}",
       "$type": "dimension",
-      "$value": "12px",
+      "$value": "16px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "12",
+        "$value": "16",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.medium}"
       },
       "name": "token-tabs-tab-padding-horizontal-medium",
@@ -91889,12 +92155,26 @@
     "token-tabs-tab-padding-horizontal-large": {
       "key": "{tabs.tab.padding.horizontal.large}",
       "$type": "dimension",
-      "$value": "20px",
+      "$value": "16px",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "20",
+        "$value": "16",
         "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
         "key": "{tabs.tab.padding.horizontal.large}"
       },
       "name": "token-tabs-tab-padding-horizontal-large",
