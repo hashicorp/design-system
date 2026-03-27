@@ -1,8 +1,3 @@
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
@@ -15,10 +10,6 @@ export default class Index extends Component {
       'London (eu-west-2)',
       'Frankfurt (eu-central-1)',
     ];
-  }
-
-  get SELECTED() {
-    return ['Oregon (us-west-2)'];
   }
 
   get SELECTEDMULTIPLE() {
