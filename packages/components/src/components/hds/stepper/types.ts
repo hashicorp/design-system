@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { HdsIconSignature } from '../icon/index.gts';
+import type HdsIntlService from '../../../services/hds-intl';
 
 export enum HdsStepperStatusesValues {
   Incomplete = 'incomplete',
@@ -23,15 +24,22 @@ export const HdsStepperStatusToIconsValues: Record<
   [HdsStepperStatusesValues.Complete]: 'check-circle',
 };
 
-export const HdsStepperStatusToSrOnlyText: Record<
-  HdsStepperStatusesValues,
-  string
-> = {
-  [HdsStepperStatusesValues.Incomplete]: '',
-  [HdsStepperStatusesValues.Progress]: '(current)',
-  [HdsStepperStatusesValues.Processing]: '(in progress)',
-  [HdsStepperStatusesValues.Complete]: '(complete)',
-};
+export function HdsStepperStatusToSrOnlyText(
+  hdsIntl: HdsIntlService
+): Record<HdsStepperStatusesValues, string> {
+  return {
+    [HdsStepperStatusesValues.Incomplete]: '',
+    [HdsStepperStatusesValues.Progress]: hdsIntl.t('hds.stepper.progress', {
+      default: '(current)',
+    }),
+    [HdsStepperStatusesValues.Processing]: hdsIntl.t('hds.stepper.processing', {
+      default: '(in progress)',
+    }),
+    [HdsStepperStatusesValues.Complete]: hdsIntl.t('hds.stepper.complete', {
+      default: '(complete)',
+    }),
+  };
+}
 
 export enum HdsStepperTitleTagValues {
   Div = 'div',
@@ -69,14 +77,20 @@ export const HdsStepperNavStatusToIndicatorStatus: Record<
   [HdsStepperNavStatusesValues.Complete]: HdsStepperStatusesValues.Complete,
 };
 
-export const HdsStepperNavStatusToSrOnlyText: Record<
-  HdsStepperNavStatusesValues,
-  string
-> = {
-  [HdsStepperNavStatusesValues.Incomplete]: '',
-  [HdsStepperNavStatusesValues.Active]: '(current)',
-  [HdsStepperNavStatusesValues.Complete]: '(complete)',
-};
+export function HdsStepperNavStatusToSrOnlyText(
+  hdsIntl: HdsIntlService
+): Record<HdsStepperNavStatusesValues, string> {
+  return {
+    [HdsStepperNavStatusesValues.Incomplete]: '',
+    [HdsStepperNavStatusesValues.Active]: hdsIntl.t('hds.stepper.nav.active', {
+      default: '(current)',
+    }),
+    [HdsStepperNavStatusesValues.Complete]: hdsIntl.t(
+      'hds.stepper.nav.complete',
+      { default: '(complete)' }
+    ),
+  };
+}
 
 export type HdsStepperNavPanelIds = string[];
 
