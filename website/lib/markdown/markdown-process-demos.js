@@ -49,7 +49,6 @@ function stripEslintIgnores(code) {
   );
 }
 
-
 // Helper to remove ts-expect-error comments
 function stripTsExpectErrors(code) {
   return code.replace(
@@ -67,9 +66,7 @@ function stripGlintExpectErrors(code) {
 
 function stripAllIgnores(code) {
   return stripGlintExpectErrors(
-    stripTsExpectErrors(
-      stripEslintIgnores(stripTemplateLintIgnores(code)),
-    ),
+    stripTsExpectErrors(stripEslintIgnores(stripTemplateLintIgnores(code))),
   );
 }
 
