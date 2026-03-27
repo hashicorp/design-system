@@ -25,15 +25,5 @@ This is a paragraph
 With a normal code "snippet" inside
 
 !!! Do
-```
-var foo = "bar";
-```
-!!!
-
-With a normal code "block" inside
-
-!!! Dont
-```handlebars
-<Hds::Button @text="Hello world!" />
-```
+`var foo = "bar";`
 !!!
