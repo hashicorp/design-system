@@ -4394,6 +4394,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-copy-snippet {
   position: relative;
   outline-style: solid;
@@ -4433,6 +4437,12 @@ button.hds-button[href]::after {
   border-radius: var(--token-border-radius-small);
   cursor: pointer;
 }
+.hds-mode-cds-g0 .hds-copy-snippet,
+.hds-mode-cds-g10 .hds-copy-snippet,
+.hds-mode-cds-g90 .hds-copy-snippet,
+.hds-mode-cds-g100 .hds-copy-snippet {
+  border: none;
+}
 
 .hds-copy-snippet--color-primary {
   color: var(--token-color-foreground-action);
@@ -4448,6 +4458,13 @@ button.hds-button[href]::after {
   background-color: var(--token-color-surface-interactive-active);
   border-color: var(--token-color-border-strong);
 }
+.hds-mode-cds-g0 .hds-copy-snippet--color-primary:active, .hds-mode-cds-g0 .hds-copy-snippet--color-primary.mock-active,
+.hds-mode-cds-g10 .hds-copy-snippet--color-primary:active, .hds-mode-cds-g10 .hds-copy-snippet--color-primary.mock-active,
+.hds-mode-cds-g90 .hds-copy-snippet--color-primary:active, .hds-mode-cds-g90 .hds-copy-snippet--color-primary.mock-active,
+.hds-mode-cds-g100 .hds-copy-snippet--color-primary:active, .hds-mode-cds-g100 .hds-copy-snippet--color-primary.mock-active {
+  color: var(--token-color-foreground-primary);
+}
+
 .hds-copy-snippet--color-primary.hds-copy-snippet--status-success {
   background-color: var(--token-color-surface-interactive);
 }
@@ -4465,6 +4482,13 @@ button.hds-button[href]::after {
   color: var(--token-color-foreground-primary);
   background-color: transparent;
 }
+.hds-mode-cds-g0 .hds-copy-snippet--color-secondary:not(.hds-copy-snippet--status-success, .hds-copy-snippet--status-error) .hds-copy-snippet__icon,
+.hds-mode-cds-g10 .hds-copy-snippet--color-secondary:not(.hds-copy-snippet--status-success, .hds-copy-snippet--status-error) .hds-copy-snippet__icon,
+.hds-mode-cds-g90 .hds-copy-snippet--color-secondary:not(.hds-copy-snippet--status-success, .hds-copy-snippet--status-error) .hds-copy-snippet__icon,
+.hds-mode-cds-g100 .hds-copy-snippet--color-secondary:not(.hds-copy-snippet--status-success, .hds-copy-snippet--status-error) .hds-copy-snippet__icon {
+  color: var(--token-color-foreground-primary);
+}
+
 .hds-copy-snippet--color-secondary .hds-copy-snippet__icon {
   color: var(--token-color-foreground-action);
 }
