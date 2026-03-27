@@ -27,15 +27,11 @@ Lorem ipsum dolor sit amet.
 
 ### Header 3
 
-```
-This is a code block following a header.
-```
+[[code-snippets/simple-code-block]]
 
-Lorem ipsum dolor sit amet.
+This is a paragraph between code blocks.
 
-```
-This is a code block following a paragraph.
-```
+[[code-snippets/simple-code-block]]
 
 #### Header 4
 

@@ -117,10 +117,7 @@ This is a list that contains other block elements:
 
 * A list item with a code block
 
-    ```js
-    var foo = 'bar';
-    console.log(foo);
-    ```
+    [[code-snippets/simple-code-block]]
 
 ----------------
 

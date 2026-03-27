@@ -2,9 +2,6 @@
 title: More complex code
 ---
 
-
-----------------
-
 A simple inline code snippet `var foo = "bar";` like this.
 
 ----------------
@@ -24,39 +21,38 @@ The quick `brown` fox jumps over the lazy dog the quick `brown` fox jumps over t
 
 ----------------
 
-A simple code block.
+Supported languages
 
-```
-var foo = "bar";
-```
+HTML
 
-A code block with syntax declaration.
+[[code-snippets/simple-code-block]]
 
-```javascript
-var foo = "bar";
-```
+SCSS
 
-A long code block.
+[[code-snippets/sass-code-block]]
 
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
+YAML
 
-```javascript
-var foo = "The same thing is true for code with syntax highlighting. A single line of code should horizontally scroll if it is really long.";
-```
+[[code-snippets/yaml-code-block]]
+
+BASH
+
+[[code-snippets/bash-code-block]]
+
+Single file + classic component
+
+[[code-snippets/accordion-expand-all]]
 
 ---
 
-GitHub code block with <code>handlebars</code> syntax attribute.
+A long code group
 
-```handlebars
-<Hds::Button @text="Hello world!" {{on "click" this.noop }} />
-```
+[[code-snippets/long-code-block]]
 
-GitHub code block with <code>handlebars</code> + <code>data-execute=false</code> attributes.
+Code group default expanded
 
-```handlebars{data-execute=false}
-<Hds::Button @text="Hello world!" {{on "click" this.noop }} />
-```
+[[code-snippets/accordion-a11y-name expanded=true]]
 
+Code group with execute=false
+
+[[code-snippets/accordion-expand-all execute=false]]
