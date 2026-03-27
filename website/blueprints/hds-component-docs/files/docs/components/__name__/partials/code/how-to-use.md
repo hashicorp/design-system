@@ -4,6 +4,4 @@
 {basic invocation details}
 
 <!-- This below is just an example of invocation, to get started -->
-```handlebars
-<Hds::<%= columnizedModuleName %>>This is the Hds::<%= columnizedModuleName %> component </Hds::<%= columnizedModuleName %>>
-```
+[[code-snippets/<%= kebabizedModuleName %>-basic]]
