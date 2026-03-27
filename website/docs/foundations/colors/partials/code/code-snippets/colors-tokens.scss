@@ -1,0 +1,10 @@
+.your-selector {
+  color: var(--token-color-foreground-primary);
+  background: var(--token-color-surface-faint);
+  border: (--token-color-border-strong);
+
+  & :hover {
+    color: var(--token-color-foreground-high-contrast);
+    background: var(--token-color-foreground-action-active);
+  }
+}
