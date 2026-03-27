@@ -38,25 +38,11 @@ Our internal Sass files for mixins, component styles, etc. are not considered a 
 
 3. Add the following configuration in `ember-cli-build.js` to set the number of decimal places and enable access to the design system tokens:
 
-```js
-sassOptions: {
-  precision: 4,
-  includePaths: [
-    './node_modules/@hashicorp/design-system-tokens/dist/products/css',
-    './node_modules/@hashicorp/design-system-components/dist/styles',
-  ],
-},
-```
+[[code-snippets/ember-build-sass-config]]
 
-4. We also suggest adding this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
+1. We also suggest adding this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
 
-```js
-minifyCSS: {
-  options: {
-    advanced: false,
-  },
-},
-```
+[[code-snippets/ember-build-recommended-config]]
 
 5. Add the following line to the main Sass file in your application (for example, in `app.scss`):
 
@@ -76,9 +62,8 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 Import the CSS by adding this configuration in `ember-cli-build.js`.
 
-```js
-app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css');
-```
+[[code-snippets/css-import-in-cli-build]]
+
 ### Single file components
 
 If you are are using single file components (i.e., `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path. To use a component's signature, you must import it from the definition file.
@@ -118,15 +103,7 @@ For details about how this component should be used and its API, see [the compon
 
 The SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `flightIconsSpriteLazyEmbed` flag to `true` in your app's `config/environment.js` file:
 
-```js
-module.exports = function(environment) {
-  const ENV = {
-    // your other config
-    ...
-    flightIconsSpriteLazyEmbed: true
-  };
-}
-```
+[[code-snippets/demo-flight-icons-env]]
 
 #### Ember test selectors
 
@@ -152,32 +129,13 @@ Single icons can be imported and used directly as SVG files using [&lt;InlineSvg
 
 Since this is just an SVG asset, no _props_ can be passed. You should refer to the [&lt;InlineSvg&gt;](https://react-components.vercel.app/components/inlinesvg) documentation to know how to apply color and size to the SVG icon.
 
-```javascript
-// import the SVG file (using 'require')
-const iconArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include');
-// or import the SVG file (using 'import')
-import iconArrowRight from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
-
-// elsewhere in the file
-<InlineSvg src={iconArrowRight} />
-
-// alternatively you can also use a similar approach
-<InlineSvg src={require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include')} />
-```
+[[code-snippets/react-inline-svg]]
 
 #### Importing icons as React/SVG components
 
 Single icons can be imported and used directly as standalone React/SVG components:
 
-```javascript
-// import the React/TypeScript file (using 'require')
-const { IconArrowRight24 } = require('@hashicorp/flight-icons/svg-react/arrow-right-24');
-// or import the React/TypeScript file (using 'import')
-import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-24';
-
-// elsewhere in the file
-<IconArrowRight24 />
-```
+[[code-snippets/react-component-svg]]
 
 #### Animated icons
 
@@ -187,15 +145,7 @@ To use the icons which are meant to be animated ([loading](/icons/library?search
 
 Then declare them the same way you would with any other icon.
 
-```javascript
-// if you’re using the 'svg-react' icons
-import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
-<IconLoading16 />
-
-// if you’re using the 'svg' icons
-import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
-<InlineSvg src={svgLoading16} />
-```
+[[code-snippets/react-animated-icon]]
 
 If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
 
@@ -279,12 +229,7 @@ When your application uses the `fr-fr` locale, components will display "Erreur" 
 
 If your application uses Ember engines, you have to add a small extra configuration to your `app.js` file:
 
-```js
-import LinkToExternal from 'ember-engines/components/link-to-external';
-import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
-
-setLinkToExternal(LinkToExternal);
-```
+[[code-snippets/link-to-external-app]]
 
 This allows the [`Hds::Interactive`](/utilities/interactive) utility component, used in multiple HDS components, to access the `<LinkToExternal>` component to generate cross-engines links. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
