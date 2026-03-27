@@ -14,16 +14,7 @@ Note that `border-radius` is not included with this token and needs to be set ac
 
 Use the `--token-focus-ring-action-box-shadow` [design token](./tokens) directly in your CSS definitions. Note that it can only be used with the `box-shadow` property.
 
-```css
-.your-selector {
-  [...your CSS declarations]
-  &:focus,
-  &:focus-visible {
-    box-shadow: var(--token-focus-ring-action-box-shadow);
-    border-radius: inherit;
-  }
-}
-```
+[[code-snippets/focus-ring-token-usage]]
 
 ### CSS helper classes
 
@@ -31,13 +22,7 @@ The CSS helper class `.hds-focus-ring-box-shadow` is a wrapper of the design tok
 
 To use this class, ensure you’ve imported the relevant CSS file:
 
-```scss
-// for product applications
-@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
-
-// for hashicorp developer platform
-@import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/focus-ring.css";
-```
+[[code-snippets/focus-ring-imports]]
 
 ## Examples
 
