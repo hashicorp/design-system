@@ -50,6 +50,7 @@ export default class LocalComponent extends Component {
 
   <template>
     <HdsAdvancedTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.myDemoData}}
       @columns={{array
         (hash key="name" label="Name" isExpandable=true)
@@ -59,14 +60,17 @@ export default class LocalComponent extends Component {
     >
       <:body as |B|>
         <B.Tr>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Th>{{B.data.name}}</B.Th>
           <B.Td>
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{#if (eq B.data.status "FAIL")}}
               <HdsBadge @text="Fail" @color="critical" @icon="x" />
             {{else}}
               <HdsBadge @text="Pass" @color="success" @icon="check" />
             {{/if}}
           </B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.description}}</B.Td>
         </B.Tr>
       </:body>

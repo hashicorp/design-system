@@ -28,6 +28,7 @@ export default class LocalComponent extends Component {
 
   <template>
     <HdsAdvancedTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.myDemoData}}
       @hasResizableColumns={{true}}
       @columns={{array
@@ -41,6 +42,7 @@ export default class LocalComponent extends Component {
           <B.Td>
             <div class="doc-advanced-table-cell-content-div">
               <span class="doc-advanced-table-text-truncate">
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{B.data.artist}}
               </span>
             </div>
@@ -48,6 +50,7 @@ export default class LocalComponent extends Component {
           <B.Td>
             <div class="doc-advanced-table-cell-content-div">
               <span class="doc-advanced-table-text-truncate">
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{B.data.album}}
               </span>
             </div>
@@ -55,6 +58,7 @@ export default class LocalComponent extends Component {
           <B.Td>
             <div class="doc-advanced-table-cell-content-div">
               <span class="doc-advanced-table-text-truncate">
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{B.data.year}}
               </span>
             </div>

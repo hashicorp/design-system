@@ -16,30 +16,34 @@ export default class LocalComponent extends Component {
 
   <template>
     <HdsAdvancedTable
-      @model={{this.model.myDemoData}}
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+      @model={{this.myDemoData}}
       @columns={{array
         (hash
           key="artist"
-          label=(hdsT "components.table.headers.artist")
+          label=(hdsT "components.table.headers.artist" default="Artist")
           isSortable=true
         )
         (hash
           key="album"
-          label=(hdsT "components.table.headers.album")
+          label=(hdsT "components.table.headers.album" default="Album")
           isSortable=true
         )
         (hash
           key="year"
-          label=(hdsT "components.table.headers.year")
+          label=(hdsT "components.table.headers.year" default="Year")
           isSortable=true
         )
-        (hash key="other" label=(hdsT "global.titles.other"))
+        (hash key="other" label=(hdsT "global.titles.other" default="Other"))
       }}
     >
       <:body as |B|>
         <B.Tr>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.artist}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.album}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.year}}</B.Td>
           <B.Td>
             <HdsDropdown as |D|>
