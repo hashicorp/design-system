@@ -15,6 +15,7 @@ import {
   HdsCopySnippet,
   HdsIcon,
 } from '@hashicorp/design-system-components/components';
+
 import {
   COLORS,
   SUCCESS_ICON,
