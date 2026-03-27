@@ -14,7 +14,7 @@ module.exports = {
     'no-redundant-role': false,
     'no-builtin-form-components': false,
   },
-  ignore: ['tests/**'],
+  ignore: ['blueprints/**', 'tests/**'],
   overrides: [
     // temporary fix until the prettier plugin works with `.gts/gjs` files
     // https://github.com/ember-template-lint/ember-template-lint-plugin-prettier/issues/268
