@@ -12,7 +12,7 @@ const path = require('path');
 const walkSync = require('walk-sync');
 
 const demoBlockRegex =
-  /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?(?:\s+expanded=(true|false))?\s*\]\]/g;
+  /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(true|false))?(?:\s+expanded=(true|false))?\s*\]\]/g;
 
 /*
  * NOTE: if need to add a code snippet to another section of the site, you need to update this regex
@@ -30,6 +30,7 @@ const SUPPORTED_FILE_EXTENSIONS = [
   '.yaml',
   '.bash',
   '.html',
+  '.js',
 ];
 
 // Helper to remove template-lint ignore comments
@@ -120,13 +121,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
       let dependencies = [fullInputPath];
       markdownFileContent = markdownFileContent.replace(
         demoBlockRegex,
-        (
-          _match,
-          fileName,
-          shouldExecute,
-          shouldIncludeBackingClass,
-          isExpanded,
-        ) => {
+        (_match, fileName, shouldExecute, isExpanded) => {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
 
           const codeSnippets = {
@@ -155,10 +150,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 fileNameToForward = filePath.match(fileNameRegex)?.[1];
               }
 
-              if (
-                ext === '.classic.js' &&
-                shouldIncludeBackingClass !== 'false'
-              ) {
+              if (ext === '.classic.js' || ext === '.js') {
                 codeSnippets.js = escapeCode(stripEslintIgnores(code));
               }
 

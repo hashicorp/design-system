@@ -1,0 +1,10 @@
+// explicit import of `map` module (required by Sass)
+@use "sass:map";
+// from @hashicorp/design-system-components package
+@use "mixins/breakpoints" as *;
+
+@each $name, $size in $hds-breakpoints {
+  .my-custom-breakpoint-class--#{$name} {
+    // here you have access to the breakpoint name and its value (width in px)
+  }
+}
