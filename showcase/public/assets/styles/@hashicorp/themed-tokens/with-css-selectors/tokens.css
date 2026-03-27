@@ -263,6 +263,10 @@
   --token-tabs-foreground-color-selected-default: #161616;
   --token-tabs-foreground-color-selected-hover: #161616;
   --token-tabs-indicator-height: 2px;
+  --token-tabs-tab-height-large: 48px;
+  --token-tabs-tab-height-medium: 40px;
+  --token-tabs-tab-padding-horizontal-large: 16px;
+  --token-tabs-tab-padding-horizontal-medium: 16px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -607,6 +611,10 @@
     --token-tabs-foreground-color-selected-default: #161616;
     --token-tabs-foreground-color-selected-hover: #161616;
     --token-tabs-indicator-height: 2px;
+    --token-tabs-tab-height-large: 48px;
+    --token-tabs-tab-height-medium: 40px;
+    --token-tabs-tab-padding-horizontal-large: 16px;
+    --token-tabs-tab-padding-horizontal-medium: 16px;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -952,6 +960,10 @@
     --token-tabs-foreground-color-selected-default: #f4f4f4;
     --token-tabs-foreground-color-selected-hover: #f4f4f4;
     --token-tabs-indicator-height: 2px;
+    --token-tabs-tab-height-large: 48px;
+    --token-tabs-tab-height-medium: 40px;
+    --token-tabs-tab-padding-horizontal-large: 16px;
+    --token-tabs-tab-padding-horizontal-medium: 16px;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1296,6 +1308,10 @@
   --token-tabs-foreground-color-selected-default: #161616;
   --token-tabs-foreground-color-selected-hover: #161616;
   --token-tabs-indicator-height: 2px;
+  --token-tabs-tab-height-large: 48px;
+  --token-tabs-tab-height-medium: 40px;
+  --token-tabs-tab-padding-horizontal-large: 16px;
+  --token-tabs-tab-padding-horizontal-medium: 16px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -1639,6 +1655,10 @@
   --token-tabs-foreground-color-selected-default: #f4f4f4;
   --token-tabs-foreground-color-selected-hover: #f4f4f4;
   --token-tabs-indicator-height: 2px;
+  --token-tabs-tab-height-large: 48px;
+  --token-tabs-tab-height-medium: 40px;
+  --token-tabs-tab-padding-horizontal-large: 16px;
+  --token-tabs-tab-padding-horizontal-medium: 16px;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -2018,10 +2038,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-tabs-tab-border-radius: 5px;
   --token-tabs-tab-focus-inset: 6px;
   --token-tabs-tab-gutter: 6px;
-  --token-tabs-tab-height-large: 48px;
-  --token-tabs-tab-height-medium: 36px;
-  --token-tabs-tab-padding-horizontal-large: 20px;
-  --token-tabs-tab-padding-horizontal-medium: 12px;
   --token-tabs-tab-padding-vertical: 0px;
   --token-tooltip-focus-offset: -2px;
   --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
