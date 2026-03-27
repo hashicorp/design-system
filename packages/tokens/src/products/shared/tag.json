@@ -1,0 +1,304 @@
+{
+  "tag": {
+    "max-width": {
+      "$type": "dimension",
+      "$value": "166",
+      "unit": "px",
+      "$modes": {
+        "default": "166",
+        "cds-g0": "208",
+        "cds-g10": "208",
+        "cds-g90": "208",
+        "cds-g100": "208"
+      }
+    },
+    "padding": {
+      "top": {
+        "$type": "dimension",
+        "$value": "3",
+        "unit": "px",
+        "$modes": {
+          "default": "3",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        }
+      },
+      "bottom": {
+        "$type": "dimension",
+        "$value": "5",
+        "unit": "px",
+        "$modes": {
+          "default": "5",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        }
+      },
+      "right": {
+        "$type": "dimension",
+        "$value": "10",
+        "unit": "px",
+        "$modes": {
+          "default": "10",
+          "cds-g0": "8",
+          "cds-g10": "8",
+          "cds-g90": "8",
+          "cds-g100": "8"
+        }
+      },
+      "left": {
+        "$type": "dimension",
+        "$value": "10",
+        "unit": "px",
+        "$modes": {
+          "default": "10",
+          "cds-g0": "8",
+          "cds-g10": "8",
+          "cds-g90": "8",
+          "cds-g100": "8"
+        }
+      }
+    },
+    "border": {
+      "radius": {
+        "$type": "dimension",
+        "$value": "50",
+        "unit": "px",
+        "$modes": {
+          "default": "50",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        }
+      }
+    },
+    "surface": {
+      "color": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.interactive}",
+          "$modes": {
+            "default": "{color.surface.interactive}",
+            "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
+            "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+            "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+            "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.surface.interactive-hover}",
+          "$modes": {
+            "default": "{color.surface.interactive-hover}",
+            "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+            "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+            "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+            "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+          }
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.surface.interactive-active}",
+          "$modes": {
+            "default": "{color.surface.interactive-active}",
+            "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+            "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+            "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+            "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+          }
+        }
+      }
+    },
+    "foreground": {
+      "color": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.foreground.primary}",
+          "$modes": {
+            "default": "{color.foreground.primary}",
+            "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+            "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+            "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+            "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+          }
+        }
+      }
+    },
+    "typography": {
+      "font-size": {
+        "$type": "font-size",
+        "$value": "13",
+        "unit": "px",
+        "$modes": {
+          "default": "13",
+          "cds-g0": "{carbon.typography.label01.font-size}",
+          "cds-g10": "{carbon.typography.label01.font-size}",
+          "cds-g90": "{carbon.typography.label01.font-size}",
+          "cds-g100": "{carbon.typography.label01.font-size}"
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 1.2308,
+        "$modes": {
+          "default": 1.2308,
+          "cds-g0": "{carbon.typography.label01.line-height}",
+          "cds-g10": "{carbon.typography.label01.line-height}",
+          "cds-g90": "{carbon.typography.label01.line-height}",
+          "cds-g100": "{carbon.typography.label01.line-height}"
+        }
+      }
+    },
+    "icon": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.foreground.primary}",
+        "$modes": {
+          "default": "{color.foreground.primary}",
+          "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+          "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+          "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+          "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+        }
+      }
+    },
+    "link": {
+      "border": {
+        "color": {
+          "primary": {
+            "$type": "color",
+            "$value": "{color.border.strong}",
+            "$modes": {
+              "default": "{color.border.strong}",
+              "cds-g0": "{carbon.themes.tagTokens.tagBorderBlue.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagBorderBlue.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagBorderBlue.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagBorderBlue.g100}"
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": "{color.border.strong}",
+            "$modes": {
+              "default": "{color.border.strong}",
+              "cds-g0": "{carbon.themes.tagTokens.tagBorderGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagBorderGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagBorderGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagBorderGray.g100}"
+            }
+          }
+        }
+      },
+      "surface": {
+        "color": {
+          "primary": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.surface.interactive}",
+              "$modes": {
+                "default": "{color.surface.interactive}",
+                "cds-g0": "{carbon.themes.tagTokens.tagBackgroundBlue.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagBackgroundBlue.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagBackgroundBlue.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagBackgroundBlue.g100}"
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.surface.interactive-hover}",
+              "$modes": {
+                "default": "{color.surface.interactive-hover}",
+                "cds-g0": "{carbon.themes.tagTokens.tagHoverBlue.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagHoverBlue.g100}"
+              }
+            }
+          }
+        }
+      },
+      "foreground": {
+        "color": {
+          "primary": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.foreground.action}",
+              "$modes": {
+                "default": "{color.foreground.action}",
+                "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.foreground.action-hover}",
+              "$modes": {
+                "default": "{color.foreground.action-hover}",
+                "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+              }
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{color.foreground.action-active}",
+              "$modes": {
+                "default": "{color.foreground.action-active}",
+                "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+              }
+            }
+          },
+          "secondary": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.foreground.strong}",
+              "$modes": {
+                "default": "{color.foreground.strong}",
+                "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+              }
+            }
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "primary": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+            }
+          }
+        }
+      }
+    }
+  }
+}
