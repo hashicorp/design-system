@@ -5,7 +5,5 @@ const {
 // or import the React/TypeScript file (using 'import')
 import { IconArrowLeft24 } from "@hashicorp/flight-icons/svg-react/arrow-left-24";
 
-{
-  /* elsewhere in the file */
-}
+// elsewhere in the file
 <IconArrowRight24 />;
