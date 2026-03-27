@@ -31,86 +31,23 @@ Refer to the [Carbon Charts installation & setup page](https://charts.carbondesi
 
 In HTML:
 
-```html{data-execute=false}
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans-condensed.css" />
-```
+[[code-snippets/data-viz-imports-html]]
 
 Within JavaScript:
 
-```javascript
-import { DonutChart } from '@carbon/charts';
-import '@carbon/charts/styles.css';
-```
+[[code-snippets/data-viz-imports-js]]
 
 ### Ember component example
 
 A simple example using the [Carbon Charts Donut](https://charts.carbondesignsystem.com/donut) component.
 
-#### JavaScript
-
-```javascript
-// app/components/demo-carbon-donut/index.js
-
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-
-import { DonutChart } from '@carbon/charts';
-import data from './data';
-import options from './options';
-import '@carbon/charts/styles.css';
-
-export default class DemoCarbonDonut extends Component {
-  chart = null;
-
-  @action
-  setupChart(element) {
-    // Merge the dynamic options into the default options
-    const chartOptions = {
-      ...options,
-      title: this.args.title || options.title,
-      color: {
-        scale: this.args.colorMap,
-      },
-    };
-
-    // Create the DonutChart instance
-    this.chart = new DonutChart(element, {
-      data,
-      options: chartOptions,
-    });
-  }
-}
-```
+[[code-snippets/data-viz-example execute=false]]
 
 #### Options.js file with example pre-set options
 
 The component options, such as the [Donut Chart options](https://charts.carbondesignsystem.com/api/interfaces/donutchartoptions), can be set according to your needs. You can combine the preset options that you’ve included with dynamic options you’ve exposed.
 
-```javascript
-// app/components/demo-carbon-donut/options.js
-
-export default {
-  title: '', // Set title using @title on the component
-  resizable: true,
-  legend: {
-    position: 'left', // = position relative to chart, options: 'top', 'bottom', 'left', 'right'
-    truncation: {
-      type: 'none',
-    },
-  },
-  donut: {
-    alignment: 'center', // = alignment w/i container, options: 'center', 'left', 'right'
-  },
-  pie: {
-    labels: {
-      enabled: true,
-      formatter: (data) => data.value,
-    },
-  },
-  height: '175px',
-};
-```
+[[code-snippets/data-viz-chart-options]]
 
 !!! info
 
@@ -118,38 +55,11 @@ Refer to the [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/
 
 !!!
 
-
-#### Template
-
-Attach the `setupChart` action to a generic container element.
-
-```handlebars{data-execute=false}
-<!-- app/components/demo-carbon-donut/index.hbs -->
-
-<div {{did-insert this.setupChart}} ...attributes></div>
-```
-
 #### Application
 
 Font definition links should only be included once within the HTML application page.
 
-```handlebars{data-execute=false}
-<!-- app/index.html -->
-
-<html lang="en">
-  <head>
-    ...
-    <!-- include the Plex fonts in the main application -->
-    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
-    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans-condensed.css" />
-    ...
-  </head>
-  <body>
-    ...
-  </body>
-</html>
-```
-
+[[code-snippets/data-viz-fonts]]
 
 #### Rendered chart
 
