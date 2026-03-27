@@ -39,7 +39,7 @@ const RichTooltipCarbonizationIndex: TemplateOnlyComponent = <template>
             <HdsRichTooltip as |RT|>
               <RT.Toggle @text="Lorem ipsum dolor" />
               <RT.Bubble>
-                <ShwPlaceholder @text="generic content" @height="40" />
+                Generic text content
               </RT.Bubble>
             </HdsRichTooltip>
           </SF.Item>

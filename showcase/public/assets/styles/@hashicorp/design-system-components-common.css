@@ -7941,6 +7941,7 @@ button.hds-button[href]::after {
   all: initial;
   display: contents;
   box-sizing: border-box;
+  color: var(--token-color-foreground-primary);
 }
 .hds-rich-tooltip__bubble-inner-content *,
 .hds-rich-tooltip__bubble-inner-content *::before,
