@@ -304,6 +304,10 @@
   --token-tabs-foreground-color-selected-default: var(--token-color-foreground-action);
   --token-tabs-foreground-color-selected-hover: var(--token-color-foreground-action-hover);
   --token-tabs-indicator-height: 3px;
+  --token-tabs-tab-height-large: 48px;
+  --token-tabs-tab-height-medium: 36px;
+  --token-tabs-tab-padding-horizontal-large: 12px;
+  --token-tabs-tab-padding-horizontal-medium: 12px;
   --token-tooltip-border-radius: var(--token-border-radius-small);
   --token-tooltip-caret-clip-path: path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z');
   --token-tooltip-caret-height: 7px;
