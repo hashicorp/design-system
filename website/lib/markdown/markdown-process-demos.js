@@ -58,9 +58,16 @@ function stripTsExpectErrors(code) {
   );
 }
 
+function stripGlintExpectErrors(code) {
+  return code.replace(
+    /^[ \t]*\{\{!\s*@glint-expect-error\b[^\n\r]*\}\}[ \t]*(?:\r?\n)?/gm,
+    '',
+  );
+}
+
 function stripAllIgnores(code) {
-  return stripTsExpectErrors(
-    stripEslintIgnores(stripTemplateLintIgnores(code)),
+  return stripGlintExpectErrors(
+    stripTsExpectErrors(stripEslintIgnores(stripTemplateLintIgnores(code))),
   );
 }
 

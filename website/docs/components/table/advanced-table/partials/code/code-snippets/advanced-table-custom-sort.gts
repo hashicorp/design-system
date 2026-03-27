@@ -53,6 +53,7 @@ export default class LocalComponent extends Component {
 
   <template>
     <HdsAdvancedTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.myDemoData}}
       @columns={{array
         (hash label="Peer name" isSortable=true key="peer-name")
@@ -70,8 +71,11 @@ export default class LocalComponent extends Component {
     >
       <:body as |B|>
         <B.Tr>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{get B.data "peer-name"}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{get B.data "status"}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{get B.data "cluster-partition"}}</B.Td>
         </B.Tr>
       </:body>
