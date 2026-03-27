@@ -8536,38 +8536,6 @@
     ]
   },
   {
-    "key": "{breadcrumb.truncation.menu.box-shadow}",
-    "$value": "0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633",
-    "$modes": {
-      "default": "0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633",
-      "cds-g0": "0 2px 6px rgba(0, 0, 0, 0.3)",
-      "cds-g10": "0 2px 6px rgba(0, 0, 0, 0.3)",
-      "cds-g90": "0 2px 6px rgba(0, 0, 0, 0.8)",
-      "cds-g100": "0 2px 6px rgba(0, 0, 0, 0.8)"
-    },
-    "original": {
-      "$value": "{surface.high.box-shadow}",
-      "$modes": {
-        "default": "{surface.high.box-shadow}",
-        "cds-g0": "0 2px 6px {carbon.themes.white.shadow}",
-        "cds-g10": "0 2px 6px {carbon.themes.g10.shadow}",
-        "cds-g90": "0 2px 6px {carbon.themes.g90.shadow}",
-        "cds-g100": "0 2px 6px {carbon.themes.g100.shadow}"
-      },
-      "key": "{breadcrumb.truncation.menu.box-shadow}"
-    },
-    "name": "token-breadcrumb-truncation-menu-box-shadow",
-    "attributes": {
-      "category": "breadcrumb"
-    },
-    "path": [
-      "breadcrumb",
-      "truncation",
-      "menu",
-      "box-shadow"
-    ]
-  },
-  {
     "key": "{breadcrumb.truncation.toggle.foreground.color.default}",
     "$type": "color",
     "$value": "#656a76",
@@ -8736,9 +8704,9 @@
   {
     "key": "{breadcrumb.truncation.toggle.surface.color.active}",
     "$type": "color",
-    "$value": "#f1f2f3",
+    "$value": "#dedfe3",
     "$modes": {
-      "default": "#f1f2f3",
+      "default": "#dedfe3",
       "cds-g0": "transparent",
       "cds-g10": "transparent",
       "cds-g90": "transparent",
@@ -8746,9 +8714,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.surface.interactive-hover}",
+      "$value": "{color.surface.interactive-active}",
       "$modes": {
-        "default": "{color.surface.interactive-hover}",
+        "default": "{color.surface.interactive-active}",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -8767,6 +8735,38 @@
       "surface",
       "color",
       "active"
+    ]
+  },
+  {
+    "key": "{breadcrumb.truncation.content.box-shadow}",
+    "$value": "0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633",
+    "$modes": {
+      "default": "0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633",
+      "cds-g0": "0 2px 6px rgba(0, 0, 0, 0.3)",
+      "cds-g10": "0 2px 6px rgba(0, 0, 0, 0.3)",
+      "cds-g90": "0 2px 6px rgba(0, 0, 0, 0.8)",
+      "cds-g100": "0 2px 6px rgba(0, 0, 0, 0.8)"
+    },
+    "original": {
+      "$value": "{surface.high.box-shadow}",
+      "$modes": {
+        "default": "{surface.high.box-shadow}",
+        "cds-g0": "0 2px 6px {carbon.themes.white.shadow}",
+        "cds-g10": "0 2px 6px {carbon.themes.g10.shadow}",
+        "cds-g90": "0 2px 6px {carbon.themes.g90.shadow}",
+        "cds-g100": "0 2px 6px {carbon.themes.g100.shadow}"
+      },
+      "key": "{breadcrumb.truncation.content.box-shadow}"
+    },
+    "name": "token-breadcrumb-truncation-content-box-shadow",
+    "attributes": {
+      "category": "breadcrumb"
+    },
+    "path": [
+      "breadcrumb",
+      "truncation",
+      "content",
+      "box-shadow"
     ]
   },
   {

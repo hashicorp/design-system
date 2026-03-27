@@ -58,7 +58,7 @@
   --token-breadcrumb-link-foreground-color-active: #f4f4f4;
   --token-breadcrumb-link-foreground-color-default: #78a9ff;
   --token-breadcrumb-link-foreground-color-hover: #a6c8ff;
-  --token-breadcrumb-truncation-menu-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
   --token-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
   --token-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
   --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
