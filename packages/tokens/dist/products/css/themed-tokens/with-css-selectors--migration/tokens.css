@@ -127,7 +127,7 @@
   --token-breadcrumb-link-foreground-color-hover: var(
     --token-color-foreground-primary
   );
-  --token-breadcrumb-truncation-menu-box-shadow: var(
+  --token-breadcrumb-truncation-content-box-shadow: var(
     --token-surface-high-box-shadow
   );
   --token-breadcrumb-truncation-toggle-foreground-color-active: var(
@@ -140,7 +140,7 @@
     --token-color-foreground-faint
   );
   --token-breadcrumb-truncation-toggle-surface-color-active: var(
-    --token-color-surface-interactive-hover
+    --token-color-surface-interactive-active
   );
   --token-breadcrumb-truncation-toggle-surface-color-hover: var(
     --token-color-surface-interactive
@@ -638,7 +638,8 @@
     --token-breadcrumb-link-foreground-color-active: #161616;
     --token-breadcrumb-link-foreground-color-default: #0f62fe;
     --token-breadcrumb-link-foreground-color-hover: #0043ce;
-    --token-breadcrumb-truncation-menu-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px
+      rgba(0, 0, 0, 0.3);
     --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
     --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
@@ -1000,7 +1001,8 @@
     --token-breadcrumb-link-foreground-color-active: #f4f4f4;
     --token-breadcrumb-link-foreground-color-default: #78a9ff;
     --token-breadcrumb-link-foreground-color-hover: #a6c8ff;
-    --token-breadcrumb-truncation-menu-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px
+      rgba(0, 0, 0, 0.8);
     --token-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
     --token-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
@@ -1361,7 +1363,7 @@
   --token-breadcrumb-link-foreground-color-active: #161616;
   --token-breadcrumb-link-foreground-color-default: #0f62fe;
   --token-breadcrumb-link-foreground-color-hover: #0043ce;
-  --token-breadcrumb-truncation-menu-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
   --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
   --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
@@ -1721,7 +1723,7 @@
   --token-breadcrumb-link-foreground-color-active: #f4f4f4;
   --token-breadcrumb-link-foreground-color-default: #78a9ff;
   --token-breadcrumb-link-foreground-color-hover: #a6c8ff;
-  --token-breadcrumb-truncation-menu-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
   --token-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
   --token-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
   --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;

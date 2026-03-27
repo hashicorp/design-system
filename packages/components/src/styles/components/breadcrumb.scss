@@ -147,7 +147,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
   overflow: hidden;
   font-size: var(--token-typography-body-100-font-size);
-  font-family: var(--token-typography-font-stack-text);
+  font-family: var(--token-typography-body-100-font-family);
   line-height: var(--token-breadcrumb-typography-line-height);
   white-space: nowrap;
   text-decoration: underline;
@@ -174,7 +174,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   background-color: var(--token-breadcrumb-truncation-toggle-surface-color-default);
   border: 1px solid transparent; // We need this to be transparent for a11y
   border-radius: $hds-breadcrumb-item-border-radius;
-  outline: none; // TODO check with @melanie
+  outline: none;
   cursor: pointer;
 
   @include hds-apply-only-if-carbon() {
@@ -189,21 +189,6 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
       height: 1px;
       background-color: transparent;
       content: "";
-    }
-
-    &:hover::after,
-    &.mock-hover::after {
-      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-hover);
-    }
-
-    &:focus::after,
-    &.mock-focus::after {
-      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-default);
-    }
-
-    &:active::after,
-    &.mock-active::after {
-      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
     }
   }
 
@@ -229,6 +214,23 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     background-color: var(--token-breadcrumb-truncation-toggle-surface-color-active);
     border-color: var(--token-color-border-strong);
   }
+
+  @include hds-apply-only-if-carbon() {
+    &:hover::after,
+    &.mock-hover::after {
+      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-hover);
+    }
+
+    &:focus::after,
+    &.mock-focus::after {
+      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-default);
+    }
+
+    &:active::after,
+    &.mock-active::after {
+      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
+    }
+  }
 }
 
 .hds-breadcrumb__truncation-content {
@@ -238,7 +240,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   padding: 6px 12px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-breadcrumb-truncation-menu-box-shadow);
+  box-shadow: var(--token-breadcrumb-truncation-content-box-shadow);
 
   @include hds-apply-only-if-carbon() {
     padding: 0;
