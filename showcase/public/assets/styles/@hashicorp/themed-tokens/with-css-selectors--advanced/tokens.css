@@ -391,6 +391,12 @@
   --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+  --token-dialog-primitive-header-title-font-weight: var(
+    --token-typography-font-weight-semibold
+  );
+  --token-dialog-primitive-padding-horizontal: 24px;
+  --token-dialog-primitive-padding-vertical: 16px;
   --token-dismiss-button-border-color-active: var(--token-color-border-strong);
   --token-dismiss-button-foreground-color-active: var(
     --token-color-foreground-strong
@@ -441,6 +447,28 @@
   --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
+  --token-modal-header-border-color-critical: var(
+    --token-color-border-critical
+  );
+  --token-modal-header-border-color-warning: var(--token-color-border-warning);
+  --token-modal-header-foreground-color-critical: var(
+    --token-color-foreground-critical-on-surface
+  );
+  --token-modal-header-foreground-color-warning: var(
+    --token-color-foreground-warning-on-surface
+  );
+  --token-modal-header-surface-color-critical: var(
+    --token-color-surface-critical
+  );
+  --token-modal-header-surface-color-warning: var(
+    --token-color-surface-warning
+  );
+  --token-modal-header-tagline-color-critical: var(
+    --token-color-foreground-critical-on-surface
+  );
+  --token-modal-header-tagline-color-warning: var(
+    --token-color-foreground-warning-on-surface
+  );
   --token-rich-tooltip-bubble-arrow-size: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
@@ -767,6 +795,10 @@
     --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+    --token-dialog-primitive-border-color: #c6c6c6;
+    --token-dialog-primitive-header-title-font-weight: 400;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
     --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
     --token-dismiss-button-foreground-color-active: #161616;
     --token-dismiss-button-foreground-color-default: #161616;
@@ -802,6 +834,18 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+    --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
+    --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
+    --token-modal-header-foreground-color-critical: #161616;
+    --token-modal-header-foreground-color-warning: #161616;
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-tagline-color-critical: #525252;
+    --token-modal-header-tagline-color-warning: #525252;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1118,6 +1162,10 @@
     --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+    --token-dialog-primitive-border-color: #525252;
+    --token-dialog-primitive-header-title-font-weight: 400;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
     --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
     --token-dismiss-button-foreground-color-active: #f4f4f4;
     --token-dismiss-button-foreground-color-default: #f4f4f4;
@@ -1153,6 +1201,18 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+    --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
+    --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
+    --token-modal-header-foreground-color-critical: #f4f4f4;
+    --token-modal-header-foreground-color-warning: #f4f4f4;
+    --token-modal-header-surface-color-critical: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-surface-color-warning: var(
+      --token-color-surface-faint
+    );
+    --token-modal-header-tagline-color-critical: #c6c6c6;
+    --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1469,6 +1529,10 @@
   --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-dialog-primitive-border-color: #c6c6c6;
+  --token-dialog-primitive-header-title-font-weight: 400;
+  --token-dialog-primitive-padding-horizontal: 16px;
+  --token-dialog-primitive-padding-vertical: 16px;
   --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
   --token-dismiss-button-foreground-color-active: #161616;
   --token-dismiss-button-foreground-color-default: #161616;
@@ -1504,6 +1568,14 @@
   --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+  --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
+  --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
+  --token-modal-header-foreground-color-critical: #161616;
+  --token-modal-header-foreground-color-warning: #161616;
+  --token-modal-header-surface-color-critical: var(--token-color-surface-faint);
+  --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
+  --token-modal-header-tagline-color-critical: #525252;
+  --token-modal-header-tagline-color-warning: #525252;
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -1819,6 +1891,10 @@
   --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-dialog-primitive-border-color: #525252;
+  --token-dialog-primitive-header-title-font-weight: 400;
+  --token-dialog-primitive-padding-horizontal: 16px;
+  --token-dialog-primitive-padding-vertical: 16px;
   --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
   --token-dismiss-button-foreground-color-active: #f4f4f4;
   --token-dismiss-button-foreground-color-default: #f4f4f4;
@@ -1854,6 +1930,14 @@
   --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+  --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
+  --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
+  --token-modal-header-foreground-color-critical: #f4f4f4;
+  --token-modal-header-foreground-color-warning: #f4f4f4;
+  --token-modal-header-surface-color-critical: var(--token-color-surface-faint);
+  --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
+  --token-modal-header-tagline-color-critical: #c6c6c6;
+  --token-modal-header-tagline-color-warning: #c6c6c6;
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -2168,6 +2252,10 @@
   --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-dialog-primitive-border-color: #e0e0e0;
+  --token-dialog-primitive-header-title-font-weight: 400;
+  --token-dialog-primitive-padding-horizontal: 16px;
+  --token-dialog-primitive-padding-vertical: 16px;
   --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
   --token-dismiss-button-foreground-color-active: #161616;
   --token-dismiss-button-foreground-color-default: #161616;
@@ -2203,6 +2291,14 @@
   --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+  --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
+  --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
+  --token-modal-header-foreground-color-critical: #161616;
+  --token-modal-header-foreground-color-warning: #161616;
+  --token-modal-header-surface-color-critical: var(--token-color-surface-faint);
+  --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
+  --token-modal-header-tagline-color-critical: #525252;
+  --token-modal-header-tagline-color-warning: #525252;
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -2517,6 +2613,10 @@
   --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-dialog-primitive-border-color: #6f6f6f;
+  --token-dialog-primitive-header-title-font-weight: 400;
+  --token-dialog-primitive-padding-horizontal: 16px;
+  --token-dialog-primitive-padding-vertical: 16px;
   --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
   --token-dismiss-button-foreground-color-active: #f4f4f4;
   --token-dismiss-button-foreground-color-default: #f4f4f4;
@@ -2552,6 +2652,14 @@
   --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+  --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
+  --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
+  --token-modal-header-foreground-color-critical: #f4f4f4;
+  --token-modal-header-foreground-color-warning: #f4f4f4;
+  --token-modal-header-surface-color-critical: var(--token-color-surface-faint);
+  --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
+  --token-modal-header-tagline-color-critical: #c6c6c6;
+  --token-modal-header-tagline-color-warning: #c6c6c6;
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
