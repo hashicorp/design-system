@@ -3993,25 +3993,28 @@ button.hds-button[href]::after {
   color: var(--token-copy-button-icon-color-default);
 }
 .hds-copy-button:hover, .hds-copy-button.mock-hover {
+  color: var(--token-copy-button-foreground-color);
   background-color: var(--token-copy-button-surface-color-hover);
 }
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
   color: var(--token-copy-button-icon-color-hover);
 }
 .hds-copy-button:focus, .hds-copy-button.mock-focus {
+  color: var(--token-copy-button-foreground-color);
   background-color: var(--token-copy-button-surface-color-focus);
 }
 .hds-copy-button:active, .hds-copy-button.mock-active {
+  color: var(--token-copy-button-foreground-color);
   background-color: var(--token-copy-button-surface-color-active);
 }
 .hds-copy-button:active .hds-button__icon, .hds-copy-button.mock-active .hds-button__icon {
   color: var(--token-copy-button-icon-color-active);
 }
 .hds-copy-button.hds-copy-button--status-success .hds-button__icon {
-  color: var(--token-copy-button-icon-color-success);
+  color: var(--token-color-foreground-success);
 }
 .hds-copy-button.hds-copy-button--status-error .hds-button__icon {
-  color: var(--token-copy-button-icon-color-error);
+  color: var(--token-color-foreground-critical);
 }
 
 /**

@@ -96,28 +96,6 @@
               "cds-g90": "{carbon.themes.g90.iconPrimary}",
               "cds-g100": "{carbon.themes.g100.iconPrimary}"
             }
-          },
-          "success": {
-            "$type": "color",
-            "$value": "{color.foreground.success}",
-            "$modes": {
-              "default": "{color.foreground.success}",
-              "cds-g0": "{carbon.themes.white.supportSuccess}",
-              "cds-g10": "{carbon.themes.g10.supportSuccess}",
-              "cds-g90": "{carbon.themes.g90.supportSuccessInverse}",
-              "cds-g100": "{carbon.themes.g100.supportSuccessInverse}"
-            }
-          },
-          "error": {
-            "$type": "color",
-            "$value": "{color.foreground.critical}",
-            "$modes": {
-              "default": "{color.foreground.critical}",
-              "cds-g0": "{carbon.themes.white.supportError}",
-              "cds-g10": "{carbon.themes.g10.supportError}",
-              "cds-g90": "{carbon.themes.g90.supportErrorInverse}",
-              "cds-g100": "{carbon.themes.g100.supportErrorInverse}"
-            }
           }
         }
       }

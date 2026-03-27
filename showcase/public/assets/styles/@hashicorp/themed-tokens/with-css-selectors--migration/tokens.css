@@ -398,14 +398,12 @@
     --token-color-foreground-action-active
   );
   --token-copy-button-icon-color-default: var(--token-color-foreground-action);
-  --token-copy-button-icon-color-error: var(--token-color-foreground-critical);
   --token-copy-button-icon-color-focus: var(
     --token-color-foreground-action-hover
   );
   --token-copy-button-icon-color-hover: var(
     --token-color-foreground-action-hover
   );
-  --token-copy-button-icon-color-success: var(--token-color-foreground-success);
   --token-copy-button-surface-color-active: var(
     --token-button-surface-color-secondary-active
   );
@@ -794,10 +792,8 @@
     --token-copy-button-foreground-color: #161616;
     --token-copy-button-icon-color-active: #161616;
     --token-copy-button-icon-color-default: #161616;
-    --token-copy-button-icon-color-error: #da1e28;
     --token-copy-button-icon-color-focus: #161616;
     --token-copy-button-icon-color-hover: #161616;
-    --token-copy-button-icon-color-success: #24a148;
     --token-copy-button-surface-color-active: #c6c6c6;
     --token-copy-button-surface-color-default: #f4f4f4;
     --token-copy-button-surface-color-hover: #e8e8e8;
@@ -1155,10 +1151,8 @@
     --token-copy-button-foreground-color: #f4f4f4;
     --token-copy-button-icon-color-active: #f4f4f4;
     --token-copy-button-icon-color-default: #f4f4f4;
-    --token-copy-button-icon-color-error: #da1e28;
     --token-copy-button-icon-color-focus: #f4f4f4;
     --token-copy-button-icon-color-hover: #f4f4f4;
-    --token-copy-button-icon-color-success: #24a148;
     --token-copy-button-surface-color-active: #525252;
     --token-copy-button-surface-color-default: #262626;
     --token-copy-button-surface-color-hover: #333333;
@@ -1515,10 +1509,8 @@
   --token-copy-button-foreground-color: #161616;
   --token-copy-button-icon-color-active: #161616;
   --token-copy-button-icon-color-default: #161616;
-  --token-copy-button-icon-color-error: #da1e28;
   --token-copy-button-icon-color-focus: #161616;
   --token-copy-button-icon-color-hover: #161616;
-  --token-copy-button-icon-color-success: #24a148;
   --token-copy-button-surface-color-active: #c6c6c6;
   --token-copy-button-surface-color-default: #f4f4f4;
   --token-copy-button-surface-color-hover: #e8e8e8;
@@ -1874,10 +1866,8 @@
   --token-copy-button-foreground-color: #f4f4f4;
   --token-copy-button-icon-color-active: #f4f4f4;
   --token-copy-button-icon-color-default: #f4f4f4;
-  --token-copy-button-icon-color-error: #da1e28;
   --token-copy-button-icon-color-focus: #f4f4f4;
   --token-copy-button-icon-color-hover: #f4f4f4;
-  --token-copy-button-icon-color-success: #24a148;
   --token-copy-button-surface-color-active: #525252;
   --token-copy-button-surface-color-default: #262626;
   --token-copy-button-surface-color-hover: #333333;
