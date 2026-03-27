@@ -55,12 +55,26 @@
         "medium": {
           "$type": "dimension",
           "$value": "36",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "36",
+            "cds-g0": "40",
+            "cds-g10": "40",
+            "cds-g90": "40",
+            "cds-g100": "40"
+          }
         },
         "large": {
           "$type": "dimension",
           "$value": "48",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "48",
+            "cds-g0": "48",
+            "cds-g10": "48",
+            "cds-g90": "48",
+            "cds-g100": "48"
+          }
         }
       },
       "padding": {
@@ -68,12 +82,26 @@
           "medium": {
             "$type": "dimension",
             "$value": "12",
-            "unit": "px"
+            "unit": "px",
+            "$modes": {
+              "default": "12",
+              "cds-g0": "16",
+              "cds-g10": "16",
+              "cds-g90": "16",
+              "cds-g100": "16"
+            }
           },
           "large": {
             "$type": "dimension",
             "$value": "20",
-            "unit": "px"
+            "unit": "px",
+            "$modes": {
+              "default": "12",
+              "cds-g0": "16",
+              "cds-g10": "16",
+              "cds-g90": "16",
+              "cds-g100": "16"
+            }
           }
         },
         "vertical": {
