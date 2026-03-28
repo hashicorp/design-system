@@ -232,7 +232,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   };
 
   <template>
-    <div class="hds-pagination" ...attributes>
+    <div class="hds-pagination hds-pagination--compact" ...attributes>
       <nav class="hds-pagination-nav" aria-label={{this.ariaLabel}}>
         <HdsPaginationNavArrow
           @direction="prev"
