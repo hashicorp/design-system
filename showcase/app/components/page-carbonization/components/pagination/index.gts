@@ -5,7 +5,6 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
-// import style from 'ember-style-modifier';
 import { capitalize } from '@ember/string';
 import { array } from '@ember/helper';
 
