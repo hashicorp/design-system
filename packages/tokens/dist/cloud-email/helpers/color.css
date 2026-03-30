@@ -35,6 +35,7 @@
 .hds-surface-primary { background-color: #ffffff; }
 .hds-surface-faint { background-color: #fafafa; }
 .hds-surface-strong { background-color: #f1f2f3; }
+.hds-surface-high-contrast { background-color: #0c0c0e; }
 .hds-surface-interactive { background-color: #ffffff; }
 .hds-surface-interactive-hover { background-color: #f1f2f3; }
 .hds-surface-interactive-active { background-color: #dedfe3; }
