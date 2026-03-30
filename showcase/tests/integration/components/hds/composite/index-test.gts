@@ -175,6 +175,107 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     assert.dom('[data-active-item]').hasAttribute('id', 'A2');
   });
 
+  test('it wraps to the next/prev row in a 2D grid when @wrap="horizontal"', async function (assert) {
+    await render(
+      <template>
+        <HdsComposite @wrap="horizontal" as |c|>
+          <div role="grid" {{c.composite}} id="composite-grid">
+            <div role="row" {{c.group}}>
+              <HdsButton {{c.item}} id="A1">A1</HdsButton>
+              <HdsButton {{c.item}} id="A2">A2</HdsButton>
+            </div>
+            <div role="row" {{c.group}}>
+              <HdsButton {{c.item}} id="B1">B1</HdsButton>
+              <HdsButton {{c.item}} id="B2">B2</HdsButton>
+            </div>
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#A2');
+    await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowRight');
+    assert
+      .dom('[data-active-item]')
+      .hasAttribute('id', 'B1', 'wraps to start of next row');
+
+    await focus('#B1');
+    await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowLeft');
+    assert
+      .dom('[data-active-item]')
+      .hasAttribute('id', 'A2', 'wraps to end of previous row');
+
+    await focus('#B1');
+    await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowDown');
+    assert
+      .dom('[data-active-item]')
+      .hasAttribute('id', 'B1', 'does not wrap vertically');
+  });
+
+  test('it wraps to the next/prev column in a 2D grid when @wrap="vertical"', async function (assert) {
+    await render(
+      <template>
+        <HdsComposite @wrap="vertical" as |c|>
+          <div role="grid" {{c.composite}} id="composite-grid">
+            <div role="row" {{c.group}}>
+              <HdsButton {{c.item}} id="A1">A1</HdsButton>
+              <HdsButton {{c.item}} id="A2">A2</HdsButton>
+            </div>
+            <div role="row" {{c.group}}>
+              <HdsButton {{c.item}} id="B1">B1</HdsButton>
+              <HdsButton {{c.item}} id="B2">B2</HdsButton>
+            </div>
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#B1');
+    await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowDown');
+    assert
+      .dom('[data-active-item]')
+      .hasAttribute('id', 'A2', 'wraps to top of next column');
+
+    await focus('#A2');
+    await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowUp');
+    assert
+      .dom('[data-active-item]')
+      .hasAttribute('id', 'B1', 'wraps to bottom of prev column');
+
+    await focus('#A2');
+    await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowRight');
+    assert
+      .dom('[data-active-item]')
+      .hasAttribute('id', 'A2', 'does not wrap horizontally');
+  });
+
+  test('it wraps both horizontally and vertically when @wrap={{true}}', async function (assert) {
+    await render(
+      <template>
+        <HdsComposite @wrap={{true}} as |c|>
+          <div role="grid" {{c.composite}} id="composite-grid">
+            <div role="row" {{c.group}}>
+              <HdsButton {{c.item}} id="A1">A1</HdsButton>
+              <HdsButton {{c.item}} id="A2">A2</HdsButton>
+            </div>
+            <div role="row" {{c.group}}>
+              <HdsButton {{c.item}} id="B1">B1</HdsButton>
+              <HdsButton {{c.item}} id="B2">B2</HdsButton>
+            </div>
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#A2');
+    await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowRight');
+    assert.dom('[data-active-item]').hasAttribute('id', 'B1');
+
+    await focus('#B1');
+    await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowDown');
+    assert.dom('[data-active-item]').hasAttribute('id', 'A2');
+  });
+
   test('it skips multiple consecutive disabled items', async function (assert) {
     await render(
       <template>
@@ -272,6 +373,21 @@ module('Integration | Component | hds/composite/index', function (hooks) {
 
     await triggerKeyEvent('#composite-grid', 'keydown', 'ArrowUp');
     assert.dom('[data-active-item]').hasAttribute('id', 'A3');
+  });
+
+  test('it activates the item matching @defaultCurrentId', async function (assert) {
+    await render(
+      <template>
+        <HdsComposite @defaultCurrentId="item-2" as |c|>
+          <div {{c.composite}} id="composite-root">
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-2');
   });
 
   test('it does not activate any item if @defaultCurrentId does not match', async function (assert) {
