@@ -876,7 +876,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
         <div id="wrapper-root">
           <HdsComposite @orientation="horizontal" as |c|>
             <div {{c.composite}} id="composite-root">
-              <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+              <HdsButton {{c.item}} id="item-1" @text="Item 1" />
             </div>
           </HdsComposite>
         </div>
