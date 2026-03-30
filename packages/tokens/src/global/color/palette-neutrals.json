@@ -4,65 +4,185 @@
       "neutral-700": {
         "$type": "color",
         "$value": "#0c0c0e",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#0c0c0e",
+          "cds-g0": "{carbon.color.gray.100}",
+          "cds-g10": "{carbon.color.gray.100}",
+          "cds-g90": "{carbon.color.gray.100}",
+          "cds-g100": "{carbon.color.gray.100}"
+        }
       },
       "neutral-600": {
         "$type": "color",
         "$value": "#3b3d45",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#3b3d45",
+          "cds-g0": "{carbon.color.gray.80}",
+          "cds-g10": "{carbon.color.gray.80}",
+          "cds-g90": "{carbon.color.gray.80}",
+          "cds-g100": "{carbon.color.gray.80}"
+        }
       },
       "neutral-500": {
         "$type": "color",
         "$value": "#656a76",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#656a76",
+          "cds-g0": "{carbon.color.gray.70}",
+          "cds-g10": "{carbon.color.gray.70}",
+          "cds-g90": "{carbon.color.gray.70}",
+          "cds-g100": "{carbon.color.gray.70}"
+        }
       },
       "neutral-400": {
         "$type": "color",
         "$value": "#8c909c",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#8c909c",
+          "cds-g0": "{carbon.color.gray.50}",
+          "cds-g10": "{carbon.color.gray.50}",
+          "cds-g90": "{carbon.color.gray.50}",
+          "cds-g100": "{carbon.color.gray.50}"
+        }
       },
       "neutral-300": {
         "$type": "color",
         "$value": "#c2c5cb",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#c2c5cb",
+          "cds-g0": "{carbon.color.gray.40}",
+          "cds-g10": "{carbon.color.gray.40}",
+          "cds-g90": "{carbon.color.gray.40}",
+          "cds-g100": "{carbon.color.gray.40}"
+        }
       },
       "neutral-200": {
         "$type": "color",
         "$value": "#dedfe3",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#dedfe3",
+          "cds-g0": "{carbon.color.gray.30}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.30}",
+          "cds-g100": "{carbon.color.gray.30}"
+        }
       },
       "neutral-100": {
         "$type": "color",
         "$value": "#f1f2f3",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#f1f2f3",
+          "cds-g0": "{carbon.color.gray.20}",
+          "cds-g10": "{carbon.color.gray.20}",
+          "cds-g90": "{carbon.color.gray.20}",
+          "cds-g100": "{carbon.color.gray.20}"
+        }
       },
       "neutral-50": {
         "$type": "color",
         "$value": "#fafafa",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#fafafa",
+          "cds-g0": "{carbon.color.gray.10}",
+          "cds-g10": "{carbon.color.gray.10}",
+          "cds-g90": "{carbon.color.gray.10}",
+          "cds-g100": "{carbon.color.gray.10}"
+        }
       },
       "neutral-0": {
         "$type": "color",
         "$value": "#ffffff",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#ffffff",
+          "cds-g0": "{carbon.color.white.0}",
+          "cds-g10": "{carbon.color.white.0}",
+          "cds-g90": "{carbon.color.white.0}",
+          "cds-g100": "{carbon.color.white.0}"
+        }
       },
       "alpha-300": {
         "$type": "color",
         "$value": "{color.palette.neutral-600}",
         "alpha": "0.4",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": {
+            "$value": "{carbon.color.gray.50}",
+            "alpha": null
+          },
+          "cds-g10": {
+            "$value": "{carbon.color.gray.50}",
+            "alpha": null
+          },
+          "cds-g90": {
+            "$value": "{carbon.color.gray.50}",
+            "alpha": null
+          },
+          "cds-g100": {
+            "$value": "{carbon.color.gray.60}",
+            "alpha": null
+          }
+        }
       },
       "alpha-200": {
         "$type": "color",
         "$value": "{color.palette.neutral-500}",
         "alpha": "0.2",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": {
+            "$value": "{carbon.color.gray.30}",
+            "alpha": null
+          },
+          "cds-g10": {
+            "$value": "{carbon.color.gray.20}",
+            "alpha": null
+          },
+          "cds-g90": {
+            "$value": "{carbon.color.gray.60}",
+            "alpha": null
+          },
+          "cds-g100": {
+            "$value": "{carbon.color.gray.70}",
+            "alpha": null
+          }
+        }
       },
       "alpha-100": {
         "$type": "color",
         "$value": "{color.palette.neutral-500}",
         "alpha": "0.1",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": {
+            "$value": "{carbon.color.gray.20}",
+            "alpha": null
+          },
+          "cds-g10": {
+            "$value": "{carbon.color.gray.30}",
+            "alpha": null
+          },
+          "cds-g90": {
+            "$value": "{carbon.color.gray.70}",
+            "alpha": null
+          },
+          "cds-g100": {
+            "$value": "{carbon.color.gray.80}",
+            "alpha": null
+          }
+        }
       }
     }
   }
