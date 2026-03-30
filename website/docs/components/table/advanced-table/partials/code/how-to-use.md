@@ -83,7 +83,7 @@ How resizing for the cell content works is determined by the implementation. For
 
 ### Sorting
 
-!!! Callout
+!!! Info
 
 At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
 !!!
