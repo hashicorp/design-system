@@ -16,8 +16,43 @@
         },
         "radius": {
           "$type": "dimension",
-          "$value": "6",
+          "$value": "{border.radius.medium}",
           "unit": "px"
+        },
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.primary}",
+            "$modes": {
+              "default": "{color.surface.primary}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          },
+          "focus": {
+            "$type": "color",
+            "$value": "{color.focus.action.internal}",
+            "$modes": {
+              "default": "{color.focus.action.internal}",
+              "cds-g0": "pink",
+              "cds-g10": "pink",
+              "cds-g90": "pink",
+              "cds-g100": "pink"
+            }
+          },
+          "default-checked": {
+            "$type": "color",
+            "$value": "{color.palette.blue-300}",
+            "$modes": {
+              "default": "{color.palette.blue-300}",
+              "cds-g0": "pink",
+              "cds-g10": "pink",
+              "cds-g90": "pink",
+              "cds-g100": "pink"
+            }
+          }
         }
       },
       "content-padding": {

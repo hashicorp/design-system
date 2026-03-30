@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
 // TEST
@@ -15,6 +16,7 @@ import {
 } from './types.ts';
 import HdsInteractive from '../interactive/index.gts';
 import HdsIcon from '../icon/index.gts';
+import type HdsThemingService from '../../../services/hds-theming.ts';
 
 import type {
   HdsButtonSizes,
@@ -48,6 +50,8 @@ export interface HdsButtonSignature {
 }
 
 export default class HdsButton extends Component<HdsButtonSignature> {
+  @service declare readonly hdsTheming: HdsThemingService;
+
   get text(): string {
     // TEST2
     const { text } = this.args;
@@ -116,7 +120,8 @@ export default class HdsButton extends Component<HdsButtonSignature> {
   }
 
   get iconSize(): HdsIconSignature['Args']['size'] {
-    if (this.args.size === 'large') {
+    // the Carbon Button component has a 16px icon also at large size (the 24px icon resized to 16px would have a smaller stroke width, which is not desireable)
+    if (this.args.size === 'large' && !this.hdsTheming.isCarbonThemeEnabled) {
       return '24';
     } else {
       return '16';

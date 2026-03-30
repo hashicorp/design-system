@@ -10,6 +10,13 @@ body.page-foundations-focus-ring {
     max-width: 300px;
   }
 
+  .shw-component-app-footer-wrapper {
+    &:has(.hds-app-footer--theme-dark) {
+      padding: 10px 16px 0 16px;
+      background: var(--token-color-palette-neutral-700);
+    }
+  }
+
   .shw-component-sim-app-side-nav-list-link-wrapper {
     max-width: var(--hds-app-side-nav-width-expanded);
     margin: 0;
@@ -40,6 +47,10 @@ body.page-foundations-focus-ring {
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .shw-component-filter-bar-tabs-wrapper {
+    max-width: 600px;
   }
 
   .shw-component-form-elements-wrapper {

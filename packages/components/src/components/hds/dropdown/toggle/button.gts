@@ -97,7 +97,7 @@ export default class HdsDropdownToggleButton extends Component<HdsDropdownToggle
   }
 
   get badgeType(): HdsBadgeCountSignature['Args']['type'] {
-    return this.color !== 'primary' ? 'inverted' : 'filled';
+    return this.color === 'primary' ? 'filled' : 'inverted';
   }
 
   get classNames(): string {

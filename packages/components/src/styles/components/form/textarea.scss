@@ -7,6 +7,8 @@
 // FORM > TEXTAREA
 //
 
+@use "../../mixins/focus-ring" as *;
+
 // "BASE" CONTROL
 
 .hds-form-textarea {
@@ -14,7 +16,7 @@
   max-width: 100%;
   min-height: 36px;
   padding: var(--token-form-control-padding);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
@@ -24,7 +26,7 @@
   // PLACEHOLDER
 
   ::placeholder {
-    color: var(--token-form-control-base-foreground-placeholder-color);
+    color: var(--token-form-control-base-placeholder-foreground-color);
   }
 
   // STATUS
@@ -36,11 +38,10 @@
 
   // focus (same for all the states)
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
+    @include hds-focus-ring-basic();
     border-color: var(--token-color-focus-action-internal);
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 0;
   }
 
   // READONLY
@@ -72,7 +73,7 @@
       border-color: var(--token-form-control-invalid-border-color-hover);
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
       border-color: var(--token-color-focus-critical-internal);
       outline-color: var(--token-color-focus-critical-external);
