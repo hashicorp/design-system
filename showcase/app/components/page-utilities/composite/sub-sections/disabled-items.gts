@@ -133,7 +133,11 @@ const SubSectionDisabledItems: TemplateOnlyComponent = <template>
             @gap="8"
             {{c.group}}
           >
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>A1</ShwTextBody>
             </div>
             <div
@@ -163,13 +167,25 @@ const SubSectionDisabledItems: TemplateOnlyComponent = <template>
             >
               <ShwTextBody>B1 (disabled)</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              {{c.item}}
+              role="gridcell"
+            >
               <ShwTextBody>B2</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              {{c.item}}
+              role="gridcell"
+            >
               <ShwTextBody>B3</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              {{c.item}}
+              role="gridcell"
+            >
               <ShwTextBody>B4</ShwTextBody>
             </div>
           </HdsLayoutGrid>
@@ -179,10 +195,18 @@ const SubSectionDisabledItems: TemplateOnlyComponent = <template>
             @gap="8"
             {{c.group}}
           >
-            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              {{c.item}}
+              role="gridcell"
+            >
               <ShwTextBody>C1</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              {{c.item}}
+              role="gridcell"
+            >
               <ShwTextBody>C2</ShwTextBody>
             </div>
             <div
