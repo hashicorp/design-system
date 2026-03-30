@@ -7,6 +7,8 @@
 // REVEAL COMPONENT
 //
 
+@use "../mixins/carbonization" as *;
+
 .hds-reveal {
   width: fit-content;
 }
@@ -15,6 +17,32 @@
   // overriding some styles of the tertiary button, per design specs
   min-height: 1.75rem; // 28px, Override default so padding difference will be visible
   padding: 0.313rem 0.313rem 0.313rem 0.188rem; // 6px 6px 6px 4px, taking into account the 1px border & icon spacing
+  color: var(--token-reveal-foreground-color-default);
+
+  @include hds-apply-only-if-carbon() {
+    gap: 6px; // we override the default, per design
+    border-color: transparent;
+  }
+
+  // states
+  &:hover,
+  &.mock-hover {
+    color: var(--token-reveal-foreground-color-hover);
+    background-color: var(--token-reveal-surface-color-hover);
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    // The focus state color is the same as the default's
+    color: var(--token-reveal-foreground-color-default);
+    background-color: var(--token-reveal-surface-color-focus);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-reveal-foreground-color-active);
+    background-color: var(--token-reveal-surface-color-active);
+  }
 
   .hds-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {

@@ -8,6 +8,7 @@ import { capitalize } from '@ember/string';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 import NOOP from 'showcase/utils/noop';
 
@@ -22,12 +23,72 @@ const SubSectionStates: TemplateOnlyComponent = <template>
   <ShwGrid @columns={{4}} {{style width="max-content"}} as |SG|>
     {{#each STATES as |state|}}
       <SG.Item @label={{capitalize state}}>
-        <HdsTag
-          @text="My tag"
-          @onDismiss={{NOOP}}
-          mock-state-value={{state}}
-          mock-state-selector="button"
-        />
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsTag
+              @text="My link tag"
+              @href="#"
+              mock-state-value={{state}}
+              mock-state-selector="a"
+            />
+          </SF.Item>
+          <SF.Item>
+            <HdsTag
+              @href="#"
+              @text="My link tag"
+              @onDismiss={{NOOP}}
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            />
+          </SF.Item>
+          <SF.Item>
+            <HdsTag
+              @href="#"
+              @text="My link tag"
+              @onDismiss={{NOOP}}
+              mock-state-value={{state}}
+              mock-state-selector="a"
+            />
+          </SF.Item>
+          <SF.Item>
+            <HdsTag
+              @href="#"
+              @text="My link tag"
+              @onDismiss={{NOOP}}
+              mock-state-value={{state}}
+              mock-state-selector="a, button"
+            />
+          </SF.Item>
+          <SF.Item>
+            <HdsTag
+              @text="This is a very long text that should go on multiple lines"
+              @tooltipPlacement="bottom"
+              mock-state-value={{state}}
+              mock-state-selector="button"
+              mock-state-delay="200"
+            />
+          </SF.Item>
+          <SF.Item>
+            <HdsTag
+              @text="This is a very long text that should go on multiple lines"
+              @tooltipPlacement="bottom"
+              @onDismiss={{NOOP}}
+              mock-state-value={{state}}
+              mock-state-selector=".hds-tooltip-button"
+              mock-state-delay="200"
+            />
+          </SF.Item>
+          <SF.Item>
+            <HdsTag
+              @text="This is a very long text that should go on multiple lines"
+              @tooltipPlacement="bottom"
+              @onDismiss={{NOOP}}
+              mock-state-value={{state}}
+              mock-state-selector=".hds-tag__dismiss, .hds-tooltip-button"
+              mock-state-delay="200"
+            />
+          </SF.Item>
+        </ShwFlex>
       </SG.Item>
     {{/each}}
   </ShwGrid>

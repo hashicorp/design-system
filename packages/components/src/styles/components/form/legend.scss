@@ -9,7 +9,13 @@
 
 .hds-form-legend {
   display: block;
-  color: var(--token-form-legend-color);
+  // the element has an user-agent padding applied to it
+  padding: 0;
+  color: var(--token-form-legend-foreground-color);
+  font-weight: var(--token-form-legend-typography-font-weight);
+  font-size: var(--token-form-legend-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-legend-typography-line-height);
 
   // if a "badge" element (included the 'required' indicator) is child of the legend
   // we need to make sure that it correctly aligns with the legend text because the

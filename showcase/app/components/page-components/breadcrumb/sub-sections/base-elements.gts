@@ -16,7 +16,7 @@ import {
   HdsBreadcrumbTruncation,
 } from '@hashicorp/design-system-components/components';
 
-const STATES = ['default', 'active', 'hover', 'focus'];
+const STATES = ['default', 'hover', 'active', 'focus'];
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
