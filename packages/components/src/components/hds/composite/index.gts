@@ -160,7 +160,8 @@ export default class Composite extends Component<HdsCompositeSignature> {
         this._currentId = this._firstEnabledItem.id;
       }
     } else if (this._currentId === newItem.id && newItem.disabled === true) {
-      this._currentId = this._firstEnabledItem !== undefined ? this._firstEnabledItem.id : null;
+      this._currentId =
+        this._firstEnabledItem !== undefined ? this._firstEnabledItem.id : null;
     }
 
     this._syncAllElements();
@@ -295,13 +296,26 @@ export default class Composite extends Component<HdsCompositeSignature> {
       this._syncCompositeElement();
 
       const onKeyDown = (event: KeyboardEvent): void => {
+        const managedKeys = [
+          'ArrowUp',
+          'ArrowDown',
+          'ArrowLeft',
+          'ArrowRight',
+          'Home',
+          'End',
+          'PageUp',
+          'PageDown',
+        ];
+
+        if (managedKeys.includes(event.key)) {
+          event.preventDefault();
+        }
+
         const target = handleKey(event, this._navigationSnapshot, this._config);
 
         if (target === undefined) {
           return;
         }
-
-        event.preventDefault();
 
         this._moveTo(target.id);
 

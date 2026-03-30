@@ -17,6 +17,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it sets the first enabled item as active by default', async function (assert) {
+    assert.expect(3);
+
     await render(
       <template>
         <HdsComposite as |composite|>
@@ -34,6 +36,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it sets aria-disabled on disabled items', async function (assert) {
+    assert.expect(3);
+
     await render(
       <template>
         <HdsComposite as |composite|>
@@ -51,6 +55,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it moves focus with arrow keys (horizontal)', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @orientation="horizontal" as |composite|>
@@ -71,6 +77,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it moves focus with arrow keys (vertical)', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @orientation="vertical" as |composite|>
@@ -91,6 +99,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it wraps focus if @loop is true', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @orientation="horizontal" @loop={{true}} as |composite|>
@@ -112,6 +122,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it loops only horizontally in a 2D grid when @loop="horizontal"', async function (assert) {
+    assert.expect(3);
+
     await render(
       <template>
         <HdsComposite @loop="horizontal" as |c|>
@@ -144,6 +156,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it loops only vertically in a 2D grid when @loop="vertical"', async function (assert) {
+    assert.expect(3);
+
     await render(
       <template>
         <HdsComposite @loop="vertical" as |c|>
@@ -176,6 +190,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it wraps to the next/prev row in a 2D grid when @wrap="horizontal"', async function (assert) {
+    assert.expect(3);
+
     await render(
       <template>
         <HdsComposite @wrap="horizontal" as |c|>
@@ -213,6 +229,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it wraps to the next/prev column in a 2D grid when @wrap="vertical"', async function (assert) {
+    assert.expect(3);
+
     await render(
       <template>
         <HdsComposite @wrap="vertical" as |c|>
@@ -250,6 +268,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it wraps both horizontally and vertically when @wrap={{true}}', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @wrap={{true}} as |c|>
@@ -277,6 +297,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it skips multiple consecutive disabled items', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
@@ -300,6 +322,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it does nothing if all items are disabled', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
@@ -319,6 +343,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('Home and End skip disabled items', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
@@ -342,6 +368,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it skips disabled items in a 2D grid', async function (assert) {
+    assert.expect(4);
+
     await render(
       <template>
         <HdsComposite as |c|>
@@ -376,6 +404,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it activates the item matching @defaultCurrentId', async function (assert) {
+    assert.expect(1);
+
     await render(
       <template>
         <HdsComposite @defaultCurrentId="item-2" as |c|>
@@ -391,6 +421,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it does not activate any item if @defaultCurrentId does not match', async function (assert) {
+    assert.expect(1);
+
     await render(
       <template>
         <HdsComposite @defaultCurrentId="does-not-exist" as |c|>
@@ -406,6 +438,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('with no orientation and no groups, all arrow keys navigate linearly', async function (assert) {
+    assert.expect(4);
+
     await render(
       <template>
         <HdsComposite as |c|>
@@ -433,6 +467,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('horizontal orientation ignores vertical arrow keys', async function (assert) {
+    assert.expect(3);
+
     await render(
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
@@ -456,6 +492,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('vertical orientation ignores horizontal arrow keys', async function (assert) {
+    assert.expect(3);
+
     await render(
       <template>
         <HdsComposite @orientation="vertical" as |c|>
@@ -479,6 +517,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it sets tabindex=0 on composite when no item is active', async function (assert) {
+    assert.expect(1);
+
     await render(
       <template>
         <HdsComposite @defaultCurrentId={{null}} as |composite|>
@@ -493,6 +533,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it updates active item when an item is removed', async function (assert) {
+    assert.expect(2);
+
     const context = new TrackedObject<{ showSecond: boolean }>({
       showSecond: true,
     });
@@ -519,6 +561,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it sets no active item when all items are removed', async function (assert) {
+    assert.expect(2);
+
     const context = new TrackedObject<{ showFirst: boolean }>({
       showFirst: true,
     });
@@ -544,6 +588,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it registers and navigates to a newly added item', async function (assert) {
+    assert.expect(2);
+
     const context = new TrackedObject<{ showExtra: boolean }>({
       showExtra: true,
     });
@@ -571,6 +617,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it updates navigation when a group is added or removed', async function (assert) {
+    assert.expect(2);
+
     const context = new TrackedObject<{ showSecondRow: boolean }>({
       showSecondRow: true,
     });
@@ -637,6 +685,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('focus moves to the newly active item after navigation', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
@@ -663,6 +713,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('focus moves to the correct item after dynamic changes', async function (assert) {
+    assert.expect(1);
+
     const context = new TrackedObject<{ showSecond: boolean }>({
       showSecond: true,
     });
@@ -690,6 +742,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('custom item IDs are handled correctly for navigation and active state', async function (assert) {
+    assert.expect(2);
+
     await render(
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
@@ -707,5 +761,47 @@ module('Integration | Component | hds/composite/index', function (hooks) {
 
     await triggerKeyEvent('#composite-root', 'keydown', 'ArrowLeft');
     assert.dom('[data-active-item]').hasAttribute('id', 'custom-foo');
+  });
+
+  test('it prevents default browser behavior for managed keys', async function (assert) {
+    assert.expect(2);
+
+    await render(
+      <template>
+        <div id="wrapper-root">
+          <HdsComposite @orientation="horizontal" as |c|>
+            <div {{c.composite}} id="composite-root">
+              <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            </div>
+          </HdsComposite>
+        </div>
+      </template>,
+    );
+
+    const wrapperRoot = document.getElementById('wrapper-root')!;
+
+    // listen for the event after the component handles it
+    const keydownHandler = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowRight') {
+        assert.true(
+          event.defaultPrevented,
+          'ArrowRight prevented default even though there is no next item',
+        );
+      }
+      if (event.key === 'Tab') {
+        assert.false(
+          event.defaultPrevented,
+          'Tab key did not prevent default, allowing normal browser focus flow',
+        );
+      }
+    };
+
+    wrapperRoot.addEventListener('keydown', keydownHandler);
+
+    await focus('#item-1');
+    await triggerKeyEvent('#composite-root', 'keydown', 'ArrowRight');
+    await triggerKeyEvent('#composite-root', 'keydown', 'Tab');
+
+    wrapperRoot.removeEventListener('keydown', keydownHandler);
   });
 });
