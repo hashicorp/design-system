@@ -88,6 +88,15 @@ $hds-tabs-sizes: ("medium", "large");
       }
     }
 
+    // If the Tab is selected, the hover ring position classes with the indicator underline position in carbon themes
+    @include hds-apply-only-if-carbon() {
+      &:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) {
+        ~ .hds-tabs__tab-indicator {
+          display: none;
+        }
+      }
+    }
+
     .hds-tabs__tab-button {
       @include hds-apply-only-if-carbon() {
         font-weight: 600;
