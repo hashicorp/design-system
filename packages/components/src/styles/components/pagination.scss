@@ -77,32 +77,13 @@ $pagination-nav-control-padding-horizontal: 12px;
   }
 }
 
-// Pagination component variant
-
-// Note: For now, we are matching the default layout used in the Figma component
-// Pagination Numbered (equivalent to Carbon PaginationNav)
-// .hds-pagination--numbered {
-//   @include hds-apply-only-if-carbon() {
-//     // Note: Carbon includes top & bottom margins
-
-//     // Align PaginationNav child component to the left to match Carbon component layout
-//     .hds-pagination-nav {
-//       &:only-child {
-//         grid-area: info;
-//       }
-//     }
-//   }
-// }
+// Pagination component variants
 
 // Pagination Compact (equivilant to Carbon Pagination)
 .hds-pagination--compact {
   background-color: var(--token-pagination-bar-surface-color-default);
 
   @include hds-apply-only-if-carbon() {
-    // Note: For now, we are matching the default layout used in the Figma component
-    // Rearrange child component layout to match Carbon component layout:
-    // grid-template-areas: "selector info nav";
-    // grid-template-columns: auto 1fr auto;
     border-top: 1px solid var(--token-pagination-bar-border-color);
 
     // Override responsive layout styles for Carbon themes for Compact pagination
@@ -241,14 +222,10 @@ $pagination-nav-control-padding-horizontal: 12px;
     left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
     height: var(--token-pagination-nav-indicator-height);
     margin: 0 auto;
-    // TODO: The blue color is different in Carbon from HDS (need to use themed token)
     color: var(--token-color-foreground-action);
     background-color: currentColor;
     border-radius: var(--token-border-radius-x-small);
     content: "";
-
-    // Note: Carbon sets an explicit width for this underline
-    // inline-size: 1rem;
   }
 
   // Note: We override the font-weight for the carbon themes
@@ -301,10 +278,6 @@ $pagination-nav-control-padding-horizontal: 12px;
 
     @include hds-apply-only-if-carbon() {
       margin-left: 0;
-      // Note: In Figma, a token for pagination-selector-surface-color-default is used
-      // so that the dropdown doesn't have a background in the default state in CDS modes.
-      // Check if this is necessary to add when the Select component is being "carbonized"
-      background-color: transparent;
       border: 0;
     }
   }
