@@ -292,6 +292,11 @@ $pagination-nav-control-padding-horizontal: 12px;
     font-size: var(--token-typography-body-100-font-size);
     font-family: var(--token-typography-body-100-font-family);
     line-height: var(--token-typography-body-100-line-height);
+    // TODO: Test simplifying value in select.scss
+    // from: background-position: right var(--token-form-select-background-image-position-right-x) top
+    // var(--token-form-select-background-image-position-top-y);
+    // to: background-position: center right var(--token-form-select-background-image-position-right-x);
+    // (Check in various browsers)
     background-position: center right 5px;
 
     @include hds-apply-only-if-carbon() {

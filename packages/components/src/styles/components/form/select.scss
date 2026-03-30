@@ -17,10 +17,6 @@
   background-color: var(--token-form-control-base-surface-color-default);
   background-image: var(--token-form-select-background-image-data-url);
   background-repeat: no-repeat;
-
-  // TODO: Test simplifying value to:
-  // background-position: center right var(--token-form-select-background-image-position-right-x);
-  // (Check in various browsers)
   background-position: right var(--token-form-select-background-image-position-right-x) top
     var(--token-form-select-background-image-position-top-y); // we have to take into account the border
   background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
