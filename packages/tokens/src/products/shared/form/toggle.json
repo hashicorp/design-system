@@ -12,12 +12,14 @@
         "unit": "px"
       },
       "base": {
-        "surface-color": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.surface.strong}",
-            "group": "components",
-            "comment": "the toggle has a different base surface color, compared to the other controls"
+        "surface": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.surface.strong}",
+              "group": "components",
+              "comment": "the toggle has a different base surface color, compared to the other controls"
+            }
           }
         }
       },
@@ -61,7 +63,7 @@
         },
         "timing-function": {
           "$type": "cubicBezier",
-          "$value": [0.68, -0.2, 0.265, 1.15]
+          "$value": [ 0.68, -0.2, 0.265, 1.15 ]
         }
       },
       "thumb-size": {

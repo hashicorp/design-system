@@ -8,9 +8,7 @@
 //
 
 @use "../mixins/focus-ring" as *;
-
-// we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
-$hds-tag-border-radius: 50px;
+@use "../mixins/carbonization" as *;
 
 .hds-tag {
   display: inline-flex;
@@ -18,16 +16,15 @@ $hds-tag-border-radius: 50px;
   width: fit-content;
   max-width: 100%;
   vertical-align: middle;
-  background-color: var(--token-color-surface-interactive);
-  border: 1px solid var(--token-color-border-strong);
-  border-radius: $hds-tag-border-radius;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: var(--token-tag-border-radius);
 }
 
 .hds-tag__dismiss {
   flex: 0 0 auto;
   margin: 0; // reset default button margin
-  padding: 6px 4px 6px 8px;
-  background-color: var(--token-color-surface-interactive);
+  padding: 5px 4px 5px 8px;
   border: none; // reset default button border
   border-radius: inherit;
   border-top-right-radius: 0;
@@ -39,24 +36,27 @@ $hds-tag-border-radius: 50px;
   height: 12px;
 }
 
-.hds-tag__dismiss-icon,
-.hds-tag__text {
-  color: var(--token-color-foreground-primary);
-}
-
 .hds-tag__text,
 .hds-tag__link {
   flex: 1 0 0;
-  max-width: 166px; // account for excess horizontal padding of text in non-dismissible variant
-  padding: 3px 10px 5px 10px;
-  background-color: var(--token-color-surface-interactive);
+  max-width: var(--token-tag-max-width);
+  padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom)
+    var(--token-tag-padding-left);
   border-radius: inherit;
+}
+
+.hds-tag__link {
+  @include hds-apply-only-if-carbon() {
+    text-decoration: none;
+  }
 }
 
 .hds-tag__text-container {
   display: -webkit-box;
   overflow: hidden;
-  line-height: 1rem; // 16px - override `body-100`
+  font-weight: var(--token-tag-typography-font-weight);
+  font-size: var(--token-tag-typography-font-size);
+  line-height: var(--token-tag-typography-line-height);
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -65,8 +65,9 @@ $hds-tag-border-radius: 50px;
 
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
-  max-width: 160px;
-  padding: 3px 8px 5px 6px;
+  max-width: var(--token-tag-dismissible-max-width);
+  padding: var(--token-tag-padding-top) var(--token-tag-dismissible-padding-right) var(--token-tag-padding-bottom)
+    var(--token-tag-dismissible-padding-left);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -76,16 +77,6 @@ $hds-tag-border-radius: 50px;
 .hds-tag__dismiss,
 .hds-tag__link {
   cursor: pointer;
-
-  &:hover,
-  &.mock-hover {
-    background-color: var(--token-color-surface-interactive-hover);
-  }
-
-  &:active,
-  &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
-  }
 
   &:focus,
   &.mock-focus {
@@ -109,26 +100,97 @@ $hds-tag-border-radius: 50px;
   }
 }
 
-// COLORS (FOR LINK)
+// STATIC COLORS
 
-.hds-tag--color-primary {
-  .hds-tag__link {
-    color: var(--token-color-foreground-action);
+.hds-tag--is-static {
+  background-color: var(--token-tag-static-surface-color-default);
+  border-color: var(--token-tag-static-border-color);
+
+  .hds-tag__text {
+    color: var(--token-tag-static-foreground-color-default);
+  }
+
+  .hds-tag__dismiss {
+    background-color: var(--token-tag-static-surface-color-default);
 
     &:hover,
     &.mock-hover {
-      color: var(--token-color-foreground-action-hover);
+      background-color: var(--token-tag-static-surface-color-hover);
     }
 
     &:active,
     &.mock-active {
-      color: var(--token-color-foreground-action-active);
+      background-color: var(--token-tag-static-surface-color-active);
     }
+  }
+
+  .hds-tag__dismiss-icon {
+    color: var(--token-tag-static-icon-color);
+  }
+}
+
+// LINK COLORS
+
+.hds-tag--color-primary {
+  border-color: var(--token-tag-link-border-color-primary);
+
+  .hds-tag__link,
+  .hds-tag__dismiss {
+    background-color: var(--token-tag-link-surface-color-primary-default);
+
+    &:hover,
+    &.mock-hover {
+      background-color: var(--token-tag-link-surface-color-primary-hover);
+    }
+
+    &:active,
+    &.mock-active {
+      background-color: var(--token-tag-link-surface-color-primary-active);
+    }
+  }
+
+  .hds-tag__link {
+    color: var(--token-tag-link-foreground-color-primary-default);
+
+    &:hover,
+    &.mock-hover {
+      color: var(--token-tag-link-foreground-color-primary-hover);
+    }
+
+    &:active,
+    &.mock-active {
+      color: var(--token-tag-link-foreground-color-primary-active);
+    }
+  }
+
+  .hds-tag__dismiss-icon {
+    color: var(--token-tag-link-icon-color-primary);
   }
 }
 
 .hds-tag--color-secondary {
+  border-color: var(--token-tag-link-border-color-secondary);
+
+  .hds-tag__link,
+  .hds-tag__dismiss {
+    background-color: var(--token-tag-link-surface-color-secondary-default);
+
+    &:hover,
+    &.mock-hover {
+      background-color: var(--token-tag-link-surface-color-secondary-hover);
+    }
+
+    &:active,
+    &.mock-active {
+      background-color: var(--token-tag-link-surface-color-secondary-active);
+    }
+  }
+
   .hds-tag__link {
-    color: var(--token-color-foreground-strong);
+    color: var(--token-tag-link-foreground-color-secondary-default);
+  }
+
+  .hds-tag__dismiss-icon {
+    color: var(--token-tag-link-icon-color-secondary);
   }
 }
