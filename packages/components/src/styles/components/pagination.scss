@@ -208,7 +208,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 
 .hds-pagination-nav__number--is-selected {
   position: relative;
-  color: var(--token-pagination-nav-control-foreground-color-action);
+  color: var(--token-pagination-nav-control-foreground-color-action-default);
 
   &:hover {
     color: var(--token-pagination-nav-control-foreground-color-action-hover);
