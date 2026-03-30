@@ -2682,6 +2682,7 @@
   border: none;
   border-radius: var(--token-border-radius-small);
   cursor: pointer;
+  text-decoration-color: transparent;
 }
 .hds-breadcrumb__link:hover, .hds-breadcrumb__link.mock-hover {
   color: var(--token-breadcrumb-link-foreground-color-hover);
