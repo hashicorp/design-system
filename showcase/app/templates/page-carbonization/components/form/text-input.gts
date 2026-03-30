@@ -1,0 +1,12 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
+import FormTextInputCarbonizationIndex from 'showcase/components/page-carbonization/components/form/text-input';
+
+const PageCarbonizationComponentsFormTextInput: TemplateOnlyComponent =
+  <template><FormTextInputCarbonizationIndex /></template>;
+
+export default PageCarbonizationComponentsFormTextInput;
