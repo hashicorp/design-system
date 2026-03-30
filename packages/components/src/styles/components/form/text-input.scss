@@ -13,7 +13,7 @@
   width: 100%;
   max-width: 100%;
   padding: var(--token-form-control-padding);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
@@ -22,7 +22,7 @@
   // PLACEHOLDER
 
   ::placeholder {
-    color: var(--token-form-control-base-foreground-placeholder-color);
+    color: var(--token-form-control-base-placeholder-foreground-color);
   }
 
   // STATUS

@@ -10,15 +10,21 @@
 // see https://github.com/hashicorp/design-system-components/issues/132
 //
 
+@use "../../mixins/carbonization" as *;
+
 .hds-link-inline {
-  border-radius: 2px; // this is used by the outline too
+  border-radius: var(--token-border-radius-x-small); // this is used by the outline too
 
   &:focus,
   &.mock-focus,
   &:focus-visible {
     text-decoration: none;
-    outline: 2px solid var(--token-color-focus-action-internal);
+    outline: var(--token-link-inline-outline-width) solid var(--token-link-inline-outline-color);
     outline-offset: 1px;
+  }
+
+  @include hds-apply-only-if-carbon() {
+    text-decoration: underline;
   }
 }
 
@@ -29,11 +35,11 @@
   vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
 
   .hds-link-inline--icon-leading > & {
-    margin-right: 0.25em;
+    margin-right: var(--token-link-inline-icon-margin-horizontal);
   }
 
   .hds-link-inline--icon-trailing > & {
-    margin-left: 0.25em;
+    margin-left: var(--token-link-inline-icon-margin-horizontal);
   }
 }
 
