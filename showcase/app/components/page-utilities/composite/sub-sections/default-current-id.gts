@@ -5,7 +5,11 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import { HdsButton, HdsComposite, HdsLayoutFlex } from '@hashicorp/design-system-components/components';
+import {
+  HdsButton,
+  HdsComposite,
+  HdsLayoutFlex,
+} from '@hashicorp/design-system-components/components';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
@@ -65,7 +69,11 @@ const SubSectionDefaultCurrentId: TemplateOnlyComponent = <template>
           {{c.composite}}
         >
           <HdsButton {{c.item}} @text="First" id="preset-first" />
-          <HdsButton {{c.item disabled=true}} @text="Disabled" id="preset-disabled" />
+          <HdsButton
+            {{c.item disabled=true}}
+            @text="Disabled"
+            id="preset-disabled"
+          />
           <HdsButton {{c.item}} @text="Third" id="preset-third" />
         </HdsLayoutFlex>
       </HdsComposite>

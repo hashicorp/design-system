@@ -50,7 +50,11 @@ const CompositeWithHorizontalButtonList: TemplateOnlyComponent<CompositeWithGrid
             {{c.group}}
           >
             {{#each (array "1" "2" "3" "4") as |col|}}
-              <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+              <div
+                class="shw-utility-composite-with-grid__cell"
+                role="gridcell"
+                {{c.item}}
+              >
                 <ShwTextBody>{{row}}{{col}}</ShwTextBody>
               </div>
             {{/each}}
