@@ -138,7 +138,7 @@ importers:
         specifier: workspace:^4.0.1
         version: link:../tokens
       '@hashicorp/flight-icons':
-        specifier: workspace:^4.2.1
+        specifier: workspace:^5.0.0
         version: link:../flight-icons
       '@lezer/highlight':
         specifier: ^1.2.1
@@ -347,7 +347,7 @@ importers:
         version: 6.4.0
       '@figma-export/types':
         specifier: ^6.0.0
-        version: 6.2.4
+        version: 6.4.0
       '@figma/rest-api-spec':
         specifier: ^0.22.0
         version: 0.22.0
@@ -2670,10 +2670,6 @@ packages:
     resolution: {integrity: sha512-Nm3DpcJ9bBEOCUqsbU8IDjGMQhhi0DTT3dNFMwlR1n/K370OjWs3GRNARUy+swOt8A31mJ2/IPvORIl0P6pxdw==}
     engines: {node: '>= 18.18'}
 
-  '@figma-export/types@6.2.4':
-    resolution: {integrity: sha512-mIe/TZDuKNP08tqWlaNm3Zi6VHu709acQR5ohTj1q1si0wXsCJTA2AoiZOTTE4uhbA39cQelIdoi4phDvNJGpw==}
-    engines: {node: '>= 18.18'}
-
   '@figma-export/types@6.4.0':
     resolution: {integrity: sha512-lpamT+DcidQ+YpSnKCV6KT9fxpAS/XkUxhyRZ8dt1IKxHOnZJMfwBxN2j1PjgiwCijzy9k794E/5NeFvdd1x3g==}
     engines: {node: '>= 18.18'}
@@ -3602,6 +3598,7 @@ packages:
 
   '@tsconfig/ember@3.0.11':
     resolution: {integrity: sha512-c9uaKBN4KxtdT/UNPPxoWghyoDsTRHzYb53Z5Fv9eum+4cok0U+hYwyKNjvCxkBjEPECS8QAyp8nGAhRifZnBQ==}
+    deprecated: Please use @ember/app-tsconfig or @ember/library-tsconfig instead. These live at https://github.com/ember-cli/tsconfigs
 
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
@@ -4001,6 +3998,7 @@ packages:
   '@xmldom/xmldom@0.8.10':
     resolution: {integrity: sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -13841,13 +13839,13 @@ snapshots:
   '@figma-export/cli@6.2.2':
     dependencies:
       '@figma-export/core': 6.3.0
-      '@figma-export/types': 6.2.4
+      '@figma-export/types': 6.4.0
       ora: 8.2.0
       sade: 1.8.1
 
   '@figma-export/core@6.3.0':
     dependencies:
-      '@figma-export/types': 6.2.4
+      '@figma-export/types': 6.4.0
       '@figma/rest-api-spec': 0.34.0
       p-limit: 7.2.0
       p-retry: 7.1.1
@@ -13855,16 +13853,12 @@ snapshots:
 
   '@figma-export/output-components-as-svg@6.2.2':
     dependencies:
-      '@figma-export/types': 6.2.4
+      '@figma-export/types': 6.4.0
 
   '@figma-export/transform-svg-with-svgo@6.4.0':
     dependencies:
       '@figma-export/types': 6.4.0
       svgo: 3.3.3
-
-  '@figma-export/types@6.2.4':
-    dependencies:
-      '@figma/rest-api-spec': 0.34.0
 
   '@figma-export/types@6.4.0':
     dependencies:
