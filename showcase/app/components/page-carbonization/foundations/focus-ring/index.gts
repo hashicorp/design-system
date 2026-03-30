@@ -69,7 +69,6 @@ import {
   HdsTableThSort,
   HdsAdvancedTableTh,
   HdsAdvancedTableThSelectable,
-  HdsAdvancedTableThSort,
   HdsAdvancedTableTd,
   HdsTableTr,
   HdsTag,
@@ -1146,22 +1145,23 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     <ShwTextH4 @tag="h3">AdvancedTable</ShwTextH4>
-    <ShwCarbonizationComparisonGrid @label="ThSort">
+    <ShwCarbonizationComparisonGrid @label="Th (sortable)">
       <:theming>
         <div
           class="hds-advanced-table"
           role="grid"
-          {{style gridTemplateColumns="repeat(1, 1fr)"}}
+          {{style gridTemplateColumns="1fr"}}
         >
           <div class="hds-advanced-table__thead" role="rowgroup">
             <div class="hds-advanced-table__tr" role="row">
-              <HdsAdvancedTableThSort
+              <HdsAdvancedTableTh
+                @tooltip="Here is more information"
+                @column={{hash label="Unsorted" key="unsorted" isSortable=true}}
                 mock-state-value="focus"
                 mock-state-selector="button"
-                @tooltip="Here is more information"
               >
                 Lorem
-              </HdsAdvancedTableThSort>
+              </HdsAdvancedTableTh>
             </div>
           </div>
           <div class="hds-advanced-table__tbody" role="rowgroup">
@@ -1170,7 +1170,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
         </div>
       </:theming>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Th">
+    <ShwCarbonizationComparisonGrid @label="Th (expandable)">
       <:theming>
         <div
           class="hds-advanced-table"
@@ -1186,7 +1186,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
                 mock-state-value="focus"
                 mock-state-selector="button"
               >
-                Lorem ipsum
+                Lorem
               </HdsAdvancedTableTh>
             </div>
           </div>
