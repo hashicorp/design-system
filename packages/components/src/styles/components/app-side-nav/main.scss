@@ -70,9 +70,9 @@
   flex-direction: column;
   height: 100%;
   color: var(
-    --token-app-side-nav-color-foreground-primary
+    --token-color-foreground-primary
   ); // we set a default color (in case generic content is added to the body of the appsidenav)
-  background: var(--token-app-side-nav-color-surface-primary);
+  background: var(--token-app-side-nav-wrapper-surface-color);
   border-right: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area

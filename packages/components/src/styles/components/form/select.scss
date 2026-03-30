@@ -7,13 +7,15 @@
 // FORM > SELECT
 //
 
+@use "../../mixins/focus-ring" as *;
+
 // "BASE" CONTROL
 
 .hds-form-select {
   max-width: 100%;
   padding: var(--token-form-control-padding);
   padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   background-image: var(--token-form-select-background-image-data-url);
   background-repeat: no-repeat;
@@ -34,11 +36,10 @@
 
   // focus (same for all the states)
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
+    @include hds-focus-ring-basic();
     border-color: var(--token-color-focus-action-internal);
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 0;
   }
 
   // DISABLED
@@ -62,7 +63,7 @@
       border-color: var(--token-form-control-invalid-border-color-hover);
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
       border-color: var(--token-color-focus-critical-internal);
       outline-color: var(--token-color-focus-critical-external);

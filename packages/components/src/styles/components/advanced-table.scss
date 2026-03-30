@@ -98,21 +98,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       text-align: left;
       background-color: var(--token-color-surface-strong);
 
-      &:focus,
-      &.mock-focus {
-        // the box shadow is 3px wide, so offsetting by 3px so the focus ring doesn't go outside the cell
-        @include hds-focus-ring-with-pseudo-element(
-          $top: 3px,
-          $right: 3px,
-          $bottom: 3px,
-          $left: 3px,
-          $radius: inherit,
-          $position: sticky
-        );
-        z-index: 1;
-        isolation: isolate;
-      }
-
       &:hover,
       &.mock-hover,
       &:focus-within {
@@ -120,6 +105,18 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
           visibility: visible;
           opacity: 1;
         }
+      }
+
+      &:focus-visible,
+      &.mock-focus {
+        @include hds-focus-ring-advanced(
+          // we want the focus ring to fill the `th` element
+          $element-position: sticky,
+          // we inset the box shadow by the same width as the external outline, so the focus ring doesn't go outside the cell
+          $pseudo-element-inset-hds: var(--token-focus-ring-width-external),
+          $pseudo-element-inset-cds: var(--token-focus-ring-width-external)
+        );
+        z-index: 1;
       }
 
       &.hds-advanced-table__th--is-being-dragged .hds-advanced-table__th-reorder-handle {
@@ -193,13 +190,15 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       transform: translateX(0);
     }
 
-    .hds-advanced-table__th-resize-handle {
-      @include hds-focus-ring-with-pseudo-element($position: absolute);
+    $hds-resize-handle-z-index: 2;
 
+    .hds-advanced-table__th-resize-handle {
+      // this is needed independently from the focus ring (don't remove!)
+      position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
-      z-index: 2;
+      z-index: $hds-resize-handle-z-index;
       width: 24px;
       scroll-margin-right: 24px;
       scroll-margin-left: 24px;
@@ -213,6 +212,19 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         bottom: 0;
         z-index: 2;
         content: "";
+      }
+
+      &:focus-visible,
+      &.mock-focus {
+        @include hds-focus-ring-advanced(
+          // the `position` is already set above
+          $element-position: false,
+          $pseudo-element-inset-hds: 3px 0 3px 0,
+          $pseudo-element-inset-cds: 2px 0 2px 0,
+          $pseudo-element-z-index: $hds-resize-handle-z-index + 1,
+          // the parent doesn't have a meaningful "visual" border radius, is hust the handle, so we apply the border radius directly to the focus ring
+          $pseudo-element-border-radius: var(--token-border-radius-medium)
+        );
       }
 
       &:focus::after,
@@ -405,21 +417,28 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     }
   }
 
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced(
+      $element-position: absolute,
+      $pseudo-element-z-index: 1,
+      $pseudo-element-inset-hds: 3px 0 3px 0,
+      $pseudo-element-inset-cds: 4px 0 4px 0,
+      // same as the "inner" element
+      $pseudo-element-border-radius: var(--token-border-radius-small)
+    );
+
+    .hds-advanced-table__th-reorder-handle__inner {
+      background-color: var(--token-color-surface-interactive);
+    }
+  }
+
   &:active,
   &.mock-active {
     cursor: grabbing;
 
     .hds-advanced-table__th-reorder-handle__inner {
       background-color: var(--token-color-surface-interactive-hover);
-    }
-  }
-
-  &:focus,
-  &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute, $top: 3px, $bottom: 3px);
-
-    .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--token-color-surface-interactive);
     }
   }
 }
@@ -436,24 +455,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive);
-    border-color: var(--token-color-border-strong);
     box-shadow: var(--token-elevation-low-box-shadow);
-  }
-
-  &:focus,
-  &.mock-focus,
-  .hds-dropdown-toggle-icon--is-open {
-    &::before {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      border: none;
-      border-radius: var(--token-border-radius-x-small);
-      box-shadow: var(--token-focus-ring-action-box-shadow);
-    }
   }
 }
 
@@ -469,7 +471,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   color: var(--token-color-foreground-faint);
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: var(--token-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
@@ -480,7 +482,10 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced($pseudo-element-inset-hds: 0, $pseudo-element-inset-cds: 0);
+  }
 
   &:active,
   &.mock-active {
@@ -568,19 +573,20 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     text-align: left;
     background-color: var(--token-color-surface-primary);
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
-      // the box shadow is 3px wide, so offsetting by 3px so the focus ring doesn't go outside the cell
-      @include hds-focus-ring-with-pseudo-element(
-        $top: 3px,
-        $right: 3px,
-        $bottom: 3px,
-        $left: 3px,
-        $radius: inherit,
-        $position: sticky
+      @include hds-focus-ring-advanced(
+        // we want the focus ring to fill the `th/td` elements
+        $element-position: sticky,
+        // the box shadow is 3px/2px wide, so offsetting by 3px/2px so the focus ring doesn't go outside the cell
+        $pseudo-element-inset-hds: 3px,
+        $pseudo-element-inset-cds: 2px
       );
       z-index: 1;
-      isolation: isolate;
+
+      .hds-advanced-table__th-reorder-handle__inner {
+        background-color: var(--token-color-surface-interactive);
+      }
     }
 
     // density
@@ -670,11 +676,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     }
 
     .hds-advanced-table--valign-baseline & {
-      /**
-        setting to center because in FlexBox, when you set align-items: baseline, it also aligns content to the top - unlike display: table-cell which aligns the content to the center
-      
-        we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
-      */
+      // setting to center because in FlexBox, when you set align-items: baseline, it also aligns content to the top - unlike display: table-cell which aligns the content to the center
+      // we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
       align-items: center;
     }
   }

@@ -9,6 +9,8 @@
 
 // "BASE" CONTROL
 
+@use "../../mixins/focus-ring" as *;
+
 .hds-form-toggle {
   position: relative;
   display: inline-block; // we emulate the behaviour of a checkbox/radiobutton control
@@ -86,18 +88,10 @@
   // used for the focus
 
   &::before {
-    // notice: to avoid too many nested calc() operation, we have decided to compute directly the values in Sass
-    $hds-outline-width: 3px;
-    $hds-outline-offset: 1px;
-    $hds-shift: $hds-outline-width + $hds-outline-offset + 1px; // here 1px refers to "--token-form-radio-border-width"
     position: absolute;
-    top: -$hds-shift;
-    right: -$hds-shift;
-    bottom: -$hds-shift;
-    left: -$hds-shift;
-    margin: auto;
-    border-width: $hds-outline-width;
-    border-radius: calc(var(--token-form-toggle-height) / 2 + $hds-outline-width + $hds-outline-offset);
+    // the parent has a border
+    inset: calc(-1 * var(--token-form-radio-border-width));
+    border-radius: inherit;
     content: "";
   }
 
@@ -137,11 +131,11 @@
 
   // focus (same for all the states)
 
+  // note: the focus is received by the input but the focus outline is applied to the facade
   :focus + &,
   .mock-focus + & {
     &::before {
-      border-color: var(--token-color-focus-action-external);
-      border-style: solid;
+      @include hds-focus-ring-basic($external-outline-offset: 1px, $has-internal-border: false);
     }
   }
 

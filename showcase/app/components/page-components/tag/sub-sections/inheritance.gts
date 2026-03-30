@@ -48,39 +48,6 @@ const SubSectionInheritance: TemplateOnlyComponent = <template>
     </SF.Item>
   </ShwFlex>
 
-  <ShwFlex @label="Applied to the tag" as |SF|>
-    <SF.Item>
-      <HdsTag
-        @text="My text tag"
-        @onDismiss={{NOOP}}
-        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
-      />
-    </SF.Item>
-    <SF.Item>
-      <HdsTag
-        @text="My link tag"
-        @onDismiss={{NOOP}}
-        @route="page-components.tag"
-        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
-      />
-    </SF.Item>
-    <SF.Item>
-      <HdsTag
-        @text="This is a very long text that should go on multiple lines"
-        @onDismiss={{NOOP}}
-        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
-      />
-    </SF.Item>
-    <SF.Item>
-      <HdsTag
-        @text="This is a very long text that should go on multiple lines"
-        @onDismiss={{NOOP}}
-        @route="page-components.tag"
-        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
-      />
-    </SF.Item>
-  </ShwFlex>
-
   <ShwDivider @level={{2}} />
 </template>;
 

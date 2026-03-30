@@ -10,12 +10,13 @@ import {
   render,
   setupOnerror,
   triggerKeyEvent,
+  waitUntil,
 } from '@ember/test-helpers';
 import { hash } from '@ember/helper';
 
 import { HdsTooltipButton } from '@hashicorp/design-system-components/components';
 
-import { setupRenderingTest, wait } from 'showcase/tests/helpers';
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/tooltip/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -65,17 +66,19 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
   // A11Y
 
   test('it displays the tooltip when focused and dismisses it if Escape key is triggered', async function (assert) {
+    // To avoid inconsistancies with the tippyJS animation for the removal of the tooltip, we set duration and delay to 0.
     await render(
       <template>
         <HdsTooltipButton
           @text="More info."
+          @extraTippyOptions={{hash duration=0 delay=0}}
           id="test-tooltip-button"
         >info</HdsTooltipButton>
       </template>,
     );
 
     // Test that tooltip does not display by default:
-    assert.dom('.tippy-box').doesNotExist();
+    assert.dom('.tippy-box').doesNotExist('Tooltip is not visible by default');
 
     // Focus button to trigger tooltip display:
     await focus('#test-tooltip-button');
@@ -84,8 +87,12 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     // Trigger escape key to close the tooltip:
     await triggerKeyEvent('#test-tooltip-button', 'keydown', 'Escape');
 
-    await wait(1000);
-    assert.dom('.tippy-box').doesNotExist();
+    // Wait specifically for tooltip to disappear with timeout
+    await waitUntil(() => !find('.tippy-box'), { timeout: 3000 });
+
+    assert
+      .dom('.tippy-box')
+      .doesNotExist('Tooltip is dismissed after Escape key is triggered');
   });
 
   test('the tooltip has a role of "tooltip"', async function (assert) {
