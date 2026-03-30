@@ -53,16 +53,32 @@ const SubSectionGrid: TemplateOnlyComponent = <template>
             class="shw-utility-composite-with-grid__row"
             {{c.group}}
           >
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>A1</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>A2</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>A3</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>A4</ShwTextBody>
             </div>
           </HdsLayoutGrid>
@@ -73,10 +89,18 @@ const SubSectionGrid: TemplateOnlyComponent = <template>
             class="shw-utility-composite-with-grid__row"
             {{c.group}}
           >
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>B1</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>B2</ShwTextBody>
             </div>
           </HdsLayoutGrid>
@@ -87,13 +111,25 @@ const SubSectionGrid: TemplateOnlyComponent = <template>
             class="shw-utility-composite-with-grid__row"
             {{c.group}}
           >
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>C1</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>C2</ShwTextBody>
             </div>
-            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div
+              class="shw-utility-composite-with-grid__cell"
+              role="gridcell"
+              {{c.item}}
+            >
               <ShwTextBody>C3</ShwTextBody>
             </div>
           </HdsLayoutGrid>
