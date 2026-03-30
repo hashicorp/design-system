@@ -33600,7 +33600,7 @@
       "$type": "color",
       "$value": "#0043ce",
       "$modes": {
-        "default": "#0043ce",
+        "default": "#0f62fe",
         "cds-g0": "#0043ce",
         "cds-g10": "#0043ce",
         "cds-g90": "#d0e2ff",
@@ -51389,7 +51389,7 @@
       "$type": "color",
       "$value": "#0043ce",
       "$modes": {
-        "default": "#0043ce",
+        "default": "#0f62fe",
         "cds-g0": "#0043ce",
         "cds-g10": "#0043ce",
         "cds-g90": "#d0e2ff",
@@ -69178,7 +69178,7 @@
       "$type": "color",
       "$value": "#d0e2ff",
       "$modes": {
-        "default": "#a6c8ff",
+        "default": "#78a9ff",
         "cds-g0": "#0043ce",
         "cds-g10": "#0043ce",
         "cds-g90": "#d0e2ff",
@@ -86967,7 +86967,7 @@
       "$type": "color",
       "$value": "#d0e2ff",
       "$modes": {
-        "default": "#a6c8ff",
+        "default": "#78a9ff",
         "cds-g0": "#0043ce",
         "cds-g10": "#0043ce",
         "cds-g90": "#d0e2ff",
