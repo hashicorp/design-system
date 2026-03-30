@@ -13,7 +13,6 @@
 @use "../mixins/carbonization" as *;
 
 $hds-breadcrumb-item-height: 28px;
-$hds-breadcrumb-item-border-radius: var(--token-border-radius-small);
 $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
 // MAIN CONTAINER (NAV)
@@ -87,7 +86,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   text-align: left;
   background: none;
   border: none;
-  border-radius: $hds-breadcrumb-item-border-radius;
+  border-radius: var(--token-border-radius-small);
   cursor: pointer;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
@@ -144,7 +143,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
 .hds-breadcrumb__text {
   // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
-  padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
+  padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0; // line height = 16px / 1rem
   overflow: hidden;
   font-size: var(--token-typography-body-100-font-size);
   font-family: var(--token-typography-body-100-font-family);
@@ -156,6 +155,10 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   .hds-breadcrumb__sublist & {
     white-space: normal;
+  }
+
+  @include hds-apply-only-if-carbon() {
+    padding: calc((#{$hds-breadcrumb-item-height} - 1.125rem) / 2) 0; // line height = 18px / 1.125rem
   }
 }
 
@@ -173,7 +176,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   color: var(--token-breadcrumb-truncation-toggle-foreground-color-default);
   background-color: var(--token-breadcrumb-truncation-toggle-surface-color-default);
   border: 1px solid transparent; // We need this to be transparent for a11y
-  border-radius: $hds-breadcrumb-item-border-radius;
+  border-radius: var(--token-border-radius-small);
   outline: none;
   cursor: pointer;
 

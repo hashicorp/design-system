@@ -3313,6 +3313,12 @@
 .hds-breadcrumb__sublist .hds-breadcrumb__text {
   white-space: normal;
 }
+.hds-mode-cds-g0 .hds-breadcrumb__text,
+.hds-mode-cds-g10 .hds-breadcrumb__text,
+.hds-mode-cds-g90 .hds-breadcrumb__text,
+.hds-mode-cds-g100 .hds-breadcrumb__text {
+  padding: calc((28px - 1.125rem) / 2) 0;
+}
 
 .hds-breadcrumb__truncation-toggle {
   display: flex;
