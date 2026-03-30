@@ -12,9 +12,6 @@
 @use "../../mixins/button" as *;
 @use "../../mixins/screen-reader-only" as *;
 
-// this is the width of the icon-only button
-$hds-delete-button-width: map.get($hds-button-size-props, "medium", "min-height");
-
 // notice: this is a <fieldset> element
 .hds-form-key-value-inputs {
   display: flex;
@@ -43,7 +40,8 @@ $hds-delete-button-width: map.get($hds-button-size-props, "medium", "min-height"
   @include hds-breakpoint-above("md") {
     display: grid;
     flex-grow: 1;
-    grid-template-columns: var(--hds-key-value-inputs-columns, 1fr 1fr $hds-delete-button-width);
+    // `var(--token-button-height-medium)` is the width/height of the icon-only button
+    grid-template-columns: var(--hds-key-value-inputs-columns, 1fr 1fr var(--token-button-height-medium));
     align-items: flex-end;
     column-gap: 8px;
     row-gap: 0;

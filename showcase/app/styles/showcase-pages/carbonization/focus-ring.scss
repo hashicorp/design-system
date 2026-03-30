@@ -1,0 +1,80 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > FOCUS RING
+
+// ----
+
+body.page-carbonization-foundations-focus-ring {
+  .shw-component-focus-ring-box-corners {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+
+    &::before {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 96V100H0V96H4ZM14 96V100H6V96H14ZM94 96V100H86V96H94ZM100 96V100H96V96H100ZM4 86V94H0V86H4ZM100 86V94H96V86H100ZM4 6V14H0V6H4ZM100 6V14H96V6H100ZM4 0V4H0V0H4ZM14 0V4H6V0H14ZM94 0V4H86V0H94ZM100 0V4H96V0H100Z" fill="%23FF00AE" fill-opacity="0.6"/></svg>');
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      content: "";
+    }
+  }
+
+  .shw-component-sim-app-side-nav-list-link-wrapper {
+    margin: 0;
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
+    background: var(--token-app-side-nav-color-surface-primary);
+    border: 1px solid var(--token-app-side-nav-wrapper-border-color);
+  }
+
+  .shw-component-sim-toggle-button {
+    height: 80px;
+
+    .hds-app-side-nav__toggle-button {
+      position: relative;
+      transform: none;
+    }
+  }
+
+  .shw-component-app-footer-wrapper {
+    &:has(.hds-app-footer--theme-dark) {
+      padding: 10px 16px 0 16px;
+      background: var(--token-color-palette-neutral-700);
+    }
+  }
+
+  // we hide the "dark" variant of the AppFooter for the "cds" modes because doesn't make sense for those modes
+  .hds-mode-cds-g0,
+  .hds-mode-cds-g10,
+  .hds-mode-cds-g90,
+  .hds-mode-cds-g100 {
+    .shw-flex__item:has(.hds-app-footer--theme-dark) {
+      display: none;
+    }
+  }
+
+  .shw-component-advanced-table-reorder-handle-container {
+    position: relative;
+    width: 40px;
+
+    .hds-advanced-table__th-reorder-handle {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .shw-component-dropdown-reset-content-width {
+    .hds-dropdown__content {
+      width: auto;
+      min-width: 0;
+    }
+  }
+
+  .shw-component-filter-bar-tabs-wrapper {
+    max-width: 600px;
+  }
+}

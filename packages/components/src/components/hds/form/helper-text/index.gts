@@ -6,8 +6,6 @@ import Component from '@glimmer/component';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
-import HdsTextBody from '../../text/body.gts';
-
 import type { HdsTextBodySignature } from '../../text/body.gts';
 
 export const ID_PREFIX = 'helper-text-';
@@ -62,16 +60,13 @@ export default class HdsFormHelperText extends Component<HdsFormHelperTextSignat
   }
 
   <template>
-    <HdsTextBody
+    <div
       class={{this.classNames}}
-      @tag="div"
-      @size="100"
-      @weight="regular"
       id={{this.id}}
       {{didInsert this.onInsert}}
       ...attributes
     >
       {{yield}}
-    </HdsTextBody>
+    </div>
   </template>
 }

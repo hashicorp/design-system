@@ -11,7 +11,6 @@ import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
 
 import HdsIcon from '../../icon/index.gts';
-import HdsTextBody from '../../text/body.gts';
 import HdsFormErrorMessage from './message.gts';
 
 export const ID_PREFIX = 'error-';
@@ -92,14 +91,9 @@ export default class HdsFormError extends Component<HdsFormErrorSignature> {
       ...attributes
     >
       <HdsIcon class="hds-form-error__icon" @name="alert-diamond-fill" />
-      <HdsTextBody
-        class="hds-form-error__content"
-        @tag="div"
-        @size="100"
-        @weight="medium"
-      >
+      <div class="hds-form-error__content">
         {{yield (hash Message=HdsFormErrorMessage)}}
-      </HdsTextBody>
+      </div>
     </div>
   </template>
 }
