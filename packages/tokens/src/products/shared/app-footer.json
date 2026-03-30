@@ -1,0 +1,21 @@
+{
+  "app-footer": {
+    "focus": {
+      "color": {
+        "action": {
+          "internal": {
+            "$type": "color",
+            "$value": "var(--token-color-focus-action-internal)",
+            "$modes": {
+              "default": "var(--token-color-focus-action-internal)",
+              "cds-g0": "{carbon.themes.white.focus}",
+              "cds-g10": "{carbon.themes.g10.focus}",
+              "cds-g90": "{carbon.themes.g90.focus}",
+              "cds-g100": "{carbon.themes.g100.focus}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

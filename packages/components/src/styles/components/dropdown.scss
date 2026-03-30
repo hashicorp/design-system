@@ -12,8 +12,6 @@
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
-$hds-dropdown-toggle-border-radius: $hds-button-border-radius;
-
 // DROPDOWN
 
 .hds-dropdown--is-inline {
@@ -39,7 +37,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-faint);
   border: 1px solid var(--token-color-border-strong);
-  border-radius: $hds-dropdown-toggle-border-radius;
+  border-radius: var(--token-button-border-radius);
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
@@ -81,8 +79,8 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   align-items: center;
   justify-content: center;
   border-radius: calc(
-    #{$hds-dropdown-toggle-border-radius} - 2px
-  ); // $hds-dropdown-toggle-border-radius - (1px padding + 1px border) (= 3px)
+    var(--token-button-border-radius) - 2px
+  ); // var(--token-button-border-radius) - (1px padding + 1px border) (= 3px)
 
   img {
     width: 100%;

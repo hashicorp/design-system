@@ -9,7 +9,7 @@ import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 // we add all the allowed combinations here, per design specs
-const STYLES_COMBINATIONS = {
+export const STYLES_COMBINATIONS = {
   'display-500': ['bold'],
   'display-400': ['medium', 'semibold', 'bold'],
   'display-300': ['medium', 'semibold', 'bold'],

@@ -1,0 +1,29 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{!
+  ------------------------------------------------------------------------------------------
+  IMPORTANT: this is a temporary implementation, while we wait for the design specifications
+  ------------------------------------------------------------------------------------------
+}}
+
+<Hds::Dropdown
+  @enableCollisionDetection={{true}}
+  @matchToggleWidth={{@toggleIsFullWidth}}
+  class="hds-theme-switcher-control"
+  ...attributes
+  as |D|
+>
+  <D.ToggleButton
+    @color="secondary"
+    @size={{this.toggleSize}}
+    @isFullWidth={{this.toggleIsFullWidth}}
+    @text={{this.toggleContent.label}}
+    @icon={{this.toggleContent.icon}}
+  />
+  {{#each-in this._options as |key data|}}
+    <D.Interactive @icon={{data.icon}} {{on "click" (fn this.onSelectTheme data.theme)}}>{{data.label}}</D.Interactive>
+  {{/each-in}}
+</Hds::Dropdown>
