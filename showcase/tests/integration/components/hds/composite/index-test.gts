@@ -8,7 +8,10 @@ import { render, focus, settled, triggerKeyEvent } from '@ember/test-helpers';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
-import { HdsComposite } from '@hashicorp/design-system-components/components';
+import {
+  HdsButton,
+  HdsComposite,
+} from '@hashicorp/design-system-components/components';
 
 module('Integration | Component | hds/composite/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -18,8 +21,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite as |composite|>
           <div {{composite.composite}}>
-            <button {{composite.item}} id="item-1">Item 1</button>
-            <button {{composite.item}} id="item-2">Item 2</button>
+            <HdsButton {{composite.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{composite.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -35,8 +38,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite as |composite|>
           <div {{composite.composite}}>
-            <button {{composite.item disabled=true}} id="item-1">Item 1</button>
-            <button {{composite.item}} id="item-2">Item 2</button>
+            <HdsButton {{composite.item disabled=true}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{composite.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -52,8 +55,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |composite|>
           <div {{composite.composite}} id="composite-root">
-            <button {{composite.item}} id="item-1">Item 1</button>
-            <button {{composite.item}} id="item-2">Item 2</button>
+            <HdsButton {{composite.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{composite.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -72,8 +75,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="vertical" as |composite|>
           <div {{composite.composite}} id="composite-root">
-            <button {{composite.item}} id="item-1">Item 1</button>
-            <button {{composite.item}} id="item-2">Item 2</button>
+            <HdsButton {{composite.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{composite.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -92,8 +95,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" @loop={{true}} as |composite|>
           <div {{composite.composite}} id="composite-root">
-            <button {{composite.item}} id="item-1">Item 1</button>
-            <button {{composite.item}} id="item-2">Item 2</button>
+            <HdsButton {{composite.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{composite.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -114,12 +117,12 @@ module('Integration | Component | hds/composite/index', function (hooks) {
         <HdsComposite @loop="horizontal" as |c|>
           <div role="grid" {{c.composite}} id="composite-grid">
             <div role="row" {{c.group}}>
-              <button {{c.item}} id="A1">A1</button>
-              <button {{c.item}} id="A2">A2</button>
+              <HdsButton {{c.item}} id="A1">A1</HdsButton>
+              <HdsButton {{c.item}} id="A2">A2</HdsButton>
             </div>
             <div role="row" {{c.group}}>
-              <button {{c.item}} id="B1">B1</button>
-              <button {{c.item}} id="B2">B2</button>
+              <HdsButton {{c.item}} id="B1">B1</HdsButton>
+              <HdsButton {{c.item}} id="B2">B2</HdsButton>
             </div>
           </div>
         </HdsComposite>
@@ -146,12 +149,12 @@ module('Integration | Component | hds/composite/index', function (hooks) {
         <HdsComposite @loop="vertical" as |c|>
           <div role="grid" {{c.composite}} id="composite-grid">
             <div role="row" {{c.group}}>
-              <button {{c.item}} id="A1">A1</button>
-              <button {{c.item}} id="A2">A2</button>
+              <HdsButton {{c.item}} id="A1">A1</HdsButton>
+              <HdsButton {{c.item}} id="A2">A2</HdsButton>
             </div>
             <div role="row" {{c.group}}>
-              <button {{c.item}} id="B1">B1</button>
-              <button {{c.item}} id="B2">B2</button>
+              <HdsButton {{c.item}} id="B1">B1</HdsButton>
+              <HdsButton {{c.item}} id="B2">B2</HdsButton>
             </div>
           </div>
         </HdsComposite>
@@ -177,10 +180,10 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Enabled 1</button>
-            <button {{c.item disabled=true}} id="item-2">Disabled</button>
-            <button {{c.item disabled=true}} id="item-3">Disabled</button>
-            <button {{c.item}} id="item-4">Enabled 2</button>
+            <HdsButton {{c.item}} id="item-1">Enabled 1</HdsButton>
+            <HdsButton {{c.item disabled=true}} id="item-2">Disabled</HdsButton>
+            <HdsButton {{c.item disabled=true}} id="item-3">Disabled</HdsButton>
+            <HdsButton {{c.item}} id="item-4">Enabled 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -200,8 +203,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item disabled=true}} id="item-1">Disabled 1</button>
-            <button {{c.item disabled=true}} id="item-2">Disabled 2</button>
+            <HdsButton {{c.item disabled=true}} id="item-1">Disabled 1</HdsButton>
+            <HdsButton {{c.item disabled=true}} id="item-2">Disabled 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -219,11 +222,11 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item disabled=true}} id="item-1">Disabled 1</button>
-            <button {{c.item}} id="item-2">First enabled</button>
-            <button {{c.item}} id="item-3">Middle</button>
-            <button {{c.item}} id="item-4">Last enabled</button>
-            <button {{c.item disabled=true}} id="item-5">Disabled 2</button>
+            <HdsButton {{c.item disabled=true}} id="item-1">Disabled 1</HdsButton>
+            <HdsButton {{c.item}} id="item-2">First enabled</HdsButton>
+            <HdsButton {{c.item}} id="item-3">Middle</HdsButton>
+            <HdsButton {{c.item}} id="item-4">Last enabled</HdsButton>
+            <HdsButton {{c.item disabled=true}} id="item-5">Disabled 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -243,14 +246,14 @@ module('Integration | Component | hds/composite/index', function (hooks) {
         <HdsComposite as |c|>
           <div role="grid" {{c.composite}} id="composite-grid">
             <div role="row" {{c.group}}>
-              <button {{c.item}} id="A1">A1</button>
-              <button {{c.item disabled=true}} id="A2">A2 (disabled)</button>
-              <button {{c.item}} id="A3">A3</button>
+              <HdsButton {{c.item}} id="A1">A1</HdsButton>
+              <HdsButton {{c.item disabled=true}} id="A2">A2 (disabled)</HdsButton>
+              <HdsButton {{c.item}} id="A3">A3</HdsButton>
             </div>
             <div role="row" {{c.group}}>
-              <button {{c.item disabled=true}} id="B1">B1 (disabled)</button>
-              <button {{c.item}} id="B2">B2</button>
-              <button {{c.item}} id="B3">B3</button>
+              <HdsButton {{c.item disabled=true}} id="B1" disabled>B1 (disabled)</HdsButton>
+              <HdsButton {{c.item}} id="B2">B2</HdsButton>
+              <HdsButton {{c.item}} id="B3">B3</HdsButton>
             </div>
           </div>
         </HdsComposite>
@@ -276,8 +279,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @defaultCurrentId="does-not-exist" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
-            <button {{c.item}} id="item-2">Item 2</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -291,9 +294,9 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
-            <button {{c.item}} id="item-2">Item 2</button>
-            <button {{c.item}} id="item-3">Item 3</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
+            <HdsButton {{c.item}} id="item-3">Item 3</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -318,8 +321,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
-            <button {{c.item}} id="item-2">Item 2</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -341,8 +344,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="vertical" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
-            <button {{c.item}} id="item-2">Item 2</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -364,7 +367,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @defaultCurrentId={{null}} as |composite|>
           <div {{composite.composite}} id="composite-root">
-            <button {{composite.item}} id="item-1">Item 1</button>
+            <HdsButton {{composite.item}} id="item-1">Item 1</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -382,9 +385,9 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
             {{#if context.showSecond}}
-              <button {{c.item}} id="item-2">Item 2</button>
+              <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
             {{/if}}
           </div>
         </HdsComposite>
@@ -409,7 +412,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
         <HdsComposite as |c|>
           <div {{c.composite}} id="composite-root">
             {{#if context.showFirst}}
-              <button {{c.item}} id="item-1">Item 1</button>
+              <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
             {{/if}}
           </div>
         </HdsComposite>
@@ -433,10 +436,10 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
-            <button {{c.item}} id="item-2">Item 2</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
             {{#if context.showExtra}}
-              <button {{c.item}} id="item-3">Item 3</button>
+              <HdsButton {{c.item}} id="item-3">Item 3</HdsButton>
             {{/if}}
           </div>
         </HdsComposite>
@@ -461,13 +464,13 @@ module('Integration | Component | hds/composite/index', function (hooks) {
         <HdsComposite as |c|>
           <div role="grid" {{c.composite}} id="composite-grid">
             <div role="row" {{c.group}}>
-              <button {{c.item}} id="A1">A1</button>
-              <button {{c.item}} id="A2">A2</button>
+              <HdsButton {{c.item}} id="A1">A1</HdsButton>
+              <HdsButton {{c.item}} id="A2">A2</HdsButton>
             </div>
             {{#if context.showSecondRow}}
               <div role="row" {{c.group}}>
-                <button {{c.item}} id="B1">B1</button>
-                <button {{c.item}} id="B2">B2</button>
+                <HdsButton {{c.item}} id="B1">B1</HdsButton>
+                <HdsButton {{c.item}} id="B2">B2</HdsButton>
               </div>
             {{/if}}
           </div>
@@ -494,9 +497,9 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
-            <button {{c.item disabled=context.isDisabled}} id="item-2">Item 2</button>
-            <button {{c.item}} id="item-3">Item 3</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{c.item disabled=context.isDisabled}} id="item-2">Item 2</HdsButton>
+            <HdsButton {{c.item}} id="item-3">Item 3</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -522,8 +525,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
-            <button {{c.item}} id="item-2">Item 2</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
+            <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
           </div>
         </HdsComposite>
       </template>,
@@ -552,9 +555,9 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="item-1">Item 1</button>
+            <HdsButton {{c.item}} id="item-1">Item 1</HdsButton>
             {{#if context.showSecond}}
-              <button {{c.item}} id="item-2">Item 2</button>
+              <HdsButton {{c.item}} id="item-2">Item 2</HdsButton>
             {{/if}}
           </div>
         </HdsComposite>
@@ -575,8 +578,8 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       <template>
         <HdsComposite @orientation="horizontal" as |c|>
           <div {{c.composite}} id="composite-root">
-            <button {{c.item}} id="custom-foo">Foo</button>
-            <button {{c.item}} id="custom-bar">Bar</button>
+            <HdsButton {{c.item}} id="custom-foo">Foo</HdsButton>
+            <HdsButton {{c.item}} id="custom-bar">Bar</HdsButton>
           </div>
         </HdsComposite>
       </template>,
