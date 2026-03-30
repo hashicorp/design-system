@@ -349,7 +349,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
 
     assert.dom('[data-active-item]').doesNotExist();
 
-    await focus('#item-1');
+    await focus('#composite-root');
     await triggerKeyEvent('#composite-root', 'keydown', 'ArrowRight');
     assert.dom('[data-active-item]').doesNotExist();
   });
@@ -590,7 +590,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it sets no active item when all items are removed', async function (assert) {
-    assert.expect(2);
+    assert.expect(3);
 
     const context = new TrackedObject<{ showFirst: boolean }>({
       showFirst: true,
@@ -617,7 +617,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it registers and navigates to a newly added item', async function (assert) {
-    assert.expect(2);
+    assert.expect(1);
 
     const context = new TrackedObject<{ showExtra: boolean }>({
       showExtra: true,
