@@ -81,7 +81,7 @@ How resizing for the cell content works is determined by the implementation. For
 
 [[code-snippets/advanced-table-wrapping]]
 
-### Sortable Advanced Table
+### Sorting
 
 !!! Callout
 
