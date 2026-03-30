@@ -20,6 +20,7 @@ import { TrackedObject, TrackedArray } from 'tracked-built-ins';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 import type { HdsAdvancedTableColumnReorderSide } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
+import { waitForLayout } from '../utils';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
@@ -143,6 +144,8 @@ const simulateColumnReorderDrop = async ({
 
   await triggerEvent(target, 'drop', eventOptions);
   await triggerEvent(handleElement, 'dragend');
+
+  await waitForLayout();
 };
 
 const DEFAULT_REORDERABLE_COLUMNS = [
@@ -420,6 +423,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         await click(firstContextMenuToggle);
         await click('[data-test-context-option-key="reorder-column"]');
 
+        await waitForLayout();
+
         const firstReorderHandle = thElements[0]?.querySelector(
           '.hds-advanced-table__th-reorder-handle',
         );
@@ -440,6 +445,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       if (secondContextMenuToggle) {
         await click(secondContextMenuToggle);
         await click('[data-test-context-option-key="move-column-to-start"]');
+
+        await waitForLayout();
 
         const columnOrder = getColumnOrder();
         assert.deepEqual(
@@ -501,8 +508,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         assert.dom(firstReorderHandle).isFocused();
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
+
+        await waitForLayout();
+
         let columnOrder = getColumnOrder();
-        await settled();
 
         assert.deepEqual(
           columnOrder,
@@ -516,9 +525,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         assert.dom(firstReorderHandle).isFocused();
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
+
+        await waitForLayout();
+
         columnOrder = getColumnOrder();
-        // doing this because request animation frame stuff
-        await settled();
 
         assert.deepEqual(
           columnOrder,
@@ -532,9 +542,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         assert.dom(firstReorderHandle).isFocused();
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowLeft');
+
+        await waitForLayout();
+
         columnOrder = getColumnOrder();
-        // doing this because request animation frame stuff
-        await settled();
 
         assert.deepEqual(
           columnOrder,
@@ -545,7 +556,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           ],
           'The third column is moved back to the left',
         );
-        assert.dom(firstReorderHandle).isFocused();
+        assert
+          .dom(firstReorderHandle)
+          .isFocused('focus is returned to the handle after move');
       }
     });
 
@@ -614,7 +627,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       });
     });
 
-    test('column reordering works when there columns are added and removed dynamically', async function (assert) {
+    test('column reordering works when columns are added and removed dynamically', async function (assert) {
       const artistColumn = { key: 'artist', label: 'Artist' };
       const albumColumn = { key: 'album', label: 'Album' };
       const yearColumn = { key: 'year', label: 'Year' };
@@ -631,7 +644,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       // initial column order is 'artist', 'album', 'year', 'genre'
       const initialColumnOrder = availableColumns.map((col) => col.key);
 
-      // initially set the columns in the reverse order to ensure the table respects the column order and ommit the genre column
+      // initially set the columns in the reverse order to ensure the table respects the column order and omit the genre column
       const initialColumns = availableColumns
         .filter((col) => col.key !== 'genre')
         .reverse();
@@ -645,6 +658,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           })),
         ),
         columnOrder: new TrackedArray(initialColumnOrder),
+        onColumnReorder: ({ newOrder }: { newOrder: string[] }) => {
+          context.columnOrder = new TrackedArray(newOrder);
+        },
       });
 
       await render(
@@ -655,6 +671,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
             @model={{context.model}}
             @columns={{context.columns}}
             @columnOrder={{context.columnOrder}}
+            @onColumnReorder={{context.onColumnReorder}}
           >
             <:body as |B|>
               <B.Tr>

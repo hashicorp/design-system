@@ -76,6 +76,7 @@ export type HdsAdvancedTableExpandState = boolean;
 
 interface BaseHdsAdvancedTableColumn {
   align?: HdsAdvancedTableHorizontalAlignment;
+  isExpandable?: boolean;
   isVisuallyHidden?: boolean;
   label: string;
   sortingFunction?: HdsAdvancedTableSortingFunction<unknown>;
@@ -93,12 +94,15 @@ interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
 interface NonSortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
   isSortable?: false;
   key?: string;
-  isExpandable?: boolean;
 }
 
 export type HdsAdvancedTableColumn =
   | SortableHdsAdvancedTableColumn
   | NonSortableHdsAdvancedTableColumn;
+
+export type HdsAdvancedTableNormalizedColumn = HdsAdvancedTableColumn & {
+  key: string;
+};
 
 export type HdsAdvancedTableSortingFunction<T> = (a: T, b: T) => number;
 
@@ -141,3 +145,5 @@ export enum HdsAdvancedTableColumnReorderSideValues {
 
 export type HdsAdvancedTableColumnReorderSide =
   `${HdsAdvancedTableColumnReorderSideValues}`;
+
+export type HdsAdvancedTablePixelString = `${number}px`;

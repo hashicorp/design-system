@@ -8,17 +8,29 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import POLICIES from 'showcase/mocks/policy-data';
+import type { Policy } from 'showcase/mocks/policy-data';
 
 import CodeFragmentWithNestedRows from 'showcase/components/page-components/advanced-table/code-fragments/with-nested-rows';
 
-const POLICIES_WITH_CUSTOM_KEY = POLICIES.map((policy) => {
-  const { children, ...rest } = policy;
-  return {
-    ...rest,
-    isOpen: false,
-    data: children,
-  };
-});
+const normalizePoliciesWithCustomKeys = (
+  policies: (Policy & { data?: Policy[] })[],
+) => {
+  return policies.map((item) => {
+    const { children, ...rest } = item;
+
+    const newPolicy = {
+      ...rest,
+    };
+
+    if (Array.isArray(children) && children.length > 0) {
+      newPolicy['data'] = normalizePoliciesWithCustomKeys(children);
+    }
+
+    return newPolicy;
+  });
+};
+
+const POLICIES_WITH_CUSTOM_KEY = normalizePoliciesWithCustomKeys(POLICIES);
 
 const SubSectionNestedRows: TemplateOnlyComponent = <template>
   <ShwTextH2>Nested rows</ShwTextH2>
