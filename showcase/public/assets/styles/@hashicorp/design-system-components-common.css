@@ -9324,6 +9324,13 @@ button.hds-button[href]::after {
   background: var(--token-color-foreground-action);
 }
 
+.hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) ~ .hds-tabs__tab-indicator,
+.hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) ~ .hds-tabs__tab-indicator,
+.hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) ~ .hds-tabs__tab-indicator,
+.hds-mode-cds-g100 .hds-tabs__tab.hds-tabs__tab--is-selected:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) ~ .hds-tabs__tab-indicator {
+  display: none;
+}
+
 .hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
 .hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
 .hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
