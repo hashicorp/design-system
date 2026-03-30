@@ -59,8 +59,6 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Elevation Levels</ShwTextH2>
 
-    <ShwTextBody>Note: The Carbon Tile contains no elevation variant.</ShwTextBody>
-
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <ShwFlex @direction="column" as |SF|>
@@ -78,13 +76,14 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
           {{/each}}
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
 
     <ShwTextH2>Border</ShwTextH2>
-
-    <ShwTextBody>Note: The Carbon Tile contains no border variant.</ShwTextBody>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -103,13 +102,14 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
           {{/each}}
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
 
     <ShwTextH2>Interactive</ShwTextH2>
-
-    <ShwTextBody>Note: The Carbon Tile contains no interactive variant.</ShwTextBody>
 
     <ShwCarbonizationComparisonGrid @label="Level default">
       <:theming>
@@ -128,6 +128,9 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
           {{/each}}
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwCarbonizationComparisonGrid @label="Level hover">
@@ -147,6 +150,9 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
           {{/each}}
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwCarbonizationComparisonGrid @label="Level active">
@@ -169,6 +175,9 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
           {{/each}}
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwTextH3>Demo</ShwTextH3>
@@ -192,13 +201,14 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
 
     <ShwTextH2>Background</ShwTextH2>
-
-    <ShwTextBody>Note: The Carbon Tile contains no background variant.</ShwTextBody>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -217,6 +227,9 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
           {{/each}}
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
   </section>
