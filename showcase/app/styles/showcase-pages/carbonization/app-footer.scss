@@ -1,0 +1,25 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// APP-FOOTER
+
+body.page-carbonization-components-app-footer {
+  .shw-carbonization-app-footer-list {
+    // override alignment for better visual comparison
+    justify-content: flex-start;
+  }
+
+  .shw-carbonization-app-footer-demo-page {
+    padding: 30px 20px;
+  }
+
+  .shw-carbonization-app-footer-demo-page-content {
+    margin: 24px 0;
+  }
+
+  .shw-carbonization-app-footer-demo-dark-background-wrapper {
+    background-color: var(--token-color-palette-neutral-700);
+  }
+}

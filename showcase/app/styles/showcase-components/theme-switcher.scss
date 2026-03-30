@@ -1,0 +1,235 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "../typography" as *;
+
+.shw-theme-switcher {
+  position: relative;
+  right: -12px;
+  z-index: 999;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px;
+  color: var(--shw-color-black);
+  isolation: isolate;
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: var(--shw-color-white);
+    opacity: 0.6;
+    content: "";
+    pointer-events: none;
+  }
+
+  &.shw-theme-switcher--is-fixed,
+  &:has(.shw-theme-switcher-popover:popover-open) {
+    position: fixed;
+    top: 9px;
+    right: 12px;
+  }
+}
+
+
+// POPOVER
+
+.shw-theme-switcher-popover {
+  top: 50px;
+  right: 24px;
+  left: auto;
+  width: 350px;
+  max-width: calc(100vw - 48px);
+  margin: initial;
+  margin-left: 24px;
+  padding: 16px;
+  background-color: var(--shw-color-white);
+  border: 1px solid var(--shw-color-gray-400);
+  border-radius: 4px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 15%);
+
+  &::backdrop {
+    background-color: var(--shw-color-white);
+    opacity: 0.8;
+  }
+}
+
+.shw-theme-switcher-popover__title {
+  @include shw-font-family("gilmer");
+
+  margin: 0 0 8px;
+  color: var(--shw-color-gray-300);
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.shw-theme-switcher-popover__description {
+  @include shw-font-family("gilmer");
+
+  margin: 4px 0 12px;
+  color: var(--shw-color-black);
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.shw-theme-switcher-popover__separator {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid var(--shw-color-gray-500);
+}
+
+.shw-theme-switcher-popover__options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.shw-theme-switcher-popover__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.shw-theme-switcher-popover__button {
+  @include shw-font-family('gilmer');
+
+  min-width: 72px;
+  height: 32px;
+  padding: 2px 12px 2px 12px;
+  font-size: 0.9rem;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  cursor: pointer;
+  appearance: none;
+}
+
+.shw-theme-switcher-popover__button--primary {
+  color: var(--shw-color-action-active-foreground);
+  background-color: var(--shw-color-action-active-background);
+  border-color: var(--shw-color-action-active-border);
+}
+
+.shw-theme-switcher-popover__button--secondary {
+  color: var(--shw-color-gray-100);
+  background-color: transparent;
+  border-color: var(--shw-color-gray-300);
+}
+
+
+// CONTROLS
+
+.shw-theme-switcher-popover__control-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.shw-theme-switcher__control-label {
+  @include shw-font-family('gilmer');
+
+  margin: 0;
+  color: var(--shw-color-black);
+  font-size: 0.9rem;
+  line-height: 20px;
+}
+
+.shw-theme-switcher__control-select {
+  @include shw-font-family('gilmer');
+
+  height: 24px;
+  padding: 2px 24px 2px 8px;
+  color: var(--shw-color-gray-100);
+  font-size: 0.8rem;
+  background-color: var(--shw-color-gray-600);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.34572 7H20.6543C21.8517 7 22.4504 8.4463 21.6028 9.29391L12.9519 17.9515C12.4272 18.4763 11.5728 18.4763 11.0481 17.9515L2.39722 9.29391C1.54961 8.4463 2.14832 7 3.34572 7Z' fill='%23808080'/%3E%3C/svg%3E"); // notice: the 'caret' color is hardcoded here!
+  background-repeat: no-repeat;
+  background-position: right 6px top 4px;
+  background-size: 12px 12px;
+  border: 1px solid var(--shw-color-gray-400);
+  border-radius: 3px;
+  appearance: none;
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:hover:not([disabled]) {
+    background-color: var(--shw-color-gray-500);
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px dashed var(--shw-color-action-active-foreground);
+  }
+}
+
+
+// OPTIONS BUTTON
+
+.shw-theme-switcher__options-button {
+  height: 24px;
+  padding: 2px 8px;
+  color: var(--shw-color-gray-100);
+  background-color: var(--shw-color-gray-600);
+  border: 1px solid var(--shw-color-gray-400);
+  border-radius: 3px;
+  cursor: pointer;
+  appearance: none;
+
+  &[disabled] {
+    color: var(--shw-color-gray-300);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:hover:not([disabled]) {
+    background-color: var(--shw-color-gray-500);
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px dashed var(--shw-color-action-active-foreground);
+  }
+}
+
+// DEBUGGING PANEL
+
+.shw-theme-switcher__debugging-panel {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 6px 4px;
+  width: max-content;
+  padding: 9px 12px;
+  color: var(--shw-color-gray-100);
+  background-color: var(--shw-color-white);
+  border: 1px solid var(--shw-color-gray-400);
+  border-radius: 3px;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .shw-theme-switcher__debugging-panel-key {
+    margin: 0;
+    color: var(--shw-color-gray-200);
+    font-style: italic;
+    text-align: right;
+  }
+
+  .shw-theme-switcher__debugging-panel-value {
+    margin: 0;
+    color: var(--shw-color-gray-100);
+    font-weight: 500;
+  }
+}
