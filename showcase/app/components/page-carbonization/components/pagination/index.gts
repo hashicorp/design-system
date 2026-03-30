@@ -43,6 +43,9 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <HdsPaginationNumbered @totalItems={{40}} />
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwTextH3>Closest Carbon equivalent</ShwTextH3>
@@ -96,6 +99,9 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <HdsPaginationCompact />
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwTextH3>Closest Carbon equivalent</ShwTextH3>
@@ -282,10 +288,6 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
             </ShwFlex>
           </SF.Item>
 
-          <SF.Item @label="???">
-            <code>???</code>
-          </SF.Item>
-
           <SF.Item @label="Disabled">
             <ShwFlex as |SF|>
               <SF.Item>
@@ -407,8 +409,8 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
           {{/let}}
         </ShwFlex>
       </:theming>
-      <:reference>
-        <code>???</code>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
       </:reference>
     </ShwCarbonizationComparisonGrid>
   </section>
