@@ -7,6 +7,7 @@ import { assert } from '@ember/debug';
 import { on } from '@ember/modifier';
 
 import HdsInteractive from '../../interactive/index.gts';
+import HdsTextBody from '../../text/body.gts';
 import hdsT from '../../../../helpers/hds-t.ts';
 
 import type { HdsInteractiveSignature } from '../../interactive/index.gts';
@@ -68,11 +69,17 @@ export default class HdsPaginationControlNumber extends Component<HdsPaginationN
       ...attributes
       aria-current={{if @isSelected "page" null}}
     >
-      <span class="sr-only">{{hdsT
-          "hds.components.pagination.nav.number.screen-reader-label"
-          default="page"
-        }}</span>
-      {{this.page}}
+      <HdsTextBody
+        @tag="span"
+        @size="100"
+        class="hds-pagination-nav__number-content"
+      >
+        <span class="sr-only">{{hdsT
+            "hds.components.pagination.nav.number.screen-reader-label"
+            default="page"
+          }}</span>
+        {{this.page}}
+      </HdsTextBody>
     </HdsInteractive>
   </template>
 }

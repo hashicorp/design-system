@@ -81,7 +81,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 
 // Pagination Compact (equivalent to Carbon Pagination)
 .hds-pagination--compact {
-  background-color: var(--token-pagination-bar-surface-color-default);
+  background-color: var(--token-pagination-bar-surface-color);
 
   @include hds-apply-only-if-carbon() {
     border-top: 1px solid var(--token-pagination-bar-border-color);
@@ -173,7 +173,7 @@ $pagination-nav-control-padding-horizontal: 12px;
     color: var(--token-pagination-nav-control-foreground-color-action-hover);
   }
 
-  &:not(.hds-pagination-nav__number--is-selected) {
+  &:not(.hds-pagination-nav__number--is-selected, [disabled]) {
     &:hover,
     &.mock-hover {
       background-color: var(--token-pagination-nav-surface-color-action-hover);
@@ -237,6 +237,11 @@ $pagination-nav-control-padding-horizontal: 12px;
     border-radius: var(--token-border-radius-x-small);
     content: "";
   }
+
+  // Note: We set the font-weight here to work with the carbon themes
+  .hds-pagination-nav__number-content {
+    font-weight: var(--token-pagination-nav-control-typography-font-weight-active);
+  }
 }
 
 .hds-pagination-nav__ellipsis {
@@ -281,6 +286,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 
     @include hds-apply-only-if-carbon() {
       margin-left: 0;
+      background-color: transparent;
       border: 0;
     }
   }
