@@ -24,6 +24,7 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
   <ShwTextH2>Horizontal scrolling indicators</ShwTextH2>
   <div class="shw-component-advanced-table-fixed-width-wrapper">
     <HdsAdvancedTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{MUSIC}}
       @isStriped={{true}}
       @maxHeight="400px"
@@ -51,19 +52,24 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
         <B.Tr>
           <B.Th @scope="row">
             <HdsLinkInline @href="#showcase">
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{B.data.artist}}
             </HdsLinkInline>
           </B.Th>
           <B.Td>
             <div class="shw-component-advanced-table-cell-content-div">
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{B.data.album}}
             </div>
           </B.Td>
           <B.Td>
             <HdsBadge
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               @text={{B.data.year}}
               @type="outlined"
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               @color={{B.data.badge-color}}
             />
           </B.Td>
@@ -104,6 +110,7 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
 
   <HdsAdvancedTable
     @isSelectable={{true}}
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{USERS}}
     @columns={{array
       (hash key="id" label="ID" width="auto")
@@ -116,12 +123,18 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
   >
     <:body as |B|>
       <B.Tr
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @selectionKey="{{B.data.id}}"
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @isSelected={{B.data.isSelected}}
       >
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.id}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.name}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.email}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.role}}</B.Td>
       </B.Tr>
     </:body>
@@ -132,6 +145,7 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
   <div class="shw-component-advanced-table-fixed-width-wrapper">
     <HdsAdvancedTable
       @isSelectable={{true}}
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{USERS}}
       @maxHeight="400px"
       @hasStickyHeader={{false}}
@@ -146,12 +160,18 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
     >
       <:body as |B|>
         <B.Tr
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @selectionKey="{{B.data.id}}"
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
         >
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Th>{{B.data.id}}</B.Th>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.name}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.email}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
@@ -162,6 +182,7 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
 
   <div class="shw-component-advanced-table-fixed-width-wrapper">
     <HdsAdvancedTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{USERS}}
       @columns={{array
         (hash key="id" label="ID" width="auto")
@@ -176,9 +197,13 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
     >
       <:body as |B|>
         <B.Tr>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Th>{{B.data.id}}</B.Th>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.name}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.email}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
@@ -190,6 +215,7 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
   <div class="shw-component-advanced-table-fixed-width-wrapper">
     <HdsAdvancedTable
       @isSelectable={{true}}
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{USERS}}
       @columns={{array
         (hash key="id" label="ID" width="auto")
@@ -203,12 +229,18 @@ const SubSectionOverflow: TemplateOnlyComponent = <template>
     >
       <:body as |B|>
         <B.Tr
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @selectionKey="{{B.data.id}}"
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
         >
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Th>{{B.data.id}}</B.Th>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.name}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.email}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>

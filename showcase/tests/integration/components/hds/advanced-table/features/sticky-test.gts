@@ -11,6 +11,8 @@ import {
   render,
   setupOnerror,
 } from '@ember/test-helpers';
+import { get } from '@ember/helper';
+
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 import type {
   HdsAdvancedTableColumn,
@@ -59,10 +61,14 @@ const createBasicTable = async (options: {
         id="data-test-advanced-table"
       >
         <:body as |B|>
-          <B.Tr @selectionKey={{B.data.id}}>
-            <B.Th>{{B.data.name}}</B.Th>
-            <B.Td>{{B.data.age}}</B.Td>
-            <B.Td>{{B.data.country}}</B.Td>
+          {{! @glint-expect-error }}
+          <B.Tr @selectionKey={{get B.data "id"}}>
+            {{! @glint-expect-error }}
+            <B.Th>{{get B.data "name"}}</B.Th>
+            {{! @glint-expect-error }}
+            <B.Td>{{get B.data "age"}}</B.Td>
+            {{! @glint-expect-error }}
+            <B.Td>{{get B.data "country"}}</B.Td>
           </B.Tr>
         </:body>
       </HdsAdvancedTable>
@@ -140,8 +146,11 @@ const createSortableTable = async (options: {
       >
         <:body as |B|>
           <B.Tr>
+            {{! @glint-expect-error }}
             <B.Td>{{B.data.artist}}</B.Td>
+            {{! @glint-expect-error }}
             <B.Td>{{B.data.album}}</B.Td>
+            {{! @glint-expect-error }}
             <B.Td>{{B.data.year}}</B.Td>
           </B.Tr>
         </:body>
@@ -199,12 +208,16 @@ const createSelectableTable = async (options: {
       >
         <:body as |B|>
           <B.Tr
-            @selectionKey={{B.data.id}}
+            {{! @glint-expect-error }}
+            @selectionKey={{get B.data "id"}}
             @selectionAriaLabelSuffix={{options.selectionAriaLabelSuffix}}
           >
-            <B.Th>{{B.data.artist}}</B.Th>
-            <B.Td>{{B.data.album}}</B.Td>
-            <B.Td>{{B.data.year}}</B.Td>
+            {{! @glint-expect-error }}
+            <B.Th>{{get B.data "name"}}</B.Th>
+            {{! @glint-expect-error }}
+            <B.Td>{{get B.data "status"}}</B.Td>
+            {{! @glint-expect-error }}
+            <B.Td>{{get B.data "description"}}</B.Td>
           </B.Tr>
         </:body>
       </HdsAdvancedTable>

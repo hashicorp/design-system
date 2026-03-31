@@ -60,28 +60,35 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
   <ShwTextH2>Reorderable columns</ShwTextH2>
 
   <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{BASE_COLUMNS}}
     @hasReorderableColumns={{true}}
   >
     <:body as |B|>
+      {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
       <B.Tr @selectionKey="{{B.data.id}}" as |R|>
         {{#each R.orderedCells as |C|}}
           {{#if (eq C.columnKey "artist")}}
             <B.Th @scope="row"><HdsLinkInline @href="#showcase">
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{B.data.artist}}
               </HdsLinkInline></B.Th>
           {{else}}
             <B.Td>
               {{#if (eq C.columnKey "album")}}
                 <div class="shw-component-advanced-table-cell-content-div">
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
                 <HdsBadge
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @text={{B.data.year}}
                   @type="outlined"
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @color={{B.data.badge-color}}
                 />
               {{else}}
@@ -118,6 +125,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
   <ShwTextH4 @tag="h3">Reorderable columns with sorting</ShwTextH4>
 
   <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{SORTABLE_COLUMNS}}
     @hasReorderableColumns={{true}}
@@ -127,19 +135,24 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
         {{#each R.orderedCells as |C|}}
           {{#if (eq C.columnKey "artist")}}
             <B.Th @scope="row"><HdsLinkInline @href="#showcase">
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{B.data.artist}}
               </HdsLinkInline></B.Th>
           {{else}}
             <B.Td>
               {{#if (eq C.columnKey "album")}}
                 <div class="shw-component-advanced-table-cell-content-div">
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
                 <HdsBadge
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @text={{B.data.year}}
                   @type="outlined"
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @color={{B.data.badge-color}}
                 />
               {{else}}
@@ -176,6 +189,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
   <ShwTextH4 @tag="h3">Reorderable columns with sticky header</ShwTextH4>
 
   <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{SORTABLE_COLUMNS}}
     @hasReorderableColumns={{true}}
@@ -187,19 +201,24 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
         {{#each R.orderedCells as |C|}}
           {{#if (eq C.columnKey "artist")}}
             <B.Th @scope="row"><HdsLinkInline @href="#showcase">
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{B.data.artist}}
               </HdsLinkInline></B.Th>
           {{else}}
             <B.Td>
               {{#if (eq C.columnKey "album")}}
                 <div class="shw-component-advanced-table-cell-content-div">
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
                 <HdsBadge
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @text={{B.data.year}}
                   @type="outlined"
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @color={{B.data.badge-color}}
                 />
               {{else}}
@@ -237,6 +256,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
 
   <HdsAdvancedTable
     @isSelectable={{true}}
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{INFRASTRUCTURE_RESOURCES}}
     @columns={{array
       (hash key="resource_id" label="Resource ID" width="350px")
@@ -258,9 +278,12 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
   >
     <:body as |B|>
       <B.Tr
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @selectionKey="{{B.data.resource_id}}"
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @isSelected={{B.data.isSelected}}
-        @selectionAriaLabelSuffix="row #{{B.data.resource_id}}"
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
         as |R|
       >
         {{#each R.orderedCells as |C|}}
@@ -301,15 +324,17 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
               )
             }}
               {{#if (eq C.columnKey "created_at")}}
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{formatDate (get B.data "created_at")}}
               {{else}}
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{formatDate (get B.data "last_run_time")}}
               {{/if}}
             {{else if
               (or (eq C.columnKey "attached_policies") (eq C.columnKey "tags"))
             }}
               <HdsLayoutFlex @align="center" @gap="4">
-                {{! @glint-expect-error - C.content is unknown (Tr component cell content is untyped)}}
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{#each C.content as |content|}}
                   <HdsBadge
                     @text={{content}}
@@ -319,7 +344,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
                 {{/each}}
               </HdsLayoutFlex>
             {{else}}
-              {{! @glint-expect-error - C.content is unknown (Tr component cell content is untyped)}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{C.content}}
             {{/if}}
           </B.Td>

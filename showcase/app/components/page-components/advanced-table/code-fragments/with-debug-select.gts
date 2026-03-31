@@ -176,6 +176,7 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
       <HdsAdvancedTable
         @isSelectable={{true}}
         @onSelectionChange={{this.onSelectionChange}}
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @model={{this.paginatedModel}}
         @columns={{array
           (hash key="id" label="ID")
@@ -186,12 +187,17 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
       >
         <:body as |B|>
           <B.Tr
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @selectionKey="{{B.data.id}}"
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @isSelected={{B.data.isSelected}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @selectionAriaLabelSuffix="row #{{B.data.id}}"
           >
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.id}}</B.Td>
             <B.Td>
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{#let B.data.isAnimated as |isAnimated|}}
                 <span
                   class={{if
@@ -199,11 +205,14 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
                     "shw-component-advanced-table-animate-user"
                   }}
                 >
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   {{B.data.name}}
                 </span>
               {{/let}}
             </B.Td>
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.email}}</B.Td>
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.role}}</B.Td>
           </B.Tr>
         </:body>

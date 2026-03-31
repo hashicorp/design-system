@@ -5,13 +5,14 @@
 
 import { module, test } from 'qunit';
 import { click, findAll, render, setupOnerror } from '@ember/test-helpers';
+import { get } from '@ember/helper';
 import type { Target } from '@ember/test-helpers';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
-const DEFAULT_NESTED_MODEL: NestedRow[] = [
+const DEFAULT_NESTED_MODEL = [
   {
     id: 1,
     name: 'Policy set 1',
@@ -62,14 +63,6 @@ const DEFAULT_NESTED_COLUMNS = [
   { key: 'description', label: 'Description' },
 ];
 
-interface NestedRow {
-  id: string | number;
-  name: string;
-  status: string;
-  description: string;
-  children?: NestedRow[];
-}
-
 const createNestedTable = async (options: {
   hasReorderableColumns?: boolean;
   isStriped?: boolean;
@@ -77,7 +70,7 @@ const createNestedTable = async (options: {
   hasStickyFirstColumn?: boolean;
   isSelectable?: boolean;
   isSortable?: boolean;
-  model?: NestedRow[];
+  model?: Record<string, unknown>[];
 }) => {
   const columns = DEFAULT_NESTED_COLUMNS.map((col) => {
     if (options.isSortable) {
@@ -101,10 +94,14 @@ const createNestedTable = async (options: {
         id="data-test-nested-advanced-table"
       >
         <:body as |B|>
-          <B.Tr @selectionKey="{{B.data.id}}">
-            <B.Th>{{B.data.name}}</B.Th>
-            <B.Td>{{B.data.status}}</B.Td>
-            <B.Td>{{B.data.description}}</B.Td>
+          {{! @glint-expect-error }}
+          <B.Tr @selectionKey={{get B.data "id"}}>
+            {{! @glint-expect-error }}
+            <B.Th>{{get B.data "name"}}</B.Th>
+            {{! @glint-expect-error }}
+            <B.Td>{{get B.data "status"}}</B.Td>
+            {{! @glint-expect-error }}
+            <B.Td>{{get B.data "description"}}</B.Td>
           </B.Tr>
         </:body>
       </HdsAdvancedTable>

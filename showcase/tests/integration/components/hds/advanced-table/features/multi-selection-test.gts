@@ -5,6 +5,7 @@
 
 import { module, test } from 'qunit';
 import { click, findAll, render } from '@ember/test-helpers';
+import { get } from '@ember/helper';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
@@ -61,12 +62,16 @@ const createSelectableTable = async (options: {
       >
         <:body as |B|>
           <B.Tr
-            @selectionKey={{B.data.id}}
+            {{! @glint-expect-error }}
+            @selectionKey={{get B.data "id"}}
             @selectionAriaLabelSuffix={{options.selectionAriaLabelSuffix}}
           >
-            <B.Th>{{B.data.artist}}</B.Th>
-            <B.Td>{{B.data.album}}</B.Td>
-            <B.Td>{{B.data.year}}</B.Td>
+            {{! @glint-expect-error }}
+            <B.Th>{{get B.data "name"}}</B.Th>
+            {{! @glint-expect-error }}
+            <B.Td>{{get B.data "status"}}</B.Td>
+            {{! @glint-expect-error }}
+            <B.Td>{{get B.data "description"}}</B.Td>
           </B.Tr>
         </:body>
       </HdsAdvancedTable>

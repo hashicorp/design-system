@@ -32,6 +32,7 @@ export default class CodeFragmentWithDynamicCellContent extends Component<CodeFr
 
   <template>
     <HdsAdvancedTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{MUSIC}}
       @columns={{array
         (hash key="artist" label="Artist")
@@ -41,23 +42,30 @@ export default class CodeFragmentWithDynamicCellContent extends Component<CodeFr
       }}
     >
       <:body as |B|>
+        {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
         <B.Tr @selectionKey="{{B.data.id}}">
           <B.Th @scope="row">
             <HdsLinkInline @href="#showcase">
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{B.data.artist}}
             </HdsLinkInline>
           </B.Th>
           <B.Td>
             <div class="shw-component-advanced-table-cell-content-div">
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{B.data.album}}
             </div>
           </B.Td>
           <B.Td>
             <HdsBadge
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               @text={{B.data.year}}
-              @type="outlined"
-              @color={{B.data.badge-color}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              @type={{B.data.badge-type}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              @color={{B.data.badge-color.name}}
             />
           </B.Td>
           <B.Td>

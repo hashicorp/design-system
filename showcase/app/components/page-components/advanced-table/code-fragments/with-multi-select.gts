@@ -62,6 +62,7 @@ export default class CodeFragmentWithMultiSelect extends Component<CodeFragmentW
     <HdsAdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onSelectionChange}}
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.data}}
       @columns={{@columns}}
       @hasReorderableColumns={{@hasReorderableColumns}}
@@ -69,20 +70,25 @@ export default class CodeFragmentWithMultiSelect extends Component<CodeFragmentW
     >
       <:body as |B|>
         <B.Tr
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @selectionKey="{{B.data.id}}"
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
           as |R|
         >
           {{#if @hasReorderableColumns}}
             {{#each R.orderedCells as |C|}}
               <B.Td>
-                {{! @glint-expect-error - C.content is unknown (Tr cell content is untyped)}}
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{C.content}}
               </B.Td>
             {{/each}}
           {{else}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.lorem}}</B.Td>
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.ipsum}}</B.Td>
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.dolor}}</B.Td>
           {{/if}}
         </B.Tr>

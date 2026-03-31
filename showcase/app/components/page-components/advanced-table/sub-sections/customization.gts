@@ -69,6 +69,7 @@ const SubSectionCustomization: TemplateOnlyComponent = <template>
     and with custom width.</ShwTextH4>
 
   <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -85,8 +86,11 @@ const SubSectionCustomization: TemplateOnlyComponent = <template>
   >
     <:body as |B|>
       <B.Tr>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.album}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.year}}</B.Td>
         <B.Td @align="right">
           <HdsDropdown @isInline={{true}} as |dd|>
@@ -118,6 +122,7 @@ const SubSectionCustomization: TemplateOnlyComponent = <template>
   <ShwTextH4 @tag="h3">Table where last column has right-aligned text</ShwTextH4>
 
   <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -128,9 +133,13 @@ const SubSectionCustomization: TemplateOnlyComponent = <template>
   >
     <:body as |B|>
       <B.Tr>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.album}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.year}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
       </B.Tr>
     </:body>
@@ -139,6 +148,7 @@ const SubSectionCustomization: TemplateOnlyComponent = <template>
   <ShwTextH4 @tag="h3">Table with multi-line content</ShwTextH4>
 
   <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @caption="table with multi-line content"
     @columns={{array
@@ -149,8 +159,11 @@ const SubSectionCustomization: TemplateOnlyComponent = <template>
   >
     <:body as |B|>
       <B.Tr>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.album}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>&ldquo;{{B.data.quote}}&rdquo;</B.Td>
       </B.Tr>
     </:body>

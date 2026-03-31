@@ -22,6 +22,7 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
 
   <ShwTextH3>AdvancedTable with custom column widths</ShwTextH3>
   <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @caption="table with multi-line content"
     @columns={{array
@@ -32,8 +33,11 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
   >
     <:body as |B|>
       <B.Tr>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.album}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>&ldquo;{{B.data.quote}}&rdquo;</B.Td>
       </B.Tr>
     </:body>
@@ -42,6 +46,7 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
   <ShwTextH3>Selectable AdvancedTable with custom column widths</ShwTextH3>
   <HdsAdvancedTable
     @isSelectable={{true}}
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{USER_DATA_SHORT}}
     @columns={{array
       (hash key="id" label="ID (120px)" width="120px")
@@ -51,10 +56,15 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
     }}
   >
     <:body as |B|>
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       <B.Tr @selectionKey="{{B.data.id}}">
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.id}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.name}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.email}}</B.Td>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.role}}</B.Td>
       </B.Tr>
     </:body>
@@ -67,6 +77,7 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
   <div class="shw-component-advanced-table-narrow-wrapper">
     <HdsAdvancedTable
       @isSelectable={{true}}
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{USER_DATA_SHORT}}
       @columns={{array
         (hash key="id" label="ID" width="150px")
@@ -75,11 +86,16 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
     >
       <:body as |B|>
         <B.Tr
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @selectionKey="{{B.data.id}}"
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @selectionAriaLabelSuffix="row #{{B.data.id}}"
         >
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.id}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.name}}</B.Td>
         </B.Tr>
       </:body>
@@ -93,6 +109,7 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
     attributes</ShwTextH3>
 
   <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{SPANNING_CELLS}}
     @columns={{array
       (hash key="name" label="Name")
@@ -102,32 +119,62 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
     }}
   >
     <:body as |B|>
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       <B.Tr id={{B.data.id}}>
-        {{#if B.data.name}}
+        {{#if (get B.data "name")}}
           <B.Th
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @rowspan={{B.data.name.rowspan}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @colspan={{B.data.name.colspan}}
           >
-            {{B.data.name.text}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+            {{#if B.data.name.text}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              {{B.data.name.text}}
+            {{else}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              {{B.data.name}}
+            {{/if}}
           </B.Th>
         {{/if}}
-        {{#if B.data.service}}
+        {{#if (get B.data "service")}}
           <B.Td
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @rowspan={{B.data.service.rowspan}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @colspan={{B.data.service.colspan}}
           >
-            {{B.data.service.text}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+            {{#if B.data.service.text}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              {{B.data.service.text}}
+            {{else}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              {{B.data.service}}
+            {{/if}}
           </B.Td>
         {{/if}}
-        {{#if B.data.description}}
+        {{#if (get B.data "description")}}
           <B.Td
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @rowspan={{B.data.description.rowspan}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @colspan={{B.data.description.colspan}}
           >
-            {{B.data.description.text}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+            {{#if B.data.description.text}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              {{B.data.description.text}}
+            {{else}}
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              {{B.data.description}}
+            {{/if}}
           </B.Td>
         {{/if}}
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         {{#if B.data.email}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.email}}</B.Td>
         {{/if}}
       </B.Tr>
