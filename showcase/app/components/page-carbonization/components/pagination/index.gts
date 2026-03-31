@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { array } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -37,7 +38,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="with default features"
-      @layout="side-by-side"
+      @layout="column"
     >
       <:theming>
         <HdsPaginationNumbered @totalItems={{40}} />
@@ -46,6 +47,8 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
         <R.NoEquivalent @isCompact={{true}} />
       </:reference>
     </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Closest Carbon equivalent</ShwTextH3>
 
@@ -67,7 +70,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="minimal features, with truncation"
-      @layout="side-by-side"
+      @layout="column"
     >
       <:theming>
         <HdsPaginationNumbered
@@ -85,7 +88,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
+    <ShwDivider />
 
     <ShwTextH2>PaginationCompact vs. Carbon Pagination</ShwTextH2>
 
@@ -93,7 +96,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="with default features"
-      @layout="side-by-side"
+      @layout="column"
     >
       <:theming>
         <HdsPaginationCompact />
@@ -102,6 +105,8 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
         <R.NoEquivalent @isCompact={{true}} />
       </:reference>
     </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Closest Carbon equivalent</ShwTextH3>
 
@@ -134,284 +139,290 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
+    <ShwDivider />
 
     <ShwTextH2>Base element states</ShwTextH2>
 
     <ShwTextH3>PaginationSizeSelector</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Base (default)">
       <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item as |SFI|>
-            <SFI.Label>Base (default)</SFI.Label>
-            <HdsPaginationSizeSelector @pageSizes={{array 10 30 50}} />
-          </SF.Item>
-          <SF.Item as |SFI|>
-            <SFI.Label>With
-              <code>@currentPageSize</code>
-              (selected option)</SFI.Label>
-            <HdsPaginationSizeSelector
-              @pageSizes={{array 10 30 50}}
-              @selectedSize={{30}}
-            />
-          </SF.Item>
-          <SF.Item as |SFI|>
-            <SFI.Label>With
-              <code>@label</code>
-              to add custom label text</SFI.Label>
-            <HdsPaginationSizeSelector
-              @pageSizes={{array 10 30 50}}
-              @label="Items"
-            />
-          </SF.Item>
-        </ShwFlex>
+        <HdsPaginationSizeSelector @pageSizes={{array 10 30 50}} />
       </:theming>
     </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid>
+      <:label>With
+        <code>@currentPageSize</code>
+        (selected option)</:label>
+      <:theming>
+        <HdsPaginationSizeSelector
+          @pageSizes={{array 10 30 50}}
+          @selectedSize={{30}}
+        />
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid>
+      <:label>With
+        <code>@label</code>
+        to add custom label text
+      </:label>
+      <:theming>
+        <HdsPaginationSizeSelector
+          @pageSizes={{array 10 30 50}}
+          @label="Items"
+        />
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>PaginationNavArrow</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid>
-      <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          {{#let (array "default" "hover" "active" "focus") as |states|}}
-            {{#each states as |state|}}
-              <SF.Item
-                @label={{capitalize state}}
-                mock-state-value={{state}}
-                mock-state-selector="button,a"
-              >
-                <ShwFlex as |SF|>
-                  <SF.Item>
-                    <HdsPaginationNavArrow @direction="prev" />
-                  </SF.Item>
-                  <SF.Item>
-                    <HdsPaginationNavArrow @direction="next" />
-                  </SF.Item>
-                  <SF.Item>
-                    <HdsPaginationNavArrow
-                      @direction="prev"
-                      @showLabel={{false}}
-                    />
-                  </SF.Item>
-                  <SF.Item>
-                    <HdsPaginationNavArrow
-                      @direction="next"
-                      @showLabel={{false}}
-                    />
-                  </SF.Item>
-                </ShwFlex>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <ShwCarbonizationComparisonGrid @label={{capitalize state}}>
+          <:theming>
+            <ShwFlex
+              mock-state-value={{state}}
+              mock-state-selector="button,a"
+              as |SF|
+            >
+              <SF.Item>
+                <HdsPaginationNavArrow @direction="prev" />
               </SF.Item>
-            {{/each}}
-            <SF.Item @label="Disabled">
+              <SF.Item>
+                <HdsPaginationNavArrow @direction="next" />
+              </SF.Item>
+            </ShwFlex>
+            <ShwFlex
+              mock-state-value={{state}}
+              mock-state-selector="button,a"
+              as |SF|
+            >
+              <SF.Item>
+                <HdsPaginationNavArrow @direction="prev" @showLabel={{false}} />
+              </SF.Item>
+              <SF.Item>
+                <HdsPaginationNavArrow @direction="next" @showLabel={{false}} />
+              </SF.Item>
+            </ShwFlex>
+          </:theming>
+          <:reference>
+            {{#if (eq state "default")}}
               <ShwFlex as |SF|>
                 <SF.Item>
-                  <HdsPaginationNavArrow @direction="prev" @disabled={{true}} />
+                  <cds-button
+                    pagination=""
+                    size="sm"
+                    button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--backward cds--pagination__button--no-index cds--btn--md cds--btn--ghost"
+                    tooltip-text="Previous"
+                    kind="primary"
+                    tab-index="0"
+                    tooltip-alignment=""
+                    tooltip-position="top"
+                    type="button"
+                  >
+                    <svg
+                      focusable="false"
+                      preserveAspectRatio="xMidYMid meet"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      slot="icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 32 32"
+                      aria-hidden="true"
+                    ><path d="M20 24 10 16 20 8z"></path></svg>
+                  </cds-button>
                 </SF.Item>
                 <SF.Item>
-                  <HdsPaginationNavArrow @direction="next" @disabled={{true}} />
-                </SF.Item>
-                <SF.Item>
-                  <HdsPaginationNavArrow
-                    @direction="prev"
-                    @showLabel={{false}}
-                    @disabled={{true}}
-                  />
-                </SF.Item>
-                <SF.Item>
-                  <HdsPaginationNavArrow
-                    @direction="next"
-                    @showLabel={{false}}
-                    @disabled={{true}}
-                  />
+                  <cds-button
+                    tooltip-position="top"
+                    pagination=""
+                    size="sm"
+                    button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--forward cds--btn--md cds--btn--ghost"
+                    tooltip-text="Next"
+                    kind="primary"
+                    tab-index="0"
+                    tooltip-alignment=""
+                    type="button"
+                  >
+                    <svg
+                      focusable="false"
+                      preserveAspectRatio="xMidYMid meet"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      slot="icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 32 32"
+                      aria-hidden="true"
+                    ><path d="M12 8 22 16 12 24z"></path></svg>
+                  </cds-button>
                 </SF.Item>
               </ShwFlex>
-            </SF.Item>
-          {{/let}}
+            {{else}}
+              <pre>TODO: static image here</pre>
+            {{/if}}
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+      {{/each}}
+    {{/let}}
+    <ShwCarbonizationComparisonGrid @label="Disabled">
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item>
+            <HdsPaginationNavArrow @direction="prev" @disabled={{true}} />
+          </SF.Item>
+          <SF.Item>
+            <HdsPaginationNavArrow @direction="next" @disabled={{true}} />
+          </SF.Item>
+        </ShwFlex>
+        <ShwFlex as |SF|>
+          <SF.Item>
+            <HdsPaginationNavArrow
+              @direction="prev"
+              @showLabel={{false}}
+              @disabled={{true}}
+            />
+          </SF.Item>
+          <SF.Item>
+            <HdsPaginationNavArrow
+              @direction="next"
+              @showLabel={{false}}
+              @disabled={{true}}
+            />
+          </SF.Item>
         </ShwFlex>
       </:theming>
       <:reference>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item @label="Default">
-            <ShwFlex as |SF|>
-              <SF.Item>
-                <cds-button
-                  pagination=""
-                  size="sm"
-                  button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--backward cds--pagination__button--no-index cds--btn--md cds--btn--ghost"
-                  tooltip-text="Previous"
-                  kind="primary"
-                  tab-index="0"
-                  tooltip-alignment=""
-                  tooltip-position="top"
-                  type="button"
-                >
-                  <svg
-                    focusable="false"
-                    preserveAspectRatio="xMidYMid meet"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    slot="icon"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 32 32"
-                    aria-hidden="true"
-                  ><path d="M20 24 10 16 20 8z"></path></svg>
-                </cds-button>
-              </SF.Item>
-              <SF.Item>
-                <cds-button
-                  tooltip-position="top"
-                  pagination=""
-                  size="sm"
-                  button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--forward cds--btn--md cds--btn--ghost"
-                  tooltip-text="Next"
-                  kind="primary"
-                  tab-index="0"
-                  tooltip-alignment=""
-                  type="button"
-                >
-                  <svg
-                    focusable="false"
-                    preserveAspectRatio="xMidYMid meet"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    slot="icon"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 32 32"
-                    aria-hidden="true"
-                  ><path d="M12 8 22 16 12 24z"></path></svg>
-                </cds-button>
-              </SF.Item>
-            </ShwFlex>
+        <ShwFlex as |SF|>
+          <SF.Item>
+            <cds-button
+              pagination=""
+              size="sm"
+              disabled=""
+              button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--backward cds--pagination__button--no-index cds--btn--md cds--btn--ghost"
+              tooltip-text="Previous"
+              kind="primary"
+              tab-index="0"
+              tooltip-alignment=""
+              tooltip-position="top"
+              type="button"
+            >
+              <svg
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                slot="icon"
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              ><path d="M20 24 10 16 20 8z"></path></svg>
+            </cds-button>
           </SF.Item>
-
-          <SF.Item @label="Disabled">
-            <ShwFlex as |SF|>
-              <SF.Item>
-                <cds-button
-                  pagination=""
-                  size="sm"
-                  disabled=""
-                  button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--backward cds--pagination__button--no-index cds--btn--md cds--btn--ghost"
-                  tooltip-text="Previous"
-                  kind="primary"
-                  tab-index="0"
-                  tooltip-alignment=""
-                  tooltip-position="top"
-                  type="button"
-                >
-                  <svg
-                    focusable="false"
-                    preserveAspectRatio="xMidYMid meet"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    slot="icon"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 32 32"
-                    aria-hidden="true"
-                  ><path d="M20 24 10 16 20 8z"></path></svg>
-                </cds-button>
-              </SF.Item>
-              <SF.Item>
-                <cds-button
-                  tooltip-position="top"
-                  disabled=""
-                  pagination=""
-                  size="sm"
-                  button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--forward cds--btn--md cds--btn--ghost"
-                  tooltip-text="Next"
-                  kind="primary"
-                  tab-index="0"
-                  tooltip-alignment=""
-                  type="button"
-                >
-                  <svg
-                    focusable="false"
-                    preserveAspectRatio="xMidYMid meet"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    slot="icon"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 32 32"
-                    aria-hidden="true"
-                  ><path d="M12 8 22 16 12 24z"></path></svg>
-                </cds-button>
-              </SF.Item>
-            </ShwFlex>
+          <SF.Item>
+            <cds-button
+              tooltip-position="top"
+              disabled=""
+              pagination=""
+              size="sm"
+              button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--forward cds--btn--md cds--btn--ghost"
+              tooltip-text="Next"
+              kind="primary"
+              tab-index="0"
+              tooltip-alignment=""
+              type="button"
+            >
+              <svg
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                slot="icon"
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              ><path d="M12 8 22 16 12 24z"></path></svg>
+            </cds-button>
           </SF.Item>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>PaginationNavNumber</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid>
-      <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          {{#let (array "default" "hover" "active" "focus") as |states|}}
-            {{#each states as |state|}}
-              <SF.Item
-                @label={{capitalize state}}
-                mock-state-value={{state}}
-                mock-state-selector="button,a"
-              >
-                <ShwFlex as |SF|>
-                  <SF.Item>
-                    <HdsPaginationNavNumber
-                      @page={{1}}
-                      @isSelected={{false}}
-                      @onClick={{NOOP}}
-                    />
-                  </SF.Item>
-                  <SF.Item>
-                    <HdsPaginationNavNumber
-                      @page={{12}}
-                      @isSelected={{false}}
-                      @onClick={{NOOP}}
-                    />
-                  </SF.Item>
-                  <SF.Item>
-                    <HdsPaginationNavNumber
-                      @page={{123}}
-                      @isSelected={{false}}
-                      @onClick={{NOOP}}
-                    />
-                  </SF.Item>
-                  <SF.Item>
-                    <HdsPaginationNavNumber
-                      @page={{1}}
-                      @isSelected={{true}}
-                      @onClick={{NOOP}}
-                    />
-                  </SF.Item>
-                  <SF.Item>
-                    <HdsPaginationNavNumber
-                      @page={{12}}
-                      @isSelected={{true}}
-                      @onClick={{NOOP}}
-                    />
-                  </SF.Item>
-                  <SF.Item>
-                    <HdsPaginationNavNumber
-                      @page={{123}}
-                      @isSelected={{true}}
-                      @onClick={{NOOP}}
-                    />
-                  </SF.Item>
-                </ShwFlex>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <ShwCarbonizationComparisonGrid @label={{capitalize state}}>
+          <:theming>
+            <ShwFlex
+              mock-state-value={{state}}
+              mock-state-selector="button,a"
+              as |SF|
+            >
+              <SF.Item>
+                <HdsPaginationNavNumber
+                  @page={{1}}
+                  @isSelected={{false}}
+                  @onClick={{NOOP}}
+                />
               </SF.Item>
-            {{/each}}
-          {{/let}}
-        </ShwFlex>
-      </:theming>
-      <:reference as |R|>
-        <R.NoEquivalent @isCompact={{true}} />
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+              <SF.Item>
+                <HdsPaginationNavNumber
+                  @page={{12}}
+                  @isSelected={{false}}
+                  @onClick={{NOOP}}
+                />
+              </SF.Item>
+              <SF.Item>
+                <HdsPaginationNavNumber
+                  @page={{123}}
+                  @isSelected={{false}}
+                  @onClick={{NOOP}}
+                />
+              </SF.Item>
+            </ShwFlex>
+            <ShwFlex
+              mock-state-value={{state}}
+              mock-state-selector="button,a"
+              as |SF|
+            >
+              <SF.Item>
+                <HdsPaginationNavNumber
+                  @page={{1}}
+                  @isSelected={{true}}
+                  @onClick={{NOOP}}
+                />
+              </SF.Item>
+              <SF.Item>
+                <HdsPaginationNavNumber
+                  @page={{12}}
+                  @isSelected={{true}}
+                  @onClick={{NOOP}}
+                />
+              </SF.Item>
+              <SF.Item>
+                <HdsPaginationNavNumber
+                  @page={{123}}
+                  @isSelected={{true}}
+                  @onClick={{NOOP}}
+                />
+              </SF.Item>
+            </ShwFlex>
+          </:theming>
+          <:reference as |R|>
+            <R.NoEquivalent @isCompact={{true}} />
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+      {{/each}}
+    {{/let}}
+
   </section>
 </template>;
 

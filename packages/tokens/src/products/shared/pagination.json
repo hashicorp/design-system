@@ -124,7 +124,7 @@
             "cds-g90": "{carbon.themes.g90.backgroundHover}",
             "cds-g100": "{carbon.themes.g100.backgroundHover}"
           }
-        },
+        }
       }
     },
     "child": {
