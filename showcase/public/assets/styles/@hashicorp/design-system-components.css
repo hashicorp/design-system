@@ -489,7 +489,7 @@
   --token-modal-header-tagline-color-warning: #9e4b00;
   --token-modal-header-tagline-color-critical: #c00005;
   --token-pagination-bar-border-color: rgba(0, 0, 0, 0);
-  --token-pagination-bar-surface-color-default: #ffffff;
+  --token-pagination-bar-surface-color: #ffffff;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-focus-inset: 4px;
   --token-pagination-nav-control-foreground-color-action-default: #1060ff;
@@ -8356,7 +8356,7 @@ button.hds-button[href]::after {
 }
 
 .hds-pagination--compact {
-  background-color: var(--token-pagination-bar-surface-color-default);
+  background-color: var(--token-pagination-bar-surface-color);
 }
 .hds-mode-cds-g0 .hds-pagination--compact,
 .hds-mode-cds-g10 .hds-pagination--compact,
@@ -8468,7 +8468,7 @@ button.hds-button[href]::after {
 .hds-pagination-nav__control:hover, .hds-pagination-nav__control.mock-hover {
   color: var(--token-pagination-nav-control-foreground-color-action-hover);
 }
-.hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected):hover, .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected).mock-hover {
+.hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]):hover, .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]).mock-hover {
   background-color: var(--token-pagination-nav-surface-color-action-hover);
 }
 .hds-pagination-nav__control:active, .hds-pagination-nav__control.mock-active {
@@ -8517,6 +8517,9 @@ button.hds-button[href]::after {
   border-radius: var(--token-border-radius-x-small);
   content: "";
 }
+.hds-pagination-nav__number--is-selected .hds-pagination-nav__number-content {
+  font-weight: var(--token-pagination-nav-control-typography-font-weight-active);
+}
 
 .hds-pagination-nav__ellipsis {
   display: flex;
@@ -8554,6 +8557,7 @@ button.hds-button[href]::after {
 .hds-mode-cds-g90 .hds-pagination-size-selector > select,
 .hds-mode-cds-g100 .hds-pagination-size-selector > select {
   margin-left: 0;
+  background-color: transparent;
   border: 0;
 }
 

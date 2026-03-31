@@ -513,9 +513,7 @@
       --token-color-foreground-warning-on-surface
     );
     --token-pagination-bar-border-color: rgba(0, 0, 0, 0);
-    --token-pagination-bar-surface-color-default: var(
-      --token-color-surface-primary
-    );
+    --token-pagination-bar-surface-color: var(--token-color-surface-primary);
     --token-pagination-nav-control-foreground-color-action-active: var(
       --token-color-foreground-action-active
     );
@@ -928,7 +926,7 @@
     --token-modal-header-tagline-color-critical: #525252;
     --token-modal-header-tagline-color-warning: #525252;
     --token-pagination-bar-border-color: #c6c6c6;
-    --token-pagination-bar-surface-color-default: #f4f4f4;
+    --token-pagination-bar-surface-color: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-active: #161616;
     --token-pagination-nav-control-foreground-color-action-default: #161616;
     --token-pagination-nav-control-foreground-color-action-hover: #161616;
@@ -1323,7 +1321,7 @@
     --token-modal-header-tagline-color-critical: #c6c6c6;
     --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-pagination-bar-border-color: #525252;
-    --token-pagination-bar-surface-color-default: #262626;
+    --token-pagination-bar-surface-color: #262626;
     --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-default: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
@@ -1718,7 +1716,7 @@
     --token-modal-header-tagline-color-critical: #525252;
     --token-modal-header-tagline-color-warning: #525252;
     --token-pagination-bar-border-color: #c6c6c6;
-    --token-pagination-bar-surface-color-default: #f4f4f4;
+    --token-pagination-bar-surface-color: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-active: #161616;
     --token-pagination-nav-control-foreground-color-action-default: #161616;
     --token-pagination-nav-control-foreground-color-action-hover: #161616;
@@ -2113,7 +2111,7 @@
     --token-modal-header-tagline-color-critical: #525252;
     --token-modal-header-tagline-color-warning: #525252;
     --token-pagination-bar-border-color: #e0e0e0;
-    --token-pagination-bar-surface-color-default: #ffffff;
+    --token-pagination-bar-surface-color: #ffffff;
     --token-pagination-nav-control-foreground-color-action-active: #161616;
     --token-pagination-nav-control-foreground-color-action-default: #161616;
     --token-pagination-nav-control-foreground-color-action-hover: #161616;
@@ -2508,7 +2506,7 @@
     --token-modal-header-tagline-color-critical: #c6c6c6;
     --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-pagination-bar-border-color: #6f6f6f;
-    --token-pagination-bar-surface-color-default: #393939;
+    --token-pagination-bar-surface-color: #393939;
     --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-default: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
@@ -2903,7 +2901,7 @@
     --token-modal-header-tagline-color-critical: #c6c6c6;
     --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-pagination-bar-border-color: #525252;
-    --token-pagination-bar-surface-color-default: #262626;
+    --token-pagination-bar-surface-color: #262626;
     --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-default: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;

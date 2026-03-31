@@ -14381,8 +14381,8 @@
         "color"
       ]
     },
-    "token-pagination-bar-surface-color-default": {
-      "key": "{pagination.bar.surface.color.default}",
+    "token-pagination-bar-surface-color": {
+      "key": "{pagination.bar.surface.color}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -14402,9 +14402,9 @@
           "cds-g90": "{carbon.themes.g90.layer01}",
           "cds-g100": "{carbon.themes.g100.layer01}"
         },
-        "key": "{pagination.bar.surface.color.default}"
+        "key": "{pagination.bar.surface.color}"
       },
-      "name": "token-pagination-bar-surface-color-default",
+      "name": "token-pagination-bar-surface-color",
       "attributes": {
         "category": "pagination"
       },
@@ -14412,8 +14412,7 @@
         "pagination",
         "bar",
         "surface",
-        "color",
-        "default"
+        "color"
       ]
     },
     "token-pagination-nav-control-height": {
@@ -31627,8 +31626,8 @@
         "color"
       ]
     },
-    "token-pagination-bar-surface-color-default": {
-      "key": "{pagination.bar.surface.color.default}",
+    "token-pagination-bar-surface-color": {
+      "key": "{pagination.bar.surface.color}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -31648,9 +31647,9 @@
           "cds-g90": "{carbon.themes.g90.layer01}",
           "cds-g100": "{carbon.themes.g100.layer01}"
         },
-        "key": "{pagination.bar.surface.color.default}"
+        "key": "{pagination.bar.surface.color}"
       },
-      "name": "token-pagination-bar-surface-color-default",
+      "name": "token-pagination-bar-surface-color",
       "attributes": {
         "category": "pagination"
       },
@@ -31658,8 +31657,7 @@
         "pagination",
         "bar",
         "surface",
-        "color",
-        "default"
+        "color"
       ]
     },
     "token-pagination-nav-control-height": {
@@ -48873,8 +48871,8 @@
         "color"
       ]
     },
-    "token-pagination-bar-surface-color-default": {
-      "key": "{pagination.bar.surface.color.default}",
+    "token-pagination-bar-surface-color": {
+      "key": "{pagination.bar.surface.color}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -48894,9 +48892,9 @@
           "cds-g90": "{carbon.themes.g90.layer01}",
           "cds-g100": "{carbon.themes.g100.layer01}"
         },
-        "key": "{pagination.bar.surface.color.default}"
+        "key": "{pagination.bar.surface.color}"
       },
-      "name": "token-pagination-bar-surface-color-default",
+      "name": "token-pagination-bar-surface-color",
       "attributes": {
         "category": "pagination"
       },
@@ -48904,8 +48902,7 @@
         "pagination",
         "bar",
         "surface",
-        "color",
-        "default"
+        "color"
       ]
     },
     "token-pagination-nav-control-height": {
@@ -66119,8 +66116,8 @@
         "color"
       ]
     },
-    "token-pagination-bar-surface-color-default": {
-      "key": "{pagination.bar.surface.color.default}",
+    "token-pagination-bar-surface-color": {
+      "key": "{pagination.bar.surface.color}",
       "$type": "color",
       "$value": "#393939",
       "$modes": {
@@ -66140,9 +66137,9 @@
           "cds-g90": "{carbon.themes.g90.layer01}",
           "cds-g100": "{carbon.themes.g100.layer01}"
         },
-        "key": "{pagination.bar.surface.color.default}"
+        "key": "{pagination.bar.surface.color}"
       },
-      "name": "token-pagination-bar-surface-color-default",
+      "name": "token-pagination-bar-surface-color",
       "attributes": {
         "category": "pagination"
       },
@@ -66150,8 +66147,7 @@
         "pagination",
         "bar",
         "surface",
-        "color",
-        "default"
+        "color"
       ]
     },
     "token-pagination-nav-control-height": {
@@ -83365,8 +83361,8 @@
         "color"
       ]
     },
-    "token-pagination-bar-surface-color-default": {
-      "key": "{pagination.bar.surface.color.default}",
+    "token-pagination-bar-surface-color": {
+      "key": "{pagination.bar.surface.color}",
       "$type": "color",
       "$value": "#262626",
       "$modes": {
@@ -83386,9 +83382,9 @@
           "cds-g90": "{carbon.themes.g90.layer01}",
           "cds-g100": "{carbon.themes.g100.layer01}"
         },
-        "key": "{pagination.bar.surface.color.default}"
+        "key": "{pagination.bar.surface.color}"
       },
-      "name": "token-pagination-bar-surface-color-default",
+      "name": "token-pagination-bar-surface-color",
       "attributes": {
         "category": "pagination"
       },
@@ -83396,8 +83392,7 @@
         "pagination",
         "bar",
         "surface",
-        "color",
-        "default"
+        "color"
       ]
     },
     "token-pagination-nav-control-height": {
