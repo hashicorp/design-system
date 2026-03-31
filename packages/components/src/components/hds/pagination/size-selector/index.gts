@@ -67,14 +67,11 @@ export default class HdsPaginationSizeSelector extends Component<HdsPaginationSi
   };
 
   <template>
-    {{! IMPORTANT: we need to add "squishies" to the label (~) because otherwise the whitespace added by Ember causes an extra space after the text - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
     <div class="hds-pagination-size-selector" ...attributes>
       <label
         class="hds-typography-body-100 hds-font-weight-medium"
         for={{this._sizeSelectorId}}
-      >
-        {{~this.label~}}
-      </label>
+      >{{this.label}}</label>
       <HdsFormSelectBase
         id={{this._sizeSelectorId}}
         {{on "change" this.onChange}}
