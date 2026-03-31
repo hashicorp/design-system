@@ -379,6 +379,8 @@
   --token-dialog-primitive-padding-horizontal: 24px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+  --token-dialog-primitive-header-tagline-font-size: 0.8125rem;
+  --token-dialog-primitive-header-tagline-line-height: 1.3846;
   --token-dialog-primitive-header-title-font-weight: 600;
   --token-dismiss-button-size: 24px;
   --token-dismiss-button-foreground-color-default: #656a76;
@@ -478,14 +480,14 @@
   --token-link-standalone-icon-size-small: 0.75rem;
   --token-link-standalone-icon-size-medium: 1rem;
   --token-link-standalone-icon-size-large: 1.5rem;
-  --token-modal-header-foreground-warning: #9e4b00;
-  --token-modal-header-foreground-critical: #c00005;
-  --token-modal-header-surface-warning: #fff9e8;
-  --token-modal-header-surface-critical: #fff5f5;
+  --token-modal-header-foreground-color-warning: #9e4b00;
+  --token-modal-header-foreground-color-critical: #c00005;
+  --token-modal-header-surface-color-warning: #fff9e8;
+  --token-modal-header-surface-color-critical: #fff5f5;
   --token-modal-header-border-color-warning: #fbeabf;
   --token-modal-header-border-color-critical: #fbd4d4;
-  --token-modal-header-tagline-warning: #9e4b00;
-  --token-modal-header-tagline-critical: #c00005;
+  --token-modal-header-tagline-color-warning: #9e4b00;
+  --token-modal-header-tagline-color-critical: #c00005;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
@@ -4796,6 +4798,10 @@ button.hds-button[href]::after {
 .hds-dialog-primitive__tagline {
   margin-bottom: 4px;
   color: var(--token-color-foreground-faint);
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-dialog-primitive-header-tagline-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-dialog-primitive-header-tagline-line-height);
 }
 
 .hds-dialog-primitive__dismiss {
@@ -8162,22 +8168,22 @@ button.hds-button[href]::after {
 }
 
 .hds-modal--color-warning .hds-dialog-primitive__wrapper-header {
-  background: var(--token-modal-header-surface-warning);
+  background: var(--token-modal-header-surface-color-warning);
   border-bottom-color: var(--token-modal-header-border-color-critical);
 }
 .hds-modal--color-warning .hds-dialog-primitive__header {
-  color: var(--token-modal-header-foreground-warning);
+  color: var(--token-modal-header-foreground-color-warning);
 }
 .hds-modal--color-warning .hds-dialog-primitive__tagline {
   color: var(--token-modal-header-tagline-warning);
 }
 
 .hds-modal--color-critical .hds-dialog-primitive__wrapper-header {
-  background: var(--token-modal-header-surface-critical);
+  background: var(--token-modal-header-surface-color-critical);
   border-bottom-color: var(--token-modal-header-border-color-critical);
 }
 .hds-modal--color-critical .hds-dialog-primitive__header {
-  color: var(--token-modal-header-foreground-critical);
+  color: var(--token-modal-header-foreground-color-critical);
 }
 .hds-modal--color-critical .hds-dialog-primitive__tagline {
   color: var(--token-modal-header-tagline-critical);

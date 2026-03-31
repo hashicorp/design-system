@@ -375,6 +375,8 @@
   --token-dialog-primitive-padding-horizontal: 24px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+  --token-dialog-primitive-header-tagline-font-size: 0.8125rem;
+  --token-dialog-primitive-header-tagline-line-height: 1.3846;
   --token-dialog-primitive-header-title-font-weight: 600;
   --token-dismiss-button-size: 24px;
   --token-dismiss-button-foreground-color-default: #656a76;

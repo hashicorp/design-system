@@ -4224,6 +4224,10 @@ button.hds-button[href]::after {
 .hds-dialog-primitive__tagline {
   margin-bottom: 4px;
   color: var(--token-color-foreground-faint);
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-dialog-primitive-header-tagline-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-dialog-primitive-header-tagline-line-height);
 }
 
 .hds-dialog-primitive__dismiss {
@@ -7590,22 +7594,22 @@ button.hds-button[href]::after {
 }
 
 .hds-modal--color-warning .hds-dialog-primitive__wrapper-header {
-  background: var(--token-modal-header-surface-warning);
+  background: var(--token-modal-header-surface-color-warning);
   border-bottom-color: var(--token-modal-header-border-color-critical);
 }
 .hds-modal--color-warning .hds-dialog-primitive__header {
-  color: var(--token-modal-header-foreground-warning);
+  color: var(--token-modal-header-foreground-color-warning);
 }
 .hds-modal--color-warning .hds-dialog-primitive__tagline {
   color: var(--token-modal-header-tagline-warning);
 }
 
 .hds-modal--color-critical .hds-dialog-primitive__wrapper-header {
-  background: var(--token-modal-header-surface-critical);
+  background: var(--token-modal-header-surface-color-critical);
   border-bottom-color: var(--token-modal-header-border-color-critical);
 }
 .hds-modal--color-critical .hds-dialog-primitive__header {
-  color: var(--token-modal-header-foreground-critical);
+  color: var(--token-modal-header-foreground-color-critical);
 }
 .hds-modal--color-critical .hds-dialog-primitive__tagline {
   color: var(--token-modal-header-tagline-critical);
