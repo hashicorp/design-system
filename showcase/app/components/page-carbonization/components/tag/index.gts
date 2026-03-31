@@ -179,7 +179,7 @@ const TagCarbonizationIndex: TemplateOnlyComponent = <template>
           {{#if (eq state "default")}}
             <cds-dismissible-tag text="Lorem ipsum" />
           {{else}}
-            <pre>TODO: add static image here</pre>
+            <pre>TODO: static image here</pre>
           {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>
@@ -234,7 +234,7 @@ const TagCarbonizationIndex: TemplateOnlyComponent = <template>
             {{else if (eq color "secondary")}}
               <pre>n/a</pre>
             {{else}}
-              <pre>TODO: add static image here</pre>
+              <pre>TODO: static image here</pre>
             {{/if}}
           </:reference>
         </ShwCarbonizationComparisonGrid>
