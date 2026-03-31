@@ -229,7 +229,7 @@ const TooltipCarbonizationIndex: TemplateOnlyComponent = <template>
               </SF.Item>
             </ShwFlex>
           {{else}}
-            <pre>TODO: add static image here</pre>
+            <pre>TODO: static image here</pre>
           {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>
