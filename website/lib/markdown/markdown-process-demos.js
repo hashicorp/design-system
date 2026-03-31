@@ -31,6 +31,7 @@ const SUPPORTED_FILE_EXTENSIONS = [
   '.bash',
   '.html',
   '.js',
+  '.jsx',
 ];
 
 // Helper to remove template-lint ignore comments
@@ -179,7 +180,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 ext === '.scss' ||
                 ext === '.yaml' ||
                 ext === '.bash' ||
-                ext === '.html'
+                ext === '.html' ||
+                ext === '.jsx'
               ) {
                 codeSnippets.custom = escapeCode(code);
                 codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
@@ -221,6 +223,7 @@ module.exports = function (folder) {
       '**/*.yaml',
       '**/*.bash',
       '**/*.html',
+      '**/*.jsx',
     ],
   });
 
