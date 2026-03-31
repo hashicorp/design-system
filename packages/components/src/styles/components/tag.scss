@@ -21,7 +21,7 @@
   border-radius: var(--token-tag-border-radius);
 
   @include hds-apply-only-if-carbon() {
-    &:not(.hds-tag--color-primary, .hds-tag--color-secondary) {
+    &.hds-tag--is-static {
       border: none;
     }
   }
@@ -126,7 +126,7 @@
 // COLORS (FOR LINK)
 
 .hds-tag--color-primary {
-  border: 1px solid var(--token-tag-link-border-color-primary);
+  border-color: var(--token-tag-link-border-color-primary);
 
   .hds-tag__link,
   &:has(.hds-tag__link) .hds-tag__dismiss {
@@ -163,7 +163,7 @@
 }
 
 .hds-tag--color-secondary {
-  border: 1px solid var(--token-tag-link-border-color-secondary);
+  border-color: var(--token-tag-link-border-color-secondary);
 
   .hds-tag__link {
     color: var(--token-tag-link-foreground-color-secondary-default);
