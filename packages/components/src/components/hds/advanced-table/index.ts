@@ -29,7 +29,6 @@ import type {
   HdsAdvancedTableSortingFunction,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
-  HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
@@ -128,7 +127,9 @@ const getStickyColumnLeftOffset = (
   return `${leftOffset}px`;
 };
 
-export interface HdsAdvancedTableSignature<T = Record<string, unknown>> {
+export interface HdsAdvancedTableSignature<
+  T extends Record<string, unknown> = Record<string, unknown>,
+> {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
@@ -205,7 +206,7 @@ export interface HdsAdvancedTableSignature<T = Record<string, unknown>> {
 }
 
 export default class HdsAdvancedTable<
-  T = Record<string, unknown>,
+  T extends Record<string, unknown> = Record<string, unknown>,
 > extends Component<HdsAdvancedTableSignature<T>> {
   @service declare readonly hdsIntl: HdsIntlService;
 
@@ -332,7 +333,7 @@ export default class HdsAdvancedTable<
     this._theadElement = element;
   });
 
-  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
+  constructor(owner: Owner, args: HdsAdvancedTableSignature<T>['Args']) {
     super(owner, args);
 
     const { hasStickyFirstColumn, model, sortBy, sortOrder } = args;
