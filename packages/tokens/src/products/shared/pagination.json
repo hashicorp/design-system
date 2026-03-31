@@ -1,15 +1,17 @@
 {
   "pagination": {
     "bar": {
-      "border-color": {
-        "$type": "color",
-        "$value": "transparent",
-        "$modes": {
-          "default": "transparent",
-          "cds-g0": "{carbon.themes.white.borderSubtle01}",
-          "cds-g10": "{carbon.themes.g10.borderSubtle01}",
-          "cds-g90": "{carbon.themes.g90.borderSubtle01}",
-          "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+      "border": {
+        "color": {
+          "$type": "color",
+          "$value": "transparent",
+          "$modes": {
+            "default": "transparent",
+            "cds-g0": "{carbon.themes.white.borderSubtle01}",
+            "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+            "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+            "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+          }
         }
       },
       "surface": {
