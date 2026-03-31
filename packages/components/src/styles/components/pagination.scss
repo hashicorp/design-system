@@ -212,6 +212,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 .hds-pagination-nav__number--is-selected {
   position: relative;
   color: var(--token-pagination-nav-control-foreground-color-action-default);
+  font-weight: var(--token-pagination-nav-control-typography-font-weight-active);
 
   &:hover {
     color: var(--token-pagination-nav-control-foreground-color-action-hover);
@@ -235,13 +236,6 @@ $pagination-nav-control-padding-horizontal: 12px;
     background-color: currentColor;
     border-radius: var(--token-border-radius-x-small);
     content: "";
-  }
-
-  // Note: We override the font-weight for the carbon themes
-  > .hds-font-weight-medium {
-    @include hds-apply-only-if-carbon() {
-      font-weight: 600;
-    }
   }
 }
 
