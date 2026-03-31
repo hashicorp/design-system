@@ -11377,6 +11377,229 @@
     ]
   },
   {
+    "key": "{dialog-primitive.padding.horizontal}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "$modes": {
+      "default": "24",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "$modes": {
+        "default": "24",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "key": "{dialog-primitive.padding.horizontal}"
+    },
+    "name": "token-dialog-primitive-padding-horizontal",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "padding",
+      "horizontal"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.padding.vertical}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "key": "{dialog-primitive.padding.vertical}"
+    },
+    "name": "token-dialog-primitive-padding-vertical",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "padding",
+      "vertical"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.border.color}",
+    "$type": "color",
+    "$value": "#525252",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#6f6f6f",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.gray.70}",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.color.gray.30}",
+        "cds-g10": "{carbon.color.gray.20}",
+        "cds-g90": "{carbon.color.gray.60}",
+        "cds-g100": "{carbon.color.gray.70}"
+      },
+      "key": "{dialog-primitive.border.color}"
+    },
+    "name": "token-dialog-primitive-border-color",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.header.tagline.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "$modes": {
+      "default": "0.875rem",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "comments": {
+      "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.label01.font-size}",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.label01.font-size}",
+        "cds-g10": "{carbon.typography.label01.font-size}",
+        "cds-g90": "{carbon.typography.label01.font-size}",
+        "cds-g100": "{carbon.typography.label01.font-size}"
+      },
+      "comments": {
+        "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
+      },
+      "key": "{dialog-primitive.header.tagline.font-size}"
+    },
+    "name": "token-dialog-primitive-header-tagline-font-size",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "header",
+      "tagline",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.header.tagline.line-height}",
+    "$type": "number",
+    "$value": 1.33333,
+    "$modes": {
+      "default": 1.28572,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
+    "comments": {
+      "hds": "we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline"
+    },
+    "original": {
+      "$type": "number",
+      "$value": "{carbon.typography.label01.line-height}",
+      "$modes": {
+        "default": "{typography.body-100.line-height}",
+        "cds-g0": "{carbon.typography.label01.line-height}",
+        "cds-g10": "{carbon.typography.label01.line-height}",
+        "cds-g90": "{carbon.typography.label01.line-height}",
+        "cds-g100": "{carbon.typography.label01.line-height}"
+      },
+      "comments": {
+        "hds": "we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline"
+      },
+      "key": "{dialog-primitive.header.tagline.line-height}"
+    },
+    "name": "token-dialog-primitive-header-tagline-line-height",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "header",
+      "tagline",
+      "line-height"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.header.title.font-weight}",
+    "$type": "font-weight",
+    "$value": 400,
+    "$modes": {
+      "default": 600,
+      "cds-g0": 400,
+      "cds-g10": 400,
+      "cds-g90": 400,
+      "cds-g100": 400
+    },
+    "comments": {
+      "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
+    },
+    "original": {
+      "$type": "font-weight",
+      "$value": "{carbon.typography.heading03.font-weight}",
+      "$modes": {
+        "default": "{typography.font-weight.semibold}",
+        "cds-g0": "{carbon.typography.heading03.font-weight}",
+        "cds-g10": "{carbon.typography.heading03.font-weight}",
+        "cds-g90": "{carbon.typography.heading03.font-weight}",
+        "cds-g100": "{carbon.typography.heading03.font-weight}"
+      },
+      "comments": {
+        "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
+      },
+      "key": "{dialog-primitive.header.title.font-weight}"
+    },
+    "name": "token-dialog-primitive-header-title-font-weight",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "header",
+      "title",
+      "font-weight"
+    ]
+  },
+  {
     "key": "{dismiss-button.size}",
     "$type": "dimension",
     "$value": "48px",
@@ -13835,6 +14058,286 @@
       "icon",
       "size",
       "large"
+    ]
+  },
+  {
+    "key": "{modal.header.foreground.color.warning}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#f1c21b",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.warning-on-surface}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{modal.header.foreground.color.warning}"
+    },
+    "name": "token-modal-header-foreground-color-warning",
+    "attributes": {
+      "category": "modal"
+    },
+    "path": [
+      "modal",
+      "header",
+      "foreground",
+      "color",
+      "warning"
+    ]
+  },
+  {
+    "key": "{modal.header.foreground.color.critical}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#ffb3b8",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.critical-on-surface}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{modal.header.foreground.color.critical}"
+    },
+    "name": "token-modal-header-foreground-color-critical",
+    "attributes": {
+      "category": "modal"
+    },
+    "path": [
+      "modal",
+      "header",
+      "foreground",
+      "color",
+      "critical"
+    ]
+  },
+  {
+    "key": "{modal.header.surface.color.warning}",
+    "$type": "color",
+    "$value": "#262626",
+    "$modes": {
+      "default": "#684e00",
+      "cds-g0": "#262626",
+      "cds-g10": "#262626",
+      "cds-g90": "#262626",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{color.surface.faint}",
+      "$modes": {
+        "default": "{color.surface.warning}",
+        "cds-g0": "{color.surface.faint}",
+        "cds-g10": "{color.surface.faint}",
+        "cds-g90": "{color.surface.faint}",
+        "cds-g100": "{color.surface.faint}"
+      },
+      "key": "{modal.header.surface.color.warning}"
+    },
+    "name": "token-modal-header-surface-color-warning",
+    "attributes": {
+      "category": "modal"
+    },
+    "path": [
+      "modal",
+      "header",
+      "surface",
+      "color",
+      "warning"
+    ]
+  },
+  {
+    "key": "{modal.header.surface.color.critical}",
+    "$type": "color",
+    "$value": "#262626",
+    "$modes": {
+      "default": "#a2191f",
+      "cds-g0": "#262626",
+      "cds-g10": "#262626",
+      "cds-g90": "#262626",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{color.surface.faint}",
+      "$modes": {
+        "default": "{color.surface.critical}",
+        "cds-g0": "{color.surface.faint}",
+        "cds-g10": "{color.surface.faint}",
+        "cds-g90": "{color.surface.faint}",
+        "cds-g100": "{color.surface.faint}"
+      },
+      "key": "{modal.header.surface.color.critical}"
+    },
+    "name": "token-modal-header-surface-color-critical",
+    "attributes": {
+      "category": "modal"
+    },
+    "path": [
+      "modal",
+      "header",
+      "surface",
+      "color",
+      "critical"
+    ]
+  },
+  {
+    "key": "{modal.header.border.color.warning}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#b28600",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.warning}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{modal.header.border.color.warning}"
+    },
+    "name": "token-modal-header-border-color-warning",
+    "attributes": {
+      "category": "modal"
+    },
+    "path": [
+      "modal",
+      "header",
+      "border",
+      "color",
+      "warning"
+    ]
+  },
+  {
+    "key": "{modal.header.border.color.critical}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#fa4d56",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.critical}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{modal.header.border.color.critical}"
+    },
+    "name": "token-modal-header-border-color-critical",
+    "attributes": {
+      "category": "modal"
+    },
+    "path": [
+      "modal",
+      "header",
+      "border",
+      "color",
+      "critical"
+    ]
+  },
+  {
+    "key": "{modal.header.tagline.color.warning}",
+    "$type": "color",
+    "$value": "#c6c6c6",
+    "$modes": {
+      "default": "#f1c21b",
+      "cds-g0": "#525252",
+      "cds-g10": "#525252",
+      "cds-g90": "#c6c6c6",
+      "cds-g100": "#c6c6c6"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.textSecondary}",
+      "$modes": {
+        "default": "{color.foreground.warning-on-surface}",
+        "cds-g0": "{carbon.themes.white.textSecondary}",
+        "cds-g10": "{carbon.themes.g10.textSecondary}",
+        "cds-g90": "{carbon.themes.g90.textSecondary}",
+        "cds-g100": "{carbon.themes.g100.textSecondary}"
+      },
+      "key": "{modal.header.tagline.color.warning}"
+    },
+    "name": "token-modal-header-tagline-color-warning",
+    "attributes": {
+      "category": "modal"
+    },
+    "path": [
+      "modal",
+      "header",
+      "tagline",
+      "color",
+      "warning"
+    ]
+  },
+  {
+    "key": "{modal.header.tagline.color.critical}",
+    "$type": "color",
+    "$value": "#c6c6c6",
+    "$modes": {
+      "default": "#ffb3b8",
+      "cds-g0": "#525252",
+      "cds-g10": "#525252",
+      "cds-g90": "#c6c6c6",
+      "cds-g100": "#c6c6c6"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.textSecondary}",
+      "$modes": {
+        "default": "{color.foreground.critical-on-surface}",
+        "cds-g0": "{carbon.themes.white.textSecondary}",
+        "cds-g10": "{carbon.themes.g10.textSecondary}",
+        "cds-g90": "{carbon.themes.g90.textSecondary}",
+        "cds-g100": "{carbon.themes.g100.textSecondary}"
+      },
+      "key": "{modal.header.tagline.color.critical}"
+    },
+    "name": "token-modal-header-tagline-color-critical",
+    "attributes": {
+      "category": "modal"
+    },
+    "path": [
+      "modal",
+      "header",
+      "tagline",
+      "color",
+      "critical"
     ]
   },
   {

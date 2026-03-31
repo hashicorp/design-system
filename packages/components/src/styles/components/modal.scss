@@ -45,28 +45,32 @@
 
 // color variants
 
-// Note ".hds-modal--color-neutral" uses default color and background-color styles from the dialog-primitive
-
 .hds-modal--color-warning {
   .hds-dialog-primitive__wrapper-header {
-    background: var(--token-color-surface-warning);
-    border-bottom: 1px solid var(--token-color-border-warning);
+    background: var(--token-modal-header-surface-color-warning);
+    border-bottom-color: var(--token-modal-header-border-color-critical);
   }
 
-  .hds-dialog-primitive__header,
+  .hds-dialog-primitive__header {
+    color: var(--token-modal-header-foreground-color-warning);
+  }
+
   .hds-dialog-primitive__tagline {
-    color: var(--token-color-foreground-warning-on-surface);
+    color: var(--token-modal-header-tagline-warning);
   }
 }
 
 .hds-modal--color-critical {
   .hds-dialog-primitive__wrapper-header {
-    background: var(--token-color-surface-critical);
-    border-bottom: 1px solid var(--token-color-border-critical);
+    background: var(--token-modal-header-surface-color-critical);
+    border-bottom-color: var(--token-modal-header-border-color-critical);
   }
 
-  .hds-dialog-primitive__header,
+  .hds-dialog-primitive__header {
+    color: var(--token-modal-header-foreground-color-critical);
+  }
+
   .hds-dialog-primitive__tagline {
-    color: var(--token-color-foreground-critical-on-surface);
+    color: var(--token-modal-header-tagline-critical);
   }
 }
