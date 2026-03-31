@@ -42,15 +42,7 @@ const getSymbolModule = (sourceSvg: string, id: string): string => {
 
 export async function generateBundleSymbolJS({ config, catalog }: { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
     const tempSVGFolderPath = config.tempFolder;
-    const mappingFilePath = path.resolve(__dirname, '../hds-carbon-icon-map.json');
     const carbonIconsPath = path.resolve(__dirname, '../../node_modules/@carbon/icons/svg');
-
-    let mapping: Record<string, string> = {};
-    try {
-        mapping = await fs.readJSON(mappingFilePath);
-    } catch {
-        console.warn('⚠️ Map file not found.');
-    }
 
     // Define folders
     const outputFolder = `${config.mainFolder}/symbol-js`;
@@ -64,7 +56,7 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
 
     const registry: Record<string, { flight: Record<string, string>, carbon: string | null }> = {};
 
-    for (const { fileName } of catalog.assets) {
+    for (const { fileName, mapping } of catalog.assets) {
         const match = fileName.match(/^(.*)-(16|24)$/);
 
         if (match) {
@@ -93,9 +85,19 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
             registry[baseName].flight[size] = `() => import('./flight/${fileName}.js')`;
 
             // --- CARBON ---
-            const carbonName = mapping[baseName];
 
-            if (carbonName && !registry[baseName].carbon) {
+            const carbonMatch = mapping?.match(/Maps to: (.+)/);
+
+            if (carbonMatch != null && !registry[baseName].carbon) {
+                const carbonName = carbonMatch[1].toLowerCase();
+
+                const doNotUse = carbonName.match(/\(Do not use\)/i);
+
+                if (doNotUse !== null) {
+                    console.warn(`⚠️ Skipping Carbon mapping for Flight icon ${fileName} due to "(Do not use)" note in mapping: ${mapping}`);
+                    continue;
+                }
+
                 const carbonPath = path.join(carbonIconsPath, '32', `${carbonName}.svg`);
 
                 if (fs.existsSync(carbonPath)) {
