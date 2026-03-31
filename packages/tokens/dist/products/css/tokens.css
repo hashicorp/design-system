@@ -488,9 +488,9 @@
   --token-pagination-bar-surface-color: #ffffff;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-focus-inset: 4px;
-  --token-pagination-nav-control-foreground-color-action-default: #1060ff;
-  --token-pagination-nav-control-foreground-color-action-hover: #0c56e9;
-  --token-pagination-nav-control-foreground-color-action-active: #0046d1;
+  --token-pagination-nav-control-foreground-color-default: #1060ff;
+  --token-pagination-nav-control-foreground-color-hover: #0c56e9;
+  --token-pagination-nav-control-foreground-color-active: #0046d1;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-control-typography-font-weight-active: var(--token-typography-font-weight-medium);
   --token-pagination-nav-indicator-height: 2px;
