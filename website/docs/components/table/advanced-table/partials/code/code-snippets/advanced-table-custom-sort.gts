@@ -16,12 +16,14 @@ const customSortingCriteriaArray = [
 ];
 
 export default class LocalComponent extends Component {
+  // we track the sorting order, so it can be used in the custom sorting function
   @tracked customSortOrder = 'asc';
 
   get myDemoData() {
     return CLUSTER_DATA;
   }
 
+  // we define a "getter" that returns a custom sorting function ("s1" and "s2" are data records)
   get customSortingFunction(): <T>(s1: T, s2: T) => number {
     return (s1, s2) => {
       // check that s1 and s2 are objects and have the 'status' property

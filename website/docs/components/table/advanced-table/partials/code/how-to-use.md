@@ -10,7 +10,7 @@ Instead of using the `<table>` elements, the Advanced Table uses `<div>`s with e
 
 **Consumer responsibility**
 
-For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
+For documentation purposes, we’re importing the data from an internal file and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
 
 !!!
 
@@ -184,7 +184,7 @@ The content shown when the model is empty can be customized using the `<:emptySt
 
 [[code-snippets/advanced-table-empty-state-custom]]
 
-### Multi-select Advanced Table
+### Multi-select
 
 !!! Callout
 

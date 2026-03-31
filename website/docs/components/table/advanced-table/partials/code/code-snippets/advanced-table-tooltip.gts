@@ -13,13 +13,13 @@ export default class LocalComponent extends Component {
     //    id: '1',
     //    artist: 'Nick Drake',
     //    album: 'Pink Moon',
-    //    year: '1972'
+    //   'vinyl-cost': '29.27',
     //  },
     //  {
     //    id: '2',
     //    artist: 'The Beatles',
     //    album: 'Abbey Road',
-    //    year: '1969'
+    //    'vinyl-cost': '25.99',
     //  },
     // ...
 

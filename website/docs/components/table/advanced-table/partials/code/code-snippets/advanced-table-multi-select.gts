@@ -37,7 +37,12 @@ export default class LocalComponent extends Component {
     console.log('selectionKey:', selectionKey);
     console.log('selectionCheckboxElement:', selectionCheckboxElement);
     console.log('selectableRowsStates:', selectableRowsStates);
-    console.log('selectedRowsKeys:', selectedRowsKeys);
+    // here we use the `selectedRowsKeys` to execute some action on each of the data records associated (via the `@selectionKey` argument) to the selected rows
+    selectedRowsKeys.forEach((rowSelectionKey) => {
+      console.log('rowSelectionKey:', rowSelectionKey);
+      // do something using the row’s `selectionKey` value
+      // ...
+    });
     console.groupEnd();
   };
 
