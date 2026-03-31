@@ -11,6 +11,7 @@ import { capitalize } from '@ember/string';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
@@ -110,7 +111,7 @@ const TagCarbonizationIndex: TemplateOnlyComponent = <template>
             </SF.Item>
           </ShwFlex>
         </:theming>
-        <:reference>
+        <:reference as |R|>
           {{#if (notEq color "secondary")}}
             <ShwFlex @direction="column" as |SF|>
               <SF.Item>
@@ -153,7 +154,7 @@ const TagCarbonizationIndex: TemplateOnlyComponent = <template>
               </SF.Item>
             </ShwFlex>
           {{else}}
-            <pre>n/a</pre>
+            <R.NoEquivalent @isCompact={{true}} />
           {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>
@@ -188,7 +189,7 @@ const TagCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH3>Links</ShwTextH3>
 
     {{#each COLORS as |color|}}
-      <ShwTextH3>{{capitalize color}}</ShwTextH3>
+      <ShwTextH4>{{capitalize color}}</ShwTextH4>
       {{#each STATES as |state|}}
         <ShwCarbonizationComparisonGrid @label={{state}}>
           <:theming>
@@ -214,7 +215,7 @@ const TagCarbonizationIndex: TemplateOnlyComponent = <template>
               </SF.Item>
             </ShwFlex>
           </:theming>
-          <:reference>
+          <:reference as |R|>
             {{#if (and (eq state "default") (notEq color "secondary"))}}
               <cds-operational-tag type="blue" text="Lorem ipsum" size="md">
                 <svg
@@ -232,7 +233,7 @@ const TagCarbonizationIndex: TemplateOnlyComponent = <template>
                   ></path></svg>
               </cds-operational-tag>
             {{else if (eq color "secondary")}}
-              <pre>n/a</pre>
+              <R.NoEquivalent @isCompact={{true}} />
             {{else}}
               <pre>TODO: static image here</pre>
             {{/if}}
