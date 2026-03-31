@@ -74,12 +74,15 @@
   --token-button-border-color-primary-default: var(--token-color-palette-blue-300);
   --token-button-border-color-primary-focus-external: var(--token-color-focus-action-external); /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-primary-focus-internal: var(--token-color-palette-neutral-0); /** TODO - replace the `pink` values with the correct ones */
-  --token-button-border-color-primary-hover: var(--token-color-palette-blue-300);
+  --token-button-border-color-primary-hover: var(--token-color-palette-blue-400);
   --token-button-border-color-secondary-active: var(--token-color-border-strong);
   --token-button-border-color-secondary-default: var(--token-color-border-strong);
   --token-button-border-color-secondary-focus-external: var(--token-color-focus-action-external); /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: var(--token-color-focus-action-internal); /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: var(--token-color-border-strong);
+  --token-button-border-color-tertiary-active: var(--token-color-border-strong);
+  --token-button-border-color-tertiary-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-hover: var(--token-color-border-strong);
   --token-button-foreground-color-critical-active: var(--token-color-foreground-high-contrast);
   --token-button-foreground-color-critical-default: var(--token-color-foreground-critical-on-surface);
   --token-button-foreground-color-critical-focus: var(--token-color-foreground-critical-on-surface);
@@ -114,7 +117,7 @@
   --token-button-surface-color-critical-default: var(--token-color-surface-critical);
   --token-button-surface-color-critical-focus: var(--token-color-surface-critical);
   --token-button-surface-color-critical-hover: var(--token-color-palette-red-300);
-  --token-button-surface-color-disabled: var(--token-color-surface-faint);
+  --token-button-surface-color-disabled: var(--token-color-surface-interactive-disabled);
   --token-button-surface-color-primary-active: var(--token-color-palette-blue-400);
   --token-button-surface-color-primary-default: var(--token-color-palette-blue-200);
   --token-button-surface-color-primary-focus: var(--token-color-palette-blue-200);

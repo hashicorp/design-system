@@ -195,7 +195,7 @@ $hds-button-sizes: ("small", "medium", "large");
   &[disabled]:hover,
   &.mock-disabled:hover {
     background-color: transparent;
-    border-color: transparent;
+    border-color: var(--token-button-border-color-tertiary-disabled);
 
     &::before {
       border-color: transparent;

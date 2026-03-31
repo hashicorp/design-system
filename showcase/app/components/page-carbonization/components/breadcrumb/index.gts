@@ -238,7 +238,7 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
           </HdsBreadcrumb>
         </:theming>
         <:reference>
-          <pre>TODO: add static image here</pre>
+          <pre>TODO: static image here</pre>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}

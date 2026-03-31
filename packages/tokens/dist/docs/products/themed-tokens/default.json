@@ -10523,9 +10523,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.surface.faint}",
+      "$value": "{color.surface.interactive-disabled}",
       "$modes": {
-        "default": "{color.surface.faint}",
+        "default": "{color.surface.interactive-disabled}",
         "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
         "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
         "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
@@ -10624,9 +10624,9 @@
   {
     "key": "{button.border.color.primary.hover}",
     "$type": "color",
-    "$value": "#0c56e9",
+    "$value": "#0046d1",
     "$modes": {
-      "default": "#0c56e9",
+      "default": "#0046d1",
       "cds-g0": "transparent",
       "cds-g10": "transparent",
       "cds-g90": "transparent",
@@ -10634,9 +10634,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.blue-300}",
+      "$value": "{color.palette.blue-400}",
       "$modes": {
-        "default": "{color.palette.blue-300}",
+        "default": "{color.palette.blue-400}",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -10952,9 +10952,23 @@
     "key": "{button.border.color.tertiary.default}",
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
     "original": {
       "$type": "color",
       "$value": "transparent",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+        "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+        "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+        "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+      },
       "key": "{button.border.color.tertiary.default}"
     },
     "name": "token-button-border-color-tertiary-default",
@@ -10973,9 +10987,23 @@
     "key": "{button.border.color.tertiary.hover}",
     "$type": "color",
     "$value": "#3b3d4566",
+    "$modes": {
+      "default": "#3b3d4566",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
     "original": {
       "$type": "color",
       "$value": "{color.border.strong}",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+        "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+        "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+        "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+      },
       "key": "{button.border.color.tertiary.hover}"
     },
     "name": "token-button-border-color-tertiary-hover",
@@ -11038,9 +11066,23 @@
     "key": "{button.border.color.tertiary.active}",
     "$type": "color",
     "$value": "#3b3d4566",
+    "$modes": {
+      "default": "#3b3d4566",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
     "original": {
       "$type": "color",
       "$value": "{color.border.strong}",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "key": "{button.border.color.tertiary.active}"
     },
     "name": "token-button-border-color-tertiary-active",
@@ -11053,6 +11095,27 @@
       "color",
       "tertiary",
       "active"
+    ]
+  },
+  {
+    "key": "{button.border.color.tertiary.disabled}",
+    "$type": "color",
+    "$value": "#656a7633",
+    "original": {
+      "$type": "color",
+      "$value": "{button.border.color.disabled}",
+      "key": "{button.border.color.tertiary.disabled}"
+    },
+    "name": "token-button-border-color-tertiary-disabled",
+    "attributes": {
+      "category": "button"
+    },
+    "path": [
+      "button",
+      "border",
+      "color",
+      "tertiary",
+      "disabled"
     ]
   },
   {

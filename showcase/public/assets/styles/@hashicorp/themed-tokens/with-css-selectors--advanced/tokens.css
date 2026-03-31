@@ -174,7 +174,7 @@
     --token-color-palette-neutral-0
   ); /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-hover: var(
-    --token-color-palette-blue-300
+    --token-color-palette-blue-400
   );
   --token-button-border-color-secondary-active: var(
     --token-color-border-strong
@@ -189,6 +189,9 @@
     --token-color-focus-action-internal
   ); /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: var(--token-color-border-strong);
+  --token-button-border-color-tertiary-active: var(--token-color-border-strong);
+  --token-button-border-color-tertiary-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-hover: var(--token-color-border-strong);
   --token-button-foreground-color-critical-active: var(
     --token-color-foreground-high-contrast
   );
@@ -265,7 +268,9 @@
   --token-button-surface-color-critical-hover: var(
     --token-color-palette-red-300
   );
-  --token-button-surface-color-disabled: var(--token-color-surface-faint);
+  --token-button-surface-color-disabled: var(
+    --token-color-surface-interactive-disabled
+  );
   --token-button-surface-color-primary-active: var(
     --token-color-palette-blue-400
   );
@@ -711,6 +716,9 @@
     --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
     --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-default: #0f62fe;
+    --token-button-border-color-tertiary-hover: #0f62fe;
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -1100,6 +1108,9 @@
     --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
     --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-default: #ffffff;
+    --token-button-border-color-tertiary-hover: #ffffff;
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -1488,6 +1499,9 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-default: #0f62fe;
+  --token-button-border-color-tertiary-hover: #0f62fe;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -1871,6 +1885,9 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-default: #ffffff;
+  --token-button-border-color-tertiary-hover: #ffffff;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -2253,6 +2270,9 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-default: #0f62fe;
+  --token-button-border-color-tertiary-hover: #0f62fe;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -2635,6 +2655,9 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-default: #ffffff;
+  --token-button-border-color-tertiary-hover: #ffffff;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -3020,15 +3043,15 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-border-radius-rounded: 1000000000px;
   --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
   --token-button-border-color-disabled: var(--token-color-border-primary);
-  --token-button-border-color-tertiary-active: var(--token-color-border-strong);
-  --token-button-border-color-tertiary-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-tertiary-disabled: var(
+    --token-button-border-color-disabled
+  );
   --token-button-border-color-tertiary-focus-external: var(
     --token-color-focus-action-external
   );
   --token-button-border-color-tertiary-focus-internal: var(
     --token-color-focus-action-internal
   );
-  --token-button-border-color-tertiary-hover: var(--token-color-border-strong);
   --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
   --token-button-focus-border-width: 3px;
