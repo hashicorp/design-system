@@ -54,13 +54,15 @@ export default class CodeFragmentWithSimpleData extends Component<CodeFragmentWi
       @isSelectable={{@isSelectable}}
       @density={{@density}}
       @isStriped={{@isStriped}}
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model}}
       @columns={{if @hasTooltips this.columnsWithTooltips this.columns}}
     >
       <:body as |B|>
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Tr @selectionKey="{{B.data.id}}">
           {{#each this.columns as |column|}}
-            {{! @glint-expect-error - dynamic key access via get returns unknown}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{get B.data column.key}}</B.Td>
           {{/each}}
         </B.Tr>

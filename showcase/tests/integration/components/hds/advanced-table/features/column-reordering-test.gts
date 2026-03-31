@@ -676,7 +676,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
             <:body as |B|>
               <B.Tr>
                 {{#each context.columns as |col|}}
-                  {{! @glint-expect-error - dynamic key access via get returns unknown}}
+                  {{! @glint-expect-error }}
                   <B.Td>{{get B.data col.key}}</B.Td>
                 {{/each}}
               </B.Tr>
