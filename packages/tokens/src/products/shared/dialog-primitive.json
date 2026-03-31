@@ -40,6 +40,36 @@
       }
     },
     "header": {
+      "tagline": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-100.font-size}",
+          "$modes": {
+            "default": "{typography.body-100.font-size}",
+            "cds-g0": "{carbon.typography.label01.font-size}",
+            "cds-g10": "{carbon.typography.label01.font-size}",
+            "cds-g90": "{carbon.typography.label01.font-size}",
+            "cds-g100": "{carbon.typography.label01.font-size}"
+          },
+          "comments": {
+            "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
+          }
+        },
+        "line-height": {
+          "$type": "number",
+          "$value": "{typography.body-100.line-height}",
+          "$modes": {
+            "default": "{typography.body-100.line-height}",
+            "cds-g0": "{carbon.typography.label01.line-height}",
+            "cds-g10": "{carbon.typography.label01.line-height}",
+            "cds-g90": "{carbon.typography.label01.line-height}",
+            "cds-g100": "{carbon.typography.label01.line-height}"
+          },
+          "comments": {
+            "hds": "we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline"
+          }
+        }
+      },
       "title": {
         "font-weight": {
           "$type": "font-weight",

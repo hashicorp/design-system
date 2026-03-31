@@ -10,7 +10,6 @@ import { element } from 'ember-element-helper';
 
 import { HdsDialogPrimitiveHeaderTitleTagValues } from './types.ts';
 import HdsIcon from '../icon/index.gts';
-import HdsTextBody from '../text/body.gts';
 import HdsDismissButton from '../dismiss-button/index.gts';
 
 import type { HdsIconSignature } from '../icon/index.gts';
@@ -82,17 +81,15 @@ export default class HdsDialogPrimitiveHeader extends Component<HdsDialogPrimiti
           id={{@id}}
         >
           {{#if @tagline}}
-            <HdsTextBody
+            <div
               class="hds-dialog-primitive__tagline
                 {{if
                   @contextualClassPrefix
                   (concat @contextualClassPrefix '__tagline')
                 }}"
-              @tag="div"
-              @size="100"
             >
               {{@tagline}}
-            </HdsTextBody>
+            </div>
           {{/if}}
 
           {{yield}}

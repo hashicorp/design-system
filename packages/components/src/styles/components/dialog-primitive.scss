@@ -100,9 +100,8 @@
 .hds-dialog-primitive__title {
   flex-grow: 1;
   margin: 0;
-  // we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title
+  // we need a mix of component-level and semantic tokens, to account for the difference in font-weight between HDS and CDS for the title
   font-weight: var(--token-dialog-primitive-header-title-font-weight);
-  // we need to use local tokens instead of `<HdsTextDisplay>` to account for the custom font weight above
   font-size: var(--token-typography-display-300-font-size);
   font-family: var(--token-typography-display-300-font-family);
   line-height: var(--token-typography-display-300-line-height);
@@ -110,7 +109,14 @@
 
 .hds-dialog-primitive__tagline {
   margin-bottom: 4px;
+  // note: in Carbon's Modal the color of the tagline is "textSecondary", but in the SidePanel it's "textPrimary";
+  // to keep things simple and consistent and avoid extra tokens, we've decided to use this semantic color
   color: var(--token-color-foreground-faint);
+  // we need a mix of component-level and semantic tokens, to account for the difference in font-size/line-height between HDS and CDS for the title
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-dialog-primitive-header-tagline-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-dialog-primitive-header-tagline-line-height);
 }
 
 .hds-dialog-primitive__dismiss {
