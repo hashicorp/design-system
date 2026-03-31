@@ -11,7 +11,7 @@
 @use "../mixins/breakpoints" as *;
 @use "../mixins/carbonization" as *;
 
-// Note: the equivalant token was removed in Figma so we are now using a Sass variable for this value
+// Note: the equivalent token was removed in Figma so we are now using a Sass variable for this value
 $pagination-nav-control-padding-horizontal: 12px;
 
 // * Pagination Parent (wrapper) component
@@ -79,7 +79,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 
 // Pagination component variants
 
-// Pagination Compact (equivilant to Carbon Pagination)
+// Pagination Compact (equivalent to Carbon Pagination)
 .hds-pagination--compact {
   background-color: var(--token-pagination-bar-surface-color-default);
 
@@ -161,7 +161,10 @@ $pagination-nav-control-padding-horizontal: 12px;
   @include hds-apply-only-if-carbon() {
     // Adjust positioning of focus ring for Carbon themes
     &::before {
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
   }
 
