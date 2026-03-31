@@ -42,7 +42,7 @@ Inline [links](https://github.com) should be styled according to the design spec
 
 A simple image
 
-![](http://placekitten.com/g/300/200/)
+![](https://placecats.com/300/200)
 
 ----------------
 
@@ -54,9 +54,7 @@ Code snippet bold **`var foo = "bar";`** and italic _`var foo = "bar";`_
 
 A simple code block.
 
-```
-var foo = "bar";
-```
+[[code-snippets/simple-code-block]]
 
 ----------------
 
