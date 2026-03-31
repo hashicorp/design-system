@@ -170,7 +170,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 
   &:hover,
   &.mock-hover {
-    color: var(--token-pagination-nav-control-foreground-color-action-hover);
+    color: var(--token-pagination-nav-control-foreground-color-hover);
   }
 
   &:not(.hds-pagination-nav__number--is-selected, [disabled]) {
@@ -182,7 +182,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 
   &:active,
   &.mock-active {
-    color: var(--token-pagination-nav-control-foreground-color-action-active);
+    color: var(--token-pagination-nav-control-foreground-color-active);
     background-color: var(--token-pagination-nav-surface-color-action-hover);
   }
 }
@@ -211,15 +211,15 @@ $pagination-nav-control-padding-horizontal: 12px;
 
 .hds-pagination-nav__number--is-selected {
   position: relative;
-  color: var(--token-pagination-nav-control-foreground-color-action-default);
+  color: var(--token-pagination-nav-control-foreground-color-default);
   font-weight: var(--token-pagination-nav-control-typography-font-weight-active);
 
   &:hover {
-    color: var(--token-pagination-nav-control-foreground-color-action-hover);
+    color: var(--token-pagination-nav-control-foreground-color-hover);
   }
 
   &:active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--token-pagination-nav-control-foreground-color-active);
   }
 
   // indicator underline
