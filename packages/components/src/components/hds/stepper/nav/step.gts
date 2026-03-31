@@ -11,6 +11,7 @@ import { on } from '@ember/modifier';
 
 import { service } from '@ember/service';
 import type HdsIntlService from '../../../../services/hds-intl';
+import type Owner from '@ember/owner';
 
 import {
   HdsStepperNavStatusesValues,
@@ -53,6 +54,14 @@ export interface HdsStepperNavStepSignature {
 
 export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignature> {
   @service declare readonly hdsIntl: HdsIntlService;
+
+  private _statusSrOnlyTextMap?: Record<HdsStepperNavStatuses, string>;
+
+  constructor(owner: Owner, args: HdsStepperNavStepSignature['Args']) {
+    super(owner, args);
+
+    this._statusSrOnlyTextMap = HdsStepperNavStatusToSrOnlyText(this.hdsIntl);
+  }
 
   private _stepId = 'step-' + guidFor(this);
   private _elementId?: string;
@@ -121,7 +130,7 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
   }
 
   get statusSrOnlyText(): string {
-    return HdsStepperNavStatusToSrOnlyText(this.hdsIntl)[this.status];
+    return this._statusSrOnlyTextMap![this.status];
   }
 
   get isInteractive(): boolean {
