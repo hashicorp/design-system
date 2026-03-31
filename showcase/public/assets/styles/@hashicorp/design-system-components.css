@@ -9810,10 +9810,10 @@ button.hds-button[href]::after {
   border: 1px solid var(--token-color-border-strong);
   border-radius: var(--token-tag-border-radius);
 }
-.hds-mode-cds-g0 .hds-tag:not(.hds-tag--color-primary, .hds-tag--color-secondary),
-.hds-mode-cds-g10 .hds-tag:not(.hds-tag--color-primary, .hds-tag--color-secondary),
-.hds-mode-cds-g90 .hds-tag:not(.hds-tag--color-primary, .hds-tag--color-secondary),
-.hds-mode-cds-g100 .hds-tag:not(.hds-tag--color-primary, .hds-tag--color-secondary) {
+.hds-mode-cds-g0 .hds-tag.hds-tag--is-static,
+.hds-mode-cds-g10 .hds-tag.hds-tag--is-static,
+.hds-mode-cds-g90 .hds-tag.hds-tag--is-static,
+.hds-mode-cds-g100 .hds-tag.hds-tag--is-static {
   border: none;
 }
 
@@ -9953,7 +9953,7 @@ button.hds-button[href]::after {
 }
 
 .hds-tag--color-primary {
-  border: 1px solid var(--token-tag-link-border-color-primary);
+  border-color: var(--token-tag-link-border-color-primary);
 }
 .hds-tag--color-primary .hds-tag__link, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss {
   background-color: var(--token-tag-link-surface-color-primary-default);
@@ -9978,7 +9978,7 @@ button.hds-button[href]::after {
 }
 
 .hds-tag--color-secondary {
-  border: 1px solid var(--token-tag-link-border-color-secondary);
+  border-color: var(--token-tag-link-border-color-secondary);
 }
 .hds-tag--color-secondary .hds-tag__link {
   color: var(--token-tag-link-foreground-color-secondary-default);

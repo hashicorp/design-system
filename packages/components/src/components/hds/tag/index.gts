@@ -138,11 +138,19 @@ export default class HdsTag extends Component<HdsTagSignature> {
   }
 
   get classNames(): string {
+    const { href, route } = this.args;
+
     const classes = ['hds-tag'];
 
     // add a class based on the @color argument
     if (this.color) {
       classes.push(`hds-tag--color-${this.color}`);
+    }
+
+    if (href || route) {
+      classes.push('hds-tag--is-interactive');
+    } else {
+      classes.push('hds-tag--is-static');
     }
 
     return classes.join(' ');
