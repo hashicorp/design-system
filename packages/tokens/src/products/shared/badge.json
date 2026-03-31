@@ -1,0 +1,622 @@
+{
+  "badge": {
+    "height": {
+      "small": {
+        "$type": "dimension",
+        "$value": "20",
+        "unit": "px",
+        "$modes": {
+          "default": "20",
+          "cds-g0": "18",
+          "cds-g10": "18",
+          "cds-g90": "18",
+          "cds-g100": "18"
+        }
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px"
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": "32",
+        "unit": "px"
+      }
+    },
+    "padding": {
+      "horizontal": {
+        "small": {
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px",
+          "$modes": {
+            "default": "6",
+            "cds-g0": "8",
+            "cds-g10": "8",
+            "cds-g90": "8",
+            "cds-g100": "8"
+          }
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px",
+          "$modes": {
+            "default": "8",
+            "cds-g0": "8",
+            "cds-g10": "8",
+            "cds-g90": "8",
+            "cds-g100": "8"
+          }
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px",
+          "$modes": {
+            "default": "8",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        }
+      },
+      "vertical": {
+        "small": {
+          "$type": "dimension",
+          "$value": "2",
+          "unit": "px",
+          "$modes": {
+            "default": "2",
+            "cds-g0": "1",
+            "cds-g10": "1",
+            "cds-g90": "1",
+            "cds-g100": "1"
+          }
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px"
+        }
+      }
+    },
+    "gap": {
+      "small": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        }
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        }
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        }
+      }
+    },
+    "typography": {
+      "font-size": {
+        "small": {
+          "$type": "font-size",
+          "$value": "13",
+          "unit": "px",
+          "$modes": {
+            "default": "13",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        },
+        "medium": {
+          "$type": "font-size",
+          "$value": "13",
+          "unit": "px",
+          "$modes": {
+            "default": "13",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        },
+        "large": {
+          "$type": "font-size",
+          "$value": "16",
+          "unit": "px",
+          "$modes": {
+            "default": "16",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        }
+      },
+      "line-height": {
+        "small": {
+          "$type": "number",
+          "$value": 1.2308,
+          "comment": "16px = 1.2308"
+        },
+        "medium": {
+          "$type": "number",
+          "$value": 1.2308,
+          "comment": "16px = 1.2308"
+        },
+        "large": {
+          "$type": "number",
+          "$value": 1.5,
+          "comment": "24px = 1.5",
+          "$modes": {
+            "default": 1.5,
+            "cds-g0": 1,
+            "cds-g10": 1,
+            "cds-g90": 1,
+            "cds-g100": 1
+          }
+        }
+      }
+    },
+    "foreground": {
+      "color": {
+        "neutral": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.color.gray.20}",
+              "cds-g10": "{carbon.color.gray.20}",
+              "cds-g90": "{carbon.color.gray.100}",
+              "cds-g100": "{carbon.color.gray.100}"
+            }
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+            }
+          }
+        },
+        "neutral-dark-mode": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+            }
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            },
+            "comments": {
+              "cds": "In Figma the `cds` value uses a token `Tag/HighContrast/TagColor` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
+            }
+          }
+        },
+        "highlight": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.purple-400}",
+            "comment": "we don't use `highlight-on-surface` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.purple-400}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorPurple.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorPurple.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorPurple.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorPurple.g100}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.highlight}",
+            "$modes": {
+              "default": "{color.foreground.highlight}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorPurple.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorPurple.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorPurple.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorPurple.g100}"
+            }
+          }
+        },
+        "success": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.green-400}",
+            "comment": "we don't use `success-on-surface` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.green-400}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGreen.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGreen.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGreen.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGreen.g100}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.success}",
+            "$modes": {
+              "default": "{color.foreground.success}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGreen.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGreen.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGreen.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGreen.g100}"
+            }
+          }
+        },
+        "warning": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.amber-400}",
+            "$modes": {
+              "default": "{color.palette.amber-400}",
+              "cds-g0": "{carbon.color.orange.70}",
+              "cds-g10": "{carbon.color.orange.70}",
+              "cds-g90": "{carbon.color.orange.20}",
+              "cds-g100": "{carbon.color.orange.20}"
+            },
+            "comments": {
+              "hds": "we don't use `warning-on-surface` for accessibility (better contrast)",
+              "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.warning}",
+            "$modes": {
+              "default": "{color.foreground.warning}",
+              "cds-g0": "{carbon.color.orange.70}",
+              "cds-g10": "{carbon.color.orange.70}",
+              "cds-g90": "{carbon.color.orange.20}",
+              "cds-g100": "{carbon.color.orange.20}"
+            },
+            "comments": {
+              "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
+            }
+          }
+        },
+        "critical": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.red-400}",
+            "comment": "we don't use `critical-on-surface` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.red-400}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorRed.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorRed.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorRed.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorRed.g100}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.critical}",
+            "$modes": {
+              "default": "{color.foreground.critical}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorRed.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorRed.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorRed.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorRed.g100}"
+            }
+          }
+        }
+      }
+    },
+    "surface": {
+      "color": {
+        "neutral": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-200}",
+            "$modes": {
+              "default": "{color.palette.neutral-200}",
+              "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-500}",
+            "$modes": {
+              "default": "{color.palette.neutral-500}",
+              "cds-g0": "{carbon.themes.white.backgroundInverse}",
+              "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+              "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+              "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+            },
+            "comment": "In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "transparent"
+          }
+        },
+        "neutral-dark-mode": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-500}",
+            "$modes": {
+              "default": "{color.palette.neutral-500}",
+              "cds-g0": "{carbon.themes.white.backgroundInverse}",
+              "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+              "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+              "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+            },
+            "comment": "In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.surface.faint}",
+            "$modes": {
+              "default": "{color.surface.faint}",
+              "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
+            }
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "transparent"
+          }
+        },
+        "highlight": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.purple-100}",
+            "comment": "we don't use `surface-highlight` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.purple-100}",
+              "cds-g0": "{carbon.themes.tagTokens.tagBackgroundPurple.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagBackgroundPurple.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagBackgroundPurple.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagBackgroundPurple.g100}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.purple-200}",
+            "$modes": {
+              "default": "{color.palette.purple-200}",
+              "cds-g0": "{carbon.color.purple.70}",
+              "cds-g10": "{carbon.color.purple.70}",
+              "cds-g90": "{carbon.color.purple.40}",
+              "cds-g100": "{carbon.color.purple.40}"
+            }
+          }
+        },
+        "success": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.green-100}",
+            "comment": "we don't use `surface-success` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.green-100}",
+              "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGreen.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGreen.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGreen.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGreen.g100}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.green-200}",
+            "$modes": {
+              "default": "{color.palette.green-200}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGreen.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGreen.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGreen.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGreen.g100}"
+            }
+          }
+        },
+        "warning": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.amber-100}",
+            "comment": "we don't use `surface-warning` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.amber-100}",
+              "cds-g0": "{carbon.color.orange.20}",
+              "cds-g10": "{carbon.color.orange.20}",
+              "cds-g90": "{carbon.color.orange.70}",
+              "cds-g100": "{carbon.color.orange.70}"
+            },
+            "comments": {
+              "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.amber-200}",
+            "$modes": {
+              "default": "{color.palette.amber-200}",
+              "cds-g0": "{carbon.color.orange.70}",
+              "cds-g10": "{carbon.color.orange.70}",
+              "cds-g90": "{carbon.color.orange.20}",
+              "cds-g100": "{carbon.color.orange.20}"
+            },
+            "comments": {
+              "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
+            }
+          }
+        },
+        "critical": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.red-100}",
+            "comment": "we don't use `surface-critical` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.red-100}",
+              "cds-g0": "{carbon.themes.tagTokens.tagBackgroundRed.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagBackgroundRed.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagBackgroundRed.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagBackgroundRed.g100}"
+            }
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.red-200}",
+            "$modes": {
+              "default": "{color.palette.red-200}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorRed.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorRed.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorRed.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorRed.g100}"
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.small}",
+        "unit": "px",
+        "$modes": {
+          "default": "{border.radius.small}",
+          "cds-g0": "{border.radius.rounded}",
+          "cds-g10": "{border.radius.rounded}",
+          "cds-g90": "{border.radius.rounded}",
+          "cds-g100": "{border.radius.rounded}"
+        }
+      }
+    },
+    "icon": {
+      "size": {
+        "small": {
+          "$type": "dimension",
+          "$value": "12",
+          "unit": "px"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "16",
+          "unit": "px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "16",
+          "unit": "px"
+        }
+      }
+    }
+  }
+}

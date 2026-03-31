@@ -7,6 +7,7 @@
 // COPY > SNIPPET
 //
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 @mixin hds-copy-snippet-success-error() {
   &.hds-copy-snippet--status-success {
@@ -38,6 +39,10 @@
   border: 1px solid transparent;
   border-radius: var(--token-border-radius-small);
   cursor: pointer;
+
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
 }
 
 .hds-copy-snippet--color-primary {
@@ -56,6 +61,11 @@
     color: var(--token-color-foreground-action-active);
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
+
+    // For Carbon themes there is a color contrast issue with foreground-action-active so foreground-primary is used instead
+    @include hds-apply-only-if-carbon() {
+      color: var(--token-color-foreground-primary);
+    }
   }
 
   @include hds-copy-snippet-success-error();
@@ -64,6 +74,13 @@
 .hds-copy-snippet--color-secondary {
   color: var(--token-color-foreground-primary);
   background-color: transparent;
+
+  // For Carbon themes the color should always be foreground-primary except for the success or error status
+  @include hds-apply-only-if-carbon() {
+    &:not(.hds-copy-snippet--status-success, .hds-copy-snippet--status-error) .hds-copy-snippet__icon {
+      color: var(--token-color-foreground-primary);
+    }
+  }
 
   .hds-copy-snippet__icon {
     color: var(--token-color-foreground-action);

@@ -11,6 +11,7 @@ $hds-tabs-sizes: ("medium", "large");
 
 @use "sass:map";
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 // Sub-components:
 .hds-tabs__tablist-wrapper {
@@ -25,6 +26,10 @@ $hds-tabs-sizes: ("medium", "large");
     display: block;
     border-top: var(--token-tabs-divider-height) solid var(--token-color-border-primary);
     content: "";
+
+    @include hds-apply-only-if-carbon() {
+      display: none;
+    }
   }
 }
 
@@ -36,6 +41,10 @@ $hds-tabs-sizes: ("medium", "large");
   overflow-x: auto;
   isolation: isolate;
   -webkit-overflow-scrolling: touch;
+
+  @include hds-apply-only-if-carbon() {
+    gap: 1px;
+  }
 }
 
 .hds-tabs__tab {
@@ -48,19 +57,49 @@ $hds-tabs-sizes: ("medium", "large");
   text-decoration: none;
   list-style: none;
 
+  @include hds-apply-only-if-carbon() {
+    border-bottom: var(--token-tabs-indicator-height) solid var(--token-tabs-border-color-default);
+    transition:
+      border 70ms cubic-bezier(0.2, 0, 0.38, 0.9),
+      outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  }
+
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action);
+    color: var(--token-tabs-foreground-color-hover);
+    border-color: var(--token-tabs-border-color-hover); // only applicable to carbon themes
   }
 
   &.hds-tabs__tab--is-selected {
-    color: var(--token-color-foreground-action);
+    color: var(--token-tabs-foreground-color-selected-default);
 
     &:hover {
-      color: var(--token-color-foreground-action-hover);
+      color: var(--token-tabs-foreground-color-selected-hover);
 
+      // the underline under the current selected Tab
+      // Note: in HDS tan li with role=presentation is used for the indicator so its position can be animated
+      // In Carbon themes, this type of animation is not used so using a separate HTML element may not make sense (vs. a border)
       & ~ .hds-tabs__tab-indicator {
         background: var(--token-color-foreground-action-hover);
+
+        @include hds-apply-only-if-carbon() {
+          background: var(--token-color-foreground-action);
+        }
+      }
+    }
+
+    // If the Tab is selected, the hover ring position classes with the indicator underline position in carbon themes
+    @include hds-apply-only-if-carbon() {
+      &:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) {
+        ~ .hds-tabs__tab-indicator {
+          display: none;
+        }
+      }
+    }
+
+    .hds-tabs__tab-button {
+      @include hds-apply-only-if-carbon() {
+        font-weight: 600;
       }
     }
   }
@@ -73,6 +112,13 @@ $hds-tabs-sizes: ("medium", "large");
     $bottom: var(--token-tabs-tab-focus-inset),
     $left: var(--token-tabs-tab-focus-inset)
   );
+
+  @include hds-apply-only-if-carbon() {
+    &::before {
+      inset: 3px 3px 1px 3px;
+    }
+  }
+
   position: static;
   display: flex;
   gap: var(--token-tabs-tab-gutter);
@@ -94,6 +140,7 @@ $hds-tabs-sizes: ("medium", "large");
   }
 }
 
+// the underline under the current selected Tab
 .hds-tabs__tab-indicator {
   position: absolute;
   right: 0;
@@ -112,6 +159,12 @@ $hds-tabs-sizes: ("medium", "large");
     transition-timing-function: var(--token-tabs-indicator-transition-function);
     transition-duration: var(--token-tabs-indicator-transition-duration);
     transition-property: left, width;
+
+    @include hds-apply-only-if-carbon() {
+      // Testing: will not have visible effect unless Tab underlines are also refactored for Carbonization
+      // (other than removing the HDS default animation in effect)
+      transition: color 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+    }
   }
 }
 

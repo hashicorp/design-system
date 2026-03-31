@@ -9,6 +9,10 @@
 
 @use "../mixins/focus-ring" as *;
 @use "../mixins/breakpoints" as *;
+@use "../mixins/carbonization" as *;
+
+// Note: the equivalent token was removed in Figma so we are now using a Sass variable for this value
+$pagination-nav-control-padding-horizontal: 12px;
 
 // * Pagination Parent (wrapper) component
 // -------------------------------------------------------------------
@@ -21,6 +25,7 @@
   align-items: center;
   margin: 0 auto;
 
+  // Responsive layout styles
   @include hds-breakpoint-below("lg") {
     display: flex;
     flex-wrap: wrap;
@@ -33,6 +38,7 @@
     justify-self: flex-start;
     margin-right: var(--token-pagination-child-spacing-horizontal);
 
+    // Responsive layout styles
     @include hds-breakpoint-below("lg") {
       margin-top: var(--token-pagination-child-spacing-vertical);
       margin-left: var(--token-pagination-child-spacing-horizontal);
@@ -42,6 +48,7 @@
   .hds-pagination-nav {
     grid-area: nav;
 
+    // Responsive layout styles
     @include hds-breakpoint-below("lg") {
       justify-content: center;
       order: -1;
@@ -55,9 +62,54 @@
     justify-self: flex-end;
     margin-left: var(--token-pagination-child-spacing-horizontal);
 
+    // Responsive layout styles
     @include hds-breakpoint-below("lg") {
       margin-top: var(--token-pagination-child-spacing-vertical);
       margin-right: var(--token-pagination-child-spacing-horizontal);
+    }
+
+    @include hds-apply-only-if-carbon() {
+      height: 100%;
+      // Override responsive layout styles for Carbon themes
+      margin-top: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+// Pagination component variants
+
+// Pagination Compact (equivalent to Carbon Pagination)
+.hds-pagination--compact {
+  background-color: var(--token-pagination-bar-surface-color-default);
+
+  @include hds-apply-only-if-carbon() {
+    border-top: 1px solid var(--token-pagination-bar-border-color);
+
+    // Override responsive layout styles for Carbon themes for Compact pagination
+    @include hds-breakpoint-below("lg") {
+      display: grid;
+      flex-wrap: nowrap;
+      justify-content: initial;
+    }
+
+    .hds-pagination-nav {
+      // Override responsive layout styles for Carbon themes
+      order: 0;
+      width: auto;
+    }
+
+    .hds-pagination-nav__control {
+      border-left: 1px solid var(--token-pagination-bar-border-color);
+    }
+
+    .hds-pagination-nav__arrow--direction-next {
+      border-right: 1px solid var(--token-pagination-bar-border-color);
+    }
+
+    .hds-pagination-size-selector {
+      padding-left: 16px;
+      border-left: 1px solid var(--token-pagination-bar-border-color);
     }
   }
 }
@@ -91,12 +143,14 @@
   align-items: center;
   height: var(--token-pagination-nav-control-height);
   // border width is subtracted from padding:
-  padding: 0 calc(var(--token-pagination-nav-control-padding-horizontal) - 1px);
+  padding: 0 calc(#{$pagination-nav-control-padding-horizontal} - 1px);
   color: var(--token-color-foreground-primary);
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
 
+  // NOTE: The "focus-ring" currently included a 1px white solid box-shadow (--token-focus-ring-action-box-shadow).
+  // The white color could possibly be replaced with a transparent color for carbon themes.
   @include hds-focus-ring-with-pseudo-element(
     $top: var(--token-pagination-nav-control-focus-inset),
     $right: var(--token-pagination-nav-control-focus-inset),
@@ -104,14 +158,32 @@
     $left: var(--token-pagination-nav-control-focus-inset)
   );
 
+  @include hds-apply-only-if-carbon() {
+    // Adjust positioning of focus ring for Carbon themes
+    &::before {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--token-pagination-nav-control-foreground-color-action-hover);
+  }
+
+  &:not(.hds-pagination-nav__number--is-selected) {
+    &:hover,
+    &.mock-hover {
+      background-color: var(--token-pagination-nav-surface-color-hover);
+    }
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--token-pagination-nav-control-foreground-color-action-active);
+    background-color: var(--token-pagination-nav-surface-color-hover);
   }
 }
 
@@ -139,10 +211,10 @@
 
 .hds-pagination-nav__number--is-selected {
   position: relative;
-  color: var(--token-color-foreground-action);
+  color: var(--token-pagination-nav-control-foreground-color-action-default);
 
   &:hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--token-pagination-nav-control-foreground-color-action-hover);
   }
 
   &:active {
@@ -159,9 +231,17 @@
     left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
     height: var(--token-pagination-nav-indicator-height);
     margin: 0 auto;
+    color: var(--token-color-foreground-action);
     background-color: currentColor;
-    border-radius: 2px;
+    border-radius: var(--token-border-radius-x-small);
     content: "";
+  }
+
+  // Note: We override the font-weight for the carbon themes
+  > .hds-font-weight-medium {
+    @include hds-apply-only-if-carbon() {
+      font-weight: 600;
+    }
   }
 }
 
@@ -169,7 +249,7 @@
   display: flex;
   align-items: center;
   height: var(--token-pagination-nav-control-height);
-  padding: 0 var(--token-pagination-nav-control-padding-horizontal);
+  padding: 0 $pagination-nav-control-padding-horizontal;
   color: var(--token-color-foreground-faint);
 }
 
@@ -181,6 +261,12 @@
 
   > label {
     white-space: nowrap;
+
+    @include hds-apply-only-if-carbon() {
+      &::after {
+        content: ":";
+      }
+    }
   }
 
   // notice: this is an `Form::Select::Base` component, slightly customized
@@ -192,6 +278,16 @@
     font-size: var(--token-typography-body-100-font-size);
     font-family: var(--token-typography-body-100-font-family);
     line-height: var(--token-typography-body-100-line-height);
+    // TODO: Test simplifying value in select.scss
+    // from: background-position: right var(--token-form-select-background-image-position-right-x) top
+    // var(--token-form-select-background-image-position-top-y);
+    // to: background-position: center right var(--token-form-select-background-image-position-right-x);
+    // (Check in various browsers)
     background-position: center right 5px;
+
+    @include hds-apply-only-if-carbon() {
+      margin-left: 0;
+      border: 0;
+    }
   }
 }
