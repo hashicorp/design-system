@@ -73,26 +73,21 @@ $hds-tabs-sizes: ("medium", "large");
   &.hds-tabs__tab--is-selected {
     color: var(--token-tabs-foreground-color-selected-default);
 
+    @include hds-apply-only-if-carbon() {
+      border-color: var(--token-color-foreground-action);
+    }
+
     &:hover {
       color: var(--token-tabs-foreground-color-selected-hover);
 
       // the underline under the current selected Tab
-      // Note: in HDS tan li with role=presentation is used for the indicator so its position can be animated
-      // In Carbon themes, this type of animation is not used so using a separate HTML element may not make sense (vs. a border)
+      // Note: in HDS, an li with role=presentation is used for the indicator so its position can be animated
+      // In Carbon themes, this type of animation is not used so the border-color on the Tab is changed instead
       & ~ .hds-tabs__tab-indicator {
         background: var(--token-color-foreground-action-hover);
 
         @include hds-apply-only-if-carbon() {
           background: var(--token-color-foreground-action);
-        }
-      }
-    }
-
-    // If the Tab is selected, the hover ring position classes with the indicator underline position in carbon themes
-    @include hds-apply-only-if-carbon() {
-      &:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) {
-        ~ .hds-tabs__tab-indicator {
-          display: none;
         }
       }
     }
@@ -155,16 +150,16 @@ $hds-tabs-sizes: ("medium", "large");
   background-color: var(--token-color-foreground-action);
   border-radius: var(--token-tabs-indicator-height);
 
+  // Note: HDS default theme uses an li element for the indicator to make animating its position possible
+  // Carbon themes instead change the color of a border on the Tab to indicate it's selected
+  @include hds-apply-only-if-carbon() {
+    display: none;
+  }
+
   @media screen and (prefers-reduced-motion: no-preference) {
     transition-timing-function: var(--token-tabs-indicator-transition-function);
     transition-duration: var(--token-tabs-indicator-transition-duration);
     transition-property: left, width;
-
-    @include hds-apply-only-if-carbon() {
-      // Testing: will not have visible effect unless Tab underlines are also refactored for Carbonization
-      // (other than removing the HDS default animation in effect)
-      transition: color 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
-    }
   }
 }
 

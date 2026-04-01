@@ -132,6 +132,40 @@ const TabsCarbonizationIndex: TemplateOnlyComponent = <template>
                 </ul>
               </div>
             </SF.Item>
+            <SF.Item @label="Selected">
+              <div
+                class={{concat
+                  "hds-tabs--size-"
+                  size
+                  " shw-component-tabs-selector-example"
+                }}
+              >
+                <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                  <HdsTabsTab class="hds-tabs__tab--is-selected">Lorem ipsum</HdsTabsTab>
+                  {{! template-lint-disable no-invalid-role }}
+                  <li class="hds-tabs__tab-indicator" role="presentation"></li>
+                  {{! template-lint-enable no-invalid-role }}
+                </ul>
+              </div>
+              <div
+                class={{concat
+                  "hds-tabs--size-"
+                  size
+                  " shw-component-tabs-selector-example"
+                }}
+              >
+                <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                  <HdsTabsTab
+                    @icon="hexagon"
+                    @count="10"
+                    class="hds-tabs__tab--is-selected"
+                  >Lorem ipsum</HdsTabsTab>
+                  {{! template-lint-disable no-invalid-role }}
+                  <li class="hds-tabs__tab-indicator" role="presentation"></li>
+                  {{! template-lint-enable no-invalid-role }}
+                </ul>
+              </div>
+            </SF.Item>
             <SF.Item @label="Hover">
               <div class={{concat "hds-tabs--size-" size}}>
                 <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
