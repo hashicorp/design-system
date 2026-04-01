@@ -5,7 +5,7 @@
 
 import type { Config, DesignToken } from 'style-dictionary/types';
 
-export const targets = ['products', 'devdot', 'marketing', 'cloud-email'] as const;
+export const targets = ['products', 'cloud-email'] as const;
 
 export type Target = typeof targets[number];
 
@@ -61,81 +61,6 @@ export function getStyleDictionaryConfig({ target }: { target: Target }): Config
             {
               destination: 'tokens.json',
               format: 'docs/json',
-              filter: excludePrivateTokens,
-            }
-          ]
-        }
-      }
-    };
-  }
-
-  // -----------------------
-  // DEVDOT
-  // -----------------------
-
-  if (target === 'devdot') {
-    return {
-      ...baseConfig,
-      'source': [
-        `src/global/**/*.json`,
-        `src/products/shared/**/*.json`,
-        // custom overrides for 'devdot' tokens
-        `src/devdot/**/*.json`
-      ],
-      'platforms': {
-        'web/css-variables': {
-          buildPath: 'dist/devdot/css/',
-          'transformGroup': 'products/web',
-          prefix: 'token',
-          basePxFontSize: 16,
-          files: [
-            {
-              destination: 'tokens.css',
-              format: 'css/variables',
-              filter: excludePrivateTokens,
-            }
-          ],
-          actions: ['generate-css-helpers'],
-        }
-      }
-    };
-  }
-
-  // -----------------------
-  // MARKETING
-  // -----------------------
-
-  if (target === 'marketing') {
-    return {
-      ...baseConfig,
-      'source': [
-        `src/global/**/*.json`,
-        `src/products/shared/**/*.json`,
-      ],
-      'platforms': {
-        'web/css-variables': {
-          buildPath: 'dist/marketing/css/',
-          'transformGroup': 'marketing/web',
-          prefix: 'token',
-          basePxFontSize: 16,
-          files: [
-            {
-              destination: 'tokens.css',
-              format: 'css/variables',
-              filter: excludePrivateTokens,
-            }
-          ],
-          actions: ['generate-css-helpers'],
-        },
-        'json': {
-          buildPath: 'dist/marketing/',
-          'transformGroup': 'marketing/web',
-          prefix: 'token',
-          basePxFontSize: 16,
-          files: [
-            {
-              destination: 'tokens.json',
-              format: 'json',
               filter: excludePrivateTokens,
             }
           ]

@@ -28,7 +28,7 @@ See below for more details about what these scripts do.
 
 The tool used to process the design tokens is [Style Dictionary](https://github.com/amzn/style-dictionary). It takes a set of JSON files in the `src` folder, process them applying specific filters and transformations, and generates in output a bunch of files in different formats (eg. CSS/Sass, JS, JSON) in the `dist` folder.
 
-Style Dictionary is run via a custom `build` script (written in Node.js/TypeScript). In this script we generate dynamically a configuration object, pass it to Style Dictionary and then launch the `buildPlatform` command. This is done for both `products` and `marketing` (they have different designs, so also use different design tokens).
+Style Dictionary is run via a custom `build` script (written in Node.js/TypeScript). In this script we generate dynamically a configuration object, pass it to Style Dictionary and then launch the `buildPlatform` command.
 
 Whenever there is an update to the "foundations/components" in Figma (e.g. a new color is added), these changes need to be transfered also to the code. This means updating the design token names/values in a specific JSON file in the `src` folder, re-generate the tokens files in the output `dist` folder, and then releasing them as package to the npm registry, so that can be used by other tools and projects.
 
@@ -53,7 +53,7 @@ This action will:
 
 * Define a set of custom transformation methods
 * Cleanup the `dist` folder
-* For each of the target platforms (`products` and `marketing`):
+* For each of the target platforms
   * initialize Style Dictionary with a custom configuration specific for that target
   * build the design tokens for the `web` platform
     * Style Dictionary this
