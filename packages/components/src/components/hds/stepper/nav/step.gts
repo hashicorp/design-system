@@ -56,13 +56,6 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
   @service declare readonly hdsIntl: HdsIntlService;
 
   private _statusSrOnlyTextMap?: Record<HdsStepperNavStatuses, string>;
-
-  constructor(owner: Owner, args: HdsStepperNavStepSignature['Args']) {
-    super(owner, args);
-
-    this._statusSrOnlyTextMap = HdsStepperNavStatusToSrOnlyText(this.hdsIntl);
-  }
-
   private _stepId = 'step-' + guidFor(this);
   private _elementId?: string;
 
@@ -84,6 +77,12 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
       };
     }
   );
+
+  constructor(owner: Owner, args: HdsStepperNavStepSignature['Args']) {
+    super(owner, args);
+
+    this._statusSrOnlyTextMap = HdsStepperNavStatusToSrOnlyText(this.hdsIntl);
+  }
 
   get titleTag(): HdsStepperTitleTags {
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
