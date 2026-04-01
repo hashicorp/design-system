@@ -650,27 +650,11 @@
           "focus": {
             "internal": {
               "$type": "color",
-              "$value": "{color.palette.neutral-0}",
-              "$modes": {
-                "default": "{color.palette.neutral-0}",
-                "cds-g0": "pink",
-                "cds-g10": "pink",
-                "cds-g90": "pink",
-                "cds-g100": "pink"
-              },
-              "comment": "TODO - replace the `pink` values with the correct ones"
+              "$value": "{color.focus.action.internal}"
             },
             "external": {
               "$type": "color",
-              "$value": "{color.focus.action.external}",
-              "$modes": {
-                "default": "{color.focus.action.external}",
-                "cds-g0": "magenta",
-                "cds-g10": "magenta",
-                "cds-g90": "magenta",
-                "cds-g100": "magenta"
-              },
-              "comment": "TODO - replace the `magenta` values with the correct ones"
+              "$value": "{color.focus.action.external}"
             }
           },
           "active": {
@@ -711,27 +695,11 @@
           "focus": {
             "internal": {
               "$type": "color",
-              "$value": "{color.focus.action.internal}",
-              "$modes": {
-                "default": "{color.focus.action.internal}",
-                "cds-g0": "pink",
-                "cds-g10": "pink",
-                "cds-g90": "pink",
-                "cds-g100": "pink"
-              },
-              "comment": "TODO - replace the `pink` values with the correct ones"
+              "$value": "{color.focus.action.internal}"
             },
             "external": {
               "$type": "color",
-              "$value": "{color.focus.action.external}",
-              "$modes": {
-                "default": "{color.focus.action.external}",
-                "cds-g0": "magenta",
-                "cds-g10": "magenta",
-                "cds-g90": "magenta",
-                "cds-g100": "magenta"
-              },
-              "comment": "TODO - replace the `magenta` values with the correct ones"
+              "$value": "{color.focus.action.external}"
             }
           },
           "active": {
@@ -821,27 +789,11 @@
           "focus": {
             "internal": {
               "$type": "color",
-              "$value": "{color.focus.critical.internal}",
-              "$modes": {
-                "default": "{color.focus.critical.internal}",
-                "cds-g0": "pink",
-                "cds-g10": "pink",
-                "cds-g90": "pink",
-                "cds-g100": "pink"
-              },
-              "comment": "TODO - replace the `pink` values with the correct ones"
+              "$value": "{color.focus.critical.internal}"
             },
             "external": {
               "$type": "color",
-              "$value": "{color.focus.critical.external}",
-              "$modes": {
-                "default": "{color.focus.critical.external}",
-                "cds-g0": "magenta",
-                "cds-g10": "magenta",
-                "cds-g90": "magenta",
-                "cds-g100": "magenta"
-              },
-              "comment": "TODO - replace the `magenta` values with the correct ones"
+              "$value": "{color.focus.critical.external}"
             }
           },
           "active": {
