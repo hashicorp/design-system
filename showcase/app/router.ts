@@ -23,6 +23,11 @@ Router.map(function () {
         this.route('demo-viewport-breakpoints-page-padding');
       });
     });
+    this.route('theming', function () {
+      this.route('frameless', function () {
+        this.route('demo-application-with-theme-switcher');
+      });
+    });
   });
   this.route('page-components', { path: 'components' }, function () {
     this.route('accordion');
@@ -158,4 +163,42 @@ Router.map(function () {
       this.route('translation');
     },
   );
+  this.route('page-carbonization', { path: 'carbonization' }, function () {
+    this.route('foundations', function () {
+      this.route('color');
+      this.route('typography');
+      this.route('focus-ring');
+    });
+    this.route('components', function () {
+      this.route('application-state');
+      this.route('app-footer');
+      this.route('badge');
+      this.route('badge-count');
+      this.route('breadcrumb');
+      this.route('button');
+      this.route('copy', function () {
+        this.route('snippet');
+      });
+      this.route('flyout');
+      this.route('form', function (): void {
+        this.route('text-input');
+        this.route('radio-card');
+      });
+      this.route('icon-tile');
+      this.route('link', function (): void {
+        this.route('inline');
+        this.route('standalone');
+      });
+      this.route('modal');
+      this.route('pagination');
+      this.route('rich-tooltip');
+      this.route('segmented-group');
+      this.route('separator');
+      this.route('tooltip');
+    });
+    this.route('utilities', function () {
+      this.route('dialog-primitive');
+      this.route('dismiss-button');
+    });
+  });
 });
