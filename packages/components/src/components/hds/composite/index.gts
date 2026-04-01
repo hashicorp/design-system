@@ -101,6 +101,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
   private _currentId: string | null | undefined = undefined;
 
   private _compositeElement: HTMLElement | null = null;
+  private _preserveTabIndex = false;
 
   constructor(owner: Owner, args: HdsCompositeSignature['Args']) {
     super(owner, args);
@@ -279,7 +280,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
   private _syncCompositeElement(): void {
     const element = this._compositeElement;
 
-    if (element === null) {
+    if (element === null || this._preserveTabIndex === true) {
       return;
     }
 
@@ -293,6 +294,8 @@ export default class Composite extends Component<HdsCompositeSignature> {
   compositeModifier = modifier<HdsCompositeCompositeModifierSignature>(
     (element: HTMLElement) => {
       this._compositeElement = element;
+      this._preserveTabIndex = element.hasAttribute('tabindex');
+
       this._syncCompositeElement();
 
       const onKeyDown = (event: KeyboardEvent): void => {
