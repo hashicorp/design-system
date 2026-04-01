@@ -9985,6 +9985,8 @@ button.hds-button[href]::after {
 .hds-mode-cds-g90 .hds-tag__link,
 .hds-mode-cds-g100 .hds-tag__link {
   text-decoration: none;
+  padding-top: calc(var(--token-tag-padding-top) - 1px);
+  padding-bottom: calc(var(--token-tag-padding-bottom) - 1px);
 }
 
 .hds-tag__text-container {

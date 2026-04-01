@@ -61,6 +61,8 @@
 
 .hds-tag__link {
   @include hds-apply-only-if-carbon() {
+    padding-top: calc(var(--token-tag-padding-top) - 1px); // account for 1px border on link variant
+    padding-bottom: calc(var(--token-tag-padding-bottom) - 1px); // account for 1px border on link variant
     text-decoration: none;
   }
 }
