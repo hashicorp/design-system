@@ -43,7 +43,13 @@
   --token-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
   --token-border-radius-rounded: 1000000000px;
   --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-critical-focus-external: var(--token-color-focus-critical-external);
+  --token-button-border-color-critical-focus-internal: var(--token-color-focus-critical-internal);
   --token-button-border-color-disabled: var(--token-color-border-primary);
+  --token-button-border-color-primary-focus-external: var(--token-color-focus-action-external);
+  --token-button-border-color-primary-focus-internal: var(--token-color-focus-action-internal);
+  --token-button-border-color-secondary-focus-external: var(--token-color-focus-action-external);
+  --token-button-border-color-secondary-focus-internal: var(--token-color-focus-action-internal);
   --token-button-border-color-tertiary-disabled: var(--token-button-border-color-disabled);
   --token-button-border-color-tertiary-focus-external: var(--token-color-focus-action-external);
   --token-button-border-color-tertiary-focus-internal: var(--token-color-focus-action-internal);

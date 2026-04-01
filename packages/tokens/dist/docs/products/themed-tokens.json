@@ -10660,26 +10660,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffffff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#0c56e9",
       "original": {
         "$type": "color",
-        "$value": "{color.palette.neutral-0}",
-        "$modes": {
-          "default": "{color.palette.neutral-0}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -10699,25 +10683,9 @@
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
       "$value": "#5990ff",
-      "$modes": {
-        "default": "#5990ff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.action.external}",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -10842,25 +10810,9 @@
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
       "$value": "#0c56e9",
-      "$modes": {
-        "default": "#0c56e9",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.action.internal}",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -10880,25 +10832,9 @@
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
       "$value": "#5990ff",
-      "$modes": {
-        "default": "#5990ff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.action.external}",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -11193,25 +11129,9 @@
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
       "$value": "#c00005",
-      "$modes": {
-        "default": "#c00005",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.critical.internal}",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -11231,25 +11151,9 @@
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
       "$value": "#dd7578",
-      "$modes": {
-        "default": "#dd7578",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.critical.external}",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -27968,26 +27872,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.palette.neutral-0}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -28006,26 +27894,10 @@
     "token-button-border-color-primary-focus-external": {
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -28149,26 +28021,10 @@
     "token-button-border-color-secondary-focus-internal": {
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -28187,26 +28043,10 @@
     "token-button-border-color-secondary-focus-external": {
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -28500,26 +28340,10 @@
     "token-button-border-color-critical-focus-internal": {
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.critical.internal}",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -28538,26 +28362,10 @@
     "token-button-border-color-critical-focus-external": {
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.critical.external}",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -45276,26 +45084,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.palette.neutral-0}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -45314,26 +45106,10 @@
     "token-button-border-color-primary-focus-external": {
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -45457,26 +45233,10 @@
     "token-button-border-color-secondary-focus-internal": {
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -45495,26 +45255,10 @@
     "token-button-border-color-secondary-focus-external": {
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -45808,26 +45552,10 @@
     "token-button-border-color-critical-focus-internal": {
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.critical.internal}",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -45846,26 +45574,10 @@
     "token-button-border-color-critical-focus-external": {
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.critical.external}",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -62584,26 +62296,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.palette.neutral-0}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -62622,26 +62318,10 @@
     "token-button-border-color-primary-focus-external": {
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -62765,26 +62445,10 @@
     "token-button-border-color-secondary-focus-internal": {
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -62803,26 +62467,10 @@
     "token-button-border-color-secondary-focus-external": {
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -63116,26 +62764,10 @@
     "token-button-border-color-critical-focus-internal": {
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.critical.internal}",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -63154,26 +62786,10 @@
     "token-button-border-color-critical-focus-external": {
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.critical.external}",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -79892,26 +79508,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.palette.neutral-0}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -79930,26 +79530,10 @@
     "token-button-border-color-primary-focus-external": {
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -80073,26 +79657,10 @@
     "token-button-border-color-secondary-focus-internal": {
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -80111,26 +79679,10 @@
     "token-button-border-color-secondary-focus-external": {
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -80424,26 +79976,10 @@
     "token-button-border-color-critical-focus-internal": {
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.critical.internal}",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -80462,26 +79998,10 @@
     "token-button-border-color-critical-focus-external": {
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.critical.external}",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
