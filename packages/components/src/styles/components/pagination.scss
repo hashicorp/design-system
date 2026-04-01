@@ -175,7 +175,9 @@ $pagination-nav-control-padding-horizontal: 12px;
 
   &:not(.hds-pagination-nav__number--is-selected, [disabled]) {
     &:hover,
-    &.mock-hover {
+    &.mock-hover,
+    &:active,
+    &.mock-active {
       background-color: var(--token-pagination-nav-surface-color-action-hover);
     }
   }
@@ -183,7 +185,6 @@ $pagination-nav-control-padding-horizontal: 12px;
   &:active,
   &.mock-active {
     color: var(--token-pagination-nav-control-foreground-color-active);
-    background-color: var(--token-pagination-nav-surface-color-action-hover);
   }
 }
 
