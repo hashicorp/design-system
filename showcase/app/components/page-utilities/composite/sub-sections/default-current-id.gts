@@ -42,7 +42,7 @@ const SubSectionDefaultCurrentId: TemplateOnlyComponent = <template>
   <ShwFlex @direction="column" as |SF|>
     {{! template-lint-disable no-potential-path-strings }}
     <SF.Item
-      @label="@defaultCurrentId='does-not-exist' — when the ID doesn't match any item, no item is initially active"
+      @label="@defaultCurrentId='does-not-exist' — when the ID doesn't match any item, the first item is initially active"
     >
       <CompositeWithToolbar
         @ariaLabel="Nonexistent ID"
