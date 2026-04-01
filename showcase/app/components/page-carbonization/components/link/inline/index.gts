@@ -96,7 +96,7 @@ const BadgeLinkInlineIndex: TemplateOnlyComponent = <template>
                   Lorem ipsum dolor
                 </cds-link>
               {{else}}
-                <pre>TODO: add static image here</pre>
+                <pre>TODO: static image here</pre>
               {{/if}}
             {{/if}}
           </:reference>
