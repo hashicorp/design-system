@@ -25,7 +25,7 @@ export function HdsAppFooterStatusLinkStatusValues(
 > {
   return {
     [HdsAppFooterStatusValues.Operational]: {
-      text: hdsIntl.t('hds.appFooter.status.operational', {
+      text: hdsIntl.t('hds.app-footer.status-link.status.operational', {
         default: 'System operational',
       }),
       iconName: 'check-circle',
