@@ -39,7 +39,6 @@ export default class HdsPaginationControlNumber extends Component<HdsPaginationN
     const classes = [
       'hds-pagination-nav__control',
       'hds-pagination-nav__number',
-      'hds-typography-body-100',
     ];
 
     if (this.args.isSelected) {
