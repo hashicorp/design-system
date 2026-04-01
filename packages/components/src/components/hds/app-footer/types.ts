@@ -31,19 +31,19 @@ export function HdsAppFooterStatusLinkStatusValues(
       iconName: 'check-circle',
     },
     [HdsAppFooterStatusValues.Degraded]: {
-      text: hdsIntl.t('hds.appFooter.status.degraded', {
+      text: hdsIntl.t('hds.app-footer.status-link.status.degraded', {
         default: 'System degraded',
       }),
       iconName: 'alert-triangle',
     },
     [HdsAppFooterStatusValues.Maintenance]: {
-      text: hdsIntl.t('hds.appFooter.status.maintenance', {
+      text: hdsIntl.t('hds.app-footer.status-link.status.maintenance', {
         default: 'System maintenance',
       }),
       iconName: 'alert-triangle',
     },
     [HdsAppFooterStatusValues.Outage]: {
-      text: hdsIntl.t('hds.appFooter.status.outage', {
+      text: hdsIntl.t('hds.app-footer.status-link.status.outage', {
         default: 'System outage',
       }),
       iconName: 'x-circle',
