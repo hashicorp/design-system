@@ -130,17 +130,15 @@
       },
       "surface": {
         "color": {
-          "action": {
-            "hover": {
-              "$type": "color",
-              "$value": "transparent",
-              "$modes": {
-                "default": "transparent",
-                "cds-g0": "{carbon.themes.white.backgroundHover}",
-                "cds-g10": "{carbon.themes.g10.backgroundHover}",
-                "cds-g90": "{carbon.themes.g90.backgroundHover}",
-                "cds-g100": "{carbon.themes.g100.backgroundHover}"
-              }
+          "hover": {
+            "$type": "color",
+            "$value": "transparent",
+            "$modes": {
+              "default": "transparent",
+              "cds-g0": "{carbon.themes.white.backgroundHover}",
+              "cds-g10": "{carbon.themes.g10.backgroundHover}",
+              "cds-g90": "{carbon.themes.g90.backgroundHover}",
+              "cds-g100": "{carbon.themes.g100.backgroundHover}"
             }
           }
         }
