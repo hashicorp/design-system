@@ -111,12 +111,29 @@ export default class Composite extends Component<HdsCompositeSignature> {
     }
   }
 
+  private get _resolvedCurrentId(): string | null | undefined {
+    // explicitly null (no active item)
+    if (this._currentId === null) { 
+      return null;
+    }
+
+    const requestedItem = this._items.find((item) => item.id === this._currentId);
+
+    if (requestedItem !== undefined && requestedItem.disabled === false) {
+      return this._currentId;
+    }
+
+    return this._firstEnabledItem !== undefined ? this._firstEnabledItem.id : undefined;
+  }
+
   private get _currentItem(): HdsCompositeItem | undefined {
-    if (this._currentId === null || this._currentId === undefined) {
+    const activeId = this._resolvedCurrentId;
+    
+    if (activeId === null || activeId === undefined) {
       return undefined;
     }
 
-    return this._items.find((item) => item.id === this._currentId);
+    return this._items.find((item) => item.id === activeId);
   }
 
   private get _firstEnabledItem(): HdsCompositeItem | undefined {
@@ -124,11 +141,13 @@ export default class Composite extends Component<HdsCompositeSignature> {
   }
 
   private get _currentIndex(): number {
-    if (this._currentId === null || this._currentId === undefined) {
+    const activeId = this._resolvedCurrentId;
+
+    if (activeId === null || activeId === undefined) {
       return -1;
     }
 
-    return this._items.findIndex((item) => item.id === this._currentId);
+    return this._items.findIndex((item) => item.id === activeId);
   }
 
   private get _config(): HdsCompositeNavigationConfig {
@@ -155,15 +174,6 @@ export default class Composite extends Component<HdsCompositeSignature> {
       ...this._items.filter((item) => item.id !== newItem.id),
       newItem,
     ]);
-
-    if (this._currentId === undefined) {
-      if (this._firstEnabledItem !== undefined) {
-        this._currentId = this._firstEnabledItem.id;
-      }
-    } else if (this._currentId === newItem.id && newItem.disabled === true) {
-      this._currentId =
-        this._firstEnabledItem !== undefined ? this._firstEnabledItem.id : null;
-    }
 
     this._syncAllElements();
   }
@@ -256,7 +266,7 @@ export default class Composite extends Component<HdsCompositeSignature> {
 
   private _syncItemElement(item: HdsCompositeItem): void {
     const element = item.element;
-    const isCurrent = item.id === this._currentId;
+    const isCurrent = item.id === this._resolvedCurrentId;
 
     if (item.disabled === true) {
       element.setAttribute('aria-disabled', 'true');
@@ -284,7 +294,9 @@ export default class Composite extends Component<HdsCompositeSignature> {
       return;
     }
 
-    if (this._currentId === null || this._currentId === undefined) {
+    const activeId = this._resolvedCurrentId;
+
+    if (activeId === null || activeId === undefined) {
       element.setAttribute('tabindex', '0');
     } else {
       element.removeAttribute('tabindex');

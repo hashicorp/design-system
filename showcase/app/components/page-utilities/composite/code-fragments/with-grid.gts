@@ -28,7 +28,7 @@ export interface CompositeWithGridSignature {
   Element: HTMLDivElement;
 }
 
-const CompositeWithHorizontalButtonList: TemplateOnlyComponent<CompositeWithGridSignature> =
+const CompositeWithGrid: TemplateOnlyComponent<CompositeWithGridSignature> =
   <template>
     <HdsComposite
       @loop={{@loop}}
@@ -64,4 +64,4 @@ const CompositeWithHorizontalButtonList: TemplateOnlyComponent<CompositeWithGrid
     </HdsComposite>
   </template>;
 
-export default CompositeWithHorizontalButtonList;
+export default CompositeWithGrid;
