@@ -193,11 +193,6 @@ StyleDictionary.registerTransformGroup({
   transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
-StyleDictionary.registerTransformGroup({
-  name: 'marketing/web',
-  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
-});
-
 StyleDictionary.registerFormat({
   name: 'docs/json',
   format: customFormatDocsJsonFunction,

@@ -20,15 +20,13 @@ Then import one of those files in your app's style file (`app.scss` or similar):
 // to use design tokens as CSS variables
 //
 ~/dist/products/css/tokens.css  // for product applications
-~/dist/devdot/css/tokens.css    // for devdot platform
-~/dist/marketing/css/tokens.css // for marketing websites
 
 // to use the CSS helper classes
 //
-~/dist/[products|devdot|marketing]/css/helpers/colors.css     // for color styles
-~/dist/[products|devdot|marketing]/css/helpers/elevation.css  // for elevation styles
-~/dist/[products|devdot|marketing]/css/helpers/typography.css // for typographic styles
-~/dist/[products|devdot|marketing]/css/helpers/focus-ring.css // for focus-ring style
+~/dist/[products]/css/helpers/colors.css     // for color styles
+~/dist/[products]/css/helpers/elevation.css  // for elevation styles
+~/dist/[products]/css/helpers/typography.css // for typographic styles
+~/dist/[products]/css/helpers/focus-ring.css // for focus-ring style
 ```
 
 ## Usage
