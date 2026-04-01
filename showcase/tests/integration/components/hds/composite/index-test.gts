@@ -449,7 +449,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     assert.dom('[data-active-item]').hasAttribute('id', 'item-2');
   });
 
-  test('it does not activate any item if @defaultCurrentId does not match', async function (assert) {
+  test('it activates the first enabled item if @defaultCurrentId does not match (fallback)', async function (assert) {
     assert.expect(1);
 
     await render(
@@ -463,7 +463,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       </template>,
     );
 
-    assert.dom('[data-active-item]').doesNotExist();
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-1');
   });
 
   test('with no orientation and no groups, all arrow keys navigate linearly', async function (assert) {
@@ -836,5 +836,27 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     await triggerKeyEvent('#composite-root', 'keydown', 'Tab');
 
     wrapperRoot.removeEventListener('keydown', keydownHandler);
+  });
+
+  test('it preserves an explicitly set tabindex on the composite container', async function (assert) {
+    assert.expect(3);
+
+    await render(
+      <template>
+        <HdsComposite as |c|>
+          <div {{c.composite}} id="composite-root" tabindex="0">
+            <HdsButton {{c.item}} id="item-1" @text="Item 1" />
+            <HdsButton {{c.item}} id="item-2" @text="Item 2" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    assert.dom('#composite-root').hasAttribute('tabindex', '0');
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-1');
+
+    await focus('#item-1');
+    await triggerKeyEvent('#composite-root', 'keydown', 'ArrowRight');
+    assert.dom('#composite-root').hasAttribute('tabindex', '0');
   });
 });
