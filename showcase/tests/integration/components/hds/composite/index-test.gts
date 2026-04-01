@@ -60,6 +60,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
 
     assert.dom('#item-1').hasAttribute('disabled', '');
     assert.dom('#item-2').doesNotHaveAttribute('aria-disabled');
+    
   });
 
   test('it moves focus with arrow keys (horizontal)', async function (assert) {
