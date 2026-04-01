@@ -909,4 +909,26 @@ module('Integration | Component | hds/composite/index', function (hooks) {
 
     wrapperRoot.removeEventListener('keydown', keydownHandler);
   });
+
+  test('it preserves an explicitly set tabindex on the composite container', async function (assert) {
+    assert.expect(3);
+
+    await render(
+      <template>
+        <HdsComposite as |c|>
+          <div {{c.composite}} id="composite-root" tabindex="0">
+            <HdsButton {{c.item}} id="item-1" @text="Item 1" />
+            <HdsButton {{c.item}} id="item-2" @text="Item 2" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    assert.dom('#composite-root').hasAttribute('tabindex', '0');
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-1');
+
+    await focus('#item-1');
+    await triggerKeyEvent('#composite-root', 'keydown', 'ArrowRight');
+    assert.dom('#composite-root').hasAttribute('tabindex', '0');
+  });
 });
