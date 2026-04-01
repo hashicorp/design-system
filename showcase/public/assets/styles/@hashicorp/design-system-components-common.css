@@ -7889,7 +7889,7 @@ button.hds-button[href]::after {
   color: var(--token-pagination-nav-control-foreground-color-hover);
 }
 .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]):hover, .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]).mock-hover, .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]):active, .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]).mock-active {
-  background-color: var(--token-pagination-nav-surface-color-action-hover);
+  background-color: var(--token-pagination-nav-surface-color-hover);
 }
 .hds-pagination-nav__control:active, .hds-pagination-nav__control.mock-active {
   color: var(--token-pagination-nav-control-foreground-color-active);

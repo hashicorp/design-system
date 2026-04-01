@@ -14699,8 +14699,8 @@
         "spacing"
       ]
     },
-    "token-pagination-nav-surface-color-action-hover": {
-      "key": "{pagination.nav.surface.color.action.hover}",
+    "token-pagination-nav-surface-color-hover": {
+      "key": "{pagination.nav.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -14720,9 +14720,9 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{pagination.nav.surface.color.action.hover}"
+        "key": "{pagination.nav.surface.color.hover}"
       },
-      "name": "token-pagination-nav-surface-color-action-hover",
+      "name": "token-pagination-nav-surface-color-hover",
       "attributes": {
         "category": "pagination"
       },
@@ -14731,7 +14731,6 @@
         "nav",
         "surface",
         "color",
-        "action",
         "hover"
       ]
     },
@@ -31941,8 +31940,8 @@
         "spacing"
       ]
     },
-    "token-pagination-nav-surface-color-action-hover": {
-      "key": "{pagination.nav.surface.color.action.hover}",
+    "token-pagination-nav-surface-color-hover": {
+      "key": "{pagination.nav.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.12)",
       "$modes": {
@@ -31962,9 +31961,9 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{pagination.nav.surface.color.action.hover}"
+        "key": "{pagination.nav.surface.color.hover}"
       },
-      "name": "token-pagination-nav-surface-color-action-hover",
+      "name": "token-pagination-nav-surface-color-hover",
       "attributes": {
         "category": "pagination"
       },
@@ -31973,7 +31972,6 @@
         "nav",
         "surface",
         "color",
-        "action",
         "hover"
       ]
     },
@@ -49183,8 +49181,8 @@
         "spacing"
       ]
     },
-    "token-pagination-nav-surface-color-action-hover": {
-      "key": "{pagination.nav.surface.color.action.hover}",
+    "token-pagination-nav-surface-color-hover": {
+      "key": "{pagination.nav.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.12)",
       "$modes": {
@@ -49204,9 +49202,9 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{pagination.nav.surface.color.action.hover}"
+        "key": "{pagination.nav.surface.color.hover}"
       },
-      "name": "token-pagination-nav-surface-color-action-hover",
+      "name": "token-pagination-nav-surface-color-hover",
       "attributes": {
         "category": "pagination"
       },
@@ -49215,7 +49213,6 @@
         "nav",
         "surface",
         "color",
-        "action",
         "hover"
       ]
     },
@@ -66425,8 +66422,8 @@
         "spacing"
       ]
     },
-    "token-pagination-nav-surface-color-action-hover": {
-      "key": "{pagination.nav.surface.color.action.hover}",
+    "token-pagination-nav-surface-color-hover": {
+      "key": "{pagination.nav.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.16)",
       "$modes": {
@@ -66446,9 +66443,9 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{pagination.nav.surface.color.action.hover}"
+        "key": "{pagination.nav.surface.color.hover}"
       },
-      "name": "token-pagination-nav-surface-color-action-hover",
+      "name": "token-pagination-nav-surface-color-hover",
       "attributes": {
         "category": "pagination"
       },
@@ -66457,7 +66454,6 @@
         "nav",
         "surface",
         "color",
-        "action",
         "hover"
       ]
     },
@@ -83667,8 +83663,8 @@
         "spacing"
       ]
     },
-    "token-pagination-nav-surface-color-action-hover": {
-      "key": "{pagination.nav.surface.color.action.hover}",
+    "token-pagination-nav-surface-color-hover": {
+      "key": "{pagination.nav.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.16)",
       "$modes": {
@@ -83688,9 +83684,9 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{pagination.nav.surface.color.action.hover}"
+        "key": "{pagination.nav.surface.color.hover}"
       },
-      "name": "token-pagination-nav-surface-color-action-hover",
+      "name": "token-pagination-nav-surface-color-hover",
       "attributes": {
         "category": "pagination"
       },
@@ -83699,7 +83695,6 @@
         "nav",
         "surface",
         "color",
-        "action",
         "hover"
       ]
     },

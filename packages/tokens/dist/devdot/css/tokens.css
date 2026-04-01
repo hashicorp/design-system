@@ -497,7 +497,7 @@
   --token-pagination-nav-control-typography-font-weight-active: var(--token-typography-font-weight-medium);
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
-  --token-pagination-nav-surface-color-action-hover: rgba(0, 0, 0, 0);
+  --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-rich-tooltip-bubble-max-width: 280px;

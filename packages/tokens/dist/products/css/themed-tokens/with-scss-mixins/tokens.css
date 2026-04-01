@@ -528,7 +528,7 @@
       --token-typography-font-weight-medium
     );
     --token-pagination-nav-indicator-height: 2px;
-    --token-pagination-nav-surface-color-action-hover: rgba(0, 0, 0, 0);
+    --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
     --token-rich-tooltip-bubble-arrow-size: 20px;
     --token-rich-tooltip-bubble-border-color: #656a7633;
     --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
@@ -933,12 +933,7 @@
     --token-pagination-nav-control-height: 40px;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
-    --token-pagination-nav-surface-color-action-hover: rgba(
-      141,
-      141,
-      141,
-      0.12
-    );
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1328,12 +1323,7 @@
     --token-pagination-nav-control-height: 40px;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
-    --token-pagination-nav-surface-color-action-hover: rgba(
-      141,
-      141,
-      141,
-      0.16
-    );
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1723,12 +1713,7 @@
     --token-pagination-nav-control-height: 40px;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
-    --token-pagination-nav-surface-color-action-hover: rgba(
-      141,
-      141,
-      141,
-      0.12
-    );
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2118,12 +2103,7 @@
     --token-pagination-nav-control-height: 40px;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
-    --token-pagination-nav-surface-color-action-hover: rgba(
-      141,
-      141,
-      141,
-      0.12
-    );
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2513,12 +2493,7 @@
     --token-pagination-nav-control-height: 40px;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
-    --token-pagination-nav-surface-color-action-hover: rgba(
-      141,
-      141,
-      141,
-      0.16
-    );
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2908,12 +2883,7 @@
     --token-pagination-nav-control-height: 40px;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
-    --token-pagination-nav-surface-color-action-hover: rgba(
-      141,
-      141,
-      141,
-      0.16
-    );
+    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
