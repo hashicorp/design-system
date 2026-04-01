@@ -9931,6 +9931,13 @@ button.hds-button[href]::after {
 .hds-tabs__tab.hds-tabs__tab--is-selected {
   color: var(--token-tabs-foreground-color-selected-default);
 }
+.hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected,
+.hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected,
+.hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected,
+.hds-mode-cds-g100 .hds-tabs__tab.hds-tabs__tab--is-selected {
+  border-color: var(--token-color-foreground-action);
+}
+
 .hds-tabs__tab.hds-tabs__tab--is-selected:hover {
   color: var(--token-tabs-foreground-color-selected-hover);
 }
@@ -9942,13 +9949,6 @@ button.hds-button[href]::after {
 .hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator,
 .hds-mode-cds-g100 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator {
   background: var(--token-color-foreground-action);
-}
-
-.hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) ~ .hds-tabs__tab-indicator,
-.hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) ~ .hds-tabs__tab-indicator,
-.hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) ~ .hds-tabs__tab-indicator,
-.hds-mode-cds-g100 .hds-tabs__tab.hds-tabs__tab--is-selected:has(.hds-tabs__tab-button:focus, .hds-tabs__tab-button.mock-focus) ~ .hds-tabs__tab-indicator {
-  display: none;
 }
 
 .hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
@@ -10025,17 +10025,18 @@ button.hds-button[href]::after {
   background-color: var(--token-color-foreground-action);
   border-radius: var(--token-tabs-indicator-height);
 }
+.hds-mode-cds-g0 .hds-tabs__tab-indicator,
+.hds-mode-cds-g10 .hds-tabs__tab-indicator,
+.hds-mode-cds-g90 .hds-tabs__tab-indicator,
+.hds-mode-cds-g100 .hds-tabs__tab-indicator {
+  display: none;
+}
+
 @media screen and (prefers-reduced-motion: no-preference) {
   .hds-tabs__tab-indicator {
     transition-timing-function: var(--token-tabs-indicator-transition-function);
     transition-duration: var(--token-tabs-indicator-transition-duration);
     transition-property: left, width;
-  }
-  .hds-mode-cds-g0 .hds-tabs__tab-indicator,
-  .hds-mode-cds-g10 .hds-tabs__tab-indicator,
-  .hds-mode-cds-g90 .hds-tabs__tab-indicator,
-  .hds-mode-cds-g100 .hds-tabs__tab-indicator {
-    transition: color 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
   }
 }
 
