@@ -1,0 +1,19 @@
+<Hds::AdvancedTable
+  @model={{this.myDemoData}}
+  @columns={{array
+    (hash label="Peer name" isSortable=true key="peer-name")
+    (hash label="Status" isSortable=true key="status" sortingFunction=this.customSortingFunction)
+    (hash label="Cluster partition")
+  }}
+  @sortBy="status"
+  @sortOrder="asc"
+  @onSort={{this.customOnSort}}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{get B.data "peer-name"}}</B.Td>
+      <B.Td>{{get B.data "status"}}</B.Td>
+      <B.Td>{{get B.data "cluster-partition"}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>

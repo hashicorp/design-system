@@ -1,0 +1,22 @@
+<Hds::AdvancedTable
+  @model={{this.myDemoData}}
+  @columns={{array
+    (hash key="name" label="Name" isExpandable=true)
+    (hash key="status" label="Status")
+    (hash key="description" label="Description")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Th>{{B.data.name}}</B.Th>
+      <B.Td>
+        {{#if (eq B.data.status "FAIL")}}
+          <Hds::Badge @text="Fail" @color="critical" @icon="x" />
+        {{else}}
+          <Hds::Badge @text="Pass" @color="success" @icon="check" />
+        {{/if}}
+      </B.Td>
+      <B.Td>{{B.data.description}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
