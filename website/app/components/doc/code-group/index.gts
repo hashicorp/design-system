@@ -100,6 +100,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     });
 
     if (typeof window !== 'undefined') {
+      // this custom event is used to notify other code group instances on the page that the language selection has changed so that they can update their selected language too
       window.addEventListener(
         CODE_GROUP_LANGUAGE_CHANGE_EVENT,
         this.handleStoredLanguageChange,
@@ -219,7 +220,11 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       return null;
     }
 
-    return window.localStorage.getItem(CODE_GROUP_LANGUAGE_STORAGE_KEY);
+    try {
+      return window.localStorage.getItem(CODE_GROUP_LANGUAGE_STORAGE_KEY);
+    } catch {
+      return null;
+    }
   }
 
   private resolveLanguageSelection(value?: string | null) {
