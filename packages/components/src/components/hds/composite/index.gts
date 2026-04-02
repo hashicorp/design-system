@@ -113,22 +113,26 @@ export default class Composite extends Component<HdsCompositeSignature> {
 
   private get _resolvedCurrentId(): string | null | undefined {
     // explicitly null (no active item)
-    if (this._currentId === null) { 
+    if (this._currentId === null) {
       return null;
     }
 
-    const requestedItem = this._items.find((item) => item.id === this._currentId);
+    const requestedItem = this._items.find(
+      (item) => item.id === this._currentId
+    );
 
     if (requestedItem !== undefined && requestedItem.disabled === false) {
       return this._currentId;
     }
 
-    return this._firstEnabledItem !== undefined ? this._firstEnabledItem.id : undefined;
+    return this._firstEnabledItem !== undefined
+      ? this._firstEnabledItem.id
+      : undefined;
   }
 
   private get _currentItem(): HdsCompositeItem | undefined {
     const activeId = this._resolvedCurrentId;
-    
+
     if (activeId === null || activeId === undefined) {
       return undefined;
     }
