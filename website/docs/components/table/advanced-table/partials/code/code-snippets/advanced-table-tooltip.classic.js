@@ -10,7 +10,7 @@ export default class LocalComponent extends Component {
     //    id: '1',
     //    artist: 'Nick Drake',
     //    album: 'Pink Moon',
-    //   'vinyl-cost': '29.27',
+    //    'vinyl-cost': '29.27',
     //  },
     //  {
     //    id: '2',
