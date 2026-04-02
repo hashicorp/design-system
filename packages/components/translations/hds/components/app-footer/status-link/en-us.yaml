@@ -1,5 +1,5 @@
 status:
   operational: System operational
-degraded: System degraded
-maintenance: System maintenance
-outage: System outage
+  degraded: System degraded
+  maintenance: System maintenance
+  outage: System outage
