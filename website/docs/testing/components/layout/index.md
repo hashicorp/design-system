@@ -16,114 +16,33 @@ Hds::IconTile components are used in the examples below but you could use Doc::L
 
 **Default horizontal direction with 12px spacing**
 
-```handlebars
-<Doc::Layout @spacing="12px">
-  <Hds::IconTile @color="neutral" @icon="user" />
-  <Hds::IconTile @color="boundary" @icon="crosshair" />
-  <Hds::IconTile @color="consul" @icon="server-cluster" />
-  <Hds::IconTile @color="nomad" @icon="briefcase" />
-  <Hds::IconTile @color="packer" @icon="layers" />
-  <Hds::IconTile @color="terraform" @icon="grid" />
-  <Hds::IconTile @color="vagrant" @icon="box" />
-  <Hds::IconTile @color="vault" @icon="key" />
-  <Hds::IconTile @color="vault-secrets" @icon="fingerprint" />
-  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
-</Doc::Layout>
-```
+[[code-snippets/layout-horizontal]]
 
 **With vertical direction**
 
-```handlebars
-<Doc::Layout @direction="vertical" @spacing="12px">
-  <Hds::IconTile @color="neutral" @icon="user" />
-  <Hds::IconTile @color="boundary" @icon="crosshair" />
-  <Hds::IconTile @color="consul" @icon="server-cluster" />
-  <Hds::IconTile @color="nomad" @icon="briefcase" />
-  <Hds::IconTile @color="packer" @icon="layers" />
-  <Hds::IconTile @color="terraform" @icon="grid" />
-  <Hds::IconTile @color="vagrant" @icon="box" />
-  <Hds::IconTile @color="vault" @icon="key" />
-  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
-</Doc::Layout>
-```
+[[code-snippets/layout-vertical]]
 
 **Horizontal direction aligned to the right**
 
-```handlebars
-<Doc::Layout @spacing="12px" @align="right">
-  <Hds::IconTile @color="neutral" @icon="user" />
-  <Hds::IconTile @color="boundary" @icon="crosshair" />
-  <Hds::IconTile @color="consul" @icon="server-cluster" />
-  <Hds::IconTile @color="nomad" @icon="briefcase" />
-  <Hds::IconTile @color="packer" @icon="layers" />
-  <Hds::IconTile @color="terraform" @icon="grid" />
-  <Hds::IconTile @color="vagrant" @icon="box" />
-  <Hds::IconTile @color="vault" @icon="key" />
-  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
-</Doc::Layout>
-```
+[[code-snippets/layout-horizontal-right]]
 
 **Vertical direction aligned to the right**
 
-```handlebars
-<Doc::Layout @direction="vertical" @spacing="12px" @align="right">
-  <Hds::IconTile @color="neutral" @icon="user" />
-  <Hds::IconTile @color="boundary" @icon="crosshair" />
-  <Hds::IconTile @color="consul" @icon="server-cluster" />
-  <Hds::IconTile @color="nomad" @icon="briefcase" />
-  <Hds::IconTile @color="packer" @icon="layers" />
-  <Hds::IconTile @color="terraform" @icon="grid" />
-  <Hds::IconTile @color="vagrant" @icon="box" />
-  <Hds::IconTile @color="vault" @icon="key" />
-  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
-</Doc::Layout>
-```
+[[code-snippets/layout-vertical-right]]
 
 **Horizontal direction aligned to center**
 
-```handlebars
-<Doc::Layout @spacing="12px" @align="center">
-  <Hds::IconTile @color="neutral" @icon="user" />
-  <Hds::IconTile @color="boundary" @icon="crosshair" />
-  <Hds::IconTile @color="consul" @icon="server-cluster" />
-  <Hds::IconTile @color="nomad" @icon="briefcase" />
-  <Hds::IconTile @color="packer" @icon="layers" />
-  <Hds::IconTile @color="terraform" @icon="grid" />
-  <Hds::IconTile @color="vagrant" @icon="box" />
-  <Hds::IconTile @color="vault" @icon="key" />
-  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
-</Doc::Layout>
-```
+[[code-snippets/layout-horizontal-center]]
 
 **Vertical direction aligned to center**
 
-```handlebars
-<Doc::Layout @direction="vertical" @spacing="12px" @align="center">
-  <Hds::IconTile @color="neutral" @icon="user" />
-  <Hds::IconTile @color="boundary" @icon="crosshair" />
-  <Hds::IconTile @color="consul" @icon="server-cluster" />
-  <Hds::IconTile @color="nomad" @icon="briefcase" />
-  <Hds::IconTile @color="packer" @icon="layers" />
-  <Hds::IconTile @color="terraform" @icon="grid" />
-  <Hds::IconTile @color="vagrant" @icon="box" />
-  <Hds::IconTile @color="vault" @icon="key" />
-  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
-</Doc::Layout>
-```
+[[code-snippets/layout-vertical-center]]
 
 **Horizontal direction with alignment set to “justify”**
 
 Space out child elements with equal spacing in-between similarly to justified text. Optionally, you can also define `@spacing` to maintain a minimum space between elements.
 
-```handlebars
-<Doc::Layout @align="justify">
-  <Hds::IconTile @color="neutral" @icon="user" />
-  <Hds::IconTile @color="boundary" @icon="crosshair" />
-  <Hds::IconTile @color="consul" @icon="server-cluster" />
-  <Hds::IconTile @color="nomad" @icon="briefcase" />
-  <Hds::IconTile @color="packer" @icon="layers" />
-</Doc::Layout>
-```
+[[code-snippets/layout-horizontal-justify]]
 
 **Vertical direction with alignment set to “justify”**
 
@@ -133,14 +52,6 @@ Only shows an effect if height of container is taller than child items inside. C
 
 !!!
 
-```handlebars
-<Doc::Layout @direction="vertical" @align="justify" style="height: 400px;">
-  <Hds::IconTile @color="neutral" @icon="user" />
-  <Hds::IconTile @color="boundary" @icon="crosshair" />
-  <Hds::IconTile @color="consul" @icon="server-cluster" />
-  <Hds::IconTile @color="nomad" @icon="briefcase" />
-  <Hds::IconTile @color="packer" @icon="layers" />
-</Doc::Layout>
-```
+[[code-snippets/layout-vertical-justify]]
 
 @include "partials/code/component-api.md"

@@ -498,12 +498,7 @@ Upgraded `@ember/test-waiters` from `3.1.0` to `4.1.1`
 
 Removed `ember-engines` as a peer dependency, and added the `hds-link-to-external` utility. If your application uses Ember engines, it is now necessary to add a configuration to the `app.js` file.
 
-```js
-import LinkToExternal from "ember-engines/components/link-to-external";
-import { setLinkToExternal } from "@hashicorp/design-system-components/utils/hds-link-to-external";
-
-setLinkToExternal(LinkToExternal);
-```
+[[code-snippets/link-to-external]]
 
 <small class="doc-whats-new-changelog-metadata">[#3429](https://github.com/hashicorp/design-system/pull/3429) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
 
@@ -521,12 +516,7 @@ setLinkToExternal(LinkToExternal);
 
 `Interactive` - Refactored the component to use the `hds-link-to-external` utility. If your application uses Ember engines, it is now necessary to add a configuration to the `app.js` file.
 
-```js
-import LinkToExternal from "ember-engines/components/link-to-external";
-import { setLinkToExternal } from "@hashicorp/design-system-components/utils/hds-link-to-external";
-
-setLinkToExternal(LinkToExternal);
-```
+[[code-snippets/link-to-external]]
 
 <small class="doc-whats-new-changelog-metadata">[#3429](https://github.com/hashicorp/design-system/pull/3429) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
 

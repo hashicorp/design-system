@@ -1,0 +1,13 @@
+<div class="hds-power-select">
+  <PowerSelect
+    @multiple={{true}}
+    @options={{this.OPTIONS}}
+    @selected={{this.SELECTEDMULTIPLE}}
+    @onChange={{this.noop}}
+    @renderInPlace={{true}}
+    @ariaLabel="Server location"
+    as |option|
+  >
+    {{option}}
+  </PowerSelect>
+</div>
