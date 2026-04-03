@@ -94,7 +94,7 @@ $hds-tabs-sizes: ("medium", "large");
 
     .hds-tabs__tab-button {
       @include hds-apply-only-if-carbon() {
-        font-weight: 600;
+        font-weight: var(--token-typography-font-weight-semibold);
       }
     }
   }
