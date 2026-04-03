@@ -563,13 +563,19 @@
       0px 12px 24px 0px #3b3d4559;
     --token-tabs-border-color-default: rgba(0, 0, 0, 0);
     --token-tabs-border-color-hover: rgba(0, 0, 0, 0);
-    --token-tabs-foreground-color-selected-default: var(
+    --token-tabs-indicator-height: 3px;
+    --token-tabs-selected-border-color-default: var(
       --token-color-foreground-action
     );
-    --token-tabs-foreground-color-selected-hover: var(
+    --token-tabs-selected-border-color-hover: var(
       --token-color-foreground-action-hover
     );
-    --token-tabs-indicator-height: 3px;
+    --token-tabs-selected-foreground-color-default: var(
+      --token-color-foreground-action
+    );
+    --token-tabs-selected-foreground-color-hover: var(
+      --token-color-foreground-action-hover
+    );
     --token-tabs-tab-height-large: 48px;
     --token-tabs-tab-height-medium: 36px;
     --token-tabs-tab-padding-horizontal-large: 12px;
@@ -967,9 +973,11 @@
     --token-surface-overlay-box-shadow: none;
     --token-tabs-border-color-default: #c6c6c6;
     --token-tabs-border-color-hover: var(--token-color-border-strong);
-    --token-tabs-foreground-color-selected-default: #161616;
-    --token-tabs-foreground-color-selected-hover: #161616;
     --token-tabs-indicator-height: 2px;
+    --token-tabs-selected-border-color-default: #0f62fe;
+    --token-tabs-selected-border-color-hover: #0f62fe;
+    --token-tabs-selected-foreground-color-default: #161616;
+    --token-tabs-selected-foreground-color-hover: #161616;
     --token-tabs-tab-height-large: 48px;
     --token-tabs-tab-height-medium: 40px;
     --token-tabs-tab-padding-horizontal-large: 16px;
@@ -1366,9 +1374,11 @@
     --token-surface-overlay-box-shadow: none;
     --token-tabs-border-color-default: #525252;
     --token-tabs-border-color-hover: var(--token-color-border-strong);
-    --token-tabs-foreground-color-selected-default: #f4f4f4;
-    --token-tabs-foreground-color-selected-hover: #f4f4f4;
     --token-tabs-indicator-height: 2px;
+    --token-tabs-selected-border-color-default: #4589ff;
+    --token-tabs-selected-border-color-hover: #4589ff;
+    --token-tabs-selected-foreground-color-default: #f4f4f4;
+    --token-tabs-selected-foreground-color-hover: #f4f4f4;
     --token-tabs-tab-height-large: 48px;
     --token-tabs-tab-height-medium: 40px;
     --token-tabs-tab-padding-horizontal-large: 16px;
@@ -1765,9 +1775,11 @@
     --token-surface-overlay-box-shadow: none;
     --token-tabs-border-color-default: #c6c6c6;
     --token-tabs-border-color-hover: var(--token-color-border-strong);
-    --token-tabs-foreground-color-selected-default: #161616;
-    --token-tabs-foreground-color-selected-hover: #161616;
     --token-tabs-indicator-height: 2px;
+    --token-tabs-selected-border-color-default: #0f62fe;
+    --token-tabs-selected-border-color-hover: #0f62fe;
+    --token-tabs-selected-foreground-color-default: #161616;
+    --token-tabs-selected-foreground-color-hover: #161616;
     --token-tabs-tab-height-large: 48px;
     --token-tabs-tab-height-medium: 40px;
     --token-tabs-tab-padding-horizontal-large: 16px;
@@ -2164,9 +2176,11 @@
     --token-surface-overlay-box-shadow: none;
     --token-tabs-border-color-default: #e0e0e0;
     --token-tabs-border-color-hover: var(--token-color-border-strong);
-    --token-tabs-foreground-color-selected-default: #161616;
-    --token-tabs-foreground-color-selected-hover: #161616;
     --token-tabs-indicator-height: 2px;
+    --token-tabs-selected-border-color-default: #0f62fe;
+    --token-tabs-selected-border-color-hover: #0f62fe;
+    --token-tabs-selected-foreground-color-default: #161616;
+    --token-tabs-selected-foreground-color-hover: #161616;
     --token-tabs-tab-height-large: 48px;
     --token-tabs-tab-height-medium: 40px;
     --token-tabs-tab-padding-horizontal-large: 16px;
@@ -2563,9 +2577,11 @@
     --token-surface-overlay-box-shadow: none;
     --token-tabs-border-color-default: #6f6f6f;
     --token-tabs-border-color-hover: var(--token-color-border-strong);
-    --token-tabs-foreground-color-selected-default: #f4f4f4;
-    --token-tabs-foreground-color-selected-hover: #f4f4f4;
     --token-tabs-indicator-height: 2px;
+    --token-tabs-selected-border-color-default: #4589ff;
+    --token-tabs-selected-border-color-hover: #4589ff;
+    --token-tabs-selected-foreground-color-default: #f4f4f4;
+    --token-tabs-selected-foreground-color-hover: #f4f4f4;
     --token-tabs-tab-height-large: 48px;
     --token-tabs-tab-height-medium: 40px;
     --token-tabs-tab-padding-horizontal-large: 16px;
@@ -2962,9 +2978,11 @@
     --token-surface-overlay-box-shadow: none;
     --token-tabs-border-color-default: #525252;
     --token-tabs-border-color-hover: var(--token-color-border-strong);
-    --token-tabs-foreground-color-selected-default: #f4f4f4;
-    --token-tabs-foreground-color-selected-hover: #f4f4f4;
     --token-tabs-indicator-height: 2px;
+    --token-tabs-selected-border-color-default: #4589ff;
+    --token-tabs-selected-border-color-hover: #4589ff;
+    --token-tabs-selected-foreground-color-default: #f4f4f4;
+    --token-tabs-selected-foreground-color-hover: #f4f4f4;
     --token-tabs-tab-height-large: 48px;
     --token-tabs-tab-height-medium: 40px;
     --token-tabs-tab-padding-horizontal-large: 16px;

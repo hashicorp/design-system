@@ -301,9 +301,11 @@
   --token-surface-overlay-box-shadow: none;
   --token-tabs-border-color-default: #e0e0e0;
   --token-tabs-border-color-hover: var(--token-color-border-strong);
-  --token-tabs-foreground-color-selected-default: #161616;
-  --token-tabs-foreground-color-selected-hover: #161616;
   --token-tabs-indicator-height: 2px;
+  --token-tabs-selected-border-color-default: #0f62fe;
+  --token-tabs-selected-border-color-hover: #0f62fe;
+  --token-tabs-selected-foreground-color-default: #161616;
+  --token-tabs-selected-foreground-color-hover: #161616;
   --token-tabs-tab-height-large: 48px;
   --token-tabs-tab-height-medium: 40px;
   --token-tabs-tab-padding-horizontal-large: 16px;
