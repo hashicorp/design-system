@@ -141,7 +141,7 @@ Router.map(function () {
       });
     });
   });
-  this.route('page-patterns', { path: 'patterns' }, function () {
+  this.route('page-examples', { path: 'examples' }, function () {
     this.route('copy-snippet-loading-state');
   });
   this.route('page-utilities', { path: 'utilities' }, function () {

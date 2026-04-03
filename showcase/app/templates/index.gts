@@ -344,10 +344,10 @@ const Index: TemplateOnlyComponent = <template>
         </li>
       </ol>
 
-      <ShwTextH2>Patterns</ShwTextH2>
+      <ShwTextH2>Examples</ShwTextH2>
       <ol class="shw-text-body">
         <li>
-          <LinkTo @route="page-patterns.copy-snippet-loading-state">
+          <LinkTo @route="page-examples.copy-snippet-loading-state">
             Copy Snippet Loading State
           </LinkTo>
         </li>
