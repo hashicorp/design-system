@@ -558,9 +558,6 @@ export default class HdsAdvancedTable<
     return classes.join(' ');
   }
 
-  // casts a row from body.gts (Record<string, unknown>) to T so that `data=row.source`
-  _asRowData = (source: Record<string, unknown>): T => source as unknown as T;
-
   private _initializeExpandedRows(model: T[]) {
     const traverse = (items: Record<string, unknown>[]) => {
       items.forEach((item) => {
