@@ -9371,7 +9371,7 @@ button.hds-button[href]::after {
 .hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
 .hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
 .hds-mode-cds-g100 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button {
-  font-weight: 600;
+  font-weight: var(--token-typography-font-weight-semibold);
 }
 
 .hds-tabs__tab-button {

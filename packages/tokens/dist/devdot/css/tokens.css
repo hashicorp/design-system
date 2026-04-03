@@ -511,8 +511,8 @@
   --token-rich-tooltip-toggle-icon-size: 1em;
   --token-tabs-border-color-default: rgba(0, 0, 0, 0);
   --token-tabs-border-color-hover: rgba(0, 0, 0, 0);
-  --token-tabs-foreground-color-selected-default: var(--token-color-foreground-action);
-  --token-tabs-foreground-color-selected-hover: var(--token-color-foreground-action-hover);
+  --token-tabs-foreground-color-selected-default: #1060ff;
+  --token-tabs-foreground-color-selected-hover: #0c56e9;
   --token-tabs-tab-height-medium: 36px;
   --token-tabs-tab-height-large: 48px;
   --token-tabs-tab-padding-horizontal-medium: 12px;

@@ -15137,7 +15137,7 @@
       ]
     },
     "token-tabs-border-color-default": {
-      "key": "{tabs.border-color.default}",
+      "key": "{tabs.border.color.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -15157,7 +15157,7 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle01}",
           "cds-g100": "{carbon.themes.g100.borderSubtle01}"
         },
-        "key": "{tabs.border-color.default}"
+        "key": "{tabs.border.color.default}"
       },
       "name": "token-tabs-border-color-default",
       "attributes": {
@@ -15165,12 +15165,13 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "default"
       ]
     },
     "token-tabs-border-color-hover": {
-      "key": "{tabs.border-color.hover}",
+      "key": "{tabs.border.color.hover}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -15190,7 +15191,7 @@
           "cds-g90": "{color.border.strong}",
           "cds-g100": "{color.border.strong}"
         },
-        "key": "{tabs.border-color.hover}"
+        "key": "{tabs.border.color.hover}"
       },
       "name": "token-tabs-border-color-hover",
       "attributes": {
@@ -15198,16 +15199,17 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "hover"
       ]
     },
     "token-tabs-foreground-color-selected-default": {
-      "key": "{tabs.foreground-color.selected.default}",
+      "key": "{tabs.foreground.color.selected.default}",
       "$type": "color",
-      "$value": "var(--token-color-foreground-action)",
+      "$value": "#1060ff",
       "$modes": {
-        "default": "var(--token-color-foreground-action)",
+        "default": "#1060ff",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -15215,15 +15217,15 @@
       },
       "original": {
         "$type": "color",
-        "$value": "var(--token-color-foreground-action)",
+        "$value": "{color.foreground.action}",
         "$modes": {
-          "default": "var(--token-color-foreground-action)",
+          "default": "{color.foreground.action}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.default}"
+        "key": "{tabs.foreground.color.selected.default}"
       },
       "name": "token-tabs-foreground-color-selected-default",
       "attributes": {
@@ -15231,17 +15233,18 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "default"
       ]
     },
     "token-tabs-foreground-color-selected-hover": {
-      "key": "{tabs.foreground-color.selected.hover}",
+      "key": "{tabs.foreground.color.selected.hover}",
       "$type": "color",
-      "$value": "var(--token-color-foreground-action-hover)",
+      "$value": "#0c56e9",
       "$modes": {
-        "default": "var(--token-color-foreground-action-hover)",
+        "default": "#0c56e9",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -15249,15 +15252,15 @@
       },
       "original": {
         "$type": "color",
-        "$value": "var(--token-color-foreground-action-hover)",
+        "$value": "{color.foreground.action-hover}",
         "$modes": {
-          "default": "var(--token-color-foreground-action-hover)",
+          "default": "{color.foreground.action-hover}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.hover}"
+        "key": "{tabs.foreground.color.selected.hover}"
       },
       "name": "token-tabs-foreground-color-selected-hover",
       "attributes": {
@@ -15265,7 +15268,8 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "hover"
       ]
@@ -15439,7 +15443,7 @@
       ]
     },
     "token-tabs-tab-border-radius": {
-      "key": "{tabs.tab.border-radius}",
+      "key": "{tabs.tab.border.radius}",
       "$type": "dimension",
       "$value": "5px",
       "unit": "px",
@@ -15447,7 +15451,7 @@
         "$type": "dimension",
         "$value": "5",
         "unit": "px",
-        "key": "{tabs.tab.border-radius}"
+        "key": "{tabs.tab.border.radius}"
       },
       "name": "token-tabs-tab-border-radius",
       "attributes": {
@@ -15456,11 +15460,12 @@
       "path": [
         "tabs",
         "tab",
-        "border-radius"
+        "border",
+        "radius"
       ]
     },
     "token-tabs-tab-focus-inset": {
-      "key": "{tabs.tab.focus-inset}",
+      "key": "{tabs.tab.focus.inset}",
       "$type": "dimension",
       "$value": "6px",
       "unit": "px",
@@ -15468,7 +15473,7 @@
         "$type": "dimension",
         "$value": "6",
         "unit": "px",
-        "key": "{tabs.tab.focus-inset}"
+        "key": "{tabs.tab.focus.inset}"
       },
       "name": "token-tabs-tab-focus-inset",
       "attributes": {
@@ -15477,7 +15482,8 @@
       "path": [
         "tabs",
         "tab",
-        "focus-inset"
+        "focus",
+        "inset"
       ]
     },
     "token-tabs-tab-gutter": {
@@ -32582,7 +32588,7 @@
       ]
     },
     "token-tabs-border-color-default": {
-      "key": "{tabs.border-color.default}",
+      "key": "{tabs.border.color.default}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -32602,7 +32608,7 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle01}",
           "cds-g100": "{carbon.themes.g100.borderSubtle01}"
         },
-        "key": "{tabs.border-color.default}"
+        "key": "{tabs.border.color.default}"
       },
       "name": "token-tabs-border-color-default",
       "attributes": {
@@ -32610,12 +32616,13 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "default"
       ]
     },
     "token-tabs-border-color-hover": {
-      "key": "{tabs.border-color.hover}",
+      "key": "{tabs.border.color.hover}",
       "$type": "color",
       "$value": "#8d8d8d",
       "$modes": {
@@ -32635,7 +32642,7 @@
           "cds-g90": "{color.border.strong}",
           "cds-g100": "{color.border.strong}"
         },
-        "key": "{tabs.border-color.hover}"
+        "key": "{tabs.border.color.hover}"
       },
       "name": "token-tabs-border-color-hover",
       "attributes": {
@@ -32643,16 +32650,17 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "hover"
       ]
     },
     "token-tabs-foreground-color-selected-default": {
-      "key": "{tabs.foreground-color.selected.default}",
+      "key": "{tabs.foreground.color.selected.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
-        "default": "var(--token-color-foreground-action)",
+        "default": "#0f62fe",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -32662,13 +32670,13 @@
         "$type": "color",
         "$value": "{carbon.themes.white.textPrimary}",
         "$modes": {
-          "default": "var(--token-color-foreground-action)",
+          "default": "{color.foreground.action}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.default}"
+        "key": "{tabs.foreground.color.selected.default}"
       },
       "name": "token-tabs-foreground-color-selected-default",
       "attributes": {
@@ -32676,17 +32684,18 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "default"
       ]
     },
     "token-tabs-foreground-color-selected-hover": {
-      "key": "{tabs.foreground-color.selected.hover}",
+      "key": "{tabs.foreground.color.selected.hover}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
-        "default": "var(--token-color-foreground-action-hover)",
+        "default": "#0043ce",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -32696,13 +32705,13 @@
         "$type": "color",
         "$value": "{carbon.themes.white.textPrimary}",
         "$modes": {
-          "default": "var(--token-color-foreground-action-hover)",
+          "default": "{color.foreground.action-hover}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.hover}"
+        "key": "{tabs.foreground.color.selected.hover}"
       },
       "name": "token-tabs-foreground-color-selected-hover",
       "attributes": {
@@ -32710,7 +32719,8 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "hover"
       ]
@@ -32884,7 +32894,7 @@
       ]
     },
     "token-tabs-tab-border-radius": {
-      "key": "{tabs.tab.border-radius}",
+      "key": "{tabs.tab.border.radius}",
       "$type": "dimension",
       "$value": "5px",
       "unit": "px",
@@ -32892,7 +32902,7 @@
         "$type": "dimension",
         "$value": "5",
         "unit": "px",
-        "key": "{tabs.tab.border-radius}"
+        "key": "{tabs.tab.border.radius}"
       },
       "name": "token-tabs-tab-border-radius",
       "attributes": {
@@ -32901,11 +32911,12 @@
       "path": [
         "tabs",
         "tab",
-        "border-radius"
+        "border",
+        "radius"
       ]
     },
     "token-tabs-tab-focus-inset": {
-      "key": "{tabs.tab.focus-inset}",
+      "key": "{tabs.tab.focus.inset}",
       "$type": "dimension",
       "$value": "6px",
       "unit": "px",
@@ -32913,7 +32924,7 @@
         "$type": "dimension",
         "$value": "6",
         "unit": "px",
-        "key": "{tabs.tab.focus-inset}"
+        "key": "{tabs.tab.focus.inset}"
       },
       "name": "token-tabs-tab-focus-inset",
       "attributes": {
@@ -32922,7 +32933,8 @@
       "path": [
         "tabs",
         "tab",
-        "focus-inset"
+        "focus",
+        "inset"
       ]
     },
     "token-tabs-tab-gutter": {
@@ -50027,7 +50039,7 @@
       ]
     },
     "token-tabs-border-color-default": {
-      "key": "{tabs.border-color.default}",
+      "key": "{tabs.border.color.default}",
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
@@ -50047,7 +50059,7 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle01}",
           "cds-g100": "{carbon.themes.g100.borderSubtle01}"
         },
-        "key": "{tabs.border-color.default}"
+        "key": "{tabs.border.color.default}"
       },
       "name": "token-tabs-border-color-default",
       "attributes": {
@@ -50055,12 +50067,13 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "default"
       ]
     },
     "token-tabs-border-color-hover": {
-      "key": "{tabs.border-color.hover}",
+      "key": "{tabs.border.color.hover}",
       "$type": "color",
       "$value": "#8d8d8d",
       "$modes": {
@@ -50080,7 +50093,7 @@
           "cds-g90": "{color.border.strong}",
           "cds-g100": "{color.border.strong}"
         },
-        "key": "{tabs.border-color.hover}"
+        "key": "{tabs.border.color.hover}"
       },
       "name": "token-tabs-border-color-hover",
       "attributes": {
@@ -50088,16 +50101,17 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "hover"
       ]
     },
     "token-tabs-foreground-color-selected-default": {
-      "key": "{tabs.foreground-color.selected.default}",
+      "key": "{tabs.foreground.color.selected.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
-        "default": "var(--token-color-foreground-action)",
+        "default": "#0f62fe",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -50107,13 +50121,13 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.textPrimary}",
         "$modes": {
-          "default": "var(--token-color-foreground-action)",
+          "default": "{color.foreground.action}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.default}"
+        "key": "{tabs.foreground.color.selected.default}"
       },
       "name": "token-tabs-foreground-color-selected-default",
       "attributes": {
@@ -50121,17 +50135,18 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "default"
       ]
     },
     "token-tabs-foreground-color-selected-hover": {
-      "key": "{tabs.foreground-color.selected.hover}",
+      "key": "{tabs.foreground.color.selected.hover}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
-        "default": "var(--token-color-foreground-action-hover)",
+        "default": "#0043ce",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -50141,13 +50156,13 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.textPrimary}",
         "$modes": {
-          "default": "var(--token-color-foreground-action-hover)",
+          "default": "{color.foreground.action-hover}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.hover}"
+        "key": "{tabs.foreground.color.selected.hover}"
       },
       "name": "token-tabs-foreground-color-selected-hover",
       "attributes": {
@@ -50155,7 +50170,8 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "hover"
       ]
@@ -50329,7 +50345,7 @@
       ]
     },
     "token-tabs-tab-border-radius": {
-      "key": "{tabs.tab.border-radius}",
+      "key": "{tabs.tab.border.radius}",
       "$type": "dimension",
       "$value": "5px",
       "unit": "px",
@@ -50337,7 +50353,7 @@
         "$type": "dimension",
         "$value": "5",
         "unit": "px",
-        "key": "{tabs.tab.border-radius}"
+        "key": "{tabs.tab.border.radius}"
       },
       "name": "token-tabs-tab-border-radius",
       "attributes": {
@@ -50346,11 +50362,12 @@
       "path": [
         "tabs",
         "tab",
-        "border-radius"
+        "border",
+        "radius"
       ]
     },
     "token-tabs-tab-focus-inset": {
-      "key": "{tabs.tab.focus-inset}",
+      "key": "{tabs.tab.focus.inset}",
       "$type": "dimension",
       "$value": "6px",
       "unit": "px",
@@ -50358,7 +50375,7 @@
         "$type": "dimension",
         "$value": "6",
         "unit": "px",
-        "key": "{tabs.tab.focus-inset}"
+        "key": "{tabs.tab.focus.inset}"
       },
       "name": "token-tabs-tab-focus-inset",
       "attributes": {
@@ -50367,7 +50384,8 @@
       "path": [
         "tabs",
         "tab",
-        "focus-inset"
+        "focus",
+        "inset"
       ]
     },
     "token-tabs-tab-gutter": {
@@ -67472,7 +67490,7 @@
       ]
     },
     "token-tabs-border-color-default": {
-      "key": "{tabs.border-color.default}",
+      "key": "{tabs.border.color.default}",
       "$type": "color",
       "$value": "#6f6f6f",
       "$modes": {
@@ -67492,7 +67510,7 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle01}",
           "cds-g100": "{carbon.themes.g100.borderSubtle01}"
         },
-        "key": "{tabs.border-color.default}"
+        "key": "{tabs.border.color.default}"
       },
       "name": "token-tabs-border-color-default",
       "attributes": {
@@ -67500,12 +67518,13 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "default"
       ]
     },
     "token-tabs-border-color-hover": {
-      "key": "{tabs.border-color.hover}",
+      "key": "{tabs.border.color.hover}",
       "$type": "color",
       "$value": "#8d8d8d",
       "$modes": {
@@ -67525,7 +67544,7 @@
           "cds-g90": "{color.border.strong}",
           "cds-g100": "{color.border.strong}"
         },
-        "key": "{tabs.border-color.hover}"
+        "key": "{tabs.border.color.hover}"
       },
       "name": "token-tabs-border-color-hover",
       "attributes": {
@@ -67533,16 +67552,17 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "hover"
       ]
     },
     "token-tabs-foreground-color-selected-default": {
-      "key": "{tabs.foreground-color.selected.default}",
+      "key": "{tabs.foreground.color.selected.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
-        "default": "var(--token-color-foreground-action)",
+        "default": "#78a9ff",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -67552,13 +67572,13 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.textPrimary}",
         "$modes": {
-          "default": "var(--token-color-foreground-action)",
+          "default": "{color.foreground.action}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.default}"
+        "key": "{tabs.foreground.color.selected.default}"
       },
       "name": "token-tabs-foreground-color-selected-default",
       "attributes": {
@@ -67566,17 +67586,18 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "default"
       ]
     },
     "token-tabs-foreground-color-selected-hover": {
-      "key": "{tabs.foreground-color.selected.hover}",
+      "key": "{tabs.foreground.color.selected.hover}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
-        "default": "var(--token-color-foreground-action-hover)",
+        "default": "#a6c8ff",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -67586,13 +67607,13 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.textPrimary}",
         "$modes": {
-          "default": "var(--token-color-foreground-action-hover)",
+          "default": "{color.foreground.action-hover}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.hover}"
+        "key": "{tabs.foreground.color.selected.hover}"
       },
       "name": "token-tabs-foreground-color-selected-hover",
       "attributes": {
@@ -67600,7 +67621,8 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "hover"
       ]
@@ -67774,7 +67796,7 @@
       ]
     },
     "token-tabs-tab-border-radius": {
-      "key": "{tabs.tab.border-radius}",
+      "key": "{tabs.tab.border.radius}",
       "$type": "dimension",
       "$value": "5px",
       "unit": "px",
@@ -67782,7 +67804,7 @@
         "$type": "dimension",
         "$value": "5",
         "unit": "px",
-        "key": "{tabs.tab.border-radius}"
+        "key": "{tabs.tab.border.radius}"
       },
       "name": "token-tabs-tab-border-radius",
       "attributes": {
@@ -67791,11 +67813,12 @@
       "path": [
         "tabs",
         "tab",
-        "border-radius"
+        "border",
+        "radius"
       ]
     },
     "token-tabs-tab-focus-inset": {
-      "key": "{tabs.tab.focus-inset}",
+      "key": "{tabs.tab.focus.inset}",
       "$type": "dimension",
       "$value": "6px",
       "unit": "px",
@@ -67803,7 +67826,7 @@
         "$type": "dimension",
         "$value": "6",
         "unit": "px",
-        "key": "{tabs.tab.focus-inset}"
+        "key": "{tabs.tab.focus.inset}"
       },
       "name": "token-tabs-tab-focus-inset",
       "attributes": {
@@ -67812,7 +67835,8 @@
       "path": [
         "tabs",
         "tab",
-        "focus-inset"
+        "focus",
+        "inset"
       ]
     },
     "token-tabs-tab-gutter": {
@@ -84917,7 +84941,7 @@
       ]
     },
     "token-tabs-border-color-default": {
-      "key": "{tabs.border-color.default}",
+      "key": "{tabs.border.color.default}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -84937,7 +84961,7 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle01}",
           "cds-g100": "{carbon.themes.g100.borderSubtle01}"
         },
-        "key": "{tabs.border-color.default}"
+        "key": "{tabs.border.color.default}"
       },
       "name": "token-tabs-border-color-default",
       "attributes": {
@@ -84945,12 +84969,13 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "default"
       ]
     },
     "token-tabs-border-color-hover": {
-      "key": "{tabs.border-color.hover}",
+      "key": "{tabs.border.color.hover}",
       "$type": "color",
       "$value": "#6f6f6f",
       "$modes": {
@@ -84970,7 +84995,7 @@
           "cds-g90": "{color.border.strong}",
           "cds-g100": "{color.border.strong}"
         },
-        "key": "{tabs.border-color.hover}"
+        "key": "{tabs.border.color.hover}"
       },
       "name": "token-tabs-border-color-hover",
       "attributes": {
@@ -84978,16 +85003,17 @@
       },
       "path": [
         "tabs",
-        "border-color",
+        "border",
+        "color",
         "hover"
       ]
     },
     "token-tabs-foreground-color-selected-default": {
-      "key": "{tabs.foreground-color.selected.default}",
+      "key": "{tabs.foreground.color.selected.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
-        "default": "var(--token-color-foreground-action)",
+        "default": "#78a9ff",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -84997,13 +85023,13 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.textPrimary}",
         "$modes": {
-          "default": "var(--token-color-foreground-action)",
+          "default": "{color.foreground.action}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.default}"
+        "key": "{tabs.foreground.color.selected.default}"
       },
       "name": "token-tabs-foreground-color-selected-default",
       "attributes": {
@@ -85011,17 +85037,18 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "default"
       ]
     },
     "token-tabs-foreground-color-selected-hover": {
-      "key": "{tabs.foreground-color.selected.hover}",
+      "key": "{tabs.foreground.color.selected.hover}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
-        "default": "var(--token-color-foreground-action-hover)",
+        "default": "#a6c8ff",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -85031,13 +85058,13 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.textPrimary}",
         "$modes": {
-          "default": "var(--token-color-foreground-action-hover)",
+          "default": "{color.foreground.action-hover}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{tabs.foreground-color.selected.hover}"
+        "key": "{tabs.foreground.color.selected.hover}"
       },
       "name": "token-tabs-foreground-color-selected-hover",
       "attributes": {
@@ -85045,7 +85072,8 @@
       },
       "path": [
         "tabs",
-        "foreground-color",
+        "foreground",
+        "color",
         "selected",
         "hover"
       ]
@@ -85219,7 +85247,7 @@
       ]
     },
     "token-tabs-tab-border-radius": {
-      "key": "{tabs.tab.border-radius}",
+      "key": "{tabs.tab.border.radius}",
       "$type": "dimension",
       "$value": "5px",
       "unit": "px",
@@ -85227,7 +85255,7 @@
         "$type": "dimension",
         "$value": "5",
         "unit": "px",
-        "key": "{tabs.tab.border-radius}"
+        "key": "{tabs.tab.border.radius}"
       },
       "name": "token-tabs-tab-border-radius",
       "attributes": {
@@ -85236,11 +85264,12 @@
       "path": [
         "tabs",
         "tab",
-        "border-radius"
+        "border",
+        "radius"
       ]
     },
     "token-tabs-tab-focus-inset": {
-      "key": "{tabs.tab.focus-inset}",
+      "key": "{tabs.tab.focus.inset}",
       "$type": "dimension",
       "$value": "6px",
       "unit": "px",
@@ -85248,7 +85277,7 @@
         "$type": "dimension",
         "$value": "6",
         "unit": "px",
-        "key": "{tabs.tab.focus-inset}"
+        "key": "{tabs.tab.focus.inset}"
       },
       "name": "token-tabs-tab-focus-inset",
       "attributes": {
@@ -85257,7 +85286,8 @@
       "path": [
         "tabs",
         "tab",
-        "focus-inset"
+        "focus",
+        "inset"
       ]
     },
     "token-tabs-tab-gutter": {
