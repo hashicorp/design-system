@@ -1,0 +1,69 @@
+name: Check PR Jira Ticket
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: PR number to validate
+        required: true
+        type: string
+
+concurrency:
+  group: check-pr-jira-ticket-${{ inputs.pr_number }}
+  cancel-in-progress: true
+
+jobs:
+  check-pr-jira-ticket:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Build pull request event payload
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+        run: |
+          node <<'EOF'
+          const fs = require('node:fs');
+          const path = require('node:path');
+
+          const token = process.env.GITHUB_TOKEN;
+          const repository = process.env.GITHUB_REPOSITORY;
+          const pullRequestNumber = process.env.PR_NUMBER;
+
+          async function main() {
+            const response = await fetch(
+              `https://api.github.com/repos/${repository}/pulls/${encodeURIComponent(pullRequestNumber)}`,
+              {
+                headers: {
+                  Accept: 'application/vnd.github+json',
+                  Authorization: `Bearer ${token}`,
+                  'User-Agent': 'hds-pr-jira-ticket-check',
+                },
+              },
+            );
+
+            if (!response.ok) {
+              throw new Error(`Failed to fetch pull request ${pullRequestNumber}: ${response.status}`);
+            }
+
+            const pullRequest = await response.json();
+            const eventPath = path.join(process.env.RUNNER_TEMP, 'check-pr-jira-ticket-event.json');
+
+            fs.writeFileSync(eventPath, JSON.stringify({ pull_request: pullRequest }));
+            fs.appendFileSync(process.env.GITHUB_ENV, `GITHUB_EVENT_PATH=${eventPath}\n`);
+          }
+
+          main().catch((error) => {
+            console.error(error);
+            process.exit(1);
+          });
+          EOF
+      - name: Check PR body for Jira ticket
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node .github/scripts/check-pr-jira-ticket.cjs
