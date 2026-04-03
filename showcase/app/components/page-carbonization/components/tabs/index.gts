@@ -28,7 +28,8 @@ const TabsCarbonizationIndex: TemplateOnlyComponent = <template>
 
   <ShwTextH1>Tabs - Carbonization</ShwTextH1>
 
-  <ShwTxtBody>Note: The Carbon examples incorrectly change the border color of the selected Tab on hover.</ShwTxtBody>
+  <ShwTxtBody>Note: The Carbon examples incorrectly change the border color of
+    the selected Tab on hover.</ShwTxtBody>
 
   <section>
     <ShwTextH2>Sizes</ShwTextH2>
