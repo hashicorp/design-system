@@ -343,6 +343,16 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
+
+      <ShwTextH2>Examples</ShwTextH2>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-examples.copy-snippet-loading-state">
+            Copy Snippet Loading State
+          </LinkTo>
+        </li>
+      </ol>
+
       <ShwTextH2>Overrides</ShwTextH2>
       <ol class="shw-text-body">
         <li>
