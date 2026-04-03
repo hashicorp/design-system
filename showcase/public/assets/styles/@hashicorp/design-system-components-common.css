@@ -3019,10 +3019,10 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-primary-focus-internal);
 }
 .hds-button--color-primary:focus::before, .hds-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
 }
@@ -3373,77 +3373,54 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-code-block--theme-dark {
-  --hds-code-block-color-blue: #2d8eff;
-  --hds-code-block-color-cyan: #32fff7;
-  --hds-code-block-color-green: #86ff13;
-  --hds-code-block-color-orange: #ffa800;
-  --hds-code-block-color-purple: #c76cff;
-  --hds-code-block-color-red: #ff3b20;
-  --hds-code-block-color-foreground-primary: #d5d7db;
-  --hds-code-block-color-foreground-faint: #b2b6bd;
-  --hds-code-block-color-surface-primary: #0d0e12;
-  --hds-code-block-color-surface-faint: #15181e;
-  --hds-code-block-color-foreground-success: #009241;
-  --hds-code-block-color-foreground-critical: #ef3016;
-  --hds-code-block-color-foreground-interactive: #dedfe3;
-  --hds-code-block-color-foreground-interactive-hover: #fff;
-  --hds-code-block-color-foreground-interactive-active: #f1f2f3;
-  --hds-code-block-color-surface-interactive-active: #2b303c;
-  --hds-code-block-color-foreground-action: #2b89ff;
-  --hds-code-block-color-foreground-action-hover: #389aff;
-  --hds-code-block-color-foreground-action-active: #4ca1ff;
-  --hds-code-block-color-border-strong: rgba(178, 182, 189, 40%);
-  --hds-code-block-color-border-primary: rgba(178, 182, 189, 20%);
-  --hds-code-block-color-foreground-selection: #0d0e12;
-  --hds-code-block-color-surface-selection: #86ff13;
-  --hds-code-block-color-line-highlight: rgba(0, 74, 222, 20%);
-  --hds-code-block-color-line-highlight-border: #1555d4;
-  --hds-code-block-color-focus-action-internal: #9bc7fd;
-  --hds-code-block-color-focus-action-external: #0d69f2;
-  --hds-code-block-color-token: var(--hds-code-block-color-foreground-primary);
-  --hds-code-block-color-atrule: var(--hds-code-block-color-blue);
-  --hds-code-block-color-code-block-attr-name: var(--hds-code-block-color-blue);
-  --hds-code-block-color-attr-value: var(--hds-code-block-color-blue);
-  --hds-code-block-color-boolean: var(--hds-code-block-color-purple);
-  --hds-code-block-color-builtin: var(--hds-code-block-color-orange);
-  --hds-code-block-color-char: var(--hds-code-block-color-orange);
-  --hds-code-block-color-class-name: var(--hds-code-block-color-blue);
-  --hds-code-block-color-comment: var(--hds-code-block-color-foreground-faint);
-  --hds-code-block-color-control: var(--hds-code-block-color-cyan);
-  --hds-code-block-color-constant: var(--hds-code-block-color-purple);
-  --hds-code-block-color-deleted: var(--hds-code-block-color-red);
-  --hds-code-block-color-entity: var(--hds-code-block-color-green);
-  --hds-code-block-color-function: var(--hds-code-block-color-blue);
-  --hds-code-block-color-important: var(--hds-code-block-color-red);
-  --hds-code-block-color-keyword: var(--hds-code-block-color-green);
-  --hds-code-block-color-namespace: var(--hds-code-block-color-red);
-  --hds-code-block-color-number: var(--hds-code-block-color-purple);
-  --hds-code-block-color-operator: var(--hds-code-block-color-cyan);
-  --hds-code-block-color-prolog: var(--hds-code-block-color-foreground-primary);
-  --hds-code-block-color-property: var(--hds-code-block-color-blue);
-  --hds-code-block-color-punctuation: var(--hds-code-block-color-foreground-primary);
-  --hds-code-block-color-regex: var(--hds-code-block-color-orange);
-  --hds-code-block-color-script: var(--hds-code-block-color-foreground-primary);
-  --hds-code-block-color-selector: var(--hds-code-block-color-green);
-  --hds-code-block-color-string: var(--hds-code-block-color-orange);
-  --hds-code-block-color-symbol: var(--hds-code-block-color-orange);
-  --hds-code-block-color-tag: var(--hds-code-block-color-green);
-  --hds-code-block-color-url: var(--hds-code-block-color-cyan);
-  --hds-code-block-color-lang-css: var(--hds-code-block-color-purple);
-  --hds-code-block-color-lang-css-token: var(--hds-code-block-color-green);
-  --hds-code-block-color-lang-css-atrule: var(--hds-code-block-color-purple);
-  --hds-code-block-color-lang-css-entity: var(--hds-code-block-color-blue);
-  --hds-code-block-color-lang-css-function: var(--hds-code-block-color-cyan);
-  --hds-code-block-color-lang-css-property: var(--hds-code-block-color-cyan);
-  --hds-code-block-color-lang-css-punctuation: var(--hds-code-block-color-orange);
-  --hds-code-block-color-lang-css-not-atrule: var(--hds-code-block-color-foreground-primary);
-  --hds-code-block-color-lang-css-selector: var(--hds-code-block-color-blue);
-  --hds-code-block-color-lang-css-url: var(--hds-code-block-color-orange);
-  --hds-code-block-color-lang-js-constant: var(--hds-code-block-color-orange);
-  --hds-code-block-color-lang-markup-attr-value: var(--hds-code-block-color-yellow);
-  --hds-code-block-color-lang-markup-entity-named: var(--hds-code-block-color-purple);
-  --hds-code-block-color-lang-markup-entity-not-named: var(--hds-code-block-color-green);
+  --hds-code-block-color-token: var(--token-code-block-color-foreground-primary);
+  --hds-code-block-color-atrule: var(--token-code-block-color-palette-blue);
+  --hds-code-block-color-code-block-attr-name: var(--token-code-block-color-palette-blue);
+  --hds-code-block-color-attr-value: var(--token-code-block-color-palette-blue);
+  --hds-code-block-color-boolean: var(--token-code-block-color-palette-purple);
+  --hds-code-block-color-builtin: var(--token-code-block-color-palette-orange);
+  --hds-code-block-color-char: var(--token-code-block-color-palette-orange);
+  --hds-code-block-color-class-name: var(--token-code-block-color-palette-blue);
+  --hds-code-block-color-comment: var(--token-code-block-color-foreground-faint);
+  --hds-code-block-color-control: var(--token-code-block-color-palette-cyan);
+  --hds-code-block-color-constant: var(--token-code-block-color-palette-purple);
+  --hds-code-block-color-deleted: var(--token-code-block-color-palette-red);
+  --hds-code-block-color-entity: var(--token-code-block-color-palette-green);
+  --hds-code-block-color-function: var(--token-code-block-color-palette-blue);
+  --hds-code-block-color-important: var(--token-code-block-color-palette-red);
+  --hds-code-block-color-keyword: var(--token-code-block-color-palette-green);
+  --hds-code-block-color-namespace: var(--token-code-block-color-palette-red);
+  --hds-code-block-color-number: var(--token-code-block-color-palette-purple);
+  --hds-code-block-color-operator: var(--token-code-block-color-palette-cyan);
+  --hds-code-block-color-prolog: var(--token-code-block-color-foreground-primary);
+  --hds-code-block-color-property: var(--token-code-block-color-palette-blue);
+  --hds-code-block-color-punctuation: var(--token-code-block-color-foreground-primary);
+  --hds-code-block-color-regex: var(--token-code-block-color-palette-orange);
+  --hds-code-block-color-script: var(--token-code-block-color-foreground-primary);
+  --hds-code-block-color-selector: var(--token-code-block-color-palette-green);
+  --hds-code-block-color-string: var(--token-code-block-color-palette-orange);
+  --hds-code-block-color-symbol: var(--token-code-block-color-palette-orange);
+  --hds-code-block-color-tag: var(--token-code-block-color-palette-green);
+  --hds-code-block-color-url: var(--token-code-block-color-palette-cyan);
+  --hds-code-block-color-lang-css: var(--token-code-block-color-palette-purple);
+  --hds-code-block-color-lang-css-token: var(--token-code-block-color-palette-green);
+  --hds-code-block-color-lang-css-atrule: var(--token-code-block-color-palette-purple);
+  --hds-code-block-color-lang-css-entity: var(--token-code-block-color-palette-blue);
+  --hds-code-block-color-lang-css-function: var(--token-code-block-color-palette-cyan);
+  --hds-code-block-color-lang-css-property: var(--token-code-block-color-palette-cyan);
+  --hds-code-block-color-lang-css-punctuation: var(--token-code-block-color-palette-orange);
+  --hds-code-block-color-lang-css-not-atrule: var(--token-code-block-color-foreground-primary);
+  --hds-code-block-color-lang-css-selector: var(--token-code-block-color-palette-blue);
+  --hds-code-block-color-lang-css-url: var(--token-code-block-color-palette-orange);
+  --hds-code-block-color-lang-js-constant: var(--token-code-block-color-palette-orange);
+  --hds-code-block-color-lang-markup-attr-value: var(--token-code-block-color-palette-yellow);
+  --hds-code-block-color-lang-markup-entity-named: var(--token-code-block-color-palette-purple);
+  --hds-code-block-color-lang-markup-entity-not-named: var(--token-code-block-color-palette-green);
 }
 
 .hds-code-block .token {
@@ -3581,9 +3558,9 @@ button.hds-button[href]::after {
 
 .hds-code-block {
   position: relative;
-  color: var(--hds-code-block-color-foreground-primary);
-  background-color: var(--hds-code-block-color-surface-primary);
-  border: 1px solid var(--hds-code-block-color-border-strong);
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-color-surface-primary);
+  border: 1px solid var(--token-code-block-color-border-strong);
 }
 .hds-code-block pre,
 .hds-code-block code {
@@ -3617,11 +3594,11 @@ button.hds-button[href]::after {
 }
 
 .hds-code-block__title {
-  color: var(--hds-code-block-color-foreground-primary);
+  color: var(--token-code-block-color-foreground-primary);
 }
 
 .hds-code-block__description {
-  color: var(--hds-code-block-color-foreground-faint);
+  color: var(--token-code-block-color-foreground-faint);
 }
 
 .hds-code-block__header {
@@ -3629,8 +3606,8 @@ button.hds-button[href]::after {
   flex-direction: column;
   gap: 4px;
   padding: 8px 16px;
-  background-color: var(--hds-code-block-color-surface-faint);
-  border-bottom: 1px solid var(--hds-code-block-color-border-primary);
+  background-color: var(--token-code-block-color-surface-faint);
+  border-bottom: 1px solid var(--token-code-block-color-border-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
@@ -3648,7 +3625,7 @@ button.hds-button[href]::after {
   line-height: 1em;
 }
 .hds-code-block__header a:not([class*=hds-]) {
-  color: var(--hds-code-block-color-foreground-action);
+  color: var(--token-code-block-color-foreground-action);
 }
 .hds-code-block__header a:not([class*=hds-]):focus, .hds-code-block__header a:not([class*=hds-]):focus-visible {
   text-decoration: none;
@@ -3694,53 +3671,61 @@ button.hds-button[href]::after {
   border-radius: inherit;
 }
 .hds-code-block__code ::selection {
-  color: var(--hds-code-block-color-foreground-selection);
-  background-color: var(--hds-code-block-color-surface-selection);
+  color: var(--token-code-block-color-foreground-selection);
+  background-color: var(--token-code-block-color-surface-selection);
 }
+.hds-mode-cds-g0 .hds-code-block__code ::selection,
+.hds-mode-cds-g10 .hds-code-block__code ::selection,
+.hds-mode-cds-g90 .hds-code-block__code ::selection,
+.hds-mode-cds-g100 .hds-code-block__code ::selection {
+  color: revert;
+  background-color: revert;
+}
+
 .hds-code-block__code code {
   position: relative;
   display: inline-block;
   padding-right: 16px;
-  font-size: 0.8125rem;
+  font-size: var(--token-code-block-typography-font-size);
   font-family: var(--token-typography-code-200-font-family);
 }
 
 .hds-code-block__height-toggle-button,
-.hds-code-block__copy-button {
-  color: var(--hds-code-block-color-foreground-primary);
-  background-color: var(--hds-code-block-color-surface-faint);
-  border: 1px solid var(--hds-code-block-color-border-strong);
+.hds-code-block__copy-button.hds-copy-button {
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-copy-button-surface-color-default);
+  border: 1px solid var(--token-code-block-color-border-strong);
 }
 .hds-code-block__height-toggle-button:hover, .hds-code-block__height-toggle-button.mock-hover,
-.hds-code-block__copy-button:hover,
-.hds-code-block__copy-button.mock-hover {
-  color: var(--hds-code-block-color-foreground-primary);
-  background-color: var(--hds-code-block-color-surface-primary);
-  border-color: var(--hds-code-block-color-border-strong);
+.hds-code-block__copy-button.hds-copy-button:hover,
+.hds-code-block__copy-button.hds-copy-button.mock-hover {
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-copy-button-surface-color-hover);
+  border-color: var(--token-code-block-color-border-strong);
 }
 .hds-code-block__height-toggle-button:active, .hds-code-block__height-toggle-button.mock-active,
-.hds-code-block__copy-button:active,
-.hds-code-block__copy-button.mock-active {
-  color: var(--hds-code-block-color-foreground-primary);
-  background-color: var(--hds-code-block-color-surface-interactive-active);
+.hds-code-block__copy-button.hds-copy-button:active,
+.hds-code-block__copy-button.hds-copy-button.mock-active {
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-copy-button-surface-color-active);
 }
 .hds-code-block__height-toggle-button:focus, .hds-code-block__height-toggle-button.mock-focus, .hds-code-block__height-toggle-button:focus-visible,
-.hds-code-block__copy-button:focus,
-.hds-code-block__copy-button.mock-focus,
-.hds-code-block__copy-button:focus-visible {
-  color: var(--hds-code-block-color-foreground-primary);
-  background-color: var(--hds-code-block-color-surface-faint);
-  border-color: var(--hds-code-block-color-focus-action-internal);
+.hds-code-block__copy-button.hds-copy-button:focus,
+.hds-code-block__copy-button.hds-copy-button.mock-focus,
+.hds-code-block__copy-button.hds-copy-button:focus-visible {
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-copy-button-surface-color-default);
+  border-color: var(--token-code-block-color-focus-action-internal);
 }
 .hds-code-block__height-toggle-button:focus::before, .hds-code-block__height-toggle-button.mock-focus::before, .hds-code-block__height-toggle-button:focus-visible::before,
-.hds-code-block__copy-button:focus::before,
-.hds-code-block__copy-button.mock-focus::before,
-.hds-code-block__copy-button:focus-visible::before {
-  border-color: var(--hds-code-block-color-focus-action-external);
+.hds-code-block__copy-button.hds-copy-button:focus::before,
+.hds-code-block__copy-button.hds-copy-button.mock-focus::before,
+.hds-code-block__copy-button.hds-copy-button:focus-visible::before {
+  border-color: var(--token-code-block-color-focus-action-external);
 }
 .hds-code-block__height-toggle-button .hds-icon,
-.hds-code-block__copy-button .hds-icon {
-  color: var(--hds-code-block-color-foreground-primary);
+.hds-code-block__copy-button.hds-copy-button .hds-icon {
+  color: var(--token-code-block-color-foreground-primary);
 }
 
 .hds-code-block__copy-button {
@@ -3749,10 +3734,10 @@ button.hds-button[href]::after {
   right: 12px;
 }
 .hds-code-block__copy-button.hds-copy-button--status-success .hds-icon {
-  color: var(--hds-code-block-color-foreground-success);
+  color: var(--token-color-foreground-success);
 }
 .hds-code-block__copy-button.hds-copy-button--status-error .hds-icon {
-  color: var(--hds-code-block-color-foreground-critical);
+  color: var(--token-color-foreground-critical);
 }
 
 .hds-code-block.line-numbers {
@@ -3775,7 +3760,7 @@ button.hds-button[href]::after {
   min-width: 49px;
   min-height: 100%;
   padding: 16px 0;
-  border-right: 1px solid var(--hds-code-block-color-border-primary);
+  border-right: 1px solid var(--token-code-block-color-border-primary);
   user-select: none;
   pointer-events: none;
 }
@@ -3796,12 +3781,20 @@ button.hds-button[href]::after {
   position: absolute;
   right: 0;
   left: -16px;
-  background-color: var(--hds-code-block-color-line-highlight);
-  border: solid var(--hds-code-block-color-line-highlight-border);
+  background-color: var(--token-code-block-line-highlight-surface-color);
+  border: solid var(--token-code-block-line-highlight-border-color);
   border-width: 1px 0 1px 4px;
   mix-blend-mode: screen;
   pointer-events: none;
 }
+.hds-mode-cds-g0 .hds-code-block .line-highlight {
+  mix-blend-mode: normal;
+}
+
+.hds-mode-cds-g10 .hds-code-block .line-highlight {
+  mix-blend-mode: normal;
+}
+
 @media print {
   .hds-code-block .line-highlight {
     /*
@@ -3845,6 +3838,22 @@ button.hds-button[href]::after {
   content: "";
   pointer-events: none;
 }
+.hds-mode-cds-g0 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
+  background: linear-gradient(360deg, #f4f4f4 37.07%, rgba(244, 244, 244, 0.25) 100%);
+}
+
+.hds-mode-cds-g10 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
+  background: linear-gradient(360deg, #fff 37.07%, rgba(255, 255, 255, 0.25) 100%);
+}
+
+.hds-mode-cds-g90 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
+  background: linear-gradient(360deg, #393939 37.07%, rgba(57, 57, 57, 0.25) 100%);
+}
+
+.hds-mode-cds-g100 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
+  background: linear-gradient(360deg, #262626 37.07%, rgba(38, 38, 38, 0.25) 100%);
+}
+
 .hds-code-block--has-overlay-footer .line-numbers .line-numbers-rows {
   padding-bottom: 48px;
 }
@@ -3985,16 +3994,30 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-copy-button {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-default);
   cursor: pointer;
 }
 .hds-copy-button .hds-button__icon {
-  color: var(--token-color-foreground-action);
+  color: var(--token-copy-button-icon-color-default);
+}
+.hds-copy-button:hover, .hds-copy-button.mock-hover {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-hover);
 }
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-copy-button-icon-color-hover);
+}
+.hds-copy-button:focus, .hds-copy-button.mock-focus {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-focus);
+}
+.hds-copy-button:active, .hds-copy-button.mock-active {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-active);
 }
 .hds-copy-button:active .hds-button__icon, .hds-copy-button.mock-active .hds-button__icon {
-  color: var(--token-color-foreground-action-active);
+  color: var(--token-copy-button-icon-color-active);
 }
 .hds-copy-button.hds-copy-button--status-success .hds-button__icon {
   color: var(--token-color-foreground-success);
@@ -4612,10 +4635,10 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-primary-focus-internal);
 }
 .hds-dropdown-toggle-button--color-primary:focus::before, .hds-dropdown-toggle-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
 }

@@ -80,7 +80,6 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-radius: 0px;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -130,11 +129,39 @@
   --token-button-typography-font-size-large: 0.875rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.875rem;
-  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-typography-line-height-large: 1.2858;
+  --token-button-typography-line-height-medium: 1.2858;
+  --token-button-typography-line-height-small: 1.2858;
   --token-card-surface-color-primary: #393939;
   --token-card-surface-color-secondary: #525252;
+  --token-code-block-color-border-primary: rgba(0, 0, 0, 0);
+  --token-code-block-color-border-strong: rgba(0, 0, 0, 0);
+  --token-code-block-color-focus-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-focus-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-foreground-action-active: #78a9ff;
+  --token-code-block-color-foreground-action-hover: #a6c8ff;
+  --token-code-block-color-foreground-action: #78a9ff;
+  --token-code-block-color-foreground-faint: #c6c6c6;
+  --token-code-block-color-foreground-interactive-active: #f4f4f4;
+  --token-code-block-color-foreground-interactive-hover: #f4f4f4;
+  --token-code-block-color-foreground-interactive: #f4f4f4;
+  --token-code-block-color-foreground-primary: #f4f4f4;
+  --token-code-block-color-palette-blue: #78a9ff;
+  --token-code-block-color-palette-cyan: #82cfff;
+  --token-code-block-color-palette-green: #6fdc8c;
+  --token-code-block-color-palette-orange: #ffb784;
+  --token-code-block-color-palette-purple: #d4bbff;
+  --token-code-block-color-palette-red: #ff8389;
+  --token-code-block-color-palette-yellow: #f1c21b;
+  --token-code-block-color-surface-faint: #393939;
+  --token-code-block-color-surface-interactive-active: #6f6f6f;
+  --token-code-block-color-surface-primary: #393939;
+  --token-code-block-copy-button-surface-color-active: #6f6f6f;
+  --token-code-block-copy-button-surface-color-default: #393939;
+  --token-code-block-copy-button-surface-color-hover: #474747;
+  --token-code-block-line-highlight-border-color: #4589ff;
+  --token-code-block-line-highlight-surface-color: rgba(255, 255, 255, 0.1);
+  --token-code-block-typography-font-size: 0.75rem;
   --token-color-border-action: #4589ff;
   --token-color-border-critical: #fa4d56;
   --token-color-border-faint: #525252;
@@ -229,6 +256,14 @@
   --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-copy-button-foreground-color: #f4f4f4;
+  --token-copy-button-icon-color-active: #f4f4f4;
+  --token-copy-button-icon-color-default: #f4f4f4;
+  --token-copy-button-icon-color-focus: #f4f4f4;
+  --token-copy-button-icon-color-hover: #f4f4f4;
+  --token-copy-button-surface-color-active: #6f6f6f;
+  --token-copy-button-surface-color-default: #393939;
+  --token-copy-button-surface-color-hover: #474747;
   --token-dialog-primitive-border-color: #6f6f6f;
   --token-dialog-primitive-header-tagline-font-size: 0.75rem;
   --token-dialog-primitive-header-tagline-line-height: 1.33333;

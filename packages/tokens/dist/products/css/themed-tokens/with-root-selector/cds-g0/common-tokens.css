@@ -49,9 +49,12 @@
   --token-button-border-color-tertiary-focus-external: var(--token-color-focus-action-external);
   --token-button-border-color-tertiary-focus-internal: var(--token-color-focus-action-internal);
   --token-button-border-color-tertiary-hover: var(--token-color-border-strong);
+  --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
   --token-button-focus-border-width: 3px;
   --token-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
+  --token-code-block-color-foreground-selection: #0d0e12;
+  --token-code-block-color-surface-selection: #86ff13;
   --token-color-boundary-border: #fbd7d8;
   --token-color-boundary-brand: #f24c53;
   --token-color-boundary-foreground: #cf2d32;

@@ -310,9 +310,9 @@
   --token-button-typography-font-size-small: 0.8125rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-large: 1rem;
-  --token-button-typography-line-height-small: 0.9286; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-  --token-button-typography-line-height-medium: 1.1429; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-large: 1.5; /** 24px = 1.5 */
+  --token-button-typography-line-height-small: 0.9286;
+  --token-button-typography-line-height-medium: 1.1429;
+  --token-button-typography-line-height-large: 1.5;
   --token-button-foreground-color-primary-default: #ffffff;
   --token-button-foreground-color-primary-hover: #ffffff;
   --token-button-foreground-color-primary-focus: #ffffff;
@@ -351,7 +351,7 @@
   --token-button-border-radius: 5px;
   --token-button-border-color-primary-default: #0c56e9;
   --token-button-border-color-primary-hover: #0c56e9;
-  --token-button-border-color-primary-focus-internal: #0c56e9; /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-primary-focus-internal: #ffffff; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-focus-external: #5990ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-primary-active: #0046d1;
   --token-button-border-color-secondary-default: #3b3d4566;
@@ -376,6 +376,44 @@
   --token-button-icon-size-large: 24px;
   --token-card-surface-color-primary: #ffffff;
   --token-card-surface-color-secondary: #fafafa;
+  --token-code-block-color-palette-blue: #2d8eff;
+  --token-code-block-color-palette-cyan: #32fff7;
+  --token-code-block-color-palette-green: #86ff13;
+  --token-code-block-color-palette-orange: #ffa800;
+  --token-code-block-color-palette-purple: #c76cff;
+  --token-code-block-color-palette-red: #ff3b20;
+  --token-code-block-color-palette-yellow: #ffeb3b;
+  --token-code-block-color-foreground-primary: #d5d7db;
+  --token-code-block-color-foreground-faint: #b2b6bd;
+  --token-code-block-color-foreground-interactive: #dedfe3;
+  --token-code-block-color-foreground-interactive-hover: #ffffff;
+  --token-code-block-color-foreground-interactive-active: #f1f2f3;
+  --token-code-block-color-foreground-action: #2b89ff;
+  --token-code-block-color-foreground-action-hover: #389aff;
+  --token-code-block-color-foreground-action-active: #4ca1ff;
+  --token-code-block-color-foreground-selection: #0d0e12;
+  --token-code-block-color-surface-primary: #0d0e12;
+  --token-code-block-color-surface-faint: #15181e;
+  --token-code-block-color-surface-interactive-active: #2b303c;
+  --token-code-block-color-surface-selection: #86ff13;
+  --token-code-block-color-border-strong: #b2b6bd;
+  --token-code-block-color-border-primary: #b2b6bd;
+  --token-code-block-color-focus-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-focus-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-typography-font-size: 0.8125rem;
+  --token-code-block-copy-button-surface-color-default: #15181e;
+  --token-code-block-copy-button-surface-color-hover: #0d0e12;
+  --token-code-block-copy-button-surface-color-active: #2b303c;
+  --token-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
+  --token-code-block-line-highlight-border-color: #1555d4;
+  --token-copy-button-foreground-color: #3b3d45;
+  --token-copy-button-surface-color-default: #fafafa;
+  --token-copy-button-surface-color-hover: #ffffff;
+  --token-copy-button-surface-color-active: #dedfe3;
+  --token-copy-button-icon-color-default: #1060ff;
+  --token-copy-button-icon-color-hover: #0c56e9;
+  --token-copy-button-icon-color-focus: #0c56e9;
+  --token-copy-button-icon-color-active: #0046d1;
   --token-dialog-primitive-padding-horizontal: 24px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);

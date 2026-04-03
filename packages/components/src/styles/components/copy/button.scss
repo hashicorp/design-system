@@ -10,23 +10,37 @@
 // mostly the hds-button but with a few style tweaks
 // so the CSS is scoped to the component class (we're not changing any of the other class names)
 .hds-copy-button {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-default);
   cursor: pointer;
 
   .hds-button__icon {
-    color: var(--token-color-foreground-action);
+    color: var(--token-copy-button-icon-color-default);
   }
 
   &:hover,
   &.mock-hover {
+    color: var(--token-copy-button-foreground-color);
+    background-color: var(--token-copy-button-surface-color-hover);
+
     .hds-button__icon {
-      color: var(--token-color-foreground-action-hover);
+      color: var(--token-copy-button-icon-color-hover);
     }
+  }
+
+  &:focus,
+  &.mock-focus {
+    color: var(--token-copy-button-foreground-color);
+    background-color: var(--token-copy-button-surface-color-focus);
   }
 
   &:active,
   &.mock-active {
+    color: var(--token-copy-button-foreground-color);
+    background-color: var(--token-copy-button-surface-color-active);
+
     .hds-button__icon {
-      color: var(--token-color-foreground-action-active);
+      color: var(--token-copy-button-icon-color-active);
     }
   }
 
