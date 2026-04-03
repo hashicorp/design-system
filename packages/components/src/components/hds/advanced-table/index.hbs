@@ -160,7 +160,7 @@
                     isStickyColumnPinned=this.isStickyColumnPinned
                   )
                   Td=(component "hds/advanced-table/td" align=@align)
-                  data=row.source
+                  data=(this._asRowData row.source)
                   rowIndex=index
                   isOpen=row.isExpanded
                 )
