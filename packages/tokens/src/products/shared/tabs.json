@@ -26,9 +26,35 @@
         }
       }
     },
-    "foreground": {
-      "color": {
-        "selected": {
+    "selected": {
+      "border": {
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.foreground.action}",
+            "$modes": {
+              "default": "{color.foreground.action}",
+              "cds-g0": "{carbon.themes.white.borderInteractive}",
+              "cds-g10": "{carbon.themes.g10.borderInteractive}",
+              "cds-g90": "{carbon.themes.g90.borderInteractive}",
+              "cds-g100": "{carbon.themes.g100.borderInteractive}"
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.foreground.action-hover}",
+            "$modes": {
+              "default": "{color.foreground.action-hover}",
+              "cds-g0": "{carbon.themes.white.borderInteractive}",
+              "cds-g10": "{carbon.themes.g10.borderInteractive}",
+              "cds-g90": "{carbon.themes.g90.borderInteractive}",
+              "cds-g100": "{carbon.themes.g100.borderInteractive}"
+            }
+          }
+        }
+      },
+      "foreground": {
+        "color": {
           "default": {
             "$type": "color",
             "$value": "{color.foreground.action}",

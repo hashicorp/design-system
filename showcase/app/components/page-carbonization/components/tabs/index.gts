@@ -12,6 +12,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
+import ShwTxtBody from 'showcase/components/shw/text/body';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
@@ -26,6 +27,8 @@ const TabsCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Tabs - Carbonization"}}
 
   <ShwTextH1>Tabs - Carbonization</ShwTextH1>
+
+  <ShwTxtBody>Note: The Carbon examples incorrectly change the border color of the selected Tab on hover.</ShwTxtBody>
 
   <section>
     <ShwTextH2>Sizes</ShwTextH2>
@@ -83,7 +86,7 @@ const TabsCarbonizationIndex: TemplateOnlyComponent = <template>
             </cds-tab>
           </cds-tabs>
 
-          <div class="cds-ce-demo-devenv--tab-panels">
+          <div>
             <div
               id="panel-all-{{size}}"
               role="tabpanel"

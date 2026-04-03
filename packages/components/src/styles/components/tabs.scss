@@ -67,29 +67,18 @@ $hds-tabs-sizes: ("medium", "large");
   &:hover,
   &.mock-hover {
     color: var(--token-tabs-foreground-color-hover);
-    border-color: var(--token-tabs-border-color-hover); // only applicable to carbon themes
+    border-color: var(--token-tabs-border-color-hover);
   }
 
   &.hds-tabs__tab--is-selected {
-    color: var(--token-tabs-foreground-color-selected-default);
+    color: var(--token-tabs-selected-foreground-color-default);
 
     @include hds-apply-only-if-carbon() {
-      border-color: var(--token-color-foreground-action);
+      border-color: var(--token-tabs-selected-border-color-default);
     }
 
     &:hover {
-      color: var(--token-tabs-foreground-color-selected-hover);
-
-      // the underline under the current selected Tab
-      // Note: in HDS, an li with role=presentation is used for the indicator so its position can be animated
-      // In Carbon themes, this type of animation is not used so the border-color on the Tab is changed instead
-      & ~ .hds-tabs__tab-indicator {
-        background: var(--token-color-foreground-action-hover);
-
-        @include hds-apply-only-if-carbon() {
-          background: var(--token-color-foreground-action);
-        }
-      }
+      color: var(--token-tabs-selected-foreground-color-hover);
     }
 
     .hds-tabs__tab-button {
