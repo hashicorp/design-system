@@ -318,26 +318,30 @@
       }
     },
     "line-highlight": {
-      "background-color": {
-        "$type": "color",
-        "$value": "rgba(0, 74, 222, 0.2)",
-        "$modes": {
-          "default": "rgba(0, 74, 222, 0.2)",
-          "cds-g0": "rgba(15, 98, 254, 0.1)",
-          "cds-g10": "rgba(15, 98, 254, 0.1)",
-          "cds-g90": "rgba(255, 255, 255, 0.1)",
-          "cds-g100": "rgba(255, 255, 255, 0.1)"
+      "surface": {
+        "color": {
+          "$type": "color",
+          "$value": "rgba(0, 74, 222, 0.2)",
+          "$modes": {
+            "default": "rgba(0, 74, 222, 0.2)",
+            "cds-g0": "rgba(15, 98, 254, 0.1)",
+            "cds-g10": "rgba(15, 98, 254, 0.1)",
+            "cds-g90": "rgba(255, 255, 255, 0.1)",
+            "cds-g100": "rgba(255, 255, 255, 0.1)"
+          }
         }
       },
-      "border-color": {
-        "$type": "color",
-        "$value": "#1555d4",
-        "$modes": {
-          "default": "#1555d4",
-          "cds-g0": "{carbon.themes.white.borderInteractive}",
-          "cds-g10": "{carbon.themes.g10.borderInteractive}",
-          "cds-g90": "{carbon.themes.g90.borderInteractive}",
-          "cds-g100": "{carbon.themes.g100.borderInteractive}"
+      "border": {
+        "color": {
+          "$type": "color",
+          "$value": "#1555d4",
+          "$modes": {
+            "default": "#1555d4",
+            "cds-g0": "{carbon.themes.white.borderInteractive}",
+            "cds-g10": "{carbon.themes.g10.borderInteractive}",
+            "cds-g90": "{carbon.themes.g90.borderInteractive}",
+            "cds-g100": "{carbon.themes.g100.borderInteractive}"
+          }
         }
       }
     }

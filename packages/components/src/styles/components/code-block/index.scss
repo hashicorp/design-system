@@ -275,7 +275,7 @@ $hds-code-block-code-footer-height: 48px;
     position: absolute;
     right: 0;
     left: -$hds-code-block-code-padding;
-    background-color: var(--token-code-block-line-highlight-background-color);
+    background-color: var(--token-code-block-line-highlight-surface-color);
     border: solid var(--token-code-block-line-highlight-border-color);
     border-width: 1px 0 1px 4px;
     mix-blend-mode: screen;

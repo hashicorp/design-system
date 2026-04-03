@@ -159,8 +159,8 @@
   --token-code-block-copy-button-surface-color-active: var(--token-code-block-color-surface-interactive-active);
   --token-code-block-copy-button-surface-color-default: var(--token-code-block-color-surface-faint);
   --token-code-block-copy-button-surface-color-hover: var(--token-code-block-color-surface-primary);
-  --token-code-block-line-highlight-background-color: rgba(0, 74, 222, 0.2);
   --token-code-block-line-highlight-border-color: #1555d4;
+  --token-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
   --token-code-block-typography-font-size: 0.8125rem;
   --token-color-border-action: var(--token-color-palette-blue-100);
   --token-color-border-critical: var(--token-color-palette-red-100);
