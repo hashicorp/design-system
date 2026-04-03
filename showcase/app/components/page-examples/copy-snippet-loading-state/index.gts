@@ -17,6 +17,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 
 import {
   HdsCopySnippet,
+  HdsDropdown,
   HdsIcon,
   HdsPageHeader,
   HdsTextBody,
@@ -49,13 +50,32 @@ export default class CopySnippetLoadingStateIndex extends Component {
 
     <ShwTextH1>Copy Snippet Loading State</ShwTextH1>
     <ShwTextBody>
-      This example simulates a delayed connection string (5 seconds)and swaps from a loading
+      This example simulates a delayed connection string (5 seconds) and swaps from a loading
       treatment to a copy snippet when the value becomes available.
     </ShwTextBody>
 
     <section data-test-percy>
       <HdsPageHeader as |PH|>
         <PH.Title>Detail page</PH.Title>
+        <PH.Actions>
+          <HdsDropdown as |D|>
+            <D.ToggleButton @text="Manage" @color="secondary" />
+            <D.Interactive @icon="edit">Edit</D.Interactive>
+            <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
+            <D.Separator />
+            {{#if this.copyValue}}
+              <D.CopyItem
+                @copyItemTitle="Connection string"
+                @text={{this.copyValue}}
+              />
+            {{else}}
+              <D.Interactive
+                @icon="loading"
+                @isLoading={{true}}
+              >Loading connection string</D.Interactive>
+            {{/if}}
+          </HdsDropdown>
+        </PH.Actions>
         <PH.Generic>
           <HdsLayoutFlex
             @tag="div"
@@ -78,7 +98,7 @@ export default class CopySnippetLoadingStateIndex extends Component {
                   @tag="span"
                   @size="200"
                   @weight="regular"
-                  @color="foreground-faint"
+                  @color="faint"
                 >Loading</HdsTextBody>
               </div>
             {{/if}}
