@@ -74,11 +74,7 @@ const SubSectionFilterBar: TemplateOnlyComponent = <template>
 
   <ShwTextH4 @tag="h3">Default</ShwTextH4>
 
-  <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-    @model={{MUSIC}}
-    @columns={{BASIC_MUSIC_COLUMNS}}
-  >
+  <HdsAdvancedTable @model={{MUSIC}} @columns={{BASIC_MUSIC_COLUMNS}}>
     <:actions as |A|>
       <A.FilterBar @filters={{EMPTY_FILTERS}} as |F|>
         <F.FiltersDropdown as |D|>
@@ -110,23 +106,18 @@ const SubSectionFilterBar: TemplateOnlyComponent = <template>
     <:body as |B|>
       <B.Tr>
         <B.Th @scope="row"><HdsLinkInline @href="#showcase">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.artist}}
           </HdsLinkInline></B.Th>
         <B.Td>
           <div class="shw-component-advanced-table-cell-content-div">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.album}}
           </div>
         </B.Td>
         <B.Td>
           <HdsBadge
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @text={{B.data.year}}
             @type="outlined"
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @color={{B.data.badge-color}}
           />
         </B.Td>
@@ -136,11 +127,7 @@ const SubSectionFilterBar: TemplateOnlyComponent = <template>
 
   <ShwTextH4 @tag="h3">With applied filters</ShwTextH4>
 
-  <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-    @model={{MUSIC}}
-    @columns={{BASIC_MUSIC_COLUMNS}}
-  >
+  <HdsAdvancedTable @model={{MUSIC}} @columns={{BASIC_MUSIC_COLUMNS}}>
     <:actions as |A|>
       <A.FilterBar @filters={{APPLIED_FILTERS}} as |F|>
         <F.FiltersDropdown as |D|>
@@ -172,23 +159,18 @@ const SubSectionFilterBar: TemplateOnlyComponent = <template>
     <:body as |B|>
       <B.Tr>
         <B.Th @scope="row"><HdsLinkInline @href="#showcase">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.artist}}
           </HdsLinkInline></B.Th>
         <B.Td>
           <div class="shw-component-advanced-table-cell-content-div">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.album}}
           </div>
         </B.Td>
         <B.Td>
           <HdsBadge
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @text={{B.data.year}}
             @type="outlined"
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @color={{B.data.badge-color}}
           />
         </B.Td>
