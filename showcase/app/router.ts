@@ -178,6 +178,7 @@ Router.map(function () {
       this.route('button');
       this.route('card');
       this.route('copy', function () {
+        this.route('button');
         this.route('snippet');
       });
       this.route('flyout');

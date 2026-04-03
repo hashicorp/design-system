@@ -81,7 +81,8 @@ $hds-button-sizes: ("small", "medium", "large");
       // the position absolute of an element is computed from the inside of the border of the container
       // so we have to take in account the border width of the pseudo-element container itself
       // plus for the primary button we want to have a 2px gap between the button and the focus
-      $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+      // $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+      $shift: 0;
       $radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
       top: $shift;
       right: $shift;
