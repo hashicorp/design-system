@@ -376,6 +376,8 @@
   --token-button-icon-size-small: 12px;
   --token-button-icon-size-medium: 16px;
   --token-button-icon-size-large: 24px;
+  --token-card-surface-color-primary: #ffffff;
+  --token-card-surface-color-secondary: #fafafa;
   --token-dialog-primitive-padding-horizontal: 24px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
@@ -3799,9 +3801,13 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-card__container {
   position: relative;
-  background-color: #fff;
+  background-color: var(--token-card-surface-color-primary);
   border-radius: var(--token-border-radius-medium);
 }
 
@@ -3821,15 +3827,33 @@ button.hds-button[href]::after {
 .hds-card__container--hover-level-surface-base.mock-hover {
   box-shadow: var(--token-surface-base-box-shadow);
 }
+.hds-mode-cds-g0 .hds-card__container--hover-level-surface-base:hover, .hds-mode-cds-g0 .hds-card__container--hover-level-surface-base.mock-hover,
+.hds-mode-cds-g10 .hds-card__container--hover-level-surface-base:hover, .hds-mode-cds-g10 .hds-card__container--hover-level-surface-base.mock-hover,
+.hds-mode-cds-g90 .hds-card__container--hover-level-surface-base:hover, .hds-mode-cds-g90 .hds-card__container--hover-level-surface-base.mock-hover,
+.hds-mode-cds-g100 .hds-card__container--hover-level-surface-base:hover, .hds-mode-cds-g100 .hds-card__container--hover-level-surface-base.mock-hover {
+  background-color: var(--token-color-surface-interactive-hover);
+}
 
 .hds-card__container--hover-level-surface-mid:hover,
 .hds-card__container--hover-level-surface-mid.mock-hover {
   box-shadow: var(--token-surface-mid-box-shadow);
 }
+.hds-mode-cds-g0 .hds-card__container--hover-level-surface-mid:hover, .hds-mode-cds-g0 .hds-card__container--hover-level-surface-mid.mock-hover,
+.hds-mode-cds-g10 .hds-card__container--hover-level-surface-mid:hover, .hds-mode-cds-g10 .hds-card__container--hover-level-surface-mid.mock-hover,
+.hds-mode-cds-g90 .hds-card__container--hover-level-surface-mid:hover, .hds-mode-cds-g90 .hds-card__container--hover-level-surface-mid.mock-hover,
+.hds-mode-cds-g100 .hds-card__container--hover-level-surface-mid:hover, .hds-mode-cds-g100 .hds-card__container--hover-level-surface-mid.mock-hover {
+  background-color: var(--token-color-surface-interactive-hover);
+}
 
 .hds-card__container--hover-level-surface-high:hover,
 .hds-card__container--hover-level-surface-high.mock-hover {
   box-shadow: var(--token-surface-high-box-shadow);
+}
+.hds-mode-cds-g0 .hds-card__container--hover-level-surface-high:hover, .hds-mode-cds-g0 .hds-card__container--hover-level-surface-high.mock-hover,
+.hds-mode-cds-g10 .hds-card__container--hover-level-surface-high:hover, .hds-mode-cds-g10 .hds-card__container--hover-level-surface-high.mock-hover,
+.hds-mode-cds-g90 .hds-card__container--hover-level-surface-high:hover, .hds-mode-cds-g90 .hds-card__container--hover-level-surface-high.mock-hover,
+.hds-mode-cds-g100 .hds-card__container--hover-level-surface-high:hover, .hds-mode-cds-g100 .hds-card__container--hover-level-surface-high.mock-hover {
+  background-color: var(--token-color-surface-interactive-hover);
 }
 
 .hds-card__container--active-level-surface-base:active,
@@ -3863,15 +3887,33 @@ button.hds-button[href]::after {
 .hds-card__container--hover-level-elevation-base.mock-hover {
   box-shadow: var(--token-elevation-base-box-shadow);
 }
+.hds-mode-cds-g0 .hds-card__container--hover-level-elevation-base:hover, .hds-mode-cds-g0 .hds-card__container--hover-level-elevation-base.mock-hover,
+.hds-mode-cds-g10 .hds-card__container--hover-level-elevation-base:hover, .hds-mode-cds-g10 .hds-card__container--hover-level-elevation-base.mock-hover,
+.hds-mode-cds-g90 .hds-card__container--hover-level-elevation-base:hover, .hds-mode-cds-g90 .hds-card__container--hover-level-elevation-base.mock-hover,
+.hds-mode-cds-g100 .hds-card__container--hover-level-elevation-base:hover, .hds-mode-cds-g100 .hds-card__container--hover-level-elevation-base.mock-hover {
+  background-color: var(--token-color-surface-interactive-hover);
+}
 
 .hds-card__container--hover-level-elevation-mid:hover,
 .hds-card__container--hover-level-elevation-mid.mock-hover {
   box-shadow: var(--token-elevation-mid-box-shadow);
 }
+.hds-mode-cds-g0 .hds-card__container--hover-level-elevation-mid:hover, .hds-mode-cds-g0 .hds-card__container--hover-level-elevation-mid.mock-hover,
+.hds-mode-cds-g10 .hds-card__container--hover-level-elevation-mid:hover, .hds-mode-cds-g10 .hds-card__container--hover-level-elevation-mid.mock-hover,
+.hds-mode-cds-g90 .hds-card__container--hover-level-elevation-mid:hover, .hds-mode-cds-g90 .hds-card__container--hover-level-elevation-mid.mock-hover,
+.hds-mode-cds-g100 .hds-card__container--hover-level-elevation-mid:hover, .hds-mode-cds-g100 .hds-card__container--hover-level-elevation-mid.mock-hover {
+  background-color: var(--token-color-surface-interactive-hover);
+}
 
 .hds-card__container--hover-level-elevation-high:hover,
 .hds-card__container--hover-level-elevation-high.mock-hover {
   box-shadow: var(--token-elevation-high-box-shadow);
+}
+.hds-mode-cds-g0 .hds-card__container--hover-level-elevation-high:hover, .hds-mode-cds-g0 .hds-card__container--hover-level-elevation-high.mock-hover,
+.hds-mode-cds-g10 .hds-card__container--hover-level-elevation-high:hover, .hds-mode-cds-g10 .hds-card__container--hover-level-elevation-high.mock-hover,
+.hds-mode-cds-g90 .hds-card__container--hover-level-elevation-high:hover, .hds-mode-cds-g90 .hds-card__container--hover-level-elevation-high.mock-hover,
+.hds-mode-cds-g100 .hds-card__container--hover-level-elevation-high:hover, .hds-mode-cds-g100 .hds-card__container--hover-level-elevation-high.mock-hover {
+  background-color: var(--token-color-surface-interactive-hover);
 }
 
 .hds-card__container--active-level-elevation-base:active,
@@ -3890,11 +3932,11 @@ button.hds-button[href]::after {
 }
 
 .hds-card__container--background-neutral-primary {
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-card-surface-color-primary);
 }
 
 .hds-card__container--background-neutral-secondary {
-  background-color: var(--token-color-surface-faint);
+  background-color: var(--token-card-surface-color-secondary);
 }
 
 .hds-card__container--overflow-hidden {

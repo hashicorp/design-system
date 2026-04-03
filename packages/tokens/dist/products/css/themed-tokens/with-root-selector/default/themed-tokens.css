@@ -133,6 +133,8 @@
   --token-button-typography-line-height-large: 1.5; /** 24px = 1.5 */
   --token-button-typography-line-height-medium: 1.1429; /** 14px ~ 1.1429 */
   --token-button-typography-line-height-small: 0.9286; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-card-surface-color-primary: var(--token-color-surface-primary);
+  --token-card-surface-color-secondary: var(--token-color-surface-faint);
   --token-color-border-action: var(--token-color-palette-blue-100);
   --token-color-border-critical: var(--token-color-palette-red-100);
   --token-color-border-faint: var(--token-color-palette-alpha-100);
