@@ -84,12 +84,17 @@ export default class CodeBlockCarbonizationIndex extends Component {
         <:reference>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
-              <cds-code-snippet type="multi">aws ec2 --region us-west-1
-                accept-vpc-peering-connection</cds-code-snippet>
+              {{! prettier-ignore }}
+              <cds-code-snippet type="multi">aws ec2 --region us-west-1 accept-vpc-peering-connection</cds-code-snippet>
             </SF.Item>
             <SF.Item>
-              <cds-code-snippet type="multi">package main import 'fmt' func
-                main() { res = 'Lorem ipsum dolor sit amet' fmt.Println(res) }</cds-code-snippet>
+              {{! prettier-ignore }}
+              <cds-code-snippet type="multi">package main
+  import 'fmt'
+  func main() {
+    res = 'Lorem ipsum dolor sit amet'
+    fmt.Println(res)
+  }</cds-code-snippet>
             </SF.Item>
           </ShwFlex>
         </:reference>
@@ -188,11 +193,13 @@ export default class CodeBlockCarbonizationIndex extends Component {
         <:reference>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
-              <cds-code-snippet
-                type="multi"
-                copy-button-description="Copy code"
-              >package main import 'fmt' func main() { res = 'Lorem ipsum dolor
-                sit amet' fmt.Println(res) }</cds-code-snippet>
+              {{! prettier-ignore }}
+              <cds-code-snippet type="multi" copy-button-description="Copy code">package main
+  import 'fmt'
+  func main() {
+    res = 'Lorem ipsum dolor sit amet'
+    fmt.Println(res)
+  }</cds-code-snippet>
             </SF.Item>
           </ShwFlex>
         </:reference>
@@ -264,16 +271,25 @@ end"
         </:theming>
         <:reference>
           <div>
-            {{! template-lint-disable no-whitespace-for-layout }}
-            <cds-code-snippet type="multi" maxcollapsednumberofrows="6">def
-              convert_object_to_array(obj) arr = obj.keys .map { |key| [key,
-              obj[key]] } .flatten .sort return arr end def
-              assert_objects_equal(actual, expected, test_name) actual_str =
-              convert_object_to_array(actual).to_s expected_str =
-              convert_object_to_array(expected).to_s puts 'ACTUAL: #{actual_str}
-              EXPECTED: #{expected_str}' if actual_str == expected_str puts
-              'passed' else puts 'FAILED [#{test_name}] Expected #{expected},
-              but got #{actual}' end end
+            {{! template-lint-disable no-whitespace-for-layout }}{{! prettier-ignore }}
+            <cds-code-snippet type="multi" maxcollapsednumberofrows="6">def convert_object_to_array(obj)
+  arr = obj.keys
+          .map { |key| [key, obj[key]] }
+          .flatten
+          .sort
+  return arr
+end
+
+def assert_objects_equal(actual, expected, test_name)
+  actual_str = convert_object_to_array(actual).to_s
+  expected_str = convert_object_to_array(expected).to_s
+  puts 'ACTUAL: #{actual_str}  EXPECTED: #{expected_str}'
+  if actual_str == expected_str
+    puts 'passed'
+  else
+    puts 'FAILED [#{test_name}] Expected #{expected}, but got #{actual}'
+  end
+end
             </cds-code-snippet>
             {{! template-lint-enable no-whitespace-for-layout }}
           </div>
@@ -315,18 +331,14 @@ end"
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
               <div {{style width="300px"}}>
-                <cds-code-snippet type="multi">codeLang='Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  veniam';</cds-code-snippet>
+                {{! prettier-ignore }}
+                <cds-code-snippet type="multi">codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';</cds-code-snippet>
               </div>
             </SF.Item>
             <SF.Item>
               <div {{style width="300px"}}>
-                <cds-code-snippet type="multi" wrap-text="true">codeLang='Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim ad minim veniam';</cds-code-snippet>
+                {{! prettier-ignore }}
+                <cds-code-snippet type="multi" wrap-text="true">codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';</cds-code-snippet>
               </div>
             </SF.Item>
           </ShwFlex>
