@@ -134,6 +134,34 @@
   --token-button-typography-line-height-small: 1.2858;
   --token-card-surface-color-primary: #ffffff;
   --token-card-surface-color-secondary: #f4f4f4;
+  --token-code-block-color-border-primary: rgba(0, 0, 0, 0);
+  --token-code-block-color-border-strong: rgba(0, 0, 0, 0);
+  --token-code-block-color-focus-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-focus-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-foreground-action-active: #0f62fe;
+  --token-code-block-color-foreground-action-hover: #0043ce;
+  --token-code-block-color-foreground-action: #0f62fe;
+  --token-code-block-color-foreground-faint: #525252;
+  --token-code-block-color-foreground-interactive-active: #161616;
+  --token-code-block-color-foreground-interactive-hover: #161616;
+  --token-code-block-color-foreground-interactive: #161616;
+  --token-code-block-color-foreground-primary: #161616;
+  --token-code-block-color-palette-blue: #4589ff;
+  --token-code-block-color-palette-cyan: #33b1ff;
+  --token-code-block-color-palette-green: #42be65;
+  --token-code-block-color-palette-orange: #ff832b;
+  --token-code-block-color-palette-purple: #be95ff;
+  --token-code-block-color-palette-red: #fa4d56;
+  --token-code-block-color-palette-yellow: #d2a106;
+  --token-code-block-color-surface-faint: #ffffff;
+  --token-code-block-color-surface-interactive-active: #c6c6c6;
+  --token-code-block-color-surface-primary: #ffffff;
+  --token-code-block-copy-button-surface-color-active: #c6c6c6;
+  --token-code-block-copy-button-surface-color-default: #ffffff;
+  --token-code-block-copy-button-surface-color-hover: #e8e8e8;
+  --token-code-block-line-highlight-background-color: rgba(15, 98, 254, 0.1);
+  --token-code-block-line-highlight-border-color: #0f62fe;
+  --token-code-block-typography-font-size: 0.75rem;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
   --token-color-border-faint: #c6c6c6;
