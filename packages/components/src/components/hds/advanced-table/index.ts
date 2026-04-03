@@ -31,6 +31,7 @@ import type {
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
+  HdsAdvancedTableModel,
 } from './types.ts';
 
 import type { HdsFilterBarSignature } from '../filter-bar/index.gts';
@@ -127,9 +128,7 @@ const getStickyColumnLeftOffset = (
   return `${leftOffset}px`;
 };
 
-export interface HdsAdvancedTableSignature<
-  T extends Record<string, unknown> = Record<string, unknown>,
-> {
+export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
@@ -206,7 +205,7 @@ export interface HdsAdvancedTableSignature<
 }
 
 export default class HdsAdvancedTable<
-  T extends Record<string, unknown> = Record<string, unknown>,
+  T = HdsAdvancedTableModel,
 > extends Component<HdsAdvancedTableSignature<T>> {
   @service declare readonly hdsIntl: HdsIntlService;
 
