@@ -293,7 +293,6 @@ export default class SubSectionFunctionalExamples extends Component {
     <HdsAdvancedTable
       @hasReorderableColumns={{true}}
       @columnOrder={{this.toggleReorderableColumnsColumnOrder}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.toggleReorderableColumnsModel}}
       @columns={{this.toggleReorderableColumnsColumns}}
       @onColumnReorder={{this.toggleReorderableColumnsOnColumnReorder}}
@@ -301,7 +300,7 @@ export default class SubSectionFunctionalExamples extends Component {
       <:body as |B|>
         <B.Tr as |R|>
           {{#each R.orderedCells as |C|}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+            {{! @glint-expect-error}}
             <B.Td>{{C.content}}</B.Td>
           {{/each}}
         </B.Tr>
