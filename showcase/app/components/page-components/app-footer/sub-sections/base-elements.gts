@@ -26,7 +26,8 @@ import style from 'ember-style-modifier';
 
 import { concat } from '@ember/helper';
 
-import { STATUSES as STATUS_LINK_STATUSES } from '@hashicorp/design-system-components/components/hds/app-footer/status-link';
+import { HdsAppFooterStatusValues } from '@hashicorp/design-system-components/components/hds/app-footer/types';
+import type { HdsAppFooterStatusTypes } from '@hashicorp/design-system-components/components/hds/app-footer/types';
 
 export interface SubSectionBaseElementsSignature {
   Args: {
@@ -37,6 +38,9 @@ export interface SubSectionBaseElementsSignature {
 
 const LINK_STATES = ['default', 'hover', 'active', 'focus'];
 const THEMES = ['light', 'dark'];
+const STATUS_LINK_STATUSES = Object.fromEntries(
+  Object.values(HdsAppFooterStatusValues).map((s) => [s, s]),
+) as Record<HdsAppFooterStatusTypes, HdsAppFooterStatusTypes>;
 
 const SubSectionBaseElements: TemplateOnlyComponent<SubSectionBaseElementsSignature> =
   <template>
