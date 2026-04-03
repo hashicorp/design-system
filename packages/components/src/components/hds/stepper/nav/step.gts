@@ -9,6 +9,10 @@ import { modifier } from 'ember-modifier';
 import { eq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
 
+import { service } from '@ember/service';
+import type HdsIntlService from '../../../../services/hds-intl';
+import type Owner from '@ember/owner';
+
 import {
   HdsStepperNavStatusesValues,
   HdsStepperNavStatusToIndicatorStatus,
@@ -28,7 +32,6 @@ import type {
 
 export const MAPPING_STATUS_TO_INDICATOR_STATUS =
   HdsStepperNavStatusToIndicatorStatus;
-export const MAPPING_STATUS_TO_SR_ONLY_TEXT = HdsStepperNavStatusToSrOnlyText;
 
 export interface HdsStepperNavStepSignature {
   Args: {
@@ -50,6 +53,9 @@ export interface HdsStepperNavStepSignature {
 }
 
 export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
+  private _statusSrOnlyTextMap?: Record<HdsStepperNavStatuses, string>;
   private _stepId = 'step-' + guidFor(this);
   private _elementId?: string;
 
@@ -71,6 +77,12 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
       };
     }
   );
+
+  constructor(owner: Owner, args: HdsStepperNavStepSignature['Args']) {
+    super(owner, args);
+
+    this._statusSrOnlyTextMap = HdsStepperNavStatusToSrOnlyText(this.hdsIntl);
+  }
 
   get titleTag(): HdsStepperTitleTags {
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
@@ -117,7 +129,7 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
   }
 
   get statusSrOnlyText(): string {
-    return MAPPING_STATUS_TO_SR_ONLY_TEXT[this.status];
+    return this._statusSrOnlyTextMap![this.status];
   }
 
   get isInteractive(): boolean {

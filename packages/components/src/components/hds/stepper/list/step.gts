@@ -7,6 +7,9 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
+import { service } from '@ember/service';
+import type HdsIntlService from '../../../../services/hds-intl';
+import type Owner from '@ember/owner';
 
 import {
   HdsStepperStatusesValues,
@@ -26,7 +29,6 @@ export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
 export const STATUSES: HdsStepperStatuses[] = Object.values(
   HdsStepperStatusesValues
 );
-export const MAPPING_STATUS_TO_SR_ONLY_TEXT = HdsStepperStatusToSrOnlyText;
 
 export interface HdsStepperListStepSignature {
   Args: {
@@ -45,6 +47,9 @@ export interface HdsStepperListStepSignature {
 }
 
 export default class HdsStepperListStep extends Component<HdsStepperListStepSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
+  private _statusSrOnlyTextMap?: Record<HdsStepperStatusesValues, string>;
   private _stepId = 'step-' + guidFor(this);
 
   private _setUpStep = modifier(
@@ -66,6 +71,12 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
     }
   );
 
+  constructor(owner: Owner, args: HdsStepperListStepSignature['Args']) {
+    super(owner, args);
+
+    this._statusSrOnlyTextMap = HdsStepperStatusToSrOnlyText(this.hdsIntl);
+  }
+
   get stepNumber(): number | undefined {
     return this.args.stepIds
       ? this.args.stepIds.indexOf(this._stepId) + 1
@@ -86,7 +97,7 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
   }
 
   get statusSrOnlyText(): string {
-    return MAPPING_STATUS_TO_SR_ONLY_TEXT[this.status];
+    return this._statusSrOnlyTextMap![this.status];
   }
 
   get titleTag(): HdsStepperTitleTags {
