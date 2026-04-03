@@ -5821,7 +5821,7 @@
     ]
   },
   {
-    "key": "{app-footer.link.focus.outline.color}",
+    "key": "{app-footer.focus.color.action.internal}",
     "$type": "color",
     "$value": "#ffffff",
     "$modes": {
@@ -5841,18 +5841,18 @@
         "cds-g90": "{carbon.themes.g90.focus}",
         "cds-g100": "{carbon.themes.g100.focus}"
       },
-      "key": "{app-footer.link.focus.outline.color}"
+      "key": "{app-footer.focus.color.action.internal}"
     },
-    "name": "token-app-footer-link-focus-outline-color",
+    "name": "token-app-footer-focus-color-action-internal",
     "attributes": {
       "category": "app-footer"
     },
     "path": [
       "app-footer",
-      "link",
       "focus",
-      "outline",
-      "color"
+      "color",
+      "action",
+      "internal"
     ]
   },
   {
@@ -9785,47 +9785,6 @@
     ]
   },
   {
-    "key": "{button.foreground.color.tertiary.disabled}",
-    "$type": "color",
-    "$value": "rgba(244, 244, 244, 0.25)",
-    "$modes": {
-      "default": "rgba(244, 244, 244, 0.25)",
-      "cds-g0": "rgba(22, 22, 22, 0.25)",
-      "cds-g10": "rgba(22, 22, 22, 0.25)",
-      "cds-g90": "rgba(244, 244, 244, 0.25)",
-      "cds-g100": "rgba(244, 244, 244, 0.25)"
-    },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g90.textDisabled}",
-      "$modes": {
-        "default": "{color.foreground.disabled}",
-        "cds-g0": "{carbon.themes.white.textDisabled}",
-        "cds-g10": "{carbon.themes.g10.textDisabled}",
-        "cds-g90": "{carbon.themes.g90.textDisabled}",
-        "cds-g100": "{carbon.themes.g100.textDisabled}"
-      },
-      "comments": {
-        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-      },
-      "key": "{button.foreground.color.tertiary.disabled}"
-    },
-    "name": "token-button-foreground-color-tertiary-disabled",
-    "attributes": {
-      "category": "button"
-    },
-    "path": [
-      "button",
-      "foreground",
-      "color",
-      "tertiary",
-      "disabled"
-    ]
-  },
-  {
     "key": "{button.foreground.color.critical.default}",
     "$type": "color",
     "$value": "#ffffff",
@@ -9976,9 +9935,6 @@
       "cds-g90": "rgba(255, 255, 255, 0.25)",
       "cds-g100": "rgba(255, 255, 255, 0.25)"
     },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
     "original": {
       "$type": "color",
       "$value": "{carbon.themes.g90.textOnColorDisabled}",
@@ -9988,9 +9944,6 @@
         "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
         "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
         "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
-      },
-      "comments": {
-        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
       "key": "{button.foreground.color.disabled}"
     },
@@ -10554,29 +10507,23 @@
   {
     "key": "{button.surface.color.disabled}",
     "$type": "color",
-    "$value": "rgba(141, 141, 141, 0.3)",
+    "$value": "#8d8d8d",
     "$modes": {
-      "default": "#6f6f6f",
+      "default": "#393939",
       "cds-g0": "#c6c6c6",
       "cds-g10": "#c6c6c6",
-      "cds-g90": "rgba(141, 141, 141, 0.3)",
-      "cds-g100": "rgba(141, 141, 141, 0.3)"
-    },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      "cds-g90": "#8d8d8d",
+      "cds-g100": "#8d8d8d"
     },
     "original": {
       "$type": "color",
       "$value": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
       "$modes": {
-        "default": "{color.surface.interactive-disabled}",
+        "default": "{color.surface.faint}",
         "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
         "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
         "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
         "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
-      },
-      "comments": {
-        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
       "key": "{button.surface.color.disabled}"
     },
@@ -10673,7 +10620,7 @@
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$modes": {
-      "default": "#002d9c",
+      "default": "#0043ce",
       "cds-g0": "transparent",
       "cds-g10": "transparent",
       "cds-g90": "transparent",
@@ -10683,7 +10630,7 @@
       "$type": "color",
       "$value": "transparent",
       "$modes": {
-        "default": "{color.palette.blue-400}",
+        "default": "{color.palette.blue-300}",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -10706,10 +10653,26 @@
   {
     "key": "{button.border.color.primary.focus.internal}",
     "$type": "color",
-    "$value": "#161616",
+    "$value": "#ffc0cb",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "pink",
+      "cds-g10": "pink",
+      "cds-g90": "pink",
+      "cds-g100": "pink"
+    },
+    "comment": "TODO - replace the `pink` values with the correct ones",
     "original": {
       "$type": "color",
-      "$value": "{color.focus.action.internal}",
+      "$value": "pink",
+      "$modes": {
+        "default": "{color.palette.neutral-0}",
+        "cds-g0": "pink",
+        "cds-g10": "pink",
+        "cds-g90": "pink",
+        "cds-g100": "pink"
+      },
+      "comment": "TODO - replace the `pink` values with the correct ones",
       "key": "{button.border.color.primary.focus.internal}"
     },
     "name": "token-button-border-color-primary-focus-internal",
@@ -10728,10 +10691,26 @@
   {
     "key": "{button.border.color.primary.focus.external}",
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#ff00ff",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "magenta",
+      "cds-g10": "magenta",
+      "cds-g90": "magenta",
+      "cds-g100": "magenta"
+    },
+    "comment": "TODO - replace the `magenta` values with the correct ones",
     "original": {
       "$type": "color",
-      "$value": "{color.focus.action.external}",
+      "$value": "magenta",
+      "$modes": {
+        "default": "{color.focus.action.external}",
+        "cds-g0": "magenta",
+        "cds-g10": "magenta",
+        "cds-g90": "magenta",
+        "cds-g100": "magenta"
+      },
+      "comment": "TODO - replace the `magenta` values with the correct ones",
       "key": "{button.border.color.primary.focus.external}"
     },
     "name": "token-button-border-color-primary-focus-external",
@@ -10855,10 +10834,26 @@
   {
     "key": "{button.border.color.secondary.focus.internal}",
     "$type": "color",
-    "$value": "#161616",
+    "$value": "#ffc0cb",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "pink",
+      "cds-g10": "pink",
+      "cds-g90": "pink",
+      "cds-g100": "pink"
+    },
+    "comment": "TODO - replace the `pink` values with the correct ones",
     "original": {
       "$type": "color",
-      "$value": "{color.focus.action.internal}",
+      "$value": "pink",
+      "$modes": {
+        "default": "{color.focus.action.internal}",
+        "cds-g0": "pink",
+        "cds-g10": "pink",
+        "cds-g90": "pink",
+        "cds-g100": "pink"
+      },
+      "comment": "TODO - replace the `pink` values with the correct ones",
       "key": "{button.border.color.secondary.focus.internal}"
     },
     "name": "token-button-border-color-secondary-focus-internal",
@@ -10877,10 +10872,26 @@
   {
     "key": "{button.border.color.secondary.focus.external}",
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#ff00ff",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "magenta",
+      "cds-g10": "magenta",
+      "cds-g90": "magenta",
+      "cds-g100": "magenta"
+    },
+    "comment": "TODO - replace the `magenta` values with the correct ones",
     "original": {
       "$type": "color",
-      "$value": "{color.focus.action.external}",
+      "$value": "magenta",
+      "$modes": {
+        "default": "{color.focus.action.external}",
+        "cds-g0": "magenta",
+        "cds-g10": "magenta",
+        "cds-g90": "magenta",
+        "cds-g100": "magenta"
+      },
+      "comment": "TODO - replace the `magenta` values with the correct ones",
       "key": "{button.border.color.secondary.focus.external}"
     },
     "name": "token-button-border-color-secondary-focus-external",
@@ -10934,24 +10945,10 @@
   {
     "key": "{button.border.color.tertiary.default}",
     "$type": "color",
-    "$value": "#ffffff",
-    "$modes": {
-      "default": "transparent",
-      "cds-g0": "#0f62fe",
-      "cds-g10": "#0f62fe",
-      "cds-g90": "#ffffff",
-      "cds-g100": "#ffffff"
-    },
+    "$value": "rgba(0, 0, 0, 0)",
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
-      "$modes": {
-        "default": "transparent",
-        "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
-        "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
-        "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
-        "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
-      },
+      "$value": "transparent",
       "key": "{button.border.color.tertiary.default}"
     },
     "name": "token-button-border-color-tertiary-default",
@@ -10969,24 +10966,10 @@
   {
     "key": "{button.border.color.tertiary.hover}",
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$modes": {
-      "default": "#8d8d8d",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
+    "$value": "#8d8d8d",
     "original": {
       "$type": "color",
-      "$value": "transparent",
-      "$modes": {
-        "default": "{color.border.strong}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
+      "$value": "{color.border.strong}",
       "key": "{button.border.color.tertiary.hover}"
     },
     "name": "token-button-border-color-tertiary-hover",
@@ -11048,24 +11031,10 @@
   {
     "key": "{button.border.color.tertiary.active}",
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$modes": {
-      "default": "#8d8d8d",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
+    "$value": "#8d8d8d",
     "original": {
       "$type": "color",
-      "$value": "transparent",
-      "$modes": {
-        "default": "{color.border.strong}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
+      "$value": "{color.border.strong}",
       "key": "{button.border.color.tertiary.active}"
     },
     "name": "token-button-border-color-tertiary-active",
@@ -11081,52 +11050,11 @@
     ]
   },
   {
-    "key": "{button.border.color.tertiary.disabled}",
-    "$type": "color",
-    "$value": "rgba(141, 141, 141, 0.3)",
-    "$modes": {
-      "default": "transparent",
-      "cds-g0": "#c6c6c6",
-      "cds-g10": "#c6c6c6",
-      "cds-g90": "rgba(141, 141, 141, 0.3)",
-      "cds-g100": "rgba(141, 141, 141, 0.3)"
-    },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
-      "$modes": {
-        "default": "transparent",
-        "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
-        "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
-        "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
-        "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
-      },
-      "comments": {
-        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-      },
-      "key": "{button.border.color.tertiary.disabled}"
-    },
-    "name": "token-button-border-color-tertiary-disabled",
-    "attributes": {
-      "category": "button"
-    },
-    "path": [
-      "button",
-      "border",
-      "color",
-      "tertiary",
-      "disabled"
-    ]
-  },
-  {
     "key": "{button.border.color.critical.default}",
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$modes": {
-      "default": "#a2191f",
+      "default": "#ffb3b8",
       "cds-g0": "transparent",
       "cds-g10": "transparent",
       "cds-g90": "transparent",
@@ -11136,7 +11064,7 @@
       "$type": "color",
       "$value": "transparent",
       "$modes": {
-        "default": "{color.palette.red-300}",
+        "default": "{color.foreground.critical-on-surface}",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -11194,10 +11122,26 @@
   {
     "key": "{button.border.color.critical.focus.internal}",
     "$type": "color",
-    "$value": "#161616",
+    "$value": "#ffc0cb",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "pink",
+      "cds-g10": "pink",
+      "cds-g90": "pink",
+      "cds-g100": "pink"
+    },
+    "comment": "TODO - replace the `pink` values with the correct ones",
     "original": {
       "$type": "color",
-      "$value": "{color.focus.critical.internal}",
+      "$value": "pink",
+      "$modes": {
+        "default": "{color.focus.critical.internal}",
+        "cds-g0": "pink",
+        "cds-g10": "pink",
+        "cds-g90": "pink",
+        "cds-g100": "pink"
+      },
+      "comment": "TODO - replace the `pink` values with the correct ones",
       "key": "{button.border.color.critical.focus.internal}"
     },
     "name": "token-button-border-color-critical-focus-internal",
@@ -11216,10 +11160,26 @@
   {
     "key": "{button.border.color.critical.focus.external}",
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#ff00ff",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "magenta",
+      "cds-g10": "magenta",
+      "cds-g90": "magenta",
+      "cds-g100": "magenta"
+    },
+    "comment": "TODO - replace the `magenta` values with the correct ones",
     "original": {
       "$type": "color",
-      "$value": "{color.focus.critical.external}",
+      "$value": "magenta",
+      "$modes": {
+        "default": "{color.focus.critical.external}",
+        "cds-g0": "magenta",
+        "cds-g10": "magenta",
+        "cds-g90": "magenta",
+        "cds-g100": "magenta"
+      },
+      "comment": "TODO - replace the `magenta` values with the correct ones",
       "key": "{button.border.color.critical.focus.external}"
     },
     "name": "token-button-border-color-critical-focus-external",
@@ -11273,30 +11233,10 @@
   {
     "key": "{button.border.color.disabled}",
     "$type": "color",
-    "$value": "rgba(141, 141, 141, 0.3)",
-    "$modes": {
-      "default": "#8d8d8d",
-      "cds-g0": "#c6c6c6",
-      "cds-g10": "#c6c6c6",
-      "cds-g90": "rgba(141, 141, 141, 0.3)",
-      "cds-g100": "rgba(141, 141, 141, 0.3)"
-    },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
+    "$value": "#8d8d8d",
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
-      "$modes": {
-        "default": "{color.border.primary}",
-        "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
-        "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
-        "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
-        "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
-      },
-      "comments": {
-        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-      },
+      "$value": "{color.border.primary}",
       "key": "{button.border.color.disabled}"
     },
     "name": "token-button-border-color-disabled",
@@ -11311,7 +11251,7 @@
     ]
   },
   {
-    "key": "{button.focus-ring.border.width}",
+    "key": "{button.focus.border.width}",
     "$type": "dimension",
     "$value": "3px",
     "unit": "px",
@@ -11319,15 +11259,15 @@
       "$type": "dimension",
       "$value": "3",
       "unit": "px",
-      "key": "{button.focus-ring.border.width}"
+      "key": "{button.focus.border.width}"
     },
-    "name": "token-button-focus-ring-border-width",
+    "name": "token-button-focus-border-width",
     "attributes": {
       "category": "button"
     },
     "path": [
       "button",
-      "focus-ring",
+      "focus",
       "border",
       "width"
     ]
@@ -11509,6 +11449,1004 @@
     ]
   },
   {
+    "key": "{code-block.color.palette.blue}",
+    "$type": "color",
+    "$value": "#78a9ff",
+    "$modes": {
+      "default": "#2d8eff",
+      "cds-g0": "#4589ff",
+      "cds-g10": "#4589ff",
+      "cds-g90": "#78a9ff",
+      "cds-g100": "#78a9ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.blue.40}",
+      "$modes": {
+        "default": "#2d8eff",
+        "cds-g0": "{carbon.color.blue.50}",
+        "cds-g10": "{carbon.color.blue.50}",
+        "cds-g90": "{carbon.color.blue.40}",
+        "cds-g100": "{carbon.color.blue.40}"
+      },
+      "key": "{code-block.color.palette.blue}"
+    },
+    "name": "token-code-block-color-palette-blue",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "palette",
+      "blue"
+    ]
+  },
+  {
+    "key": "{code-block.color.palette.cyan}",
+    "$type": "color",
+    "$value": "#82cfff",
+    "$modes": {
+      "default": "#32fff7",
+      "cds-g0": "#33b1ff",
+      "cds-g10": "#33b1ff",
+      "cds-g90": "#82cfff",
+      "cds-g100": "#82cfff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.cyan.30}",
+      "$modes": {
+        "default": "#32fff7",
+        "cds-g0": "{carbon.color.cyan.40}",
+        "cds-g10": "{carbon.color.cyan.40}",
+        "cds-g90": "{carbon.color.cyan.30}",
+        "cds-g100": "{carbon.color.cyan.30}"
+      },
+      "key": "{code-block.color.palette.cyan}"
+    },
+    "name": "token-code-block-color-palette-cyan",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "palette",
+      "cyan"
+    ]
+  },
+  {
+    "key": "{code-block.color.palette.green}",
+    "$type": "color",
+    "$value": "#6fdc8c",
+    "$modes": {
+      "default": "#86ff13",
+      "cds-g0": "#42be65",
+      "cds-g10": "#42be65",
+      "cds-g90": "#6fdc8c",
+      "cds-g100": "#6fdc8c"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.green.30}",
+      "$modes": {
+        "default": "#86ff13",
+        "cds-g0": "{carbon.color.green.40}",
+        "cds-g10": "{carbon.color.green.40}",
+        "cds-g90": "{carbon.color.green.30}",
+        "cds-g100": "{carbon.color.green.30}"
+      },
+      "key": "{code-block.color.palette.green}"
+    },
+    "name": "token-code-block-color-palette-green",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "palette",
+      "green"
+    ]
+  },
+  {
+    "key": "{code-block.color.palette.orange}",
+    "$type": "color",
+    "$value": "#ffb784",
+    "$modes": {
+      "default": "#ffa800",
+      "cds-g0": "#ff832b",
+      "cds-g10": "#ff832b",
+      "cds-g90": "#ffb784",
+      "cds-g100": "#ffb784"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.orange.30}",
+      "$modes": {
+        "default": "#ffa800",
+        "cds-g0": "{carbon.color.orange.40}",
+        "cds-g10": "{carbon.color.orange.40}",
+        "cds-g90": "{carbon.color.orange.30}",
+        "cds-g100": "{carbon.color.orange.30}"
+      },
+      "key": "{code-block.color.palette.orange}"
+    },
+    "name": "token-code-block-color-palette-orange",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "palette",
+      "orange"
+    ]
+  },
+  {
+    "key": "{code-block.color.palette.purple}",
+    "$type": "color",
+    "$value": "#d4bbff",
+    "$modes": {
+      "default": "#c76cff",
+      "cds-g0": "#be95ff",
+      "cds-g10": "#be95ff",
+      "cds-g90": "#d4bbff",
+      "cds-g100": "#d4bbff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.purple.30}",
+      "$modes": {
+        "default": "#c76cff",
+        "cds-g0": "{carbon.color.purple.40}",
+        "cds-g10": "{carbon.color.purple.40}",
+        "cds-g90": "{carbon.color.purple.30}",
+        "cds-g100": "{carbon.color.purple.30}"
+      },
+      "key": "{code-block.color.palette.purple}"
+    },
+    "name": "token-code-block-color-palette-purple",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "palette",
+      "purple"
+    ]
+  },
+  {
+    "key": "{code-block.color.palette.red}",
+    "$type": "color",
+    "$value": "#ff8389",
+    "$modes": {
+      "default": "#ff3b20",
+      "cds-g0": "#fa4d56",
+      "cds-g10": "#fa4d56",
+      "cds-g90": "#ff8389",
+      "cds-g100": "#ff8389"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.red.40}",
+      "$modes": {
+        "default": "#ff3b20",
+        "cds-g0": "{carbon.color.red.50}",
+        "cds-g10": "{carbon.color.red.50}",
+        "cds-g90": "{carbon.color.red.40}",
+        "cds-g100": "{carbon.color.red.40}"
+      },
+      "key": "{code-block.color.palette.red}"
+    },
+    "name": "token-code-block-color-palette-red",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "palette",
+      "red"
+    ]
+  },
+  {
+    "key": "{code-block.color.palette.yellow}",
+    "$type": "color",
+    "$value": "#f1c21b",
+    "$modes": {
+      "default": "#ffeb3b",
+      "cds-g0": "#d2a106",
+      "cds-g10": "#d2a106",
+      "cds-g90": "#f1c21b",
+      "cds-g100": "#f1c21b"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.yellow.30}",
+      "$modes": {
+        "default": "#ffeb3b",
+        "cds-g0": "{carbon.color.yellow.40}",
+        "cds-g10": "{carbon.color.yellow.40}",
+        "cds-g90": "{carbon.color.yellow.30}",
+        "cds-g100": "{carbon.color.yellow.30}"
+      },
+      "key": "{code-block.color.palette.yellow}"
+    },
+    "name": "token-code-block-color-palette-yellow",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "palette",
+      "yellow"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.primary}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#d5d7db",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "#d5d7db",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{code-block.color.foreground.primary}"
+    },
+    "name": "token-code-block-color-foreground-primary",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "primary"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.faint}",
+    "$type": "color",
+    "$value": "#c6c6c6",
+    "$modes": {
+      "default": "#b2b6bd",
+      "cds-g0": "#525252",
+      "cds-g10": "#525252",
+      "cds-g90": "#c6c6c6",
+      "cds-g100": "#c6c6c6"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textSecondary}",
+      "$modes": {
+        "default": "#b2b6bd",
+        "cds-g0": "{carbon.themes.white.textSecondary}",
+        "cds-g10": "{carbon.themes.g10.textSecondary}",
+        "cds-g90": "{carbon.themes.g90.textSecondary}",
+        "cds-g100": "{carbon.themes.g100.textSecondary}"
+      },
+      "key": "{code-block.color.foreground.faint}"
+    },
+    "name": "token-code-block-color-foreground-faint",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "faint"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.interactive}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#dedfe3",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "#dedfe3",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{code-block.color.foreground.interactive}"
+    },
+    "name": "token-code-block-color-foreground-interactive",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "interactive"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.interactive-hover}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#fff",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "#fff",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{code-block.color.foreground.interactive-hover}"
+    },
+    "name": "token-code-block-color-foreground-interactive-hover",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "interactive-hover"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.interactive-active}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#f1f2f3",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "#f1f2f3",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{code-block.color.foreground.interactive-active}"
+    },
+    "name": "token-code-block-color-foreground-interactive-active",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "interactive-active"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.action}",
+    "$type": "color",
+    "$value": "#78a9ff",
+    "$modes": {
+      "default": "#2b89ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#78a9ff",
+      "cds-g100": "#78a9ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.linkPrimary}",
+      "$modes": {
+        "default": "#2b89ff",
+        "cds-g0": "{carbon.themes.white.linkPrimary}",
+        "cds-g10": "{carbon.themes.g10.linkPrimary}",
+        "cds-g90": "{carbon.themes.g90.linkPrimary}",
+        "cds-g100": "{carbon.themes.g100.linkPrimary}"
+      },
+      "key": "{code-block.color.foreground.action}"
+    },
+    "name": "token-code-block-color-foreground-action",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "action"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.action-hover}",
+    "$type": "color",
+    "$value": "#a6c8ff",
+    "$modes": {
+      "default": "#389aff",
+      "cds-g0": "#0043ce",
+      "cds-g10": "#0043ce",
+      "cds-g90": "#a6c8ff",
+      "cds-g100": "#a6c8ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.linkPrimaryHover}",
+      "$modes": {
+        "default": "#389aff",
+        "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
+        "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
+        "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
+        "cds-g100": "{carbon.themes.g100.linkPrimaryHover}"
+      },
+      "key": "{code-block.color.foreground.action-hover}"
+    },
+    "name": "token-code-block-color-foreground-action-hover",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "action-hover"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.action-active}",
+    "$type": "color",
+    "$value": "#78a9ff",
+    "$modes": {
+      "default": "#4ca1ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#78a9ff",
+      "cds-g100": "#78a9ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.linkPrimary}",
+      "$modes": {
+        "default": "#4ca1ff",
+        "cds-g0": "{carbon.themes.white.linkPrimary}",
+        "cds-g10": "{carbon.themes.g10.linkPrimary}",
+        "cds-g90": "{carbon.themes.g90.linkPrimary}",
+        "cds-g100": "{carbon.themes.g100.linkPrimary}"
+      },
+      "key": "{code-block.color.foreground.action-active}"
+    },
+    "name": "token-code-block-color-foreground-action-active",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "action-active"
+    ]
+  },
+  {
+    "key": "{code-block.color.foreground.selection}",
+    "$type": "color",
+    "$value": "#0d0e12",
+    "original": {
+      "$type": "color",
+      "$value": "#0d0e12",
+      "key": "{code-block.color.foreground.selection}"
+    },
+    "name": "token-code-block-color-foreground-selection",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "foreground",
+      "selection"
+    ]
+  },
+  {
+    "key": "{code-block.color.surface.primary}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#0d0e12",
+      "cds-g0": "#f4f4f4",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.layer01}",
+      "$modes": {
+        "default": "#0d0e12",
+        "cds-g0": "{carbon.themes.white.layer01}",
+        "cds-g10": "{carbon.themes.g10.layer01}",
+        "cds-g90": "{carbon.themes.g90.layer01}",
+        "cds-g100": "{carbon.themes.g100.layer01}"
+      },
+      "key": "{code-block.color.surface.primary}"
+    },
+    "name": "token-code-block-color-surface-primary",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "surface",
+      "primary"
+    ]
+  },
+  {
+    "key": "{code-block.color.surface.faint}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#15181e",
+      "cds-g0": "#f4f4f4",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.layer01}",
+      "$modes": {
+        "default": "#15181e",
+        "cds-g0": "{carbon.themes.white.layer01}",
+        "cds-g10": "{carbon.themes.g10.layer01}",
+        "cds-g90": "{carbon.themes.g90.layer01}",
+        "cds-g100": "{carbon.themes.g100.layer01}"
+      },
+      "key": "{code-block.color.surface.faint}"
+    },
+    "name": "token-code-block-color-surface-faint",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "surface",
+      "faint"
+    ]
+  },
+  {
+    "key": "{code-block.color.surface.interactive-active}",
+    "$type": "color",
+    "$value": "#6f6f6f",
+    "$modes": {
+      "default": "#2b303c",
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#c6c6c6",
+      "cds-g90": "#6f6f6f",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.layerActive01}",
+      "$modes": {
+        "default": "#2b303c",
+        "cds-g0": "{carbon.themes.white.layerActive01}",
+        "cds-g10": "{carbon.themes.g10.layerActive01}",
+        "cds-g90": "{carbon.themes.g90.layerActive01}",
+        "cds-g100": "{carbon.themes.g100.layerActive01}"
+      },
+      "key": "{code-block.color.surface.interactive-active}"
+    },
+    "name": "token-code-block-color-surface-interactive-active",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "surface",
+      "interactive-active"
+    ]
+  },
+  {
+    "key": "{code-block.color.surface.selection}",
+    "$type": "color",
+    "$value": "#86ff13",
+    "original": {
+      "$type": "color",
+      "$value": "#86ff13",
+      "key": "{code-block.color.surface.selection}"
+    },
+    "name": "token-code-block-color-surface-selection",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "surface",
+      "selection"
+    ]
+  },
+  {
+    "key": "{code-block.color.border.strong}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "rgba(178, 182, 189, 40%)",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "rgba(178, 182, 189, 40%)",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{code-block.color.border.strong}"
+    },
+    "name": "token-code-block-color-border-strong",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "border",
+      "strong"
+    ]
+  },
+  {
+    "key": "{code-block.color.border.primary}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "rgba(178, 182, 189, 20%)",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "rgba(178, 182, 189, 20%)",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{code-block.color.border.primary}"
+    },
+    "name": "token-code-block-color-border-primary",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "border",
+      "primary"
+    ]
+  },
+  {
+    "key": "{code-block.color.focus.action-internal}",
+    "$type": "color",
+    "$value": "#161616",
+    "comment": "TODO: Remove once global tokens for dark themes are implemented",
+    "$modes": {
+      "default": "#9bc7fd",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#161616",
+      "cds-g100": "#161616"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.focusInset}",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#9bc7fd",
+        "cds-g0": "{carbon.themes.white.focusInset}",
+        "cds-g10": "{carbon.themes.g10.focusInset}",
+        "cds-g90": "{carbon.themes.g90.focusInset}",
+        "cds-g100": "{carbon.themes.g100.focusInset}"
+      },
+      "key": "{code-block.color.focus.action-internal}"
+    },
+    "name": "token-code-block-color-focus-action-internal",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "focus",
+      "action-internal"
+    ]
+  },
+  {
+    "key": "{code-block.color.focus.action-external}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "comment": "TODO: Remove once global tokens for dark themes are implemented",
+    "$modes": {
+      "default": "#0d69f2",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.focus}",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#0d69f2",
+        "cds-g0": "{carbon.themes.white.focus}",
+        "cds-g10": "{carbon.themes.g10.focus}",
+        "cds-g90": "{carbon.themes.g90.focus}",
+        "cds-g100": "{carbon.themes.g100.focus}"
+      },
+      "key": "{code-block.color.focus.action-external}"
+    },
+    "name": "token-code-block-color-focus-action-external",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "color",
+      "focus",
+      "action-external"
+    ]
+  },
+  {
+    "key": "{code-block.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "13",
+      "cds-g0": "12",
+      "cds-g10": "12",
+      "cds-g90": "12",
+      "cds-g100": "12"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "12",
+      "unit": "px",
+      "$modes": {
+        "default": "13",
+        "cds-g0": "12",
+        "cds-g10": "12",
+        "cds-g90": "12",
+        "cds-g100": "12"
+      },
+      "key": "{code-block.typography.font-size}"
+    },
+    "name": "token-code-block-typography-font-size",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{code-block.copy-button.surface.color.default}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#393939",
+      "cds-g0": "#f4f4f4",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.layer01}",
+      "$modes": {
+        "default": "{code-block.color.surface.faint}",
+        "cds-g0": "{carbon.themes.white.layer01}",
+        "cds-g10": "{carbon.themes.g10.layer01}",
+        "cds-g90": "{carbon.themes.g90.layer01}",
+        "cds-g100": "{carbon.themes.g100.layer01}"
+      },
+      "key": "{code-block.copy-button.surface.color.default}"
+    },
+    "name": "token-code-block-copy-button-surface-color-default",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "copy-button",
+      "surface",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{code-block.copy-button.surface.color.hover}",
+    "$type": "color",
+    "$value": "#474747",
+    "$modes": {
+      "default": "#393939",
+      "cds-g0": "#e8e8e8",
+      "cds-g10": "#e8e8e8",
+      "cds-g90": "#474747",
+      "cds-g100": "#333333"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.layerHover01}",
+      "$modes": {
+        "default": "{code-block.color.surface.primary}",
+        "cds-g0": "{carbon.themes.white.layerHover01}",
+        "cds-g10": "{carbon.themes.g10.layerHover01}",
+        "cds-g90": "{carbon.themes.g90.layerHover01}",
+        "cds-g100": "{carbon.themes.g100.layerHover01}"
+      },
+      "key": "{code-block.copy-button.surface.color.hover}"
+    },
+    "name": "token-code-block-copy-button-surface-color-hover",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "copy-button",
+      "surface",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{code-block.copy-button.surface.color.active}",
+    "$type": "color",
+    "$value": "#6f6f6f",
+    "$modes": {
+      "default": "#6f6f6f",
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#c6c6c6",
+      "cds-g90": "#6f6f6f",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.layerActive01}",
+      "$modes": {
+        "default": "{code-block.color.surface.interactive-active}",
+        "cds-g0": "{carbon.themes.white.layerActive01}",
+        "cds-g10": "{carbon.themes.g10.layerActive01}",
+        "cds-g90": "{carbon.themes.g90.layerActive01}",
+        "cds-g100": "{carbon.themes.g100.layerActive01}"
+      },
+      "key": "{code-block.copy-button.surface.color.active}"
+    },
+    "name": "token-code-block-copy-button-surface-color-active",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "copy-button",
+      "surface",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{code-block.line-highlight.background-color}",
+    "$type": "color",
+    "$value": "rgba(255, 255, 255, 0.1)",
+    "$modes": {
+      "default": "rgba(0, 74, 222, 0.2)",
+      "cds-g0": "rgba(15, 98, 254, 0.1)",
+      "cds-g10": "rgba(15, 98, 254, 0.1)",
+      "cds-g90": "rgba(255, 255, 255, 0.1)",
+      "cds-g100": "rgba(255, 255, 255, 0.1)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "rgba(255, 255, 255, 0.1)",
+      "$modes": {
+        "default": "rgba(0, 74, 222, 0.2)",
+        "cds-g0": "rgba(15, 98, 254, 0.1)",
+        "cds-g10": "rgba(15, 98, 254, 0.1)",
+        "cds-g90": "rgba(255, 255, 255, 0.1)",
+        "cds-g100": "rgba(255, 255, 255, 0.1)"
+      },
+      "key": "{code-block.line-highlight.background-color}"
+    },
+    "name": "token-code-block-line-highlight-background-color",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "line-highlight",
+      "background-color"
+    ]
+  },
+  {
+    "key": "{code-block.line-highlight.border-color}",
+    "$type": "color",
+    "$value": "#4589ff",
+    "$modes": {
+      "default": "#1555d4",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#4589ff",
+      "cds-g100": "#4589ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.borderInteractive}",
+      "$modes": {
+        "default": "#1555d4",
+        "cds-g0": "{carbon.themes.white.borderInteractive}",
+        "cds-g10": "{carbon.themes.g10.borderInteractive}",
+        "cds-g90": "{carbon.themes.g90.borderInteractive}",
+        "cds-g100": "{carbon.themes.g100.borderInteractive}"
+      },
+      "key": "{code-block.line-highlight.border-color}"
+    },
+    "name": "token-code-block-line-highlight-border-color",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "line-highlight",
+      "border-color"
+    ]
+  },
+  {
     "key": "{copy.button.foreground.color}",
     "$type": "color",
     "$value": "#f4f4f4",
@@ -11521,13 +12459,13 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textPrimary}",
+      "$value": "{carbon.themes.g90.iconPrimary}",
       "$modes": {
         "default": "{button.foreground.color.secondary.default}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
       },
       "key": "{copy.button.foreground.color}"
     },
@@ -11891,7 +12829,7 @@
     ]
   },
   {
-    "key": "{dialog-primitive.header.tagline.typography.font-size}",
+    "key": "{dialog-primitive.header.tagline.font-size}",
     "$type": "font-size",
     "$value": "0.75rem",
     "$modes": {
@@ -11917,9 +12855,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
       },
-      "key": "{dialog-primitive.header.tagline.typography.font-size}"
+      "key": "{dialog-primitive.header.tagline.font-size}"
     },
-    "name": "token-dialog-primitive-header-tagline-typography-font-size",
+    "name": "token-dialog-primitive-header-tagline-font-size",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -11927,12 +12865,11 @@
       "dialog-primitive",
       "header",
       "tagline",
-      "typography",
       "font-size"
     ]
   },
   {
-    "key": "{dialog-primitive.header.tagline.typography.line-height}",
+    "key": "{dialog-primitive.header.tagline.line-height}",
     "$type": "number",
     "$value": 1.33333,
     "$modes": {
@@ -11958,9 +12895,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline"
       },
-      "key": "{dialog-primitive.header.tagline.typography.line-height}"
+      "key": "{dialog-primitive.header.tagline.line-height}"
     },
-    "name": "token-dialog-primitive-header-tagline-typography-line-height",
+    "name": "token-dialog-primitive-header-tagline-line-height",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -11968,12 +12905,11 @@
       "dialog-primitive",
       "header",
       "tagline",
-      "typography",
       "line-height"
     ]
   },
   {
-    "key": "{dialog-primitive.header.title.typography.font-weight}",
+    "key": "{dialog-primitive.header.title.font-weight}",
     "$type": "font-weight",
     "$value": 400,
     "$modes": {
@@ -11999,9 +12935,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
       },
-      "key": "{dialog-primitive.header.title.typography.font-weight}"
+      "key": "{dialog-primitive.header.title.font-weight}"
     },
-    "name": "token-dialog-primitive-header-title-typography-font-weight",
+    "name": "token-dialog-primitive-header-title-font-weight",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -12009,7 +12945,6 @@
       "dialog-primitive",
       "header",
       "title",
-      "typography",
       "font-weight"
     ]
   },
@@ -12547,7 +13482,7 @@
     ]
   },
   {
-    "key": "{form.control.base.foreground.color}",
+    "key": "{form.control.base.foreground.value-color}",
     "$type": "color",
     "$value": "#f4f4f4",
     "group": "components",
@@ -12555,9 +13490,9 @@
       "$type": "color",
       "$value": "{color.foreground.strong}",
       "group": "components",
-      "key": "{form.control.base.foreground.color}"
+      "key": "{form.control.base.foreground.value-color}"
     },
-    "name": "token-form-control-base-foreground-color",
+    "name": "token-form-control-base-foreground-value-color",
     "attributes": {
       "category": "form"
     },
@@ -12566,11 +13501,34 @@
       "control",
       "base",
       "foreground",
-      "color"
+      "value-color"
     ]
   },
   {
-    "key": "{form.control.base.surface.color.default}",
+    "key": "{form.control.base.foreground.placeholder-color}",
+    "$type": "color",
+    "$value": "#c6c6c6",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{color.foreground.faint}",
+      "group": "components",
+      "key": "{form.control.base.foreground.placeholder-color}"
+    },
+    "name": "token-form-control-base-foreground-placeholder-color",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "base",
+      "foreground",
+      "placeholder-color"
+    ]
+  },
+  {
+    "key": "{form.control.base.surface-color.default}",
     "$type": "color",
     "$value": "#393939",
     "group": "components",
@@ -12578,7 +13536,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive}",
       "group": "components",
-      "key": "{form.control.base.surface.color.default}"
+      "key": "{form.control.base.surface-color.default}"
     },
     "name": "token-form-control-base-surface-color-default",
     "attributes": {
@@ -12588,13 +13546,12 @@
       "form",
       "control",
       "base",
-      "surface",
-      "color",
+      "surface-color",
       "default"
     ]
   },
   {
-    "key": "{form.control.base.surface.color.hover}",
+    "key": "{form.control.base.surface-color.hover}",
     "$type": "color",
     "$value": "#474747",
     "group": "components",
@@ -12602,7 +13559,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive-hover}",
       "group": "components",
-      "key": "{form.control.base.surface.color.hover}"
+      "key": "{form.control.base.surface-color.hover}"
     },
     "name": "token-form-control-base-surface-color-hover",
     "attributes": {
@@ -12612,13 +13569,12 @@
       "form",
       "control",
       "base",
-      "surface",
-      "color",
+      "surface-color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.base.border.color.default}",
+    "key": "{form.control.base.border-color.default}",
     "$type": "color",
     "$value": "#8d8d8d",
     "group": "components",
@@ -12626,7 +13582,7 @@
       "$type": "color",
       "$value": "{color.palette.neutral-400}",
       "group": "components",
-      "key": "{form.control.base.border.color.default}"
+      "key": "{form.control.base.border-color.default}"
     },
     "name": "token-form-control-base-border-color-default",
     "attributes": {
@@ -12636,13 +13592,12 @@
       "form",
       "control",
       "base",
-      "border",
-      "color",
+      "border-color",
       "default"
     ]
   },
   {
-    "key": "{form.control.base.border.color.hover}",
+    "key": "{form.control.base.border-color.hover}",
     "$type": "color",
     "$value": "#525252",
     "group": "components",
@@ -12650,7 +13605,7 @@
       "$type": "color",
       "$value": "{color.palette.neutral-500}",
       "group": "components",
-      "key": "{form.control.base.border.color.hover}"
+      "key": "{form.control.base.border-color.hover}"
     },
     "name": "token-form-control-base-border-color-hover",
     "attributes": {
@@ -12660,37 +13615,12 @@
       "form",
       "control",
       "base",
-      "border",
-      "color",
+      "border-color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.base.placeholder.foreground.color}",
-    "$type": "color",
-    "$value": "#c6c6c6",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{color.foreground.faint}",
-      "group": "components",
-      "key": "{form.control.base.placeholder.foreground.color}"
-    },
-    "name": "token-form-control-base-placeholder-foreground-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "placeholder",
-      "foreground",
-      "color"
-    ]
-  },
-  {
-    "key": "{form.control.checked.foreground.color}",
+    "key": "{form.control.checked.foreground-color}",
     "$type": "color",
     "$value": "#161616",
     "group": "components",
@@ -12698,7 +13628,7 @@
       "$type": "color",
       "$value": "{color.foreground.high-contrast}",
       "group": "components",
-      "key": "{form.control.checked.foreground.color}"
+      "key": "{form.control.checked.foreground-color}"
     },
     "name": "token-form-control-checked-foreground-color",
     "attributes": {
@@ -12708,12 +13638,11 @@
       "form",
       "control",
       "checked",
-      "foreground",
-      "color"
+      "foreground-color"
     ]
   },
   {
-    "key": "{form.control.checked.surface.color.default}",
+    "key": "{form.control.checked.surface-color.default}",
     "$type": "color",
     "$value": "#0f62fe",
     "group": "components",
@@ -12721,7 +13650,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-200}",
       "group": "components",
-      "key": "{form.control.checked.surface.color.default}"
+      "key": "{form.control.checked.surface-color.default}"
     },
     "name": "token-form-control-checked-surface-color-default",
     "attributes": {
@@ -12731,13 +13660,12 @@
       "form",
       "control",
       "checked",
-      "surface",
-      "color",
+      "surface-color",
       "default"
     ]
   },
   {
-    "key": "{form.control.checked.surface.color.hover}",
+    "key": "{form.control.checked.surface-color.hover}",
     "$type": "color",
     "$value": "#0043ce",
     "group": "components",
@@ -12745,7 +13673,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-300}",
       "group": "components",
-      "key": "{form.control.checked.surface.color.hover}"
+      "key": "{form.control.checked.surface-color.hover}"
     },
     "name": "token-form-control-checked-surface-color-hover",
     "attributes": {
@@ -12755,13 +13683,12 @@
       "form",
       "control",
       "checked",
-      "surface",
-      "color",
+      "surface-color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.checked.border.color.default}",
+    "key": "{form.control.checked.border-color.default}",
     "$type": "color",
     "$value": "#0043ce",
     "group": "components",
@@ -12769,7 +13696,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-300}",
       "group": "components",
-      "key": "{form.control.checked.border.color.default}"
+      "key": "{form.control.checked.border-color.default}"
     },
     "name": "token-form-control-checked-border-color-default",
     "attributes": {
@@ -12779,13 +13706,12 @@
       "form",
       "control",
       "checked",
-      "border",
-      "color",
+      "border-color",
       "default"
     ]
   },
   {
-    "key": "{form.control.checked.border.color.hover}",
+    "key": "{form.control.checked.border-color.hover}",
     "$type": "color",
     "$value": "#002d9c",
     "group": "components",
@@ -12793,7 +13719,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-400}",
       "group": "components",
-      "key": "{form.control.checked.border.color.hover}"
+      "key": "{form.control.checked.border-color.hover}"
     },
     "name": "token-form-control-checked-border-color-hover",
     "attributes": {
@@ -12803,13 +13729,12 @@
       "form",
       "control",
       "checked",
-      "border",
-      "color",
+      "border-color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.invalid.border.color.default}",
+    "key": "{form.control.invalid.border-color.default}",
     "$type": "color",
     "$value": "#a2191f",
     "group": "components",
@@ -12817,7 +13742,7 @@
       "$type": "color",
       "$value": "{color.palette.red-300}",
       "group": "components",
-      "key": "{form.control.invalid.border.color.default}"
+      "key": "{form.control.invalid.border-color.default}"
     },
     "name": "token-form-control-invalid-border-color-default",
     "attributes": {
@@ -12827,13 +13752,12 @@
       "form",
       "control",
       "invalid",
-      "border",
-      "color",
+      "border-color",
       "default"
     ]
   },
   {
-    "key": "{form.control.invalid.border.color.hover}",
+    "key": "{form.control.invalid.border-color.hover}",
     "$type": "color",
     "$value": "#750e13",
     "group": "components",
@@ -12841,7 +13765,7 @@
       "$type": "color",
       "$value": "{color.palette.red-400}",
       "group": "components",
-      "key": "{form.control.invalid.border.color.hover}"
+      "key": "{form.control.invalid.border-color.hover}"
     },
     "name": "token-form-control-invalid-border-color-hover",
     "attributes": {
@@ -12851,13 +13775,12 @@
       "form",
       "control",
       "invalid",
-      "border",
-      "color",
+      "border-color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.readonly.foreground.color}",
+    "key": "{form.control.readonly.foreground-color}",
     "$type": "color",
     "$value": "#f4f4f4",
     "group": "components",
@@ -12865,7 +13788,7 @@
       "$type": "color",
       "$value": "{color.foreground.primary}",
       "group": "components",
-      "key": "{form.control.readonly.foreground.color}"
+      "key": "{form.control.readonly.foreground-color}"
     },
     "name": "token-form-control-readonly-foreground-color",
     "attributes": {
@@ -12875,12 +13798,11 @@
       "form",
       "control",
       "readonly",
-      "foreground",
-      "color"
+      "foreground-color"
     ]
   },
   {
-    "key": "{form.control.readonly.surface.color}",
+    "key": "{form.control.readonly.surface-color}",
     "$type": "color",
     "$value": "#525252",
     "group": "components",
@@ -12888,7 +13810,7 @@
       "$type": "color",
       "$value": "{color.surface.strong}",
       "group": "components",
-      "key": "{form.control.readonly.surface.color}"
+      "key": "{form.control.readonly.surface-color}"
     },
     "name": "token-form-control-readonly-surface-color",
     "attributes": {
@@ -12898,12 +13820,11 @@
       "form",
       "control",
       "readonly",
-      "surface",
-      "color"
+      "surface-color"
     ]
   },
   {
-    "key": "{form.control.readonly.border.color}",
+    "key": "{form.control.readonly.border-color}",
     "$type": "color",
     "$value": "#525252",
     "group": "components",
@@ -12911,7 +13832,7 @@
       "$type": "color",
       "$value": "{color.border.faint}",
       "group": "components",
-      "key": "{form.control.readonly.border.color}"
+      "key": "{form.control.readonly.border-color}"
     },
     "name": "token-form-control-readonly-border-color",
     "attributes": {
@@ -12921,12 +13842,11 @@
       "form",
       "control",
       "readonly",
-      "border",
-      "color"
+      "border-color"
     ]
   },
   {
-    "key": "{form.control.disabled.foreground.color}",
+    "key": "{form.control.disabled.foreground-color}",
     "$type": "color",
     "$value": "rgba(244, 244, 244, 0.25)",
     "group": "components",
@@ -12934,7 +13854,7 @@
       "$type": "color",
       "$value": "{color.foreground.disabled}",
       "group": "components",
-      "key": "{form.control.disabled.foreground.color}"
+      "key": "{form.control.disabled.foreground-color}"
     },
     "name": "token-form-control-disabled-foreground-color",
     "attributes": {
@@ -12944,12 +13864,11 @@
       "form",
       "control",
       "disabled",
-      "foreground",
-      "color"
+      "foreground-color"
     ]
   },
   {
-    "key": "{form.control.disabled.surface.color}",
+    "key": "{form.control.disabled.surface-color}",
     "$type": "color",
     "$value": "#6f6f6f",
     "group": "components",
@@ -12957,7 +13876,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive-disabled}",
       "group": "components",
-      "key": "{form.control.disabled.surface.color}"
+      "key": "{form.control.disabled.surface-color}"
     },
     "name": "token-form-control-disabled-surface-color",
     "attributes": {
@@ -12967,12 +13886,11 @@
       "form",
       "control",
       "disabled",
-      "surface",
-      "color"
+      "surface-color"
     ]
   },
   {
-    "key": "{form.control.disabled.border.color}",
+    "key": "{form.control.disabled.border-color}",
     "$type": "color",
     "$value": "#8d8d8d",
     "group": "components",
@@ -12980,7 +13898,7 @@
       "$type": "color",
       "$value": "{color.border.primary}",
       "group": "components",
-      "key": "{form.control.disabled.border.color}"
+      "key": "{form.control.disabled.border-color}"
     },
     "name": "token-form-control-disabled-border-color",
     "attributes": {
@@ -12990,8 +13908,7 @@
       "form",
       "control",
       "disabled",
-      "border",
-      "color"
+      "border-color"
     ]
   },
   {
@@ -13703,7 +14620,7 @@
     ]
   },
   {
-    "key": "{form.toggle.base.surface.color.default}",
+    "key": "{form.toggle.base.surface-color.default}",
     "$type": "color",
     "$value": "#525252",
     "group": "components",
@@ -13713,7 +14630,7 @@
       "$value": "{color.surface.strong}",
       "group": "components",
       "comment": "the toggle has a different base surface color, compared to the other controls",
-      "key": "{form.toggle.base.surface.color.default}"
+      "key": "{form.toggle.base.surface-color.default}"
     },
     "name": "token-form-toggle-base-surface-color-default",
     "attributes": {
@@ -13723,8 +14640,7 @@
       "form",
       "toggle",
       "base",
-      "surface",
-      "color",
+      "surface-color",
       "default"
     ]
   },
@@ -15882,7 +16798,7 @@
     "$value": "16px",
     "unit": "px",
     "$modes": {
-      "default": "20",
+      "default": "12",
       "cds-g0": "16",
       "cds-g10": "16",
       "cds-g90": "16",
@@ -15893,7 +16809,7 @@
       "$value": "16",
       "unit": "px",
       "$modes": {
-        "default": "20",
+        "default": "12",
         "cds-g0": "16",
         "cds-g10": "16",
         "cds-g90": "16",
@@ -16115,7 +17031,7 @@
     ]
   },
   {
-    "key": "{tabs.indicator.transition.timing-function}",
+    "key": "{tabs.indicator.transition.function}",
     "$type": "cubicBezier",
     "$value": "cubic-bezier(0.5, 1, 0.89, 1)",
     "original": {
@@ -16126,9 +17042,9 @@
         0.89,
         1
       ],
-      "key": "{tabs.indicator.transition.timing-function}"
+      "key": "{tabs.indicator.transition.function}"
     },
-    "name": "token-tabs-indicator-transition-timing-function",
+    "name": "token-tabs-indicator-transition-function",
     "attributes": {
       "category": "tabs"
     },
@@ -16136,7 +17052,7 @@
       "tabs",
       "indicator",
       "transition",
-      "timing-function"
+      "function"
     ]
   },
   {
@@ -16180,1103 +17096,6 @@
       "tabs",
       "divider",
       "height"
-    ]
-  },
-  {
-    "key": "{tag.max-width}",
-    "$type": "dimension",
-    "$value": "208px",
-    "unit": "px",
-    "$modes": {
-      "default": "166",
-      "cds-g0": "208",
-      "cds-g10": "208",
-      "cds-g90": "208",
-      "cds-g100": "208"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "208",
-      "unit": "px",
-      "$modes": {
-        "default": "166",
-        "cds-g0": "208",
-        "cds-g10": "208",
-        "cds-g90": "208",
-        "cds-g100": "208"
-      },
-      "key": "{tag.max-width}"
-    },
-    "name": "token-tag-max-width",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "max-width"
-    ]
-  },
-  {
-    "key": "{tag.padding.top}",
-    "$type": "dimension",
-    "$value": "3px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "3",
-      "unit": "px",
-      "key": "{tag.padding.top}"
-    },
-    "name": "token-tag-padding-top",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "padding",
-      "top"
-    ]
-  },
-  {
-    "key": "{tag.padding.bottom}",
-    "$type": "dimension",
-    "$value": "3px",
-    "unit": "px",
-    "$modes": {
-      "default": "5",
-      "cds-g0": "3",
-      "cds-g10": "3",
-      "cds-g90": "3",
-      "cds-g100": "3"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "3",
-      "unit": "px",
-      "$modes": {
-        "default": "5",
-        "cds-g0": "3",
-        "cds-g10": "3",
-        "cds-g90": "3",
-        "cds-g100": "3"
-      },
-      "key": "{tag.padding.bottom}"
-    },
-    "name": "token-tag-padding-bottom",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "padding",
-      "bottom"
-    ]
-  },
-  {
-    "key": "{tag.padding.right}",
-    "$type": "dimension",
-    "$value": "8px",
-    "unit": "px",
-    "$modes": {
-      "default": "10",
-      "cds-g0": "8",
-      "cds-g10": "8",
-      "cds-g90": "8",
-      "cds-g100": "8"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "8",
-      "unit": "px",
-      "$modes": {
-        "default": "10",
-        "cds-g0": "8",
-        "cds-g10": "8",
-        "cds-g90": "8",
-        "cds-g100": "8"
-      },
-      "key": "{tag.padding.right}"
-    },
-    "name": "token-tag-padding-right",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "padding",
-      "right"
-    ]
-  },
-  {
-    "key": "{tag.padding.left}",
-    "$type": "dimension",
-    "$value": "8px",
-    "unit": "px",
-    "$modes": {
-      "default": "10",
-      "cds-g0": "8",
-      "cds-g10": "8",
-      "cds-g90": "8",
-      "cds-g100": "8"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "8",
-      "unit": "px",
-      "$modes": {
-        "default": "10",
-        "cds-g0": "8",
-        "cds-g10": "8",
-        "cds-g90": "8",
-        "cds-g100": "8"
-      },
-      "key": "{tag.padding.left}"
-    },
-    "name": "token-tag-padding-left",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "padding",
-      "left"
-    ]
-  },
-  {
-    "key": "{tag.border.radius}",
-    "$type": "dimension",
-    "$value": "16px",
-    "unit": "px",
-    "$modes": {
-      "default": "50",
-      "cds-g0": "16",
-      "cds-g10": "16",
-      "cds-g90": "16",
-      "cds-g100": "16"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "16",
-      "unit": "px",
-      "$modes": {
-        "default": "50",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "key": "{tag.border.radius}"
-    },
-    "name": "token-tag-border-radius",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "border",
-      "radius"
-    ]
-  },
-  {
-    "key": "{tag.typography.font-size}",
-    "$type": "font-size",
-    "$value": "0.75rem",
-    "unit": "px",
-    "$modes": {
-      "default": "13",
-      "cds-g0": "0.75rem",
-      "cds-g10": "0.75rem",
-      "cds-g90": "0.75rem",
-      "cds-g100": "0.75rem"
-    },
-    "original": {
-      "$type": "font-size",
-      "$value": "{carbon.typography.label01.font-size}",
-      "unit": "px",
-      "$modes": {
-        "default": "13",
-        "cds-g0": "{carbon.typography.label01.font-size}",
-        "cds-g10": "{carbon.typography.label01.font-size}",
-        "cds-g90": "{carbon.typography.label01.font-size}",
-        "cds-g100": "{carbon.typography.label01.font-size}"
-      },
-      "key": "{tag.typography.font-size}"
-    },
-    "name": "token-tag-typography-font-size",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "typography",
-      "font-size"
-    ]
-  },
-  {
-    "key": "{tag.typography.font-weight}",
-    "$type": "font-weight",
-    "$value": 400,
-    "$modes": {
-      "default": 400,
-      "cds-g0": 400,
-      "cds-g10": 400,
-      "cds-g90": 400,
-      "cds-g100": 400
-    },
-    "original": {
-      "$type": "font-weight",
-      "$value": "{carbon.typography.label01.font-weight}",
-      "$modes": {
-        "default": "{typography.font-weight.medium}",
-        "cds-g0": "{carbon.typography.label01.font-weight}",
-        "cds-g10": "{carbon.typography.label01.font-weight}",
-        "cds-g90": "{carbon.typography.label01.font-weight}",
-        "cds-g100": "{carbon.typography.label01.font-weight}"
-      },
-      "key": "{tag.typography.font-weight}"
-    },
-    "name": "token-tag-typography-font-weight",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "typography",
-      "font-weight"
-    ]
-  },
-  {
-    "key": "{tag.typography.line-height}",
-    "$type": "number",
-    "$value": 1.33333,
-    "$modes": {
-      "default": 1.2308,
-      "cds-g0": 1.33333,
-      "cds-g10": 1.33333,
-      "cds-g90": 1.33333,
-      "cds-g100": 1.33333
-    },
-    "original": {
-      "$type": "number",
-      "$value": "{carbon.typography.label01.line-height}",
-      "$modes": {
-        "default": 1.2308,
-        "cds-g0": "{carbon.typography.label01.line-height}",
-        "cds-g10": "{carbon.typography.label01.line-height}",
-        "cds-g90": "{carbon.typography.label01.line-height}",
-        "cds-g100": "{carbon.typography.label01.line-height}"
-      },
-      "key": "{tag.typography.line-height}"
-    },
-    "name": "token-tag-typography-line-height",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "typography",
-      "line-height"
-    ]
-  },
-  {
-    "key": "{tag.dismissible.max-width}",
-    "$type": "dimension",
-    "$value": "204px",
-    "unit": "px",
-    "$modes": {
-      "default": "160",
-      "cds-g0": "204",
-      "cds-g10": "204",
-      "cds-g90": "204",
-      "cds-g100": "204"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "204",
-      "unit": "px",
-      "$modes": {
-        "default": "160",
-        "cds-g0": "204",
-        "cds-g10": "204",
-        "cds-g90": "204",
-        "cds-g100": "204"
-      },
-      "key": "{tag.dismissible.max-width}"
-    },
-    "name": "token-tag-dismissible-max-width",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "dismissible",
-      "max-width"
-    ]
-  },
-  {
-    "key": "{tag.dismissible.padding.right}",
-    "$type": "dimension",
-    "$value": "8px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "8",
-      "unit": "px",
-      "key": "{tag.dismissible.padding.right}"
-    },
-    "name": "token-tag-dismissible-padding-right",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "dismissible",
-      "padding",
-      "right"
-    ]
-  },
-  {
-    "key": "{tag.dismissible.padding.left}",
-    "$type": "dimension",
-    "$value": "4px",
-    "unit": "px",
-    "$modes": {
-      "default": "6",
-      "cds-g0": "4",
-      "cds-g10": "4",
-      "cds-g90": "4",
-      "cds-g100": "4"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "4",
-      "unit": "px",
-      "$modes": {
-        "default": "6",
-        "cds-g0": "4",
-        "cds-g10": "4",
-        "cds-g90": "4",
-        "cds-g100": "4"
-      },
-      "key": "{tag.dismissible.padding.left}"
-    },
-    "name": "token-tag-dismissible-padding-left",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "dismissible",
-      "padding",
-      "left"
-    ]
-  },
-  {
-    "key": "{tag.link.border.color.primary}",
-    "$type": "color",
-    "$value": "#4589ff",
-    "$modes": {
-      "default": "#8d8d8d",
-      "cds-g0": "#78a9ff",
-      "cds-g10": "#78a9ff",
-      "cds-g90": "#4589ff",
-      "cds-g100": "#4589ff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagBorderBlue.g90}",
-      "$modes": {
-        "default": "{color.border.strong}",
-        "cds-g0": "{carbon.themes.tagTokens.tagBorderBlue.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagBorderBlue.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagBorderBlue.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagBorderBlue.g100}"
-      },
-      "key": "{tag.link.border.color.primary}"
-    },
-    "name": "token-tag-link-border-color-primary",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "border",
-      "color",
-      "primary"
-    ]
-  },
-  {
-    "key": "{tag.link.border.color.secondary}",
-    "$type": "color",
-    "$value": "#8d8d8d",
-    "$modes": {
-      "default": "#8d8d8d",
-      "cds-g0": "#a8a8a8",
-      "cds-g10": "#a8a8a8",
-      "cds-g90": "#8d8d8d",
-      "cds-g100": "#8d8d8d"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagBorderGray.g90}",
-      "$modes": {
-        "default": "{color.border.strong}",
-        "cds-g0": "{carbon.themes.tagTokens.tagBorderGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagBorderGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagBorderGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagBorderGray.g100}"
-      },
-      "key": "{tag.link.border.color.secondary}"
-    },
-    "name": "token-tag-link-border-color-secondary",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "border",
-      "color",
-      "secondary"
-    ]
-  },
-  {
-    "key": "{tag.link.surface.color.primary.default}",
-    "$type": "color",
-    "$value": "#0043ce",
-    "$modes": {
-      "default": "#393939",
-      "cds-g0": "#d0e2ff",
-      "cds-g10": "#d0e2ff",
-      "cds-g90": "#0043ce",
-      "cds-g100": "#0043ce"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagBackgroundBlue.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive}",
-        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundBlue.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundBlue.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundBlue.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundBlue.g100}"
-      },
-      "key": "{tag.link.surface.color.primary.default}"
-    },
-    "name": "token-tag-link-surface-color-primary-default",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "surface",
-      "color",
-      "primary",
-      "default"
-    ]
-  },
-  {
-    "key": "{tag.link.surface.color.primary.hover}",
-    "$type": "color",
-    "$value": "#0053ff",
-    "$modes": {
-      "default": "#474747",
-      "cds-g0": "#b8d3ff",
-      "cds-g10": "#b8d3ff",
-      "cds-g90": "#0053ff",
-      "cds-g100": "#0053ff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive-hover}",
-        "cds-g0": "{carbon.themes.tagTokens.tagHoverBlue.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagHoverBlue.g100}"
-      },
-      "key": "{tag.link.surface.color.primary.hover}"
-    },
-    "name": "token-tag-link-surface-color-primary-hover",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "surface",
-      "color",
-      "primary",
-      "hover"
-    ]
-  },
-  {
-    "key": "{tag.link.surface.color.primary.active}",
-    "$type": "color",
-    "$value": "#0053ff",
-    "$modes": {
-      "default": "#6f6f6f",
-      "cds-g0": "#b8d3ff",
-      "cds-g10": "#b8d3ff",
-      "cds-g90": "#0053ff",
-      "cds-g100": "#0053ff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive-active}",
-        "cds-g0": "{carbon.themes.tagTokens.tagHoverBlue.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagHoverBlue.g100}"
-      },
-      "key": "{tag.link.surface.color.primary.active}"
-    },
-    "name": "token-tag-link-surface-color-primary-active",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "surface",
-      "color",
-      "primary",
-      "active"
-    ]
-  },
-  {
-    "key": "{tag.link.surface.color.secondary.default}",
-    "$type": "color",
-    "$value": "#525252",
-    "$modes": {
-      "default": "#393939",
-      "cds-g0": "#e0e0e0",
-      "cds-g10": "#e0e0e0",
-      "cds-g90": "#525252",
-      "cds-g100": "#525252"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive}",
-        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
-      },
-      "key": "{tag.link.surface.color.secondary.default}"
-    },
-    "name": "token-tag-link-surface-color-secondary-default",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "surface",
-      "color",
-      "secondary",
-      "default"
-    ]
-  },
-  {
-    "key": "{tag.link.surface.color.secondary.hover}",
-    "$type": "color",
-    "$value": "#636363",
-    "$modes": {
-      "default": "#474747",
-      "cds-g0": "#d1d1d1",
-      "cds-g10": "#d1d1d1",
-      "cds-g90": "#636363",
-      "cds-g100": "#636363"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive-hover}",
-        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
-      },
-      "key": "{tag.link.surface.color.secondary.hover}"
-    },
-    "name": "token-tag-link-surface-color-secondary-hover",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "surface",
-      "color",
-      "secondary",
-      "hover"
-    ]
-  },
-  {
-    "key": "{tag.link.surface.color.secondary.active}",
-    "$type": "color",
-    "$value": "#636363",
-    "$modes": {
-      "default": "#6f6f6f",
-      "cds-g0": "#d1d1d1",
-      "cds-g10": "#d1d1d1",
-      "cds-g90": "#636363",
-      "cds-g100": "#636363"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive-active}",
-        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
-      },
-      "key": "{tag.link.surface.color.secondary.active}"
-    },
-    "name": "token-tag-link-surface-color-secondary-active",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "surface",
-      "color",
-      "secondary",
-      "active"
-    ]
-  },
-  {
-    "key": "{tag.link.foreground.color.primary.default}",
-    "$type": "color",
-    "$value": "#d0e2ff",
-    "$modes": {
-      "default": "#78a9ff",
-      "cds-g0": "#0043ce",
-      "cds-g10": "#0043ce",
-      "cds-g90": "#d0e2ff",
-      "cds-g100": "#d0e2ff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorBlue.g90}",
-      "$modes": {
-        "default": "{color.foreground.action}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
-      },
-      "key": "{tag.link.foreground.color.primary.default}"
-    },
-    "name": "token-tag-link-foreground-color-primary-default",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "foreground",
-      "color",
-      "primary",
-      "default"
-    ]
-  },
-  {
-    "key": "{tag.link.foreground.color.primary.hover}",
-    "$type": "color",
-    "$value": "#d0e2ff",
-    "$modes": {
-      "default": "#a6c8ff",
-      "cds-g0": "#0043ce",
-      "cds-g10": "#0043ce",
-      "cds-g90": "#d0e2ff",
-      "cds-g100": "#d0e2ff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorBlue.g90}",
-      "$modes": {
-        "default": "{color.foreground.action-hover}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
-      },
-      "key": "{tag.link.foreground.color.primary.hover}"
-    },
-    "name": "token-tag-link-foreground-color-primary-hover",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "foreground",
-      "color",
-      "primary",
-      "hover"
-    ]
-  },
-  {
-    "key": "{tag.link.foreground.color.primary.active}",
-    "$type": "color",
-    "$value": "#d0e2ff",
-    "$modes": {
-      "default": "#78a9ff",
-      "cds-g0": "#0043ce",
-      "cds-g10": "#0043ce",
-      "cds-g90": "#d0e2ff",
-      "cds-g100": "#d0e2ff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorBlue.g90}",
-      "$modes": {
-        "default": "{color.foreground.action-active}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
-      },
-      "key": "{tag.link.foreground.color.primary.active}"
-    },
-    "name": "token-tag-link-foreground-color-primary-active",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "foreground",
-      "color",
-      "primary",
-      "active"
-    ]
-  },
-  {
-    "key": "{tag.link.foreground.color.secondary.default}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorGray.g90}",
-      "$modes": {
-        "default": "{color.foreground.strong}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
-      },
-      "key": "{tag.link.foreground.color.secondary.default}"
-    },
-    "name": "token-tag-link-foreground-color-secondary-default",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "foreground",
-      "color",
-      "secondary",
-      "default"
-    ]
-  },
-  {
-    "key": "{tag.link.icon.color.primary}",
-    "$type": "color",
-    "$value": "#d0e2ff",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#0043ce",
-      "cds-g10": "#0043ce",
-      "cds-g90": "#d0e2ff",
-      "cds-g100": "#d0e2ff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorBlue.g90}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
-      },
-      "key": "{tag.link.icon.color.primary}"
-    },
-    "name": "token-tag-link-icon-color-primary",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "icon",
-      "color",
-      "primary"
-    ]
-  },
-  {
-    "key": "{tag.link.icon.color.secondary}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorGray.g90}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
-      },
-      "key": "{tag.link.icon.color.secondary}"
-    },
-    "name": "token-tag-link-icon-color-secondary",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "link",
-      "icon",
-      "color",
-      "secondary"
-    ]
-  },
-  {
-    "key": "{tag.static.border.color}",
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$modes": {
-      "default": "#8d8d8d",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "transparent",
-      "$modes": {
-        "default": "{color.border.strong}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
-      "key": "{tag.static.border.color}"
-    },
-    "name": "token-tag-static-border-color",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "static",
-      "border",
-      "color"
-    ]
-  },
-  {
-    "key": "{tag.static.surface.color.default}",
-    "$type": "color",
-    "$value": "#525252",
-    "$modes": {
-      "default": "#393939",
-      "cds-g0": "#e0e0e0",
-      "cds-g10": "#e0e0e0",
-      "cds-g90": "#525252",
-      "cds-g100": "#525252"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive}",
-        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
-      },
-      "key": "{tag.static.surface.color.default}"
-    },
-    "name": "token-tag-static-surface-color-default",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "static",
-      "surface",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{tag.static.surface.color.hover}",
-    "$type": "color",
-    "$value": "#636363",
-    "$modes": {
-      "default": "#474747",
-      "cds-g0": "#d1d1d1",
-      "cds-g10": "#d1d1d1",
-      "cds-g90": "#636363",
-      "cds-g100": "#636363"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive-hover}",
-        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
-      },
-      "key": "{tag.static.surface.color.hover}"
-    },
-    "name": "token-tag-static-surface-color-hover",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "static",
-      "surface",
-      "color",
-      "hover"
-    ]
-  },
-  {
-    "key": "{tag.static.surface.color.active}",
-    "$type": "color",
-    "$value": "#636363",
-    "$modes": {
-      "default": "#6f6f6f",
-      "cds-g0": "#d1d1d1",
-      "cds-g10": "#d1d1d1",
-      "cds-g90": "#636363",
-      "cds-g100": "#636363"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-      "$modes": {
-        "default": "{color.surface.interactive-active}",
-        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
-      },
-      "key": "{tag.static.surface.color.active}"
-    },
-    "name": "token-tag-static-surface-color-active",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "static",
-      "surface",
-      "color",
-      "active"
-    ]
-  },
-  {
-    "key": "{tag.static.foreground.color.default}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorGray.g90}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
-      },
-      "key": "{tag.static.foreground.color.default}"
-    },
-    "name": "token-tag-static-foreground-color-default",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "static",
-      "foreground",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{tag.static.icon.color}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorGray.g90}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
-      },
-      "key": "{tag.static.icon.color}"
-    },
-    "name": "token-tag-static-icon-color",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "static",
-      "icon",
-      "color"
     ]
   },
   {
@@ -17540,7 +17359,7 @@
     ]
   },
   {
-    "key": "{tooltip.transition.timing-function}",
+    "key": "{tooltip.transition.function}",
     "$type": "cubicBezier",
     "$value": "cubic-bezier(0.54, 1.5, 0.38, 1.11)",
     "original": {
@@ -17551,16 +17370,16 @@
         0.38,
         1.11
       ],
-      "key": "{tooltip.transition.timing-function}"
+      "key": "{tooltip.transition.function}"
     },
-    "name": "token-tooltip-transition-timing-function",
+    "name": "token-tooltip-transition-function",
     "attributes": {
       "category": "tooltip"
     },
     "path": [
       "tooltip",
       "transition",
-      "timing-function"
+      "function"
     ]
   },
   {
