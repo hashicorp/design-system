@@ -177,6 +177,7 @@ Router.map(function () {
       this.route('breadcrumb');
       this.route('button');
       this.route('card');
+      this.route('code-block');
       this.route('copy', function () {
         this.route('button');
         this.route('snippet');
