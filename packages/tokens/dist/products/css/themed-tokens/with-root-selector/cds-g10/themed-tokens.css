@@ -159,8 +159,8 @@
   --token-code-block-copy-button-surface-color-active: #c6c6c6;
   --token-code-block-copy-button-surface-color-default: #ffffff;
   --token-code-block-copy-button-surface-color-hover: #e8e8e8;
-  --token-code-block-line-highlight-background-color: rgba(15, 98, 254, 0.1);
   --token-code-block-line-highlight-border-color: #0f62fe;
+  --token-code-block-line-highlight-surface-color: rgba(15, 98, 254, 0.1);
   --token-code-block-typography-font-size: 0.75rem;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;

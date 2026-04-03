@@ -406,7 +406,7 @@
   --token-code-block-copy-button-surface-color-default: #15181e;
   --token-code-block-copy-button-surface-color-hover: #0d0e12;
   --token-code-block-copy-button-surface-color-active: #2b303c;
-  --token-code-block-line-highlight-background-color: rgba(0, 74, 222, 0.2);
+  --token-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
   --token-code-block-line-highlight-border-color: #1555d4;
   --token-copy-button-foreground-color: #3b3d45;
   --token-copy-button-surface-color-default: #fafafa;
@@ -4409,7 +4409,7 @@ button.hds-button[href]::after {
   position: absolute;
   right: 0;
   left: -16px;
-  background-color: var(--token-code-block-line-highlight-background-color);
+  background-color: var(--token-code-block-line-highlight-surface-color);
   border: solid var(--token-code-block-line-highlight-border-color);
   border-width: 1px 0 1px 4px;
   mix-blend-mode: screen;

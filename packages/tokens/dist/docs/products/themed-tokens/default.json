@@ -12387,7 +12387,7 @@
     ]
   },
   {
-    "key": "{code-block.line-highlight.background-color}",
+    "key": "{code-block.line-highlight.surface.color}",
     "$type": "color",
     "$value": "rgba(0, 74, 222, 0.2)",
     "$modes": {
@@ -12407,20 +12407,21 @@
         "cds-g90": "rgba(255, 255, 255, 0.1)",
         "cds-g100": "rgba(255, 255, 255, 0.1)"
       },
-      "key": "{code-block.line-highlight.background-color}"
+      "key": "{code-block.line-highlight.surface.color}"
     },
-    "name": "token-code-block-line-highlight-background-color",
+    "name": "token-code-block-line-highlight-surface-color",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
       "line-highlight",
-      "background-color"
+      "surface",
+      "color"
     ]
   },
   {
-    "key": "{code-block.line-highlight.border-color}",
+    "key": "{code-block.line-highlight.border.color}",
     "$type": "color",
     "$value": "#1555d4",
     "$modes": {
@@ -12440,7 +12441,7 @@
         "cds-g90": "{carbon.themes.g90.borderInteractive}",
         "cds-g100": "{carbon.themes.g100.borderInteractive}"
       },
-      "key": "{code-block.line-highlight.border-color}"
+      "key": "{code-block.line-highlight.border.color}"
     },
     "name": "token-code-block-line-highlight-border-color",
     "attributes": {
@@ -12449,7 +12450,8 @@
     "path": [
       "code-block",
       "line-highlight",
-      "border-color"
+      "border",
+      "color"
     ]
   },
   {
