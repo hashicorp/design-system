@@ -303,6 +303,7 @@ export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmen
                   />
                 {{else if (eq R.rowData.key "select")}}
                   <F.SuperSelectMultiple
+                    {{! @glint-expect-error }}
                     name="value-{{R.rowIndex}}"
                     @options={{SUPERSELECT_OPTIONS}}
                     @selected={{R.rowData.value}}

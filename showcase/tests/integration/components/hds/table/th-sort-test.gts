@@ -121,6 +121,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   test('the default `scope` attribute can not be overwritten', async function (assert) {
     await render(
       <template>
+        {{! @glint-expect-error }}
         <HdsTableThSort scope="row">Artist</HdsTableThSort>
       </template>,
     );
