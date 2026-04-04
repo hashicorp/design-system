@@ -16,6 +16,7 @@ import type RenderModifiersRegistry from '@ember/render-modifiers/template-regis
 import type EmberComposableHelpersRegistry from '@nullvoxpopuli/ember-composable-helpers/template-registry';
 import type EmberIntlRegistry from 'ember-intl/template-registry';
 import type EmberA11yRefocusRegistry from 'ember-a11y-refocus/template-registry';
+import type EmberFocusTrapRegistry from 'ember-focus-trap/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
@@ -30,7 +31,8 @@ declare module '@glint/environment-ember-loose/registry' {
       EmberComposableHelpersRegistry,
       EmbroiderUtilRegistry,
       EmberA11yRefocusRegistry,
-      EmberIntlRegistry /*, other addon registries */ {
+      EmberIntlRegistry,
+      EmberFocusTrapRegistry /*, other addon registries */ {
     // local entries
     Portal: typeof Portal;
     PortalTarget: typeof PortalTarget;
