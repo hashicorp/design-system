@@ -339,8 +339,8 @@
             "default": "#1555d4",
             "cds-g0": "{carbon.themes.white.borderInteractive}",
             "cds-g10": "{carbon.themes.g10.borderInteractive}",
-            "cds-g90": "{carbon.themes.g90.borderInteractive}",
-            "cds-g100": "{carbon.themes.g100.borderInteractive}"
+            "cds-g90": "{carbon.themes.g90.borderInverse}",
+            "cds-g100": "{carbon.themes.g100.borderInverse}"
           }
         }
       }

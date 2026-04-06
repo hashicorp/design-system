@@ -12428,8 +12428,8 @@
       "default": "#1555d4",
       "cds-g0": "#0f62fe",
       "cds-g10": "#0f62fe",
-      "cds-g90": "#4589ff",
-      "cds-g100": "#4589ff"
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
     },
     "original": {
       "$type": "color",
@@ -12438,8 +12438,8 @@
         "default": "#1555d4",
         "cds-g0": "{carbon.themes.white.borderInteractive}",
         "cds-g10": "{carbon.themes.g10.borderInteractive}",
-        "cds-g90": "{carbon.themes.g90.borderInteractive}",
-        "cds-g100": "{carbon.themes.g100.borderInteractive}"
+        "cds-g90": "{carbon.themes.g90.borderInverse}",
+        "cds-g100": "{carbon.themes.g100.borderInverse}"
       },
       "key": "{code-block.line-highlight.border.color}"
     },

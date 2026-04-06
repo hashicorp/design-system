@@ -1099,7 +1099,7 @@
     --token-code-block-copy-button-surface-color-active: #525252;
     --token-code-block-copy-button-surface-color-default: #262626;
     --token-code-block-copy-button-surface-color-hover: #333333;
-    --token-code-block-line-highlight-border-color: #4589ff;
+    --token-code-block-line-highlight-border-color: #f4f4f4;
     --token-code-block-line-highlight-surface-color: rgba(255, 255, 255, 0.1);
     --token-code-block-typography-font-size: 0.75rem;
     --token-color-border-action: #4589ff;
@@ -2030,7 +2030,7 @@
   --token-code-block-copy-button-surface-color-active: #525252;
   --token-code-block-copy-button-surface-color-default: #262626;
   --token-code-block-copy-button-surface-color-hover: #333333;
-  --token-code-block-line-highlight-border-color: #4589ff;
+  --token-code-block-line-highlight-border-color: #f4f4f4;
   --token-code-block-line-highlight-surface-color: rgba(255, 255, 255, 0.1);
   --token-code-block-typography-font-size: 0.75rem;
   --token-color-border-action: #4589ff;
