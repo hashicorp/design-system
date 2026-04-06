@@ -9327,7 +9327,7 @@ button.hds-button[href]::after {
   display: flex;
   align-items: center;
   margin: 0;
-  color: var(--token-color-foreground-primary);
+  color: var(--token-tabs-tab-foreground-color-default);
   white-space: nowrap;
   text-decoration: none;
   list-style: none;
@@ -9336,26 +9336,26 @@ button.hds-button[href]::after {
 .hds-mode-cds-g10 .hds-tabs__tab,
 .hds-mode-cds-g90 .hds-tabs__tab,
 .hds-mode-cds-g100 .hds-tabs__tab {
-  border-bottom: var(--token-tabs-indicator-height) solid var(--token-tabs-border-color-default);
+  border-bottom: var(--token-tabs-indicator-height) solid var(--token-tabs-tab-border-color-default);
   transition: border 70ms cubic-bezier(0.2, 0, 0.38, 0.9), outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
 }
 
 .hds-tabs__tab:hover, .hds-tabs__tab.mock-hover {
-  color: var(--token-tabs-foreground-color-hover);
-  border-color: var(--token-tabs-border-color-hover);
+  color: var(--token-tabs-tab-foreground-color-hover);
+  border-color: var(--token-tabs-tab-border-color-hover);
 }
 .hds-tabs__tab.hds-tabs__tab--is-selected {
-  color: var(--token-tabs-selected-foreground-color-default);
+  color: var(--token-tabs-tab-selected-foreground-color-default);
 }
 .hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected,
 .hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected,
 .hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected,
 .hds-mode-cds-g100 .hds-tabs__tab.hds-tabs__tab--is-selected {
-  border-color: var(--token-tabs-selected-border-color-default);
+  border-color: var(--token-tabs-tab-selected-border-color-default);
 }
 
 .hds-tabs__tab.hds-tabs__tab--is-selected:hover {
-  color: var(--token-tabs-selected-foreground-color-hover);
+  color: var(--token-tabs-tab-selected-foreground-color-hover);
 }
 .hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
 .hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
@@ -9428,7 +9428,7 @@ button.hds-button[href]::after {
   display: block;
   width: var(--indicator-width, 0);
   height: var(--token-tabs-indicator-height);
-  background-color: var(--token-color-foreground-action);
+  background-color: var(--token-tabs-tab-selected-foreground-color-default);
   border-radius: var(--token-tabs-indicator-height);
 }
 .hds-mode-cds-g0 .hds-tabs__tab-indicator,
