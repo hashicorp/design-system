@@ -3,7 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export interface Policy {
+import type { HdsAdvancedTableModelItem } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
+
+export interface Policy extends HdsAdvancedTableModelItem {
   id: number;
   name: string;
   description: string;
