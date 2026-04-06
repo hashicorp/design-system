@@ -16,7 +16,8 @@ export type AssetCoreData = {
     iconName: string,
     // the (optional) description contained in the "description" field of the parent component_set
     description: string,
-    // the (optional) mapping to an IBM Carbon icon (contained in the "description" field of the parent component_set, after a specific separator)
+    // the (optional) mapping to an IBM Carbon icon extracted from a [carbon:{icon-name}] tag in the component_set description
+    // if there is no equivalent, this is set to "No Carbon equivalent"
     mapping?: string,
     // the icon's category (by convention it's the containing frame's name)
     category: string,

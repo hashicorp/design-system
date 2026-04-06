@@ -17,20 +17,18 @@ type ComponentSetData = {
     [id: string]: {
         name: string;
         description: string;
-        mapping?: string;
+        mapping: string;
     }
 };
 
-// Relying on a convention for now: if the description of an icon contains the separator
-// we assume that the part before the separator is meant to be a "clean" description of the icon
-// and the part after the separator is the HDS -> Carbon migration note
-const HDS_CARBON_NOTE_SEPARATOR = '---------------------\n🔷 HDS -> Carbon Note 🔷';
+const NO_CARBON_EQUIVALENT = 'No Carbon equivalent';
+const HDS_CARBON_MAPPING_TAG = /\[carbon:([^\]]*)\]/;
 
-const splitContent = (mixedContent: string) => {
-    const parts = mixedContent.split(HDS_CARBON_NOTE_SEPARATOR);
-    const description = parts[0].trim();
-    const mapping = parts[1] ? parts[1].trim() : undefined;
-    return { description, mapping: mapping };
+const splitContent = (mixedContent: string = '') => {
+    const mappingTagMatch = mixedContent.match(HDS_CARBON_MAPPING_TAG);
+    const description = mixedContent.replace(HDS_CARBON_MAPPING_TAG, '').trim();
+    const mapping = mappingTagMatch?.[1]?.trim() || NO_CARBON_EQUIVALENT;
+    return { description, mapping };
 }
 
 export async function getAssetsMetadata(): Promise<AssetsMetadata> {
@@ -78,6 +76,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
                     variantName: component.name,
                     iconName: '',
                     description: '',
+                    mapping: NO_CARBON_EQUIVALENT,
                     category: '',
                 }
                 if (component.containing_frame.name) {
@@ -94,9 +93,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
                     if (parentComponentSet) {
                         assetsMetadata[component.node_id].iconName = parentComponentSet.name;
                         assetsMetadata[component.node_id].description = parentComponentSet.description;
-                        if (parentComponentSet.mapping) {
-                            assetsMetadata[component.node_id].mapping = parentComponentSet.mapping;
-                        }
+                        assetsMetadata[component.node_id].mapping = parentComponentSet.mapping;
                     }
                 }
 
