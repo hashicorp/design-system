@@ -109,10 +109,8 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
             @colspan={{B.data.name.colspan}}
           >
             {{#if B.data.name.text}}
-              {{! @glint-expect-error}}
               {{B.data.name.text}}
             {{else}}
-              {{! @glint-expect-error}}
               {{B.data.name}}
             {{/if}}
           </B.Th>
@@ -123,10 +121,8 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
             @colspan={{B.data.service.colspan}}
           >
             {{#if B.data.service.text}}
-              {{! @glint-expect-error}}
               {{B.data.service.text}}
             {{else}}
-              {{! @glint-expect-error}}
               {{B.data.service}}
             {{/if}}
           </B.Td>
@@ -137,10 +133,8 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
             @colspan={{B.data.description.colspan}}
           >
             {{#if B.data.description.text}}
-              {{! @glint-expect-error}}
               {{B.data.description.text}}
             {{else}}
-              {{! @glint-expect-error}}
               {{B.data.description}}
             {{/if}}
           </B.Td>
