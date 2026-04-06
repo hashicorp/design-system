@@ -578,9 +578,12 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   get demoModelFilteredData() {
     const filterItem = (item: Record<string, unknown>): boolean => {
       if (Object.keys(this.filters).length === 0) return true;
+
       let match = true;
+
       Object.keys(this.filters).forEach((key) => {
         const filter = this.filters[key] as HdsFilterBarFilter;
+
         if (filter) {
           switch (filter.type) {
             case 'single-select':
@@ -600,10 +603,12 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           }
         }
       });
+
       return match;
     };
 
     const filteredData = this.demoModel.filter(filterItem);
+
     return filteredData;
   }
 
