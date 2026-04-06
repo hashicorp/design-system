@@ -23,7 +23,6 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableModelItem } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
-import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 export interface MockAppMainGenericAdvancedTableSignature {
