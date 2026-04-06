@@ -21,6 +21,7 @@ export interface InfrastructureResource {
   audit_device_path: string;
   tags: string[];
   icon: HdsIconSignature['Args']['name'];
+  isSelected?: boolean;
 }
 
 const infrastructureResources: InfrastructureResource[] = [

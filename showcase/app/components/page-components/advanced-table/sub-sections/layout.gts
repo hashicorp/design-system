@@ -104,38 +104,23 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
     <:body as |B|>
       <B.Tr id={{B.data.id}}>
         {{#if (get B.data "name")}}
-          <B.Th
-            @rowspan={{B.data.name.rowspan}}
-            @colspan={{B.data.name.colspan}}
-          >
+          <B.Th @rowspan={{B.data.name.rowspan}}>
             {{#if B.data.name.text}}
               {{B.data.name.text}}
-            {{else}}
-              {{B.data.name}}
             {{/if}}
           </B.Th>
         {{/if}}
         {{#if (get B.data "service")}}
-          <B.Td
-            @rowspan={{B.data.service.rowspan}}
-            @colspan={{B.data.service.colspan}}
-          >
+          <B.Td @colspan={{B.data.service.colspan}}>
             {{#if B.data.service.text}}
               {{B.data.service.text}}
-            {{else}}
-              {{B.data.service}}
             {{/if}}
           </B.Td>
         {{/if}}
         {{#if (get B.data "description")}}
-          <B.Td
-            @rowspan={{B.data.description.rowspan}}
-            @colspan={{B.data.description.colspan}}
-          >
+          <B.Td>
             {{#if B.data.description.text}}
               {{B.data.description.text}}
-            {{else}}
-              {{B.data.description}}
             {{/if}}
           </B.Td>
         {{/if}}

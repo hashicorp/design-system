@@ -260,7 +260,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
       <B.Tr
         @selectionKey="{{B.data.resource_id}}"
         @isSelected={{B.data.isSelected}}
-        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+        @selectionAriaLabelSuffix="row #{{B.data.resource_id}}"
         as |R|
       >
         {{#each R.orderedCells as |C|}}
@@ -309,6 +309,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
               (or (eq C.columnKey "attached_policies") (eq C.columnKey "tags"))
             }}
               <HdsLayoutFlex @align="center" @gap="4">
+                {{! @glint-expect-error}}
                 {{#each C.content as |content|}}
                   <HdsBadge
                     @text={{content}}
@@ -318,6 +319,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
                 {{/each}}
               </HdsLayoutFlex>
             {{else}}
+              {{! @glint-expect-error}}
               {{C.content}}
             {{/if}}
           </B.Td>
