@@ -118,7 +118,7 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
           </B.Td>
         {{/if}}
         {{#if (get B.data "description")}}
-          <B.Td>
+          <B.Td @rowspan={{B.data.description.rowspan}}>
             {{#if B.data.description.text}}
               {{B.data.description.text}}
             {{/if}}
