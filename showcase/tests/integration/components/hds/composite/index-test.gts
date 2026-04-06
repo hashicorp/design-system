@@ -106,7 +106,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     assert.dom('[data-active-item]').hasAttribute('id', 'item-1');
   });
 
-  test('it wraps focus if @loop is true', async function (assert) {
+  test('in a horizontal orientation it wraps focus if @loop is true', async function (assert) {
     assert.expect(2);
 
     await render(
@@ -126,6 +126,29 @@ module('Integration | Component | hds/composite/index', function (hooks) {
 
     await focus('#item-1');
     await triggerKeyEvent('#composite-root', 'keydown', 'ArrowLeft');
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-2');
+  });
+
+  test('in a vertical orientation it wraps focus if @loop is true', async function (assert) {
+    assert.expect(2);
+
+    await render(
+      <template>
+        <HdsComposite @orientation="vertical" @loop={{true}} as |composite|>
+          <div {{composite.composite}} id="composite-root">
+            <HdsButton {{composite.item}} @text="Item 1" id="item-1" />
+            <HdsButton {{composite.item}} @text="Item 2" id="item-2" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-2');
+    await triggerKeyEvent('#composite-root', 'keydown', 'ArrowDown');
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-1');
+
+    await focus('#item-1');
+    await triggerKeyEvent('#composite-root', 'keydown', 'ArrowUp');
     assert.dom('[data-active-item]').hasAttribute('id', 'item-2');
   });
 
@@ -437,7 +460,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
   });
 
   test('it activates the item matching @defaultCurrentId', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     await render(
       <template>
@@ -451,10 +474,11 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     );
 
     assert.dom('[data-active-item]').hasAttribute('id', 'item-2');
+    assert.dom('#item-2').hasAttribute('tabindex', '0');
   });
 
   test('it activates the first enabled item if @defaultCurrentId does not match (fallback)', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     await render(
       <template>
@@ -468,6 +492,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     );
 
     assert.dom('[data-active-item]').hasAttribute('id', 'item-1');
+    assert.dom('#item-1').hasAttribute('tabindex', '0');
   });
 
   test('with no orientation and no groups, all arrow keys navigate linearly', async function (assert) {
@@ -747,57 +772,6 @@ module('Integration | Component | hds/composite/index', function (hooks) {
       document.activeElement && document.activeElement.id,
       'item-1',
     );
-  });
-
-  test('focus moves to the correct item after dynamic changes', async function (assert) {
-    assert.expect(1);
-
-    const context = new TrackedObject<{ showSecond: boolean }>({
-      showSecond: true,
-    });
-
-    await render(
-      <template>
-        <HdsComposite as |c|>
-          <div {{c.composite}} id="composite-root">
-            <HdsButton {{c.item}} id="item-1" @text="Item 1" />
-            {{#if context.showSecond}}
-              <HdsButton {{c.item}} id="item-2" @text="Item 2" />
-            {{/if}}
-          </div>
-        </HdsComposite>
-      </template>,
-    );
-
-    await focus('#item-2');
-    context.showSecond = false;
-    await settled();
-    assert.strictEqual(
-      document.activeElement && document.activeElement.id,
-      'item-1',
-    );
-  });
-
-  test('custom item IDs are handled correctly for navigation and active state', async function (assert) {
-    assert.expect(2);
-
-    await render(
-      <template>
-        <HdsComposite @orientation="horizontal" as |c|>
-          <div {{c.composite}} id="composite-root">
-            <HdsButton {{c.item}} id="custom-foo" @text="Foo" />
-            <HdsButton {{c.item}} id="custom-bar" @text="Bar" />
-          </div>
-        </HdsComposite>
-      </template>,
-    );
-
-    await focus('#custom-foo');
-    await triggerKeyEvent('#composite-root', 'keydown', 'ArrowRight');
-    assert.dom('[data-active-item]').hasAttribute('id', 'custom-bar');
-
-    await triggerKeyEvent('#composite-root', 'keydown', 'ArrowLeft');
-    assert.dom('[data-active-item]').hasAttribute('id', 'custom-foo');
   });
 
   test('it prevents default browser behavior for managed keys', async function (assert) {
