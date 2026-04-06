@@ -60,7 +60,6 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
   </ShwTextH4>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error}}
     @model={{EMPTY_MODEL}}
     @columns={{DEFAULT_COLUMNS}}
     @maxHeight="400px"

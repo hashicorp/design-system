@@ -75,13 +75,9 @@ const createBasicTable = async (options: {
         id="data-test-advanced-table"
       >
         <:body as |B|>
-          {{! @glint-expect-error }}
           <B.Tr @selectionKey={{get B.data "id"}}>
-            {{! @glint-expect-error }}
             <B.Th>{{get B.data "name"}}</B.Th>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "age"}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "country"}}</B.Td>
           </B.Tr>
         </:body>
@@ -186,11 +182,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         >
           <:body as |B|>
             <B.Tr id={{B.rowIndex}}>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "key"}}</B.Td>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "name"}}</B.Td>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "description"}}</B.Td>
             </B.Tr>
           </:body>
@@ -228,11 +221,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         >
           <:body as |B|>
             <B.Tr>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "name"}}</B.Td>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "age"}}</B.Td>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "country"}}</B.Td>
             </B.Tr>
           </:body>
@@ -280,11 +270,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         >
           <:body as |B|>
             <B.Tr id={{B.rowIndex}}>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "name"}}</B.Td>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "age"}}</B.Td>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "country"}}</B.Td>
             </B.Tr>
           </:body>
