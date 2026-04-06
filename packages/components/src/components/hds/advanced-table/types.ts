@@ -118,6 +118,7 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
 
 export interface HdsAdvancedTableModelItem {
   [key: string]: unknown;
+  children?: HdsAdvancedTableModelItem[];
   id?: string | number;
   isSelected?: boolean;
 }
