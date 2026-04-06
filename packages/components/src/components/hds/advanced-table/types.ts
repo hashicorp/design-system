@@ -116,7 +116,13 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
   }[];
 }
 
-export type HdsAdvancedTableModel = Array<Record<string, unknown>>;
+export interface HdsAdvancedTableModelItem {
+  [key: string]: unknown;
+  id?: string | number;
+  isSelected?: boolean;
+}
+
+export type HdsAdvancedTableModel = Array<HdsAdvancedTableModelItem>;
 
 export type HdsAdvancedTableColumnResizeCallback = (
   columnKey: string,
