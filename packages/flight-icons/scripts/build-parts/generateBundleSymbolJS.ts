@@ -17,6 +17,14 @@ const prettierConfig = {
     trailingComma: 'none'
 } as const;
 
+// Some icons don't follow the same mapping convention, so we need to hardcode their paths here
+// NOTE: if this list grows we should consider moving it to a separate config file, but for now it's small enough to keep it here
+// { [iconName]: carbonIconPathWithoutExtension }
+const CARBON_ICON_OVERRIDES: Record<string, string> = {
+    'rotate--180': '32/watson-health/rotate--180',
+    'status--resolved': '32/watson-health/status--resolved',
+}
+
 // important: if you update this function, update the identical one in `packages/components/src/services/hds-icon-registry.ts` as well (and vice versa)
 function makeDomSafeId(value: string): string {
     return value.replace(/[^a-zA-Z0-9_-]/g, '-');
@@ -56,7 +64,8 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
 
     const registry: Record<string, { flight: Record<string, string>, carbon: string | null }> = {};
 
-    for (const { fileName, mapping } of catalog.assets) {
+    for (const asset of catalog.assets) {
+        const { fileName, mapping } = asset;
         const match = fileName.match(/^(.*)-(16|24)$/);
 
         if (match) {
@@ -86,34 +95,33 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
 
             // --- CARBON ---
 
-            const carbonMatch = mapping?.match(/Maps to: (.+)/);
+            // Proceed only if the tag exists
+            if (mapping && !registry[baseName].carbon) {
+                const carbonName = mapping.toLowerCase();
+                let carbonPath = path.join(carbonIconsPath, '32', `${carbonName}.svg`);
 
-            if (carbonMatch != null && !registry[baseName].carbon) {
-                const carbonName = carbonMatch[1].toLowerCase();
-
-                const doNotUse = carbonName.match(/\(Do not use\)/i);
-
-                if (doNotUse !== null) {
-                    console.warn(`⚠️ Skipping Carbon mapping for Flight icon ${fileName} due to "(Do not use)" note in mapping: ${mapping}`);
-                    continue;
+                const overrideCarbonPath = CARBON_ICON_OVERRIDES[carbonName];
+                if (overrideCarbonPath !== undefined) {
+                    carbonPath = path.join(carbonIconsPath, `${overrideCarbonPath}.svg`);
                 }
-
-                const carbonPath = path.join(carbonIconsPath, '32', `${carbonName}.svg`);
 
                 if (fs.existsSync(carbonPath)) {
                     const key = `carbon-${baseName}`;
                     const symbolId = makeSymbolIdFromKey(key);
 
                     const carbonSource = await fs.readFile(carbonPath, 'utf8');
-                    const carbonContent = await prettier.format(getSymbolModule(carbonSource, symbolId), { ...prettierConfig, parser: 'typescript' });
+                    const carbonContent = await prettier.format(
+                        getSymbolModule(carbonSource, symbolId), 
+                        { ...prettierConfig, parser: 'typescript' }
+                    );
 
                     await fs.writeFile(`${carbonFolder}/${baseName}.js`, carbonContent);
 
                     registry[baseName].carbon = `() => import('./carbon/${baseName}.js')`;
                 } else {
-                    console.warn(`⚠️ Carbon icon missing: ${carbonName} (size 32) - Mapped from Flight icon ${fileName}`);
+                    console.warn(`⚠️ Carbon icon missing: ${carbonName} (size 32) - Found in mapping for ${fileName}`);
                 }
-            }
+            }   
         }
     }
 
