@@ -98,13 +98,13 @@ Use the `flush` variant where space is limited such as within a [Card](/componen
 
 The toggle accepts many different types of content, from text-based content to nested HDS components or generic content.
 
-![Toggle type with basic text](/assets/components/accordion/toggle-content-text.png =690x*)
+![](/assets/components/accordion/toggle-content-text.png =690x*)
 <Doc::ImageCaption @text="Toggle type with basic text"/>
 
-![Toggle type with generic content](/assets/components/accordion/toggle-content-custom.png =690x*)
+![](/assets/components/accordion/toggle-content-custom.png =690x*)
 <Doc::ImageCaption @text="Toggle type with generic content"/>
 
-### Interactive 
+### Interactive
 
 Use this variant only when you need to put interactive elements such as a button or a link within the toggle area. Avoid placing complex elements that may compromise the usability and accessibility of the component.
 
@@ -135,10 +135,10 @@ The content type property is only relevant within Figma and doesn’t exist as a
 
 Content type supports any generic content, local components, or Helios components via an instance swap property (`genericInstance`) in Figma. In code, `yield` is supported.
 
-![Content type with basic text](/assets/components/accordion/content-text.png =690x*)
+![](/assets/components/accordion/content-text.png =690x*)
 <Doc::ImageCaption @text="Content type with basic text"/>
 
-![Content type with generic content](/assets/components/accordion/content-custom.png =690x*)
+![](/assets/components/accordion/content-custom.png =690x*)
 <Doc::ImageCaption @text="Content type with generic content"/>
 
 ## Nesting Accordions
@@ -147,7 +147,7 @@ Content type supports any generic content, local components, or Helios component
 
 **Differences between Figma and code**
 
-Nesting Accordions is only supported [in code](/components/accordion?tab=code#complex-html-content), as Figma does not support nesting an instance inside itself. 
+Nesting Accordions is only supported [in code](/components/accordion?tab=code#complex-html-content), as Figma does not support nesting an instance inside itself.
 
 While you can work around this by detaching the HDS component and turning it into a local component, then inserting the local component within the linked HDS component, we do not recommend this approach. Doing so means your local Accordion component will not receive future updates.
 !!!
@@ -156,7 +156,7 @@ Nesting Accordions can help organize complex content, but should be used in mode
 
 !!! Do
 
-Use nested Accordions for up to two layers of related content. You can nest `flush` Accordions within each other or inside `card` type Accordions. 
+Use nested Accordions for up to two layers of related content. You can nest `flush` Accordions within each other or inside `card` type Accordions.
 
 ![Example of a flush Accordion nested inside of a card within another flush Accordion](/assets/components/accordion/accordion-nesting-do.png)
 !!!
@@ -182,7 +182,7 @@ To ensure consistency across all products, use “Expand all” / “Collapse al
 
 Note that if an AccordionItem is static, the expand/collapse all feature will not affect its behavior.
 
-!!! Dont 
+!!! Dont
 
 Avoid using this feature if only one AccordionItem is visible.
 
