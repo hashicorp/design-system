@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
+import { registerDestructor } from '@ember/destroyable';
 import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
 import { notEq } from 'ember-truth-helpers';
@@ -35,6 +36,11 @@ interface DocCodeGroupSignature {
   };
 }
 
+type LanguageOption = { label: string; value: string };
+
+const CODE_GROUP_LANGUAGE_STORAGE_KEY = 'hds-doc-code-group-language';
+const CODE_GROUP_LANGUAGE_CHANGE_EVENT = 'hds-doc-code-group-language-change';
+
 // Helper to undo code escaping for display
 const unescapeCode = (code: string) => {
   return code.replace(/\\n/g, '\n');
@@ -45,34 +51,69 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
-  @tracked languageOptions: Array<{ label: string; value: string }> = [];
+
+  private readonly handleRouteDidChange = () => {
+    if (this.shouldSyncLanguageSelection) {
+      this.applyLanguageSelection(this.getStoredLanguage());
+    } else {
+      this.currentView = this.resolveLanguageSelection(this.currentView);
+    }
+  };
+
+  private readonly handleStoredLanguageChange = (event: Event) => {
+    if (!this.shouldSyncLanguageSelection) {
+      return;
+    }
+
+    const customEvent = event as CustomEvent<string>;
+    this.applyLanguageSelection(customEvent.detail);
+  };
+
+  private readonly handleStorageEvent = (event: StorageEvent) => {
+    if (
+      !this.shouldSyncLanguageSelection ||
+      event.key !== CODE_GROUP_LANGUAGE_STORAGE_KEY
+    ) {
+      return;
+    }
+
+    this.applyLanguageSelection(event.newValue);
+  };
 
   constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
     super(owner, args);
 
-    const options = [];
-
-    if (args.hbsSnippet !== '') {
-      options.push({ label: '.hbs', value: 'hbs' });
-    }
-
-    if (args.jsSnippet !== '') {
-      options.push({ label: '.js', value: 'js' });
-    }
-
-    if (args.gtsSnippet !== '') {
-      options.push({ label: '.gts', value: 'gts' });
-    }
-
-    if (args.customLang && args.customSnippet !== '') {
-      options.push({ label: `.${args.customLang}`, value: 'custom' });
-    }
-
-    this.languageOptions = options;
-    this.currentView = options[0]?.value || 'hbs';
+    this.currentView = this.shouldSyncLanguageSelection
+      ? this.resolveLanguageSelection(
+          this.getStoredLanguage() || this.languageOptions[0]?.value || 'hbs',
+        )
+      : this.languageOptions[0]?.value || 'hbs';
 
     if (args.isExpanded === 'true') {
       this.isExpanded = true;
+    }
+
+    this.router.on('routeDidChange', this.handleRouteDidChange);
+
+    registerDestructor(this, () => {
+      this.router.off('routeDidChange', this.handleRouteDidChange);
+    });
+
+    if (typeof window !== 'undefined') {
+      // this custom event is used to notify other code group instances on the page that the language selection has changed so that they can update their selected language too
+      window.addEventListener(
+        CODE_GROUP_LANGUAGE_CHANGE_EVENT,
+        this.handleStoredLanguageChange,
+      );
+      window.addEventListener('storage', this.handleStorageEvent);
+
+      registerDestructor(this, () => {
+        window.removeEventListener(
+          CODE_GROUP_LANGUAGE_CHANGE_EVENT,
+          this.handleStoredLanguageChange,
+        );
+        window.removeEventListener('storage', this.handleStorageEvent);
+      });
     }
   }
 
@@ -148,10 +189,80 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return `Code Demo Language Tab Selected - ${this.normalizedCurrentRouteName} - ${value}`;
   };
 
+  get shouldSyncLanguageSelection() {
+    return this.args.hbsSnippet !== '' && this.args.gtsSnippet !== '';
+  }
+
+  get languageOptions() {
+    const options: Array<LanguageOption> = [];
+
+    if (this.args.hbsSnippet !== '') {
+      options.push({ label: '.hbs', value: 'hbs' });
+    }
+
+    if (this.args.jsSnippet !== '') {
+      options.push({ label: '.js', value: 'js' });
+    }
+
+    if (this.args.gtsSnippet !== '') {
+      options.push({ label: '.gts', value: 'gts' });
+    }
+
+    if (this.args.customLang && this.args.customSnippet !== '') {
+      options.push({ label: `.${this.args.customLang}`, value: 'custom' });
+    }
+
+    return options;
+  }
+
+  private getStoredLanguage() {
+    if (typeof window === 'undefined') {
+      return null;
+    }
+
+    try {
+      return window.localStorage.getItem(CODE_GROUP_LANGUAGE_STORAGE_KEY);
+    } catch (err) {
+      console.warn('Failed to access localStorage:', err);
+      return null;
+    }
+  }
+
+  private resolveLanguageSelection(value?: string | null) {
+    if (!value) {
+      return this.languageOptions[0]?.value || 'hbs';
+    }
+
+    return this.languageOptions.some((option) => option.value === value)
+      ? value
+      : this.languageOptions[0]?.value || 'hbs';
+  }
+
+  private applyLanguageSelection(value?: string | null) {
+    this.currentView = this.resolveLanguageSelection(value);
+  }
+
+  private persistLanguageSelection(value: string) {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    window.localStorage.setItem(CODE_GROUP_LANGUAGE_STORAGE_KEY, value);
+    window.dispatchEvent(
+      new CustomEvent(CODE_GROUP_LANGUAGE_CHANGE_EVENT, {
+        detail: value,
+      }),
+    );
+  }
+
   handleLanguageChange = (event: Event) => {
     const input = event.target as HTMLInputElement;
     if (input.checked) {
-      this.currentView = input.value;
+      if (this.shouldSyncLanguageSelection) {
+        this.persistLanguageSelection(input.value);
+      } else {
+        this.currentView = input.value;
+      }
     }
   };
 
