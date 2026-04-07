@@ -12105,7 +12105,7 @@
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$modes": {
-      "default": "rgba(178, 182, 189, 40%)",
+      "default": "rgba(178, 182, 189, .4)",
       "cds-g0": "transparent",
       "cds-g10": "transparent",
       "cds-g90": "transparent",
@@ -12115,7 +12115,7 @@
       "$type": "color",
       "$value": "transparent",
       "$modes": {
-        "default": "rgba(178, 182, 189, 40%)",
+        "default": "rgba(178, 182, 189, .4)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -12139,7 +12139,7 @@
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$modes": {
-      "default": "rgba(178, 182, 189, 20%)",
+      "default": "rgba(178, 182, 189, .2)",
       "cds-g0": "transparent",
       "cds-g10": "transparent",
       "cds-g90": "transparent",
@@ -12149,7 +12149,7 @@
       "$type": "color",
       "$value": "transparent",
       "$modes": {
-        "default": "rgba(178, 182, 189, 20%)",
+        "default": "rgba(178, 182, 189, .2)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",

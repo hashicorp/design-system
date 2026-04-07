@@ -216,9 +216,9 @@
       "border": {
         "strong": {
           "$type": "color",
-          "$value": "rgba(178, 182, 189, 40%)",
+          "$value": "rgba(178, 182, 189, .4)",
           "$modes": {
-            "default": "rgba(178, 182, 189, 40%)",
+            "default": "rgba(178, 182, 189, .4)",
             "cds-g0": "transparent",
             "cds-g10": "transparent",
             "cds-g90": "transparent",
@@ -227,9 +227,9 @@
         },
         "primary": {
           "$type": "color",
-          "$value": "rgba(178, 182, 189, 20%)",
+          "$value": "rgba(178, 182, 189, .2)",
           "$modes": {
-            "default": "rgba(178, 182, 189, 20%)",
+            "default": "rgba(178, 182, 189, .2)",
             "cds-g0": "transparent",
             "cds-g10": "transparent",
             "cds-g90": "transparent",

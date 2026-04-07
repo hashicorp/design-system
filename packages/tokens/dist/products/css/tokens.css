@@ -394,8 +394,8 @@
   --token-code-block-color-surface-faint: #15181e;
   --token-code-block-color-surface-interactive-active: #2b303c;
   --token-code-block-color-surface-selection: #86ff13;
-  --token-code-block-color-border-strong: #b2b6bd;
-  --token-code-block-color-border-primary: #b2b6bd;
+  --token-code-block-color-border-strong: rgba(178, 182, 189, 0.4);
+  --token-code-block-color-border-primary: rgba(178, 182, 189, 0.2);
   --token-code-block-color-focus-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-color-focus-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-typography-font-size: 0.8125rem;
