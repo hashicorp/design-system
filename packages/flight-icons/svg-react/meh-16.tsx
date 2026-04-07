@@ -25,7 +25,7 @@ export const IconMeh16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0m0 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13m2.5 8a.75.75 0 1 1 0 1.5h-5a.75.75 0 0 1 0-1.5zM6.007 5a1 1 0 0 1 0 2H6a1 1 0 0 1 0-2zm4 0a1 1 0 0 1 0 2H10a1 1 0 0 1 0-2z"
+                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0m0 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13m2.5 8a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1 0-1.5zM6.007 5a1 1 0 0 1 0 2H6a1 1 0 0 1 0-2zm4 0a1 1 0 0 1 0 2H10a1 1 0 1 1 0-2z"
                 />
             </svg>
         );
