@@ -14,9 +14,9 @@ import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
 import { service } from '@ember/service';
 
-// hds-dark theme
-import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
-import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
+// HdsCodeEditor theme
+import hdsTheme from './hds-code-editor/themes/hds-theme.ts';
+import hdsHighlightStyle from './hds-code-editor/highlight-styles/hds-highlight-style.ts';
 
 import type HdsIntlService from '../services/hds-intl.ts';
 import type { HdsCodeEditorLanguages } from './hds-code-editor/types.ts';
@@ -478,9 +478,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         handleUpdateExtension,
         // user-provided extensions
         ...(customExtensions ?? []),
-        // hds dark theme
-        hdsDarkTheme,
-        syntaxHighlighting(hdsDarkHighlightStyle),
+        // HdsCodeEditor theme
+        hdsTheme,
+        syntaxHighlighting(hdsHighlightStyle),
       ];
 
       if (extraKeys !== undefined) {

@@ -3872,25 +3872,12 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-.hds-code-editor--theme-dark {
-  --hds-code-editor-color-border-strong: rgba(178, 182, 189, 40%);
-  --hds-code-editor-color-border-primary: rgba(178, 182, 189, 20%);
-  --hds-code-editor-color-foreground-primary: #d5d7db;
-  --hds-code-editor-color-foreground-faint: #878a8f;
-  --hds-code-editor-color-foreground-high-contrast: #fff;
-  --hds-code-editor-color-surface-faint: #15181e;
-  --hds-code-editor-color-surface-primary: #0d0e12;
-  --hds-code-editor-color-surface-interactive-active: #2b303c;
-  --hds-code-editor-color-focus-action-internal: #9bc7fd;
-  --hds-code-editor-color-focus-action-external: #0d69f2;
-}
-
 .hds-code-editor {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--hds-code-editor-color-surface-primary);
-  border: 1px solid var(--hds-code-editor-color-border-strong);
+  background-color: var(--token-code-block-color-surface-primary);
+  border: 1px solid var(--token-code-block-color-border-strong);
 }
 .hds-code-editor.hds-code-editor--is-standalone {
   border-radius: var(--token-border-radius-medium);
@@ -3906,16 +3893,29 @@ button.hds-button[href]::after {
   max-height: unset;
 }
 .hds-code-editor .cm-editor .cm-scroller {
-  font-size: 0.8125rem;
+  font-size: var(--token-code-block-typography-font-size);
   font-family: var(--token-typography-code-200-font-family);
 }
+.hds-mode-cds-g0 .hds-code-editor .cm-panel.cm-panel-lint ul li.cm-diagnostic,
+.hds-mode-cds-g10 .hds-code-editor .cm-panel.cm-panel-lint ul li.cm-diagnostic,
+.hds-mode-cds-g90 .hds-code-editor .cm-panel.cm-panel-lint ul li.cm-diagnostic,
+.hds-mode-cds-g100 .hds-code-editor .cm-panel.cm-panel-lint ul li.cm-diagnostic {
+  margin-bottom: 0;
+}
+.hds-mode-cds-g0 .hds-code-editor .cm-panels-bottom .cm-panel.cm-panel-lint,
+.hds-mode-cds-g10 .hds-code-editor .cm-panels-bottom .cm-panel.cm-panel-lint,
+.hds-mode-cds-g90 .hds-code-editor .cm-panels-bottom .cm-panel.cm-panel-lint,
+.hds-mode-cds-g100 .hds-code-editor .cm-panels-bottom .cm-panel.cm-panel-lint {
+  border-top: 3px solid var(--token-code-block-color-border-primary);
+}
+
 .hds-code-editor .hds-code-editor__header {
   display: flex;
   gap: 12px;
   align-items: start;
   padding: 16px;
-  background-color: var(--hds-code-editor-color-surface-faint);
-  border-bottom: 1px solid var(--hds-code-editor-color-border-primary);
+  background-color: var(--token-code-block-color-surface-faint);
+  border-bottom: 1px solid var(--token-code-block-color-border-primary);
 }
 .hds-code-editor .hds-code-editor__header-content {
   display: flex;
@@ -3923,13 +3923,13 @@ button.hds-button[href]::after {
   flex-grow: 1;
 }
 .hds-code-editor .hds-code-editor__title {
-  color: var(--hds-code-editor-color-foreground-primary);
+  color: var(--token-code-block-color-foreground-primary);
 }
 .hds-code-editor .hds-code-editor__title + .hds-code-editor__description {
   margin-top: 4px;
 }
 .hds-code-editor .hds-code-editor__description {
-  color: var(--hds-code-editor-color-foreground-faint);
+  color: var(--token-code-block-color-foreground-faint);
 }
 .hds-code-editor .hds-code-editor__title + .hds-code-editor__header-generic,
 .hds-code-editor .hds-code-editor__description + .hds-code-editor__header-generic {
@@ -3952,29 +3952,42 @@ button.hds-button[href]::after {
   align-items: center;
   justify-content: center;
   height: 164px;
-  color: var(--hds-code-editor-color-foreground-primary);
-  background-color: var(--hds-code-editor-color-surface-primary);
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-copy-button-surface-color-default);
 }
 .hds-code-editor .hds-button {
-  color: var(--hds-code-editor-color-foreground-primary);
-  background-color: var(--hds-code-editor-color-surface-faint);
-  border: 1px solid var(--hds-code-editor-color-border-strong);
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-color-surface-faint);
+  border: 1px solid var(--token-code-block-color-border-strong);
 }
 .hds-code-editor .hds-button:focus, .hds-code-editor .hds-button:hover {
-  background-color: var(--hds-code-editor-color-surface-primary);
-  border-color: var(--hds-code-editor-color-focus-action-internal);
+  background-color: var(--token-code-block-copy-button-surface-color-hover);
+  border-color: var(--token-code-block-color-focus-action-internal);
 }
 .hds-code-editor .hds-button:focus::before, .hds-code-editor .hds-button:hover::before {
-  border-color: var(--hds-code-editor-color-focus-action-external);
+  border-color: var(--token-code-block-color-focus-action-external);
 }
 .hds-code-editor .hds-button:focus .hds-button__icon, .hds-code-editor .hds-button:hover .hds-button__icon {
-  color: var(--hds-code-editor-color-foreground-primary);
+  color: var(--token-code-block-color-foreground-primary);
 }
+.hds-mode-cds-g0 .hds-code-editor .hds-button:focus, .hds-mode-cds-g0 .hds-code-editor .hds-button:hover,
+.hds-mode-cds-g10 .hds-code-editor .hds-button:focus, .hds-mode-cds-g10 .hds-code-editor .hds-button:hover,
+.hds-mode-cds-g90 .hds-code-editor .hds-button:focus, .hds-mode-cds-g90 .hds-code-editor .hds-button:hover,
+.hds-mode-cds-g100 .hds-code-editor .hds-button:focus, .hds-mode-cds-g100 .hds-code-editor .hds-button:hover {
+  border-color: transparent;
+}
+.hds-mode-cds-g0 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g0 .hds-code-editor .hds-button:hover::before,
+.hds-mode-cds-g10 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g10 .hds-code-editor .hds-button:hover::before,
+.hds-mode-cds-g90 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g90 .hds-code-editor .hds-button:hover::before,
+.hds-mode-cds-g100 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g100 .hds-code-editor .hds-button:hover::before {
+  border-color: transparent;
+}
+
 .hds-code-editor .hds-button:active {
-  background-color: var(--hds-code-editor-color-surface-interactive-active);
+  background-color: var(--token-code-block-copy-button-surface-color-active);
 }
 .hds-code-editor .hds-button .hds-button__icon {
-  color: var(--hds-code-editor-color-foreground-primary);
+  color: var(--token-code-block-color-foreground-primary);
 }
 
 /**
