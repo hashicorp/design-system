@@ -222,7 +222,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
     try {
       return window.localStorage.getItem(CODE_GROUP_LANGUAGE_STORAGE_KEY);
-    } catch {
+    } catch (err) {
+      console.warn('Failed to access localStorage:', err);
       return null;
     }
   }
