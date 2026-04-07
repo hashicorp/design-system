@@ -18,11 +18,12 @@ export type HdsPaginationDirections = `${HdsPaginationDirectionValues}`;
 
 export type HdsPaginationPage = HdsPaginationDirections | number;
 
+// Aria labels for nav arrow buttons
 export const HDS_PAGINATION_DIRECTION_ARIA_LABEL_KEYS = {
   [HdsPaginationDirectionValues.Prev]:
-    'hds.pagination.nav.arrow.direction.prev',
+    'hds.components.pagination.nav.arrow.aria_label.direction.prev',
   [HdsPaginationDirectionValues.Next]:
-    'hds.pagination.nav.arrow.direction.next',
+    'hds.components.pagination.nav.arrow.aria_label.direction.next',
 } as const;
 
 export function getHdsPaginationDirectionAriaLabel(
@@ -43,9 +44,12 @@ export function getHdsPaginationDirectionAriaLabel(
   });
 }
 
+// Display "label" text for nav arrow buttons
 export const HDS_PAGINATION_DIRECTION_LABEL_KEYS = {
-  [HdsPaginationDirectionValues.Prev]: 'hds.pagination.nav.arrow.label.prev',
-  [HdsPaginationDirectionValues.Next]: 'hds.pagination.nav.arrow.label.next',
+  [HdsPaginationDirectionValues.Prev]:
+    'hds.components.pagination.nav.arrow.label.direction.prev',
+  [HdsPaginationDirectionValues.Next]:
+    'hds.components.pagination.nav.arrow.label.direction.next',
 } as const;
 
 export function getHdsPaginationDirectionLabel(
@@ -65,14 +69,6 @@ export function getHdsPaginationDirectionLabel(
     default: defaults[direction as HdsPaginationDirectionValues],
   });
 }
-
-export enum HdsPaginationDirectionLabelValues {
-  Prev = 'Previous',
-  Next = 'Next',
-}
-
-export type HdsPaginationDirectionLabels =
-  `${HdsPaginationDirectionLabelValues}`;
 
 export type HdsPaginationElliptizedPageArrayItem = string | number;
 
