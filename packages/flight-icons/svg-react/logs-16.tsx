@@ -25,7 +25,9 @@ export const IconLogs16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
+                    fillRule="evenodd"
                     d="M9.25 13.5a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5zm4-3a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5zm0-3a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5zM4.256 1.186a.75.75 0 0 1 .988 1.128L3.89 3.5l1.355 1.186a.75.75 0 0 1-.988 1.128l-2-1.75a.75.75 0 0 1 0-1.128zm2.93.07a.75.75 0 0 1 1.058-.07l2 1.75a.75.75 0 0 1 0 1.128l-2 1.75a.75.75 0 0 1-.988-1.128L8.61 3.5 7.256 2.314a.75.75 0 0 1-.07-1.058"
+                    clipRule="evenodd"
                 />
             </svg>
         );
