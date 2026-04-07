@@ -133,6 +133,8 @@
   --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
   --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
   --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-card-surface-color-primary: #f4f4f4;
+  --token-card-surface-color-secondary: #ffffff;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
   --token-color-border-faint: #e0e0e0;
@@ -274,6 +276,15 @@
   --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
   --token-modal-header-tagline-color-critical: #525252;
   --token-modal-header-tagline-color-warning: #525252;
+  --token-pagination-bar-border-color: #c6c6c6;
+  --token-pagination-bar-surface-color: #f4f4f4;
+  --token-pagination-nav-control-foreground-color-active: #161616;
+  --token-pagination-nav-control-foreground-color-default: #161616;
+  --token-pagination-nav-control-foreground-color-hover: #161616;
+  --token-pagination-nav-control-height: 40px;
+  --token-pagination-nav-control-typography-font-weight-active: 600;
+  --token-pagination-nav-indicator-height: 4px;
+  --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(--token-color-palette-alpha-200);
   --token-rich-tooltip-bubble-border-radius: 2px;
@@ -290,6 +301,19 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tabs-indicator-height: 2px;
+  --token-tabs-tab-border-color-default: #e0e0e0;
+  --token-tabs-tab-border-color-hover: var(--token-color-border-strong);
+  --token-tabs-tab-foreground-color-default: #525252;
+  --token-tabs-tab-foreground-color-hover: #161616;
+  --token-tabs-tab-height-large: 48px;
+  --token-tabs-tab-height-medium: 40px;
+  --token-tabs-tab-padding-horizontal-large: 16px;
+  --token-tabs-tab-padding-horizontal-medium: 16px;
+  --token-tabs-tab-selected-border-color-default: #0f62fe;
+  --token-tabs-tab-selected-border-color-hover: #0f62fe;
+  --token-tabs-tab-selected-foreground-color-default: #161616;
+  --token-tabs-tab-selected-foreground-color-hover: #161616;
   --token-tag-border-radius: 16px;
   --token-tag-foreground-color-default: #161616;
   --token-tag-icon-color: #161616;
