@@ -21,16 +21,15 @@ type ComponentSetData = {
     }
 };
 
-// Relying on a convention for now: if the description of an icon contains the separator
-// we assume that the part before the separator is meant to be a "clean" description of the icon
-// and the part after the separator is the HDS -> Carbon migration note
-const HDS_CARBON_NOTE_SEPARATOR = '---------------------\n🔷 HDS -> Carbon Note 🔷';
+// Look for the [carbon:Icon-name] or [carbon:] pattern in the mapping string and extract the icon name (if provided)
+const HDS_CARBON_MAPPING_TAG = /\[carbon:([^\]]*)\]/;
 
-const splitContent = (mixedContent: string) => {
-    const parts = mixedContent.split(HDS_CARBON_NOTE_SEPARATOR);
-    const description = parts[0].trim();
-    const mapping = parts[1] ? parts[1].trim() : undefined;
-    return { description, mapping: mapping };
+const splitContent = (mixedContent: string = '') => {
+    const mappingTagMatch = mixedContent.match(HDS_CARBON_MAPPING_TAG);
+    const description = mixedContent.replace(HDS_CARBON_MAPPING_TAG, '').trim();
+    const mapping = mappingTagMatch?.[1]?.trim();
+    
+    return { description, mapping };
 }
 
 export async function getAssetsMetadata(): Promise<AssetsMetadata> {
@@ -94,9 +93,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
                     if (parentComponentSet) {
                         assetsMetadata[component.node_id].iconName = parentComponentSet.name;
                         assetsMetadata[component.node_id].description = parentComponentSet.description;
-                        if (parentComponentSet.mapping) {
-                            assetsMetadata[component.node_id].mapping = parentComponentSet.mapping;
-                        }
+                        assetsMetadata[component.node_id].mapping = parentComponentSet.mapping;
                     }
                 }
 

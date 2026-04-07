@@ -1916,7 +1916,7 @@ export const IconRegistry = {
             16: () => import('./flight/diamond-fill-16.js'),
             24: () => import('./flight/diamond-fill-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/diamond-fill.js')
     },
     disc: {
         flight: {
@@ -2049,7 +2049,7 @@ export const IconRegistry = {
             16: () => import('./flight/sparkle-16.js'),
             24: () => import('./flight/sparkle-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/sparkle.js')
     },
     square: {
         flight: {
@@ -3204,7 +3204,7 @@ export const IconRegistry = {
             16: () => import('./flight/rotate-cw-16.js'),
             24: () => import('./flight/rotate-cw-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/rotate-cw.js')
     },
     'rotate-ccw': {
         flight: {
@@ -3638,7 +3638,7 @@ export const IconRegistry = {
             16: () => import('./flight/cloud-check-16.js'),
             24: () => import('./flight/cloud-check-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/cloud-check.js')
     },
     'cloud-download': {
         flight: {
