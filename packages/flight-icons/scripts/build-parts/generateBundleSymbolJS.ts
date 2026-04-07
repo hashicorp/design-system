@@ -96,7 +96,10 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
             // --- CARBON ---
 
             // Proceed only if the tag exists
-            if (mapping && !registry[baseName].carbon) {
+            if (mapping) {
+                if (registry[baseName].carbon) {
+                    continue; // Carbon icon already processed for this baseName
+                }
                 const carbonName = mapping.toLowerCase();
                 let carbonPath = path.join(carbonIconsPath, '32', `${carbonName}.svg`);
 
