@@ -2,11 +2,13 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
 import { get } from '@ember/helper';
+import { service } from '@ember/service';
 
 import type Owner from '@ember/owner';
 
@@ -16,6 +18,8 @@ import HdsPaginationNavArrow from '../nav/arrow.gts';
 import HdsPaginationNavNumber from '../nav/number.gts';
 import HdsPaginationNavEllipsis from '../nav/ellipsis.gts';
 import HdsPaginationSizeSelector from '../size-selector/index.gts';
+
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 import type {
   HdsPaginationPage,
@@ -168,7 +172,10 @@ export const elliptize = ({
 
   return result;
 };
+
 export default class HdsPaginationNumbered extends Component<HdsPaginationNumberedSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   // These two private variables are used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).
@@ -233,7 +240,12 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   }
 
   get ariaLabel(): string {
-    return this.args.ariaLabel ?? 'Pagination';
+    return (
+      this.args.ariaLabel ??
+      this.hdsIntl.t('hds.components.pagination.numbered.aria-label', {
+        default: 'Pagination',
+      })
+    );
   }
 
   // This very specific `get/set` pattern is used to handle the two different use cases of the component
