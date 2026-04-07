@@ -45,7 +45,7 @@ export default class HdsAppFooter extends Component<HdsAppFooterSignature> {
   get ariaLabel(): string {
     return (
       this.args.ariaLabel ??
-      this.hdsIntl.t('hds.components.app-footer.aria-label', {
+      this.hdsIntl.t('hds.components.app-footer.list.aria-label', {
         default: 'Footer items',
       })
     );
