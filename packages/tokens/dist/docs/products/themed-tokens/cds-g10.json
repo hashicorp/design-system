@@ -15517,7 +15517,7 @@
     "$value": "16px",
     "unit": "px",
     "$modes": {
-      "default": "12",
+      "default": "20",
       "cds-g0": "16",
       "cds-g10": "16",
       "cds-g90": "16",
@@ -15528,7 +15528,7 @@
       "$value": "16",
       "unit": "px",
       "$modes": {
-        "default": "12",
+        "default": "20",
         "cds-g0": "16",
         "cds-g10": "16",
         "cds-g90": "16",

@@ -563,7 +563,7 @@
   );
   --token-tabs-tab-height-large: 48px;
   --token-tabs-tab-height-medium: 36px;
-  --token-tabs-tab-padding-horizontal-large: 12px;
+  --token-tabs-tab-padding-horizontal-large: 20px;
   --token-tabs-tab-padding-horizontal-medium: 12px;
   --token-tabs-tab-selected-border-color-default: var(
     --token-color-foreground-action
