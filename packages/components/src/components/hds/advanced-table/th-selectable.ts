@@ -62,10 +62,13 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
   get ariaLabel(): string {
     const { selectionAriaLabelSuffix = 'row' } = this.args;
     const defaultString = `Select ${selectionAriaLabelSuffix}`;
-    return this.hdsIntl.t('hds.advanced-table.select', {
-      default: defaultString,
-      suffix: selectionAriaLabelSuffix,
-    });
+    return this.hdsIntl.t(
+      'hds.components.advanced-table.th-selectable.aria-label',
+      {
+        default: defaultString,
+        suffix: selectionAriaLabelSuffix,
+      }
+    );
   }
 
   get ariaSort(): HdsAdvancedTableThSortOrderLabels | undefined {

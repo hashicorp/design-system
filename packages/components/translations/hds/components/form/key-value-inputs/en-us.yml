@@ -1,0 +1,3 @@
+add-row-button:
+  aria-description: Adds a new row of one or more inputs at the end of the form field. Press shift tab to move focus back to the newly added row.
+  text: Add row

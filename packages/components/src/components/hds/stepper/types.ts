@@ -29,15 +29,24 @@ export function HdsStepperStatusToSrOnlyText(
 ): Record<HdsStepperStatusesValues, string> {
   return {
     [HdsStepperStatusesValues.Incomplete]: '',
-    [HdsStepperStatusesValues.Progress]: hdsIntl.t('hds.stepper.progress', {
-      default: '(current)',
-    }),
-    [HdsStepperStatusesValues.Processing]: hdsIntl.t('hds.stepper.processing', {
-      default: '(in progress)',
-    }),
-    [HdsStepperStatusesValues.Complete]: hdsIntl.t('hds.stepper.complete', {
-      default: '(complete)',
-    }),
+    [HdsStepperStatusesValues.Progress]: hdsIntl.t(
+      'hds.components.stepper.progress',
+      {
+        default: '(current)',
+      }
+    ),
+    [HdsStepperStatusesValues.Processing]: hdsIntl.t(
+      'hds.components.stepper.processing',
+      {
+        default: '(in progress)',
+      }
+    ),
+    [HdsStepperStatusesValues.Complete]: hdsIntl.t(
+      'hds.components.stepper.complete',
+      {
+        default: '(complete)',
+      }
+    ),
   };
 }
 
@@ -82,11 +91,14 @@ export function HdsStepperNavStatusToSrOnlyText(
 ): Record<HdsStepperNavStatusesValues, string> {
   return {
     [HdsStepperNavStatusesValues.Incomplete]: '',
-    [HdsStepperNavStatusesValues.Active]: hdsIntl.t('hds.stepper.nav.active', {
-      default: '(current)',
-    }),
+    [HdsStepperNavStatusesValues.Active]: hdsIntl.t(
+      'hds.components.stepper.nav.active',
+      {
+        default: '(current)',
+      }
+    ),
     [HdsStepperNavStatusesValues.Complete]: hdsIntl.t(
-      'hds.stepper.nav.complete',
+      'hds.components.stepper.nav.complete',
       { default: '(complete)' }
     ),
   };
