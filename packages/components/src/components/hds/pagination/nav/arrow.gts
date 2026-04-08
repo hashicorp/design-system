@@ -5,11 +5,14 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { on } from '@ember/modifier';
+import { service } from '@ember/service';
+
+import type HdsIntlService from '../../../../services/hds-intl';
 
 import {
   HdsPaginationDirectionValues,
-  HdsPaginationDirectionAriaLabelValues,
-  HdsPaginationDirectionLabelValues,
+  getHdsPaginationDirectionAriaLabel,
+  getHdsPaginationDirectionLabel,
 } from '../types.ts';
 import HdsInteractive from '../../interactive/index.gts';
 import HdsIcon from '../../icon/index.gts';
@@ -17,16 +20,12 @@ import HdsTextBody from '../../text/body.gts';
 
 import type { HdsIconSignature } from '../../icon/index.ts';
 import type { HdsInteractiveSignature } from '../../interactive/index.gts';
-import type {
-  HdsPaginationDirections,
-  HdsPaginationDirectionAriaLabels,
-  HdsPaginationDirectionLabels,
-} from '../types.ts';
+import type { HdsPaginationDirections } from '../types.ts';
 
 interface HdsPaginationControlArrowContent {
-  label: HdsPaginationDirectionLabels;
+  label: string;
   icon: HdsIconSignature['Args']['name'];
-  ariaLabel: HdsPaginationDirectionAriaLabels;
+  ariaLabel: string;
 }
 
 interface HdsPaginationControlArrowArgs {
@@ -47,6 +46,7 @@ export const DIRECTIONS: HdsPaginationDirections[] = [
 ];
 
 export default class HdsPaginationControlArrow extends Component<HdsPaginationControlArrowSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
   get content(): HdsPaginationControlArrowContent {
     const { direction } = this.args;
 
@@ -62,14 +62,26 @@ export default class HdsPaginationControlArrow extends Component<HdsPaginationCo
       HdsPaginationControlArrowContent
     > = {
       [HdsPaginationDirectionValues.Prev]: {
-        label: HdsPaginationDirectionLabelValues.Prev,
+        label: getHdsPaginationDirectionLabel(
+          HdsPaginationDirectionValues.Prev,
+          this.hdsIntl
+        ),
         icon: 'chevron-left',
-        ariaLabel: HdsPaginationDirectionAriaLabelValues.Prev,
+        ariaLabel: getHdsPaginationDirectionAriaLabel(
+          HdsPaginationDirectionValues.Prev,
+          this.hdsIntl
+        ),
       },
       [HdsPaginationDirectionValues.Next]: {
-        label: HdsPaginationDirectionLabelValues.Next,
+        label: getHdsPaginationDirectionLabel(
+          HdsPaginationDirectionValues.Next,
+          this.hdsIntl
+        ),
         icon: 'chevron-right',
-        ariaLabel: HdsPaginationDirectionAriaLabelValues.Next,
+        ariaLabel: getHdsPaginationDirectionAriaLabel(
+          HdsPaginationDirectionValues.Next,
+          this.hdsIntl
+        ),
       },
     };
 
