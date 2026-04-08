@@ -21,9 +21,9 @@ export type HdsPaginationPage = HdsPaginationDirections | number;
 // Aria labels for nav arrow buttons
 export const HDS_PAGINATION_DIRECTION_ARIA_LABEL_KEYS = {
   [HdsPaginationDirectionValues.Prev]:
-    'hds.components.pagination.nav.arrow.aria_label.direction.prev',
+    'hds.components.pagination.nav.arrow.aria-label.direction.prev',
   [HdsPaginationDirectionValues.Next]:
-    'hds.components.pagination.nav.arrow.aria_label.direction.next',
+    'hds.components.pagination.nav.arrow.aria-label.direction.next',
 } as const;
 
 export function getHdsPaginationDirectionAriaLabel(
