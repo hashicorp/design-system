@@ -6,7 +6,7 @@ Form Primitives aren’t conformant until used in conjunction with the other com
 
 ## Known issues
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature.
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, we discourage use of links within labels, helper text, or error text when associated with input elements.
 
 ## Applicable WCAG Success Criteria
 
