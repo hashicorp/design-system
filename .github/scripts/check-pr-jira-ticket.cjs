@@ -1,6 +1,6 @@
 const fs = require('node:fs/promises');
 
-const JIRA_LINE_PATTERN = /Jira ticket:\s*\[(HDS-\d+)\]\(https:\/\/hashicorp\.atlassian\.net\/browse\/\d+\)/i;
+const JIRA_LINE_PATTERN = /https:\/\/hashicorp\.atlassian\.net\/browse\/\d+/i;
 
 async function main() {
   const token = process.env.GITHUB_TOKEN;
@@ -52,7 +52,7 @@ async function main() {
 
   throw new Error(
     'The PR description is missing a valid Jira ticket link or still contains the `HDS-XXX` placeholder. ' +
-      'Please update the PR body to include `Jira ticket: [HDS-1234](https://hashicorp.atlassian.net/browse/HDS-1234)`.' +
+      'Please update the PR body to include a link to a Jira ticket.' +
       fallbackSuffix,
   );
 }
