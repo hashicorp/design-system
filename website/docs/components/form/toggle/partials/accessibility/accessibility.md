@@ -4,11 +4,11 @@
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-`Form::Toggle::Base` is not conformant until it has an accessible name. 
+`Form::Toggle::Base` is not conformant until it has an accessible name.
 
 ## Known issues
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature.
+If a link is used within a label, helper text, or error text associated with a form field, it will not be presented as a link to the user with a screen reader; only the text content is read out. If a link is present, this will cause an accessibility compliance failure. If additional context is required for the user, consider placing any text with links outside of the form fields. Consider placement of such text at the top of the form, or before the form field, so that the user is able to find the information before interacting with the form element.
 
 ## Applicable WCAG Success Criteria
 
