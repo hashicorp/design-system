@@ -8,7 +8,7 @@ When used as recommended, there should not be any accessibility issues with this
 
 Because Icon Tiles are purely decorative, they’re hidden from screen readers by default.
 
-![Accessibility example of an IconTile](/assets/components/icon-tile/icontile-hidden-example.png =343x*)
+![An IconTile has the aria-hidden attribute set to true](/assets/components/icon-tile/icontile-hidden-example.png =343x*)
 
 ## Applicable WCAG Success Criteria
 
