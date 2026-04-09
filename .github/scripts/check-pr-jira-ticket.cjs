@@ -3,6 +3,15 @@ const fs = require('node:fs/promises');
 const JIRA_LINE_PATTERN =
   /https:\/\/hashicorp\.atlassian\.net\/browse\/[A-Z][A-Z0-9_]*-\d+\b/i;
 
+function logCodeowner(message, details) {
+  if (details === undefined) {
+    console.log(`[codeowner-check] ${message}`);
+    return;
+  }
+
+  console.log(`[codeowner-check] ${message}`, details);
+}
+
 async function main() {
   const token = process.env.GITHUB_TOKEN;
   const eventPath = process.env.GITHUB_EVENT_PATH;
@@ -25,14 +34,24 @@ async function main() {
     return;
   }
 
-  const [owner, repo] = repository.split('/');
   const authorLogin = pullRequest.user.login;
+  logCodeowner('Starting codeowner check.', {
+    authorLogin,
+    repository,
+    baseRef: pullRequest.base?.ref,
+  });
+
   const { isCodeowner, usedFallback } = await getIsCodeowner({
-    owner,
-    repo,
+    repository,
     ref: pullRequest.base.ref,
     authorLogin,
     token,
+  });
+
+  logCodeowner('Codeowner check completed.', {
+    authorLogin,
+    isCodeowner,
+    usedFallback,
   });
 
   if (isCodeowner) {
@@ -58,10 +77,28 @@ async function main() {
   );
 }
 
-async function getIsCodeowner({ owner, repo, ref, authorLogin, token }) {
+async function getIsCodeowner({ repository, ref, authorLogin, token }) {
   try {
-    const owners = await getCodeowners({ owner, repo, token, ref });
+    logCodeowner('Resolving CODEOWNERS for repository.', {
+      repository,
+      ref,
+      authorLogin,
+    });
+
+    const owners = await getCodeowners({ repository, token, ref });
+    logCodeowner('Resolved CODEOWNERS entries.', {
+      userCount: owners.users.size,
+      users: Array.from(owners.users),
+      teamCount: owners.teams.length,
+      teams: owners.teams.map((team) => `${team.org}/${team.slug}`),
+    });
+
     const result = await isAuthorCodeowner({ authorLogin, owners, token });
+
+    logCodeowner('Finished evaluating CODEOWNERS membership.', {
+      authorLogin,
+      result,
+    });
 
     return {
       ...result,
@@ -78,12 +115,27 @@ async function getIsCodeowner({ owner, repo, ref, authorLogin, token }) {
   }
 }
 
-async function getCodeowners({ owner, repo, token, ref }) {
+async function getCodeowners({ repository, token, ref }) {
+  const [owner, repo] = repository.split('/');
+
+  if (!owner || !repo) {
+    throw new Error(`Invalid repository value: ${repository}`);
+  }
+
+  logCodeowner('Fetching CODEOWNERS file.', {
+    repository,
+    ref,
+  });
+
   const response = await githubRequest({
     path: `/repos/${owner}/${repo}/contents/.github/CODEOWNERS?ref=${encodeURIComponent(ref)}`,
     token,
   });
   const content = Buffer.from(response.content, 'base64').toString('utf8');
+
+  logCodeowner('Fetched CODEOWNERS file contents.', {
+    size: content.length,
+  });
 
   const users = new Set();
   const teams = [];
@@ -109,9 +161,11 @@ async function getCodeowners({ owner, repo, token, ref }) {
 
         if (org && slug) {
           teams.push({ org, slug });
+          logCodeowner('Parsed team CODEOWNER entry.', `${org}/${slug}`);
         }
       } else if (ownerReference) {
         users.add(ownerReference);
+        logCodeowner('Parsed user CODEOWNER entry.', ownerReference);
       }
     }
   }
@@ -123,21 +177,49 @@ async function getCodeowners({ owner, repo, token, ref }) {
 }
 
 async function isAuthorCodeowner({ authorLogin, owners, token }) {
+  logCodeowner('Checking direct user ownership match.', {
+    authorLogin,
+    directMatch: owners.users.has(authorLogin),
+  });
+
   if (owners.users.has(authorLogin)) {
+    logCodeowner('Author matched direct user CODEOWNER entry.', authorLogin);
     return { isCodeowner: true };
   }
 
   for (const team of owners.teams) {
     try {
+      logCodeowner('Checking team membership.', {
+        authorLogin,
+        team: `${team.org}/${team.slug}`,
+      });
+
       const response = await githubRequest({
         path: `/orgs/${team.org}/teams/${team.slug}/memberships/${authorLogin}`,
         token,
       });
 
+      logCodeowner('Received team membership response.', {
+        authorLogin,
+        team: `${team.org}/${team.slug}`,
+        state: response?.state,
+      });
+
       if (response.state === 'active') {
+        logCodeowner('Author matched team CODEOWNER entry.', {
+          authorLogin,
+          team: `${team.org}/${team.slug}`,
+        });
         return { isCodeowner: true };
       }
     } catch (error) {
+      logCodeowner('Team membership lookup failed.', {
+        authorLogin,
+        team: `${team.org}/${team.slug}`,
+        status: error.status,
+        message: error.message,
+      });
+
       if (error.status === 404 || error.status === 403) {
         continue;
       }
@@ -145,6 +227,10 @@ async function isAuthorCodeowner({ authorLogin, owners, token }) {
       throw error;
     }
   }
+
+  logCodeowner('Author was not found in any CODEOWNER entry.', {
+    authorLogin,
+  });
 
   return { isCodeowner: false };
 }
