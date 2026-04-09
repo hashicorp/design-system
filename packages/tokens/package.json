@@ -26,12 +26,12 @@
     "postbuild": "cp -R dist/products/css/themed-tokens/with-css-selectors/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors &&  cp -R dist/products/css/themed-tokens/with-css-selectors--migration/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors--migration && cp -R dist/products/css/themed-tokens/with-css-selectors--advanced/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors--advanced"
   },
   "devDependencies": {
-    "@carbon/colors": "^11.39.0",
-    "@carbon/grid": "^11.42.0",
-    "@carbon/layout": "^11.40.0",
-    "@carbon/motion": "^11.34.0",
-    "@carbon/themes": "^11.59.0",
-    "@carbon/type": "^11.46.0",
+    "@carbon/colors": "^11.50.0",
+    "@carbon/grid": "^11.53.0",
+    "@carbon/layout": "^11.51.0",
+    "@carbon/motion": "^11.44.0",
+    "@carbon/themes": "^11.71.0",
+    "@carbon/type": "^11.57.0",
     "@cnakazawa/watch": "^1.0.4",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash-es": "^4.17.12",
