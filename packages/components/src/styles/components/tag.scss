@@ -16,15 +16,9 @@
   width: fit-content;
   max-width: 100%;
   vertical-align: middle;
-  background-color: var(--token-tag-static-surface-color-default);
-  border: 1px solid var(--token-color-border-strong);
+  border-style: solid;
+  border-width: 1px;
   border-radius: var(--token-tag-border-radius);
-
-  @include hds-apply-only-if-carbon() {
-    &.hds-tag--is-static {
-      border-color: transparent;
-    }
-  }
 }
 
 .hds-tag__dismiss {
@@ -41,6 +35,11 @@
     padding-top: 5px;
     padding-bottom: 5px;
   }
+}
+
+.hds-tag--is-static {
+  background-color: var(--token-tag-static-surface-color-default);
+  border-color: var(--token-tag-static-border-color);
 }
 
 .hds-tag__dismiss-icon {
@@ -61,10 +60,6 @@
   padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom)
     var(--token-tag-padding-left);
   border-radius: inherit;
-}
-
-.hds-tag__text {
-  background-color: var(--token-tag-static-surface-color-default);
 }
 
 .hds-tag__link {

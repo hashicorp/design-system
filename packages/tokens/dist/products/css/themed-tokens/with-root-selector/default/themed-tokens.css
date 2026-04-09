@@ -333,6 +333,7 @@
   --token-tag-padding-bottom: 5px;
   --token-tag-padding-left: 10px;
   --token-tag-padding-right: 10px;
+  --token-tag-static-border-color: var(--token-color-border-strong);
   --token-tag-static-foreground-color-default: var(--token-color-foreground-primary);
   --token-tag-static-icon-color: var(--token-color-foreground-primary);
   --token-tag-static-surface-color-active: var(--token-color-surface-interactive-active);

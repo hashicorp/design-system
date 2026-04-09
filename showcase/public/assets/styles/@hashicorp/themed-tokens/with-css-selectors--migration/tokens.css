@@ -616,6 +616,7 @@
   --token-tag-padding-bottom: 5px;
   --token-tag-padding-left: 10px;
   --token-tag-padding-right: 10px;
+  --token-tag-static-border-color: var(--token-color-border-strong);
   --token-tag-static-foreground-color-default: var(
     --token-color-foreground-primary
   );
@@ -1057,6 +1058,7 @@
     --token-tag-padding-bottom: 3px;
     --token-tag-padding-left: 8px;
     --token-tag-padding-right: 8px;
+    --token-tag-static-border-color: rgba(0, 0, 0, 0);
     --token-tag-static-foreground-color-default: #161616;
     --token-tag-static-icon-color: #161616;
     --token-tag-static-surface-color-active: #d1d1d1;
@@ -1489,6 +1491,7 @@
     --token-tag-padding-bottom: 3px;
     --token-tag-padding-left: 8px;
     --token-tag-padding-right: 8px;
+    --token-tag-static-border-color: rgba(0, 0, 0, 0);
     --token-tag-static-foreground-color-default: #f4f4f4;
     --token-tag-static-icon-color: #f4f4f4;
     --token-tag-static-surface-color-active: #636363;
@@ -1915,6 +1918,7 @@
   --token-tag-padding-bottom: 3px;
   --token-tag-padding-left: 8px;
   --token-tag-padding-right: 8px;
+  --token-tag-static-border-color: rgba(0, 0, 0, 0);
   --token-tag-static-foreground-color-default: #161616;
   --token-tag-static-icon-color: #161616;
   --token-tag-static-surface-color-active: #d1d1d1;
@@ -2340,6 +2344,7 @@
   --token-tag-padding-bottom: 3px;
   --token-tag-padding-left: 8px;
   --token-tag-padding-right: 8px;
+  --token-tag-static-border-color: rgba(0, 0, 0, 0);
   --token-tag-static-foreground-color-default: #f4f4f4;
   --token-tag-static-icon-color: #f4f4f4;
   --token-tag-static-surface-color-active: #636363;

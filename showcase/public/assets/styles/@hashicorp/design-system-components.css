@@ -556,6 +556,7 @@
   --token-tag-link-foreground-color-secondary-default: #0c0c0e;
   --token-tag-link-icon-color-primary: #3b3d45;
   --token-tag-link-icon-color-secondary: #3b3d45;
+  --token-tag-static-border-color: #3b3d4566;
   --token-tag-static-surface-color-default: #ffffff;
   --token-tag-static-surface-color-hover: #f1f2f3;
   --token-tag-static-surface-color-active: #dedfe3;
@@ -10138,15 +10139,9 @@ button.hds-button[href]::after {
   width: fit-content;
   max-width: 100%;
   vertical-align: middle;
-  background-color: var(--token-tag-static-surface-color-default);
-  border: 1px solid var(--token-color-border-strong);
+  border-width: 1px;
+  border-style: solid;
   border-radius: var(--token-tag-border-radius);
-}
-.hds-mode-cds-g0 .hds-tag.hds-tag--is-static,
-.hds-mode-cds-g10 .hds-tag.hds-tag--is-static,
-.hds-mode-cds-g90 .hds-tag.hds-tag--is-static,
-.hds-mode-cds-g100 .hds-tag.hds-tag--is-static {
-  border-color: transparent;
 }
 
 .hds-tag__dismiss {
@@ -10167,6 +10162,11 @@ button.hds-button[href]::after {
   padding-bottom: 5px;
 }
 
+.hds-tag--is-static {
+  border-color: var(--token-tag-static-border-color);
+  background-color: var(--token-tag-static-surface-color-default);
+}
+
 .hds-tag__dismiss-icon {
   width: 12px;
   height: 12px;
@@ -10184,10 +10184,6 @@ button.hds-button[href]::after {
   max-width: var(--token-tag-max-width);
   padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom) var(--token-tag-padding-left);
   border-radius: inherit;
-}
-
-.hds-tag__text {
-  background-color: var(--token-tag-static-surface-color-default);
 }
 
 .hds-mode-cds-g0 .hds-tag__link,

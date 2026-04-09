@@ -552,6 +552,7 @@
   --token-tag-link-foreground-color-secondary-default: #0c0c0e;
   --token-tag-link-icon-color-primary: #3b3d45;
   --token-tag-link-icon-color-secondary: #3b3d45;
+  --token-tag-static-border-color: #3b3d4566;
   --token-tag-static-surface-color-default: #ffffff;
   --token-tag-static-surface-color-hover: #f1f2f3;
   --token-tag-static-surface-color-active: #dedfe3;
