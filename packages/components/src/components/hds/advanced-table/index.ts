@@ -231,8 +231,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked stickyColumnOffset = '0px';
 
   // sorting properties
-  @tracked sortBy?: string;
-  @tracked sortOrder?: HdsAdvancedTableThSortOrder;
+  @tracked private _internalSortBy?: string;
+  @tracked private _internalSortOrder?: HdsAdvancedTableThSortOrder;
 
   // row expansion properties
   expandedRowIds = new TrackedSet<string>();
@@ -330,13 +330,22 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._theadElement = element;
   });
 
+  private _syncSortArgs = modifier(() => {
+    const { sortBy, sortOrder } = this.args;
+
+    if (sortBy !== undefined) {
+      this._internalSortBy = sortBy;
+    }
+
+    if (sortOrder !== undefined) {
+      this._internalSortOrder = sortOrder;
+    }
+  });
+
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
-    const { hasStickyFirstColumn, model, sortBy, sortOrder } = args;
-
-    this.sortBy = sortBy;
-    this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
+    const { hasStickyFirstColumn, model } = args;
 
     this._runAssertions();
 
@@ -345,6 +354,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (hasStickyFirstColumn) {
       this.hasPinnedFirstColumn = true;
     }
+  }
+
+  get activeSortBy(): string | undefined {
+    return this._internalSortBy;
+  }
+
+  get activeSortOrder(): HdsAdvancedTableThSortOrder {
+    return this._internalSortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
   }
 
   get childrenKey(): string {
@@ -399,7 +416,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     const { columns } = this.args;
 
-    const currentColumn = columns.find((column) => column.key === this.sortBy);
+    const currentColumn = columns.find(
+      (column) => column.key === this.activeSortBy
+    );
 
     if (
       currentColumn?.sortingFunction &&
@@ -407,7 +426,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     ) {
       return currentColumn.sortingFunction;
     } else {
-      return `${this.sortBy}:${this.sortOrder}`;
+      return `${this.activeSortBy}:${this.activeSortOrder}`;
     }
   }
 
@@ -442,9 +461,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     if (sortedMessageText !== undefined) {
       return sortedMessageText;
-    } else if (this.sortBy !== undefined && this.sortOrder !== undefined) {
+    } else if (this.activeSortBy !== undefined) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
+      return `Sorted by ${this.activeSortBy} ${this.activeSortOrder}ending`;
     } else {
       return '';
     }
@@ -794,20 +813,20 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       return;
     }
 
-    if (this.sortBy === columnKey) {
-      // check to see if the column is already sorted and invert the sort order if so
-      this.sortOrder =
-        this.sortOrder === HdsAdvancedTableThSortOrderValues.Asc
+    let newSortOrder = HdsAdvancedTableThSortOrderValues.Asc;
+
+    if (this.activeSortBy === columnKey) {
+      newSortOrder =
+        this.activeSortOrder === HdsAdvancedTableThSortOrderValues.Asc
           ? HdsAdvancedTableThSortOrderValues.Desc
           : HdsAdvancedTableThSortOrderValues.Asc;
-    } else {
-      // otherwise, set the sort order to ascending
-      this.sortBy = columnKey;
-      this.sortOrder = HdsAdvancedTableThSortOrderValues.Asc;
     }
 
+    this._internalSortBy = columnKey;
+    this._internalSortOrder = newSortOrder;
+
     if (typeof onSort === 'function') {
-      onSort(this.sortBy, this.sortOrder);
+      onSort(columnKey, newSortOrder);
     }
   }
 
