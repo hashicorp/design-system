@@ -57,7 +57,7 @@
           <Hds::AdvancedTable::Tr
             @selectionScope="col"
             @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
-            @sortBySelectedOrder={{if (eq this.activeSortBy @selectableColumnKey) this.activeSortOrder}}
+            @sortBySelectedOrder={{if (eq this.currentSortBy @selectableColumnKey) this.currentSortOrder}}
             @isSelectable={{this.isSelectable}}
             @onSelectionChange={{this.onSelectionAllChange}}
             @didInsert={{this.didInsertSelectAllCheckbox}}
@@ -91,7 +91,7 @@
                 @hasExpandAllButton={{this.hasRowsWithChildren}}
                 @isExpanded={{this.isAllExpanded}}
                 @isExpandable={{column.isExpandable}}
-                @sortOrder={{if (eq column.key this.activeSortBy) this.activeSortOrder}}
+                @sortOrder={{if (eq column.key this.currentSortBy) this.currentSortOrder}}
                 @onApplyTransientWidth={{CM.applyTransientWidth}}
                 @onClickSort={{if column.isSortable (fn this.setSortBy column.key)}}
                 @onClickToggle={{this.toggleExpandAll}}
