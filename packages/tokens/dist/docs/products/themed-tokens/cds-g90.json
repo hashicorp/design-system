@@ -16259,6 +16259,150 @@
     ]
   },
   {
+    "key": "{tag.link.surface.color.primary.active}",
+    "$type": "color",
+    "$value": "#0053ff",
+    "$modes": {
+      "default": "#6f6f6f",
+      "cds-g0": "#b8d3ff",
+      "cds-g10": "#b8d3ff",
+      "cds-g90": "#0053ff",
+      "cds-g100": "#0053ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
+      "$modes": {
+        "default": "{color.surface.interactive-active}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverBlue.g100}"
+      },
+      "key": "{tag.link.surface.color.primary.active}"
+    },
+    "name": "token-tag-link-surface-color-primary-active",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "primary",
+      "active"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.secondary.default}",
+    "$type": "color",
+    "$value": "#525252",
+    "$modes": {
+      "default": "#393939",
+      "cds-g0": "#e0e0e0",
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#525252",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+      "$modes": {
+        "default": "{color.surface.interactive}",
+        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
+      },
+      "key": "{tag.link.surface.color.secondary.default}"
+    },
+    "name": "token-tag-link-surface-color-secondary-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "secondary",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.secondary.hover}",
+    "$type": "color",
+    "$value": "#636363",
+    "$modes": {
+      "default": "#474747",
+      "cds-g0": "#d1d1d1",
+      "cds-g10": "#d1d1d1",
+      "cds-g90": "#636363",
+      "cds-g100": "#636363"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+      "$modes": {
+        "default": "{color.surface.interactive-hover}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+      },
+      "key": "{tag.link.surface.color.secondary.hover}"
+    },
+    "name": "token-tag-link-surface-color-secondary-hover",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "secondary",
+      "hover"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.secondary.active}",
+    "$type": "color",
+    "$value": "#636363",
+    "$modes": {
+      "default": "#6f6f6f",
+      "cds-g0": "#d1d1d1",
+      "cds-g10": "#d1d1d1",
+      "cds-g90": "#636363",
+      "cds-g100": "#636363"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+      "$modes": {
+        "default": "{color.surface.interactive-active}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+      },
+      "key": "{tag.link.surface.color.secondary.active}"
+    },
+    "name": "token-tag-link-surface-color-secondary-active",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "secondary",
+      "active"
+    ]
+  },
+  {
     "key": "{tag.link.foreground.color.primary.default}",
     "$type": "color",
     "$value": "#d0e2ff",

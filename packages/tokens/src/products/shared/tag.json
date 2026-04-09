@@ -156,6 +156,52 @@
                 "cds-g90": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
                 "cds-g100": "{carbon.themes.tagTokens.tagHoverBlue.g100}"
               }
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{color.surface.interactive-active}",
+              "$modes": {
+                "default": "{color.surface.interactive-active}",
+                "cds-g0": "{carbon.themes.tagTokens.tagHoverBlue.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagHoverBlue.g100}"
+              }
+            }
+          },
+          "secondary": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.surface.interactive}",
+              "$modes": {
+                "default": "{color.surface.interactive}",
+                "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.surface.interactive-hover}",
+              "$modes": {
+                "default": "{color.surface.interactive-hover}",
+                "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+              }
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{color.surface.interactive-active}",
+              "$modes": {
+                "default": "{color.surface.interactive-active}",
+                "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+                "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+                "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+                "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+              }
             }
           }
         }

@@ -323,8 +323,12 @@
   --token-tag-link-foreground-color-secondary-default: var(--token-color-foreground-strong);
   --token-tag-link-icon-color-primary: var(--token-color-foreground-primary);
   --token-tag-link-icon-color-secondary: var(--token-color-foreground-primary);
+  --token-tag-link-surface-color-primary-active: var(--token-color-surface-interactive-active);
   --token-tag-link-surface-color-primary-default: var(--token-color-surface-interactive);
   --token-tag-link-surface-color-primary-hover: var(--token-color-surface-interactive-hover);
+  --token-tag-link-surface-color-secondary-active: var(--token-color-surface-interactive-active);
+  --token-tag-link-surface-color-secondary-default: var(--token-color-surface-interactive);
+  --token-tag-link-surface-color-secondary-hover: var(--token-color-surface-interactive-hover);
   --token-tag-max-width: 166px;
   --token-tag-padding-bottom: 5px;
   --token-tag-padding-left: 10px;

@@ -546,6 +546,10 @@
   --token-tag-link-border-color-secondary: #3b3d4566;
   --token-tag-link-surface-color-primary-default: #ffffff;
   --token-tag-link-surface-color-primary-hover: #f1f2f3;
+  --token-tag-link-surface-color-primary-active: #dedfe3;
+  --token-tag-link-surface-color-secondary-default: #ffffff;
+  --token-tag-link-surface-color-secondary-hover: #f1f2f3;
+  --token-tag-link-surface-color-secondary-active: #dedfe3;
   --token-tag-link-foreground-color-primary-default: #1060ff;
   --token-tag-link-foreground-color-primary-hover: #0c56e9;
   --token-tag-link-foreground-color-primary-active: #0046d1;
@@ -10159,8 +10163,8 @@ button.hds-button[href]::after {
 .hds-mode-cds-g10 .hds-tag__dismiss,
 .hds-mode-cds-g90 .hds-tag__dismiss,
 .hds-mode-cds-g100 .hds-tag__dismiss {
-  padding-bottom: 5px;
   padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .hds-tag__dismiss-icon {
@@ -10297,7 +10301,7 @@ button.hds-button[href]::after {
   background-color: var(--token-tag-link-surface-color-primary-hover);
 }
 .hds-tag--color-primary .hds-tag__link:active, .hds-tag--color-primary .hds-tag__link.mock-active, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss:active, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss.mock-active {
-  background-color: var(--token-tag-link-surface-color-primary-hover);
+  background-color: var(--token-tag-link-surface-color-primary-active);
 }
 .hds-tag--color-primary .hds-tag__link {
   color: var(--token-tag-link-foreground-color-primary-default);
@@ -10314,6 +10318,15 @@ button.hds-button[href]::after {
 
 .hds-tag--color-secondary {
   border-color: var(--token-tag-link-border-color-secondary);
+}
+.hds-tag--color-secondary .hds-tag__link, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss {
+  background-color: var(--token-tag-link-surface-color-secondary-default);
+}
+.hds-tag--color-secondary .hds-tag__link:hover, .hds-tag--color-secondary .hds-tag__link.mock-hover, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss:hover, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss.mock-hover {
+  background-color: var(--token-tag-link-surface-color-secondary-hover);
+}
+.hds-tag--color-secondary .hds-tag__link:active, .hds-tag--color-secondary .hds-tag__link.mock-active, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss:active, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss.mock-active {
+  background-color: var(--token-tag-link-surface-color-secondary-active);
 }
 .hds-tag--color-secondary .hds-tag__link {
   color: var(--token-tag-link-foreground-color-secondary-default);
