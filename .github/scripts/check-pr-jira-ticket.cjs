@@ -78,14 +78,8 @@ async function getIsCodeowner({ repository, ref, authorLogin, token }) {
 }
 
 async function getCodeowners({ repository, token, ref }) {
-  const [owner, repo] = repository.split('/');
-
-  if (!owner || !repo) {
-    throw new Error(`Invalid repository value: ${repository}`);
-  }
-
   const response = await githubRequest({
-    path: `/repos/${owner}/${repo}/contents/.github/CODEOWNERS?ref=${encodeURIComponent(ref)}`,
+    path: `/repos/${repository}/contents/.github/CODEOWNERS?ref=${encodeURIComponent(ref)}`,
     token,
   });
   const content = Buffer.from(response.content, 'base64').toString('utf8');
