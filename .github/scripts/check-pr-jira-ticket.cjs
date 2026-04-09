@@ -1,6 +1,7 @@
 const fs = require('node:fs/promises');
 
-const JIRA_LINE_PATTERN = /https:\/\/hashicorp\.atlassian\.net\/browse\/\d+/i;
+const JIRA_LINE_PATTERN =
+  /https:\/\/hashicorp\.atlassian\.net\/browse\/[A-Z][A-Z0-9_]*-\d+\b/i;
 
 async function main() {
   const token = process.env.GITHUB_TOKEN;
