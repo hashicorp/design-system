@@ -445,9 +445,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         )
         .exists('initial sort is applied to artist column');
       assert
-        .dom(
-          '#data-test-advanced-table .hds-advanced-table__th:nth-of-type(1)',
-        )
+        .dom('#data-test-advanced-table .hds-advanced-table__th:nth-of-type(1)')
         .hasAria('sort', 'ascending', 'initial sort order is ascending');
 
       context.sortBy = 'album';
@@ -455,18 +453,25 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       await settled();
 
       assert
-        .dom('#data-test-advanced-table .hds-advanced-table__th-button--is-sorted')
-        .exists({ count: 1 }, 'only one column is sorted after external update');
+        .dom(
+          '#data-test-advanced-table .hds-advanced-table__th-button--is-sorted',
+        )
+        .exists(
+          { count: 1 },
+          'only one column is sorted after external update',
+        );
       assert
         .dom(
           '#data-test-advanced-table .hds-advanced-table__th:nth-of-type(2) .hds-advanced-table__th-button--is-sorted',
         )
         .exists('sort updates to album column when args change');
       assert
-        .dom(
-          '#data-test-advanced-table .hds-advanced-table__th:nth-of-type(2)',
-        )
-        .hasAria('sort', 'descending', 'sort order updates to descending when args change');
+        .dom('#data-test-advanced-table .hds-advanced-table__th:nth-of-type(2)')
+        .hasAria(
+          'sort',
+          'descending',
+          'sort order updates to descending when args change',
+        );
     });
 
     test('it sorts by selected row when `@selectableColumnKey` is provided', async function (assert) {
