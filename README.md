@@ -4,8 +4,6 @@
   <img alt="Helios Design System" src="https://github.com/hashicorp/design-system/assets/788096/8e278094-427f-40cc-912f-9ccd3a0ff879.png" width="300">
 </picture>
 
-asdfasdfasdfasf. 
-
 The Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.
 
 ## Usage
