@@ -35,7 +35,7 @@ export interface HdsFormMaskedInputBaseSignature {
     height?: string;
     ariaDescribedBy?: string;
   };
-  Element: HTMLElement;
+  Element: HTMLTextAreaElement | HTMLInputElement;
 }
 
 export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInputBaseSignature> {

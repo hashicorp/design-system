@@ -1,8 +1,5 @@
 {
   "extends": "@tsconfig/ember",
-  "glint": {
-    "environment": ["ember-loose", "ember-template-imports"]
-  },
   "compilerOptions": {
     "allowJs": true,
     "paths": {

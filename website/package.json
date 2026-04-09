@@ -30,7 +30,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:spell:docs": "cspell --no-progress --show-suggestions --show-context \"docs/**/*.md\"",
-    "lint:types": "glint",
+    "lint:types": "ember-tsc --noEmit",
     "start": "pnpm build:packages && ember serve",
     "start:prember": "pnpm build:packages && PREMBER=true ember serve",
     "algolia:index": "node docs-scraper/index-website-content.mjs",

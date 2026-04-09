@@ -28,7 +28,7 @@
     "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "glint",
+    "lint:types": "ember-tsc -p tsconfig.lint.json",
     "start": "rollup --config --watch --environment development",
     "test:dist-files": "node scripts/check-dist-files.mjs",
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
