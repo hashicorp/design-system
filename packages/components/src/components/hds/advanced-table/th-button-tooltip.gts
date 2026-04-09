@@ -6,6 +6,11 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+import { hash } from '@ember/helper';
+
+import HdsIcon from '../icon/index.gts';
+import hdsTooltip from '../../../modifiers/hds-tooltip.ts';
+import hdsT from '../../../helpers/hds-t.ts';
 
 export interface HdsAdvancedTableThButtonTooltipSignature {
   Args: {
@@ -35,4 +40,25 @@ export default class HdsAdvancedTableThButtonTooltip extends Component<HdsAdvanc
 
     return classes.join(' ');
   }
+
+  <template>
+    <button
+      type="button"
+      class={{this.classNames}}
+      {{hdsTooltip this.tooltip options=(hash placement="bottom")}}
+      aria-labelledby="{{this._prefixLabelId}} {{@labelId}}"
+      ...attributes
+    >
+      <span
+        id={{this._prefixLabelId}}
+        class="hds-advanced-table__th-button-aria-label-hidden-segment"
+      >
+        {{hdsT
+          "hds.components.common.tooltip-prefix"
+          default="More information for"
+        }}
+      </span>
+      <HdsIcon @name="info" />
+    </button>
+  </template>
 }

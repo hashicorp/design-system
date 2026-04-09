@@ -8,12 +8,18 @@ import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
 import { modifier } from 'ember-modifier';
+import { concat, fn } from '@ember/helper';
+import { gt, eq } from 'ember-truth-helpers';
+import { on } from '@ember/modifier';
+
+import HdsDropdown from '../dropdown/index.gts';
+import hdsT from '../../../helpers/hds-t.ts';
 
 import type { HdsDropdownSignature } from '../dropdown/index.gts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.gts';
-import type { HdsAdvancedTableSignature } from './index.ts';
-import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
-import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
+import type { HdsAdvancedTableSignature } from './index.gts';
+import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.gts';
+import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.gts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.gts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 import type { HdsAdvancedTableNormalizedColumn } from './types.ts';
@@ -266,4 +272,41 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     dropdownCloseCallback();
   }
+
+  <template>
+    {{#if (gt this._options.length 0)}}
+      <HdsDropdown
+        class="hds-advanced-table__th-context-menu"
+        @enableCollisionDetection={{true}}
+        ...attributes
+        as |D|
+      >
+        <D.ToggleIcon
+          @icon="more-vertical"
+          @text={{hdsT
+            "hds.components.advanced-table.th-context-menu.actions"
+            columnLabel=@column.label
+            default=(concat "Additional actions for " @column.label)
+          }}
+          @hasChevron={{false}}
+          @size="small"
+          {{this._registerDropdownToggleElement}}
+        />
+
+        {{#each this._options as |option|}}
+          {{#if (eq option.key "separator")}}
+            <D.Separator />
+          {{else if option.action}}
+            <D.Interactive
+              @icon={{option.icon}}
+              data-test-context-option-key={{option.key}}
+              {{on "click" (fn option.action D.close)}}
+            >
+              {{option.label}}
+            </D.Interactive>
+          {{/if}}
+        {{/each}}
+      </HdsDropdown>
+    {{/if}}
+  </template>
 }

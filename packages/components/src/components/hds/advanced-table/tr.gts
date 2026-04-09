@@ -5,6 +5,10 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { hash } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
+
+import HdsAdvancedTableThSelectable from './th-selectable.gts';
 
 import type {
   HdsAdvancedTableCell,
@@ -12,8 +16,8 @@ import type {
   HdsAdvancedTableThSortOrder,
 } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
-import type { HdsAdvancedTableSignature } from './index.ts';
-import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.ts';
+import type { HdsAdvancedTableSignature } from './index.gts';
+import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.gts';
 
 export interface BaseHdsAdvancedTableTrSignature {
   Args: {
@@ -146,4 +150,27 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
       return this.cells;
     }
   }
+
+  <template>
+    <div class={{this.classNames}} role="row" ...attributes>
+      {{#if @isSelectable}}
+        <HdsAdvancedTableThSelectable
+          role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
+          @isSelected={{@isSelected}}
+          @selectionScope={{@selectionScope}}
+          @selectionKey={{this.selectionKey}}
+          @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
+          @sortBySelectedOrder={{@sortBySelectedOrder}}
+          @didInsert={{@didInsert}}
+          @willDestroy={{@willDestroy}}
+          @onClickSortBySelected={{@onClickSortBySelected}}
+          @onSelectionChange={{@onSelectionChange}}
+          @isStickyColumn={{@hasStickyColumn}}
+          @isStickyColumnPinned={{@isStickyColumnPinned}}
+        />
+      {{/if}}
+
+      {{yield (hash orderedCells=this.orderedCells)}}
+    </div>
+  </template>
 }

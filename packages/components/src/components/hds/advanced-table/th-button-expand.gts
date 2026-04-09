@@ -6,12 +6,17 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { on } from '@ember/modifier';
 
 import {
   HdsAdvancedTableThExpandIconValues,
   type HdsAdvancedTableExpandState,
 } from './types.ts';
+import HdsIcon from '../icon/index.gts';
+import hdsT from '../../../helpers/hds-t.ts';
+
 import type { HdsAdvancedTableThSortExpandIcons } from './types.ts';
+
 export interface HdsAdvancedTableThButtonExpandSignature {
   Args: {
     labelId?: string;
@@ -61,4 +66,30 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! template-lint-disable no-unsupported-role-attributes }}
+    {{! ember template lint doesnt support ARIA 1.3 yet, including aria-description - https://github.com/A11yance/aria-query/pull/557 }}
+    <button
+      type="button"
+      class={{this.classNames}}
+      {{on "click" this.onClick}}
+      aria-labelledby="{{this._prefixLabelId}} {{@labelId}}"
+      aria-expanded="{{this.isExpanded}}"
+      aria-description={{hdsT
+        "hds.components.advanced-table.th-button-expand.aria-description"
+        default="Toggle the visibility of the related rows."
+      }}
+      ...attributes
+    >
+      {{! template-lint-enable no-unsupported-role-attributes}}
+      <span
+        id={{this._prefixLabelId}}
+        class="hds-advanced-table__th-button-aria-label-hidden-segment"
+      >
+        {{hdsT "hds.components.common.toggle" default="Toggle"}}
+      </span>
+      <HdsIcon @name={{this.icon}} />
+    </button>
+  </template>
 }

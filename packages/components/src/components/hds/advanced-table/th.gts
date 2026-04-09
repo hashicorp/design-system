@@ -11,6 +11,22 @@ import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
+import style from 'ember-style-modifier';
+import { and, not } from 'ember-truth-helpers';
+
+import hdsAdvancedTableCell from '../../../modifiers/hds-advanced-table-cell.ts';
+// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { hash } from '@ember/helper';
+import HdsLayoutFlex from '../layout/flex/index.gts';
+import HdsAdvancedTableThButtonExpand from './th-button-expand.gts';
+import HdsAdvancedTableThButtonSort from './th-button-sort.gts';
+import HdsAdvancedTableThButtonTooltip from './th-button-tooltip.gts';
+import HdsAdvancedTableThContextMenu from './th-context-menu.gts';
+import HdsAdvancedTableThReorderHandle from './th-reorder-handle.gts';
+import HdsAdvancedTableThResizeHandle from './th-resize-handle.gts';
+import HdsAdvancedTableThReorderDropTarget from './th-reorder-drop-target.gts';
+
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 import {
   HdsAdvancedTableHorizontalAlignmentValues,
@@ -28,10 +44,10 @@ import type {
   HdsAdvancedTableThSortOrder,
 } from './types.ts';
 
-import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
-import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
-import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
-import type { HdsAdvancedTableSignature } from './index.ts';
+import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.gts';
+import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.gts';
+import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.gts';
+import type { HdsAdvancedTableSignature } from './index.gts';
 import type Owner from '@ember/owner';
 
 export const ALIGNMENTS: HdsAdvancedTableHorizontalAlignment[] = Object.values(
@@ -409,4 +425,129 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       }
     };
   });
+
+  <template>
+    <div
+      class={{this.classNames}}
+      role={{this.role}}
+      aria-sort={{this.ariaSort}}
+      aria-rowspan={{@rowspan}}
+      aria-colspan={{@colspan}}
+      aria-describedby={{@parentId}}
+      {{style
+        grid-row=this.rowspan
+        grid-column=this.colspan
+        padding-left=this.paddingLeft
+      }}
+      {{hdsAdvancedTableCell
+        handleEnableFocusTrap=this.enableFocusTrap
+        shouldTrapFocus=this._shouldTrapFocus
+        setCellElement=this.setElement
+      }}
+      {{focusTrap
+        isActive=this._shouldTrapFocus
+        focusTrapOptions=(hash
+          onDeactivate=this.onFocusTrapDeactivate
+          initialFocus=this.getInitialFocus
+          clickOutsideDeactivates=true
+        )
+      }}
+      ...attributes
+    >
+      <HdsLayoutFlex @justify="space-between" @align="center" @gap="8">
+        {{#if @column.isVisuallyHidden}}
+          <span class="sr-only">{{yield}}</span>
+        {{else}}
+          {{#if (and @isExpandable (not this.isSortable))}}
+            <HdsAdvancedTableThButtonExpand
+              @labelId={{this._labelId}}
+              @onToggle={{@onClickToggle}}
+              @isExpanded={{@isExpanded}}
+              @isExpandAll={{@hasExpandAllButton}}
+              {{this._manageExpandButton}}
+            />
+          {{/if}}
+          <div class="hds-advanced-table__th-content">
+            <span
+              id={{this._labelId}}
+              class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
+            >
+              {{yield}}
+            </span>
+            {{#if @tooltip}}
+              <HdsAdvancedTableThButtonTooltip
+                @tooltip={{@tooltip}}
+                @labelId={{this._labelId}}
+              />
+            {{/if}}
+          </div>
+          {{#if this.isSortable}}
+            <HdsAdvancedTableThButtonSort
+              @sortOrder={{@sortOrder}}
+              @onClick={{@onClickSort}}
+              @labelId={{this._labelId}}
+            />
+          {{/if}}
+          {{#if @column}}
+            <HdsAdvancedTableThContextMenu
+              @column={{@column}}
+              @hasReorderableColumns={{@hasReorderableColumns}}
+              @hasResizableColumns={{@hasResizableColumns}}
+              @isFirstColumn={{this.isFirstColumn}}
+              @isLastColumn={{this.isLastColumn}}
+              @isStickyColumn={{@isStickyColumn}}
+              @reorderHandleElement={{this._reorderHandleElement}}
+              @resizeHandleElement={{this._resizeHandleElement}}
+              @onColumnResize={{@onColumnResize}}
+              @onFocusReorderHandle={{this.focusReorderHandle}}
+              @onMoveColumnToTerminalPosition={{@onMoveColumnToTerminalPosition}}
+              @onPinFirstColumn={{@onPinFirstColumn}}
+              @onRestoreColumnWidth={{@onRestoreColumnWidth}}
+            />
+            {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
+              <HdsAdvancedTableThReorderHandle
+                @column={{@column}}
+                @tableHeight={{@tableHeight}}
+                @thElement={{this._element}}
+                @onFocusReorderHandle={{this.focusReorderHandle}}
+                @onSetDraggedColumnKey={{this.setDraggedColumnKey}}
+                @onStepColumn={{this.stepColumn}}
+                {{this._registerReorderHandleElement}}
+              />
+            {{/if}}
+            {{#if this.showResizeHandle}}
+              <HdsAdvancedTableThResizeHandle
+                @column={{@column}}
+                @siblingColumnKeys={{@siblingColumnKeys}}
+                @tableHeight={{@tableHeight}}
+                @onApplyTransientWidth={{this.applyTransientWidth}}
+                @onColumnResize={{@onColumnResize}}
+                @onGetAppliedWidth={{this.getAppliedWidth}}
+                @onGetColumnByKey={{this.getColumnByKey}}
+                @onSetTransientColumnWidth={{this.setTransientColumnWidth}}
+                @onSetTransientColumnWidths={{this.setTransientColumnWidths}}
+                @onResetTransientColumnWidths={{this.resetTransientColumnWidths}}
+                @onUpdateResizeDebt={{this.updateResizeDebt}}
+                {{this._registerResizeHandleElement}}
+              />
+            {{/if}}
+          {{/if}}
+        {{/if}}
+      </HdsLayoutFlex>
+      {{#if this.showDropTarget}}
+        <HdsAdvancedTableThReorderDropTarget
+          @column={{@column}}
+          @draggedColumnKey={{@draggedColumnKey}}
+          @hasSelectableRows={{@hasSelectableRows}}
+          @isFirstColumn={{this.isFirstColumn}}
+          @isLastColumn={{this.isLastColumn}}
+          @reorderHoveredColumnKey={{@reorderHoveredColumnKey}}
+          @draggedColumnSiblingColumnKeys={{@draggedColumnSiblingColumnKeys}}
+          @tableHeight={{@tableHeight}}
+          @onReorderDrop={{@onReorderDrop}}
+          @onSetReorderHoveredColumnKey={{@onSetReorderHoveredColumnKey}}
+        />
+      {{/if}}
+    </div>
+  </template>
 }

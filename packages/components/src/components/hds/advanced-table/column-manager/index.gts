@@ -21,7 +21,7 @@ import type {
   HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
 } from '../types.ts';
-import type { HdsAdvancedTableSignature } from '../index.ts';
+import type { HdsAdvancedTableSignature } from '../index.gts';
 
 export interface HdsAdvancedTableSyncThElementsSignature {
   Element: HTMLDivElement;

@@ -11,15 +11,29 @@ import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
 import { TrackedSet } from 'tracked-built-ins';
-import { HdsAdvancedTableThSortOrderValues } from './types.ts';
+import { fn, hash } from '@ember/helper';
+import { and, eq, not, notEq } from 'ember-truth-helpers';
+import style from 'ember-style-modifier';
+import { on } from '@ember/modifier';
+import { sortBy } from '@nullvoxpopuli/ember-composable-helpers';
 
-import type Owner from '@ember/owner';
-import type { WithBoundArgs } from '@glint/template';
-import type { ComponentLike } from '@glint/template';
+import { HdsAdvancedTableThSortOrderValues } from './types.ts';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
 } from './types.ts';
+import HdsFilterBar from '../filter-bar/index.gts';
+import HdsApplicationState from '../application-state/index.gts';
+import HdsAdvancedTableColumnManager from './column-manager/index.gts';
+import HdsAdvancedTableTr from './tr.gts';
+import HdsAdvancedTableTh from './th.gts';
+import HdsAdvancedTableBody from './body.gts';
+import HdsAdvancedTableTd from './td.gts';
+import hdsT from '../../../helpers/hds-t.ts';
+
+import type Owner from '@ember/owner';
+import type { WithBoundArgs } from '@glint/template';
+import type { ComponentLike } from '@glint/template';
 import type {
   HdsAdvancedTableColumn,
   HdsAdvancedTableDensities,
@@ -36,9 +50,6 @@ import type {
 
 import type { HdsFilterBarSignature } from '../filter-bar/index.gts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
-import type HdsAdvancedTableTd from './td.ts';
-import type HdsAdvancedTableTh from './th.ts';
-import type HdsAdvancedTableTr from './tr.ts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
@@ -880,4 +891,271 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     // we need to retrigger the scroll indicator updates if the pinned state is changed when the table is already scrolled
     this._updateScrollIndicators(this._scrollWrapperElement);
   };
+
+  <template>
+    <div class="hds-advanced-table__actions-container-wrapper">
+      {{#if (has-block "actions")}}
+        <div class="hds-advanced-table__actions">
+          {{yield (hash FilterBar=(component HdsFilterBar)) to="actions"}}
+        </div>
+      {{/if}}
+
+      <div
+        class="hds-advanced-table__container
+          {{(if
+            this.isStickyHeaderPinned
+            'hds-advanced-table__container--header-is-pinned'
+          )}}"
+        {{this._syncSortArgs}}
+        ...attributes
+      >
+        {{! Caption }}
+        <div
+          id={{this._captionId}}
+          class="sr-only hds-advanced-table__caption"
+          aria-live="polite"
+        >
+          {{@caption}}
+          {{this.sortedMessageText}}
+          {{this.reorderedMessageText}}
+        </div>
+
+        <HdsAdvancedTableColumnManager
+          @columns={{@columns}}
+          @columnOrder={{@columnOrder}}
+          @hasReorderableColumns={{@hasReorderableColumns}}
+          @hasStickyFirstColumn={{@hasStickyFirstColumn}}
+          @isSelectable={{@isSelectable}}
+          @onColumnReorder={{this._onColumnReorder}}
+          as |CM|
+        >
+
+          {{! Grid }}
+          <div
+            class={{this.classNames}}
+            role="grid"
+            aria-describedby={{this._captionId}}
+            {{style
+              grid-template-columns=CM.gridTemplateColumns
+              --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
+              max-height=@maxHeight
+            }}
+            {{this._setUpScrollWrapper}}
+            {{CM.syncColumnOrder CM.columns @columnOrder}}
+            {{CM.syncWidthValues}}
+          >
+            {{! Header }}
+            <div
+              class={{this.theadClassNames}}
+              role="rowgroup"
+              {{this._setUpThead}}
+              {{on "dragleave" (fn CM.setReorderHoveredColumnKey null)}}
+            >
+              <HdsAdvancedTableTr
+                @selectionScope="col"
+                @onClickSortBySelected={{if
+                  @selectableColumnKey
+                  (fn this.setSortBy @selectableColumnKey)
+                }}
+                @sortBySelectedOrder={{if
+                  (eq this.currentSortBy @selectableColumnKey)
+                  this.currentSortOrder
+                }}
+                @isSelectable={{this.isSelectable}}
+                @onSelectionChange={{this.onSelectionAllChange}}
+                @didInsert={{this.didInsertSelectAllCheckbox}}
+                @willDestroy={{this.willDestroySelectAllCheckbox}}
+                @selectionAriaLabelSuffix="all rows"
+                @hasStickyColumn={{this.hasStickyFirstColumn}}
+                @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              >
+                {{#each CM.orderedColumns as |column|}}
+                  <HdsAdvancedTableTh
+                    @align={{column.align}}
+                    @column={{column}}
+                    @draggedColumnKey={{CM.draggedColumnKey}}
+                    @firstColumnKey={{CM.firstColumnKey}}
+                    @hasReorderableColumns={{@hasReorderableColumns}}
+                    @hasResizableColumns={{@hasResizableColumns}}
+                    @hasSelectableRows={{this.isSelectable}}
+                    @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
+                    @isStickyColumn={{if
+                      (and
+                        (eq column.key CM.firstColumnKey)
+                        (notEq this.hasStickyFirstColumn undefined)
+                      )
+                      this.hasStickyFirstColumn
+                      undefined
+                    }}
+                    @isStickyColumnPinned={{this.isStickyColumnPinned}}
+                    @lastColumnKey={{CM.lastColumnKey}}
+                    @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
+                    @draggedColumnSiblingColumnKeys={{if
+                      CM.draggedColumnKey
+                      (CM.getSiblingColumnKeys CM.draggedColumnKey)
+                    }}
+                    @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
+                    @tableHeight={{this._tableHeight}}
+                    @tooltip={{column.tooltip}}
+                    @hasExpandAllButton={{this.hasRowsWithChildren}}
+                    @isExpanded={{this.isAllExpanded}}
+                    @isExpandable={{column.isExpandable}}
+                    @sortOrder={{if
+                      (eq column.key this.currentSortBy)
+                      this.currentSortOrder
+                    }}
+                    @onApplyTransientWidth={{CM.applyTransientWidth}}
+                    @onClickSort={{if
+                      column.isSortable
+                      (fn this.setSortBy column.key)
+                    }}
+                    @onClickToggle={{this.toggleExpandAll}}
+                    @onColumnResize={{@onColumnResize}}
+                    @onGetAppliedWidth={{CM.getAppliedWidth}}
+                    @onGetColumnByKey={{CM.getColumnByKey}}
+                    @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
+                    @onPinFirstColumn={{this._onPinFirstColumn}}
+                    @onReorderDrop={{CM.moveColumnToDropTarget}}
+                    @onRestoreColumnWidth={{CM.restoreColumnWidth}}
+                    @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
+                    @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
+                    @onSetReorderHoveredColumnKey={{CM.setReorderHoveredColumnKey}}
+                    @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
+                    @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
+                    @onStepColumn={{CM.stepColumn}}
+                    @onUpdateResizeDebt={{CM.updateResizeDebt}}
+                    {{CM.syncThElements column.key}}
+                  >
+                    {{column.label}}
+                  </HdsAdvancedTableTh>
+                {{/each}}
+              </HdsAdvancedTableTr>
+
+              {{#if this.showScrollIndicatorTop}}
+                <div
+                  class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
+                />
+              {{/if}}
+            </div>
+
+            {{! Body }}
+            <HdsAdvancedTableBody
+              @childrenKey={{this.childrenKey}}
+              @expandedRowIds={{this.expandedRowIds}}
+              {{! @glint-expect-error: [HDS-4380](https://hashicorp.atlassian.net/browse/HDS-4380) }}
+              @sortedModel={{sortBy this.sortCriteria @model}}
+              as |B|
+            >
+              {{#each B.rows key="id" as |row index|}}
+                {{#let
+                  (and (not this.hasRowsWithChildren) (not row.hasChildren))
+                  as |isSelectionAllowed|
+                }}
+                  {{yield
+                    (hash
+                      Tr=(component
+                        HdsAdvancedTableTr
+                        columnOrder=CM.columnOrder
+                        data=row.source
+                        depth=row.depth
+                        isParentRow=row.hasChildren
+                        isLastRow=(and
+                          (eq row.id B.lastVisibleRowId)
+                          (notEq B.lastVisibleRowId undefined)
+                        )
+                        displayRow=row.isVisible
+                        selectionScope=(if isSelectionAllowed "row")
+                        isSelectable=(if isSelectionAllowed this.isSelectable)
+                        onSelectionChange=(if
+                          isSelectionAllowed this.onSelectionRowChange
+                        )
+                        didInsert=(if
+                          isSelectionAllowed this.didInsertRowCheckbox
+                        )
+                        willDestroy=(if
+                          isSelectionAllowed this.willDestroyRowCheckbox
+                        )
+                        hasStickyColumn=this.hasStickyFirstColumn
+                        isStickyColumnPinned=this.isStickyColumnPinned
+                      )
+                      Th=(component
+                        HdsAdvancedTableTh
+                        isExpandable=row.hasChildren
+                        isExpanded=row.isExpanded
+                        onClickToggle=(fn this.toggleRow row.id)
+                        depth=row.depth
+                        scope="row"
+                        newLabel=row.id
+                        isStickyColumn=this.hasStickyFirstColumn
+                        isStickyColumnPinned=this.isStickyColumnPinned
+                      )
+                      Td=(component HdsAdvancedTableTd align=@align)
+                      data=row.source
+                      rowIndex=index
+                      isOpen=row.isExpanded
+                    )
+                    to="body"
+                  }}
+                {{/let}}
+              {{/each}}
+            </HdsAdvancedTableBody>
+          </div>
+        </HdsAdvancedTableColumnManager>
+
+        {{! Empty state }}
+        {{#if this.isEmpty}}
+          <div class="hds-advanced-table__empty-state">
+            {{#if (has-block "emptyState")}}
+              {{yield to="emptyState"}}
+            {{else}}
+              <HdsApplicationState as |A|>
+                <A.Header
+                  @title={{hdsT
+                    "hds.components.advanced-table.empty-state.title"
+                    default="No data available"
+                  }}
+                />
+                <A.Body
+                  @text={{hdsT
+                    "hds.components.advanced-table.empty-state.description"
+                    default="There is currently no data to display in the table."
+                  }}
+                />
+              </HdsApplicationState>
+            {{/if}}
+          </div>
+        {{/if}}
+
+        {{#if this.showScrollIndicatorLeft}}
+          <div
+            class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
+            {{style
+              height=this.scrollIndicatorDimensions.height
+              left=this.scrollIndicatorDimensions.left
+            }}
+          />
+        {{/if}}
+
+        {{#if this.showScrollIndicatorRight}}
+          <div
+            class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
+            {{style
+              height=this.scrollIndicatorDimensions.height
+              right=this.scrollIndicatorDimensions.right
+            }}
+          />
+        {{/if}}
+
+        {{#if (and this.showScrollIndicatorBottom (not this.isEmpty))}}
+          <div
+            class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
+            {{style
+              bottom=this.scrollIndicatorDimensions.bottom
+              width=this.scrollIndicatorDimensions.width
+            }}
+          />
+        {{/if}}
+      </div>
+    </div>
+  </template>
 }

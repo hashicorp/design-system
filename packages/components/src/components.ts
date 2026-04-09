@@ -15,14 +15,14 @@ export { default as HdsAccordionItem } from './components/hds/accordion/item/ind
 export * from './components/hds/accordion/types.ts';
 
 // Advanced Table
-export { default as HdsAdvancedTable } from './components/hds/advanced-table/index.ts';
-export { default as HdsAdvancedTableTd } from './components/hds/advanced-table/td.ts';
-export { default as HdsAdvancedTableTh } from './components/hds/advanced-table/th.ts';
-export { default as HdsAdvancedTableThButtonSort } from './components/hds/advanced-table/th-button-sort.ts';
-export { default as HdsAdvancedTableThButtonTooltip } from './components/hds/advanced-table/th-button-tooltip.ts';
-export { default as HdsAdvancedTableThSelectable } from './components/hds/advanced-table/th-selectable.ts';
-export { default as HdsAdvancedTableTr } from './components/hds/advanced-table/tr.ts';
-export { default as HdsAdvancedTableThButtonExpand } from './components/hds/advanced-table/th-button-expand.ts';
+export { default as HdsAdvancedTable } from './components/hds/advanced-table/index.gts';
+export { default as HdsAdvancedTableTd } from './components/hds/advanced-table/td.gts';
+export { default as HdsAdvancedTableTh } from './components/hds/advanced-table/th.gts';
+export { default as HdsAdvancedTableThButtonSort } from './components/hds/advanced-table/th-button-sort.gts';
+export { default as HdsAdvancedTableThButtonTooltip } from './components/hds/advanced-table/th-button-tooltip.gts';
+export { default as HdsAdvancedTableThSelectable } from './components/hds/advanced-table/th-selectable.gts';
+export { default as HdsAdvancedTableTr } from './components/hds/advanced-table/tr.gts';
+export { default as HdsAdvancedTableThButtonExpand } from './components/hds/advanced-table/th-button-expand.gts';
 export * from './components/hds/advanced-table/types.ts';
 
 // Alert
