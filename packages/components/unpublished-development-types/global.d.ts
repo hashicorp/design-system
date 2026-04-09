@@ -1,6 +1,3 @@
-import '@glint/environment-ember-loose';
-import '@glint/environment-ember-template-imports';
-
 import { Portal, PortalTarget } from 'ember-stargate';
 
 import type HdsComponentsRegistry from '../src/template-registry';
