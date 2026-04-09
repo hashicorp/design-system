@@ -24,17 +24,12 @@
 .hds-tag__dismiss {
   flex: 0 0 auto;
   margin: 0; // reset default button margin
-  padding: 6px 4px 6px 8px;
+  padding: 5px 4px 5px 8px;
   background-color: var(--token-tag-static-surface-color-default);
   border: none; // reset default button border
   border-radius: inherit;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-
-  @include hds-apply-only-if-carbon() {
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
 }
 
 .hds-tag--is-static {

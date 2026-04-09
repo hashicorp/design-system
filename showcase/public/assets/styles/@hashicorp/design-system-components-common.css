@@ -9520,32 +9520,25 @@ button.hds-button[href]::after {
   width: fit-content;
   max-width: 100%;
   vertical-align: middle;
-  border-width: 1px;
   border-style: solid;
+  border-width: 1px;
   border-radius: var(--token-tag-border-radius);
 }
 
 .hds-tag__dismiss {
   flex: 0 0 auto;
   margin: 0;
-  padding: 6px 4px 6px 8px;
+  padding: 5px 4px 5px 8px;
   background-color: var(--token-tag-static-surface-color-default);
   border: none;
   border-radius: inherit;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.hds-mode-cds-g0 .hds-tag__dismiss,
-.hds-mode-cds-g10 .hds-tag__dismiss,
-.hds-mode-cds-g90 .hds-tag__dismiss,
-.hds-mode-cds-g100 .hds-tag__dismiss {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 
 .hds-tag--is-static {
-  border-color: var(--token-tag-static-border-color);
   background-color: var(--token-tag-static-surface-color-default);
+  border-color: var(--token-tag-static-border-color);
 }
 
 .hds-tag__dismiss-icon {
