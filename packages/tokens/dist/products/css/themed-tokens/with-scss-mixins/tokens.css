@@ -150,31 +150,20 @@
       --token-color-palette-red-400
     );
     --token-button-border-color-critical-default: var(
-      --token-color-foreground-critical-on-surface
+      --token-color-palette-red-300
     );
-    --token-button-border-color-critical-focus-external: var(
-      --token-color-focus-critical-external
-    ); /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-critical-focus-internal: var(
-      --token-color-focus-critical-internal
-    ); /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-critical-hover: var(
       --token-color-palette-red-400
     );
+    --token-button-border-color-disabled: var(--token-color-border-primary);
     --token-button-border-color-primary-active: var(
       --token-color-palette-blue-400
     );
     --token-button-border-color-primary-default: var(
       --token-color-palette-blue-300
     );
-    --token-button-border-color-primary-focus-external: var(
-      --token-color-focus-action-external
-    ); /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-primary-focus-internal: var(
-      --token-color-focus-action-internal
-    ); /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-primary-hover: var(
-      --token-color-palette-blue-300
+      --token-color-palette-blue-400
     );
     --token-button-border-color-secondary-active: var(
       --token-color-border-strong
@@ -182,16 +171,17 @@
     --token-button-border-color-secondary-default: var(
       --token-color-border-strong
     );
-    --token-button-border-color-secondary-focus-external: var(
-      --token-color-focus-action-external
-    ); /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-secondary-focus-internal: var(
-      --token-color-focus-action-internal
-    ); /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: var(
       --token-color-border-strong
     );
-    --token-button-border-radius: var(--token-border-radius-small);
+    --token-button-border-color-tertiary-active: var(
+      --token-color-border-strong
+    );
+    --token-button-border-color-tertiary-default: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-disabled: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-hover: var(
+      --token-color-border-strong
+    );
     --token-button-foreground-color-critical-active: var(
       --token-color-foreground-high-contrast
     );
@@ -237,6 +227,9 @@
     --token-button-foreground-color-tertiary-default: var(
       --token-color-foreground-action
     );
+    --token-button-foreground-color-tertiary-disabled: var(
+      --token-color-foreground-disabled
+    );
     --token-button-foreground-color-tertiary-focus: var(
       --token-color-foreground-action
     );
@@ -268,7 +261,9 @@
     --token-button-surface-color-critical-hover: var(
       --token-color-palette-red-300
     );
-    --token-button-surface-color-disabled: var(--token-color-surface-faint);
+    --token-button-surface-color-disabled: var(
+      --token-color-surface-interactive-disabled
+    );
     --token-button-surface-color-primary-active: var(
       --token-color-palette-blue-400
     );
@@ -303,9 +298,9 @@
     --token-button-typography-font-size-large: 1rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.8125rem;
-    --token-button-typography-line-height-large: 1.5; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.1429; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 0.9286; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.5;
+    --token-button-typography-line-height-medium: 1.1429;
+    --token-button-typography-line-height-small: 0.9286;
     --token-card-surface-color-primary: var(--token-color-surface-primary);
     --token-card-surface-color-secondary: var(--token-color-surface-faint);
     --token-color-border-action: var(--token-color-palette-blue-100);
@@ -801,20 +796,18 @@
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-critical-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-disabled: #c6c6c6;
     --token-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-primary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-primary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-primary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-primary-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
+    --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-default: #0f62fe;
+    --token-button-border-color-tertiary-disabled: #c6c6c6;
+    --token-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -830,6 +823,7 @@
     --token-button-foreground-color-secondary-hover: #ffffff;
     --token-button-foreground-color-tertiary-active: #ffffff;
     --token-button-foreground-color-tertiary-default: #0f62fe;
+    --token-button-foreground-color-tertiary-disabled: #c6c6c6;
     --token-button-foreground-color-tertiary-focus: #ffffff;
     --token-button-foreground-color-tertiary-hover: #ffffff;
     --token-button-gap: 32px;
@@ -864,9 +858,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-card-surface-color-primary: #f4f4f4;
     --token-card-surface-color-secondary: #ffffff;
     --token-color-border-action: #0f62fe;
@@ -1236,20 +1230,18 @@
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-critical-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-disabled: #8d8d8d;
     --token-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-primary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-primary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-primary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-primary-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
+    --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-default: #ffffff;
+    --token-button-border-color-tertiary-disabled: #8d8d8d;
+    --token-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -1265,6 +1257,7 @@
     --token-button-foreground-color-secondary-hover: #ffffff;
     --token-button-foreground-color-tertiary-active: #161616;
     --token-button-foreground-color-tertiary-default: #ffffff;
+    --token-button-foreground-color-tertiary-disabled: #8d8d8d;
     --token-button-foreground-color-tertiary-focus: #161616;
     --token-button-foreground-color-tertiary-hover: #161616;
     --token-button-gap: 32px;
@@ -1299,9 +1292,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-card-surface-color-primary: #262626;
     --token-card-surface-color-secondary: #393939;
     --token-color-border-action: #4589ff;
@@ -1671,20 +1664,18 @@
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-critical-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-disabled: #c6c6c6;
     --token-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-primary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-primary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-primary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-primary-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
+    --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-default: #0f62fe;
+    --token-button-border-color-tertiary-disabled: #c6c6c6;
+    --token-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -1700,6 +1691,7 @@
     --token-button-foreground-color-secondary-hover: #ffffff;
     --token-button-foreground-color-tertiary-active: #ffffff;
     --token-button-foreground-color-tertiary-default: #0f62fe;
+    --token-button-foreground-color-tertiary-disabled: #c6c6c6;
     --token-button-foreground-color-tertiary-focus: #ffffff;
     --token-button-foreground-color-tertiary-hover: #ffffff;
     --token-button-gap: 32px;
@@ -1734,9 +1726,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-card-surface-color-primary: #f4f4f4;
     --token-card-surface-color-secondary: #ffffff;
     --token-color-border-action: #0f62fe;
@@ -2106,20 +2098,18 @@
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-critical-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-disabled: #c6c6c6;
     --token-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-primary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-primary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-primary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-primary-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
+    --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-default: #0f62fe;
+    --token-button-border-color-tertiary-disabled: #c6c6c6;
+    --token-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -2135,6 +2125,7 @@
     --token-button-foreground-color-secondary-hover: #ffffff;
     --token-button-foreground-color-tertiary-active: #ffffff;
     --token-button-foreground-color-tertiary-default: #0f62fe;
+    --token-button-foreground-color-tertiary-disabled: #c6c6c6;
     --token-button-foreground-color-tertiary-focus: #ffffff;
     --token-button-foreground-color-tertiary-hover: #ffffff;
     --token-button-gap: 32px;
@@ -2169,9 +2160,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-card-surface-color-primary: #ffffff;
     --token-card-surface-color-secondary: #f4f4f4;
     --token-color-border-action: #0f62fe;
@@ -2541,20 +2532,18 @@
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-critical-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-disabled: #8d8d8d;
     --token-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-primary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-primary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-primary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-primary-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
+    --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-default: #ffffff;
+    --token-button-border-color-tertiary-disabled: #8d8d8d;
+    --token-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -2570,6 +2559,7 @@
     --token-button-foreground-color-secondary-hover: #ffffff;
     --token-button-foreground-color-tertiary-active: #161616;
     --token-button-foreground-color-tertiary-default: #ffffff;
+    --token-button-foreground-color-tertiary-disabled: #8d8d8d;
     --token-button-foreground-color-tertiary-focus: #161616;
     --token-button-foreground-color-tertiary-hover: #161616;
     --token-button-gap: 32px;
@@ -2604,9 +2594,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-card-surface-color-primary: #393939;
     --token-card-surface-color-secondary: #525252;
     --token-color-border-action: #4589ff;
@@ -2976,20 +2966,18 @@
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-critical-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-disabled: #8d8d8d;
     --token-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-primary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-primary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-primary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-primary-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
-    --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
+    --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-tertiary-default: #ffffff;
+    --token-button-border-color-tertiary-disabled: #8d8d8d;
+    --token-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -3005,6 +2993,7 @@
     --token-button-foreground-color-secondary-hover: #ffffff;
     --token-button-foreground-color-tertiary-active: #161616;
     --token-button-foreground-color-tertiary-default: #ffffff;
+    --token-button-foreground-color-tertiary-disabled: #8d8d8d;
     --token-button-foreground-color-tertiary-focus: #161616;
     --token-button-foreground-color-tertiary-hover: #161616;
     --token-button-gap: 32px;
@@ -3039,9 +3028,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-card-surface-color-primary: #262626;
     --token-card-surface-color-secondary: #393939;
     --token-color-border-action: #4589ff;
@@ -3405,22 +3394,33 @@
       0,
       0
     );
-    --token-button-border-color-disabled: var(--token-color-border-primary);
-    --token-button-border-color-tertiary-active: var(
-      --token-color-border-strong
+    --token-button-border-color-critical-focus-external: var(
+      --token-color-focus-critical-external
     );
-    --token-button-border-color-tertiary-default: rgba(0, 0, 0, 0);
+    --token-button-border-color-critical-focus-internal: var(
+      --token-color-focus-critical-internal
+    );
+    --token-button-border-color-primary-focus-external: var(
+      --token-color-focus-action-external
+    );
+    --token-button-border-color-primary-focus-internal: var(
+      --token-color-focus-action-internal
+    );
+    --token-button-border-color-secondary-focus-external: var(
+      --token-color-focus-action-external
+    );
+    --token-button-border-color-secondary-focus-internal: var(
+      --token-color-focus-action-internal
+    );
     --token-button-border-color-tertiary-focus-external: var(
       --token-color-focus-action-external
     );
     --token-button-border-color-tertiary-focus-internal: var(
       --token-color-focus-action-internal
     );
-    --token-button-border-color-tertiary-hover: var(
-      --token-color-border-strong
-    );
+    --token-button-border-radius: var(--token-border-radius-small);
     --token-button-border-width: 1px;
-    --token-button-focus-border-width: 3px;
+    --token-button-focus-ring-border-width: 3px;
     --token-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
     --token-color-boundary-border: #fbd7d8;
     --token-color-boundary-brand: #f24c53;
