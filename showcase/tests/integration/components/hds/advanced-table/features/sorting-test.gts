@@ -333,6 +333,80 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       assert.strictEqual(context.sortOrder, 'asc');
     });
 
+    test('it supports externally controlled sorting via @onSort updates', async function (assert) {
+      const context = new TrackedObject<{
+        sortBy?: string;
+        sortOrder?: HdsAdvancedTableThSortOrder;
+      }>({
+        sortBy: 'artist',
+        sortOrder: 'asc',
+      });
+
+      const onSort = (
+        sortBy: string,
+        sortOrder: HdsAdvancedTableThSortOrder,
+      ) => {
+        context.sortBy = sortBy;
+        context.sortOrder = sortOrder;
+      };
+
+      await render(
+        <template>
+          <HdsAdvancedTable
+            id="data-test-advanced-table"
+            @model={{DEFAULT_SORTABLE_MODEL}}
+            @columns={{DEFAULT_SORTABLE_COLUMNS}}
+            @sortBy={{context.sortBy}}
+            @sortOrder={{context.sortOrder}}
+            @onSort={{onSort}}
+          >
+            <:body as |B|>
+              <B.Tr>
+                {{! @glint-expect-error }}
+                <B.Td>{{B.data.artist}}</B.Td>
+                {{! @glint-expect-error }}
+                <B.Td>{{B.data.album}}</B.Td>
+                {{! @glint-expect-error }}
+                <B.Td>{{B.data.year}}</B.Td>
+              </B.Tr>
+            </:body>
+          </HdsAdvancedTable>
+        </template>,
+      );
+
+      assert
+        .dom('#data-test-advanced-table .hds-advanced-table__th:nth-of-type(1)')
+        .hasAria('sort', 'ascending', 'initial controlled state is applied');
+
+      await click(
+        '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
+      );
+
+      assert.strictEqual(context.sortBy, 'artist');
+      assert.strictEqual(context.sortOrder, 'desc');
+      assert
+        .dom('#data-test-advanced-table .hds-advanced-table__th:nth-of-type(1)')
+        .hasAria(
+          'sort',
+          'descending',
+          'controlled state update from parent re-renders descending sort',
+        );
+
+      await click(
+        '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(2) button',
+      );
+
+      assert.strictEqual(context.sortBy, 'album');
+      assert.strictEqual(context.sortOrder, 'asc');
+      assert
+        .dom('#data-test-advanced-table .hds-advanced-table__th:nth-of-type(2)')
+        .hasAria(
+          'sort',
+          'ascending',
+          'controlled state update from parent re-renders new sorted column',
+        );
+    });
+
     test('it reacts to external updates to @sortBy and @sortOrder arguments', async function (assert) {
       const context = new TrackedObject<{
         sortBy?: string;
