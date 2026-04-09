@@ -4466,6 +4466,14 @@ button.hds-button[href]::after {
   content: "";
   pointer-events: none;
 }
+.hds-mode-cds-g0 .hds-code-block--has-overlay-footer .hds-code-block__code::after,
+.hds-mode-cds-g10 .hds-code-block--has-overlay-footer .hds-code-block__code::after,
+.hds-mode-cds-g90 .hds-code-block--has-overlay-footer .hds-code-block__code::after,
+.hds-mode-cds-g100 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
+  bottom: -18px;
+  height: 50px;
+}
+
 .hds-mode-cds-g0 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
   background: linear-gradient(360deg, #f4f4f4 37.07%, rgba(244, 244, 244, 0.25) 100%);
 }

@@ -11447,23 +11447,23 @@
   {
     "key": "{code-block.color.palette.blue}",
     "$type": "color",
-    "$value": "#4589ff",
+    "$value": "#0043ce",
     "$modes": {
       "default": "#2d8eff",
-      "cds-g0": "#4589ff",
-      "cds-g10": "#4589ff",
-      "cds-g90": "#78a9ff",
-      "cds-g100": "#78a9ff"
+      "cds-g0": "#0043ce",
+      "cds-g10": "#0043ce",
+      "cds-g90": "#a6c8ff",
+      "cds-g100": "#a6c8ff"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.blue.50}",
+      "$value": "{carbon.color.blue.70}",
       "$modes": {
         "default": "#2d8eff",
-        "cds-g0": "{carbon.color.blue.50}",
-        "cds-g10": "{carbon.color.blue.50}",
-        "cds-g90": "{carbon.color.blue.40}",
-        "cds-g100": "{carbon.color.blue.40}"
+        "cds-g0": "{carbon.color.blue.70}",
+        "cds-g10": "{carbon.color.blue.70}",
+        "cds-g90": "{carbon.color.blue.30}",
+        "cds-g100": "{carbon.color.blue.30}"
       },
       "key": "{code-block.color.palette.blue}"
     },
@@ -11481,21 +11481,21 @@
   {
     "key": "{code-block.color.palette.cyan}",
     "$type": "color",
-    "$value": "#33b1ff",
+    "$value": "#00539a",
     "$modes": {
       "default": "#32fff7",
-      "cds-g0": "#33b1ff",
-      "cds-g10": "#33b1ff",
+      "cds-g0": "#00539a",
+      "cds-g10": "#00539a",
       "cds-g90": "#82cfff",
       "cds-g100": "#82cfff"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.cyan.40}",
+      "$value": "{carbon.color.cyan.70}",
       "$modes": {
         "default": "#32fff7",
-        "cds-g0": "{carbon.color.cyan.40}",
-        "cds-g10": "{carbon.color.cyan.40}",
+        "cds-g0": "{carbon.color.cyan.70}",
+        "cds-g10": "{carbon.color.cyan.70}",
         "cds-g90": "{carbon.color.cyan.30}",
         "cds-g100": "{carbon.color.cyan.30}"
       },
@@ -11515,21 +11515,21 @@
   {
     "key": "{code-block.color.palette.green}",
     "$type": "color",
-    "$value": "#42be65",
+    "$value": "#198038",
     "$modes": {
       "default": "#86ff13",
-      "cds-g0": "#42be65",
-      "cds-g10": "#42be65",
+      "cds-g0": "#198038",
+      "cds-g10": "#0e6027",
       "cds-g90": "#6fdc8c",
       "cds-g100": "#6fdc8c"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.green.40}",
+      "$value": "{carbon.color.green.60}",
       "$modes": {
         "default": "#86ff13",
-        "cds-g0": "{carbon.color.green.40}",
-        "cds-g10": "{carbon.color.green.40}",
+        "cds-g0": "{carbon.color.green.60}",
+        "cds-g10": "{carbon.color.green.70}",
         "cds-g90": "{carbon.color.green.30}",
         "cds-g100": "{carbon.color.green.30}"
       },
@@ -11549,23 +11549,23 @@
   {
     "key": "{code-block.color.palette.orange}",
     "$type": "color",
-    "$value": "#ff832b",
+    "$value": "#8a3800",
     "$modes": {
       "default": "#ffa800",
-      "cds-g0": "#ff832b",
-      "cds-g10": "#ff832b",
-      "cds-g90": "#ffb784",
-      "cds-g100": "#ffb784"
+      "cds-g0": "#8a3800",
+      "cds-g10": "#8a3800",
+      "cds-g90": "#ff832b",
+      "cds-g100": "#ff832b"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.orange.40}",
+      "$value": "{carbon.color.orange.70}",
       "$modes": {
         "default": "#ffa800",
-        "cds-g0": "{carbon.color.orange.40}",
-        "cds-g10": "{carbon.color.orange.40}",
-        "cds-g90": "{carbon.color.orange.30}",
-        "cds-g100": "{carbon.color.orange.30}"
+        "cds-g0": "{carbon.color.orange.70}",
+        "cds-g10": "{carbon.color.orange.70}",
+        "cds-g90": "{carbon.color.orange.40}",
+        "cds-g100": "{carbon.color.orange.40}"
       },
       "key": "{code-block.color.palette.orange}"
     },
@@ -11583,21 +11583,21 @@
   {
     "key": "{code-block.color.palette.purple}",
     "$type": "color",
-    "$value": "#be95ff",
+    "$value": "#8a3ffc",
     "$modes": {
       "default": "#c76cff",
-      "cds-g0": "#be95ff",
-      "cds-g10": "#be95ff",
+      "cds-g0": "#8a3ffc",
+      "cds-g10": "#6929c4",
       "cds-g90": "#d4bbff",
       "cds-g100": "#d4bbff"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.purple.40}",
+      "$value": "{carbon.color.purple.60}",
       "$modes": {
         "default": "#c76cff",
-        "cds-g0": "{carbon.color.purple.40}",
-        "cds-g10": "{carbon.color.purple.40}",
+        "cds-g0": "{carbon.color.purple.60}",
+        "cds-g10": "{carbon.color.purple.70}",
         "cds-g90": "{carbon.color.purple.30}",
         "cds-g100": "{carbon.color.purple.30}"
       },
@@ -11617,23 +11617,23 @@
   {
     "key": "{code-block.color.palette.red}",
     "$type": "color",
-    "$value": "#fa4d56",
+    "$value": "#9f1853",
     "$modes": {
       "default": "#ff3b20",
-      "cds-g0": "#fa4d56",
-      "cds-g10": "#fa4d56",
-      "cds-g90": "#ff8389",
-      "cds-g100": "#ff8389"
+      "cds-g0": "#9f1853",
+      "cds-g10": "#9f1853",
+      "cds-g90": "#ffafd2",
+      "cds-g100": "#ffafd2"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.red.50}",
+      "$value": "{carbon.color.magenta.70}",
       "$modes": {
         "default": "#ff3b20",
-        "cds-g0": "{carbon.color.red.50}",
-        "cds-g10": "{carbon.color.red.50}",
-        "cds-g90": "{carbon.color.red.40}",
-        "cds-g100": "{carbon.color.red.40}"
+        "cds-g0": "{carbon.color.magenta.70}",
+        "cds-g10": "{carbon.color.magenta.70}",
+        "cds-g90": "{carbon.color.magenta.30}",
+        "cds-g100": "{carbon.color.magenta.30}"
       },
       "key": "{code-block.color.palette.red}"
     },
@@ -11651,21 +11651,21 @@
   {
     "key": "{code-block.color.palette.yellow}",
     "$type": "color",
-    "$value": "#d2a106",
+    "$value": "#684e00",
     "$modes": {
       "default": "#ffeb3b",
-      "cds-g0": "#d2a106",
-      "cds-g10": "#d2a106",
+      "cds-g0": "#684e00",
+      "cds-g10": "#684e00",
       "cds-g90": "#f1c21b",
       "cds-g100": "#f1c21b"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.yellow.40}",
+      "$value": "{carbon.color.yellow.70}",
       "$modes": {
         "default": "#ffeb3b",
-        "cds-g0": "{carbon.color.yellow.40}",
-        "cds-g10": "{carbon.color.yellow.40}",
+        "cds-g0": "{carbon.color.yellow.70}",
+        "cds-g10": "{carbon.color.yellow.70}",
         "cds-g90": "{carbon.color.yellow.30}",
         "cds-g100": "{carbon.color.yellow.30}"
       },
