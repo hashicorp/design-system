@@ -53,6 +53,7 @@
     "@floating-ui/dom": "^1.6.12",
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
+    "@glint/ember-tsc": "^1.5.0",
     "@glint/template": "^1.7.7",
     "@hashicorp/design-system-components": "workspace:*",
     "@hashicorp/design-system-tokens": "workspace:*",
