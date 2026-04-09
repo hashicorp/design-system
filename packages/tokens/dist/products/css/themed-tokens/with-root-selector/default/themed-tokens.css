@@ -315,8 +315,6 @@
   --token-tabs-tab-selected-foreground-color-default: var(--token-color-foreground-action);
   --token-tabs-tab-selected-foreground-color-hover: var(--token-color-foreground-action-hover);
   --token-tag-border-radius: 50px;
-  --token-tag-foreground-color-default: var(--token-color-foreground-primary);
-  --token-tag-icon-color: var(--token-color-foreground-primary);
   --token-tag-link-border-color-primary: var(--token-color-border-strong);
   --token-tag-link-border-color-secondary: var(--token-color-border-strong);
   --token-tag-link-foreground-color-primary-active: var(--token-color-foreground-action-active);
@@ -331,11 +329,13 @@
   --token-tag-padding-bottom: 5px;
   --token-tag-padding-left: 10px;
   --token-tag-padding-right: 10px;
-  --token-tag-padding-top: 3px;
-  --token-tag-surface-color-active: var(--token-color-surface-interactive-active);
-  --token-tag-surface-color-default: var(--token-color-surface-interactive);
-  --token-tag-surface-color-hover: var(--token-color-surface-interactive-hover);
+  --token-tag-static-foreground-color-default: var(--token-color-foreground-primary);
+  --token-tag-static-icon-color: var(--token-color-foreground-primary);
+  --token-tag-static-surface-color-active: var(--token-color-surface-interactive-active);
+  --token-tag-static-surface-color-default: var(--token-color-surface-interactive);
+  --token-tag-static-surface-color-hover: var(--token-color-surface-interactive-hover);
   --token-tag-typography-font-size: 0.8125rem;
+  --token-tag-typography-font-weight: var(--token-typography-font-weight-medium);
   --token-tag-typography-line-height: 1.2308;
   --token-tooltip-border-radius: var(--token-border-radius-small);
   --token-tooltip-caret-clip-path: path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z');

@@ -15857,26 +15857,12 @@
   {
     "key": "{tag.padding.top}",
     "$type": "dimension",
-    "$value": "4px",
+    "$value": "3px",
     "unit": "px",
-    "$modes": {
-      "default": "3",
-      "cds-g0": "4",
-      "cds-g10": "4",
-      "cds-g90": "4",
-      "cds-g100": "4"
-    },
     "original": {
       "$type": "dimension",
-      "$value": "4",
+      "$value": "3",
       "unit": "px",
-      "$modes": {
-        "default": "3",
-        "cds-g0": "4",
-        "cds-g10": "4",
-        "cds-g90": "4",
-        "cds-g100": "4"
-      },
       "key": "{tag.padding.top}"
     },
     "name": "token-tag-padding-top",
@@ -15892,25 +15878,25 @@
   {
     "key": "{tag.padding.bottom}",
     "$type": "dimension",
-    "$value": "4px",
+    "$value": "3px",
     "unit": "px",
     "$modes": {
       "default": "5",
-      "cds-g0": "4",
-      "cds-g10": "4",
-      "cds-g90": "4",
-      "cds-g100": "4"
+      "cds-g0": "3",
+      "cds-g10": "3",
+      "cds-g90": "3",
+      "cds-g100": "3"
     },
     "original": {
       "$type": "dimension",
-      "$value": "4",
+      "$value": "3",
       "unit": "px",
       "$modes": {
         "default": "5",
-        "cds-g0": "4",
-        "cds-g10": "4",
-        "cds-g90": "4",
-        "cds-g100": "4"
+        "cds-g0": "3",
+        "cds-g10": "3",
+        "cds-g90": "3",
+        "cds-g100": "3"
       },
       "key": "{tag.padding.bottom}"
     },
@@ -16030,142 +16016,6 @@
     ]
   },
   {
-    "key": "{tag.surface.color.default}",
-    "$type": "color",
-    "$value": "#e0e0e0",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "#e0e0e0",
-      "cds-g10": "#e0e0e0",
-      "cds-g90": "#525252",
-      "cds-g100": "#525252"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
-      "$modes": {
-        "default": "{color.surface.interactive}",
-        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
-      },
-      "key": "{tag.surface.color.default}"
-    },
-    "name": "token-tag-surface-color-default",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "surface",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{tag.surface.color.hover}",
-    "$type": "color",
-    "$value": "#d1d1d1",
-    "$modes": {
-      "default": "#e8e8e8",
-      "cds-g0": "#d1d1d1",
-      "cds-g10": "#d1d1d1",
-      "cds-g90": "#636363",
-      "cds-g100": "#636363"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagHoverGray.g10}",
-      "$modes": {
-        "default": "{color.surface.interactive-hover}",
-        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
-      },
-      "key": "{tag.surface.color.hover}"
-    },
-    "name": "token-tag-surface-color-hover",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "surface",
-      "color",
-      "hover"
-    ]
-  },
-  {
-    "key": "{tag.surface.color.active}",
-    "$type": "color",
-    "$value": "#d1d1d1",
-    "$modes": {
-      "default": "#c6c6c6",
-      "cds-g0": "#d1d1d1",
-      "cds-g10": "#d1d1d1",
-      "cds-g90": "#636363",
-      "cds-g100": "#636363"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagHoverGray.g10}",
-      "$modes": {
-        "default": "{color.surface.interactive-active}",
-        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
-      },
-      "key": "{tag.surface.color.active}"
-    },
-    "name": "token-tag-surface-color-active",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "surface",
-      "color",
-      "active"
-    ]
-  },
-  {
-    "key": "{tag.foreground.color.default}",
-    "$type": "color",
-    "$value": "#161616",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorGray.g10}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
-      },
-      "key": "{tag.foreground.color.default}"
-    },
-    "name": "token-tag-foreground-color-default",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "foreground",
-      "color",
-      "default"
-    ]
-  },
-  {
     "key": "{tag.typography.font-size}",
     "$type": "font-size",
     "$value": "0.75rem",
@@ -16201,6 +16051,39 @@
     ]
   },
   {
+    "key": "{tag.typography.font-weight}",
+    "$type": "font-weight",
+    "$value": 400,
+    "$modes": {
+      "default": 400,
+      "cds-g0": 400,
+      "cds-g10": 400,
+      "cds-g90": 400,
+      "cds-g100": 400
+    },
+    "original": {
+      "$type": "font-weight",
+      "$value": "{carbon.typography.label01.font-weight}",
+      "$modes": {
+        "default": "{typography.font-weight.medium}",
+        "cds-g0": "{carbon.typography.label01.font-weight}",
+        "cds-g10": "{carbon.typography.label01.font-weight}",
+        "cds-g90": "{carbon.typography.label01.font-weight}",
+        "cds-g100": "{carbon.typography.label01.font-weight}"
+      },
+      "key": "{tag.typography.font-weight}"
+    },
+    "name": "token-tag-typography-font-weight",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "typography",
+      "font-weight"
+    ]
+  },
+  {
     "key": "{tag.typography.line-height}",
     "$type": "number",
     "$value": 1.33333,
@@ -16231,39 +16114,6 @@
       "tag",
       "typography",
       "line-height"
-    ]
-  },
-  {
-    "key": "{tag.icon.color}",
-    "$type": "color",
-    "$value": "#161616",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.tagTokens.tagColorGray.g10}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
-        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
-        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
-        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
-      },
-      "key": "{tag.icon.color}"
-    },
-    "name": "token-tag-icon-color",
-    "attributes": {
-      "category": "tag"
-    },
-    "path": [
-      "tag",
-      "icon",
-      "color"
     ]
   },
   {
@@ -16620,6 +16470,180 @@
       "icon",
       "color",
       "secondary"
+    ]
+  },
+  {
+    "key": "{tag.static.surface.color.default}",
+    "$type": "color",
+    "$value": "#e0e0e0",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "#e0e0e0",
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#525252",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive}",
+        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
+      },
+      "key": "{tag.static.surface.color.default}"
+    },
+    "name": "token-tag-static-surface-color-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "surface",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.static.surface.color.hover}",
+    "$type": "color",
+    "$value": "#d1d1d1",
+    "$modes": {
+      "default": "#e8e8e8",
+      "cds-g0": "#d1d1d1",
+      "cds-g10": "#d1d1d1",
+      "cds-g90": "#636363",
+      "cds-g100": "#636363"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive-hover}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+      },
+      "key": "{tag.static.surface.color.hover}"
+    },
+    "name": "token-tag-static-surface-color-hover",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "surface",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{tag.static.surface.color.active}",
+    "$type": "color",
+    "$value": "#d1d1d1",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "#d1d1d1",
+      "cds-g10": "#d1d1d1",
+      "cds-g90": "#636363",
+      "cds-g100": "#636363"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive-active}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+      },
+      "key": "{tag.static.surface.color.active}"
+    },
+    "name": "token-tag-static-surface-color-active",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "surface",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{tag.static.foreground.color.default}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorGray.g10}",
+      "$modes": {
+        "default": "{color.foreground.primary}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+      },
+      "key": "{tag.static.foreground.color.default}"
+    },
+    "name": "token-tag-static-foreground-color-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "foreground",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.static.icon.color}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorGray.g10}",
+      "$modes": {
+        "default": "{color.foreground.primary}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+      },
+      "key": "{tag.static.icon.color}"
+    },
+    "name": "token-tag-static-icon-color",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "icon",
+      "color"
     ]
   },
   {

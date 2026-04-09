@@ -16,13 +16,13 @@
   width: fit-content;
   max-width: 100%;
   vertical-align: middle;
-  background-color: var(--token-tag-surface-color-default);
+  background-color: var(--token-tag-static-surface-color-default);
   border: 1px solid var(--token-color-border-strong);
   border-radius: var(--token-tag-border-radius);
 
   @include hds-apply-only-if-carbon() {
     &.hds-tag--is-static {
-      border: none;
+      border-color: transparent;
     }
   }
 }
@@ -31,22 +31,27 @@
   flex: 0 0 auto;
   margin: 0; // reset default button margin
   padding: 6px 4px 6px 8px;
-  background-color: var(--token-tag-surface-color-default);
+  background-color: var(--token-tag-static-surface-color-default);
   border: none; // reset default button border
   border-radius: inherit;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+
+  @include hds-apply-only-if-carbon() {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 
 .hds-tag__dismiss-icon {
   width: 12px;
   height: 12px;
-  color: var(--token-tag-icon-color);
+  color: var(--token-tag-static-icon-color);
 }
 
 .hds-tag__dismiss,
 .hds-tag__text {
-  color: var(--token-tag-foreground-color-default);
+  color: var(--token-tag-static-foreground-color-default);
 }
 
 .hds-tag__text,
@@ -55,14 +60,15 @@
   max-width: var(--token-tag-max-width); // account for excess horizontal padding of text in non-dismissible variant
   padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom)
     var(--token-tag-padding-left);
-  background-color: var(--token-tag-surface-color-default);
   border-radius: inherit;
+}
+
+.hds-tag__text {
+  background-color: var(--token-tag-static-surface-color-default);
 }
 
 .hds-tag__link {
   @include hds-apply-only-if-carbon() {
-    padding-top: calc(var(--token-tag-padding-top) - 1px); // account for 1px border on link variant
-    padding-bottom: calc(var(--token-tag-padding-bottom) - 1px); // account for 1px border on link variant
     text-decoration: none;
   }
 }
@@ -70,7 +76,7 @@
 .hds-tag__text-container {
   display: -webkit-box;
   overflow: hidden;
-  font-weight: var(--token-typography-font-weight-regular);
+  font-weight: var(--token-tag-typography-font-weight);
   font-size: var(--token-tag-typography-font-size);
   line-height: var(--token-tag-typography-line-height);
   word-break: break-all;
@@ -93,20 +99,22 @@
 .hds-tag__link {
   cursor: pointer;
 
-  &:hover,
-  &.mock-hover {
-    background-color: var(--token-tag-surface-color-hover);
-  }
-
-  &:active,
-  &.mock-active {
-    background-color: var(--token-tag-surface-color-active);
-  }
-
   &:focus,
   &.mock-focus {
     @include hds-focus-ring-basic();
     z-index: 1; // ensures focus is not obscured by adjacent elements
+  }
+}
+
+.hds-tag__dismiss {
+  &:hover,
+  &.mock-hover {
+    background-color: var(--token-tag-static-surface-color-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    background-color: var(--token-tag-static-surface-color-active);
   }
 }
 

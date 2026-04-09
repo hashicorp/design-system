@@ -218,6 +218,7 @@
   --token-tabs-tab-focus-inset: 6px;
   --token-tabs-tab-gutter: 6px;
   --token-tabs-tab-padding-vertical: 0px;
+  --token-tag-padding-top: 3px;
   --token-tooltip-focus-offset: -2px;
   --token-tooltip-transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
 }

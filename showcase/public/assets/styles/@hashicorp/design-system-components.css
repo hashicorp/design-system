@@ -539,13 +539,9 @@
   --token-tag-padding-right: 10px;
   --token-tag-padding-left: 10px;
   --token-tag-border-radius: 50px;
-  --token-tag-surface-color-default: #ffffff;
-  --token-tag-surface-color-hover: #f1f2f3;
-  --token-tag-surface-color-active: #dedfe3;
-  --token-tag-foreground-color-default: #3b3d45;
   --token-tag-typography-font-size: 0.8125rem;
+  --token-tag-typography-font-weight: 500;
   --token-tag-typography-line-height: 1.2308;
-  --token-tag-icon-color: #3b3d45;
   --token-tag-link-border-color-primary: #3b3d4566;
   --token-tag-link-border-color-secondary: #3b3d4566;
   --token-tag-link-surface-color-primary-default: #ffffff;
@@ -556,6 +552,11 @@
   --token-tag-link-foreground-color-secondary-default: #0c0c0e;
   --token-tag-link-icon-color-primary: #3b3d45;
   --token-tag-link-icon-color-secondary: #3b3d45;
+  --token-tag-static-surface-color-default: #ffffff;
+  --token-tag-static-surface-color-hover: #f1f2f3;
+  --token-tag-static-surface-color-active: #dedfe3;
+  --token-tag-static-foreground-color-default: #3b3d45;
+  --token-tag-static-icon-color: #3b3d45;
   --token-tooltip-max-width: 280px;
   --token-tooltip-padding-horizontal: 12px;
   --token-tooltip-padding-vertical: 8px;
@@ -10133,7 +10134,7 @@ button.hds-button[href]::after {
   width: fit-content;
   max-width: 100%;
   vertical-align: middle;
-  background-color: var(--token-tag-surface-color-default);
+  background-color: var(--token-tag-static-surface-color-default);
   border: 1px solid var(--token-color-border-strong);
   border-radius: var(--token-tag-border-radius);
 }
@@ -10141,29 +10142,36 @@ button.hds-button[href]::after {
 .hds-mode-cds-g10 .hds-tag.hds-tag--is-static,
 .hds-mode-cds-g90 .hds-tag.hds-tag--is-static,
 .hds-mode-cds-g100 .hds-tag.hds-tag--is-static {
-  border: none;
+  border-color: transparent;
 }
 
 .hds-tag__dismiss {
   flex: 0 0 auto;
   margin: 0;
   padding: 6px 4px 6px 8px;
-  background-color: var(--token-tag-surface-color-default);
+  background-color: var(--token-tag-static-surface-color-default);
   border: none;
   border-radius: inherit;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.hds-mode-cds-g0 .hds-tag__dismiss,
+.hds-mode-cds-g10 .hds-tag__dismiss,
+.hds-mode-cds-g90 .hds-tag__dismiss,
+.hds-mode-cds-g100 .hds-tag__dismiss {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
 
 .hds-tag__dismiss-icon {
   width: 12px;
   height: 12px;
-  color: var(--token-tag-icon-color);
+  color: var(--token-tag-static-icon-color);
 }
 
 .hds-tag__dismiss,
 .hds-tag__text {
-  color: var(--token-tag-foreground-color-default);
+  color: var(--token-tag-static-foreground-color-default);
 }
 
 .hds-tag__text,
@@ -10171,23 +10179,24 @@ button.hds-button[href]::after {
   flex: 1 0 0;
   max-width: var(--token-tag-max-width);
   padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom) var(--token-tag-padding-left);
-  background-color: var(--token-tag-surface-color-default);
   border-radius: inherit;
+}
+
+.hds-tag__text {
+  background-color: var(--token-tag-static-surface-color-default);
 }
 
 .hds-mode-cds-g0 .hds-tag__link,
 .hds-mode-cds-g10 .hds-tag__link,
 .hds-mode-cds-g90 .hds-tag__link,
 .hds-mode-cds-g100 .hds-tag__link {
-  padding-top: calc(var(--token-tag-padding-top) - 1px);
-  padding-bottom: calc(var(--token-tag-padding-bottom) - 1px);
   text-decoration: none;
 }
 
 .hds-tag__text-container {
   display: -webkit-box;
   overflow: hidden;
-  font-weight: var(--token-typography-font-weight-regular);
+  font-weight: var(--token-tag-typography-font-weight);
   font-size: var(--token-tag-typography-font-size);
   line-height: var(--token-tag-typography-line-height);
   word-break: break-all;
@@ -10207,16 +10216,6 @@ button.hds-button[href]::after {
 .hds-tag__dismiss,
 .hds-tag__link {
   cursor: pointer;
-}
-.hds-tag__dismiss:hover, .hds-tag__dismiss.mock-hover,
-.hds-tag__link:hover,
-.hds-tag__link.mock-hover {
-  background-color: var(--token-tag-surface-color-hover);
-}
-.hds-tag__dismiss:active, .hds-tag__dismiss.mock-active,
-.hds-tag__link:active,
-.hds-tag__link.mock-active {
-  background-color: var(--token-tag-surface-color-active);
 }
 .hds-tag__dismiss:focus, .hds-tag__dismiss.mock-focus,
 .hds-tag__link:focus,
@@ -10252,6 +10251,13 @@ button.hds-button[href]::after {
 .hds-tag__link:focus,
 .hds-tag__link.mock-focus {
   z-index: 1;
+}
+
+.hds-tag__dismiss:hover, .hds-tag__dismiss.mock-hover {
+  background-color: var(--token-tag-static-surface-color-hover);
+}
+.hds-tag__dismiss:active, .hds-tag__dismiss.mock-active {
+  background-color: var(--token-tag-static-surface-color-active);
 }
 
 .hds-tooltip-button.hds-tag__text {
