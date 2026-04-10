@@ -248,7 +248,7 @@ $hds-code-block-code-footer-height: 48px;
       min-width: $hds-code-block-line-numbers-width;
       min-height: 100%;
       padding: $hds-code-block-code-padding 0;
-      border-right: 1px solid var(--token-code-block-color-border-primary);
+      border-right: 1px solid var(--token-code-block-line-numbers-border-color);
       user-select: none;
       pointer-events: none;
 

@@ -3761,7 +3761,7 @@ button.hds-button[href]::after {
   min-width: 49px;
   min-height: 100%;
   padding: 16px 0;
-  border-right: 1px solid var(--token-code-block-color-border-primary);
+  border-right: 1px solid var(--token-code-block-line-numbers-border-color);
   user-select: none;
   pointer-events: none;
 }

@@ -12144,7 +12144,7 @@
       "$type": "color",
       "$value": "rgba(178, 182, 189, 0.4)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .4)",
+        "default": "rgba(178, 182, 189, 0.4)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -12152,9 +12152,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "rgba(178, 182, 189, .4)",
+        "$value": "rgba(178, 182, 189, 0.4)",
         "$modes": {
-          "default": "rgba(178, 182, 189, .4)",
+          "default": "rgba(178, 182, 189, 0.4)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -12178,7 +12178,7 @@
       "$type": "color",
       "$value": "rgba(178, 182, 189, 0.2)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .2)",
+        "default": "rgba(178, 182, 189, 0.2)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -12186,9 +12186,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "rgba(178, 182, 189, .2)",
+        "$value": "rgba(178, 182, 189, 0.2)",
         "$modes": {
-          "default": "rgba(178, 182, 189, .2)",
+          "default": "rgba(178, 182, 189, 0.2)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -12417,6 +12417,40 @@
         "surface",
         "color",
         "active"
+      ]
+    },
+    "token-code-block-line-numbers-border-color": {
+      "key": "{code-block.line-numbers.border.color}",
+      "$type": "color",
+      "$value": "rgba(178, 182, 189, 0.2)",
+      "$modes": {
+        "default": "rgba(178, 182, 189, 0.2)",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#e0e0e0",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "rgba(178, 182, 189, 0.2)",
+        "$modes": {
+          "default": "rgba(178, 182, 189, 0.2)",
+          "cds-g0": "{carbon.themes.white.borderSubtle01}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+        },
+        "key": "{code-block.line-numbers.border.color}"
+      },
+      "name": "token-code-block-line-numbers-border-color",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "line-numbers",
+        "border",
+        "color"
       ]
     },
     "token-code-block-line-highlight-surface-color": {
@@ -31124,7 +31158,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .4)",
+        "default": "rgba(178, 182, 189, 0.4)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -31134,7 +31168,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "rgba(178, 182, 189, .4)",
+          "default": "rgba(178, 182, 189, 0.4)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -31158,7 +31192,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .2)",
+        "default": "rgba(178, 182, 189, 0.2)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -31168,7 +31202,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "rgba(178, 182, 189, .2)",
+          "default": "rgba(178, 182, 189, 0.2)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -31397,6 +31431,40 @@
         "surface",
         "color",
         "active"
+      ]
+    },
+    "token-code-block-line-numbers-border-color": {
+      "key": "{code-block.line-numbers.border.color}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "rgba(178, 182, 189, 0.2)",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#e0e0e0",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.borderSubtle01}",
+        "$modes": {
+          "default": "rgba(178, 182, 189, 0.2)",
+          "cds-g0": "{carbon.themes.white.borderSubtle01}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+        },
+        "key": "{code-block.line-numbers.border.color}"
+      },
+      "name": "token-code-block-line-numbers-border-color",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "line-numbers",
+        "border",
+        "color"
       ]
     },
     "token-code-block-line-highlight-surface-color": {
@@ -50104,7 +50172,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .4)",
+        "default": "rgba(178, 182, 189, 0.4)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -50114,7 +50182,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "rgba(178, 182, 189, .4)",
+          "default": "rgba(178, 182, 189, 0.4)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -50138,7 +50206,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .2)",
+        "default": "rgba(178, 182, 189, 0.2)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -50148,7 +50216,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "rgba(178, 182, 189, .2)",
+          "default": "rgba(178, 182, 189, 0.2)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -50377,6 +50445,40 @@
         "surface",
         "color",
         "active"
+      ]
+    },
+    "token-code-block-line-numbers-border-color": {
+      "key": "{code-block.line-numbers.border.color}",
+      "$type": "color",
+      "$value": "#e0e0e0",
+      "$modes": {
+        "default": "rgba(178, 182, 189, 0.2)",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#e0e0e0",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.borderSubtle01}",
+        "$modes": {
+          "default": "rgba(178, 182, 189, 0.2)",
+          "cds-g0": "{carbon.themes.white.borderSubtle01}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+        },
+        "key": "{code-block.line-numbers.border.color}"
+      },
+      "name": "token-code-block-line-numbers-border-color",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "line-numbers",
+        "border",
+        "color"
       ]
     },
     "token-code-block-line-highlight-surface-color": {
@@ -69084,7 +69186,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .4)",
+        "default": "rgba(178, 182, 189, 0.4)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -69094,7 +69196,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "rgba(178, 182, 189, .4)",
+          "default": "rgba(178, 182, 189, 0.4)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -69118,7 +69220,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .2)",
+        "default": "rgba(178, 182, 189, 0.2)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -69128,7 +69230,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "rgba(178, 182, 189, .2)",
+          "default": "rgba(178, 182, 189, 0.2)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -69357,6 +69459,40 @@
         "surface",
         "color",
         "active"
+      ]
+    },
+    "token-code-block-line-numbers-border-color": {
+      "key": "{code-block.line-numbers.border.color}",
+      "$type": "color",
+      "$value": "#6f6f6f",
+      "$modes": {
+        "default": "rgba(178, 182, 189, 0.2)",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#e0e0e0",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.borderSubtle01}",
+        "$modes": {
+          "default": "rgba(178, 182, 189, 0.2)",
+          "cds-g0": "{carbon.themes.white.borderSubtle01}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+        },
+        "key": "{code-block.line-numbers.border.color}"
+      },
+      "name": "token-code-block-line-numbers-border-color",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "line-numbers",
+        "border",
+        "color"
       ]
     },
     "token-code-block-line-highlight-surface-color": {
@@ -88064,7 +88200,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .4)",
+        "default": "rgba(178, 182, 189, 0.4)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -88074,7 +88210,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "rgba(178, 182, 189, .4)",
+          "default": "rgba(178, 182, 189, 0.4)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -88098,7 +88234,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "rgba(178, 182, 189, .2)",
+        "default": "rgba(178, 182, 189, 0.2)",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -88108,7 +88244,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "rgba(178, 182, 189, .2)",
+          "default": "rgba(178, 182, 189, 0.2)",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -88337,6 +88473,40 @@
         "surface",
         "color",
         "active"
+      ]
+    },
+    "token-code-block-line-numbers-border-color": {
+      "key": "{code-block.line-numbers.border.color}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "rgba(178, 182, 189, 0.2)",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#e0e0e0",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.borderSubtle01}",
+        "$modes": {
+          "default": "rgba(178, 182, 189, 0.2)",
+          "cds-g0": "{carbon.themes.white.borderSubtle01}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+        },
+        "key": "{code-block.line-numbers.border.color}"
+      },
+      "name": "token-code-block-line-numbers-border-color",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "line-numbers",
+        "border",
+        "color"
       ]
     },
     "token-code-block-line-highlight-surface-color": {
