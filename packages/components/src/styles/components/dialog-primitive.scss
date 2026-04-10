@@ -101,7 +101,7 @@
   flex-grow: 1;
   margin: 0;
   // we need a mix of component-level and semantic tokens, to account for the difference in font-weight between HDS and CDS for the title
-  font-weight: var(--token-dialog-primitive-header-title-font-weight);
+  font-weight: var(--token-dialog-primitive-header-title-typography-font-weight);
   font-size: var(--token-typography-display-300-font-size);
   font-family: var(--token-typography-display-300-font-family);
   line-height: var(--token-typography-display-300-line-height);
@@ -114,9 +114,9 @@
   color: var(--token-color-foreground-faint);
   // we need a mix of component-level and semantic tokens, to account for the difference in font-size/line-height between HDS and CDS for the title
   font-weight: var(--token-typography-font-weight-regular);
-  font-size: var(--token-dialog-primitive-header-tagline-font-size);
+  font-size: var(--token-dialog-primitive-header-tagline-typography-font-size);
   font-family: var(--token-typography-font-stack-text);
-  line-height: var(--token-dialog-primitive-header-tagline-line-height);
+  line-height: var(--token-dialog-primitive-header-tagline-typography-line-height);
 }
 
 .hds-dialog-primitive__dismiss {
