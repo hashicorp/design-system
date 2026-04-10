@@ -9,7 +9,6 @@ import { pageTitle } from 'ember-page-title';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextBody from 'showcase/components/shw/text/body';
-// import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
 import {
@@ -50,26 +49,25 @@ const PageHeaderCarbonizationIndex: TemplateOnlyComponent = <template>
               <HdsBreadcrumbItem @text="Current" @current={{true}} />
             </HdsBreadcrumb>
           </PH.Breadcrumb>
-          <PH.Title>PageHeader Title</PH.Title>
+          <PH.IconTile @icon="dashboard" @iconSecondary="plus" />
+          <PH.Title>Page title</PH.Title>
           <PH.Badges>
             <HdsBadge @text="Active" @icon="check" @color="success" />
             <HdsBadgeCount @text="v1.5" @color="neutral" />
           </PH.Badges>
-          <PH.Subtitle>Subtitle for the PageHeader component</PH.Subtitle>
+          <PH.Subtitle>Subtitle</PH.Subtitle>
           <PH.Description>
-            This is a description for the PageHeader. Donec ac semper odio.
-            Donec vehicula, nisl eget consectetur sagittis, nisl nunc
-            consectetur nisi, eu consectetur nisl nunc eu nisl. Donec ac semper
-            odio.
+            Description lorem ipsum dolor sit amet consectetur. Viverra ut quis
+            sit sem tellus morbi vitae in velit.
           </PH.Description>
           <PH.Actions>
             <HdsDropdown as |D|>
-              <D.ToggleButton @text="Manage users" @color="secondary" />
+              <D.ToggleButton @text="Manage" @color="secondary" />
               <D.Interactive @icon="user">Assign roles</D.Interactive>
               <D.Interactive @icon="edit">Batch edit</D.Interactive>
               <D.Interactive @icon="trash">Delete user</D.Interactive>
             </HdsDropdown>
-            <HdsButton @text="Add user" @icon="plus" @iconPosition="leading" />
+            <HdsButton @text="Create" @icon="plus" @iconPosition="leading" />
           </PH.Actions>
         </HdsPageHeader>
       </:theming>
