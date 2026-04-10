@@ -9480,7 +9480,7 @@ button.hds-button[href]::after {
 
 @media screen and (prefers-reduced-motion: no-preference) {
   .hds-tabs__tab-indicator {
-    transition-timing-function: var(--token-tabs-indicator-transition-function);
+    transition-timing-function: var(--token-tabs-indicator-transition-timing-function);
     transition-duration: var(--token-tabs-indicator-transition-duration);
     transition-property: left, width;
   }
@@ -9789,7 +9789,7 @@ button.hds-button[href]::after {
   opacity: 0;
 }
 .tippy-box[data-theme~=hds][data-inertia][data-state=visible] {
-  transition-timing-function: var(--token-tooltip-transition-function);
+  transition-timing-function: var(--token-tooltip-transition-timing-function);
 }
 .tippy-box[data-theme~=hds] .tippy-content {
   position: relative;
