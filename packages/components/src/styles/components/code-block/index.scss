@@ -281,11 +281,7 @@ $hds-code-block-code-footer-height: 48px;
     mix-blend-mode: screen;
     pointer-events: none;
 
-    @include hds-apply-only-if-carbon($mode: "cds-g0") {
-      mix-blend-mode: normal;
-    }
-
-    @include hds-apply-only-if-carbon($mode: "cds-g10") {
+    @include hds-apply-only-if-carbon() {
       mix-blend-mode: normal;
     }
   }
@@ -345,7 +341,7 @@ $hds-code-block-code-footer-height: 48px;
       360deg,
       var(--token-code-block-color-surface-primary) 37.07%,
       var(--token-code-block-color-surface-primary-with-alpha) 100%
-    ); // uses --code-block-color-surface-primary with 25% opacity
+    );
     content: "";
     pointer-events: none;
 

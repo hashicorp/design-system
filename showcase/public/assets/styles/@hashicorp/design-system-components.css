@@ -4416,11 +4416,10 @@ button.hds-button[href]::after {
   mix-blend-mode: screen;
   pointer-events: none;
 }
-.hds-mode-cds-g0 .hds-code-block .line-highlight {
-  mix-blend-mode: normal;
-}
-
-.hds-mode-cds-g10 .hds-code-block .line-highlight {
+.hds-mode-cds-g0 .hds-code-block .line-highlight,
+.hds-mode-cds-g10 .hds-code-block .line-highlight,
+.hds-mode-cds-g90 .hds-code-block .line-highlight,
+.hds-mode-cds-g100 .hds-code-block .line-highlight {
   mix-blend-mode: normal;
 }
 
