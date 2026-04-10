@@ -129,7 +129,7 @@ const BadgeLinkStandaloneIndex: TemplateOnlyComponent = <template>
               <cds-link href="#" size="md">Lorem ipsum
                 <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
             {{else}}
-              <pre>TODO: add static image here</pre>
+              <pre>TODO: static image here</pre>
             {{/if}}
           </:reference>
         </ShwCarbonizationComparisonGrid>
