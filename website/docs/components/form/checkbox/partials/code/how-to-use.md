@@ -34,9 +34,9 @@ To better fit your spacing requirements, choose between two different layout ori
 
 !!! Info
 
-**Accessibility consideration**
+**Accessibility compliance note**
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, if a link is present in a label, help text, or error text associated with a form field, it would be considered non-compliant. If additional links are needed to provide the user with information, place them outside of these elements. It is possible that you may wish to include some additional context for the form with instructions that include any necessary links.
 !!!
 
 The `Legend` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
@@ -65,7 +65,7 @@ A group of Checkboxes is made of one or more `Form::Checkbox::Field` components.
 
 #### Group with a single choice
 
-There may be use cases in which you need to create a Checkbox group that contains a single field element (e.g., to show the `Legend` in a similar position for other control’s labels). 
+There may be use cases in which you need to create a Checkbox group that contains a single field element (e.g., to show the `Legend` in a similar position for other control’s labels).
 
 [[code-snippets/checkbox-group-one-item]]
 
@@ -104,9 +104,9 @@ In addition to the checked and unchecked states, a checkbox can be in an indeter
 
 !!! Info
 
-**Accessibility consideration**
+**Accessibility compliance note**
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+Do not use a link is used within a label, helper text, or error text associated with a form field. It will not be presented as a link to the user with a screen reader; only the text content is read out. Refer to the accessibility guidance for this component for additional information.
 !!!
 
 The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
@@ -143,7 +143,7 @@ This component supports use of `...attributes`. This means you can use all the s
 
 #### Events handling
 
-Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `change`), validation, etc. 
+Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `change`), validation, etc.
 
 [[code-snippets/checkbox-field-events]]
 
@@ -157,7 +157,7 @@ The Base element is intended for rare cases where the Field or Group components 
 
 **Consumer responsibility**
 
-`Form::Checkbox::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
+`Form::Checkbox::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation meets compliance requirements.
 !!!
 
 A basic invocation creates an `<input type="checkbox">` control with an automatically generated `ID` attribute.
