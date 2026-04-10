@@ -32,8 +32,7 @@ import HdsAdvancedTableTd from './td.gts';
 import hdsT from '../../../helpers/hds-t.ts';
 
 import type Owner from '@ember/owner';
-import type { WithBoundArgs } from '@glint/template';
-import type { ComponentLike } from '@glint/template';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type {
   HdsAdvancedTableColumn,
   HdsAdvancedTableDensities,
