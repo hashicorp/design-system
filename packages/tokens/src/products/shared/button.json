@@ -839,7 +839,7 @@
         }
       }
     },
-    "focus": {
+    "focus-ring": {
       "border": {
         "width": {
           "$type": "dimension",
