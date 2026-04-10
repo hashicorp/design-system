@@ -391,6 +391,7 @@
   --token-code-block-color-foreground-action-active: #4ca1ff;
   --token-code-block-color-foreground-selection: #0d0e12;
   --token-code-block-color-surface-primary: #0d0e12;
+  --token-code-block-color-surface-primary-with-alpha: #0d0e1240;
   --token-code-block-color-surface-faint: #15181e;
   --token-code-block-color-surface-interactive-active: #2b303c;
   --token-code-block-color-surface-selection: #86ff13;

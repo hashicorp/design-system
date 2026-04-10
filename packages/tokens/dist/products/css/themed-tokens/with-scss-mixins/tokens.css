@@ -324,6 +324,7 @@
     --token-code-block-color-palette-yellow: #ffeb3b;
     --token-code-block-color-surface-faint: #15181e;
     --token-code-block-color-surface-interactive-active: #2b303c;
+    --token-code-block-color-surface-primary-with-alpha: #0d0e1240;
     --token-code-block-color-surface-primary: #0d0e12;
     --token-code-block-copy-button-surface-color-active: var(
       --token-code-block-color-surface-interactive-active
@@ -942,6 +943,7 @@
     --token-code-block-color-palette-yellow: #684e00;
     --token-code-block-color-surface-faint: #f4f4f4;
     --token-code-block-color-surface-interactive-active: #c6c6c6;
+    --token-code-block-color-surface-primary-with-alpha: #f4f4f440;
     --token-code-block-color-surface-primary: #f4f4f4;
     --token-code-block-copy-button-surface-color-active: #c6c6c6;
     --token-code-block-copy-button-surface-color-default: #f4f4f4;
@@ -1417,6 +1419,7 @@
     --token-code-block-color-palette-yellow: #f1c21b;
     --token-code-block-color-surface-faint: #262626;
     --token-code-block-color-surface-interactive-active: #525252;
+    --token-code-block-color-surface-primary-with-alpha: #26262640;
     --token-code-block-color-surface-primary: #262626;
     --token-code-block-copy-button-surface-color-active: #525252;
     --token-code-block-copy-button-surface-color-default: #262626;
@@ -1887,6 +1890,7 @@
     --token-code-block-color-palette-yellow: #684e00;
     --token-code-block-color-surface-faint: #f4f4f4;
     --token-code-block-color-surface-interactive-active: #c6c6c6;
+    --token-code-block-color-surface-primary-with-alpha: #f4f4f440;
     --token-code-block-color-surface-primary: #f4f4f4;
     --token-code-block-copy-button-surface-color-active: #c6c6c6;
     --token-code-block-copy-button-surface-color-default: #f4f4f4;
@@ -2357,6 +2361,7 @@
     --token-code-block-color-palette-yellow: #684e00;
     --token-code-block-color-surface-faint: #ffffff;
     --token-code-block-color-surface-interactive-active: #c6c6c6;
+    --token-code-block-color-surface-primary-with-alpha: #ffffff40;
     --token-code-block-color-surface-primary: #ffffff;
     --token-code-block-copy-button-surface-color-active: #c6c6c6;
     --token-code-block-copy-button-surface-color-default: #ffffff;
@@ -2832,6 +2837,7 @@
     --token-code-block-color-palette-yellow: #f1c21b;
     --token-code-block-color-surface-faint: #393939;
     --token-code-block-color-surface-interactive-active: #6f6f6f;
+    --token-code-block-color-surface-primary-with-alpha: #39393940;
     --token-code-block-color-surface-primary: #393939;
     --token-code-block-copy-button-surface-color-active: #6f6f6f;
     --token-code-block-copy-button-surface-color-default: #393939;
@@ -3307,6 +3313,7 @@
     --token-code-block-color-palette-yellow: #f1c21b;
     --token-code-block-color-surface-faint: #262626;
     --token-code-block-color-surface-interactive-active: #525252;
+    --token-code-block-color-surface-primary-with-alpha: #26262640;
     --token-code-block-color-surface-primary: #262626;
     --token-code-block-copy-button-surface-color-active: #525252;
     --token-code-block-copy-button-surface-color-default: #262626;

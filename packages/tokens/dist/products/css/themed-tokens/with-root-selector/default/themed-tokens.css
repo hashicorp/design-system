@@ -155,6 +155,7 @@
   --token-code-block-color-palette-yellow: #ffeb3b;
   --token-code-block-color-surface-faint: #15181e;
   --token-code-block-color-surface-interactive-active: #2b303c;
+  --token-code-block-color-surface-primary-with-alpha: #0d0e1240;
   --token-code-block-color-surface-primary: #0d0e12;
   --token-code-block-copy-button-surface-color-active: var(--token-code-block-color-surface-interactive-active);
   --token-code-block-copy-button-surface-color-default: var(--token-code-block-color-surface-faint);

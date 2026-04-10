@@ -12015,6 +12015,42 @@
         "primary"
       ]
     },
+    "token-code-block-color-surface-primary-with-alpha": {
+      "key": "{code-block.color.surface.primary-with-alpha}",
+      "$type": "color",
+      "$value": "#0d0e1240",
+      "alpha": "0.25",
+      "$modes": {
+        "default": "#0d0e12",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{code-block.color.surface.primary}",
+        "alpha": "0.25",
+        "$modes": {
+          "default": "{code-block.color.surface.primary}",
+          "cds-g0": "{carbon.themes.white.layer01}",
+          "cds-g10": "{carbon.themes.g10.layer01}",
+          "cds-g90": "{carbon.themes.g90.layer01}",
+          "cds-g100": "{carbon.themes.g100.layer01}"
+        },
+        "key": "{code-block.color.surface.primary-with-alpha}"
+      },
+      "name": "token-code-block-color-surface-primary-with-alpha",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "color",
+        "surface",
+        "primary-with-alpha"
+      ]
+    },
     "token-code-block-color-surface-faint": {
       "key": "{code-block.color.surface.faint}",
       "$type": "color",
@@ -30957,6 +30993,42 @@
         "color",
         "surface",
         "primary"
+      ]
+    },
+    "token-code-block-color-surface-primary-with-alpha": {
+      "key": "{code-block.color.surface.primary-with-alpha}",
+      "$type": "color",
+      "$value": "#f4f4f440",
+      "alpha": "0.25",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.layer01}",
+        "alpha": "0.25",
+        "$modes": {
+          "default": "{code-block.color.surface.primary}",
+          "cds-g0": "{carbon.themes.white.layer01}",
+          "cds-g10": "{carbon.themes.g10.layer01}",
+          "cds-g90": "{carbon.themes.g90.layer01}",
+          "cds-g100": "{carbon.themes.g100.layer01}"
+        },
+        "key": "{code-block.color.surface.primary-with-alpha}"
+      },
+      "name": "token-code-block-color-surface-primary-with-alpha",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "color",
+        "surface",
+        "primary-with-alpha"
       ]
     },
     "token-code-block-color-surface-faint": {
@@ -49903,6 +49975,42 @@
         "primary"
       ]
     },
+    "token-code-block-color-surface-primary-with-alpha": {
+      "key": "{code-block.color.surface.primary-with-alpha}",
+      "$type": "color",
+      "$value": "#ffffff40",
+      "alpha": "0.25",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.layer01}",
+        "alpha": "0.25",
+        "$modes": {
+          "default": "{code-block.color.surface.primary}",
+          "cds-g0": "{carbon.themes.white.layer01}",
+          "cds-g10": "{carbon.themes.g10.layer01}",
+          "cds-g90": "{carbon.themes.g90.layer01}",
+          "cds-g100": "{carbon.themes.g100.layer01}"
+        },
+        "key": "{code-block.color.surface.primary-with-alpha}"
+      },
+      "name": "token-code-block-color-surface-primary-with-alpha",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "color",
+        "surface",
+        "primary-with-alpha"
+      ]
+    },
     "token-code-block-color-surface-faint": {
       "key": "{code-block.color.surface.faint}",
       "$type": "color",
@@ -68847,6 +68955,42 @@
         "primary"
       ]
     },
+    "token-code-block-color-surface-primary-with-alpha": {
+      "key": "{code-block.color.surface.primary-with-alpha}",
+      "$type": "color",
+      "$value": "#39393940",
+      "alpha": "0.25",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.layer01}",
+        "alpha": "0.25",
+        "$modes": {
+          "default": "{code-block.color.surface.primary}",
+          "cds-g0": "{carbon.themes.white.layer01}",
+          "cds-g10": "{carbon.themes.g10.layer01}",
+          "cds-g90": "{carbon.themes.g90.layer01}",
+          "cds-g100": "{carbon.themes.g100.layer01}"
+        },
+        "key": "{code-block.color.surface.primary-with-alpha}"
+      },
+      "name": "token-code-block-color-surface-primary-with-alpha",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "color",
+        "surface",
+        "primary-with-alpha"
+      ]
+    },
     "token-code-block-color-surface-faint": {
       "key": "{code-block.color.surface.faint}",
       "$type": "color",
@@ -87789,6 +87933,42 @@
         "color",
         "surface",
         "primary"
+      ]
+    },
+    "token-code-block-color-surface-primary-with-alpha": {
+      "key": "{code-block.color.surface.primary-with-alpha}",
+      "$type": "color",
+      "$value": "#26262640",
+      "alpha": "0.25",
+      "$modes": {
+        "default": "#262626",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.layer01}",
+        "alpha": "0.25",
+        "$modes": {
+          "default": "{code-block.color.surface.primary}",
+          "cds-g0": "{carbon.themes.white.layer01}",
+          "cds-g10": "{carbon.themes.g10.layer01}",
+          "cds-g90": "{carbon.themes.g90.layer01}",
+          "cds-g100": "{carbon.themes.g100.layer01}"
+        },
+        "key": "{code-block.color.surface.primary-with-alpha}"
+      },
+      "name": "token-code-block-color-surface-primary-with-alpha",
+      "attributes": {
+        "category": "code-block"
+      },
+      "path": [
+        "code-block",
+        "color",
+        "surface",
+        "primary-with-alpha"
       ]
     },
     "token-code-block-color-surface-faint": {

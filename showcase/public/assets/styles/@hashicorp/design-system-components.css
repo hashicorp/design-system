@@ -395,6 +395,7 @@
   --token-code-block-color-foreground-action-active: #4ca1ff;
   --token-code-block-color-foreground-selection: #0d0e12;
   --token-code-block-color-surface-primary: #0d0e12;
+  --token-code-block-color-surface-primary-with-alpha: #0d0e1240;
   --token-code-block-color-surface-faint: #15181e;
   --token-code-block-color-surface-interactive-active: #2b303c;
   --token-code-block-color-surface-selection: #86ff13;
@@ -4462,7 +4463,7 @@ button.hds-button[href]::after {
   display: block;
   height: 48px;
   margin: 0 0 -16px -1000px;
-  background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 0.25) 100%);
+  background: linear-gradient(360deg, var(--token-code-block-color-surface-primary) 37.07%, var(--token-code-block-color-surface-primary-with-alpha) 100%);
   content: "";
   pointer-events: none;
 }
@@ -4472,22 +4473,6 @@ button.hds-button[href]::after {
 .hds-mode-cds-g100 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
   bottom: -18px;
   height: 50px;
-}
-
-.hds-mode-cds-g0 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
-  background: linear-gradient(360deg, #f4f4f4 37.07%, rgba(244, 244, 244, 0.25) 100%);
-}
-
-.hds-mode-cds-g10 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
-  background: linear-gradient(360deg, #fff 37.07%, rgba(255, 255, 255, 0.25) 100%);
-}
-
-.hds-mode-cds-g90 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
-  background: linear-gradient(360deg, #393939 37.07%, rgba(57, 57, 57, 0.25) 100%);
-}
-
-.hds-mode-cds-g100 .hds-code-block--has-overlay-footer .hds-code-block__code::after {
-  background: linear-gradient(360deg, #262626 37.07%, rgba(38, 38, 38, 0.25) 100%);
 }
 
 .hds-code-block--has-overlay-footer .line-numbers .line-numbers-rows {

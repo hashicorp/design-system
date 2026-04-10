@@ -343,8 +343,8 @@ $hds-code-block-code-footer-height: 48px;
     margin: 0 0 -#{$hds-code-block-code-padding} -1000px; // cover line highlights when line numbers are enabled
     background: linear-gradient(
       360deg,
-      #0d0e12 37.07%,
-      rgba(13, 14, 18, 25%) 100%
+      var(--token-code-block-color-surface-primary) 37.07%,
+      var(--token-code-block-color-surface-primary-with-alpha) 100%
     ); // uses --code-block-color-surface-primary with 25% opacity
     content: "";
     pointer-events: none;
@@ -352,39 +352,6 @@ $hds-code-block-code-footer-height: 48px;
     @include hds-apply-only-if-carbon() {
       bottom: -$hds-code-block-code-padding - 2px; // account for transparent border
       height: $hds-code-block-code-footer-height + 2px; // account for transparent border
-    }
-
-    // TODO: See if there's a way to simpliy this
-    @include hds-apply-only-if-carbon($mode: "cds-g0") {
-      background: linear-gradient(
-        360deg,
-        #f4f4f4 37.07%,
-        rgba(244, 244, 244, 25%) 100%
-      ); // uses --code-block-color-surface-primary with 25% opacity
-    }
-
-    @include hds-apply-only-if-carbon($mode: "cds-g10") {
-      background: linear-gradient(
-        360deg,
-        #fff 37.07%,
-        rgba(255, 255, 255, 25%) 100%
-      ); // uses --code-block-color-surface-primary with 25% opacity
-    }
-
-    @include hds-apply-only-if-carbon($mode: "cds-g90") {
-      background: linear-gradient(
-        360deg,
-        #393939 37.07%,
-        rgba(57, 57, 57, 25%) 100%
-      ); // uses --code-block-color-surface-primary with 25% opacity
-    }
-
-    @include hds-apply-only-if-carbon($mode: "cds-g100") {
-      background: linear-gradient(
-        360deg,
-        #262626 37.07%,
-        rgba(38, 38, 38, 25%) 100%
-      ); // uses --code-block-color-surface-primary with 25% opacity
     }
   }
 

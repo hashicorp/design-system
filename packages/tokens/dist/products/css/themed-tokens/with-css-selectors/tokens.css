@@ -155,6 +155,7 @@
   --token-code-block-color-palette-yellow: #684e00;
   --token-code-block-color-surface-faint: #f4f4f4;
   --token-code-block-color-surface-interactive-active: #c6c6c6;
+  --token-code-block-color-surface-primary-with-alpha: #f4f4f440;
   --token-code-block-color-surface-primary: #f4f4f4;
   --token-code-block-copy-button-surface-color-active: #c6c6c6;
   --token-code-block-copy-button-surface-color-default: #f4f4f4;
@@ -620,6 +621,7 @@
     --token-code-block-color-palette-yellow: #684e00;
     --token-code-block-color-surface-faint: #f4f4f4;
     --token-code-block-color-surface-interactive-active: #c6c6c6;
+    --token-code-block-color-surface-primary-with-alpha: #f4f4f440;
     --token-code-block-color-surface-primary: #f4f4f4;
     --token-code-block-copy-button-surface-color-active: #c6c6c6;
     --token-code-block-copy-button-surface-color-default: #f4f4f4;
@@ -1095,6 +1097,7 @@
     --token-code-block-color-palette-yellow: #f1c21b;
     --token-code-block-color-surface-faint: #262626;
     --token-code-block-color-surface-interactive-active: #525252;
+    --token-code-block-color-surface-primary-with-alpha: #26262640;
     --token-code-block-color-surface-primary: #262626;
     --token-code-block-copy-button-surface-color-active: #525252;
     --token-code-block-copy-button-surface-color-default: #262626;
@@ -1563,6 +1566,7 @@
   --token-code-block-color-palette-yellow: #684e00;
   --token-code-block-color-surface-faint: #f4f4f4;
   --token-code-block-color-surface-interactive-active: #c6c6c6;
+  --token-code-block-color-surface-primary-with-alpha: #f4f4f440;
   --token-code-block-color-surface-primary: #f4f4f4;
   --token-code-block-copy-button-surface-color-active: #c6c6c6;
   --token-code-block-copy-button-surface-color-default: #f4f4f4;
@@ -2026,6 +2030,7 @@
   --token-code-block-color-palette-yellow: #f1c21b;
   --token-code-block-color-surface-faint: #262626;
   --token-code-block-color-surface-interactive-active: #525252;
+  --token-code-block-color-surface-primary-with-alpha: #26262640;
   --token-code-block-color-surface-primary: #262626;
   --token-code-block-copy-button-surface-color-active: #525252;
   --token-code-block-copy-button-surface-color-default: #262626;
