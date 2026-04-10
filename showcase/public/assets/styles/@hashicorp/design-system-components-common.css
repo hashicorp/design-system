@@ -4255,7 +4255,7 @@ button.hds-button[href]::after {
 .hds-dialog-primitive__title {
   flex-grow: 1;
   margin: 0;
-  font-weight: var(--token-dialog-primitive-header-title-font-weight);
+  font-weight: var(--token-dialog-primitive-header-title-typography-font-weight);
   font-size: var(--token-typography-display-300-font-size);
   font-family: var(--token-typography-display-300-font-family);
   line-height: var(--token-typography-display-300-line-height);
@@ -4265,9 +4265,9 @@ button.hds-button[href]::after {
   margin-bottom: 4px;
   color: var(--token-color-foreground-faint);
   font-weight: var(--token-typography-font-weight-regular);
-  font-size: var(--token-dialog-primitive-header-tagline-font-size);
+  font-size: var(--token-dialog-primitive-header-tagline-typography-font-size);
   font-family: var(--token-typography-font-stack-text);
-  line-height: var(--token-dialog-primitive-header-tagline-line-height);
+  line-height: var(--token-dialog-primitive-header-tagline-typography-line-height);
 }
 
 .hds-dialog-primitive__dismiss {
