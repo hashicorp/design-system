@@ -198,7 +198,7 @@
         }
       },
       "transition": {
-        "function": {
+        "timing-function": {
           "$type": "cubicBezier",
           "$value": [0.5, 1, 0.89, 1]
         },

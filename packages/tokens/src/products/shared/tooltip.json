@@ -94,7 +94,7 @@
       "unit": "px"
     },
     "transition": {
-      "function": {
+      "timing-function": {
         "$type": "cubicBezier",
         "$value": [
           0.54,
