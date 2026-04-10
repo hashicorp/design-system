@@ -230,9 +230,9 @@
   --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --token-dialog-primitive-border-color: #6f6f6f;
-  --token-dialog-primitive-header-tagline-font-size: 0.75rem;
-  --token-dialog-primitive-header-tagline-line-height: 1.33333;
-  --token-dialog-primitive-header-title-font-weight: 400;
+  --token-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
+  --token-dialog-primitive-header-tagline-typography-line-height: 1.33333;
+  --token-dialog-primitive-header-title-typography-font-weight: 400;
   --token-dialog-primitive-padding-horizontal: 16px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);

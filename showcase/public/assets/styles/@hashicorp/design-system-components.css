@@ -381,9 +381,9 @@
   --token-dialog-primitive-padding-horizontal: 24px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
-  --token-dialog-primitive-header-tagline-font-size: 0.8125rem;
-  --token-dialog-primitive-header-tagline-line-height: 1.3846;
-  --token-dialog-primitive-header-title-font-weight: 600;
+  --token-dialog-primitive-header-tagline-typography-font-size: 0.8125rem;
+  --token-dialog-primitive-header-tagline-typography-line-height: 1.3846;
+  --token-dialog-primitive-header-title-typography-font-weight: 600;
   --token-dismiss-button-size: 24px;
   --token-dismiss-button-foreground-color-default: #656a76;
   --token-dismiss-button-foreground-color-active: #0c0c0e;
@@ -4845,7 +4845,7 @@ button.hds-button[href]::after {
 .hds-dialog-primitive__title {
   flex-grow: 1;
   margin: 0;
-  font-weight: var(--token-dialog-primitive-header-title-font-weight);
+  font-weight: var(--token-dialog-primitive-header-title-typography-font-weight);
   font-size: var(--token-typography-display-300-font-size);
   font-family: var(--token-typography-display-300-font-family);
   line-height: var(--token-typography-display-300-line-height);
@@ -4855,9 +4855,9 @@ button.hds-button[href]::after {
   margin-bottom: 4px;
   color: var(--token-color-foreground-faint);
   font-weight: var(--token-typography-font-weight-regular);
-  font-size: var(--token-dialog-primitive-header-tagline-font-size);
+  font-size: var(--token-dialog-primitive-header-tagline-typography-font-size);
   font-family: var(--token-typography-font-stack-text);
-  line-height: var(--token-dialog-primitive-header-tagline-line-height);
+  line-height: var(--token-dialog-primitive-header-tagline-typography-line-height);
 }
 
 .hds-dialog-primitive__dismiss {
