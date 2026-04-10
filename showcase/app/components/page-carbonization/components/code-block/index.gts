@@ -62,7 +62,7 @@ export default class CodeBlockCarbonizationIndex extends Component {
               <HdsCodeBlock
                 @language="shell-session"
                 @ariaLabel="one line"
-                @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
+                @value="$ brew tap hashicorp/tap"
                 @hasLineNumbers={{false}}
               />
             </SF.Item>
@@ -85,7 +85,7 @@ export default class CodeBlockCarbonizationIndex extends Component {
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
               {{! prettier-ignore }}
-              <cds-code-snippet type="multi">aws ec2 --region us-west-1 accept-vpc-peering-connection</cds-code-snippet>
+              <cds-code-snippet type="multi">$ brew tap hashicorp/tap</cds-code-snippet>
             </SF.Item>
             <SF.Item>
               {{! prettier-ignore }}
@@ -215,55 +215,51 @@ export default class CodeBlockCarbonizationIndex extends Component {
             <SF.Item>
               {{! template-lint-disable no-whitespace-for-layout }}
               <HdsCodeBlock
-                @language="ruby"
+                @language="json"
                 @maxHeight="130px"
                 @ariaLabel="maxHeight='130px'"
                 @hasLineNumbers={{false}}
-                @value="def convert_object_to_array(obj)
-  arr = obj.keys
-          .map { |key| [key, obj[key]] }
-          .flatten
-          .sort
-  return arr
-end
-
-def assert_objects_equal(actual, expected, test_name)
-  actual_str = convert_object_to_array(actual).to_s
-  expected_str = convert_object_to_array(expected).to_s
-  puts 'ACTUAL: #{actual_str}  EXPECTED: #{expected_str}'
-  if actual_str == expected_str
-    puts 'passed'
-  else
-    puts 'FAILED [#{test_name}] Expected #{expected}, but got #{actual}'
-  end
-end"
+                @value="{
+  'result': [
+    {
+      'expressions': [
+        {
+          'value': true,
+          'text': 'data.allow',
+          'location': {
+            'row': 1,
+            'col': 1
+          }
+        }
+      ]
+    }
+  ]
+}"
               />
               {{! template-lint-enable no-whitespace-for-layout }}
             </SF.Item>
             <SF.Item>
               {{! template-lint-disable no-whitespace-for-layout }}
               <HdsCodeBlock
-                @language="ruby"
+                @language="json"
                 @maxHeight="130px"
                 @ariaLabel="maxHeight='130px'"
-                @value="def convert_object_to_array(obj)
-  arr = obj.keys
-          .map { |key| [key, obj[key]] }
-          .flatten
-          .sort
-  return arr
-end
-
-def assert_objects_equal(actual, expected, test_name)
-  actual_str = convert_object_to_array(actual).to_s
-  expected_str = convert_object_to_array(expected).to_s
-  puts 'ACTUAL: #{actual_str}  EXPECTED: #{expected_str}'
-  if actual_str == expected_str
-    puts 'passed'
-  else
-    puts 'FAILED [#{test_name}] Expected #{expected}, but got #{actual}'
-  end
-end"
+                @value="{
+  'result': [
+    {
+      'expressions': [
+        {
+          'value': true,
+          'text': 'data.allow',
+          'location': {
+            'row': 1,
+            'col': 1
+          }
+        }
+      ]
+    }
+  ]
+}"
               />
               {{! template-lint-enable no-whitespace-for-layout }}
             </SF.Item>
@@ -272,24 +268,22 @@ end"
         <:reference>
           <div>
             {{! template-lint-disable no-whitespace-for-layout }}{{! prettier-ignore }}
-            <cds-code-snippet type="multi" maxcollapsednumberofrows="6">def convert_object_to_array(obj)
-  arr = obj.keys
-          .map { |key| [key, obj[key]] }
-          .flatten
-          .sort
-  return arr
-end
-
-def assert_objects_equal(actual, expected, test_name)
-  actual_str = convert_object_to_array(actual).to_s
-  expected_str = convert_object_to_array(expected).to_s
-  puts 'ACTUAL: #{actual_str}  EXPECTED: #{expected_str}'
-  if actual_str == expected_str
-    puts 'passed'
-  else
-    puts 'FAILED [#{test_name}] Expected #{expected}, but got #{actual}'
-  end
-end
+            <cds-code-snippet type="multi" maxcollapsednumberofrows="6">{
+  'result': [
+    {
+      'expressions': [
+        {
+          'value': true,
+          'text': 'data.allow',
+          'location': {
+            'row': 1,
+            'col': 1
+          }
+        }
+      ]
+    }
+  ]
+}
             </cds-code-snippet>
             {{! template-lint-enable no-whitespace-for-layout }}
           </div>
@@ -358,12 +352,22 @@ end
                 @hasLineNumbers={{false}}
                 @highlightLines="2, 4"
                 @ariaLabel="Highlight lines 2 & 4, hasLineNumbers=false"
-                @value="package main
-  import 'fmt'
-  func main() {
-    res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-    fmt.Println(res)
-  }"
+                @value="{
+  'result': [
+    {
+      'expressions': [
+        {
+          'value': true,
+          'text': 'data.allow',
+          'location': {
+            'row': 1,
+            'col': 1
+          }
+        }
+      ]
+    }
+  ]
+}"
               />
             </SF.Item>
             <SF.Item {{style width="500px"}}>
@@ -372,24 +376,22 @@ end
                 @language="ruby"
                 @highlightLines="10-12"
                 @ariaLabel="Highlight lines 10-12"
-                @value="def convert_object_to_array(obj)
-    arr = obj.keys
-            .map { |key| [key, obj[key]] }
-            .flatten
-            .sort
-    return arr
-  end
-
-  def assert_objects_equal(actual, expected, test_name)
-    actual_str = convert_object_to_array(actual).to_s
-    expected_str = convert_object_to_array(expected).to_s
-    puts 'ACTUAL: #{actual_str}  EXPECTED: #{expected_str}'
-    if actual_str == expected_str
-      puts 'passed'
-    else
-      puts 'FAILED [#{test_name}] Expected #{expected}, but got #{actual}'
-    end
-  end"
+                @value="{
+  'result': [
+    {
+      'expressions': [
+        {
+          'value': true,
+          'text': 'data.allow',
+          'location': {
+            'row': 1,
+            'col': 1
+          }
+        }
+      ]
+    }
+  ]
+}"
               />
               {{! template-lint-enable no-whitespace-for-layout }}
             </SF.Item>
