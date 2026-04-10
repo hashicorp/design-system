@@ -6604,6 +6604,45 @@
         "color"
       ]
     },
+    "token-app-side-nav-body-list-item-selected-indicator-border-radius": {
+      "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}",
+      "$type": "dimension",
+      "$value": "2px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "2",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}"
+      },
+      "name": "token-app-side-nav-body-list-item-selected-indicator-border-radius",
+      "attributes": {
+        "category": "app-side-nav"
+      },
+      "path": [
+        "app-side-nav",
+        "body",
+        "list-item",
+        "selected",
+        "indicator",
+        "border",
+        "radius"
+      ]
+    },
     "token-app-side-nav-body-title-padding-vertical": {
       "key": "{app-side-nav.body.title.padding.vertical}",
       "$type": "dimension",
@@ -25637,6 +25676,45 @@
         "selected",
         "surface",
         "color"
+      ]
+    },
+    "token-app-side-nav-body-list-item-selected-indicator-border-radius": {
+      "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}"
+      },
+      "name": "token-app-side-nav-body-list-item-selected-indicator-border-radius",
+      "attributes": {
+        "category": "app-side-nav"
+      },
+      "path": [
+        "app-side-nav",
+        "body",
+        "list-item",
+        "selected",
+        "indicator",
+        "border",
+        "radius"
       ]
     },
     "token-app-side-nav-body-title-padding-vertical": {
@@ -44674,6 +44752,45 @@
         "color"
       ]
     },
+    "token-app-side-nav-body-list-item-selected-indicator-border-radius": {
+      "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}"
+      },
+      "name": "token-app-side-nav-body-list-item-selected-indicator-border-radius",
+      "attributes": {
+        "category": "app-side-nav"
+      },
+      "path": [
+        "app-side-nav",
+        "body",
+        "list-item",
+        "selected",
+        "indicator",
+        "border",
+        "radius"
+      ]
+    },
     "token-app-side-nav-body-title-padding-vertical": {
       "key": "{app-side-nav.body.title.padding.vertical}",
       "$type": "dimension",
@@ -63709,6 +63826,45 @@
         "color"
       ]
     },
+    "token-app-side-nav-body-list-item-selected-indicator-border-radius": {
+      "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}"
+      },
+      "name": "token-app-side-nav-body-list-item-selected-indicator-border-radius",
+      "attributes": {
+        "category": "app-side-nav"
+      },
+      "path": [
+        "app-side-nav",
+        "body",
+        "list-item",
+        "selected",
+        "indicator",
+        "border",
+        "radius"
+      ]
+    },
     "token-app-side-nav-body-title-padding-vertical": {
       "key": "{app-side-nav.body.title.padding.vertical}",
       "$type": "dimension",
@@ -82742,6 +82898,45 @@
         "selected",
         "surface",
         "color"
+      ]
+    },
+    "token-app-side-nav-body-list-item-selected-indicator-border-radius": {
+      "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}"
+      },
+      "name": "token-app-side-nav-body-list-item-selected-indicator-border-radius",
+      "attributes": {
+        "category": "app-side-nav"
+      },
+      "path": [
+        "app-side-nav",
+        "body",
+        "list-item",
+        "selected",
+        "indicator",
+        "border",
+        "radius"
       ]
     },
     "token-app-side-nav-body-title-padding-vertical": {
