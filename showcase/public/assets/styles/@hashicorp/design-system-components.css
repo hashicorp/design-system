@@ -206,30 +206,29 @@
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
+  --token-app-side-nav-surface-color: #fafafa;
   --token-app-side-nav-wrapper-border-width: 1px;
-  --token-app-side-nav-wrapper-border-color: var(--token-color-palette-neutral-200);
+  --token-app-side-nav-wrapper-border-color: #dedfe3;
   --token-app-side-nav-wrapper-padding-horizontal: 16px;
   --token-app-side-nav-wrapper-padding-vertical: 16px;
   --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
   --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
   --token-app-side-nav-toggle-button-border-radius: 5px;
-  --token-app-side-nav-header-home-link-padding: 4px;
-  --token-app-side-nav-header-home-link-logo-size: 48px;
-  --token-app-side-nav-header-home-link-logo-size-minimized: 32px;
-  --token-app-side-nav-header-actions-spacing: 8px;
-  --token-app-side-nav-body-list-margin-vertical: 24px;
+  --token-app-side-nav-body-list-margin-vertical: 16px;
   --token-app-side-nav-body-list-item-height: 36px;
   --token-app-side-nav-body-list-item-padding-horizontal: 8px;
   --token-app-side-nav-body-list-item-padding-vertical: 4px;
-  --token-app-side-nav-body-list-item-spacing-vertical: 2px;
-  --token-app-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-app-side-nav-body-list-item-margin-top: 2px;
+  --token-app-side-nav-body-list-item-foreground-color-default: #0c0c0e;
+  --token-app-side-nav-body-list-item-foreground-color-hover: #3b3d45;
+  --token-app-side-nav-body-list-item-surface-color-hover: #f1f2f3;
+  --token-app-side-nav-body-list-item-surface-color-active: #dedfe3;
+  --token-app-side-nav-body-list-item-typography-font-weight: 500;
+  --token-app-side-nav-body-list-item-content-gap: 8px;
   --token-app-side-nav-body-list-item-border-radius: 5px;
-  --token-app-side-nav-color-foreground-primary: var(--token-color-foreground-primary);
-  --token-app-side-nav-color-foreground-strong: var(--token-color-foreground-primary);
-  --token-app-side-nav-color-foreground-faint: var(--token-color-foreground-faint);
-  --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
-  --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
-  --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
+  --token-app-side-nav-body-list-item-selected-foreground-color: #1060ff;
+  --token-app-side-nav-body-list-item-selected-surface-color: #f1f2f3;
+  --token-app-side-nav-body-title-padding-vertical: 9px;
   --token-badge-count-padding-horizontal-small: 8px;
   --token-badge-count-padding-horizontal-medium: 12px;
   --token-badge-count-padding-horizontal-large: 14px;
@@ -2687,7 +2686,7 @@
   flex-direction: column;
   height: 100%;
   color: var(--token-app-side-nav-color-foreground-primary);
-  background: var(--token-app-side-nav-color-surface-primary);
+  background: var(--token-app-side-nav-surface-color);
   border-right: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
 }
 .hds-app-side-nav--is-responsive .hds-app-side-nav__wrapper {
@@ -2750,8 +2749,8 @@
 .hds-app-side-nav__list-title {
   min-height: var(--token-app-side-nav-body-list-item-height);
   margin-top: var(--token-app-side-nav-body-list-margin-vertical);
-  padding: 9px var(--token-app-side-nav-body-list-item-padding-horizontal);
-  color: var(--token-app-side-nav-color-foreground-faint);
+  padding: var(--token-app-side-nav-body-title-padding-vertical) var(--token-app-side-nav-body-list-item-padding-horizontal);
+  color: var(--token-color-foreground-faint);
   overflow-wrap: break-word;
 }
 .hds-app-side-nav__list-wrapper:first-child .hds-app-side-nav__list-item:first-child > .hds-app-side-nav__list-title {
@@ -2768,17 +2767,17 @@
   list-style-type: none;
 }
 .hds-app-side-nav__list-item + .hds-app-side-nav__list-item {
-  margin-top: var(--token-app-side-nav-body-list-item-spacing-vertical);
+  margin-top: var(--token-app-side-nav-body-list-item-margin-top);
 }
 
 .hds-app-side-nav__list-item-link {
   display: flex;
-  gap: var(--token-app-side-nav-body-list-item-content-spacing-horizontal);
+  gap: var(--token-app-side-nav-body-list-item-content-gap);
   align-items: center;
   width: 100%;
   min-height: var(--token-app-side-nav-body-list-item-height);
   padding: var(--token-app-side-nav-body-list-item-padding-vertical) var(--token-app-side-nav-body-list-item-padding-horizontal);
-  color: var(--token-app-side-nav-color-foreground-primary);
+  color: var(--token-app-side-nav-body-list-item-foreground-color-default);
   text-decoration: none;
   background: transparent;
   border-color: transparent;
@@ -2817,7 +2816,7 @@
   z-index: 1;
 }
 .hds-app-side-nav__list-item-link:hover, .hds-app-side-nav__list-item-link.mock-hover {
-  background: var(--token-app-side-nav-color-surface-interactive-hover);
+  background: var(--token-app-side-nav-body-list-item-surface-color-hover);
   border-color: transparent;
 }
 .hds-app-side-nav__list-item-link:hover .hds-app-side-nav__list-item-text,
@@ -2825,14 +2824,14 @@
 .hds-app-side-nav__list-item-link:hover .hds-app-side-nav__list-item-icon-trailing, .hds-app-side-nav__list-item-link.mock-hover .hds-app-side-nav__list-item-text,
 .hds-app-side-nav__list-item-link.mock-hover .hds-app-side-nav__list-item-icon-leading,
 .hds-app-side-nav__list-item-link.mock-hover .hds-app-side-nav__list-item-icon-trailing {
-  color: var(--token-app-side-nav-color-foreground-strong);
+  color: var(--token-app-side-nav-body-list-item-foreground-color-hover);
 }
 .hds-app-side-nav__list-item-link:active, .hds-app-side-nav__list-item-link.mock-active {
-  background: var(--token-color-surface-interactive-active);
+  background: var(--token-app-side-nav-body-list-item-surface-color-active);
 }
 .hds-app-side-nav__list-item-link.active, .hds-app-side-nav__list-item-link.active:hover:focus {
   position: relative;
-  background: var(--token-color-surface-strong);
+  background: var(--token-app-side-nav-body-list-item-selected-surface-color);
 }
 .hds-app-side-nav__list-item-link.active::after, .hds-app-side-nav__list-item-link.active:hover:focus::after {
   position: absolute;
@@ -2849,24 +2848,25 @@
 .hds-app-side-nav__list-item-link.active .hds-app-side-nav__list-item-icon-trailing, .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-text,
 .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-icon-leading,
 .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-icon-trailing {
-  color: var(--token-color-foreground-action);
+  color: var(--token-app-side-nav-body-list-item-selected-foreground-color);
 }
 
 .hds-app-side-nav__list-item-link--back-link:active, .hds-app-side-nav__list-item-link--back-link.mock-active {
-  background: var(--token-app-side-nav-color-surface-primary);
+  background: var(--token-color-surface-faint);
 }
 .hds-app-side-nav__list-item-link--back-link:active .hds-app-side-nav__list-item-text,
 .hds-app-side-nav__list-item-link--back-link:active .hds-app-side-nav__list-item-icon-leading,
 .hds-app-side-nav__list-item-link--back-link:active .hds-app-side-nav__list-item-icon-trailing, .hds-app-side-nav__list-item-link--back-link.mock-active .hds-app-side-nav__list-item-text,
 .hds-app-side-nav__list-item-link--back-link.mock-active .hds-app-side-nav__list-item-icon-leading,
 .hds-app-side-nav__list-item-link--back-link.mock-active .hds-app-side-nav__list-item-icon-trailing {
-  color: var(--token-app-side-nav-color-foreground-primary);
+  color: var(--token-color-foreground-primary);
 }
 
 .hds-app-side-nav__list-item-text {
   min-width: 0;
   max-width: 100%;
-  color: var(--token-color-foreground-strong);
+  color: var(--token-app-side-nav-body-list-item-foreground-color-default);
+  font-weight: var(--token-app-side-nav-body-list-item-typography-font-weight);
   text-align: left;
   overflow-wrap: break-word;
 }
@@ -2884,6 +2884,10 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-app-side-nav__toggle-button {
   position: absolute;
   top: var(--token-app-side-nav-wrapper-padding-vertical);
@@ -2897,7 +2901,7 @@
   padding: 0 4px;
   color: var(--token-color-foreground-primary);
   background: none;
-  background-color: var(--token-app-side-nav-color-surface-primary);
+  background-color: var(--token-app-side-nav-surface-color);
   border: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
   border-left-color: transparent;
   border-top-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
@@ -2916,9 +2920,16 @@
   border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
   border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
   border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-  box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
+  box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-surface-color);
   content: "";
 }
+.hds-mode-cds-g0 .hds-app-side-nav__toggle-button::before,
+.hds-mode-cds-g10 .hds-app-side-nav__toggle-button::before,
+.hds-mode-cds-g90 .hds-app-side-nav__toggle-button::before,
+.hds-mode-cds-g100 .hds-app-side-nav__toggle-button::before {
+  content: none;
+}
+
 .hds-app-side-nav__toggle-button::after {
   position: absolute;
   bottom: calc(var(--token-app-side-nav-toggle-button-border-radius) * -2);
@@ -2929,22 +2940,29 @@
   border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
   border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
   border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-  box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
+  box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-surface-color);
   transform: scaleY(-1);
   content: "";
 }
+.hds-mode-cds-g0 .hds-app-side-nav__toggle-button::after,
+.hds-mode-cds-g10 .hds-app-side-nav__toggle-button::after,
+.hds-mode-cds-g90 .hds-app-side-nav__toggle-button::after,
+.hds-mode-cds-g100 .hds-app-side-nav__toggle-button::after {
+  content: none;
+}
+
 .hds-app-side-nav__toggle-button:hover, .hds-app-side-nav__toggle-button.mock-hover {
   width: 30px;
-  background-color: var(--token-app-side-nav-color-surface-interactive-hover);
+  background-color: var(--token-color-surface-interactive-hover);
 }
 .hds-app-side-nav__toggle-button:hover::before, .hds-app-side-nav__toggle-button:hover::after, .hds-app-side-nav__toggle-button.mock-hover::before, .hds-app-side-nav__toggle-button.mock-hover::after {
-  box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-hover);
+  box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-surface-interactive-hover);
 }
 .hds-app-side-nav__toggle-button:active, .hds-app-side-nav__toggle-button.mock-active {
-  background-color: var(--token-app-side-nav-color-surface-interactive-active);
+  background-color: var(--token-color-palette-neutral-300);
 }
 .hds-app-side-nav__toggle-button:active::before, .hds-app-side-nav__toggle-button:active::after, .hds-app-side-nav__toggle-button.mock-active::before, .hds-app-side-nav__toggle-button.mock-active::after {
-  box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-active);
+  box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-palette-neutral-300);
 }
 .hds-app-side-nav__toggle-button:focus-visible, .hds-app-side-nav__toggle-button.mock-focus {
   border-color: var(--token-color-focus-action-internal);
@@ -3274,7 +3292,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-breadcrumb {
