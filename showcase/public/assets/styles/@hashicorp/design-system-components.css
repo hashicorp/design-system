@@ -10148,27 +10148,15 @@ button.hds-button[href]::after {
   flex: 0 0 auto;
   margin: 0;
   padding: 5px 4px 5px 8px;
-  background-color: var(--token-tag-static-surface-color-default);
   border: none;
   border-radius: inherit;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.hds-tag--is-static {
-  background-color: var(--token-tag-static-surface-color-default);
-  border-color: var(--token-tag-static-border-color);
-}
-
 .hds-tag__dismiss-icon {
   width: 12px;
   height: 12px;
-  color: var(--token-tag-static-icon-color);
-}
-
-.hds-tag__dismiss,
-.hds-tag__text {
-  color: var(--token-tag-static-foreground-color-default);
 }
 
 .hds-tag__text,
@@ -10246,13 +10234,6 @@ button.hds-button[href]::after {
   z-index: 1;
 }
 
-.hds-tag__dismiss:hover, .hds-tag__dismiss.mock-hover {
-  background-color: var(--token-tag-static-surface-color-hover);
-}
-.hds-tag__dismiss:active, .hds-tag__dismiss.mock-active {
-  background-color: var(--token-tag-static-surface-color-active);
-}
-
 .hds-tooltip-button.hds-tag__text {
   cursor: text;
   user-select: text;
@@ -10278,6 +10259,26 @@ button.hds-button[href]::after {
 }
 .hds-tooltip-button.hds-tag__text:focus-visible::before {
   box-shadow: none;
+}
+
+.hds-tag--is-static {
+  background-color: var(--token-tag-static-surface-color-default);
+  border-color: var(--token-tag-static-border-color);
+}
+.hds-tag--is-static .hds-tag__text {
+  color: var(--token-tag-static-foreground-color-default);
+}
+.hds-tag--is-static .hds-tag__dismiss {
+  background-color: var(--token-tag-static-surface-color-default);
+}
+.hds-tag--is-static .hds-tag__dismiss:hover, .hds-tag--is-static .hds-tag__dismiss.mock-hover {
+  background-color: var(--token-tag-static-surface-color-hover);
+}
+.hds-tag--is-static .hds-tag__dismiss:active, .hds-tag--is-static .hds-tag__dismiss.mock-active {
+  background-color: var(--token-tag-static-surface-color-active);
+}
+.hds-tag--is-static .hds-tag__dismiss-icon {
+  color: var(--token-tag-static-icon-color);
 }
 
 .hds-tag--color-primary {

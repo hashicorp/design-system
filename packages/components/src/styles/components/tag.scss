@@ -25,27 +25,15 @@
   flex: 0 0 auto;
   margin: 0; // reset default button margin
   padding: 5px 4px 5px 8px;
-  background-color: var(--token-tag-static-surface-color-default);
   border: none; // reset default button border
   border-radius: inherit;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.hds-tag--is-static {
-  background-color: var(--token-tag-static-surface-color-default);
-  border-color: var(--token-tag-static-border-color);
-}
-
 .hds-tag__dismiss-icon {
   width: 12px;
   height: 12px;
-  color: var(--token-tag-static-icon-color);
-}
-
-.hds-tag__dismiss,
-.hds-tag__text {
-  color: var(--token-tag-static-foreground-color-default);
 }
 
 .hds-tag__text,
@@ -96,18 +84,6 @@
   }
 }
 
-.hds-tag__dismiss {
-  &:hover,
-  &.mock-hover {
-    background-color: var(--token-tag-static-surface-color-hover);
-  }
-
-  &:active,
-  &.mock-active {
-    background-color: var(--token-tag-static-surface-color-active);
-  }
-}
-
 .hds-tooltip-button.hds-tag__text {
   cursor: text;
   user-select: text;
@@ -123,7 +99,36 @@
   }
 }
 
-// COLORS (FOR LINK)
+// STATIC COLORS
+
+.hds-tag--is-static {
+  background-color: var(--token-tag-static-surface-color-default);
+  border-color: var(--token-tag-static-border-color);
+
+  .hds-tag__text {
+    color: var(--token-tag-static-foreground-color-default);
+  }
+
+  .hds-tag__dismiss {
+    background-color: var(--token-tag-static-surface-color-default);
+
+    &:hover,
+    &.mock-hover {
+      background-color: var(--token-tag-static-surface-color-hover);
+    }
+
+    &:active,
+    &.mock-active {
+      background-color: var(--token-tag-static-surface-color-active);
+    }
+  }
+
+  .hds-tag__dismiss-icon {
+    color: var(--token-tag-static-icon-color);
+  }
+}
+
+// LINK COLORS
 
 .hds-tag--color-primary {
   border-color: var(--token-tag-link-border-color-primary);
