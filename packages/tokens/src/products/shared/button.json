@@ -359,6 +359,17 @@
               "cds-g90": "{carbon.themes.g90.textInverse}",
               "cds-g100": "{carbon.themes.g100.textInverse}"
             }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.foreground.disabled}",
+            "$modes": {
+              "default": "{color.foreground.disabled}",
+              "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+              "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+              "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+              "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+            }
           }
         },
         "critical": {
@@ -412,10 +423,10 @@
           "$value": "{color.foreground.disabled}",
           "$modes": {
             "default": "{color.foreground.disabled}",
-            "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
-            "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
-            "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
-            "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+            "cds-g0": "{carbon.themes.white.textOnColorDisabled}",
+            "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
+            "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
+            "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
           }
         }
       }
@@ -760,7 +771,14 @@
           },
           "disabled": {
             "$type": "color",
-            "$value": "{button.border.color.disabled}"
+            "$value": "transparent",
+            "$modes": {
+              "default": "transparent",
+              "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+              "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+              "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+              "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+            }
           }
         },
         "critical": {
