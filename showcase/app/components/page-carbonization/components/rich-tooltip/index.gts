@@ -175,7 +175,7 @@ const RichTooltipCarbonizationIndex: TemplateOnlyComponent = <template>
               <span slot="body-text">Generic content</span>
             </cds-toggletip>
           {{else}}
-            <pre>TODO: add static image here</pre>
+            <pre>TODO: static image here</pre>
           {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>

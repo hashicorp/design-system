@@ -53,7 +53,7 @@ const DismissButtonCarbonizationIndex: TemplateOnlyComponent = <template>
         <HdsDismissButton mock-state-value="hover" />
       </:theming>
       <:reference>
-        <pre>TODO: add static image here</pre>
+        <pre>TODO: static image here</pre>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -64,7 +64,7 @@ const DismissButtonCarbonizationIndex: TemplateOnlyComponent = <template>
         <HdsDismissButton mock-state-value="active" />
       </:theming>
       <:reference>
-        <pre>TODO: add static image here</pre>
+        <pre>TODO: static image here</pre>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -75,7 +75,7 @@ const DismissButtonCarbonizationIndex: TemplateOnlyComponent = <template>
         <HdsDismissButton mock-state-value="focus" />
       </:theming>
       <:reference>
-        <pre>TODO: add static image here</pre>
+        <pre>TODO: static image here</pre>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
