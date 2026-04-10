@@ -2184,7 +2184,7 @@
   left: calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
   width: 4px;
   background: var(--token-color-foreground-action);
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 var(--token-app-side-nav-body-list-item-selected-indicator-border-radius) var(--token-app-side-nav-body-list-item-selected-indicator-border-radius) 0;
   content: "";
 }
 .hds-app-side-nav__list-item-link.active .hds-app-side-nav__list-item-text,
