@@ -15750,7 +15750,7 @@
     ]
   },
   {
-    "key": "{tabs.indicator.transition.function}",
+    "key": "{tabs.indicator.transition.timing-function}",
     "$type": "cubicBezier",
     "$value": "cubic-bezier(0.5, 1, 0.89, 1)",
     "original": {
@@ -15761,9 +15761,9 @@
         0.89,
         1
       ],
-      "key": "{tabs.indicator.transition.function}"
+      "key": "{tabs.indicator.transition.timing-function}"
     },
-    "name": "token-tabs-indicator-transition-function",
+    "name": "token-tabs-indicator-transition-timing-function",
     "attributes": {
       "category": "tabs"
     },
@@ -15771,7 +15771,7 @@
       "tabs",
       "indicator",
       "transition",
-      "function"
+      "timing-function"
     ]
   },
   {
@@ -16078,7 +16078,7 @@
     ]
   },
   {
-    "key": "{tooltip.transition.function}",
+    "key": "{tooltip.transition.timing-function}",
     "$type": "cubicBezier",
     "$value": "cubic-bezier(0.54, 1.5, 0.38, 1.11)",
     "original": {
@@ -16089,16 +16089,16 @@
         0.38,
         1.11
       ],
-      "key": "{tooltip.transition.function}"
+      "key": "{tooltip.transition.timing-function}"
     },
-    "name": "token-tooltip-transition-function",
+    "name": "token-tooltip-transition-timing-function",
     "attributes": {
       "category": "tooltip"
     },
     "path": [
       "tooltip",
       "transition",
-      "function"
+      "timing-function"
     ]
   },
   {
