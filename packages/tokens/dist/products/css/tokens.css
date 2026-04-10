@@ -377,9 +377,9 @@
   --token-dialog-primitive-padding-horizontal: 24px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
-  --token-dialog-primitive-header-tagline-font-size: 0.8125rem;
-  --token-dialog-primitive-header-tagline-line-height: 1.3846;
-  --token-dialog-primitive-header-title-font-weight: 600;
+  --token-dialog-primitive-header-tagline-typography-font-size: 0.8125rem;
+  --token-dialog-primitive-header-tagline-typography-line-height: 1.3846;
+  --token-dialog-primitive-header-title-typography-font-weight: 600;
   --token-dismiss-button-size: 24px;
   --token-dismiss-button-foreground-color-default: #656a76;
   --token-dismiss-button-foreground-color-active: #0c0c0e;

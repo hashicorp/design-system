@@ -11548,7 +11548,7 @@
     ]
   },
   {
-    "key": "{dialog-primitive.header.tagline.font-size}",
+    "key": "{dialog-primitive.header.tagline.typography.font-size}",
     "$type": "font-size",
     "$value": "0.75rem",
     "$modes": {
@@ -11574,9 +11574,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
       },
-      "key": "{dialog-primitive.header.tagline.font-size}"
+      "key": "{dialog-primitive.header.tagline.typography.font-size}"
     },
-    "name": "token-dialog-primitive-header-tagline-font-size",
+    "name": "token-dialog-primitive-header-tagline-typography-font-size",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -11584,11 +11584,12 @@
       "dialog-primitive",
       "header",
       "tagline",
+      "typography",
       "font-size"
     ]
   },
   {
-    "key": "{dialog-primitive.header.tagline.line-height}",
+    "key": "{dialog-primitive.header.tagline.typography.line-height}",
     "$type": "number",
     "$value": 1.33333,
     "$modes": {
@@ -11614,9 +11615,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline"
       },
-      "key": "{dialog-primitive.header.tagline.line-height}"
+      "key": "{dialog-primitive.header.tagline.typography.line-height}"
     },
-    "name": "token-dialog-primitive-header-tagline-line-height",
+    "name": "token-dialog-primitive-header-tagline-typography-line-height",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -11624,11 +11625,12 @@
       "dialog-primitive",
       "header",
       "tagline",
+      "typography",
       "line-height"
     ]
   },
   {
-    "key": "{dialog-primitive.header.title.font-weight}",
+    "key": "{dialog-primitive.header.title.typography.font-weight}",
     "$type": "font-weight",
     "$value": 400,
     "$modes": {
@@ -11654,9 +11656,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
       },
-      "key": "{dialog-primitive.header.title.font-weight}"
+      "key": "{dialog-primitive.header.title.typography.font-weight}"
     },
-    "name": "token-dialog-primitive-header-title-font-weight",
+    "name": "token-dialog-primitive-header-title-typography-font-weight",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -11664,6 +11666,7 @@
       "dialog-primitive",
       "header",
       "title",
+      "typography",
       "font-weight"
     ]
   },
