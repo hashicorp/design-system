@@ -20,6 +20,7 @@
   --token-app-side-nav-body-list-item-selected-foreground-color: var(
     --token-color-foreground-action
   );
+  --token-app-side-nav-body-list-item-selected-indicator-border-radius: 2px;
   --token-app-side-nav-body-list-item-selected-surface-color: var(
     --token-color-surface-strong
   );
@@ -738,6 +739,7 @@
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
     --token-app-side-nav-body-list-item-selected-foreground-color: #525252;
+    --token-app-side-nav-body-list-item-selected-indicator-border-radius: 0px;
     --token-app-side-nav-body-list-item-selected-surface-color: rgba(
       141,
       141,
@@ -1203,6 +1205,7 @@
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
     --token-app-side-nav-body-list-item-selected-foreground-color: #c6c6c6;
+    --token-app-side-nav-body-list-item-selected-indicator-border-radius: 0px;
     --token-app-side-nav-body-list-item-selected-surface-color: rgba(
       141,
       141,
@@ -1672,6 +1675,7 @@
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
   --token-app-side-nav-body-list-item-selected-foreground-color: #525252;
+  --token-app-side-nav-body-list-item-selected-indicator-border-radius: 0px;
   --token-app-side-nav-body-list-item-selected-surface-color: rgba(
     141,
     141,
@@ -2130,6 +2134,7 @@
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
   --token-app-side-nav-body-list-item-selected-foreground-color: #c6c6c6;
+  --token-app-side-nav-body-list-item-selected-indicator-border-radius: 0px;
   --token-app-side-nav-body-list-item-selected-surface-color: rgba(
     141,
     141,
