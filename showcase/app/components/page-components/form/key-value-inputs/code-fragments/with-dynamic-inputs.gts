@@ -303,6 +303,7 @@ export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmen
                   />
                 {{else if (eq R.rowData.key "select")}}
                   <F.SuperSelectMultiple
+                    {{! @glint-expect-error - ember-power-select element defined as HTMLElement}}
                     name="value-{{R.rowIndex}}"
                     @options={{SUPERSELECT_OPTIONS}}
                     @selected={{R.rowData.value}}
