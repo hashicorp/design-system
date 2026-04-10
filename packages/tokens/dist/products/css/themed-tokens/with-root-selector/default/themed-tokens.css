@@ -315,6 +315,8 @@
   --token-tabs-tab-selected-foreground-color-default: var(--token-color-foreground-action);
   --token-tabs-tab-selected-foreground-color-hover: var(--token-color-foreground-action-hover);
   --token-tag-border-radius: 50px;
+  --token-tag-dismissible-max-width: 160px;
+  --token-tag-dismissible-padding-left: 6px;
   --token-tag-link-border-color-primary: var(--token-color-border-strong);
   --token-tag-link-border-color-secondary: var(--token-color-border-strong);
   --token-tag-link-foreground-color-primary-active: var(--token-color-foreground-action-active);

@@ -315,6 +315,8 @@
   --token-tabs-tab-selected-foreground-color-default: #f4f4f4;
   --token-tabs-tab-selected-foreground-color-hover: #f4f4f4;
   --token-tag-border-radius: 16px;
+  --token-tag-dismissible-max-width: 204px;
+  --token-tag-dismissible-padding-left: 4px;
   --token-tag-link-border-color-primary: #4589ff;
   --token-tag-link-border-color-secondary: #8d8d8d;
   --token-tag-link-foreground-color-primary-active: #d0e2ff;

@@ -538,6 +538,9 @@
   --token-tag-typography-font-size: 0.8125rem;
   --token-tag-typography-font-weight: 500;
   --token-tag-typography-line-height: 1.2308;
+  --token-tag-dismissible-max-width: 160px;
+  --token-tag-dismissible-padding-right: 8px;
+  --token-tag-dismissible-padding-left: 6px;
   --token-tag-link-border-color-primary: #3b3d4566;
   --token-tag-link-border-color-secondary: #3b3d4566;
   --token-tag-link-surface-color-primary-default: #ffffff;

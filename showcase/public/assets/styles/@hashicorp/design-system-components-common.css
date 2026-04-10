@@ -9569,8 +9569,8 @@ button.hds-button[href]::after {
 
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
-  max-width: calc(var(--token-tag-max-width) - 6px);
-  padding: var(--token-tag-padding-top) 8px var(--token-tag-padding-bottom) 6px;
+  max-width: var(--token-tag-dismissible-max-width);
+  padding: var(--token-tag-padding-top) var(--token-tag-dismissible-padding-right) var(--token-tag-padding-bottom) var(--token-tag-dismissible-padding-left);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -9665,13 +9665,18 @@ button.hds-button[href]::after {
 .hds-tag--color-primary {
   border-color: var(--token-tag-link-border-color-primary);
 }
-.hds-tag--color-primary .hds-tag__link, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss {
+.hds-tag--color-primary .hds-tag__link,
+.hds-tag--color-primary .hds-tag__dismiss {
   background-color: var(--token-tag-link-surface-color-primary-default);
 }
-.hds-tag--color-primary .hds-tag__link:hover, .hds-tag--color-primary .hds-tag__link.mock-hover, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss:hover, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss.mock-hover {
+.hds-tag--color-primary .hds-tag__link:hover, .hds-tag--color-primary .hds-tag__link.mock-hover,
+.hds-tag--color-primary .hds-tag__dismiss:hover,
+.hds-tag--color-primary .hds-tag__dismiss.mock-hover {
   background-color: var(--token-tag-link-surface-color-primary-hover);
 }
-.hds-tag--color-primary .hds-tag__link:active, .hds-tag--color-primary .hds-tag__link.mock-active, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss:active, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss.mock-active {
+.hds-tag--color-primary .hds-tag__link:active, .hds-tag--color-primary .hds-tag__link.mock-active,
+.hds-tag--color-primary .hds-tag__dismiss:active,
+.hds-tag--color-primary .hds-tag__dismiss.mock-active {
   background-color: var(--token-tag-link-surface-color-primary-active);
 }
 .hds-tag--color-primary .hds-tag__link {
@@ -9690,13 +9695,18 @@ button.hds-button[href]::after {
 .hds-tag--color-secondary {
   border-color: var(--token-tag-link-border-color-secondary);
 }
-.hds-tag--color-secondary .hds-tag__link, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss {
+.hds-tag--color-secondary .hds-tag__link,
+.hds-tag--color-secondary .hds-tag__dismiss {
   background-color: var(--token-tag-link-surface-color-secondary-default);
 }
-.hds-tag--color-secondary .hds-tag__link:hover, .hds-tag--color-secondary .hds-tag__link.mock-hover, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss:hover, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss.mock-hover {
+.hds-tag--color-secondary .hds-tag__link:hover, .hds-tag--color-secondary .hds-tag__link.mock-hover,
+.hds-tag--color-secondary .hds-tag__dismiss:hover,
+.hds-tag--color-secondary .hds-tag__dismiss.mock-hover {
   background-color: var(--token-tag-link-surface-color-secondary-hover);
 }
-.hds-tag--color-secondary .hds-tag__link:active, .hds-tag--color-secondary .hds-tag__link.mock-active, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss:active, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss.mock-active {
+.hds-tag--color-secondary .hds-tag__link:active, .hds-tag--color-secondary .hds-tag__link.mock-active,
+.hds-tag--color-secondary .hds-tag__dismiss:active,
+.hds-tag--color-secondary .hds-tag__dismiss.mock-active {
   background-color: var(--token-tag-link-surface-color-secondary-active);
 }
 .hds-tag--color-secondary .hds-tag__link {

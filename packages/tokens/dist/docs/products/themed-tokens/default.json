@@ -16123,6 +16123,99 @@
     ]
   },
   {
+    "key": "{tag.dismissible.max-width}",
+    "$type": "dimension",
+    "$value": "160px",
+    "unit": "px",
+    "$modes": {
+      "default": "160",
+      "cds-g0": "204",
+      "cds-g10": "204",
+      "cds-g90": "204",
+      "cds-g100": "204"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "160",
+      "unit": "px",
+      "$modes": {
+        "default": "160",
+        "cds-g0": "204",
+        "cds-g10": "204",
+        "cds-g90": "204",
+        "cds-g100": "204"
+      },
+      "key": "{tag.dismissible.max-width}"
+    },
+    "name": "token-tag-dismissible-max-width",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "dismissible",
+      "max-width"
+    ]
+  },
+  {
+    "key": "{tag.dismissible.padding.right}",
+    "$type": "dimension",
+    "$value": "8px",
+    "unit": "px",
+    "original": {
+      "$type": "dimension",
+      "$value": "8",
+      "unit": "px",
+      "key": "{tag.dismissible.padding.right}"
+    },
+    "name": "token-tag-dismissible-padding-right",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "dismissible",
+      "padding",
+      "right"
+    ]
+  },
+  {
+    "key": "{tag.dismissible.padding.left}",
+    "$type": "dimension",
+    "$value": "6px",
+    "unit": "px",
+    "$modes": {
+      "default": "6",
+      "cds-g0": "4",
+      "cds-g10": "4",
+      "cds-g90": "4",
+      "cds-g100": "4"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "6",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "4",
+        "cds-g10": "4",
+        "cds-g90": "4",
+        "cds-g100": "4"
+      },
+      "key": "{tag.dismissible.padding.left}"
+    },
+    "name": "token-tag-dismissible-padding-left",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "dismissible",
+      "padding",
+      "left"
+    ]
+  },
+  {
     "key": "{tag.link.border.color.primary}",
     "$type": "color",
     "$value": "#3b3d4566",

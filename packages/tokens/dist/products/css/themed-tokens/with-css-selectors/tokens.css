@@ -319,6 +319,8 @@
   --token-tabs-tab-selected-foreground-color-default: #161616;
   --token-tabs-tab-selected-foreground-color-hover: #161616;
   --token-tag-border-radius: 16px;
+  --token-tag-dismissible-max-width: 204px;
+  --token-tag-dismissible-padding-left: 4px;
   --token-tag-link-border-color-primary: #78a9ff;
   --token-tag-link-border-color-secondary: #a8a8a8;
   --token-tag-link-foreground-color-primary-active: #0043ce;
@@ -751,6 +753,8 @@
     --token-tabs-tab-selected-foreground-color-default: #161616;
     --token-tabs-tab-selected-foreground-color-hover: #161616;
     --token-tag-border-radius: 16px;
+    --token-tag-dismissible-max-width: 204px;
+    --token-tag-dismissible-padding-left: 4px;
     --token-tag-link-border-color-primary: #78a9ff;
     --token-tag-link-border-color-secondary: #a8a8a8;
     --token-tag-link-foreground-color-primary-active: #0043ce;
@@ -1184,6 +1188,8 @@
     --token-tabs-tab-selected-foreground-color-default: #f4f4f4;
     --token-tabs-tab-selected-foreground-color-hover: #f4f4f4;
     --token-tag-border-radius: 16px;
+    --token-tag-dismissible-max-width: 204px;
+    --token-tag-dismissible-padding-left: 4px;
     --token-tag-link-border-color-primary: #4589ff;
     --token-tag-link-border-color-secondary: #8d8d8d;
     --token-tag-link-foreground-color-primary-active: #d0e2ff;
@@ -1611,6 +1617,8 @@
   --token-tabs-tab-selected-foreground-color-default: #161616;
   --token-tabs-tab-selected-foreground-color-hover: #161616;
   --token-tag-border-radius: 16px;
+  --token-tag-dismissible-max-width: 204px;
+  --token-tag-dismissible-padding-left: 4px;
   --token-tag-link-border-color-primary: #78a9ff;
   --token-tag-link-border-color-secondary: #a8a8a8;
   --token-tag-link-foreground-color-primary-active: #0043ce;
@@ -2037,6 +2045,8 @@
   --token-tabs-tab-selected-foreground-color-default: #f4f4f4;
   --token-tabs-tab-selected-foreground-color-hover: #f4f4f4;
   --token-tag-border-radius: 16px;
+  --token-tag-dismissible-max-width: 204px;
+  --token-tag-dismissible-padding-left: 4px;
   --token-tag-link-border-color-primary: #4589ff;
   --token-tag-link-border-color-secondary: #8d8d8d;
   --token-tag-link-foreground-color-primary-active: #d0e2ff;
@@ -2450,6 +2460,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-tabs-tab-focus-inset: 6px;
   --token-tabs-tab-gutter: 6px;
   --token-tabs-tab-padding-vertical: 0px;
+  --token-tag-dismissible-padding-right: 8px;
   --token-tag-padding-top: 3px;
   --token-tooltip-focus-offset: -2px;
   --token-tooltip-transition-timing-function: cubic-bezier(

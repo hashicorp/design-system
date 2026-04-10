@@ -39,7 +39,7 @@
 .hds-tag__text,
 .hds-tag__link {
   flex: 1 0 0;
-  max-width: var(--token-tag-max-width); // account for excess horizontal padding of text in non-dismissible variant
+  max-width: var(--token-tag-max-width);
   padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom)
     var(--token-tag-padding-left);
   border-radius: inherit;
@@ -65,8 +65,9 @@
 
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
-  max-width: calc(var(--token-tag-max-width) - 6px);
-  padding: var(--token-tag-padding-top) 8px var(--token-tag-padding-bottom) 6px;
+  max-width: var(--token-tag-dismissible-max-width);
+  padding: var(--token-tag-padding-top) var(--token-tag-dismissible-padding-right) var(--token-tag-padding-bottom)
+    var(--token-tag-dismissible-padding-left);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -134,7 +135,7 @@
   border-color: var(--token-tag-link-border-color-primary);
 
   .hds-tag__link,
-  &:has(.hds-tag__link) .hds-tag__dismiss {
+  .hds-tag__dismiss {
     background-color: var(--token-tag-link-surface-color-primary-default);
 
     &:hover,
@@ -171,7 +172,7 @@
   border-color: var(--token-tag-link-border-color-secondary);
 
   .hds-tag__link,
-  &:has(.hds-tag__link) .hds-tag__dismiss {
+  .hds-tag__dismiss {
     background-color: var(--token-tag-link-surface-color-secondary-default);
 
     &:hover,
