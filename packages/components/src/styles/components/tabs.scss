@@ -146,7 +146,7 @@ $hds-tabs-sizes: ("medium", "large");
   }
 
   @media screen and (prefers-reduced-motion: no-preference) {
-    transition-timing-function: var(--token-tabs-indicator-transition-function);
+    transition-timing-function: var(--token-tabs-indicator-transition-timing-function);
     transition-duration: var(--token-tabs-indicator-transition-duration);
     transition-property: left, width;
   }

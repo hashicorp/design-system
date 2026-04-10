@@ -71,7 +71,7 @@
   }
 
   &[data-inertia][data-state="visible"] {
-    transition-timing-function: var(--token-tooltip-transition-function);
+    transition-timing-function: var(--token-tooltip-transition-timing-function);
   }
 
   .tippy-content {
