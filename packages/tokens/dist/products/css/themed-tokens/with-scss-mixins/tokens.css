@@ -4,73 +4,38 @@
 
 @mixin hds-theme-default() {
   :root {
-    --token-alert-actions-margin-top: 16px;
-    --token-alert-border-color-critical: var(--token-color-border-critical);
-    --token-alert-border-color-highlight: var(--token-color-border-highlight);
-    --token-alert-border-color-neutral: var(--token-color-border-strong);
-    --token-alert-border-color-success: var(--token-color-border-success);
-    --token-alert-border-color-warning: var(--token-color-border-warning);
-    --token-alert-content-gap: 4px;
-    --token-alert-dismiss-margin-left: 12px;
-    --token-alert-icon-color-critical: var(
-      --token-color-foreground-critical-on-surface
-    );
-    --token-alert-icon-color-highlight: var(
-      --token-color-foreground-highlight-on-surface
-    );
-    --token-alert-icon-color-neutral: var(--token-color-foreground-faint);
-    --token-alert-icon-color-success: var(
-      --token-color-foreground-success-on-surface
-    );
-    --token-alert-icon-color-warning: var(
-      --token-color-foreground-warning-on-surface
-    );
-    --token-alert-icon-margin-right: 12px;
-    --token-alert-inline-border-left-color-critical: var(
-      --token-color-border-critical
-    );
-    --token-alert-inline-border-left-color-highlight: var(
-      --token-color-border-highlight
-    );
-    --token-alert-inline-border-left-color-neutral: var(
-      --token-color-border-strong
-    );
-    --token-alert-inline-border-left-color-success: var(
-      --token-color-border-success
-    );
-    --token-alert-inline-border-left-color-warning: var(
-      --token-color-border-warning
-    );
-    --token-alert-inline-border-left-width: 1px;
-    --token-alert-inline-padding-horizontal: 16px;
-    --token-alert-inline-padding-vertical: 16px;
-    --token-alert-page-padding-vertical: 16px;
-    --token-alert-surface-color-critical: var(--token-color-surface-critical);
-    --token-alert-surface-color-highlight: var(--token-color-surface-highlight);
-    --token-alert-surface-color-neutral: var(--token-color-surface-faint);
-    --token-alert-surface-color-success: var(--token-color-surface-success);
-    --token-alert-surface-color-warning: var(--token-color-surface-warning);
-    --token-alert-title-foreground-color-critical: var(
-      --token-color-foreground-critical-on-surface
-    );
-    --token-alert-title-foreground-color-highlight: var(
-      --token-color-foreground-highlight-on-surface
-    );
-    --token-alert-title-foreground-color-neutral: var(
-      --token-color-foreground-primary
-    );
-    --token-alert-title-foreground-color-success: var(
-      --token-color-foreground-success-on-surface
-    );
-    --token-alert-title-foreground-color-warning: var(
-      --token-color-foreground-warning-on-surface
-    );
-    --token-alert-typography-line-height: var(
-      --token-typography-body-200-line-height
-    );
-    --token-app-footer-link-focus-outline-color: var(
+    --token-app-footer-focus-color-action-internal: var(
       --token-color-focus-action-internal
     );
+    --token-app-side-nav-body-list-item-border-radius: 5px;
+    --token-app-side-nav-body-list-item-foreground-color-default: var(
+      --token-color-foreground-strong
+    );
+    --token-app-side-nav-body-list-item-foreground-color-hover: var(
+      --token-color-foreground-primary
+    );
+    --token-app-side-nav-body-list-item-margin-top: 2px;
+    --token-app-side-nav-body-list-item-padding-horizontal: 8px;
+    --token-app-side-nav-body-list-item-padding-vertical: 4px;
+    --token-app-side-nav-body-list-item-selected-foreground-color: var(
+      --token-color-foreground-action
+    );
+    --token-app-side-nav-body-list-item-selected-surface-color: var(
+      --token-color-surface-strong
+    );
+    --token-app-side-nav-body-list-item-surface-color-active: var(
+      --token-color-surface-interactive-active
+    );
+    --token-app-side-nav-body-list-item-surface-color-hover: var(
+      --token-color-surface-interactive-hover
+    );
+    --token-app-side-nav-body-list-item-typography-font-weight: var(
+      --token-typography-font-weight-medium
+    );
+    --token-app-side-nav-body-title-padding-vertical: 9px;
+    --token-app-side-nav-surface-color: var(--token-color-surface-faint);
+    --token-app-side-nav-toggle-button-border-radius: 5px;
+    --token-app-side-nav-wrapper-padding-horizontal: 16px;
     --token-badge-border-radius: var(--token-border-radius-small);
     --token-badge-count-padding-horizontal-large: 14px;
     --token-badge-count-padding-horizontal-medium: 12px;
@@ -376,8 +341,8 @@
     --token-code-block-button-surface-color-hover: var(
       --token-code-block-surface-color-primary
     );
-    --token-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #2b89ff;
     --token-code-block-foreground-color-faint: #b2b6bd;
     --token-code-block-foreground-color-primary: #d5d7db;
@@ -641,24 +606,6 @@
     );
     --token-pagination-nav-indicator-height: 2px;
     --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
-    --token-reveal-foreground-color-active: var(
-      --token-button-foreground-color-tertiary-active
-    );
-    --token-reveal-foreground-color-default: var(
-      --token-button-foreground-color-tertiary-default
-    );
-    --token-reveal-foreground-color-hover: var(
-      --token-button-foreground-color-tertiary-hover
-    );
-    --token-reveal-surface-color-active: var(
-      --token-button-surface-color-tertiary-active
-    );
-    --token-reveal-surface-color-focus: var(
-      --token-button-surface-color-tertiary-focus
-    );
-    --token-reveal-surface-color-hover: var(
-      --token-button-surface-color-tertiary-hover
-    );
     --token-rich-tooltip-bubble-arrow-size: 20px;
     --token-rich-tooltip-bubble-border-color: #656a7633;
     --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
@@ -716,68 +663,6 @@
     --token-tabs-tab-selected-foreground-color-hover: var(
       --token-color-foreground-action-hover
     );
-    --token-tag-border-radius: 50px;
-    --token-tag-dismissible-max-width: 160px;
-    --token-tag-dismissible-padding-left: 6px;
-    --token-tag-link-border-color-primary: var(--token-color-border-strong);
-    --token-tag-link-border-color-secondary: var(--token-color-border-strong);
-    --token-tag-link-foreground-color-primary-active: var(
-      --token-color-foreground-action-active
-    );
-    --token-tag-link-foreground-color-primary-default: var(
-      --token-color-foreground-action
-    );
-    --token-tag-link-foreground-color-primary-hover: var(
-      --token-color-foreground-action-hover
-    );
-    --token-tag-link-foreground-color-secondary-default: var(
-      --token-color-foreground-strong
-    );
-    --token-tag-link-icon-color-primary: var(--token-color-foreground-primary);
-    --token-tag-link-icon-color-secondary: var(
-      --token-color-foreground-primary
-    );
-    --token-tag-link-surface-color-primary-active: var(
-      --token-color-surface-interactive-active
-    );
-    --token-tag-link-surface-color-primary-default: var(
-      --token-color-surface-interactive
-    );
-    --token-tag-link-surface-color-primary-hover: var(
-      --token-color-surface-interactive-hover
-    );
-    --token-tag-link-surface-color-secondary-active: var(
-      --token-color-surface-interactive-active
-    );
-    --token-tag-link-surface-color-secondary-default: var(
-      --token-color-surface-interactive
-    );
-    --token-tag-link-surface-color-secondary-hover: var(
-      --token-color-surface-interactive-hover
-    );
-    --token-tag-max-width: 166px;
-    --token-tag-padding-bottom: 5px;
-    --token-tag-padding-left: 10px;
-    --token-tag-padding-right: 10px;
-    --token-tag-static-border-color: var(--token-color-border-strong);
-    --token-tag-static-foreground-color-default: var(
-      --token-color-foreground-primary
-    );
-    --token-tag-static-icon-color: var(--token-color-foreground-primary);
-    --token-tag-static-surface-color-active: var(
-      --token-color-surface-interactive-active
-    );
-    --token-tag-static-surface-color-default: var(
-      --token-color-surface-interactive
-    );
-    --token-tag-static-surface-color-hover: var(
-      --token-color-surface-interactive-hover
-    );
-    --token-tag-typography-font-size: 0.8125rem;
-    --token-tag-typography-font-weight: var(
-      --token-typography-font-weight-medium
-    );
-    --token-tag-typography-line-height: 1.2308;
     --token-tooltip-border-radius: var(--token-border-radius-small);
     --token-tooltip-caret-clip-path: path(
       "M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z"
@@ -864,41 +749,37 @@
 
 @mixin hds-theme-light() {
   :root {
-    --token-alert-actions-margin-top: 15px;
-    --token-alert-border-color-critical: #da1e2866;
-    --token-alert-border-color-highlight: #0043ce66;
-    --token-alert-border-color-neutral: #8d8d8d66;
-    --token-alert-border-color-success: #24a14866;
-    --token-alert-border-color-warning: #f1c21b66;
-    --token-alert-content-gap: 0px;
-    --token-alert-dismiss-margin-left: 14px;
-    --token-alert-icon-color-critical: #da1e28;
-    --token-alert-icon-color-highlight: #0043ce;
-    --token-alert-icon-color-neutral: #6f6f6f;
-    --token-alert-icon-color-success: #24a148;
-    --token-alert-icon-color-warning: #f1c21b;
-    --token-alert-icon-margin-right: 16px;
-    --token-alert-inline-border-left-color-critical: #da1e28;
-    --token-alert-inline-border-left-color-highlight: #0043ce;
-    --token-alert-inline-border-left-color-neutral: #6f6f6f;
-    --token-alert-inline-border-left-color-success: #24a148;
-    --token-alert-inline-border-left-color-warning: #f1c21b;
-    --token-alert-inline-border-left-width: 3px;
-    --token-alert-inline-padding-horizontal: 13px;
-    --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-vertical: 15px;
-    --token-alert-surface-color-critical: #fff1f1;
-    --token-alert-surface-color-highlight: #edf5ff;
-    --token-alert-surface-color-neutral: #f4f4f4;
-    --token-alert-surface-color-success: #defbe6;
-    --token-alert-surface-color-warning: #fcf4d6;
-    --token-alert-title-foreground-color-critical: #161616;
-    --token-alert-title-foreground-color-highlight: #161616;
-    --token-alert-title-foreground-color-neutral: #161616;
-    --token-alert-title-foreground-color-success: #161616;
-    --token-alert-title-foreground-color-warning: #161616;
-    --token-alert-typography-line-height: 1.28572;
-    --token-app-footer-link-focus-outline-color: #0f62fe;
+    --token-app-footer-focus-color-action-internal: #0f62fe;
+    --token-app-side-nav-body-list-item-border-radius: 0px;
+    --token-app-side-nav-body-list-item-foreground-color-default: #525252;
+    --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
+    --token-app-side-nav-body-list-item-margin-top: 0px;
+    --token-app-side-nav-body-list-item-padding-horizontal: 16px;
+    --token-app-side-nav-body-list-item-padding-vertical: 7px;
+    --token-app-side-nav-body-list-item-selected-foreground-color: #525252;
+    --token-app-side-nav-body-list-item-selected-surface-color: rgba(
+      141,
+      141,
+      141,
+      0.2
+    );
+    --token-app-side-nav-body-list-item-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.5
+    );
+    --token-app-side-nav-body-list-item-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.12
+    );
+    --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-title-padding-vertical: 7px;
+    --token-app-side-nav-surface-color: #ffffff;
+    --token-app-side-nav-toggle-button-border-radius: 0px;
+    --token-app-side-nav-wrapper-padding-horizontal: 0px;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1035,8 +916,8 @@
     --token-code-block-button-surface-color-active: #c6c6c6;
     --token-code-block-button-surface-color-default: #e8e8e8;
     --token-code-block-button-surface-color-hover: #c6c6c6;
-    --token-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #0f62fe;
     --token-code-block-foreground-color-faint: #525252;
     --token-code-block-foreground-color-primary: #161616;
@@ -1217,12 +1098,6 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
-    --token-reveal-foreground-color-active: #0043ce;
-    --token-reveal-foreground-color-default: #0f62fe;
-    --token-reveal-foreground-color-hover: #0043ce;
-    --token-reveal-surface-color-active: rgba(141, 141, 141, 0.5);
-    --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
-    --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1254,36 +1129,6 @@
     --token-tabs-tab-selected-border-color-hover: #0f62fe;
     --token-tabs-tab-selected-foreground-color-default: #161616;
     --token-tabs-tab-selected-foreground-color-hover: #161616;
-    --token-tag-border-radius: 16px;
-    --token-tag-dismissible-max-width: 204px;
-    --token-tag-dismissible-padding-left: 4px;
-    --token-tag-link-border-color-primary: #78a9ff;
-    --token-tag-link-border-color-secondary: #a8a8a8;
-    --token-tag-link-foreground-color-primary-active: #0043ce;
-    --token-tag-link-foreground-color-primary-default: #0043ce;
-    --token-tag-link-foreground-color-primary-hover: #0043ce;
-    --token-tag-link-foreground-color-secondary-default: #161616;
-    --token-tag-link-icon-color-primary: #0043ce;
-    --token-tag-link-icon-color-secondary: #161616;
-    --token-tag-link-surface-color-primary-active: #b8d3ff;
-    --token-tag-link-surface-color-primary-default: #d0e2ff;
-    --token-tag-link-surface-color-primary-hover: #b8d3ff;
-    --token-tag-link-surface-color-secondary-active: #d1d1d1;
-    --token-tag-link-surface-color-secondary-default: #e0e0e0;
-    --token-tag-link-surface-color-secondary-hover: #d1d1d1;
-    --token-tag-max-width: 208px;
-    --token-tag-padding-bottom: 3px;
-    --token-tag-padding-left: 8px;
-    --token-tag-padding-right: 8px;
-    --token-tag-static-border-color: rgba(0, 0, 0, 0);
-    --token-tag-static-foreground-color-default: #161616;
-    --token-tag-static-icon-color: #161616;
-    --token-tag-static-surface-color-active: #d1d1d1;
-    --token-tag-static-surface-color-default: #e0e0e0;
-    --token-tag-static-surface-color-hover: #d1d1d1;
-    --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-font-weight: 400;
-    --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1369,41 +1214,37 @@
 
 @mixin hds-theme-dark() {
   :root {
-    --token-alert-actions-margin-top: 15px;
-    --token-alert-border-color-critical: #da1e2866;
-    --token-alert-border-color-highlight: #0043ce66;
-    --token-alert-border-color-neutral: #8d8d8d66;
-    --token-alert-border-color-success: #24a14866;
-    --token-alert-border-color-warning: #f1c21b66;
-    --token-alert-content-gap: 0px;
-    --token-alert-dismiss-margin-left: 14px;
-    --token-alert-icon-color-critical: #fa4d56;
-    --token-alert-icon-color-highlight: #4589ff;
-    --token-alert-icon-color-neutral: #8d8d8d;
-    --token-alert-icon-color-success: #42be65;
-    --token-alert-icon-color-warning: #f1c21b;
-    --token-alert-icon-margin-right: 16px;
-    --token-alert-inline-border-left-color-critical: #fa4d56;
-    --token-alert-inline-border-left-color-highlight: #4589ff;
-    --token-alert-inline-border-left-color-neutral: #8d8d8d;
-    --token-alert-inline-border-left-color-success: #42be65;
-    --token-alert-inline-border-left-color-warning: #f1c21b;
-    --token-alert-inline-border-left-width: 3px;
-    --token-alert-inline-padding-horizontal: 13px;
-    --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-vertical: 15px;
-    --token-alert-surface-color-critical: #262626;
-    --token-alert-surface-color-highlight: #262626;
-    --token-alert-surface-color-neutral: #262626;
-    --token-alert-surface-color-success: #262626;
-    --token-alert-surface-color-warning: #262626;
-    --token-alert-title-foreground-color-critical: #f4f4f4;
-    --token-alert-title-foreground-color-highlight: #f4f4f4;
-    --token-alert-title-foreground-color-neutral: #f4f4f4;
-    --token-alert-title-foreground-color-success: #f4f4f4;
-    --token-alert-title-foreground-color-warning: #f4f4f4;
-    --token-alert-typography-line-height: 1.28572;
-    --token-app-footer-link-focus-outline-color: #ffffff;
+    --token-app-footer-focus-color-action-internal: #ffffff;
+    --token-app-side-nav-body-list-item-border-radius: 0px;
+    --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
+    --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
+    --token-app-side-nav-body-list-item-margin-top: 0px;
+    --token-app-side-nav-body-list-item-padding-horizontal: 16px;
+    --token-app-side-nav-body-list-item-padding-vertical: 7px;
+    --token-app-side-nav-body-list-item-selected-foreground-color: #c6c6c6;
+    --token-app-side-nav-body-list-item-selected-surface-color: rgba(
+      141,
+      141,
+      141,
+      0.24
+    );
+    --token-app-side-nav-body-list-item-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.4
+    );
+    --token-app-side-nav-body-list-item-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.16
+    );
+    --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-title-padding-vertical: 7px;
+    --token-app-side-nav-surface-color: #161616;
+    --token-app-side-nav-toggle-button-border-radius: 0px;
+    --token-app-side-nav-wrapper-padding-horizontal: 0px;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1545,8 +1386,8 @@
     --token-code-block-button-surface-color-active: #525252;
     --token-code-block-button-surface-color-default: #333333;
     --token-code-block-button-surface-color-hover: #525252;
-    --token-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #78a9ff;
     --token-code-block-foreground-color-faint: #c6c6c6;
     --token-code-block-foreground-color-primary: #f4f4f4;
@@ -1727,12 +1568,6 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
-    --token-reveal-foreground-color-active: #a6c8ff;
-    --token-reveal-foreground-color-default: #78a9ff;
-    --token-reveal-foreground-color-hover: #a6c8ff;
-    --token-reveal-surface-color-active: rgba(141, 141, 141, 0.4);
-    --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
-    --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1764,36 +1599,6 @@
     --token-tabs-tab-selected-border-color-hover: #4589ff;
     --token-tabs-tab-selected-foreground-color-default: #f4f4f4;
     --token-tabs-tab-selected-foreground-color-hover: #f4f4f4;
-    --token-tag-border-radius: 16px;
-    --token-tag-dismissible-max-width: 204px;
-    --token-tag-dismissible-padding-left: 4px;
-    --token-tag-link-border-color-primary: #4589ff;
-    --token-tag-link-border-color-secondary: #8d8d8d;
-    --token-tag-link-foreground-color-primary-active: #d0e2ff;
-    --token-tag-link-foreground-color-primary-default: #d0e2ff;
-    --token-tag-link-foreground-color-primary-hover: #d0e2ff;
-    --token-tag-link-foreground-color-secondary-default: #f4f4f4;
-    --token-tag-link-icon-color-primary: #d0e2ff;
-    --token-tag-link-icon-color-secondary: #f4f4f4;
-    --token-tag-link-surface-color-primary-active: #0053ff;
-    --token-tag-link-surface-color-primary-default: #0043ce;
-    --token-tag-link-surface-color-primary-hover: #0053ff;
-    --token-tag-link-surface-color-secondary-active: #636363;
-    --token-tag-link-surface-color-secondary-default: #525252;
-    --token-tag-link-surface-color-secondary-hover: #636363;
-    --token-tag-max-width: 208px;
-    --token-tag-padding-bottom: 3px;
-    --token-tag-padding-left: 8px;
-    --token-tag-padding-right: 8px;
-    --token-tag-static-border-color: rgba(0, 0, 0, 0);
-    --token-tag-static-foreground-color-default: #f4f4f4;
-    --token-tag-static-icon-color: #f4f4f4;
-    --token-tag-static-surface-color-active: #636363;
-    --token-tag-static-surface-color-default: #525252;
-    --token-tag-static-surface-color-hover: #636363;
-    --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-font-weight: 400;
-    --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1879,41 +1684,37 @@
 
 @mixin hds-mode-cds0() {
   :root {
-    --token-alert-actions-margin-top: 15px;
-    --token-alert-border-color-critical: #da1e2866;
-    --token-alert-border-color-highlight: #0043ce66;
-    --token-alert-border-color-neutral: #8d8d8d66;
-    --token-alert-border-color-success: #24a14866;
-    --token-alert-border-color-warning: #f1c21b66;
-    --token-alert-content-gap: 0px;
-    --token-alert-dismiss-margin-left: 14px;
-    --token-alert-icon-color-critical: #da1e28;
-    --token-alert-icon-color-highlight: #0043ce;
-    --token-alert-icon-color-neutral: #6f6f6f;
-    --token-alert-icon-color-success: #24a148;
-    --token-alert-icon-color-warning: #f1c21b;
-    --token-alert-icon-margin-right: 16px;
-    --token-alert-inline-border-left-color-critical: #da1e28;
-    --token-alert-inline-border-left-color-highlight: #0043ce;
-    --token-alert-inline-border-left-color-neutral: #6f6f6f;
-    --token-alert-inline-border-left-color-success: #24a148;
-    --token-alert-inline-border-left-color-warning: #f1c21b;
-    --token-alert-inline-border-left-width: 3px;
-    --token-alert-inline-padding-horizontal: 13px;
-    --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-vertical: 15px;
-    --token-alert-surface-color-critical: #fff1f1;
-    --token-alert-surface-color-highlight: #edf5ff;
-    --token-alert-surface-color-neutral: #f4f4f4;
-    --token-alert-surface-color-success: #defbe6;
-    --token-alert-surface-color-warning: #fcf4d6;
-    --token-alert-title-foreground-color-critical: #161616;
-    --token-alert-title-foreground-color-highlight: #161616;
-    --token-alert-title-foreground-color-neutral: #161616;
-    --token-alert-title-foreground-color-success: #161616;
-    --token-alert-title-foreground-color-warning: #161616;
-    --token-alert-typography-line-height: 1.28572;
-    --token-app-footer-link-focus-outline-color: #0f62fe;
+    --token-app-footer-focus-color-action-internal: #0f62fe;
+    --token-app-side-nav-body-list-item-border-radius: 0px;
+    --token-app-side-nav-body-list-item-foreground-color-default: #525252;
+    --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
+    --token-app-side-nav-body-list-item-margin-top: 0px;
+    --token-app-side-nav-body-list-item-padding-horizontal: 16px;
+    --token-app-side-nav-body-list-item-padding-vertical: 7px;
+    --token-app-side-nav-body-list-item-selected-foreground-color: #525252;
+    --token-app-side-nav-body-list-item-selected-surface-color: rgba(
+      141,
+      141,
+      141,
+      0.2
+    );
+    --token-app-side-nav-body-list-item-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.5
+    );
+    --token-app-side-nav-body-list-item-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.12
+    );
+    --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-title-padding-vertical: 7px;
+    --token-app-side-nav-surface-color: #ffffff;
+    --token-app-side-nav-toggle-button-border-radius: 0px;
+    --token-app-side-nav-wrapper-padding-horizontal: 0px;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -2050,8 +1851,8 @@
     --token-code-block-button-surface-color-active: #c6c6c6;
     --token-code-block-button-surface-color-default: #e8e8e8;
     --token-code-block-button-surface-color-hover: #c6c6c6;
-    --token-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #0f62fe;
     --token-code-block-foreground-color-faint: #525252;
     --token-code-block-foreground-color-primary: #161616;
@@ -2232,12 +2033,6 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
-    --token-reveal-foreground-color-active: #0043ce;
-    --token-reveal-foreground-color-default: #0f62fe;
-    --token-reveal-foreground-color-hover: #0043ce;
-    --token-reveal-surface-color-active: rgba(141, 141, 141, 0.5);
-    --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
-    --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2269,36 +2064,6 @@
     --token-tabs-tab-selected-border-color-hover: #0f62fe;
     --token-tabs-tab-selected-foreground-color-default: #161616;
     --token-tabs-tab-selected-foreground-color-hover: #161616;
-    --token-tag-border-radius: 16px;
-    --token-tag-dismissible-max-width: 204px;
-    --token-tag-dismissible-padding-left: 4px;
-    --token-tag-link-border-color-primary: #78a9ff;
-    --token-tag-link-border-color-secondary: #a8a8a8;
-    --token-tag-link-foreground-color-primary-active: #0043ce;
-    --token-tag-link-foreground-color-primary-default: #0043ce;
-    --token-tag-link-foreground-color-primary-hover: #0043ce;
-    --token-tag-link-foreground-color-secondary-default: #161616;
-    --token-tag-link-icon-color-primary: #0043ce;
-    --token-tag-link-icon-color-secondary: #161616;
-    --token-tag-link-surface-color-primary-active: #b8d3ff;
-    --token-tag-link-surface-color-primary-default: #d0e2ff;
-    --token-tag-link-surface-color-primary-hover: #b8d3ff;
-    --token-tag-link-surface-color-secondary-active: #d1d1d1;
-    --token-tag-link-surface-color-secondary-default: #e0e0e0;
-    --token-tag-link-surface-color-secondary-hover: #d1d1d1;
-    --token-tag-max-width: 208px;
-    --token-tag-padding-bottom: 3px;
-    --token-tag-padding-left: 8px;
-    --token-tag-padding-right: 8px;
-    --token-tag-static-border-color: rgba(0, 0, 0, 0);
-    --token-tag-static-foreground-color-default: #161616;
-    --token-tag-static-icon-color: #161616;
-    --token-tag-static-surface-color-active: #d1d1d1;
-    --token-tag-static-surface-color-default: #e0e0e0;
-    --token-tag-static-surface-color-hover: #d1d1d1;
-    --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-font-weight: 400;
-    --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -2384,41 +2149,37 @@
 
 @mixin hds-mode-cds10() {
   :root {
-    --token-alert-actions-margin-top: 15px;
-    --token-alert-border-color-critical: #da1e2866;
-    --token-alert-border-color-highlight: #0043ce66;
-    --token-alert-border-color-neutral: #8d8d8d66;
-    --token-alert-border-color-success: #24a14866;
-    --token-alert-border-color-warning: #f1c21b66;
-    --token-alert-content-gap: 0px;
-    --token-alert-dismiss-margin-left: 14px;
-    --token-alert-icon-color-critical: #da1e28;
-    --token-alert-icon-color-highlight: #0043ce;
-    --token-alert-icon-color-neutral: #6f6f6f;
-    --token-alert-icon-color-success: #24a148;
-    --token-alert-icon-color-warning: #f1c21b;
-    --token-alert-icon-margin-right: 16px;
-    --token-alert-inline-border-left-color-critical: #da1e28;
-    --token-alert-inline-border-left-color-highlight: #0043ce;
-    --token-alert-inline-border-left-color-neutral: #6f6f6f;
-    --token-alert-inline-border-left-color-success: #24a148;
-    --token-alert-inline-border-left-color-warning: #f1c21b;
-    --token-alert-inline-border-left-width: 3px;
-    --token-alert-inline-padding-horizontal: 13px;
-    --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-vertical: 15px;
-    --token-alert-surface-color-critical: #fff1f1;
-    --token-alert-surface-color-highlight: #edf5ff;
-    --token-alert-surface-color-neutral: #ffffff;
-    --token-alert-surface-color-success: #defbe6;
-    --token-alert-surface-color-warning: #fcf4d6;
-    --token-alert-title-foreground-color-critical: #161616;
-    --token-alert-title-foreground-color-highlight: #161616;
-    --token-alert-title-foreground-color-neutral: #161616;
-    --token-alert-title-foreground-color-success: #161616;
-    --token-alert-title-foreground-color-warning: #161616;
-    --token-alert-typography-line-height: 1.28572;
-    --token-app-footer-link-focus-outline-color: #0f62fe;
+    --token-app-footer-focus-color-action-internal: #0f62fe;
+    --token-app-side-nav-body-list-item-border-radius: 0px;
+    --token-app-side-nav-body-list-item-foreground-color-default: #525252;
+    --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
+    --token-app-side-nav-body-list-item-margin-top: 0px;
+    --token-app-side-nav-body-list-item-padding-horizontal: 16px;
+    --token-app-side-nav-body-list-item-padding-vertical: 7px;
+    --token-app-side-nav-body-list-item-selected-foreground-color: #525252;
+    --token-app-side-nav-body-list-item-selected-surface-color: rgba(
+      141,
+      141,
+      141,
+      0.2
+    );
+    --token-app-side-nav-body-list-item-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.5
+    );
+    --token-app-side-nav-body-list-item-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.12
+    );
+    --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-title-padding-vertical: 7px;
+    --token-app-side-nav-surface-color: #f4f4f4;
+    --token-app-side-nav-toggle-button-border-radius: 0px;
+    --token-app-side-nav-wrapper-padding-horizontal: 0px;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -2555,8 +2316,8 @@
     --token-code-block-button-surface-color-active: #c6c6c6;
     --token-code-block-button-surface-color-default: #e8e8e8;
     --token-code-block-button-surface-color-hover: #c6c6c6;
-    --token-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #0f62fe;
     --token-code-block-foreground-color-faint: #525252;
     --token-code-block-foreground-color-primary: #161616;
@@ -2737,12 +2498,6 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
-    --token-reveal-foreground-color-active: #0043ce;
-    --token-reveal-foreground-color-default: #0f62fe;
-    --token-reveal-foreground-color-hover: #0043ce;
-    --token-reveal-surface-color-active: rgba(141, 141, 141, 0.5);
-    --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
-    --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -2774,36 +2529,6 @@
     --token-tabs-tab-selected-border-color-hover: #0f62fe;
     --token-tabs-tab-selected-foreground-color-default: #161616;
     --token-tabs-tab-selected-foreground-color-hover: #161616;
-    --token-tag-border-radius: 16px;
-    --token-tag-dismissible-max-width: 204px;
-    --token-tag-dismissible-padding-left: 4px;
-    --token-tag-link-border-color-primary: #78a9ff;
-    --token-tag-link-border-color-secondary: #a8a8a8;
-    --token-tag-link-foreground-color-primary-active: #0043ce;
-    --token-tag-link-foreground-color-primary-default: #0043ce;
-    --token-tag-link-foreground-color-primary-hover: #0043ce;
-    --token-tag-link-foreground-color-secondary-default: #161616;
-    --token-tag-link-icon-color-primary: #0043ce;
-    --token-tag-link-icon-color-secondary: #161616;
-    --token-tag-link-surface-color-primary-active: #b8d3ff;
-    --token-tag-link-surface-color-primary-default: #d0e2ff;
-    --token-tag-link-surface-color-primary-hover: #b8d3ff;
-    --token-tag-link-surface-color-secondary-active: #d1d1d1;
-    --token-tag-link-surface-color-secondary-default: #e0e0e0;
-    --token-tag-link-surface-color-secondary-hover: #d1d1d1;
-    --token-tag-max-width: 208px;
-    --token-tag-padding-bottom: 3px;
-    --token-tag-padding-left: 8px;
-    --token-tag-padding-right: 8px;
-    --token-tag-static-border-color: rgba(0, 0, 0, 0);
-    --token-tag-static-foreground-color-default: #161616;
-    --token-tag-static-icon-color: #161616;
-    --token-tag-static-surface-color-active: #d1d1d1;
-    --token-tag-static-surface-color-default: #e0e0e0;
-    --token-tag-static-surface-color-hover: #d1d1d1;
-    --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-font-weight: 400;
-    --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -2889,41 +2614,37 @@
 
 @mixin hds-mode-cds90() {
   :root {
-    --token-alert-actions-margin-top: 15px;
-    --token-alert-border-color-critical: #da1e2866;
-    --token-alert-border-color-highlight: #0043ce66;
-    --token-alert-border-color-neutral: #8d8d8d66;
-    --token-alert-border-color-success: #24a14866;
-    --token-alert-border-color-warning: #f1c21b66;
-    --token-alert-content-gap: 0px;
-    --token-alert-dismiss-margin-left: 14px;
-    --token-alert-icon-color-critical: #ff8389;
-    --token-alert-icon-color-highlight: #4589ff;
-    --token-alert-icon-color-neutral: #8d8d8d;
-    --token-alert-icon-color-success: #42be65;
-    --token-alert-icon-color-warning: #f1c21b;
-    --token-alert-icon-margin-right: 16px;
-    --token-alert-inline-border-left-color-critical: #ff8389;
-    --token-alert-inline-border-left-color-highlight: #4589ff;
-    --token-alert-inline-border-left-color-neutral: #8d8d8d;
-    --token-alert-inline-border-left-color-success: #42be65;
-    --token-alert-inline-border-left-color-warning: #f1c21b;
-    --token-alert-inline-border-left-width: 3px;
-    --token-alert-inline-padding-horizontal: 13px;
-    --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-vertical: 15px;
-    --token-alert-surface-color-critical: #393939;
-    --token-alert-surface-color-highlight: #393939;
-    --token-alert-surface-color-neutral: #393939;
-    --token-alert-surface-color-success: #393939;
-    --token-alert-surface-color-warning: #393939;
-    --token-alert-title-foreground-color-critical: #f4f4f4;
-    --token-alert-title-foreground-color-highlight: #f4f4f4;
-    --token-alert-title-foreground-color-neutral: #f4f4f4;
-    --token-alert-title-foreground-color-success: #f4f4f4;
-    --token-alert-title-foreground-color-warning: #f4f4f4;
-    --token-alert-typography-line-height: 1.28572;
-    --token-app-footer-link-focus-outline-color: #ffffff;
+    --token-app-footer-focus-color-action-internal: #ffffff;
+    --token-app-side-nav-body-list-item-border-radius: 0px;
+    --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
+    --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
+    --token-app-side-nav-body-list-item-margin-top: 0px;
+    --token-app-side-nav-body-list-item-padding-horizontal: 16px;
+    --token-app-side-nav-body-list-item-padding-vertical: 7px;
+    --token-app-side-nav-body-list-item-selected-foreground-color: #c6c6c6;
+    --token-app-side-nav-body-list-item-selected-surface-color: rgba(
+      141,
+      141,
+      141,
+      0.24
+    );
+    --token-app-side-nav-body-list-item-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.4
+    );
+    --token-app-side-nav-body-list-item-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.16
+    );
+    --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-title-padding-vertical: 7px;
+    --token-app-side-nav-surface-color: #262626;
+    --token-app-side-nav-toggle-button-border-radius: 0px;
+    --token-app-side-nav-wrapper-padding-horizontal: 0px;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -3065,8 +2786,8 @@
     --token-code-block-button-surface-color-active: #6f6f6f;
     --token-code-block-button-surface-color-default: #474747;
     --token-code-block-button-surface-color-hover: #6f6f6f;
-    --token-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #78a9ff;
     --token-code-block-foreground-color-faint: #c6c6c6;
     --token-code-block-foreground-color-primary: #f4f4f4;
@@ -3247,12 +2968,6 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
-    --token-reveal-foreground-color-active: #a6c8ff;
-    --token-reveal-foreground-color-default: #78a9ff;
-    --token-reveal-foreground-color-hover: #a6c8ff;
-    --token-reveal-surface-color-active: rgba(141, 141, 141, 0.4);
-    --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
-    --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -3284,36 +2999,6 @@
     --token-tabs-tab-selected-border-color-hover: #4589ff;
     --token-tabs-tab-selected-foreground-color-default: #f4f4f4;
     --token-tabs-tab-selected-foreground-color-hover: #f4f4f4;
-    --token-tag-border-radius: 16px;
-    --token-tag-dismissible-max-width: 204px;
-    --token-tag-dismissible-padding-left: 4px;
-    --token-tag-link-border-color-primary: #4589ff;
-    --token-tag-link-border-color-secondary: #8d8d8d;
-    --token-tag-link-foreground-color-primary-active: #d0e2ff;
-    --token-tag-link-foreground-color-primary-default: #d0e2ff;
-    --token-tag-link-foreground-color-primary-hover: #d0e2ff;
-    --token-tag-link-foreground-color-secondary-default: #f4f4f4;
-    --token-tag-link-icon-color-primary: #d0e2ff;
-    --token-tag-link-icon-color-secondary: #f4f4f4;
-    --token-tag-link-surface-color-primary-active: #0053ff;
-    --token-tag-link-surface-color-primary-default: #0043ce;
-    --token-tag-link-surface-color-primary-hover: #0053ff;
-    --token-tag-link-surface-color-secondary-active: #636363;
-    --token-tag-link-surface-color-secondary-default: #525252;
-    --token-tag-link-surface-color-secondary-hover: #636363;
-    --token-tag-max-width: 208px;
-    --token-tag-padding-bottom: 3px;
-    --token-tag-padding-left: 8px;
-    --token-tag-padding-right: 8px;
-    --token-tag-static-border-color: rgba(0, 0, 0, 0);
-    --token-tag-static-foreground-color-default: #f4f4f4;
-    --token-tag-static-icon-color: #f4f4f4;
-    --token-tag-static-surface-color-active: #636363;
-    --token-tag-static-surface-color-default: #525252;
-    --token-tag-static-surface-color-hover: #636363;
-    --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-font-weight: 400;
-    --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -3399,41 +3084,37 @@
 
 @mixin hds-mode-cds100() {
   :root {
-    --token-alert-actions-margin-top: 15px;
-    --token-alert-border-color-critical: #da1e2866;
-    --token-alert-border-color-highlight: #0043ce66;
-    --token-alert-border-color-neutral: #8d8d8d66;
-    --token-alert-border-color-success: #24a14866;
-    --token-alert-border-color-warning: #f1c21b66;
-    --token-alert-content-gap: 0px;
-    --token-alert-dismiss-margin-left: 14px;
-    --token-alert-icon-color-critical: #fa4d56;
-    --token-alert-icon-color-highlight: #4589ff;
-    --token-alert-icon-color-neutral: #8d8d8d;
-    --token-alert-icon-color-success: #42be65;
-    --token-alert-icon-color-warning: #f1c21b;
-    --token-alert-icon-margin-right: 16px;
-    --token-alert-inline-border-left-color-critical: #fa4d56;
-    --token-alert-inline-border-left-color-highlight: #4589ff;
-    --token-alert-inline-border-left-color-neutral: #8d8d8d;
-    --token-alert-inline-border-left-color-success: #42be65;
-    --token-alert-inline-border-left-color-warning: #f1c21b;
-    --token-alert-inline-border-left-width: 3px;
-    --token-alert-inline-padding-horizontal: 13px;
-    --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-vertical: 15px;
-    --token-alert-surface-color-critical: #262626;
-    --token-alert-surface-color-highlight: #262626;
-    --token-alert-surface-color-neutral: #262626;
-    --token-alert-surface-color-success: #262626;
-    --token-alert-surface-color-warning: #262626;
-    --token-alert-title-foreground-color-critical: #f4f4f4;
-    --token-alert-title-foreground-color-highlight: #f4f4f4;
-    --token-alert-title-foreground-color-neutral: #f4f4f4;
-    --token-alert-title-foreground-color-success: #f4f4f4;
-    --token-alert-title-foreground-color-warning: #f4f4f4;
-    --token-alert-typography-line-height: 1.28572;
-    --token-app-footer-link-focus-outline-color: #ffffff;
+    --token-app-footer-focus-color-action-internal: #ffffff;
+    --token-app-side-nav-body-list-item-border-radius: 0px;
+    --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
+    --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
+    --token-app-side-nav-body-list-item-margin-top: 0px;
+    --token-app-side-nav-body-list-item-padding-horizontal: 16px;
+    --token-app-side-nav-body-list-item-padding-vertical: 7px;
+    --token-app-side-nav-body-list-item-selected-foreground-color: #c6c6c6;
+    --token-app-side-nav-body-list-item-selected-surface-color: rgba(
+      141,
+      141,
+      141,
+      0.24
+    );
+    --token-app-side-nav-body-list-item-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.4
+    );
+    --token-app-side-nav-body-list-item-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.16
+    );
+    --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-title-padding-vertical: 7px;
+    --token-app-side-nav-surface-color: #161616;
+    --token-app-side-nav-toggle-button-border-radius: 0px;
+    --token-app-side-nav-wrapper-padding-horizontal: 0px;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -3575,8 +3256,8 @@
     --token-code-block-button-surface-color-active: #525252;
     --token-code-block-button-surface-color-default: #333333;
     --token-code-block-button-surface-color-hover: #525252;
-    --token-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #78a9ff;
     --token-code-block-foreground-color-faint: #c6c6c6;
     --token-code-block-foreground-color-primary: #f4f4f4;
@@ -3757,12 +3438,6 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
-    --token-reveal-foreground-color-active: #a6c8ff;
-    --token-reveal-foreground-color-default: #78a9ff;
-    --token-reveal-foreground-color-hover: #a6c8ff;
-    --token-reveal-surface-color-active: rgba(141, 141, 141, 0.4);
-    --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
-    --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -3794,36 +3469,6 @@
     --token-tabs-tab-selected-border-color-hover: #4589ff;
     --token-tabs-tab-selected-foreground-color-default: #f4f4f4;
     --token-tabs-tab-selected-foreground-color-hover: #f4f4f4;
-    --token-tag-border-radius: 16px;
-    --token-tag-dismissible-max-width: 204px;
-    --token-tag-dismissible-padding-left: 4px;
-    --token-tag-link-border-color-primary: #4589ff;
-    --token-tag-link-border-color-secondary: #8d8d8d;
-    --token-tag-link-foreground-color-primary-active: #d0e2ff;
-    --token-tag-link-foreground-color-primary-default: #d0e2ff;
-    --token-tag-link-foreground-color-primary-hover: #d0e2ff;
-    --token-tag-link-foreground-color-secondary-default: #f4f4f4;
-    --token-tag-link-icon-color-primary: #d0e2ff;
-    --token-tag-link-icon-color-secondary: #f4f4f4;
-    --token-tag-link-surface-color-primary-active: #0053ff;
-    --token-tag-link-surface-color-primary-default: #0043ce;
-    --token-tag-link-surface-color-primary-hover: #0053ff;
-    --token-tag-link-surface-color-secondary-active: #636363;
-    --token-tag-link-surface-color-secondary-default: #525252;
-    --token-tag-link-surface-color-secondary-hover: #636363;
-    --token-tag-max-width: 208px;
-    --token-tag-padding-bottom: 3px;
-    --token-tag-padding-left: 8px;
-    --token-tag-padding-right: 8px;
-    --token-tag-static-border-color: rgba(0, 0, 0, 0);
-    --token-tag-static-foreground-color-default: #f4f4f4;
-    --token-tag-static-icon-color: #f4f4f4;
-    --token-tag-static-surface-color-active: #636363;
-    --token-tag-static-surface-color-default: #525252;
-    --token-tag-static-surface-color-hover: #636363;
-    --token-tag-typography-font-size: 0.75rem;
-    --token-tag-typography-font-weight: 400;
-    --token-tag-typography-line-height: 1.33333;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -3909,46 +3554,17 @@
 
 @mixin hds-theme-common() {
   :root {
-    --token-alert-page-padding-horizontal: 48px;
     --token-app-header-height: 60px;
     --token-app-header-home-link-size: 36px;
     --token-app-header-logo-size: 28px;
-    --token-app-side-nav-body-list-item-border-radius: 5px;
-    --token-app-side-nav-body-list-item-content-spacing-horizontal: 8px;
+    --token-app-side-nav-body-list-item-content-gap: 8px;
     --token-app-side-nav-body-list-item-height: 36px;
-    --token-app-side-nav-body-list-item-padding-horizontal: 8px;
-    --token-app-side-nav-body-list-item-padding-vertical: 4px;
-    --token-app-side-nav-body-list-item-spacing-vertical: 2px;
-    --token-app-side-nav-body-list-margin-vertical: 24px;
-    --token-app-side-nav-color-foreground-faint: var(
-      --token-color-foreground-faint
-    );
-    --token-app-side-nav-color-foreground-primary: var(
-      --token-color-foreground-primary
-    );
-    --token-app-side-nav-color-foreground-strong: var(
-      --token-color-foreground-primary
-    );
-    --token-app-side-nav-color-surface-interactive-active: var(
-      --token-color-palette-neutral-300
-    );
-    --token-app-side-nav-color-surface-interactive-hover: var(
-      --token-color-surface-interactive-hover
-    );
-    --token-app-side-nav-color-surface-primary: var(
-      --token-color-surface-faint
-    );
-    --token-app-side-nav-header-actions-spacing: 8px;
-    --token-app-side-nav-header-home-link-logo-size-minimized: 32px;
-    --token-app-side-nav-header-home-link-logo-size: 48px;
-    --token-app-side-nav-header-home-link-padding: 4px;
-    --token-app-side-nav-toggle-button-border-radius: 5px;
+    --token-app-side-nav-body-list-margin-vertical: 16px;
     --token-app-side-nav-wrapper-border-color: var(
       --token-color-palette-neutral-200
     );
     --token-app-side-nav-wrapper-border-width: 1px;
     --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
-    --token-app-side-nav-wrapper-padding-horizontal: 16px;
     --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
     --token-app-side-nav-wrapper-padding-vertical: 16px;
     --token-badge-height-large: 32px;
@@ -4094,11 +3710,11 @@
     --token-form-control-base-border-color-hover: var(
       --token-color-palette-neutral-500
     );
-    --token-form-control-base-foreground-color: var(
-      --token-color-foreground-strong
-    );
-    --token-form-control-base-placeholder-foreground-color: var(
+    --token-form-control-base-foreground-placeholder-color: var(
       --token-color-foreground-faint
+    );
+    --token-form-control-base-foreground-value-color: var(
+      --token-color-foreground-strong
     );
     --token-form-control-base-surface-color-default: var(
       --token-color-surface-interactive
@@ -4217,8 +3833,6 @@
     --token-tabs-tab-focus-inset: 6px;
     --token-tabs-tab-gutter: 6px;
     --token-tabs-tab-padding-vertical: 0px;
-    --token-tag-dismissible-padding-right: 8px;
-    --token-tag-padding-top: 3px;
     --token-tooltip-focus-offset: -2px;
     --token-tooltip-transition-timing-function: cubic-bezier(
       0.54,

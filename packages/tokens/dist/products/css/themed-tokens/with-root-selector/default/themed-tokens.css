@@ -3,41 +3,22 @@
  */
 
 :root {
-  --token-alert-actions-margin-top: 16px;
-  --token-alert-border-color-critical: var(--token-color-border-critical);
-  --token-alert-border-color-highlight: var(--token-color-border-highlight);
-  --token-alert-border-color-neutral: var(--token-color-border-strong);
-  --token-alert-border-color-success: var(--token-color-border-success);
-  --token-alert-border-color-warning: var(--token-color-border-warning);
-  --token-alert-content-gap: 4px;
-  --token-alert-dismiss-margin-left: 12px;
-  --token-alert-icon-color-critical: var(--token-color-foreground-critical-on-surface);
-  --token-alert-icon-color-highlight: var(--token-color-foreground-highlight-on-surface);
-  --token-alert-icon-color-neutral: var(--token-color-foreground-faint);
-  --token-alert-icon-color-success: var(--token-color-foreground-success-on-surface);
-  --token-alert-icon-color-warning: var(--token-color-foreground-warning-on-surface);
-  --token-alert-icon-margin-right: 12px;
-  --token-alert-inline-border-left-color-critical: var(--token-color-border-critical);
-  --token-alert-inline-border-left-color-highlight: var(--token-color-border-highlight);
-  --token-alert-inline-border-left-color-neutral: var(--token-color-border-strong);
-  --token-alert-inline-border-left-color-success: var(--token-color-border-success);
-  --token-alert-inline-border-left-color-warning: var(--token-color-border-warning);
-  --token-alert-inline-border-left-width: 1px;
-  --token-alert-inline-padding-horizontal: 16px;
-  --token-alert-inline-padding-vertical: 16px;
-  --token-alert-page-padding-vertical: 16px;
-  --token-alert-surface-color-critical: var(--token-color-surface-critical);
-  --token-alert-surface-color-highlight: var(--token-color-surface-highlight);
-  --token-alert-surface-color-neutral: var(--token-color-surface-faint);
-  --token-alert-surface-color-success: var(--token-color-surface-success);
-  --token-alert-surface-color-warning: var(--token-color-surface-warning);
-  --token-alert-title-foreground-color-critical: var(--token-color-foreground-critical-on-surface);
-  --token-alert-title-foreground-color-highlight: var(--token-color-foreground-highlight-on-surface);
-  --token-alert-title-foreground-color-neutral: var(--token-color-foreground-primary);
-  --token-alert-title-foreground-color-success: var(--token-color-foreground-success-on-surface);
-  --token-alert-title-foreground-color-warning: var(--token-color-foreground-warning-on-surface);
-  --token-alert-typography-line-height: var(--token-typography-body-200-line-height);
-  --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
+  --token-app-footer-focus-color-action-internal: var(--token-color-focus-action-internal);
+  --token-app-side-nav-body-list-item-border-radius: 5px;
+  --token-app-side-nav-body-list-item-foreground-color-default: var(--token-color-foreground-strong);
+  --token-app-side-nav-body-list-item-foreground-color-hover: var(--token-color-foreground-primary);
+  --token-app-side-nav-body-list-item-margin-top: 2px;
+  --token-app-side-nav-body-list-item-padding-horizontal: 8px;
+  --token-app-side-nav-body-list-item-padding-vertical: 4px;
+  --token-app-side-nav-body-list-item-selected-foreground-color: var(--token-color-foreground-action);
+  --token-app-side-nav-body-list-item-selected-surface-color: var(--token-color-surface-strong);
+  --token-app-side-nav-body-list-item-surface-color-active: var(--token-color-surface-interactive-active);
+  --token-app-side-nav-body-list-item-surface-color-hover: var(--token-color-surface-interactive-hover);
+  --token-app-side-nav-body-list-item-typography-font-weight: var(--token-typography-font-weight-medium);
+  --token-app-side-nav-body-title-padding-vertical: 9px;
+  --token-app-side-nav-surface-color: var(--token-color-surface-faint);
+  --token-app-side-nav-toggle-button-border-radius: 5px;
+  --token-app-side-nav-wrapper-padding-horizontal: 16px;
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
   --token-badge-count-padding-horizontal-medium: 12px;
@@ -173,8 +154,8 @@
   --token-code-block-button-surface-color-active: #2b303c;
   --token-code-block-button-surface-color-default: var(--token-code-block-surface-color-faint);
   --token-code-block-button-surface-color-hover: var(--token-code-block-surface-color-primary);
-  --token-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #2b89ff;
   --token-code-block-foreground-color-faint: #b2b6bd;
   --token-code-block-foreground-color-primary: #d5d7db;
@@ -349,12 +330,6 @@
   --token-pagination-nav-control-typography-font-weight-active: var(--token-typography-font-weight-medium);
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
-  --token-reveal-foreground-color-active: var(--token-button-foreground-color-tertiary-active);
-  --token-reveal-foreground-color-default: var(--token-button-foreground-color-tertiary-default);
-  --token-reveal-foreground-color-hover: var(--token-button-foreground-color-tertiary-hover);
-  --token-reveal-surface-color-active: var(--token-button-surface-color-tertiary-active);
-  --token-reveal-surface-color-focus: var(--token-button-surface-color-tertiary-focus);
-  --token-reveal-surface-color-hover: var(--token-button-surface-color-tertiary-hover);
   --token-rich-tooltip-bubble-arrow-size: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
@@ -384,36 +359,6 @@
   --token-tabs-tab-selected-border-color-hover: var(--token-color-foreground-action-hover);
   --token-tabs-tab-selected-foreground-color-default: var(--token-color-foreground-action);
   --token-tabs-tab-selected-foreground-color-hover: var(--token-color-foreground-action-hover);
-  --token-tag-border-radius: 50px;
-  --token-tag-dismissible-max-width: 160px;
-  --token-tag-dismissible-padding-left: 6px;
-  --token-tag-link-border-color-primary: var(--token-color-border-strong);
-  --token-tag-link-border-color-secondary: var(--token-color-border-strong);
-  --token-tag-link-foreground-color-primary-active: var(--token-color-foreground-action-active);
-  --token-tag-link-foreground-color-primary-default: var(--token-color-foreground-action);
-  --token-tag-link-foreground-color-primary-hover: var(--token-color-foreground-action-hover);
-  --token-tag-link-foreground-color-secondary-default: var(--token-color-foreground-strong);
-  --token-tag-link-icon-color-primary: var(--token-color-foreground-primary);
-  --token-tag-link-icon-color-secondary: var(--token-color-foreground-primary);
-  --token-tag-link-surface-color-primary-active: var(--token-color-surface-interactive-active);
-  --token-tag-link-surface-color-primary-default: var(--token-color-surface-interactive);
-  --token-tag-link-surface-color-primary-hover: var(--token-color-surface-interactive-hover);
-  --token-tag-link-surface-color-secondary-active: var(--token-color-surface-interactive-active);
-  --token-tag-link-surface-color-secondary-default: var(--token-color-surface-interactive);
-  --token-tag-link-surface-color-secondary-hover: var(--token-color-surface-interactive-hover);
-  --token-tag-max-width: 166px;
-  --token-tag-padding-bottom: 5px;
-  --token-tag-padding-left: 10px;
-  --token-tag-padding-right: 10px;
-  --token-tag-static-border-color: var(--token-color-border-strong);
-  --token-tag-static-foreground-color-default: var(--token-color-foreground-primary);
-  --token-tag-static-icon-color: var(--token-color-foreground-primary);
-  --token-tag-static-surface-color-active: var(--token-color-surface-interactive-active);
-  --token-tag-static-surface-color-default: var(--token-color-surface-interactive);
-  --token-tag-static-surface-color-hover: var(--token-color-surface-interactive-hover);
-  --token-tag-typography-font-size: 0.8125rem;
-  --token-tag-typography-font-weight: var(--token-typography-font-weight-medium);
-  --token-tag-typography-line-height: 1.2308;
   --token-tooltip-border-radius: var(--token-border-radius-small);
   --token-tooltip-caret-clip-path: path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z');
   --token-tooltip-caret-height: 7px;

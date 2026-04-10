@@ -7,6 +7,8 @@
 // APP-SIDE-NAV > TOGGLE BUTTON
 //
 
+@use "../../mixins/carbonization" as *;
+
 .hds-app-side-nav__toggle-button {
   position: absolute;
   top: var(--token-app-side-nav-wrapper-padding-vertical); // visually align with :header content
@@ -20,7 +22,7 @@
   padding: 0 4px;
   color: var(--token-color-foreground-primary);
   background: none;
-  background-color: var(--token-app-side-nav-color-surface-primary);
+  background-color: var(--token-app-side-nav-surface-color);
   border: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
   border-left-color: transparent;
   border-top-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
@@ -41,9 +43,12 @@
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
-      var(--token-app-side-nav-color-surface-primary);
+    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-surface-color);
     content: "";
+
+    @include hds-apply-only-if-carbon() {
+      content: none;
+    }
   }
 
   &::after {
@@ -56,32 +61,33 @@
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
-      var(--token-app-side-nav-color-surface-primary);
+    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-surface-color);
     transform: scaleY(-1); // rotate so same clip path can be used
     content: "";
+
+    @include hds-apply-only-if-carbon() {
+      content: none;
+    }
   }
 
   &:hover,
   &.mock-hover {
     width: 30px;
-    background-color: var(--token-app-side-nav-color-surface-interactive-hover);
+    background-color: var(--token-color-surface-interactive-hover);
 
     &::before,
     &::after {
-      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
-        var(--token-app-side-nav-color-surface-interactive-hover);
+      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-surface-interactive-hover);
     }
   }
 
   &:active,
   &.mock-active {
-    background-color: var(--token-app-side-nav-color-surface-interactive-active);
+    background-color: var(--token-color-palette-neutral-300);
 
     &::before,
     &::after {
-      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
-        var(--token-app-side-nav-color-surface-interactive-active);
+      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-palette-neutral-300);
     }
   }
 
