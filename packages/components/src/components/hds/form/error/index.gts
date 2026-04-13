@@ -6,9 +6,7 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
+import { didInsert, willDestroy } from '@ember/render-modifiers';
 
 import HdsIcon from '../../icon/index.gts';
 import HdsTextBody from '../../text/body.gts';
