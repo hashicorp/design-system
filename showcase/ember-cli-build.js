@@ -47,5 +47,17 @@ module.exports = function (defaults) {
         package: '@hashicorp/flight-icons',
       },
     ],
+    // Enable static analysis for tree-shaking
+    staticAddonTestSupportTrees: true,
+    staticAddonTrees: true,
+    staticHelpers: true,
+    staticModifiers: true,
+    staticComponents: true,
+    staticEmberSource: true,
+    packagerOptions: {
+      webpackConfig: {
+        devtool: false,
+      },
+    },
   });
 };
