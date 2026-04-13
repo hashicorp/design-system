@@ -1343,6 +1343,10 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-alert {
   display: flex;
   align-items: flex-start;
@@ -1352,7 +1356,7 @@
   flex: none;
   width: 20px;
   height: 20px;
-  margin-right: 12px;
+  margin-right: var(--token-alert-icon-margin-right);
 }
 .hds-alert--type-compact .hds-alert__icon {
   width: 14px;
@@ -1366,7 +1370,7 @@
 .hds-alert__text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--token-alert-content-gap);
   justify-content: center;
 }
 
@@ -1408,7 +1412,7 @@
   align-items: center;
 }
 .hds-alert__actions > * {
-  margin-top: 16px;
+  margin-top: var(--token-alert-actions-margin-top);
 }
 
 .hds-alert__dismiss {
@@ -1417,17 +1421,39 @@
 .hds-alert--type-compact .hds-alert__dismiss {
   margin-top: -3px;
 }
+.hds-mode-cds-g0 .hds-alert__dismiss .hds-icon,
+.hds-mode-cds-g10 .hds-alert__dismiss .hds-icon,
+.hds-mode-cds-g90 .hds-alert__dismiss .hds-icon,
+.hds-mode-cds-g100 .hds-alert__dismiss .hds-icon {
+  height: 16px;
+  width: 16px;
+}
+
+.hds-alert--type-page,
+.hds-alert--type-inline {
+  border-width: var(--token-alert-border-top-width) var(--token-alert-border-right-width) var(--token-alert-border-bottom-width) var(--token-alert-border-left-width);
+}
+.hds-mode-cds-g0 .hds-alert--type-page .hds-alert__dismiss, .hds-mode-cds-g0 .hds-alert--type-inline .hds-alert__dismiss,
+.hds-mode-cds-g10 .hds-alert--type-page .hds-alert__dismiss, .hds-mode-cds-g10 .hds-alert--type-inline .hds-alert__dismiss,
+.hds-mode-cds-g90 .hds-alert--type-page .hds-alert__dismiss, .hds-mode-cds-g90 .hds-alert--type-inline .hds-alert__dismiss,
+.hds-mode-cds-g100 .hds-alert--type-page .hds-alert__dismiss, .hds-mode-cds-g100 .hds-alert--type-inline .hds-alert__dismiss {
+  margin: calc(-1 * var(--token-alert-inline-padding-vertical)) calc(-1 * var(--token-alert-inline-padding-horizontal)) 0 0;
+}
 
 .hds-alert--type-page {
-  padding: 16px 48px;
-  border-bottom-width: 1px;
+  padding: var(--token-alert-page-padding-vertical) var(--token-alert-page-padding-horizontal);
   border-bottom-style: solid;
+}
+.hds-mode-cds-g0 .hds-alert--type-page,
+.hds-mode-cds-g10 .hds-alert--type-page,
+.hds-mode-cds-g90 .hds-alert--type-page,
+.hds-mode-cds-g100 .hds-alert--type-page {
+  border-style: solid;
 }
 
 .hds-alert--type-inline {
-  padding: 16px;
+  padding: var(--token-alert-inline-padding-vertical) var(--token-alert-inline-padding-horizontal);
   border-style: solid;
-  border-width: 1px;
   border-radius: var(--token-border-radius-medium);
 }
 
@@ -1442,71 +1468,94 @@
   margin-top: 0;
 }
 
-.hds-alert--color-neutral.hds-alert--type-page {
-  background-color: var(--token-color-surface-faint);
-  border-bottom-color: var(--token-color-palette-alpha-300);
+.hds-alert--color-neutral.hds-alert--type-page, .hds-alert--color-neutral.hds-alert--type-inline {
+  background-color: var(--token-alert-surface-color-neutral);
+  border-color: var(--token-alert-border-color-neutral);
 }
-.hds-alert--color-neutral.hds-alert--type-inline {
-  background-color: var(--token-color-surface-faint);
-  border-color: var(--token-color-border-strong);
+.hds-mode-cds-g0 .hds-alert--color-neutral.hds-alert--type-page, .hds-mode-cds-g0 .hds-alert--color-neutral.hds-alert--type-inline,
+.hds-mode-cds-g10 .hds-alert--color-neutral.hds-alert--type-page, .hds-mode-cds-g10 .hds-alert--color-neutral.hds-alert--type-inline,
+.hds-mode-cds-g90 .hds-alert--color-neutral.hds-alert--type-page, .hds-mode-cds-g90 .hds-alert--color-neutral.hds-alert--type-inline,
+.hds-mode-cds-g100 .hds-alert--color-neutral.hds-alert--type-page, .hds-mode-cds-g100 .hds-alert--color-neutral.hds-alert--type-inline {
+  border-left-color: var(--token-alert-border-left-color-neutral);
 }
+
 .hds-alert--color-neutral .hds-alert__icon {
-  color: var(--token-color-foreground-faint);
+  color: var(--token-alert-icon-color-neutral);
 }
 .hds-alert--color-neutral .hds-alert__title {
-  color: var(--token-color-foreground-primary);
+  color: var(--token-alert-foreground-color-neutral);
 }
 
-.hds-alert--color-highlight.hds-alert--type-page {
-  background-color: var(--token-color-surface-highlight);
-  border-bottom-color: var(--token-color-border-highlight);
+.hds-alert--color-highlight.hds-alert--type-page, .hds-alert--color-highlight.hds-alert--type-inline {
+  background-color: var(--token-alert-surface-color-highlight);
+  border-color: var(--token-alert-border-color-highlight);
 }
-.hds-alert--color-highlight.hds-alert--type-inline {
-  background-color: var(--token-color-surface-highlight);
-  border-color: var(--token-color-border-highlight);
+.hds-mode-cds-g0 .hds-alert--color-highlight.hds-alert--type-page, .hds-mode-cds-g0 .hds-alert--color-highlight.hds-alert--type-inline,
+.hds-mode-cds-g10 .hds-alert--color-highlight.hds-alert--type-page, .hds-mode-cds-g10 .hds-alert--color-highlight.hds-alert--type-inline,
+.hds-mode-cds-g90 .hds-alert--color-highlight.hds-alert--type-page, .hds-mode-cds-g90 .hds-alert--color-highlight.hds-alert--type-inline,
+.hds-mode-cds-g100 .hds-alert--color-highlight.hds-alert--type-page, .hds-mode-cds-g100 .hds-alert--color-highlight.hds-alert--type-inline {
+  border-left-color: var(--token-alert-border-left-color-highlight);
 }
-.hds-alert--color-highlight .hds-alert__icon,
+
+.hds-alert--color-highlight .hds-alert__icon {
+  color: var(--token-alert-icon-color-highlight);
+}
 .hds-alert--color-highlight .hds-alert__title {
-  color: var(--token-color-foreground-highlight-on-surface);
+  color: var(--token-alert-foreground-color-highlight);
 }
 
-.hds-alert--color-success.hds-alert--type-page {
-  background-color: var(--token-color-surface-success);
-  border-bottom-color: var(--token-color-border-success);
+.hds-alert--color-success.hds-alert--type-page, .hds-alert--color-success.hds-alert--type-inline {
+  background-color: var(--token-alert-surface-color-success);
+  border-color: var(--token-alert-border-color-success);
 }
-.hds-alert--color-success.hds-alert--type-inline {
-  background-color: var(--token-color-surface-success);
-  border-color: var(--token-color-border-success);
+.hds-mode-cds-g0 .hds-alert--color-success.hds-alert--type-page, .hds-mode-cds-g0 .hds-alert--color-success.hds-alert--type-inline,
+.hds-mode-cds-g10 .hds-alert--color-success.hds-alert--type-page, .hds-mode-cds-g10 .hds-alert--color-success.hds-alert--type-inline,
+.hds-mode-cds-g90 .hds-alert--color-success.hds-alert--type-page, .hds-mode-cds-g90 .hds-alert--color-success.hds-alert--type-inline,
+.hds-mode-cds-g100 .hds-alert--color-success.hds-alert--type-page, .hds-mode-cds-g100 .hds-alert--color-success.hds-alert--type-inline {
+  border-left-color: var(--token-alert-border-left-color-success);
 }
-.hds-alert--color-success .hds-alert__icon,
+
+.hds-alert--color-success .hds-alert__icon {
+  color: var(--token-alert-icon-color-success);
+}
 .hds-alert--color-success .hds-alert__title {
-  color: var(--token-color-foreground-success-on-surface);
+  color: var(--token-alert-foreground-color-success);
 }
 
-.hds-alert--color-warning.hds-alert--type-page {
-  background-color: var(--token-color-surface-warning);
-  border-bottom-color: var(--token-color-border-warning);
+.hds-alert--color-warning.hds-alert--type-page, .hds-alert--color-warning.hds-alert--type-inline {
+  background-color: var(--token-alert-surface-color-warning);
+  border-color: var(--token-alert-border-color-warning);
 }
-.hds-alert--color-warning.hds-alert--type-inline {
-  background-color: var(--token-color-surface-warning);
-  border-color: var(--token-color-border-warning);
+.hds-mode-cds-g0 .hds-alert--color-warning.hds-alert--type-page, .hds-mode-cds-g0 .hds-alert--color-warning.hds-alert--type-inline,
+.hds-mode-cds-g10 .hds-alert--color-warning.hds-alert--type-page, .hds-mode-cds-g10 .hds-alert--color-warning.hds-alert--type-inline,
+.hds-mode-cds-g90 .hds-alert--color-warning.hds-alert--type-page, .hds-mode-cds-g90 .hds-alert--color-warning.hds-alert--type-inline,
+.hds-mode-cds-g100 .hds-alert--color-warning.hds-alert--type-page, .hds-mode-cds-g100 .hds-alert--color-warning.hds-alert--type-inline {
+  border-left-color: var(--token-alert-border-left-color-warning);
 }
-.hds-alert--color-warning .hds-alert__icon,
+
+.hds-alert--color-warning .hds-alert__icon {
+  color: var(--token-alert-icon-color-warning);
+}
 .hds-alert--color-warning .hds-alert__title {
-  color: var(--token-color-foreground-warning-on-surface);
+  color: var(--token-alert-foreground-color-warning);
 }
 
-.hds-alert--color-critical.hds-alert--type-page {
-  background-color: var(--token-color-surface-critical);
-  border-bottom-color: var(--token-color-border-critical);
+.hds-alert--color-critical.hds-alert--type-page, .hds-alert--color-critical.hds-alert--type-inline {
+  background-color: var(--token-alert-surface-color-critical);
+  border-color: var(--token-alert-border-color-critical);
 }
-.hds-alert--color-critical.hds-alert--type-inline {
-  background-color: var(--token-color-surface-critical);
-  border-color: var(--token-color-border-critical);
+.hds-mode-cds-g0 .hds-alert--color-critical.hds-alert--type-page, .hds-mode-cds-g0 .hds-alert--color-critical.hds-alert--type-inline,
+.hds-mode-cds-g10 .hds-alert--color-critical.hds-alert--type-page, .hds-mode-cds-g10 .hds-alert--color-critical.hds-alert--type-inline,
+.hds-mode-cds-g90 .hds-alert--color-critical.hds-alert--type-page, .hds-mode-cds-g90 .hds-alert--color-critical.hds-alert--type-inline,
+.hds-mode-cds-g100 .hds-alert--color-critical.hds-alert--type-page, .hds-mode-cds-g100 .hds-alert--color-critical.hds-alert--type-inline {
+  border-left-color: var(--token-alert-border-left-color-critical);
 }
-.hds-alert--color-critical .hds-alert__icon,
+
+.hds-alert--color-critical .hds-alert__icon {
+  color: var(--token-alert-icon-color-critical);
+}
 .hds-alert--color-critical .hds-alert__title {
-  color: var(--token-color-foreground-critical-on-surface);
+  color: var(--token-alert-foreground-color-critical);
 }
 
 /**
@@ -2617,7 +2666,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-breadcrumb {

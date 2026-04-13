@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import { eq } from 'ember-truth-helpers';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { service } from '@ember/service';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
@@ -27,6 +28,7 @@ import HdsYield from '../yield/index.gts';
 
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
 import type { HdsIconSignature } from '../icon/index.gts';
+import type HdsThemingService from '../../../services/hds-theming.ts';
 
 export const TYPES: HdsAlertTypes[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR: HdsAlertColors = HdsAlertColorValues.Neutral;
@@ -38,6 +40,14 @@ export const MAPPING_COLORS_TO_ICONS = {
   [HdsAlertColorValues.Success]: 'check-circle',
   [HdsAlertColorValues.Warning]: 'alert-triangle',
   [HdsAlertColorValues.Critical]: 'alert-diamond',
+} as const;
+
+export const MAPPING_COLORS_TO_CARBON_THEME_ICONS = {
+  [HdsAlertColorValues.Neutral]: 'info-fill',
+  [HdsAlertColorValues.Highlight]: 'info-fill',
+  [HdsAlertColorValues.Success]: 'check-circle-fill',
+  [HdsAlertColorValues.Warning]: 'alert-circle-fill',
+  [HdsAlertColorValues.Critical]: 'skip',
 } as const;
 
 const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
@@ -70,6 +80,8 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
   @tracked private _role?: string;
   @tracked private _ariaLabelledBy?: string;
 
+  @service declare readonly hdsTheming: HdsThemingService;
+
   constructor(owner: Owner, args: HdsAlertSignature['Args']) {
     super(owner, args);
 
@@ -99,7 +111,10 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
 
     // If `icon` isn't passed, use the pre-defined one from `color`
     if (icon === undefined) {
-      if (this.args.type === 'compact') {
+      // Carbon theme uses a different set of icons
+      if (this.hdsTheming.isCarbonThemeEnabled) {
+        return MAPPING_COLORS_TO_CARBON_THEME_ICONS[this.color];
+      } else if (this.args.type === 'compact') {
         // for the "compact" type by default we use filled icons
         return `${MAPPING_COLORS_TO_ICONS[this.color]}-fill`;
       } else {
