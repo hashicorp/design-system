@@ -50,6 +50,7 @@
     "@ember/render-modifiers": "^3.0.0",
     "@ember/test-waiters": "^4.1.1",
     "@embroider/addon-shim": "^1.10.0",
+    "@embroider/compat": "^3.9.3",
     "@embroider/macros": "^1.18.1",
     "@embroider/util": "^1.13.4",
     "@floating-ui/dom": "^1.6.12",

@@ -38,7 +38,9 @@ module.exports = function (defaults) {
   */
 
   const { maybeEmbroider } = require('@embroider/test-setup');
+  const { recommendedOptions } = require('@embroider/compat');
   return maybeEmbroider(app, {
+    ...recommendedOptions.safe,
     skipBabel: [
       {
         package: 'qunit',
@@ -47,13 +49,6 @@ module.exports = function (defaults) {
         package: '@hashicorp/flight-icons',
       },
     ],
-    // Enable static analysis for tree-shaking
-    staticAddonTestSupportTrees: true,
-    staticAddonTrees: true,
-    staticHelpers: true,
-    staticModifiers: true,
-    staticComponents: true,
-    staticEmberSource: true,
     packagerOptions: {
       webpackConfig: {
         devtool: false,
