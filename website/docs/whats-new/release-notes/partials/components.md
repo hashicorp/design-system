@@ -14,6 +14,8 @@
 
 ## 6.1.1
 
+[6.1.1 documentation](https://hds-website-6-1-1.vercel.app/)
+
 **Patch changes**
 
 <!-- START components/form/key-value-inputs -->
