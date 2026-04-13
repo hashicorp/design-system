@@ -4,6 +4,64 @@
 
 @mixin hds-theme-default() {
   :root {
+    --token-alert-actions-margin-top: 16px;
+    --token-alert-border-bottom-width: 1px;
+    --token-alert-border-color-critical: var(--token-color-border-critical);
+    --token-alert-border-color-highlight: var(--token-color-border-highlight);
+    --token-alert-border-color-neutral: var(--token-color-border-strong);
+    --token-alert-border-color-success: var(--token-color-border-success);
+    --token-alert-border-color-warning: var(--token-color-border-warning);
+    --token-alert-border-left-color-critical: var(
+      --token-color-border-critical
+    );
+    --token-alert-border-left-color-highlight: var(
+      --token-color-border-highlight
+    );
+    --token-alert-border-left-color-neutral: var(--token-color-border-strong);
+    --token-alert-border-left-color-success: var(--token-color-border-success);
+    --token-alert-border-left-color-warning: var(--token-color-border-warning);
+    --token-alert-border-left-width: 1px;
+    --token-alert-border-right-width: 1px;
+    --token-alert-border-top-width: 1px;
+    --token-alert-content-gap: 4px;
+    --token-alert-foreground-color-critical: var(
+      --token-color-foreground-critical-on-surface
+    );
+    --token-alert-foreground-color-highlight: var(
+      --token-color-foreground-highlight-on-surface
+    );
+    --token-alert-foreground-color-neutral: var(
+      --token-color-foreground-primary
+    );
+    --token-alert-foreground-color-success: var(
+      --token-color-foreground-success-on-surface
+    );
+    --token-alert-foreground-color-warning: var(
+      --token-color-foreground-warning-on-surface
+    );
+    --token-alert-icon-color-critical: var(
+      --token-color-foreground-critical-on-surface
+    );
+    --token-alert-icon-color-highlight: var(
+      --token-color-foreground-highlight-on-surface
+    );
+    --token-alert-icon-color-neutral: var(--token-color-foreground-faint);
+    --token-alert-icon-color-success: var(
+      --token-color-foreground-success-on-surface
+    );
+    --token-alert-icon-color-warning: var(
+      --token-color-foreground-warning-on-surface
+    );
+    --token-alert-icon-margin-right: 12px;
+    --token-alert-inline-padding-horizontal: 16px;
+    --token-alert-inline-padding-vertical: 16px;
+    --token-alert-page-padding-horizontal: 48px;
+    --token-alert-page-padding-vertical: 16px;
+    --token-alert-surface-color-critical: var(--token-color-surface-critical);
+    --token-alert-surface-color-highlight: var(--token-color-surface-highlight);
+    --token-alert-surface-color-neutral: var(--token-color-surface-faint);
+    --token-alert-surface-color-success: var(--token-color-surface-success);
+    --token-alert-surface-color-warning: var(--token-color-surface-warning);
     --token-app-footer-link-focus-outline-color: var(
       --token-color-focus-action-internal
     );
@@ -782,6 +840,42 @@
 
 @mixin hds-theme-light() {
   :root {
+    --token-alert-actions-margin-top: 15px;
+    --token-alert-border-bottom-width: 1px;
+    --token-alert-border-color-critical: #da1e2866;
+    --token-alert-border-color-highlight: #0043ce66;
+    --token-alert-border-color-neutral: #0043ce66;
+    --token-alert-border-color-success: #24a14866;
+    --token-alert-border-color-warning: #f1c21b66;
+    --token-alert-border-left-color-critical: #da1e28;
+    --token-alert-border-left-color-highlight: #0043ce;
+    --token-alert-border-left-color-neutral: #0043ce;
+    --token-alert-border-left-color-success: #24a148;
+    --token-alert-border-left-color-warning: #f1c21b;
+    --token-alert-border-left-width: 3px;
+    --token-alert-border-right-width: 1px;
+    --token-alert-border-top-width: 1px;
+    --token-alert-content-gap: 0px;
+    --token-alert-foreground-color-critical: #161616;
+    --token-alert-foreground-color-highlight: #161616;
+    --token-alert-foreground-color-neutral: #161616;
+    --token-alert-foreground-color-success: #161616;
+    --token-alert-foreground-color-warning: #161616;
+    --token-alert-icon-color-critical: #da1e28;
+    --token-alert-icon-color-highlight: #0043ce;
+    --token-alert-icon-color-neutral: #0043ce;
+    --token-alert-icon-color-success: #42be65;
+    --token-alert-icon-color-warning: #f1c21b;
+    --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-padding-horizontal: 13px;
+    --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-horizontal: 13px;
+    --token-alert-page-padding-vertical: 15px;
+    --token-alert-surface-color-critical: #fff1f1;
+    --token-alert-surface-color-highlight: #edf5ff;
+    --token-alert-surface-color-neutral: #edf5ff;
+    --token-alert-surface-color-success: #defbe6;
+    --token-alert-surface-color-warning: #fcf4d6;
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1247,6 +1341,42 @@
 
 @mixin hds-theme-dark() {
   :root {
+    --token-alert-actions-margin-top: 15px;
+    --token-alert-border-bottom-width: 1px;
+    --token-alert-border-color-critical: #da1e2866;
+    --token-alert-border-color-highlight: #0043ce66;
+    --token-alert-border-color-neutral: #0043ce66;
+    --token-alert-border-color-success: #24a14866;
+    --token-alert-border-color-warning: #f1c21b66;
+    --token-alert-border-left-color-critical: #fa4d56;
+    --token-alert-border-left-color-highlight: #4589ff;
+    --token-alert-border-left-color-neutral: #4589ff;
+    --token-alert-border-left-color-success: #42be65;
+    --token-alert-border-left-color-warning: #f1c21b;
+    --token-alert-border-left-width: 3px;
+    --token-alert-border-right-width: 1px;
+    --token-alert-border-top-width: 1px;
+    --token-alert-content-gap: 0px;
+    --token-alert-foreground-color-critical: #f4f4f4;
+    --token-alert-foreground-color-highlight: #f4f4f4;
+    --token-alert-foreground-color-neutral: #f4f4f4;
+    --token-alert-foreground-color-success: #f4f4f4;
+    --token-alert-foreground-color-warning: #f4f4f4;
+    --token-alert-icon-color-critical: #fa4d56;
+    --token-alert-icon-color-highlight: #4589ff;
+    --token-alert-icon-color-neutral: #4589ff;
+    --token-alert-icon-color-success: #24a148;
+    --token-alert-icon-color-warning: #f1c21b;
+    --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-padding-horizontal: 13px;
+    --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-horizontal: 13px;
+    --token-alert-page-padding-vertical: 15px;
+    --token-alert-surface-color-critical: #262626;
+    --token-alert-surface-color-highlight: #262626;
+    --token-alert-surface-color-neutral: #262626;
+    --token-alert-surface-color-success: #262626;
+    --token-alert-surface-color-warning: #262626;
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1717,6 +1847,42 @@
 
 @mixin hds-mode-cds0() {
   :root {
+    --token-alert-actions-margin-top: 15px;
+    --token-alert-border-bottom-width: 1px;
+    --token-alert-border-color-critical: #da1e2866;
+    --token-alert-border-color-highlight: #0043ce66;
+    --token-alert-border-color-neutral: #0043ce66;
+    --token-alert-border-color-success: #24a14866;
+    --token-alert-border-color-warning: #f1c21b66;
+    --token-alert-border-left-color-critical: #da1e28;
+    --token-alert-border-left-color-highlight: #0043ce;
+    --token-alert-border-left-color-neutral: #0043ce;
+    --token-alert-border-left-color-success: #24a148;
+    --token-alert-border-left-color-warning: #f1c21b;
+    --token-alert-border-left-width: 3px;
+    --token-alert-border-right-width: 1px;
+    --token-alert-border-top-width: 1px;
+    --token-alert-content-gap: 0px;
+    --token-alert-foreground-color-critical: #161616;
+    --token-alert-foreground-color-highlight: #161616;
+    --token-alert-foreground-color-neutral: #161616;
+    --token-alert-foreground-color-success: #161616;
+    --token-alert-foreground-color-warning: #161616;
+    --token-alert-icon-color-critical: #da1e28;
+    --token-alert-icon-color-highlight: #0043ce;
+    --token-alert-icon-color-neutral: #0043ce;
+    --token-alert-icon-color-success: #42be65;
+    --token-alert-icon-color-warning: #f1c21b;
+    --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-padding-horizontal: 13px;
+    --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-horizontal: 13px;
+    --token-alert-page-padding-vertical: 15px;
+    --token-alert-surface-color-critical: #fff1f1;
+    --token-alert-surface-color-highlight: #edf5ff;
+    --token-alert-surface-color-neutral: #edf5ff;
+    --token-alert-surface-color-success: #defbe6;
+    --token-alert-surface-color-warning: #fcf4d6;
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -2182,6 +2348,42 @@
 
 @mixin hds-mode-cds10() {
   :root {
+    --token-alert-actions-margin-top: 15px;
+    --token-alert-border-bottom-width: 1px;
+    --token-alert-border-color-critical: #da1e2866;
+    --token-alert-border-color-highlight: #0043ce66;
+    --token-alert-border-color-neutral: #0043ce66;
+    --token-alert-border-color-success: #24a14866;
+    --token-alert-border-color-warning: #f1c21b66;
+    --token-alert-border-left-color-critical: #da1e28;
+    --token-alert-border-left-color-highlight: #0043ce;
+    --token-alert-border-left-color-neutral: #0043ce;
+    --token-alert-border-left-color-success: #24a148;
+    --token-alert-border-left-color-warning: #f1c21b;
+    --token-alert-border-left-width: 3px;
+    --token-alert-border-right-width: 1px;
+    --token-alert-border-top-width: 1px;
+    --token-alert-content-gap: 0px;
+    --token-alert-foreground-color-critical: #161616;
+    --token-alert-foreground-color-highlight: #161616;
+    --token-alert-foreground-color-neutral: #161616;
+    --token-alert-foreground-color-success: #161616;
+    --token-alert-foreground-color-warning: #161616;
+    --token-alert-icon-color-critical: #da1e28;
+    --token-alert-icon-color-highlight: #0043ce;
+    --token-alert-icon-color-neutral: #0043ce;
+    --token-alert-icon-color-success: #42be65;
+    --token-alert-icon-color-warning: #f1c21b;
+    --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-padding-horizontal: 13px;
+    --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-horizontal: 13px;
+    --token-alert-page-padding-vertical: 15px;
+    --token-alert-surface-color-critical: #fff1f1;
+    --token-alert-surface-color-highlight: #edf5ff;
+    --token-alert-surface-color-neutral: #edf5ff;
+    --token-alert-surface-color-success: #defbe6;
+    --token-alert-surface-color-warning: #fcf4d6;
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -2647,6 +2849,42 @@
 
 @mixin hds-mode-cds90() {
   :root {
+    --token-alert-actions-margin-top: 15px;
+    --token-alert-border-bottom-width: 1px;
+    --token-alert-border-color-critical: #da1e2866;
+    --token-alert-border-color-highlight: #0043ce66;
+    --token-alert-border-color-neutral: #0043ce66;
+    --token-alert-border-color-success: #24a14866;
+    --token-alert-border-color-warning: #f1c21b66;
+    --token-alert-border-left-color-critical: #ff8389;
+    --token-alert-border-left-color-highlight: #4589ff;
+    --token-alert-border-left-color-neutral: #4589ff;
+    --token-alert-border-left-color-success: #42be65;
+    --token-alert-border-left-color-warning: #f1c21b;
+    --token-alert-border-left-width: 3px;
+    --token-alert-border-right-width: 1px;
+    --token-alert-border-top-width: 1px;
+    --token-alert-content-gap: 0px;
+    --token-alert-foreground-color-critical: #f4f4f4;
+    --token-alert-foreground-color-highlight: #f4f4f4;
+    --token-alert-foreground-color-neutral: #f4f4f4;
+    --token-alert-foreground-color-success: #f4f4f4;
+    --token-alert-foreground-color-warning: #f4f4f4;
+    --token-alert-icon-color-critical: #ff8389;
+    --token-alert-icon-color-highlight: #4589ff;
+    --token-alert-icon-color-neutral: #4589ff;
+    --token-alert-icon-color-success: #24a148;
+    --token-alert-icon-color-warning: #f1c21b;
+    --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-padding-horizontal: 13px;
+    --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-horizontal: 13px;
+    --token-alert-page-padding-vertical: 15px;
+    --token-alert-surface-color-critical: #393939;
+    --token-alert-surface-color-highlight: #393939;
+    --token-alert-surface-color-neutral: #393939;
+    --token-alert-surface-color-success: #393939;
+    --token-alert-surface-color-warning: #393939;
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -3117,6 +3355,42 @@
 
 @mixin hds-mode-cds100() {
   :root {
+    --token-alert-actions-margin-top: 15px;
+    --token-alert-border-bottom-width: 1px;
+    --token-alert-border-color-critical: #da1e2866;
+    --token-alert-border-color-highlight: #0043ce66;
+    --token-alert-border-color-neutral: #0043ce66;
+    --token-alert-border-color-success: #24a14866;
+    --token-alert-border-color-warning: #f1c21b66;
+    --token-alert-border-left-color-critical: #fa4d56;
+    --token-alert-border-left-color-highlight: #4589ff;
+    --token-alert-border-left-color-neutral: #4589ff;
+    --token-alert-border-left-color-success: #42be65;
+    --token-alert-border-left-color-warning: #f1c21b;
+    --token-alert-border-left-width: 3px;
+    --token-alert-border-right-width: 1px;
+    --token-alert-border-top-width: 1px;
+    --token-alert-content-gap: 0px;
+    --token-alert-foreground-color-critical: #f4f4f4;
+    --token-alert-foreground-color-highlight: #f4f4f4;
+    --token-alert-foreground-color-neutral: #f4f4f4;
+    --token-alert-foreground-color-success: #f4f4f4;
+    --token-alert-foreground-color-warning: #f4f4f4;
+    --token-alert-icon-color-critical: #fa4d56;
+    --token-alert-icon-color-highlight: #4589ff;
+    --token-alert-icon-color-neutral: #4589ff;
+    --token-alert-icon-color-success: #24a148;
+    --token-alert-icon-color-warning: #f1c21b;
+    --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-padding-horizontal: 13px;
+    --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-horizontal: 13px;
+    --token-alert-page-padding-vertical: 15px;
+    --token-alert-surface-color-critical: #262626;
+    --token-alert-surface-color-highlight: #262626;
+    --token-alert-surface-color-neutral: #262626;
+    --token-alert-surface-color-success: #262626;
+    --token-alert-surface-color-warning: #262626;
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
