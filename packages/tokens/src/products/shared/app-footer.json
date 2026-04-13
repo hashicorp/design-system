@@ -1,9 +1,9 @@
 {
   "app-footer": {
-    "focus": {
-      "color": {
-        "action": {
-          "internal": {
+    "link": {
+      "focus": {
+        "outline": {
+          "color": {
             "$type": "color",
             "$value": "var(--token-color-focus-action-internal)",
             "$modes": {

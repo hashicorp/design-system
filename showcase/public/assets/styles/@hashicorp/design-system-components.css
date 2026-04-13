@@ -202,7 +202,7 @@
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
-  --token-app-footer-focus-color-action-internal: var(--token-color-focus-action-internal);
+  --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
@@ -405,12 +405,12 @@
   --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
-  --token-form-control-base-foreground-value-color: #0c0c0e;
-  --token-form-control-base-foreground-placeholder-color: #656a76;
+  --token-form-control-base-foreground-color: #0c0c0e;
   --token-form-control-base-surface-color-default: #ffffff;
   --token-form-control-base-surface-color-hover: #f1f2f3;
   --token-form-control-base-border-color-default: #8c909c;
   --token-form-control-base-border-color-hover: #656a76;
+  --token-form-control-base-placeholder-foreground-color: #656a76;
   --token-form-control-checked-foreground-color: #ffffff;
   --token-form-control-checked-surface-color-default: #1060ff;
   --token-form-control-checked-surface-color-hover: #0c56e9;
@@ -2233,7 +2233,7 @@
   --app-footer-link-hover-color: var(--token-color-foreground-primary);
   --app-footer-link-active-color: var(--token-color-foreground-strong);
   --app-footer-link-focus-color: var(--token-color-foreground-faint);
-  --app-footer-link-focus-outline-color: var(--token-app-footer-focus-color-action-internal);
+  --app-footer-link-focus-outline-color: var(--token-app-footer-link-focus-outline-color);
   --app-footer-copyright-text-color: var(--token-color-foreground-faint);
   --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
   --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
@@ -6570,7 +6570,7 @@ button.hds-button[href]::after {
   max-width: 100%;
   padding: var(--token-form-control-padding);
   padding-right: calc(var(--token-form-control-padding) + 24px);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   background-image: var(--token-form-select-background-image-data-url);
   background-repeat: no-repeat;
@@ -6650,7 +6650,7 @@ button.hds-button[href]::after {
   padding-right: calc(var(--token-form-control-padding) + 21px);
   padding-bottom: 4px;
   padding-left: 11px;
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   line-height: var(--token-typography-body-200-line-height);
   background-color: var(--token-form-control-base-surface-color-default);
   background-image: var(--token-form-select-background-image-data-url);
@@ -6690,7 +6690,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger .ember-power-select-placeholder,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger .ember-power-select-placeholder {
-  color: var(--token-form-control-base-foreground-placeholder-color);
+  color: var(--token-form-control-base-placeholder-foreground-color);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
@@ -6764,7 +6764,7 @@ button.hds-button[href]::after {
   margin-top: 8px;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true] {
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-selected=true] {
@@ -6818,7 +6818,7 @@ button.hds-button[href]::after {
   width: 100%;
   min-height: 36px;
   padding: var(--token-form-control-padding);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: 1rem;
@@ -6828,7 +6828,7 @@ button.hds-button[href]::after {
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input::placeholder {
-  color: var(--token-form-control-base-foreground-placeholder-color);
+  color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
@@ -6880,7 +6880,7 @@ button.hds-button[href]::after {
   display: none;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger-multiple-input {
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
 }
@@ -7062,14 +7062,14 @@ button.hds-button[href]::after {
   width: 100%;
   max-width: 100%;
   padding: var(--token-form-control-padding);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
 .hds-form-text-input ::placeholder {
-  color: var(--token-form-control-base-foreground-placeholder-color);
+  color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-form-text-input:hover, .hds-form-text-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
@@ -7166,7 +7166,7 @@ button.hds-button[href]::after {
   max-width: 100%;
   min-height: 36px;
   padding: var(--token-form-control-padding);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
@@ -7174,7 +7174,7 @@ button.hds-button[href]::after {
   resize: vertical;
 }
 .hds-form-textarea ::placeholder {
-  color: var(--token-form-control-base-foreground-placeholder-color);
+  color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-form-textarea:hover, .hds-form-textarea.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
