@@ -34,6 +34,7 @@
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {
+    "@carbon/web-components": "^2.46.0",
     "@codemirror/autocomplete": "^6.20.0",
     "@codemirror/commands": "^6.8.0",
     "@codemirror/lang-go": "^6.0.1",
@@ -139,7 +140,6 @@
     "version": 2,
     "app-js": {
       "./components/hds/accordion.js": "./dist/_app_/components/hds/accordion.js",
-      "./components/hds/accordion/item/button.js": "./dist/_app_/components/hds/accordion/item/button.js",
       "./components/hds/accordion/item.js": "./dist/_app_/components/hds/accordion/item.js",
       "./components/hds/advanced-table/body.js": "./dist/_app_/components/hds/advanced-table/body.js",
       "./components/hds/advanced-table/column-manager.js": "./dist/_app_/components/hds/advanced-table/column-manager.js",
