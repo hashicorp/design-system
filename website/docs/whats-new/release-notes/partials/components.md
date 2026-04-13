@@ -18,129 +18,97 @@
 
 **Patch changes**
 
-<!-- START components/form/key-value-inputs -->
 
 `KeyValueInputs` - Translated strings for the KeyValueInputs AddRowButton ariaLabel and description text.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3681](https://github.com/hashicorp/design-system/pull/3681)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/checkbox -->
 
 `Checkbox` - Fixed `CheckboxField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-<!-- END -->
 
-<!-- START components/form/file-input -->
 
 `FileInput` - Fixed `FileInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-<!-- END -->
 
-<!-- START components/form/radio -->
 
 `Radio` - Fixed `RadioField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-<!-- END -->
 
-<!-- START components/form/select -->
 
 `Select` - Fixed `SelectField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-<!-- END -->
 
-<!-- START components/form/text-input -->
 
 `TextInput` - Fixed `TextInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-<!-- END -->
 
-<!-- START components/form/textarea -->
 
 `Textarea` - Fixed `TextareaField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-<!-- END -->
 
-<!-- START components/form/toggle -->
 
 `Toggle` - Fixed `ToggleField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3700](https://github.com/hashicorp/design-system/pull/3700)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Replaced model-based state with a DDAU architecture, improving isolation and decoupling row/column logic.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3546](https://github.com/hashicorp/design-system/pull/3546)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/pagination -->
 
 `Pagination` - Translated strings for `PaginationCompact` and `PaginationNumbered` ariaLabels. Translated strings for `PaginationNavArrow` ariaLabels and button text.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3781](https://github.com/hashicorp/design-system/pull/3781)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/table -->
 
 `Table` - Converted component to gts format.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3607](https://github.com/hashicorp/design-system/pull/3607)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/stepper/list -->
 
 `StepperList` - Translated strings for `Step` status value types
 
-<!-- END -->
 
-<!-- START components/stepper/nav -->
 
 `StepperNav` - Translated strings for status value types
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3727](https://github.com/hashicorp/design-system/pull/3727)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/app-footer -->
 
 `AppFooter` - Translated strings for `AppFooterStatusLink` status value types
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3729](https://github.com/hashicorp/design-system/pull/3729)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Translated strings for ThSelectable ariaLabel and context menu Dropdown ToggleIcon
 
-<!-- END -->
 
-<!-- START components/table/table -->
 
 `Table` - Translated string for ThSelectable ariaLabel
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3730](https://github.com/hashicorp/design-system/pull/3730)</small>
 

@@ -1,3 +1,8 @@
+## 6.1.1
+
+Translated strings for the KeyValueInputs AddRowButton ariaLabel and description text.
+
+
 ## 6.1.0
 
 Converted component to gts format.

@@ -1,3 +1,11 @@
+## 6.1.1
+
+Replaced model-based state with a DDAU architecture, improving isolation and decoupling row/column logic.
+
+
+Translated strings for ThSelectable ariaLabel and context menu Dropdown ToggleIcon
+
+
 ## 6.1.0
 
 Explicitly set table header tooltip placement to below the tooltip button.

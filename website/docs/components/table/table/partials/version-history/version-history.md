@@ -1,3 +1,11 @@
+## 6.1.1
+
+Converted component to gts format.
+
+
+Translated string for ThSelectable ariaLabel
+
+
 ## 6.0.0
 
 Updated HdsIntlService service declarations to align how services are declared
