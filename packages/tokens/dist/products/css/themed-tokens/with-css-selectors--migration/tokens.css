@@ -4,7 +4,7 @@
 
 :root,
 .hds-theme-default {
-  --token-app-footer-focus-color-action-internal: var(
+  --token-app-footer-link-focus-outline-color: var(
     --token-color-focus-action-internal
   );
   --token-badge-border-radius: var(--token-border-radius-small);
@@ -721,7 +721,7 @@
 
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
-    --token-app-footer-focus-color-action-internal: #0f62fe;
+    --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1156,7 +1156,7 @@
 
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
-    --token-app-footer-focus-color-action-internal: #ffffff;
+    --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1590,7 +1590,7 @@
 }
 
 .hds-theme-light {
-  --token-app-footer-focus-color-action-internal: #0f62fe;
+  --token-app-footer-link-focus-outline-color: #0f62fe;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -2018,7 +2018,7 @@
 }
 
 .hds-theme-dark {
-  --token-app-footer-focus-color-action-internal: #ffffff;
+  --token-app-footer-link-focus-outline-color: #ffffff;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -2629,11 +2629,11 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-form-control-base-border-color-hover: var(
     --token-color-palette-neutral-500
   );
-  --token-form-control-base-foreground-placeholder-color: var(
-    --token-color-foreground-faint
-  );
-  --token-form-control-base-foreground-value-color: var(
+  --token-form-control-base-foreground-color: var(
     --token-color-foreground-strong
+  );
+  --token-form-control-base-placeholder-foreground-color: var(
+    --token-color-foreground-faint
   );
   --token-form-control-base-surface-color-default: var(
     --token-color-surface-interactive

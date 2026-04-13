@@ -1611,7 +1611,7 @@
   --app-footer-link-hover-color: var(--token-color-foreground-primary);
   --app-footer-link-active-color: var(--token-color-foreground-strong);
   --app-footer-link-focus-color: var(--token-color-foreground-faint);
-  --app-footer-link-focus-outline-color: var(--token-app-footer-focus-color-action-internal);
+  --app-footer-link-focus-outline-color: var(--token-app-footer-link-focus-outline-color);
   --app-footer-copyright-text-color: var(--token-color-foreground-faint);
   --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
   --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
@@ -5948,7 +5948,7 @@ button.hds-button[href]::after {
   max-width: 100%;
   padding: var(--token-form-control-padding);
   padding-right: calc(var(--token-form-control-padding) + 24px);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   background-image: var(--token-form-select-background-image-data-url);
   background-repeat: no-repeat;
@@ -6028,7 +6028,7 @@ button.hds-button[href]::after {
   padding-right: calc(var(--token-form-control-padding) + 21px);
   padding-bottom: 4px;
   padding-left: 11px;
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   line-height: var(--token-typography-body-200-line-height);
   background-color: var(--token-form-control-base-surface-color-default);
   background-image: var(--token-form-select-background-image-data-url);
@@ -6068,7 +6068,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger .ember-power-select-placeholder,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger .ember-power-select-placeholder {
-  color: var(--token-form-control-base-foreground-placeholder-color);
+  color: var(--token-form-control-base-placeholder-foreground-color);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
@@ -6142,7 +6142,7 @@ button.hds-button[href]::after {
   margin-top: 8px;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true] {
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-selected=true] {
@@ -6196,7 +6196,7 @@ button.hds-button[href]::after {
   width: 100%;
   min-height: 36px;
   padding: var(--token-form-control-padding);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: 1rem;
@@ -6206,7 +6206,7 @@ button.hds-button[href]::after {
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input::placeholder {
-  color: var(--token-form-control-base-foreground-placeholder-color);
+  color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
@@ -6258,7 +6258,7 @@ button.hds-button[href]::after {
   display: none;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger-multiple-input {
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
 }
@@ -6440,14 +6440,14 @@ button.hds-button[href]::after {
   width: 100%;
   max-width: 100%;
   padding: var(--token-form-control-padding);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
 .hds-form-text-input ::placeholder {
-  color: var(--token-form-control-base-foreground-placeholder-color);
+  color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-form-text-input:hover, .hds-form-text-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
@@ -6544,7 +6544,7 @@ button.hds-button[href]::after {
   max-width: 100%;
   min-height: 36px;
   padding: var(--token-form-control-padding);
-  color: var(--token-form-control-base-foreground-value-color);
+  color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
@@ -6552,7 +6552,7 @@ button.hds-button[href]::after {
   resize: vertical;
 }
 .hds-form-textarea ::placeholder {
-  color: var(--token-form-control-base-foreground-placeholder-color);
+  color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-form-textarea:hover, .hds-form-textarea.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
