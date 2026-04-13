@@ -3,7 +3,7 @@
  */
 
 :root {
-  --token-app-footer-focus-color-action-internal: #0f62fe;
+  --token-app-footer-link-focus-outline-color: #0f62fe;
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #525252;
   --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
@@ -329,6 +329,36 @@
   --token-tabs-tab-selected-border-color-hover: #0f62fe;
   --token-tabs-tab-selected-foreground-color-default: #161616;
   --token-tabs-tab-selected-foreground-color-hover: #161616;
+  --token-tag-border-radius: 16px;
+  --token-tag-dismissible-max-width: 204px;
+  --token-tag-dismissible-padding-left: 4px;
+  --token-tag-link-border-color-primary: #78a9ff;
+  --token-tag-link-border-color-secondary: #a8a8a8;
+  --token-tag-link-foreground-color-primary-active: #0043ce;
+  --token-tag-link-foreground-color-primary-default: #0043ce;
+  --token-tag-link-foreground-color-primary-hover: #0043ce;
+  --token-tag-link-foreground-color-secondary-default: #161616;
+  --token-tag-link-icon-color-primary: #0043ce;
+  --token-tag-link-icon-color-secondary: #161616;
+  --token-tag-link-surface-color-primary-active: #b8d3ff;
+  --token-tag-link-surface-color-primary-default: #d0e2ff;
+  --token-tag-link-surface-color-primary-hover: #b8d3ff;
+  --token-tag-link-surface-color-secondary-active: #d1d1d1;
+  --token-tag-link-surface-color-secondary-default: #e0e0e0;
+  --token-tag-link-surface-color-secondary-hover: #d1d1d1;
+  --token-tag-max-width: 208px;
+  --token-tag-padding-bottom: 3px;
+  --token-tag-padding-left: 8px;
+  --token-tag-padding-right: 8px;
+  --token-tag-static-border-color: rgba(0, 0, 0, 0);
+  --token-tag-static-foreground-color-default: #161616;
+  --token-tag-static-icon-color: #161616;
+  --token-tag-static-surface-color-active: #d1d1d1;
+  --token-tag-static-surface-color-default: #e0e0e0;
+  --token-tag-static-surface-color-hover: #d1d1d1;
+  --token-tag-typography-font-size: 0.75rem;
+  --token-tag-typography-font-weight: 400;
+  --token-tag-typography-line-height: 1.33333;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
