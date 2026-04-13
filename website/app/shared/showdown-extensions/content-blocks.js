@@ -17,7 +17,7 @@ export const contentBlocks = function () {
       text = text.replace(langRegex, function (_match, type, content) {
         // we use the PHP tag as passthrough "tag" because is simply ignored by the `hashHTMLBlocks` function in Showdown
         // see: https://github.com/showdownjs/showdown/blob/master/src/subParsers/makehtml/hashHTMLBlocks.js#L93-L95
-        return `\n<?php start="content-block" type="${type.toLowerCase()}" ?>\n${content}\n<?php end="content-block" type="${type.toLowerCase()}" ?>\n`;
+        return `\n<?php start="content-block" type="${type.toLowerCase()}" ?>\n\n${content}\n\n<?php end="content-block" type="${type.toLowerCase()}" ?>\n`;
       });
 
       // console.log('langExtension2 text', '\n', text, '\n\n');

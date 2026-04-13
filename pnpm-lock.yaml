@@ -8,6 +8,7 @@ settings:
 overrides:
   '@glimmer/component': ^2.0.0
   basic-ftp: 5.2.0
+  flatted: 3.4.2
   ember-composable-helpers: npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11
   js-yaml@3: 3.14.2
   js-yaml@4: 4.1.1
@@ -15,6 +16,7 @@ overrides:
   minimatch@<3.0.5: 3.1.2
   qs: 6.14.1
   serialize-javascript: 7.0.3
+  socket.io-parser: 4.2.6
   systeminformation: 5.31.0
   undici: 6.24.0
   underscore: 1.13.8
@@ -135,10 +137,10 @@ importers:
         specifier: ^1.6.12
         version: 1.7.3
       '@hashicorp/design-system-tokens':
-        specifier: workspace:^4.0.1
+        specifier: workspace:^5.0.0
         version: link:../tokens
       '@hashicorp/flight-icons':
-        specifier: workspace:^4.2.1
+        specifier: workspace:^5.0.0
         version: link:../flight-icons
       '@lezer/highlight':
         specifier: ^1.2.1
@@ -347,7 +349,7 @@ importers:
         version: 6.4.0
       '@figma-export/types':
         specifier: ^6.0.0
-        version: 6.2.4
+        version: 6.4.0
       '@figma/rest-api-spec':
         specifier: ^0.22.0
         version: 0.22.0
@@ -978,9 +980,6 @@ importers:
       ember-power-select:
         specifier: ^8.12.0
         version: 8.12.0(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-concurrency@4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
-      ember-prism:
-        specifier: ^0.13.0
-        version: 0.13.0(@babel/core@7.28.0)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))(webpack@5.101.0)
       ember-qunit:
         specifier: ^9.0.3
         version: 9.0.3(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1)
@@ -2355,16 +2354,6 @@ packages:
     resolution: {integrity: sha512-a1OQ+w9vDvMXd9BNA9r779yr8MAPguGaMGbIeTMPWACeWBdD6bACBB5iKE3gNyrJAYKMq2wab6BKmRFS3Qw3hw==}
     engines: {node: 10.* || 12.* || >= 14}
 
-  '@ember/render-modifiers@2.1.0':
-    resolution: {integrity: sha512-LruhfoDv2itpk0fA0IC76Sxjcnq/7BC6txpQo40hOko8Dn6OxwQfxkPIbZGV0Cz7df+iX+VJrcYzNIvlc3w2EQ==}
-    engines: {node: 12.* || 14.* || >= 16}
-    peerDependencies:
-      '@glint/template': ^1.0.2
-      ember-source: ^3.8 || ^4.0.0 || ^5.0.0
-    peerDependenciesMeta:
-      '@glint/template':
-        optional: true
-
   '@ember/render-modifiers@3.0.0':
     resolution: {integrity: sha512-gJztS8dI7Jt8ohFQptEDJAgpl9DG84IpqwQoR1JDpVIBy2uLbf8KFD6S3h3LfyMsgJce6G38cOvyQv6BDgcnsA==}
     engines: {node: '>= 18'}
@@ -2677,10 +2666,6 @@ packages:
 
   '@figma-export/transform-svg-with-svgo@6.4.0':
     resolution: {integrity: sha512-Nm3DpcJ9bBEOCUqsbU8IDjGMQhhi0DTT3dNFMwlR1n/K370OjWs3GRNARUy+swOt8A31mJ2/IPvORIl0P6pxdw==}
-    engines: {node: '>= 18.18'}
-
-  '@figma-export/types@6.2.4':
-    resolution: {integrity: sha512-mIe/TZDuKNP08tqWlaNm3Zi6VHu709acQR5ohTj1q1si0wXsCJTA2AoiZOTTE4uhbA39cQelIdoi4phDvNJGpw==}
     engines: {node: '>= 18.18'}
 
   '@figma-export/types@6.4.0':
@@ -3611,6 +3596,7 @@ packages:
 
   '@tsconfig/ember@3.0.11':
     resolution: {integrity: sha512-c9uaKBN4KxtdT/UNPPxoWghyoDsTRHzYb53Z5Fv9eum+4cok0U+hYwyKNjvCxkBjEPECS8QAyp8nGAhRifZnBQ==}
+    deprecated: Please use @ember/app-tsconfig or @ember/library-tsconfig instead. These live at https://github.com/ember-cli/tsconfigs
 
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
@@ -4124,6 +4110,7 @@ packages:
   '@xmldom/xmldom@0.8.10':
     resolution: {integrity: sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -4804,6 +4791,7 @@ packages:
   basic-ftp@5.2.0:
     resolution: {integrity: sha512-VoMINM2rqJwJgfdHq6RiUudKt2BV+FY5ZFezP/ypmwayk68+NzzAQy4XXLlqsGD4MCzq3DrmNFD/uUmBJuGoXw==}
     engines: {node: '>=10.0.0'}
+    deprecated: Security vulnerability fixed in 5.2.1, please upgrade
 
   better-path-resolve@1.0.0:
     resolution: {integrity: sha512-pbnl5XzGBdrFU/wT4jqmJVPn2B6UHPBOhzMQkY/SPUPB6QtUXtmBHBIwCbXJol93mOpGMnQyP/+BB19q04xj7g==}
@@ -4911,9 +4899,6 @@ packages:
   broccoli-funnel-reducer@1.0.0:
     resolution: {integrity: sha512-SaOCEdh+wnt2jFUV2Qb32m7LXyElvFwW3NKNaEJyi5PGQNwxfqpkc0KI6AbQANKgdj/40U2UC0WuGThFwuEUaA==}
 
-  broccoli-funnel@1.2.0:
-    resolution: {integrity: sha512-0pbFNUA5Ml+gPPd58Rj/M26OS21+bMiV0F+m6+9OVzAhAdppVLxylSsXfWAt2WOD3kS+D8UsDv6GSmnZhbw/dw==}
-
   broccoli-funnel@2.0.2:
     resolution: {integrity: sha512-/vDTqtv7ipjEZQOVqO4vGDVAOZyuYzQ/EgGoyewfOgh1M7IQAToBKZI0oAQPgMBeFPPlIbfMuAngk+ohPBuaHQ==}
     engines: {node: ^4.5 || 6.* || >= 7.*}
@@ -4927,9 +4912,6 @@ packages:
 
   broccoli-kitchen-sink-helpers@0.3.1:
     resolution: {integrity: sha512-gqYnKSJxBSjj/uJqeuRAzYVbmjWhG0mOZ8jrp6+fnUIOgLN6MvI7XxBECDHkYMIFPJ8Smf4xaI066Q2FqQDnXg==}
-
-  broccoli-merge-trees@1.2.4:
-    resolution: {integrity: sha512-RXJAleytlED0dxXGEo2EXwrg5cCesY8LQzzGRogwGQmluoz+ijzxajpyWAW6wu/AyuQZj1vgnIqnld8jvuuXtQ==}
 
   broccoli-merge-trees@2.0.1:
     resolution: {integrity: sha512-WjaexJ+I8BxP5V5RNn6um/qDRSmKoiBC/QkRi79FT9ClHfldxRyCDs9mcV7mmoaPlsshmmPaUz5jdtcKA6DClQ==}
@@ -6459,10 +6441,6 @@ packages:
     resolution: {integrity: sha512-QkLGcYv1WRK35g4MWu/uIeJ5Suk2eJXKtZ+8s+qE7C9INmpCPyPxzaqZABquYzcWNzIdw6kYwz3NWAFdKYFxwg==}
     engines: {node: ^4.5 || 6.* || >= 7.*}
 
-  ember-cli-node-assets@0.2.2:
-    resolution: {integrity: sha512-pFyjlhzwx2FxAmkxSVJvP+i+MwHDhmgsmma1ZQbFLYwBeufo1GIzqSJUfStcpOE1NDg8fXm2yZVVzdZYf9lW2w==}
-    engines: {node: '>= 4'}
-
   ember-cli-normalize-entity-name@1.0.0:
     resolution: {integrity: sha512-rF4P1rW2P1gVX1ynZYPmuIf7TnAFDiJmIUFI1Xz16VYykUAyiOCme0Y22LeZq8rTzwBMiwBwoE3RO4GYWehXZA==}
 
@@ -6659,11 +6637,6 @@ packages:
       '@glimmer/component': ^2.0.0
       ember-basic-dropdown: ^8.7.0
       ember-concurrency: ^4.0.4 || ^5.1.0
-
-  ember-prism@0.13.0:
-    resolution: {integrity: sha512-+vbrlXAxO8kw3pJCdtNuuQItANEP9dJ/UPxPPFX6hvbbGTAS5JYz6VG4SyNEJ4vBG1MxkwHirYywiDZIbaD8hQ==}
-    engines: {node: 12.* || 14.* || >= 16}
-    deprecated: Use ember-shiki instead
 
   ember-qunit@9.0.3:
     resolution: {integrity: sha512-t+FD5/EWAR3WvGVj1etblFJJ6CaJqddDxusNcYYFZmW7zrQpCnQ9ziwpXM5/sw1sWabkhJZgYPXCn8bDRRhOfg==}
@@ -7172,10 +7145,6 @@ packages:
     resolution: {integrity: sha512-/J0Q8CvOvlAdpvhfkD/WnTQ4H1eU0exze2nFGPj/RSC7jpQ0NkKe2r28T5eMkhEEs+fzepMZNy1kVRKNlC04nQ==}
     engines: {node: '>=0.10.0'}
 
-  exists-sync@0.0.4:
-    resolution: {integrity: sha512-cy5z7K+05RFxHAWY37dSDkPWmuTi+VzrA/xLwPDHmwQPMnO/kVhu6jheGaItlnNRoOE6f5MAjxy3VEupfrHigQ==}
-    deprecated: Please replace with usage of fs.existsSync
-
   exit@0.1.2:
     resolution: {integrity: sha512-Zk/eNKV2zbjpKzrsQ+n1G6poVbErQxJ0LBOJXaKZ1EViLzH+hrLu9cdXI4zw9dBQJslwBEpbQ2P1oS7nDxs6jQ==}
     engines: {node: '>= 0.8.0'}
@@ -7435,11 +7404,8 @@ packages:
   flat-cache@6.1.12:
     resolution: {integrity: sha512-U+HqqpZPPXP5d24bWuRzjGqVqUcw64k4nZAbruniDwdRg0H10tvN7H6ku1tjhA4rg5B9GS3siEvwO2qjJJ6f8Q==}
 
-  flatted@2.0.2:
-    resolution: {integrity: sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==}
-
-  flatted@3.3.3:
-    resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
+  flatted@3.4.2:
+    resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
 
   flow-parser@0.258.1:
     resolution: {integrity: sha512-Y8CrO98EcXVCiYE4s5z0LTMbeYjKyd3MAEUJqxA7B8yGRlmdrG5UDqq4pVrUAfAu2tMFgpQESvBhBu9Xg1tpow==}
@@ -10112,12 +10078,6 @@ packages:
     resolution: {integrity: sha512-is0ctgGdPJ5951KulgfzvHGwJtZ5ck8l042vRkV6jrkpBzTmb/lueTqguWHy2JfVA+RY6gFVlaZgUS0j7S/dsw==}
     engines: {node: '>= 0.9.0'}
 
-  prismjs-glimmer@1.1.1:
-    resolution: {integrity: sha512-GNLdqx749bMQx40nPtLtRjhs6c+xBGmJCRizv0mZs2LPH2bhw6sYBEYKbXZWMmFWdhPdGQWB8Qf8h/k9wgBIvw==}
-    engines: {node: '>= 10'}
-    peerDependencies:
-      prismjs: ^1.23.0
-
   prismjs@1.30.0:
     resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
     engines: {node: '>=6'}
@@ -10866,8 +10826,8 @@ packages:
   socket.io-adapter@2.5.5:
     resolution: {integrity: sha512-eLDQas5dzPgOWCk9GuuJC2lBqItuhKI4uxGgo9aIV7MYbk2h9Q6uULEh8WBzThoI7l+qU9Ast9fVUmkqPP9wYg==}
 
-  socket.io-parser@4.2.4:
-    resolution: {integrity: sha512-/GbIKmo8ioc+NIWIhwdecY0ge+qVBSMdgxGygevmdHj24bsfgtCmcUUcQ5ZzcylGFHsN3k4HB4Cgkl96KVnuew==}
+  socket.io-parser@4.2.6:
+    resolution: {integrity: sha512-asJqbVBDsBCJx0pTqw3WfesSY0iRX+2xzWEWzrpcH7L6fLzrhyF8WPI8UaeM4YCuDfpwA/cgsdugMsmtz8EJeg==}
     engines: {node: '>=10.0.0'}
 
   socket.io@4.8.1:
@@ -13782,18 +13742,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ember/render-modifiers@2.1.0(@babel/core@7.28.0)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
-    dependencies:
-      '@embroider/macros': 1.19.6(@glint/template@1.5.2)
-      ember-cli-babel: 7.26.11
-      ember-modifier-manager-polyfill: 1.2.0(@babel/core@7.28.0)
-      ember-source: 6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
-    optionalDependencies:
-      '@glint/template': 1.5.2
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-
   '@ember/render-modifiers@3.0.0(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
     dependencies:
       '@babel/core': 7.28.0
@@ -14159,13 +14107,13 @@ snapshots:
   '@figma-export/cli@6.2.2':
     dependencies:
       '@figma-export/core': 6.3.0
-      '@figma-export/types': 6.2.4
+      '@figma-export/types': 6.4.0
       ora: 8.2.0
       sade: 1.8.1
 
   '@figma-export/core@6.3.0':
     dependencies:
-      '@figma-export/types': 6.2.4
+      '@figma-export/types': 6.4.0
       '@figma/rest-api-spec': 0.34.0
       p-limit: 7.2.0
       p-retry: 7.1.1
@@ -14173,16 +14121,12 @@ snapshots:
 
   '@figma-export/output-components-as-svg@6.2.2':
     dependencies:
-      '@figma-export/types': 6.2.4
+      '@figma-export/types': 6.4.0
 
   '@figma-export/transform-svg-with-svgo@6.4.0':
     dependencies:
       '@figma-export/types': 6.4.0
       svgo: 3.3.3
-
-  '@figma-export/types@6.2.4':
-    dependencies:
-      '@figma/rest-api-spec': 0.34.0
 
   '@figma-export/types@6.4.0':
     dependencies:
@@ -17422,25 +17366,6 @@ snapshots:
 
   broccoli-funnel-reducer@1.0.0: {}
 
-  broccoli-funnel@1.2.0:
-    dependencies:
-      array-equal: 1.0.2
-      blank-object: 1.0.2
-      broccoli-plugin: 1.3.1
-      debug: 2.6.9
-      exists-sync: 0.0.4
-      fast-ordered-set: 1.0.3
-      fs-tree-diff: 0.5.9
-      heimdalljs: 0.2.6
-      minimatch: 3.1.2
-      mkdirp: 0.5.6
-      path-posix: 1.0.0
-      rimraf: 2.7.1
-      symlink-or-copy: 1.3.1
-      walk-sync: 0.3.4
-    transitivePeerDependencies:
-      - supports-color
-
   broccoli-funnel@2.0.2:
     dependencies:
       array-equal: 1.0.2
@@ -17480,19 +17405,6 @@ snapshots:
     dependencies:
       glob: 5.0.15
       mkdirp: 0.5.6
-
-  broccoli-merge-trees@1.2.4:
-    dependencies:
-      broccoli-plugin: 1.3.1
-      can-symlink: 1.0.0
-      fast-ordered-set: 1.0.3
-      fs-tree-diff: 0.5.9
-      heimdalljs: 0.2.6
-      heimdalljs-logger: 0.1.10
-      rimraf: 2.7.1
-      symlink-or-copy: 1.3.1
-    transitivePeerDependencies:
-      - supports-color
 
   broccoli-merge-trees@2.0.1:
     dependencies:
@@ -19430,17 +19342,6 @@ snapshots:
 
   ember-cli-lodash-subset@2.0.1: {}
 
-  ember-cli-node-assets@0.2.2:
-    dependencies:
-      broccoli-funnel: 1.2.0
-      broccoli-merge-trees: 1.2.4
-      broccoli-source: 1.1.0
-      debug: 2.6.9
-      lodash: 4.17.23
-      resolve: 1.22.10
-    transitivePeerDependencies:
-      - supports-color
-
   ember-cli-normalize-entity-name@1.0.0:
     dependencies:
       silent-error: 1.1.1
@@ -20159,22 +20060,6 @@ snapshots:
       - '@glint/template'
       - ember-source
       - supports-color
-
-  ember-prism@0.13.0(@babel/core@7.28.0)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))(webpack@5.101.0):
-    dependencies:
-      '@ember/render-modifiers': 2.1.0(@babel/core@7.28.0)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
-      ember-auto-import: 2.10.0(@glint/template@1.5.2)(webpack@5.101.0)
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.3.0
-      ember-cli-node-assets: 0.2.2
-      prismjs: 1.30.0
-      prismjs-glimmer: 1.1.1(prismjs@1.30.0)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@glint/template'
-      - ember-source
-      - supports-color
-      - webpack
 
   ember-qunit@9.0.3(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1):
     dependencies:
@@ -21005,8 +20890,6 @@ snapshots:
     dependencies:
       clone-regexp: 1.0.1
 
-  exists-sync@0.0.4: {}
-
   exit@0.1.2: {}
 
   expand-brackets@2.1.4:
@@ -21397,35 +21280,33 @@ snapshots:
 
   flat-cache@2.0.1:
     dependencies:
-      flatted: 2.0.2
+      flatted: 3.4.2
       rimraf: 2.6.3
       write: 1.0.3
 
   flat-cache@3.2.0:
     dependencies:
-      flatted: 3.3.3
+      flatted: 3.4.2
       keyv: 4.5.4
       rimraf: 3.0.2
 
   flat-cache@4.0.1:
     dependencies:
-      flatted: 3.3.3
+      flatted: 3.4.2
       keyv: 4.5.4
 
   flat-cache@5.0.0:
     dependencies:
-      flatted: 3.3.3
+      flatted: 3.4.2
       keyv: 4.5.4
 
   flat-cache@6.1.12:
     dependencies:
       cacheable: 1.10.3
-      flatted: 3.3.3
+      flatted: 3.4.2
       hookified: 1.11.0
 
-  flatted@2.0.2: {}
-
-  flatted@3.3.3: {}
+  flatted@3.4.2: {}
 
   flow-parser@0.258.1: {}
 
@@ -24645,10 +24526,6 @@ snapshots:
 
   printf@0.6.1: {}
 
-  prismjs-glimmer@1.1.1(prismjs@1.30.0):
-    dependencies:
-      prismjs: 1.30.0
-
   prismjs@1.30.0: {}
 
   private@0.1.8: {}
@@ -25596,10 +25473,10 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  socket.io-parser@4.2.4:
+  socket.io-parser@4.2.6:
     dependencies:
       '@socket.io/component-emitter': 3.1.2
-      debug: 4.3.7
+      debug: 4.4.1
     transitivePeerDependencies:
       - supports-color
 
@@ -25611,7 +25488,7 @@ snapshots:
       debug: 4.3.7
       engine.io: 6.6.2
       socket.io-adapter: 2.5.5
-      socket.io-parser: 4.2.4
+      socket.io-parser: 4.2.6
     transitivePeerDependencies:
       - bufferutil
       - supports-color

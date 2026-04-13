@@ -5,6 +5,10 @@
 
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
 
+type HdsIntlLike = {
+  t(key: string, options: { default: string; [key: string]: unknown }): string;
+};
+
 export enum HdsPaginationDirectionValues {
   Next = 'next',
   Prev = 'prev',
@@ -14,21 +18,57 @@ export type HdsPaginationDirections = `${HdsPaginationDirectionValues}`;
 
 export type HdsPaginationPage = HdsPaginationDirections | number;
 
-export enum HdsPaginationDirectionAriaLabelValues {
-  Prev = 'Previous page',
-  Next = 'Next page',
+// Aria labels for nav arrow buttons
+export const HDS_PAGINATION_DIRECTION_ARIA_LABEL_KEYS = {
+  [HdsPaginationDirectionValues.Prev]:
+    'hds.components.pagination.nav.arrow.aria-label.direction.prev',
+  [HdsPaginationDirectionValues.Next]:
+    'hds.components.pagination.nav.arrow.aria-label.direction.next',
+} as const;
+
+export function getHdsPaginationDirectionAriaLabel(
+  direction: HdsPaginationDirections,
+  intl: HdsIntlLike
+): string {
+  const key =
+    HDS_PAGINATION_DIRECTION_ARIA_LABEL_KEYS[
+      direction as HdsPaginationDirectionValues
+    ];
+  const defaults = {
+    [HdsPaginationDirectionValues.Prev]: 'Previous page',
+    [HdsPaginationDirectionValues.Next]: 'Next page',
+  } as const;
+
+  return intl.t(key, {
+    default: defaults[direction as HdsPaginationDirectionValues],
+  });
 }
 
-export type HdsPaginationDirectionAriaLabels =
-  `${HdsPaginationDirectionAriaLabelValues}`;
+// Display "label" text for nav arrow buttons
+export const HDS_PAGINATION_DIRECTION_LABEL_KEYS = {
+  [HdsPaginationDirectionValues.Prev]:
+    'hds.components.pagination.nav.arrow.label.direction.prev',
+  [HdsPaginationDirectionValues.Next]:
+    'hds.components.pagination.nav.arrow.label.direction.next',
+} as const;
 
-export enum HdsPaginationDirectionLabelValues {
-  Prev = 'Previous',
-  Next = 'Next',
+export function getHdsPaginationDirectionLabel(
+  direction: HdsPaginationDirections,
+  intl: HdsIntlLike
+): string {
+  const key =
+    HDS_PAGINATION_DIRECTION_LABEL_KEYS[
+      direction as HdsPaginationDirectionValues
+    ];
+  const defaults = {
+    [HdsPaginationDirectionValues.Prev]: 'Previous',
+    [HdsPaginationDirectionValues.Next]: 'Next',
+  } as const;
+
+  return intl.t(key, {
+    default: defaults[direction as HdsPaginationDirectionValues],
+  });
 }
-
-export type HdsPaginationDirectionLabels =
-  `${HdsPaginationDirectionLabelValues}`;
 
 export type HdsPaginationElliptizedPageArrayItem = string | number;
 

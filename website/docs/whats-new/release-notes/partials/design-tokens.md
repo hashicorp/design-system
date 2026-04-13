@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 5.0.0
+
+**Major changes**
+
+Removed `devdot` (developer.hashicorp.com/) and `marketing` (www.hashicorp.com) as targets for the tokens pipeline
+
+<small class="doc-whats-new-changelog-metadata">[#3772](https://github.com/hashicorp/design-system/pull/3772)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.0.1
 
 **Patch changes**
@@ -209,14 +219,6 @@ Added design tokens for `SideNav` component
 - Fixed bug with `--token-pagination-child-spacing-vertical` value so that it adds "px" unit.
 
 <small class="doc-whats-new-changelog-metadata">[#1204](https://github.com/hashicorp/design-system/pull/1204)</small>
-
-## 1.4.0
-
-**Minor changes**
-
-Added design tokens for `Pagination` component
-
-<small class="doc-whats-new-changelog-metadata">[#661](https://github.com/hashicorp/design-system/pull/661)</small>
 
 
 ---

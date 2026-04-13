@@ -40,19 +40,6 @@ module.exports = function (defaults) {
       // in the algolia index we want to store the fingerprinted illustrations' paths only in "production"
       exclude: isVercelProduction ? [] : ['assets/illustrations/**'],
     },
-    'ember-prism': {
-      components: [
-        'bash',
-        'css',
-        'handlebars',
-        'javascript',
-        'markup-templating',
-        'scss',
-        'typescript',
-      ],
-      theme: 'dracula',
-      plugins: ['line-numbers', 'normalize-whitespace'],
-    },
     // https://github.com/shipshapecode/prember-sitemap-generator#usage
     prember: {
       baseRoot: 'https://helios.hashicorp.design/',

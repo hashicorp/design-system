@@ -74,10 +74,4 @@
   > *:last-child {
     margin-bottom: 0;
   }
-
-  // TODO! fix this once Alex has completed the work on the code blocks
-  .doc-code-block__code-snippet,
-  .doc-code-block {
-    margin: 0 !important;
-  }
 }

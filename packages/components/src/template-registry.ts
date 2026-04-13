@@ -74,6 +74,7 @@ import type HdsCodeBlockComponent from './components/hds/code-block';
 import type HdsCodeBlockCopyButtonComponent from './components/hds/code-block/copy-button';
 import type HdsCodeBlockDescriptionComponent from './components/hds/code-block/description';
 import type HdsCodeBlockTitleComponent from './components/hds/code-block/title';
+import type HdsCompositeComponent from './components/hds/composite/index.gts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
@@ -460,6 +461,10 @@ export default interface HdsComponentsRegistry {
   'hds/code-editor/title': typeof HdsCodeEditorTitleComponent;
   'Hds::CodeEditor::FullScreenButton': typeof HdsCodeEditorFullScreenButtonComponent;
   'hds/code-editor/full-screen-button': typeof HdsCodeEditorFullScreenButtonComponent;
+
+  // Composite
+  'Hds::Composite': typeof HdsCompositeComponent;
+  'hds/composite': typeof HdsCompositeComponent;
 
   // Copy Button
   'Hds::Copy::Button': typeof HdsCopyButtonComponent;
