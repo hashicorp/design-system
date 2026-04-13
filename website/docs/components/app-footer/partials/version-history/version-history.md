@@ -1,3 +1,8 @@
+## 6.1.1
+
+Translated strings for `AppFooterStatusLink` status value types
+
+
 ## 6.1.0
 
 Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsLinkInline`.
