@@ -198,6 +198,7 @@ export interface HdsAdvancedTableSignature {
           | 'depth'
           | 'isExpandable'
           | 'isExpanded'
+          | 'isStickyColumn'
           | 'newLabel'
           | 'parentId'
           | 'scope'
@@ -1085,6 +1086,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
                         depth=row.depth
                         scope="row"
                         newLabel=row.id
+                        parentId=undefined
                         isStickyColumn=this.hasStickyFirstColumn
                         isStickyColumnPinned=this.isStickyColumnPinned
                       )

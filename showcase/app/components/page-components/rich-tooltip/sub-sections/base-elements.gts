@@ -174,7 +174,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         @popoverId="unique-popover-id"
         @arrowId="unique-arrow-id"
       >
-        <ShwPlaceholder @text="generic content" width="250px" @height="40" />
+        <ShwPlaceholder @text="generic content" @width="250px" @height="40" />
       </HdsRichTooltipBubble>
     </SF.Item>
     <SF.Item
@@ -189,7 +189,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         @popoverId="unique-popover-id"
         @arrowId="unique-arrow-id"
       >
-        <ShwPlaceholder @text="generic content" width="100%" @height="100%" />
+        <ShwPlaceholder @text="generic content" @width="100%" @height="100%" />
       </HdsRichTooltipBubble>
     </SF.Item>
   </ShwFlex>
