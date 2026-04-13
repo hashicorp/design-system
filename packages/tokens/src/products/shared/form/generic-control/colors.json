@@ -7,11 +7,6 @@
           "$value": "{color.foreground.strong}",
           "group": "components"
         },
-        "placeholder-color": {
-          "$type": "color",
-          "$value": "{color.foreground.faint}",
-          "group": "components"
-        },
         "surface-color": {
           "default": {
             "$type": "color",
@@ -33,6 +28,13 @@
           "hover": {
             "$type": "color",
             "$value": "{color.palette.neutral-500}",
+            "group": "components"
+          }
+        },
+        "placeholder": {
+          "foreground-color": {
+            "$type": "color",
+            "$value": "{color.foreground.faint}",
             "group": "components"
           }
         }
