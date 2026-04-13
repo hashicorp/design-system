@@ -6,6 +6,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { scheduleOnce } from '@ember/runloop';
+import { concat, fn } from '@ember/helper';
+import { on } from '@ember/modifier';
+
+import HdsIcon from '../icon/index.gts';
+import hdsT from '../../../helpers/hds-t.ts';
 
 import type { HdsAdvancedTableNormalizedColumn } from './types';
 
@@ -98,4 +103,31 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
         break;
     }
   }
+
+  <template>
+    {{! template-lint-disable no-unsupported-role-attributes require-presentational-children }}
+    <div
+      role="button"
+      draggable="true"
+      class="hds-advanced-table__th-reorder-handle"
+      tabindex="0"
+      aria-description={{hdsT
+        "hds.components.advanced-table.th-reorder-handle.aria-description"
+        default="Use left and right arrow keys while focused on this button to move the column to a new position."
+      }}
+      aria-label={{hdsT
+        "hds.components.advanced-table.th-reorder-handle.aria-label"
+        columnLabel=@column.label
+        default=(concat "Reorder " @column.label " column")
+      }}
+      {{on "dragstart" this.handleDragStart}}
+      {{on "dragend" (fn @onSetDraggedColumnKey null)}}
+      {{on "keydown" this.handleKeydown}}
+      ...attributes
+    >
+      <div class="hds-advanced-table__th-reorder-handle__inner">
+        <HdsIcon @name="move-horizontal" />
+      </div>
+    </div>
+  </template>
 }

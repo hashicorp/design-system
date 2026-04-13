@@ -7,7 +7,10 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
-import { BORDER_WIDTH } from './index.ts';
+import { on } from '@ember/modifier';
+import style from 'ember-style-modifier';
+
+import { BORDER_WIDTH } from './index.gts';
 import { requestAnimationFrameWaiter } from './utils.ts';
 import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
 
@@ -15,7 +18,7 @@ import type {
   HdsAdvancedTableNormalizedColumn,
   HdsAdvancedTableColumnReorderSide,
 } from './types.ts';
-import type { HdsAdvancedTableSignature } from './index.ts';
+import type { HdsAdvancedTableSignature } from './index.gts';
 
 export interface HdsAdvancedTableThReorderDropTargetSignature {
   Args: {
@@ -185,4 +188,16 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
     onSetReorderHoveredColumnKey(null);
   }
+
+  <template>
+    <div
+      class={{this.classNames}}
+      aria-hidden="true"
+      {{style height=this.height}}
+      {{this._registerElement}}
+      {{on "dragover" this.handleDragOver}}
+      {{on "drop" this.handleDrop}}
+      ...attributes
+    />
+  </template>
 }

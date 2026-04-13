@@ -7,16 +7,21 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { on } from '@ember/modifier';
+import style from 'ember-style-modifier';
+import { concat } from '@ember/helper';
+
 import { parsePixel, requestAnimationFrameWaiter } from './utils.ts';
-import { BORDER_WIDTH } from './index.ts';
+import { BORDER_WIDTH } from './index.gts';
 import {
   DEFAULT_MIN_WIDTH,
   DEFAULT_MAX_WIDTH,
 } from './column-manager/width.gts';
+import hdsT from '../../../helpers/hds-t.ts';
 
 import type Owner from '@ember/owner';
 import type { HdsAdvancedTableNormalizedColumn } from './types';
-import type { HdsAdvancedTableSignature } from './index.ts';
+import type { HdsAdvancedTableSignature } from './index.gts';
 
 const KEYBOARD_RESIZE_STEP = 10;
 
@@ -472,4 +477,28 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     this.onColumnResize(column.key, appliedWidth);
   }
+
+  <template>
+    {{! template-lint-disable no-pointer-down-event-binding }}
+    <div
+      class={{this.classNames}}
+      draggable="false"
+      role="slider"
+      aria-orientation="horizontal"
+      aria-valuenow={{this.currentWidthInPixels}}
+      aria-valuemin={{this.minWidthInPixels}}
+      aria-valuemax={{this.maxWidthInPixels}}
+      tabindex="0"
+      aria-label={{hdsT
+        "hds.components.advanced-table.th-resize-handle.aria-label"
+        columnLabel=@column.label
+        default=(concat "Resize " @column.label " column")
+      }}
+      {{this._registerHandleElement}}
+      {{on "pointerdown" this.startResize}}
+      {{on "keydown" this.handleKeydown}}
+      {{style height=this.height}}
+      ...attributes
+    />
+  </template>
 }

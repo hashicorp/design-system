@@ -8,6 +8,11 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
+import style from 'ember-style-modifier';
+import hdsAdvancedTableCell from '../../../modifiers/hds-advanced-table-cell.ts';
+// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { hash } from '@ember/helper';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
@@ -29,6 +34,7 @@ export interface HdsAdvancedTableTdSignature {
   };
   Element: HTMLDivElement;
 }
+
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @tracked private _shouldTrapFocus = false;
   private _element!: HTMLDivElement;
@@ -88,4 +94,30 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
   }
+
+  <template>
+    <div
+      class={{this.classNames}}
+      role="gridcell"
+      aria-rowspan={{@rowspan}}
+      aria-colspan={{@colspan}}
+      {{style grid-row=this.rowspan grid-column=this.colspan}}
+      {{hdsAdvancedTableCell
+        handleEnableFocusTrap=this.enableFocusTrap
+        shouldTrapFocus=this._shouldTrapFocus
+        setCellElement=this.setElement
+      }}
+      {{focusTrap
+        isActive=this._shouldTrapFocus
+        focusTrapOptions=(hash
+          onDeactivate=this.onFocusTrapDeactivate
+          initialFocus=this.getInitialFocus
+          clickOutsideDeactivates=true
+        )
+      }}
+      ...attributes
+    >
+      {{yield}}
+    </div>
+  </template>
 }

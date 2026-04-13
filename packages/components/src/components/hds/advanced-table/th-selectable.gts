@@ -9,6 +9,7 @@ import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { service } from '@ember/service';
+import { on } from '@ember/modifier';
 
 import type HdsIntlService from '../../../services/hds-intl';
 
@@ -16,13 +17,17 @@ import {
   HdsAdvancedTableThSortOrderValues,
   HdsAdvancedTableThSortOrderLabelValues,
 } from './types.ts';
-import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
+import HdsAdvancedTableTh from './th.gts';
+import HdsFormCheckboxBase from '../form/checkbox/base.gts';
+import HdsAdvancedTableThButtonSort from './th-button-sort.gts';
+
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
-import type { HdsAdvancedTableThSignature } from './th.ts';
+import type { HdsAdvancedTableThSignature } from './th.gts';
 
 export interface HdsAdvancedTableThSelectableSignature {
   Args: {
@@ -108,4 +113,33 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
       onSelectionChange(target, this.args.selectionKey);
     }
   }
+
+  <template>
+    <HdsAdvancedTableTh
+      class="hds-advanced-table__th--is-selectable"
+      aria-sort={{if this.isSortable this.ariaSort}}
+      @scope={{@selectionScope}}
+      @isStickyColumn={{@isStickyColumn}}
+      @isStickyColumnPinned={{@isStickyColumnPinned}}
+      ...attributes
+    >
+      <div class="hds-advanced-table__th-content">
+        <HdsFormCheckboxBase
+          id={{this._checkboxId}}
+          class="hds-advanced-table__checkbox"
+          checked={{@isSelected}}
+          aria-label={{this.ariaLabel}}
+          {{this._manageCheckbox}}
+          {{on "change" this.onSelectionChange}}
+        />
+        {{#if this.isSortable}}
+          <HdsAdvancedTableThButtonSort
+            @sortOrder={{@sortBySelectedOrder}}
+            @onClick={{@onClickSortBySelected}}
+            @labelId={{this._labelId}}
+          />
+        {{/if}}
+      </div>
+    </HdsAdvancedTableTh>
+  </template>
 }
