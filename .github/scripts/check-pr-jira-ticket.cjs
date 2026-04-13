@@ -1,6 +1,7 @@
 const fs = require('node:fs/promises');
 
-const JIRA_LINE_PATTERN = /https:\/\/hashicorp\.atlassian\.net\/browse\/\d+/i;
+const JIRA_LINE_PATTERN =
+  /https:\/\/hashicorp\.atlassian\.net\/browse\/[A-Z][A-Z0-9_]*-\d+\b/i;
 
 async function main() {
   const token = process.env.GITHUB_TOKEN;
@@ -24,11 +25,10 @@ async function main() {
     return;
   }
 
-  const [owner, repo] = repository.split('/');
   const authorLogin = pullRequest.user.login;
+
   const { isCodeowner, usedFallback } = await getIsCodeowner({
-    owner,
-    repo,
+    repository,
     ref: pullRequest.base.ref,
     authorLogin,
     token,
@@ -57,9 +57,9 @@ async function main() {
   );
 }
 
-async function getIsCodeowner({ owner, repo, ref, authorLogin, token }) {
+async function getIsCodeowner({ repository, ref, authorLogin, token }) {
   try {
-    const owners = await getCodeowners({ owner, repo, token, ref });
+    const owners = await getCodeowners({ repository, token, ref });
     const result = await isAuthorCodeowner({ authorLogin, owners, token });
 
     return {
@@ -77,9 +77,9 @@ async function getIsCodeowner({ owner, repo, ref, authorLogin, token }) {
   }
 }
 
-async function getCodeowners({ owner, repo, token, ref }) {
+async function getCodeowners({ repository, token, ref }) {
   const response = await githubRequest({
-    path: `/repos/${owner}/${repo}/contents/.github/CODEOWNERS?ref=${encodeURIComponent(ref)}`,
+    path: `/repos/${repository}/contents/.github/CODEOWNERS?ref=${encodeURIComponent(ref)}`,
     token,
   });
   const content = Buffer.from(response.content, 'base64').toString('utf8');
