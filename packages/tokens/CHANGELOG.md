@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 5.0.0
+
+### Major Changes
+
+Removed `devdot` (developer.hashicorp.com/) and `marketing` (www.hashicorp.com) as targets for the tokens pipeline
+
+<small class="doc-whats-new-changelog-metadata">[#3772](https://github.com/hashicorp/design-system/pull/3772)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.0.1
 
 ### Patch Changes

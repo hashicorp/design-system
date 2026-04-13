@@ -6,12 +6,15 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { service } from '@ember/service';
 
 import type Owner from '@ember/owner';
 
 import { HdsPaginationDirectionValues } from '../types.ts';
 import HdsPaginationNavArrow from '../nav/arrow.gts';
 import HdsPaginationSizeSelector from '../size-selector/index.gts';
+
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 import type {
   HdsPaginationRoutingProps,
@@ -85,6 +88,8 @@ export interface HdsPaginationCompactSignature {
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 export default class HdsPaginationCompact extends Component<HdsPaginationCompactSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   // This private variable is used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).
@@ -133,7 +138,12 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   }
 
   get ariaLabel(): string {
-    return this.args.ariaLabel ?? 'Pagination';
+    return (
+      this.args.ariaLabel ??
+      this.hdsIntl.t('hds.components.pagination.compact.aria-label', {
+        default: 'Pagination',
+      })
+    );
   }
 
   // This very specific `get/set` pattern is used to handle the two different use cases of the component

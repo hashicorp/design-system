@@ -1,3 +1,8 @@
+## 6.1.1
+
+Fixed `TextInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
+
+
 ## 6.1.0
 
 Converted component to gts format.

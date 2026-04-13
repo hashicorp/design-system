@@ -76,21 +76,6 @@
   margin-bottom: 16px;
 }
 
-// CODE BLOCK(S)
-
-.doc-code-block,
-pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet {
-  margin: 16px 0 32px;
-}
-
-.doc-code-block + .doc-code-block,
-.doc-code-block + pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet,
-pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + .doc-code-block,
-pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet {
-  // we want to reduce the spacing between to consecutive code blocks
-  margin-top: -16px;
-}
-
 // CODE GROUPS
 
 .doc-code-group {

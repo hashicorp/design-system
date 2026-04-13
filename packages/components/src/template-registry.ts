@@ -467,6 +467,10 @@ export default interface HdsComponentsRegistry {
   'Hds::CodeEditor::FullScreenButton': typeof HdsCodeEditorFullScreenButtonComponent;
   'hds/code-editor/full-screen-button': typeof HdsCodeEditorFullScreenButtonComponent;
 
+  // Composite
+  'Hds::Composite': typeof HdsCompositeComponent;
+  'hds/composite': typeof HdsCompositeComponent;
+
   // Copy Button
   'Hds::Copy::Button': typeof HdsCopyButtonComponent;
   'hds/copy/button': typeof HdsCopyButtonComponent;
