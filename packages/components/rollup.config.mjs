@@ -58,12 +58,13 @@ const plugins = [
   // addon. Anything not listed here may get optimized away.
   addon.publicEntrypoints(['**/*.{js,ts}', 'index.js', 'template-registry.js']),
 
-  // These are the modules that should get reexported into the traditional
-  // "app" tree. Things in here should also be in publicEntrypoints above, but
-  // not everything in publicEntrypoints necessarily needs to go here.
+  // TREE-SHAKING: We no longer auto-register components via appReexports.
+  // Consumers must explicitly import components they need.
+  // We still register helpers, modifiers, services, and instance-initializers
+  // for backward compatibility and proper DI/initialization.
   addon.appReexports(
     [
-      'components/**/!(*types).js',
+      // Components are NOT registered - must be explicitly imported for tree-shaking
       'helpers/**/*.js',
       'modifiers/**/*.js',
       'services/**/!(*types).js',
