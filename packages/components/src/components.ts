@@ -11,7 +11,9 @@
 
 // Accordion
 export { default as HdsAccordion } from './components/hds/accordion/index.gts';
-export { default as HdsAccordionItem } from './components/hds/accordion/item/index.gts';
+export { default as HdsAccordionItem } from './components/hds/accordion/item.gts';
+export type { HdsAccordionSignature } from './components/hds/accordion/index.gts';
+export type { HdsAccordionItemSignature } from './components/hds/accordion/item.gts';
 export * from './components/hds/accordion/types.ts';
 
 // Advanced Table
