@@ -451,10 +451,6 @@ export default interface HdsComponentsRegistry {
   'Hds::CodeBlock::Title': typeof HdsCodeBlockTitleComponent;
   'hds/code-block/title': typeof HdsCodeBlockTitleComponent;
 
-  // Composite
-  'Hds::Composite': typeof HdsCompositeComponent;
-  'hds/composite': typeof HdsCompositeComponent;
-
   // Code Editor
   'Hds::CodeEditor': typeof HdsCodeEditorComponent;
   'hds/code-editor': typeof HdsCodeEditorComponent;
