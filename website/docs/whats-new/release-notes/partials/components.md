@@ -130,13 +130,13 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/advanced-table -->
+<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Translated strings for ThSelectable ariaLabel and context menu Dropdown ToggleIcon
 
 <!-- END -->
 
-<!-- START components/table -->
+<!-- START components/table/table -->
 
 `Table` - Translated string for ThSelectable ariaLabel
 
