@@ -16,6 +16,8 @@ import HdsFormTextInputBase from '../text-input/base.gts';
 import HdsFormTextareaBase from '../textarea/base.gts';
 import HdsFormVisibilityToggle from '../visibility-toggle/index.gts';
 
+import type { HdsFormTextInputBaseSignature } from '../text-input/base.gts';
+import type { HdsFormTextareaBaseSignature } from '../textarea/base.gts';
 import type { HdsCopyButtonSignature } from '../../copy/button/index.gts';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.gts';
 import type HdsIntlService from '../../../../services/hds-intl.ts';
@@ -35,7 +37,9 @@ export interface HdsFormMaskedInputBaseSignature {
     height?: string;
     ariaDescribedBy?: string;
   };
-  Element: HTMLTextAreaElement | HTMLInputElement;
+  Element:
+    | HdsFormTextareaBaseSignature['Element']
+    | HdsFormTextInputBaseSignature['Element'];
 }
 
 export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInputBaseSignature> {
