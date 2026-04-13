@@ -12,7 +12,7 @@ import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { service } from '@ember/service';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import { didInsert } from '@ember/render-modifiers';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
