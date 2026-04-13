@@ -14,7 +14,7 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import {
   SIZES,
   TYPES,
-} from '@hashicorp/design-system-components/components/hds/accordion/item/index';
+} from '@hashicorp/design-system-components/components/hds/accordion/types';
 
 import CodeFragmentWithPlaceholderContent from '../code-fragments/with-placeholder-content';
 import CodeFragmentWithToggleVariants from '../code-fragments/with-toggle-variants';
