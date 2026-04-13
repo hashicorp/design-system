@@ -9,7 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { macroCondition, isTesting } from '@embroider/macros';
 import PortalTarget from 'ember-stargate/components/portal-target';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import { didUpdate } from '@ember/render-modifiers';
 
 import type { Registry as Services } from '@ember/service';
 
