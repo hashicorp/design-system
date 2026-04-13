@@ -4,7 +4,7 @@
 
 @mixin hds-theme-default() {
   :root {
-    --token-app-footer-focus-color-action-internal: var(
+    --token-app-footer-link-focus-outline-color: var(
       --token-color-focus-action-internal
     );
     --token-badge-border-radius: var(--token-border-radius-small);
@@ -736,7 +736,7 @@
 
 @mixin hds-theme-light() {
   :root {
-    --token-app-footer-focus-color-action-internal: #0f62fe;
+    --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1171,7 +1171,7 @@
 
 @mixin hds-theme-dark() {
   :root {
-    --token-app-footer-focus-color-action-internal: #ffffff;
+    --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1606,7 +1606,7 @@
 
 @mixin hds-mode-cds0() {
   :root {
-    --token-app-footer-focus-color-action-internal: #0f62fe;
+    --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -2041,7 +2041,7 @@
 
 @mixin hds-mode-cds10() {
   :root {
-    --token-app-footer-focus-color-action-internal: #0f62fe;
+    --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -2476,7 +2476,7 @@
 
 @mixin hds-mode-cds90() {
   :root {
-    --token-app-footer-focus-color-action-internal: #ffffff;
+    --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -2911,7 +2911,7 @@
 
 @mixin hds-mode-cds100() {
   :root {
-    --token-app-footer-focus-color-action-internal: #ffffff;
+    --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -3517,11 +3517,11 @@
     --token-form-control-base-border-color-hover: var(
       --token-color-palette-neutral-500
     );
-    --token-form-control-base-foreground-placeholder-color: var(
-      --token-color-foreground-faint
-    );
-    --token-form-control-base-foreground-value-color: var(
+    --token-form-control-base-foreground-color: var(
       --token-color-foreground-strong
+    );
+    --token-form-control-base-placeholder-foreground-color: var(
+      --token-color-foreground-faint
     );
     --token-form-control-base-surface-color-default: var(
       --token-color-surface-interactive

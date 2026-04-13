@@ -5827,7 +5827,7 @@
     ]
   },
   {
-    "key": "{app-footer.focus.color.action.internal}",
+    "key": "{app-footer.link.focus.outline.color}",
     "$type": "color",
     "$value": "var(--token-color-focus-action-internal)",
     "$modes": {
@@ -5847,18 +5847,18 @@
         "cds-g90": "{carbon.themes.g90.focus}",
         "cds-g100": "{carbon.themes.g100.focus}"
       },
-      "key": "{app-footer.focus.color.action.internal}"
+      "key": "{app-footer.link.focus.outline.color}"
     },
-    "name": "token-app-footer-focus-color-action-internal",
+    "name": "token-app-footer-link-focus-outline-color",
     "attributes": {
       "category": "app-footer"
     },
     "path": [
       "app-footer",
+      "link",
       "focus",
-      "color",
-      "action",
-      "internal"
+      "outline",
+      "color"
     ]
   },
   {
@@ -12210,7 +12210,7 @@
     ]
   },
   {
-    "key": "{form.control.base.foreground.value-color}",
+    "key": "{form.control.base.foreground.color}",
     "$type": "color",
     "$value": "#0c0c0e",
     "group": "components",
@@ -12218,9 +12218,9 @@
       "$type": "color",
       "$value": "{color.foreground.strong}",
       "group": "components",
-      "key": "{form.control.base.foreground.value-color}"
+      "key": "{form.control.base.foreground.color}"
     },
-    "name": "token-form-control-base-foreground-value-color",
+    "name": "token-form-control-base-foreground-color",
     "attributes": {
       "category": "form"
     },
@@ -12229,34 +12229,11 @@
       "control",
       "base",
       "foreground",
-      "value-color"
+      "color"
     ]
   },
   {
-    "key": "{form.control.base.foreground.placeholder-color}",
-    "$type": "color",
-    "$value": "#656a76",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{color.foreground.faint}",
-      "group": "components",
-      "key": "{form.control.base.foreground.placeholder-color}"
-    },
-    "name": "token-form-control-base-foreground-placeholder-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "foreground",
-      "placeholder-color"
-    ]
-  },
-  {
-    "key": "{form.control.base.surface-color.default}",
+    "key": "{form.control.base.surface.color.default}",
     "$type": "color",
     "$value": "#ffffff",
     "group": "components",
@@ -12264,7 +12241,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive}",
       "group": "components",
-      "key": "{form.control.base.surface-color.default}"
+      "key": "{form.control.base.surface.color.default}"
     },
     "name": "token-form-control-base-surface-color-default",
     "attributes": {
@@ -12274,12 +12251,13 @@
       "form",
       "control",
       "base",
-      "surface-color",
+      "surface",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.base.surface-color.hover}",
+    "key": "{form.control.base.surface.color.hover}",
     "$type": "color",
     "$value": "#f1f2f3",
     "group": "components",
@@ -12287,7 +12265,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive-hover}",
       "group": "components",
-      "key": "{form.control.base.surface-color.hover}"
+      "key": "{form.control.base.surface.color.hover}"
     },
     "name": "token-form-control-base-surface-color-hover",
     "attributes": {
@@ -12297,12 +12275,13 @@
       "form",
       "control",
       "base",
-      "surface-color",
+      "surface",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.base.border-color.default}",
+    "key": "{form.control.base.border.color.default}",
     "$type": "color",
     "$value": "#8c909c",
     "group": "components",
@@ -12310,7 +12289,7 @@
       "$type": "color",
       "$value": "{color.palette.neutral-400}",
       "group": "components",
-      "key": "{form.control.base.border-color.default}"
+      "key": "{form.control.base.border.color.default}"
     },
     "name": "token-form-control-base-border-color-default",
     "attributes": {
@@ -12320,12 +12299,13 @@
       "form",
       "control",
       "base",
-      "border-color",
+      "border",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.base.border-color.hover}",
+    "key": "{form.control.base.border.color.hover}",
     "$type": "color",
     "$value": "#656a76",
     "group": "components",
@@ -12333,7 +12313,7 @@
       "$type": "color",
       "$value": "{color.palette.neutral-500}",
       "group": "components",
-      "key": "{form.control.base.border-color.hover}"
+      "key": "{form.control.base.border.color.hover}"
     },
     "name": "token-form-control-base-border-color-hover",
     "attributes": {
@@ -12343,12 +12323,37 @@
       "form",
       "control",
       "base",
-      "border-color",
+      "border",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.checked.foreground-color}",
+    "key": "{form.control.base.placeholder.foreground.color}",
+    "$type": "color",
+    "$value": "#656a76",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{color.foreground.faint}",
+      "group": "components",
+      "key": "{form.control.base.placeholder.foreground.color}"
+    },
+    "name": "token-form-control-base-placeholder-foreground-color",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "base",
+      "placeholder",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{form.control.checked.foreground.color}",
     "$type": "color",
     "$value": "#ffffff",
     "group": "components",
@@ -12356,7 +12361,7 @@
       "$type": "color",
       "$value": "{color.foreground.high-contrast}",
       "group": "components",
-      "key": "{form.control.checked.foreground-color}"
+      "key": "{form.control.checked.foreground.color}"
     },
     "name": "token-form-control-checked-foreground-color",
     "attributes": {
@@ -12366,11 +12371,12 @@
       "form",
       "control",
       "checked",
-      "foreground-color"
+      "foreground",
+      "color"
     ]
   },
   {
-    "key": "{form.control.checked.surface-color.default}",
+    "key": "{form.control.checked.surface.color.default}",
     "$type": "color",
     "$value": "#1060ff",
     "group": "components",
@@ -12378,7 +12384,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-200}",
       "group": "components",
-      "key": "{form.control.checked.surface-color.default}"
+      "key": "{form.control.checked.surface.color.default}"
     },
     "name": "token-form-control-checked-surface-color-default",
     "attributes": {
@@ -12388,12 +12394,13 @@
       "form",
       "control",
       "checked",
-      "surface-color",
+      "surface",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.checked.surface-color.hover}",
+    "key": "{form.control.checked.surface.color.hover}",
     "$type": "color",
     "$value": "#0c56e9",
     "group": "components",
@@ -12401,7 +12408,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-300}",
       "group": "components",
-      "key": "{form.control.checked.surface-color.hover}"
+      "key": "{form.control.checked.surface.color.hover}"
     },
     "name": "token-form-control-checked-surface-color-hover",
     "attributes": {
@@ -12411,12 +12418,13 @@
       "form",
       "control",
       "checked",
-      "surface-color",
+      "surface",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.checked.border-color.default}",
+    "key": "{form.control.checked.border.color.default}",
     "$type": "color",
     "$value": "#0c56e9",
     "group": "components",
@@ -12424,7 +12432,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-300}",
       "group": "components",
-      "key": "{form.control.checked.border-color.default}"
+      "key": "{form.control.checked.border.color.default}"
     },
     "name": "token-form-control-checked-border-color-default",
     "attributes": {
@@ -12434,12 +12442,13 @@
       "form",
       "control",
       "checked",
-      "border-color",
+      "border",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.checked.border-color.hover}",
+    "key": "{form.control.checked.border.color.hover}",
     "$type": "color",
     "$value": "#0046d1",
     "group": "components",
@@ -12447,7 +12456,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-400}",
       "group": "components",
-      "key": "{form.control.checked.border-color.hover}"
+      "key": "{form.control.checked.border.color.hover}"
     },
     "name": "token-form-control-checked-border-color-hover",
     "attributes": {
@@ -12457,12 +12466,13 @@
       "form",
       "control",
       "checked",
-      "border-color",
+      "border",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.invalid.border-color.default}",
+    "key": "{form.control.invalid.border.color.default}",
     "$type": "color",
     "$value": "#c00005",
     "group": "components",
@@ -12470,7 +12480,7 @@
       "$type": "color",
       "$value": "{color.palette.red-300}",
       "group": "components",
-      "key": "{form.control.invalid.border-color.default}"
+      "key": "{form.control.invalid.border.color.default}"
     },
     "name": "token-form-control-invalid-border-color-default",
     "attributes": {
@@ -12480,12 +12490,13 @@
       "form",
       "control",
       "invalid",
-      "border-color",
+      "border",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.invalid.border-color.hover}",
+    "key": "{form.control.invalid.border.color.hover}",
     "$type": "color",
     "$value": "#940004",
     "group": "components",
@@ -12493,7 +12504,7 @@
       "$type": "color",
       "$value": "{color.palette.red-400}",
       "group": "components",
-      "key": "{form.control.invalid.border-color.hover}"
+      "key": "{form.control.invalid.border.color.hover}"
     },
     "name": "token-form-control-invalid-border-color-hover",
     "attributes": {
@@ -12503,12 +12514,13 @@
       "form",
       "control",
       "invalid",
-      "border-color",
+      "border",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.readonly.foreground-color}",
+    "key": "{form.control.readonly.foreground.color}",
     "$type": "color",
     "$value": "#3b3d45",
     "group": "components",
@@ -12516,7 +12528,7 @@
       "$type": "color",
       "$value": "{color.foreground.primary}",
       "group": "components",
-      "key": "{form.control.readonly.foreground-color}"
+      "key": "{form.control.readonly.foreground.color}"
     },
     "name": "token-form-control-readonly-foreground-color",
     "attributes": {
@@ -12526,11 +12538,12 @@
       "form",
       "control",
       "readonly",
-      "foreground-color"
+      "foreground",
+      "color"
     ]
   },
   {
-    "key": "{form.control.readonly.surface-color}",
+    "key": "{form.control.readonly.surface.color}",
     "$type": "color",
     "$value": "#f1f2f3",
     "group": "components",
@@ -12538,7 +12551,7 @@
       "$type": "color",
       "$value": "{color.surface.strong}",
       "group": "components",
-      "key": "{form.control.readonly.surface-color}"
+      "key": "{form.control.readonly.surface.color}"
     },
     "name": "token-form-control-readonly-surface-color",
     "attributes": {
@@ -12548,11 +12561,12 @@
       "form",
       "control",
       "readonly",
-      "surface-color"
+      "surface",
+      "color"
     ]
   },
   {
-    "key": "{form.control.readonly.border-color}",
+    "key": "{form.control.readonly.border.color}",
     "$type": "color",
     "$value": "#656a761a",
     "group": "components",
@@ -12560,7 +12574,7 @@
       "$type": "color",
       "$value": "{color.border.faint}",
       "group": "components",
-      "key": "{form.control.readonly.border-color}"
+      "key": "{form.control.readonly.border.color}"
     },
     "name": "token-form-control-readonly-border-color",
     "attributes": {
@@ -12570,11 +12584,12 @@
       "form",
       "control",
       "readonly",
-      "border-color"
+      "border",
+      "color"
     ]
   },
   {
-    "key": "{form.control.disabled.foreground-color}",
+    "key": "{form.control.disabled.foreground.color}",
     "$type": "color",
     "$value": "#8c909c",
     "group": "components",
@@ -12582,7 +12597,7 @@
       "$type": "color",
       "$value": "{color.foreground.disabled}",
       "group": "components",
-      "key": "{form.control.disabled.foreground-color}"
+      "key": "{form.control.disabled.foreground.color}"
     },
     "name": "token-form-control-disabled-foreground-color",
     "attributes": {
@@ -12592,11 +12607,12 @@
       "form",
       "control",
       "disabled",
-      "foreground-color"
+      "foreground",
+      "color"
     ]
   },
   {
-    "key": "{form.control.disabled.surface-color}",
+    "key": "{form.control.disabled.surface.color}",
     "$type": "color",
     "$value": "#fafafa",
     "group": "components",
@@ -12604,7 +12620,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive-disabled}",
       "group": "components",
-      "key": "{form.control.disabled.surface-color}"
+      "key": "{form.control.disabled.surface.color}"
     },
     "name": "token-form-control-disabled-surface-color",
     "attributes": {
@@ -12614,11 +12630,12 @@
       "form",
       "control",
       "disabled",
-      "surface-color"
+      "surface",
+      "color"
     ]
   },
   {
-    "key": "{form.control.disabled.border-color}",
+    "key": "{form.control.disabled.border.color}",
     "$type": "color",
     "$value": "#656a7633",
     "group": "components",
@@ -12626,7 +12643,7 @@
       "$type": "color",
       "$value": "{color.border.primary}",
       "group": "components",
-      "key": "{form.control.disabled.border-color}"
+      "key": "{form.control.disabled.border.color}"
     },
     "name": "token-form-control-disabled-border-color",
     "attributes": {
@@ -12636,7 +12653,8 @@
       "form",
       "control",
       "disabled",
-      "border-color"
+      "border",
+      "color"
     ]
   },
   {
@@ -13348,7 +13366,7 @@
     ]
   },
   {
-    "key": "{form.toggle.base.surface-color.default}",
+    "key": "{form.toggle.base.surface.color.default}",
     "$type": "color",
     "$value": "#f1f2f3",
     "group": "components",
@@ -13358,7 +13376,7 @@
       "$value": "{color.surface.strong}",
       "group": "components",
       "comment": "the toggle has a different base surface color, compared to the other controls",
-      "key": "{form.toggle.base.surface-color.default}"
+      "key": "{form.toggle.base.surface.color.default}"
     },
     "name": "token-form-toggle-base-surface-color-default",
     "attributes": {
@@ -13368,7 +13386,8 @@
       "form",
       "toggle",
       "base",
-      "surface-color",
+      "surface",
+      "color",
       "default"
     ]
   },
