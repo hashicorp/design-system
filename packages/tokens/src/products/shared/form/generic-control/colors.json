@@ -2,120 +2,148 @@
   "form": {
     "control": {
       "base": {
-        "foreground-color": {
-          "$type": "color",
-          "$value": "{color.foreground.strong}",
-          "group": "components"
-        },
-        "surface-color": {
-          "default": {
+        "foreground": {
+          "color": {
             "$type": "color",
-            "$value": "{color.surface.interactive}",
-            "group": "components"
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.surface.interactive-hover}",
+            "$value": "{color.foreground.strong}",
             "group": "components"
           }
         },
-        "border-color": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.palette.neutral-400}",
-            "group": "components"
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.palette.neutral-500}",
-            "group": "components"
+        "surface": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.surface.interactive}",
+              "group": "components"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.surface.interactive-hover}",
+              "group": "components"
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.palette.neutral-400}",
+              "group": "components"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.palette.neutral-500}",
+              "group": "components"
+            }
           }
         },
         "placeholder": {
-          "foreground-color": {
-            "$type": "color",
-            "$value": "{color.foreground.faint}",
-            "group": "components"
+          "foreground": {
+            "color": {
+              "$type": "color",
+              "$value": "{color.foreground.faint}",
+              "group": "components"
+            }
           }
         }
       },
       "checked": {
-        "foreground-color": {
-          "$type": "color",
-          "$value": "{color.foreground.high-contrast}",
-          "group": "components"
-        },
-        "surface-color": {
-          "default": {
+        "foreground": {
+          "color": {
             "$type": "color",
-            "$value": "{color.palette.blue-200}",
-            "group": "components"
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.palette.blue-300}",
+            "$value": "{color.foreground.high-contrast}",
             "group": "components"
           }
         },
-        "border-color": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.palette.blue-300}",
-            "group": "components"
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.palette.blue-400}",
-            "group": "components"
+        "surface": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.palette.blue-200}",
+              "group": "components"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.palette.blue-300}",
+              "group": "components"
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.palette.blue-300}",
+              "group": "components"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.palette.blue-400}",
+              "group": "components"
+            }
           }
         }
       },
       "invalid": {
-        "border-color": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.palette.red-300}",
-            "group": "components"
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.palette.red-400}",
-            "group": "components"
+        "border": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.palette.red-300}",
+              "group": "components"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.palette.red-400}",
+              "group": "components"
+            }
           }
         }
       },
       "readonly": {
-        "foreground-color": {
-          "$type": "color",
-          "$value": "{color.foreground.primary}",
-          "group": "components"
+        "foreground": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "group": "components"
+          }
         },
-        "surface-color": {
-          "$type": "color",
-          "$value": "{color.surface.strong}",
-          "group": "components"
+        "surface": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.surface.strong}",
+            "group": "components"
+          }
         },
-        "border-color": {
-          "$type": "color",
-          "$value": "{color.border.faint}",
-          "group": "components"
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.border.faint}",
+            "group": "components"
+          }
         }
       },
       "disabled": {
-        "foreground-color": {
-          "$type": "color",
-          "$value": "{color.foreground.disabled}",
-          "group": "components"
+        "foreground": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.foreground.disabled}",
+            "group": "components"
+          }
         },
-        "surface-color": {
-          "$type": "color",
-          "$value": "{color.surface.interactive-disabled}",
-          "group": "components"
+        "surface": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.surface.interactive-disabled}",
+            "group": "components"
+          }
         },
-        "border-color": {
-          "$type": "color",
-          "$value": "{color.border.primary}",
-          "group": "components"
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.border.primary}",
+            "group": "components"
+          }
         }
       }
     }
