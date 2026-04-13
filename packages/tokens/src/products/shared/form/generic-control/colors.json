@@ -2,17 +2,15 @@
   "form": {
     "control": {
       "base": {
-        "foreground": {
-          "value-color": {
-            "$type": "color",
-            "$value": "{color.foreground.strong}",
-            "group": "components"
-          },
-          "placeholder-color": {
-            "$type": "color",
-            "$value": "{color.foreground.faint}",
-            "group": "components"
-          }
+        "foreground-color": {
+          "$type": "color",
+          "$value": "{color.foreground.strong}",
+          "group": "components"
+        },
+        "placeholder-color": {
+          "$type": "color",
+          "$value": "{color.foreground.faint}",
+          "group": "components"
         },
         "surface-color": {
           "default": {
