@@ -6,203 +6,119 @@
 //
 // ACCORDION
 //
+// NOTE: Visual styling is now provided by Carbon Web Components.
+// These empty class selectors are preserved for backward compatibility with
+// existing tests in consuming products that may query these class names.
+//
 
-@use "../mixins/button" as *;
-@use "../mixins/focus-ring" as *;
+// ACCORDION CONTAINER
 
 .hds-accordion {
-  display: flex;
-  flex-direction: column;
+  // Styling provided by <cds-accordion>
 }
 
 .hds-accordion--type-card {
-  &.hds-accordion--size-small {
-    gap: 4px;
-  }
-
-  &.hds-accordion--size-medium {
-    gap: 8px;
-  }
-
-  &.hds-accordion--size-large {
-    gap: 12px;
-  }
+  // Styling provided by Carbon Web Components
 }
 
-// ACCORDION ITEM COMPONENT (nested child)
+.hds-accordion--type-flush {
+  // Styling provided by Carbon Web Components
+}
+
+.hds-accordion--size-small {
+  // Styling provided by Carbon Web Components
+}
+
+.hds-accordion--size-medium {
+  // Styling provided by Carbon Web Components
+}
+
+.hds-accordion--size-large {
+  // Styling provided by Carbon Web Components
+}
+
+// ACCORDION ITEM COMPONENT
+
+.hds-accordion-item {
+  // Styling provided by <cds-accordion-item>
+}
+
+.hds-accordion-item--is-open {
+  // State class for open items
+}
+
+.hds-accordion-item--is-static {
+  // State class for static (non-interactive) items
+}
 
 .hds-accordion-item--size-small {
-  --hds-accordion-item-toggle-padding: 8px;
-  --hds-accordion-item-toggle-padding-left: 8px;
-  --hds-accordion-item-content-padding-top: 4px;
-  --hds-accordion-item-content-padding-right: 8px;
-  --hds-accordion-item-content-padding-bottom: 8px;
-  --hds-accordion-item-content-padding-left: 12px;
-  --hds-accordion-item-gap: 8px;
-  --hds-accordion-item-icon-size: 16px;
+  // Size variant class
 }
 
 .hds-accordion-item--size-medium {
-  --hds-accordion-item-toggle-padding: 12px;
-  --hds-accordion-item-toggle-padding-left: 8px;
-  --hds-accordion-item-content-padding-top: 4px;
-  --hds-accordion-item-content-padding-right: 12px;
-  --hds-accordion-item-content-padding-bottom: 12px;
-  --hds-accordion-item-content-padding-left: 12px;
-  --hds-accordion-item-gap: 12px;
-  --hds-accordion-item-icon-size: 20px;
+  // Size variant class
 }
 
 .hds-accordion-item--size-large {
-  --hds-accordion-item-toggle-padding: 16px;
-  --hds-accordion-item-toggle-padding-left: 12px;
-  --hds-accordion-item-content-padding-top: 4px;
-  --hds-accordion-item-content-padding-right: 16px;
-  --hds-accordion-item-content-padding-bottom: 16px;
-  --hds-accordion-item-content-padding-left: 16px;
-  --hds-accordion-item-gap: 12px;
-  --hds-accordion-item-icon-size: 24px;
+  // Size variant class
 }
 
 .hds-accordion-item--type-card {
-  --hds-accordion-item-focus-ring-offset: 0;
-  background: var(--token-color-surface-primary);
-  border-radius: var(--token-border-radius-medium);
-
-  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
-    box-shadow: var(--token-surface-mid-box-shadow);
-
-    &:hover,
-    &.mock-hover {
-      box-shadow: var(--token-surface-high-box-shadow);
-    }
-  }
-
-  &.hds-accordion-item--contains-interactive,
-  &.hds-accordion-item--is-static {
-    box-shadow: var(--token-surface-base-box-shadow);
-  }
+  // Type variant class
 }
 
 .hds-accordion-item--type-flush {
-  --hds-accordion-item-focus-ring-offset: 3px;
-  border-bottom: 1px solid var(--token-color-border-primary);
+  // Type variant class
+}
 
-  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static)
-    > .hds-disclosure-primitive__toggle {
-    &:hover,
-    &.mock-hover {
-      .hds-accordion-item__toggle {
-        background: var(--token-color-surface-interactive-hover);
-      }
-    }
+.hds-accordion-item--contains-interactive {
+  // Class for items with interactive content in toggle
+}
 
-    &:active,
-    &.mock-active {
-      .hds-accordion-item__toggle {
-        background: var(--token-color-surface-interactive-active);
-      }
-    }
-  }
+.hds-accordion-item--does-not-contain-interactive {
+  // Class for items without interactive content in toggle
 }
 
 // TOGGLE BLOCK
 
 .hds-accordion-item__toggle {
-  position: relative;
-  display: flex;
-  gap: var(--hds-accordion-item-gap);
-  align-items: center;
-  padding: var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding)
-    var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding-left);
+  // Toggle row container
 }
 
 .hds-accordion-item__button {
-  padding: 0;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  .hds-icon {
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 0.3s;
-    }
-  }
-
-  // we hide it instead of not rendering it at all, to preserve the visual layout of the item, without requiring special CSS workarounds to compensate for the missing element
-  .hds-accordion-item--is-static.hds-accordion-item & {
-    visibility: hidden;
-  }
+  // Toggle button element
 }
 
-// entire toggle area is interactive
-.hds-accordion-item__button--parent-does-not-contain-interactive {
-  @include hds-focus-ring-with-pseudo-element(
-    $top: var(--hds-accordion-item-focus-ring-offset),
-    $right: var(--hds-accordion-item-focus-ring-offset),
-    $bottom: var(--hds-accordion-item-focus-ring-offset),
-    $left: var(--hds-accordion-item-focus-ring-offset)
-  );
-
-  position: static;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: -1px 0;
-  color: var(--token-color-foreground-primary);
-  background: transparent;
-  border: 0;
-}
-
-// only chevron button area is interactive
-.hds-accordion-item__button--parent-contains-interactive {
-  @include hds-button();
-
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
-  }
-
-  // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
-  @include hds-button-color-secondary();
-}
-
-.hds-accordion-item__button {
-  width: var(--hds-accordion-item-icon-size);
-  height: var(--hds-accordion-item-icon-size);
-}
-
-// animate chevron icon
 .hds-accordion-item__button--is-open {
-  .hds-icon-chevron-down {
-    transform: rotate(-180deg);
-  }
+  // Open state for button
 }
 
-// Consumer added content that appears next to the chevron button:
+.hds-accordion-item__button--size-small {
+  // Size variant for button
+}
+
+.hds-accordion-item__button--size-medium {
+  // Size variant for button
+}
+
+.hds-accordion-item__button--size-large {
+  // Size variant for button
+}
+
+.hds-accordion-item__button--parent-does-not-contain-interactive {
+  // Button variant when parent doesn't contain interactive elements
+}
+
+.hds-accordion-item__button--parent-contains-interactive {
+  // Button variant when parent contains interactive elements
+}
+
 .hds-accordion-item__toggle-content {
-  flex: 1;
+  // Title/toggle content wrapper
 }
 
 // CONTENT BLOCK
 
 .hds-accordion-item__content {
-  .hds-accordion-item & {
-    padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right)
-      var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
-  }
-}
-
-// Adjust content padding and border for nested flush accordions
-
-.hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) {
-  padding: 0 var(--hds-accordion-item-content-padding-right) 0 var(--hds-accordion-item-content-padding-left);
-  border-top: 1px solid var(--token-color-border-primary);
-
-  .hds-accordion-item--type-flush {
-    &:last-child {
-      border-bottom: none;
-    }
-  }
+  // Accordion content panel
 }
