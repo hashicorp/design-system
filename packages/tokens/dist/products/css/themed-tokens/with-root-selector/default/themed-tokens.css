@@ -3,6 +3,45 @@
  */
 
 :root {
+  --token-accordion-gap-large: 12px;
+  --token-accordion-gap-medium: 8px;
+  --token-accordion-gap-small: 4px;
+  --token-alert-actions-margin-top: 16px;
+  --token-alert-border-bottom-width: 1px;
+  --token-alert-border-color-critical: var(--token-color-border-critical);
+  --token-alert-border-color-highlight: var(--token-color-border-highlight);
+  --token-alert-border-color-neutral: var(--token-color-border-strong);
+  --token-alert-border-color-success: var(--token-color-border-success);
+  --token-alert-border-color-warning: var(--token-color-border-warning);
+  --token-alert-border-left-color-critical: var(--token-color-border-critical);
+  --token-alert-border-left-color-highlight: var(--token-color-border-highlight);
+  --token-alert-border-left-color-neutral: var(--token-color-border-strong);
+  --token-alert-border-left-color-success: var(--token-color-border-success);
+  --token-alert-border-left-color-warning: var(--token-color-border-warning);
+  --token-alert-border-left-width: 1px;
+  --token-alert-border-right-width: 1px;
+  --token-alert-border-top-width: 1px;
+  --token-alert-content-gap: 4px;
+  --token-alert-icon-color-critical: var(--token-color-foreground-critical-on-surface);
+  --token-alert-icon-color-highlight: var(--token-color-foreground-highlight-on-surface);
+  --token-alert-icon-color-neutral: var(--token-color-foreground-faint);
+  --token-alert-icon-color-success: var(--token-color-foreground-success-on-surface);
+  --token-alert-icon-color-warning: var(--token-color-foreground-warning-on-surface);
+  --token-alert-icon-margin-right: 12px;
+  --token-alert-inline-padding-horizontal: 16px;
+  --token-alert-inline-padding-vertical: 16px;
+  --token-alert-page-padding-horizontal: 48px;
+  --token-alert-page-padding-vertical: 16px;
+  --token-alert-surface-color-critical: var(--token-color-surface-critical);
+  --token-alert-surface-color-highlight: var(--token-color-surface-highlight);
+  --token-alert-surface-color-neutral: var(--token-color-surface-faint);
+  --token-alert-surface-color-success: var(--token-color-surface-success);
+  --token-alert-surface-color-warning: var(--token-color-surface-warning);
+  --token-alert-title-foreground-color-critical: var(--token-color-foreground-critical-on-surface);
+  --token-alert-title-foreground-color-highlight: var(--token-color-foreground-highlight-on-surface);
+  --token-alert-title-foreground-color-neutral: var(--token-color-foreground-primary);
+  --token-alert-title-foreground-color-success: var(--token-color-foreground-success-on-surface);
+  --token-alert-title-foreground-color-warning: var(--token-color-foreground-warning-on-surface);
   --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
@@ -134,6 +173,36 @@
   --token-button-typography-line-height-small: 0.9286;
   --token-card-surface-color-primary: var(--token-color-surface-primary);
   --token-card-surface-color-secondary: var(--token-color-surface-faint);
+  --token-code-block-color-border-primary: rgba(178, 182, 189, 0.2);
+  --token-code-block-color-border-strong: rgba(178, 182, 189, 0.4);
+  --token-code-block-color-focus-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-focus-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-foreground-action-active: #4ca1ff;
+  --token-code-block-color-foreground-action-hover: #389aff;
+  --token-code-block-color-foreground-action: #2b89ff;
+  --token-code-block-color-foreground-faint: #b2b6bd;
+  --token-code-block-color-foreground-interactive-active: #f1f2f3;
+  --token-code-block-color-foreground-interactive-hover: #ffffff;
+  --token-code-block-color-foreground-interactive: #dedfe3;
+  --token-code-block-color-foreground-primary: #d5d7db;
+  --token-code-block-color-palette-blue: #2d8eff;
+  --token-code-block-color-palette-cyan: #32fff7;
+  --token-code-block-color-palette-green: #86ff13;
+  --token-code-block-color-palette-orange: #ffa800;
+  --token-code-block-color-palette-purple: #c76cff;
+  --token-code-block-color-palette-red: #ff3b20;
+  --token-code-block-color-palette-yellow: #ffeb3b;
+  --token-code-block-color-surface-faint: #15181e;
+  --token-code-block-color-surface-interactive-active: #2b303c;
+  --token-code-block-color-surface-primary-with-alpha: #0d0e1240;
+  --token-code-block-color-surface-primary: #0d0e12;
+  --token-code-block-copy-button-surface-color-active: var(--token-code-block-color-surface-interactive-active);
+  --token-code-block-copy-button-surface-color-default: var(--token-code-block-color-surface-faint);
+  --token-code-block-copy-button-surface-color-hover: var(--token-code-block-color-surface-primary);
+  --token-code-block-line-highlight-border-color: #1555d4;
+  --token-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
+  --token-code-block-line-numbers-border-color: rgba(178, 182, 189, 0.2);
+  --token-code-block-typography-font-size: 0.8125rem;
   --token-color-border-action: var(--token-color-palette-blue-100);
   --token-color-border-critical: var(--token-color-palette-red-100);
   --token-color-border-faint: var(--token-color-palette-alpha-100);
@@ -228,6 +297,14 @@
   --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-copy-button-foreground-color: var(--token-button-foreground-color-secondary-default);
+  --token-copy-button-icon-color-active: var(--token-color-foreground-action-active);
+  --token-copy-button-icon-color-default: var(--token-color-foreground-action);
+  --token-copy-button-icon-color-focus: var(--token-color-foreground-action-hover);
+  --token-copy-button-icon-color-hover: var(--token-color-foreground-action-hover);
+  --token-copy-button-surface-color-active: var(--token-button-surface-color-secondary-active);
+  --token-copy-button-surface-color-default: var(--token-button-surface-color-secondary-default);
+  --token-copy-button-surface-color-hover: var(--token-button-surface-color-secondary-hover);
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
   --token-dialog-primitive-header-tagline-typography-font-size: var(--token-typography-body-100-font-size);
   --token-dialog-primitive-header-tagline-typography-line-height: var(--token-typography-body-100-line-height);
