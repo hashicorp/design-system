@@ -174,13 +174,12 @@
     }
   }
 
-  // different color by design
   .hds-alert__icon {
     color: var(--token-alert-icon-color-neutral);
   }
 
   .hds-alert__title {
-    color: var(--token-alert-foreground-color-neutral);
+    color: var(--token-alert-title-foreground-color-neutral);
   }
 }
 
@@ -200,7 +199,7 @@
   }
 
   .hds-alert__title {
-    color: var(--token-alert-foreground-color-highlight);
+    color: var(--token-alert-title-foreground-color-highlight);
   }
 }
 
@@ -220,7 +219,7 @@
   }
 
   .hds-alert__title {
-    color: var(--token-alert-foreground-color-success);
+    color: var(--token-alert-title-foreground-color-success);
   }
 }
 
@@ -240,7 +239,7 @@
   }
 
   .hds-alert__title {
-    color: var(--token-alert-foreground-color-warning);
+    color: var(--token-alert-title-foreground-color-warning);
   }
 }
 
@@ -260,6 +259,6 @@
   }
 
   .hds-alert__title {
-    color: var(--token-alert-foreground-color-critical);
+    color: var(--token-alert-title-foreground-color-critical);
   }
 }

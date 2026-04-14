@@ -19,11 +19,6 @@
   --token-alert-border-right-width: 1px;
   --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 0px;
-  --token-alert-foreground-color-critical: #161616;
-  --token-alert-foreground-color-highlight: #161616;
-  --token-alert-foreground-color-neutral: #161616;
-  --token-alert-foreground-color-success: #161616;
-  --token-alert-foreground-color-warning: #161616;
   --token-alert-icon-color-critical: #da1e28;
   --token-alert-icon-color-highlight: #0043ce;
   --token-alert-icon-color-neutral: #0043ce;
@@ -39,6 +34,11 @@
   --token-alert-surface-color-neutral: #edf5ff;
   --token-alert-surface-color-success: #defbe6;
   --token-alert-surface-color-warning: #fcf4d6;
+  --token-alert-title-foreground-color-critical: #161616;
+  --token-alert-title-foreground-color-highlight: #161616;
+  --token-alert-title-foreground-color-neutral: #161616;
+  --token-alert-title-foreground-color-success: #161616;
+  --token-alert-title-foreground-color-warning: #161616;
   --token-app-footer-link-focus-outline-color: #0f62fe;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
