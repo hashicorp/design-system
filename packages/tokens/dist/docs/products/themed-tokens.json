@@ -9249,7 +9249,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 0.9286,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -9257,16 +9256,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 0.9286,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -9285,7 +9291,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.1429,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -9293,16 +9298,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.1429,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -9321,7 +9333,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.5,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -9329,16 +9340,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.5,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -9773,6 +9791,47 @@
         "active"
       ]
     },
+    "token-button-foreground-color-tertiary-disabled": {
+      "key": "{button.foreground.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "#8c909c",
+      "$modes": {
+        "default": "#8c909c",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.foreground.disabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.foreground.color.tertiary.disabled}"
+      },
+      "name": "token-button-foreground-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "foreground",
+        "color",
+        "tertiary",
+        "disabled"
+      ]
+    },
     "token-button-foreground-color-critical-default": {
       "key": "{button.foreground.color.critical.default}",
       "$type": "color",
@@ -9924,6 +9983,9 @@
         "cds-g90": "rgba(255, 255, 255, 0.25)",
         "cds-g100": "rgba(255, 255, 255, 0.25)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.foreground.disabled}",
@@ -9933,6 +9995,9 @@
           "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
           "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
           "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.foreground.color.disabled}"
       },
@@ -10504,15 +10569,21 @@
         "cds-g90": "rgba(141, 141, 141, 0.3)",
         "cds-g100": "rgba(141, 141, 141, 0.3)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.faint}",
+        "$value": "{color.surface.interactive-disabled}",
         "$modes": {
-          "default": "{color.surface.faint}",
+          "default": "{color.surface.interactive-disabled}",
           "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
           "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
           "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
           "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.surface.color.disabled}"
       },
@@ -10553,24 +10624,10 @@
       "$type": "dimension",
       "$value": "5px",
       "unit": "px",
-      "$modes": {
-        "default": "5px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
         "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -10621,9 +10678,9 @@
     "token-button-border-color-primary-hover": {
       "key": "{button.border.color.primary.hover}",
       "$type": "color",
-      "$value": "#0c56e9",
+      "$value": "#0046d1",
       "$modes": {
-        "default": "#0c56e9",
+        "default": "#0046d1",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -10631,9 +10688,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.blue-300}",
+        "$value": "{color.palette.blue-400}",
         "$modes": {
-          "default": "{color.palette.blue-300}",
+          "default": "{color.palette.blue-400}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -10657,25 +10714,9 @@
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
       "$value": "#0c56e9",
-      "$modes": {
-        "default": "#0c56e9",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.action.internal}",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -10695,25 +10736,9 @@
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
       "$value": "#5990ff",
-      "$modes": {
-        "default": "#5990ff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.action.external}",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -10838,25 +10863,9 @@
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
       "$value": "#0c56e9",
-      "$modes": {
-        "default": "#0c56e9",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.action.internal}",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -10876,25 +10885,9 @@
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
       "$value": "#5990ff",
-      "$modes": {
-        "default": "#5990ff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.action.external}",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -10949,9 +10942,23 @@
       "key": "{button.border.color.tertiary.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
       "original": {
         "$type": "color",
         "$value": "transparent",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+        },
         "key": "{button.border.color.tertiary.default}"
       },
       "name": "token-button-border-color-tertiary-default",
@@ -10970,9 +10977,23 @@
       "key": "{button.border.color.tertiary.hover}",
       "$type": "color",
       "$value": "#3b3d4566",
+      "$modes": {
+        "default": "#3b3d4566",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.border.strong}",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.hover}"
       },
       "name": "token-button-border-color-tertiary-hover",
@@ -11035,9 +11056,23 @@
       "key": "{button.border.color.tertiary.active}",
       "$type": "color",
       "$value": "#3b3d4566",
+      "$modes": {
+        "default": "#3b3d4566",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.border.strong}",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.active}"
       },
       "name": "token-button-border-color-tertiary-active",
@@ -11050,6 +11085,47 @@
         "color",
         "tertiary",
         "active"
+      ]
+    },
+    "token-button-border-color-tertiary-disabled": {
+      "key": "{button.border.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.border.color.tertiary.disabled}"
+      },
+      "name": "token-button-border-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "border",
+        "color",
+        "tertiary",
+        "disabled"
       ]
     },
     "token-button-border-color-critical-default": {
@@ -11065,9 +11141,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.critical-on-surface}",
+        "$value": "{color.palette.red-300}",
         "$modes": {
-          "default": "{color.foreground.critical-on-surface}",
+          "default": "{color.palette.red-300}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -11126,25 +11202,9 @@
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
       "$value": "#c00005",
-      "$modes": {
-        "default": "#c00005",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.critical.internal}",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -11164,25 +11224,9 @@
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
       "$value": "#dd7578",
-      "$modes": {
-        "default": "#dd7578",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
       "original": {
         "$type": "color",
         "$value": "{color.focus.critical.external}",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -11237,9 +11281,29 @@
       "key": "{button.border.color.disabled}",
       "$type": "color",
       "$value": "#656a7633",
+      "$modes": {
+        "default": "#656a7633",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.border.primary}",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
         "key": "{button.border.color.disabled}"
       },
       "name": "token-button-border-color-disabled",
@@ -11253,8 +11317,8 @@
         "disabled"
       ]
     },
-    "token-button-focus-border-width": {
-      "key": "{button.focus.border.width}",
+    "token-button-focus-ring-border-width": {
+      "key": "{button.focus-ring.border.width}",
       "$type": "dimension",
       "$value": "3px",
       "unit": "px",
@@ -11262,15 +11326,15 @@
         "$type": "dimension",
         "$value": "3",
         "unit": "px",
-        "key": "{button.focus.border.width}"
+        "key": "{button.focus-ring.border.width}"
       },
-      "name": "token-button-focus-border-width",
+      "name": "token-button-focus-ring-border-width",
       "attributes": {
         "category": "button"
       },
       "path": [
         "button",
-        "focus",
+        "focus-ring",
         "border",
         "width"
       ]
@@ -28033,7 +28097,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -28041,16 +28104,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -28069,7 +28139,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -28077,16 +28146,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -28105,7 +28181,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -28113,16 +28188,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -28557,6 +28639,47 @@
         "active"
       ]
     },
+    "token-button-foreground-color-tertiary-disabled": {
+      "key": "{button.foreground.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "rgba(22, 22, 22, 0.25)",
+      "$modes": {
+        "default": "rgba(22, 22, 22, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textDisabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.foreground.color.tertiary.disabled}"
+      },
+      "name": "token-button-foreground-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "foreground",
+        "color",
+        "tertiary",
+        "disabled"
+      ]
+    },
     "token-button-foreground-color-critical-default": {
       "key": "{button.foreground.color.critical.default}",
       "$type": "color",
@@ -28708,6 +28831,9 @@
         "cds-g90": "rgba(255, 255, 255, 0.25)",
         "cds-g100": "rgba(255, 255, 255, 0.25)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.white.textOnColorDisabled}",
@@ -28717,6 +28843,9 @@
           "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
           "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
           "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.foreground.color.disabled}"
       },
@@ -29282,21 +29411,27 @@
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
-        "default": "#f4f4f4",
+        "default": "#c6c6c6",
         "cds-g0": "#c6c6c6",
         "cds-g10": "#c6c6c6",
         "cds-g90": "rgba(141, 141, 141, 0.3)",
         "cds-g100": "rgba(141, 141, 141, 0.3)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.buttonTokens.buttonDisabled.white}",
         "$modes": {
-          "default": "{color.surface.faint}",
+          "default": "{color.surface.interactive-disabled}",
           "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
           "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
           "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
           "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.surface.color.disabled}"
       },
@@ -29337,24 +29472,10 @@
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
-      "$modes": {
-        "default": "0px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
-        "$value": "0",
+        "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -29407,7 +29528,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "#0043ce",
+        "default": "#002d9c",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -29417,7 +29538,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "{color.palette.blue-300}",
+          "default": "{color.palette.blue-400}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -29440,26 +29561,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -29478,26 +29583,10 @@
     "token-button-border-color-primary-focus-external": {
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -29621,26 +29710,10 @@
     "token-button-border-color-secondary-focus-internal": {
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -29659,26 +29732,10 @@
     "token-button-border-color-secondary-focus-external": {
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -29732,10 +29789,24 @@
     "token-button-border-color-tertiary-default": {
       "key": "{button.border.color.tertiary.default}",
       "$type": "color",
-      "$value": "rgba(0, 0, 0, 0)",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
       "original": {
         "$type": "color",
-        "$value": "transparent",
+        "$value": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+        },
         "key": "{button.border.color.tertiary.default}"
       },
       "name": "token-button-border-color-tertiary-default",
@@ -29753,10 +29824,24 @@
     "token-button-border-color-tertiary-hover": {
       "key": "{button.border.color.tertiary.hover}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.strong}",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.hover}"
       },
       "name": "token-button-border-color-tertiary-hover",
@@ -29818,10 +29903,24 @@
     "token-button-border-color-tertiary-active": {
       "key": "{button.border.color.tertiary.active}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.strong}",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.active}"
       },
       "name": "token-button-border-color-tertiary-active",
@@ -29834,6 +29933,47 @@
         "color",
         "tertiary",
         "active"
+      ]
+    },
+    "token-button-border-color-tertiary-disabled": {
+      "key": "{button.border.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.border.color.tertiary.disabled}"
+      },
+      "name": "token-button-border-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "border",
+        "color",
+        "tertiary",
+        "disabled"
       ]
     },
     "token-button-border-color-critical-default": {
@@ -29851,7 +29991,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "{color.foreground.critical-on-surface}",
+          "default": "{color.palette.red-300}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -29909,26 +30049,10 @@
     "token-button-border-color-critical-focus-internal": {
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.critical.internal}",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -29947,26 +30071,10 @@
     "token-button-border-color-critical-focus-external": {
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.critical.external}",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -30021,9 +30129,29 @@
       "key": "{button.border.color.disabled}",
       "$type": "color",
       "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.primary}",
+        "$value": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
         "key": "{button.border.color.disabled}"
       },
       "name": "token-button-border-color-disabled",
@@ -30037,8 +30165,8 @@
         "disabled"
       ]
     },
-    "token-button-focus-border-width": {
-      "key": "{button.focus.border.width}",
+    "token-button-focus-ring-border-width": {
+      "key": "{button.focus-ring.border.width}",
       "$type": "dimension",
       "$value": "3px",
       "unit": "px",
@@ -30046,15 +30174,15 @@
         "$type": "dimension",
         "$value": "3",
         "unit": "px",
-        "key": "{button.focus.border.width}"
+        "key": "{button.focus-ring.border.width}"
       },
-      "name": "token-button-focus-border-width",
+      "name": "token-button-focus-ring-border-width",
       "attributes": {
         "category": "button"
       },
       "path": [
         "button",
-        "focus",
+        "focus-ring",
         "border",
         "width"
       ]
@@ -46817,7 +46945,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -46825,16 +46952,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -46853,7 +46987,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -46861,16 +46994,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -46889,7 +47029,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -46897,16 +47036,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -47341,6 +47487,47 @@
         "active"
       ]
     },
+    "token-button-foreground-color-tertiary-disabled": {
+      "key": "{button.foreground.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "rgba(22, 22, 22, 0.25)",
+      "$modes": {
+        "default": "rgba(22, 22, 22, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textDisabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.foreground.color.tertiary.disabled}"
+      },
+      "name": "token-button-foreground-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "foreground",
+        "color",
+        "tertiary",
+        "disabled"
+      ]
+    },
     "token-button-foreground-color-critical-default": {
       "key": "{button.foreground.color.critical.default}",
       "$type": "color",
@@ -47492,6 +47679,9 @@
         "cds-g90": "rgba(255, 255, 255, 0.25)",
         "cds-g100": "rgba(255, 255, 255, 0.25)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.g10.textOnColorDisabled}",
@@ -47501,6 +47691,9 @@
           "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
           "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
           "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.foreground.color.disabled}"
       },
@@ -48066,21 +48259,27 @@
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
-        "default": "#ffffff",
+        "default": "#c6c6c6",
         "cds-g0": "#c6c6c6",
         "cds-g10": "#c6c6c6",
         "cds-g90": "rgba(141, 141, 141, 0.3)",
         "cds-g100": "rgba(141, 141, 141, 0.3)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
         "$modes": {
-          "default": "{color.surface.faint}",
+          "default": "{color.surface.interactive-disabled}",
           "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
           "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
           "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
           "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.surface.color.disabled}"
       },
@@ -48121,24 +48320,10 @@
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
-      "$modes": {
-        "default": "0px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
-        "$value": "0",
+        "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -48191,7 +48376,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "#0043ce",
+        "default": "#002d9c",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -48201,7 +48386,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "{color.palette.blue-300}",
+          "default": "{color.palette.blue-400}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -48224,26 +48409,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -48262,26 +48431,10 @@
     "token-button-border-color-primary-focus-external": {
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -48405,26 +48558,10 @@
     "token-button-border-color-secondary-focus-internal": {
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -48443,26 +48580,10 @@
     "token-button-border-color-secondary-focus-external": {
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -48516,10 +48637,24 @@
     "token-button-border-color-tertiary-default": {
       "key": "{button.border.color.tertiary.default}",
       "$type": "color",
-      "$value": "rgba(0, 0, 0, 0)",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
       "original": {
         "$type": "color",
-        "$value": "transparent",
+        "$value": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+        },
         "key": "{button.border.color.tertiary.default}"
       },
       "name": "token-button-border-color-tertiary-default",
@@ -48537,10 +48672,24 @@
     "token-button-border-color-tertiary-hover": {
       "key": "{button.border.color.tertiary.hover}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.strong}",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.hover}"
       },
       "name": "token-button-border-color-tertiary-hover",
@@ -48602,10 +48751,24 @@
     "token-button-border-color-tertiary-active": {
       "key": "{button.border.color.tertiary.active}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.strong}",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.active}"
       },
       "name": "token-button-border-color-tertiary-active",
@@ -48618,6 +48781,47 @@
         "color",
         "tertiary",
         "active"
+      ]
+    },
+    "token-button-border-color-tertiary-disabled": {
+      "key": "{button.border.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.border.color.tertiary.disabled}"
+      },
+      "name": "token-button-border-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "border",
+        "color",
+        "tertiary",
+        "disabled"
       ]
     },
     "token-button-border-color-critical-default": {
@@ -48635,7 +48839,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "{color.foreground.critical-on-surface}",
+          "default": "{color.palette.red-300}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -48693,26 +48897,10 @@
     "token-button-border-color-critical-focus-internal": {
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.critical.internal}",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -48731,26 +48919,10 @@
     "token-button-border-color-critical-focus-external": {
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#0f62fe",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.critical.external}",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -48804,10 +48976,30 @@
     "token-button-border-color-disabled": {
       "key": "{button.border.color.disabled}",
       "$type": "color",
-      "$value": "#e0e0e0",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#e0e0e0",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.primary}",
+        "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
         "key": "{button.border.color.disabled}"
       },
       "name": "token-button-border-color-disabled",
@@ -48821,8 +49013,8 @@
         "disabled"
       ]
     },
-    "token-button-focus-border-width": {
-      "key": "{button.focus.border.width}",
+    "token-button-focus-ring-border-width": {
+      "key": "{button.focus-ring.border.width}",
       "$type": "dimension",
       "$value": "3px",
       "unit": "px",
@@ -48830,15 +49022,15 @@
         "$type": "dimension",
         "$value": "3",
         "unit": "px",
-        "key": "{button.focus.border.width}"
+        "key": "{button.focus-ring.border.width}"
       },
-      "name": "token-button-focus-border-width",
+      "name": "token-button-focus-ring-border-width",
       "attributes": {
         "category": "button"
       },
       "path": [
         "button",
-        "focus",
+        "focus-ring",
         "border",
         "width"
       ]
@@ -65601,7 +65793,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -65609,16 +65800,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -65637,7 +65835,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -65645,16 +65842,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -65673,7 +65877,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -65681,16 +65884,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -66125,6 +66335,47 @@
         "active"
       ]
     },
+    "token-button-foreground-color-tertiary-disabled": {
+      "key": "{button.foreground.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "rgba(244, 244, 244, 0.25)",
+      "$modes": {
+        "default": "rgba(244, 244, 244, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textDisabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.foreground.color.tertiary.disabled}"
+      },
+      "name": "token-button-foreground-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "foreground",
+        "color",
+        "tertiary",
+        "disabled"
+      ]
+    },
     "token-button-foreground-color-critical-default": {
       "key": "{button.foreground.color.critical.default}",
       "$type": "color",
@@ -66276,6 +66527,9 @@
         "cds-g90": "rgba(255, 255, 255, 0.25)",
         "cds-g100": "rgba(255, 255, 255, 0.25)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.g90.textOnColorDisabled}",
@@ -66285,6 +66539,9 @@
           "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
           "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
           "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.foreground.color.disabled}"
       },
@@ -66850,21 +67107,27 @@
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.3)",
       "$modes": {
-        "default": "#393939",
+        "default": "#6f6f6f",
         "cds-g0": "#c6c6c6",
         "cds-g10": "#c6c6c6",
         "cds-g90": "rgba(141, 141, 141, 0.3)",
         "cds-g100": "rgba(141, 141, 141, 0.3)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
         "$modes": {
-          "default": "{color.surface.faint}",
+          "default": "{color.surface.interactive-disabled}",
           "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
           "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
           "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
           "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.surface.color.disabled}"
       },
@@ -66905,24 +67168,10 @@
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
-      "$modes": {
-        "default": "0px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
-        "$value": "0",
+        "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -66975,7 +67224,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "#0043ce",
+        "default": "#002d9c",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -66985,7 +67234,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "{color.palette.blue-300}",
+          "default": "{color.palette.blue-400}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -67008,26 +67257,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -67046,26 +67279,10 @@
     "token-button-border-color-primary-focus-external": {
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -67189,26 +67406,10 @@
     "token-button-border-color-secondary-focus-internal": {
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -67227,26 +67428,10 @@
     "token-button-border-color-secondary-focus-external": {
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -67300,10 +67485,24 @@
     "token-button-border-color-tertiary-default": {
       "key": "{button.border.color.tertiary.default}",
       "$type": "color",
-      "$value": "rgba(0, 0, 0, 0)",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
       "original": {
         "$type": "color",
-        "$value": "transparent",
+        "$value": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+        },
         "key": "{button.border.color.tertiary.default}"
       },
       "name": "token-button-border-color-tertiary-default",
@@ -67321,10 +67520,24 @@
     "token-button-border-color-tertiary-hover": {
       "key": "{button.border.color.tertiary.hover}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.strong}",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.hover}"
       },
       "name": "token-button-border-color-tertiary-hover",
@@ -67386,10 +67599,24 @@
     "token-button-border-color-tertiary-active": {
       "key": "{button.border.color.tertiary.active}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.strong}",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.active}"
       },
       "name": "token-button-border-color-tertiary-active",
@@ -67404,12 +67631,53 @@
         "active"
       ]
     },
+    "token-button-border-color-tertiary-disabled": {
+      "key": "{button.border.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.3)",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.border.color.tertiary.disabled}"
+      },
+      "name": "token-button-border-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "border",
+        "color",
+        "tertiary",
+        "disabled"
+      ]
+    },
     "token-button-border-color-critical-default": {
       "key": "{button.border.color.critical.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "#ffb3b8",
+        "default": "#a2191f",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -67419,7 +67687,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "{color.foreground.critical-on-surface}",
+          "default": "{color.palette.red-300}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -67477,26 +67745,10 @@
     "token-button-border-color-critical-focus-internal": {
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.critical.internal}",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -67515,26 +67767,10 @@
     "token-button-border-color-critical-focus-external": {
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.critical.external}",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -67588,10 +67824,30 @@
     "token-button-border-color-disabled": {
       "key": "{button.border.color.disabled}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "rgba(141, 141, 141, 0.3)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.primary}",
+        "$value": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
         "key": "{button.border.color.disabled}"
       },
       "name": "token-button-border-color-disabled",
@@ -67605,8 +67861,8 @@
         "disabled"
       ]
     },
-    "token-button-focus-border-width": {
-      "key": "{button.focus.border.width}",
+    "token-button-focus-ring-border-width": {
+      "key": "{button.focus-ring.border.width}",
       "$type": "dimension",
       "$value": "3px",
       "unit": "px",
@@ -67614,15 +67870,15 @@
         "$type": "dimension",
         "$value": "3",
         "unit": "px",
-        "key": "{button.focus.border.width}"
+        "key": "{button.focus-ring.border.width}"
       },
-      "name": "token-button-focus-border-width",
+      "name": "token-button-focus-ring-border-width",
       "attributes": {
         "category": "button"
       },
       "path": [
         "button",
-        "focus",
+        "focus-ring",
         "border",
         "width"
       ]
@@ -84385,7 +84641,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -84393,16 +84648,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -84421,7 +84683,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -84429,16 +84690,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -84457,7 +84725,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -84465,16 +84732,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -84909,6 +85183,47 @@
         "active"
       ]
     },
+    "token-button-foreground-color-tertiary-disabled": {
+      "key": "{button.foreground.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "rgba(244, 244, 244, 0.25)",
+      "$modes": {
+        "default": "rgba(244, 244, 244, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textDisabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.foreground.color.tertiary.disabled}"
+      },
+      "name": "token-button-foreground-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "foreground",
+        "color",
+        "tertiary",
+        "disabled"
+      ]
+    },
     "token-button-foreground-color-critical-default": {
       "key": "{button.foreground.color.critical.default}",
       "$type": "color",
@@ -85060,6 +85375,9 @@
         "cds-g90": "rgba(255, 255, 255, 0.25)",
         "cds-g100": "rgba(255, 255, 255, 0.25)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.g100.textOnColorDisabled}",
@@ -85069,6 +85387,9 @@
           "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
           "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
           "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.foreground.color.disabled}"
       },
@@ -85634,21 +85955,27 @@
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.3)",
       "$modes": {
-        "default": "#262626",
+        "default": "#525252",
         "cds-g0": "#c6c6c6",
         "cds-g10": "#c6c6c6",
         "cds-g90": "rgba(141, 141, 141, 0.3)",
         "cds-g100": "rgba(141, 141, 141, 0.3)"
       },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.buttonTokens.buttonDisabled.g100}",
         "$modes": {
-          "default": "{color.surface.faint}",
+          "default": "{color.surface.interactive-disabled}",
           "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
           "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
           "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
           "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
         },
         "key": "{button.surface.color.disabled}"
       },
@@ -85689,24 +86016,10 @@
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
-      "$modes": {
-        "default": "0px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
-        "$value": "0",
+        "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -85759,7 +86072,7 @@
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "#0043ce",
+        "default": "#002d9c",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -85769,7 +86082,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "{color.palette.blue-300}",
+          "default": "{color.palette.blue-400}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -85792,26 +86105,10 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.primary.focus.internal}"
       },
       "name": "token-button-border-color-primary-focus-internal",
@@ -85830,26 +86127,10 @@
     "token-button-border-color-primary-focus-external": {
       "key": "{button.border.color.primary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.primary.focus.external}"
       },
       "name": "token-button-border-color-primary-focus-external",
@@ -85973,26 +86254,10 @@
     "token-button-border-color-secondary-focus-internal": {
       "key": "{button.border.color.secondary.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.action.internal}",
         "key": "{button.border.color.secondary.focus.internal}"
       },
       "name": "token-button-border-color-secondary-focus-internal",
@@ -86011,26 +86276,10 @@
     "token-button-border-color-secondary-focus-external": {
       "key": "{button.border.color.secondary.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.action.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.action.external}",
         "key": "{button.border.color.secondary.focus.external}"
       },
       "name": "token-button-border-color-secondary-focus-external",
@@ -86084,10 +86333,24 @@
     "token-button-border-color-tertiary-default": {
       "key": "{button.border.color.tertiary.default}",
       "$type": "color",
-      "$value": "rgba(0, 0, 0, 0)",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
       "original": {
         "$type": "color",
-        "$value": "transparent",
+        "$value": "{carbon.themes.buttonTokens.buttonTertiary.g100}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+        },
         "key": "{button.border.color.tertiary.default}"
       },
       "name": "token-button-border-color-tertiary-default",
@@ -86105,10 +86368,24 @@
     "token-button-border-color-tertiary-hover": {
       "key": "{button.border.color.tertiary.hover}",
       "$type": "color",
-      "$value": "#6f6f6f",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#6f6f6f",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.strong}",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.hover}"
       },
       "name": "token-button-border-color-tertiary-hover",
@@ -86170,10 +86447,24 @@
     "token-button-border-color-tertiary-active": {
       "key": "{button.border.color.tertiary.active}",
       "$type": "color",
-      "$value": "#6f6f6f",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#6f6f6f",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.strong}",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.border.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{button.border.color.tertiary.active}"
       },
       "name": "token-button-border-color-tertiary-active",
@@ -86188,12 +86479,53 @@
         "active"
       ]
     },
+    "token-button-border-color-tertiary-disabled": {
+      "key": "{button.border.color.tertiary.disabled}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.3)",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.buttonTokens.buttonDisabled.g100}",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
+        "key": "{button.border.color.tertiary.disabled}"
+      },
+      "name": "token-button-border-color-tertiary-disabled",
+      "attributes": {
+        "category": "button"
+      },
+      "path": [
+        "button",
+        "border",
+        "color",
+        "tertiary",
+        "disabled"
+      ]
+    },
     "token-button-border-color-critical-default": {
       "key": "{button.border.color.critical.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
-        "default": "#ffb3b8",
+        "default": "#a2191f",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -86203,7 +86535,7 @@
         "$type": "color",
         "$value": "transparent",
         "$modes": {
-          "default": "{color.foreground.critical-on-surface}",
+          "default": "{color.palette.red-300}",
           "cds-g0": "transparent",
           "cds-g10": "transparent",
           "cds-g90": "transparent",
@@ -86261,26 +86593,10 @@
     "token-button-border-color-critical-focus-internal": {
       "key": "{button.border.color.critical.focus.internal}",
       "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "#161616",
       "original": {
         "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{color.focus.critical.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "comment": "TODO - replace the `pink` values with the correct ones",
+        "$value": "{color.focus.critical.internal}",
         "key": "{button.border.color.critical.focus.internal}"
       },
       "name": "token-button-border-color-critical-focus-internal",
@@ -86299,26 +86615,10 @@
     "token-button-border-color-critical-focus-external": {
       "key": "{button.border.color.critical.focus.external}",
       "$type": "color",
-      "$value": "#ff00ff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "#ffffff",
       "original": {
         "$type": "color",
-        "$value": "magenta",
-        "$modes": {
-          "default": "{color.focus.critical.external}",
-          "cds-g0": "magenta",
-          "cds-g10": "magenta",
-          "cds-g90": "magenta",
-          "cds-g100": "magenta"
-        },
-        "comment": "TODO - replace the `magenta` values with the correct ones",
+        "$value": "{color.focus.critical.external}",
         "key": "{button.border.color.critical.focus.external}"
       },
       "name": "token-button-border-color-critical-focus-external",
@@ -86372,10 +86672,30 @@
     "token-button-border-color-disabled": {
       "key": "{button.border.color.disabled}",
       "$type": "color",
-      "$value": "#6f6f6f",
+      "$value": "rgba(141, 141, 141, 0.3)",
+      "$modes": {
+        "default": "#6f6f6f",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "rgba(141, 141, 141, 0.3)",
+        "cds-g100": "rgba(141, 141, 141, 0.3)"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.primary}",
+        "$value": "{carbon.themes.buttonTokens.buttonDisabled.g100}",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+          "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+          "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+          "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+        },
+        "comments": {
+          "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+        },
         "key": "{button.border.color.disabled}"
       },
       "name": "token-button-border-color-disabled",
@@ -86389,8 +86709,8 @@
         "disabled"
       ]
     },
-    "token-button-focus-border-width": {
-      "key": "{button.focus.border.width}",
+    "token-button-focus-ring-border-width": {
+      "key": "{button.focus-ring.border.width}",
       "$type": "dimension",
       "$value": "3px",
       "unit": "px",
@@ -86398,15 +86718,15 @@
         "$type": "dimension",
         "$value": "3",
         "unit": "px",
-        "key": "{button.focus.border.width}"
+        "key": "{button.focus-ring.border.width}"
       },
-      "name": "token-button-focus-border-width",
+      "name": "token-button-focus-ring-border-width",
       "attributes": {
         "category": "button"
       },
       "path": [
         "button",
-        "focus",
+        "focus-ring",
         "border",
         "width"
       ]
