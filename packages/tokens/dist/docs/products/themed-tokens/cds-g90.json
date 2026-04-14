@@ -11521,13 +11521,13 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.iconPrimary}",
+      "$value": "{carbon.themes.g90.textPrimary}",
       "$modes": {
         "default": "{button.foreground.color.secondary.default}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
       },
       "key": "{copy.button.foreground.color}"
     },
