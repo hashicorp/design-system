@@ -10489,13 +10489,13 @@
   {
     "key": "{button.surface.color.disabled}",
     "$type": "color",
-    "$value": "#8d8d8d",
+    "$value": "rgba(141, 141, 141, 0.3)",
     "$modes": {
       "default": "#262626",
       "cds-g0": "#c6c6c6",
       "cds-g10": "#c6c6c6",
-      "cds-g90": "#8d8d8d",
-      "cds-g100": "#8d8d8d"
+      "cds-g90": "rgba(141, 141, 141, 0.3)",
+      "cds-g100": "rgba(141, 141, 141, 0.3)"
     },
     "original": {
       "$type": "color",

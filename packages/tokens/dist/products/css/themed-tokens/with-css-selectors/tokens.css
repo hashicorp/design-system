@@ -980,7 +980,7 @@
     --token-button-surface-color-critical-default: #da1e28;
     --token-button-surface-color-critical-focus: #da1e28;
     --token-button-surface-color-critical-hover: #b81921;
-    --token-button-surface-color-disabled: #8d8d8d;
+    --token-button-surface-color-disabled: rgba(141, 141, 141, 0.3);
     --token-button-surface-color-primary-active: #002d9c;
     --token-button-surface-color-primary-default: #0f62fe;
     --token-button-surface-color-primary-focus: #0f62fe;
@@ -1841,7 +1841,7 @@
   --token-button-surface-color-critical-default: #da1e28;
   --token-button-surface-color-critical-focus: #da1e28;
   --token-button-surface-color-critical-hover: #b81921;
-  --token-button-surface-color-disabled: #8d8d8d;
+  --token-button-surface-color-disabled: rgba(141, 141, 141, 0.3);
   --token-button-surface-color-primary-active: #002d9c;
   --token-button-surface-color-primary-default: #0f62fe;
   --token-button-surface-color-primary-focus: #0f62fe;
