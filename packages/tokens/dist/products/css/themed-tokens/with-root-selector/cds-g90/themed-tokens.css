@@ -228,6 +228,14 @@
   --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-copy-button-foreground-color: #f4f4f4;
+  --token-copy-button-icon-color-active: #f4f4f4;
+  --token-copy-button-icon-color-default: #f4f4f4;
+  --token-copy-button-icon-color-focus: #f4f4f4;
+  --token-copy-button-icon-color-hover: #f4f4f4;
+  --token-copy-button-surface-color-active: #6f6f6f;
+  --token-copy-button-surface-color-default: #393939;
+  --token-copy-button-surface-color-hover: #474747;
   --token-dialog-primitive-border-color: #6f6f6f;
   --token-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
   --token-dialog-primitive-header-tagline-typography-line-height: 1.33333;

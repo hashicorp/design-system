@@ -155,7 +155,7 @@ $hds-code-block-code-footer-height: 48px;
 
 // General dark button styles
 .hds-code-block__height-toggle-button,
-.hds-code-block__copy-button {
+.hds-code-block__copy-button.hds-copy-button {
   // Overriding default colors
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-faint);

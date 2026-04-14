@@ -3707,40 +3707,40 @@ button.hds-button[href]::after {
 }
 
 .hds-code-block__height-toggle-button,
-.hds-code-block__copy-button {
+.hds-code-block__copy-button.hds-copy-button {
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-faint);
   border: 1px solid var(--hds-code-block-color-border-strong);
 }
 .hds-code-block__height-toggle-button:hover, .hds-code-block__height-toggle-button.mock-hover,
-.hds-code-block__copy-button:hover,
-.hds-code-block__copy-button.mock-hover {
+.hds-code-block__copy-button.hds-copy-button:hover,
+.hds-code-block__copy-button.hds-copy-button.mock-hover {
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-primary);
   border-color: var(--hds-code-block-color-border-strong);
 }
 .hds-code-block__height-toggle-button:active, .hds-code-block__height-toggle-button.mock-active,
-.hds-code-block__copy-button:active,
-.hds-code-block__copy-button.mock-active {
+.hds-code-block__copy-button.hds-copy-button:active,
+.hds-code-block__copy-button.hds-copy-button.mock-active {
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-interactive-active);
 }
 .hds-code-block__height-toggle-button:focus, .hds-code-block__height-toggle-button.mock-focus, .hds-code-block__height-toggle-button:focus-visible,
-.hds-code-block__copy-button:focus,
-.hds-code-block__copy-button.mock-focus,
-.hds-code-block__copy-button:focus-visible {
+.hds-code-block__copy-button.hds-copy-button:focus,
+.hds-code-block__copy-button.hds-copy-button.mock-focus,
+.hds-code-block__copy-button.hds-copy-button:focus-visible {
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-faint);
   border-color: var(--hds-code-block-color-focus-action-internal);
 }
 .hds-code-block__height-toggle-button:focus::before, .hds-code-block__height-toggle-button.mock-focus::before, .hds-code-block__height-toggle-button:focus-visible::before,
-.hds-code-block__copy-button:focus::before,
-.hds-code-block__copy-button.mock-focus::before,
-.hds-code-block__copy-button:focus-visible::before {
+.hds-code-block__copy-button.hds-copy-button:focus::before,
+.hds-code-block__copy-button.hds-copy-button.mock-focus::before,
+.hds-code-block__copy-button.hds-copy-button:focus-visible::before {
   border-color: var(--hds-code-block-color-focus-action-external);
 }
 .hds-code-block__height-toggle-button .hds-icon,
-.hds-code-block__copy-button .hds-icon {
+.hds-code-block__copy-button.hds-copy-button .hds-icon {
   color: var(--hds-code-block-color-foreground-primary);
 }
 
@@ -3986,16 +3986,30 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-copy-button {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-default);
   cursor: pointer;
 }
 .hds-copy-button .hds-button__icon {
-  color: var(--token-color-foreground-action);
+  color: var(--token-copy-button-icon-color-default);
+}
+.hds-copy-button:hover, .hds-copy-button.mock-hover {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-hover);
 }
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-copy-button-icon-color-hover);
+}
+.hds-copy-button:focus, .hds-copy-button.mock-focus {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-focus);
+}
+.hds-copy-button:active, .hds-copy-button.mock-active {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-active);
 }
 .hds-copy-button:active .hds-button__icon, .hds-copy-button.mock-active .hds-button__icon {
-  color: var(--token-color-foreground-action-active);
+  color: var(--token-copy-button-icon-color-active);
 }
 .hds-copy-button.hds-copy-button--status-success .hds-button__icon {
   color: var(--token-color-foreground-success);

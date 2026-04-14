@@ -376,6 +376,14 @@
   --token-button-icon-size-large: 24px;
   --token-card-surface-color-primary: #ffffff;
   --token-card-surface-color-secondary: #fafafa;
+  --token-copy-button-foreground-color: #3b3d45;
+  --token-copy-button-surface-color-default: #fafafa;
+  --token-copy-button-surface-color-hover: #ffffff;
+  --token-copy-button-surface-color-active: #dedfe3;
+  --token-copy-button-icon-color-default: #1060ff;
+  --token-copy-button-icon-color-hover: #0c56e9;
+  --token-copy-button-icon-color-focus: #0c56e9;
+  --token-copy-button-icon-color-active: #0046d1;
   --token-dialog-primitive-padding-horizontal: 24px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
