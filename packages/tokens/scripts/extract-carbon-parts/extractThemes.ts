@@ -7,6 +7,7 @@ import { themes, buttonTokens, contentSwitcherTokens, notificationTokens, status
 
 import { CarbonDesignToken } from './@types/CarbonDesignTokens.js';
 
+import { modernRgbColorFormatRegex, convertModernRgbToRgba } from './convertModernRgbToRgba.ts';
 import { convertObjectToDtcgFormat } from './convertObjectToDtcgFormat.ts';
 import { saveCarbonDtcgTokensAsJsonFile } from './saveCarbonDtcgTokensAsJsonFile.ts';
 import { dimensionRegex } from './convertObjectToDtcgFormat.ts';
@@ -41,6 +42,7 @@ export async function extractThemes(): Promise<void> {
 
 // function that recursively iterates on an object and
 // - replaces any key named 'whiteTheme' with 'white'
+// - converts `rgb(** ** ** / *%)` colors to the standard `rgba(**, **, **, 0.*)` format
 // - removes "colorScheme" entries (irrelevant)
 // - removes entries whose value is an array (`breakpoints`)
 
@@ -58,7 +60,7 @@ function cleanupObj(obj: Record<string, any>): Record<string, any> {
   // For objects, create a new object with potentially renamed keys
   const result: Record<string, any> = {};
 
-  for (const [key, value] of Object.entries(obj)) {
+  for (let [key, value] of Object.entries(obj)) {
     // Skip "colorScheme" entries
     if (key === "colorScheme") {
       continue;
@@ -70,10 +72,19 @@ function cleanupObj(obj: Record<string, any>): Record<string, any> {
     }
 
     // Rename 'whiteTheme' key to 'white'
-    const newKey = key === 'whiteTheme' ? 'white' : key;
+    if (key === 'whiteTheme') {
+      key = 'white';
+    }
+
+    // replace `rgb(** ** ** / *%)` colors with `rgba(**, **, **, 0.*)`
+    // note: the reason is that the current version `1.6.0` of TinyColor does not support this format
+    // and it's used in the `color/css` transform in StyleDictionary, so the alpha value is ignored
+    if (typeof value === 'string' && value.match(modernRgbColorFormatRegex)) {
+      value = convertModernRgbToRgba(value);
+    }
 
     // Recursively process nested objects
-    result[newKey] = cleanupObj(value);
+    result[key] = cleanupObj(value);
   }
 
   return result;
