@@ -200,6 +200,7 @@ Router.map(function () {
       this.route('separator');
       this.route('tabs');
       this.route('tag');
+      this.route('toast');
       this.route('tooltip');
     });
     this.route('utilities', function () {

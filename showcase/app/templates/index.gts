@@ -533,6 +533,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.toast">
+            Toast
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.tooltip">
             Tooltip
           </LinkTo>
