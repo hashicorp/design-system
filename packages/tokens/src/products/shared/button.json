@@ -365,10 +365,13 @@
             "$value": "{color.foreground.disabled}",
             "$modes": {
               "default": "{color.foreground.disabled}",
-              "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
-              "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
-              "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
-              "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+              "cds-g0": "{carbon.themes.white.textDisabled}",
+              "cds-g10": "{carbon.themes.g10.textDisabled}",
+              "cds-g90": "{carbon.themes.g90.textDisabled}",
+              "cds-g100": "{carbon.themes.g100.textDisabled}"
+            },
+            "comments": {
+              "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
             }
           }
         },
@@ -427,6 +430,9 @@
             "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
             "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
             "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
+          },
+          "comments": {
+            "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
           }
         }
       }
@@ -619,6 +625,9 @@
             "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
             "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
             "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+          },
+          "comments": {
+            "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
           }
         }
       }
@@ -778,6 +787,9 @@
               "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
               "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+            },
+            "comments": {
+              "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
             }
           }
         },
@@ -835,6 +847,9 @@
             "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
             "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
             "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+          },
+          "comments": {
+            "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
           }
         }
       }
