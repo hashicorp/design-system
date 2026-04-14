@@ -94,7 +94,7 @@
   --token-button-foreground-color-secondary-hover: #ffffff;
   --token-button-foreground-color-tertiary-active: #ffffff;
   --token-button-foreground-color-tertiary-default: #0f62fe;
-  --token-button-foreground-color-tertiary-disabled: #c6c6c6;
+  --token-button-foreground-color-tertiary-disabled: rgba(22, 22, 22, 0.25);
   --token-button-foreground-color-tertiary-focus: #ffffff;
   --token-button-foreground-color-tertiary-hover: #ffffff;
   --token-button-gap: 32px;
