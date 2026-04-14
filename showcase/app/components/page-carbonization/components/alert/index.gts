@@ -18,7 +18,10 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 import NOOP from 'showcase/utils/noop';
 
-import { HdsAlert } from '@hashicorp/design-system-components/components';
+import {
+  HdsAlert,
+  HdsLinkInline,
+} from '@hashicorp/design-system-components/components';
 import {
   TYPES,
   COLORS,
@@ -119,68 +122,6 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH2>Actions</ShwTextH2>
-
-    <ShwTextH3>Single action</ShwTextH3>
-    <ShwCarbonizationComparisonGrid @layout="side-by-side">
-      <:theming>
-        <ShwFlex as |SF|>
-          <SF.Item @grow={{true}}>
-            <HdsAlert @type="inline" @color="warning" as |A|>
-              <A.Title>Action passed as yielded component</A.Title>
-              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit.</A.Description>
-              <A.Button @text="Action" @color="secondary" />
-            </HdsAlert>
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference>
-        <ShwFlex as |SF|>
-          <SF.Item @grow={{true}}>
-            <cds-actionable-notification
-              kind="warning"
-              title="Action passed as yielded component"
-              subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              low-contrast
-            >
-              <cds-actionable-notification-button slot="action">
-                Action
-              </cds-actionable-notification-button>
-            </cds-actionable-notification>
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwTextH3>Multiple actions</ShwTextH3>
-    <ShwCarbonizationComparisonGrid @layout="side-by-side">
-      <:theming>
-        <ShwFlex as |SF|>
-          <SF.Item @grow={{true}}>
-            <HdsAlert @type="inline" @color="warning" as |A|>
-              <A.Title>With multiple actions passed as yielded components</A.Title>
-              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit.</A.Description>
-              <A.Button @text="Secondary" @color="secondary" />
-              <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
-              <A.LinkStandalone
-                @icon="plus"
-                @text="Standalone"
-                @href="#"
-                @color="secondary"
-              />
-            </HdsAlert>
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference as |R|>
-        <R.NoEquivalent @isCompact={{true}} />
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwDivider @level={{2}} />
-
     <ShwTextH2>Dismiss</ShwTextH2>
 
     <ShwCarbonizationComparisonGrid @layout="side-by-side">
@@ -260,6 +201,131 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
             />
           </SF.Item>
         </ShwFlex>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH2>Actions</ShwTextH2>
+
+    <ShwTextH3>Single action</ShwTextH3>
+    <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item @grow={{true}}>
+            <HdsAlert @type="inline" @color="warning" as |A|>
+              <A.Title>Action passed as yielded component</A.Title>
+              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.</A.Description>
+              <A.Button @text="Action" @color="secondary" />
+            </HdsAlert>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <ShwFlex as |SF|>
+          <SF.Item @grow={{true}}>
+            <cds-actionable-notification
+              kind="warning"
+              title="Action passed as yielded component"
+              subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              low-contrast
+            >
+              <cds-actionable-notification-button slot="action">
+                Action
+              </cds-actionable-notification-button>
+            </cds-actionable-notification>
+          </SF.Item>
+        </ShwFlex>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwTextH3>Multiple actions</ShwTextH3>
+    <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item @grow={{true}}>
+            <HdsAlert @type="inline" @color="warning" as |A|>
+              <A.Title>With multiple actions passed as yielded components</A.Title>
+              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.</A.Description>
+              <A.Button @text="Secondary" @color="secondary" />
+              <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
+              <A.LinkStandalone
+                @icon="plus"
+                @text="Standalone"
+                @href="#"
+                @color="secondary"
+              />
+            </HdsAlert>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH2>Links and rich content</ShwTextH2>
+
+    <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsAlert @type="inline" @color="success" as |A|>
+              <A.Title>An alert with a rich description (HTML)</A.Title>
+              <A.Description>Using the
+                <code>A.Description</code>
+                contextual component it's possible to have content that contains
+                HTML tags, like
+                <strong>strong text</strong>
+                and
+                <em>emphasized text</em>
+                as well as
+                <code>code</code>,
+                <pre>pre</pre>
+                and
+                <a href="#">inline links</a>.</A.Description>
+            </HdsAlert>
+          </SF.Item>
+          <SF.Item>
+            <HdsAlert @type="inline" @color="success" as |A|>
+              <A.Title>HTML link compared to
+                <code>HdsLink</code>
+                in the description</A.Title>
+              <A.Description>
+                Description with
+                <a href="#">HTML link</a>
+                compared with
+                <HdsLinkInline @href="#">Primary HdsLinkInline</HdsLinkInline>
+                and
+                <HdsLinkInline @href="#" @color="secondary">Secondary
+                  HdsLinkInline</HdsLinkInline>.
+              </A.Description>
+            </HdsAlert>
+          </SF.Item>
+          <SF.Item>
+            <HdsAlert @type="compact" @color="success" as |A|>
+              <A.Title>An alert with HTML link compared to
+                <code>HdsLink</code>
+                in Description</A.Title>
+              <A.Description>
+                Compact alert with
+                <a href="#">HTML link</a>
+                compared with
+                <HdsLinkInline @href="#">Primary HdsLinkInline</HdsLinkInline>
+                and
+                <HdsLinkInline @href="#" @color="secondary">Secondary
+                  HdsLinkInline</HdsLinkInline>.
+              </A.Description>
+            </HdsAlert>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent />
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
