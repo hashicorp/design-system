@@ -355,7 +355,7 @@ export default class HdsAdvancedTable<
     }
   });
 
-  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
+  constructor(owner: Owner, args: HdsAdvancedTableSignature<T>['Args']) {
     super(owner, args);
 
     const { hasStickyFirstColumn, model } = args;
