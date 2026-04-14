@@ -359,11 +359,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           >
             <:body as |B|>
               <B.Tr>
-                {{! @glint-expect-error }}
                 <B.Td>{{B.data.artist}}</B.Td>
-                {{! @glint-expect-error }}
                 <B.Td>{{B.data.album}}</B.Td>
-                {{! @glint-expect-error }}
                 <B.Td>{{B.data.year}}</B.Td>
               </B.Tr>
             </:body>
