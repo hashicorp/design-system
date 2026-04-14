@@ -5821,7 +5821,7 @@
     ]
   },
   {
-    "key": "{app-footer.focus.color.action.internal}",
+    "key": "{app-footer.link.focus.outline.color}",
     "$type": "color",
     "$value": "#0f62fe",
     "$modes": {
@@ -5841,18 +5841,18 @@
         "cds-g90": "{carbon.themes.g90.focus}",
         "cds-g100": "{carbon.themes.g100.focus}"
       },
-      "key": "{app-footer.focus.color.action.internal}"
+      "key": "{app-footer.link.focus.outline.color}"
     },
-    "name": "token-app-footer-focus-color-action-internal",
+    "name": "token-app-footer-link-focus-outline-color",
     "attributes": {
       "category": "app-footer"
     },
     "path": [
       "app-footer",
+      "link",
       "focus",
-      "color",
-      "action",
-      "internal"
+      "outline",
+      "color"
     ]
   },
   {
@@ -9242,7 +9242,6 @@
     "key": "{button.typography.line-height.small}",
     "$type": "number",
     "$value": 1.2858,
-    "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
     "$modes": {
       "default": 0.9286,
       "cds-g0": 1.2858,
@@ -9250,16 +9249,23 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
+    "comments": {
+      "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+      "cds": "18px/14px ~ 1.2858"
+    },
     "original": {
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
         "cds-g10": 1.2858,
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
+      },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
       },
       "key": "{button.typography.line-height.small}"
     },
@@ -9278,7 +9284,6 @@
     "key": "{button.typography.line-height.medium}",
     "$type": "number",
     "$value": 1.2858,
-    "comment": "14px ~ 1.1429",
     "$modes": {
       "default": 1.1429,
       "cds-g0": 1.2858,
@@ -9286,16 +9291,23 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
+    "comments": {
+      "hds": "16px/14px ~ 1.1429",
+      "cds": "18px/14px ~ 1.2858"
+    },
     "original": {
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
         "cds-g10": 1.2858,
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
+      },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
       },
       "key": "{button.typography.line-height.medium}"
     },
@@ -9314,7 +9326,6 @@
     "key": "{button.typography.line-height.large}",
     "$type": "number",
     "$value": 1.2858,
-    "comment": "24px = 1.5",
     "$modes": {
       "default": 1.5,
       "cds-g0": 1.2858,
@@ -9322,16 +9333,23 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
+    "comments": {
+      "hds": "24px/16px = 1.5",
+      "cds": "18px/14px ~ 1.2858"
+    },
     "original": {
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
         "cds-g10": 1.2858,
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
+      },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
       },
       "key": "{button.typography.line-height.large}"
     },
@@ -9767,6 +9785,47 @@
     ]
   },
   {
+    "key": "{button.foreground.color.tertiary.disabled}",
+    "$type": "color",
+    "$value": "rgba(22, 22, 22, 0.25)",
+    "$modes": {
+      "default": "rgba(22, 22, 22, 0.25)",
+      "cds-g0": "rgba(22, 22, 22, 0.25)",
+      "cds-g10": "rgba(22, 22, 22, 0.25)",
+      "cds-g90": "rgba(244, 244, 244, 0.25)",
+      "cds-g100": "rgba(244, 244, 244, 0.25)"
+    },
+    "comments": {
+      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.textDisabled}",
+      "$modes": {
+        "default": "{color.foreground.disabled}",
+        "cds-g0": "{carbon.themes.white.textDisabled}",
+        "cds-g10": "{carbon.themes.g10.textDisabled}",
+        "cds-g90": "{carbon.themes.g90.textDisabled}",
+        "cds-g100": "{carbon.themes.g100.textDisabled}"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "key": "{button.foreground.color.tertiary.disabled}"
+    },
+    "name": "token-button-foreground-color-tertiary-disabled",
+    "attributes": {
+      "category": "button"
+    },
+    "path": [
+      "button",
+      "foreground",
+      "color",
+      "tertiary",
+      "disabled"
+    ]
+  },
+  {
     "key": "{button.foreground.color.critical.default}",
     "$type": "color",
     "$value": "#ffffff",
@@ -9917,6 +9976,9 @@
       "cds-g90": "rgba(255, 255, 255, 0.25)",
       "cds-g100": "rgba(255, 255, 255, 0.25)"
     },
+    "comments": {
+      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+    },
     "original": {
       "$type": "color",
       "$value": "{carbon.themes.g10.textOnColorDisabled}",
@@ -9926,6 +9988,9 @@
         "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
         "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
         "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
       "key": "{button.foreground.color.disabled}"
     },
@@ -10491,21 +10556,27 @@
     "$type": "color",
     "$value": "#c6c6c6",
     "$modes": {
-      "default": "#ffffff",
+      "default": "#c6c6c6",
       "cds-g0": "#c6c6c6",
       "cds-g10": "#c6c6c6",
-      "cds-g90": "#8d8d8d",
-      "cds-g100": "#8d8d8d"
+      "cds-g90": "rgba(141, 141, 141, 0.3)",
+      "cds-g100": "rgba(141, 141, 141, 0.3)"
+    },
+    "comments": {
+      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
     },
     "original": {
       "$type": "color",
       "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
       "$modes": {
-        "default": "{color.surface.faint}",
+        "default": "{color.surface.interactive-disabled}",
         "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
         "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
         "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
         "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
       "key": "{button.surface.color.disabled}"
     },
@@ -10546,24 +10617,10 @@
     "$type": "dimension",
     "$value": "0px",
     "unit": "px",
-    "$modes": {
-      "default": "0px",
-      "cds-g0": "0",
-      "cds-g10": "0",
-      "cds-g90": "0",
-      "cds-g100": "0"
-    },
     "original": {
       "$type": "dimension",
-      "$value": "0",
+      "$value": "{border.radius.small}",
       "unit": "px",
-      "$modes": {
-        "default": "{border.radius.small}",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "key": "{button.border.radius}"
     },
     "name": "token-button-border-radius",
@@ -10616,7 +10673,7 @@
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$modes": {
-      "default": "#0043ce",
+      "default": "#002d9c",
       "cds-g0": "transparent",
       "cds-g10": "transparent",
       "cds-g90": "transparent",
@@ -10626,7 +10683,7 @@
       "$type": "color",
       "$value": "transparent",
       "$modes": {
-        "default": "{color.palette.blue-300}",
+        "default": "{color.palette.blue-400}",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -10649,26 +10706,10 @@
   {
     "key": "{button.border.color.primary.focus.internal}",
     "$type": "color",
-    "$value": "#ffc0cb",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "pink",
-      "cds-g10": "pink",
-      "cds-g90": "pink",
-      "cds-g100": "pink"
-    },
-    "comment": "TODO - replace the `pink` values with the correct ones",
+    "$value": "#ffffff",
     "original": {
       "$type": "color",
-      "$value": "pink",
-      "$modes": {
-        "default": "{color.focus.action.internal}",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "{color.focus.action.internal}",
       "key": "{button.border.color.primary.focus.internal}"
     },
     "name": "token-button-border-color-primary-focus-internal",
@@ -10687,26 +10728,10 @@
   {
     "key": "{button.border.color.primary.focus.external}",
     "$type": "color",
-    "$value": "#ff00ff",
-    "$modes": {
-      "default": "#0f62fe",
-      "cds-g0": "magenta",
-      "cds-g10": "magenta",
-      "cds-g90": "magenta",
-      "cds-g100": "magenta"
-    },
-    "comment": "TODO - replace the `magenta` values with the correct ones",
+    "$value": "#0f62fe",
     "original": {
       "$type": "color",
-      "$value": "magenta",
-      "$modes": {
-        "default": "{color.focus.action.external}",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "{color.focus.action.external}",
       "key": "{button.border.color.primary.focus.external}"
     },
     "name": "token-button-border-color-primary-focus-external",
@@ -10830,26 +10855,10 @@
   {
     "key": "{button.border.color.secondary.focus.internal}",
     "$type": "color",
-    "$value": "#ffc0cb",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "pink",
-      "cds-g10": "pink",
-      "cds-g90": "pink",
-      "cds-g100": "pink"
-    },
-    "comment": "TODO - replace the `pink` values with the correct ones",
+    "$value": "#ffffff",
     "original": {
       "$type": "color",
-      "$value": "pink",
-      "$modes": {
-        "default": "{color.focus.action.internal}",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "{color.focus.action.internal}",
       "key": "{button.border.color.secondary.focus.internal}"
     },
     "name": "token-button-border-color-secondary-focus-internal",
@@ -10868,26 +10877,10 @@
   {
     "key": "{button.border.color.secondary.focus.external}",
     "$type": "color",
-    "$value": "#ff00ff",
-    "$modes": {
-      "default": "#0f62fe",
-      "cds-g0": "magenta",
-      "cds-g10": "magenta",
-      "cds-g90": "magenta",
-      "cds-g100": "magenta"
-    },
-    "comment": "TODO - replace the `magenta` values with the correct ones",
+    "$value": "#0f62fe",
     "original": {
       "$type": "color",
-      "$value": "magenta",
-      "$modes": {
-        "default": "{color.focus.action.external}",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "{color.focus.action.external}",
       "key": "{button.border.color.secondary.focus.external}"
     },
     "name": "token-button-border-color-secondary-focus-external",
@@ -10941,10 +10934,24 @@
   {
     "key": "{button.border.color.tertiary.default}",
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#0f62fe",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
     "original": {
       "$type": "color",
-      "$value": "transparent",
+      "$value": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+        "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+        "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+        "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+      },
       "key": "{button.border.color.tertiary.default}"
     },
     "name": "token-button-border-color-tertiary-default",
@@ -10962,10 +10969,24 @@
   {
     "key": "{button.border.color.tertiary.hover}",
     "$type": "color",
-    "$value": "#8d8d8d",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "key": "{button.border.color.tertiary.hover}"
     },
     "name": "token-button-border-color-tertiary-hover",
@@ -11027,10 +11048,24 @@
   {
     "key": "{button.border.color.tertiary.active}",
     "$type": "color",
-    "$value": "#8d8d8d",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "key": "{button.border.color.tertiary.active}"
     },
     "name": "token-button-border-color-tertiary-active",
@@ -11043,6 +11078,47 @@
       "color",
       "tertiary",
       "active"
+    ]
+  },
+  {
+    "key": "{button.border.color.tertiary.disabled}",
+    "$type": "color",
+    "$value": "#c6c6c6",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#c6c6c6",
+      "cds-g90": "rgba(141, 141, 141, 0.3)",
+      "cds-g100": "rgba(141, 141, 141, 0.3)"
+    },
+    "comments": {
+      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+        "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+        "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+        "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
+      "key": "{button.border.color.tertiary.disabled}"
+    },
+    "name": "token-button-border-color-tertiary-disabled",
+    "attributes": {
+      "category": "button"
+    },
+    "path": [
+      "button",
+      "border",
+      "color",
+      "tertiary",
+      "disabled"
     ]
   },
   {
@@ -11060,7 +11136,7 @@
       "$type": "color",
       "$value": "transparent",
       "$modes": {
-        "default": "{color.foreground.critical-on-surface}",
+        "default": "{color.palette.red-300}",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -11118,26 +11194,10 @@
   {
     "key": "{button.border.color.critical.focus.internal}",
     "$type": "color",
-    "$value": "#ffc0cb",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "pink",
-      "cds-g10": "pink",
-      "cds-g90": "pink",
-      "cds-g100": "pink"
-    },
-    "comment": "TODO - replace the `pink` values with the correct ones",
+    "$value": "#ffffff",
     "original": {
       "$type": "color",
-      "$value": "pink",
-      "$modes": {
-        "default": "{color.focus.critical.internal}",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "comment": "TODO - replace the `pink` values with the correct ones",
+      "$value": "{color.focus.critical.internal}",
       "key": "{button.border.color.critical.focus.internal}"
     },
     "name": "token-button-border-color-critical-focus-internal",
@@ -11156,26 +11216,10 @@
   {
     "key": "{button.border.color.critical.focus.external}",
     "$type": "color",
-    "$value": "#ff00ff",
-    "$modes": {
-      "default": "#0f62fe",
-      "cds-g0": "magenta",
-      "cds-g10": "magenta",
-      "cds-g90": "magenta",
-      "cds-g100": "magenta"
-    },
-    "comment": "TODO - replace the `magenta` values with the correct ones",
+    "$value": "#0f62fe",
     "original": {
       "$type": "color",
-      "$value": "magenta",
-      "$modes": {
-        "default": "{color.focus.critical.external}",
-        "cds-g0": "magenta",
-        "cds-g10": "magenta",
-        "cds-g90": "magenta",
-        "cds-g100": "magenta"
-      },
-      "comment": "TODO - replace the `magenta` values with the correct ones",
+      "$value": "{color.focus.critical.external}",
       "key": "{button.border.color.critical.focus.external}"
     },
     "name": "token-button-border-color-critical-focus-external",
@@ -11229,10 +11273,30 @@
   {
     "key": "{button.border.color.disabled}",
     "$type": "color",
-    "$value": "#e0e0e0",
+    "$value": "#c6c6c6",
+    "$modes": {
+      "default": "#e0e0e0",
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#c6c6c6",
+      "cds-g90": "rgba(141, 141, 141, 0.3)",
+      "cds-g100": "rgba(141, 141, 141, 0.3)"
+    },
+    "comments": {
+      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+    },
     "original": {
       "$type": "color",
-      "$value": "{color.border.primary}",
+      "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+      "$modes": {
+        "default": "{color.border.primary}",
+        "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+        "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+        "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+        "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+      },
+      "comments": {
+        "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
+      },
       "key": "{button.border.color.disabled}"
     },
     "name": "token-button-border-color-disabled",
@@ -11247,7 +11311,7 @@
     ]
   },
   {
-    "key": "{button.focus.border.width}",
+    "key": "{button.focus-ring.border.width}",
     "$type": "dimension",
     "$value": "3px",
     "unit": "px",
@@ -11255,15 +11319,15 @@
       "$type": "dimension",
       "$value": "3",
       "unit": "px",
-      "key": "{button.focus.border.width}"
+      "key": "{button.focus-ring.border.width}"
     },
-    "name": "token-button-focus-border-width",
+    "name": "token-button-focus-ring-border-width",
     "attributes": {
       "category": "button"
     },
     "path": [
       "button",
-      "focus",
+      "focus-ring",
       "border",
       "width"
     ]
@@ -12527,13 +12591,13 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g10.iconPrimary}",
+      "$value": "{carbon.themes.g10.textPrimary}",
       "$modes": {
         "default": "{button.foreground.color.secondary.default}",
-        "cds-g0": "{carbon.themes.white.iconPrimary}",
-        "cds-g10": "{carbon.themes.g10.iconPrimary}",
-        "cds-g90": "{carbon.themes.g90.iconPrimary}",
-        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
       },
       "key": "{copy.button.foreground.color}"
     },
@@ -12897,7 +12961,7 @@
     ]
   },
   {
-    "key": "{dialog-primitive.header.tagline.font-size}",
+    "key": "{dialog-primitive.header.tagline.typography.font-size}",
     "$type": "font-size",
     "$value": "0.75rem",
     "$modes": {
@@ -12923,9 +12987,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
       },
-      "key": "{dialog-primitive.header.tagline.font-size}"
+      "key": "{dialog-primitive.header.tagline.typography.font-size}"
     },
-    "name": "token-dialog-primitive-header-tagline-font-size",
+    "name": "token-dialog-primitive-header-tagline-typography-font-size",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -12933,11 +12997,12 @@
       "dialog-primitive",
       "header",
       "tagline",
+      "typography",
       "font-size"
     ]
   },
   {
-    "key": "{dialog-primitive.header.tagline.line-height}",
+    "key": "{dialog-primitive.header.tagline.typography.line-height}",
     "$type": "number",
     "$value": 1.33333,
     "$modes": {
@@ -12963,9 +13028,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline"
       },
-      "key": "{dialog-primitive.header.tagline.line-height}"
+      "key": "{dialog-primitive.header.tagline.typography.line-height}"
     },
-    "name": "token-dialog-primitive-header-tagline-line-height",
+    "name": "token-dialog-primitive-header-tagline-typography-line-height",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -12973,11 +13038,12 @@
       "dialog-primitive",
       "header",
       "tagline",
+      "typography",
       "line-height"
     ]
   },
   {
-    "key": "{dialog-primitive.header.title.font-weight}",
+    "key": "{dialog-primitive.header.title.typography.font-weight}",
     "$type": "font-weight",
     "$value": 400,
     "$modes": {
@@ -13003,9 +13069,9 @@
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
       },
-      "key": "{dialog-primitive.header.title.font-weight}"
+      "key": "{dialog-primitive.header.title.typography.font-weight}"
     },
-    "name": "token-dialog-primitive-header-title-font-weight",
+    "name": "token-dialog-primitive-header-title-typography-font-weight",
     "attributes": {
       "category": "dialog-primitive"
     },
@@ -13013,6 +13079,7 @@
       "dialog-primitive",
       "header",
       "title",
+      "typography",
       "font-weight"
     ]
   },
@@ -13550,7 +13617,7 @@
     ]
   },
   {
-    "key": "{form.control.base.foreground.value-color}",
+    "key": "{form.control.base.foreground.color}",
     "$type": "color",
     "$value": "#161616",
     "group": "components",
@@ -13558,9 +13625,9 @@
       "$type": "color",
       "$value": "{color.foreground.strong}",
       "group": "components",
-      "key": "{form.control.base.foreground.value-color}"
+      "key": "{form.control.base.foreground.color}"
     },
-    "name": "token-form-control-base-foreground-value-color",
+    "name": "token-form-control-base-foreground-color",
     "attributes": {
       "category": "form"
     },
@@ -13569,34 +13636,11 @@
       "control",
       "base",
       "foreground",
-      "value-color"
+      "color"
     ]
   },
   {
-    "key": "{form.control.base.foreground.placeholder-color}",
-    "$type": "color",
-    "$value": "#525252",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{color.foreground.faint}",
-      "group": "components",
-      "key": "{form.control.base.foreground.placeholder-color}"
-    },
-    "name": "token-form-control-base-foreground-placeholder-color",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "control",
-      "base",
-      "foreground",
-      "placeholder-color"
-    ]
-  },
-  {
-    "key": "{form.control.base.surface-color.default}",
+    "key": "{form.control.base.surface.color.default}",
     "$type": "color",
     "$value": "#ffffff",
     "group": "components",
@@ -13604,7 +13648,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive}",
       "group": "components",
-      "key": "{form.control.base.surface-color.default}"
+      "key": "{form.control.base.surface.color.default}"
     },
     "name": "token-form-control-base-surface-color-default",
     "attributes": {
@@ -13614,12 +13658,13 @@
       "form",
       "control",
       "base",
-      "surface-color",
+      "surface",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.base.surface-color.hover}",
+    "key": "{form.control.base.surface.color.hover}",
     "$type": "color",
     "$value": "#e8e8e8",
     "group": "components",
@@ -13627,7 +13672,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive-hover}",
       "group": "components",
-      "key": "{form.control.base.surface-color.hover}"
+      "key": "{form.control.base.surface.color.hover}"
     },
     "name": "token-form-control-base-surface-color-hover",
     "attributes": {
@@ -13637,12 +13682,13 @@
       "form",
       "control",
       "base",
-      "surface-color",
+      "surface",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.base.border-color.default}",
+    "key": "{form.control.base.border.color.default}",
     "$type": "color",
     "$value": "#8d8d8d",
     "group": "components",
@@ -13650,7 +13696,7 @@
       "$type": "color",
       "$value": "{color.palette.neutral-400}",
       "group": "components",
-      "key": "{form.control.base.border-color.default}"
+      "key": "{form.control.base.border.color.default}"
     },
     "name": "token-form-control-base-border-color-default",
     "attributes": {
@@ -13660,12 +13706,13 @@
       "form",
       "control",
       "base",
-      "border-color",
+      "border",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.base.border-color.hover}",
+    "key": "{form.control.base.border.color.hover}",
     "$type": "color",
     "$value": "#525252",
     "group": "components",
@@ -13673,7 +13720,7 @@
       "$type": "color",
       "$value": "{color.palette.neutral-500}",
       "group": "components",
-      "key": "{form.control.base.border-color.hover}"
+      "key": "{form.control.base.border.color.hover}"
     },
     "name": "token-form-control-base-border-color-hover",
     "attributes": {
@@ -13683,12 +13730,37 @@
       "form",
       "control",
       "base",
-      "border-color",
+      "border",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.checked.foreground-color}",
+    "key": "{form.control.base.placeholder.foreground.color}",
+    "$type": "color",
+    "$value": "#525252",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{color.foreground.faint}",
+      "group": "components",
+      "key": "{form.control.base.placeholder.foreground.color}"
+    },
+    "name": "token-form-control-base-placeholder-foreground-color",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "control",
+      "base",
+      "placeholder",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{form.control.checked.foreground.color}",
     "$type": "color",
     "$value": "#ffffff",
     "group": "components",
@@ -13696,7 +13768,7 @@
       "$type": "color",
       "$value": "{color.foreground.high-contrast}",
       "group": "components",
-      "key": "{form.control.checked.foreground-color}"
+      "key": "{form.control.checked.foreground.color}"
     },
     "name": "token-form-control-checked-foreground-color",
     "attributes": {
@@ -13706,11 +13778,12 @@
       "form",
       "control",
       "checked",
-      "foreground-color"
+      "foreground",
+      "color"
     ]
   },
   {
-    "key": "{form.control.checked.surface-color.default}",
+    "key": "{form.control.checked.surface.color.default}",
     "$type": "color",
     "$value": "#0f62fe",
     "group": "components",
@@ -13718,7 +13791,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-200}",
       "group": "components",
-      "key": "{form.control.checked.surface-color.default}"
+      "key": "{form.control.checked.surface.color.default}"
     },
     "name": "token-form-control-checked-surface-color-default",
     "attributes": {
@@ -13728,12 +13801,13 @@
       "form",
       "control",
       "checked",
-      "surface-color",
+      "surface",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.checked.surface-color.hover}",
+    "key": "{form.control.checked.surface.color.hover}",
     "$type": "color",
     "$value": "#0043ce",
     "group": "components",
@@ -13741,7 +13815,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-300}",
       "group": "components",
-      "key": "{form.control.checked.surface-color.hover}"
+      "key": "{form.control.checked.surface.color.hover}"
     },
     "name": "token-form-control-checked-surface-color-hover",
     "attributes": {
@@ -13751,12 +13825,13 @@
       "form",
       "control",
       "checked",
-      "surface-color",
+      "surface",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.checked.border-color.default}",
+    "key": "{form.control.checked.border.color.default}",
     "$type": "color",
     "$value": "#0043ce",
     "group": "components",
@@ -13764,7 +13839,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-300}",
       "group": "components",
-      "key": "{form.control.checked.border-color.default}"
+      "key": "{form.control.checked.border.color.default}"
     },
     "name": "token-form-control-checked-border-color-default",
     "attributes": {
@@ -13774,12 +13849,13 @@
       "form",
       "control",
       "checked",
-      "border-color",
+      "border",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.checked.border-color.hover}",
+    "key": "{form.control.checked.border.color.hover}",
     "$type": "color",
     "$value": "#002d9c",
     "group": "components",
@@ -13787,7 +13863,7 @@
       "$type": "color",
       "$value": "{color.palette.blue-400}",
       "group": "components",
-      "key": "{form.control.checked.border-color.hover}"
+      "key": "{form.control.checked.border.color.hover}"
     },
     "name": "token-form-control-checked-border-color-hover",
     "attributes": {
@@ -13797,12 +13873,13 @@
       "form",
       "control",
       "checked",
-      "border-color",
+      "border",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.invalid.border-color.default}",
+    "key": "{form.control.invalid.border.color.default}",
     "$type": "color",
     "$value": "#a2191f",
     "group": "components",
@@ -13810,7 +13887,7 @@
       "$type": "color",
       "$value": "{color.palette.red-300}",
       "group": "components",
-      "key": "{form.control.invalid.border-color.default}"
+      "key": "{form.control.invalid.border.color.default}"
     },
     "name": "token-form-control-invalid-border-color-default",
     "attributes": {
@@ -13820,12 +13897,13 @@
       "form",
       "control",
       "invalid",
-      "border-color",
+      "border",
+      "color",
       "default"
     ]
   },
   {
-    "key": "{form.control.invalid.border-color.hover}",
+    "key": "{form.control.invalid.border.color.hover}",
     "$type": "color",
     "$value": "#750e13",
     "group": "components",
@@ -13833,7 +13911,7 @@
       "$type": "color",
       "$value": "{color.palette.red-400}",
       "group": "components",
-      "key": "{form.control.invalid.border-color.hover}"
+      "key": "{form.control.invalid.border.color.hover}"
     },
     "name": "token-form-control-invalid-border-color-hover",
     "attributes": {
@@ -13843,12 +13921,13 @@
       "form",
       "control",
       "invalid",
-      "border-color",
+      "border",
+      "color",
       "hover"
     ]
   },
   {
-    "key": "{form.control.readonly.foreground-color}",
+    "key": "{form.control.readonly.foreground.color}",
     "$type": "color",
     "$value": "#161616",
     "group": "components",
@@ -13856,7 +13935,7 @@
       "$type": "color",
       "$value": "{color.foreground.primary}",
       "group": "components",
-      "key": "{form.control.readonly.foreground-color}"
+      "key": "{form.control.readonly.foreground.color}"
     },
     "name": "token-form-control-readonly-foreground-color",
     "attributes": {
@@ -13866,11 +13945,12 @@
       "form",
       "control",
       "readonly",
-      "foreground-color"
+      "foreground",
+      "color"
     ]
   },
   {
-    "key": "{form.control.readonly.surface-color}",
+    "key": "{form.control.readonly.surface.color}",
     "$type": "color",
     "$value": "#e0e0e0",
     "group": "components",
@@ -13878,7 +13958,7 @@
       "$type": "color",
       "$value": "{color.surface.strong}",
       "group": "components",
-      "key": "{form.control.readonly.surface-color}"
+      "key": "{form.control.readonly.surface.color}"
     },
     "name": "token-form-control-readonly-surface-color",
     "attributes": {
@@ -13888,11 +13968,12 @@
       "form",
       "control",
       "readonly",
-      "surface-color"
+      "surface",
+      "color"
     ]
   },
   {
-    "key": "{form.control.readonly.border-color}",
+    "key": "{form.control.readonly.border.color}",
     "$type": "color",
     "$value": "#c6c6c6",
     "group": "components",
@@ -13900,7 +13981,7 @@
       "$type": "color",
       "$value": "{color.border.faint}",
       "group": "components",
-      "key": "{form.control.readonly.border-color}"
+      "key": "{form.control.readonly.border.color}"
     },
     "name": "token-form-control-readonly-border-color",
     "attributes": {
@@ -13910,11 +13991,12 @@
       "form",
       "control",
       "readonly",
-      "border-color"
+      "border",
+      "color"
     ]
   },
   {
-    "key": "{form.control.disabled.foreground-color}",
+    "key": "{form.control.disabled.foreground.color}",
     "$type": "color",
     "$value": "rgba(22, 22, 22, 0.25)",
     "group": "components",
@@ -13922,7 +14004,7 @@
       "$type": "color",
       "$value": "{color.foreground.disabled}",
       "group": "components",
-      "key": "{form.control.disabled.foreground-color}"
+      "key": "{form.control.disabled.foreground.color}"
     },
     "name": "token-form-control-disabled-foreground-color",
     "attributes": {
@@ -13932,11 +14014,12 @@
       "form",
       "control",
       "disabled",
-      "foreground-color"
+      "foreground",
+      "color"
     ]
   },
   {
-    "key": "{form.control.disabled.surface-color}",
+    "key": "{form.control.disabled.surface.color}",
     "$type": "color",
     "$value": "#c6c6c6",
     "group": "components",
@@ -13944,7 +14027,7 @@
       "$type": "color",
       "$value": "{color.surface.interactive-disabled}",
       "group": "components",
-      "key": "{form.control.disabled.surface-color}"
+      "key": "{form.control.disabled.surface.color}"
     },
     "name": "token-form-control-disabled-surface-color",
     "attributes": {
@@ -13954,11 +14037,12 @@
       "form",
       "control",
       "disabled",
-      "surface-color"
+      "surface",
+      "color"
     ]
   },
   {
-    "key": "{form.control.disabled.border-color}",
+    "key": "{form.control.disabled.border.color}",
     "$type": "color",
     "$value": "#e0e0e0",
     "group": "components",
@@ -13966,7 +14050,7 @@
       "$type": "color",
       "$value": "{color.border.primary}",
       "group": "components",
-      "key": "{form.control.disabled.border-color}"
+      "key": "{form.control.disabled.border.color}"
     },
     "name": "token-form-control-disabled-border-color",
     "attributes": {
@@ -13976,7 +14060,8 @@
       "form",
       "control",
       "disabled",
-      "border-color"
+      "border",
+      "color"
     ]
   },
   {
@@ -14688,7 +14773,7 @@
     ]
   },
   {
-    "key": "{form.toggle.base.surface-color.default}",
+    "key": "{form.toggle.base.surface.color.default}",
     "$type": "color",
     "$value": "#e0e0e0",
     "group": "components",
@@ -14698,7 +14783,7 @@
       "$value": "{color.surface.strong}",
       "group": "components",
       "comment": "the toggle has a different base surface color, compared to the other controls",
-      "key": "{form.toggle.base.surface-color.default}"
+      "key": "{form.toggle.base.surface.color.default}"
     },
     "name": "token-form-toggle-base-surface-color-default",
     "attributes": {
@@ -14708,7 +14793,8 @@
       "form",
       "toggle",
       "base",
-      "surface-color",
+      "surface",
+      "color",
       "default"
     ]
   },
@@ -17099,7 +17185,7 @@
     ]
   },
   {
-    "key": "{tabs.indicator.transition.function}",
+    "key": "{tabs.indicator.transition.timing-function}",
     "$type": "cubicBezier",
     "$value": "cubic-bezier(0.5, 1, 0.89, 1)",
     "original": {
@@ -17110,9 +17196,9 @@
         0.89,
         1
       ],
-      "key": "{tabs.indicator.transition.function}"
+      "key": "{tabs.indicator.transition.timing-function}"
     },
-    "name": "token-tabs-indicator-transition-function",
+    "name": "token-tabs-indicator-transition-timing-function",
     "attributes": {
       "category": "tabs"
     },
@@ -17120,7 +17206,7 @@
       "tabs",
       "indicator",
       "transition",
-      "function"
+      "timing-function"
     ]
   },
   {
@@ -17164,6 +17250,1103 @@
       "tabs",
       "divider",
       "height"
+    ]
+  },
+  {
+    "key": "{tag.max-width}",
+    "$type": "dimension",
+    "$value": "208px",
+    "unit": "px",
+    "$modes": {
+      "default": "166",
+      "cds-g0": "208",
+      "cds-g10": "208",
+      "cds-g90": "208",
+      "cds-g100": "208"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "208",
+      "unit": "px",
+      "$modes": {
+        "default": "166",
+        "cds-g0": "208",
+        "cds-g10": "208",
+        "cds-g90": "208",
+        "cds-g100": "208"
+      },
+      "key": "{tag.max-width}"
+    },
+    "name": "token-tag-max-width",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "max-width"
+    ]
+  },
+  {
+    "key": "{tag.padding.top}",
+    "$type": "dimension",
+    "$value": "3px",
+    "unit": "px",
+    "original": {
+      "$type": "dimension",
+      "$value": "3",
+      "unit": "px",
+      "key": "{tag.padding.top}"
+    },
+    "name": "token-tag-padding-top",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "padding",
+      "top"
+    ]
+  },
+  {
+    "key": "{tag.padding.bottom}",
+    "$type": "dimension",
+    "$value": "3px",
+    "unit": "px",
+    "$modes": {
+      "default": "5",
+      "cds-g0": "3",
+      "cds-g10": "3",
+      "cds-g90": "3",
+      "cds-g100": "3"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "3",
+      "unit": "px",
+      "$modes": {
+        "default": "5",
+        "cds-g0": "3",
+        "cds-g10": "3",
+        "cds-g90": "3",
+        "cds-g100": "3"
+      },
+      "key": "{tag.padding.bottom}"
+    },
+    "name": "token-tag-padding-bottom",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "padding",
+      "bottom"
+    ]
+  },
+  {
+    "key": "{tag.padding.right}",
+    "$type": "dimension",
+    "$value": "8px",
+    "unit": "px",
+    "$modes": {
+      "default": "10",
+      "cds-g0": "8",
+      "cds-g10": "8",
+      "cds-g90": "8",
+      "cds-g100": "8"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "8",
+      "unit": "px",
+      "$modes": {
+        "default": "10",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
+      "key": "{tag.padding.right}"
+    },
+    "name": "token-tag-padding-right",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "padding",
+      "right"
+    ]
+  },
+  {
+    "key": "{tag.padding.left}",
+    "$type": "dimension",
+    "$value": "8px",
+    "unit": "px",
+    "$modes": {
+      "default": "10",
+      "cds-g0": "8",
+      "cds-g10": "8",
+      "cds-g90": "8",
+      "cds-g100": "8"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "8",
+      "unit": "px",
+      "$modes": {
+        "default": "10",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
+      "key": "{tag.padding.left}"
+    },
+    "name": "token-tag-padding-left",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "padding",
+      "left"
+    ]
+  },
+  {
+    "key": "{tag.border.radius}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "$modes": {
+      "default": "50",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "$modes": {
+        "default": "50",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "key": "{tag.border.radius}"
+    },
+    "name": "token-tag-border-radius",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "border",
+      "radius"
+    ]
+  },
+  {
+    "key": "{tag.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "13",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.label01.font-size}",
+      "unit": "px",
+      "$modes": {
+        "default": "13",
+        "cds-g0": "{carbon.typography.label01.font-size}",
+        "cds-g10": "{carbon.typography.label01.font-size}",
+        "cds-g90": "{carbon.typography.label01.font-size}",
+        "cds-g100": "{carbon.typography.label01.font-size}"
+      },
+      "key": "{tag.typography.font-size}"
+    },
+    "name": "token-tag-typography-font-size",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{tag.typography.font-weight}",
+    "$type": "font-weight",
+    "$value": 400,
+    "$modes": {
+      "default": 400,
+      "cds-g0": 400,
+      "cds-g10": 400,
+      "cds-g90": 400,
+      "cds-g100": 400
+    },
+    "original": {
+      "$type": "font-weight",
+      "$value": "{carbon.typography.label01.font-weight}",
+      "$modes": {
+        "default": "{typography.font-weight.medium}",
+        "cds-g0": "{carbon.typography.label01.font-weight}",
+        "cds-g10": "{carbon.typography.label01.font-weight}",
+        "cds-g90": "{carbon.typography.label01.font-weight}",
+        "cds-g100": "{carbon.typography.label01.font-weight}"
+      },
+      "key": "{tag.typography.font-weight}"
+    },
+    "name": "token-tag-typography-font-weight",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "typography",
+      "font-weight"
+    ]
+  },
+  {
+    "key": "{tag.typography.line-height}",
+    "$type": "number",
+    "$value": 1.33333,
+    "$modes": {
+      "default": 1.2308,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
+    "original": {
+      "$type": "number",
+      "$value": "{carbon.typography.label01.line-height}",
+      "$modes": {
+        "default": 1.2308,
+        "cds-g0": "{carbon.typography.label01.line-height}",
+        "cds-g10": "{carbon.typography.label01.line-height}",
+        "cds-g90": "{carbon.typography.label01.line-height}",
+        "cds-g100": "{carbon.typography.label01.line-height}"
+      },
+      "key": "{tag.typography.line-height}"
+    },
+    "name": "token-tag-typography-line-height",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "typography",
+      "line-height"
+    ]
+  },
+  {
+    "key": "{tag.dismissible.max-width}",
+    "$type": "dimension",
+    "$value": "204px",
+    "unit": "px",
+    "$modes": {
+      "default": "160",
+      "cds-g0": "204",
+      "cds-g10": "204",
+      "cds-g90": "204",
+      "cds-g100": "204"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "204",
+      "unit": "px",
+      "$modes": {
+        "default": "160",
+        "cds-g0": "204",
+        "cds-g10": "204",
+        "cds-g90": "204",
+        "cds-g100": "204"
+      },
+      "key": "{tag.dismissible.max-width}"
+    },
+    "name": "token-tag-dismissible-max-width",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "dismissible",
+      "max-width"
+    ]
+  },
+  {
+    "key": "{tag.dismissible.padding.right}",
+    "$type": "dimension",
+    "$value": "8px",
+    "unit": "px",
+    "original": {
+      "$type": "dimension",
+      "$value": "8",
+      "unit": "px",
+      "key": "{tag.dismissible.padding.right}"
+    },
+    "name": "token-tag-dismissible-padding-right",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "dismissible",
+      "padding",
+      "right"
+    ]
+  },
+  {
+    "key": "{tag.dismissible.padding.left}",
+    "$type": "dimension",
+    "$value": "4px",
+    "unit": "px",
+    "$modes": {
+      "default": "6",
+      "cds-g0": "4",
+      "cds-g10": "4",
+      "cds-g90": "4",
+      "cds-g100": "4"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "4",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "4",
+        "cds-g10": "4",
+        "cds-g90": "4",
+        "cds-g100": "4"
+      },
+      "key": "{tag.dismissible.padding.left}"
+    },
+    "name": "token-tag-dismissible-padding-left",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "dismissible",
+      "padding",
+      "left"
+    ]
+  },
+  {
+    "key": "{tag.link.border.color.primary}",
+    "$type": "color",
+    "$value": "#78a9ff",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "#78a9ff",
+      "cds-g10": "#78a9ff",
+      "cds-g90": "#4589ff",
+      "cds-g100": "#4589ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagBorderBlue.g10}",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "{carbon.themes.tagTokens.tagBorderBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagBorderBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagBorderBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagBorderBlue.g100}"
+      },
+      "key": "{tag.link.border.color.primary}"
+    },
+    "name": "token-tag-link-border-color-primary",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "border",
+      "color",
+      "primary"
+    ]
+  },
+  {
+    "key": "{tag.link.border.color.secondary}",
+    "$type": "color",
+    "$value": "#a8a8a8",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "#a8a8a8",
+      "cds-g10": "#a8a8a8",
+      "cds-g90": "#8d8d8d",
+      "cds-g100": "#8d8d8d"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagBorderGray.g10}",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "{carbon.themes.tagTokens.tagBorderGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagBorderGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagBorderGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagBorderGray.g100}"
+      },
+      "key": "{tag.link.border.color.secondary}"
+    },
+    "name": "token-tag-link-border-color-secondary",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "border",
+      "color",
+      "secondary"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.primary.default}",
+    "$type": "color",
+    "$value": "#d0e2ff",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "#d0e2ff",
+      "cds-g10": "#d0e2ff",
+      "cds-g90": "#0043ce",
+      "cds-g100": "#0043ce"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagBackgroundBlue.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive}",
+        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundBlue.g100}"
+      },
+      "key": "{tag.link.surface.color.primary.default}"
+    },
+    "name": "token-tag-link-surface-color-primary-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "primary",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.primary.hover}",
+    "$type": "color",
+    "$value": "#b8d3ff",
+    "$modes": {
+      "default": "#e8e8e8",
+      "cds-g0": "#b8d3ff",
+      "cds-g10": "#b8d3ff",
+      "cds-g90": "#0053ff",
+      "cds-g100": "#0053ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive-hover}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverBlue.g100}"
+      },
+      "key": "{tag.link.surface.color.primary.hover}"
+    },
+    "name": "token-tag-link-surface-color-primary-hover",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "primary",
+      "hover"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.primary.active}",
+    "$type": "color",
+    "$value": "#b8d3ff",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "#b8d3ff",
+      "cds-g10": "#b8d3ff",
+      "cds-g90": "#0053ff",
+      "cds-g100": "#0053ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive-active}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverBlue.g100}"
+      },
+      "key": "{tag.link.surface.color.primary.active}"
+    },
+    "name": "token-tag-link-surface-color-primary-active",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "primary",
+      "active"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.secondary.default}",
+    "$type": "color",
+    "$value": "#e0e0e0",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "#e0e0e0",
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#525252",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive}",
+        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
+      },
+      "key": "{tag.link.surface.color.secondary.default}"
+    },
+    "name": "token-tag-link-surface-color-secondary-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "secondary",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.secondary.hover}",
+    "$type": "color",
+    "$value": "#d1d1d1",
+    "$modes": {
+      "default": "#e8e8e8",
+      "cds-g0": "#d1d1d1",
+      "cds-g10": "#d1d1d1",
+      "cds-g90": "#636363",
+      "cds-g100": "#636363"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive-hover}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+      },
+      "key": "{tag.link.surface.color.secondary.hover}"
+    },
+    "name": "token-tag-link-surface-color-secondary-hover",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "secondary",
+      "hover"
+    ]
+  },
+  {
+    "key": "{tag.link.surface.color.secondary.active}",
+    "$type": "color",
+    "$value": "#d1d1d1",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "#d1d1d1",
+      "cds-g10": "#d1d1d1",
+      "cds-g90": "#636363",
+      "cds-g100": "#636363"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive-active}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+      },
+      "key": "{tag.link.surface.color.secondary.active}"
+    },
+    "name": "token-tag-link-surface-color-secondary-active",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "surface",
+      "color",
+      "secondary",
+      "active"
+    ]
+  },
+  {
+    "key": "{tag.link.foreground.color.primary.default}",
+    "$type": "color",
+    "$value": "#0043ce",
+    "$modes": {
+      "default": "#0f62fe",
+      "cds-g0": "#0043ce",
+      "cds-g10": "#0043ce",
+      "cds-g90": "#d0e2ff",
+      "cds-g100": "#d0e2ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+      "$modes": {
+        "default": "{color.foreground.action}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+      },
+      "key": "{tag.link.foreground.color.primary.default}"
+    },
+    "name": "token-tag-link-foreground-color-primary-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "foreground",
+      "color",
+      "primary",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.link.foreground.color.primary.hover}",
+    "$type": "color",
+    "$value": "#0043ce",
+    "$modes": {
+      "default": "#0043ce",
+      "cds-g0": "#0043ce",
+      "cds-g10": "#0043ce",
+      "cds-g90": "#d0e2ff",
+      "cds-g100": "#d0e2ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+      "$modes": {
+        "default": "{color.foreground.action-hover}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+      },
+      "key": "{tag.link.foreground.color.primary.hover}"
+    },
+    "name": "token-tag-link-foreground-color-primary-hover",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "foreground",
+      "color",
+      "primary",
+      "hover"
+    ]
+  },
+  {
+    "key": "{tag.link.foreground.color.primary.active}",
+    "$type": "color",
+    "$value": "#0043ce",
+    "$modes": {
+      "default": "#0f62fe",
+      "cds-g0": "#0043ce",
+      "cds-g10": "#0043ce",
+      "cds-g90": "#d0e2ff",
+      "cds-g100": "#d0e2ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+      "$modes": {
+        "default": "{color.foreground.action-active}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+      },
+      "key": "{tag.link.foreground.color.primary.active}"
+    },
+    "name": "token-tag-link-foreground-color-primary-active",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "foreground",
+      "color",
+      "primary",
+      "active"
+    ]
+  },
+  {
+    "key": "{tag.link.foreground.color.secondary.default}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorGray.g10}",
+      "$modes": {
+        "default": "{color.foreground.strong}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+      },
+      "key": "{tag.link.foreground.color.secondary.default}"
+    },
+    "name": "token-tag-link-foreground-color-secondary-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "foreground",
+      "color",
+      "secondary",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.link.icon.color.primary}",
+    "$type": "color",
+    "$value": "#0043ce",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#0043ce",
+      "cds-g10": "#0043ce",
+      "cds-g90": "#d0e2ff",
+      "cds-g100": "#d0e2ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+      "$modes": {
+        "default": "{color.foreground.primary}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorBlue.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorBlue.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorBlue.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorBlue.g100}"
+      },
+      "key": "{tag.link.icon.color.primary}"
+    },
+    "name": "token-tag-link-icon-color-primary",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "icon",
+      "color",
+      "primary"
+    ]
+  },
+  {
+    "key": "{tag.link.icon.color.secondary}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorGray.g10}",
+      "$modes": {
+        "default": "{color.foreground.primary}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+      },
+      "key": "{tag.link.icon.color.secondary}"
+    },
+    "name": "token-tag-link-icon-color-secondary",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "link",
+      "icon",
+      "color",
+      "secondary"
+    ]
+  },
+  {
+    "key": "{tag.static.border.color}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{tag.static.border.color}"
+    },
+    "name": "token-tag-static-border-color",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{tag.static.surface.color.default}",
+    "$type": "color",
+    "$value": "#e0e0e0",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "#e0e0e0",
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#525252",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive}",
+        "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
+      },
+      "key": "{tag.static.surface.color.default}"
+    },
+    "name": "token-tag-static-surface-color-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "surface",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.static.surface.color.hover}",
+    "$type": "color",
+    "$value": "#d1d1d1",
+    "$modes": {
+      "default": "#e8e8e8",
+      "cds-g0": "#d1d1d1",
+      "cds-g10": "#d1d1d1",
+      "cds-g90": "#636363",
+      "cds-g100": "#636363"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive-hover}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+      },
+      "key": "{tag.static.surface.color.hover}"
+    },
+    "name": "token-tag-static-surface-color-hover",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "surface",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{tag.static.surface.color.active}",
+    "$type": "color",
+    "$value": "#d1d1d1",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "#d1d1d1",
+      "cds-g10": "#d1d1d1",
+      "cds-g90": "#636363",
+      "cds-g100": "#636363"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+      "$modes": {
+        "default": "{color.surface.interactive-active}",
+        "cds-g0": "{carbon.themes.tagTokens.tagHoverGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagHoverGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagHoverGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagHoverGray.g100}"
+      },
+      "key": "{tag.static.surface.color.active}"
+    },
+    "name": "token-tag-static-surface-color-active",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "surface",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{tag.static.foreground.color.default}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorGray.g10}",
+      "$modes": {
+        "default": "{color.foreground.primary}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+      },
+      "key": "{tag.static.foreground.color.default}"
+    },
+    "name": "token-tag-static-foreground-color-default",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "foreground",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{tag.static.icon.color}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.tagTokens.tagColorGray.g10}",
+      "$modes": {
+        "default": "{color.foreground.primary}",
+        "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+        "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+        "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+        "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+      },
+      "key": "{tag.static.icon.color}"
+    },
+    "name": "token-tag-static-icon-color",
+    "attributes": {
+      "category": "tag"
+    },
+    "path": [
+      "tag",
+      "static",
+      "icon",
+      "color"
     ]
   },
   {
@@ -17427,7 +18610,7 @@
     ]
   },
   {
-    "key": "{tooltip.transition.function}",
+    "key": "{tooltip.transition.timing-function}",
     "$type": "cubicBezier",
     "$value": "cubic-bezier(0.54, 1.5, 0.38, 1.11)",
     "original": {
@@ -17438,16 +18621,16 @@
         0.38,
         1.11
       ],
-      "key": "{tooltip.transition.function}"
+      "key": "{tooltip.transition.timing-function}"
     },
-    "name": "token-tooltip-transition-function",
+    "name": "token-tooltip-transition-timing-function",
     "attributes": {
       "category": "tooltip"
     },
     "path": [
       "tooltip",
       "transition",
-      "function"
+      "timing-function"
     ]
   },
   {
