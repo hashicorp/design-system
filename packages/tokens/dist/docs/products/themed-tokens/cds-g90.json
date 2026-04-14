@@ -6560,6 +6560,422 @@
     ]
   },
   {
+    "key": "{alert.surface.color.neutral}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#393939",
+      "cds-g0": "#edf5ff",
+      "cds-g10": "#edf5ff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
+      "$modes": {
+        "default": "{color.surface.faint}",
+        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundInfo.white}",
+        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g10}",
+        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
+        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g100}"
+      },
+      "key": "{alert.surface.color.neutral}"
+    },
+    "name": "token-alert-surface-color-neutral",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "surface",
+      "color",
+      "neutral"
+    ]
+  },
+  {
+    "key": "{alert.surface.color.highlight}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#6929c4",
+      "cds-g0": "#edf5ff",
+      "cds-g10": "#edf5ff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
+      "$modes": {
+        "default": "{color.surface.highlight}",
+        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundInfo.white}",
+        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g10}",
+        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
+        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g100}"
+      },
+      "key": "{alert.surface.color.highlight}"
+    },
+    "name": "token-alert-surface-color-highlight",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "surface",
+      "color",
+      "highlight"
+    ]
+  },
+  {
+    "key": "{alert.surface.color.success}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#0e6027",
+      "cds-g0": "#defbe6",
+      "cds-g10": "#defbe6",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g90}",
+      "$modes": {
+        "default": "{color.surface.success}",
+        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.white}",
+        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g10}",
+        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g90}",
+        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g100}"
+      },
+      "key": "{alert.surface.color.success}"
+    },
+    "name": "token-alert-surface-color-success",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "surface",
+      "color",
+      "success"
+    ]
+  },
+  {
+    "key": "{alert.surface.color.warning}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#684e00",
+      "cds-g0": "#fcf4d6",
+      "cds-g10": "#fcf4d6",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g90}",
+      "$modes": {
+        "default": "{color.surface.warning}",
+        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundWarning.white}",
+        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g10}",
+        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g90}",
+        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g100}"
+      },
+      "key": "{alert.surface.color.warning}"
+    },
+    "name": "token-alert-surface-color-warning",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "surface",
+      "color",
+      "warning"
+    ]
+  },
+  {
+    "key": "{alert.surface.color.critical}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#a2191f",
+      "cds-g0": "#fff1f1",
+      "cds-g10": "#fff1f1",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.notificationTokens.notificationBackgroundError.g90}",
+      "$modes": {
+        "default": "{color.surface.critical}",
+        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundError.white}",
+        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundError.g10}",
+        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundError.g90}",
+        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundError.g100}"
+      },
+      "key": "{alert.surface.color.critical}"
+    },
+    "name": "token-alert-surface-color-critical",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "surface",
+      "color",
+      "critical"
+    ]
+  },
+  {
+    "key": "{alert.title.foreground.color.neutral}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#f4f4f4",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.primary}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{alert.title.foreground.color.neutral}"
+    },
+    "name": "token-alert-title-foreground-color-neutral",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "title",
+      "foreground",
+      "color",
+      "neutral"
+    ]
+  },
+  {
+    "key": "{alert.title.foreground.color.highlight}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#d4bbff",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.highlight-on-surface}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{alert.title.foreground.color.highlight}"
+    },
+    "name": "token-alert-title-foreground-color-highlight",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "title",
+      "foreground",
+      "color",
+      "highlight"
+    ]
+  },
+  {
+    "key": "{alert.title.foreground.color.success}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#6fdc8c",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.success-on-surface}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{alert.title.foreground.color.success}"
+    },
+    "name": "token-alert-title-foreground-color-success",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "title",
+      "foreground",
+      "color",
+      "success"
+    ]
+  },
+  {
+    "key": "{alert.title.foreground.color.warning}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#f1c21b",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.warning-on-surface}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{alert.title.foreground.color.warning}"
+    },
+    "name": "token-alert-title-foreground-color-warning",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "title",
+      "foreground",
+      "color",
+      "warning"
+    ]
+  },
+  {
+    "key": "{alert.title.foreground.color.critical}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#ffb3b8",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.critical-on-surface}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{alert.title.foreground.color.critical}"
+    },
+    "name": "token-alert-title-foreground-color-critical",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "title",
+      "foreground",
+      "color",
+      "critical"
+    ]
+  },
+  {
+    "key": "{alert.actions.margin.top}",
+    "$type": "dimension",
+    "$value": "15px",
+    "unit": "px",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "15",
+      "cds-g10": "15",
+      "cds-g90": "15",
+      "cds-g100": "15"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "15",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "15",
+        "cds-g10": "15",
+        "cds-g90": "15",
+        "cds-g100": "15"
+      },
+      "key": "{alert.actions.margin.top}"
+    },
+    "name": "token-alert-actions-margin-top",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "actions",
+      "margin",
+      "top"
+    ]
+  },
+  {
+    "key": "{alert.content.gap}",
+    "$type": "dimension",
+    "$value": "0px",
+    "unit": "px",
+    "$modes": {
+      "default": "4",
+      "cds-g0": "0",
+      "cds-g10": "0",
+      "cds-g90": "0",
+      "cds-g100": "0"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "0",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "key": "{alert.content.gap}"
+    },
+    "name": "token-alert-content-gap",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "content",
+      "gap"
+    ]
+  },
+  {
     "key": "{alert.icon.color.neutral}",
     "$type": "color",
     "$value": "#4589ff",
@@ -6763,417 +7179,6 @@
       "icon",
       "margin",
       "right"
-    ]
-  },
-  {
-    "key": "{alert.foreground.color.neutral}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g90.textPrimary}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
-      "key": "{alert.foreground.color.neutral}"
-    },
-    "name": "token-alert-foreground-color-neutral",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "foreground",
-      "color",
-      "neutral"
-    ]
-  },
-  {
-    "key": "{alert.foreground.color.highlight}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#d4bbff",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g90.textPrimary}",
-      "$modes": {
-        "default": "{color.foreground.highlight-on-surface}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
-      "key": "{alert.foreground.color.highlight}"
-    },
-    "name": "token-alert-foreground-color-highlight",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "foreground",
-      "color",
-      "highlight"
-    ]
-  },
-  {
-    "key": "{alert.foreground.color.success}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#6fdc8c",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g90.textPrimary}",
-      "$modes": {
-        "default": "{color.foreground.success-on-surface}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
-      "key": "{alert.foreground.color.success}"
-    },
-    "name": "token-alert-foreground-color-success",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "foreground",
-      "color",
-      "success"
-    ]
-  },
-  {
-    "key": "{alert.foreground.color.warning}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f1c21b",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g90.textPrimary}",
-      "$modes": {
-        "default": "{color.foreground.warning-on-surface}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
-      "key": "{alert.foreground.color.warning}"
-    },
-    "name": "token-alert-foreground-color-warning",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "foreground",
-      "color",
-      "warning"
-    ]
-  },
-  {
-    "key": "{alert.foreground.color.critical}",
-    "$type": "color",
-    "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#ffb3b8",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g90.textPrimary}",
-      "$modes": {
-        "default": "{color.foreground.critical-on-surface}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
-      "key": "{alert.foreground.color.critical}"
-    },
-    "name": "token-alert-foreground-color-critical",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "foreground",
-      "color",
-      "critical"
-    ]
-  },
-  {
-    "key": "{alert.surface.color.neutral}",
-    "$type": "color",
-    "$value": "#393939",
-    "$modes": {
-      "default": "#393939",
-      "cds-g0": "#edf5ff",
-      "cds-g10": "#edf5ff",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
-      "$modes": {
-        "default": "{color.surface.faint}",
-        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundInfo.white}",
-        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g10}",
-        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
-        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g100}"
-      },
-      "key": "{alert.surface.color.neutral}"
-    },
-    "name": "token-alert-surface-color-neutral",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "surface",
-      "color",
-      "neutral"
-    ]
-  },
-  {
-    "key": "{alert.surface.color.highlight}",
-    "$type": "color",
-    "$value": "#393939",
-    "$modes": {
-      "default": "#6929c4",
-      "cds-g0": "#edf5ff",
-      "cds-g10": "#edf5ff",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
-      "$modes": {
-        "default": "{color.surface.highlight}",
-        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundInfo.white}",
-        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g10}",
-        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
-        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g100}"
-      },
-      "key": "{alert.surface.color.highlight}"
-    },
-    "name": "token-alert-surface-color-highlight",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "surface",
-      "color",
-      "highlight"
-    ]
-  },
-  {
-    "key": "{alert.surface.color.success}",
-    "$type": "color",
-    "$value": "#393939",
-    "$modes": {
-      "default": "#0e6027",
-      "cds-g0": "#defbe6",
-      "cds-g10": "#defbe6",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g90}",
-      "$modes": {
-        "default": "{color.surface.success}",
-        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.white}",
-        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g10}",
-        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g90}",
-        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g100}"
-      },
-      "key": "{alert.surface.color.success}"
-    },
-    "name": "token-alert-surface-color-success",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "surface",
-      "color",
-      "success"
-    ]
-  },
-  {
-    "key": "{alert.surface.color.warning}",
-    "$type": "color",
-    "$value": "#393939",
-    "$modes": {
-      "default": "#684e00",
-      "cds-g0": "#fcf4d6",
-      "cds-g10": "#fcf4d6",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g90}",
-      "$modes": {
-        "default": "{color.surface.warning}",
-        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundWarning.white}",
-        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g10}",
-        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g90}",
-        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g100}"
-      },
-      "key": "{alert.surface.color.warning}"
-    },
-    "name": "token-alert-surface-color-warning",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "surface",
-      "color",
-      "warning"
-    ]
-  },
-  {
-    "key": "{alert.surface.color.critical}",
-    "$type": "color",
-    "$value": "#393939",
-    "$modes": {
-      "default": "#a2191f",
-      "cds-g0": "#fff1f1",
-      "cds-g10": "#fff1f1",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.notificationTokens.notificationBackgroundError.g90}",
-      "$modes": {
-        "default": "{color.surface.critical}",
-        "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundError.white}",
-        "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundError.g10}",
-        "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundError.g90}",
-        "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundError.g100}"
-      },
-      "key": "{alert.surface.color.critical}"
-    },
-    "name": "token-alert-surface-color-critical",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "surface",
-      "color",
-      "critical"
-    ]
-  },
-  {
-    "key": "{alert.actions.margin.top}",
-    "$type": "dimension",
-    "$value": "15px",
-    "unit": "px",
-    "$modes": {
-      "default": "16",
-      "cds-g0": "15",
-      "cds-g10": "15",
-      "cds-g90": "15",
-      "cds-g100": "15"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "15",
-      "unit": "px",
-      "$modes": {
-        "default": "16",
-        "cds-g0": "15",
-        "cds-g10": "15",
-        "cds-g90": "15",
-        "cds-g100": "15"
-      },
-      "key": "{alert.actions.margin.top}"
-    },
-    "name": "token-alert-actions-margin-top",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "actions",
-      "margin",
-      "top"
-    ]
-  },
-  {
-    "key": "{alert.content.gap}",
-    "$type": "dimension",
-    "$value": "0px",
-    "unit": "px",
-    "$modes": {
-      "default": "4",
-      "cds-g0": "0",
-      "cds-g10": "0",
-      "cds-g90": "0",
-      "cds-g100": "0"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "0",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
-      "key": "{alert.content.gap}"
-    },
-    "name": "token-alert-content-gap",
-    "attributes": {
-      "category": "alert"
-    },
-    "path": [
-      "alert",
-      "content",
-      "gap"
     ]
   },
   {

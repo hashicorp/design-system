@@ -22,19 +22,6 @@
   --token-alert-border-right-width: 1px;
   --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 4px;
-  --token-alert-foreground-color-critical: var(
-    --token-color-foreground-critical-on-surface
-  );
-  --token-alert-foreground-color-highlight: var(
-    --token-color-foreground-highlight-on-surface
-  );
-  --token-alert-foreground-color-neutral: var(--token-color-foreground-primary);
-  --token-alert-foreground-color-success: var(
-    --token-color-foreground-success-on-surface
-  );
-  --token-alert-foreground-color-warning: var(
-    --token-color-foreground-warning-on-surface
-  );
   --token-alert-icon-color-critical: var(
     --token-color-foreground-critical-on-surface
   );
@@ -58,6 +45,21 @@
   --token-alert-surface-color-neutral: var(--token-color-surface-faint);
   --token-alert-surface-color-success: var(--token-color-surface-success);
   --token-alert-surface-color-warning: var(--token-color-surface-warning);
+  --token-alert-title-foreground-color-critical: var(
+    --token-color-foreground-critical-on-surface
+  );
+  --token-alert-title-foreground-color-highlight: var(
+    --token-color-foreground-highlight-on-surface
+  );
+  --token-alert-title-foreground-color-neutral: var(
+    --token-color-foreground-primary
+  );
+  --token-alert-title-foreground-color-success: var(
+    --token-color-foreground-success-on-surface
+  );
+  --token-alert-title-foreground-color-warning: var(
+    --token-color-foreground-warning-on-surface
+  );
   --token-app-footer-link-focus-outline-color: var(
     --token-color-focus-action-internal
   );
@@ -831,11 +833,6 @@
     --token-alert-border-right-width: 1px;
     --token-alert-border-top-width: 1px;
     --token-alert-content-gap: 0px;
-    --token-alert-foreground-color-critical: #161616;
-    --token-alert-foreground-color-highlight: #161616;
-    --token-alert-foreground-color-neutral: #161616;
-    --token-alert-foreground-color-success: #161616;
-    --token-alert-foreground-color-warning: #161616;
     --token-alert-icon-color-critical: #da1e28;
     --token-alert-icon-color-highlight: #0043ce;
     --token-alert-icon-color-neutral: #0043ce;
@@ -851,6 +848,11 @@
     --token-alert-surface-color-neutral: #edf5ff;
     --token-alert-surface-color-success: #defbe6;
     --token-alert-surface-color-warning: #fcf4d6;
+    --token-alert-title-foreground-color-critical: #161616;
+    --token-alert-title-foreground-color-highlight: #161616;
+    --token-alert-title-foreground-color-neutral: #161616;
+    --token-alert-title-foreground-color-success: #161616;
+    --token-alert-title-foreground-color-warning: #161616;
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1332,11 +1334,6 @@
     --token-alert-border-right-width: 1px;
     --token-alert-border-top-width: 1px;
     --token-alert-content-gap: 0px;
-    --token-alert-foreground-color-critical: #f4f4f4;
-    --token-alert-foreground-color-highlight: #f4f4f4;
-    --token-alert-foreground-color-neutral: #f4f4f4;
-    --token-alert-foreground-color-success: #f4f4f4;
-    --token-alert-foreground-color-warning: #f4f4f4;
     --token-alert-icon-color-critical: #fa4d56;
     --token-alert-icon-color-highlight: #4589ff;
     --token-alert-icon-color-neutral: #4589ff;
@@ -1352,6 +1349,11 @@
     --token-alert-surface-color-neutral: #262626;
     --token-alert-surface-color-success: #262626;
     --token-alert-surface-color-warning: #262626;
+    --token-alert-title-foreground-color-critical: #f4f4f4;
+    --token-alert-title-foreground-color-highlight: #f4f4f4;
+    --token-alert-title-foreground-color-neutral: #f4f4f4;
+    --token-alert-title-foreground-color-success: #f4f4f4;
+    --token-alert-title-foreground-color-warning: #f4f4f4;
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1837,11 +1839,6 @@
   --token-alert-border-right-width: 1px;
   --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 0px;
-  --token-alert-foreground-color-critical: #161616;
-  --token-alert-foreground-color-highlight: #161616;
-  --token-alert-foreground-color-neutral: #161616;
-  --token-alert-foreground-color-success: #161616;
-  --token-alert-foreground-color-warning: #161616;
   --token-alert-icon-color-critical: #da1e28;
   --token-alert-icon-color-highlight: #0043ce;
   --token-alert-icon-color-neutral: #0043ce;
@@ -1857,6 +1854,11 @@
   --token-alert-surface-color-neutral: #edf5ff;
   --token-alert-surface-color-success: #defbe6;
   --token-alert-surface-color-warning: #fcf4d6;
+  --token-alert-title-foreground-color-critical: #161616;
+  --token-alert-title-foreground-color-highlight: #161616;
+  --token-alert-title-foreground-color-neutral: #161616;
+  --token-alert-title-foreground-color-success: #161616;
+  --token-alert-title-foreground-color-warning: #161616;
   --token-app-footer-link-focus-outline-color: #0f62fe;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
@@ -2331,11 +2333,6 @@
   --token-alert-border-right-width: 1px;
   --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 0px;
-  --token-alert-foreground-color-critical: #f4f4f4;
-  --token-alert-foreground-color-highlight: #f4f4f4;
-  --token-alert-foreground-color-neutral: #f4f4f4;
-  --token-alert-foreground-color-success: #f4f4f4;
-  --token-alert-foreground-color-warning: #f4f4f4;
   --token-alert-icon-color-critical: #fa4d56;
   --token-alert-icon-color-highlight: #4589ff;
   --token-alert-icon-color-neutral: #4589ff;
@@ -2351,6 +2348,11 @@
   --token-alert-surface-color-neutral: #262626;
   --token-alert-surface-color-success: #262626;
   --token-alert-surface-color-warning: #262626;
+  --token-alert-title-foreground-color-critical: #f4f4f4;
+  --token-alert-title-foreground-color-highlight: #f4f4f4;
+  --token-alert-title-foreground-color-neutral: #f4f4f4;
+  --token-alert-title-foreground-color-success: #f4f4f4;
+  --token-alert-title-foreground-color-warning: #f4f4f4;
   --token-app-footer-link-focus-outline-color: #ffffff;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
