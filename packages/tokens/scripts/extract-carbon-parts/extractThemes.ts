@@ -41,6 +41,7 @@ export async function extractThemes(): Promise<void> {
 
 // function that recursively iterates on an object and
 // - replaces any key named 'whiteTheme' with 'white'
+// - removes "colorScheme" entries (irrelevant)
 // - removes entries whose value is an array (`breakpoints`)
 
 function cleanupObj(obj: Record<string, any>): Record<string, any> {
@@ -58,6 +59,11 @@ function cleanupObj(obj: Record<string, any>): Record<string, any> {
   const result: Record<string, any> = {};
 
   for (const [key, value] of Object.entries(obj)) {
+    // Skip "colorScheme" entries
+    if (key === "colorScheme") {
+      continue;
+    }
+
     // Skip entries whose value is an array
     if (Array.isArray(value)) {
       continue;
