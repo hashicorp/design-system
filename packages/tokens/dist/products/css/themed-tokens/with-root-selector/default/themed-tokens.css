@@ -19,11 +19,6 @@
   --token-alert-border-right-width: 1px;
   --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 4px;
-  --token-alert-foreground-color-critical: var(--token-color-foreground-critical-on-surface);
-  --token-alert-foreground-color-highlight: var(--token-color-foreground-highlight-on-surface);
-  --token-alert-foreground-color-neutral: var(--token-color-foreground-primary);
-  --token-alert-foreground-color-success: var(--token-color-foreground-success-on-surface);
-  --token-alert-foreground-color-warning: var(--token-color-foreground-warning-on-surface);
   --token-alert-icon-color-critical: var(--token-color-foreground-critical-on-surface);
   --token-alert-icon-color-highlight: var(--token-color-foreground-highlight-on-surface);
   --token-alert-icon-color-neutral: var(--token-color-foreground-faint);
@@ -39,6 +34,11 @@
   --token-alert-surface-color-neutral: var(--token-color-surface-faint);
   --token-alert-surface-color-success: var(--token-color-surface-success);
   --token-alert-surface-color-warning: var(--token-color-surface-warning);
+  --token-alert-title-foreground-color-critical: var(--token-color-foreground-critical-on-surface);
+  --token-alert-title-foreground-color-highlight: var(--token-color-foreground-highlight-on-surface);
+  --token-alert-title-foreground-color-neutral: var(--token-color-foreground-primary);
+  --token-alert-title-foreground-color-success: var(--token-color-foreground-success-on-surface);
+  --token-alert-title-foreground-color-warning: var(--token-color-foreground-warning-on-surface);
   --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
