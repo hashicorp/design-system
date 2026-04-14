@@ -181,6 +181,7 @@ Router.map(function () {
       this.route('copy', function () {
         this.route('snippet');
       });
+      this.route('dropdown');
       this.route('flyout');
       this.route('form', function (): void {
         this.route('text-input');

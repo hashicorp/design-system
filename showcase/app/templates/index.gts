@@ -458,6 +458,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.dropdown">
+            Dropdown
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.flyout">
             Flyout
           </LinkTo>
