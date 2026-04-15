@@ -109,7 +109,7 @@ export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmen
     const triggerElement = document.querySelector(
       `[data-ebd-id="${select.uniqueId}-trigger"]`,
     );
-    const triggerName = triggerElement?.getAttribute('name');
+    const triggerName = triggerElement?.getAttribute('data-name');
 
     if (triggerName) {
       const match = triggerName.match(/^value-(\d+)$/);
@@ -121,7 +121,7 @@ export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmen
       }
     } else {
       console.error(
-        'Could not retrive `name` attribute of PowerSelect trigger instance',
+        'Could not retrieve `data-name` attribute of PowerSelect trigger instance',
       );
     }
   };
@@ -303,7 +303,7 @@ export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmen
                   />
                 {{else if (eq R.rowData.key "select")}}
                   <F.SuperSelectMultiple
-                    name="value-{{R.rowIndex}}"
+                    data-name="value-{{R.rowIndex}}"
                     @options={{SUPERSELECT_OPTIONS}}
                     @selected={{R.rowData.value}}
                     @onChange={{this.onPowerSelectChangeUpdateModel}}

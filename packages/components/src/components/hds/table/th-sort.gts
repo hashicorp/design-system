@@ -39,7 +39,7 @@ export interface HdsTableThSortSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLDivElement;
+  Element: HTMLTableCellElement;
 }
 
 export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
