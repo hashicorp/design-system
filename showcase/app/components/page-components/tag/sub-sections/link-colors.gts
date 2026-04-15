@@ -11,7 +11,7 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwGrid from 'showcase/components/shw/grid';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 import { HdsTag } from '@hashicorp/design-system-components/components';
 import { COLORS } from '@hashicorp/design-system-components/components/hds/tag/index';

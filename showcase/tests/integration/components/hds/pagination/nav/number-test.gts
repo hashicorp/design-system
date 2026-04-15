@@ -9,7 +9,7 @@ import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { HdsPaginationNavNumber } from '@hashicorp/design-system-components/components';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 module('Integration | Component | hds/pagination/nav/number', function (hooks) {
   setupRenderingTest(hooks);

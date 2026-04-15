@@ -9,7 +9,7 @@ import { array } from '@ember/helper';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwGrid from 'showcase/components/shw/grid';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 import { HdsTag } from '@hashicorp/design-system-components/components';
 

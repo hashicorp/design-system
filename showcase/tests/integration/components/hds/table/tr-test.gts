@@ -9,7 +9,7 @@ import { render, click, setupOnerror } from '@ember/test-helpers';
 import { HdsTableTr } from '@hashicorp/design-system-components/components';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 module('Integration | Component | hds/table/tr', function (hooks) {
   setupRenderingTest(hooks);

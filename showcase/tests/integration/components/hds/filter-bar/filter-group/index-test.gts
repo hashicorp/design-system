@@ -9,7 +9,7 @@ import { render, click, fillIn, select } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 import {
   HdsFilterBarTabs,

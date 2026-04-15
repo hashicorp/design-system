@@ -10,6 +10,17 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 const Index: TemplateOnlyComponent = <template>
   <div class="shw-landing-lists">
     <div>
+      <ShwTextH2>Web component tests</ShwTextH2>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="web-component-tests.cds-badge">
+            CdsBadge
+          </LinkTo>
+        </li>
+      </ol>
+    </div>
+
+    <div>
       <ShwTextH2>Foundations</ShwTextH2>
       <ol class="shw-text-body">
         <li>

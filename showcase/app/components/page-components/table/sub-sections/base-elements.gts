@@ -12,7 +12,7 @@ import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 import {
   HdsBadge,

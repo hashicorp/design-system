@@ -6,7 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 import { HdsToast } from '@hashicorp/design-system-components/components';
 

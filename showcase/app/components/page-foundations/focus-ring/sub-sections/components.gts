@@ -18,7 +18,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 import FormSuperSelectCodeFragmentWithSingleBaseElement from 'showcase/components/page-components/form/super-select/code-fragments/with-single-base-element';
 import FormSuperSelectCodeFragmentWithMultipleBaseElement from 'showcase/components/page-components/form/super-select/code-fragments/with-multiple-base-element';
 import FilterBarCodeFragmentWithGenericContent from 'showcase/components/page-components/filter-bar/code-fragments/with-generic-content';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 import {
   HdsAccordionItem,

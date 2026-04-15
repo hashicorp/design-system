@@ -34,6 +34,7 @@
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {
+    "@carbon/web-components": "^2.46.0",
     "@codemirror/autocomplete": "^6.20.0",
     "@codemirror/commands": "^6.8.0",
     "@codemirror/lang-go": "^6.0.1",
@@ -196,6 +197,7 @@
       "./components/hds/button-set.js": "./dist/_app_/components/hds/button-set.js",
       "./components/hds/button.js": "./dist/_app_/components/hds/button.js",
       "./components/hds/card/container.js": "./dist/_app_/components/hds/card/container.js",
+      "./components/hds/cds-badge.js": "./dist/_app_/components/hds/cds-badge.js",
       "./components/hds/code-block/copy-button.js": "./dist/_app_/components/hds/code-block/copy-button.js",
       "./components/hds/code-block/description.js": "./dist/_app_/components/hds/code-block/description.js",
       "./components/hds/code-block.js": "./dist/_app_/components/hds/code-block.js",
