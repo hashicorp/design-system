@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import { didUpdate } from '@ember/render-modifiers';
 
 import type { ModifierLike } from '@glint/template';
 import type Owner from '@ember/owner';

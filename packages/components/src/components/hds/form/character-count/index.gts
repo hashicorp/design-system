@@ -5,7 +5,7 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import { didInsert } from '@ember/render-modifiers';
 
 import HdsTextBody from '../../text/body.gts';
 
