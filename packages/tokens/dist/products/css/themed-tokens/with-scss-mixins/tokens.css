@@ -446,6 +446,7 @@
     --token-dismiss-button-size: 24px;
     --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
     --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
+    --token-dropdown-surface-color-primary: var(--token-color-surface-primary);
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
     --token-elevation-higher-box-shadow:
@@ -970,6 +971,7 @@
     --token-dismiss-button-size: 48px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-dropdown-surface-color-primary: #f4f4f4;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;
@@ -1409,6 +1411,7 @@
     --token-dismiss-button-size: 48px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-dropdown-surface-color-primary: #262626;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;
@@ -1843,6 +1846,7 @@
     --token-dismiss-button-size: 48px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-dropdown-surface-color-primary: #f4f4f4;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;
@@ -2277,6 +2281,7 @@
     --token-dismiss-button-size: 48px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-dropdown-surface-color-primary: #ffffff;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;
@@ -2716,6 +2721,7 @@
     --token-dismiss-button-size: 48px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-dropdown-surface-color-primary: #393939;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;
@@ -3155,6 +3161,7 @@
     --token-dismiss-button-size: 48px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-dropdown-surface-color-primary: #262626;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;

@@ -241,6 +241,7 @@
   --token-dismiss-button-size: 48px;
   --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
   --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --token-dropdown-surface-color-primary: #ffffff;
   --token-elevation-high-box-shadow: none;
   --token-elevation-higher-box-shadow: none;
   --token-elevation-inset-box-shadow: none;

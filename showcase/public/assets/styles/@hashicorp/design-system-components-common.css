@@ -4699,7 +4699,7 @@ button.hds-button[href]::after {
   width: max-content;
   min-width: 200px;
   max-width: 400px;
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-dropdown-surface-color-primary);
   border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-surface-high-box-shadow);
 }
