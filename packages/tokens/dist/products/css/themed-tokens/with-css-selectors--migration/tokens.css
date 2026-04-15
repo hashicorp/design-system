@@ -583,6 +583,44 @@
   --token-dismiss-button-size: 24px;
   --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
   --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
+  --token-dropdown-box-shadow: var(--token-surface-high-box-shadow);
+  --token-dropdown-list-item-foreground-color-action-active: var(
+    --token-color-foreground-action-active
+  );
+  --token-dropdown-list-item-foreground-color-action-default: var(
+    --token-color-foreground-primary
+  );
+  --token-dropdown-list-item-foreground-color-action-focus: var(
+    --token-color-foreground-action-active
+  );
+  --token-dropdown-list-item-foreground-color-action-hover: var(
+    --token-color-foreground-action-hover
+  );
+  --token-dropdown-list-item-foreground-color-critical-active: var(
+    --token-color-palette-red-400
+  );
+  --token-dropdown-list-item-foreground-color-critical-default: var(
+    --token-color-foreground-critical
+  );
+  --token-dropdown-list-item-foreground-color-critical-focus: var(
+    --token-color-palette-red-400
+  );
+  --token-dropdown-list-item-foreground-color-critical-hover: var(
+    --token-color-palette-red-300
+  );
+  --token-dropdown-list-item-surface-color-action-active: rgba(0, 0, 0, 0);
+  --token-dropdown-list-item-surface-color-action-default: rgba(0, 0, 0, 0);
+  --token-dropdown-list-item-surface-color-action-focus: rgba(0, 0, 0, 0);
+  --token-dropdown-list-item-surface-color-action-hover: rgba(0, 0, 0, 0);
+  --token-dropdown-list-item-surface-color-critical-active: rgba(0, 0, 0, 0);
+  --token-dropdown-list-item-surface-color-critical-default: rgba(0, 0, 0, 0);
+  --token-dropdown-list-item-surface-color-critical-focus: rgba(0, 0, 0, 0);
+  --token-dropdown-list-item-surface-color-critical-hover: rgba(0, 0, 0, 0);
+  --token-dropdown-separator-border-color: var(--token-color-border-primary);
+  --token-dropdown-toggle-button-padding-right-medium: 9px;
+  --token-dropdown-toggle-button-padding-right-small: 6px;
+  --token-dropdown-toggle-icon-gap: 2px;
+  --token-dropdown-toggle-icon-padding: 1px;
   --token-elevation-high-box-shadow:
     0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-elevation-higher-box-shadow:
@@ -1214,6 +1252,28 @@
     --token-dismiss-button-size: 48px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-dropdown-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    --token-dropdown-list-item-foreground-color-action-active: #525252;
+    --token-dropdown-list-item-foreground-color-action-default: #525252;
+    --token-dropdown-list-item-foreground-color-action-focus: #525252;
+    --token-dropdown-list-item-foreground-color-action-hover: #161616;
+    --token-dropdown-list-item-foreground-color-critical-active: #ffffff;
+    --token-dropdown-list-item-foreground-color-critical-default: #525252;
+    --token-dropdown-list-item-foreground-color-critical-focus: #ffffff;
+    --token-dropdown-list-item-foreground-color-critical-hover: #ffffff;
+    --token-dropdown-list-item-surface-color-action-active: #f4f4f4;
+    --token-dropdown-list-item-surface-color-action-default: #f4f4f4;
+    --token-dropdown-list-item-surface-color-action-focus: #f4f4f4;
+    --token-dropdown-list-item-surface-color-action-hover: #e8e8e8;
+    --token-dropdown-list-item-surface-color-critical-active: #da1e28;
+    --token-dropdown-list-item-surface-color-critical-default: #f4f4f4;
+    --token-dropdown-list-item-surface-color-critical-focus: #da1e28;
+    --token-dropdown-list-item-surface-color-critical-hover: #da1e28;
+    --token-dropdown-separator-border-color: #e0e0e0;
+    --token-dropdown-toggle-button-padding-right-medium: 12px;
+    --token-dropdown-toggle-button-padding-right-small: 12px;
+    --token-dropdown-toggle-icon-gap: 4px;
+    --token-dropdown-toggle-icon-padding: 3px;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;
@@ -1757,6 +1817,28 @@
     --token-dismiss-button-size: 48px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-dropdown-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    --token-dropdown-list-item-foreground-color-action-active: #c6c6c6;
+    --token-dropdown-list-item-foreground-color-action-default: #c6c6c6;
+    --token-dropdown-list-item-foreground-color-action-focus: #c6c6c6;
+    --token-dropdown-list-item-foreground-color-action-hover: #f4f4f4;
+    --token-dropdown-list-item-foreground-color-critical-active: #ffffff;
+    --token-dropdown-list-item-foreground-color-critical-default: #c6c6c6;
+    --token-dropdown-list-item-foreground-color-critical-focus: #ffffff;
+    --token-dropdown-list-item-foreground-color-critical-hover: #ffffff;
+    --token-dropdown-list-item-surface-color-action-active: #262626;
+    --token-dropdown-list-item-surface-color-action-default: #262626;
+    --token-dropdown-list-item-surface-color-action-focus: #262626;
+    --token-dropdown-list-item-surface-color-action-hover: #333333;
+    --token-dropdown-list-item-surface-color-critical-active: #da1e28;
+    --token-dropdown-list-item-surface-color-critical-default: #262626;
+    --token-dropdown-list-item-surface-color-critical-focus: #da1e28;
+    --token-dropdown-list-item-surface-color-critical-hover: #da1e28;
+    --token-dropdown-separator-border-color: #393939;
+    --token-dropdown-toggle-button-padding-right-medium: 12px;
+    --token-dropdown-toggle-button-padding-right-small: 12px;
+    --token-dropdown-toggle-icon-gap: 4px;
+    --token-dropdown-toggle-icon-padding: 3px;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;
@@ -2293,6 +2375,28 @@
   --token-dismiss-button-size: 48px;
   --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
   --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --token-dropdown-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --token-dropdown-list-item-foreground-color-action-active: #525252;
+  --token-dropdown-list-item-foreground-color-action-default: #525252;
+  --token-dropdown-list-item-foreground-color-action-focus: #525252;
+  --token-dropdown-list-item-foreground-color-action-hover: #161616;
+  --token-dropdown-list-item-foreground-color-critical-active: #ffffff;
+  --token-dropdown-list-item-foreground-color-critical-default: #525252;
+  --token-dropdown-list-item-foreground-color-critical-focus: #ffffff;
+  --token-dropdown-list-item-foreground-color-critical-hover: #ffffff;
+  --token-dropdown-list-item-surface-color-action-active: #f4f4f4;
+  --token-dropdown-list-item-surface-color-action-default: #f4f4f4;
+  --token-dropdown-list-item-surface-color-action-focus: #f4f4f4;
+  --token-dropdown-list-item-surface-color-action-hover: #e8e8e8;
+  --token-dropdown-list-item-surface-color-critical-active: #da1e28;
+  --token-dropdown-list-item-surface-color-critical-default: #f4f4f4;
+  --token-dropdown-list-item-surface-color-critical-focus: #da1e28;
+  --token-dropdown-list-item-surface-color-critical-hover: #da1e28;
+  --token-dropdown-separator-border-color: #e0e0e0;
+  --token-dropdown-toggle-button-padding-right-medium: 12px;
+  --token-dropdown-toggle-button-padding-right-small: 12px;
+  --token-dropdown-toggle-icon-gap: 4px;
+  --token-dropdown-toggle-icon-padding: 3px;
   --token-elevation-high-box-shadow: none;
   --token-elevation-higher-box-shadow: none;
   --token-elevation-inset-box-shadow: none;
@@ -2824,6 +2928,28 @@
   --token-dismiss-button-size: 48px;
   --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
   --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --token-dropdown-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  --token-dropdown-list-item-foreground-color-action-active: #c6c6c6;
+  --token-dropdown-list-item-foreground-color-action-default: #c6c6c6;
+  --token-dropdown-list-item-foreground-color-action-focus: #c6c6c6;
+  --token-dropdown-list-item-foreground-color-action-hover: #f4f4f4;
+  --token-dropdown-list-item-foreground-color-critical-active: #ffffff;
+  --token-dropdown-list-item-foreground-color-critical-default: #c6c6c6;
+  --token-dropdown-list-item-foreground-color-critical-focus: #ffffff;
+  --token-dropdown-list-item-foreground-color-critical-hover: #ffffff;
+  --token-dropdown-list-item-surface-color-action-active: #262626;
+  --token-dropdown-list-item-surface-color-action-default: #262626;
+  --token-dropdown-list-item-surface-color-action-focus: #262626;
+  --token-dropdown-list-item-surface-color-action-hover: #333333;
+  --token-dropdown-list-item-surface-color-critical-active: #da1e28;
+  --token-dropdown-list-item-surface-color-critical-default: #262626;
+  --token-dropdown-list-item-surface-color-critical-focus: #da1e28;
+  --token-dropdown-list-item-surface-color-critical-hover: #da1e28;
+  --token-dropdown-separator-border-color: #393939;
+  --token-dropdown-toggle-button-padding-right-medium: 12px;
+  --token-dropdown-toggle-button-padding-right-small: 12px;
+  --token-dropdown-toggle-icon-gap: 4px;
+  --token-dropdown-toggle-icon-padding: 3px;
   --token-elevation-high-box-shadow: none;
   --token-elevation-higher-box-shadow: none;
   --token-elevation-inset-box-shadow: none;
@@ -3182,6 +3308,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-color-waypoint-gradient-primary-start: #cbf1f3;
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
   --token-color-waypoint-surface: #e0fcff;
+  --token-dropdown-toggle-button-gap: 6px;
   --token-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
