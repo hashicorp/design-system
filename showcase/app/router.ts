@@ -171,6 +171,7 @@ Router.map(function () {
       this.route('focus-ring');
     });
     this.route('components', function () {
+      this.route('alert');
       this.route('application-state');
       this.route('app-footer');
       this.route('badge');
@@ -200,6 +201,7 @@ Router.map(function () {
       this.route('separator');
       this.route('tabs');
       this.route('tag');
+      this.route('toast');
       this.route('tooltip');
     });
     this.route('utilities', function () {
