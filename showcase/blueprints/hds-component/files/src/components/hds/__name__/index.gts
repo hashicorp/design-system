@@ -32,4 +32,11 @@ export default class Hds<%= classifiedModuleName %> extends Component<Hds<%= cla
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! ADD YOUR TEMPLATE CONTENT HERE }}
+    <div class={{this.classNames}} ...attributes>
+      {{yield}}
+    </div>
+  </template>
 }
