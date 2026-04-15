@@ -9,6 +9,9 @@
 // ### COMPONENTS
 // -----------------------------------------------------------
 
+// WEB COMPONENT TESTS
+export { default as HdsCdsBadge } from './components/hds/cds-badge/index.gts';
+
 // Accordion
 export { default as HdsAccordion } from './components/hds/accordion/index.gts';
 export { default as HdsAccordionItem } from './components/hds/accordion/item/index.gts';

@@ -10,7 +10,7 @@ import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 import CodeFragmentWithTrigger from '../code-fragments/with-trigger';
 
 import {

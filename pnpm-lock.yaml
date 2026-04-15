@@ -76,6 +76,9 @@ importers:
 
   packages/components:
     dependencies:
+      '@carbon/web-components':
+        specifier: ^2.46.0
+        version: 2.52.0(sass@1.98.0)
       '@codemirror/autocomplete':
         specifier: ^6.20.0
         version: 6.20.0
@@ -497,6 +500,27 @@ importers:
       '@babel/plugin-proposal-decorators':
         specifier: ^7.27.1
         version: 7.28.0(@babel/core@7.28.0)
+      '@carbon/colors':
+        specifier: ^11.46.0
+        version: 11.50.0
+      '@carbon/feature-flags':
+        specifier: ^0.32.0
+        version: 0.32.0
+      '@carbon/grid':
+        specifier: ^11.49.0
+        version: 11.53.0
+      '@carbon/layout':
+        specifier: ^11.47.0
+        version: 11.51.0
+      '@carbon/styles':
+        specifier: ^1.99.0
+        version: 1.104.0(sass@1.98.0)
+      '@carbon/themes':
+        specifier: ^11.67.0
+        version: 11.71.0
+      '@carbon/type':
+        specifier: ^11.53.0
+        version: 11.57.0
       '@codemirror/lint':
         specifier: ^6.8.4
         version: 6.8.5
@@ -547,7 +571,7 @@ importers:
         version: 1.7.7
       '@hashicorp/design-system-components':
         specifier: workspace:*
-        version: file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glint/template@1.7.7)(typescript@5.9.2)(webpack@5.101.0))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+        version: file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.9.2)(webpack@5.101.0))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))(sass@1.98.0)
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
@@ -1923,26 +1947,67 @@ packages:
   '@carbon/colors@11.42.0':
     resolution: {integrity: sha512-kfEGVk2vzokkRrVwqUGYK8YLQ1Cn7cDhJ/lEz31kdBrUbR8vlgKSFq9GTqAgZiqxbTC0surR3nBF2kU3NTNPOg==}
 
+  '@carbon/colors@11.50.0':
+    resolution: {integrity: sha512-wJrJvBWiQOoVD0jaKHflC7MFESvzERmL9PCbNK15mCKZRtCZNOP5XhwGRlSrP83DNBmG0kVhCjIt/kmtmXiJHQ==}
+
+  '@carbon/feature-flags@0.32.0':
+    resolution: {integrity: sha512-a1rFplSEFPwJ4ZsuwvOaKHgoLqPNhjCJdWY6VTgCoytRZqtgYWqwYFEqQkm9/f1mX1lHr6oK/eBpAcmi0Izuvg==}
+
+  '@carbon/feature-flags@1.2.0':
+    resolution: {integrity: sha512-TL5YOL3YfJy0lSjaAiHmf/7pn7XP+SOkqxEQa/BMsnox80P4M7Kf51O9ElHwsEGBpcemtHv99WSTxmK9Y/LHbQ==}
+
   '@carbon/grid@11.45.0':
     resolution: {integrity: sha512-J8hh5li0Q0RRS6IGg+MVPQVfjp1ePxzQsyMyjQOHLux8i8HwiWJmKLQ+4lKMzRXorLG2RtEoPVl00EaKlQEgKQ==}
+
+  '@carbon/grid@11.53.0':
+    resolution: {integrity: sha512-Swm2v62cTDi+FNPO5mXempbAiCJb/Esh+ZfIfDKbhCGzgxwqrBpZwoZxM1BE/vhKTvo7a++wDMTj/ycftTTJKQ==}
+
+  '@carbon/icon-helpers@10.47.0':
+    resolution: {integrity: sha512-vv2Wkuw7lYkYVKrn5ABzlZD+6ioAYwMuyKi2XPqYY3hrHYoL4CQUnuSFDhlj0DR2HHCB0L5MGRLxHLucx5cc7g==}
 
   '@carbon/icons@11.76.0':
     resolution: {integrity: sha512-e9XnUWPgxsyvgCL/ti/Ee2fItqRs/WrHkwy7GPqbEGdGZKSd9pBvO+jN7nxBT5TLdA50q26t5hR0U2taEyc5Kg==}
 
+  '@carbon/icons@11.78.0':
+    resolution: {integrity: sha512-EWqJbFSSpV0UTc8/9SiTzPcEcqmryKwospDyzC0+nFIrCtlZPFuma2jpdoiJ87TMCx/Bm1pD5lGqucxuMZkwnQ==}
+
   '@carbon/layout@11.43.0':
     resolution: {integrity: sha512-aOUNqVv/5TGhNTn1HV+620ZlqhE7+Chs0TJoxwe/CCsLOdziCX9st3c5inyINPZDyvDK46mas1RmqvZwNYe/mA==}
+
+  '@carbon/layout@11.51.0':
+    resolution: {integrity: sha512-V+D6jOZMXlYMDdppHTMvmQB46CnAKwA8OjDt7EX9lNbRbaig/fLfqbtTWM4rgy7VjyOqsDOBMVzyffiiz5HPzQ==}
 
   '@carbon/motion@11.37.0':
     resolution: {integrity: sha512-bjFzY8Wy5Umj+g41ZGj3L3b/z2gDBDKfzfc9M3ZAHaj73PZ7Z/Z5jT0IFlihEv8wUwZfbhbtnb4jeNhckfLINA==}
 
+  '@carbon/motion@11.44.0':
+    resolution: {integrity: sha512-yBKiJ83xqiFbofqfCFaFxOPpbFKkm0hnn4yymLjFHPsNsBseRqg5qZMg7ZeW6JgecAXYNvzKpKxu4MJEGoMoUg==}
+
+  '@carbon/styles@1.104.0':
+    resolution: {integrity: sha512-/YPg1RW6oJNoRgPyClsmsUpXqzXVTLzSfxhZN8bJPE5/vTC79Xaujas0mNSBrve3Ukb1XstwiwHZynil7msKxg==}
+    peerDependencies:
+      sass: ^1.33.0
+    peerDependenciesMeta:
+      sass:
+        optional: true
+
   '@carbon/themes@11.62.0':
     resolution: {integrity: sha512-/sPOiGaC4YtXBiA4uNx2PuBxPOAjVMOThrsHfdDbroUvm2yigvRZUJcJTivunOFKtfIC5EOoKxxAP3XzxWjf0Q==}
+
+  '@carbon/themes@11.71.0':
+    resolution: {integrity: sha512-Lu77BR6HUKIRBSBHPttKkREHJFH87WDEBvwmmzKb6ZoGAg6KwkZYpXfQHvFU56I0JdRvTrePEoQMIm3R+2hr+A==}
 
   '@carbon/type@11.49.0':
     resolution: {integrity: sha512-5SwbuMj7VO7QAxB273MQVMoVLEvwcMVflhmriWA4I+YWMDwtoprPHiXseO6ueoRGJp+TOqnItvkPMPOdKz5sjQ==}
 
+  '@carbon/type@11.57.0':
+    resolution: {integrity: sha512-B4XZfh9/CHfbJNfpR8/MuDGqAYiH19EzJQV3Dn/d86bSfVsoliD8h7WMKgRDDc0LmQmjpN/oJgnR7YM/3v5GmQ==}
+
   '@carbon/utils-position@1.3.0':
     resolution: {integrity: sha512-bfar2dV+fQ15syIrH3n9ujY4PXd1Q+AF2VcTLJIC04IDe2f80zOnJlLNPc/RktHcWTZ7WSQm80cQo3abGcsfTA==}
+
+  '@carbon/web-components@2.52.0':
+    resolution: {integrity: sha512-5Rx+e5i4R541vVBDVlLx+EJCEX5zpRUkqmP2xlRosV9RxDnw79nX7rkSfM8xXy8yCeokC7hbb12dyBLfX2n5eA==}
 
   '@changesets/apply-release-plan@7.0.12':
     resolution: {integrity: sha512-EaET7As5CeuhTzvXTQCRZeBUcisoYPDDcXvgTE/2jmmypKp0RC7LxKj/yzqeh/1qFTZI7oDGFcL1PHRuQuketQ==}
@@ -2882,8 +2947,40 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
+  '@ibm/plex-mono@1.1.0':
+    resolution: {integrity: sha512-hpsdRxR3BRJkC6wGM4MZcUFD6C8M+mmK76RtAy/hlsfPro9FzpXVdIWC+G3jeQOXof109dxlUvmeKxpeKUG68A==}
+
+  '@ibm/plex-sans-arabic@1.1.0':
+    resolution: {integrity: sha512-u8wIS6szLAOFvlBjCFZmtpKIqbhuIuniG2N0J+sio8vV6INH58hP0t0QNYrSl9SZtCv2Fwb4oQGuZJY3kJ4+QA==}
+
+  '@ibm/plex-sans-devanagari@1.1.0':
+    resolution: {integrity: sha512-IVNV9NxXZDzcGZRao/xj+kiFwkdLkcw5vNiKwY8wEzzkpjApXJnPhJ0a7mIKNAh8oIadTIF68+iGtzRKK3nXAQ==}
+
+  '@ibm/plex-sans-hebrew@1.1.0':
+    resolution: {integrity: sha512-iix0rLpUD0E8dE8q+/t3B7u1or7h6gEzoy6TK9NwP41AN31WE55f2cFwQAXomBDwr0Ozc9sHYy97NutEukZXzQ==}
+
+  '@ibm/plex-sans-thai-looped@1.1.0':
+    resolution: {integrity: sha512-9zbDGzmtscHgBRTF88y3/92zQx6lmKjz5ZxhgcljilwOpj08BAytDc3mzUl9XGUh+DmOMl0Ql1lk6ecsEYYg2w==}
+
+  '@ibm/plex-sans-thai@1.1.0':
+    resolution: {integrity: sha512-vk7IrjdO69eEElJpFBppCha/wvU48DFyVuDewcfIf5L6Z11s0vbROANCvKipVPRUz1LE4ron8KoitWGcl3AlfA==}
+
+  '@ibm/plex-sans@1.1.0':
+    resolution: {integrity: sha512-WPgvO6Yfj2w5YbhyAr1tv95RUz4LRJlqN+CmYvBglabXteufP1D1E9BABMde+ZIKdRbFJDoKF5eQzfhpnbgZcQ==}
+
+  '@ibm/plex-serif@1.1.0':
+    resolution: {integrity: sha512-ORIyWlK8t8mvpFI7AAfhVFH+sacink2l9AjLiKZscmAzLVSa2dqFckrPOXqx4dK/cax567gWwCpJNEYk7xWxBQ==}
+
+  '@ibm/plex@6.0.0-next.6':
+    resolution: {integrity: sha512-B3uGruTn2rS5gweynLmfSe7yCawSRsJguJJQHVQiqf4rh2RNgJFu8YLE2Zd/JHV0ZXoVMOslcXP2k3hMkxKEyA==}
+    engines: {node: '>=14'}
+
   '@ibm/telemetry-js@1.10.1':
     resolution: {integrity: sha512-aQcDq03BKbgNnkHujHbA950wJVHtJnY0PsMHKyxgRvr3XPgInWjDfgxJQmKIp9I8Vy2wpfe0cGmduJfIX0HewQ==}
+    hasBin: true
+
+  '@ibm/telemetry-js@1.11.0':
+    resolution: {integrity: sha512-RO/9j+URJnSfseWg9ZkEX9p+a3Ousd33DBU7rOafoZB08RqdzxFVYJ2/iM50dkBuD0o7WX7GYt1sLbNgCoE+pA==}
     hasBin: true
 
   '@inquirer/figures@1.0.9':
@@ -3045,6 +3142,15 @@ packages:
   '@lint-todo/utils@13.1.1':
     resolution: {integrity: sha512-F5z53uvRIF4dYfFfJP3a2Cqg+4P1dgJchJsFnsZE0eZp0LK8X7g2J0CsJHRgns+skpXOlM7n5vFGwkWCWj8qJg==}
     engines: {node: 12.* || >= 14}
+
+  '@lit-labs/ssr-dom-shim@1.5.1':
+    resolution: {integrity: sha512-Aou5UdlSpr5whQe8AA/bZG0jMj96CoJIWbGfZ91qieWu5AWUMKw8VR/pAkQkJYvBNhmCcWnZlyyk5oze8JIqYA==}
+
+  '@lit/context@1.1.6':
+    resolution: {integrity: sha512-M26qDE6UkQbZA2mQ3RjJ3Gzd8TxP+/0obMgE5HfkfLhEEyYE3Bui4A5XHiGPjy0MUGAyxB3QgVuw2ciS0kHn6A==}
+
+  '@lit/reactive-element@2.1.2':
+    resolution: {integrity: sha512-pbCDiVMnne1lYUIaYNN5wrwQXDtHaYtg7YEFPeW+hws6U47WeFvISGUWekPGKWOP1ygrs0ef0o1VJMk1exos5A==}
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -7360,6 +7466,9 @@ packages:
   flat-cache@6.1.12:
     resolution: {integrity: sha512-U+HqqpZPPXP5d24bWuRzjGqVqUcw64k4nZAbruniDwdRg0H10tvN7H6ku1tjhA4rg5B9GS3siEvwO2qjJJ6f8Q==}
 
+  flatpickr@4.6.13:
+    resolution: {integrity: sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==}
+
   flatted@3.4.2:
     resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
 
@@ -8752,6 +8861,15 @@ packages:
 
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
+
+  lit-element@4.2.2:
+    resolution: {integrity: sha512-aFKhNToWxoyhkNDmWZwEva2SlQia+jfG0fjIWV//YeTaWrVnOxD89dPKfigCUspXFmjzOEUQpOkejH5Ly6sG0w==}
+
+  lit-html@3.3.2:
+    resolution: {integrity: sha512-Qy9hU88zcmaxBXcc10ZpdK7cOLXvXpRoBxERdtqV9QOrfpMZZ6pSYP91LhpPtap3sFMUiL7Tw2RImbe0Al2/kw==}
+
+  lit@3.3.2:
+    resolution: {integrity: sha512-NF9zbsP79l4ao2SNrH3NkfmFgN/hBYSQo90saIVI1o5GpjAdCPVstVzO1MrLOakHoEhYkrtRjPK6Ob521aoYWQ==}
 
   livereload-js@3.4.1:
     resolution: {integrity: sha512-5MP0uUeVCec89ZbNOT/i97Mc+q3SxXmiUGhRFOTmhrGPn//uWVQdCvcLJDy64MSBR5MidFdOR7B9viumoavy6g==}
@@ -13144,7 +13262,7 @@ snapshots:
 
   '@carbon/charts@1.27.3':
     dependencies:
-      '@carbon/colors': 11.42.0
+      '@carbon/colors': 11.50.0
       '@carbon/utils-position': 1.3.0
       '@ibm/telemetry-js': 1.10.1
       '@types/d3': 7.4.3
@@ -13163,22 +13281,77 @@ snapshots:
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
+  '@carbon/colors@11.50.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/feature-flags@0.32.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/feature-flags@1.2.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
   '@carbon/grid@11.45.0':
     dependencies:
       '@carbon/layout': 11.43.0
       '@ibm/telemetry-js': 1.10.1
 
+  '@carbon/grid@11.53.0':
+    dependencies:
+      '@carbon/layout': 11.51.0
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/icon-helpers@10.47.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.11.0
+
   '@carbon/icons@11.76.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
+  '@carbon/icons@11.78.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.11.0
+
   '@carbon/layout@11.43.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/layout@11.51.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
   '@carbon/motion@11.37.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/motion@11.44.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/styles@1.104.0(sass@1.98.0)':
+    dependencies:
+      '@carbon/colors': 11.50.0
+      '@carbon/feature-flags': 1.2.0
+      '@carbon/grid': 11.53.0
+      '@carbon/layout': 11.51.0
+      '@carbon/motion': 11.44.0
+      '@carbon/themes': 11.71.0
+      '@carbon/type': 11.57.0
+      '@ibm/plex': 6.0.0-next.6
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
+      '@ibm/plex-sans-arabic': 1.1.0
+      '@ibm/plex-sans-devanagari': 1.1.0
+      '@ibm/plex-sans-hebrew': 1.1.0
+      '@ibm/plex-sans-thai': 1.1.0
+      '@ibm/plex-sans-thai-looped': 1.1.0
+      '@ibm/plex-serif': 1.1.0
+      '@ibm/telemetry-js': 1.10.1
+    optionalDependencies:
+      sass: 1.98.0
 
   '@carbon/themes@11.62.0':
     dependencies:
@@ -13188,15 +13361,44 @@ snapshots:
       '@ibm/telemetry-js': 1.10.1
       color: 4.2.3
 
+  '@carbon/themes@11.71.0':
+    dependencies:
+      '@carbon/colors': 11.50.0
+      '@carbon/layout': 11.51.0
+      '@carbon/type': 11.57.0
+      '@ibm/telemetry-js': 1.10.1
+      color: 4.2.3
+
   '@carbon/type@11.49.0':
     dependencies:
       '@carbon/grid': 11.45.0
       '@carbon/layout': 11.43.0
       '@ibm/telemetry-js': 1.10.1
 
+  '@carbon/type@11.57.0':
+    dependencies:
+      '@carbon/grid': 11.53.0
+      '@carbon/layout': 11.51.0
+      '@ibm/telemetry-js': 1.10.1
+
   '@carbon/utils-position@1.3.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/web-components@2.52.0(sass@1.98.0)':
+    dependencies:
+      '@carbon/icon-helpers': 10.47.0
+      '@carbon/icons': 11.78.0
+      '@carbon/styles': 1.104.0(sass@1.98.0)
+      '@floating-ui/dom': 1.7.3
+      '@ibm/telemetry-js': 1.11.0
+      '@lit/context': 1.1.6
+      flatpickr: 4.6.13
+      lit: 3.3.2
+      lodash-es: 4.17.23
+      tslib: 2.8.1
+    transitivePeerDependencies:
+      - sass
 
   '@changesets/apply-release-plan@7.0.12':
     dependencies:
@@ -14434,6 +14636,7 @@ snapshots:
 
   '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(typescript@5.9.2))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
     dependencies:
+      '@carbon/web-components': 2.52.0(sass@1.98.0)
       '@codemirror/autocomplete': 6.20.0
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
@@ -14485,10 +14688,12 @@ snapshots:
       - '@glint/environment-ember-loose'
       - '@glint/template'
       - ember-source
+      - sass
       - supports-color
 
-  '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glint/template@1.7.7)(typescript@5.9.2)(webpack@5.101.0))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
+  '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.9.2)(webpack@5.101.0))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))(sass@1.98.0)':
     dependencies:
+      '@carbon/web-components': 2.52.0(sass@1.98.0)
       '@codemirror/autocomplete': 6.20.0
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
@@ -14540,6 +14745,7 @@ snapshots:
       - '@glint/environment-ember-loose'
       - '@glint/template'
       - ember-source
+      - sass
       - supports-color
 
   '@hashicorp/design-system-tokens@file:packages/tokens': {}
@@ -14569,7 +14775,43 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
+  '@ibm/plex-mono@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-arabic@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-devanagari@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-hebrew@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-thai-looped@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-thai@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-serif@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex@6.0.0-next.6': {}
+
   '@ibm/telemetry-js@1.10.1': {}
+
+  '@ibm/telemetry-js@1.11.0': {}
 
   '@inquirer/figures@1.0.9': {}
 
@@ -14862,6 +15104,16 @@ snapshots:
       slash: 3.0.0
       tslib: 2.8.1
       upath: 2.0.1
+
+  '@lit-labs/ssr-dom-shim@1.5.1': {}
+
+  '@lit/context@1.1.6':
+    dependencies:
+      '@lit/reactive-element': 2.1.2
+
+  '@lit/reactive-element@2.1.2':
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.5.1
 
   '@manypkg/find-root@1.1.0':
     dependencies:
@@ -15852,8 +16104,7 @@ snapshots:
       '@types/topojson-simplify': 3.0.3
       '@types/topojson-specification': 1.0.5
 
-  '@types/trusted-types@2.0.7':
-    optional: true
+  '@types/trusted-types@2.0.7': {}
 
   '@types/unist@2.0.11': {}
 
@@ -21329,6 +21580,8 @@ snapshots:
       flatted: 3.4.2
       hookified: 1.11.0
 
+  flatpickr@4.6.13: {}
+
   flatted@3.4.2: {}
 
   flow-parser@0.258.1: {}
@@ -23089,6 +23342,22 @@ snapshots:
   linkify-it@5.0.0:
     dependencies:
       uc.micro: 2.1.0
+
+  lit-element@4.2.2:
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.5.1
+      '@lit/reactive-element': 2.1.2
+      lit-html: 3.3.2
+
+  lit-html@3.3.2:
+    dependencies:
+      '@types/trusted-types': 2.0.7
+
+  lit@3.3.2:
+    dependencies:
+      '@lit/reactive-element': 2.1.2
+      lit-element: 4.2.2
+      lit-html: 3.3.2
 
   livereload-js@3.4.1: {}
 

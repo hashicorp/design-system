@@ -9,7 +9,7 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwGrid from 'showcase/components/shw/grid';
 
 import { HdsAlert } from '@hashicorp/design-system-components/components';
-import NOOP from 'showcase/utils/noop';
+import NOOP from 'showcase/templates/web-component-tests/utils/noop';
 
 const SubSectionDismiss: TemplateOnlyComponent = <template>
   <ShwTextH2>Dismiss</ShwTextH2>

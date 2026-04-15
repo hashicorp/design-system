@@ -12,6 +12,9 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
+  this.route('web-component-tests', {path: 'wc-tests'}, function () {
+    this.route('cds-badge');
+  });
   this.route('page-foundations', { path: 'foundations' }, function () {
     this.route('typography');
     this.route('elevation');
