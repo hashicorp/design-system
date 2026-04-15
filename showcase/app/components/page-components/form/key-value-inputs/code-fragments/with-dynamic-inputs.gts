@@ -121,7 +121,7 @@ export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmen
       }
     } else {
       console.error(
-        'Could not retrieve `name` attribute of PowerSelect trigger instance',
+        'Could not retrieve `data-name` attribute of PowerSelect trigger instance',
       );
     }
   };
