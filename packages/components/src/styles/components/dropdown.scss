@@ -214,7 +214,7 @@
   width: max-content; // notice: this is important because being in a position absolute means the layout algorithm assigns a width of 0 and this impacts on the flex algorithm of the children (in some cases they don't use the full width)
   min-width: 200px;
   max-width: 400px;
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-dropdown-surface-color-primary); // Note: token naming & structure are subject to change
   border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-surface-high-box-shadow);
 
