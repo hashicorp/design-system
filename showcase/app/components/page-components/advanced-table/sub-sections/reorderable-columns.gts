@@ -56,6 +56,8 @@ const SORTABLE_COLUMNS = BASE_COLUMNS.map((column, index) => {
   };
 });
 
+const asString = (value: unknown): string => value as string;
+
 const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
   <ShwTextH2>Reorderable columns</ShwTextH2>
 
@@ -311,7 +313,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
               <HdsLayoutFlex @align="center" @gap="4">
                 {{#each C.content as |content|}}
                   <HdsBadge
-                    @text={{content}}
+                    @text={{asString content}}
                     @type="outlined"
                     @color="neutral"
                   />
