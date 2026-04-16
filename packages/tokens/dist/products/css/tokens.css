@@ -402,9 +402,9 @@
   --token-code-block-color-focus-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-color-focus-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-typography-font-size: 0.8125rem;
-  --token-code-block-copy-button-surface-color-default: #15181e;
-  --token-code-block-copy-button-surface-color-hover: #0d0e12;
-  --token-code-block-copy-button-surface-color-active: #2b303c;
+  --token-code-block-button-surface-color-default: #15181e;
+  --token-code-block-button-surface-color-hover: #0d0e12;
+  --token-code-block-button-surface-color-active: #2b303c;
   --token-code-block-line-numbers-border-color: rgba(178, 182, 189, 0.2);
   --token-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
   --token-code-block-line-highlight-border-color: #1555d4;

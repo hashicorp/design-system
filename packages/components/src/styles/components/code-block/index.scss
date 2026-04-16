@@ -164,27 +164,27 @@ $hds-code-block-code-footer-height: 48px;
 .hds-code-block__copy-button.hds-copy-button {
   // Overriding default colors
   color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-copy-button-surface-color-default);
+  background-color: var(--token-code-block-button-surface-color-default);
   border: 1px solid var(--token-code-block-color-border-strong);
 
   &:hover,
   &.mock-hover {
     color: var(--token-code-block-color-foreground-primary);
-    background-color: var(--token-code-block-copy-button-surface-color-hover);
+    background-color: var(--token-code-block-button-surface-color-hover);
     border-color: var(--token-code-block-color-border-strong);
   }
 
   &:active,
   &.mock-active {
     color: var(--token-code-block-color-foreground-primary);
-    background-color: var(--token-code-block-copy-button-surface-color-active);
+    background-color: var(--token-code-block-button-surface-color-active);
   }
 
   &:focus,
   &.mock-focus,
   &:focus-visible {
     color: var(--token-code-block-color-foreground-primary);
-    background-color: var(--token-code-block-copy-button-surface-color-default);
+    background-color: var(--token-code-block-button-surface-color-default);
     border-color: var(--token-code-block-color-focus-action-internal);
 
     &::before {

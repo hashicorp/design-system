@@ -290,7 +290,7 @@
         }
       }
     },
-    "copy-button": {
+    "button": {
       "surface": {
         "color": {
           "default": {

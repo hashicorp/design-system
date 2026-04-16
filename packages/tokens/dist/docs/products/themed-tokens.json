@@ -12378,8 +12378,8 @@
         "font-size"
       ]
     },
-    "token-code-block-copy-button-surface-color-default": {
-      "key": "{code-block.copy-button.surface.color.default}",
+    "token-code-block-button-surface-color-default": {
+      "key": "{code-block.button.surface.color.default}",
       "$type": "color",
       "$value": "#15181e",
       "$modes": {
@@ -12399,22 +12399,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.default}"
+        "key": "{code-block.button.surface.color.default}"
       },
-      "name": "token-code-block-copy-button-surface-color-default",
+      "name": "token-code-block-button-surface-color-default",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-code-block-copy-button-surface-color-hover": {
-      "key": "{code-block.copy-button.surface.color.hover}",
+    "token-code-block-button-surface-color-hover": {
+      "key": "{code-block.button.surface.color.hover}",
       "$type": "color",
       "$value": "#0d0e12",
       "$modes": {
@@ -12434,22 +12434,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.hover}"
+        "key": "{code-block.button.surface.color.hover}"
       },
-      "name": "token-code-block-copy-button-surface-color-hover",
+      "name": "token-code-block-button-surface-color-hover",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-code-block-copy-button-surface-color-active": {
-      "key": "{code-block.copy-button.surface.color.active}",
+    "token-code-block-button-surface-color-active": {
+      "key": "{code-block.button.surface.color.active}",
       "$type": "color",
       "$value": "#2b303c",
       "$modes": {
@@ -12469,15 +12469,15 @@
           "cds-g90": "{carbon.themes.g90.layerActive01}",
           "cds-g100": "{carbon.themes.g100.layerActive01}"
         },
-        "key": "{code-block.copy-button.surface.color.active}"
+        "key": "{code-block.button.surface.color.active}"
       },
-      "name": "token-code-block-copy-button-surface-color-active",
+      "name": "token-code-block-button-surface-color-active",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "active"
@@ -32575,8 +32575,8 @@
         "font-size"
       ]
     },
-    "token-code-block-copy-button-surface-color-default": {
-      "key": "{code-block.copy-button.surface.color.default}",
+    "token-code-block-button-surface-color-default": {
+      "key": "{code-block.button.surface.color.default}",
       "$type": "color",
       "$value": "#e8e8e8",
       "$modes": {
@@ -32596,22 +32596,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.default}"
+        "key": "{code-block.button.surface.color.default}"
       },
-      "name": "token-code-block-copy-button-surface-color-default",
+      "name": "token-code-block-button-surface-color-default",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-code-block-copy-button-surface-color-hover": {
-      "key": "{code-block.copy-button.surface.color.hover}",
+    "token-code-block-button-surface-color-hover": {
+      "key": "{code-block.button.surface.color.hover}",
       "$type": "color",
       "$value": "#e8e8e8",
       "$modes": {
@@ -32631,22 +32631,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.hover}"
+        "key": "{code-block.button.surface.color.hover}"
       },
-      "name": "token-code-block-copy-button-surface-color-hover",
+      "name": "token-code-block-button-surface-color-hover",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-code-block-copy-button-surface-color-active": {
-      "key": "{code-block.copy-button.surface.color.active}",
+    "token-code-block-button-surface-color-active": {
+      "key": "{code-block.button.surface.color.active}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -32666,15 +32666,15 @@
           "cds-g90": "{carbon.themes.g90.layerActive01}",
           "cds-g100": "{carbon.themes.g100.layerActive01}"
         },
-        "key": "{code-block.copy-button.surface.color.active}"
+        "key": "{code-block.button.surface.color.active}"
       },
-      "name": "token-code-block-copy-button-surface-color-active",
+      "name": "token-code-block-button-surface-color-active",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "active"
@@ -52772,8 +52772,8 @@
         "font-size"
       ]
     },
-    "token-code-block-copy-button-surface-color-default": {
-      "key": "{code-block.copy-button.surface.color.default}",
+    "token-code-block-button-surface-color-default": {
+      "key": "{code-block.button.surface.color.default}",
       "$type": "color",
       "$value": "#e8e8e8",
       "$modes": {
@@ -52793,22 +52793,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.default}"
+        "key": "{code-block.button.surface.color.default}"
       },
-      "name": "token-code-block-copy-button-surface-color-default",
+      "name": "token-code-block-button-surface-color-default",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-code-block-copy-button-surface-color-hover": {
-      "key": "{code-block.copy-button.surface.color.hover}",
+    "token-code-block-button-surface-color-hover": {
+      "key": "{code-block.button.surface.color.hover}",
       "$type": "color",
       "$value": "#e8e8e8",
       "$modes": {
@@ -52828,22 +52828,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.hover}"
+        "key": "{code-block.button.surface.color.hover}"
       },
-      "name": "token-code-block-copy-button-surface-color-hover",
+      "name": "token-code-block-button-surface-color-hover",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-code-block-copy-button-surface-color-active": {
-      "key": "{code-block.copy-button.surface.color.active}",
+    "token-code-block-button-surface-color-active": {
+      "key": "{code-block.button.surface.color.active}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -52863,15 +52863,15 @@
           "cds-g90": "{carbon.themes.g90.layerActive01}",
           "cds-g100": "{carbon.themes.g100.layerActive01}"
         },
-        "key": "{code-block.copy-button.surface.color.active}"
+        "key": "{code-block.button.surface.color.active}"
       },
-      "name": "token-code-block-copy-button-surface-color-active",
+      "name": "token-code-block-button-surface-color-active",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "active"
@@ -72969,8 +72969,8 @@
         "font-size"
       ]
     },
-    "token-code-block-copy-button-surface-color-default": {
-      "key": "{code-block.copy-button.surface.color.default}",
+    "token-code-block-button-surface-color-default": {
+      "key": "{code-block.button.surface.color.default}",
       "$type": "color",
       "$value": "#474747",
       "$modes": {
@@ -72990,22 +72990,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.default}"
+        "key": "{code-block.button.surface.color.default}"
       },
-      "name": "token-code-block-copy-button-surface-color-default",
+      "name": "token-code-block-button-surface-color-default",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-code-block-copy-button-surface-color-hover": {
-      "key": "{code-block.copy-button.surface.color.hover}",
+    "token-code-block-button-surface-color-hover": {
+      "key": "{code-block.button.surface.color.hover}",
       "$type": "color",
       "$value": "#474747",
       "$modes": {
@@ -73025,22 +73025,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.hover}"
+        "key": "{code-block.button.surface.color.hover}"
       },
-      "name": "token-code-block-copy-button-surface-color-hover",
+      "name": "token-code-block-button-surface-color-hover",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-code-block-copy-button-surface-color-active": {
-      "key": "{code-block.copy-button.surface.color.active}",
+    "token-code-block-button-surface-color-active": {
+      "key": "{code-block.button.surface.color.active}",
       "$type": "color",
       "$value": "#6f6f6f",
       "$modes": {
@@ -73060,15 +73060,15 @@
           "cds-g90": "{carbon.themes.g90.layerActive01}",
           "cds-g100": "{carbon.themes.g100.layerActive01}"
         },
-        "key": "{code-block.copy-button.surface.color.active}"
+        "key": "{code-block.button.surface.color.active}"
       },
-      "name": "token-code-block-copy-button-surface-color-active",
+      "name": "token-code-block-button-surface-color-active",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "active"
@@ -93166,8 +93166,8 @@
         "font-size"
       ]
     },
-    "token-code-block-copy-button-surface-color-default": {
-      "key": "{code-block.copy-button.surface.color.default}",
+    "token-code-block-button-surface-color-default": {
+      "key": "{code-block.button.surface.color.default}",
       "$type": "color",
       "$value": "#333333",
       "$modes": {
@@ -93187,22 +93187,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.default}"
+        "key": "{code-block.button.surface.color.default}"
       },
-      "name": "token-code-block-copy-button-surface-color-default",
+      "name": "token-code-block-button-surface-color-default",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-code-block-copy-button-surface-color-hover": {
-      "key": "{code-block.copy-button.surface.color.hover}",
+    "token-code-block-button-surface-color-hover": {
+      "key": "{code-block.button.surface.color.hover}",
       "$type": "color",
       "$value": "#333333",
       "$modes": {
@@ -93222,22 +93222,22 @@
           "cds-g90": "{carbon.themes.g90.layerHover01}",
           "cds-g100": "{carbon.themes.g100.layerHover01}"
         },
-        "key": "{code-block.copy-button.surface.color.hover}"
+        "key": "{code-block.button.surface.color.hover}"
       },
-      "name": "token-code-block-copy-button-surface-color-hover",
+      "name": "token-code-block-button-surface-color-hover",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-code-block-copy-button-surface-color-active": {
-      "key": "{code-block.copy-button.surface.color.active}",
+    "token-code-block-button-surface-color-active": {
+      "key": "{code-block.button.surface.color.active}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -93257,15 +93257,15 @@
           "cds-g90": "{carbon.themes.g90.layerActive01}",
           "cds-g100": "{carbon.themes.g100.layerActive01}"
         },
-        "key": "{code-block.copy-button.surface.color.active}"
+        "key": "{code-block.button.surface.color.active}"
       },
-      "name": "token-code-block-copy-button-surface-color-active",
+      "name": "token-code-block-button-surface-color-active",
       "attributes": {
         "category": "code-block"
       },
       "path": [
         "code-block",
-        "copy-button",
+        "button",
         "surface",
         "color",
         "active"

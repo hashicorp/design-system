@@ -3694,28 +3694,28 @@ button.hds-button[href]::after {
 .hds-code-block__height-toggle-button,
 .hds-code-block__copy-button.hds-copy-button {
   color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-copy-button-surface-color-default);
+  background-color: var(--token-code-block-button-surface-color-default);
   border: 1px solid var(--token-code-block-color-border-strong);
 }
 .hds-code-block__height-toggle-button:hover, .hds-code-block__height-toggle-button.mock-hover,
 .hds-code-block__copy-button.hds-copy-button:hover,
 .hds-code-block__copy-button.hds-copy-button.mock-hover {
   color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-copy-button-surface-color-hover);
+  background-color: var(--token-code-block-button-surface-color-hover);
   border-color: var(--token-code-block-color-border-strong);
 }
 .hds-code-block__height-toggle-button:active, .hds-code-block__height-toggle-button.mock-active,
 .hds-code-block__copy-button.hds-copy-button:active,
 .hds-code-block__copy-button.hds-copy-button.mock-active {
   color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-copy-button-surface-color-active);
+  background-color: var(--token-code-block-button-surface-color-active);
 }
 .hds-code-block__height-toggle-button:focus, .hds-code-block__height-toggle-button.mock-focus, .hds-code-block__height-toggle-button:focus-visible,
 .hds-code-block__copy-button.hds-copy-button:focus,
 .hds-code-block__copy-button.hds-copy-button.mock-focus,
 .hds-code-block__copy-button.hds-copy-button:focus-visible {
   color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-copy-button-surface-color-default);
+  background-color: var(--token-code-block-button-surface-color-default);
   border-color: var(--token-code-block-color-focus-action-internal);
 }
 .hds-code-block__height-toggle-button:focus::before, .hds-code-block__height-toggle-button.mock-focus::before, .hds-code-block__height-toggle-button:focus-visible::before,
