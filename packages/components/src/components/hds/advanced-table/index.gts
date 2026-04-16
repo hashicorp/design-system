@@ -198,6 +198,7 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
           | 'columnOrder'
           | 'data'
           | 'depth'
+          | 'didInsert'
           | 'displayRow'
           | 'hasStickyColumn'
           | 'isLastRow'
@@ -206,7 +207,6 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
           | 'isStickyColumnPinned'
           | 'onSelectionChange'
           | 'selectionScope'
-          | 'didInsert'
           | 'willDestroy'
         >;
         Th?: WithBoundArgs<
@@ -215,11 +215,10 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
           | 'isExpandable'
           | 'isExpanded'
           | 'isStickyColumn'
-          | 'newLabel'
-          | 'scope'
-          | 'isStickyColumn'
           | 'isStickyColumnPinned'
+          | 'newLabel'
           | 'onClickToggle'
+          | 'scope'
         >;
         data: T;
         rowIndex?: number | string;
