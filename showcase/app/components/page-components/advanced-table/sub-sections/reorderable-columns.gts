@@ -309,7 +309,6 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
               (or (eq C.columnKey "attached_policies") (eq C.columnKey "tags"))
             }}
               <HdsLayoutFlex @align="center" @gap="4">
-                {{! @glint-expect-error}}
                 {{#each C.content as |content|}}
                   <HdsBadge
                     @text={{content}}
