@@ -1,2 +1,2 @@
 button:
-  aria-label: Copy {textToCopy}
+  aria-label: copy {textToCopy}
