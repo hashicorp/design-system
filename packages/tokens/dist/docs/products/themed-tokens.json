@@ -15211,6 +15211,390 @@
         "horizontal"
       ]
     },
+    "token-reveal-button-padding-top": {
+      "key": "{reveal.button.padding.top:}",
+      "$type": "dimension",
+      "$value": "5px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "9px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "9px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "9px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "9px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "5",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.top:}"
+      },
+      "name": "token-reveal-button-padding-top",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "top:"
+      ]
+    },
+    "token-reveal-button-padding-right": {
+      "key": "{reveal.button.padding.right}",
+      "$type": "dimension",
+      "$value": "5px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "5",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.right}"
+      },
+      "name": "token-reveal-button-padding-right",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "right"
+      ]
+    },
+    "token-reveal-button-padding-bottom": {
+      "key": "{reveal.button.padding.bottom}",
+      "$type": "dimension",
+      "$value": "5px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "9px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "9px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "9px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "9px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "5",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.bottom}"
+      },
+      "name": "token-reveal-button-padding-bottom",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-reveal-button-padding-left": {
+      "key": "{reveal.button.padding.left}",
+      "$type": "dimension",
+      "$value": "3px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "3",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "3",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "3",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.left}"
+      },
+      "name": "token-reveal-button-padding-left",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "left"
+      ]
+    },
     "token-rich-tooltip-bubble-max-width": {
       "key": "{rich-tooltip.bubble.max-width}",
       "$type": "dimension",
@@ -34336,6 +34720,390 @@
         "child",
         "spacing",
         "horizontal"
+      ]
+    },
+    "token-reveal-button-padding-top": {
+      "key": "{reveal.button.padding.top:}",
+      "$type": "dimension",
+      "$value": "10px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "{button.padding.vertical.medium}",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.top:}"
+      },
+      "name": "token-reveal-button-padding-top",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "top:"
+      ]
+    },
+    "token-reveal-button-padding-right": {
+      "key": "{reveal.button.padding.right}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.right}"
+      },
+      "name": "token-reveal-button-padding-right",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "right"
+      ]
+    },
+    "token-reveal-button-padding-bottom": {
+      "key": "{reveal.button.padding.bottom}",
+      "$type": "dimension",
+      "$value": "10px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "{button.padding.vertical.medium}",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.bottom}"
+      },
+      "name": "token-reveal-button-padding-bottom",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-reveal-button-padding-left": {
+      "key": "{reveal.button.padding.left}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "3",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "3",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.left}"
+      },
+      "name": "token-reveal-button-padding-left",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "left"
       ]
     },
     "token-rich-tooltip-bubble-max-width": {
@@ -53465,6 +54233,390 @@
         "horizontal"
       ]
     },
+    "token-reveal-button-padding-top": {
+      "key": "{reveal.button.padding.top:}",
+      "$type": "dimension",
+      "$value": "10px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "{button.padding.vertical.medium}",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.top:}"
+      },
+      "name": "token-reveal-button-padding-top",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "top:"
+      ]
+    },
+    "token-reveal-button-padding-right": {
+      "key": "{reveal.button.padding.right}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.right}"
+      },
+      "name": "token-reveal-button-padding-right",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "right"
+      ]
+    },
+    "token-reveal-button-padding-bottom": {
+      "key": "{reveal.button.padding.bottom}",
+      "$type": "dimension",
+      "$value": "10px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "{button.padding.vertical.medium}",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.bottom}"
+      },
+      "name": "token-reveal-button-padding-bottom",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-reveal-button-padding-left": {
+      "key": "{reveal.button.padding.left}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "3",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "3",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.left}"
+      },
+      "name": "token-reveal-button-padding-left",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "left"
+      ]
+    },
     "token-rich-tooltip-bubble-max-width": {
       "key": "{rich-tooltip.bubble.max-width}",
       "$type": "dimension",
@@ -72592,6 +73744,390 @@
         "horizontal"
       ]
     },
+    "token-reveal-button-padding-top": {
+      "key": "{reveal.button.padding.top:}",
+      "$type": "dimension",
+      "$value": "10px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "{button.padding.vertical.medium}",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.top:}"
+      },
+      "name": "token-reveal-button-padding-top",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "top:"
+      ]
+    },
+    "token-reveal-button-padding-right": {
+      "key": "{reveal.button.padding.right}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.right}"
+      },
+      "name": "token-reveal-button-padding-right",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "right"
+      ]
+    },
+    "token-reveal-button-padding-bottom": {
+      "key": "{reveal.button.padding.bottom}",
+      "$type": "dimension",
+      "$value": "10px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "{button.padding.vertical.medium}",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.bottom}"
+      },
+      "name": "token-reveal-button-padding-bottom",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-reveal-button-padding-left": {
+      "key": "{reveal.button.padding.left}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "3",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "3",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.left}"
+      },
+      "name": "token-reveal-button-padding-left",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "left"
+      ]
+    },
     "token-rich-tooltip-bubble-max-width": {
       "key": "{rich-tooltip.bubble.max-width}",
       "$type": "dimension",
@@ -91717,6 +93253,390 @@
         "child",
         "spacing",
         "horizontal"
+      ]
+    },
+    "token-reveal-button-padding-top": {
+      "key": "{reveal.button.padding.top:}",
+      "$type": "dimension",
+      "$value": "10px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "{button.padding.vertical.medium}",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.top:}"
+      },
+      "name": "token-reveal-button-padding-top",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "top:"
+      ]
+    },
+    "token-reveal-button-padding-right": {
+      "key": "{reveal.button.padding.right}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.right}"
+      },
+      "name": "token-reveal-button-padding-right",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "right"
+      ]
+    },
+    "token-reveal-button-padding-bottom": {
+      "key": "{reveal.button.padding.bottom}",
+      "$type": "dimension",
+      "$value": "10px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "5",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "10px",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "{button.padding.vertical.medium}",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "5",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "{button.padding.vertical.medium}",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.bottom}"
+      },
+      "name": "token-reveal-button-padding-bottom",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-reveal-button-padding-left": {
+      "key": "{reveal.button.padding.left}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "$value": "3",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g0": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g10": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g90": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        },
+        "cds-g100": {
+          "$value": "16",
+          "unit": "px",
+          "filePath": "src/products/shared/reveal.json",
+          "isSource": true,
+          "$type": "dimension"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "$value": "3",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g0": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g10": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g90": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          },
+          "cds-g100": {
+            "$value": "16",
+            "unit": "px",
+            "filePath": "src/products/shared/reveal.json",
+            "isSource": true,
+            "$type": "dimension"
+          }
+        },
+        "key": "{reveal.button.padding.left}"
+      },
+      "name": "token-reveal-button-padding-left",
+      "attributes": {
+        "category": "reveal"
+      },
+      "path": [
+        "reveal",
+        "button",
+        "padding",
+        "left"
       ]
     },
     "token-rich-tooltip-bubble-max-width": {
