@@ -134,7 +134,7 @@
   --token-button-typography-line-height-small: 1.2858;
   --token-card-surface-color-primary: #f4f4f4;
   --token-card-surface-color-secondary: #ffffff;
-  --token-code-block-color-border-primary: rgba(0, 0, 0, 0);
+  --token-code-block-color-border-primary: #c6c6c6;
   --token-code-block-color-border-strong: rgba(0, 0, 0, 0);
   --token-code-block-color-focus-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-color-focus-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
@@ -158,7 +158,7 @@
   --token-code-block-color-surface-primary-with-alpha: #f4f4f440;
   --token-code-block-color-surface-primary: #f4f4f4;
   --token-code-block-copy-button-surface-color-active: #c6c6c6;
-  --token-code-block-copy-button-surface-color-default: #f4f4f4;
+  --token-code-block-copy-button-surface-color-default: #e8e8e8;
   --token-code-block-copy-button-surface-color-hover: #e8e8e8;
   --token-code-block-line-highlight-border-color: #0f62fe;
   --token-code-block-line-highlight-surface-color: rgba(15, 98, 254, 0.1);

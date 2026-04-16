@@ -242,10 +242,10 @@
           "$value": "rgba(178, 182, 189, 0.2)",
           "$modes": {
             "default": "rgba(178, 182, 189, 0.2)",
-            "cds-g0": "transparent",
-            "cds-g10": "transparent",
-            "cds-g90": "transparent",
-            "cds-g100": "transparent"
+            "cds-g0": "{carbon.themes.white.borderSubtle01}",
+            "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+            "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+            "cds-g100": "{carbon.themes.g100.borderSubtle01}"
           }
         }
       },
@@ -298,10 +298,10 @@
             "$value": "{code-block.color.surface.faint}",
             "$modes": {
               "default": "{code-block.color.surface.faint}",
-              "cds-g0": "{carbon.themes.white.layer01}",
-              "cds-g10": "{carbon.themes.g10.layer01}",
-              "cds-g90": "{carbon.themes.g90.layer01}",
-              "cds-g100": "{carbon.themes.g100.layer01}"
+              "cds-g0": "{carbon.themes.white.layerHover01}",
+              "cds-g10": "{carbon.themes.g10.layerHover01}",
+              "cds-g90": "{carbon.themes.g90.layerHover01}",
+              "cds-g100": "{carbon.themes.g100.layerHover01}"
             }
           },
           "hover": {
