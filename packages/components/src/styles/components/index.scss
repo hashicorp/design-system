@@ -5,6 +5,9 @@
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENTS CSS FILES IMPORTS
+
+// CDS WRAPPER COMPONENTS
+@use "../components/cds-button";
 @use "./accordion";
 @use "./advanced-table";
 @use "./alert";
@@ -19,6 +22,7 @@
 @use "./button";
 @use "./button-set";
 @use "./card";
+@use "./cds-badge";
 @use "./code-block";
 @use "./code-editor";
 @use "./copy";
@@ -48,8 +52,4 @@
 @use "./time";
 @use "./toast";
 @use "./tooltip";
-
-// CDS WRAPPER COMPONENTS
-@use "./cds-badge";
-
 // END COMPONENT CSS FILES IMPORTS

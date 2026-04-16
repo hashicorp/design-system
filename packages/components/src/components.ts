@@ -11,6 +11,7 @@
 
 // WEB COMPONENT TESTS
 export { default as HdsCdsBadge } from './components/hds/cds-badge/index.gts';
+export { default as HdsCdsButton } from './components/hds/cds-button/index.gts';
 
 // Accordion
 export { default as HdsAccordion } from './components/hds/accordion/index.gts';
