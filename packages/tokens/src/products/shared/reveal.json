@@ -1,0 +1,116 @@
+{
+  "reveal": {
+    "button": {
+      "padding": {
+        "top:": {
+          "$type": "dimension",
+          "$value": "5",
+          "unit": "px",
+          "$modes": {
+            "default": {
+              "$value": "5",
+              "unit": "px"
+            },
+            "cds-g0": {
+              "$value": "{button.padding.vertical.medium}",
+              "unit": "px"
+            },
+            "cds-g10": {
+              "$value": "{button.padding.vertical.medium}",
+              "unit": "px"
+            },
+            "cds-g90": {
+              "$value": "{button.padding.vertical.medium}",
+              "unit": "px"
+            },
+            "cds-g100": {
+              "$value": "{button.padding.vertical.medium}",
+              "unit": "px"
+            }
+          }
+        },
+        "right": {
+          "$type": "dimension",
+          "$value": "5",
+          "unit": "px",
+          "$modes": {
+            "default": {
+              "$value": "5",
+              "unit": "px"
+            },
+            "cds-g0": {
+              "$value": "16",
+              "unit": "px"
+            },
+            "cds-g10": {
+              "$value": "16",
+              "unit": "px"
+            },
+            "cds-g90": {
+              "$value": "16",
+              "unit": "px"
+            },
+            "cds-g100": {
+              "$value": "16",
+              "unit": "px"
+            }
+          }
+        },
+        "bottom": {
+          "$type": "dimension",
+          "$value": "5",
+          "unit": "px",
+          "$modes": {
+            "default": {
+              "$value": "5",
+              "unit": "px"
+            },
+            "cds-g0": {
+              "$value": "{button.padding.vertical.medium}",
+              "unit": "px"
+            },
+            "cds-g10": {
+              "$value": "{button.padding.vertical.medium}",
+              "unit": "px"
+            },
+            "cds-g90": {
+              "$value": "{button.padding.vertical.medium}",
+              "unit": "px"
+            },
+            "cds-g100": {
+              "$value": "{button.padding.vertical.medium}",
+              "unit": "px"
+            }
+          }
+        },
+        "left": {
+          "$type": "dimension",
+          "$value": "3",
+          "unit": "px",
+          "$modes": {
+            "default": {
+              "$value": "3",
+              "unit": "px"
+            },
+            "cds-g0": {
+              "$value": "16",
+              "unit": "px"
+            },
+            "cds-g10": {
+              "$value": "16",
+              "unit": "px"
+            },
+            "cds-g90": {
+              "$value": "16",
+              "unit": "px"
+            },
+            "cds-g100": {
+              "$value": "16",
+              "unit": "px"
+            }
+          }
+        }
+      }
+    }
+  }
+}
