@@ -53,6 +53,9 @@ import type { HdsFilterBarSignature } from '../filter-bar/index.gts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 
+// a flattened signature for the yielded `Tr` component
+// Replaces `WithBoundArgs` to prevent TS infinite recursion crashes
+// when processing deeply nested tree-grid data models.
 export interface YieldedHdsAdvancedTableTr<T> {
   Args: {
     isSelected?: boolean;
@@ -193,22 +196,7 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
     body?: [
       {
         Td?: WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>;
-        Tr?: WithBoundArgs<
-          typeof HdsAdvancedTableTr<T>,
-          | 'columnOrder'
-          | 'data'
-          | 'depth'
-          | 'didInsert'
-          | 'displayRow'
-          | 'hasStickyColumn'
-          | 'isLastRow'
-          | 'isParentRow'
-          | 'isSelectable'
-          | 'isStickyColumnPinned'
-          | 'onSelectionChange'
-          | 'selectionScope'
-          | 'willDestroy'
-        >;
+        Tr?: ComponentLike<YieldedHdsAdvancedTableTr<T>>;
         Th?: WithBoundArgs<
           typeof HdsAdvancedTableTh,
           | 'depth'
@@ -596,11 +584,10 @@ export default class HdsAdvancedTable<
     return classes.join(' ');
   }
 
-  asCellContent = (content: unknown): T[keyof T] => content as T[keyof T];
-  // casts a row from body.gts (Record<string, unknown>) to T so that `data=row.source`
+  // these bridge the gap between strict TS and dynamic Glimmer templates
   asRowData = (source: Record<string, unknown>): T => source as unknown as T;
   asScope = (scope: string): 'col' | 'row' => scope as 'col' | 'row';
-  // This forcefully severs the deep PrebindArgs evaluation
+  // flattens the row interface to fix the potentially infinite nesting of rows with children
   asTr = (comp: unknown) => comp as ComponentLike<YieldedHdsAdvancedTableTr<T>>;
 
   private _initializeExpandedRows(model: T[]) {
