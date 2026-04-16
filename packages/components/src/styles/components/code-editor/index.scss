@@ -100,17 +100,17 @@
     justify-content: center;
     height: 164px;
     color: var(--token-code-block-color-foreground-primary);
-    background-color: var(--token-code-block-copy-button-surface-color-default);
+    background-color: var(--token-code-block-button-surface-color-default);
   }
 
   .hds-button {
     color: var(--token-code-block-color-foreground-primary);
-    background-color: var(--token-code-block-color-surface-faint);
+    background-color: var(--token-code-block-button-surface-color-default);
     border: 1px solid var(--token-code-block-color-border-strong);
 
     &:focus,
     &:hover {
-      background-color: var(--token-code-block-copy-button-surface-color-hover);
+      background-color: var(--token-code-block-button-surface-color-hover);
       border-color: var(--token-code-block-color-focus-action-internal);
 
       &::before {
@@ -131,7 +131,7 @@
     }
 
     &:active {
-      background-color: var(--token-code-block-copy-button-surface-color-active);
+      background-color: var(--token-code-block-button-surface-color-active);
     }
 
     .hds-button__icon {

@@ -3953,15 +3953,15 @@ button.hds-button[href]::after {
   justify-content: center;
   height: 164px;
   color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-copy-button-surface-color-default);
+  background-color: var(--token-code-block-button-surface-color-default);
 }
 .hds-code-editor .hds-button {
   color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-color-surface-faint);
+  background-color: var(--token-code-block-button-surface-color-default);
   border: 1px solid var(--token-code-block-color-border-strong);
 }
 .hds-code-editor .hds-button:focus, .hds-code-editor .hds-button:hover {
-  background-color: var(--token-code-block-copy-button-surface-color-hover);
+  background-color: var(--token-code-block-button-surface-color-hover);
   border-color: var(--token-code-block-color-focus-action-internal);
 }
 .hds-code-editor .hds-button:focus::before, .hds-code-editor .hds-button:hover::before {
@@ -3984,7 +3984,7 @@ button.hds-button[href]::after {
 }
 
 .hds-code-editor .hds-button:active {
-  background-color: var(--token-code-block-copy-button-surface-color-active);
+  background-color: var(--token-code-block-button-surface-color-active);
 }
 .hds-code-editor .hds-button .hds-button__icon {
   color: var(--token-code-block-color-foreground-primary);
