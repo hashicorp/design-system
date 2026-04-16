@@ -12,6 +12,7 @@ import { HdsCopySnippetColorValues } from './types.ts';
 import HdsTextCode from '../../text/code.gts';
 import HdsIcon from '../../icon/index.gts';
 import hdsClipboard from '../../../../modifiers/hds-clipboard.ts';
+import hdsT from '../../../../helpers/hds-t.ts';
 
 import type { HdsCopySnippetColors } from './types.ts';
 import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
@@ -149,7 +150,11 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
         onSuccess=this.onSuccess
         onError=this.onError
       }}
-      aria-label={{concat "copy " @textToCopy}}
+      aria-label={{hdsT
+        "hds.components.copy-snippet.button.aria-label"
+        textToCopy=@textToCopy
+        default=(concat "copy " @textToCopy)
+      }}
       ...attributes
     >
       <HdsTextCode class="hds-copy-snippet__text" @tag="span" @size="100">
