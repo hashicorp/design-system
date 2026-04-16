@@ -140,9 +140,9 @@ export type HdsAdvancedTableColumnReorderCallback = ({
   insertedAt: number;
 }) => void;
 
-export interface HdsAdvancedTableCell {
+export interface HdsAdvancedTableCell<T = unknown> {
   columnKey: string;
-  content: unknown;
+  content: (T extends object ? T[keyof T] : unknown) | undefined;
 }
 
 export enum HdsAdvancedTableColumnReorderSideValues {

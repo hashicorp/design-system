@@ -19,7 +19,7 @@ import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type { HdsAdvancedTableSignature } from './index.gts';
 import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.gts';
 
-export interface BaseHdsAdvancedTableTrSignature {
+export interface BaseHdsAdvancedTableTrSignature<T> {
   Args: {
     columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
     displayRow?: boolean;
@@ -29,7 +29,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     isSelected?: boolean;
     isParentRow?: boolean;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
-    data?: Record<string, unknown>;
+    data?: T;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope?: HdsAdvancedTableScope;
@@ -51,7 +51,7 @@ export interface BaseHdsAdvancedTableTrSignature {
   Blocks: {
     default?: [
       {
-        orderedCells?: HdsAdvancedTableCell[];
+        orderedCells?: HdsAdvancedTableCell<T>[];
       },
     ];
   };
@@ -75,10 +75,12 @@ export interface BaseHdsAdvancedTableTrSignature {
 // }
 
 // Union type to combine both possible states
-export type HdsAdvancedTableTrSignature = BaseHdsAdvancedTableTrSignature;
+export type HdsAdvancedTableTrSignature<T> = BaseHdsAdvancedTableTrSignature<T>;
 // | SelectableHdsAdvancedTableTrArgs;
 
-export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
+export default class HdsAdvancedTableTr<T> extends Component<
+  HdsAdvancedTableTrSignature<T>
+> {
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(
@@ -113,20 +115,20 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
     return classes.join(' ');
   }
 
-  get cells(): HdsAdvancedTableCell[] {
+  get cells(): HdsAdvancedTableCell<T>[] {
     const { columnOrder, data } = this.args;
 
-    if (columnOrder === undefined || data === undefined) {
+    if (columnOrder === undefined || data == null) {
       return [];
     }
 
     return columnOrder.map((columnKey) => ({
       columnKey,
-      content: data[columnKey],
+      content: data[columnKey as keyof T] as HdsAdvancedTableCell<T>['content'],
     }));
   }
 
-  get orderedCells(): HdsAdvancedTableCell[] | undefined {
+  get orderedCells(): HdsAdvancedTableCell<T>[] | undefined {
     const { columnOrder, data, hasReorderableColumns } = this.args;
 
     if (columnOrder === undefined || data === undefined) {
@@ -134,18 +136,15 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
     }
 
     if (hasReorderableColumns) {
-      return columnOrder.reduce<{ columnKey: string; content: unknown }[]>(
-        (acc, key) => {
-          const cell = this.cells.find((cell) => cell.columnKey === key);
+      return columnOrder.reduce<HdsAdvancedTableCell<T>[]>((acc, key) => {
+        const cell = this.cells.find((cell) => cell.columnKey === key);
 
-          if (cell !== undefined) {
-            acc.push(cell);
-          }
+        if (cell !== undefined) {
+          acc.push(cell);
+        }
 
-          return acc;
-        },
-        []
-      );
+        return acc;
+      }, []);
     } else {
       return this.cells;
     }
