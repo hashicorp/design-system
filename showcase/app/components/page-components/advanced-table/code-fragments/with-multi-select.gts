@@ -76,7 +76,6 @@ export default class CodeFragmentWithMultiSelect extends Component<CodeFragmentW
           {{#if @hasReorderableColumns}}
             {{#each R.orderedCells as |C|}}
               <B.Td>
-                {{! @glint-expect-error}}
                 {{C.content}}
               </B.Td>
             {{/each}}

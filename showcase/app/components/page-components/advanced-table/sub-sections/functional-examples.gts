@@ -300,7 +300,6 @@ export default class SubSectionFunctionalExamples extends Component {
       <:body as |B|>
         <B.Tr as |R|>
           {{#each R.orderedCells as |C|}}
-            {{! @glint-expect-error}}
             <B.Td>{{C.content}}</B.Td>
           {{/each}}
         </B.Tr>
