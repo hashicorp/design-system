@@ -8,11 +8,11 @@ import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/cds-badge/index', function (hooks) {
+module('Integration | Component | hds/cds-button/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::CdsBadge id="test-cds-badge" />`);
-    assert.dom('#test-cds-badge').hasClass('hds-cds-badge');
+    await render(hbs`<Hds::CdsButton id="test-cds-button" />`);
+    assert.dom('#test-cds-button').hasClass('hds-cds-button');
   });
 });
