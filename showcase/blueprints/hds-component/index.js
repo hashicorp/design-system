@@ -53,7 +53,7 @@ const updateHDSComponentsCSS = (options) => {
     firstComponentImportIndex,
     lastComponentImportIndex + 1,
   );
-  importLinesArray.push(`@use "../components/${name}";`);
+  importLinesArray.push(`@use "./${name}";`);
   const newImportLinesArray = importLinesArray
     .filter((line, index, self) => self.indexOf(line) === index)
     .sort();
