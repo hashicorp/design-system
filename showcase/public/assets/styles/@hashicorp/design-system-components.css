@@ -4238,6 +4238,8 @@ button.hds-button[href]::after {
   word-spacing: normal;
   tab-size: 4;
   hyphens: none;
+  font-size: var(--token-code-block-typography-font-size);
+  font-family: var(--token-typography-code-200-font-family);
 }
 @media print {
   .hds-code-block pre,
@@ -4351,8 +4353,6 @@ button.hds-button[href]::after {
   position: relative;
   display: inline-block;
   padding-right: 16px;
-  font-size: var(--token-code-block-typography-font-size);
-  font-family: var(--token-typography-code-200-font-family);
 }
 
 .hds-code-block__height-toggle-button,

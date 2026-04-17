@@ -28,6 +28,10 @@ $hds-code-block-code-footer-height: 48px;
 
   pre,
   code {
+    // Note: Prism.js calculates line highlighting based on either the pre or code element depending on the presence of line numbers,
+    // Because of this font styles need to be the set on both elements.
+    font-size: var(--token-code-block-typography-font-size);
+    font-family: var(--token-typography-code-200-font-family);
     line-height: 1.4286;
     white-space: pre;
     text-align: left;
@@ -154,8 +158,6 @@ $hds-code-block-code-footer-height: 48px;
     position: relative;
     display: inline-block;
     padding-right: $hds-code-block-code-padding;
-    font-size: var(--token-code-block-typography-font-size);
-    font-family: var(--token-typography-code-200-font-family);
   }
 }
 
