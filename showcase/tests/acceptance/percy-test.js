@@ -235,6 +235,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/cds-button');
     await percySnapshot('CdsButton');
 
+    await visit('/components/cds-link');
+    await percySnapshot('CdsLink');
+
     // DO NOT REMOVE – PERCY SNAPSHOTS END
 
     assert.ok(true);
