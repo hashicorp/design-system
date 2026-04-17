@@ -1,7 +1,7 @@
 // SHOWCASE COLORS > LIGHT/DARK THEMES
 
 @use "./light-color-variables" as *;
-// @use "./dark-color-variables" as *;
+@use "./dark-color-variables" as *;
 
 // DEFAULT
 
@@ -17,8 +17,25 @@
   }
 }
 
-// @media (prefers-color-scheme: dark) {
-//   .hds-theme-system {
-//     @include shw-theme-color-variables-dark();
-//   }
-// }
+@media (prefers-color-scheme: dark) {
+  .hds-theme-system {
+    @include shw-theme-color-variables-dark();
+  }
+}
+
+// CSS SELECTORS
+
+// after testing different options, we have decided to rely on `hds-` selectors instead of custom `shw-` selectors
+// to avoid extra un-necessary complexity (see different attempts in https://github.com/hashicorp/design-system/pull/3240)
+
+.hds-theme-light,
+.hds-mode-cds-g0,
+.hds-mode-cds-g10 {
+  @include shw-theme-color-variables-light();
+}
+
+.hds-theme-dark,
+.hds-mode-cds-g90,
+.hds-mode-cds-g100 {
+  @include shw-theme-color-variables-dark();
+}

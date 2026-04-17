@@ -4,7 +4,6 @@
  */
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-
 import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
