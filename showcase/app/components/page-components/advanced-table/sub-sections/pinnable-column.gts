@@ -29,7 +29,6 @@ const SubSectionPinnableColumns: TemplateOnlyComponent = <template>
                 >
                   <HdsAdvancedTable
                     @isSelectable={{selectableBool}}
-                    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                     @model={{USER_DATA_SHORT}}
                     @columns={{array
                       (hash key="id" label="ID" isSortable=sortableBool)
@@ -40,15 +39,10 @@ const SubSectionPinnableColumns: TemplateOnlyComponent = <template>
                     @hasStickyFirstColumn={{stickyBool}}
                   >
                     <:body as |B|>
-                      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                       <B.Tr @selectionKey="{{B.data.id}}">
-                        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                         <B.Th>{{B.data.id}}</B.Th>
-                        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                         <B.Td>{{B.data.name}}</B.Td>
-                        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                         <B.Td>{{B.data.email}}</B.Td>
-                        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                         <B.Td>{{B.data.role}}</B.Td>
                       </B.Tr>
                     </:body>
