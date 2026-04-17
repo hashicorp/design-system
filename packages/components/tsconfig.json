@@ -1,6 +1,6 @@
 {
   "extends": "@tsconfig/ember",
-  "include": ["src/**/*", "unpublished-development-types/**/*"],
+  "include": ["src/**/*"],
   "compilerOptions": {
     "allowJs": true,
     "declaration": true,
