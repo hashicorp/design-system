@@ -6,10 +6,10 @@ A filtering pattern consists of a number of Helios components that work together
 
 A data set is a broad term for an array of items, objects, or related information presented as separate but related records. A data set is commonly represented via a [Table](/components/table/table) or [Advanced Table](/components/table/advanced-table) but may be expressed in other formats depending on the type of information.
 
-![Data set implemented using HDS Table component](/assets/patterns/filter-patterns/example-data-set-tabular-data.png =1048x*)
+![](/assets/patterns/filter-patterns/example-data-set-tabular-data.png =1048x*)
 <Doc::ImageCaption @text="Data set represented by a table"/>
 
-![Data set implemented using a grid of multiple HDS Card components ](/assets/patterns/filter-patterns/example-data-set-non-tabular-data.png =878x*)
+![](/assets/patterns/filter-patterns/example-data-set-non-tabular-data.png =878x*)
 <Doc::ImageCaption @text="Data set represented by a grid"/>
 
 ### Filters
@@ -40,29 +40,29 @@ If space permits, filters can be positioned vertically in a **sidebar** at the p
 
 Page-level sidebars can be used to filter a data set presented in a non-tabular fashion and if filtering the content of the entire page is required. A sidebar should be oriented on the left (start) side of the viewport.
 
-![Vertical orientation of the filter bar](/assets/patterns/filter-patterns/layout-sidebar-left-page-level.png =559x*)
+![](/assets/patterns/filter-patterns/layout-sidebar-left-page-level.png =559x*)
 
 ##### In-line sidebar
 
 In-line sidebars can be used when the number of filterable parameters is minimal and if space permits.
 
-![Vertical orientation of the filter bar on the left](/assets/patterns/filter-patterns/layout-sidebar-left-inline.png =559x*)
+![](/assets/patterns/filter-patterns/layout-sidebar-left-inline.png =559x*)
 
 ### Applied filters
 
 Display the **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
-![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =547x*)
+![](/assets/patterns/filter-patterns/applied-filters.png =547x*)
 
 #### Positioning with filter bars
 
 Applied filters should be positioned between the data set and the filter bar with a `16px` gap between elements.
 
-![Applied filters with filter bar positioning](/assets/patterns/filter-patterns/applied-filters-positioning-filter-bar.png =559x*)
+![](/assets/patterns/filter-patterns/applied-filters-positioning-filter-bar.png =559x*)
 
 If the filters are positioned in a page-level sidebar, the applied filters should be positioned directly above the dataset with a `16px` gap.
 
-![Applied filters with filter sidebar](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar.png =559x*)
+![](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar.png =559x*)
 
 ### Global filter functions
 
@@ -83,7 +83,7 @@ In the case a multiple filter functions, use the [Segmented Group](/components/s
 
 Use pagination to break down the filtered data set into pages. For more details, refer to the [Pagination](/components/pagination) guidelines.
 
-![Pagination example](/assets/patterns/filter-patterns/pagination-layout.png =559x*)
+![](/assets/patterns/filter-patterns/pagination-layout.png =559x*)
 
 ## Filtering methods
 
@@ -129,7 +129,7 @@ Communicate that values corresponding with a filter parameter have been applied 
 ![Filter bar with multiple filters selected from one parameter shows badges for each selected filter below](/assets/patterns/filter-patterns/filter-bar-dropdown-count.png =661x*)
 <Doc::ImageCaption @text="Communicating that two values within a parameter have been applied in the Dropdown"/>
 
-This, when combined with the applied filters provides a detailed snapshot of what specific filter values are applied to the data set and the relevant parameters that they correspond with.
+This, when combined with the applied filters, provides a detailed snapshot of what specific filter values are applied to the data set and the relevant parameters that they correspond with.
 
 ![Filter bar with multiple filters selected from multiple parameter shows badges for each selected filter below](/assets/patterns/filter-patterns/filter-bar-dropdown-count-multiple.png =728x*)
 <Doc::ImageCaption @text="Communicating that multiple filter parameters have been applied"/>
@@ -147,13 +147,13 @@ Depending on the applied filters, there may not be any records returned from a d
 
 Use the Helios [Application State](/components/application-state) component to communicate the lack of results and steps the user can take to remedy the situation.
 
-![Empty state example](/assets/patterns/filter-patterns/filter-patterns-empty-state.png =559x*)
+![](/assets/patterns/filter-patterns/filter-patterns-empty-state.png =559x*)
 
 ### Within applied filters
 
 If no filters have been applied, use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions. Not only does this provide context and direct the user to the filters, but it prevents unnecessary layout shift upon applying filters.
 
-![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
+![](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 
 ### Avoiding an empty state
 
@@ -163,7 +163,7 @@ If technically feasible, use the `count` property within the Dropdown ListItem t
 
 In this example, "Status > Pending" does not return any results.
 
-![Count property in ListItem](/assets/patterns/filter-patterns/avoid-empty-state-list-item-count.png)
+![](/assets/patterns/filter-patterns/avoid-empty-state-list-item-count.png)
 
 ### Reverting filters
 
@@ -187,9 +187,9 @@ These scenarios can clutter the UI, detracting from a table's primary purpose: o
 
 For simple data sets or Tables with a few columns, managing filter overflow may not be necessary. As more filters are applied, wrapping to new lines follows a common browser reflow pattern. This approach is predictable: the user's explicit filter action is directly reflected in the UI, providing positive reinforcement and allowing easy scanning of applied filters.
 
-![Basic example of applied filters and reflow](/assets/patterns/filter-patterns/applied-filters-overflow-basic-example.png)
+![](/assets/patterns/filter-patterns/applied-filters-overflow-basic-example.png)
 
-<Doc::ImageCaption @text="Allowing applied filters to wrap and reflow naturally." />
+<Doc::ImageCaption @text="Allow applied filters to wrap and reflow naturally." />
 
 #### Intermediate example
 
@@ -201,9 +201,9 @@ In this scenario, consider moving the applied filter [Tags](/components/tag) to 
 - Simplifies the UI, reducing cognitive load
 - Supports complex, interactive content within the Accordion (e.g., a "Clear all filters" function)
 
-![Intermediate example of applied filters within an open Accordion](/assets/patterns/filter-patterns/applied-filters-overflow-intermediate-example-open.png)
+![](/assets/patterns/filter-patterns/applied-filters-overflow-intermediate-example-open.png)
 
-<Doc::ImageCaption @text="Moving the applied filters to an Accordion." />
+<Doc::ImageCaption @text="Moving the applied filters to an Accordion can help to simplify a UI" />
 
 ### Filter parameters overflow
 
@@ -214,19 +214,19 @@ In complex data sets with numerous filterable parameters, considering establishi
 
 This approach offers a scalable solution for highly complex data sets while communicating a natural hierarchy of filter importance.
 
-![Trigger the overflow of filter parameters with a Button](/assets/patterns/filter-patterns/filter-parameters-overflow-more-filters.png)
+![](/assets/patterns/filter-patterns/filter-parameters-overflow-more-filters.png)
 
-<Doc::ImageCaption @text="Use a secondary Button to trigger a Flyout." />
+<Doc::ImageCaption @text="Use a secondary Button to trigger a Flyout to handle scenarios where there are many filter options" />
 
-![Display the overflow of filter parameters within a Flyout](/assets/patterns/filter-patterns/filter-parameters-overflow-flyout.png)
+![](/assets/patterns/filter-patterns/filter-parameters-overflow-flyout.png)
 
-<Doc::ImageCaption @text="Display the overflow of filter parameters in a Flyout" />
+<Doc::ImageCaption @text="Too many filter options? Display them in a Flyout" />
 
 #### Accordions within a Flyout
 
 For excessive filter parameters causing a long scroll in the [Flyout](/components/flyout), consider placing each parameter in a `flush`, `small` [Accordion](/components/accordion), and optionally, add an "Expand/Collapse All" Button. This approach gives users more control over the UI and allows for visual comparison between filter parameters.
 
-![Accordions within a Flyout containing filter parameters](/assets/patterns/filter-patterns/filter-parameters-overflow-flyout-accordion.png)
+![](/assets/patterns/filter-patterns/filter-parameters-overflow-flyout-accordion.png)
 
 <Doc::ImageCaption @text="Use Accordions within a Flyout to support an excessive number of filter parameters." />
 
@@ -237,7 +237,7 @@ A holistic approach to supporting overflow in a filter pattern will consist of:
 1. A filter bar with high-impact parameters, plus a secondary [Button](/components/button) that triggers a [Flyout](/components/flyout) for less common filters.
 2. An Accordion displaying all applied filters with a bulk dismiss option.
 
-![A holistic filter pattern support overflow](/assets/patterns/filter-patterns/filter-overflow-holistic-example.png)
+![](/assets/patterns/filter-patterns/filter-overflow-holistic-example.png)
 
 This contextual example demonstrates a comprehensive yet simple method of composing multiple Helios components to support these overflow concepts. It is interactive but doesn't include any functional logic.
 
