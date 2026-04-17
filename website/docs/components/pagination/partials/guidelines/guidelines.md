@@ -11,7 +11,7 @@
 
 ## Numbered vs Compact
 
-!!! Callout 
+!!! Callout
 
 We strongly suggest that you talk to your engineering team to see which pagination variant is right for your project.
 
@@ -23,10 +23,10 @@ Cursor-based pagination allows users to navigate to the next or previous set of 
 
 Offset or page-based pagination divides a dataset into pages containing a default or user-determined number of records, and allows users navigate to any particular page. In most cases, the numbered pagination provides a better user experience. It allows users to jump between pages and always return to the first page or go to the last page without navigating through the pages manually.
 
-![Supported by offset (page-based) pagination.](/assets/components/pagination/pagination-offset-example.png)
+![](/assets/components/pagination/pagination-offset-example.png)
 <Doc::ImageCaption @text="Supported by offset (page-based) pagination."/>
 
-![Supported by offset and cursor based pagination.](/assets/components/pagination/pagination-cursor-example.png)
+![](/assets/components/pagination/pagination-cursor-example.png)
 <Doc::ImageCaption @text="Supported by offset and cursor based pagination."/>
 
 ## Truncation
@@ -69,10 +69,10 @@ When pairing the pagination or pagination bar with your content, we recommend le
 
 If your product uses a significantly higher or lower spacing scale, increase or decrease the spacing accordingly.
 
-![Pagination paired with a Table](/assets/components/pagination/pagination-spacing-tables.png)
+![](/assets/components/pagination/pagination-spacing-tables.png)
 <Doc::ImageCaption @text="Pagination paired with a Table"/>
 
-![Pagination paired with other types of content](/assets/components/pagination/pagination-spacing-not-contained.png)
+![](/assets/components/pagination/pagination-spacing-not-contained.png)
 <Doc::ImageCaption @text="Pagination paired with other types of content"/>
 
 ## Pagination and filtering
