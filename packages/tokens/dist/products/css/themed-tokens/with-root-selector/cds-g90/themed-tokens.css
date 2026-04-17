@@ -134,6 +134,36 @@
   --token-button-typography-line-height-small: 1.2858;
   --token-card-surface-color-primary: #393939;
   --token-card-surface-color-secondary: #525252;
+  --token-code-block-button-surface-color-active: #6f6f6f;
+  --token-code-block-button-surface-color-default: #474747;
+  --token-code-block-button-surface-color-hover: #474747;
+  --token-code-block-color-border-primary: #6f6f6f;
+  --token-code-block-color-border-strong: rgba(0, 0, 0, 0);
+  --token-code-block-color-focus-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-focus-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-foreground-action-active: #78a9ff;
+  --token-code-block-color-foreground-action-hover: #a6c8ff;
+  --token-code-block-color-foreground-action: #78a9ff;
+  --token-code-block-color-foreground-faint: #c6c6c6;
+  --token-code-block-color-foreground-interactive-active: #f4f4f4;
+  --token-code-block-color-foreground-interactive-hover: #f4f4f4;
+  --token-code-block-color-foreground-interactive: #f4f4f4;
+  --token-code-block-color-foreground-primary: #f4f4f4;
+  --token-code-block-color-palette-blue: #a6c8ff;
+  --token-code-block-color-palette-cyan: #82cfff;
+  --token-code-block-color-palette-green: #6fdc8c;
+  --token-code-block-color-palette-orange: #ff832b;
+  --token-code-block-color-palette-purple: #d4bbff;
+  --token-code-block-color-palette-red: #ffafd2;
+  --token-code-block-color-palette-yellow: #f1c21b;
+  --token-code-block-color-surface-faint: #393939;
+  --token-code-block-color-surface-interactive-active: #6f6f6f;
+  --token-code-block-color-surface-primary-with-alpha: #39393940;
+  --token-code-block-color-surface-primary: #393939;
+  --token-code-block-line-highlight-border-color: #f4f4f4;
+  --token-code-block-line-highlight-surface-color: rgba(255, 255, 255, 0.1);
+  --token-code-block-line-numbers-border-color: #6f6f6f;
+  --token-code-block-typography-font-size: 0.75rem;
   --token-color-border-action: #4589ff;
   --token-color-border-critical: #fa4d56;
   --token-color-border-faint: #525252;

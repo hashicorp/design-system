@@ -8,6 +8,7 @@
 //
 
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 // Note: "theme" contains just color variables and syntax highlighting styles
 @use "theme";
@@ -21,12 +22,16 @@ $hds-code-block-code-footer-height: 48px;
 
 .hds-code-block {
   position: relative;
-  color: var(--hds-code-block-color-foreground-primary);
-  background-color: var(--hds-code-block-color-surface-primary);
-  border: 1px solid var(--hds-code-block-color-border-strong);
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-color-surface-primary);
+  border: 1px solid var(--token-code-block-color-border-strong);
 
   pre,
   code {
+    // Note: Prism.js calculates line highlighting based on either the pre or code element depending on the presence of line numbers,
+    // Because of this font styles need to be the set on both elements.
+    font-size: var(--token-code-block-typography-font-size);
+    font-family: var(--token-typography-code-200-font-family);
     line-height: 1.4286;
     white-space: pre;
     text-align: left;
@@ -66,11 +71,11 @@ $hds-code-block-code-footer-height: 48px;
 // Header (contains title & description)
 
 .hds-code-block__title {
-  color: var(--hds-code-block-color-foreground-primary);
+  color: var(--token-code-block-color-foreground-primary);
 }
 
 .hds-code-block__description {
-  color: var(--hds-code-block-color-foreground-faint);
+  color: var(--token-code-block-color-foreground-faint);
 }
 
 .hds-code-block__header {
@@ -78,8 +83,8 @@ $hds-code-block-code-footer-height: 48px;
   flex-direction: column;
   gap: 4px;
   padding: 8px $hds-code-block-code-padding;
-  background-color: var(--hds-code-block-color-surface-faint);
-  border-bottom: 1px solid var(--hds-code-block-color-border-primary);
+  background-color: var(--token-code-block-color-surface-faint);
+  border-bottom: 1px solid var(--token-code-block-color-border-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
@@ -103,7 +108,7 @@ $hds-code-block-code-footer-height: 48px;
 
   // Default styling for bare HTML links not using HDS::Link components
   a:not([class*="hds-"]) {
-    color: var(--hds-code-block-color-foreground-action);
+    color: var(--token-code-block-color-foreground-action);
 
     &:focus,
     &:focus-visible {
@@ -140,16 +145,19 @@ $hds-code-block-code-footer-height: 48px;
   border-radius: inherit;
 
   ::selection {
-    color: var(--hds-code-block-color-foreground-selection);
-    background-color: var(--hds-code-block-color-surface-selection);
+    color: var(--token-code-block-color-foreground-selection);
+    background-color: var(--token-code-block-color-surface-selection);
+
+    @include hds-apply-only-if-carbon() {
+      color: revert;
+      background-color: revert;
+    }
   }
 
   code {
     position: relative;
     display: inline-block;
     padding-right: $hds-code-block-code-padding;
-    font-size: 0.8125rem;
-    font-family: var(--token-typography-code-200-font-family);
   }
 }
 
@@ -157,37 +165,37 @@ $hds-code-block-code-footer-height: 48px;
 .hds-code-block__height-toggle-button,
 .hds-code-block__copy-button.hds-copy-button {
   // Overriding default colors
-  color: var(--hds-code-block-color-foreground-primary);
-  background-color: var(--hds-code-block-color-surface-faint);
-  border: 1px solid var(--hds-code-block-color-border-strong);
+  color: var(--token-code-block-color-foreground-primary);
+  background-color: var(--token-code-block-button-surface-color-default);
+  border: 1px solid var(--token-code-block-color-border-strong);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-code-block-color-foreground-primary);
-    background-color: var(--hds-code-block-color-surface-primary);
-    border-color: var(--hds-code-block-color-border-strong);
+    color: var(--token-code-block-color-foreground-primary);
+    background-color: var(--token-code-block-button-surface-color-hover);
+    border-color: var(--token-code-block-color-border-strong);
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-code-block-color-foreground-primary);
-    background-color: var(--hds-code-block-color-surface-interactive-active);
+    color: var(--token-code-block-color-foreground-primary);
+    background-color: var(--token-code-block-button-surface-color-active);
   }
 
   &:focus,
   &.mock-focus,
   &:focus-visible {
-    color: var(--hds-code-block-color-foreground-primary);
-    background-color: var(--hds-code-block-color-surface-faint);
-    border-color: var(--hds-code-block-color-focus-action-internal);
+    color: var(--token-code-block-color-foreground-primary);
+    background-color: var(--token-code-block-button-surface-color-default);
+    border-color: var(--token-code-block-color-focus-action-internal);
 
     &::before {
-      border-color: var(--hds-code-block-color-focus-action-external);
+      border-color: var(--token-code-block-color-focus-action-external);
     }
   }
 
   .hds-icon {
-    color: var(--hds-code-block-color-foreground-primary);
+    color: var(--token-code-block-color-foreground-primary);
   }
 }
 
@@ -199,13 +207,13 @@ $hds-code-block-code-footer-height: 48px;
 
   &.hds-copy-button--status-success {
     .hds-icon {
-      color: var(--hds-code-block-color-foreground-success);
+      color: var(--token-color-foreground-success);
     }
   }
 
   &.hds-copy-button--status-error {
     .hds-icon {
-      color: var(--hds-code-block-color-foreground-critical);
+      color: var(--token-color-foreground-critical);
     }
   }
 }
@@ -242,7 +250,7 @@ $hds-code-block-code-footer-height: 48px;
       min-width: $hds-code-block-line-numbers-width;
       min-height: 100%;
       padding: $hds-code-block-code-padding 0;
-      border-right: 1px solid var(--hds-code-block-color-border-primary);
+      border-right: 1px solid var(--token-code-block-color-border-primary);
       user-select: none;
       pointer-events: none;
 
@@ -269,11 +277,15 @@ $hds-code-block-code-footer-height: 48px;
     position: absolute;
     right: 0;
     left: -$hds-code-block-code-padding;
-    background-color: var(--hds-code-block-color-line-highlight);
-    border: solid var(--hds-code-block-color-line-highlight-border);
+    background-color: var(--token-code-block-line-highlight-surface-color);
+    border: solid var(--token-code-block-line-highlight-border-color);
     border-width: 1px 0 1px 4px;
     mix-blend-mode: screen;
     pointer-events: none;
+
+    @include hds-apply-only-if-carbon() {
+      mix-blend-mode: normal;
+    }
   }
 
   @media print {
@@ -327,9 +339,18 @@ $hds-code-block-code-footer-height: 48px;
     display: block;
     height: $hds-code-block-code-footer-height;
     margin: 0 0 -#{$hds-code-block-code-padding} -1000px; // cover line highlights when line numbers are enabled
-    background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
+    background: linear-gradient(
+      360deg,
+      var(--token-code-block-color-surface-primary) 37.07%,
+      var(--token-code-block-color-surface-primary-with-alpha) 100%
+    );
     content: "";
     pointer-events: none;
+
+    @include hds-apply-only-if-carbon() {
+      bottom: -$hds-code-block-code-padding - 2px; // account for transparent border
+      height: $hds-code-block-code-footer-height + 2px; // account for transparent border
+    }
   }
 
   .line-numbers .line-numbers-rows {
