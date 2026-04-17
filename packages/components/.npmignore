@@ -16,7 +16,6 @@
 /*.md
 /config*
 /ember-a11y-report*
-/unpublished-development-types*
 /src*
 /tmp*
 /babel.config.json
