@@ -22,6 +22,11 @@ const Index: TemplateOnlyComponent = <template>
             CdsButton
           </LinkTo>
         </li>
+        <li>
+          <LinkTo @route="web-component-tests.cds-link">
+            CdsLink
+          </LinkTo>
+        </li>
       </ol>
     </div>
 

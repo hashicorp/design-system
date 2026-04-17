@@ -199,6 +199,7 @@
       "./components/hds/card/container.js": "./dist/_app_/components/hds/card/container.js",
       "./components/hds/cds-badge.js": "./dist/_app_/components/hds/cds-badge.js",
       "./components/hds/cds-button.js": "./dist/_app_/components/hds/cds-button.js",
+      "./components/hds/cds-link.js": "./dist/_app_/components/hds/cds-link.js",
       "./components/hds/code-block/copy-button.js": "./dist/_app_/components/hds/code-block/copy-button.js",
       "./components/hds/code-block/description.js": "./dist/_app_/components/hds/code-block/description.js",
       "./components/hds/code-block.js": "./dist/_app_/components/hds/code-block.js",
