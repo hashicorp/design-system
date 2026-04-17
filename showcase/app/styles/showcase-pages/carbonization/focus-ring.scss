@@ -1,0 +1,47 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > FOCUS RING
+
+// ----
+
+body.page-carbonization-foundations-focus-ring {
+  .shw-component-sim-app-side-nav-list-link-wrapper {
+    margin: 0;
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
+    background: var(--token-app-side-nav-color-surface-primary);
+    border: 1px solid var(--token-app-side-nav-wrapper-border-color);
+  }
+
+  .shw-component-sim-toggle-button {
+    height: 80px;
+
+    .hds-app-side-nav__toggle-button {
+      position: relative;
+      transform: none;
+    }
+  }
+
+  .shw-component-advanced-table-reorder-handle-container {
+    position: relative;
+    width: 40px;
+
+    .hds-advanced-table__th-reorder-handle {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .shw-component-tabs-sample-ul-wrapper {
+    display: contents;
+    list-style: none;
+  }
+
+  .shw-component-tabs-selector-example {
+    position: relative;
+
+    .hds-tabs__tab-indicator {width: 100%;}
+  }
+}

@@ -36,7 +36,7 @@
   $right: 0,
   $bottom: 0,
   $left: 0,
-  $radius: 5px,
+  $radius: var(--token-border-radius-medium),
   $color: action,
   $position: relative
 ) {
@@ -90,7 +90,7 @@
   $right: 0,
   $bottom: 0,
   $left: 0,
-  $radius: 5px,
+  $radius: var(--token-border-radius-medium),
   $color: action,
   $position: relative
 ) {
