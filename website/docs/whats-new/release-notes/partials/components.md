@@ -12,103 +12,141 @@
   </a>
 </p>
 
+## 6.2.0
+
+**Minor changes**
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed typing for sticky first-column cells by exposing `isStickyColumn` in the yielded table-cell API and by passing an explicit `parentId` value when rendering row header cells.
+
+<!-- END -->
+
+<!-- START components/form/indicator -->
+
+`Form::Indicator` - Fixed invocation of `HdsTextBody` to use named arguments, which prevented incorrect argument forwarding.
+
+<!-- END -->
+
+<!-- START components/form/masked-input -->
+
+`Form::MaskedInput` - Fixed element typing to match the underlying control element (`input` or `textarea`) instead of a generic `HTMLElement`.
+
+<!-- END -->
+
+<!-- START components/form/textarea -->
+
+`Form::Textarea` - Fixed element typing to `HTMLTextAreaElement` for stricter and more accurate Glint checks.
+
+<!-- END -->
+
+<!-- START components/table/th-sort -->
+
+`Table::ThSort` - Fixed element typing to `HTMLTableCellElement` to reflect the actual rendered table-cell element.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3810](https://github.com/hashicorp/design-system/pull/3810) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START utilities/composite -->
+
+`Composite` - Added new component that provides accessible arrow key keyboard navigation for complex components such as Tabs and AdvancedTable.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3649](https://github.com/hashicorp/design-system/pull/3649)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Converted component and subcomponents to single-file gts format.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3797](https://github.com/hashicorp/design-system/pull/3797)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/copy/snippet-->
+
+`CopySnippet` - translated string for button aria-label
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3816](https://github.com/hashicorp/design-system/pull/3816)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.1.1
 
 [6.1.1 documentation](https://hds-website-6-1-1.vercel.app/)
 
 **Patch changes**
 
-
 `KeyValueInputs` - Translated strings for the KeyValueInputs AddRowButton ariaLabel and description text.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3681](https://github.com/hashicorp/design-system/pull/3681)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Checkbox` - Fixed `CheckboxField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
-
-
 
 `FileInput` - Fixed `FileInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-
-
 `Radio` - Fixed `RadioField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
-
-
 
 `Select` - Fixed `SelectField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-
-
 `TextInput` - Fixed `TextInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
-
-
 
 `Textarea` - Fixed `TextareaField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-
-
 `Toggle` - Fixed `ToggleField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3700](https://github.com/hashicorp/design-system/pull/3700)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Replaced model-based state with a DDAU architecture, improving isolation and decoupling row/column logic.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3546](https://github.com/hashicorp/design-system/pull/3546)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Pagination` - Translated strings for `PaginationCompact` and `PaginationNumbered` ariaLabels. Translated strings for `PaginationNavArrow` ariaLabels and button text.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3781](https://github.com/hashicorp/design-system/pull/3781)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Table` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3607](https://github.com/hashicorp/design-system/pull/3607)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `StepperList` - Translated strings for `Step` status value types
 
-
-
 `StepperNav` - Translated strings for status value types
-
 
 <small class="doc-whats-new-changelog-metadata">[#3727](https://github.com/hashicorp/design-system/pull/3727)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppFooter` - Translated strings for `AppFooterStatusLink` status value types
-
 
 <small class="doc-whats-new-changelog-metadata">[#3729](https://github.com/hashicorp/design-system/pull/3729)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Translated strings for ThSelectable ariaLabel and context menu Dropdown ToggleIcon
 
-
-
 `Table` - Translated string for ThSelectable ariaLabel
-
 
 <small class="doc-whats-new-changelog-metadata">[#3730](https://github.com/hashicorp/design-system/pull/3730)</small>
 
@@ -1644,164 +1682,6 @@ Update ember-stargate to 0.5.0
 <small class="doc-whats-new-changelog-metadata">[#2825](https://github.com/hashicorp/design-system/pull/2825)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.18.1
-
-[4.18.1 documentation](https://hds-website-4-18-1.vercel.app/)
-
-**Minor changes**
-
-`Time` - Increase spacing above the dotted text decoration underline, that appears on the interactive variant, to 2px from the default.
-
-`RichTooltip` - Increase spacing above the dotted text decoration underline to 2px from the default.
-
-<small class="doc-whats-new-changelog-metadata">[#2745](https://github.com/hashicorp/design-system/pull/2745)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-code-editor` modifier - Add `extraKeys` argument which supports custom keybinding
-
-`CodeEditor` - Add `@extraKeys` argument which supports custom keybinding
-
-<small class="doc-whats-new-changelog-metadata">[#2776](https://github.com/hashicorp/design-system/pull/2776)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Stepper::List` - Added `Stepper::List` component and related sub-components
-
-`Stepper::Navigation` - Added `Stepper::Navigation` component and related sub-components
-
-<small class="doc-whats-new-changelog-metadata">[#2714](https://github.com/hashicorp/design-system/pull/2714)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Layout::Flex` - Added `Flex` and `Flex::Item` components
-
-<small class="doc-whats-new-changelog-metadata">[#2751](https://github.com/hashicorp/design-system/pull/2751)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-code-editor` modifier - Add `cspNonce` argument and automate nonce detection
-
-`CodeEditor` - Add `cspNonce` argument and automate nonce detection
-
-<small class="doc-whats-new-changelog-metadata">[#2755](https://github.com/hashicorp/design-system/pull/2755)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AdvancedTable` - Added `@hasStickyFirstColumn` argument and shadows to indicate to users that it is possible to scroll.
-
-<small class="doc-whats-new-changelog-metadata">[#2770](https://github.com/hashicorp/design-system/pull/2770)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-code-editor` modifier - Added `isLintingEnabled` and `onLint` named arguments. Linting is supported for the JSON language.
-
-`CodeEditor` - Added `@isLintingEnabled` and `@onLint` arguments that are passed to the `hds-code-editor` modifier
-
-Dependencies - Added `@codemirror/lint`
-
-<small class="doc-whats-new-changelog-metadata">[#2715](https://github.com/hashicorp/design-system/pull/2715)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock` - Added `onCopy` argument which accepts a callback function that will be invoked when the "copy" action succeeds.
-
-<small class="doc-whats-new-changelog-metadata">[#2803](https://github.com/hashicorp/design-system/pull/2803)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Layout::Grid` - Added `Grid` and `Grid::Item` components
-
-<small class="doc-whats-new-changelog-metadata">[#2756](https://github.com/hashicorp/design-system/pull/2756)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AdvancedTable` - Added an expand all button to `AdvancedTable`s with nested rows and changed the structure of the component so now nested rows are always in the DOM, even when they are not visible. To add the expand all button, add `isExpandable: true` to the desired column in the `@columns` argument.
-
-<small class="doc-whats-new-changelog-metadata">[#2688](https://github.com/hashicorp/design-system/pull/2688)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-code-editor` modifier - Add language syntax highlighting support for Markdown
-
-`CodeEditor` - Add language syntax highlighting support for Markdown
-
-Dependencies - added @codemirror/lang-markdown
-
-<small class="doc-whats-new-changelog-metadata">[#2740](https://github.com/hashicorp/design-system/pull/2740)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Card` - Add `tag` argument to choose between using a `div` tag (the default) or an `li` tag
-
-<small class="doc-whats-new-changelog-metadata">[#2787](https://github.com/hashicorp/design-system/pull/2787)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-Fixed multiple loading of flight icons in engines
-
-<small class="doc-whats-new-changelog-metadata">[#2799](https://github.com/hashicorp/design-system/pull/2799) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SideNav` - Conditionally set `aria-labelledby` attribute for toggle button based on if `@ariaLabel` argument is provided.
-
-<small class="doc-whats-new-changelog-metadata">[#2788](https://github.com/hashicorp/design-system/pull/2788)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AdvancedTable` - Refactored component to use a more declarative style
-
-<small class="doc-whats-new-changelog-metadata">[#2768](https://github.com/hashicorp/design-system/pull/2768)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Upgraded `prismjs` from `1.29.0` to `1.30.0`
-
-<small class="doc-whats-new-changelog-metadata">[#2760](https://github.com/hashicorp/design-system/pull/2760)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Added `@embroider/util` dependency
-
-Updated `MaskedInput`, `TextInput`, and `Textarea` to use `ensure-safe-component` helper
-
-<small class="doc-whats-new-changelog-metadata">[#2728](https://github.com/hashicorp/design-system/pull/2728) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AdvancedTable` - Always set the select checkbox column width to `min-content` so it does not grow when the `AdvancedTable` is narrower than the container
-
-<small class="doc-whats-new-changelog-metadata">[#2761](https://github.com/hashicorp/design-system/pull/2761)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AdvancedTable` - Updated the icons used in `th-button-expand` component to match designs.
-
-<small class="doc-whats-new-changelog-metadata">[#2777](https://github.com/hashicorp/design-system/pull/2777)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-code-editor` - Attached `EditorView` instance to the modified element on instantiation
-
-`CodeEditor` - Attached `EditorView` instance to the editor element (`.hds-code-editor__editor`)
-
-<small class="doc-whats-new-changelog-metadata">[#2779](https://github.com/hashicorp/design-system/pull/2779)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Textarea` - Fix issue with bottom margin on charcount so that a top margin is instead added to the error message, if one exists, following it
-
-<small class="doc-whats-new-changelog-metadata">[#2783](https://github.com/hashicorp/design-system/pull/2783)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@3.10.0
 
 
 ---
