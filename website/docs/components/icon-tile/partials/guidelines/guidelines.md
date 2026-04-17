@@ -31,7 +31,7 @@ Medium is the default size, but we recommend using the size that best fits the s
 
 ## Secondary icon
 
-A secondary icon can be added to provide additional context. For example, for an “Add user” Icon Tile with the “plus” icon indicates the action.
+A secondary icon can be added to provide additional context. For example, in features where an object or element is being added, an Icon Tile with a "plus" secondary icon reinforces the action.
 
 ![](/assets/components/icon-tile/icon-tiles-scondary-icon.png)
 
