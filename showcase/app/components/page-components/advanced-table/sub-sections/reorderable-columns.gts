@@ -320,7 +320,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
                 {{/each}}
               </HdsLayoutFlex>
             {{else}}
-              {{! @glint-expect-error}}
+              {{! @glint-expect-error - C.content is dynamically typed for reorderable columns}}
               {{C.content}}
             {{/if}}
           </B.Td>

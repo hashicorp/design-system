@@ -60,7 +60,7 @@ export default class CodeFragmentWithSimpleData extends Component<CodeFragmentWi
       <:body as |B|>
         <B.Tr @selectionKey="{{B.data.id}}">
           {{#each this.columns as |column|}}
-            {{! @glint-expect-error}}
+            {{! @glint-expect-error - unable to infer type of column key from dynamic data}}
             <B.Td>{{get B.data column.key}}</B.Td>
           {{/each}}
         </B.Tr>
