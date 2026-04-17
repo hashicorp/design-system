@@ -1,1 +1,1 @@
-Icon Tiles represent objects and resources unrelated or directly related to a product.
+Icon Tiles visually identify product-related entities and supporting resources, which can help some users quickly scan and recognize key concepts.
