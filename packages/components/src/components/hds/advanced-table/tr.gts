@@ -17,11 +17,16 @@ import type {
 } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type { HdsAdvancedTableSignature } from './index.gts';
+import type { HdsCompositeSignature } from '../composite/index.gts';
 import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.gts';
+
+type HdsCompositeDefaultBlock = HdsCompositeSignature['Blocks']['default'][0];
 
 export interface BaseHdsAdvancedTableTrSignature {
   Args: {
     columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
+    compositeGroup?: HdsCompositeDefaultBlock['group'];
+    compositeItem?: HdsCompositeDefaultBlock['item'];
     displayRow?: boolean;
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     isLastRow?: boolean;
@@ -156,6 +161,7 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
       {{#if @isSelectable}}
         <HdsAdvancedTableThSelectable
           role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
+          @compositeItem={{@compositeItem}}
           @isSelected={{@isSelected}}
           @selectionScope={{@selectionScope}}
           @selectionKey={{this.selectionKey}}
