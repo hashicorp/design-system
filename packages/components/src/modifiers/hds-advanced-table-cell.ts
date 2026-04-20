@@ -16,7 +16,7 @@ export interface HdsAdvancedTableCellModifierSignature {
     Named: {
       shouldTrapFocus: boolean;
       handleEnableFocusTrap: () => void;
-      setCellElement: (el: HTMLDivElement) => void;
+      setCellElement?: (el: HTMLDivElement) => void;
     };
   };
   Element: HTMLDivElement;
@@ -53,7 +53,9 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
     if (!this._didSetup) {
       this.#setupObserver(element, positional, named);
 
-      named.setCellElement(element);
+      if (typeof named.setCellElement === 'function') {
+        named.setCellElement(element);
+      }
 
       this._didSetup = true;
       this._element = element;

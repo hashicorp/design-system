@@ -4,7 +4,14 @@
  */
 
 import { module, test } from 'qunit';
-import { click, findAll, render, setupOnerror } from '@ember/test-helpers';
+import {
+  click,
+  findAll,
+  focus,
+  render,
+  setupOnerror,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
 import { get } from '@ember/helper';
 import type { Target } from '@ember/test-helpers';
 
@@ -426,6 +433,135 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       }
 
       assert.dom(expandAllButton).hasAria('expanded', 'true');
+    });
+
+    test('it keeps grid keyboard navigation working when nested rows are expanded and collapsed', async function (assert) {
+      await createNestedTable({});
+
+      const visibleRowSelector =
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:not(.hds-advanced-table__tr--hidden)';
+      const visibleRowHeaderSelector =
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:not(.hds-advanced-table__tr--hidden) .hds-advanced-table__th[role="rowheader"]';
+
+      const getActiveRow = () => {
+        return document
+          .querySelector('[data-active-item]')
+          ?.closest('.hds-advanced-table__tr');
+      };
+
+      const getRowHeaderText = (row: Element | undefined | null) => {
+        return row
+          ?.querySelector('.hds-advanced-table__th[role="rowheader"]')
+          ?.textContent?.trim();
+      };
+
+      const visibleRowsBeforeExpand = findAll(visibleRowSelector);
+      const visibleRowHeadersBeforeExpand = findAll(visibleRowHeaderSelector);
+      const firstVisibleRowHeader = visibleRowHeadersBeforeExpand[0];
+      const secondVisibleRowBeforeExpand = visibleRowsBeforeExpand[1];
+
+      if (firstVisibleRowHeader && secondVisibleRowBeforeExpand) {
+        await focus(firstVisibleRowHeader);
+        await triggerKeyEvent(firstVisibleRowHeader, 'keydown', 'ArrowDown');
+
+        assert.strictEqual(
+          getRowHeaderText(getActiveRow()),
+          getRowHeaderText(secondVisibleRowBeforeExpand),
+          'ArrowDown moves to next visible row before expansion',
+        );
+      }
+
+      const expandToggles = findAll(expandRowButtonSelector);
+      const firstExpandToggle = expandToggles[0];
+
+      if (firstExpandToggle) {
+        await click(firstExpandToggle);
+      }
+
+      const visibleRowsAfterExpand = findAll(visibleRowSelector);
+      const visibleRowHeadersAfterExpand = findAll(visibleRowHeaderSelector);
+      const firstVisibleRowHeaderAfterExpand = visibleRowHeadersAfterExpand[0];
+      const secondVisibleRowAfterExpand = visibleRowsAfterExpand[1];
+      const thirdVisibleRowAfterExpand = visibleRowsAfterExpand[2];
+
+      if (
+        firstVisibleRowHeaderAfterExpand &&
+        secondVisibleRowAfterExpand &&
+        thirdVisibleRowAfterExpand
+      ) {
+        await focus(firstVisibleRowHeaderAfterExpand);
+        await triggerKeyEvent(
+          firstVisibleRowHeaderAfterExpand,
+          'keydown',
+          'ArrowDown',
+        );
+
+        assert.strictEqual(
+          getRowHeaderText(getActiveRow()),
+          getRowHeaderText(secondVisibleRowAfterExpand),
+          'ArrowDown moves to first child row after expansion',
+        );
+
+        const activeRowAfterFirstArrowDown = getActiveRow();
+
+        if (activeRowAfterFirstArrowDown) {
+          await triggerKeyEvent(activeRowAfterFirstArrowDown, 'keydown', 'ArrowDown');
+        }
+
+        assert.strictEqual(
+          getRowHeaderText(getActiveRow()),
+          getRowHeaderText(thirdVisibleRowAfterExpand),
+          'ArrowDown continues through newly visible rows after expansion',
+        );
+      }
+
+      const expandTogglesAfterExpand = findAll(expandRowButtonSelector);
+      const firstExpandToggleAfterExpand = expandTogglesAfterExpand[0];
+
+      if (firstExpandToggleAfterExpand) {
+        await click(firstExpandToggleAfterExpand);
+      }
+
+      const visibleRowsAfterCollapse = findAll(visibleRowSelector);
+      const visibleRowHeadersAfterCollapse = findAll(visibleRowHeaderSelector);
+      const firstVisibleRowHeaderAfterCollapse = visibleRowHeadersAfterCollapse[0];
+      const secondVisibleRowAfterCollapse = visibleRowsAfterCollapse[1];
+      const thirdVisibleRowAfterCollapse = visibleRowsAfterCollapse[2];
+
+      if (
+        firstVisibleRowHeaderAfterCollapse &&
+        secondVisibleRowAfterCollapse &&
+        thirdVisibleRowAfterCollapse
+      ) {
+        await focus(firstVisibleRowHeaderAfterCollapse);
+        await triggerKeyEvent(
+          firstVisibleRowHeaderAfterCollapse,
+          'keydown',
+          'ArrowDown',
+        );
+
+        assert.strictEqual(
+          getRowHeaderText(getActiveRow()),
+          getRowHeaderText(secondVisibleRowAfterCollapse),
+          'ArrowDown moves to next visible parent row after collapse',
+        );
+
+        const activeRowAfterCollapseFirstArrowDown = getActiveRow();
+
+        if (activeRowAfterCollapseFirstArrowDown) {
+          await triggerKeyEvent(
+            activeRowAfterCollapseFirstArrowDown,
+            'keydown',
+            'ArrowDown',
+          );
+        }
+
+        assert.strictEqual(
+          getRowHeaderText(getActiveRow()),
+          getRowHeaderText(thirdVisibleRowAfterCollapse),
+          'ArrowDown skips collapsed descendants and continues to next visible row',
+        );
+      }
     });
   });
 });

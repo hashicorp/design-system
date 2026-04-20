@@ -63,6 +63,7 @@ export interface HdsAdvancedTableThSignature {
     column?: HdsAdvancedTableNormalizedColumn;
     colspan?: number;
     compositeItem?: HdsCompositeSignature['Blocks']['default'][0]['item'];
+    isCompositeItemDisabled?: boolean;
     depth?: number;
     draggedColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     firstColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
@@ -455,7 +456,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
           clickOutsideDeactivates=true
         )
       }}
-      {{@compositeItem}}
+      {{@compositeItem disabled=@isCompositeItemDisabled}}
       {{hdsScrollIntoViewOnFocus}}
       ...attributes
     >

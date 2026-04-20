@@ -32,6 +32,7 @@ export interface HdsAdvancedTableTdSignature {
     rowspan?: number;
     colspan?: number;
     compositeItem?: HdsCompositeSignature['Blocks']['default'][0]['item'];
+    isCompositeItemDisabled?: boolean;
   };
   Blocks: {
     default?: [];
@@ -119,7 +120,7 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
           clickOutsideDeactivates=true
         )
       }}
-      {{@compositeItem}}
+      {{@compositeItem disabled=@isCompositeItemDisabled}}
       {{hdsScrollIntoViewOnFocus}}
       ...attributes
     >

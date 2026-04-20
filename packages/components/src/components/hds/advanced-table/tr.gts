@@ -27,6 +27,7 @@ export interface BaseHdsAdvancedTableTrSignature<T> {
     columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
     compositeGroup?: HdsCompositeDefaultBlock['group'];
     compositeItem?: HdsCompositeDefaultBlock['item'];
+    isCompositeItemDisabled?: boolean;
     displayRow?: boolean;
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     isCompositeItemDisabled?: boolean;
@@ -162,6 +163,7 @@ export default class HdsAdvancedTableTr<T> extends Component<
         <HdsAdvancedTableThSelectable
           role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
           @compositeItem={{@compositeItem}}
+          @isCompositeItemDisabled={{@isCompositeItemDisabled}}
           @isSelected={{@isSelected}}
           @selectionScope={{@selectionScope}}
           @selectionKey={{this.selectionKey}}
