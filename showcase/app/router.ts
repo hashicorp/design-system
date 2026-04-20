@@ -174,6 +174,7 @@ Router.map(function () {
       this.route('alert');
       this.route('application-state');
       this.route('app-footer');
+      this.route('app-header');
       this.route('app-side-nav');
       this.route('badge');
       this.route('badge-count');

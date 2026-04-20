@@ -434,6 +434,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.app-header">
+            AppHeader
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.app-side-nav">
             AppSideNav
           </LinkTo>
