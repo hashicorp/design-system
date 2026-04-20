@@ -10,6 +10,13 @@
         "$type": "color",
         "$value": "#000",
         "group": "branding",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work"
       },
       "foreground": {
