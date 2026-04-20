@@ -1707,7 +1707,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
@@ -1721,10 +1721,10 @@
   align-items: center;
   justify-content: space-between;
   min-height: var(--token-app-header-height);
-  padding: 12px 16px 11px 16px;
-  color: var(--token-color-foreground-high-contrast);
-  background: var(--token-color-palette-neutral-700);
-  border-bottom: 1px solid var(--token-color-palette-neutral-500);
+  padding: var(--token-app-header-padding-top) 16px var(--token-app-header-padding-bottom) 16px;
+  color: var(--token-app-header-foreground-color);
+  background: var(--token-app-header-surface-color);
+  border-bottom: 1px solid var(--token-app-header-border-color);
 }
 .hds-app-header .ember-a11y-refocus-skip-link {
   top: 10px;
@@ -1758,7 +1758,7 @@
   align-content: flex-start;
   padding: 16px;
   overflow: auto;
-  background: var(--token-color-palette-neutral-700);
+  background: var(--token-app-side-nav-interactive-surface-color-default);
 }
 .hds-app-header.hds-app-header--is-mobile.hds-app-header--menu-is-closed .hds-app-header__actions {
   display: none;
@@ -1774,25 +1774,32 @@
 .hds-app-header .hds-app-header__global-actions,
 .hds-app-header .hds-app-header__utility-actions {
   display: flex;
-  gap: inherit;
+  gap: var(--token-app-header-actions-gap);
   align-items: center;
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
-  --token-focus-ring-action-box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
+  --token-focus-ring-action-box-shadow: inset 0 0 0 1px var(--token-app-header-interactive-focus-action-internal), 0 0 0 3px var(--token-app-header-interactive-focus-action-external);
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-default);
   border: 1px solid transparent;
-  cursor: pointer;
-  border-color: var(--token-color-palette-neutral-500);
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
   border-radius: var(--token-button-border-radius);
+  cursor: pointer;
+  border-color: var(--token-app-header-interactive-border-color-default);
 }
+.hds-mode-cds-g0 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *), .hds-mode-cds-g0 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
+.hds-mode-cds-g10 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *), .hds-mode-cds-g10 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
+.hds-mode-cds-g90 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *), .hds-mode-cds-g90 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
+.hds-mode-cds-g100 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *), .hds-mode-cds-g100 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
+  height: 100%;
+}
+
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover {
-  border-color: var(--token-color-palette-neutral-500);
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-600);
+  border-color: var(--token-app-header-interactive-border-color-default);
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-hover);
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
@@ -1841,9 +1848,9 @@
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
-  border-color: #bcc7fd;
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-default);
+  border-color: var(--token-app-header-interactive-focus-action-internal);
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
@@ -1853,14 +1860,14 @@
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before {
-  box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
+  box-shadow: inset 0 0 0 1px var(--token-app-header-interactive-focus-action-internal), 0 0 0 3px var(--token-app-header-interactive-focus-action-external);
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-500);
-  border-color: var(--token-color-palette-neutral-400);
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-active);
+  border-color: var(--token-app-header-interactive-border-color-disabled);
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled], .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled,
@@ -1872,9 +1879,9 @@
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover {
-  color: var(--token-color-foreground-disabled);
-  background-color: var(--token-color-palette-neutral-600);
-  border-color: var(--token-color-palette-neutral-500);
+  color: var(--token-app-header-interactive-foreground-color-disabled);
+  background-color: var(--token-app-header-interactive-surface-color-disabled);
+  border-color: var(--token-app-header-interactive-border-color-disabled);
 }
 
 .hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized) .hds-app-header > * {
@@ -1883,16 +1890,23 @@
 }
 
 .hds-app-header__home-link {
-  --token-focus-ring-action-box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
+  --token-focus-ring-action-box-shadow: inset 0 0 0 1px var(--token-app-header-interactive-focus-action-internal), 0 0 0 3px var(--token-app-header-interactive-focus-action-external);
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-default);
   border: 1px solid transparent;
-  cursor: pointer;
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
   border-radius: var(--token-button-border-radius);
+  cursor: pointer;
 }
+.hds-mode-cds-g0 .hds-app-header__home-link,
+.hds-mode-cds-g10 .hds-app-header__home-link,
+.hds-mode-cds-g90 .hds-app-header__home-link,
+.hds-mode-cds-g100 .hds-app-header__home-link {
+  height: 100%;
+}
+
 .hds-app-header__home-link:hover, .hds-app-header__home-link.mock-hover {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-600);
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-hover);
 }
 .hds-app-header__home-link:focus, .hds-app-header__home-link.mock-focus {
   position: relative;
@@ -1923,19 +1937,19 @@
   box-shadow: none;
 }
 .hds-app-header__home-link:focus, .hds-app-header__home-link.mock-focus {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-default);
 }
 .hds-app-header__home-link:focus::before, .hds-app-header__home-link.mock-focus::before {
   color: var(--token-color-foreground-high-contrast);
   border: none;
 }
 .hds-app-header__home-link:focus:focus:not(:focus-visible)::before {
-  box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
+  box-shadow: inset 0 0 0 1px var(--token-app-header-interactive-focus-action-internal), 0 0 0 3px var(--token-app-header-interactive-focus-action-external);
 }
 .hds-app-header__home-link:active, .hds-app-header__home-link.mock-active {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-500);
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-active);
 }
 .hds-app-header__home-link {
   display: flex;
@@ -1945,10 +1959,27 @@
   padding: 3px;
   text-decoration: none;
 }
+.hds-mode-cds-g0 .hds-app-header__home-link:hover, .hds-mode-cds-g0 .hds-app-header__home-link.mock-hover, .hds-mode-cds-g0 .hds-app-header__home-link:active, .hds-mode-cds-g0 .hds-app-header__home-link.mock-active,
+.hds-mode-cds-g10 .hds-app-header__home-link:hover,
+.hds-mode-cds-g10 .hds-app-header__home-link.mock-hover,
+.hds-mode-cds-g10 .hds-app-header__home-link:active,
+.hds-mode-cds-g10 .hds-app-header__home-link.mock-active,
+.hds-mode-cds-g90 .hds-app-header__home-link:hover,
+.hds-mode-cds-g90 .hds-app-header__home-link.mock-hover,
+.hds-mode-cds-g90 .hds-app-header__home-link:active,
+.hds-mode-cds-g90 .hds-app-header__home-link.mock-active,
+.hds-mode-cds-g100 .hds-app-header__home-link:hover,
+.hds-mode-cds-g100 .hds-app-header__home-link.mock-hover,
+.hds-mode-cds-g100 .hds-app-header__home-link:active,
+.hds-mode-cds-g100 .hds-app-header__home-link.mock-active {
+  color: var(--token-interactive-theme-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-default);
+}
+
 .hds-app-header__home-link:disabled, .hds-app-header__home-link[disabled], .hds-app-header__home-link.mock-disabled, .hds-app-header__home-link:disabled:focus, .hds-app-header__home-link[disabled]:focus, .hds-app-header__home-link.mock-disabled:focus, .hds-app-header__home-link:disabled:hover, .hds-app-header__home-link[disabled]:hover, .hds-app-header__home-link.mock-disabled:hover {
-  color: var(--token-color-foreground-disabled);
-  background-color: var(--token-color-palette-neutral-600);
-  border-color: var(--token-color-palette-neutral-500);
+  color: var(--token-app-header-interactive-foreground-color-disabled);
+  background-color: var(--token-app-header-interactive-surface-color-disabled);
+  border-color: var(--token-app-header-interactive-border-color-disabled);
 }
 .hds-app-header__home-link svg {
   width: var(--token-app-header-logo-size);
@@ -2617,7 +2648,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-breadcrumb {

@@ -7,7 +7,93 @@
 // APP-HEADER
 //
 
-@use "../mixins/interactive-dark-theme" as *;
+@use "../mixins/carbonization" as *;
+@use "../mixins/focus-ring" as *;
+@use "../mixins/button" as *;
+
+$hds-interactive-app-header-theme-focus-ring-action-box-shadow:
+  inset 0 0 0 1px var(--token-app-header-interactive-focus-action-internal),
+  0 0 0 3px var(--token-app-header-interactive-focus-action-external);
+// Used for interactive elements such as Button & Dropdown
+@mixin hds-interactive-app-header-theme($add-visible-border: true) {
+  // Override token used in focus ring mixin
+  --token-focus-ring-action-box-shadow: #{$hds-interactive-app-header-theme-focus-ring-action-box-shadow};
+
+  color: var(--token-app-header-interactive-foreground-color-default);
+  background-color: var(--token-app-header-interactive-surface-color-default);
+
+  // Default:
+  border: 1px solid transparent;
+  border-radius: var(--token-button-border-radius);
+  cursor: pointer;
+
+  @if ($add-visible-border) {
+    border-color: var(--token-app-header-interactive-border-color-default);
+  }
+
+  @include hds-apply-only-if-carbon() {
+    height: 100%;
+  }
+
+  // Hover:
+  &:hover,
+  &.mock-hover {
+    @if ($add-visible-border) {
+      border-color: var(--token-app-header-interactive-border-color-default);
+    }
+
+    color: var(
+      --token-app-header-interactive-foreground-color-default
+    ); // to avoid overrides by specificity (eg. `a:hover`)
+    background-color: var(--token-app-header-interactive-surface-color-hover);
+  }
+
+  // Focus:
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+
+    // See: https://sass-lang.com/d/mixed-decls
+    & {
+      color: var(--token-app-header-interactive-foreground-color-default);
+      background-color: var(--token-app-header-interactive-surface-color-default);
+
+      @if ($add-visible-border) {
+        border-color: var(--token-app-header-interactive-focus-action-internal);
+      }
+    }
+
+    // focus ring:
+    &::before {
+      color: var(--token-color-foreground-high-contrast);
+      border: none;
+    }
+  }
+
+  // override style removing the focus style
+  &:focus:focus:not(:focus-visible)::before {
+    box-shadow: $hds-interactive-app-header-theme-focus-ring-action-box-shadow;
+  }
+
+  // Active:
+  &:active,
+  &.mock-active {
+    color: var(
+      --token-app-header-interactive-foreground-color-default
+    ); // to avoid overrides by specificity (eg. `a:hover`)
+    background-color: var(--token-app-header-interactive-surface-color-active);
+
+    @if ($add-visible-border) {
+      border-color: var(--token-app-header-interactive-border-color-disabled);
+    }
+  }
+}
+
+@mixin hds-interactive-app-header-theme-state-disabled() {
+  color: var(--token-app-header-interactive-foreground-color-disabled);
+  background-color: var(--token-app-header-interactive-surface-color-disabled);
+  border-color: var(--token-app-header-interactive-border-color-disabled);
+}
 
 // ----------------
 
@@ -18,10 +104,10 @@
   align-items: center;
   justify-content: space-between;
   min-height: var(--token-app-header-height);
-  padding: 12px 16px 11px 16px; // bottom padding of 11px is to account for the bottom border
-  color: var(--token-color-foreground-high-contrast);
-  background: var(--token-color-palette-neutral-700);
-  border-bottom: 1px solid var(--token-color-palette-neutral-500);
+  padding: var(--token-app-header-padding-top) 16px var(--token-app-header-padding-bottom) 16px;
+  color: var(--token-app-header-foreground-color);
+  background: var(--token-app-header-surface-color);
+  border-bottom: 1px solid var(--token-app-header-border-color);
 
   // A11Y-REFOCUS "SKIP LINK"
 
@@ -71,7 +157,7 @@
       align-content: flex-start;
       padding: 16px;
       overflow: auto; // allow users to scroll if the content is too long
-      background: var(--token-color-palette-neutral-700);
+      background: var(--token-app-side-nav-interactive-surface-color-default);
     }
 
     &.hds-app-header--menu-is-closed {
@@ -101,7 +187,7 @@
   .hds-app-header__global-actions,
   .hds-app-header__utility-actions {
     display: flex;
-    gap: inherit;
+    gap: var(--token-app-header-actions-gap);
     align-items: center;
   }
 
@@ -113,7 +199,7 @@
   button[class*="hds-dropdown-toggle"] {
     // Apply dark theme to child interactive components not within a nested content container
     &:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
-      @include hds-interactive-dark-theme();
+      @include hds-interactive-app-header-theme();
 
       // disabled state:
       &:disabled,
@@ -125,7 +211,7 @@
       &:disabled:hover,
       &[disabled]:hover,
       &.mock-disabled:hover {
-        @include hds-interactive-dark-theme-state-disabled();
+        @include hds-interactive-app-header-theme-state-disabled();
       }
     }
   }
@@ -147,13 +233,24 @@
 // Logo
 
 .hds-app-header__home-link {
-  @include hds-interactive-dark-theme($add-visible-border: false);
+  @include hds-interactive-app-header-theme($add-visible-border: false);
   display: flex;
   gap: 8px;
   align-items: center;
   justify-content: center;
   padding: 3px;
   text-decoration: none;
+
+  // Remove interactive styles on home link for Carbon themes
+  @include hds-apply-only-if-carbon() {
+    &:hover,
+    &.mock-hover,
+    &:active,
+    &.mock-active {
+      color: var(--token-interactive-theme-foreground-color-default);
+      background-color: var(--token-app-header-interactive-surface-color-default);
+    }
+  }
 
   // disabled state:
   &:disabled,
@@ -165,7 +262,7 @@
   &:disabled:hover,
   &[disabled]:hover,
   &.mock-disabled:hover {
-    @include hds-interactive-dark-theme-state-disabled();
+    @include hds-interactive-app-header-theme-state-disabled();
   }
 
   // Set SVG logo size:

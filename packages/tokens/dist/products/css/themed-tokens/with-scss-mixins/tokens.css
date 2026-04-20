@@ -7,6 +7,41 @@
     --token-app-footer-link-focus-outline-color: var(
       --token-color-focus-action-internal
     );
+    --token-app-header-actions-gap: 12px;
+    --token-app-header-border-color: var(--token-color-palette-neutral-500);
+    --token-app-header-foreground-color: var(
+      --token-color-foreground-high-contrast
+    );
+    --token-app-header-height: 60px;
+    --token-app-header-interactive-border-color-default: var(
+      --token-color-palette-neutral-500
+    );
+    --token-app-header-interactive-border-color-disabled: var(
+      --token-color-palette-neutral-400
+    );
+    --token-app-header-interactive-focus-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-focus-action-internal: #bcc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-foreground-color-default: var(
+      --token-color-foreground-high-contrast
+    );
+    --token-app-header-interactive-foreground-color-disabled: var(
+      --token-color-foreground-disabled
+    );
+    --token-app-header-interactive-surface-color-active: var(
+      --token-color-palette-neutral-500
+    );
+    --token-app-header-interactive-surface-color-default: var(
+      --token-color-palette-neutral-700
+    );
+    --token-app-header-interactive-surface-color-disabled: var(
+      --token-color-palette-neutral-600
+    );
+    --token-app-header-interactive-surface-color-hover: var(
+      --token-color-palette-neutral-600
+    );
+    --token-app-header-padding-bottom: 11px; /** Account for 1px border at the bottom of the header */
+    --token-app-header-padding-top: 12px;
+    --token-app-header-surface-color: var(--token-color-palette-neutral-700);
     --token-badge-border-radius: var(--token-border-radius-small);
     --token-badge-count-padding-horizontal-large: 14px;
     --token-badge-count-padding-horizontal-medium: 12px;
@@ -783,6 +818,38 @@
 @mixin hds-theme-light() {
   :root {
     --token-app-footer-link-focus-outline-color: #0f62fe;
+    --token-app-header-actions-gap: 0px;
+    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-foreground-color: #161616;
+    --token-app-header-height: 48px;
+    --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-border-color-disabled: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-focus-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-focus-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-foreground-color-default: #161616;
+    --token-app-header-interactive-foreground-color-disabled: rgba(
+      22,
+      22,
+      22,
+      0.25
+    );
+    --token-app-header-interactive-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.5
+    );
+    --token-app-header-interactive-surface-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-surface-color-disabled: #c6c6c6;
+    --token-app-header-interactive-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.12
+    );
+    --token-app-header-padding-bottom: 0px;
+    --token-app-header-padding-top: 0px;
+    --token-app-header-surface-color: var(--token-color-page-primary);
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1248,6 +1315,38 @@
 @mixin hds-theme-dark() {
   :root {
     --token-app-footer-link-focus-outline-color: #ffffff;
+    --token-app-header-actions-gap: 0px;
+    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-foreground-color: #f4f4f4;
+    --token-app-header-height: 48px;
+    --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-border-color-disabled: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-focus-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-focus-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-foreground-color-default: #f4f4f4;
+    --token-app-header-interactive-foreground-color-disabled: rgba(
+      244,
+      244,
+      244,
+      0.25
+    );
+    --token-app-header-interactive-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.4
+    );
+    --token-app-header-interactive-surface-color-default: carbon.themes.g100.backgroundHover;
+    --token-app-header-interactive-surface-color-disabled: #525252;
+    --token-app-header-interactive-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.16
+    );
+    --token-app-header-padding-bottom: 0px;
+    --token-app-header-padding-top: 0px;
+    --token-app-header-surface-color: var(--token-color-page-primary);
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1718,6 +1817,38 @@
 @mixin hds-mode-cds0() {
   :root {
     --token-app-footer-link-focus-outline-color: #0f62fe;
+    --token-app-header-actions-gap: 0px;
+    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-foreground-color: #161616;
+    --token-app-header-height: 48px;
+    --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-border-color-disabled: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-focus-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-focus-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-foreground-color-default: #161616;
+    --token-app-header-interactive-foreground-color-disabled: rgba(
+      22,
+      22,
+      22,
+      0.25
+    );
+    --token-app-header-interactive-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.5
+    );
+    --token-app-header-interactive-surface-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-surface-color-disabled: #c6c6c6;
+    --token-app-header-interactive-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.12
+    );
+    --token-app-header-padding-bottom: 0px;
+    --token-app-header-padding-top: 0px;
+    --token-app-header-surface-color: var(--token-color-page-primary);
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -2183,6 +2314,38 @@
 @mixin hds-mode-cds10() {
   :root {
     --token-app-footer-link-focus-outline-color: #0f62fe;
+    --token-app-header-actions-gap: 0px;
+    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-foreground-color: #161616;
+    --token-app-header-height: 48px;
+    --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-border-color-disabled: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-focus-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-focus-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-foreground-color-default: #161616;
+    --token-app-header-interactive-foreground-color-disabled: rgba(
+      22,
+      22,
+      22,
+      0.25
+    );
+    --token-app-header-interactive-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.5
+    );
+    --token-app-header-interactive-surface-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-surface-color-disabled: #c6c6c6;
+    --token-app-header-interactive-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.12
+    );
+    --token-app-header-padding-bottom: 0px;
+    --token-app-header-padding-top: 0px;
+    --token-app-header-surface-color: var(--token-color-page-primary);
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -2648,6 +2811,38 @@
 @mixin hds-mode-cds90() {
   :root {
     --token-app-footer-link-focus-outline-color: #ffffff;
+    --token-app-header-actions-gap: 0px;
+    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-foreground-color: #f4f4f4;
+    --token-app-header-height: 48px;
+    --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-border-color-disabled: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-focus-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-focus-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-foreground-color-default: #f4f4f4;
+    --token-app-header-interactive-foreground-color-disabled: rgba(
+      244,
+      244,
+      244,
+      0.25
+    );
+    --token-app-header-interactive-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.4
+    );
+    --token-app-header-interactive-surface-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-surface-color-disabled: #6f6f6f;
+    --token-app-header-interactive-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.16
+    );
+    --token-app-header-padding-bottom: 0px;
+    --token-app-header-padding-top: 0px;
+    --token-app-header-surface-color: var(--token-color-page-primary);
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -3118,6 +3313,38 @@
 @mixin hds-mode-cds100() {
   :root {
     --token-app-footer-link-focus-outline-color: #ffffff;
+    --token-app-header-actions-gap: 0px;
+    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-foreground-color: #f4f4f4;
+    --token-app-header-height: 48px;
+    --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-border-color-disabled: rgba(0, 0, 0, 0);
+    --token-app-header-interactive-focus-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-focus-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-app-header-interactive-foreground-color-default: #f4f4f4;
+    --token-app-header-interactive-foreground-color-disabled: rgba(
+      244,
+      244,
+      244,
+      0.25
+    );
+    --token-app-header-interactive-surface-color-active: rgba(
+      141,
+      141,
+      141,
+      0.4
+    );
+    --token-app-header-interactive-surface-color-default: carbon.themes.g100.backgroundHover;
+    --token-app-header-interactive-surface-color-disabled: #525252;
+    --token-app-header-interactive-surface-color-hover: rgba(
+      141,
+      141,
+      141,
+      0.16
+    );
+    --token-app-header-padding-bottom: 0px;
+    --token-app-header-padding-top: 0px;
+    --token-app-header-surface-color: var(--token-color-page-primary);
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -3587,7 +3814,6 @@
 
 @mixin hds-theme-common() {
   :root {
-    --token-app-header-height: 60px;
     --token-app-header-home-link-size: 36px;
     --token-app-header-logo-size: 28px;
     --token-app-side-nav-body-list-item-border-radius: 5px;
