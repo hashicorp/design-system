@@ -12409,23 +12409,23 @@
   {
     "key": "{code-block.button.surface.color.hover}",
     "$type": "color",
-    "$value": "#474747",
+    "$value": "#6f6f6f",
     "$modes": {
       "default": "#393939",
-      "cds-g0": "#e8e8e8",
-      "cds-g10": "#e8e8e8",
-      "cds-g90": "#474747",
-      "cds-g100": "#333333"
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#c6c6c6",
+      "cds-g90": "#6f6f6f",
+      "cds-g100": "#525252"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.layerHover01}",
+      "$value": "{carbon.themes.g90.layerActive01}",
       "$modes": {
         "default": "{code-block.color.surface.primary}",
-        "cds-g0": "{carbon.themes.white.layerHover01}",
-        "cds-g10": "{carbon.themes.g10.layerHover01}",
-        "cds-g90": "{carbon.themes.g90.layerHover01}",
-        "cds-g100": "{carbon.themes.g100.layerHover01}"
+        "cds-g0": "{carbon.themes.white.layerActive01}",
+        "cds-g10": "{carbon.themes.g10.layerActive01}",
+        "cds-g90": "{carbon.themes.g90.layerActive01}",
+        "cds-g100": "{carbon.themes.g100.layerActive01}"
       },
       "key": "{code-block.button.surface.color.hover}"
     },

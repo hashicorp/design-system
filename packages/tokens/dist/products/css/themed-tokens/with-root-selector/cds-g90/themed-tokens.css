@@ -136,7 +136,7 @@
   --token-card-surface-color-secondary: #525252;
   --token-code-block-button-surface-color-active: #6f6f6f;
   --token-code-block-button-surface-color-default: #474747;
-  --token-code-block-button-surface-color-hover: #474747;
+  --token-code-block-button-surface-color-hover: #6f6f6f;
   --token-code-block-color-border-primary: #6f6f6f;
   --token-code-block-color-border-strong: rgba(0, 0, 0, 0);
   --token-code-block-color-focus-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */

@@ -309,10 +309,10 @@
             "$value": "{code-block.color.surface.primary}",
             "$modes": {
               "default": "{code-block.color.surface.primary}",
-              "cds-g0": "{carbon.themes.white.layerHover01}",
-              "cds-g10": "{carbon.themes.g10.layerHover01}",
-              "cds-g90": "{carbon.themes.g90.layerHover01}",
-              "cds-g100": "{carbon.themes.g100.layerHover01}"
+              "cds-g0": "{carbon.themes.white.layerActive01}",
+              "cds-g10": "{carbon.themes.g10.layerActive01}",
+              "cds-g90": "{carbon.themes.g90.layerActive01}",
+              "cds-g100": "{carbon.themes.g100.layerActive01}"
             }
           },
           "active": {
