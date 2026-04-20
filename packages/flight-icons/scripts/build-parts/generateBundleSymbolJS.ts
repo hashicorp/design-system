@@ -98,15 +98,16 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
             // Proceed only if the tag exists
             if (mapping) {
                 if (registry[baseName].carbon) {
-                    continue; // Carbon icon already processed for this baseName
+                    continue; // Carbon icon already processed for this baseName (e.g. for another size)
                 }
                 const carbonName = mapping.toLowerCase();
-                let carbonPath = path.join(carbonIconsPath, '32', `${carbonName}.svg`);
-
-                const overrideCarbonPath = CARBON_ICON_OVERRIDES[carbonName];
-                if (overrideCarbonPath !== undefined) {
-                    carbonPath = path.join(carbonIconsPath, `${overrideCarbonPath}.svg`);
-                }
+                
+                let carbonPath;
+                if (Object.keys(CARBON_ICON_OVERRIDES).includes(carbonName)) {
+                    carbonPath = path.join(carbonIconsPath, `${CARBON_ICON_OVERRIDES[carbonName]}.svg`);
+                } else {
+                    carbonPath = path.join(carbonIconsPath, `32/${carbonName}.svg`);
+                }                    
 
                 if (fs.existsSync(carbonPath)) {
                     const key = `carbon-${baseName}`;
