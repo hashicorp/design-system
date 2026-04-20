@@ -173,6 +173,7 @@ Router.map(function () {
     this.route('components', function () {
       this.route('application-state');
       this.route('app-footer');
+      this.route('app-header');
       this.route('badge');
       this.route('badge-count');
       this.route('breadcrumb');
