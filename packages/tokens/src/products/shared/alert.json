@@ -291,6 +291,19 @@
         }
       }
     },
+    "typography": {
+      "line-height": {
+        "$type": "number",
+        "$value": "{typography.body-200.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g10": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g90": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g100": "{carbon.typography.headingCompact01.line-height}"
+        }
+      }
+    },
     "title": {
       "foreground": {
         "color": {

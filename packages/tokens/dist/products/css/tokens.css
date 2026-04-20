@@ -217,6 +217,7 @@
   --token-alert-surface-color-success: #f2fbf6;
   --token-alert-surface-color-warning: #fff9e8;
   --token-alert-surface-color-critical: #fff5f5;
+  --token-alert-typography-line-height: 1.4286;
   --token-alert-title-foreground-color-neutral: #3b3d45;
   --token-alert-title-foreground-color-highlight: #911ced;
   --token-alert-title-foreground-color-success: #00781e;

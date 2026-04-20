@@ -43,6 +43,11 @@
   justify-content: center;
 }
 
+.hds-alert__title,
+.hds-alert__description {
+  line-height: var(--token-alert-typography-line-height);
+}
+
 .hds-alert__description {
   word-break: break-word;
 
