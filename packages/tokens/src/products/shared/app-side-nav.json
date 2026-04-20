@@ -84,7 +84,14 @@
         "height": {
           "$type": "dimension",
           "$value": "36",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "36",
+            "cds-g0": "32",
+            "cds-g10": "32",
+            "cds-g90": "32",
+            "cds-g100": "32"
+          }
         },
         "padding": {
           "horizontal": {

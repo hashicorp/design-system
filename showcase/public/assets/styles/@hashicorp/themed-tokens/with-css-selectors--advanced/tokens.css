@@ -14,6 +14,7 @@
   --token-app-side-nav-body-list-item-foreground-color-hover: var(
     --token-color-foreground-primary
   );
+  --token-app-side-nav-body-list-item-height: 36px;
   --token-app-side-nav-body-list-item-margin-top: 2px;
   --token-app-side-nav-body-list-item-padding-horizontal: 8px;
   --token-app-side-nav-body-list-item-padding-vertical: 4px;
@@ -795,6 +796,7 @@
     --token-app-side-nav-body-list-item-border-radius: 0px;
     --token-app-side-nav-body-list-item-foreground-color-default: #525252;
     --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
+    --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -1291,6 +1293,7 @@
     --token-app-side-nav-body-list-item-border-radius: 0px;
     --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
     --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
+    --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -1792,6 +1795,7 @@
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #525252;
   --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
+  --token-app-side-nav-body-list-item-height: 32px;
   --token-app-side-nav-body-list-item-margin-top: 0px;
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -2282,6 +2286,7 @@
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
   --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
+  --token-app-side-nav-body-list-item-height: 32px;
   --token-app-side-nav-body-list-item-margin-top: 0px;
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -2771,6 +2776,7 @@
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #525252;
   --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
+  --token-app-side-nav-body-list-item-height: 32px;
   --token-app-side-nav-body-list-item-margin-top: 0px;
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -3260,6 +3266,7 @@
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
   --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
+  --token-app-side-nav-body-list-item-height: 32px;
   --token-app-side-nav-body-list-item-margin-top: 0px;
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -3776,7 +3783,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
   --token-app-side-nav-body-list-item-content-gap: 8px;
-  --token-app-side-nav-body-list-item-height: 36px;
   --token-app-side-nav-body-list-margin-vertical: 16px;
   --token-app-side-nav-wrapper-border-color: var(
     --token-color-palette-neutral-200
