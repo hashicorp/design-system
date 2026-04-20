@@ -296,8 +296,8 @@ function navigateColumn(
         return target;
       }
 
-      targetGroupIndex = ((targetGroupIndex + direction) % length + length) %
-        length;
+      targetGroupIndex =
+        (((targetGroupIndex + direction) % length) + length) % length;
     }
 
     return undefined;
