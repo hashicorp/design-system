@@ -29,7 +29,10 @@ const splitContent = (mixedContent: string = '') => {
     const description = mixedContent.replace(HDS_CARBON_MAPPING_TAG, '').trim();
     const mapping = mappingTagMatch?.[1]?.trim();
     
-    return { description, mapping };
+    return {
+        description,
+        mapping: mapping && mapping.length > 0 ? mapping : undefined
+    };
 }
 
 export async function getAssetsMetadata(): Promise<AssetsMetadata> {
