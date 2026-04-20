@@ -227,7 +227,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     test('it renders a nested table when the model has rows with children key', async function (assert) {
       await createNestedTable({});
-
       assert.dom(expandRowButtonSelector).exists({ count: 3 });
       assert
         .dom(
@@ -505,7 +504,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         const activeRowAfterFirstArrowDown = getActiveRow();
 
         if (activeRowAfterFirstArrowDown) {
-          await triggerKeyEvent(activeRowAfterFirstArrowDown, 'keydown', 'ArrowDown');
+          await triggerKeyEvent(
+            activeRowAfterFirstArrowDown,
+            'keydown',
+            'ArrowDown',
+          );
         }
 
         assert.strictEqual(
@@ -524,7 +527,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       const visibleRowsAfterCollapse = findAll(visibleRowSelector);
       const visibleRowHeadersAfterCollapse = findAll(visibleRowHeaderSelector);
-      const firstVisibleRowHeaderAfterCollapse = visibleRowHeadersAfterCollapse[0];
+      const firstVisibleRowHeaderAfterCollapse =
+        visibleRowHeadersAfterCollapse[0];
       const secondVisibleRowAfterCollapse = visibleRowsAfterCollapse[1];
       const thirdVisibleRowAfterCollapse = visibleRowsAfterCollapse[2];
 
