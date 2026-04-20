@@ -121,7 +121,7 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
         )
       }}
       {{@compositeItem disabled=@isCompositeItemDisabled}}
-      {{hdsScrollIntoViewOnFocus}}
+      {{hdsScrollIntoViewOnFocus options=(hash block="center" inline="center")}}
       ...attributes
     >
       {{yield}}
