@@ -157,7 +157,7 @@ export default class HdsAdvancedTableTr<T> extends Component<
   }
 
   <template>
-    <div class={{this.classNames}} role="row" ...attributes>
+    <div class={{this.classNames}} role="row" {{@compositeGroup}} ...attributes>
       {{#if @isSelectable}}
         <HdsAdvancedTableThSelectable
           role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
