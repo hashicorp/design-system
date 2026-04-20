@@ -221,6 +221,7 @@
   --token-alert-surface-color-success: #f2fbf6;
   --token-alert-surface-color-warning: #fff9e8;
   --token-alert-surface-color-critical: #fff5f5;
+  --token-alert-typography-line-height: 1.4286;
   --token-alert-title-foreground-color-neutral: #3b3d45;
   --token-alert-title-foreground-color-highlight: #911ced;
   --token-alert-title-foreground-color-success: #00781e;
@@ -2065,6 +2066,11 @@
   flex-direction: column;
   gap: var(--token-alert-content-gap);
   justify-content: center;
+}
+
+.hds-alert__title,
+.hds-alert__description {
+  line-height: var(--token-alert-typography-line-height);
 }
 
 .hds-alert__description {

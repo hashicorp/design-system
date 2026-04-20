@@ -39,6 +39,7 @@
   --token-alert-title-foreground-color-neutral: var(--token-color-foreground-primary);
   --token-alert-title-foreground-color-success: var(--token-color-foreground-success-on-surface);
   --token-alert-title-foreground-color-warning: var(--token-color-foreground-warning-on-surface);
+  --token-alert-typography-line-height: var(--token-typography-body-200-line-height);
   --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;

@@ -6726,6 +6726,39 @@
         "critical"
       ]
     },
+    "token-alert-typography-line-height": {
+      "key": "{alert.typography.line-height}",
+      "$type": "number",
+      "$value": 1.4286,
+      "$modes": {
+        "default": 1.4286,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{typography.body-200.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g10": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g90": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g100": "{carbon.typography.headingCompact01.line-height}"
+        },
+        "key": "{alert.typography.line-height}"
+      },
+      "name": "token-alert-typography-line-height",
+      "attributes": {
+        "category": "alert"
+      },
+      "path": [
+        "alert",
+        "typography",
+        "line-height"
+      ]
+    },
     "token-alert-title-foreground-color-neutral": {
       "key": "{alert.title.foreground.color.neutral}",
       "$type": "color",
@@ -28188,6 +28221,39 @@
         "surface",
         "color",
         "critical"
+      ]
+    },
+    "token-alert-typography-line-height": {
+      "key": "{alert.typography.line-height}",
+      "$type": "number",
+      "$value": 1.28572,
+      "$modes": {
+        "default": 1.42857,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{carbon.typography.headingCompact01.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g10": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g90": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g100": "{carbon.typography.headingCompact01.line-height}"
+        },
+        "key": "{alert.typography.line-height}"
+      },
+      "name": "token-alert-typography-line-height",
+      "attributes": {
+        "category": "alert"
+      },
+      "path": [
+        "alert",
+        "typography",
+        "line-height"
       ]
     },
     "token-alert-title-foreground-color-neutral": {
@@ -49654,6 +49720,39 @@
         "critical"
       ]
     },
+    "token-alert-typography-line-height": {
+      "key": "{alert.typography.line-height}",
+      "$type": "number",
+      "$value": 1.28572,
+      "$modes": {
+        "default": 1.42857,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{carbon.typography.headingCompact01.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g10": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g90": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g100": "{carbon.typography.headingCompact01.line-height}"
+        },
+        "key": "{alert.typography.line-height}"
+      },
+      "name": "token-alert-typography-line-height",
+      "attributes": {
+        "category": "alert"
+      },
+      "path": [
+        "alert",
+        "typography",
+        "line-height"
+      ]
+    },
     "token-alert-title-foreground-color-neutral": {
       "key": "{alert.title.foreground.color.neutral}",
       "$type": "color",
@@ -71118,6 +71217,39 @@
         "critical"
       ]
     },
+    "token-alert-typography-line-height": {
+      "key": "{alert.typography.line-height}",
+      "$type": "number",
+      "$value": 1.28572,
+      "$modes": {
+        "default": 1.42857,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{carbon.typography.headingCompact01.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g10": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g90": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g100": "{carbon.typography.headingCompact01.line-height}"
+        },
+        "key": "{alert.typography.line-height}"
+      },
+      "name": "token-alert-typography-line-height",
+      "attributes": {
+        "category": "alert"
+      },
+      "path": [
+        "alert",
+        "typography",
+        "line-height"
+      ]
+    },
     "token-alert-title-foreground-color-neutral": {
       "key": "{alert.title.foreground.color.neutral}",
       "$type": "color",
@@ -92580,6 +92712,39 @@
         "surface",
         "color",
         "critical"
+      ]
+    },
+    "token-alert-typography-line-height": {
+      "key": "{alert.typography.line-height}",
+      "$type": "number",
+      "$value": 1.28572,
+      "$modes": {
+        "default": 1.42857,
+        "cds-g0": 1.28572,
+        "cds-g10": 1.28572,
+        "cds-g90": 1.28572,
+        "cds-g100": 1.28572
+      },
+      "original": {
+        "$type": "number",
+        "$value": "{carbon.typography.headingCompact01.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g10": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g90": "{carbon.typography.headingCompact01.line-height}",
+          "cds-g100": "{carbon.typography.headingCompact01.line-height}"
+        },
+        "key": "{alert.typography.line-height}"
+      },
+      "name": "token-alert-typography-line-height",
+      "attributes": {
+        "category": "alert"
+      },
+      "path": [
+        "alert",
+        "typography",
+        "line-height"
       ]
     },
     "token-alert-title-foreground-color-neutral": {

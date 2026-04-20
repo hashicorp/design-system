@@ -39,6 +39,7 @@
   --token-alert-title-foreground-color-neutral: #161616;
   --token-alert-title-foreground-color-success: #161616;
   --token-alert-title-foreground-color-warning: #161616;
+  --token-alert-typography-line-height: 1.28572;
   --token-app-footer-link-focus-outline-color: #0f62fe;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;

@@ -62,6 +62,9 @@
     --token-alert-title-foreground-color-warning: var(
       --token-color-foreground-warning-on-surface
     );
+    --token-alert-typography-line-height: var(
+      --token-typography-body-200-line-height
+    );
     --token-app-footer-link-focus-outline-color: var(
       --token-color-focus-action-internal
     );
@@ -876,6 +879,7 @@
     --token-alert-title-foreground-color-neutral: #161616;
     --token-alert-title-foreground-color-success: #161616;
     --token-alert-title-foreground-color-warning: #161616;
+    --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1377,6 +1381,7 @@
     --token-alert-title-foreground-color-neutral: #f4f4f4;
     --token-alert-title-foreground-color-success: #f4f4f4;
     --token-alert-title-foreground-color-warning: #f4f4f4;
+    --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -1883,6 +1888,7 @@
     --token-alert-title-foreground-color-neutral: #161616;
     --token-alert-title-foreground-color-success: #161616;
     --token-alert-title-foreground-color-warning: #161616;
+    --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -2384,6 +2390,7 @@
     --token-alert-title-foreground-color-neutral: #161616;
     --token-alert-title-foreground-color-success: #161616;
     --token-alert-title-foreground-color-warning: #161616;
+    --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -2885,6 +2892,7 @@
     --token-alert-title-foreground-color-neutral: #f4f4f4;
     --token-alert-title-foreground-color-success: #f4f4f4;
     --token-alert-title-foreground-color-warning: #f4f4f4;
+    --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
@@ -3391,6 +3399,7 @@
     --token-alert-title-foreground-color-neutral: #f4f4f4;
     --token-alert-title-foreground-color-success: #f4f4f4;
     --token-alert-title-foreground-color-warning: #f4f4f4;
+    --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
