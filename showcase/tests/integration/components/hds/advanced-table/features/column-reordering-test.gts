@@ -609,6 +609,46 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('column reordering works when @hasStickyFirstColumn is true', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
+      });
+
+      assert
+        .dom('.hds-advanced-table__th--is-sticky-column')
+        .exists({ count: 1 }, 'The first column is sticky');
+      assert
+        .dom('.hds-advanced-table__th-reorder-handle')
+        .exists({ count: 2 }, 'Only non-sticky columns render reorder handles');
+
+      const thElements = findAll('.hds-advanced-table__th');
+      assert
+        .dom(
+          thElements[0]?.querySelector('.hds-advanced-table__th-context-menu'),
+        )
+        .doesNotExist('The sticky first column does not show reorder actions');
+
+      const secondContextMenuToggle = thElements[1]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (secondContextMenuToggle) {
+        await click(secondContextMenuToggle);
+        await click('[data-test-context-option-key="move-column-to-end"]');
+      }
+
+      const columnOrder = getColumnOrder();
+      assert.deepEqual(
+        columnOrder,
+        [
+          DEFAULT_REORDERABLE_COLUMNS[0]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[2]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[1]?.key,
+        ],
+        'Non-sticky columns can still be reordered',
+      );
+    });
+
     test('column reordering works when columns are added and removed dynamically', async function (assert) {
       const artistColumn = { key: 'artist', label: 'Artist' };
       const albumColumn = { key: 'album', label: 'Album' };
