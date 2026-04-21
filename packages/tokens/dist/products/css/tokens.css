@@ -376,36 +376,29 @@
   --token-button-icon-size-large: 24px;
   --token-card-surface-color-primary: #ffffff;
   --token-card-surface-color-secondary: #fafafa;
-  --token-code-block-color-palette-blue: #2d8eff;
-  --token-code-block-color-palette-cyan: #32fff7;
-  --token-code-block-color-palette-green: #86ff13;
-  --token-code-block-color-palette-orange: #ffa800;
-  --token-code-block-color-palette-purple: #c76cff;
-  --token-code-block-color-palette-red: #ff3b20;
-  --token-code-block-color-palette-yellow: #ffeb3b;
-  --token-code-block-color-foreground-primary: #d5d7db;
-  --token-code-block-color-foreground-faint: #b2b6bd;
-  --token-code-block-color-foreground-interactive: #dedfe3;
-  --token-code-block-color-foreground-interactive-hover: #ffffff;
-  --token-code-block-color-foreground-interactive-active: #f1f2f3;
-  --token-code-block-color-foreground-action: #2b89ff;
-  --token-code-block-color-foreground-action-hover: #389aff;
-  --token-code-block-color-foreground-action-active: #4ca1ff;
-  --token-code-block-color-foreground-selection: #0d0e12;
-  --token-code-block-color-surface-primary: #0d0e12;
-  --token-code-block-color-surface-primary-with-alpha: #0d0e1240;
-  --token-code-block-color-surface-faint: #15181e;
-  --token-code-block-color-surface-interactive-active: #2b303c;
-  --token-code-block-color-surface-selection: #86ff13;
-  --token-code-block-color-border-strong: rgba(178, 182, 189, 0.4);
-  --token-code-block-color-border-primary: rgba(178, 182, 189, 0.2);
-  --token-code-block-color-focus-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-color-focus-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-color-syntax-highlight-blue: #2d8eff;
+  --token-code-block-color-syntax-highlight-cyan: #32fff7;
+  --token-code-block-color-syntax-highlight-green: #86ff13;
+  --token-code-block-color-syntax-highlight-orange: #ffa800;
+  --token-code-block-color-syntax-highlight-purple: #c76cff;
+  --token-code-block-color-syntax-highlight-red: #ff3b20;
+  --token-code-block-color-syntax-highlight-yellow: #ffeb3b;
+  --token-code-block-foreground-color-primary: #d5d7db;
+  --token-code-block-foreground-color-faint: #b2b6bd;
+  --token-code-block-foreground-color-action: #2b89ff;
+  --token-code-block-foreground-color-selection: #0d0e12;
+  --token-code-block-surface-color-primary: #0d0e12;
+  --token-code-block-surface-color-primary-with-alpha: #0d0e1240;
+  --token-code-block-surface-color-faint: #15181e;
+  --token-code-block-surface-color-selection: #86ff13;
+  --token-code-block-border-color-strong: rgba(178, 182, 189, 0.4);
+  --token-code-block-border-color-primary: rgba(178, 182, 189, 0.2);
+  --token-code-block-focus-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-typography-font-size: 0.8125rem;
   --token-code-block-button-surface-color-default: #15181e;
   --token-code-block-button-surface-color-hover: #0d0e12;
   --token-code-block-button-surface-color-active: #2b303c;
-  --token-code-block-line-numbers-border-color: rgba(178, 182, 189, 0.2);
   --token-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
   --token-code-block-line-highlight-border-color: #1555d4;
   --token-copy-button-foreground-color: #3b3d45;

@@ -3379,49 +3379,49 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-code-block--theme-dark {
-  --hds-code-block-color-token: var(--token-code-block-color-foreground-primary);
-  --hds-code-block-color-atrule: var(--token-code-block-color-palette-blue);
-  --hds-code-block-color-code-block-attr-name: var(--token-code-block-color-palette-blue);
-  --hds-code-block-color-attr-value: var(--token-code-block-color-palette-blue);
-  --hds-code-block-color-boolean: var(--token-code-block-color-palette-purple);
-  --hds-code-block-color-builtin: var(--token-code-block-color-palette-orange);
-  --hds-code-block-color-char: var(--token-code-block-color-palette-orange);
-  --hds-code-block-color-class-name: var(--token-code-block-color-palette-blue);
-  --hds-code-block-color-comment: var(--token-code-block-color-foreground-faint);
-  --hds-code-block-color-control: var(--token-code-block-color-palette-cyan);
-  --hds-code-block-color-constant: var(--token-code-block-color-palette-purple);
-  --hds-code-block-color-deleted: var(--token-code-block-color-palette-red);
-  --hds-code-block-color-entity: var(--token-code-block-color-palette-green);
-  --hds-code-block-color-function: var(--token-code-block-color-palette-blue);
-  --hds-code-block-color-important: var(--token-code-block-color-palette-red);
-  --hds-code-block-color-keyword: var(--token-code-block-color-palette-green);
-  --hds-code-block-color-namespace: var(--token-code-block-color-palette-red);
-  --hds-code-block-color-number: var(--token-code-block-color-palette-purple);
-  --hds-code-block-color-operator: var(--token-code-block-color-palette-cyan);
-  --hds-code-block-color-prolog: var(--token-code-block-color-foreground-primary);
-  --hds-code-block-color-property: var(--token-code-block-color-palette-blue);
-  --hds-code-block-color-punctuation: var(--token-code-block-color-foreground-primary);
-  --hds-code-block-color-regex: var(--token-code-block-color-palette-orange);
-  --hds-code-block-color-script: var(--token-code-block-color-foreground-primary);
-  --hds-code-block-color-selector: var(--token-code-block-color-palette-green);
-  --hds-code-block-color-string: var(--token-code-block-color-palette-orange);
-  --hds-code-block-color-symbol: var(--token-code-block-color-palette-orange);
-  --hds-code-block-color-tag: var(--token-code-block-color-palette-green);
-  --hds-code-block-color-url: var(--token-code-block-color-palette-cyan);
-  --hds-code-block-color-lang-css: var(--token-code-block-color-palette-purple);
-  --hds-code-block-color-lang-css-token: var(--token-code-block-color-palette-green);
-  --hds-code-block-color-lang-css-atrule: var(--token-code-block-color-palette-purple);
-  --hds-code-block-color-lang-css-entity: var(--token-code-block-color-palette-blue);
-  --hds-code-block-color-lang-css-function: var(--token-code-block-color-palette-cyan);
-  --hds-code-block-color-lang-css-property: var(--token-code-block-color-palette-cyan);
-  --hds-code-block-color-lang-css-punctuation: var(--token-code-block-color-palette-orange);
-  --hds-code-block-color-lang-css-not-atrule: var(--token-code-block-color-foreground-primary);
-  --hds-code-block-color-lang-css-selector: var(--token-code-block-color-palette-blue);
-  --hds-code-block-color-lang-css-url: var(--token-code-block-color-palette-orange);
-  --hds-code-block-color-lang-js-constant: var(--token-code-block-color-palette-orange);
-  --hds-code-block-color-lang-markup-attr-value: var(--token-code-block-color-palette-yellow);
-  --hds-code-block-color-lang-markup-entity-named: var(--token-code-block-color-palette-purple);
-  --hds-code-block-color-lang-markup-entity-not-named: var(--token-code-block-color-palette-green);
+  --hds-code-block-color-token: var(--token-code-block-foreground-color-primary);
+  --hds-code-block-color-atrule: var(--token-code-block-color-syntax-highlight-blue);
+  --hds-code-block-color-code-block-attr-name: var(--token-code-block-color-syntax-highlight-blue);
+  --hds-code-block-color-attr-value: var(--token-code-block-color-syntax-highlight-blue);
+  --hds-code-block-color-boolean: var(--token-code-block-color-syntax-highlight-purple);
+  --hds-code-block-color-builtin: var(--token-code-block-color-syntax-highlight-orange);
+  --hds-code-block-color-char: var(--token-code-block-color-syntax-highlight-orange);
+  --hds-code-block-color-class-name: var(--token-code-block-color-syntax-highlight-blue);
+  --hds-code-block-color-comment: var(--token-code-block-foreground-color-faint);
+  --hds-code-block-color-control: var(--token-code-block-color-syntax-highlight-cyan);
+  --hds-code-block-color-constant: var(--token-code-block-color-syntax-highlight-purple);
+  --hds-code-block-color-deleted: var(--token-code-block-color-syntax-highlight-red);
+  --hds-code-block-color-entity: var(--token-code-block-color-syntax-highlight-green);
+  --hds-code-block-color-function: var(--token-code-block-color-syntax-highlight-blue);
+  --hds-code-block-color-important: var(--token-code-block-color-syntax-highlight-red);
+  --hds-code-block-color-keyword: var(--token-code-block-color-syntax-highlight-green);
+  --hds-code-block-color-namespace: var(--token-code-block-color-syntax-highlight-red);
+  --hds-code-block-color-number: var(--token-code-block-color-syntax-highlight-purple);
+  --hds-code-block-color-operator: var(--token-code-block-color-syntax-highlight-cyan);
+  --hds-code-block-color-prolog: var(--token-code-block-foreground-color-primary);
+  --hds-code-block-color-property: var(--token-code-block-color-syntax-highlight-blue);
+  --hds-code-block-color-punctuation: var(--token-code-block-foreground-color-primary);
+  --hds-code-block-color-regex: var(--token-code-block-color-syntax-highlight-orange);
+  --hds-code-block-color-script: var(--token-code-block-foreground-color-primary);
+  --hds-code-block-color-selector: var(--token-code-block-color-syntax-highlight-green);
+  --hds-code-block-color-string: var(--token-code-block-color-syntax-highlight-orange);
+  --hds-code-block-color-symbol: var(--token-code-block-color-syntax-highlight-orange);
+  --hds-code-block-color-tag: var(--token-code-block-color-syntax-highlight-green);
+  --hds-code-block-color-url: var(--token-code-block-color-syntax-highlight-cyan);
+  --hds-code-block-color-lang-css: var(--token-code-block-color-syntax-highlight-purple);
+  --hds-code-block-color-lang-css-token: var(--token-code-block-color-syntax-highlight-green);
+  --hds-code-block-color-lang-css-atrule: var(--token-code-block-color-syntax-highlight-purple);
+  --hds-code-block-color-lang-css-entity: var(--token-code-block-color-syntax-highlight-blue);
+  --hds-code-block-color-lang-css-function: var(--token-code-block-color-syntax-highlight-cyan);
+  --hds-code-block-color-lang-css-property: var(--token-code-block-color-syntax-highlight-cyan);
+  --hds-code-block-color-lang-css-punctuation: var(--token-code-block-color-syntax-highlight-orange);
+  --hds-code-block-color-lang-css-not-atrule: var(--token-code-block-foreground-color-primary);
+  --hds-code-block-color-lang-css-selector: var(--token-code-block-color-syntax-highlight-blue);
+  --hds-code-block-color-lang-css-url: var(--token-code-block-color-syntax-highlight-orange);
+  --hds-code-block-color-lang-js-constant: var(--token-code-block-color-syntax-highlight-orange);
+  --hds-code-block-color-lang-markup-attr-value: var(--token-code-block-color-syntax-highlight-yellow);
+  --hds-code-block-color-lang-markup-entity-named: var(--token-code-block-color-syntax-highlight-purple);
+  --hds-code-block-color-lang-markup-entity-not-named: var(--token-code-block-color-syntax-highlight-green);
 }
 
 .hds-code-block .token {
@@ -3559,9 +3559,9 @@ button.hds-button[href]::after {
 
 .hds-code-block {
   position: relative;
-  color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-color-surface-primary);
-  border: 1px solid var(--token-code-block-color-border-strong);
+  color: var(--token-code-block-foreground-color-primary);
+  background-color: var(--token-code-block-surface-color-primary);
+  border: 1px solid var(--token-code-block-border-color-strong);
 }
 .hds-code-block pre,
 .hds-code-block code {
@@ -3597,11 +3597,11 @@ button.hds-button[href]::after {
 }
 
 .hds-code-block__title {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
 }
 
 .hds-code-block__description {
-  color: var(--token-code-block-color-foreground-faint);
+  color: var(--token-code-block-foreground-color-faint);
 }
 
 .hds-code-block__header {
@@ -3609,8 +3609,8 @@ button.hds-button[href]::after {
   flex-direction: column;
   gap: 4px;
   padding: 8px 16px;
-  background-color: var(--token-code-block-color-surface-faint);
-  border-bottom: 1px solid var(--token-code-block-color-border-primary);
+  background-color: var(--token-code-block-surface-color-faint);
+  border-bottom: 1px solid var(--token-code-block-border-color-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
@@ -3628,7 +3628,7 @@ button.hds-button[href]::after {
   line-height: 1em;
 }
 .hds-code-block__header a:not([class*=hds-]) {
-  color: var(--token-code-block-color-foreground-action);
+  color: var(--token-code-block-foreground-color-action);
 }
 .hds-code-block__header a:not([class*=hds-]):focus, .hds-code-block__header a:not([class*=hds-]):focus-visible {
   text-decoration: none;
@@ -3674,8 +3674,8 @@ button.hds-button[href]::after {
   border-radius: inherit;
 }
 .hds-code-block__code ::selection {
-  color: var(--token-code-block-color-foreground-selection);
-  background-color: var(--token-code-block-color-surface-selection);
+  color: var(--token-code-block-foreground-color-selection);
+  background-color: var(--token-code-block-surface-color-selection);
 }
 .hds-mode-cds-g0 .hds-code-block__code ::selection,
 .hds-mode-cds-g10 .hds-code-block__code ::selection,
@@ -3693,40 +3693,40 @@ button.hds-button[href]::after {
 
 .hds-code-block__height-toggle-button,
 .hds-code-block__copy-button.hds-copy-button {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-default);
-  border: 1px solid var(--token-code-block-color-border-strong);
+  border: 1px solid var(--token-code-block-border-color-strong);
 }
 .hds-code-block__height-toggle-button:hover, .hds-code-block__height-toggle-button.mock-hover,
 .hds-code-block__copy-button.hds-copy-button:hover,
 .hds-code-block__copy-button.hds-copy-button.mock-hover {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-hover);
-  border-color: var(--token-code-block-color-border-strong);
+  border-color: var(--token-code-block-border-color-strong);
 }
 .hds-code-block__height-toggle-button:active, .hds-code-block__height-toggle-button.mock-active,
 .hds-code-block__copy-button.hds-copy-button:active,
 .hds-code-block__copy-button.hds-copy-button.mock-active {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-active);
 }
 .hds-code-block__height-toggle-button:focus, .hds-code-block__height-toggle-button.mock-focus, .hds-code-block__height-toggle-button:focus-visible,
 .hds-code-block__copy-button.hds-copy-button:focus,
 .hds-code-block__copy-button.hds-copy-button.mock-focus,
 .hds-code-block__copy-button.hds-copy-button:focus-visible {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-default);
-  border-color: var(--token-code-block-color-focus-action-internal);
+  border-color: var(--token-code-block-focus-color-action-internal);
 }
 .hds-code-block__height-toggle-button:focus::before, .hds-code-block__height-toggle-button.mock-focus::before, .hds-code-block__height-toggle-button:focus-visible::before,
 .hds-code-block__copy-button.hds-copy-button:focus::before,
 .hds-code-block__copy-button.hds-copy-button.mock-focus::before,
 .hds-code-block__copy-button.hds-copy-button:focus-visible::before {
-  border-color: var(--token-code-block-color-focus-action-external);
+  border-color: var(--token-code-block-focus-color-action-external);
 }
 .hds-code-block__height-toggle-button .hds-icon,
 .hds-code-block__copy-button.hds-copy-button .hds-icon {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
 }
 
 .hds-code-block__copy-button {
@@ -3761,7 +3761,7 @@ button.hds-button[href]::after {
   min-width: 49px;
   min-height: 100%;
   padding: 16px 0;
-  border-right: 1px solid var(--token-code-block-color-border-primary);
+  border-right: 1px solid var(--token-code-block-border-color-primary);
   user-select: none;
   pointer-events: none;
 }
@@ -3834,7 +3834,7 @@ button.hds-button[href]::after {
   display: block;
   height: 48px;
   margin: 0 0 -16px -1000px;
-  background: linear-gradient(360deg, var(--token-code-block-color-surface-primary) 37.07%, var(--token-code-block-color-surface-primary-with-alpha) 100%);
+  background: linear-gradient(360deg, var(--token-code-block-surface-color-primary) 37.07%, var(--token-code-block-surface-color-primary-with-alpha) 100%);
   content: "";
   pointer-events: none;
 }

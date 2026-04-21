@@ -22,9 +22,9 @@ $hds-code-block-code-footer-height: 48px;
 
 .hds-code-block {
   position: relative;
-  color: var(--token-code-block-color-foreground-primary);
-  background-color: var(--token-code-block-color-surface-primary);
-  border: 1px solid var(--token-code-block-color-border-strong);
+  color: var(--token-code-block-foreground-color-primary);
+  background-color: var(--token-code-block-surface-color-primary);
+  border: 1px solid var(--token-code-block-border-color-strong);
 
   pre,
   code {
@@ -71,11 +71,11 @@ $hds-code-block-code-footer-height: 48px;
 // Header (contains title & description)
 
 .hds-code-block__title {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
 }
 
 .hds-code-block__description {
-  color: var(--token-code-block-color-foreground-faint);
+  color: var(--token-code-block-foreground-color-faint);
 }
 
 .hds-code-block__header {
@@ -83,8 +83,8 @@ $hds-code-block-code-footer-height: 48px;
   flex-direction: column;
   gap: 4px;
   padding: 8px $hds-code-block-code-padding;
-  background-color: var(--token-code-block-color-surface-faint);
-  border-bottom: 1px solid var(--token-code-block-color-border-primary);
+  background-color: var(--token-code-block-surface-color-faint);
+  border-bottom: 1px solid var(--token-code-block-border-color-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
@@ -108,7 +108,7 @@ $hds-code-block-code-footer-height: 48px;
 
   // Default styling for bare HTML links not using HDS::Link components
   a:not([class*="hds-"]) {
-    color: var(--token-code-block-color-foreground-action);
+    color: var(--token-code-block-foreground-color-action);
 
     &:focus,
     &:focus-visible {
@@ -145,8 +145,8 @@ $hds-code-block-code-footer-height: 48px;
   border-radius: inherit;
 
   ::selection {
-    color: var(--token-code-block-color-foreground-selection);
-    background-color: var(--token-code-block-color-surface-selection);
+    color: var(--token-code-block-foreground-color-selection);
+    background-color: var(--token-code-block-surface-color-selection);
 
     @include hds-apply-only-if-carbon() {
       color: revert;
@@ -165,37 +165,37 @@ $hds-code-block-code-footer-height: 48px;
 .hds-code-block__height-toggle-button,
 .hds-code-block__copy-button.hds-copy-button {
   // Overriding default colors
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-default);
-  border: 1px solid var(--token-code-block-color-border-strong);
+  border: 1px solid var(--token-code-block-border-color-strong);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-code-block-color-foreground-primary);
+    color: var(--token-code-block-foreground-color-primary);
     background-color: var(--token-code-block-button-surface-color-hover);
-    border-color: var(--token-code-block-color-border-strong);
+    border-color: var(--token-code-block-border-color-strong);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-code-block-color-foreground-primary);
+    color: var(--token-code-block-foreground-color-primary);
     background-color: var(--token-code-block-button-surface-color-active);
   }
 
   &:focus,
   &.mock-focus,
   &:focus-visible {
-    color: var(--token-code-block-color-foreground-primary);
+    color: var(--token-code-block-foreground-color-primary);
     background-color: var(--token-code-block-button-surface-color-default);
-    border-color: var(--token-code-block-color-focus-action-internal);
+    border-color: var(--token-code-block-focus-color-action-internal);
 
     &::before {
-      border-color: var(--token-code-block-color-focus-action-external);
+      border-color: var(--token-code-block-focus-color-action-external);
     }
   }
 
   .hds-icon {
-    color: var(--token-code-block-color-foreground-primary);
+    color: var(--token-code-block-foreground-color-primary);
   }
 }
 
@@ -250,7 +250,7 @@ $hds-code-block-code-footer-height: 48px;
       min-width: $hds-code-block-line-numbers-width;
       min-height: 100%;
       padding: $hds-code-block-code-padding 0;
-      border-right: 1px solid var(--token-code-block-color-border-primary);
+      border-right: 1px solid var(--token-code-block-border-color-primary);
       user-select: none;
       pointer-events: none;
 
@@ -341,8 +341,8 @@ $hds-code-block-code-footer-height: 48px;
     margin: 0 0 -#{$hds-code-block-code-padding} -1000px; // cover line highlights when line numbers are enabled
     background: linear-gradient(
       360deg,
-      var(--token-code-block-color-surface-primary) 37.07%,
-      var(--token-code-block-color-surface-primary-with-alpha) 100%
+      var(--token-code-block-surface-color-primary) 37.07%,
+      var(--token-code-block-surface-color-primary-with-alpha) 100%
     );
     content: "";
     pointer-events: none;
