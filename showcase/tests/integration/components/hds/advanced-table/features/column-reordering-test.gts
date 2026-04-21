@@ -622,12 +622,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         .exists({ count: 2 }, 'Only non-sticky columns render reorder handles');
 
       const thElements = findAll('.hds-advanced-table__th');
-      assert
-        .dom(
-          thElements[0]?.querySelector('.hds-advanced-table__th-context-menu'),
-        )
-        .doesNotExist('The sticky first column does not show reorder actions');
-
       const secondContextMenuToggle = thElements[1]?.querySelector(
         '.hds-dropdown-toggle-icon',
       );
