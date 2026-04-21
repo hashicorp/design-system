@@ -265,7 +265,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       // has a higher z-index than the sticky header content
       z-index: 7;
 
-      &:has(~.hds-advanced-table__th .hds-advanced-table__th-reorder-handle)::after {
+      &:has(~ .hds-advanced-table__th .hds-advanced-table__th-reorder-handle)::after {
         position: absolute;
         right: 0;
         bottom: -14px;
