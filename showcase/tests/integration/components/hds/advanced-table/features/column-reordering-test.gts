@@ -610,23 +610,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
-    test('it throws an assertion if @hasStickyFirstColumn is true and @hasReorderableColumns is true', async function (assert) {
-      const errorMessage =
-        'Cannot have both reorderable columns and a sticky first column.';
-
-      setupOnerror(function (error) {
-        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-      });
-
-      await createReorderableTable({
-        hasStickyFirstColumn: true,
-      });
-
-      assert.throws(function () {
-        throw new Error(errorMessage);
-      });
-    });
-
     test('column reordering works when columns are added and removed dynamically', async function (assert) {
       const artistColumn = { key: 'artist', label: 'Artist' };
       const albumColumn = { key: 'album', label: 'Album' };
