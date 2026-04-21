@@ -6,6 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash, get } from '@ember/helper';
 import { eq, or } from 'ember-truth-helpers';
 import { formatDate } from 'ember-intl';
+import style from 'ember-style-modifier';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -129,6 +130,72 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
     @model={{MUSIC}}
     @columns={{SORTABLE_COLUMNS}}
     @hasReorderableColumns={{true}}
+  >
+    <:body as |B|>
+      <B.Tr as |R|>
+        {{#each R.orderedCells as |C|}}
+          {{#if (eq C.columnKey "artist")}}
+            <B.Th @scope="row"><HdsLinkInline @href="#showcase">
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                {{B.data.artist}}
+              </HdsLinkInline></B.Th>
+          {{else}}
+            <B.Td>
+              {{#if (eq C.columnKey "album")}}
+                <div class="shw-component-advanced-table-cell-content-div">
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  {{B.data.album}}
+                </div>
+              {{else if (eq C.columnKey "year")}}
+                <HdsBadge
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  @text={{B.data.year}}
+                  @type="outlined"
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  @color={{B.data.badge-color}}
+                />
+              {{else}}
+                <HdsButtonSet>
+                  <HdsButton
+                    @text="Add"
+                    @isIconOnly={{true}}
+                    @icon="plus"
+                    @size="small"
+                  />
+                  <HdsButton
+                    @text="Edit"
+                    @isIconOnly={{true}}
+                    @icon="edit"
+                    @size="small"
+                    @color="secondary"
+                  />
+                  <HdsButton
+                    @text="Delete"
+                    @isIconOnly={{true}}
+                    @icon="trash"
+                    @size="small"
+                    @color="critical"
+                  />
+                </HdsButtonSet>
+              {{/if}}
+            </B.Td>
+          {{/if}}
+        {{/each}}
+      </B.Tr>
+    </:body>
+  </HdsAdvancedTable>
+
+  <ShwTextH4 @tag="h3">Reorderable columns with pinnable first column</ShwTextH4>
+
+  <HdsAdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+    @model={{MUSIC}}
+    @columns={{SORTABLE_COLUMNS}}
+    @hasReorderableColumns={{true}}
+    @hasStickyFirstColumn={{true}}
+    {{style max-width="700px"}}
   >
     <:body as |B|>
       <B.Tr as |R|>
