@@ -195,7 +195,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
     @columns={{SORTABLE_COLUMNS}}
     @hasReorderableColumns={{true}}
     @hasStickyFirstColumn={{true}}
-    {{style max-width="400px"}}
+    {{style max-width="700px"}}
   >
     <:body as |B|>
       <B.Tr as |R|>
