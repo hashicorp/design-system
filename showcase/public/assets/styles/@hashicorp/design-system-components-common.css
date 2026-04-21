@@ -3876,8 +3876,8 @@ button.hds-button[href]::after {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--token-code-block-color-surface-primary);
-  border: 1px solid var(--token-code-block-color-border-strong);
+  background-color: var(--token-code-block-surface-color-primary);
+  border: 1px solid var(--token-code-block-border-color-strong);
 }
 .hds-code-editor.hds-code-editor--is-standalone {
   border-radius: var(--token-border-radius-medium);
@@ -3906,7 +3906,7 @@ button.hds-button[href]::after {
 .hds-mode-cds-g10 .hds-code-editor .cm-panels-bottom .cm-panel.cm-panel-lint,
 .hds-mode-cds-g90 .hds-code-editor .cm-panels-bottom .cm-panel.cm-panel-lint,
 .hds-mode-cds-g100 .hds-code-editor .cm-panels-bottom .cm-panel.cm-panel-lint {
-  border-top: 3px solid var(--token-code-block-color-border-primary);
+  border-top: 3px solid var(--token-code-block-border-color-primary);
 }
 
 .hds-code-editor .hds-code-editor__header {
@@ -3914,8 +3914,8 @@ button.hds-button[href]::after {
   gap: 12px;
   align-items: start;
   padding: 16px;
-  background-color: var(--token-code-block-color-surface-faint);
-  border-bottom: 1px solid var(--token-code-block-color-border-primary);
+  background-color: var(--token-code-block-surface-color-faint);
+  border-bottom: 1px solid var(--token-code-block-border-color-primary);
 }
 .hds-code-editor .hds-code-editor__header-content {
   display: flex;
@@ -3923,13 +3923,13 @@ button.hds-button[href]::after {
   flex-grow: 1;
 }
 .hds-code-editor .hds-code-editor__title {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
 }
 .hds-code-editor .hds-code-editor__title + .hds-code-editor__description {
   margin-top: 4px;
 }
 .hds-code-editor .hds-code-editor__description {
-  color: var(--token-code-block-color-foreground-faint);
+  color: var(--token-code-block-foreground-color-faint);
 }
 .hds-code-editor .hds-code-editor__title + .hds-code-editor__header-generic,
 .hds-code-editor .hds-code-editor__description + .hds-code-editor__header-generic {
@@ -3952,42 +3952,42 @@ button.hds-button[href]::after {
   align-items: center;
   justify-content: center;
   height: 164px;
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-default);
 }
 .hds-code-editor .hds-button {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-default);
-  border: 1px solid var(--token-code-block-color-border-strong);
+  border: 1px solid var(--token-code-block-border-color-strong);
 }
-.hds-code-editor .hds-button:focus, .hds-code-editor .hds-button:hover {
+.hds-code-editor .hds-button:focus, .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-code-editor .hds-button.mock-hover {
   background-color: var(--token-code-block-button-surface-color-hover);
-  border-color: var(--token-code-block-color-focus-action-internal);
+  border-color: var(--token-code-block-focus-color-action-internal);
 }
-.hds-code-editor .hds-button:focus::before, .hds-code-editor .hds-button:hover::before {
-  border-color: var(--token-code-block-color-focus-action-external);
+.hds-code-editor .hds-button:focus::before, .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-code-editor .hds-button.mock-hover::before {
+  border-color: var(--token-code-block-focus-color-action-external);
 }
-.hds-code-editor .hds-button:focus .hds-button__icon, .hds-code-editor .hds-button:hover .hds-button__icon {
-  color: var(--token-code-block-color-foreground-primary);
+.hds-code-editor .hds-button:focus .hds-button__icon, .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover .hds-button__icon, .hds-code-editor .hds-button.mock-hover .hds-button__icon {
+  color: var(--token-code-block-foreground-color-primary);
 }
-.hds-mode-cds-g0 .hds-code-editor .hds-button:focus, .hds-mode-cds-g0 .hds-code-editor .hds-button:hover,
-.hds-mode-cds-g10 .hds-code-editor .hds-button:focus, .hds-mode-cds-g10 .hds-code-editor .hds-button:hover,
-.hds-mode-cds-g90 .hds-code-editor .hds-button:focus, .hds-mode-cds-g90 .hds-code-editor .hds-button:hover,
-.hds-mode-cds-g100 .hds-code-editor .hds-button:focus, .hds-mode-cds-g100 .hds-code-editor .hds-button:hover {
+.hds-mode-cds-g0 .hds-code-editor .hds-button:focus, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-hover,
+.hds-mode-cds-g10 .hds-code-editor .hds-button:focus, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-hover,
+.hds-mode-cds-g90 .hds-code-editor .hds-button:focus, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-hover,
+.hds-mode-cds-g100 .hds-code-editor .hds-button:focus, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-hover {
   border-color: transparent;
 }
-.hds-mode-cds-g0 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g0 .hds-code-editor .hds-button:hover::before,
-.hds-mode-cds-g10 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g10 .hds-code-editor .hds-button:hover::before,
-.hds-mode-cds-g90 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g90 .hds-code-editor .hds-button:hover::before,
-.hds-mode-cds-g100 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g100 .hds-code-editor .hds-button:hover::before {
+.hds-mode-cds-g0 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-hover::before,
+.hds-mode-cds-g10 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-hover::before,
+.hds-mode-cds-g90 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-hover::before,
+.hds-mode-cds-g100 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-hover::before {
   border-color: transparent;
 }
 
-.hds-code-editor .hds-button:active {
+.hds-code-editor .hds-button:active, .hds-code-editor .hds-button.mock-active {
   background-color: var(--token-code-block-button-surface-color-active);
 }
 .hds-code-editor .hds-button .hds-button__icon {
-  color: var(--token-code-block-color-foreground-primary);
+  color: var(--token-code-block-foreground-color-primary);
 }
 
 /**

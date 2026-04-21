@@ -109,7 +109,9 @@
     border: 1px solid var(--token-code-block-color-border-strong);
 
     &:focus,
-    &:hover {
+    &.mock-focus
+    &:hover,
+    &.mock-hover {
       background-color: var(--token-code-block-button-surface-color-hover);
       border-color: var(--token-code-block-color-focus-action-internal);
 
@@ -130,7 +132,8 @@
       }
     }
 
-    &:active {
+    &:active,
+    &.mock-active {
       background-color: var(--token-code-block-button-surface-color-active);
     }
 

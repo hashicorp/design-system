@@ -4,9 +4,12 @@
  */
 import Component from '@glimmer/component';
 import { pageTitle } from 'ember-page-title';
+import style from 'ember-style-modifier';
+import NOOP from 'showcase/utils/noop';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
@@ -15,8 +18,11 @@ import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonizatio
 import {
   HdsButton,
   HdsCodeEditor,
+  HdsCodeEditorFullScreenButton,
 } from '@hashicorp/design-system-components/components';
 import type { Diagnostic as DiagnosticType } from '@hashicorp/design-system-components/codemirror';
+
+const STATES = ['default', 'hover', 'active', 'focus'];
 
 const DEMO_CODE = `lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
 
@@ -235,6 +241,36 @@ export default class CodeEditorCarbonizationIndex extends Component {
         </:reference>
       </ShwCarbonizationComparisonGrid>
 
+      <ShwDivider @level={{2}} />
+
+      <ShwTextH2>Base elements</ShwTextH2>
+
+      <ShwTextH3>FullScreenButton</ShwTextH3>
+
+      {{#each STATES as |state|}}
+        <ShwCarbonizationComparisonGrid @label={{state}}>
+          <:theming>
+            <div class="hds-code-editor" {{style padding="16px"}}>
+              <ShwFlex as |SF|>
+                <SF.Item>
+                  <HdsCodeEditorFullScreenButton
+                    @isFullScreen={{false}}
+                    @onToggleFullScreen={{NOOP}}
+                    mock-state-value={{state}}
+                  />
+                </SF.Item>
+                <SF.Item>
+                  <HdsCodeEditorFullScreenButton
+                    @isFullScreen={{true}}
+                    @onToggleFullScreen={{NOOP}}
+                    mock-state-value={{state}}
+                  />
+                </SF.Item>
+              </ShwFlex>
+            </div>
+          </:theming>
+        </ShwCarbonizationComparisonGrid>
+      {{/each}}
     </section>
   </template>
 }
