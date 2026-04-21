@@ -6,6 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash, get } from '@ember/helper';
 import { eq, or } from 'ember-truth-helpers';
 import { formatDate } from 'ember-intl';
+import style from 'ember-style-modifier';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -194,6 +195,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
     @columns={{SORTABLE_COLUMNS}}
     @hasReorderableColumns={{true}}
     @hasStickyFirstColumn={{true}}
+    {{style max-width="400px"}}
   >
     <:body as |B|>
       <B.Tr as |R|>
