@@ -12,7 +12,6 @@ import {
   focus,
   render,
   settled,
-  setupOnerror,
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
