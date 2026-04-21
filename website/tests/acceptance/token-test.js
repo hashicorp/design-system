@@ -16,7 +16,7 @@ module('Acceptance | Token Search', function (hooks) {
 
     assert.strictEqual(currentURL(), '/foundations/tokens?searchQuery=blue');
 
-    assert.dom('.doc-tokens-list__item').exists({ count: 6 });
+    assert.dom('.doc-tokens-list__item').exists({ count: 7 });
   });
 
   test('should load content based on query param', async function (assert) {
@@ -24,7 +24,7 @@ module('Acceptance | Token Search', function (hooks) {
 
     assert.strictEqual(currentURL(), '/foundations/tokens?searchQuery=blue');
 
-    assert.dom('.doc-tokens-list__item').exists({ count: 6 });
+    assert.dom('.doc-tokens-list__item').exists({ count: 7 });
   });
 
   test('should clear search results if input is cleared', async function (assert) {
