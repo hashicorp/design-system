@@ -273,7 +273,7 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
             <HdsRichTooltip as |RT|>
               <RT.Toggle @text="Open rich tooltip" @isInline={{true}} />
               <RT.Bubble>
-                <HdsTextBody @tag="p" size="100">Lorem ipsum dolor sit amet,
+                <HdsTextBody @tag="p" @size="100">Lorem ipsum dolor sit amet,
                   consectetur adipiscing elit, sed do eiusmod tempor incididunt
                   ut labore et dolore magna aliqua.</HdsTextBody>
               </RT.Bubble>
