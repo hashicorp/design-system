@@ -351,6 +351,7 @@ export default class CodeBlockCarbonizationIndex extends Component {
                 @language="go"
                 @hasLineNumbers={{false}}
                 @highlightLines="2, 4"
+                @hasCopyButton={{true}}
                 @ariaLabel="Highlight lines 2 & 4, hasLineNumbers=false"
                 @value="{
   'result': [
@@ -375,6 +376,7 @@ export default class CodeBlockCarbonizationIndex extends Component {
               <HdsCodeBlock
                 @language="ruby"
                 @highlightLines="10-12"
+                @hasCopyButton={{true}}
                 @ariaLabel="Highlight lines 10-12"
                 @value="{
   'result': [
