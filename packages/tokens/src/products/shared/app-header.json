@@ -35,10 +35,10 @@
         "$value": "{color.palette.neutral-500}",
         "$modes": {
           "default": "{color.palette.neutral-500}",
-          "cds-g0": "transparent",
-          "cds-g10": "transparent",
-          "cds-g90": "transparent",
-          "cds-g100": "transparent"
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.70}",
+          "cds-g100": "{carbon.color.gray.80}"
         }
       }
     },

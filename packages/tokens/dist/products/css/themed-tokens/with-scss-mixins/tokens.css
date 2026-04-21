@@ -819,7 +819,7 @@
   :root {
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-app-header-actions-gap: 0px;
-    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-border-color: #e0e0e0;
     --token-app-header-foreground-color: #161616;
     --token-app-header-height: 48px;
     --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
@@ -1316,7 +1316,7 @@
   :root {
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-app-header-actions-gap: 0px;
-    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-border-color: #393939;
     --token-app-header-foreground-color: #f4f4f4;
     --token-app-header-height: 48px;
     --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
@@ -1818,7 +1818,7 @@
   :root {
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-app-header-actions-gap: 0px;
-    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-border-color: #e0e0e0;
     --token-app-header-foreground-color: #161616;
     --token-app-header-height: 48px;
     --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
@@ -2315,7 +2315,7 @@
   :root {
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-app-header-actions-gap: 0px;
-    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-border-color: #c6c6c6;
     --token-app-header-foreground-color: #161616;
     --token-app-header-height: 48px;
     --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
@@ -2812,7 +2812,7 @@
   :root {
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-app-header-actions-gap: 0px;
-    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-border-color: #525252;
     --token-app-header-foreground-color: #f4f4f4;
     --token-app-header-height: 48px;
     --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
@@ -3314,7 +3314,7 @@
   :root {
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-app-header-actions-gap: 0px;
-    --token-app-header-border-color: rgba(0, 0, 0, 0);
+    --token-app-header-border-color: #393939;
     --token-app-header-foreground-color: #f4f4f4;
     --token-app-header-height: 48px;
     --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
