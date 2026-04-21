@@ -206,6 +206,7 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
           | 'isStickyColumnPinned'
           | 'newLabel'
           | 'onClickToggle'
+          | 'parentId'
           | 'scope'
         >;
         data: T;
