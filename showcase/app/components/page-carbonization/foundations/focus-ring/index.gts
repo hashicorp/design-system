@@ -148,7 +148,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Components with focus ring</ShwTextH2>
 
-    <ShwTextH4 tag="h3">Accordion</ShwTextH4>
+    <ShwTextH4 @tag="h3">Accordion</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <ShwFlex @direction="column" @gap="2rem" as |SF|>
@@ -183,7 +183,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">AppFooter</ShwTextH4>
+    <ShwTextH4 @tag="h3">AppFooter</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <HdsAppFooter
@@ -205,7 +205,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">AppHeader</ShwTextH4>
+    <ShwTextH4 @tag="h3">AppHeader</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <div mock-state-value="focus" mock-state-selector="button, a">
@@ -242,7 +242,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">AppSideNav</ShwTextH4>
+    <ShwTextH4 @tag="h3">AppSideNav</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
@@ -282,7 +282,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">Breadcrumb</ShwTextH4>
+    <ShwTextH4 @tag="h3">Breadcrumb</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <HdsBreadcrumb aria-label="breadcrumb in focus state example">
@@ -316,7 +316,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">Button</ShwTextH4>
+    <ShwTextH4 @tag="h3">Button</ShwTextH4>
     {{#each BUTTON_COLORS as |color|}}
       <ShwCarbonizationComparisonGrid @label={{capitalize color}}>
         <:theming>
@@ -590,7 +590,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">Form</ShwTextH4>
+    <ShwTextH4 @tag="h3">Form</ShwTextH4>
     <ShwCarbonizationComparisonGrid @label="Checkbox">
       <:theming>
         <ShwFlex mock-state-value="focus" mock-state-selector="input" as |SF|>
@@ -814,7 +814,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">Link</ShwTextH4>
+    <ShwTextH4 @tag="h3">Link</ShwTextH4>
     <ShwCarbonizationComparisonGrid @label="Inline">
       <:theming>
         <div class="hds-typography-body-300">Lorem
@@ -844,7 +844,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">Pagination</ShwTextH4>
+    <ShwTextH4 @tag="h3">Pagination</ShwTextH4>
     <ShwCarbonizationComparisonGrid @label="Inline">
       <:theming>
         <ShwFlex
@@ -879,7 +879,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">Reveal</ShwTextH4>
+    <ShwTextH4 @tag="h3">Reveal</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <HdsRevealToggleButton @text="More options" mock-state-value="focus" />
@@ -888,7 +888,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">RichTooltip</ShwTextH4>
+    <ShwTextH4 @tag="h3">RichTooltip</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <ShwFlex @direction="column" mock-state-value="focus" as |SF|>
@@ -972,7 +972,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
                   @text="Lorem ipsum"
                   @color="neutral"
                   @icon="hexagon"
-                  type="outlined"
+                  @type="outlined"
                 />
               </RT.Toggle>
               <RT.Bubble>
@@ -996,7 +996,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">StepperNav</ShwTextH4>
+    <ShwTextH4 @tag="h3">StepperNav</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <ShwFlex @direction="column" as |SF|>
@@ -1300,7 +1300,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 tag="h3">Tooltip</ShwTextH4>
+    <ShwTextH4 @tag="h3">Tooltip</ShwTextH4>
     <ShwCarbonizationComparisonGrid @label="Inline">
       <:theming>
         <ShwFlex
