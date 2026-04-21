@@ -12,8 +12,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--token-code-block-color-surface-primary);
-  border: 1px solid var(--token-code-block-color-border-strong);
+  background-color: var(--token-code-block-surface-color-primary);
+  border: 1px solid var(--token-code-block-border-color-strong);
 
   &.hds-code-editor--is-standalone {
     border-radius: var(--token-border-radius-medium);
@@ -43,7 +43,7 @@
     }
 
     .cm-panels-bottom .cm-panel.cm-panel-lint {
-      border-top: 3px solid var(--token-code-block-color-border-primary);
+      border-top: 3px solid var(--token-code-block-border-color-primary);
     }
   }
 
@@ -52,8 +52,8 @@
     gap: 12px;
     align-items: start;
     padding: 16px;
-    background-color: var(--token-code-block-color-surface-faint);
-    border-bottom: 1px solid var(--token-code-block-color-border-primary);
+    background-color: var(--token-code-block-surface-color-faint);
+    border-bottom: 1px solid var(--token-code-block-border-color-primary);
   }
 
   .hds-code-editor__header-content {
@@ -63,7 +63,7 @@
   }
 
   .hds-code-editor__title {
-    color: var(--token-code-block-color-foreground-primary);
+    color: var(--token-code-block-foreground-color-primary);
 
     + .hds-code-editor__description {
       margin-top: 4px;
@@ -71,7 +71,7 @@
   }
 
   .hds-code-editor__description {
-    color: var(--token-code-block-color-foreground-faint);
+    color: var(--token-code-block-foreground-color-faint);
   }
 
   .hds-code-editor__title + .hds-code-editor__header-generic,
@@ -99,28 +99,27 @@
     align-items: center;
     justify-content: center;
     height: 164px;
-    color: var(--token-code-block-color-foreground-primary);
+    color: var(--token-code-block-foreground-color-primary);
     background-color: var(--token-code-block-button-surface-color-default);
   }
 
   .hds-button {
-    color: var(--token-code-block-color-foreground-primary);
+    color: var(--token-code-block-foreground-color-primary);
     background-color: var(--token-code-block-button-surface-color-default);
-    border: 1px solid var(--token-code-block-color-border-strong);
+    border: 1px solid var(--token-code-block-border-color-strong);
 
     &:focus,
-    &.mock-focus
-    &:hover,
+    &.mock-focus &:hover,
     &.mock-hover {
       background-color: var(--token-code-block-button-surface-color-hover);
-      border-color: var(--token-code-block-color-focus-action-internal);
+      border-color: var(--token-code-block-focus-color-action-internal);
 
       &::before {
-        border-color: var(--token-code-block-color-focus-action-external);
+        border-color: var(--token-code-block-focus-color-action-external);
       }
 
       .hds-button__icon {
-        color: var(--token-code-block-color-foreground-primary);
+        color: var(--token-code-block-foreground-color-primary);
       }
 
       @include hds-apply-only-if-carbon() {
@@ -138,7 +137,7 @@
     }
 
     .hds-button__icon {
-      color: var(--token-code-block-color-foreground-primary);
+      color: var(--token-code-block-foreground-color-primary);
     }
   }
 }
