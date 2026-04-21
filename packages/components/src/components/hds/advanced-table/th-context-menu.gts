@@ -174,8 +174,12 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
-      this.args;
+    const {
+      hasReorderableColumns,
+      hasResizableColumns,
+      isFirstColumn,
+      isStickyColumn,
+    } = this.args;
 
     let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
 
@@ -185,6 +189,10 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (hasReorderableColumns && isStickyColumn === undefined) {
       allGroups = [...allGroups, this._reorderOptions];
+    }
+
+    if (isFirstColumn && isStickyColumn !== undefined) {
+      allGroups = [...allGroups, this._stickyColumnOptions];
     }
 
     return allGroups.reduce<HdsAdvancedTableThContextMenuOption[]>(
