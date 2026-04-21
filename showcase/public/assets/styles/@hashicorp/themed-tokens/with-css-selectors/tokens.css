@@ -139,13 +139,6 @@
   --token-code-block-button-surface-color-active: #c6c6c6;
   --token-code-block-button-surface-color-default: #e8e8e8;
   --token-code-block-button-surface-color-hover: #c6c6c6;
-  --token-code-block-color-syntax-highlight-blue: #0043ce;
-  --token-code-block-color-syntax-highlight-cyan: #00539a;
-  --token-code-block-color-syntax-highlight-green: #198038;
-  --token-code-block-color-syntax-highlight-orange: #8a3800;
-  --token-code-block-color-syntax-highlight-purple: #8a3ffc;
-  --token-code-block-color-syntax-highlight-red: #9f1853;
-  --token-code-block-color-syntax-highlight-yellow: #684e00;
   --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #0f62fe;
@@ -156,6 +149,13 @@
   --token-code-block-surface-color-faint: #f4f4f4;
   --token-code-block-surface-color-primary-with-alpha: #f4f4f440;
   --token-code-block-surface-color-primary: #f4f4f4;
+  --token-code-block-syntax-highlight-color-blue: #0043ce;
+  --token-code-block-syntax-highlight-color-cyan: #00539a;
+  --token-code-block-syntax-highlight-color-green: #198038;
+  --token-code-block-syntax-highlight-color-orange: #8a3800;
+  --token-code-block-syntax-highlight-color-purple: #8a3ffc;
+  --token-code-block-syntax-highlight-color-red: #9f1853;
+  --token-code-block-syntax-highlight-color-yellow: #684e00;
   --token-code-block-typography-font-size: 0.75rem;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
@@ -599,13 +599,6 @@
     --token-code-block-button-surface-color-active: #c6c6c6;
     --token-code-block-button-surface-color-default: #e8e8e8;
     --token-code-block-button-surface-color-hover: #c6c6c6;
-    --token-code-block-color-syntax-highlight-blue: #0043ce;
-    --token-code-block-color-syntax-highlight-cyan: #00539a;
-    --token-code-block-color-syntax-highlight-green: #198038;
-    --token-code-block-color-syntax-highlight-orange: #8a3800;
-    --token-code-block-color-syntax-highlight-purple: #8a3ffc;
-    --token-code-block-color-syntax-highlight-red: #9f1853;
-    --token-code-block-color-syntax-highlight-yellow: #684e00;
     --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #0f62fe;
@@ -616,6 +609,13 @@
     --token-code-block-surface-color-faint: #f4f4f4;
     --token-code-block-surface-color-primary-with-alpha: #f4f4f440;
     --token-code-block-surface-color-primary: #f4f4f4;
+    --token-code-block-syntax-highlight-color-blue: #0043ce;
+    --token-code-block-syntax-highlight-color-cyan: #00539a;
+    --token-code-block-syntax-highlight-color-green: #198038;
+    --token-code-block-syntax-highlight-color-orange: #8a3800;
+    --token-code-block-syntax-highlight-color-purple: #8a3ffc;
+    --token-code-block-syntax-highlight-color-red: #9f1853;
+    --token-code-block-syntax-highlight-color-yellow: #684e00;
     --token-code-block-typography-font-size: 0.75rem;
     --token-color-border-action: #0f62fe;
     --token-color-border-critical: #ff8389;
@@ -1069,13 +1069,6 @@
     --token-code-block-button-surface-color-active: #525252;
     --token-code-block-button-surface-color-default: #333333;
     --token-code-block-button-surface-color-hover: #525252;
-    --token-code-block-color-syntax-highlight-blue: #a6c8ff;
-    --token-code-block-color-syntax-highlight-cyan: #82cfff;
-    --token-code-block-color-syntax-highlight-green: #6fdc8c;
-    --token-code-block-color-syntax-highlight-orange: #ff832b;
-    --token-code-block-color-syntax-highlight-purple: #d4bbff;
-    --token-code-block-color-syntax-highlight-red: #ffafd2;
-    --token-code-block-color-syntax-highlight-yellow: #f1c21b;
     --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #78a9ff;
@@ -1086,6 +1079,13 @@
     --token-code-block-surface-color-faint: #262626;
     --token-code-block-surface-color-primary-with-alpha: #26262640;
     --token-code-block-surface-color-primary: #262626;
+    --token-code-block-syntax-highlight-color-blue: #a6c8ff;
+    --token-code-block-syntax-highlight-color-cyan: #82cfff;
+    --token-code-block-syntax-highlight-color-green: #6fdc8c;
+    --token-code-block-syntax-highlight-color-orange: #ff832b;
+    --token-code-block-syntax-highlight-color-purple: #d4bbff;
+    --token-code-block-syntax-highlight-color-red: #ffafd2;
+    --token-code-block-syntax-highlight-color-yellow: #f1c21b;
     --token-code-block-typography-font-size: 0.75rem;
     --token-color-border-action: #4589ff;
     --token-color-border-critical: #fa4d56;
@@ -1532,13 +1532,6 @@
   --token-code-block-button-surface-color-active: #c6c6c6;
   --token-code-block-button-surface-color-default: #e8e8e8;
   --token-code-block-button-surface-color-hover: #c6c6c6;
-  --token-code-block-color-syntax-highlight-blue: #0043ce;
-  --token-code-block-color-syntax-highlight-cyan: #00539a;
-  --token-code-block-color-syntax-highlight-green: #198038;
-  --token-code-block-color-syntax-highlight-orange: #8a3800;
-  --token-code-block-color-syntax-highlight-purple: #8a3ffc;
-  --token-code-block-color-syntax-highlight-red: #9f1853;
-  --token-code-block-color-syntax-highlight-yellow: #684e00;
   --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #0f62fe;
@@ -1549,6 +1542,13 @@
   --token-code-block-surface-color-faint: #f4f4f4;
   --token-code-block-surface-color-primary-with-alpha: #f4f4f440;
   --token-code-block-surface-color-primary: #f4f4f4;
+  --token-code-block-syntax-highlight-color-blue: #0043ce;
+  --token-code-block-syntax-highlight-color-cyan: #00539a;
+  --token-code-block-syntax-highlight-color-green: #198038;
+  --token-code-block-syntax-highlight-color-orange: #8a3800;
+  --token-code-block-syntax-highlight-color-purple: #8a3ffc;
+  --token-code-block-syntax-highlight-color-red: #9f1853;
+  --token-code-block-syntax-highlight-color-yellow: #684e00;
   --token-code-block-typography-font-size: 0.75rem;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
@@ -1990,13 +1990,6 @@
   --token-code-block-button-surface-color-active: #525252;
   --token-code-block-button-surface-color-default: #333333;
   --token-code-block-button-surface-color-hover: #525252;
-  --token-code-block-color-syntax-highlight-blue: #a6c8ff;
-  --token-code-block-color-syntax-highlight-cyan: #82cfff;
-  --token-code-block-color-syntax-highlight-green: #6fdc8c;
-  --token-code-block-color-syntax-highlight-orange: #ff832b;
-  --token-code-block-color-syntax-highlight-purple: #d4bbff;
-  --token-code-block-color-syntax-highlight-red: #ffafd2;
-  --token-code-block-color-syntax-highlight-yellow: #f1c21b;
   --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #78a9ff;
@@ -2007,6 +2000,13 @@
   --token-code-block-surface-color-faint: #262626;
   --token-code-block-surface-color-primary-with-alpha: #26262640;
   --token-code-block-surface-color-primary: #262626;
+  --token-code-block-syntax-highlight-color-blue: #a6c8ff;
+  --token-code-block-syntax-highlight-color-cyan: #82cfff;
+  --token-code-block-syntax-highlight-color-green: #6fdc8c;
+  --token-code-block-syntax-highlight-color-orange: #ff832b;
+  --token-code-block-syntax-highlight-color-purple: #d4bbff;
+  --token-code-block-syntax-highlight-color-red: #ffafd2;
+  --token-code-block-syntax-highlight-color-yellow: #f1c21b;
   --token-code-block-typography-font-size: 0.75rem;
   --token-color-border-action: #4589ff;
   --token-color-border-critical: #fa4d56;

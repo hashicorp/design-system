@@ -1,7 +1,7 @@
 {
   "code-block": {
-    "color": {
-      "syntax-highlight": {
+    "syntax-highlight": {
+      "color": {
         "blue": {
           "$type": "color",
           "$value": "#2d8eff",

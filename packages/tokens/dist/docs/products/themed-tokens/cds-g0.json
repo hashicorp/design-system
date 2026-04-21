@@ -11509,7 +11509,7 @@
     ]
   },
   {
-    "key": "{code-block.color.syntax-highlight.blue}",
+    "key": "{code-block.syntax-highlight.color.blue}",
     "$type": "color",
     "$value": "#0043ce",
     "$modes": {
@@ -11529,21 +11529,21 @@
         "cds-g90": "{carbon.color.blue.30}",
         "cds-g100": "{carbon.color.blue.30}"
       },
-      "key": "{code-block.color.syntax-highlight.blue}"
+      "key": "{code-block.syntax-highlight.color.blue}"
     },
-    "name": "token-code-block-color-syntax-highlight-blue",
+    "name": "token-code-block-syntax-highlight-color-blue",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "color",
       "syntax-highlight",
+      "color",
       "blue"
     ]
   },
   {
-    "key": "{code-block.color.syntax-highlight.cyan}",
+    "key": "{code-block.syntax-highlight.color.cyan}",
     "$type": "color",
     "$value": "#00539a",
     "$modes": {
@@ -11563,21 +11563,21 @@
         "cds-g90": "{carbon.color.cyan.30}",
         "cds-g100": "{carbon.color.cyan.30}"
       },
-      "key": "{code-block.color.syntax-highlight.cyan}"
+      "key": "{code-block.syntax-highlight.color.cyan}"
     },
-    "name": "token-code-block-color-syntax-highlight-cyan",
+    "name": "token-code-block-syntax-highlight-color-cyan",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "color",
       "syntax-highlight",
+      "color",
       "cyan"
     ]
   },
   {
-    "key": "{code-block.color.syntax-highlight.green}",
+    "key": "{code-block.syntax-highlight.color.green}",
     "$type": "color",
     "$value": "#198038",
     "$modes": {
@@ -11597,21 +11597,21 @@
         "cds-g90": "{carbon.color.green.30}",
         "cds-g100": "{carbon.color.green.30}"
       },
-      "key": "{code-block.color.syntax-highlight.green}"
+      "key": "{code-block.syntax-highlight.color.green}"
     },
-    "name": "token-code-block-color-syntax-highlight-green",
+    "name": "token-code-block-syntax-highlight-color-green",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "color",
       "syntax-highlight",
+      "color",
       "green"
     ]
   },
   {
-    "key": "{code-block.color.syntax-highlight.orange}",
+    "key": "{code-block.syntax-highlight.color.orange}",
     "$type": "color",
     "$value": "#8a3800",
     "$modes": {
@@ -11631,21 +11631,21 @@
         "cds-g90": "{carbon.color.orange.40}",
         "cds-g100": "{carbon.color.orange.40}"
       },
-      "key": "{code-block.color.syntax-highlight.orange}"
+      "key": "{code-block.syntax-highlight.color.orange}"
     },
-    "name": "token-code-block-color-syntax-highlight-orange",
+    "name": "token-code-block-syntax-highlight-color-orange",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "color",
       "syntax-highlight",
+      "color",
       "orange"
     ]
   },
   {
-    "key": "{code-block.color.syntax-highlight.purple}",
+    "key": "{code-block.syntax-highlight.color.purple}",
     "$type": "color",
     "$value": "#8a3ffc",
     "$modes": {
@@ -11665,21 +11665,21 @@
         "cds-g90": "{carbon.color.purple.30}",
         "cds-g100": "{carbon.color.purple.30}"
       },
-      "key": "{code-block.color.syntax-highlight.purple}"
+      "key": "{code-block.syntax-highlight.color.purple}"
     },
-    "name": "token-code-block-color-syntax-highlight-purple",
+    "name": "token-code-block-syntax-highlight-color-purple",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "color",
       "syntax-highlight",
+      "color",
       "purple"
     ]
   },
   {
-    "key": "{code-block.color.syntax-highlight.red}",
+    "key": "{code-block.syntax-highlight.color.red}",
     "$type": "color",
     "$value": "#9f1853",
     "$modes": {
@@ -11699,21 +11699,21 @@
         "cds-g90": "{carbon.color.magenta.30}",
         "cds-g100": "{carbon.color.magenta.30}"
       },
-      "key": "{code-block.color.syntax-highlight.red}"
+      "key": "{code-block.syntax-highlight.color.red}"
     },
-    "name": "token-code-block-color-syntax-highlight-red",
+    "name": "token-code-block-syntax-highlight-color-red",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "color",
       "syntax-highlight",
+      "color",
       "red"
     ]
   },
   {
-    "key": "{code-block.color.syntax-highlight.yellow}",
+    "key": "{code-block.syntax-highlight.color.yellow}",
     "$type": "color",
     "$value": "#684e00",
     "$modes": {
@@ -11733,16 +11733,16 @@
         "cds-g90": "{carbon.color.yellow.30}",
         "cds-g100": "{carbon.color.yellow.30}"
       },
-      "key": "{code-block.color.syntax-highlight.yellow}"
+      "key": "{code-block.syntax-highlight.color.yellow}"
     },
-    "name": "token-code-block-color-syntax-highlight-yellow",
+    "name": "token-code-block-syntax-highlight-color-yellow",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "color",
       "syntax-highlight",
+      "color",
       "yellow"
     ]
   },
