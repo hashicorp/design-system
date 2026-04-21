@@ -24,29 +24,13 @@ import {
 
 import type { HdsAdvancedTableModelItem } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
+import type { Run } from 'showcase/mocks/run-data';
 
 export interface MockAppMainGenericAdvancedTableSignature {
   Element: HTMLDivElement;
 }
 
-interface SampleModelItem extends HdsAdvancedTableModelItem {
-  name: string;
-  'project-name': string;
-  'current-run-id': string;
-  'run-status': 'errored' | 'applied' | 'planned';
-  'run-status-color': HdsBadgeColorValues;
-  'current-run-applied': string;
-  'creation-time': string;
-  'vcs-repo': string;
-  'module-count': number;
-  modules: string;
-  'provider-count': number;
-  providers: string;
-  'terraform-version': string;
-  'state-terraform-version': string;
-  created: string;
-  updated: string;
-}
+interface SampleModelItem extends HdsAdvancedTableModelItem, Run {}
 
 const SAMPLE_MODEL: SampleModelItem[] = [
   {
