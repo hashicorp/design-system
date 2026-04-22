@@ -390,8 +390,8 @@ importers:
         specifier: ^8.57.1
         version: 8.57.1
       figma-api:
-        specifier: ^2.1.3-beta
-        version: 2.1.3-beta
+        specifier: ^2.1.4-beta
+        version: 2.1.4-beta
       fs-extra:
         specifier: ^11.2.0
         version: 11.3.0
@@ -7232,8 +7232,8 @@ packages:
       picomatch:
         optional: true
 
-  figma-api@2.1.3-beta:
-    resolution: {integrity: sha512-TJMzu/gOascg+x5MvWEF9pN740yYGqnEtLpVrY1B591nvfhgiAgTULjD0ApO2BrIfvtWWgjJtsKjYm7A4pkS8g==}
+  figma-api@2.1.4-beta:
+    resolution: {integrity: sha512-lWb7w/5boGR0fPVlkF+CMlbG8CAczl1bE6tnH7i0Uh2TmDbwLSWms0ASzSqo7GjsUynHnCbMj0tPpeBTKOQF/Q==}
 
   figures@2.0.0:
     resolution: {integrity: sha512-Oa2M9atig69ZkfwiApY8F2Yy+tzMbazyvqv21R0NsSC8floSOC09BbT1ITWAdoMGQvJ/aZnR1KMwdx9tvHnTNA==}
@@ -21142,7 +21142,7 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.3
 
-  figma-api@2.1.3-beta:
+  figma-api@2.1.4-beta:
     dependencies:
       '@figma/rest-api-spec': 0.27.0
       axios: 1.15.2
