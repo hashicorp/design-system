@@ -41,8 +41,7 @@ const SubSectionJustifyAlign: TemplateOnlyComponent = <template>
         {{#each JUSTIFYS as |justify jc|}}
           {{! Notice: we're  using an invisible character here to preserve the alignment of the items }}
           <SG.Item
-            {{! eslint-disable-next-line no-irregular-whitespace }}
-            @label={{if (eq jc 0) (concat "align=" align) "​"}}
+            @label={{if (eq jc 0) (concat "align=" align) "\u200B"}}
             class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
           >
             <div {{style width="120px" height="120px"}}>

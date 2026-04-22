@@ -17,7 +17,7 @@ const centerScrollableArea = ({
   verticalShift,
 }: {
   element: HTMLElement;
-  direction: AutoscrollableDirections;
+  direction: AutoscrollableDirectionValues;
   horizontalShift: number;
   verticalShift: number;
 }) => {
@@ -54,7 +54,7 @@ export default class ShwAutoscrollable extends Component<ShwAutoscrollableSignat
     // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, centerScrollableArea, {
       element: element,
-      direction: this.args.direction ?? 'both',
+      direction: this.args.direction ?? AutoscrollableDirectionValues.Both,
       horizontalShift: this.args.horizontalShift ?? 0,
       verticalShift: this.args.verticalShift ?? 0,
     });

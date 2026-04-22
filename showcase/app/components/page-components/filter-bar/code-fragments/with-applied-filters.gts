@@ -259,7 +259,7 @@ export default class CodeFragmentWithAppliedFilters extends Component<CodeFragme
     if (this.args.appliedFiltersType) {
       filters = get(FILTERS, this.args.appliedFiltersType) ?? {};
     }
-    return filters as HdsFilterBarSignature['Args']['filters'];
+    return filters;
   }
 
   <template><HdsFilterBarAppliedFilters @filters={{this.filters}} /></template>
