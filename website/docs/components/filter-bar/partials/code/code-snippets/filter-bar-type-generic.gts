@@ -68,7 +68,7 @@ export default class LocalComponent extends Component {
         data: {
           value: this.demoGenericName,
         },
-      } as HdsFilterBarGenericFilter);
+      });
     }
   }
 
