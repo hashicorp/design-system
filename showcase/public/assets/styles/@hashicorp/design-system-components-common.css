@@ -1437,6 +1437,7 @@
 .hds-alert--type-page {
   padding: var(--token-alert-page-padding-vertical) 48px;
   border-bottom-style: solid;
+  border-width: 1px;
 }
 .hds-mode-cds-g0 .hds-alert--type-page,
 .hds-mode-cds-g10 .hds-alert--type-page,
@@ -1447,8 +1448,8 @@
 
 .hds-alert--type-inline {
   padding: var(--token-alert-inline-padding-vertical) var(--token-alert-inline-padding-horizontal);
-  border-width: 1px;
   border-style: solid;
+  border-width: 1px;
   border-radius: var(--token-border-radius-medium);
 }
 .hds-mode-cds-g0 .hds-alert--type-inline,
