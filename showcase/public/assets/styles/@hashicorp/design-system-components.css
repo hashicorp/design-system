@@ -4617,26 +4617,26 @@ button.hds-button[href]::after {
   background-color: var(--token-code-block-button-surface-color-default);
   border: 1px solid var(--token-code-block-border-color-strong);
 }
-.hds-code-editor .hds-button:focus, .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-code-editor .hds-button.mock-hover {
+.hds-code-editor .hds-button:focus, .hds-code-editor .hds-button.mock-focus, .hds-code-editor .hds-button:hover, .hds-code-editor .hds-button.mock-hover {
   background-color: var(--token-code-block-button-surface-color-hover);
   border-color: var(--token-code-block-focus-color-action-internal);
 }
-.hds-code-editor .hds-button:focus::before, .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-code-editor .hds-button.mock-hover::before {
+.hds-code-editor .hds-button:focus::before, .hds-code-editor .hds-button.mock-focus::before, .hds-code-editor .hds-button:hover::before, .hds-code-editor .hds-button.mock-hover::before {
   border-color: var(--token-code-block-focus-color-action-external);
 }
-.hds-code-editor .hds-button:focus .hds-button__icon, .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover .hds-button__icon, .hds-code-editor .hds-button.mock-hover .hds-button__icon {
+.hds-code-editor .hds-button:focus .hds-button__icon, .hds-code-editor .hds-button.mock-focus .hds-button__icon, .hds-code-editor .hds-button:hover .hds-button__icon, .hds-code-editor .hds-button.mock-hover .hds-button__icon {
   color: var(--token-code-block-foreground-color-primary);
 }
-.hds-mode-cds-g0 .hds-code-editor .hds-button:focus, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-hover,
-.hds-mode-cds-g10 .hds-code-editor .hds-button:focus, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-hover,
-.hds-mode-cds-g90 .hds-code-editor .hds-button:focus, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-hover,
-.hds-mode-cds-g100 .hds-code-editor .hds-button:focus, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-hover {
+.hds-mode-cds-g0 .hds-code-editor .hds-button:focus, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-focus, .hds-mode-cds-g0 .hds-code-editor .hds-button:hover, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-hover,
+.hds-mode-cds-g10 .hds-code-editor .hds-button:focus, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-focus, .hds-mode-cds-g10 .hds-code-editor .hds-button:hover, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-hover,
+.hds-mode-cds-g90 .hds-code-editor .hds-button:focus, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-focus, .hds-mode-cds-g90 .hds-code-editor .hds-button:hover, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-hover,
+.hds-mode-cds-g100 .hds-code-editor .hds-button:focus, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-focus, .hds-mode-cds-g100 .hds-code-editor .hds-button:hover, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-hover {
   border-color: transparent;
 }
-.hds-mode-cds-g0 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-hover::before,
-.hds-mode-cds-g10 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-hover::before,
-.hds-mode-cds-g90 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-hover::before,
-.hds-mode-cds-g100 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-focus .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-hover::before {
+.hds-mode-cds-g0 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-focus::before, .hds-mode-cds-g0 .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g0 .hds-code-editor .hds-button.mock-hover::before,
+.hds-mode-cds-g10 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-focus::before, .hds-mode-cds-g10 .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g10 .hds-code-editor .hds-button.mock-hover::before,
+.hds-mode-cds-g90 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-focus::before, .hds-mode-cds-g90 .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g90 .hds-code-editor .hds-button.mock-hover::before,
+.hds-mode-cds-g100 .hds-code-editor .hds-button:focus::before, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-focus::before, .hds-mode-cds-g100 .hds-code-editor .hds-button:hover::before, .hds-mode-cds-g100 .hds-code-editor .hds-button.mock-hover::before {
   border-color: transparent;
 }
 
