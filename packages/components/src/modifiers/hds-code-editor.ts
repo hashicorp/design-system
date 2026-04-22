@@ -489,7 +489,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           run: value,
         }));
 
-        extensions = [keymap.of(customKeyMap as KeyBinding[]), ...extensions];
+        extensions = [keymap.of(customKeyMap), ...extensions];
       }
 
       if (languageExtensions !== undefined) {

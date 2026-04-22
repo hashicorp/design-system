@@ -14,10 +14,7 @@ import { BORDER_WIDTH } from './index.gts';
 import { requestAnimationFrameWaiter } from './utils.ts';
 import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
 
-import type {
-  HdsAdvancedTableNormalizedColumn,
-  HdsAdvancedTableColumnReorderSide,
-} from './types.ts';
+import type { HdsAdvancedTableNormalizedColumn } from './types.ts';
 import type { HdsAdvancedTableSignature } from './index.gts';
 
 export interface HdsAdvancedTableThReorderDropTargetSignature {
@@ -35,7 +32,7 @@ export interface HdsAdvancedTableThReorderDropTargetSignature {
     tableHeight?: number;
     onReorderDrop?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key'],
-      side: HdsAdvancedTableColumnReorderSide
+      side: HdsAdvancedTableColumnReorderSideValues
     ) => void;
     onSetReorderHoveredColumnKey?: (
       key: HdsAdvancedTableNormalizedColumn['key'] | null
@@ -48,7 +45,8 @@ export interface HdsAdvancedTableThReorderDropTargetSignature {
 }
 
 export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAdvancedTableThReorderDropTargetSignature> {
-  @tracked private _dragSide: HdsAdvancedTableColumnReorderSide | null = null;
+  @tracked private _dragSide: HdsAdvancedTableColumnReorderSideValues | null =
+    null;
   @tracked private _isUpdateQueued: boolean = false;
 
   private _element!: HdsAdvancedTableThReorderDropTargetSignature['Element'];
@@ -60,7 +58,9 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
   );
 
   // determines whether the drag event is occurring on the left or right side of the element
-  private _getDragSide(event: DragEvent): HdsAdvancedTableColumnReorderSide {
+  private _getDragSide(
+    event: DragEvent
+  ): HdsAdvancedTableColumnReorderSideValues {
     const rect = this._element.getBoundingClientRect();
     const mouseX = event.clientX;
     const elementMiddleX = rect.left + rect.width / 2;

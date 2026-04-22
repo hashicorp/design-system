@@ -40,7 +40,6 @@ import type {
   HdsAdvancedTableOnSelectionChangeSignature,
   HdsAdvancedTableSelectableRow,
   HdsAdvancedTableSortingFunction,
-  HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
@@ -154,7 +153,7 @@ export interface HdsAdvancedTableSignature {
     sortBy?: string;
     selectableColumnKey?: string;
     sortedMessageText?: string;
-    sortOrder?: HdsAdvancedTableThSortOrder;
+    sortOrder?: HdsAdvancedTableThSortOrderValues;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasReorderableColumns?: boolean;
     hasResizableColumns?: boolean;
@@ -167,7 +166,10 @@ export interface HdsAdvancedTableSignature {
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
     ) => void;
-    onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
+    onSort?: (
+      sortBy: string,
+      sortOrder: HdsAdvancedTableThSortOrderValues
+    ) => void;
   };
   Blocks: {
     actions?: [
@@ -243,7 +245,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // sorting properties
   @tracked currentSortBy?: string;
-  @tracked currentSortOrder: HdsAdvancedTableThSortOrder =
+  @tracked currentSortOrder: HdsAdvancedTableThSortOrderValues =
     HdsAdvancedTableThSortOrderValues.Asc;
 
   // row expansion properties

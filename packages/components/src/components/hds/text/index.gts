@@ -89,7 +89,7 @@ export default class HdsText extends Component<HdsTextSignature> {
     const { color } = this.args;
 
     if (color && !COLORS.includes(color as HdsTextColors)) {
-      return color as HdsTextColors;
+      return color;
     } else {
       return undefined;
     }
