@@ -2,11 +2,15 @@ import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
-import node from 'eslint-plugin-node';
+import n from 'eslint-plugin-n';
 import prettier from 'eslint-plugin-prettier';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
+  baseDirectory: __dirname,
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all,
 });
@@ -24,13 +28,13 @@ export default defineConfig([
 
     plugins: {
       prettier,
-      node,
+      n,
     },
 
     extends: compat.extends(
       'eslint:recommended',
       'plugin:prettier/recommended',
-      'plugin:node/recommended'
+      'plugin:n/recommended'
     ),
 
     rules: {},
@@ -42,6 +46,16 @@ export default defineConfig([
       globals: {
         ...globals.jest,
       },
+    },
+  },
+  {
+    files: ['eslint.config.mjs'],
+    languageOptions: {
+      sourceType: 'module',
+      ecmaVersion: 'latest',
+    },
+    rules: {
+      'n/no-unpublished-import': 'off',
     },
   },
   globalIgnores(['!**/.*', '**/__testfixtures__']),
