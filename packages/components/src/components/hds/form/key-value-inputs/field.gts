@@ -26,6 +26,9 @@ import HdsFormSuperSelectSingleBase from '../super-select/single/base.gts';
 import HdsFormTextareaBase from '../textarea/base.gts';
 import HdsFormTextInputBase from '../text-input/base.gts';
 
+import { service } from '@ember/service';
+
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 
 export interface HdsFormKeyValueInputsFieldSignature {
@@ -96,6 +99,8 @@ export interface HdsFormKeyValueInputsFieldSignature {
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
 export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValueInputsFieldSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   private _onInsert = modifier(() => {
     if (this.args.onInsert) {
       this.args.onInsert();
@@ -113,7 +118,13 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
   }
 
   get labelHiddenText(): string {
-    return `row ${this.args.rowIndex + 1}`;
+    return this.hdsIntl.t(
+      'hds.components.form.key-value-inputs.field.label-hidden-text',
+      {
+        default: 'row {rowNumber}',
+        rowNumber: this.args.rowIndex + 1,
+      }
+    );
   }
 
   get labelIdPrefix(): string {
