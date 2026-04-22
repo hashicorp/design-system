@@ -8,7 +8,6 @@ import { modifier } from 'ember-modifier';
 import { scheduleOnce } from '@ember/runloop';
 
 import { AutoscrollableDirectionValues } from './types';
-import type { AutoscrollableDirections } from './types';
 
 const centerScrollableArea = ({
   element,
@@ -39,7 +38,7 @@ const centerScrollableArea = ({
 
 interface ShwAutoscrollableSignature {
   Args: {
-    direction?: AutoscrollableDirections;
+    direction?: AutoscrollableDirectionValues;
     horizontalShift?: number;
     verticalShift?: number;
   };
