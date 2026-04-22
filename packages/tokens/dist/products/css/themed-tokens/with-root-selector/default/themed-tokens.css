@@ -4,20 +4,11 @@
 
 :root {
   --token-alert-actions-margin-top: 16px;
-  --token-alert-border-bottom-width: 1px;
   --token-alert-border-color-critical: var(--token-color-border-critical);
   --token-alert-border-color-highlight: var(--token-color-border-highlight);
   --token-alert-border-color-neutral: var(--token-color-border-strong);
   --token-alert-border-color-success: var(--token-color-border-success);
   --token-alert-border-color-warning: var(--token-color-border-warning);
-  --token-alert-border-left-color-critical: var(--token-color-border-critical);
-  --token-alert-border-left-color-highlight: var(--token-color-border-highlight);
-  --token-alert-border-left-color-neutral: var(--token-color-border-strong);
-  --token-alert-border-left-color-success: var(--token-color-border-success);
-  --token-alert-border-left-color-warning: var(--token-color-border-warning);
-  --token-alert-border-left-width: 1px;
-  --token-alert-border-right-width: 1px;
-  --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 4px;
   --token-alert-icon-color-critical: var(--token-color-foreground-critical-on-surface);
   --token-alert-icon-color-highlight: var(--token-color-foreground-highlight-on-surface);
@@ -25,9 +16,14 @@
   --token-alert-icon-color-success: var(--token-color-foreground-success-on-surface);
   --token-alert-icon-color-warning: var(--token-color-foreground-warning-on-surface);
   --token-alert-icon-margin-right: 12px;
+  --token-alert-inline-border-left-color-critical: var(--token-color-border-critical);
+  --token-alert-inline-border-left-color-highlight: var(--token-color-border-highlight);
+  --token-alert-inline-border-left-color-neutral: var(--token-color-border-strong);
+  --token-alert-inline-border-left-color-success: var(--token-color-border-success);
+  --token-alert-inline-border-left-color-warning: var(--token-color-border-warning);
+  --token-alert-inline-border-left-width: 1px;
   --token-alert-inline-padding-horizontal: 16px;
   --token-alert-inline-padding-vertical: 16px;
-  --token-alert-page-padding-horizontal: 48px;
   --token-alert-page-padding-vertical: 16px;
   --token-alert-surface-color-critical: var(--token-color-surface-critical);
   --token-alert-surface-color-highlight: var(--token-color-surface-highlight);
