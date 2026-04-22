@@ -40,6 +40,7 @@ import type {
   HdsAdvancedTableOnSelectionChangeSignature,
   HdsAdvancedTableSelectableRow,
   HdsAdvancedTableSortingFunction,
+  HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
@@ -153,7 +154,7 @@ export interface HdsAdvancedTableSignature {
     sortBy?: string;
     selectableColumnKey?: string;
     sortedMessageText?: string;
-    sortOrder?: HdsAdvancedTableThSortOrderValues;
+    sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasReorderableColumns?: boolean;
     hasResizableColumns?: boolean;
@@ -245,7 +246,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // sorting properties
   @tracked currentSortBy?: string;
-  @tracked currentSortOrder: HdsAdvancedTableThSortOrderValues =
+  @tracked currentSortOrder: HdsAdvancedTableThSortOrder =
     HdsAdvancedTableThSortOrderValues.Asc;
 
   // row expansion properties
@@ -823,7 +824,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     if (this.currentSortBy === columnKey) {
       newSortOrder =
-        this.currentSortOrder === HdsAdvancedTableThSortOrderValues.Asc
+        this.currentSortOrder === `${HdsAdvancedTableThSortOrderValues.Asc}`
           ? HdsAdvancedTableThSortOrderValues.Desc
           : HdsAdvancedTableThSortOrderValues.Asc;
     }
