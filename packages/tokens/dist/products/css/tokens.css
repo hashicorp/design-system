@@ -535,6 +535,10 @@
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
+  --token-reveal-button-padding-top: 5px;
+  --token-reveal-button-padding-right: 5px;
+  --token-reveal-button-padding-bottom: 5px;
+  --token-reveal-button-padding-left: 3px;
   --token-rich-tooltip-bubble-max-width: 280px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: 5px;

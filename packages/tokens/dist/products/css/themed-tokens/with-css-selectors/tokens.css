@@ -317,6 +317,14 @@
   --token-pagination-nav-control-typography-font-weight-active: 600;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --token-reveal-button-padding-bottom: var(
+    --token-button-padding-vertical-medium
+  );
+  --token-reveal-button-padding-left: 16px;
+  --token-reveal-button-padding-right: 16px;
+  --token-reveal-button-padding-top: var(
+    --token-button-padding-vertical-medium
+  );
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -781,6 +789,14 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-reveal-button-padding-bottom: var(
+      --token-button-padding-vertical-medium
+    );
+    --token-reveal-button-padding-left: 16px;
+    --token-reveal-button-padding-right: 16px;
+    --token-reveal-button-padding-top: var(
+      --token-button-padding-vertical-medium
+    );
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1251,6 +1267,14 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-reveal-button-padding-bottom: var(
+      --token-button-padding-vertical-medium
+    );
+    --token-reveal-button-padding-left: 16px;
+    --token-reveal-button-padding-right: 16px;
+    --token-reveal-button-padding-top: var(
+      --token-button-padding-vertical-medium
+    );
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1710,6 +1734,14 @@
   --token-pagination-nav-control-typography-font-weight-active: 600;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --token-reveal-button-padding-bottom: var(
+    --token-button-padding-vertical-medium
+  );
+  --token-reveal-button-padding-left: 16px;
+  --token-reveal-button-padding-right: 16px;
+  --token-reveal-button-padding-top: var(
+    --token-button-padding-vertical-medium
+  );
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -2168,6 +2200,14 @@
   --token-pagination-nav-control-typography-font-weight-active: 600;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --token-reveal-button-padding-bottom: var(
+    --token-button-padding-vertical-medium
+  );
+  --token-reveal-button-padding-left: 16px;
+  --token-reveal-button-padding-right: 16px;
+  --token-reveal-button-padding-top: var(
+    --token-button-padding-vertical-medium
+  );
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
