@@ -1,0 +1,15 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > ACCORDION
+
+body.page-carbonization-components-accordion {
+  .shw-component-accordion-standalone-button {
+    position: relative;
+    width: fit-content;
+    // this variable is set on the parent element
+    --hds-accordion-item-focus-ring-offset: 0;
+  }
+}
