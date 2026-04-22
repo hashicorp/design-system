@@ -123,6 +123,7 @@
 // TYPES
 .hds-alert--type-page {
   padding: var(--token-alert-page-padding-vertical) 48px;
+  border-width: 1px;
   border-bottom-style: solid;
 
   @include hds-apply-only-if-carbon() {
