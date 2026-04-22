@@ -194,7 +194,7 @@ When possible, add an icon to action labels. Typically, the icon should represen
 
 ##### Create and Delete
 
-Use when a new entity is produced or destroyed in the system, e.g., "Create a project" or "Delete a project", where the project didn't exist before or will no longer exist.
+Use when a new entity is produced or destroyed in the system, e.g., "Create project" or "Delete project", where the project didn't exist before or will no longer exist.
 
 !!! Do
 
@@ -204,7 +204,7 @@ Use when a new entity is produced or destroyed in the system, e.g., "Create a pr
 
 ##### Add and Remove
 
-Use when a new relationship or dependency between existing objects is produced or destroyed, e.g., "Add a user" (to a project), "Remove a user" (from a project), where both the user and the project already existed and will continue to exist, but the relationship itself is established or dissolved.
+Use when a new relationship or dependency between existing objects is produced or destroyed, e.g., "Add user" (to a project), "Remove user" (from a project), where both the user and the project already existed and will continue to exist, but the relationship itself is established or dissolved.
 
 !!! Do
 
@@ -245,6 +245,10 @@ When editing an object, use "Save" for the action label. When applying another a
 ![A form to edit a service principal. The title is "Edit service principal" and the save button is "Apply changes".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-apply-dont.png)
 
 !!!
+
+#### Using articles
+
+These examples focus primarily on using consistent terminology _within components_ as microcopy. In the context of a body of text or paragraph we recommend adding an article between the noun and the verb to read like a sentence, e.g., "Create **a** project", "Delete **a** user", etc.
 
 ## Punctuation
 
