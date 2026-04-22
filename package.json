@@ -26,6 +26,7 @@
   "pnpm": {
     "overrides": {
       "@glimmer/component": "^2.0.0",
+      "@xmldom/xmldom": "0.9.10",
       "basic-ftp": "5.2.0",
       "flatted": "3.4.2",
       "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11",
