@@ -1,19 +1,17 @@
-const { defineConfig } = require("eslint/config");
-
-const globals = require("globals");
-const tsParser = require("@typescript-eslint/parser");
-const typescriptEslint = require("@typescript-eslint/eslint-plugin");
-const js = require("@eslint/js");
-
-const { FlatCompat } = require("@eslint/eslintrc");
+import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import { defineConfig } from 'eslint/config';
+import globals from 'globals';
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: import.meta.dirname,
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all,
 });
 
-module.exports = defineConfig([
+export default defineConfig([
   {
     languageOptions: {
       globals: {
@@ -22,21 +20,21 @@ module.exports = defineConfig([
 
       parser: tsParser,
       ecmaVersion: 12,
-      sourceType: "module",
+      sourceType: 'module',
       parserOptions: {},
     },
 
     extends: compat.extends(
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
+      'eslint:recommended',
+      'plugin:@typescript-eslint/recommended',
     ),
 
     plugins: {
-      "@typescript-eslint": typescriptEslint,
+      '@typescript-eslint': typescriptEslint,
     },
 
     rules: {
-      "@typescript-eslint/ban-ts-comment": "off",
+      '@typescript-eslint/ban-ts-comment': 'off',
     },
   },
 ]);

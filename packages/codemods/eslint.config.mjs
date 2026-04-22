@@ -1,19 +1,17 @@
-const { defineConfig, globalIgnores } = require('eslint/config');
-
-const prettier = require('eslint-plugin-prettier');
-const node = require('eslint-plugin-node');
-const globals = require('globals');
-const js = require('@eslint/js');
-
-const { FlatCompat } = require('@eslint/eslintrc');
+import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import globals from 'globals';
+import node from 'eslint-plugin-node';
+import prettier from 'eslint-plugin-prettier';
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: import.meta.dirname,
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all,
 });
 
-module.exports = defineConfig([
+export default defineConfig([
   {
     languageOptions: {
       ecmaVersion: 2018,
