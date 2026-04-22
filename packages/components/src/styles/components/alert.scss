@@ -121,22 +121,8 @@
 }
 
 // TYPES
-
-.hds-alert--type-page,
-.hds-alert--type-inline {
-  border-width: var(--token-alert-border-top-width) var(--token-alert-border-right-width)
-    var(--token-alert-border-bottom-width) var(--token-alert-border-left-width);
-
-  @include hds-apply-only-if-carbon() {
-    .hds-alert__dismiss {
-      margin: calc(-1 * var(--token-alert-inline-padding-vertical))
-        calc(-1 * var(--token-alert-inline-padding-horizontal)) 0 0;
-    }
-  }
-}
-
 .hds-alert--type-page {
-  padding: var(--token-alert-page-padding-vertical) var(--token-alert-page-padding-horizontal);
+  padding: var(--token-alert-page-padding-vertical) 48px;
   border-bottom-style: solid;
 
   @include hds-apply-only-if-carbon() {
@@ -147,7 +133,17 @@
 .hds-alert--type-inline {
   padding: var(--token-alert-inline-padding-vertical) var(--token-alert-inline-padding-horizontal);
   border-style: solid;
+  border-width: 1px;
   border-radius: var(--token-border-radius-medium);
+
+  @include hds-apply-only-if-carbon() {
+    border-left-width: var(--token-alert-inline-border-left-width);
+
+    .hds-alert__dismiss {
+      margin: calc(-1 * var(--token-alert-inline-padding-vertical))
+        calc(-1 * var(--token-alert-inline-padding-horizontal)) 0 0;
+    }
+  }
 }
 
 .hds-alert--type-compact {
@@ -173,10 +169,6 @@
   &.hds-alert--type-inline {
     background-color: var(--token-alert-surface-color-neutral);
     border-color: var(--token-alert-border-color-neutral);
-
-    @include hds-apply-only-if-carbon() {
-      border-left-color: var(--token-alert-border-left-color-neutral);
-    }
   }
 
   .hds-alert__icon {
@@ -186,6 +178,12 @@
   .hds-alert__title {
     color: var(--token-alert-title-foreground-color-neutral);
   }
+
+  @include hds-apply-only-if-carbon() {
+    &.hds-alert--type-inline {
+      border-left-color: var(--token-alert-inline-border-left-color-neutral);
+    }
+  }
 }
 
 .hds-alert--color-highlight {
@@ -193,10 +191,6 @@
   &.hds-alert--type-inline {
     background-color: var(--token-alert-surface-color-highlight);
     border-color: var(--token-alert-border-color-highlight);
-
-    @include hds-apply-only-if-carbon() {
-      border-left-color: var(--token-alert-border-left-color-highlight);
-    }
   }
 
   .hds-alert__icon {
@@ -206,6 +200,12 @@
   .hds-alert__title {
     color: var(--token-alert-title-foreground-color-highlight);
   }
+
+  @include hds-apply-only-if-carbon() {
+    &.hds-alert--type-inline {
+      border-left-color: var(--token-alert-inline-border-left-color-highlight);
+    }
+  }
 }
 
 .hds-alert--color-success {
@@ -213,10 +213,6 @@
   &.hds-alert--type-inline {
     background-color: var(--token-alert-surface-color-success);
     border-color: var(--token-alert-border-color-success);
-
-    @include hds-apply-only-if-carbon() {
-      border-left-color: var(--token-alert-border-left-color-success);
-    }
   }
 
   .hds-alert__icon {
@@ -226,6 +222,12 @@
   .hds-alert__title {
     color: var(--token-alert-title-foreground-color-success);
   }
+
+  @include hds-apply-only-if-carbon() {
+    &.hds-alert--type-inline {
+      border-left-color: var(--token-alert-inline-border-left-color-success);
+    }
+  }
 }
 
 .hds-alert--color-warning {
@@ -233,10 +235,6 @@
   &.hds-alert--type-inline {
     background-color: var(--token-alert-surface-color-warning);
     border-color: var(--token-alert-border-color-warning);
-
-    @include hds-apply-only-if-carbon() {
-      border-left-color: var(--token-alert-border-left-color-warning);
-    }
   }
 
   .hds-alert__icon {
@@ -246,6 +244,12 @@
   .hds-alert__title {
     color: var(--token-alert-title-foreground-color-warning);
   }
+
+  @include hds-apply-only-if-carbon() {
+    &.hds-alert--type-inline {
+      border-left-color: var(--token-alert-inline-border-left-color-warning);
+    }
+  }
 }
 
 .hds-alert--color-critical {
@@ -253,10 +257,6 @@
   &.hds-alert--type-inline {
     background-color: var(--token-alert-surface-color-critical);
     border-color: var(--token-alert-border-color-critical);
-
-    @include hds-apply-only-if-carbon() {
-      border-left-color: var(--token-alert-border-left-color-critical);
-    }
   }
 
   .hds-alert__icon {
@@ -265,5 +265,11 @@
 
   .hds-alert__title {
     color: var(--token-alert-title-foreground-color-critical);
+  }
+
+  @include hds-apply-only-if-carbon() {
+    &.hds-alert--type-inline {
+      border-left-color: var(--token-alert-inline-border-left-color-critical);
+    }
   }
 }

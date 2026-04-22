@@ -1,119 +1,6 @@
 {
   "alert": {
     "border": {
-      "top": {
-        "width": {
-          "$type": "dimension",
-          "$value": "1",
-          "unit": "px",
-          "$modes": {
-            "default": "1",
-            "cds-g0": "1",
-            "cds-g10": "1",
-            "cds-g90": "1",
-            "cds-g100": "1"
-          }
-        }
-      },
-      "bottom": {
-        "width": {
-          "$type": "dimension",
-          "$value": "1",
-          "unit": "px",
-          "$modes": {
-            "default": "1",
-            "cds-g0": "1",
-            "cds-g10": "1",
-            "cds-g90": "1",
-            "cds-g100": "1"
-          }
-        }
-      },
-      "right": {
-        "width": {
-          "$type": "dimension",
-          "$value": "1",
-          "unit": "px",
-          "$modes": {
-            "default": "1",
-            "cds-g0": "1",
-            "cds-g10": "1",
-            "cds-g90": "1",
-            "cds-g100": "1"
-          }
-        }
-      },
-      "left": {
-        "width": {
-          "$type": "dimension",
-          "$value": "1",
-          "unit": "px",
-          "$modes": {
-            "default": "1",
-            "cds-g0": "3",
-            "cds-g10": "3",
-            "cds-g90": "3",
-            "cds-g100": "3"
-          }
-        },
-        "color": {
-          "neutral": {
-            "$type": "color",
-            "$value": "{color.border.strong}",
-            "$modes": {
-              "default": "{color.border.strong}",
-              "cds-g0": "{carbon.themes.white.supportInfo}",
-              "cds-g10": "{carbon.themes.g10.supportInfo}",
-              "cds-g90": "{carbon.themes.g90.supportInfo}",
-              "cds-g100": "{carbon.themes.g100.supportInfo}"
-            }
-          },
-          "highlight": {
-            "$type": "color",
-            "$value": "{color.border.highlight}",
-            "$modes": {
-              "default": "{color.border.highlight}",
-              "cds-g0": "{carbon.themes.white.supportInfo}",
-              "cds-g10": "{carbon.themes.g10.supportInfo}",
-              "cds-g90": "{carbon.themes.g90.supportInfo}",
-              "cds-g100": "{carbon.themes.g100.supportInfo}"
-            }
-          },
-          "success": {
-            "$type": "color",
-            "$value": "{color.border.success}",
-            "$modes": {
-              "default": "{color.border.success}",
-              "cds-g0": "{carbon.themes.white.supportSuccess}",
-              "cds-g10": "{carbon.themes.g10.supportSuccess}",
-              "cds-g90": "{carbon.themes.g90.supportSuccess}",
-              "cds-g100": "{carbon.themes.g100.supportSuccess}"
-            }
-          },
-          "warning": {
-            "$type": "color",
-            "$value": "{color.border.warning}",
-            "$modes": {
-              "default": "{color.border.warning}",
-              "cds-g0": "{carbon.themes.white.supportWarning}",
-              "cds-g10": "{carbon.themes.g10.supportWarning}",
-              "cds-g90": "{carbon.themes.g90.supportWarning}",
-              "cds-g100": "{carbon.themes.g100.supportWarning}"
-            }
-          },
-          "critical": {
-            "$type": "color",
-            "$value": "{color.border.critical}",
-            "$modes": {
-              "default": "{color.border.critical}",
-              "cds-g0": "{carbon.themes.white.supportError}",
-              "cds-g10": "{carbon.themes.g10.supportError}",
-              "cds-g90": "{carbon.themes.g90.supportError}",
-              "cds-g100": "{carbon.themes.g100.supportError}"
-            }
-          }
-        }
-      },
       "color": {
         "neutral": {
           "$type": "color",
@@ -121,19 +8,19 @@
           "$modes": {
             "default": "{color.border.strong}",
             "cds-g0": {
-              "$value": "{carbon.themes.white.supportInfo}",
+              "$value": "{carbon.themes.white.borderStrong01}",
               "alpha": "0.4"
             },
             "cds-g10": {
-              "$value": "{carbon.themes.white.supportInfo}",
+              "$value": "{carbon.themes.white.borderStrong01}",
               "alpha": "0.4"
             },
             "cds-g90": {
-              "$value": "{carbon.themes.white.supportInfo}",
+              "$value": "{carbon.themes.white.borderStrong01}",
               "alpha": "0.4"
             },
             "cds-g100": {
-              "$value": "{carbon.themes.white.supportInfo}",
+              "$value": "{carbon.themes.white.borderStrong01}",
               "alpha": "0.4"
             }
           }
@@ -239,10 +126,10 @@
           "$value": "{color.surface.faint}",
           "$modes": {
             "default": "{color.surface.faint}",
-            "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundInfo.white}",
-            "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g10}",
-            "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
-            "cds-g100": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g100}"
+            "cds-g0": "{carbon.themes.white.layer01}",
+            "cds-g10": "{carbon.themes.g10.layer01}",
+            "cds-g90": "{carbon.themes.g90.layer01}",
+            "cds-g100": "{carbon.themes.g100.layer01}"
           }
         },
         "highlight": {
@@ -402,10 +289,10 @@
           "$value": "{color.foreground.faint}",
           "$modes": {
             "default": "{color.foreground.faint}",
-            "cds-g0": "{carbon.themes.white.supportInfo}",
-            "cds-g10": "{carbon.themes.g10.supportInfo}",
-            "cds-g90": "{carbon.themes.g90.supportInfo}",
-            "cds-g100": "{carbon.themes.g100.supportInfo}"
+            "cds-g0": "{carbon.themes.statusTokens.statusGray.white}",
+            "cds-g10": "{carbon.themes.statusTokens.statusGray.g10}",
+            "cds-g90": "{carbon.themes.statusTokens.statusGray.g90}",
+            "cds-g100": "{carbon.themes.statusTokens.statusGray.g100}"
           }
         },
         "highlight": {
@@ -481,18 +368,6 @@
             "cds-g90": "15",
             "cds-g100": "15"
           }
-        },
-        "horizontal": {
-          "$type": "dimension",
-          "$value": "48",
-          "unit": "px",
-          "$modes": {
-            "default": "48",
-            "cds-g0": "13",
-            "cds-g10": "13",
-            "cds-g90": "13",
-            "cds-g100": "13"
-          }
         }
       }
     },
@@ -520,6 +395,79 @@
             "cds-g10": "13",
             "cds-g90": "13",
             "cds-g100": "13"
+          }
+        }
+      },
+      "border": {
+        "left": {
+          "width": {
+            "$type": "dimension",
+            "$value": "1",
+            "unit": "px",
+            "$modes": {
+              "default": "1",
+              "cds-g0": "3",
+              "cds-g10": "3",
+              "cds-g90": "3",
+              "cds-g100": "3"
+            }
+          },
+          "color": {
+            "neutral": {
+              "$type": "color",
+              "$value": "{color.border.strong}",
+              "$modes": {
+                "default": "{color.border.strong}",
+                "cds-g0": "{carbon.themes.statusTokens.statusGray.white}",
+                "cds-g10": "{carbon.themes.statusTokens.statusGray.g10}",
+                "cds-g90": "{carbon.themes.statusTokens.statusGray.g90}",
+                "cds-g100": "{carbon.themes.statusTokens.statusGray.g100}"
+              }
+            },
+            "highlight": {
+              "$type": "color",
+              "$value": "{color.border.highlight}",
+              "$modes": {
+                "default": "{color.border.highlight}",
+                "cds-g0": "{carbon.themes.white.supportInfo}",
+                "cds-g10": "{carbon.themes.g10.supportInfo}",
+                "cds-g90": "{carbon.themes.g90.supportInfo}",
+                "cds-g100": "{carbon.themes.g100.supportInfo}"
+              }
+            },
+            "success": {
+              "$type": "color",
+              "$value": "{color.border.success}",
+              "$modes": {
+                "default": "{color.border.success}",
+                "cds-g0": "{carbon.themes.white.supportSuccess}",
+                "cds-g10": "{carbon.themes.g10.supportSuccess}",
+                "cds-g90": "{carbon.themes.g90.supportSuccess}",
+                "cds-g100": "{carbon.themes.g100.supportSuccess}"
+              }
+            },
+            "warning": {
+              "$type": "color",
+              "$value": "{color.border.warning}",
+              "$modes": {
+                "default": "{color.border.warning}",
+                "cds-g0": "{carbon.themes.white.supportWarning}",
+                "cds-g10": "{carbon.themes.g10.supportWarning}",
+                "cds-g90": "{carbon.themes.g90.supportWarning}",
+                "cds-g100": "{carbon.themes.g100.supportWarning}"
+              }
+            },
+            "critical": {
+              "$type": "color",
+              "$value": "{color.border.critical}",
+              "$modes": {
+                "default": "{color.border.critical}",
+                "cds-g0": "{carbon.themes.white.supportError}",
+                "cds-g10": "{carbon.themes.g10.supportError}",
+                "cds-g90": "{carbon.themes.g90.supportError}",
+                "cds-g100": "{carbon.themes.g100.supportError}"
+              }
+            }
           }
         }
       }

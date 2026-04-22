@@ -5,22 +5,11 @@
 :root,
 .hds-theme-default {
   --token-alert-actions-margin-top: 16px;
-  --token-alert-border-bottom-width: 1px;
   --token-alert-border-color-critical: var(--token-color-border-critical);
   --token-alert-border-color-highlight: var(--token-color-border-highlight);
   --token-alert-border-color-neutral: var(--token-color-border-strong);
   --token-alert-border-color-success: var(--token-color-border-success);
   --token-alert-border-color-warning: var(--token-color-border-warning);
-  --token-alert-border-left-color-critical: var(--token-color-border-critical);
-  --token-alert-border-left-color-highlight: var(
-    --token-color-border-highlight
-  );
-  --token-alert-border-left-color-neutral: var(--token-color-border-strong);
-  --token-alert-border-left-color-success: var(--token-color-border-success);
-  --token-alert-border-left-color-warning: var(--token-color-border-warning);
-  --token-alert-border-left-width: 1px;
-  --token-alert-border-right-width: 1px;
-  --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 4px;
   --token-alert-icon-color-critical: var(
     --token-color-foreground-critical-on-surface
@@ -36,9 +25,24 @@
     --token-color-foreground-warning-on-surface
   );
   --token-alert-icon-margin-right: 12px;
+  --token-alert-inline-border-left-color-critical: var(
+    --token-color-border-critical
+  );
+  --token-alert-inline-border-left-color-highlight: var(
+    --token-color-border-highlight
+  );
+  --token-alert-inline-border-left-color-neutral: var(
+    --token-color-border-strong
+  );
+  --token-alert-inline-border-left-color-success: var(
+    --token-color-border-success
+  );
+  --token-alert-inline-border-left-color-warning: var(
+    --token-color-border-warning
+  );
+  --token-alert-inline-border-left-width: 1px;
   --token-alert-inline-padding-horizontal: 16px;
   --token-alert-inline-padding-vertical: 16px;
-  --token-alert-page-padding-horizontal: 48px;
   --token-alert-page-padding-vertical: 16px;
   --token-alert-surface-color-critical: var(--token-color-surface-critical);
   --token-alert-surface-color-highlight: var(--token-color-surface-highlight);
@@ -821,34 +825,30 @@
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
     --token-alert-actions-margin-top: 15px;
-    --token-alert-border-bottom-width: 1px;
     --token-alert-border-color-critical: #da1e2866;
     --token-alert-border-color-highlight: #0043ce66;
-    --token-alert-border-color-neutral: #0043ce66;
+    --token-alert-border-color-neutral: #8d8d8d66;
     --token-alert-border-color-success: #24a14866;
     --token-alert-border-color-warning: #f1c21b66;
-    --token-alert-border-left-color-critical: #da1e28;
-    --token-alert-border-left-color-highlight: #0043ce;
-    --token-alert-border-left-color-neutral: #0043ce;
-    --token-alert-border-left-color-success: #24a148;
-    --token-alert-border-left-color-warning: #f1c21b;
-    --token-alert-border-left-width: 3px;
-    --token-alert-border-right-width: 1px;
-    --token-alert-border-top-width: 1px;
     --token-alert-content-gap: 0px;
     --token-alert-icon-color-critical: #da1e28;
     --token-alert-icon-color-highlight: #0043ce;
-    --token-alert-icon-color-neutral: #0043ce;
+    --token-alert-icon-color-neutral: #6f6f6f;
     --token-alert-icon-color-success: #42be65;
     --token-alert-icon-color-warning: #f1c21b;
     --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-border-left-color-critical: #da1e28;
+    --token-alert-inline-border-left-color-highlight: #0043ce;
+    --token-alert-inline-border-left-color-neutral: #6f6f6f;
+    --token-alert-inline-border-left-color-success: #24a148;
+    --token-alert-inline-border-left-color-warning: #f1c21b;
+    --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-horizontal: 13px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #fff1f1;
     --token-alert-surface-color-highlight: #edf5ff;
-    --token-alert-surface-color-neutral: #edf5ff;
+    --token-alert-surface-color-neutral: #f4f4f4;
     --token-alert-surface-color-success: #defbe6;
     --token-alert-surface-color-warning: #fcf4d6;
     --token-alert-title-foreground-color-critical: #161616;
@@ -1323,30 +1323,26 @@
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
     --token-alert-actions-margin-top: 15px;
-    --token-alert-border-bottom-width: 1px;
     --token-alert-border-color-critical: #da1e2866;
     --token-alert-border-color-highlight: #0043ce66;
-    --token-alert-border-color-neutral: #0043ce66;
+    --token-alert-border-color-neutral: #8d8d8d66;
     --token-alert-border-color-success: #24a14866;
     --token-alert-border-color-warning: #f1c21b66;
-    --token-alert-border-left-color-critical: #fa4d56;
-    --token-alert-border-left-color-highlight: #4589ff;
-    --token-alert-border-left-color-neutral: #4589ff;
-    --token-alert-border-left-color-success: #42be65;
-    --token-alert-border-left-color-warning: #f1c21b;
-    --token-alert-border-left-width: 3px;
-    --token-alert-border-right-width: 1px;
-    --token-alert-border-top-width: 1px;
     --token-alert-content-gap: 0px;
     --token-alert-icon-color-critical: #fa4d56;
     --token-alert-icon-color-highlight: #4589ff;
-    --token-alert-icon-color-neutral: #4589ff;
+    --token-alert-icon-color-neutral: #8d8d8d;
     --token-alert-icon-color-success: #24a148;
     --token-alert-icon-color-warning: #f1c21b;
     --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-border-left-color-critical: #fa4d56;
+    --token-alert-inline-border-left-color-highlight: #4589ff;
+    --token-alert-inline-border-left-color-neutral: #8d8d8d;
+    --token-alert-inline-border-left-color-success: #42be65;
+    --token-alert-inline-border-left-color-warning: #f1c21b;
+    --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-horizontal: 13px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #262626;
     --token-alert-surface-color-highlight: #262626;
@@ -1830,34 +1826,30 @@
 .hds-theme-light,
 .hds-mode-cds-g0 {
   --token-alert-actions-margin-top: 15px;
-  --token-alert-border-bottom-width: 1px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;
-  --token-alert-border-color-neutral: #0043ce66;
+  --token-alert-border-color-neutral: #8d8d8d66;
   --token-alert-border-color-success: #24a14866;
   --token-alert-border-color-warning: #f1c21b66;
-  --token-alert-border-left-color-critical: #da1e28;
-  --token-alert-border-left-color-highlight: #0043ce;
-  --token-alert-border-left-color-neutral: #0043ce;
-  --token-alert-border-left-color-success: #24a148;
-  --token-alert-border-left-color-warning: #f1c21b;
-  --token-alert-border-left-width: 3px;
-  --token-alert-border-right-width: 1px;
-  --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 0px;
   --token-alert-icon-color-critical: #da1e28;
   --token-alert-icon-color-highlight: #0043ce;
-  --token-alert-icon-color-neutral: #0043ce;
+  --token-alert-icon-color-neutral: #6f6f6f;
   --token-alert-icon-color-success: #42be65;
   --token-alert-icon-color-warning: #f1c21b;
   --token-alert-icon-margin-right: 16px;
+  --token-alert-inline-border-left-color-critical: #da1e28;
+  --token-alert-inline-border-left-color-highlight: #0043ce;
+  --token-alert-inline-border-left-color-neutral: #6f6f6f;
+  --token-alert-inline-border-left-color-success: #24a148;
+  --token-alert-inline-border-left-color-warning: #f1c21b;
+  --token-alert-inline-border-left-width: 3px;
   --token-alert-inline-padding-horizontal: 13px;
   --token-alert-inline-padding-vertical: 15px;
-  --token-alert-page-padding-horizontal: 13px;
   --token-alert-page-padding-vertical: 15px;
   --token-alert-surface-color-critical: #fff1f1;
   --token-alert-surface-color-highlight: #edf5ff;
-  --token-alert-surface-color-neutral: #edf5ff;
+  --token-alert-surface-color-neutral: #f4f4f4;
   --token-alert-surface-color-success: #defbe6;
   --token-alert-surface-color-warning: #fcf4d6;
   --token-alert-title-foreground-color-critical: #161616;
@@ -2326,30 +2318,26 @@
 .hds-theme-dark,
 .hds-mode-cds-g100 {
   --token-alert-actions-margin-top: 15px;
-  --token-alert-border-bottom-width: 1px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;
-  --token-alert-border-color-neutral: #0043ce66;
+  --token-alert-border-color-neutral: #8d8d8d66;
   --token-alert-border-color-success: #24a14866;
   --token-alert-border-color-warning: #f1c21b66;
-  --token-alert-border-left-color-critical: #fa4d56;
-  --token-alert-border-left-color-highlight: #4589ff;
-  --token-alert-border-left-color-neutral: #4589ff;
-  --token-alert-border-left-color-success: #42be65;
-  --token-alert-border-left-color-warning: #f1c21b;
-  --token-alert-border-left-width: 3px;
-  --token-alert-border-right-width: 1px;
-  --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 0px;
   --token-alert-icon-color-critical: #fa4d56;
   --token-alert-icon-color-highlight: #4589ff;
-  --token-alert-icon-color-neutral: #4589ff;
+  --token-alert-icon-color-neutral: #8d8d8d;
   --token-alert-icon-color-success: #24a148;
   --token-alert-icon-color-warning: #f1c21b;
   --token-alert-icon-margin-right: 16px;
+  --token-alert-inline-border-left-color-critical: #fa4d56;
+  --token-alert-inline-border-left-color-highlight: #4589ff;
+  --token-alert-inline-border-left-color-neutral: #8d8d8d;
+  --token-alert-inline-border-left-color-success: #42be65;
+  --token-alert-inline-border-left-color-warning: #f1c21b;
+  --token-alert-inline-border-left-width: 3px;
   --token-alert-inline-padding-horizontal: 13px;
   --token-alert-inline-padding-vertical: 15px;
-  --token-alert-page-padding-horizontal: 13px;
   --token-alert-page-padding-vertical: 15px;
   --token-alert-surface-color-critical: #262626;
   --token-alert-surface-color-highlight: #262626;
@@ -2821,34 +2809,30 @@
 
 .hds-mode-cds-g10 {
   --token-alert-actions-margin-top: 15px;
-  --token-alert-border-bottom-width: 1px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;
-  --token-alert-border-color-neutral: #0043ce66;
+  --token-alert-border-color-neutral: #8d8d8d66;
   --token-alert-border-color-success: #24a14866;
   --token-alert-border-color-warning: #f1c21b66;
-  --token-alert-border-left-color-critical: #da1e28;
-  --token-alert-border-left-color-highlight: #0043ce;
-  --token-alert-border-left-color-neutral: #0043ce;
-  --token-alert-border-left-color-success: #24a148;
-  --token-alert-border-left-color-warning: #f1c21b;
-  --token-alert-border-left-width: 3px;
-  --token-alert-border-right-width: 1px;
-  --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 0px;
   --token-alert-icon-color-critical: #da1e28;
   --token-alert-icon-color-highlight: #0043ce;
-  --token-alert-icon-color-neutral: #0043ce;
+  --token-alert-icon-color-neutral: #6f6f6f;
   --token-alert-icon-color-success: #42be65;
   --token-alert-icon-color-warning: #f1c21b;
   --token-alert-icon-margin-right: 16px;
+  --token-alert-inline-border-left-color-critical: #da1e28;
+  --token-alert-inline-border-left-color-highlight: #0043ce;
+  --token-alert-inline-border-left-color-neutral: #6f6f6f;
+  --token-alert-inline-border-left-color-success: #24a148;
+  --token-alert-inline-border-left-color-warning: #f1c21b;
+  --token-alert-inline-border-left-width: 3px;
   --token-alert-inline-padding-horizontal: 13px;
   --token-alert-inline-padding-vertical: 15px;
-  --token-alert-page-padding-horizontal: 13px;
   --token-alert-page-padding-vertical: 15px;
   --token-alert-surface-color-critical: #fff1f1;
   --token-alert-surface-color-highlight: #edf5ff;
-  --token-alert-surface-color-neutral: #edf5ff;
+  --token-alert-surface-color-neutral: #ffffff;
   --token-alert-surface-color-success: #defbe6;
   --token-alert-surface-color-warning: #fcf4d6;
   --token-alert-title-foreground-color-critical: #161616;
@@ -3316,30 +3300,26 @@
 
 .hds-mode-cds-g90 {
   --token-alert-actions-margin-top: 15px;
-  --token-alert-border-bottom-width: 1px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;
-  --token-alert-border-color-neutral: #0043ce66;
+  --token-alert-border-color-neutral: #8d8d8d66;
   --token-alert-border-color-success: #24a14866;
   --token-alert-border-color-warning: #f1c21b66;
-  --token-alert-border-left-color-critical: #ff8389;
-  --token-alert-border-left-color-highlight: #4589ff;
-  --token-alert-border-left-color-neutral: #4589ff;
-  --token-alert-border-left-color-success: #42be65;
-  --token-alert-border-left-color-warning: #f1c21b;
-  --token-alert-border-left-width: 3px;
-  --token-alert-border-right-width: 1px;
-  --token-alert-border-top-width: 1px;
   --token-alert-content-gap: 0px;
   --token-alert-icon-color-critical: #ff8389;
   --token-alert-icon-color-highlight: #4589ff;
-  --token-alert-icon-color-neutral: #4589ff;
+  --token-alert-icon-color-neutral: #8d8d8d;
   --token-alert-icon-color-success: #24a148;
   --token-alert-icon-color-warning: #f1c21b;
   --token-alert-icon-margin-right: 16px;
+  --token-alert-inline-border-left-color-critical: #ff8389;
+  --token-alert-inline-border-left-color-highlight: #4589ff;
+  --token-alert-inline-border-left-color-neutral: #8d8d8d;
+  --token-alert-inline-border-left-color-success: #42be65;
+  --token-alert-inline-border-left-color-warning: #f1c21b;
+  --token-alert-inline-border-left-width: 3px;
   --token-alert-inline-padding-horizontal: 13px;
   --token-alert-inline-padding-vertical: 15px;
-  --token-alert-page-padding-horizontal: 13px;
   --token-alert-page-padding-vertical: 15px;
   --token-alert-surface-color-critical: #393939;
   --token-alert-surface-color-highlight: #393939;

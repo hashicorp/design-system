@@ -6,7 +6,7 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
-import { eq } from 'ember-truth-helpers';
+import { eq, notEq, and } from 'ember-truth-helpers';
 import { get } from '@ember/helper';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
@@ -59,9 +59,7 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
           </ShwFlex>
         </:theming>
         <:reference as |R|>
-          {{#if (eq type "compact")}}
-            <R.NoEquivalent @isCompact={{true}} />
-          {{else}}
+          {{#if (eq type "inline")}}
             <ShwFlex as |SF|>
               <SF.Item @grow={{true}}>
                 <cds-inline-notification
@@ -72,6 +70,8 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
                 />
               </SF.Item>
             </ShwFlex>
+          {{else}}
+            <R.NoEquivalent @isCompact={{true}} />
           {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>
@@ -101,9 +101,7 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
             </ShwFlex>
           </:theming>
           <:reference as |R|>
-            {{#if (eq type "compact")}}
-              <R.NoEquivalent @isCompact={{true}} />
-            {{else}}
+            {{#if (and (eq type "inline") (notEq color "neutral"))}}
               <ShwFlex as |SF|>
                 <SF.Item @grow={{true}}>
                   <cds-inline-notification
@@ -114,6 +112,8 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
                   />
                 </SF.Item>
               </ShwFlex>
+            {{else}}
+              <R.NoEquivalent @isCompact={{true}} />
             {{/if}}
           </:reference>
         </ShwCarbonizationComparisonGrid>
@@ -220,6 +220,14 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
               <A.Button @text="Action" @color="secondary" />
             </HdsAlert>
           </SF.Item>
+          <SF.Item @grow={{true}}>
+            <HdsAlert @type="page" @color="warning" as |A|>
+              <A.Title>Action passed as yielded component</A.Title>
+              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.</A.Description>
+              <A.Button @text="Action" @color="secondary" />
+            </HdsAlert>
+          </SF.Item>
         </ShwFlex>
       </:theming>
       <:reference>
@@ -246,6 +254,21 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
         <ShwFlex as |SF|>
           <SF.Item @grow={{true}}>
             <HdsAlert @type="inline" @color="warning" as |A|>
+              <A.Title>With multiple actions passed as yielded components</A.Title>
+              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.</A.Description>
+              <A.Button @text="Secondary" @color="secondary" />
+              <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
+              <A.LinkStandalone
+                @icon="plus"
+                @text="Standalone"
+                @href="#"
+                @color="secondary"
+              />
+            </HdsAlert>
+          </SF.Item>
+          <SF.Item @grow={{true}}>
+            <HdsAlert @type="page" @color="warning" as |A|>
               <A.Title>With multiple actions passed as yielded components</A.Title>
               <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit.</A.Description>
@@ -291,7 +314,7 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
             </HdsAlert>
           </SF.Item>
           <SF.Item>
-            <HdsAlert @type="inline" @color="success" as |A|>
+            <HdsAlert @type="page" @color="success" as |A|>
               <A.Title>HTML link compared to
                 <code>HdsLink</code>
                 in the description</A.Title>

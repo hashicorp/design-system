@@ -6,6 +6,7 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
+import { eq } from 'ember-truth-helpers';
 import { get } from '@ember/helper';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
@@ -55,15 +56,19 @@ const ToastCarbonizationIndex: TemplateOnlyComponent = <template>
             </SF.Item>
           </ShwFlex>
         </:theming>
-        <:reference>
+        <:reference as |R|>
           <ShwFlex as |SF|>
             <SF.Item @grow={{true}}>
-              <cds-inline-notification
-                kind={{get HDS_COLOR_TO_CDS_KIND_MAP color}}
-                title="Lorem ipsum dolor"
-                subtitle="This is the toast with {{color}} color."
-                low-contrast
-              />
+              {{#if (eq color "neutral")}}
+                <R.NoEquivalent />
+              {{else}}
+                <cds-inline-notification
+                  kind={{get HDS_COLOR_TO_CDS_KIND_MAP color}}
+                  title="Lorem ipsum dolor"
+                  subtitle="This is the toast with {{color}} color."
+                  low-contrast
+                />
+              {{/if}}
             </SF.Item>
           </ShwFlex>
         </:reference>
