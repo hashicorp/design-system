@@ -93,7 +93,7 @@ export default class LocalComponent extends Component {
         type: 'generic',
         text: 'Generic',
         data: demoGenericArrayNameData,
-      } as HdsFilterBarGenericFilter);
+      });
     }
   }
 

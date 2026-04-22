@@ -28,7 +28,6 @@ import type {
 import type { Extension } from '@codemirror/state';
 import type {
   EditorView as EditorViewType,
-  KeyBinding,
   ViewUpdate,
 } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
