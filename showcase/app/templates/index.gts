@@ -458,6 +458,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.code-editor">
+            CodeEditor
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.copy.button">
             Copy::Button
           </LinkTo>

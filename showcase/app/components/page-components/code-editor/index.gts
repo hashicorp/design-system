@@ -14,6 +14,7 @@ import SubSectionSyntaxHighlighting from 'showcase/components/page-components/co
 import SubSectionLinting from 'showcase/components/page-components/code-editor/sub-sections/linting';
 import SubSectionCustomExtension from 'showcase/components/page-components/code-editor/sub-sections/custom-extension';
 import SubSectionStandaloneModifier from 'showcase/components/page-components/code-editor/sub-sections/standalone-modifier';
+import SubSectionBaseElements from 'showcase/components/page-components/code-editor/sub-sections/base-elements';
 
 const CodeEditorIndex: TemplateOnlyComponent = <template>
   {{pageTitle "CodeEditor Component"}}
@@ -28,6 +29,7 @@ const CodeEditorIndex: TemplateOnlyComponent = <template>
     <SubSectionLinting />
     <SubSectionCustomExtension />
     <SubSectionStandaloneModifier />
+    <SubSectionBaseElements />
   </section>
 </template>;
 
