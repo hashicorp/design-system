@@ -5,6 +5,9 @@
 import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
+import { service } from '@ember/service';
+
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 import HdsButton from '../../button/index.gts';
 
@@ -24,6 +27,8 @@ export interface HdsFormKeyValueInputsDeleteRowButtonSignature {
 }
 
 export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsFormKeyValueInputsDeleteRowButtonSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   private _onInsert = modifier(() => {
     if (this.args.onInsert) {
       this.args.onInsert();
@@ -43,7 +48,16 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
   });
 
   get text(): string {
-    return this.args.text ?? `Delete row ${this.args.rowIndex + 1}`;
+    return (
+      this.args.text ??
+      this.hdsIntl.t(
+        'hds.components.form.key-value-inputs.delete-row-button.text',
+        {
+          default: 'Delete row {rowNumber}',
+          rowNumber: this.args.rowIndex + 1,
+        }
+      )
+    );
   }
 
   onClick = (): void => {
