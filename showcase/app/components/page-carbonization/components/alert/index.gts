@@ -124,85 +124,95 @@ const AlertCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Dismiss</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid @layout="side-by-side">
-      <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <HdsAlert @type="inline" @color="neutral" as |A|>
-              <A.Title>Without the dismiss button (default)</A.Title>
-              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit.</A.Description>
-            </HdsAlert>
-          </SF.Item>
-          <SF.Item>
-            <HdsAlert
-              @type="inline"
-              @color="neutral"
-              @onDismiss={{NOOP}}
-              as |A|
-            >
-              <A.Title>With the dismiss button</A.Title>
-              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit.</A.Description>
-            </HdsAlert>
-          </SF.Item>
-          <SF.Item>
-            <HdsAlert
-              @type="inline"
-              @color="neutral"
-              @icon={{false}}
-              @onDismiss={{NOOP}}
-              as |A|
-            >
-              <A.Title>With the dismiss button and no icon</A.Title>
-              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit.</A.Description>
-            </HdsAlert>
-          </SF.Item>
-          <SF.Item>
-            <HdsAlert
-              @type="inline"
-              @color="neutral"
-              @onDismiss={{NOOP}}
-              as |A|
-            >
-              <A.Description>With the dismiss button and no title</A.Description>
-            </HdsAlert>
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference as |R|>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <cds-inline-notification
-              kind="info"
-              title="Without the dismiss button (default)"
-              subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              low-contrast
-              hide-close-button
-            />
-          </SF.Item>
-          <SF.Item>
-            <cds-inline-notification
-              kind="info"
-              title="With the dismiss button"
-              subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              low-contrast
-            />
-          </SF.Item>
-          <SF.Item>
-            <R.NoEquivalent @isCompact={{true}} />
-          </SF.Item>
-          <SF.Item>
-            <cds-inline-notification
-              kind="info"
-              subtitle="With the dismiss button and no title"
-              low-contrast
-            />
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each TYPES as |type|}}
+      {{#if (notEq type "compact")}}
+        <ShwTextBody>{{capitalize type}}</ShwTextBody>
+
+        <ShwCarbonizationComparisonGrid @layout="side-by-side">
+          <:theming>
+            <ShwFlex @direction="column" as |SF|>
+              <SF.Item>
+                <HdsAlert @type={{type}} @color="neutral" as |A|>
+                  <A.Title>Without the dismiss button (default)</A.Title>
+                  <A.Description>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.</A.Description>
+                </HdsAlert>
+              </SF.Item>
+              <SF.Item>
+                <HdsAlert
+                  @type={{type}}
+                  @color="neutral"
+                  @onDismiss={{NOOP}}
+                  as |A|
+                >
+                  <A.Title>With the dismiss button</A.Title>
+                  <A.Description>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.</A.Description>
+                </HdsAlert>
+              </SF.Item>
+              <SF.Item>
+                <HdsAlert
+                  @type={{type}}
+                  @color="neutral"
+                  @icon={{false}}
+                  @onDismiss={{NOOP}}
+                  as |A|
+                >
+                  <A.Title>With the dismiss button and no icon</A.Title>
+                  <A.Description>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.</A.Description>
+                </HdsAlert>
+              </SF.Item>
+              <SF.Item>
+                <HdsAlert
+                  @type={{type}}
+                  @color="neutral"
+                  @onDismiss={{NOOP}}
+                  as |A|
+                >
+                  <A.Description>With the dismiss button and no title</A.Description>
+                </HdsAlert>
+              </SF.Item>
+            </ShwFlex>
+          </:theming>
+          <:reference as |R|>
+            {{#if (eq type "inline")}}
+              <ShwFlex @direction="column" as |SF|>
+                <SF.Item>
+                  <cds-inline-notification
+                    kind="info"
+                    title="Without the dismiss button (default)"
+                    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    low-contrast
+                    hide-close-button
+                  />
+                </SF.Item>
+                <SF.Item>
+                  <cds-inline-notification
+                    kind="info"
+                    title="With the dismiss button"
+                    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    low-contrast
+                  />
+                </SF.Item>
+                <SF.Item>
+                  <R.NoEquivalent @isCompact={{true}} />
+                </SF.Item>
+                <SF.Item>
+                  <cds-inline-notification
+                    kind="info"
+                    subtitle="With the dismiss button and no title"
+                    low-contrast
+                  />
+                </SF.Item>
+              </ShwFlex>
+            {{else}}
+              <R.NoEquivalent @isCompact={{true}} />
+            {{/if}}
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+      {{/if}}
+    {{/each}}
 
     <ShwDivider @level={{2}} />
 

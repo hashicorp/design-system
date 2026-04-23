@@ -122,12 +122,17 @@
 
 // TYPES
 .hds-alert--type-page {
-  padding: var(--token-alert-page-padding-vertical) 48px;
+  padding: var(--token-alert-page-padding-vertical) 16px var(--token-alert-page-padding-vertical) 48px;
   border-width: 1px;
   border-bottom-style: solid;
 
   @include hds-apply-only-if-carbon() {
     border-style: solid;
+
+    .hds-alert__dismiss {
+      margin: calc(-1 * var(--token-alert-page-padding-vertical)) calc(-1 * 16px) 0
+        var(--token-alert-dismiss-margin-left);
+    }
   }
 }
 
