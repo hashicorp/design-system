@@ -116,7 +116,14 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
   }[];
 }
 
-export type HdsAdvancedTableModel = Array<Record<string, unknown>>;
+export interface HdsAdvancedTableModelItem {
+  [key: string]: unknown;
+  children?: HdsAdvancedTableModelItem[];
+  id?: string | number;
+  isSelected?: boolean;
+}
+
+export type HdsAdvancedTableModel = Array<HdsAdvancedTableModelItem>;
 
 export type HdsAdvancedTableColumnResizeCallback = (
   columnKey: string,
@@ -133,9 +140,9 @@ export type HdsAdvancedTableColumnReorderCallback = ({
   insertedAt: number;
 }) => void;
 
-export interface HdsAdvancedTableCell {
+export interface HdsAdvancedTableCell<T = unknown> {
   columnKey: string;
-  content: unknown;
+  content: (T extends object ? T[keyof T] : unknown) | undefined;
 }
 
 export enum HdsAdvancedTableColumnReorderSideValues {

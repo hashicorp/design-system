@@ -22,14 +22,17 @@ import {
   type HdsFilterBarFilter,
 } from '@hashicorp/design-system-components/components';
 
-import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
+import type { HdsAdvancedTableModelItem } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
+import type { Run } from 'showcase/mocks/run-data';
 
 export interface MockAppMainGenericAdvancedTableSignature {
   Element: HTMLDivElement;
 }
 
-const SAMPLE_MODEL = [
+interface SampleModelItem extends HdsAdvancedTableModelItem, Run {}
+
+const SAMPLE_MODEL: SampleModelItem[] = [
   {
     name: 'zoguve-guw-mannaz',
     'project-name': 'do uk guzvas',
@@ -516,7 +519,7 @@ const SAMPLE_COLUMNS = [
 ];
 
 const updateModelWithSelectAllState = (
-  modelData: HdsAdvancedTableSignature['Args']['model'],
+  modelData: SampleModelItem[],
   selectAllState: boolean,
 ) => {
   modelData.forEach((modelRow) => {
@@ -525,7 +528,7 @@ const updateModelWithSelectAllState = (
 };
 
 const updateModelWithSelectableRowsStates = (
-  modelData: HdsAdvancedTableSignature['Args']['model'],
+  modelData: SampleModelItem[],
   selectableRowsStates: HdsAdvancedTableOnSelectionChangeSignature['selectableRowsStates'],
 ) => {
   const modelDataMap = new Map(
@@ -542,9 +545,7 @@ const updateModelWithSelectableRowsStates = (
 
 export default class MockAppMainGenericAdvancedTable extends Component<MockAppMainGenericAdvancedTableSignature> {
   demoColumns = SAMPLE_COLUMNS;
-  @deepTracked demoModel: HdsAdvancedTableSignature['Args']['model'] = [
-    ...SAMPLE_MODEL,
-  ];
+  @deepTracked demoModel: SampleModelItem[] = [...SAMPLE_MODEL];
   @deepTracked filters: HdsFilterBarSignature['Args']['filters'] = {};
   @tracked isSeparatedFilterBar = false;
   @tracked isLiveFilter = false;
@@ -578,9 +579,12 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   get demoModelFilteredData() {
     const filterItem = (item: Record<string, unknown>): boolean => {
       if (Object.keys(this.filters).length === 0) return true;
+
       let match = true;
+
       Object.keys(this.filters).forEach((key) => {
         const filter = this.filters[key] as HdsFilterBarFilter;
+
         if (filter) {
           switch (filter.type) {
             case 'single-select':
@@ -600,10 +604,12 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           }
         }
       });
+
       return match;
     };
 
     const filteredData = this.demoModel.filter(filterItem);
+
     return filteredData;
   }
 
@@ -690,83 +696,66 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
         </A.FilterBar>
       </:actions>
       <:body as |B|>
-        {{! @glint-expect-error }}
         <B.Tr @selectionKey={{get B.data "name"}}>
           <B.Th>
             <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
               {{get B.data "name"}}
             </HdsLinkInline>
           </B.Th>
           <B.Td>
             <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
               {{get B.data "project-name"}}
             </HdsLinkInline>
           </B.Td>
           <B.Td>
             <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
               {{get B.data "current-run-id"}}
             </HdsLinkInline>
           </B.Td>
           <B.Td>
             <HdsBadge
               @type="outlined"
-              {{! @glint-expect-error }}
               @text={{get B.data "run-status"}}
-              {{! @glint-expect-error }}
               @color={{get B.data "run-status-color"}}
             />
           </B.Td>
           <B.Td>
-            {{! @glint-expect-error }}
             {{get B.data "current-run-applied"}}
           </B.Td>
           <B.Td>
-            {{! @glint-expect-error }}
             {{get B.data "creation-time"}}
           </B.Td>
           <B.Td>
-            {{! @glint-expect-error }}
             {{get B.data "vcs-repo"}}
           </B.Td>
           <B.Td>
             <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
               {{get B.data "module-count"}}
             </HdsLinkInline>
           </B.Td>
           <B.Td>
-            {{! @glint-expect-error }}
             {{get B.data "modules"}}
           </B.Td>
           <B.Td>
             <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
               {{get B.data "provider-count"}}
             </HdsLinkInline>
           </B.Td>
           <B.Td>
-            {{! @glint-expect-error }}
             {{get B.data "providers"}}
           </B.Td>
           <B.Td>
-            {{! @glint-expect-error }}
             {{get B.data "terraform-version"}}
           </B.Td>
           <B.Td>
             <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
               {{get B.data "state-terraform-version"}}
             </HdsLinkInline>
           </B.Td>
           <B.Td>
-            {{! @glint-expect-error }}
             {{get B.data "created"}}
           </B.Td>
           <B.Td>
-            {{! @glint-expect-error }}
             {{get B.data "updated"}}
           </B.Td>
         </B.Tr>

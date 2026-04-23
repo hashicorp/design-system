@@ -62,7 +62,6 @@ const createSelectableTable = async (options: {
       >
         <:body as |B|>
           <B.Tr
-            {{! @glint-expect-error }}
             @selectionKey={{get B.data "id"}}
             @selectionAriaLabelSuffix={{options.selectionAriaLabelSuffix}}
           >
