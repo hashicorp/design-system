@@ -11,6 +11,7 @@
   --token-alert-border-color-success: var(--token-color-border-success);
   --token-alert-border-color-warning: var(--token-color-border-warning);
   --token-alert-content-gap: 4px;
+  --token-alert-dismiss-margin-left: 12px;
   --token-alert-icon-color-critical: var(
     --token-color-foreground-critical-on-surface
   );
@@ -831,12 +832,13 @@
     --token-alert-border-color-success: #24a14866;
     --token-alert-border-color-warning: #f1c21b66;
     --token-alert-content-gap: 0px;
+    --token-alert-dismiss-margin-left: 14px;
     --token-alert-icon-color-critical: #da1e28;
     --token-alert-icon-color-highlight: #0043ce;
     --token-alert-icon-color-neutral: #6f6f6f;
-    --token-alert-icon-color-success: #42be65;
+    --token-alert-icon-color-success: #24a148;
     --token-alert-icon-color-warning: #f1c21b;
-    --token-alert-icon-margin-right: 16px;
+    --token-alert-icon-margin-right: 14px;
     --token-alert-inline-border-left-color-critical: #da1e28;
     --token-alert-inline-border-left-color-highlight: #0043ce;
     --token-alert-inline-border-left-color-neutral: #6f6f6f;
@@ -1329,12 +1331,13 @@
     --token-alert-border-color-success: #24a14866;
     --token-alert-border-color-warning: #f1c21b66;
     --token-alert-content-gap: 0px;
+    --token-alert-dismiss-margin-left: 14px;
     --token-alert-icon-color-critical: #fa4d56;
     --token-alert-icon-color-highlight: #4589ff;
     --token-alert-icon-color-neutral: #8d8d8d;
-    --token-alert-icon-color-success: #24a148;
+    --token-alert-icon-color-success: #42be65;
     --token-alert-icon-color-warning: #f1c21b;
-    --token-alert-icon-margin-right: 16px;
+    --token-alert-icon-margin-right: 14px;
     --token-alert-inline-border-left-color-critical: #fa4d56;
     --token-alert-inline-border-left-color-highlight: #4589ff;
     --token-alert-inline-border-left-color-neutral: #8d8d8d;
@@ -1831,12 +1834,13 @@
   --token-alert-border-color-success: #24a14866;
   --token-alert-border-color-warning: #f1c21b66;
   --token-alert-content-gap: 0px;
+  --token-alert-dismiss-margin-left: 14px;
   --token-alert-icon-color-critical: #da1e28;
   --token-alert-icon-color-highlight: #0043ce;
   --token-alert-icon-color-neutral: #6f6f6f;
-  --token-alert-icon-color-success: #42be65;
+  --token-alert-icon-color-success: #24a148;
   --token-alert-icon-color-warning: #f1c21b;
-  --token-alert-icon-margin-right: 16px;
+  --token-alert-icon-margin-right: 14px;
   --token-alert-inline-border-left-color-critical: #da1e28;
   --token-alert-inline-border-left-color-highlight: #0043ce;
   --token-alert-inline-border-left-color-neutral: #6f6f6f;
@@ -2322,12 +2326,13 @@
   --token-alert-border-color-success: #24a14866;
   --token-alert-border-color-warning: #f1c21b66;
   --token-alert-content-gap: 0px;
+  --token-alert-dismiss-margin-left: 14px;
   --token-alert-icon-color-critical: #fa4d56;
   --token-alert-icon-color-highlight: #4589ff;
   --token-alert-icon-color-neutral: #8d8d8d;
-  --token-alert-icon-color-success: #24a148;
+  --token-alert-icon-color-success: #42be65;
   --token-alert-icon-color-warning: #f1c21b;
-  --token-alert-icon-margin-right: 16px;
+  --token-alert-icon-margin-right: 14px;
   --token-alert-inline-border-left-color-critical: #fa4d56;
   --token-alert-inline-border-left-color-highlight: #4589ff;
   --token-alert-inline-border-left-color-neutral: #8d8d8d;

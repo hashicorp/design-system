@@ -282,6 +282,22 @@
         }
       }
     },
+    "dismiss": {
+      "margin": {
+        "left": {
+          "$type": "dimension",
+          "$value": "12",
+          "unit": "px",
+          "$modes": {
+            "default": "12",
+            "cds-g0": "14",
+            "cds-g10": "14",
+            "cds-g90": "14",
+            "cds-g100": "14"
+          }
+        }
+      }
+    },
     "icon": {
       "color": {
         "neutral": {
@@ -311,10 +327,10 @@
           "$value": "{color.foreground.success-on-surface}",
           "$modes": {
             "default": "{color.foreground.success-on-surface}",
-            "cds-g0": "{carbon.themes.white.supportSuccessInverse}",
-            "cds-g10": "{carbon.themes.g10.supportSuccessInverse}",
-            "cds-g90": "{carbon.themes.g90.supportSuccessInverse}",
-            "cds-g100": "{carbon.themes.g100.supportSuccessInverse}"
+            "cds-g0": "{carbon.themes.white.supportSuccess}",
+            "cds-g10": "{carbon.themes.g10.supportSuccess}",
+            "cds-g90": "{carbon.themes.g90.supportSuccess}",
+            "cds-g100": "{carbon.themes.g100.supportSuccess}"
           }
         },
         "warning": {
@@ -347,10 +363,10 @@
           "unit": "px",
           "$modes": {
             "default": "12",
-            "cds-g0": "16",
-            "cds-g10": "16",
-            "cds-g90": "16",
-            "cds-g100": "16"
+            "cds-g0": "14",
+            "cds-g10": "14",
+            "cds-g90": "14",
+            "cds-g100": "14"
           }
         }
       }

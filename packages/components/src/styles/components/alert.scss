@@ -106,7 +106,7 @@
 
 .hds-alert__dismiss {
   // for visual alignment with the main icon and text
-  margin: -2px -4px -4px 12px;
+  margin: -2px -4px -4px var(--token-alert-dismiss-margin-left);
 
   .hds-alert--type-compact & {
     margin-top: -3px;
@@ -138,11 +138,23 @@
   border-radius: var(--token-border-radius-medium);
 
   @include hds-apply-only-if-carbon() {
-    border-left-width: var(--token-alert-inline-border-left-width);
+    position: relative;
+    border-left-width: 0;
+
+    // For Carbon theme the left border is placed on top of the alert container using a pseudo element, so that it can have a different color than the main border color
+    // This avoides having angled corners between the border colors if this was done using a regular border with different left color
+    &::before {
+      position: absolute;
+      top: -1px; // Compensate the 1px border-width of the top border
+      left: 0;
+      width: var(--token-alert-inline-border-left-width);
+      height: calc(100% + 2px); // Compensate the 1px border-width of both top and bottom borders
+      content: "";
+    }
 
     .hds-alert__dismiss {
       margin: calc(-1 * var(--token-alert-inline-padding-vertical))
-        calc(-1 * var(--token-alert-inline-padding-horizontal)) 0 0;
+        calc(-1 * var(--token-alert-inline-padding-horizontal)) 0 var(--token-alert-dismiss-margin-left);
     }
   }
 }
@@ -181,8 +193,8 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline {
-      border-left-color: var(--token-alert-inline-border-left-color-neutral);
+    &.hds-alert--type-inline::before {
+      background-color: var(--token-alert-inline-border-left-color-neutral);
     }
   }
 }
@@ -203,8 +215,8 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline {
-      border-left-color: var(--token-alert-inline-border-left-color-highlight);
+    &.hds-alert--type-inline::before {
+      background-color: var(--token-alert-inline-border-left-color-highlight);
     }
   }
 }
@@ -225,8 +237,8 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline {
-      border-left-color: var(--token-alert-inline-border-left-color-success);
+    &.hds-alert--type-inline::before {
+      background-color: var(--token-alert-inline-border-left-color-success);
     }
   }
 }
@@ -247,8 +259,8 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline {
-      border-left-color: var(--token-alert-inline-border-left-color-warning);
+    &.hds-alert--type-inline::before {
+      background-color: var(--token-alert-inline-border-left-color-warning);
     }
   }
 }
@@ -269,8 +281,8 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline {
-      border-left-color: var(--token-alert-inline-border-left-color-critical);
+    &.hds-alert--type-inline::before {
+      background-color: var(--token-alert-inline-border-left-color-critical);
     }
   }
 }
