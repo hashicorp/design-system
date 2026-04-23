@@ -26,13 +26,18 @@
   "pnpm": {
     "overrides": {
       "@glimmer/component": "^2.0.0",
+      "@xmldom/xmldom": "0.9.10",
       "basic-ftp": "5.2.0",
       "flatted": "3.4.2",
       "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11",
+      "handlebars": "4.7.9",
       "js-yaml@3": "3.14.2",
       "js-yaml@4": "4.1.1",
       "mdast-util-to-hast": "13.2.1",
       "minimatch@<3.0.5": "3.1.2",
+      "path-to-regexp@0": "0.1.13",
+      "path-to-regexp@8": "8.4.2",
+      "picomatch": "4.0.4",
       "qs": "6.14.1",
       "serialize-javascript": "7.0.3",
       "socket.io-parser": "4.2.6",
