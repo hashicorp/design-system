@@ -42,14 +42,32 @@ import type {
   HdsAdvancedTableSortingFunction,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
-  HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
+  HdsAdvancedTableModel,
 } from './types.ts';
 
+import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.gts';
+import type { HdsAdvancedTableTrSignature } from './tr.gts';
 import type { HdsFilterBarSignature } from '../filter-bar/index.gts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
+
+// a flattened signature for the yielded `Tr` component
+// Replaces `WithBoundArgs` to prevent TS infinite recursion crashes
+// when processing deeply nested tree-grid data models.
+export interface YieldedHdsAdvancedTableTr<T> {
+  Args: {
+    isSelected?: boolean;
+    selectionKey?: string;
+    selectionAriaLabelSuffix?: string;
+    selectableColumnKey?: string;
+    sortBySelectedOrder?: HdsAdvancedTableThSortOrder;
+    onClickSortBySelected?: HdsAdvancedTableThSelectableSignature['Args']['onClickSortBySelected'];
+  };
+  Blocks: HdsAdvancedTableTrSignature<T>['Blocks'];
+  Element: HdsAdvancedTableTrSignature<T>['Element'];
+}
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -138,7 +156,7 @@ const getStickyColumnLeftOffset = (
   return `${leftOffset}px`;
 };
 
-export interface HdsAdvancedTableSignature {
+export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
@@ -148,7 +166,7 @@ export interface HdsAdvancedTableSignature {
     identityKey?: string;
     isSelectable?: boolean;
     isStriped?: boolean;
-    model: HdsAdvancedTableModel;
+    model: T[];
     reorderedMessageText?: string;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
@@ -178,34 +196,20 @@ export interface HdsAdvancedTableSignature {
     body?: [
       {
         Td?: WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>;
-        Tr?: WithBoundArgs<
-          typeof HdsAdvancedTableTr,
-          | 'selectionScope'
-          | 'isLastRow'
-          | 'isSelectable'
-          | 'onSelectionChange'
-          | 'didInsert'
-          | 'willDestroy'
-          | 'selectionAriaLabelSuffix'
-          | 'hasStickyColumn'
-          | 'isStickyColumnPinned'
-          | 'isParentRow'
-          | 'depth'
-          | 'displayRow'
-        >;
+        Tr?: ComponentLike<YieldedHdsAdvancedTableTr<T>>;
         Th?: WithBoundArgs<
           typeof HdsAdvancedTableTh,
           | 'depth'
           | 'isExpandable'
           | 'isExpanded'
           | 'isStickyColumn'
+          | 'isStickyColumnPinned'
           | 'newLabel'
+          | 'onClickToggle'
           | 'parentId'
           | 'scope'
-          | 'isStickyColumnPinned'
-          | 'onClickToggle'
         >;
-        data?: Record<string, unknown>;
+        data: T;
         rowIndex?: number | string;
         isOpen?: HdsAdvancedTableExpandState;
       },
@@ -215,7 +219,9 @@ export interface HdsAdvancedTableSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
+export default class HdsAdvancedTable<
+  T = HdsAdvancedTableModel,
+> extends Component<HdsAdvancedTableSignature<T>> {
   @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked
@@ -354,7 +360,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   });
 
-  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
+  constructor(owner: Owner, args: HdsAdvancedTableSignature<T>['Args']) {
     super(owner, args);
 
     const { hasStickyFirstColumn, model } = args;
@@ -376,7 +382,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const { model } = this.args;
 
     return model.some((record) => {
-      const children = record[this.childrenKey] as
+      const children = (record as Record<string, unknown>)[this.childrenKey] as
         | Record<string, unknown>[]
         | undefined;
 
@@ -404,7 +410,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       });
     };
 
-    collect(model);
+    collect(model as Record<string, unknown>[]);
 
     return ids;
   }
@@ -579,9 +585,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _initializeExpandedRows(
-    model: HdsAdvancedTableSignature['Args']['model']
-  ) {
+  // these bridge the gap between strict TS and dynamic Glimmer templates
+  asRowData = (source: Record<string, unknown>): T => source as unknown as T;
+  asScope = (scope: string): 'col' | 'row' => scope as 'col' | 'row';
+  // flattens the row interface to fix the potentially infinite nesting of rows with children
+  asTr = (comp: unknown) => comp as ComponentLike<YieldedHdsAdvancedTableTr<T>>;
+
+  private _initializeExpandedRows(model: T[]) {
     const traverse = (items: Record<string, unknown>[]) => {
       items.forEach((item) => {
         if (item['isOpen'] === true) {
@@ -598,7 +608,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       });
     };
 
-    traverse(model);
+    traverse(model as Record<string, unknown>[]);
   }
 
   private _runAssertions() {
@@ -1053,30 +1063,34 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
                 }}
                   {{yield
                     (hash
-                      Tr=(component
-                        HdsAdvancedTableTr
-                        columnOrder=CM.columnOrder
-                        data=row.source
-                        depth=row.depth
-                        isParentRow=row.hasChildren
-                        isLastRow=(and
-                          (eq row.id B.lastVisibleRowId)
-                          (notEq B.lastVisibleRowId undefined)
+                      Tr=(this.asTr
+                        (component
+                          HdsAdvancedTableTr
+                          columnOrder=CM.columnOrder
+                          data=(this.asRowData row.source)
+                          depth=row.depth
+                          isParentRow=row.hasChildren
+                          isLastRow=(and
+                            (eq row.id B.lastVisibleRowId)
+                            (notEq B.lastVisibleRowId undefined)
+                          )
+                          displayRow=row.isVisible
+                          selectionScope=(if
+                            isSelectionAllowed (this.asScope "row")
+                          )
+                          isSelectable=(if isSelectionAllowed this.isSelectable)
+                          onSelectionChange=(if
+                            isSelectionAllowed this.onSelectionRowChange
+                          )
+                          didInsert=(if
+                            isSelectionAllowed this.didInsertRowCheckbox
+                          )
+                          willDestroy=(if
+                            isSelectionAllowed this.willDestroyRowCheckbox
+                          )
+                          hasStickyColumn=this.hasStickyFirstColumn
+                          isStickyColumnPinned=this.isStickyColumnPinned
                         )
-                        displayRow=row.isVisible
-                        selectionScope=(if isSelectionAllowed "row")
-                        isSelectable=(if isSelectionAllowed this.isSelectable)
-                        onSelectionChange=(if
-                          isSelectionAllowed this.onSelectionRowChange
-                        )
-                        didInsert=(if
-                          isSelectionAllowed this.didInsertRowCheckbox
-                        )
-                        willDestroy=(if
-                          isSelectionAllowed this.willDestroyRowCheckbox
-                        )
-                        hasStickyColumn=this.hasStickyFirstColumn
-                        isStickyColumnPinned=this.isStickyColumnPinned
                       )
                       Th=(component
                         HdsAdvancedTableTh
@@ -1091,7 +1105,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
                         isStickyColumnPinned=this.isStickyColumnPinned
                       )
                       Td=(component HdsAdvancedTableTd align=@align)
-                      data=row.source
+                      data=(this.asRowData row.source)
                       rowIndex=index
                       isOpen=row.isExpanded
                     )

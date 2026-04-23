@@ -112,11 +112,8 @@ const createSortableTable = async () => {
       >
         <:body as |B|>
           <B.Tr>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "artist"}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "album"}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "year"}}</B.Td>
           </B.Tr>
         </:body>
@@ -134,13 +131,9 @@ const createNestedTable = async () => {
         id="data-test-nested-advanced-table"
       >
         <:body as |B|>
-          {{! @glint-expect-error }}
-          <B.Tr @selectionKey={{get B.data "id"}}>
-            {{! @glint-expect-error }}
+          <B.Tr>
             <B.Th>{{get B.data "name"}}</B.Th>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "status"}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "description"}}</B.Td>
           </B.Tr>
         </:body>

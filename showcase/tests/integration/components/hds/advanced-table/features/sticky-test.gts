@@ -61,13 +61,9 @@ const createBasicTable = async (options: {
         id="data-test-advanced-table"
       >
         <:body as |B|>
-          {{! @glint-expect-error }}
           <B.Tr @selectionKey={{get B.data "id"}}>
-            {{! @glint-expect-error }}
             <B.Th>{{get B.data "name"}}</B.Th>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "age"}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{get B.data "country"}}</B.Td>
           </B.Tr>
         </:body>
@@ -146,11 +142,8 @@ const createSortableTable = async (options: {
       >
         <:body as |B|>
           <B.Tr>
-            {{! @glint-expect-error }}
             <B.Td>{{B.data.artist}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{B.data.album}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{B.data.year}}</B.Td>
           </B.Tr>
         </:body>
@@ -208,7 +201,6 @@ const createSelectableTable = async (options: {
       >
         <:body as |B|>
           <B.Tr
-            {{! @glint-expect-error }}
             @selectionKey={{get B.data "id"}}
             @selectionAriaLabelSuffix={{options.selectionAriaLabelSuffix}}
           >

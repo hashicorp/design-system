@@ -30,7 +30,6 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
   <ShwTextH4 @tag="h3">Default</ShwTextH4>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{EMPTY_MODEL}}
     @columns={{DEFAULT_COLUMNS}}
     @maxHeight="400px"
@@ -41,7 +40,6 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
     block</ShwTextH4>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{EMPTY_MODEL}}
     @columns={{DEFAULT_COLUMNS}}
     @maxHeight="400px"
@@ -62,7 +60,6 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
   </ShwTextH4>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{EMPTY_MODEL}}
     @columns={{DEFAULT_COLUMNS}}
     @maxHeight="400px"
