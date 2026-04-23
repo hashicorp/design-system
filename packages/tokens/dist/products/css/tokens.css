@@ -216,6 +216,7 @@
   --token-alert-title-foreground-color-critical: #c00005;
   --token-alert-actions-margin-top: 16px;
   --token-alert-content-gap: 4px;
+  --token-alert-dismiss-margin-left: 12px;
   --token-alert-icon-color-neutral: #656a76;
   --token-alert-icon-color-highlight: #911ced;
   --token-alert-icon-color-success: #00781e;

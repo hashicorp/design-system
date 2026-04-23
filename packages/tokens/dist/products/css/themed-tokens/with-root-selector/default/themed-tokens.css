@@ -10,6 +10,7 @@
   --token-alert-border-color-success: var(--token-color-border-success);
   --token-alert-border-color-warning: var(--token-color-border-warning);
   --token-alert-content-gap: 4px;
+  --token-alert-dismiss-margin-left: 12px;
   --token-alert-icon-color-critical: var(--token-color-foreground-critical-on-surface);
   --token-alert-icon-color-highlight: var(--token-color-foreground-highlight-on-surface);
   --token-alert-icon-color-neutral: var(--token-color-foreground-faint);
