@@ -1,7 +1,6 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
 import { eq } from 'ember-truth-helpers';
-import { concat } from '@ember/helper';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
