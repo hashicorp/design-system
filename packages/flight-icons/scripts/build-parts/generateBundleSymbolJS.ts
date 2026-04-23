@@ -19,7 +19,7 @@ const prettierConfig = {
 
 // Some icons don't follow the same mapping convention, so we need to hardcode their paths here
 // NOTE: if this list grows we should consider moving it to a separate config file, but for now it's small enough to keep it here
-// { [iconName]: carbonIconPathWithoutExtension }
+// Note: Maps to { [iconName]: carbonIconPathWithoutExtension }
 const CARBON_ICON_OVERRIDES: Record<string, string> = {
     'rotate--180': '32/watson-health/rotate--180',
     'status--resolved': '32/watson-health/status--resolved',
