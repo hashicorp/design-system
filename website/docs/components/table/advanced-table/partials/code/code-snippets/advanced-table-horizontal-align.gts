@@ -31,7 +31,6 @@ export default class LocalComponent extends Component {
 
   <template>
     <HdsAdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.myDemoData}}
       @columns={{array
         (hash key="artist" label="Artist" isSortable=true)
@@ -41,9 +40,7 @@ export default class LocalComponent extends Component {
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.artist}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.album}}</B.Td>
           <B.Td @align="right">
             <HdsDropdown @isInline={{true}} as |dd|>
