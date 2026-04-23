@@ -27,7 +27,6 @@ export interface BaseHdsAdvancedTableTrSignature<T> {
     columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
     compositeGroup?: HdsCompositeDefaultBlock['group'];
     compositeItem?: HdsCompositeDefaultBlock['item'];
-    isCompositeItemDisabled?: boolean;
     displayRow?: boolean;
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     isCompositeItemDisabled?: boolean;
