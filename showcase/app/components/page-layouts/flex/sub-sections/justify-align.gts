@@ -18,6 +18,15 @@ import {
   ALIGNS,
 } from '@hashicorp/design-system-components/components/hds/layout/flex/index';
 
+const getLabel = (jc: number, align: string) => {
+  if (jc === 0) {
+    return `align=${align}`;
+  } else {
+    // Notice: we're  using an invisible character here to preserve the alignment of the items
+    return '​';
+  }
+};
+
 const SubSectionJustifyAlign: TemplateOnlyComponent = <template>
   <ShwTextH2>Justify + Align</ShwTextH2>
   <ShwTextBody>These are the
@@ -39,9 +48,8 @@ const SubSectionJustifyAlign: TemplateOnlyComponent = <template>
           {{/each}}
         {{/if}}
         {{#each JUSTIFYS as |justify jc|}}
-          {{! Notice: we're  using an invisible character here to preserve the alignment of the items }}
           <SG.Item
-            @label={{if (eq jc 0) (concat "align=" align) "\u200B"}}
+            @label={{getLabel jc align}}
             class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
           >
             <div {{style width="120px" height="120px"}}>
