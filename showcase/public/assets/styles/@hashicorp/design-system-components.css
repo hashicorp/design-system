@@ -2136,6 +2136,12 @@
 .hds-mode-cds-g100 .hds-alert--type-page {
   border-style: solid;
 }
+.hds-mode-cds-g0 .hds-alert--type-page .hds-alert__dismiss,
+.hds-mode-cds-g10 .hds-alert--type-page .hds-alert__dismiss,
+.hds-mode-cds-g90 .hds-alert--type-page .hds-alert__dismiss,
+.hds-mode-cds-g100 .hds-alert--type-page .hds-alert__dismiss {
+  margin: calc(-1 * var(--token-alert-page-padding-vertical)) -16px 0 var(--token-alert-dismiss-margin-left);
+}
 
 .hds-alert--type-inline {
   padding: var(--token-alert-inline-padding-vertical) var(--token-alert-inline-padding-horizontal);
