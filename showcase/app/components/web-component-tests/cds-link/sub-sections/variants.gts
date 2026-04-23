@@ -43,7 +43,7 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
 
   <ShwFlex as |SF|>
     <SF.Item @label="Disabled link">
-      <HdsCdsLink @disabled={{true}} href="https://hashicorp.com">
+      <HdsCdsLink disabled={{true}} href="https://hashicorp.com">
         Disabled link
       </HdsCdsLink>
     </SF.Item>
@@ -53,7 +53,7 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
 
   <ShwFlex as |SF|>
     <SF.Item @label="Visited link">
-      <HdsCdsLink @visited={{true}} href="https://hashicorp.com">
+      <HdsCdsLink visited={{true}} href="https://hashicorp.com">
         Visited link
       </HdsCdsLink>
     </SF.Item>

@@ -99,6 +99,8 @@ New HDS components require updates in two files:
 
 Showcase must demonstrate all argument values (including booleans as both `true` and `false`), all blocks, and all interactive states. Use arrow functions instead of `@action` for event handlers.
 
+The showcase pages must not have glint no check, there can be glint expect errors with comments explaining why it is necessary.
+
 ## Test file structure (`showcase/tests/`)
 
 - `acceptance/components/hds/<component-name>.js` — acceptance test (call `allyAudit` for a11y)
@@ -118,3 +120,7 @@ Add components with acceptance tests to `tests/acceptance/percy-test.js` using `
 
 Terminology: Fixed (bugfix), Added (new), Changed/Refactored (update), Removed (delete).
 Start with a paragraph, use a list for multiple changes per component, end with a period.
+
+
+## Development process
+any time there are any changes to `packages/components/src/`, must run `pnpm lint` to ensure nothing breaks across the components, showcase, or website. Code changes are not complete until all the lint checks pass.

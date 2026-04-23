@@ -34,22 +34,22 @@ const SubSectionContainers: TemplateOnlyComponent = <template>
     <SG.Item as |SGI|>
       <SGI.Label>Open in new tab</SGI.Label>
       <HdsCdsLink
-        @href="https://hashicorp.com"
-        @target="_blank"
-        @rel="noopener noreferrer"
+        href="https://hashicorp.com"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         External link
       </HdsCdsLink>
     </SG.Item>
     <SG.Item as |SGI|>
       <SGI.Label>Download link</SGI.Label>
-      <HdsCdsLink @href="/files/document.pdf" @download="document.pdf">
+      <HdsCdsLink href="/files/document.pdf" download="document.pdf">
         Download PDF
       </HdsCdsLink>
     </SG.Item>
     <SG.Item as |SGI|>
       <SGI.Label>With hreflang</SGI.Label>
-      <HdsCdsLink @href="https://hashicorp.com" @hreflang="en">
+      <HdsCdsLink href="https://hashicorp.com" hreflang="en">
         English version
       </HdsCdsLink>
     </SG.Item>
