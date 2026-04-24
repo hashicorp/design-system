@@ -27,19 +27,36 @@ function getElementId(element: HTMLElement, prefix: string): string {
 function sortByDOMPosition<T extends { element: HTMLElement }>(
   items: T[]
 ): T[] {
-  return items.slice().sort((left, right) => {
-    const position = left.element.compareDocumentPosition(right.element);
+  const indexedItems = items.map((item, index) => ({ item, index }));
 
-    if ((position & Node.DOCUMENT_POSITION_FOLLOWING) !== 0) {
-      return -1;
-    }
+  return indexedItems
+    .slice()
+    .sort((leftEntry, rightEntry) => {
+      const { item: left, index: leftIndex } = leftEntry;
+      const { item: right, index: rightIndex } = rightEntry;
 
-    if ((position & Node.DOCUMENT_POSITION_PRECEDING) !== 0) {
-      return 1;
-    }
+      if (!left.element.isConnected && right.element.isConnected) {
+        return 1;
+      }
 
-    return 0;
-  });
+      if (left.element.isConnected && !right.element.isConnected) {
+        return -1;
+      }
+
+      const position = left.element.compareDocumentPosition(right.element);
+
+      if ((position & Node.DOCUMENT_POSITION_FOLLOWING) !== 0) {
+        return -1;
+      }
+
+      if ((position & Node.DOCUMENT_POSITION_PRECEDING) !== 0) {
+        return 1;
+      }
+
+      // keep sort stable when DOM position cannot be resolved
+      return leftIndex - rightIndex;
+    })
+    .map((entry) => entry.item);
 }
 
 function findGroupId(
@@ -183,19 +200,13 @@ export default class Composite extends Component<HdsCompositeSignature> {
   }
 
   private _unregisterItem(id: string): void {
-    const wasCurrent = this._currentId === id;
+    const wasCurrent = this._resolvedCurrentId === id;
     this._items = this._items.filter((item) => item.id !== id);
 
     if (wasCurrent) {
-      this._currentId =
-        this._firstEnabledItem !== undefined ? this._firstEnabledItem.id : null;
+      // reset to "auto" so newly rendered first items can become active
+      this._currentId = undefined;
       this._syncAllElements();
-
-      const newActive = this._items.find((item) => item.id === this._currentId);
-
-      if (newActive && newActive.element) {
-        newActive.element.focus();
-      }
 
       return;
     }
@@ -217,18 +228,13 @@ export default class Composite extends Component<HdsCompositeSignature> {
     this._reassociateGroups();
 
     const currentExists = this._items.some(
-      (item) => item.id === this._currentId
+      (item) => item.id === this._resolvedCurrentId
     );
 
     if (!currentExists && this._firstEnabledItem) {
-      this._currentId = this._firstEnabledItem.id;
+      // reset to "auto" so group reordering/mount order can settle first
+      this._currentId = undefined;
       this._syncAllElements();
-
-      const newActive = this._items.find((item) => item.id === this._currentId);
-
-      if (newActive && newActive.element) {
-        newActive.element.focus();
-      }
     }
   }
 
