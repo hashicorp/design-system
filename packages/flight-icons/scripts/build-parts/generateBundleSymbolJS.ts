@@ -17,6 +17,14 @@ const prettierConfig = {
     trailingComma: 'none'
 } as const;
 
+// Some icons don't follow the same mapping convention, so we need to hardcode their paths here
+// NOTE: if this list grows we should consider moving it to a separate config file, but for now it's small enough to keep it here
+// Note: Maps to { [iconName]: carbonIconPathWithoutExtension }
+const CARBON_ICON_OVERRIDES: Record<string, string> = {
+    'rotate--180': '32/watson-health/rotate--180',
+    'status--resolved': '32/watson-health/status--resolved',
+}
+
 // important: if you update this function, update the identical one in `packages/components/src/services/hds-icon-registry.ts` as well (and vice versa)
 function makeDomSafeId(value: string): string {
     return value.replace(/[^a-zA-Z0-9_-]/g, '-');
@@ -42,15 +50,7 @@ const getSymbolModule = (sourceSvg: string, id: string): string => {
 
 export async function generateBundleSymbolJS({ config, catalog }: { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
     const tempSVGFolderPath = config.tempFolder;
-    const mappingFilePath = path.resolve(__dirname, '../hds-carbon-icon-map.json');
     const carbonIconsPath = path.resolve(__dirname, '../../node_modules/@carbon/icons/svg');
-
-    let mapping: Record<string, string> = {};
-    try {
-        mapping = await fs.readJSON(mappingFilePath);
-    } catch {
-        console.warn('⚠️ Map file not found.');
-    }
 
     // Define folders
     const outputFolder = `${config.mainFolder}/symbol-js`;
@@ -64,7 +64,8 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
 
     const registry: Record<string, { flight: Record<string, string>, carbon: string | null }> = {};
 
-    for (const { fileName } of catalog.assets) {
+    for (const asset of catalog.assets) {
+        const { fileName, mapping } = asset;
         const match = fileName.match(/^(.*)-(16|24)$/);
 
         if (match) {
@@ -93,25 +94,38 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
             registry[baseName].flight[size] = `() => import('./flight/${fileName}.js')`;
 
             // --- CARBON ---
-            const carbonName = mapping[baseName];
 
-            if (carbonName && !registry[baseName].carbon) {
-                const carbonPath = path.join(carbonIconsPath, '32', `${carbonName}.svg`);
+            // Proceed only if the tag exists
+            if (mapping) {
+                if (registry[baseName].carbon) {
+                    continue; // Carbon icon already processed for this baseName (e.g. for another size)
+                }
+                const carbonName = mapping.toLowerCase();
+                
+                let carbonPath;
+                if (Object.keys(CARBON_ICON_OVERRIDES).includes(carbonName)) {
+                    carbonPath = path.join(carbonIconsPath, `${CARBON_ICON_OVERRIDES[carbonName]}.svg`);
+                } else {
+                    carbonPath = path.join(carbonIconsPath, `32/${carbonName}.svg`);
+                }                    
 
                 if (fs.existsSync(carbonPath)) {
                     const key = `carbon-${baseName}`;
                     const symbolId = makeSymbolIdFromKey(key);
 
                     const carbonSource = await fs.readFile(carbonPath, 'utf8');
-                    const carbonContent = await prettier.format(getSymbolModule(carbonSource, symbolId), { ...prettierConfig, parser: 'typescript' });
+                    const carbonContent = await prettier.format(
+                        getSymbolModule(carbonSource, symbolId), 
+                        { ...prettierConfig, parser: 'typescript' }
+                    );
 
                     await fs.writeFile(`${carbonFolder}/${baseName}.js`, carbonContent);
 
                     registry[baseName].carbon = `() => import('./carbon/${baseName}.js')`;
                 } else {
-                    console.warn(`⚠️ Carbon icon missing: ${carbonName} (size 32) - Mapped from Flight icon ${fileName}`);
+                    console.warn(`⚠️ Carbon icon missing: ${carbonName} (size 32) - Found in mapping for ${fileName}`);
                 }
-            }
+            }   
         }
     }
 
