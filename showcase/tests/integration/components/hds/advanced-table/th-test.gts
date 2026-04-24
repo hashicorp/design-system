@@ -6,7 +6,7 @@
 import { hash } from '@ember/helper';
 import { module, test } from 'qunit';
 import { render, focus, click, setupOnerror, find } from '@ember/test-helpers';
-import NOOP from 'showcase/templates/web-component-tests/utils/noop';
+import NOOP from 'showcase/utils/noop';
 
 import {
   HdsAdvancedTable,

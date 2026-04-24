@@ -10,7 +10,7 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwOutliner from 'showcase/components/shw/outliner';
-import NOOP from 'showcase/templates/web-component-tests/utils/noop';
+import NOOP from 'showcase/utils/noop';
 
 import {
   HdsFormSuperSelectAfterOptions,

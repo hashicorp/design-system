@@ -70,7 +70,7 @@ pnpm version-candidate-packages && pnpm release-candidate-packages  # RC flow
 ## Component registration
 
 New HDS components require updates in two files:
-- `packages/components/src/components.ts` — export the component class and types
+- `packages/components/src/components.ts` — export the component class and types. it does not export any of the component constants.
 - `packages/components/src/template-registry.ts` — register in `HdsComponentsRegistry` interface
 
 ## Component file structure (`packages/components/src/components/hds/`)

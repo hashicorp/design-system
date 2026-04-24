@@ -13,6 +13,11 @@ const Index: TemplateOnlyComponent = <template>
       <ShwTextH2>Web component tests</ShwTextH2>
       <ol class="shw-text-body">
         <li>
+          <LinkTo @route="web-component-tests.cds-accordion">
+            CdsAccordion
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="web-component-tests.cds-badge">
             CdsBadge
           </LinkTo>
@@ -25,6 +30,11 @@ const Index: TemplateOnlyComponent = <template>
         <li>
           <LinkTo @route="web-component-tests.cds-link">
             CdsLink
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="web-component-tests.cds-modal">
+            CdsModal
           </LinkTo>
         </li>
       </ol>

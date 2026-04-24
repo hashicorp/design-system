@@ -10,9 +10,19 @@
 // -----------------------------------------------------------
 
 // WEB COMPONENT TESTS
+export { default as HdsCdsAccordion } from './components/hds/cds-accordion/index.gts';
+export { default as HdsCdsAccordionItem } from './components/hds/cds-accordion/item.gts';
 export { default as HdsCdsBadge } from './components/hds/cds-badge/index.gts';
 export { default as HdsCdsButton } from './components/hds/cds-button/index.gts';
 export { default as HdsCdsLink } from './components/hds/cds-link/index.gts';
+export { default as HdsCdsModalBody } from './components/hds/cds-modal/body.gts';
+export { default as HdsCdsModalBodyContent } from './components/hds/cds-modal/body-content.gts';
+export { default as HdsCdsModalCloseButton } from './components/hds/cds-modal/close-button.gts';
+export { default as HdsCdsModalFooter } from './components/hds/cds-modal/footer.gts';
+export { default as HdsCdsModalFooterButton } from './components/hds/cds-modal/footer-button.gts';
+export { default as HdsCdsModalHeader } from './components/hds/cds-modal/header.gts';
+export { default as HdsCdsModalHeading } from './components/hds/cds-modal/heading.gts';
+export { default as HdsCdsModal } from './components/hds/cds-modal/index.gts';
 
 // Accordion
 export { default as HdsAccordion } from './components/hds/accordion/index.gts';
