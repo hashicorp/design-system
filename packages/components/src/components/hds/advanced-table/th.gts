@@ -14,6 +14,7 @@ import { modifier } from 'ember-modifier';
 import style from 'ember-style-modifier';
 import { and, not } from 'ember-truth-helpers';
 
+import hdsScrollIntoViewOnFocus from '../../../modifiers/hds-scroll-into-view-on-focus.ts';
 import hdsAdvancedTableCell from '../../../modifiers/hds-advanced-table-cell.ts';
 // @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
 import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
@@ -44,6 +45,7 @@ import type {
   HdsAdvancedTableThSortOrder,
 } from './types.ts';
 
+import type { HdsCompositeSignature } from '../composite/index.gts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.gts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.gts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.gts';
@@ -60,6 +62,8 @@ export interface HdsAdvancedTableThSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     column?: HdsAdvancedTableNormalizedColumn;
     colspan?: number;
+    compositeItem?: HdsCompositeSignature['Blocks']['default'][0]['item'];
+    isCompositeItemDisabled?: boolean;
     depth?: number;
     draggedColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     firstColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
@@ -452,6 +456,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
           clickOutsideDeactivates=true
         )
       }}
+      {{@compositeItem disabled=@isCompositeItemDisabled}}
+      {{hdsScrollIntoViewOnFocus options=(hash block="center" inline="center")}}
       ...attributes
     >
       <HdsLayoutFlex @justify="space-between" @align="center" @gap="8">
