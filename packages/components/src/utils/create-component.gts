@@ -12,27 +12,12 @@ import type { ArgsFor } from 'ember-modifier';
 
 type Constructor<T> = new () => T;
 
-export type EventName<T extends Event = Event> = string & {
-  __eventType: T;
-};
-
-type EventNames = Record<string, EventName | string>;
-
 type ElementProps<I extends HTMLElement> = Partial<Omit<I, keyof HTMLElement>>;
 
-type EventCallbacks<E extends EventNames> = {
-  [K in keyof E]?: E[K] extends EventName
-    ? (event: E[K]['__eventType']) => void
-    : (event: Event) => void;
-};
+type ComponentArgs<I extends HTMLElement> = ElementProps<I>;
 
-type ComponentArgs<
-  I extends HTMLElement,
-  E extends EventNames,
-> = ElementProps<I> & EventCallbacks<E>;
-
-type WebComponentSignature<I extends HTMLElement, E extends EventNames> = {
-  Args: ComponentArgs<I, E>;
+type WebComponentSignature<I extends HTMLElement> = {
+  Args: ComponentArgs<I>;
   Blocks: {
     default: [];
   };
@@ -43,10 +28,9 @@ type GlimmerComponentClass<Signature> = abstract new (
   ...args: unknown[]
 ) => Component<Signature>;
 
-type WebComponentClassStatics<I extends HTMLElement, E extends EventNames> = {
+type WebComponentClassStatics<I extends HTMLElement> = {
   tagName: string;
   elementClass: Constructor<I>;
-  events: E;
 };
 
 type SyncWebComponentModifierSignature = {
@@ -55,25 +39,19 @@ type SyncWebComponentModifierSignature = {
     Positional: [
       props: Record<string, unknown>,
       elementClass: Constructor<HTMLElement>,
-      events: EventNames | undefined,
     ];
   };
 };
 
-interface CreateComponentOptions<
-  I extends HTMLElement,
-  E extends EventNames = Record<never, never>,
-> {
+interface CreateComponentOptions<I extends HTMLElement> {
   tagName: string;
   elementClass: Constructor<I>;
-  events?: E;
   displayName?: string;
 }
 
 class SyncWebComponentModifier extends Modifier<SyncWebComponentModifierSignature> {
   private _element: HTMLElement | null = null;
   private _previousProperties = new Map<string, unknown>();
-  private _listenedEvents = new Map<string, EventListenerObject>();
 
   constructor(owner: Owner, args: ArgsFor<SyncWebComponentModifierSignature>) {
     super(owner, args);
@@ -88,7 +66,6 @@ class SyncWebComponentModifier extends Modifier<SyncWebComponentModifierSignatur
     [
       props,
       elementClass,
-      events,
     ]: SyncWebComponentModifierSignature['Args']['Positional']
   ): void {
     if (!(element instanceof HTMLElement)) {
@@ -104,48 +81,23 @@ class SyncWebComponentModifier extends Modifier<SyncWebComponentModifierSignatur
     const nextProperties = new Map<string, unknown>();
 
     for (const [name, value] of Object.entries(props)) {
-      if (!(name in elementClass.prototype) && events?.[name] === undefined) {
+      if (!(name in elementClass.prototype)) {
         continue;
       }
 
-      this._setProperty(
-        element,
-        name,
-        value,
-        this._previousProperties.get(name),
-        events
-      );
+      this._setProperty(element, name, value);
       nextProperties.set(name, value);
       this._previousProperties.delete(name);
     }
 
-    for (const [name, previousValue] of this._previousProperties) {
-      this._setProperty(element, name, undefined, previousValue, events);
+    for (const [name] of this._previousProperties) {
+      this._setProperty(element, name, undefined);
     }
 
     this._previousProperties = nextProperties;
   }
 
-  private _setProperty(
-    node: HTMLElement,
-    name: string,
-    value: unknown,
-    oldValue: unknown,
-    events: EventNames | undefined
-  ): void {
-    const eventName = events?.[name];
-
-    if (eventName !== undefined) {
-      if (value !== oldValue) {
-        this._addOrUpdateEventListener(
-          node,
-          eventName,
-          value as ((event: Event) => void) | undefined
-        );
-      }
-      return;
-    }
-
+  private _setProperty(node: HTMLElement, name: string, value: unknown): void {
     (node as unknown as Record<string, unknown>)[name] = value;
 
     if (
@@ -156,40 +108,11 @@ class SyncWebComponentModifier extends Modifier<SyncWebComponentModifierSignatur
     }
   }
 
-  private _addOrUpdateEventListener(
-    node: HTMLElement,
-    event: string,
-    listener: ((event: Event) => void) | undefined
-  ): void {
-    let handler = this._listenedEvents.get(event);
-
-    if (listener !== undefined) {
-      if (handler === undefined) {
-        handler = { handleEvent: listener };
-        this._listenedEvents.set(event, handler);
-        node.addEventListener(event, handler);
-      } else {
-        handler.handleEvent = listener;
-      }
-      return;
-    }
-
-    if (handler !== undefined) {
-      this._listenedEvents.delete(event);
-      node.removeEventListener(event, handler);
-    }
-  }
-
   private _teardown(): void {
     if (this._element === null) {
       return;
     }
 
-    for (const [eventName, handler] of this._listenedEvents) {
-      this._element.removeEventListener(eventName, handler);
-    }
-
-    this._listenedEvents.clear();
     this._previousProperties.clear();
     this._element = null;
   }
@@ -197,16 +120,14 @@ class SyncWebComponentModifier extends Modifier<SyncWebComponentModifierSignatur
 
 abstract class BaseWebComponentComponent<
   I extends HTMLElement,
-  E extends EventNames,
-> extends Component<WebComponentSignature<I, E>> {
+> extends Component<WebComponentSignature<I>> {
   static tagName: string;
   static elementClass: Constructor<HTMLElement>;
-  static events: EventNames = {};
 
   syncWebComponent = SyncWebComponentModifier;
 
-  private get _componentClass(): WebComponentClassStatics<I, E> {
-    return this.constructor as unknown as WebComponentClassStatics<I, E>;
+  private get _componentClass(): WebComponentClassStatics<I> {
+    return this.constructor as unknown as WebComponentClassStatics<I>;
   }
 
   get componentTagName(): string {
@@ -217,10 +138,6 @@ abstract class BaseWebComponentComponent<
     return this._componentClass.elementClass;
   }
 
-  get componentEvents(): E {
-    return this._componentClass.events;
-  }
-
   get componentArgs(): Record<string, unknown> {
     return this.args as unknown as Record<string, unknown>;
   }
@@ -229,11 +146,7 @@ abstract class BaseWebComponentComponent<
     {{#let (element this.componentTagName) as |Tag|}}
       <Tag
         ...attributes
-        {{this.syncWebComponent
-          this.componentArgs
-          this.componentElementClass
-          this.componentEvents
-        }}
+        {{this.syncWebComponent this.componentArgs this.componentElementClass}}
       >
         {{yield}}
       </Tag>
@@ -241,21 +154,16 @@ abstract class BaseWebComponentComponent<
   </template>
 }
 
-export const createComponent = <
-  I extends HTMLElement,
-  E extends EventNames = Record<never, never>,
->({
+export const createComponent = <I extends HTMLElement>({
   tagName,
   elementClass,
-  events,
   displayName,
-}: CreateComponentOptions<I, E>): GlimmerComponentClass<
-  WebComponentSignature<I, E>
+}: CreateComponentOptions<I>): GlimmerComponentClass<
+  WebComponentSignature<I>
 > => {
-  class WebComponentComponent extends BaseWebComponentComponent<I, E> {
+  class WebComponentComponent extends BaseWebComponentComponent<I> {
     static tagName = tagName;
     static elementClass = elementClass as Constructor<HTMLElement>;
-    static events = (events ?? {}) as EventNames;
   }
 
   Object.defineProperty(WebComponentComponent, 'name', {
@@ -263,7 +171,7 @@ export const createComponent = <
   });
 
   return WebComponentComponent as unknown as GlimmerComponentClass<
-    WebComponentSignature<I, E>
+    WebComponentSignature<I>
   >;
 };
 

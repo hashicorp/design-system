@@ -20,6 +20,13 @@ type ButtonSize = `${BUTTON_SIZE}`;
 type ButtonTooltipAlignment = `${BUTTON_TOOLTIP_ALIGNMENT}`;
 type ButtonTooltipPosition = `${BUTTON_TOOLTIP_POSITION}`;
 type ButtonType = `${BUTTON_TYPE}`;
+type ShadowRootOptionsArg = {
+  delegatesFocus: boolean;
+  mode: ShadowRootMode;
+  slotAssignment?: SlotAssignmentMode;
+  customElements?: CustomElementRegistry;
+  registry?: CustomElementRegistry;
+};
 
 export const CDS_BUTTON_KIND_OPTIONS = Object.values(BUTTON_KIND);
 export const CDS_BUTTON_SIZE_OPTIONS = Object.values(BUTTON_SIZE);
@@ -39,6 +46,7 @@ export interface HdsCdsButtonSignature {
     dangerDescription?: string;
     disabled?: boolean;
     download?: string;
+    hasMainContent?: boolean;
     href?: string;
     hreflang?: string;
     isExpressive?: boolean;
@@ -48,7 +56,9 @@ export interface HdsCdsButtonSignature {
     openTooltip?: boolean;
     ping?: string;
     rel?: string;
+    shadowRootOptions?: ShadowRootOptionsArg;
     size?: ButtonSize;
+    styles?: string;
     tabIndex?: number;
     target?: string;
     tooltipAlignment?: ButtonTooltipAlignment;
@@ -72,6 +82,7 @@ export default class HdsCdsButton extends Component<HdsCdsButtonSignature> {
       danger-description={{@dangerDescription}}
       disabled={{@disabled}}
       download={{@download}}
+      has-main-content={{@hasMainContent}}
       href={{@href}}
       hreflang={{@hreflang}}
       is-expressive={{@isExpressive}}

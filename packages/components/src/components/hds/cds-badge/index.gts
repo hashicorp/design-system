@@ -21,7 +21,11 @@ export const CDS_BADGE_TYPE_OPTIONS = Object.values(TAG_TYPE);
 
 export interface HdsCdsBadgeSignature {
   Args: {
+    filter?: boolean;
+    hasCustomIcon?: boolean;
+    open?: boolean;
     size?: TagSize;
+    title?: string;
     type?: TagType;
   };
   Blocks: {
@@ -39,7 +43,15 @@ export default class HdsCdsBadge extends Component<HdsCdsBadgeSignature> {
   // }
 
   <template>
-    <cds-tag size={{@size}} type={{@type}} ...attributes>
+    <cds-tag
+      filter={{@filter}}
+      has-custom-icon={{@hasCustomIcon}}
+      open={{@open}}
+      size={{@size}}
+      title={{@title}}
+      type={{@type}}
+      ...attributes
+    >
       {{yield}}
     </cds-tag>
   </template>

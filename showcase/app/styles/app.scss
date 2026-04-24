@@ -3,8 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+@use "@carbon/styles/scss/reset";
+@use "@carbon/styles/scss/theme";
+@use "@carbon/styles/scss/themes";
 @use "@hashicorp/design-system-components";
 @use "@hashicorp/design-system-power-select-overrides";
+// @use "@carbon/styles/scss/reset";
+// @use "@carbon/styles/scss/theme";
+// @use "@carbon/styles/scss/themes";
+
 
 // global declarations
 

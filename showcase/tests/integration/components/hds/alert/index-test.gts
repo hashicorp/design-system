@@ -9,7 +9,7 @@ import { render, resetOnerror, setupOnerror, find } from '@ember/test-helpers';
 import { HdsAlert } from '@hashicorp/design-system-components/components';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import NOOP from 'showcase/templates/web-component-tests/utils/noop';
+import NOOP from 'showcase/utils/noop';
 
 module('Integration | Component | hds/alert/index', function (hooks) {
   setupRenderingTest(hooks);

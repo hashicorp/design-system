@@ -11,7 +11,7 @@ import { TrackedObject } from 'tracked-built-ins';
 import { HdsFormSuperSelectMultipleBase } from '@hashicorp/design-system-components/components';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import NOOP from 'showcase/templates/web-component-tests/utils/noop';
+import NOOP from 'showcase/utils/noop';
 
 const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
 

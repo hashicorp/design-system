@@ -15,7 +15,7 @@ import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
-import NOOP from 'showcase/templates/web-component-tests/utils/noop';
+import NOOP from 'showcase/utils/noop';
 
 import CodeFragmentWithAppliedFilters from 'showcase/components/page-components/filter-bar/code-fragments/with-applied-filters';
 import CodeFragmentWithFiltersDropdown from 'showcase/components/page-components/filter-bar/code-fragments/with-filters-dropdown';
