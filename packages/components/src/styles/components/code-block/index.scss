@@ -120,10 +120,6 @@ $hds-code-block-code-footer-height: 48px;
     &:hover {
       color: var(--token-color-foreground-action-hover);
     }
-
-    &:active {
-      color: var(--token-color-foreground-action-active);
-    }
   }
 }
 
@@ -174,12 +170,6 @@ $hds-code-block-code-footer-height: 48px;
     color: var(--token-code-block-foreground-color-primary);
     background-color: var(--token-code-block-button-surface-color-hover);
     border-color: var(--token-code-block-border-color-strong);
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-code-block-foreground-color-primary);
-    background-color: var(--token-code-block-button-surface-color-active);
   }
 
   &:focus,

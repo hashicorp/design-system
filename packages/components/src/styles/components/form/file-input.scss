@@ -67,14 +67,6 @@
   }
 }
 
-.hds-form-file-input::file-selector-button:active,
-.hds-form-file-input.mock-active::file-selector-button {
-  color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-interactive-active);
-  border-color: var(--token-color-border-strong);
-  box-shadow: none;
-}
-
 .hds-form-file-input {
   &:disabled,
   &[disabled],

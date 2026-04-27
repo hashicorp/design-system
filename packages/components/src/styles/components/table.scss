@@ -126,14 +126,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   }
 
   @include hds-focus-ring-with-pseudo-element($radius: inherit);
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
-    box-shadow: none;
-  }
 }
 
 .hds-table__th-button--is-sorted {
@@ -142,11 +134,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   &:hover,
   &.mock-hover {
     color: var(--token-color-foreground-action-hover);
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-action-active);
   }
 }
 

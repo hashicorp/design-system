@@ -191,14 +191,6 @@ $hds-super-select-item-height: 36px;
       }
     }
 
-    &:active,
-    &.mock-active {
-      // left border
-      &::after {
-        background-color: var(--token-color-foreground-action-active);
-      }
-    }
-
     &[aria-disabled="true"] {
       color: var(--token-form-control-disabled-foreground-color);
     }
@@ -409,22 +401,12 @@ $hds-super-select-item-height: 36px;
       &.mock-hover {
         color: var(--token-color-foreground-action-hover);
       }
-
-      &:active,
-      &.mock-active {
-        color: var(--token-color-foreground-action-active);
-      }
     }
 
     &[aria-current="true"],
     &:hover,
     &.mock-hover {
       color: var(--token-color-foreground-action-hover);
-    }
-
-    &:active,
-    &.mock-active {
-      color: var(--token-color-foreground-action-active);
     }
 
     // checked, disabled:

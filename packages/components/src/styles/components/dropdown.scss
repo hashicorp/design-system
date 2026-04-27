@@ -58,16 +58,6 @@
     }
   }
 
-  &:active,
-  &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
-
-    &::before {
-      border-color: transparent;
-    }
-  }
-
   &:disabled,
   &.mock-disabled {
     @include hds-button-state-disabled();
@@ -426,8 +416,6 @@
 
     &:active,
     &.mock-active {
-      color: var(--current-color-active);
-
       &::before {
         background-color: currentColor;
       }

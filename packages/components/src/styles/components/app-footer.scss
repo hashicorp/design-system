@@ -89,11 +89,6 @@ $hds-app-footer-icon-text-gap: 6px;
     color: var(--app-footer-link-hover-color);
   }
 
-  &:active,
-  &.mock-active {
-    color: var(--app-footer-link-active-color);
-  }
-
   &:focus,
   &.mock-focus,
   &:focus-visible {

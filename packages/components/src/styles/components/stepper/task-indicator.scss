@@ -64,11 +64,6 @@ $hds-stepper-indicator-task-status-props: (
       &.mock-hover {
         color: map.get($hds-stepper-indicator-task-status-props, $status, "color-hover");
       }
-
-      &:active,
-      &.mock-active {
-        color: map.get($hds-stepper-indicator-task-status-props, $status, "color-active");
-      }
     }
   }
 }

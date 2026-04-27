@@ -399,10 +399,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   &:active,
   &.mock-active {
     cursor: grabbing;
-
-    .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--token-color-surface-interactive-hover);
-    }
   }
 
   &:focus,
@@ -472,14 +468,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   }
 
   @include hds-focus-ring-with-pseudo-element($radius: inherit);
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
-    box-shadow: none;
-  }
 }
 
 .hds-advanced-table__th-button--is-sorted {
@@ -488,11 +476,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   &:hover,
   &.mock-hover {
     color: var(--token-color-foreground-action-hover);
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-action-active);
   }
 }
 
@@ -659,7 +642,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     .hds-advanced-table--valign-baseline & {
       /**
         setting to center because in FlexBox, when you set align-items: baseline, it also aligns content to the top - unlike display: table-cell which aligns the content to the center
-      
+
         we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
       */
       align-items: center;
