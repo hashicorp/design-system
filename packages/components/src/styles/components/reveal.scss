@@ -14,8 +14,8 @@
 .hds-reveal__toggle-button {
   // overriding some styles of the tertiary button, per design specs
   min-height: 1.75rem; // 28px, Override default so padding difference will be visible
-  padding: var(--token-reveal-button-padding-top) var(--token-reveal-button-padding-right)
-    var(--token-reveal-button-padding-bottom) var(--token-reveal-button-padding-left);
+  padding: var(--token-reveal-padding-top) var(--token-reveal-padding-right) var(--token-reveal-padding-bottom)
+    var(--token-reveal-padding-left);
 
   .hds-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
