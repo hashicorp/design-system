@@ -231,6 +231,12 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/utilities/popover-primitive');
     await percySnapshot('PopoverPrimitive');
+    // MOVE THIS BLOCK IN THE RIGHT POSITION
+    await visit('/components/cds-button');
+    await percySnapshot('CdsButton');
+
+    await visit('/components/cds-link');
+    await percySnapshot('CdsLink');
 
     // DO NOT REMOVE – PERCY SNAPSHOTS END
 
