@@ -145,4 +145,40 @@ module('Integration | Component | hds/tag/index', function (hooks) {
     await waitFor('.hds-tooltip-button', { timeout: 1000 });
     assert.dom('.hds-tooltip-button').exists();
   });
+
+  // INTERACTIVE
+
+  test('it should not render an interactive tag if @href or @route is not provided', async function (assert) {
+    await render(
+      <template><HdsTag @text="My text tag" id="test-tag" /></template>,
+    );
+    assert.dom('#test-tag').hasClass('hds-tag--is-static');
+    assert.dom('#test-tag').doesNotHaveClass('hds-tag--is-interactive');
+    assert.dom('#test-tag .hds-tag__text').exists();
+    assert.dom('#test-tag .hds-tag__link').doesNotExist();
+  });
+
+  test('it should render an interactive tag if @href is provided', async function (assert) {
+    await render(
+      <template>
+        <HdsTag @text="My text tag" @href="/" id="test-tag" />
+      </template>,
+    );
+    assert.dom('#test-tag').doesNotHaveClass('hds-tag--is-static');
+    assert.dom('#test-tag').hasClass('hds-tag--is-interactive');
+    assert.dom('#test-tag .hds-tag__text').doesNotExist();
+    assert.dom('#test-tag .hds-tag__link').exists();
+  });
+
+  test('it should render an interactive tag if @route is provided', async function (assert) {
+    await render(
+      <template>
+        <HdsTag @text="My text tag" @route="index" id="test-tag" />
+      </template>,
+    );
+    assert.dom('#test-tag').doesNotHaveClass('hds-tag--is-static');
+    assert.dom('#test-tag').hasClass('hds-tag--is-interactive');
+    assert.dom('#test-tag .hds-tag__text').doesNotExist();
+    assert.dom('#test-tag .hds-tag__link').exists();
+  });
 });

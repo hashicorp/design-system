@@ -71,9 +71,7 @@ export default class HdsPaginationSizeSelector extends Component<HdsPaginationSi
       <label
         class="hds-typography-body-100 hds-font-weight-medium"
         for={{this._sizeSelectorId}}
-      >
-        {{this.label}}
-      </label>
+      >{{this.label}}</label>
       <HdsFormSelectBase
         id={{this._sizeSelectorId}}
         {{on "change" this.onChange}}
