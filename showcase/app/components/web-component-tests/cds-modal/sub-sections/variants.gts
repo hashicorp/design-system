@@ -12,10 +12,11 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 import { HdsCdsButton } from '@hashicorp/design-system-components/components';
 
-import CodeFragmentVariantModal from '../code-fragments/variant-modal';
+import { CDS_MODAL_SIZE_OPTIONS } from '@hashicorp/design-system-components/components/hds/cds-modal/index';
 
-const CDS_MODAL_SIZE_OPTIONS = ['xs', 'sm', '', 'lg'] as const;
 type ModalSize = (typeof CDS_MODAL_SIZE_OPTIONS)[number];
+
+import CodeFragmentVariantModal from '../code-fragments/variant-modal';
 
 export default class SubSectionVariants extends Component {
   @tracked isOpen = false;

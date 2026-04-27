@@ -18,6 +18,7 @@ Router.map(function () {
     this.route('cds-button');
     this.route('cds-link');
     this.route('cds-modal');
+    this.route('cds-text-input');
   });
   this.route('page-foundations', { path: 'foundations' }, function () {
     this.route('typography');

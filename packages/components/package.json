@@ -210,6 +210,7 @@
       "./components/hds/cds-modal/header.js": "./dist/_app_/components/hds/cds-modal/header.js",
       "./components/hds/cds-modal/heading.js": "./dist/_app_/components/hds/cds-modal/heading.js",
       "./components/hds/cds-modal.js": "./dist/_app_/components/hds/cds-modal.js",
+      "./components/hds/cds-text-input.js": "./dist/_app_/components/hds/cds-text-input.js",
       "./components/hds/code-block/copy-button.js": "./dist/_app_/components/hds/code-block/copy-button.js",
       "./components/hds/code-block/description.js": "./dist/_app_/components/hds/code-block/description.js",
       "./components/hds/code-block.js": "./dist/_app_/components/hds/code-block.js",
