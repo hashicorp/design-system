@@ -23,6 +23,7 @@ export { default as HdsCdsModalFooterButton } from './components/hds/cds-modal/f
 export { default as HdsCdsModalHeader } from './components/hds/cds-modal/header.gts';
 export { default as HdsCdsModalHeading } from './components/hds/cds-modal/heading.gts';
 export { default as HdsCdsModal } from './components/hds/cds-modal/index.gts';
+export { default as HdsCdsTextInput } from './components/hds/cds-text-input/index.gts';
 
 // Accordion
 export { default as HdsAccordion } from './components/hds/accordion/index.gts';

@@ -37,6 +37,11 @@ const Index: TemplateOnlyComponent = <template>
             CdsModal
           </LinkTo>
         </li>
+        <li>
+          <LinkTo @route="web-component-tests.cds-text-input">
+            CdsTextInput
+          </LinkTo>
+        </li>
       </ol>
     </div>
 
