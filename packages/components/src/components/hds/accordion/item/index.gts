@@ -4,9 +4,11 @@
  */
 
 import Component from '@glimmer/component';
+import '@carbon/web-components/es/components/accordion/accordion.js';
+import { ACCORDION_SIZE } from '@carbon/web-components/es/components/accordion/accordion.js';
 import { assert } from '@ember/debug';
-import { guidFor } from '@ember/object/internals';
-import { hash } from '@ember/helper';
+// import { hash } from '@ember/helper';
+import { element } from 'ember-element-helper';
 
 import {
   HdsAccordionSizeValues,
@@ -14,9 +16,6 @@ import {
   HdsAccordionItemTitleTagValues,
   HdsAccordionForceStateValues,
 } from '../types.ts';
-import HdsAccordionItemButton from './button.gts';
-import HdsTextBody from '../../text/body.gts';
-import HdsDisclosurePrimitive from '../../disclosure-primitive/index.gts';
 
 import type {
   HdsAccordionForceStates,
@@ -40,6 +39,9 @@ const TEXT_SIZE_MAP = {
 export interface HdsAccordionItemSignature {
   Args: {
     ariaLabel?: string;
+    /**
+     * @deprecated Cannot have @containsInteractive anymore bc Carbon wraps the toggle content in a button
+     */
     containsInteractive?: boolean;
     forceState?: HdsAccordionForceStates;
     isOpen?: boolean;
@@ -63,15 +65,6 @@ export interface HdsAccordionItemSignature {
 }
 
 export default class HdsAccordionItem extends Component<HdsAccordionItemSignature> {
-  private _titleId = 'title-' + guidFor(this);
-
-  get ariaLabelledBy(): string | undefined {
-    if (!this.args.ariaLabel) {
-      return this._titleId;
-    }
-    return undefined;
-  }
-
   get containsInteractive(): boolean {
     return this.args.containsInteractive ?? false;
   }
@@ -81,7 +74,7 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     return TEXT_SIZE_MAP[size];
   }
 
-  get size(): HdsAccordionSizes {
+  get size(): ACCORDION_SIZE {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -91,7 +84,16 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
       SIZES.includes(size)
     );
 
-    return size;
+    switch (size) {
+      case HdsAccordionSizeValues.Small:
+        return ACCORDION_SIZE.SMALL;
+      case HdsAccordionSizeValues.Medium:
+        return ACCORDION_SIZE.MEDIUM;
+      case HdsAccordionSizeValues.Large:
+        return ACCORDION_SIZE.LARGE;
+    }
+
+    return ACCORDION_SIZE.MEDIUM;
   }
 
   get isOpen(): boolean {
@@ -153,7 +155,33 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
   }
 
   <template>
-    <HdsDisclosurePrimitive
+    <cds-accordion-item
+      {{!-- class={{this.classNames}} --}}
+      aria-label={{@ariaLabel}}
+      size={{this.size}}
+      open={{this.isOpen}}
+      ...attributes
+    >
+      {{! Title slot: Carbon renders this inside its own button }}
+      {{#let (element this.titleTag) as |TitleTag|}}
+        <TitleTag slot="title" class="hds-accordion-item__toggle-content">
+          {{yield to="toggle"}}
+        </TitleTag>
+      {{/let}}
+
+      {{! Default slot: Carbon renders this in the content area }}
+      {{! We wrap in our content div for CSS class compatibility }}
+      {{!-- {{#if this.isOpen}} --}}
+      <div
+        {{!-- id={{this._contentId}}  --}}
+        class="hds-accordion-item__content"
+      >
+        {{yield to="content"}}
+        {{!-- {{yield (hash close=this.close) to="content"}} --}}
+      </div>
+      {{!-- {{/if}} --}}
+    </cds-accordion-item>
+    {{!-- <HdsDisclosurePrimitive
       class={{this.classNames}}
       @isOpen={{this.isOpen}}
       @onClickToggle={{@onClickToggle}}
@@ -195,6 +223,6 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
           {{yield (hash close=c.close) to="content"}}
         </HdsTextBody>
       </:content>
-    </HdsDisclosurePrimitive>
+    </HdsDisclosurePrimitive> --}}
   </template>
 }

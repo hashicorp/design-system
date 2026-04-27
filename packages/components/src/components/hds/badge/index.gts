@@ -4,6 +4,11 @@
  */
 
 import Component from '@glimmer/component';
+import '@carbon/web-components/es/components/tag/index.js';
+import {
+  TAG_SIZE,
+  TAG_TYPE,
+} from '@carbon/web-components/es/components/tag/tag.js';
 import { assert } from '@ember/debug';
 
 import HdsIcon from '../icon/index.gts';
@@ -29,6 +34,9 @@ export interface HdsBadgeSignature {
     color?: HdsBadgeColors;
     text: string | number;
     icon?: HdsIconSignature['Args']['name'];
+    /**
+     * @deprecated Carbon makes it so all tags have visible text
+     */
     isIconOnly?: boolean;
   };
   Element: HTMLDivElement;
@@ -45,7 +53,16 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
       SIZES.includes(size)
     );
 
-    return size;
+    switch (size) {
+      case 'small':
+        return TAG_SIZE.SMALL;
+      case 'medium':
+        return TAG_SIZE.MEDIUM;
+      case 'large':
+        return TAG_SIZE.LARGE;
+    }
+
+    return TAG_SIZE.MEDIUM;
   }
 
   get type() {
@@ -72,6 +89,34 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
     );
 
     return color;
+  }
+
+  get mappedCarbonType() {
+    if (this.type === 'outlined' && this.color === 'neutral') {
+      return 'outline';
+    }
+
+    if (this.type === 'inverted' && this.color === 'neutral') {
+      return 'high-contrast';
+    }
+
+    if (this.color === 'highlight') {
+      return TAG_TYPE.PURPLE;
+    }
+
+    if (this.color === 'critical') {
+      return TAG_TYPE.RED;
+    }
+
+    if (this.color === 'success') {
+      return TAG_TYPE.GREEN;
+    }
+
+    if (this.color === 'neutral-dark-mode') {
+      return 'high-contrast';
+    }
+
+    return TAG_TYPE.GRAY;
   }
 
   get text() {
@@ -109,19 +154,19 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
   }
 
   <template>
-    <div class={{this.classNames}} ...attributes>
+    <cds-tag
+      title={{this.text}}
+      type={{this.mappedCarbonType}}
+      size={{this.size}}
+      ...attributes
+    >
       {{#if @icon}}
-        <div class="hds-badge__icon">
+        <div slot="icon">
           <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
         </div>
       {{/if}}
-      {{#if this.isIconOnly}}
-        <span class="sr-only">{{this.text}}</span>
-      {{else}}
-        <div class="hds-badge__text">
-          {{this.text}}
-        </div>
-      {{/if}}
-    </div>
+
+      {{this.text}}
+    </cds-tag>
   </template>
 }

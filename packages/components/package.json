@@ -138,7 +138,6 @@
     "version": 2,
     "app-js": {
       "./components/hds/accordion.js": "./dist/_app_/components/hds/accordion.js",
-      "./components/hds/accordion/item/button.js": "./dist/_app_/components/hds/accordion/item/button.js",
       "./components/hds/accordion/item.js": "./dist/_app_/components/hds/accordion/item.js",
       "./components/hds/advanced-table/body.js": "./dist/_app_/components/hds/advanced-table/body.js",
       "./components/hds/advanced-table/column-manager.js": "./dist/_app_/components/hds/advanced-table/column-manager.js",

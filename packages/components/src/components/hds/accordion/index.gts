@@ -4,6 +4,11 @@
  */
 
 import Component from '@glimmer/component';
+import '@carbon/web-components/es/components/accordion/accordion.js';
+import {
+  ACCORDION_SIZE,
+  ACCORDION_ALIGNMENT,
+} from '@carbon/web-components/es/components/accordion/accordion.js';
 import { assert } from '@ember/debug';
 import { hash } from '@ember/helper';
 
@@ -15,7 +20,11 @@ import HdsAccordionItem, {
   TYPES,
   DEFAULT_TYPE,
 } from './item/index.gts';
-import { HdsAccordionItemTitleTagValues } from './types.ts';
+import {
+  HdsAccordionItemTitleTagValues,
+  HdsAccordionSizeValues,
+  HdsAccordionTypeValues,
+} from './types.ts';
 
 import type {
   HdsAccordionForceStates,
@@ -30,13 +39,15 @@ export interface HdsAccordionSignature {
     type?: HdsAccordionTypes;
     forceState?: HdsAccordionForceStates;
     titleTag?: HdsAccordionItemTitleTags;
+    disabled?: boolean;
+    alignment?: ACCORDION_ALIGNMENT;
   };
   Blocks: {
     default: [
       {
         Item?: WithBoundArgs<
           typeof HdsAccordionItem,
-          'titleTag' | 'size' | 'type' | 'forceState'
+          'titleTag' | 'type' | 'forceState'
         >;
       },
     ];
@@ -45,7 +56,7 @@ export interface HdsAccordionSignature {
 }
 
 export default class HdsAccordion extends Component<HdsAccordionSignature> {
-  get size(): HdsAccordionSizes {
+  get size(): ACCORDION_SIZE {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -55,7 +66,16 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
       SIZES.includes(size)
     );
 
-    return size;
+    switch (size) {
+      case HdsAccordionSizeValues.Small:
+        return ACCORDION_SIZE.SMALL;
+      case HdsAccordionSizeValues.Medium:
+        return ACCORDION_SIZE.MEDIUM;
+      case HdsAccordionSizeValues.Large:
+        return ACCORDION_SIZE.LARGE;
+    }
+
+    return ACCORDION_SIZE.MEDIUM;
   }
 
   get titleTag(): HdsAccordionItemTitleTags {
@@ -75,6 +95,10 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
     return type;
   }
 
+  get isFlush(): boolean {
+    return this.args.type === HdsAccordionTypeValues.Flush;
+  }
+
   get classNames() {
     const classes = ['hds-accordion'];
 
@@ -88,18 +112,24 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
   }
 
   <template>
-    <div class={{this.classNames}} ...attributes>
+    <cds-accordion
+      {{!-- class={{this.classNames}} --}}
+      size={{this.size}}
+      isflush={{this.isFlush}}
+      alignment={{@alignment}}
+      disabled={{@disabled}}
+      ...attributes
+    >
       {{yield
         (hash
           Item=(component
             HdsAccordionItem
             titleTag=this.titleTag
-            size=this.size
             type=this.type
             forceState=@forceState
           )
         )
       }}
-    </div>
+    </cds-accordion>
   </template>
 }
