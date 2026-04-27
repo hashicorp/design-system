@@ -11,14 +11,10 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 import { HdsCdsTextInput } from '@hashicorp/design-system-components/components';
 
-const CDS_TEXT_INPUT_SIZE_OPTIONS = ['sm', 'md', 'lg', 'xl'] as const;
-const CDS_TEXT_INPUT_TYPE_OPTIONS = [
-  'email',
-  'password',
-  'tel',
-  'text',
-  'url',
-] as const;
+import {
+  CDS_TEXT_INPUT_SIZE_OPTIONS,
+  CDS_TEXT_INPUT_TYPE_OPTIONS,
+} from '@hashicorp/design-system-components/components/hds/cds-text-input/index';
 
 const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwTextH2>Size</ShwTextH2>
