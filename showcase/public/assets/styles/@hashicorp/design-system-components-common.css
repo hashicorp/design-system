@@ -590,15 +590,6 @@
 .hds-accordion-item__button--parent-contains-interactive:focus::before, .hds-accordion-item__button--parent-contains-interactive.mock-focus::before {
   border-color: var(--token-button-border-color-secondary-focus-external);
 }
-.hds-accordion-item__button--parent-contains-interactive:active, .hds-accordion-item__button--parent-contains-interactive.mock-active {
-  color: var(--token-button-foreground-color-secondary-active);
-  background-color: var(--token-button-surface-color-secondary-active);
-  border-color: var(--token-button-border-color-secondary-active);
-  box-shadow: none;
-}
-.hds-accordion-item__button--parent-contains-interactive:active::before, .hds-accordion-item__button--parent-contains-interactive.mock-active::before {
-  border-color: transparent;
-}
 
 .hds-accordion-item__button {
   width: var(--hds-accordion-item-icon-size);
@@ -2147,9 +2138,6 @@
 .hds-app-side-nav__list-item-link.mock-hover .hds-app-side-nav__list-item-icon-trailing {
   color: var(--token-app-side-nav-color-foreground-strong);
 }
-.hds-app-side-nav__list-item-link:active, .hds-app-side-nav__list-item-link.mock-active {
-  background: var(--token-color-surface-interactive-active);
-}
 .hds-app-side-nav__list-item-link.active, .hds-app-side-nav__list-item-link.active:hover:focus {
   position: relative;
   background: var(--token-color-surface-strong);
@@ -2977,15 +2965,6 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width) + 2px);
 }
-.hds-button--color-primary:active, .hds-button--color-primary.mock-active {
-  color: var(--token-button-foreground-color-primary-active);
-  background-color: var(--token-button-surface-color-primary-active);
-  border-color: var(--token-button-border-color-primary-active);
-  box-shadow: none;
-}
-.hds-button--color-primary:active::before, .hds-button--color-primary.mock-active::before {
-  border-color: transparent;
-}
 
 .hds-button--color-secondary {
   color: var(--token-button-foreground-color-secondary-default);
@@ -3007,15 +2986,6 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
 .hds-button--color-secondary:focus::before, .hds-button--color-secondary.mock-focus::before {
   border-color: var(--token-button-border-color-secondary-focus-external);
 }
-.hds-button--color-secondary:active, .hds-button--color-secondary.mock-active {
-  color: var(--token-button-foreground-color-secondary-active);
-  background-color: var(--token-button-surface-color-secondary-active);
-  border-color: var(--token-button-border-color-secondary-active);
-  box-shadow: none;
-}
-.hds-button--color-secondary:active::before, .hds-button--color-secondary.mock-active::before {
-  border-color: transparent;
-}
 
 .hds-button--color-tertiary {
   color: var(--token-button-foreground-color-tertiary-default);
@@ -3035,15 +3005,6 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
 }
 .hds-button--color-tertiary:focus::before, .hds-button--color-tertiary.mock-focus::before {
   border-color: var(--token-button-border-color-tertiary-focus-external);
-}
-.hds-button--color-tertiary:active, .hds-button--color-tertiary.mock-active {
-  color: var(--token-button-foreground-color-tertiary-active);
-  background-color: var(--token-button-surface-color-tertiary-active);
-  border-color: var(--token-button-border-color-tertiary-active);
-  box-shadow: none;
-}
-.hds-button--color-tertiary:active::before, .hds-button--color-tertiary.mock-active::before {
-  border-color: transparent;
 }
 .hds-button--color-tertiary:disabled, .hds-button--color-tertiary[disabled], .hds-button--color-tertiary.mock-disabled, .hds-button--color-tertiary:disabled:focus, .hds-button--color-tertiary[disabled]:focus, .hds-button--color-tertiary.mock-disabled:focus, .hds-button--color-tertiary:disabled:hover, .hds-button--color-tertiary[disabled]:hover, .hds-button--color-tertiary.mock-disabled:hover {
   color: var(--token-button-foreground-color-tertiary-disabled);
@@ -3073,15 +3034,6 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
 }
 .hds-button--color-critical:focus::before, .hds-button--color-critical.mock-focus::before {
   border-color: var(--token-button-border-color-critical-focus-external);
-}
-.hds-button--color-critical:active, .hds-button--color-critical.mock-active {
-  color: var(--token-button-foreground-color-critical-active);
-  background-color: var(--token-button-surface-color-critical-active);
-  border-color: var(--token-button-border-color-critical-active);
-  box-shadow: none;
-}
-.hds-button--color-critical:active::before, .hds-button--color-critical.mock-active::before {
-  border-color: transparent;
 }
 
 .hds-button--size-small {
@@ -4548,15 +4500,6 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width) + 2px);
 }
-.hds-dropdown-toggle-button--color-primary:active, .hds-dropdown-toggle-button--color-primary.mock-active {
-  color: var(--token-button-foreground-color-primary-active);
-  background-color: var(--token-button-surface-color-primary-active);
-  border-color: var(--token-button-border-color-primary-active);
-  box-shadow: none;
-}
-.hds-dropdown-toggle-button--color-primary:active::before, .hds-dropdown-toggle-button--color-primary.mock-active::before {
-  border-color: transparent;
-}
 
 .hds-dropdown-toggle-button--color-secondary {
   color: var(--token-button-foreground-color-secondary-default);
@@ -4577,15 +4520,6 @@ button.hds-button[href]::after {
 }
 .hds-dropdown-toggle-button--color-secondary:focus::before, .hds-dropdown-toggle-button--color-secondary.mock-focus::before {
   border-color: var(--token-button-border-color-secondary-focus-external);
-}
-.hds-dropdown-toggle-button--color-secondary:active, .hds-dropdown-toggle-button--color-secondary.mock-active {
-  color: var(--token-button-foreground-color-secondary-active);
-  background-color: var(--token-button-surface-color-secondary-active);
-  border-color: var(--token-button-border-color-secondary-active);
-  box-shadow: none;
-}
-.hds-dropdown-toggle-button--color-secondary:active::before, .hds-dropdown-toggle-button--color-secondary.mock-active::before {
-  border-color: transparent;
 }
 
 .hds-dropdown-toggle-button--width-full {
