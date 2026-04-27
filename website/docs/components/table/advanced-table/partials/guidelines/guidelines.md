@@ -29,7 +29,7 @@ Sorting is not supported for nested rows at this time.
 - In addition to standard sorting methods (like alphabetical or chronological), domain-specific sorting, such as by status severity, can also be useful.
 - Sorting is not relevant for all content and should be applied thoughtfully.
 
-![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
+![](/assets/components/table/advanced-table/table-sorting.png)
 
 ### Tooltips
 
@@ -40,7 +40,7 @@ Some examples where it may be useful to include additional context in a tooltip 
 - When the label contains a product or HashiCorp-specific term.
 - When the label refers to a setting that can be changed elsewhere in the application.
 
-![Tooltips in a Header Column](/assets/components/table/advanced-table/table-tooltip-example.png)
+![](/assets/components/table/advanced-table/table-tooltip-example.png)
 
 ### Width
 
@@ -67,7 +67,7 @@ The content's alignment can impact readability and scannability. The proper alig
 
 Use consistent alignment between the header label and the cell content in a column.
 
-![An Advanced Table with two columns, the first column is left aligned and the second is right aligned.](/assets/components/table/advanced-table/table-alignment-do.png)
+![](/assets/components/table/advanced-table/table-alignment-do.png)
 
 !!!
 
@@ -75,7 +75,7 @@ Use consistent alignment between the header label and the cell content in a colu
 
 Avoid misaligned header labels and content.
 
-![An Advanced Table with two columns, the header of the first column is left aligned and the cell below is right aligned. The header of the second column is right aligned and the cell below is left aligned.](/assets/components/table/advanced-table/table-alignment-dont.png)
+![](/assets/components/table/advanced-table/table-alignment-dont.png)
 
 !!!
 
@@ -110,7 +110,7 @@ Common examples of right alignment include:
 
 Don’t align content of varied lengths to the right. This can make it difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
 
-![Column with badges that have different length labels end aligned. The badge labels are "Successful", "Needs confirmation", and "Error".](/assets/components/table/advanced-table/end-alignment-variable-length.png)
+![](/assets/components/table/advanced-table/end-alignment-variable-length.png)
 
 !!!
 
@@ -144,7 +144,7 @@ Actions related to moving columns are displayed in a context menu in the table h
 - Move column: moves focus to the reordering handle
 - Move column to start/end: moves the column to the first or last position in the table unless the column is already in this position.
 
-![The open context menu in the Advanced Table displaying "Move column", "Move column to start", and "Move column to end" actions.](/assets/components/table/advanced-table/advanced-table-reorder-context-menu.png)
+![](/assets/components/table/advanced-table/advanced-table-reorder-context-menu.png)
 
 ### Resizing columns
 
@@ -161,13 +161,13 @@ The Figma component does not support this resizing feature. Instead, we publish 
 
 When resizable columns are enabled, actions related to each function are rendered in a context menu in the table header. These functions are not customizable.
 
-![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
+![An open context menu in the Advanced Table displays two options; resize column, and reset column width](/assets/components/table/advanced-table/advanced-table-context-menu.png)
 
 #### Minimum and maximum width
 
 To prevent a column from being resized beyond a reasonable amount, we enforce a default minimum width of `150px` and a maximum width of `800px`. These can be overridden via the [component API](/components/table/advanced-table?tab=code#advancedtable) if necessary.
 
-![An example of a column being resized to the minimum default width](/assets/components/table/advanced-table/advanced-table-resize-min-width.png)
+![](/assets/components/table/advanced-table/advanced-table-resize-min-width.png)
 
 ## Column and row span
 
@@ -189,7 +189,7 @@ To prevent a column from being resized beyond a reasonable amount, we enforce a 
 
 Expandable rows let users show or hide more content without navigating away from the table. The expanded content should align with the header labels, even if the parent row includes minimal data.
 
-![Advanced Table expandable rows. The parent rows display a summary of a Hashicorp product and the total price, the children rows show a breakdown of each billing item from that product and their individual cost.](/assets/components/table/advanced-table/expandable-rows.png)
+![](/assets/components/table/advanced-table/expandable-rows.png)
 
 !!! Dont
 
@@ -203,7 +203,7 @@ Avoid using expandable rows when data is not structured in parent-child relation
 
 Avoid using different density settings for parent and child rows.
 
-![Advanced Table with default height parent rows and short density nested rows.](/assets/components/table/advanced-table/advanced-table-density-mix.png)
+![Advanced Table with default height parent rows and short density nested rows is something to avoid](/assets/components/table/advanced-table/advanced-table-density-mix.png)
 
 !!!
 
@@ -217,16 +217,16 @@ The Expand/Collapse All button allows users to expand or collapse all rows, incl
 
 The Advanced Table supports any combination of expanded or collapsed rows on load. The button reflects the initial state.
 
-![Expand all button with an expand icon.](/assets/components/table/advanced-table/expandable-rows-expand-all.png)
+![](/assets/components/table/advanced-table/expandable-rows-expand-all.png)
 <Doc::ImageCaption @text="The “Expand All” button displays if any rows are currently collapsed" />
 
-![Expand all button with a collapse icon.](/assets/components/table/advanced-table/expandable-rows-collapse-all.png)
+![](/assets/components/table/advanced-table/expandable-rows-collapse-all.png)
 <Doc::ImageCaption @text="“Collapse All” button displays if all rows are expanded." />
 
 ##### Collapsed state
 
 ![](/assets/components/table/advanced-table/expandable-rows-expand-state.png)
-<Doc::ImageCaption @text="Clicking “Expand All” expands all rows, including nested rows."/>
+<Doc::ImageCaption @text="Interacting with the “Expand All” button expands all rows, including nested rows."/>
 
 ##### Expanded state
 
@@ -252,7 +252,7 @@ Striping enhances readability by alternating row colors, making it easier to sca
 - Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
 - Nested Advanced Tables: Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
 
-![Advanced Tables with row striping have rows that alternate between white and light grey background color.](/assets/components/table/advanced-table/advanced-table-striping.png)
+![](/assets/components/table/advanced-table/advanced-table-striping.png)
 
 ### Placement
 
@@ -265,7 +265,7 @@ The row placement property is only relevant within Figma and doesn’t exist as 
 
 The `rowPlacement` property determines the border radius of a cell. It is only available on cells where the `colPlacement` property is set to `start` or `end`.
 
-![The cell with column placement end and row placement end has a border radius set on the bottom right corner.](/assets/components/table/advanced-table/table-row-placement.png)
+![](/assets/components/table/advanced-table/table-row-placement.png)
 
 ## Cells
 
@@ -294,9 +294,9 @@ There are a few things to consider when implementing a sticky header or column:
 
 If `hasStickyFirstColumn` is set to true or false in the Ember component, a control will be exposed in the context menu allowing users to "Pin" and "Unpin" the first column in the Advanced Table.
 
-![An Advanced Table with the context menu open and a single "Pin column" option](/assets/components/table/advanced-table/advanced-table-pin-column.png)
+![With the sticky column option set, the Advanced Table will have a context menu in the column header cell with a single option to pin column](/assets/components/table/advanced-table/advanced-table-pin-column.png)
 
-![An Advanced Table with a pinned column with the context menu open and a single "Unpin column" option](/assets/components/table/advanced-table/advanced-table-unpin-column.png)
+![Once pinned, the same context menu in the column header cell will then contain single "Unpin column" option](/assets/components/table/advanced-table/advanced-table-unpin-column.png)
 
 ## Multi-Select
 
@@ -313,11 +313,11 @@ A multi-select pattern consists of:
 
 A "Select all" checkbox is used in the header row to allow the simultaneous selection or deselection of all child rows.
 
-![Example of multi-select in a table header](/assets/components/table/advanced-table/table-multi-select-header.png)
+![](/assets/components/table/advanced-table/table-multi-select-header.png)
 
 Individual checkboxes added to each row allow for the selection of that row.
 
-![Example of multi-select within table cells](/assets/components/table/advanced-table/table-multi-select-cells.png)
+![](/assets/components/table/advanced-table/table-multi-select-cells.png)
 
 For more details, see the [Multi-Select Table Pattern](https://helios.hashicorp.design/patterns/table-multi-select).
 
@@ -325,6 +325,6 @@ For more details, see the [Multi-Select Table Pattern](https://helios.hashicorp.
 
 The Advanced Table supports displaying an empty state using the [Application State](/components/application-state) component to display an informative message and prompt user action. There are several reasons an empty state may occur: the data set is empty, the applied filters return no results, etc.
 
-![An Advanced Table with filters applied and no results. The empty state explains that there are no results from the filters applied and has a button to clear the filters.](/assets/components/table/advanced-table/filter-bar-empty-state.png)
+![](/assets/components/table/advanced-table/filter-bar-empty-state.png)
 
 Displaying the empty state in the Ember component is handled automatically when the data model contains no entries. In Figma we provide a [template](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=93099-20265&t=NoxgnXab3XEBcxIr-1) component that can be inserted in a design, while also including it in the [Advanced Table](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72039-7258&t=TyzLB01NVzEN2lsz-1) template components.
