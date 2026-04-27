@@ -8044,7 +8044,7 @@ button.hds-button[href]::after {
 
 .hds-reveal__toggle-button {
   min-height: 1.75rem;
-  padding: var(--token-reveal-button-padding-top) var(--token-reveal-button-padding-right) var(--token-reveal-button-padding-bottom) var(--token-reveal-button-padding-left);
+  padding: var(--token-reveal-padding-top) var(--token-reveal-padding-right) var(--token-reveal-padding-bottom) var(--token-reveal-padding-left);
 }
 @media (prefers-reduced-motion: no-preference) {
   .hds-reveal__toggle-button .hds-icon-chevron-down {
