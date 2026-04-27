@@ -6,6 +6,7 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
+import { eq } from 'ember-truth-helpers';
 import { concat } from '@ember/helper';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
@@ -23,12 +24,19 @@ import {
   HdsDropdownListItemSeparator,
   HdsDropdownListItemCheckbox,
   HdsDropdownListItemCheckmark,
+  HdsDropdownToggleButton,
+  HdsDropdownToggleIcon,
   HdsLinkStandalone,
 } from '@hashicorp/design-system-components/components';
 
-const STATES = ['default', 'hover', 'active', 'focus'];
+const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
 
 import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
+
+import {
+  COLORS,
+  SIZES,
+} from '@hashicorp/design-system-components/components/hds/dropdown/toggle/button';
 
 const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Dropdown - Carbonization"}}
@@ -132,9 +140,140 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>Base element states</ShwTextH2>
+    <ShwTextH2>Base elements & states</ShwTextH2>
 
-    <ShwTextH3>List Item Interactive</ShwTextH3>
+    <ShwTextH3>Toggle</ShwTextH3>
+
+    <ShwTextH4>Toggle with icon, count, and badge with badge icon</ShwTextH4>
+
+    {{#each COLORS as |color|}}
+      <ShwCarbonizationComparisonGrid
+        @layout="column"
+        @label="{{capitalize color}} color"
+      >
+        <:theming>
+          <ShwFlex as |SF|>
+            {{#each SIZES as |size|}}
+              <SF.Item @label="{{capitalize size}} size">
+                {{#each STATES as |state|}}
+                  <ShwTextBody>{{capitalize state}} state</ShwTextBody>
+                  <ShwFlex as |SF|>
+                    {{#if (eq state "disabled")}}
+                      <SF.Item @label="with icon">
+                        <HdsDropdownToggleButton
+                          @text="Choose option"
+                          @color={{color}}
+                          @size={{size}}
+                          @icon="hexagon"
+                          disabled
+                        />
+                      </SF.Item>
+                      <SF.Item @label="with count">
+                        <HdsDropdownToggleButton
+                          @text="Choose option"
+                          @color={{color}}
+                          @size={{size}}
+                          @count="12"
+                          disabled
+                        />
+                      </SF.Item>
+                      <SF.Item @label="with badge & badge icon">
+                        <HdsDropdownToggleButton
+                          @text="Choose option"
+                          @color={{color}}
+                          @size={{size}}
+                          @badge="Badge"
+                          @badgeIcon="hexagon"
+                          disabled
+                        />
+                      </SF.Item>
+                    {{else}}
+                      <SF.Item @label="with icon">
+                        <HdsDropdownToggleButton
+                          @text="Choose option"
+                          @color={{color}}
+                          @size={{size}}
+                          @icon="hexagon"
+                          mock-state-value={{state}}
+                        />
+                      </SF.Item>
+                      <SF.Item @label="with count">
+                        <HdsDropdownToggleButton
+                          @text="Choose option"
+                          @color={{color}}
+                          @size={{size}}
+                          @count="12"
+                          mock-state-value={{state}}
+                        />
+                      </SF.Item>
+                      <SF.Item @label="with badge & badge icon">
+                        <HdsDropdownToggleButton
+                          @text="Choose option"
+                          @color={{color}}
+                          @size={{size}}
+                          @badge="Badge"
+                          @badgeIcon="hexagon"
+                          mock-state-value={{state}}
+                        />
+                      </SF.Item>
+                    {{/if}}
+                  </ShwFlex>
+                {{/each}}
+              </SF.Item>
+            {{/each}}
+          </ShwFlex>
+        </:theming>
+        <:reference as |R|>
+          <R.NoEquivalent @isCompact={{true}} />
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH4>Toggle with icon or image & no text</ShwTextH4>
+
+    <ShwCarbonizationComparisonGrid @layout="column">
+      <:theming>
+        <ShwFlex as |SF|>
+          {{#each SIZES as |size|}}
+            <SF.Item @label="With icon + chevron, {{size}}">
+              <HdsDropdownToggleIcon
+                @icon="user"
+                @text="user menu"
+                @size={{size}}
+              />
+            </SF.Item>
+          {{/each}}
+        </ShwFlex>
+
+        <ShwFlex as |SF|>
+          {{#each SIZES as |size|}}
+            <SF.Item @label="With image (avatar), {{size}}">
+              <HdsDropdownToggleIcon
+                @imageSrc="/assets/images/avatar.png"
+                @text="user menu"
+                @size={{size}}
+              />
+            </SF.Item>
+          {{/each}}
+
+          <SF.Item @label="With broken image (fallback to icon)">
+            <HdsDropdownToggleIcon
+              @imageSrc="/assets/images/avatar-broken.png"
+              @text="user menu"
+            />
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>List Item Interactive states</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid
       @label="with title, description, footer, & matchToggleWidth=true"
@@ -174,7 +313,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH3>List Item Checkmark</ShwTextH3>
+    <ShwTextH3>List Item Checkmark states</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid
       @label="with title, description, footer, & matchToggleWidth=true"
@@ -245,7 +384,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH3>List Item Checkbox</ShwTextH3>
+    <ShwTextH3>List Item Checkbox states</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid
       @label="with title, description, footer, & matchToggleWidth=true"
