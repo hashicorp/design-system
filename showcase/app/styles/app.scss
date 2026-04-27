@@ -95,6 +95,7 @@
 
 // pages
 @use "./showcase-pages/carbonization/app-footer" as carbonization-app-footer;
+@use "./showcase-pages/carbonization/app-header" as carbonization-app-header;
 @use "./showcase-pages/carbonization/code-block" as carbonization-code-block;
 @use "./showcase-pages/carbonization/focus-ring" as carbonization-focus-ring;
 @use "./showcase-pages/carbonization/badge" as carbonization-badge;

@@ -5862,15 +5862,560 @@
         "color"
       ]
     },
+    "token-app-header-padding-top": {
+      "key": "{app-header.padding.top}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.top}"
+      },
+      "name": "token-app-header-padding-top",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "top"
+      ]
+    },
+    "token-app-header-padding-bottom": {
+      "key": "{app-header.padding.bottom}",
+      "$type": "dimension",
+      "$value": "11px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "value": "11",
+          "comment": "Account for 1px border at the bottom of the header"
+        },
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "value": "11",
+      "comment": "Account for 1px border at the bottom of the header",
+      "original": {
+        "$type": "dimension",
+        "$value": "11",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "value": "11",
+            "comment": "Account for 1px border at the bottom of the header"
+          },
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "value": "11",
+        "comment": "Account for 1px border at the bottom of the header",
+        "key": "{app-header.padding.bottom}"
+      },
+      "name": "token-app-header-padding-bottom",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-app-header-border-color": {
+      "key": "{app-header.border.color}",
+      "$type": "color",
+      "$value": "#656a76",
+      "$modes": {
+        "default": "#656a76",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-500}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.70}",
+          "cds-g100": "{carbon.color.gray.80}"
+        },
+        "key": "{app-header.border.color}"
+      },
+      "name": "token-app-header-border-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "border",
+        "color"
+      ]
+    },
+    "token-app-header-foreground-color": {
+      "key": "{app-header.foreground.color}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.foreground.high-contrast}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.foreground.color}"
+      },
+      "name": "token-app-header-foreground-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "foreground",
+        "color"
+      ]
+    },
+    "token-app-header-surface-color": {
+      "key": "{app-header.surface.color}",
+      "$type": "color",
+      "$value": "#0c0c0e",
+      "$modes": {
+        "default": "#0c0c0e",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-700}",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "{color.page.primary}",
+          "cds-g10": "{color.page.primary}",
+          "cds-g90": "{color.page.primary}",
+          "cds-g100": "{color.page.primary}"
+        },
+        "key": "{app-header.surface.color}"
+      },
+      "name": "token-app-header-surface-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "surface",
+        "color"
+      ]
+    },
+    "token-app-header-interactive-border-color-default": {
+      "key": "{app-header.interactive.border.color.default}",
+      "$type": "color",
+      "$value": "#656a76",
+      "$modes": {
+        "default": "#656a76",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-500}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.default}"
+      },
+      "name": "token-app-header-interactive-border-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-border-color-disabled": {
+      "key": "{app-header.interactive.border.color.disabled}",
+      "$type": "color",
+      "$value": "#8c909c",
+      "$modes": {
+        "default": "#8c909c",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-400}",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.disabled}"
+      },
+      "name": "token-app-header-interactive-border-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-default": {
+      "key": "{app-header.interactive.foreground.color.default}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.foreground.high-contrast}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.interactive.foreground.color.default}"
+      },
+      "name": "token-app-header-interactive-foreground-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-disabled": {
+      "key": "{app-header.interactive.foreground.color.disabled}",
+      "$type": "color",
+      "$value": "#8c909c",
+      "$modes": {
+        "default": "#8c909c",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.foreground.disabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "key": "{app-header.interactive.foreground.color.disabled}"
+      },
+      "name": "token-app-header-interactive-foreground-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-surface-color-default": {
+      "key": "{app-header.interactive.surface.color.default}",
+      "$type": "color",
+      "$value": "#0c0c0e",
+      "$modes": {
+        "default": "#0c0c0e",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "carbon.themes.g100.backgroundHover"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-700}",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "carbon.themes.g100.backgroundHover"
+        },
+        "key": "{app-header.interactive.surface.color.default}"
+      },
+      "name": "token-app-header-interactive-surface-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-surface-color-hover": {
+      "key": "{app-header.interactive.surface.color.hover}",
+      "$type": "color",
+      "$value": "#3b3d45",
+      "$modes": {
+        "default": "#3b3d45",
+        "cds-g0": "rgba(141, 141, 141, 0.12)",
+        "cds-g10": "rgba(141, 141, 141, 0.12)",
+        "cds-g90": "rgba(141, 141, 141, 0.16)",
+        "cds-g100": "rgba(141, 141, 141, 0.16)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-600}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.themes.white.backgroundHover}",
+          "cds-g10": "{carbon.themes.g10.backgroundHover}",
+          "cds-g90": "{carbon.themes.g90.backgroundHover}",
+          "cds-g100": "{carbon.themes.g100.backgroundHover}"
+        },
+        "key": "{app-header.interactive.surface.color.hover}"
+      },
+      "name": "token-app-header-interactive-surface-color-hover",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "hover"
+      ]
+    },
+    "token-app-header-interactive-surface-color-active": {
+      "key": "{app-header.interactive.surface.color.active}",
+      "$type": "color",
+      "$value": "#656a76",
+      "$modes": {
+        "default": "#656a76",
+        "cds-g0": "rgba(141, 141, 141, 0.5)",
+        "cds-g10": "rgba(141, 141, 141, 0.5)",
+        "cds-g90": "rgba(141, 141, 141, 0.4)",
+        "cds-g100": "rgba(141, 141, 141, 0.4)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-500}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.backgroundActive}",
+          "cds-g10": "{carbon.themes.g10.backgroundActive}",
+          "cds-g90": "{carbon.themes.g90.backgroundActive}",
+          "cds-g100": "{carbon.themes.g100.backgroundActive}"
+        },
+        "key": "{app-header.interactive.surface.color.active}"
+      },
+      "name": "token-app-header-interactive-surface-color-active",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "active"
+      ]
+    },
+    "token-app-header-interactive-surface-color-disabled": {
+      "key": "{app-header.interactive.surface.color.disabled}",
+      "$type": "color",
+      "$value": "#3b3d45",
+      "$modes": {
+        "default": "#3b3d45",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-600}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.color.gray.30}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.60}",
+          "cds-g100": "{carbon.color.gray.70}"
+        },
+        "key": "{app-header.interactive.surface.color.disabled}"
+      },
+      "name": "token-app-header-interactive-surface-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-focus-action-internal": {
+      "key": "{app-header.interactive.focus.action-internal}",
+      "$type": "color",
+      "$value": "#bcc7fd",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#bcc7fd",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#161616",
+        "cds-g100": "#161616"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "#bcc7fd",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#bcc7fd",
+          "cds-g0": "{carbon.themes.white.focusInset}",
+          "cds-g10": "{carbon.themes.g10.focusInset}",
+          "cds-g90": "{carbon.themes.g90.focusInset}",
+          "cds-g100": "{carbon.themes.g100.focusInset}"
+        },
+        "key": "{app-header.interactive.focus.action-internal}"
+      },
+      "name": "token-app-header-interactive-focus-action-internal",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-internal"
+      ]
+    },
+    "token-app-header-interactive-focus-action-external": {
+      "key": "{app-header.interactive.focus.action-external}",
+      "$type": "color",
+      "$value": "#0d69f2",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#0d69f2",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "#0d69f2",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#0d69f2",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-header.interactive.focus.action-external}"
+      },
+      "name": "token-app-header-interactive-focus-action-external",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-external"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
       "$value": "60px",
       "unit": "px",
+      "$modes": {
+        "default": "60",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
         "$value": "60",
         "unit": "px",
+        "$modes": {
+          "default": "60",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{app-header.height}"
       },
       "name": "token-app-header-height",
@@ -5922,6 +6467,41 @@
         "app-header",
         "logo",
         "size"
+      ]
+    },
+    "token-app-header-actions-gap": {
+      "key": "{app-header.actions.gap}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.actions.gap}"
+      },
+      "name": "token-app-header-actions-gap",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "actions",
+        "gap"
       ]
     },
     "token-app-side-nav-wrapper-border-width": {
@@ -25821,15 +26401,556 @@
         "color"
       ]
     },
+    "token-app-header-padding-top": {
+      "key": "{app-header.padding.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.top}"
+      },
+      "name": "token-app-header-padding-top",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "top"
+      ]
+    },
+    "token-app-header-padding-bottom": {
+      "key": "{app-header.padding.bottom}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "value": "11",
+          "comment": "Account for 1px border at the bottom of the header"
+        },
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "value": "11",
+            "comment": "Account for 1px border at the bottom of the header"
+          },
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.bottom}"
+      },
+      "name": "token-app-header-padding-bottom",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-app-header-border-color": {
+      "key": "{app-header.border.color}",
+      "$type": "color",
+      "$value": "#e0e0e0",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.borderSubtle00}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.70}",
+          "cds-g100": "{carbon.color.gray.80}"
+        },
+        "key": "{app-header.border.color}"
+      },
+      "name": "token-app-header-border-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "border",
+        "color"
+      ]
+    },
+    "token-app-header-foreground-color": {
+      "key": "{app-header.foreground.color}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textPrimary}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.foreground.color}"
+      },
+      "name": "token-app-header-foreground-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "foreground",
+        "color"
+      ]
+    },
+    "token-app-header-surface-color": {
+      "key": "{app-header.surface.color}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.page.primary}",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "{color.page.primary}",
+          "cds-g10": "{color.page.primary}",
+          "cds-g90": "{color.page.primary}",
+          "cds-g100": "{color.page.primary}"
+        },
+        "key": "{app-header.surface.color}"
+      },
+      "name": "token-app-header-surface-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "surface",
+        "color"
+      ]
+    },
+    "token-app-header-interactive-border-color-default": {
+      "key": "{app-header.interactive.border.color.default}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.default}"
+      },
+      "name": "token-app-header-interactive-border-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-border-color-disabled": {
+      "key": "{app-header.interactive.border.color.disabled}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.disabled}"
+      },
+      "name": "token-app-header-interactive-border-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-default": {
+      "key": "{app-header.interactive.foreground.color.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textPrimary}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.interactive.foreground.color.default}"
+      },
+      "name": "token-app-header-interactive-foreground-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-disabled": {
+      "key": "{app-header.interactive.foreground.color.disabled}",
+      "$type": "color",
+      "$value": "rgba(22, 22, 22, 0.25)",
+      "$modes": {
+        "default": "rgba(22, 22, 22, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textDisabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "key": "{app-header.interactive.foreground.color.disabled}"
+      },
+      "name": "token-app-header-interactive-foreground-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-surface-color-default": {
+      "key": "{app-header.interactive.surface.color.default}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "carbon.themes.g100.backgroundHover"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "carbon.themes.g100.backgroundHover"
+        },
+        "key": "{app-header.interactive.surface.color.default}"
+      },
+      "name": "token-app-header-interactive-surface-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-surface-color-hover": {
+      "key": "{app-header.interactive.surface.color.hover}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.12)",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "rgba(141, 141, 141, 0.12)",
+        "cds-g10": "rgba(141, 141, 141, 0.12)",
+        "cds-g90": "rgba(141, 141, 141, 0.16)",
+        "cds-g100": "rgba(141, 141, 141, 0.16)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.backgroundHover}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.themes.white.backgroundHover}",
+          "cds-g10": "{carbon.themes.g10.backgroundHover}",
+          "cds-g90": "{carbon.themes.g90.backgroundHover}",
+          "cds-g100": "{carbon.themes.g100.backgroundHover}"
+        },
+        "key": "{app-header.interactive.surface.color.hover}"
+      },
+      "name": "token-app-header-interactive-surface-color-hover",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "hover"
+      ]
+    },
+    "token-app-header-interactive-surface-color-active": {
+      "key": "{app-header.interactive.surface.color.active}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.5)",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "rgba(141, 141, 141, 0.5)",
+        "cds-g10": "rgba(141, 141, 141, 0.5)",
+        "cds-g90": "rgba(141, 141, 141, 0.4)",
+        "cds-g100": "rgba(141, 141, 141, 0.4)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.backgroundActive}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.backgroundActive}",
+          "cds-g10": "{carbon.themes.g10.backgroundActive}",
+          "cds-g90": "{carbon.themes.g90.backgroundActive}",
+          "cds-g100": "{carbon.themes.g100.backgroundActive}"
+        },
+        "key": "{app-header.interactive.surface.color.active}"
+      },
+      "name": "token-app-header-interactive-surface-color-active",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "active"
+      ]
+    },
+    "token-app-header-interactive-surface-color-disabled": {
+      "key": "{app-header.interactive.surface.color.disabled}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.color.gray.30}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.color.gray.30}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.60}",
+          "cds-g100": "{carbon.color.gray.70}"
+        },
+        "key": "{app-header.interactive.surface.color.disabled}"
+      },
+      "name": "token-app-header-interactive-surface-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-focus-action-internal": {
+      "key": "{app-header.interactive.focus.action-internal}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#bcc7fd",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#161616",
+        "cds-g100": "#161616"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.focusInset}",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#bcc7fd",
+          "cds-g0": "{carbon.themes.white.focusInset}",
+          "cds-g10": "{carbon.themes.g10.focusInset}",
+          "cds-g90": "{carbon.themes.g90.focusInset}",
+          "cds-g100": "{carbon.themes.g100.focusInset}"
+        },
+        "key": "{app-header.interactive.focus.action-internal}"
+      },
+      "name": "token-app-header-interactive-focus-action-internal",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-internal"
+      ]
+    },
+    "token-app-header-interactive-focus-action-external": {
+      "key": "{app-header.interactive.focus.action-external}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#0d69f2",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.focus}",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#0d69f2",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-header.interactive.focus.action-external}"
+      },
+      "name": "token-app-header-interactive-focus-action-external",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-external"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
-      "$value": "60px",
+      "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "60",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "60",
+        "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "60",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{app-header.height}"
       },
       "name": "token-app-header-height",
@@ -25881,6 +27002,41 @@
         "app-header",
         "logo",
         "size"
+      ]
+    },
+    "token-app-header-actions-gap": {
+      "key": "{app-header.actions.gap}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.actions.gap}"
+      },
+      "name": "token-app-header-actions-gap",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "actions",
+        "gap"
       ]
     },
     "token-app-side-nav-wrapper-border-width": {
@@ -45780,15 +46936,556 @@
         "color"
       ]
     },
+    "token-app-header-padding-top": {
+      "key": "{app-header.padding.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.top}"
+      },
+      "name": "token-app-header-padding-top",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "top"
+      ]
+    },
+    "token-app-header-padding-bottom": {
+      "key": "{app-header.padding.bottom}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "value": "11",
+          "comment": "Account for 1px border at the bottom of the header"
+        },
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "value": "11",
+            "comment": "Account for 1px border at the bottom of the header"
+          },
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.bottom}"
+      },
+      "name": "token-app-header-padding-bottom",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-app-header-border-color": {
+      "key": "{app-header.border.color}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.color.gray.30}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.70}",
+          "cds-g100": "{carbon.color.gray.80}"
+        },
+        "key": "{app-header.border.color}"
+      },
+      "name": "token-app-header-border-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "border",
+        "color"
+      ]
+    },
+    "token-app-header-foreground-color": {
+      "key": "{app-header.foreground.color}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textPrimary}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.foreground.color}"
+      },
+      "name": "token-app-header-foreground-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "foreground",
+        "color"
+      ]
+    },
+    "token-app-header-surface-color": {
+      "key": "{app-header.surface.color}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#f4f4f4",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.page.primary}",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "{color.page.primary}",
+          "cds-g10": "{color.page.primary}",
+          "cds-g90": "{color.page.primary}",
+          "cds-g100": "{color.page.primary}"
+        },
+        "key": "{app-header.surface.color}"
+      },
+      "name": "token-app-header-surface-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "surface",
+        "color"
+      ]
+    },
+    "token-app-header-interactive-border-color-default": {
+      "key": "{app-header.interactive.border.color.default}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.default}"
+      },
+      "name": "token-app-header-interactive-border-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-border-color-disabled": {
+      "key": "{app-header.interactive.border.color.disabled}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.disabled}"
+      },
+      "name": "token-app-header-interactive-border-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-default": {
+      "key": "{app-header.interactive.foreground.color.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textPrimary}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.interactive.foreground.color.default}"
+      },
+      "name": "token-app-header-interactive-foreground-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-disabled": {
+      "key": "{app-header.interactive.foreground.color.disabled}",
+      "$type": "color",
+      "$value": "rgba(22, 22, 22, 0.25)",
+      "$modes": {
+        "default": "rgba(22, 22, 22, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textDisabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "key": "{app-header.interactive.foreground.color.disabled}"
+      },
+      "name": "token-app-header-interactive-foreground-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-surface-color-default": {
+      "key": "{app-header.interactive.surface.color.default}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "carbon.themes.g100.backgroundHover"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "carbon.themes.g100.backgroundHover"
+        },
+        "key": "{app-header.interactive.surface.color.default}"
+      },
+      "name": "token-app-header-interactive-surface-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-surface-color-hover": {
+      "key": "{app-header.interactive.surface.color.hover}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.12)",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "rgba(141, 141, 141, 0.12)",
+        "cds-g10": "rgba(141, 141, 141, 0.12)",
+        "cds-g90": "rgba(141, 141, 141, 0.16)",
+        "cds-g100": "rgba(141, 141, 141, 0.16)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.backgroundHover}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.themes.white.backgroundHover}",
+          "cds-g10": "{carbon.themes.g10.backgroundHover}",
+          "cds-g90": "{carbon.themes.g90.backgroundHover}",
+          "cds-g100": "{carbon.themes.g100.backgroundHover}"
+        },
+        "key": "{app-header.interactive.surface.color.hover}"
+      },
+      "name": "token-app-header-interactive-surface-color-hover",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "hover"
+      ]
+    },
+    "token-app-header-interactive-surface-color-active": {
+      "key": "{app-header.interactive.surface.color.active}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.5)",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "rgba(141, 141, 141, 0.5)",
+        "cds-g10": "rgba(141, 141, 141, 0.5)",
+        "cds-g90": "rgba(141, 141, 141, 0.4)",
+        "cds-g100": "rgba(141, 141, 141, 0.4)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.backgroundActive}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.backgroundActive}",
+          "cds-g10": "{carbon.themes.g10.backgroundActive}",
+          "cds-g90": "{carbon.themes.g90.backgroundActive}",
+          "cds-g100": "{carbon.themes.g100.backgroundActive}"
+        },
+        "key": "{app-header.interactive.surface.color.active}"
+      },
+      "name": "token-app-header-interactive-surface-color-active",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "active"
+      ]
+    },
+    "token-app-header-interactive-surface-color-disabled": {
+      "key": "{app-header.interactive.surface.color.disabled}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.color.gray.30}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.color.gray.30}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.60}",
+          "cds-g100": "{carbon.color.gray.70}"
+        },
+        "key": "{app-header.interactive.surface.color.disabled}"
+      },
+      "name": "token-app-header-interactive-surface-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-focus-action-internal": {
+      "key": "{app-header.interactive.focus.action-internal}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#bcc7fd",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#161616",
+        "cds-g100": "#161616"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.focusInset}",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#bcc7fd",
+          "cds-g0": "{carbon.themes.white.focusInset}",
+          "cds-g10": "{carbon.themes.g10.focusInset}",
+          "cds-g90": "{carbon.themes.g90.focusInset}",
+          "cds-g100": "{carbon.themes.g100.focusInset}"
+        },
+        "key": "{app-header.interactive.focus.action-internal}"
+      },
+      "name": "token-app-header-interactive-focus-action-internal",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-internal"
+      ]
+    },
+    "token-app-header-interactive-focus-action-external": {
+      "key": "{app-header.interactive.focus.action-external}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#0d69f2",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.focus}",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#0d69f2",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-header.interactive.focus.action-external}"
+      },
+      "name": "token-app-header-interactive-focus-action-external",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-external"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
-      "$value": "60px",
+      "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "60",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "60",
+        "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "60",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{app-header.height}"
       },
       "name": "token-app-header-height",
@@ -45840,6 +47537,41 @@
         "app-header",
         "logo",
         "size"
+      ]
+    },
+    "token-app-header-actions-gap": {
+      "key": "{app-header.actions.gap}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.actions.gap}"
+      },
+      "name": "token-app-header-actions-gap",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "actions",
+        "gap"
       ]
     },
     "token-app-side-nav-wrapper-border-width": {
@@ -65739,15 +67471,556 @@
         "color"
       ]
     },
+    "token-app-header-padding-top": {
+      "key": "{app-header.padding.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.top}"
+      },
+      "name": "token-app-header-padding-top",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "top"
+      ]
+    },
+    "token-app-header-padding-bottom": {
+      "key": "{app-header.padding.bottom}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "value": "11",
+          "comment": "Account for 1px border at the bottom of the header"
+        },
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "value": "11",
+            "comment": "Account for 1px border at the bottom of the header"
+          },
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.bottom}"
+      },
+      "name": "token-app-header-padding-bottom",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-app-header-border-color": {
+      "key": "{app-header.border.color}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.color.gray.70}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.70}",
+          "cds-g100": "{carbon.color.gray.80}"
+        },
+        "key": "{app-header.border.color}"
+      },
+      "name": "token-app-header-border-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "border",
+        "color"
+      ]
+    },
+    "token-app-header-foreground-color": {
+      "key": "{app-header.foreground.color}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textPrimary}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.foreground.color}"
+      },
+      "name": "token-app-header-foreground-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "foreground",
+        "color"
+      ]
+    },
+    "token-app-header-surface-color": {
+      "key": "{app-header.surface.color}",
+      "$type": "color",
+      "$value": "#262626",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#262626",
+        "cds-g10": "#262626",
+        "cds-g90": "#262626",
+        "cds-g100": "#262626"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.page.primary}",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "{color.page.primary}",
+          "cds-g10": "{color.page.primary}",
+          "cds-g90": "{color.page.primary}",
+          "cds-g100": "{color.page.primary}"
+        },
+        "key": "{app-header.surface.color}"
+      },
+      "name": "token-app-header-surface-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "surface",
+        "color"
+      ]
+    },
+    "token-app-header-interactive-border-color-default": {
+      "key": "{app-header.interactive.border.color.default}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.default}"
+      },
+      "name": "token-app-header-interactive-border-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-border-color-disabled": {
+      "key": "{app-header.interactive.border.color.disabled}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.disabled}"
+      },
+      "name": "token-app-header-interactive-border-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-default": {
+      "key": "{app-header.interactive.foreground.color.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textPrimary}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.interactive.foreground.color.default}"
+      },
+      "name": "token-app-header-interactive-foreground-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-disabled": {
+      "key": "{app-header.interactive.foreground.color.disabled}",
+      "$type": "color",
+      "$value": "rgba(244, 244, 244, 0.25)",
+      "$modes": {
+        "default": "rgba(244, 244, 244, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textDisabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "key": "{app-header.interactive.foreground.color.disabled}"
+      },
+      "name": "token-app-header-interactive-foreground-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-surface-color-default": {
+      "key": "{app-header.interactive.surface.color.default}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "carbon.themes.g100.backgroundHover"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "carbon.themes.g100.backgroundHover"
+        },
+        "key": "{app-header.interactive.surface.color.default}"
+      },
+      "name": "token-app-header-interactive-surface-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-surface-color-hover": {
+      "key": "{app-header.interactive.surface.color.hover}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.16)",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "rgba(141, 141, 141, 0.12)",
+        "cds-g10": "rgba(141, 141, 141, 0.12)",
+        "cds-g90": "rgba(141, 141, 141, 0.16)",
+        "cds-g100": "rgba(141, 141, 141, 0.16)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.backgroundHover}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.themes.white.backgroundHover}",
+          "cds-g10": "{carbon.themes.g10.backgroundHover}",
+          "cds-g90": "{carbon.themes.g90.backgroundHover}",
+          "cds-g100": "{carbon.themes.g100.backgroundHover}"
+        },
+        "key": "{app-header.interactive.surface.color.hover}"
+      },
+      "name": "token-app-header-interactive-surface-color-hover",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "hover"
+      ]
+    },
+    "token-app-header-interactive-surface-color-active": {
+      "key": "{app-header.interactive.surface.color.active}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.4)",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "rgba(141, 141, 141, 0.5)",
+        "cds-g10": "rgba(141, 141, 141, 0.5)",
+        "cds-g90": "rgba(141, 141, 141, 0.4)",
+        "cds-g100": "rgba(141, 141, 141, 0.4)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.backgroundActive}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.backgroundActive}",
+          "cds-g10": "{carbon.themes.g10.backgroundActive}",
+          "cds-g90": "{carbon.themes.g90.backgroundActive}",
+          "cds-g100": "{carbon.themes.g100.backgroundActive}"
+        },
+        "key": "{app-header.interactive.surface.color.active}"
+      },
+      "name": "token-app-header-interactive-surface-color-active",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "active"
+      ]
+    },
+    "token-app-header-interactive-surface-color-disabled": {
+      "key": "{app-header.interactive.surface.color.disabled}",
+      "$type": "color",
+      "$value": "#6f6f6f",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.color.gray.60}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.color.gray.30}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.60}",
+          "cds-g100": "{carbon.color.gray.70}"
+        },
+        "key": "{app-header.interactive.surface.color.disabled}"
+      },
+      "name": "token-app-header-interactive-surface-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-focus-action-internal": {
+      "key": "{app-header.interactive.focus.action-internal}",
+      "$type": "color",
+      "$value": "#161616",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#bcc7fd",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#161616",
+        "cds-g100": "#161616"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.focusInset}",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#bcc7fd",
+          "cds-g0": "{carbon.themes.white.focusInset}",
+          "cds-g10": "{carbon.themes.g10.focusInset}",
+          "cds-g90": "{carbon.themes.g90.focusInset}",
+          "cds-g100": "{carbon.themes.g100.focusInset}"
+        },
+        "key": "{app-header.interactive.focus.action-internal}"
+      },
+      "name": "token-app-header-interactive-focus-action-internal",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-internal"
+      ]
+    },
+    "token-app-header-interactive-focus-action-external": {
+      "key": "{app-header.interactive.focus.action-external}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#0d69f2",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.focus}",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#0d69f2",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-header.interactive.focus.action-external}"
+      },
+      "name": "token-app-header-interactive-focus-action-external",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-external"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
-      "$value": "60px",
+      "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "60",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "60",
+        "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "60",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{app-header.height}"
       },
       "name": "token-app-header-height",
@@ -65799,6 +68072,41 @@
         "app-header",
         "logo",
         "size"
+      ]
+    },
+    "token-app-header-actions-gap": {
+      "key": "{app-header.actions.gap}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.actions.gap}"
+      },
+      "name": "token-app-header-actions-gap",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "actions",
+        "gap"
       ]
     },
     "token-app-side-nav-wrapper-border-width": {
@@ -85698,15 +88006,556 @@
         "color"
       ]
     },
+    "token-app-header-padding-top": {
+      "key": "{app-header.padding.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.top}"
+      },
+      "name": "token-app-header-padding-top",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "top"
+      ]
+    },
+    "token-app-header-padding-bottom": {
+      "key": "{app-header.padding.bottom}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": {
+          "value": "11",
+          "comment": "Account for 1px border at the bottom of the header"
+        },
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": {
+            "value": "11",
+            "comment": "Account for 1px border at the bottom of the header"
+          },
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.bottom}"
+      },
+      "name": "token-app-header-padding-bottom",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "bottom"
+      ]
+    },
+    "token-app-header-border-color": {
+      "key": "{app-header.border.color}",
+      "$type": "color",
+      "$value": "#393939",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.color.gray.80}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.70}",
+          "cds-g100": "{carbon.color.gray.80}"
+        },
+        "key": "{app-header.border.color}"
+      },
+      "name": "token-app-header-border-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "border",
+        "color"
+      ]
+    },
+    "token-app-header-foreground-color": {
+      "key": "{app-header.foreground.color}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textPrimary}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.foreground.color}"
+      },
+      "name": "token-app-header-foreground-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "foreground",
+        "color"
+      ]
+    },
+    "token-app-header-surface-color": {
+      "key": "{app-header.surface.color}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#161616",
+        "cds-g100": "#161616"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{color.page.primary}",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "{color.page.primary}",
+          "cds-g10": "{color.page.primary}",
+          "cds-g90": "{color.page.primary}",
+          "cds-g100": "{color.page.primary}"
+        },
+        "key": "{app-header.surface.color}"
+      },
+      "name": "token-app-header-surface-color",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "surface",
+        "color"
+      ]
+    },
+    "token-app-header-interactive-border-color-default": {
+      "key": "{app-header.interactive.border.color.default}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.default}"
+      },
+      "name": "token-app-header-interactive-border-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-border-color-disabled": {
+      "key": "{app-header.interactive.border.color.disabled}",
+      "$type": "color",
+      "$value": "rgba(0, 0, 0, 0)",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
+        "key": "{app-header.interactive.border.color.disabled}"
+      },
+      "name": "token-app-header-interactive-border-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "border",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-default": {
+      "key": "{app-header.interactive.foreground.color.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textPrimary}",
+        "$modes": {
+          "default": "{color.foreground.high-contrast}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{app-header.interactive.foreground.color.default}"
+      },
+      "name": "token-app-header-interactive-foreground-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-foreground-color-disabled": {
+      "key": "{app-header.interactive.foreground.color.disabled}",
+      "$type": "color",
+      "$value": "rgba(244, 244, 244, 0.25)",
+      "$modes": {
+        "default": "rgba(244, 244, 244, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textDisabled}",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
+        "key": "{app-header.interactive.foreground.color.disabled}"
+      },
+      "name": "token-app-header-interactive-foreground-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "foreground",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-surface-color-default": {
+      "key": "{app-header.interactive.surface.color.default}",
+      "$type": "color",
+      "$value": "carbon.themes.g100.backgroundHover",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "carbon.themes.g100.backgroundHover"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "carbon.themes.g100.backgroundHover",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "carbon.themes.g100.backgroundHover"
+        },
+        "key": "{app-header.interactive.surface.color.default}"
+      },
+      "name": "token-app-header-interactive-surface-color-default",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "default"
+      ]
+    },
+    "token-app-header-interactive-surface-color-hover": {
+      "key": "{app-header.interactive.surface.color.hover}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.16)",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "rgba(141, 141, 141, 0.12)",
+        "cds-g10": "rgba(141, 141, 141, 0.12)",
+        "cds-g90": "rgba(141, 141, 141, 0.16)",
+        "cds-g100": "rgba(141, 141, 141, 0.16)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.backgroundHover}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.themes.white.backgroundHover}",
+          "cds-g10": "{carbon.themes.g10.backgroundHover}",
+          "cds-g90": "{carbon.themes.g90.backgroundHover}",
+          "cds-g100": "{carbon.themes.g100.backgroundHover}"
+        },
+        "key": "{app-header.interactive.surface.color.hover}"
+      },
+      "name": "token-app-header-interactive-surface-color-hover",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "hover"
+      ]
+    },
+    "token-app-header-interactive-surface-color-active": {
+      "key": "{app-header.interactive.surface.color.active}",
+      "$type": "color",
+      "$value": "rgba(141, 141, 141, 0.4)",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "rgba(141, 141, 141, 0.5)",
+        "cds-g10": "rgba(141, 141, 141, 0.5)",
+        "cds-g90": "rgba(141, 141, 141, 0.4)",
+        "cds-g100": "rgba(141, 141, 141, 0.4)"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.backgroundActive}",
+        "$modes": {
+          "default": "{color.palette.neutral-500}",
+          "cds-g0": "{carbon.themes.white.backgroundActive}",
+          "cds-g10": "{carbon.themes.g10.backgroundActive}",
+          "cds-g90": "{carbon.themes.g90.backgroundActive}",
+          "cds-g100": "{carbon.themes.g100.backgroundActive}"
+        },
+        "key": "{app-header.interactive.surface.color.active}"
+      },
+      "name": "token-app-header-interactive-surface-color-active",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "active"
+      ]
+    },
+    "token-app-header-interactive-surface-color-disabled": {
+      "key": "{app-header.interactive.surface.color.disabled}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "#c6c6c6",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#6f6f6f",
+        "cds-g100": "#525252"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.color.gray.70}",
+        "$modes": {
+          "default": "{color.palette.neutral-600}",
+          "cds-g0": "{carbon.color.gray.30}",
+          "cds-g10": "{carbon.color.gray.30}",
+          "cds-g90": "{carbon.color.gray.60}",
+          "cds-g100": "{carbon.color.gray.70}"
+        },
+        "key": "{app-header.interactive.surface.color.disabled}"
+      },
+      "name": "token-app-header-interactive-surface-color-disabled",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "surface",
+        "color",
+        "disabled"
+      ]
+    },
+    "token-app-header-interactive-focus-action-internal": {
+      "key": "{app-header.interactive.focus.action-internal}",
+      "$type": "color",
+      "$value": "#161616",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#bcc7fd",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#161616",
+        "cds-g100": "#161616"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.focusInset}",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#bcc7fd",
+          "cds-g0": "{carbon.themes.white.focusInset}",
+          "cds-g10": "{carbon.themes.g10.focusInset}",
+          "cds-g90": "{carbon.themes.g90.focusInset}",
+          "cds-g100": "{carbon.themes.g100.focusInset}"
+        },
+        "key": "{app-header.interactive.focus.action-internal}"
+      },
+      "name": "token-app-header-interactive-focus-action-internal",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-internal"
+      ]
+    },
+    "token-app-header-interactive-focus-action-external": {
+      "key": "{app-header.interactive.focus.action-external}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "comment": "TODO: Remove once global tokens for dark themes are implemented",
+      "$modes": {
+        "default": "#0d69f2",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.focus}",
+        "comment": "TODO: Remove once global tokens for dark themes are implemented",
+        "$modes": {
+          "default": "#0d69f2",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-header.interactive.focus.action-external}"
+      },
+      "name": "token-app-header-interactive-focus-action-external",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "interactive",
+        "focus",
+        "action-external"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
-      "$value": "60px",
+      "$value": "48px",
       "unit": "px",
+      "$modes": {
+        "default": "60",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "original": {
         "$type": "dimension",
-        "$value": "60",
+        "$value": "48",
         "unit": "px",
+        "$modes": {
+          "default": "60",
+          "cds-g0": "48",
+          "cds-g10": "48",
+          "cds-g90": "48",
+          "cds-g100": "48"
+        },
         "key": "{app-header.height}"
       },
       "name": "token-app-header-height",
@@ -85758,6 +88607,41 @@
         "app-header",
         "logo",
         "size"
+      ]
+    },
+    "token-app-header-actions-gap": {
+      "key": "{app-header.actions.gap}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.actions.gap}"
+      },
+      "name": "token-app-header-actions-gap",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "actions",
+        "gap"
       ]
     },
     "token-app-side-nav-wrapper-border-width": {

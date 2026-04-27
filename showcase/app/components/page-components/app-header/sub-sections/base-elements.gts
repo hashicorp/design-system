@@ -17,6 +17,7 @@ import ShwTextBody from 'showcase/components/shw/text/body';
 
 import {
   HdsAppHeaderHomeLink,
+  HdsAppHeaderMenuButton,
   HdsDropdown,
   HdsButton,
   HdsButtonSet,
@@ -128,6 +129,47 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
               @text="Terraform Admin Console"
               @isIconOnly={{false}}
               @href="#"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/if}}
+    {{/each}}
+  </ShwFlex>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>AppHeaderMenuButton</ShwTextH3>
+
+  <ShwTextH4>States</ShwTextH4>
+
+  <ShwTextBody>Closed</ShwTextBody>
+
+  <ShwFlex as |SF|>
+    {{#each STATES as |state|}}
+      {{#if (notEq state "disabled")}}
+        <SF.Item @label={{state}}>
+          <div class="hds-app-header" id="demo-app-header-closed-{{state}}">
+            <HdsAppHeaderMenuButton
+              @menuContentId="demo-app-header-closed-{{state}}"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/if}}
+    {{/each}}
+  </ShwFlex>
+
+  <ShwTextBody>Open</ShwTextBody>
+
+  <ShwFlex as |SF|>
+    {{#each STATES as |state|}}
+      {{#if (notEq state "disabled")}}
+        <SF.Item @label={{state}}>
+          <div class="hds-app-header" id="demo-app-header-open-{{state}}">
+            <HdsAppHeaderMenuButton
+              @menuContentId="demo-app-header-open-{{state}}"
+              @isOpen={{true}}
               mock-state-value={{state}}
             />
           </div>
