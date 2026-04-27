@@ -104,9 +104,9 @@
     "ember-template-lint-plugin-prettier": "^5.0.0",
     "ember-truth-helpers": "^5.0.0",
     "ember-try": "^4.0.0",
-    "eslint": "^9.27.0",
+    "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-ember": "^12.5.0",
+    "eslint-plugin-ember": "^13.1.0",
     "eslint-plugin-n": "^17.18.0",
     "eslint-plugin-qunit": "^8.1.2",
     "fs-extra": "^11.3.0",
@@ -125,7 +125,7 @@
     "tabbable": "^6.2.0",
     "tracked-built-ins": "^4.0.0",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.1",
+    "typescript-eslint": "^8.59.0",
     "webpack": "^5.99.9"
   },
   "engines": {

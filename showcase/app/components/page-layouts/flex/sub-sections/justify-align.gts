@@ -1,7 +1,6 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
 import { eq } from 'ember-truth-helpers';
-import { concat } from '@ember/helper';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
@@ -17,6 +16,15 @@ import {
   JUSTIFYS,
   ALIGNS,
 } from '@hashicorp/design-system-components/components/hds/layout/flex/index';
+
+const getLabel = (jc: number, align: string) => {
+  if (jc === 0) {
+    return `align=${align}`;
+  } else {
+    // Notice: we're  using an invisible character here to preserve the alignment of the items
+    return '​';
+  }
+};
 
 const SubSectionJustifyAlign: TemplateOnlyComponent = <template>
   <ShwTextH2>Justify + Align</ShwTextH2>
@@ -39,10 +47,8 @@ const SubSectionJustifyAlign: TemplateOnlyComponent = <template>
           {{/each}}
         {{/if}}
         {{#each JUSTIFYS as |justify jc|}}
-          {{! Notice: we're  using an invisible character here to preserve the alignment of the items }}
           <SG.Item
-            {{! eslint-disable-next-line no-irregular-whitespace }}
-            @label={{if (eq jc 0) (concat "align=" align) "​"}}
+            @label={{getLabel jc align}}
             class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
           >
             <div {{style width="120px" height="120px"}}>

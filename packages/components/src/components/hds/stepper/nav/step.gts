@@ -110,7 +110,7 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
       : undefined;
   }
 
-  get status(): HdsStepperNavStatuses {
+  get status(): HdsStepperNavStatusesValues {
     if (this.nodeIndex != undefined && this.nodeIndex >= 0) {
       if (this.nodeIndex === this.args.currentStep) {
         return HdsStepperNavStatusesValues.Active;

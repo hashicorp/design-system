@@ -185,7 +185,10 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
     ) => void;
-    onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
+    onSort?: (
+      sortBy: string,
+      sortOrder: HdsAdvancedTableThSortOrderValues
+    ) => void;
   };
   Blocks: {
     actions?: [
@@ -831,7 +834,7 @@ export default class HdsAdvancedTable<
 
     if (this.currentSortBy === columnKey) {
       newSortOrder =
-        this.currentSortOrder === HdsAdvancedTableThSortOrderValues.Asc
+        this.currentSortOrder === `${HdsAdvancedTableThSortOrderValues.Asc}`
           ? HdsAdvancedTableThSortOrderValues.Desc
           : HdsAdvancedTableThSortOrderValues.Asc;
     }

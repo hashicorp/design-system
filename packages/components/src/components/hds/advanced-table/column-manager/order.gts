@@ -10,7 +10,6 @@ import { HdsAdvancedTableColumnReorderSideValues } from '../types.ts';
 
 import type {
   HdsAdvancedTableColumnReorderCallback,
-  HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
 } from '../types.ts';
 import type { ModifierLike } from '@glint/template';
@@ -46,12 +45,12 @@ interface HdsAdvancedTableColumnManagerOrderSignature {
         syncColumnOrder: ModifierLike<HdsAdvancedTableSyncColumnOrderSignature>;
         moveColumnToDropTarget: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'],
-          side: HdsAdvancedTableColumnReorderSide
+          side: HdsAdvancedTableColumnReorderSideValues
         ) => void;
         moveColumnToTarget: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'],
           targetColumnKey: HdsAdvancedTableNormalizedColumn['key'],
-          side: HdsAdvancedTableColumnReorderSide
+          side: HdsAdvancedTableColumnReorderSideValues
         ) => void;
         moveColumnToTerminalPosition: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'],
@@ -182,7 +181,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     position: 'start' | 'end'
   ): void => {
     let targetColumnKey: HdsAdvancedTableNormalizedColumn['key'];
-    let side: HdsAdvancedTableColumnReorderSide;
+    let side: HdsAdvancedTableColumnReorderSideValues;
 
     const firstColumn = this.orderedColumns[0];
     const lastColumn = this.orderedColumns[this.orderedColumns.length - 1];
@@ -222,7 +221,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     }
 
     // Determine the side based on the step direction.
-    const side: HdsAdvancedTableColumnReorderSide =
+    const side: HdsAdvancedTableColumnReorderSideValues =
       step > 0
         ? HdsAdvancedTableColumnReorderSideValues.Right
         : HdsAdvancedTableColumnReorderSideValues.Left;
@@ -232,7 +231,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
 
   moveColumnToDropTarget = (
     targetColumnKey: HdsAdvancedTableNormalizedColumn['key'],
-    side: HdsAdvancedTableColumnReorderSide
+    side: HdsAdvancedTableColumnReorderSideValues
   ): void => {
     const sourceColumnKey = this.draggedColumnKey;
 
@@ -246,7 +245,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
   moveColumnToTarget = (
     sourceColumnKey: HdsAdvancedTableNormalizedColumn['key'],
     targetColumnKey: HdsAdvancedTableNormalizedColumn['key'],
-    side: HdsAdvancedTableColumnReorderSide
+    side: HdsAdvancedTableColumnReorderSideValues
   ): void => {
     const oldIndex = this.columnOrder.indexOf(sourceColumnKey);
     const newIndex = this.columnOrder.indexOf(targetColumnKey);

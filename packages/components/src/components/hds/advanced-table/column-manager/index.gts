@@ -9,6 +9,7 @@ import { cached } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { hash } from '@ember/helper';
+import { HdsAdvancedTableColumnReorderSideValues } from '../types.ts';
 
 import HdsAdvancedTableColumnManagerWidth from './width.gts';
 import HdsAdvancedTableColumnManagerOrder from './order.gts';
@@ -18,7 +19,6 @@ import type { HdsAdvancedTableSyncWidthValuesSignature } from './width.gts';
 import type { HdsAdvancedTableSyncColumnOrderSignature } from './order.gts';
 import type {
   HdsAdvancedTableColumn,
-  HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
 } from '../types.ts';
 import type { HdsAdvancedTableSignature } from '../index.gts';
@@ -70,12 +70,12 @@ export interface HdsAdvancedTableColumnManagerSignature {
         };
         moveColumnToDropTarget: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'],
-          side: HdsAdvancedTableColumnReorderSide
+          side: HdsAdvancedTableColumnReorderSideValues
         ) => void;
         moveColumnToTarget: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'],
           targetColumnKey: HdsAdvancedTableNormalizedColumn['key'],
-          side: HdsAdvancedTableColumnReorderSide
+          side: HdsAdvancedTableColumnReorderSideValues
         ) => void;
         moveColumnToTerminalPosition: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'],

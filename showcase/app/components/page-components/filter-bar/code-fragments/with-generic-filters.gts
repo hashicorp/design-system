@@ -96,7 +96,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
         data: {
           value: `${this.singleFilterName}`,
         },
-      } as HdsFilterBarGenericFilter);
+      });
     }
   }
 
@@ -155,7 +155,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
       updateFilter({
         type: 'generic',
         data: multiSelectNameData,
-      } as HdsFilterBarGenericFilter);
+      });
     }
   }
 
@@ -204,7 +204,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
       updateFilter({
         type: 'generic',
         data: multiSelectNameData,
-      } as HdsFilterBarGenericFilter);
+      });
     }
   }
 

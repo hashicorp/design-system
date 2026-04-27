@@ -32,13 +32,13 @@ import {
   HdsAdvancedTableHorizontalAlignmentValues,
   HdsAdvancedTableThSortOrderLabelValues,
   HdsAdvancedTableThSortOrderValues,
+  HdsAdvancedTableColumnReorderSideValues,
 } from './types.ts';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
-  HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
   HdsAdvancedTableThSortOrderLabels,
   HdsAdvancedTableThSortOrder,
@@ -109,7 +109,7 @@ export interface HdsAdvancedTableThSignature {
     onPinFirstColumn?: () => void;
     onReorderDrop?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key'],
-      side: HdsAdvancedTableColumnReorderSide
+      side: HdsAdvancedTableColumnReorderSideValues
     ) => void;
     onResetTransientColumnWidths?: () => void;
     onRestoreColumnWidth?: (
