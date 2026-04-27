@@ -17,13 +17,19 @@ import type {
 } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type { HdsAdvancedTableSignature } from './index.gts';
+import type { HdsCompositeSignature } from '../composite/index.gts';
 import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.gts';
+
+type HdsCompositeDefaultBlock = HdsCompositeSignature['Blocks']['default'][0];
 
 export interface BaseHdsAdvancedTableTrSignature<T> {
   Args: {
     columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
+    compositeGroup?: HdsCompositeDefaultBlock['group'];
+    compositeItem?: HdsCompositeDefaultBlock['item'];
     displayRow?: boolean;
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
+    isCompositeItemDisabled?: boolean;
     isLastRow?: boolean;
     isSelectable?: boolean;
     isSelected?: boolean;
@@ -151,10 +157,12 @@ export default class HdsAdvancedTableTr<T> extends Component<
   }
 
   <template>
-    <div class={{this.classNames}} role="row" ...attributes>
+    <div class={{this.classNames}} role="row" {{@compositeGroup}} ...attributes>
       {{#if @isSelectable}}
         <HdsAdvancedTableThSelectable
           role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
+          @compositeItem={{@compositeItem}}
+          @isCompositeItemDisabled={{@isCompositeItemDisabled}}
           @isSelected={{@isSelected}}
           @selectionScope={{@selectionScope}}
           @selectionKey={{this.selectionKey}}

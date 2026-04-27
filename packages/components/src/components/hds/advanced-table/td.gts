@@ -16,7 +16,10 @@ import { hash } from '@ember/helper';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
+import hdsScrollIntoViewOnFocus from '../../../modifiers/hds-scroll-into-view-on-focus.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
+
+import type { HdsCompositeSignature } from '../composite/index.gts';
 
 export const ALIGNMENTS: HdsAdvancedTableHorizontalAlignment[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -28,6 +31,8 @@ export interface HdsAdvancedTableTdSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     rowspan?: number;
     colspan?: number;
+    compositeItem?: HdsCompositeSignature['Blocks']['default'][0]['item'];
+    isCompositeItemDisabled?: boolean;
   };
   Blocks: {
     default?: [];
@@ -115,6 +120,8 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
           clickOutsideDeactivates=true
         )
       }}
+      {{@compositeItem disabled=@isCompositeItemDisabled}}
+      {{hdsScrollIntoViewOnFocus options=(hash block="center" inline="center")}}
       ...attributes
     >
       {{yield}}

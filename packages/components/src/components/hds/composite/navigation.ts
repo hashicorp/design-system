@@ -288,28 +288,60 @@ function navigateColumn(
     const length = groups.length;
     targetGroupIndex = ((targetGroupIndex % length) + length) % length;
 
-    if (targetGroupIndex === currentGroupIndex) {
-      return undefined;
+    for (let step = 0; step < length - 1; step++) {
+      const targetItems = getItemsInGroup(items, groups[targetGroupIndex]!.id);
+      const target = resolveColumnTarget(targetItems, columnIndex);
+
+      if (target !== undefined) {
+        return target;
+      }
+
+      targetGroupIndex =
+        (((targetGroupIndex + direction) % length) + length) % length;
     }
+
+    return undefined;
   } else if (targetGroupIndex < 0 || targetGroupIndex >= groups.length) {
     if (matchesAxis(config.wrap, 'vertical') === false) {
       return undefined;
     }
 
-    const wrapGroupIndex = direction === 1 ? 0 : groups.length - 1;
+    let wrapGroupIndex = direction === 1 ? 0 : groups.length - 1;
     const nextColumnIndex = columnIndex + direction;
-    const wrapItems = getItemsInGroup(items, groups[wrapGroupIndex]!.id);
 
-    if (nextColumnIndex < 0 || nextColumnIndex >= wrapItems.length) {
+    if (nextColumnIndex < 0) {
       return undefined;
     }
 
-    return resolveColumnTarget(wrapItems, nextColumnIndex);
+    while (wrapGroupIndex >= 0 && wrapGroupIndex < groups.length) {
+      const wrapItems = getItemsInGroup(items, groups[wrapGroupIndex]!.id);
+
+      if (nextColumnIndex < wrapItems.length) {
+        const target = resolveColumnTarget(wrapItems, nextColumnIndex);
+
+        if (target !== undefined) {
+          return target;
+        }
+      }
+
+      wrapGroupIndex += direction;
+    }
+
+    return undefined;
   }
 
-  const targetItems = getItemsInGroup(items, groups[targetGroupIndex]!.id);
+  while (targetGroupIndex >= 0 && targetGroupIndex < groups.length) {
+    const targetItems = getItemsInGroup(items, groups[targetGroupIndex]!.id);
+    const target = resolveColumnTarget(targetItems, columnIndex);
 
-  return resolveColumnTarget(targetItems, columnIndex);
+    if (target !== undefined) {
+      return target;
+    }
+
+    targetGroupIndex += direction;
+  }
+
+  return undefined;
 }
 
 function navigateColumnEnd(
@@ -326,11 +358,20 @@ function navigateColumnEnd(
     (item) => item.id === currentItem.id
   );
 
-  const targetGroupIndex = direction === 1 ? groups.length - 1 : 0;
+  let targetGroupIndex = direction === 1 ? groups.length - 1 : 0;
 
-  const targetItems = getItemsInGroup(items, groups[targetGroupIndex]!.id);
+  while (targetGroupIndex >= 0 && targetGroupIndex < groups.length) {
+    const targetItems = getItemsInGroup(items, groups[targetGroupIndex]!.id);
+    const target = resolveColumnTarget(targetItems, columnIndex);
 
-  return resolveColumnTarget(targetItems, columnIndex);
+    if (target !== undefined) {
+      return target;
+    }
+
+    targetGroupIndex -= direction;
+  }
+
+  return undefined;
 }
 
 function navigateRowEnd(

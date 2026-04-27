@@ -28,9 +28,12 @@ import type {
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
 import type { HdsAdvancedTableThSignature } from './th.gts';
+import type { HdsCompositeSignature } from '../composite/index.gts';
 
 export interface HdsAdvancedTableThSelectableSignature {
   Args: {
+    compositeItem?: HdsCompositeSignature['Blocks']['default'][0]['item'];
+    isCompositeItemDisabled?: boolean;
     didInsert?: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
@@ -121,6 +124,8 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
       @scope={{@selectionScope}}
       @isStickyColumn={{@isStickyColumn}}
       @isStickyColumnPinned={{@isStickyColumnPinned}}
+      @compositeItem={{@compositeItem}}
+      @isCompositeItemDisabled={{@isCompositeItemDisabled}}
       ...attributes
     >
       <div class="hds-advanced-table__th-content">

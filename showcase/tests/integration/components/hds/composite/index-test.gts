@@ -837,4 +837,34 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     await triggerKeyEvent('#composite-root', 'keydown', 'ArrowRight');
     assert.dom('#composite-root').hasAttribute('tabindex', '0');
   });
+
+  test('when the active item is removed, it deterministically falls back to the first enabled item', async function (assert) {
+    assert.expect(2);
+
+    const context = new TrackedObject<{ showFirst: boolean }>({
+      showFirst: true,
+    });
+
+    await render(
+      <template>
+        <HdsComposite as |c|>
+          <div {{c.composite}} id="composite-root">
+            {{#if context.showFirst}}
+              <HdsButton {{c.item}} id="item-1" @text="Item 1" />
+            {{/if}}
+            <HdsButton {{c.item}} id="item-2" @text="Item 2" />
+            <HdsButton {{c.item}} id="item-3" @text="Item 3" />
+          </div>
+        </HdsComposite>
+      </template>,
+    );
+
+    await focus('#item-1');
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-1');
+
+    context.showFirst = false;
+    await settled();
+
+    assert.dom('[data-active-item]').hasAttribute('id', 'item-2');
+  });
 });
