@@ -4273,6 +4273,7 @@ button.hds-button[href]::after {
 .hds-mode-cds-g90 .hds-dialog-primitive__header,
 .hds-mode-cds-g100 .hds-dialog-primitive__header {
   position: relative;
+  padding-right: calc(var(--token-dialog-primitive-padding-horizontal) + 32px);
 }
 
 .hds-dialog-primitive__icon {
