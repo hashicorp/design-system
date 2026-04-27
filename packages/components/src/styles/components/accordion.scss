@@ -96,13 +96,6 @@
         background: var(--token-color-surface-interactive-hover);
       }
     }
-
-    &:active,
-    &.mock-active {
-      .hds-accordion-item__toggle {
-        background: var(--token-color-surface-interactive-active);
-      }
-    }
   }
 }
 

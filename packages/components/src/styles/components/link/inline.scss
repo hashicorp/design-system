@@ -52,11 +52,6 @@
   &.mock-hover {
     color: var(--token-color-foreground-action-hover);
   }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-action-active);
-  }
 }
 
 .hds-link-inline--color-secondary {
@@ -65,10 +60,5 @@
   &:hover,
   &.mock-hover {
     color: var(--token-color-foreground-primary);
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-faint);
   }
 }

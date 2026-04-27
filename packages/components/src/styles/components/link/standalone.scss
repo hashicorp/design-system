@@ -76,15 +76,6 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
       text-decoration-color: var(--token-color-foreground-action-hover);
     }
   }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-action-active);
-
-    .hds-link-standalone__text {
-      text-decoration-color: var(--token-color-foreground-action-active);
-    }
-  }
 }
 
 .hds-link-standalone--color-secondary {
@@ -94,15 +85,6 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
   &.mock-hover {
     .hds-link-standalone__text {
       text-decoration-color: var(--token-color-foreground-strong);
-    }
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-primary);
-
-    .hds-link-standalone__text {
-      text-decoration-color: var(--token-color-foreground-primary);
     }
   }
 }

@@ -117,11 +117,6 @@
     &.mock-hover {
       background-color: var(--token-tag-static-surface-color-hover);
     }
-
-    &:active,
-    &.mock-active {
-      background-color: var(--token-tag-static-surface-color-active);
-    }
   }
 
   .hds-tag__dismiss-icon {
@@ -142,11 +137,6 @@
     &.mock-hover {
       background-color: var(--token-tag-link-surface-color-primary-hover);
     }
-
-    &:active,
-    &.mock-active {
-      background-color: var(--token-tag-link-surface-color-primary-active);
-    }
   }
 
   .hds-tag__link {
@@ -155,11 +145,6 @@
     &:hover,
     &.mock-hover {
       color: var(--token-tag-link-foreground-color-primary-hover);
-    }
-
-    &:active,
-    &.mock-active {
-      color: var(--token-tag-link-foreground-color-primary-active);
     }
   }
 
@@ -178,11 +163,6 @@
     &:hover,
     &.mock-hover {
       background-color: var(--token-tag-link-surface-color-secondary-hover);
-    }
-
-    &:active,
-    &.mock-active {
-      background-color: var(--token-tag-link-surface-color-secondary-active);
     }
   }
 

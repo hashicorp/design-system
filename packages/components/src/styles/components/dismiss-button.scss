@@ -35,11 +35,4 @@
 
   // we use `-1px` here so the dark blue line seems the border of the button
   @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
-
-  &:active,
-  &.mock-active {
-    color: var(--token-dismiss-button-foreground-color-active);
-    background-color: var(--token-dismiss-button-surface-color-active);
-    border-color: var(--token-dismiss-button-border-color-active);
-  }
 }

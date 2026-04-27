@@ -103,15 +103,6 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   // we apply the focus directly to the element, without using a pseudo-element
   @include hds-focus-ring-basic();
 
-  &:active,
-  &.mock-active {
-    color: var(--token-breadcrumb-link-foreground-color-active);
-
-    > .hds-breadcrumb__text {
-      text-decoration-color: currentColor;
-    }
-  }
-
   @include hds-apply-only-if-carbon() {
     &:focus,
     &.mock-focus {
@@ -211,13 +202,6 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
   }
 
-  &:active,
-  &.mock-active {
-    color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
-    background-color: var(--token-breadcrumb-truncation-toggle-surface-color-active);
-    border-color: var(--token-color-border-strong);
-  }
-
   @include hds-apply-only-if-carbon() {
     &:hover::after,
     &.mock-hover::after {
@@ -227,11 +211,6 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     &:focus::after,
     &.mock-focus::after {
       background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-default);
-    }
-
-    &:active::after,
-    &.mock-active::after {
-      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
     }
   }
 }

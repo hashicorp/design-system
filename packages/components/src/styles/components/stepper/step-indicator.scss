@@ -161,20 +161,6 @@ $hds-stepper-indicator-step-status-props: (
           }
         }
       }
-
-      &:active,
-      &.mock-active {
-        .hds-stepper-indicator-step__status {
-          color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-active");
-        }
-
-        .hds-stepper-indicator-step__svg-hexagon {
-          path {
-            fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-active");
-            stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-active");
-          }
-        }
-      }
     }
   }
 }

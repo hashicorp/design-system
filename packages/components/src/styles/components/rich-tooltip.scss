@@ -48,12 +48,6 @@
     --icon-color: var(--token-rich-tooltip-toggle-foreground-color-hover);
   }
 
-  &:active,
-  &.mock-active {
-    --text-color: var(--token-rich-tooltip-toggle-foreground-color-active);
-    --icon-color: var(--token-rich-tooltip-toggle-foreground-color-active);
-  }
-
   @include hds-focus-ring-with-pseudo-element($top: -2px, $right: -2px, $bottom: -2px, $left: -2px);
 }
 

@@ -117,12 +117,6 @@
     }
   }
 
-  // :Active
-  &:active,
-  &.mock-active {
-    background: var(--token-color-surface-interactive-active);
-  }
-
   // ".Active" (current page) link
   // NOTICE: this is necessary to mitigate the flickering of the link when clicked (expecially noticeable with a badge)
   // For details see: https://github.com/hashicorp/design-system/pull/1328

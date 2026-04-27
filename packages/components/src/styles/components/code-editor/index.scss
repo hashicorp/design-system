@@ -132,11 +132,6 @@
       }
     }
 
-    &:active,
-    &.mock-active {
-      background-color: var(--token-code-block-button-surface-color-active);
-    }
-
     .hds-button__icon {
       color: var(--token-code-block-foreground-color-primary);
     }

@@ -95,11 +95,6 @@
     background-color: var(--token-color-surface-interactive-hover);
     cursor: pointer;
   }
-
-  &.mock-active,
-  &:active {
-    background-color: var(--token-color-surface-interactive-active);
-  }
 }
 
 .hds-filter-bar__tabs__tab__text {
@@ -133,16 +128,6 @@
 
     &::before {
       background-color: var(--token-color-palette-blue-400);
-    }
-  }
-
-  &.mock-active,
-  &:active {
-    color: var(--token-color-palette-blue-500);
-    background-color: var(--token-color-palette-neutral-300);
-
-    &::before {
-      background-color: var(--token-color-palette-blue-500);
     }
   }
 }

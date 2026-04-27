@@ -34,16 +34,6 @@
     background-color: var(--token-copy-button-surface-color-focus);
   }
 
-  &:active,
-  &.mock-active {
-    color: var(--token-copy-button-foreground-color);
-    background-color: var(--token-copy-button-surface-color-active);
-
-    .hds-button__icon {
-      color: var(--token-copy-button-icon-color-active);
-    }
-  }
-
   &.hds-copy-button--status-success {
     .hds-button__icon {
       color: var(--token-color-foreground-success);
