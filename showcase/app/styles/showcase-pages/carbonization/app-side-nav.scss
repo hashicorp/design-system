@@ -1,0 +1,51 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > APP-SIDE-NAV
+
+// ----
+
+body.page-carbonization-components-app-side-nav {
+  $shw-component-app-side-nav-background: var(--token-app-side-nav-color-surface-primary);
+  $shw-component-app-side-nav-border-color: var(--token-app-side-nav-wrapper-border-color);
+
+  // used to simulate a "root" container for the app-side-nav
+  .shw-component-sim-app-side-nav-root-container {
+    height: 600px;
+
+    .hds-app-side-nav {
+      position: relative;
+      height: 100% !important;
+      min-height: 100% !important;
+    }
+  }
+
+  // used to simulate a "body" container for the app-side-nav
+  .shw-component-sim-app-side-nav-body {
+    width: 280px;
+    margin: 0;
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
+    background: $shw-component-app-side-nav-background;
+    border: 1px solid $shw-component-app-side-nav-border-color;
+  }
+
+  .shw-component-sim-app-side-nav-list-link-wrapper {
+    margin: 0;
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
+    background: $shw-component-app-side-nav-background;
+    border: 1px solid $shw-component-app-side-nav-border-color;
+  }
+
+  .shw-component-sim-toggle-button {
+    height: 80px;
+
+    .hds-app-side-nav__toggle-button {
+      position: relative;
+      transform: none;
+    }
+  }
+}
+
+// Made with Bob

@@ -4,6 +4,23 @@
 
 :root {
   --token-app-footer-link-focus-outline-color: #0f62fe;
+  --token-app-side-nav-body-list-item-border-radius: 0px;
+  --token-app-side-nav-body-list-item-foreground-color-default: #525252;
+  --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
+  --token-app-side-nav-body-list-item-height: 32px;
+  --token-app-side-nav-body-list-item-margin-top: 0px;
+  --token-app-side-nav-body-list-item-padding-horizontal: 16px;
+  --token-app-side-nav-body-list-item-padding-vertical: 7px;
+  --token-app-side-nav-body-list-item-selected-foreground-color: #525252;
+  --token-app-side-nav-body-list-item-selected-indicator-border-radius: 0px;
+  --token-app-side-nav-body-list-item-selected-surface-color: rgba(141, 141, 141, 0.2);
+  --token-app-side-nav-body-list-item-surface-color-active: rgba(141, 141, 141, 0.5);
+  --token-app-side-nav-body-list-item-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --token-app-side-nav-body-list-item-typography-font-weight: 600;
+  --token-app-side-nav-body-title-padding-vertical: 7px;
+  --token-app-side-nav-surface-color: #f4f4f4;
+  --token-app-side-nav-toggle-button-border-radius: 0px;
+  --token-app-side-nav-wrapper-padding-horizontal: 0px;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
