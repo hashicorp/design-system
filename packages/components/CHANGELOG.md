@@ -1,102 +1,160 @@
 # @hashicorp/design-system-components
 
+## 6.2.0
+
+### Minor Changes
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed typing for sticky first-column cells by exposing `isStickyColumn` in the yielded table-cell API and by passing an explicit `parentId` value when rendering row header cells.
+
+<!-- END -->
+
+<!-- START components/form/indicator -->
+
+`Form::Indicator` - Fixed invocation of `HdsTextBody` to use named arguments, which prevented incorrect argument forwarding.
+
+<!-- END -->
+
+<!-- START components/form/masked-input -->
+
+`Form::MaskedInput` - Fixed element typing to match the underlying control element (`input` or `textarea`) instead of a generic `HTMLElement`.
+
+<!-- END -->
+
+<!-- START components/form/textarea -->
+
+`Form::Textarea` - Fixed element typing to `HTMLTextAreaElement` for stricter and more accurate Glint checks.
+
+<!-- END -->
+
+<!-- START components/table/th-sort -->
+
+`Table::ThSort` - Fixed element typing to `HTMLTableCellElement` to reflect the actual rendered table-cell element.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3810](https://github.com/hashicorp/design-system/pull/3810) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Added generic types for `@model` values.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3699](https://github.com/hashicorp/design-system/pull/3699)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START utilities/composite -->
+
+`Composite` - Added new component that provides accessible arrow key keyboard navigation for complex components such as Tabs and AdvancedTable.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3649](https://github.com/hashicorp/design-system/pull/3649)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Converted component and subcomponents to single-file gts format.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3797](https://github.com/hashicorp/design-system/pull/3797)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/copy/snippet-->
+
+`CopySnippet` - translated string for button aria-label
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3816](https://github.com/hashicorp/design-system/pull/3816)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/form/key-value-inputs -->
+
+`KeyValueInputs` - translated strings for `DeleteRowButton` and `Field` screen reader text
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3823](https://github.com/hashicorp/design-system/pull/3823)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.1.1
 
 [6.1.1 documentation](https://hds-website-6-1-1.vercel.app/)
 
 ### Patch Changes
 
-
 `KeyValueInputs` - Translated strings for the KeyValueInputs AddRowButton ariaLabel and description text.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3681](https://github.com/hashicorp/design-system/pull/3681)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Checkbox` - Fixed `CheckboxField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
-
-
 
 `FileInput` - Fixed `FileInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-
-
 `Radio` - Fixed `RadioField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
-
-
 
 `Select` - Fixed `SelectField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-
-
 `TextInput` - Fixed `TextInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
-
-
 
 `Textarea` - Fixed `TextareaField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
 
-
-
 `Toggle` - Fixed `ToggleField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3700](https://github.com/hashicorp/design-system/pull/3700)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Replaced model-based state with a DDAU architecture, improving isolation and decoupling row/column logic.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3546](https://github.com/hashicorp/design-system/pull/3546)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Pagination` - Translated strings for `PaginationCompact` and `PaginationNumbered` ariaLabels. Translated strings for `PaginationNavArrow` ariaLabels and button text.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3781](https://github.com/hashicorp/design-system/pull/3781)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Table` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3607](https://github.com/hashicorp/design-system/pull/3607)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `StepperList` - Translated strings for `Step` status value types
 
-
-
 `StepperNav` - Translated strings for status value types
-
 
 <small class="doc-whats-new-changelog-metadata">[#3727](https://github.com/hashicorp/design-system/pull/3727)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppFooter` - Translated strings for `AppFooterStatusLink` status value types
-
 
 <small class="doc-whats-new-changelog-metadata">[#3729](https://github.com/hashicorp/design-system/pull/3729)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Translated strings for ThSelectable ariaLabel and context menu Dropdown ToggleIcon
 
-
-
 `Table` - Translated string for ThSelectable ariaLabel
-
 
 <small class="doc-whats-new-changelog-metadata">[#3730](https://github.com/hashicorp/design-system/pull/3730)</small>
 
