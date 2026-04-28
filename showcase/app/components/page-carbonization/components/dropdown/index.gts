@@ -24,12 +24,13 @@ import {
   HdsDropdownListItemSeparator,
   HdsDropdownListItemCheckbox,
   HdsDropdownListItemCheckmark,
+  HdsDropdownListItemRadio,
   HdsDropdownToggleButton,
   HdsDropdownToggleIcon,
   HdsLinkStandalone,
 } from '@hashicorp/design-system-components/components';
 
-const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
+const STATES = ['default', 'hover', 'active', 'focus'];
 
 import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
 
@@ -293,8 +294,8 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                         >
                           {{state}}
                         </HdsDropdownListItemInteractive>
+                        <HdsDropdownListItemSeparator />
                       {{/each}}
-                      <HdsDropdownListItemSeparator />
                       <HdsDropdownListItemInteractive
                         @color={{color}}
                         @isLoading={{true}}
@@ -309,6 +310,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
           </ShwFlex>
         {{/each}}
       </:theming>
+      <:reference>
+        <pre>TODO: static image here</pre>
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
@@ -331,6 +335,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   <HdsDropdownListItemCheckmark mock-state-value={{state}}>
                     {{state}}
                   </HdsDropdownListItemCheckmark>
+                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemCheckmark
                   mock-state-value="disabled"
@@ -355,6 +360,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   >
                     {{state}}
                   </HdsDropdownListItemCheckmark>
+                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemCheckmark
                   mock-state-value="disabled"
@@ -380,6 +386,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
@@ -398,6 +407,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   <HdsDropdownListItemCheckbox mock-state-value={{state}}>
                     {{state}}
                   </HdsDropdownListItemCheckbox>
+                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemCheckbox
                   mock-state-value="disabled"
@@ -418,6 +428,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   >
                     {{state}}
                   </HdsDropdownListItemCheckbox>
+                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemCheckbox
                   mock-state-value="disabled"
@@ -431,6 +442,59 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
         </ShwFlex>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>List Item Radio states</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid
+      @label="with title, description, footer, & matchToggleWidth=true"
+    >
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item @label="Default">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                {{#each STATES as |state|}}
+                  <HdsDropdownListItemRadio mock-state-value={{state}}>
+                    {{state}}
+                  </HdsDropdownListItemRadio>
+                  <HdsDropdownListItemSeparator />
+                {{/each}}
+                <HdsDropdownListItemRadio mock-state-value="disabled" disabled>
+                  disabled
+                </HdsDropdownListItemRadio>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Checked">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                {{#each STATES as |state|}}
+                  <HdsDropdownListItemRadio mock-state-value={{state}} checked>
+                    {{state}}
+                  </HdsDropdownListItemRadio>
+                  <HdsDropdownListItemSeparator />
+                {{/each}}
+                <HdsDropdownListItemRadio
+                  mock-state-value="disabled"
+                  disabled
+                  checked
+                >
+                  disabled
+                </HdsDropdownListItemRadio>
+              </ul>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
   </section>
 </template>;

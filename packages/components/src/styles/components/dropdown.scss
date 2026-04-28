@@ -11,6 +11,7 @@
 
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 // DROPDOWN
 
@@ -218,6 +219,15 @@
   border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-surface-high-box-shadow);
 
+  // Default:
+  // box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
+
+  @include hds-apply-only-if-carbon() {
+    border-radius: 0;
+    // x y blur spread color
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 30%);
+  }
+
   // the "popover" attributes comes with pre-defined styling so we need to override it
   :where(&[popover]) {
     width: fit-content;
@@ -254,6 +264,10 @@
   overflow-y: auto;
   list-style: none;
   overscroll-behavior: contain;
+
+  @include hds-apply-only-if-carbon() {
+    padding: 0;
+  }
 }
 
 .hds-dropdown__header,
@@ -295,6 +309,52 @@
 
 // LIST > LIST-ITEM
 // HDS::DROPDOWN::LIST-ITEM
+
+.hds-dropdown-list-item {
+  // Interactive list items
+
+  @include hds-apply-only-if-carbon() {
+    button,
+    a,
+    input {
+      &:focus,
+      &.mock-focus,
+      &:active,
+      &.mock-active {
+        color: var(--token-color-foreground-secondary);
+      }
+
+      &:hover,
+      &.mock-hover {
+        color: var(--token-color-foreground-primary);
+      }
+
+      // Hide the side highlight border for interactive children
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  // Selects item containing an interactive child which is hovered
+  &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
+    @include hds-apply-only-if-carbon() {
+      // Ensures separator is hidden in checkbox & radio variants
+      position: relative;
+      z-index: 2;
+      background-color: var(--token-dropdown-list-item-surface-color-hover);
+      // Covers the top separator when the item is hovered
+      box-shadow:
+        0 1px 0 1px var(--token-dropdown-list-item-surface-color-hover),
+        0 -1px 0 1px var(--token-dropdown-list-item-surface-color-hover);
+
+      // Hides the bottom separator when the item is hovered
+      + .hds-dropdown-list-item--variant-separator::before {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+}
 
 // HDS::DROPDOWN::LIST-ITEM::COPY-ITEM
 .hds-dropdown-list-item__copy-item-title {
@@ -349,6 +409,10 @@
     outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
     outline-color: transparent;
 
+    @include hds-apply-only-if-carbon() {
+      padding: 11px 16px;
+    }
+
     // this is used for the left "hover" indicator
     &::before {
       position: absolute;
@@ -372,6 +436,11 @@
       z-index: -1;
       border-radius: var(--token-border-radius-small);
       content: "";
+
+      @include hds-apply-only-if-carbon() {
+        top: 3px;
+        bottom: 3px;
+      }
     }
 
     // Notice: to avoid too much duplication we define two local CSS variables
@@ -496,6 +565,10 @@
   align-items: center;
   padding: 8px 10px 8px 16px;
 
+  @include hds-apply-only-if-carbon() {
+    padding: 11px 16px;
+  }
+
   .hds-dropdown-list-item__interactive-text {
     color: var(--token-color-foreground-faint);
   }
@@ -511,6 +584,11 @@
   position: relative;
   width: 100%;
   height: 4px;
+
+  // Remove extra spacing around separator
+  @include hds-apply-only-if-carbon() {
+    height: 1px;
+  }
 
   &::before {
     position: absolute;
@@ -561,6 +639,10 @@
   display: flex;
   align-items: self-start;
   padding: 8px 16px;
+
+  @include hds-apply-only-if-carbon() {
+    padding: 11px 16px;
+  }
 
   .hds-dropdown-list-item__control {
     flex-shrink: 0;
