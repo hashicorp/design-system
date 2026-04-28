@@ -5,7 +5,7 @@
 import Component from '@glimmer/component';
 import { pageTitle } from 'ember-page-title';
 import { LinkTo } from '@ember/routing';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
 import type Owner from '@ember/owner';
 import { scheduleOnce } from '@ember/runloop';

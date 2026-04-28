@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';

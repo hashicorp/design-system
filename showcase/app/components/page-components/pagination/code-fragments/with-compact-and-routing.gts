@@ -4,7 +4,7 @@
  */
 import Component from '@glimmer/component';
 import { array } from '@ember/helper';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
 
 import USERS from 'showcase/mocks/user-data';
