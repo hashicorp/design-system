@@ -4,7 +4,7 @@
  */
 import Component from '@glimmer/component';
 import style from 'ember-style-modifier';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
