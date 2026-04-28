@@ -12,6 +12,7 @@ import { service } from '@ember/service';
 
 import type Owner from '@ember/owner';
 import type RouterService from '@ember/routing/router-service';
+import type FastbootService from 'ember-cli-fastboot/services/fastboot';
 
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
@@ -48,6 +49,7 @@ const unescapeCode = (code: string) => {
 
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @service declare readonly router: RouterService;
+  @service declare readonly fastboot: FastbootService;
 
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
@@ -99,7 +101,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       this.router.off('routeDidChange', this.handleRouteDidChange);
     });
 
-    if (typeof window !== 'undefined') {
+    if (!this.fastboot.isFastBoot) {
       // this custom event is used to notify other code group instances on the page that the language selection has changed so that they can update their selected language too
       window.addEventListener(
         CODE_GROUP_LANGUAGE_CHANGE_EVENT,
@@ -216,7 +218,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   private getStoredLanguage() {
-    if (typeof window === 'undefined') {
+    if (this.fastboot.isFastBoot) {
       return null;
     }
 
@@ -243,7 +245,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   private persistLanguageSelection(value: string) {
-    if (typeof window === 'undefined') {
+    if (this.fastboot.isFastBoot) {
       return;
     }
 
