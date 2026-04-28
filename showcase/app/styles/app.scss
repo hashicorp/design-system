@@ -93,7 +93,7 @@
 // END COMPONENT PAGES IMPORTS
 
 :root {
-  @include theme(themes.$g10);
+  @include theme(themes.$white);
 
   @media (prefers-color-scheme: dark) {
     @include theme(themes.$g100);
