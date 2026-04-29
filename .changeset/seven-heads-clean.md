@@ -3,7 +3,5 @@
 ---
 
 <!-- START components/table/advanced-table -->
-
-`AdvancedTable` - Added support for using pinnable and reorderable column simultaneously.
-
+`AdvancedTable` - Added support for allowing a pinnable first column and reorderable columns at the same time.
 <!-- END -->
