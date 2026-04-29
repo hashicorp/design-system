@@ -3,7 +3,5 @@
 ---
 
 <!-- START components/table/advanced-table -->
-
 `AdvancedTable` - Converted component to gts format.
-
 <!-- END -->
