@@ -55,8 +55,13 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
         case 'default':
           hdsSelector = 'hds-theme-default';
           break;
-        default:
-          hdsSelector = `hds-mode-${this.args.context}`;
+        case 'cds-g0':
+        case 'cds-g10':
+          hdsSelector = `hds-theme-light hds-mode-${this.args.context}`;
+          break;
+        case 'cds-g90':
+        case 'cds-g100':
+          hdsSelector = `hds-theme-dark hds-mode-${this.args.context}`;
           break;
       }
       classes.push(hdsSelector);
