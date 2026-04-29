@@ -16179,40 +16179,6 @@
     ]
   },
   {
-    "key": "{reveal.surface.color.active}",
-    "$type": "color",
-    "$value": "#dedfe3",
-    "$modes": {
-      "default": "#dedfe3",
-      "cds-g0": "rgba(141, 141, 141, 0.5)",
-      "cds-g10": "rgba(141, 141, 141, 0.5)",
-      "cds-g90": "rgba(141, 141, 141, 0.4)",
-      "cds-g100": "rgba(141, 141, 141, 0.4)"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{button.surface.color.tertiary.active}",
-      "$modes": {
-        "default": "{button.surface.color.tertiary.active}",
-        "cds-g0": "{carbon.themes.white.backgroundActive}",
-        "cds-g10": "{carbon.themes.g10.backgroundActive}",
-        "cds-g90": "{carbon.themes.g90.backgroundActive}",
-        "cds-g100": "{carbon.themes.g100.backgroundActive}"
-      },
-      "key": "{reveal.surface.color.active}"
-    },
-    "name": "token-reveal-surface-color-active",
-    "attributes": {
-      "category": "reveal"
-    },
-    "path": [
-      "reveal",
-      "surface",
-      "color",
-      "active"
-    ]
-  },
-  {
     "key": "{reveal.surface.color.focus}",
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
@@ -16244,6 +16210,40 @@
       "surface",
       "color",
       "focus"
+    ]
+  },
+  {
+    "key": "{reveal.surface.color.active}",
+    "$type": "color",
+    "$value": "#dedfe3",
+    "$modes": {
+      "default": "#dedfe3",
+      "cds-g0": "rgba(141, 141, 141, 0.5)",
+      "cds-g10": "rgba(141, 141, 141, 0.5)",
+      "cds-g90": "rgba(141, 141, 141, 0.4)",
+      "cds-g100": "rgba(141, 141, 141, 0.4)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{button.surface.color.tertiary.active}",
+      "$modes": {
+        "default": "{button.surface.color.tertiary.active}",
+        "cds-g0": "{carbon.themes.white.backgroundActive}",
+        "cds-g10": "{carbon.themes.g10.backgroundActive}",
+        "cds-g90": "{carbon.themes.g90.backgroundActive}",
+        "cds-g100": "{carbon.themes.g100.backgroundActive}"
+      },
+      "key": "{reveal.surface.color.active}"
+    },
+    "name": "token-reveal-surface-color-active",
+    "attributes": {
+      "category": "reveal"
+    },
+    "path": [
+      "reveal",
+      "surface",
+      "color",
+      "active"
     ]
   },
   {

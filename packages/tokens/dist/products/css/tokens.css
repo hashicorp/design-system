@@ -539,8 +539,8 @@
   --token-reveal-foreground-color-hover: #0c56e9;
   --token-reveal-foreground-color-active: #0046d1;
   --token-reveal-surface-color-hover: #ffffff;
-  --token-reveal-surface-color-active: #dedfe3;
   --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
+  --token-reveal-surface-color-active: #dedfe3;
   --token-rich-tooltip-bubble-max-width: 280px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: 5px;

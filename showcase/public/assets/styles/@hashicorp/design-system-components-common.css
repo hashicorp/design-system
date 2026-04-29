@@ -8024,13 +8024,13 @@ button.hds-button[href]::after {
   color: var(--token-reveal-foreground-color-hover);
   background-color: var(--token-reveal-surface-color-hover);
 }
-.hds-reveal__toggle-button:active, .hds-reveal__toggle-button.mock-active {
-  color: var(--token-reveal-foreground-color-active);
-  background-color: var(--token-reveal-surface-color-active);
-}
 .hds-reveal__toggle-button:focus, .hds-reveal__toggle-button.mock-focus {
   color: var(--token-reveal-foreground-color-default);
   background-color: var(--token-reveal-surface-color-focus);
+}
+.hds-reveal__toggle-button:active, .hds-reveal__toggle-button.mock-active {
+  color: var(--token-reveal-foreground-color-active);
+  background-color: var(--token-reveal-surface-color-active);
 }
 @media (prefers-reduced-motion: no-preference) {
   .hds-reveal__toggle-button .hds-icon-chevron-down {
