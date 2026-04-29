@@ -539,6 +539,12 @@
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
+  --token-reveal-foreground-color-default: #1060ff;
+  --token-reveal-foreground-color-hover: #0c56e9;
+  --token-reveal-foreground-color-active: #0046d1;
+  --token-reveal-surface-color-hover: #ffffff;
+  --token-reveal-surface-color-active: #dedfe3;
+  --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
   --token-rich-tooltip-bubble-max-width: 280px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: 5px;
@@ -8657,6 +8663,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-reveal {
   width: fit-content;
 }
@@ -8664,6 +8674,26 @@ button.hds-button[href]::after {
 .hds-reveal__toggle-button {
   min-height: 1.75rem;
   padding: 0.313rem 0.313rem 0.313rem 0.188rem;
+  color: var(--token-reveal-foreground-color-default);
+}
+.hds-theme-light .hds-reveal__toggle-button,
+.hds-theme-dark .hds-reveal__toggle-button,
+.hds-theme-system .hds-reveal__toggle-button {
+  gap: 6px;
+  border-color: transparent;
+}
+
+.hds-reveal__toggle-button:hover, .hds-reveal__toggle-button.mock-hover {
+  color: var(--token-reveal-foreground-color-hover);
+  background-color: var(--token-reveal-surface-color-hover);
+}
+.hds-reveal__toggle-button:active, .hds-reveal__toggle-button.mock-active {
+  color: var(--token-reveal-foreground-color-active);
+  background-color: var(--token-reveal-surface-color-active);
+}
+.hds-reveal__toggle-button:focus, .hds-reveal__toggle-button.mock-focus {
+  color: var(--token-reveal-foreground-color-default);
+  background-color: var(--token-reveal-surface-color-focus);
 }
 @media (prefers-reduced-motion: no-preference) {
   .hds-reveal__toggle-button .hds-icon-chevron-down {
