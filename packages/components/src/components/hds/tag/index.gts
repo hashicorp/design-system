@@ -45,21 +45,25 @@ export interface HdsTagSignature {
 
 const overflowed = new TrackedWeakSet<Element>();
 
-const observer = new ResizeObserver((entries) => {
-  entries.forEach((entry) => {
-    const textContainer = entry.target.querySelector(
-      '.hds-tag__text-container'
-    );
-    if (
-      textContainer &&
-      textContainer.scrollHeight > textContainer.clientHeight
-    ) {
-      overflowed.add(entry.target);
-    } else {
-      overflowed.delete(entry.target);
-    }
+let observer: ResizeObserver | undefined;
+
+if (typeof ResizeObserver !== 'undefined') {
+  observer = new ResizeObserver((entries) => {
+    entries.forEach((entry) => {
+      const textContainer = entry.target.querySelector(
+        '.hds-tag__text-container'
+      );
+      if (
+        textContainer &&
+        textContainer.scrollHeight > textContainer.clientHeight
+      ) {
+        overflowed.add(entry.target);
+      } else {
+        overflowed.delete(entry.target);
+      }
+    });
   });
-});
+}
 
 export default class HdsTag extends Component<HdsTagSignature> {
   @tracked private _element?: HTMLElement;
@@ -72,11 +76,11 @@ export default class HdsTag extends Component<HdsTagSignature> {
 
   private _setUpObserver = modifier((element: HTMLElement) => {
     this._element = element;
-    observer.observe(element);
+    observer?.observe(element);
 
     return () => {
       if (this._element) {
-        observer.unobserve(this._element);
+        observer?.unobserve(this._element);
       }
       delete this._element;
     };
