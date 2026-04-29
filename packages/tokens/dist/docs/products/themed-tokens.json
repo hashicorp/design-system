@@ -18118,6 +18118,37 @@
         "color"
       ]
     },
+    "token-test-theme-nesting": {
+      "key": "{test-theme-nesting}",
+      "$type": "color",
+      "$value": "#ff0000",
+      "$modes": {
+        "default": "red",
+        "cds-g0": "green",
+        "cds-g10": "darkgreen",
+        "cds-g90": "blue",
+        "cds-g100": "darkblue"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "red",
+        "$modes": {
+          "default": "red",
+          "cds-g0": "green",
+          "cds-g10": "darkgreen",
+          "cds-g90": "blue",
+          "cds-g100": "darkblue"
+        },
+        "key": "{test-theme-nesting}"
+      },
+      "name": "token-test-theme-nesting",
+      "attributes": {
+        "category": "test-theme-nesting"
+      },
+      "path": [
+        "test-theme-nesting"
+      ]
+    },
     "token-tooltip-max-width": {
       "key": "{tooltip.max-width}",
       "$type": "dimension",
@@ -38075,6 +38106,37 @@
         "static",
         "icon",
         "color"
+      ]
+    },
+    "token-test-theme-nesting": {
+      "key": "{test-theme-nesting}",
+      "$type": "color",
+      "$value": "#008000",
+      "$modes": {
+        "default": "red",
+        "cds-g0": "green",
+        "cds-g10": "darkgreen",
+        "cds-g90": "blue",
+        "cds-g100": "darkblue"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "green",
+        "$modes": {
+          "default": "red",
+          "cds-g0": "green",
+          "cds-g10": "darkgreen",
+          "cds-g90": "blue",
+          "cds-g100": "darkblue"
+        },
+        "key": "{test-theme-nesting}"
+      },
+      "name": "token-test-theme-nesting",
+      "attributes": {
+        "category": "test-theme-nesting"
+      },
+      "path": [
+        "test-theme-nesting"
       ]
     },
     "token-tooltip-max-width": {
@@ -58036,6 +58098,37 @@
         "color"
       ]
     },
+    "token-test-theme-nesting": {
+      "key": "{test-theme-nesting}",
+      "$type": "color",
+      "$value": "#006400",
+      "$modes": {
+        "default": "red",
+        "cds-g0": "green",
+        "cds-g10": "darkgreen",
+        "cds-g90": "blue",
+        "cds-g100": "darkblue"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "darkgreen",
+        "$modes": {
+          "default": "red",
+          "cds-g0": "green",
+          "cds-g10": "darkgreen",
+          "cds-g90": "blue",
+          "cds-g100": "darkblue"
+        },
+        "key": "{test-theme-nesting}"
+      },
+      "name": "token-test-theme-nesting",
+      "attributes": {
+        "category": "test-theme-nesting"
+      },
+      "path": [
+        "test-theme-nesting"
+      ]
+    },
     "token-tooltip-max-width": {
       "key": "{tooltip.max-width}",
       "$type": "dimension",
@@ -77995,6 +78088,37 @@
         "color"
       ]
     },
+    "token-test-theme-nesting": {
+      "key": "{test-theme-nesting}",
+      "$type": "color",
+      "$value": "#0000ff",
+      "$modes": {
+        "default": "red",
+        "cds-g0": "green",
+        "cds-g10": "darkgreen",
+        "cds-g90": "blue",
+        "cds-g100": "darkblue"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "blue",
+        "$modes": {
+          "default": "red",
+          "cds-g0": "green",
+          "cds-g10": "darkgreen",
+          "cds-g90": "blue",
+          "cds-g100": "darkblue"
+        },
+        "key": "{test-theme-nesting}"
+      },
+      "name": "token-test-theme-nesting",
+      "attributes": {
+        "category": "test-theme-nesting"
+      },
+      "path": [
+        "test-theme-nesting"
+      ]
+    },
     "token-tooltip-max-width": {
       "key": "{tooltip.max-width}",
       "$type": "dimension",
@@ -97952,6 +98076,37 @@
         "static",
         "icon",
         "color"
+      ]
+    },
+    "token-test-theme-nesting": {
+      "key": "{test-theme-nesting}",
+      "$type": "color",
+      "$value": "#00008b",
+      "$modes": {
+        "default": "red",
+        "cds-g0": "green",
+        "cds-g10": "darkgreen",
+        "cds-g90": "blue",
+        "cds-g100": "darkblue"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "darkblue",
+        "$modes": {
+          "default": "red",
+          "cds-g0": "green",
+          "cds-g10": "darkgreen",
+          "cds-g90": "blue",
+          "cds-g100": "darkblue"
+        },
+        "key": "{test-theme-nesting}"
+      },
+      "name": "token-test-theme-nesting",
+      "attributes": {
+        "category": "test-theme-nesting"
+      },
+      "path": [
+        "test-theme-nesting"
       ]
     },
     "token-tooltip-max-width": {

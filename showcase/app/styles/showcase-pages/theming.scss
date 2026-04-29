@@ -20,6 +20,7 @@ body.page-foundations-theming {
 
   .shw-foundation-theming-basic-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: fit-content;

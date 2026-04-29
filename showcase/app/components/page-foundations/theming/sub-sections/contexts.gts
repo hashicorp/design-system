@@ -76,6 +76,7 @@ class ThemingBasicContainer extends Component<ThemingBasicContainerSignature> {
       {{else}}
         <div>{{this.text}}</div>
       {{/if}}
+      <div class="hds-test-theme-nesting">TEST123</div>
     </div>
   </template>
 }
