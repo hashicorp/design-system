@@ -2,8 +2,8 @@
 "@hashicorp/design-system-components": patch
 ---
 
-<!-- START components/hds/tag -->
+<!-- START components/tag -->
 
-`Tag` - Fixed a runtime error when `ResizeObserver` is undefined (e.g. SSR)
+`Tag` - Fixed a runtime error when `ResizeObserver` is undefined (e.g. SSR).
 
 <!-- END -->

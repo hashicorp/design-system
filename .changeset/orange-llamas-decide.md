@@ -3,5 +3,7 @@
 ---
 
 <!-- START components/table/advanced-table -->
-`AdvancedTable` - Converted component and subcomponents to single-file gts format.
+
+`AdvancedTable` - Converted component to gts format.
+
 <!-- END -->
