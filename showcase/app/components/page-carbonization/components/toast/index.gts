@@ -60,7 +60,7 @@ const ToastCarbonizationIndex: TemplateOnlyComponent = <template>
           <ShwFlex as |SF|>
             <SF.Item @grow={{true}}>
               {{#if (eq color "neutral")}}
-                <R.NoEquivalent />
+                <R.NoEquivalent @isCompact={{true}} @entity="variant" />
               {{else}}
                 <cds-inline-notification
                   kind={{get HDS_COLOR_TO_CDS_KIND_MAP color}}
