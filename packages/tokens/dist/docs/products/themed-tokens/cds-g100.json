@@ -18112,37 +18112,6 @@
     ]
   },
   {
-    "key": "{test-theme-nesting}",
-    "$type": "color",
-    "$value": "#00008b",
-    "$modes": {
-      "default": "red",
-      "cds-g0": "green",
-      "cds-g10": "darkgreen",
-      "cds-g90": "blue",
-      "cds-g100": "darkblue"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "darkblue",
-      "$modes": {
-        "default": "red",
-        "cds-g0": "green",
-        "cds-g10": "darkgreen",
-        "cds-g90": "blue",
-        "cds-g100": "darkblue"
-      },
-      "key": "{test-theme-nesting}"
-    },
-    "name": "token-test-theme-nesting",
-    "attributes": {
-      "category": "test-theme-nesting"
-    },
-    "path": [
-      "test-theme-nesting"
-    ]
-  },
-  {
     "key": "{tooltip.max-width}",
     "$type": "dimension",
     "$value": "288px",

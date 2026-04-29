@@ -677,7 +677,6 @@
     --token-typography-font-weight-medium
   );
   --token-tag-typography-line-height: 1.2308;
-  --token-test-theme-nesting: #ff0000;
   --token-tooltip-border-radius: var(--token-border-radius-small);
   --token-tooltip-caret-clip-path: path(
     "M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z"
@@ -1142,7 +1141,6 @@
     --token-tag-typography-font-size: 0.75rem;
     --token-tag-typography-font-weight: 400;
     --token-tag-typography-line-height: 1.33333;
-    --token-test-theme-nesting: #008000;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -1613,7 +1611,6 @@
     --token-tag-typography-font-size: 0.75rem;
     --token-tag-typography-font-weight: 400;
     --token-tag-typography-line-height: 1.33333;
-    --token-test-theme-nesting: #00008b;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
@@ -2073,7 +2070,6 @@
   --token-tag-typography-font-size: 0.75rem;
   --token-tag-typography-font-weight: 400;
   --token-tag-typography-line-height: 1.33333;
-  --token-test-theme-nesting: #008000;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
@@ -2532,7 +2528,6 @@
   --token-tag-typography-font-size: 0.75rem;
   --token-tag-typography-font-weight: 400;
   --token-tag-typography-line-height: 1.33333;
-  --token-test-theme-nesting: #00008b;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
