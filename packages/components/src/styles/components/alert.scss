@@ -143,7 +143,11 @@
   border-radius: var(--token-border-radius-medium);
 
   @include hds-apply-only-if-carbon() {
+    --token-alert-inline-border-left-color: var(
+      --token-alert-inline-border-left-color-neutral
+    ); // default value, will be overridden by color modifiers
     position: relative;
+    padding-left: calc(var(--token-alert-inline-padding-horizontal) + var(--token-alert-inline-border-left-width));
     border-left-width: 0;
 
     // For Carbon theme the left border is placed on top of the alert container using a pseudo element, so that it can have a different color than the main border color
@@ -154,12 +158,13 @@
       left: 0;
       width: var(--token-alert-inline-border-left-width);
       height: calc(100% + 2px); // Compensate the 1px border-width of both top and bottom borders
+      background-color: var(--token-alert-inline-border-left-color);
       content: "";
     }
 
     .hds-alert__dismiss {
-      margin: calc(-1 * var(--token-alert-inline-padding-vertical))
-        calc(-1 * var(--token-alert-inline-padding-horizontal)) 0 var(--token-alert-dismiss-margin-left);
+      margin-top: calc(-1 * var(--token-alert-page-padding-vertical));
+      margin-right: calc(-1 * var(--token-alert-inline-padding-horizontal));
     }
   }
 }
@@ -198,9 +203,7 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline::before {
-      background-color: var(--token-alert-inline-border-left-color-neutral);
-    }
+    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-neutral);
   }
 }
 
@@ -220,9 +223,7 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline::before {
-      background-color: var(--token-alert-inline-border-left-color-highlight);
-    }
+    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-highlight);
   }
 }
 
@@ -242,9 +243,7 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline::before {
-      background-color: var(--token-alert-inline-border-left-color-success);
-    }
+    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-success);
   }
 }
 
@@ -264,9 +263,7 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline::before {
-      background-color: var(--token-alert-inline-border-left-color-warning);
-    }
+    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-warning);
   }
 }
 
@@ -286,8 +283,6 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    &.hds-alert--type-inline::before {
-      background-color: var(--token-alert-inline-border-left-color-critical);
-    }
+    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-critical);
   }
 }

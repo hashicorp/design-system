@@ -6899,10 +6899,10 @@
       "unit": "px",
       "$modes": {
         "default": "12",
-        "cds-g0": "14",
-        "cds-g10": "14",
-        "cds-g90": "14",
-        "cds-g100": "14"
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
       },
       "original": {
         "$type": "dimension",
@@ -6910,10 +6910,10 @@
         "unit": "px",
         "$modes": {
           "default": "12",
-          "cds-g0": "14",
-          "cds-g10": "14",
-          "cds-g90": "14",
-          "cds-g100": "14"
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
         },
         "key": "{alert.icon.margin.right}"
       },
@@ -28494,25 +28494,25 @@
     "token-alert-icon-margin-right": {
       "key": "{alert.icon.margin.right}",
       "$type": "dimension",
-      "$value": "14px",
+      "$value": "16px",
       "unit": "px",
       "$modes": {
         "default": "12",
-        "cds-g0": "14",
-        "cds-g10": "14",
-        "cds-g90": "14",
-        "cds-g100": "14"
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
       },
       "original": {
         "$type": "dimension",
-        "$value": "14",
+        "$value": "16",
         "unit": "px",
         "$modes": {
           "default": "12",
-          "cds-g0": "14",
-          "cds-g10": "14",
-          "cds-g90": "14",
-          "cds-g100": "14"
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
         },
         "key": "{alert.icon.margin.right}"
       },
@@ -50093,25 +50093,25 @@
     "token-alert-icon-margin-right": {
       "key": "{alert.icon.margin.right}",
       "$type": "dimension",
-      "$value": "14px",
+      "$value": "16px",
       "unit": "px",
       "$modes": {
         "default": "12",
-        "cds-g0": "14",
-        "cds-g10": "14",
-        "cds-g90": "14",
-        "cds-g100": "14"
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
       },
       "original": {
         "$type": "dimension",
-        "$value": "14",
+        "$value": "16",
         "unit": "px",
         "$modes": {
           "default": "12",
-          "cds-g0": "14",
-          "cds-g10": "14",
-          "cds-g90": "14",
-          "cds-g100": "14"
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
         },
         "key": "{alert.icon.margin.right}"
       },
@@ -71692,25 +71692,25 @@
     "token-alert-icon-margin-right": {
       "key": "{alert.icon.margin.right}",
       "$type": "dimension",
-      "$value": "14px",
+      "$value": "16px",
       "unit": "px",
       "$modes": {
         "default": "12",
-        "cds-g0": "14",
-        "cds-g10": "14",
-        "cds-g90": "14",
-        "cds-g100": "14"
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
       },
       "original": {
         "$type": "dimension",
-        "$value": "14",
+        "$value": "16",
         "unit": "px",
         "$modes": {
           "default": "12",
-          "cds-g0": "14",
-          "cds-g10": "14",
-          "cds-g90": "14",
-          "cds-g100": "14"
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
         },
         "key": "{alert.icon.margin.right}"
       },
@@ -93291,25 +93291,25 @@
     "token-alert-icon-margin-right": {
       "key": "{alert.icon.margin.right}",
       "$type": "dimension",
-      "$value": "14px",
+      "$value": "16px",
       "unit": "px",
       "$modes": {
         "default": "12",
-        "cds-g0": "14",
-        "cds-g10": "14",
-        "cds-g90": "14",
-        "cds-g100": "14"
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
       },
       "original": {
         "$type": "dimension",
-        "$value": "14",
+        "$value": "16",
         "unit": "px",
         "$modes": {
           "default": "12",
-          "cds-g0": "14",
-          "cds-g10": "14",
-          "cds-g90": "14",
-          "cds-g100": "14"
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
         },
         "key": "{alert.icon.margin.right}"
       },
