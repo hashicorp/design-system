@@ -384,7 +384,24 @@
             "cds-g90": "15",
             "cds-g100": "15"
           }
-        }
+        },
+        "left": {
+          "$type": "dimension",
+          "$value": "48",
+          "unit": "px"
+        },
+        "right": {
+          "$type": "dimension",
+          "$value": "48",
+          "unit": "px",
+          "$modes": {
+            "default": "48",
+            "cds-g0": "14",
+            "cds-g10": "14",
+            "cds-g90": "14",
+            "cds-g100": "14"
+          }
+        },
       }
     },
     "inline": {

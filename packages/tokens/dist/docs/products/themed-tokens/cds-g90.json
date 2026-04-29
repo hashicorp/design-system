@@ -6968,6 +6968,64 @@
     ]
   },
   {
+    "key": "{alert.page.padding.left}",
+    "$type": "dimension",
+    "$value": "48px",
+    "unit": "px",
+    "original": {
+      "$type": "dimension",
+      "$value": "48",
+      "unit": "px",
+      "key": "{alert.page.padding.left}"
+    },
+    "name": "token-alert-page-padding-left",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "page",
+      "padding",
+      "left"
+    ]
+  },
+  {
+    "key": "{alert.page.padding.right}",
+    "$type": "dimension",
+    "$value": "14px",
+    "unit": "px",
+    "$modes": {
+      "default": "48",
+      "cds-g0": "14",
+      "cds-g10": "14",
+      "cds-g90": "14",
+      "cds-g100": "14"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "14",
+      "unit": "px",
+      "$modes": {
+        "default": "48",
+        "cds-g0": "14",
+        "cds-g10": "14",
+        "cds-g90": "14",
+        "cds-g100": "14"
+      },
+      "key": "{alert.page.padding.right}"
+    },
+    "name": "token-alert-page-padding-right",
+    "attributes": {
+      "category": "alert"
+    },
+    "path": [
+      "alert",
+      "page",
+      "padding",
+      "right"
+    ]
+  },
+  {
     "key": "{alert.inline.padding.vertical}",
     "$type": "dimension",
     "$value": "15px",

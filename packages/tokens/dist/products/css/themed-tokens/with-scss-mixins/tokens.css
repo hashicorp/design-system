@@ -44,6 +44,7 @@
     --token-alert-inline-border-left-width: 1px;
     --token-alert-inline-padding-horizontal: 16px;
     --token-alert-inline-padding-vertical: 16px;
+    --token-alert-page-padding-right: 48px;
     --token-alert-page-padding-vertical: 16px;
     --token-alert-surface-color-critical: var(--token-color-surface-critical);
     --token-alert-surface-color-highlight: var(--token-color-surface-highlight);
@@ -886,6 +887,7 @@
     --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-right: 14px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #fff1f1;
     --token-alert-surface-color-highlight: #edf5ff;
@@ -1391,6 +1393,7 @@
     --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-right: 14px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #262626;
     --token-alert-surface-color-highlight: #262626;
@@ -1901,6 +1904,7 @@
     --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-right: 14px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #fff1f1;
     --token-alert-surface-color-highlight: #edf5ff;
@@ -2406,6 +2410,7 @@
     --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-right: 14px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #fff1f1;
     --token-alert-surface-color-highlight: #edf5ff;
@@ -2911,6 +2916,7 @@
     --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-right: 14px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #393939;
     --token-alert-surface-color-highlight: #393939;
@@ -3421,6 +3427,7 @@
     --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-right: 14px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #262626;
     --token-alert-surface-color-highlight: #262626;
@@ -3909,6 +3916,7 @@
 
 @mixin hds-theme-common() {
   :root {
+    --token-alert-page-padding-left: 48px;
     --token-app-header-height: 60px;
     --token-app-header-home-link-size: 36px;
     --token-app-header-logo-size: 28px;

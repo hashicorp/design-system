@@ -228,6 +228,8 @@
   --token-alert-icon-color-critical: #c00005;
   --token-alert-icon-margin-right: 12px;
   --token-alert-page-padding-vertical: 16px;
+  --token-alert-page-padding-left: 48px;
+  --token-alert-page-padding-right: 48px;
   --token-alert-inline-padding-vertical: 16px;
   --token-alert-inline-padding-horizontal: 16px;
   --token-alert-inline-border-left-width: 1px;
@@ -2132,7 +2134,7 @@
 }
 
 .hds-alert--type-page {
-  padding: var(--token-alert-page-padding-vertical) 16px var(--token-alert-page-padding-vertical) 48px;
+  padding: var(--token-alert-page-padding-vertical) var(--token-alert-page-padding-right) var(--token-alert-page-padding-vertical) var(--token-alert-page-padding-left);
   border-width: 1px;
   border-bottom-style: solid;
 }
