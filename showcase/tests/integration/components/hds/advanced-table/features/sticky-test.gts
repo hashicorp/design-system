@@ -46,6 +46,7 @@ const DEFAULT_BASIC_COLUMNS = [
 
 const createBasicTable = async (options: {
   hasStickyFirstColumn?: boolean;
+  hasReorderableColumns?: boolean;
   maxHeight?: string;
   hasStickyHeader?: boolean;
 }) => {
@@ -56,6 +57,7 @@ const createBasicTable = async (options: {
         @model={{DEFAULT_BASIC_MODEL}}
         @columns={{DEFAULT_BASIC_COLUMNS}}
         @hasStickyFirstColumn={{options.hasStickyFirstColumn}}
+        @hasReorderableColumns={{options.hasReorderableColumns}}
         @maxHeight={{options.maxHeight}}
         @hasStickyHeader={{options.hasStickyHeader}}
         id="data-test-advanced-table"
@@ -404,6 +406,36 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
             '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column',
           )
           .doesNotExist();
+      }
+    });
+
+    test('it should show reorder terminal options for the first column after unpinning when columns are reorderable', async function (assert) {
+      await createBasicTable({
+        hasStickyFirstColumn: true,
+        hasReorderableColumns: true,
+      });
+
+      const ths = findAll('.hds-advanced-table__th');
+      const firstTh = ths[1];
+
+      if (firstTh) {
+        const contextMenuToggle = firstTh.querySelector(
+          '.hds-dropdown-toggle-icon',
+        );
+
+        if (contextMenuToggle) {
+          await click(contextMenuToggle);
+          assert
+            .dom('[data-test-context-option-key="move-column-to-end"]')
+            .doesNotExist('Pinned first column should not expose move-to-end');
+
+          await click('[data-test-context-option-key="pin-first-column"]');
+
+          await click(contextMenuToggle);
+          assert
+            .dom('[data-test-context-option-key="move-column-to-end"]')
+            .exists('Unpinned first column should expose move-to-end');
+        }
       }
     });
 

@@ -622,12 +622,21 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         .exists({ count: 2 }, 'Only non-sticky columns render reorder handles');
 
       const thElements = findAll('.hds-advanced-table__th');
-      const secondContextMenuToggle = thElements[1]?.querySelector(
+      const firstContextMenuToggle = thElements[0]?.querySelector(
         '.hds-dropdown-toggle-icon',
       );
 
-      if (secondContextMenuToggle) {
-        await click(secondContextMenuToggle);
+      if (firstContextMenuToggle) {
+        await click(firstContextMenuToggle);
+        assert
+          .dom('[data-test-context-option-key="move-column-to-end"]')
+          .doesNotExist('Sticky first column cannot be moved while pinned');
+        await click('[data-test-context-option-key="pin-first-column"]');
+
+        await click(firstContextMenuToggle);
+        assert
+          .dom('[data-test-context-option-key="move-column-to-end"]')
+          .exists('Move to end is available after unpinning the first column');
         await click('[data-test-context-option-key="move-column-to-end"]');
       }
 
@@ -635,11 +644,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       assert.deepEqual(
         columnOrder,
         [
-          DEFAULT_REORDERABLE_COLUMNS[0]?.key,
-          DEFAULT_REORDERABLE_COLUMNS[2]?.key,
           DEFAULT_REORDERABLE_COLUMNS[1]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[2]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[0]?.key,
         ],
-        'Non-sticky columns can still be reordered',
+        'First column can be moved after unpinning',
       );
     });
 
