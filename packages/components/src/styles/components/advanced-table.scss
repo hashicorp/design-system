@@ -265,7 +265,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       // has a higher z-index than the sticky header content
       z-index: 7;
 
-      &:has(~ .hds-advanced-table__th .hds-advanced-table__th-reorder-handle)::after {
+      &:has(~ .hds-advanced-table__th .hds-advanced-table__th-reorder-drop-target--is-dragging-over)::after {
         position: absolute;
         right: 0;
         bottom: -14px;
@@ -616,24 +616,34 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     z-index: 3;
   }
 
-  .hds-advanced-table__th--is-sticky-column-pinned {
-    &:first-of-type {
+  .hds-advanced-table--has-sticky-first-column & {
+    .hds-advanced-table__tr > :first-child {
+      position: sticky;
+      z-index: 3;
+    }
+
+    .hds-advanced-table__tr > .hds-advanced-table__th--is-selectable + * {
+      position: sticky;
+      z-index: 3;
+    }
+  }
+
+  .hds-advanced-table--sticky-first-column-pinned & {
+    .hds-advanced-table__tr > :first-child {
       left: -1px;
       // add extra left border to offset -1px and the 0.5px border from the table container being gone
       border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
+    }
+
+    .hds-advanced-table__tr > .hds-advanced-table__th--is-selectable + * {
+      left: var(--hds-advanced-table-sticky-column-offset, 0);
+      border-left-width: $hds-advanced-table-border-width;
     }
   }
 
   // Only apply the thick border to the last sticky column
   .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
     border-right: 3px solid $hds-advanced-table-border-color;
-  }
-
-  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
-    + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
-    // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
-    left: var(--hds-advanced-table-sticky-column-offset, 0);
-    border-left-width: $hds-advanced-table-border-width;
   }
 
   // horizontal alignment

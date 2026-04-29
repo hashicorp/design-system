@@ -5,6 +5,7 @@
 
 import { module, test } from 'qunit';
 import { get } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
 import {
   click,
   find,
@@ -173,6 +174,41 @@ const createReorderableTable = async (options: {
         @columnOrder={{options.columnOrder}}
         @hasStickyFirstColumn={{options.hasStickyFirstColumn}}
       />
+    </template>,
+  );
+};
+
+const createReorderableTableWithRowHeader = async (options: {
+  hasStickyFirstColumn?: boolean;
+}) => {
+  const columns = [
+    { key: 'artist', label: 'Artist', width: '260px' },
+    { key: 'album', label: 'Album', width: '260px' },
+    { key: 'year', label: 'Year', width: '260px' },
+  ];
+
+  await render(
+    <template>
+      <HdsAdvancedTable
+        id="data-test-advanced-table"
+        style="width: 420px;"
+        @model={{DEFAULT_REORDERABLE_MODEL}}
+        @columns={{columns}}
+        @hasReorderableColumns={{true}}
+        @hasStickyFirstColumn={{options.hasStickyFirstColumn}}
+      >
+        <:body as |B|>
+          <B.Tr>
+            {{#each B.orderedCells as |C|}}
+              {{#if (eq C.columnKey "artist")}}
+                <B.Th @scope="row">{{get B.data C.columnKey}}</B.Th>
+              {{else}}
+                <B.Td>{{get B.data C.columnKey}}</B.Td>
+              {{/if}}
+            {{/each}}
+          </B.Tr>
+        </:body>
+      </HdsAdvancedTable>
     </template>,
   );
 };
@@ -650,6 +686,69 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         ],
         'First column can be moved after unpinning',
       );
+    });
+
+    test('pinning after moving row header keeps semantics and pins the visual first column', async function (assert) {
+      await createReorderableTableWithRowHeader({
+        hasStickyFirstColumn: true,
+      });
+
+      const firstHeaderMenuToggle = find(
+        '.hds-advanced-table__thead .hds-advanced-table__th .hds-dropdown-toggle-icon',
+      );
+
+      if (firstHeaderMenuToggle) {
+        await click(firstHeaderMenuToggle);
+        await click('[data-test-context-option-key="pin-first-column"]');
+
+        await click(firstHeaderMenuToggle);
+        await click('[data-test-context-option-key="move-column-to-end"]');
+      }
+
+      const newFirstHeaderMenuToggle = find(
+        '.hds-advanced-table__thead .hds-advanced-table__th:first-child .hds-dropdown-toggle-icon',
+      );
+
+      if (newFirstHeaderMenuToggle) {
+        await click(newFirstHeaderMenuToggle);
+        await click('[data-test-context-option-key="pin-first-column"]');
+      }
+
+      const scrollContainer = find('.hds-advanced-table');
+
+      if (scrollContainer) {
+        scrollContainer.scrollLeft = 100;
+        await triggerEvent(scrollContainer, 'scroll');
+      }
+
+      assert
+        .dom('.hds-advanced-table')
+        .hasClass(
+          'hds-advanced-table--sticky-first-column-pinned',
+          'Sticky first column is pinned after horizontal scroll',
+        );
+
+      const firstBodyCell = findAll('.hds-advanced-table__tbody .hds-advanced-table__td')[0];
+      const movedRowHeaderCell = findAll(
+        '.hds-advanced-table__tbody [role="rowheader"]',
+      )[0];
+
+      assert.ok(firstBodyCell, 'The first body cell exists');
+      assert.ok(movedRowHeaderCell, 'The moved row header cell exists');
+
+      assert
+        .dom(firstBodyCell as Element)
+        .hasClass('hds-advanced-table__td', 'Visual first body column remains a data cell');
+
+      assert.strictEqual(
+        window.getComputedStyle(firstBodyCell as Element).position,
+        'sticky',
+        'Visual first body cell is sticky',
+      );
+
+      assert
+        .dom(movedRowHeaderCell as Element)
+        .hasAttribute('role', 'rowheader', 'Moved row header keeps rowheader semantics');
     });
 
     test('column reordering works when columns are added and removed dynamically', async function (assert) {

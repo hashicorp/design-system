@@ -568,6 +568,14 @@ export default class HdsAdvancedTable<
       classes.push(`hds-advanced-table--nested`);
     }
 
+    if (this.hasStickyFirstColumn) {
+      classes.push('hds-advanced-table--has-sticky-first-column');
+    }
+
+    if (this.hasStickyFirstColumn && this.isStickyColumnPinned) {
+      classes.push('hds-advanced-table--sticky-first-column-pinned');
+    }
+
     return classes.join(' ');
   }
 
