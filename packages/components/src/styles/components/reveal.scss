@@ -31,17 +31,17 @@
     background-color: var(--token-reveal-surface-color-hover);
   }
 
-  &:active,
-  &.mock-active {
-    color: var(--token-reveal-foreground-color-active);
-    background-color: var(--token-reveal-surface-color-active);
-  }
-
   &:focus,
   &.mock-focus {
     // The focus state color is the same as the default's
     color: var(--token-reveal-foreground-color-default);
     background-color: var(--token-reveal-surface-color-focus);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-reveal-foreground-color-active);
+    background-color: var(--token-reveal-surface-color-active);
   }
 
   .hds-icon-chevron-down {

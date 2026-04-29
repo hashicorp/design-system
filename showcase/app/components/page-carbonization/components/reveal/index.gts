@@ -18,7 +18,7 @@ import {
   HdsRevealToggleButton,
 } from '@hashicorp/design-system-components/components';
 
-const STATES = ['default', 'hover', 'active', 'focus'];
+const STATES = ['default', 'hover', 'focus', 'active'];
 
 const RevealCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Reveal - Carbonization"}}
@@ -34,6 +34,9 @@ const RevealCarbonizationIndex: TemplateOnlyComponent = <template>
           <ShwPlaceholder @text="generic content" @height="40" @width="200" />
         </HdsReveal>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider />
@@ -51,6 +54,9 @@ const RevealCarbonizationIndex: TemplateOnlyComponent = <template>
             mock-state-value={{state}}
           />
         </:theming>
+        <:reference as |R|>
+          <R.NoEquivalent @isCompact={{true}} />
+        </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
   </section>
