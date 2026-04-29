@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/copy/snippet-->
-`CopySnippet` - translated string for button aria-label
+`CopySnippet` - Translated `aria-label` string for button.
 <!-- END -->

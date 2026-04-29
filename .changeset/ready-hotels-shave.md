@@ -3,7 +3,5 @@
 ---
 
 <!-- START components/table/advanced-table -->
-
-`AdvancedTable` - Converted keyboard navigation functionality from custom modifiers to the `HdsComposite` utility component.
-
+`AdvancedTable` - Replaced custom keyboard navigation modifiers with the `Composite` utility component.
 <!-- END -->
