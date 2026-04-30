@@ -681,7 +681,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
         assert
           .dom('[data-test-context-option-key="move-column-to-start"]')
-          .exists('Columns after the first non-sticky column expose move-to-start');
+          .exists(
+            'Columns after the first non-sticky column expose move-to-start',
+          );
 
         await click('[data-test-context-option-key="move-column-to-start"]');
       }
