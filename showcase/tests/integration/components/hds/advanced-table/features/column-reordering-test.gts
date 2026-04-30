@@ -724,7 +724,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         await click(firstAfterUnpinToggle);
         assert
           .dom('[data-test-context-option-key="move-column-to-start"]')
-          .doesNotExist('First column does not expose move-to-start after unpinning');
+          .doesNotExist(
+            'First column does not expose move-to-start after unpinning',
+          );
       }
 
       const secondAfterUnpinToggle = updatedThElements[1]?.querySelector(
