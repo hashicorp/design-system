@@ -178,41 +178,6 @@ const createReorderableTable = async (options: {
   );
 };
 
-const createReorderableTableWithRowHeader = async (options: {
-  hasStickyFirstColumn?: boolean;
-}) => {
-  const columns = [
-    { key: 'artist', label: 'Artist', width: '260px' },
-    { key: 'album', label: 'Album', width: '260px' },
-    { key: 'year', label: 'Year', width: '260px' },
-  ];
-
-  await render(
-    <template>
-      <HdsAdvancedTable
-        id="data-test-advanced-table"
-        style="width: 420px;"
-        @model={{DEFAULT_REORDERABLE_MODEL}}
-        @columns={{columns}}
-        @hasReorderableColumns={{true}}
-        @hasStickyFirstColumn={{options.hasStickyFirstColumn}}
-      >
-        <:body as |B|>
-          <B.Tr>
-            {{#each B.orderedCells as |C|}}
-              {{#if (eq C.columnKey "artist")}}
-                <B.Th @scope="row">{{get B.data C.columnKey}}</B.Th>
-              {{else}}
-                <B.Td>{{get B.data C.columnKey}}</B.Td>
-              {{/if}}
-            {{/each}}
-          </B.Tr>
-        </:body>
-      </HdsAdvancedTable>
-    </template>,
-  );
-};
-
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -689,7 +654,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     });
 
     test('pinning after moving row header pins the visual first column', async function (assert) {
-      await createReorderableTableWithRowHeader({
+      await createReorderableTable({
         hasStickyFirstColumn: true,
       });
 
