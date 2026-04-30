@@ -8000,6 +8000,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-reveal {
   width: fit-content;
 }
@@ -8007,6 +8011,26 @@ button.hds-button[href]::after {
 .hds-reveal__toggle-button {
   min-height: 1.75rem;
   padding: 0.313rem 0.313rem 0.313rem 0.188rem;
+  color: var(--token-reveal-foreground-color-default);
+}
+.hds-theme-light .hds-reveal__toggle-button,
+.hds-theme-dark .hds-reveal__toggle-button,
+.hds-theme-system .hds-reveal__toggle-button {
+  gap: 6px;
+  border-color: transparent;
+}
+
+.hds-reveal__toggle-button:hover, .hds-reveal__toggle-button.mock-hover {
+  color: var(--token-reveal-foreground-color-hover);
+  background-color: var(--token-reveal-surface-color-hover);
+}
+.hds-reveal__toggle-button:focus, .hds-reveal__toggle-button.mock-focus {
+  color: var(--token-reveal-foreground-color-default);
+  background-color: var(--token-reveal-surface-color-focus);
+}
+.hds-reveal__toggle-button:active, .hds-reveal__toggle-button.mock-active {
+  color: var(--token-reveal-foreground-color-active);
+  background-color: var(--token-reveal-surface-color-active);
 }
 @media (prefers-reduced-motion: no-preference) {
   .hds-reveal__toggle-button .hds-icon-chevron-down {
