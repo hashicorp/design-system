@@ -5,7 +5,6 @@
 
 import { module, test } from 'qunit';
 import { get } from '@ember/helper';
-import { eq } from 'ember-truth-helpers';
 import {
   click,
   find,
