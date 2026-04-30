@@ -293,7 +293,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       assert.dom('.hds-advanced-table__th').exists({ count: 3 });
     });
 
-    test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument when also selectable', async function (assert) {
+    test('it should apply sticky-first classes correctly when selectable (header class-based, body position-based)', async function (assert) {
       await createSelectableTable({
         hasStickyFirstColumn: true,
       });
@@ -309,6 +309,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--is-selectable)',
         )
         .exists({ count: 1 });
+
+      assert
+        .dom(
+          '.hds-advanced-table__tbody .hds-advanced-table__th:not(.hds-advanced-table__th--is-selectable).hds-advanced-table__th--is-sticky-column',
+        )
+        .doesNotExist();
 
       assert
         .dom('#data-test-selectable-advanced-table .hds-advanced-table')
