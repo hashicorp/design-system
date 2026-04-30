@@ -329,9 +329,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
           </ShwFlex>
         {{/each}}
       </:theming>
-      {{! <:reference as |R|>
+      <:reference>
         <pre>TODO: static image here</pre>
-      </:reference> }}
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwTextH4>Icon/image Toggle states</ShwTextH4>
@@ -398,9 +398,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
           </ShwFlex>
         {{/each}}
       </:theming>
-      {{! <:reference as |R|>
+      <:reference>
         <pre>TODO: static image here</pre>
-      </:reference> }}
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
