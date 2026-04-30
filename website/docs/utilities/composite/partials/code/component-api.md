@@ -3,13 +3,13 @@
 ### Composite
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[C].composite>" @type="yielded modifier">
+  <C.Property @name="[C].composite" @type="yielded modifier">
     The `composite` modifier yielded as a contextual modifier (see below).
   </C.Property>
-  <C.Property @name="<[C].group>" @type="yielded modifier">
+  <C.Property @name="[C].group" @type="yielded modifier">
     The `group` modifier yielded as a contextual modifier (see below).
   </C.Property>
-  <C.Property @name="<[C].item>" @type="yielded modifier">
+  <C.Property @name="[C].item" @type="yielded modifier">
     The `item` modifier yielded as a contextual modifier (see below).
   </C.Property>
   <C.Property @name="defaultCurrentId" @type="string | null">
@@ -36,7 +36,7 @@ The container modifier, yielded contextually.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="element" @type="HTMLElement">
-    The element this modifier is applied to becomes the root controller. It attaches the core keyboard event listeners (`keydown`) and manages the roaming `tabindex` across its registered descendants.
+    The element this modifier is applied to becomes the root controller. It attaches the core keyboard event listeners (`keydown`) and manages the roving `tabindex` across its registered descendants.
   </C.Property>
 </Doc::ComponentApi>
 

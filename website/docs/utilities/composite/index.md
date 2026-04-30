@@ -1,9 +1,9 @@
 ---
 title: Composite
 description: >-
-  An internal utility component used to manage 1D and 2D keyboard navigation and roaming focus for a collection of items.
+  An internal utility component used to manage 1D and 2D keyboard navigation and roving focus for a collection of items.
 caption: >-
-  An internal utility component used to manage 1D and 2D keyboard navigation and roaming focus for a collection of items.
+  An internal utility component used to manage 1D and 2D keyboard navigation and roving focus for a collection of items.
 related:
   - components/table/advanced-table
   - components/table/tabs
@@ -23,4 +23,3 @@ navigation:
 <section data-tab="Version history">
   @include "partials/version-history/version-history.md"
 </section>
-
