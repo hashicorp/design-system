@@ -15,13 +15,13 @@
   <C.Property @name="defaultCurrentId" @type="string | null">
     The ID of the item that should hold the initial active state (and `tabindex="0"`). If explicitly set to `null`, no item is initially active and the composite container itself receives the focus. If left unset, the component automatically selects the first enabled item.
   </C.Property>
-  <C.Property @name="loop" @type="boolean | string" @default="false">
+  <C.Property @name="loop" @type="boolean | string" @default="false" @values={{array "true" "false" "horizontal" "vertical"}}>
     Controls whether navigation loops back to the beginning (or end) of the current row/column when a boundary is reached. Accepts a boolean to apply to all axes, or a specific axis string (`"horizontal"` or `"vertical"`).
   </C.Property>
   <C.Property @name="orientation" @type="string" @values={{array "horizontal" "vertical"}}>
     Restricts keyboard navigation to a single axis. If set to "vertical", Left/Right arrow keys are ignored. If set to "horizontal", Up/Down arrow keys are ignored. If left undefined, the component enables 2D navigation when groups are present.
   </C.Property>
-  <C.Property @name="wrap" @type="boolean | string" @default="false">
+  <C.Property @name="wrap" @type="boolean | string" @default="false" @values={{array "true" "false" "horizontal" "vertical"}}>
     Controls whether navigation moves to the beginning of the next row/column when reaching the end of the current one in a 2D grouped context. Accepts a boolean to apply to all axes, or a specific axis string ("horizontal" or "vertical").
   </C.Property>
 </Doc::ComponentApi>

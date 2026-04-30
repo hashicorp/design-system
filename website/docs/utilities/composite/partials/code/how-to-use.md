@@ -51,7 +51,7 @@ If your composite is strictly a horizontal toolbar or a vertical list, you can r
 
 [[code-snippets/composite-orientation execute=false]]
 
-If set to `vertical`, left/right arrow keys will be ignored. If set to horizontal, up/down keys will be ignored.
+If set to `vertical`, left/right arrow keys will be ignored. If set to `horizontal`, up/down keys will be ignored.
 
 ### Looping and Wrapping
 

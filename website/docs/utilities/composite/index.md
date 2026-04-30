@@ -6,7 +6,8 @@ caption: >-
   An internal utility component used to manage 1D and 2D keyboard navigation and roaming focus for a collection of items.
 related:
   - components/table/advanced-table
-previewImage: assets/illustrations/utilities/interactive.jpg
+  - components/table/tabs
+previewImage: assets/illustrations/utilities/composite.jpg
 navigation:
   keywords:
     - grid
@@ -17,10 +18,6 @@ navigation:
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
-</section>
-
-<section data-tab="Accessibility">
-  @include "partials/accessibility/accessibility.md"
 </section>
 
 <section data-tab="Version history">
