@@ -308,7 +308,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         .dom(
           '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--is-selectable)',
         )
-        .exists({ count: 4 });
+        .exists({ count: 1 });
+
+      assert
+        .dom('#data-test-selectable-advanced-table .hds-advanced-table')
+        .hasClass('hds-advanced-table--has-sticky-first-column');
     });
 
     test('it should show the context menu when the @hasStickyFirstColumn argument is true', async function (assert) {
