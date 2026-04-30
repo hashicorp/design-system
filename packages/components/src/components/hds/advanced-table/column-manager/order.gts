@@ -171,6 +171,19 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     return firstColumn?.key;
   }
 
+  get firstNonStickyColumnIndex(): number {
+    return this.args.hasStickyFirstColumn ? 1 : 0;
+  }
+
+  get firstNonStickyColumnKey():
+    | HdsAdvancedTableNormalizedColumn['key']
+    | undefined {
+    const firstNonStickyColumn =
+      this.orderedColumns[this.firstNonStickyColumnIndex];
+
+    return firstNonStickyColumn?.key;
+  }
+
   get lastColumnKey(): HdsAdvancedTableNormalizedColumn['key'] | undefined {
     const lastColumn = this.orderedColumns[this.orderedColumns.length - 1];
 
@@ -184,15 +197,17 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     let targetColumnKey: HdsAdvancedTableNormalizedColumn['key'];
     let side: HdsAdvancedTableColumnReorderSide;
 
-    const firstColumn = this.orderedColumns[0];
     const lastColumn = this.orderedColumns[this.orderedColumns.length - 1];
 
-    if (firstColumn === undefined || lastColumn === undefined) {
+    if (
+      this.firstNonStickyColumnKey === undefined ||
+      lastColumn === undefined
+    ) {
       return;
     }
 
     if (position === 'start') {
-      targetColumnKey = firstColumn.key!;
+      targetColumnKey = this.firstNonStickyColumnKey;
       side = HdsAdvancedTableColumnReorderSideValues.Left;
     } else {
       targetColumnKey = lastColumn.key!;
@@ -211,7 +226,10 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     const newIndex = oldIndex + step;
 
     // Check if the new position is within the array bounds.
-    if (newIndex < 0 || newIndex >= this.columnOrder.length) {
+    if (
+      newIndex < this.firstNonStickyColumnIndex ||
+      newIndex >= this.columnOrder.length
+    ) {
       return;
     }
 
