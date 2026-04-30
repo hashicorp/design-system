@@ -315,6 +315,12 @@
   --token-pagination-nav-control-typography-font-weight-active: var(--token-typography-font-weight-medium);
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
+  --token-reveal-foreground-color-active: var(--token-button-foreground-color-tertiary-active);
+  --token-reveal-foreground-color-default: var(--token-button-foreground-color-tertiary-default);
+  --token-reveal-foreground-color-hover: var(--token-button-foreground-color-tertiary-hover);
+  --token-reveal-surface-color-active: var(--token-button-surface-color-tertiary-active);
+  --token-reveal-surface-color-focus: var(--token-button-surface-color-tertiary-focus);
+  --token-reveal-surface-color-hover: var(--token-button-surface-color-tertiary-hover);
   --token-rich-tooltip-bubble-arrow-size: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
