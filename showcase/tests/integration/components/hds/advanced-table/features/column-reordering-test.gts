@@ -700,6 +700,45 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('unpinning sticky first column updates move-to-start availability', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
+      });
+
+      const thElements = findAll('.hds-advanced-table__th');
+      const firstContextMenuToggle = thElements[0]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (firstContextMenuToggle) {
+        await click(firstContextMenuToggle);
+        await click('[data-test-context-option-key="pin-first-column"]');
+      }
+
+      const updatedThElements = findAll('.hds-advanced-table__th');
+      const firstAfterUnpinToggle = updatedThElements[0]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (firstAfterUnpinToggle) {
+        await click(firstAfterUnpinToggle);
+        assert
+          .dom('[data-test-context-option-key="move-column-to-start"]')
+          .doesNotExist('First column does not expose move-to-start after unpinning');
+      }
+
+      const secondAfterUnpinToggle = updatedThElements[1]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (secondAfterUnpinToggle) {
+        await click(secondAfterUnpinToggle);
+        assert
+          .dom('[data-test-context-option-key="move-column-to-start"]')
+          .exists('Second column exposes move-to-start after unpinning');
+      }
+    });
+
     test('column reordering works when columns are added and removed dynamically', async function (assert) {
       const artistColumn = { key: 'artist', label: 'Artist' };
       const albumColumn = { key: 'album', label: 'Album' };

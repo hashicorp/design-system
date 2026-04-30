@@ -940,7 +940,7 @@ export default class HdsAdvancedTable<
           @columns={{@columns}}
           @columnOrder={{@columnOrder}}
           @hasReorderableColumns={{@hasReorderableColumns}}
-          @hasStickyFirstColumn={{@hasStickyFirstColumn}}
+          @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
           @isSelectable={{@isSelectable}}
           @onColumnReorder={{this._onColumnReorder}}
           as |CM|
