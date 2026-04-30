@@ -13,6 +13,8 @@
 @use "../mixins/focus-ring" as *;
 @use "../mixins/carbonization" as *;
 
+$hds-dropdown-toggle-button-carbon-gap: 6px;
+
 // DROPDOWN
 
 .hds-dropdown--is-inline {
@@ -139,6 +141,10 @@
       background-color: var(--token-color-surface-strong);
     }
   }
+
+  @include hds-apply-only-if-carbon() {
+    gap: $hds-dropdown-toggle-button-carbon-gap;
+  }
 }
 
 @include hds-button-size-classes("hds-dropdown-toggle-button");
@@ -189,6 +195,10 @@
 .hds-dropdown-toggle-chevron {
   margin-left: auto;
   padding-left: 2px;
+
+  @include hds-apply-only-if-carbon() {
+    padding-left: calc(32px - #{$hds-dropdown-toggle-button-carbon-gap});
+  }
 
   .hds-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
