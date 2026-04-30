@@ -652,6 +652,52 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('move-to-start respects the first non-sticky column when sticky first column is pinned', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
+      });
+
+      const thElements = findAll('.hds-advanced-table__th');
+      const secondContextMenuToggle = thElements[1]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (secondContextMenuToggle) {
+        await click(secondContextMenuToggle);
+
+        assert
+          .dom('[data-test-context-option-key="move-column-to-start"]')
+          .doesNotExist(
+            'The first non-sticky column does not expose move-to-start',
+          );
+      }
+
+      const thirdContextMenuToggle = thElements[2]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (thirdContextMenuToggle) {
+        await click(thirdContextMenuToggle);
+
+        assert
+          .dom('[data-test-context-option-key="move-column-to-start"]')
+          .exists('Columns after the first non-sticky column expose move-to-start');
+
+        await click('[data-test-context-option-key="move-column-to-start"]');
+      }
+
+      const columnOrder = getColumnOrder();
+      assert.deepEqual(
+        columnOrder,
+        [
+          DEFAULT_REORDERABLE_COLUMNS[0]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[2]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[1]?.key,
+        ],
+        'Move-to-start inserts the column into the first non-sticky position',
+      );
+    });
+
     test('column reordering works when columns are added and removed dynamically', async function (assert) {
       const artistColumn = { key: 'artist', label: 'Artist' };
       const albumColumn = { key: 'album', label: 'Album' };

@@ -46,6 +46,9 @@ export interface HdsAdvancedTableColumnManagerSignature {
         columnOrder: HdsAdvancedTableSignature['Args']['columnOrder'];
         draggedColumnKey: HdsAdvancedTableNormalizedColumn['key'] | null;
         firstColumnKey: HdsAdvancedTableNormalizedColumn['key'] | undefined;
+        firstNonStickyColumnKey:
+          | HdsAdvancedTableNormalizedColumn['key']
+          | undefined;
         gridTemplateColumns: string;
         lastColumnKey: HdsAdvancedTableNormalizedColumn['key'] | undefined;
         orderedColumns: HdsAdvancedTableNormalizedColumn[];
@@ -166,6 +169,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
             columnOrder=Order.columnOrder
             draggedColumnKey=Order.draggedColumnKey
             firstColumnKey=Order.firstColumnKey
+            firstNonStickyColumnKey=Order.firstNonStickyColumnKey
             gridTemplateColumns=Width.gridTemplateColumns
             lastColumnKey=Order.lastColumnKey
             orderedColumns=Order.orderedColumns

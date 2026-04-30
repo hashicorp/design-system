@@ -995,6 +995,7 @@ export default class HdsAdvancedTable<
                       @compositeItem={{C.item}}
                       @draggedColumnKey={{CM.draggedColumnKey}}
                       @firstColumnKey={{CM.firstColumnKey}}
+                      @firstNonStickyColumnKey={{CM.firstNonStickyColumnKey}}
                       @hasReorderableColumns={{@hasReorderableColumns}}
                       @hasResizableColumns={{@hasResizableColumns}}
                       @hasSelectableRows={{this.isSelectable}}

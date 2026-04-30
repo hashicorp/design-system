@@ -67,6 +67,7 @@ export interface HdsAdvancedTableThSignature {
     depth?: number;
     draggedColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     firstColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
+    firstNonStickyColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
     hasExpandAllButton?: boolean;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
@@ -182,6 +183,16 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       firstColumnKey !== undefined &&
       column !== undefined &&
       firstColumnKey === column.key
+    );
+  }
+
+  get isFirstNonStickyColumn(): boolean {
+    const { column, firstNonStickyColumnKey } = this.args;
+
+    return (
+      firstNonStickyColumnKey !== undefined &&
+      column !== undefined &&
+      firstNonStickyColumnKey === column.key
     );
   }
 
@@ -500,6 +511,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
               @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
               @isFirstColumn={{this.isFirstColumn}}
+              @isFirstNonStickyColumn={{this.isFirstNonStickyColumn}}
               @isLastColumn={{this.isLastColumn}}
               @isStickyColumn={{@isStickyColumn}}
               @reorderHandleElement={{this._reorderHandleElement}}

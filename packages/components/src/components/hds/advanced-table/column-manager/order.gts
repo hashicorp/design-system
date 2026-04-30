@@ -42,6 +42,7 @@ interface HdsAdvancedTableColumnManagerOrderSignature {
         draggedColumnKey: string | null;
         reorderHoveredColumnKey: string | null;
         firstColumnKey: string | undefined;
+        firstNonStickyColumnKey: string | undefined;
         lastColumnKey: string | undefined;
         syncColumnOrder: ModifierLike<HdsAdvancedTableSyncColumnOrderSignature>;
         moveColumnToDropTarget: (
@@ -344,6 +345,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
         draggedColumnKey=this.draggedColumnKey
         reorderHoveredColumnKey=this.reorderHoveredColumnKey
         firstColumnKey=this.firstColumnKey
+        firstNonStickyColumnKey=this.firstNonStickyColumnKey
         lastColumnKey=this.lastColumnKey
         syncColumnOrder=this.syncColumnOrder
         moveColumnToDropTarget=this.moveColumnToDropTarget
