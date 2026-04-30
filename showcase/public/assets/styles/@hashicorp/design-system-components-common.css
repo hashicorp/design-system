@@ -1439,12 +1439,6 @@
   border-width: 1px;
   border-bottom-style: solid;
 }
-.hds-mode-cds-g0 .hds-alert--type-page,
-.hds-mode-cds-g10 .hds-alert--type-page,
-.hds-mode-cds-g90 .hds-alert--type-page,
-.hds-mode-cds-g100 .hds-alert--type-page {
-  border-style: solid;
-}
 .hds-mode-cds-g0 .hds-alert--type-page .hds-alert__dismiss,
 .hds-mode-cds-g10 .hds-alert--type-page .hds-alert__dismiss,
 .hds-mode-cds-g90 .hds-alert--type-page .hds-alert__dismiss,
