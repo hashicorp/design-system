@@ -688,7 +688,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
-    test('pinning after moving row header keeps semantics and pins the visual first column', async function (assert) {
+    test('pinning after moving row header pins the visual first column', async function (assert) {
       await createReorderableTableWithRowHeader({
         hasStickyFirstColumn: true,
       });
@@ -728,17 +728,15 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           'Sticky first column is pinned after horizontal scroll',
         );
 
-      const firstBodyCell = findAll('.hds-advanced-table__tbody .hds-advanced-table__td')[0];
+      const firstBodyCell = findAll(
+        '.hds-advanced-table__tbody .hds-advanced-table__td',
+      )[0];
       const movedRowHeaderCell = findAll(
         '.hds-advanced-table__tbody [role="rowheader"]',
       )[0];
 
       assert.ok(firstBodyCell, 'The first body cell exists');
       assert.ok(movedRowHeaderCell, 'The moved row header cell exists');
-
-      assert
-        .dom(firstBodyCell as Element)
-        .hasClass('hds-advanced-table__td', 'Visual first body column remains a data cell');
 
       assert.strictEqual(
         window.getComputedStyle(firstBodyCell as Element).position,
@@ -748,7 +746,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       assert
         .dom(movedRowHeaderCell as Element)
-        .hasAttribute('role', 'rowheader', 'Moved row header keeps rowheader semantics');
+        .hasAttribute(
+          'role',
+          'rowheader',
+          'Moved row header keeps rowheader semantics',
+        );
     });
 
     test('column reordering works when columns are added and removed dynamically', async function (assert) {

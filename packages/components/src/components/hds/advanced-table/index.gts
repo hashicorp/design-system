@@ -208,7 +208,6 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
           | 'depth'
           | 'isExpandable'
           | 'isExpanded'
-          | 'isStickyColumn'
           | 'isStickyColumnPinned'
           | 'newLabel'
           | 'onClickToggle'
@@ -1119,7 +1118,6 @@ export default class HdsAdvancedTable<
                           scope="row"
                           newLabel=row.id
                           parentId=undefined
-                          isStickyColumn=this.hasStickyFirstColumn
                           isStickyColumnPinned=this.isStickyColumnPinned
                         )
                         Td=(component
