@@ -699,24 +699,87 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       mockedScrollLeft = 80;
 
       const firstDropTarget = find('.hds-advanced-table__th-reorder-drop-target');
+      const stickyColumn = find('.hds-advanced-table__th--is-sticky-column');
 
       assert.ok(firstDropTarget, 'A drop target is shown while dragging');
+      assert.ok(stickyColumn, 'The sticky first column exists');
 
-      if (firstDropTarget === null) {
+      if (firstDropTarget === null || stickyColumn === null) {
         return;
       }
 
-      const rect = firstDropTarget.getBoundingClientRect();
+      const dropTargetRect = firstDropTarget.getBoundingClientRect();
+      const stickyRect = stickyColumn.getBoundingClientRect();
 
       await triggerEvent(gridElement, 'dragover', {
-        clientX: rect.left + 1,
-        clientY: rect.top + rect.height / 2,
+        clientX: stickyRect.right - 1,
+        clientY: dropTargetRect.top + dropTargetRect.height / 2,
       });
 
       assert.strictEqual(
         mockedScrollLeft,
         64,
         'The table auto-scrolls left while dragging near the left visible edge',
+      );
+    });
+
+    test('dragging near the right visible edge auto-scrolls right', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
+      });
+
+      const gridElement = find('[role="grid"]') as HTMLDivElement | null;
+
+      assert.ok(gridElement, 'The grid element exists');
+
+      if (gridElement === null) {
+        return;
+      }
+
+      Object.defineProperty(gridElement, 'scrollWidth', {
+        configurable: true,
+        value: 1200,
+      });
+      Object.defineProperty(gridElement, 'clientWidth', {
+        configurable: true,
+        value: 600,
+      });
+
+      let mockedScrollLeft = 80;
+
+      Object.defineProperty(gridElement, 'scrollLeft', {
+        configurable: true,
+        get: () => mockedScrollLeft,
+        set: (value: number) => {
+          mockedScrollLeft = value;
+        },
+      });
+
+      Object.defineProperty(gridElement, 'scrollBy', {
+        configurable: true,
+        value: ({ left = 0 }: { left?: number }) => {
+          mockedScrollLeft += left;
+        },
+      });
+
+      const reorderHandle = find('.hds-advanced-table__th-reorder-handle');
+
+      await startReorderDrag(reorderHandle);
+      await settled();
+
+      mockedScrollLeft = 80;
+
+      const gridRect = gridElement.getBoundingClientRect();
+
+      await triggerEvent(gridElement, 'dragover', {
+        clientX: gridRect.right - 1,
+        clientY: gridRect.top + gridRect.height / 2,
+      });
+
+      assert.strictEqual(
+        mockedScrollLeft,
+        96,
+        'The table auto-scrolls right while dragging near the right visible edge',
       );
     });
 

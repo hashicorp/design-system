@@ -92,6 +92,8 @@ const DEFAULT_SCROLL_DIMENSIONS = {
 
 const REORDER_LEFT_EDGE_SCROLL_TRIGGER_PX = 32;
 const REORDER_LEFT_EDGE_SCROLL_STEP_PX = 16;
+const REORDER_RIGHT_EDGE_SCROLL_TRIGGER_PX = 32;
+const REORDER_RIGHT_EDGE_SCROLL_STEP_PX = 16;
 
 const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
@@ -292,10 +294,29 @@ export default class HdsAdvancedTable<
         return;
       }
 
-      const { left } = firstReorderDropTarget.getBoundingClientRect();
+      const stickyColumnHeaders = element.querySelectorAll(
+        '.hds-advanced-table__th--is-sticky-column'
+      );
+      const lastStickyColumnHeader = stickyColumnHeaders[
+        stickyColumnHeaders.length - 1
+      ] as HTMLDivElement | undefined;
 
-      if (event.clientX <= left + REORDER_LEFT_EDGE_SCROLL_TRIGGER_PX) {
+      const leftVisibleEdge =
+        lastStickyColumnHeader?.getBoundingClientRect().right ??
+        firstReorderDropTarget.getBoundingClientRect().left;
+
+      const leftScrollTrigger =
+        lastStickyColumnHeader !== undefined
+          ? leftVisibleEdge
+          : leftVisibleEdge + REORDER_LEFT_EDGE_SCROLL_TRIGGER_PX;
+
+      const { right } = element.getBoundingClientRect();
+      const rightScrollTrigger = right - REORDER_RIGHT_EDGE_SCROLL_TRIGGER_PX;
+
+      if (event.clientX <= leftScrollTrigger) {
         element.scrollBy({ left: -REORDER_LEFT_EDGE_SCROLL_STEP_PX });
+      } else if (event.clientX >= rightScrollTrigger) {
+        element.scrollBy({ left: REORDER_RIGHT_EDGE_SCROLL_STEP_PX });
       }
     };
 
