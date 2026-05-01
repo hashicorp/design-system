@@ -47,7 +47,7 @@ export interface HdsAccordionSignature {
       {
         Item?: WithBoundArgs<
           typeof HdsAccordionItem,
-          'titleTag' | 'type' | 'forceState'
+          'titleTag' | 'type' | 'forceState' | 'size'
         >;
       },
     ];
@@ -99,11 +99,15 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
     return this.args.type === HdsAccordionTypeValues.Flush;
   }
 
+  get sizeClassName(): HdsAccordionSizes {
+    return this.args.size ?? DEFAULT_SIZE;
+  }
+
   get classNames() {
     const classes = ['hds-accordion'];
 
     // add a class based on the @size argument
-    classes.push(`hds-accordion--size-${this.size}`);
+    classes.push(`hds-accordion--size-${this.sizeClassName}`);
 
     // add a class based on the @type argument
     classes.push(`hds-accordion--type-${this.type}`);
@@ -113,7 +117,7 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
 
   <template>
     <cds-accordion
-      {{!-- class={{this.classNames}} --}}
+      class={{this.classNames}}
       size={{this.size}}
       isflush={{this.isFlush}}
       alignment={{@alignment}}
@@ -127,6 +131,7 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
             titleTag=this.titleTag
             type=this.type
             forceState=@forceState
+            size=this.sizeClassName
           )
         )
       }}

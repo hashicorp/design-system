@@ -57,12 +57,11 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
       {{on "input" this.updateValue}}
     >
       <:label>This is the label text</:label>
-      {{#if @hasHelperText}}
-        <:helperText>This is the helper text</:helperText>
-      {{/if}}
-      {{#if this.isInvalid}}
-        <:error>Maximum number of characters exceeded</:error>
-      {{/if}}
+      <:helperText>{{if @hasHelperText "This is the helper text"}}</:helperText>
+      <:error>{{if
+          this.isInvalid
+          "Maximum number of characters exceeded"
+        }}</:error>
       {{!-- TODO: the new HdsFormTextInputField API renders the character count
         internally via @enableCounter / @maxCount. The custom ":characterCount"
         named block (yielding currentLength / maxLength) is no longer
