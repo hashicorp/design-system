@@ -698,7 +698,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       mockedScrollLeft = 80;
 
-      const firstDropTarget = find('.hds-advanced-table__th-reorder-drop-target');
+      const firstDropTarget = find(
+        '.hds-advanced-table__th-reorder-drop-target',
+      );
       const stickyColumn = find('.hds-advanced-table__th--is-sticky-column');
 
       assert.ok(firstDropTarget, 'A drop target is shown while dragging');
