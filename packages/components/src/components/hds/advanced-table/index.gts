@@ -90,6 +90,9 @@ const DEFAULT_SCROLL_DIMENSIONS = {
   width: '0px',
 };
 
+const REORDER_LEFT_EDGE_SCROLL_TRIGGER_PX = 32;
+const REORDER_LEFT_EDGE_SCROLL_STEP_PX = 16;
+
 const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
@@ -237,6 +240,7 @@ export default class HdsAdvancedTable<
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _scrollHandler!: (event: Event) => void;
+  private _dragOverHandler!: (event: DragEvent) => void;
   private _resizeObserver!: ResizeObserver;
   private _theadElement!: HTMLDivElement;
   private _scrollWrapperElement!: HTMLDivElement;
@@ -271,7 +275,32 @@ export default class HdsAdvancedTable<
       this._updateScrollIndicators(element);
     };
 
+    this._dragOverHandler = (event: DragEvent) => {
+      if (this.args.hasReorderableColumns !== true) {
+        return;
+      }
+
+      if (element.scrollLeft === 0 || element.scrollWidth <= element.clientWidth) {
+        return;
+      }
+
+      const firstReorderDropTarget = element.querySelector(
+        '.hds-advanced-table__th-reorder-drop-target'
+      ) as HTMLDivElement | null;
+
+      if (firstReorderDropTarget === null) {
+        return;
+      }
+
+      const { left } = firstReorderDropTarget.getBoundingClientRect();
+
+      if (event.clientX <= left + REORDER_LEFT_EDGE_SCROLL_TRIGGER_PX) {
+        element.scrollBy({ left: -REORDER_LEFT_EDGE_SCROLL_STEP_PX });
+      }
+    };
+
     element.addEventListener('scroll', this._scrollHandler);
+    element.addEventListener('dragover', this._dragOverHandler);
 
     const updateMeasurements = () => {
       const { isSelectable = false } = this.args;
@@ -345,6 +374,7 @@ export default class HdsAdvancedTable<
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
+      element.removeEventListener('dragover', this._dragOverHandler);
       this._resizeObserver.disconnect();
     };
   });

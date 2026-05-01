@@ -652,6 +652,74 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('dragging near the left visible edge auto-scrolls left when sticky first column is pinned', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
+      });
+
+      const gridElement = find('[role="grid"]') as HTMLDivElement | null;
+
+      assert.ok(gridElement, 'The grid element exists');
+
+      if (gridElement === null) {
+        return;
+      }
+
+      Object.defineProperty(gridElement, 'scrollWidth', {
+        configurable: true,
+        value: 1200,
+      });
+      Object.defineProperty(gridElement, 'clientWidth', {
+        configurable: true,
+        value: 600,
+      });
+
+      let mockedScrollLeft = 80;
+
+      Object.defineProperty(gridElement, 'scrollLeft', {
+        configurable: true,
+        get: () => mockedScrollLeft,
+        set: (value: number) => {
+          mockedScrollLeft = value;
+        },
+      });
+
+      Object.defineProperty(gridElement, 'scrollBy', {
+        configurable: true,
+        value: ({ left = 0 }: { left?: number }) => {
+          mockedScrollLeft += left;
+        },
+      });
+
+      const reorderHandle = find('.hds-advanced-table__th-reorder-handle');
+
+      await startReorderDrag(reorderHandle);
+      await settled();
+
+      mockedScrollLeft = 80;
+
+      const firstDropTarget = find('.hds-advanced-table__th-reorder-drop-target');
+
+      assert.ok(firstDropTarget, 'A drop target is shown while dragging');
+
+      if (firstDropTarget === null) {
+        return;
+      }
+
+      const rect = firstDropTarget.getBoundingClientRect();
+
+      await triggerEvent(gridElement, 'dragover', {
+        clientX: rect.left + 1,
+        clientY: rect.top + rect.height / 2,
+      });
+
+      assert.strictEqual(
+        mockedScrollLeft,
+        64,
+        'The table auto-scrolls left while dragging near the left visible edge',
+      );
+    });
+
     test('move-to-start respects the first non-sticky column when sticky first column is pinned', async function (assert) {
       await createReorderableTable({
         hasStickyFirstColumn: true,
