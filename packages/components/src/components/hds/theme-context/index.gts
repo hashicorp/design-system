@@ -66,4 +66,8 @@ export default class HdsThemeContext extends Component<HdsThemeContextSignature>
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>{{yield}}</div>
+  </template>
 }
