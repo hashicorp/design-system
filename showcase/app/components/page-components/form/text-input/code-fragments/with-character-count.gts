@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
 import type Owner from '@ember/owner';
-import { hash } from '@ember/helper';
 
 import { HdsFormTextInputField } from '@hashicorp/design-system-components/components';
 
@@ -52,13 +51,23 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
   <template>
     <HdsFormTextInputField
       @value={{this.value}}
+      @maxCount={{@maxLength}}
+      @enableCounter={{true}}
+      @isInvalid={{this.isInvalid}}
       {{on "input" this.updateValue}}
-      as |F|
     >
-      <F.Label>This is the label text</F.Label>
+      <:label>This is the label text</:label>
       {{#if @hasHelperText}}
-        <F.HelperText>This is the helper text</F.HelperText>
+        <:helperText>This is the helper text</:helperText>
       {{/if}}
+      {{#if this.isInvalid}}
+        <:error>Maximum number of characters exceeded</:error>
+      {{/if}}
+      {{!-- TODO: the new HdsFormTextInputField API renders the character count
+        internally via @enableCounter / @maxCount. The custom ":characterCount"
+        named block (yielding currentLength / maxLength) is no longer
+        supported. Restore when custom rendering is reintroduced.
+
       {{#if (has-block "characterCount")}}
         <F.CharacterCount @maxLength={{@maxLength}} as |CC|>
           {{yield
@@ -69,9 +78,7 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
       {{else}}
         <F.CharacterCount @maxLength={{@maxLength}} />
       {{/if}}
-      {{#if this.isInvalid}}
-        <F.Error>Maximum numbers of characters exceeded</F.Error>
-      {{/if}}
+      --}}
     </HdsFormTextInputField>
   </template>
 }

@@ -29,19 +29,14 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
   <ShwGrid @columns={{4}} as |SG|>
     {{#each TYPES as |type|}}
       <SG.Item @label={{capitalize type}}>
-        <HdsFormTextInputField @type={{type}} @value={{type}} as |F|>
-          <F.Label>This is the label text</F.Label>
+        <HdsFormTextInputField @type={{type}} @value={{type}}>
+          <:label>This is the label text</:label>
         </HdsFormTextInputField>
       </SG.Item>
     {{/each}}
     <SG.Item @label="Search (loading state)">
-      <HdsFormTextInputField
-        @type="search"
-        @value="search"
-        @isLoading={{true}}
-        as |F|
-      >
-        <F.Label>This is the label text</F.Label>
+      <HdsFormTextInputField @type="search" @value="search" @isLoading={{true}}>
+        <:label>This is the label text</:label>
       </HdsFormTextInputField>
     </SG.Item>
   </ShwGrid>
@@ -52,44 +47,41 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
 
   <ShwGrid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
-      <HdsFormTextInputField @value="Lorem ipsum dolor" as |F|>
-        <F.Label>This is the label text</F.Label>
+      <HdsFormTextInputField @value="Lorem ipsum dolor">
+        <:label>This is the label text</:label>
       </HdsFormTextInputField>
     </SG.Item>
     <SG.Item @label="Label + Helper text">
-      <HdsFormTextInputField @value="Lorem ipsum dolor" as |F|>
-        <F.Label>This is the label text</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
+      <HdsFormTextInputField @value="Lorem ipsum dolor">
+        <:label>This is the label text</:label>
+        <:helperText>This is the helper text</:helperText>
       </HdsFormTextInputField>
     </SG.Item>
     <SG.Item @label="Label + Helper text with link">
-      <HdsFormTextInputField @value="Lorem ipsum dolor" as |F|>
-        <F.Label>This is the label text</F.Label>
-        <F.HelperText>This is the helper text
-          <HdsLinkInline @route="index">with a link</HdsLinkInline></F.HelperText>
+      <HdsFormTextInputField @value="Lorem ipsum dolor">
+        <:label>This is the label text</:label>
+        <:helperText>This is the helper text
+          <HdsLinkInline @route="index">with a link</HdsLinkInline></:helperText>
       </HdsFormTextInputField>
     </SG.Item>
     <SG.Item @label="Label + Error">
-      <HdsFormTextInputField
-        @value="Lorem ipsum dolor"
-        @isInvalid={{true}}
-        as |F|
-      >
-        <F.Label>This is the label</F.Label>
-        <F.Error>This is the error</F.Error>
+      <HdsFormTextInputField @value="Lorem ipsum dolor" @isInvalid={{true}}>
+        <:label>This is the label</:label>
+        <:error>This is the error</:error>
       </HdsFormTextInputField>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Error">
-      <HdsFormTextInputField
-        @value="Lorem ipsum dolor"
-        @isInvalid={{true}}
-        as |F|
-      >
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Error>This is the error</F.Error>
+      <HdsFormTextInputField @value="Lorem ipsum dolor" @isInvalid={{true}}>
+        <:label>This is the label</:label>
+        <:helperText>This is the helper text</:helperText>
+        <:error>This is the error</:error>
       </HdsFormTextInputField>
     </SG.Item>
+    {{!-- TODO: new HdsFormTextInputField API only supports a single ":error"
+      named block. Multiple errors via "<F.Error as |E|><E.Message />" are not
+      currently supported. Restore this demo when multi-message error support is
+      reintroduced.
+
     <SG.Item @label="Label + Helper text + Errors">
       <HdsFormTextInputField
         @value="Lorem ipsum dolor"
@@ -104,6 +96,7 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
         </F.Error>
       </HdsFormTextInputField>
     </SG.Item>
+    --}}
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
@@ -117,6 +110,12 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
         @value="Lorem ipsum dolor"
       />
     </SG.Item>
+    {{!-- TODO: new HdsFormTextInputField API renders the character count
+      internally via @enableCounter and @maxCount args. The custom
+      ":characterCount" block (with currentLength / maxLength yielded values)
+      is no longer supported. Restore this demo when custom character-count
+      rendering is reintroduced.
+
     <SG.Item @label="Label + Helper text + Character count (custom)">
       <CodeFragmentWithCharacterCount
         @maxLength={{40}}
@@ -132,6 +131,7 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
         </:characterCount>
       </CodeFragmentWithCharacterCount>
     </SG.Item>
+    --}}
     <SG.Item @label="Label + Helper text + Character count">
       <CodeFragmentWithCharacterCount
         @maxLength={{20}}
@@ -142,6 +142,9 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
+
+  {{!-- TODO: new HdsFormTextInputField does not currently wire through
+    @isRequired / @isOptional in its template. Restore when supported.
 
   <ShwTextH3>Required and optional</ShwTextH3>
 
@@ -168,28 +171,21 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
+  --}}
 
   <ShwTextH3>States</ShwTextH3>
 
   <ShwGrid @columns={{3}} as |SG|>
     <SG.Item @label="Readonly">
-      <HdsFormTextInputField
-        @value="Lorem ipsum dolor"
-        readonly={{true}}
-        as |F|
-      >
-        <F.Label>This is the label text</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
+      <HdsFormTextInputField @value="Lorem ipsum dolor" readonly={{true}}>
+        <:label>This is the label text</:label>
+        <:helperText>This is the helper text</:helperText>
       </HdsFormTextInputField>
     </SG.Item>
     <SG.Item @label="Disabled">
-      <HdsFormTextInputField
-        @value="Lorem ipsum dolor"
-        disabled={{true}}
-        as |F|
-      >
-        <F.Label>This is the label text</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
+      <HdsFormTextInputField @value="Lorem ipsum dolor" disabled={{true}}>
+        <:label>This is the label text</:label>
+        <:helperText>This is the helper text</:helperText>
       </HdsFormTextInputField>
     </SG.Item>
   </ShwGrid>
@@ -206,9 +202,9 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
             <code>display: {{display}}</code></SGI.Label>
           <ShwFlex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <HdsFormTextInputField @value="Default width" as |F|>
-                <F.Label>This is the label</F.Label>
-                <F.HelperText>This is the helper text</F.HelperText>
+              <HdsFormTextInputField @value="Default width">
+                <:label>This is the label</:label>
+                <:helperText>This is the helper text</:helperText>
               </HdsFormTextInputField>
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
@@ -216,16 +212,13 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
                 @value="Custom width"
                 @width="120px"
                 @isInvalid={{true}}
-                as |F|
               >
-                <F.Label>This is the label text that should go on multiple lines</F.Label>
-                <F.HelperText>This is the helper text that should go on multiple
-                  lines</F.HelperText>
-                <F.Error as |E|>
-                  <E.Message>This is the first error text</E.Message>
-                  <E.Message>This is the second error text that should go on
-                    multiple lines</E.Message>
-                </F.Error>
+                <:label>This is the label text that should go on multiple lines</:label>
+                <:helperText>This is the helper text that should go on multiple
+                  lines</:helperText>
+                <:error>This is the error text</:error>
+                {{! TODO: multi-message <F.Error as |E|><E.Message /> not
+                  supported in the new API. }}
               </HdsFormTextInputField>
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
@@ -234,16 +227,13 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
                 @width="120px"
                 @type="password"
                 @isInvalid={{true}}
-                as |F|
               >
-                <F.Label>Custom width on password input</F.Label>
-                <F.HelperText>This is the helper text that should go on multiple
-                  lines</F.HelperText>
-                <F.Error as |E|>
-                  <E.Message>This is the first error text</E.Message>
-                  <E.Message>This is the second error text that should go on
-                    multiple lines</E.Message>
-                </F.Error>
+                <:label>Custom width on password input</:label>
+                <:helperText>This is the helper text that should go on multiple
+                  lines</:helperText>
+                <:error>This is the error text</:error>
+                {{! TODO: multi-message <F.Error as |E|><E.Message /> not
+                  supported in the new API. }}
               </HdsFormTextInputField>
             </SF.Item>
           </ShwFlex>

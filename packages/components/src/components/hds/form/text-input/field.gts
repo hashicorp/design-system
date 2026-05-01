@@ -5,16 +5,17 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { on } from '@ember/modifier';
-import { hash } from '@ember/helper';
-import style from 'ember-style-modifier';
+import { concat } from '@ember/helper';
+// import { on } from '@ember/modifier';
+// import { hash } from '@ember/helper';
+// import style from 'ember-style-modifier';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
 
-import HdsFormField from '../field/index.gts';
+// import HdsFormField from '../field/index.gts';
 import HdsFormTextInputBase from './base.gts';
-import HdsFormVisibilityToggle from '../visibility-toggle/index.gts';
+// import HdsFormVisibilityToggle from '../visibility-toggle/index.gts';
 import HdsFormCharacterCount from '../character-count/index.gts';
 
 import type { HdsFormFieldSignature } from '../field/index.gts';
@@ -26,6 +27,8 @@ export interface HdsFormTextInputFieldSignature {
     HdsFormTextInputBaseSignature['Args'] & {
       visibilityToggleAriaLabel?: HdsFormVisibilityToggleSignature['Args']['ariaLabel'];
       visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
+      enableCounter?: boolean;
+      maxCount?: number;
     };
   Blocks: {
     default: [
@@ -83,7 +86,34 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
   };
 
   <template>
-    <HdsFormField
+    <HdsFormTextInputBase
+      @type={{this.type}}
+      @value={{@value}}
+      @isInvalid={{@isInvalid}}
+      @isLoading={{@isLoading}}
+      @hasVisibilityToggle={{this.showVisibilityToggle}}
+      required={{@isRequired}}
+      @enableCounter={{@enableCounter}}
+      @maxCount={{@maxCount}}
+      @label={{@label}}
+      @helperText={{@helperText}}
+      ...attributes
+      @id={{@id}}
+      @ariaDescribedBy={{concat @ariaDescribedBy @extraAriaDescribedBy}}
+    >
+      <span slot="label-text">
+        {{yield to="label"}}
+      </span>
+      <span slot="helper-text">
+        {{yield to="helperText"}}
+      </span>
+      <span slot="validity-message">
+        {{yield to="error"}}
+      </span>
+    </HdsFormTextInputBase>
+    {{!-- id={{F.id}} --}}
+    {{!-- aria-describedby={{F.ariaDescribedBy}} --}}
+    {{!-- <HdsFormField
       @layout="vertical"
       @extraAriaDescribedBy={{@extraAriaDescribedBy}}
       @isRequired={{@isRequired}}
@@ -122,7 +152,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
             />
           {{/if}}
         </div>
-      </F.Control>
-    </HdsFormField>
+      </F.Control> --}}
+    {{! </HdsFormField> }}
   </template>
 }

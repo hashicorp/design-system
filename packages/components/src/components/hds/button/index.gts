@@ -12,7 +12,6 @@ import {
 
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
-// TEST
 
 import {
   HdsButtonSizeValues,
