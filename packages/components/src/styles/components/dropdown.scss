@@ -17,6 +17,16 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
 // DROPDOWN
 
+.hds-dropdown {
+  .hds-dropdown__content {
+    display: none;
+
+    &[popover]:popover-open {
+      display: flex;
+    }
+  }
+}
+
 .hds-dropdown--is-inline {
   display: inline-block;
 
@@ -214,9 +224,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   }
 }
 
-// LIST
-// UL ELEMENT
-// GOES INSIDE HDS::PopoverPrimitive's popover element
+// CONTENT
 
 .hds-dropdown__content {
   position: relative;
@@ -252,20 +260,14 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   }
 }
 
-.hds-dropdown {
-  .hds-dropdown__content {
-    display: none;
-
-    &[popover]:popover-open {
-      display: flex;
-    }
-  }
-}
-
 .hds-dropdown__content--fixed-width {
   min-width: initial;
   max-width: initial;
 }
+
+// LIST
+// UL ELEMENT
+// GOES INSIDE CONTENT & HDS::PopoverPrimitive's popover element
 
 .hds-dropdown__list {
   flex: 1 1 auto;
@@ -279,6 +281,8 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
     padding: 0;
   }
 }
+
+// HEADER & FOOTER
 
 .hds-dropdown__header,
 .hds-dropdown__footer {
@@ -322,7 +326,6 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
 .hds-dropdown-list-item {
   // Interactive list items
-
   @include hds-apply-only-if-carbon() {
     button,
     a,
@@ -331,7 +334,8 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
       &.mock-focus,
       &:active,
       &.mock-active {
-        color: var(--token-color-foreground-secondary);
+        // TODO: Refactor how/where color styles are applied. Make use of tokens vs. hds-apply-only-if-carbon mixin
+        color: var(--token-dropdown-list-item-foreground-color-action-default);
       }
 
       &:hover,

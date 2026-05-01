@@ -16,6 +16,23 @@
       }
     },
     "list-item": {
+      "foreground": {
+        "color": {
+          "action": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.foreground.primary}",
+              "$modes": {
+                "default": "{color.foreground.primary}",
+                "cds-g0": "{carbon.themes.white.textSecondary}",
+                "cds-g10": "{carbon.themes.g10.textSecondary}",
+                "cds-g90": "{carbon.themes.g90.textSecondary}",
+                "cds-g100": "{carbon.themes.g100.textSecondary}"
+              }
+            }
+          }
+        }
+      },
       "surface": {
         "color": {
           "hover": {
