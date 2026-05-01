@@ -332,7 +332,7 @@ export { default as HdsTextDisplay } from './components/hds/text/display.gts';
 export * from './components/hds/text/types.ts';
 
 // Theme Context
-export { default as HdsThemeContext } from './components/hds/theme-context/index.ts';
+export { default as HdsThemeContext } from './components/hds/theme-context/index.gts';
 
 // Theme Switcher
 export { default as HdsThemeSwitcher } from './components/hds/theme-switcher/index.ts';
