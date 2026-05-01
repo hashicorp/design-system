@@ -408,6 +408,59 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
+    <ShwTextH3>All List Item component types</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive>
+                  List Item Interactive
+                </HdsDropdownListItemInteractive>
+
+                <HdsDropdownListItemSeparator />
+
+                <HdsDropdownListItemCheckmark @selected={{true}}>
+                  List Item Checkmark
+                </HdsDropdownListItemCheckmark>
+
+                <HdsDropdownListItemSeparator />
+
+                <HdsDropdownListItemCheckbox>
+                  List Item Checkbox
+                </HdsDropdownListItemCheckbox>
+
+                <HdsDropdownListItemSeparator />
+
+                <HdsDropdownListItemRadio>
+                  List Item Radio
+                </HdsDropdownListItemRadio>
+
+                <HdsDropdownListItemSeparator />
+
+                <HdsDropdownListItemCopyItem @text="List Item Copy Item" />
+
+                <HdsDropdownListItemSeparator />
+
+                <HdsDropdownListItemGeneric>
+                  <span
+                    class="hds-text hds-typography-body-200 hds-font-weight-medium hds-dropdown-list-item__interactive-text"
+                  >
+                    List Item Generic
+                  </span>
+                </HdsDropdownListItemGeneric>
+              </ul>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
     <ShwTextH3>List Item Interactive states</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid
