@@ -90,10 +90,8 @@ const DEFAULT_SCROLL_DIMENSIONS = {
   width: '0px',
 };
 
-const REORDER_LEFT_EDGE_SCROLL_TRIGGER_PX = 32;
-const REORDER_LEFT_EDGE_SCROLL_STEP_PX = 16;
-const REORDER_RIGHT_EDGE_SCROLL_TRIGGER_PX = 32;
-const REORDER_RIGHT_EDGE_SCROLL_STEP_PX = 16;
+const REORDER_EDGE_SCROLL_TRIGGER_PX = 48;
+const REORDER_EDGE_SCROLL_STEP_PX = 16;
 
 const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
@@ -282,7 +280,9 @@ export default class HdsAdvancedTable<
         return;
       }
 
-      if (element.scrollLeft === 0 || element.scrollWidth <= element.clientWidth) {
+      const canScrollHorizontally = element.scrollWidth > element.clientWidth;
+
+      if (!canScrollHorizontally) {
         return;
       }
 
@@ -308,15 +308,15 @@ export default class HdsAdvancedTable<
       const leftScrollTrigger =
         lastStickyColumnHeader !== undefined
           ? leftVisibleEdge
-          : leftVisibleEdge + REORDER_LEFT_EDGE_SCROLL_TRIGGER_PX;
+          : leftVisibleEdge + REORDER_EDGE_SCROLL_TRIGGER_PX;
 
       const { right } = element.getBoundingClientRect();
-      const rightScrollTrigger = right - REORDER_RIGHT_EDGE_SCROLL_TRIGGER_PX;
+      const rightScrollTrigger = right - REORDER_EDGE_SCROLL_TRIGGER_PX;
 
       if (event.clientX <= leftScrollTrigger) {
-        element.scrollBy({ left: -REORDER_LEFT_EDGE_SCROLL_STEP_PX });
+        element.scrollBy({ left: -REORDER_EDGE_SCROLL_STEP_PX });
       } else if (event.clientX >= rightScrollTrigger) {
-        element.scrollBy({ left: REORDER_RIGHT_EDGE_SCROLL_STEP_PX });
+        element.scrollBy({ left: REORDER_EDGE_SCROLL_STEP_PX });
       }
     };
 
