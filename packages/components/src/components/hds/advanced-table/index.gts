@@ -288,7 +288,7 @@ export default class HdsAdvancedTable<
 
       const firstReorderDropTarget = element.querySelector(
         '.hds-advanced-table__th-reorder-drop-target'
-      ) as HTMLDivElement | null;
+      );
 
       if (firstReorderDropTarget === null) {
         return;
