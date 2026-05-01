@@ -9,11 +9,14 @@
 
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import { action } from '@ember/object';
+import { fn } from '@ember/helper';
+import { on } from '@ember/modifier';
 
-import type { HdsDropdownSignature } from '../dropdown/index.ts';
-import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
-import type { HdsIconSignature } from '../icon/index.ts';
+import HdsDropdown from '../dropdown/index.gts';
+
+import type { HdsDropdownSignature } from '../dropdown/index.gts';
+import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.gts';
+import type { HdsIconSignature } from '../icon/index.gts';
 import type HdsThemingService from '../../../services/hds-theming.ts';
 import type {
   HdsThemes,
@@ -100,9 +103,37 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
     return this.hdsTheming.currentTheme;
   }
 
-  @action
-  onSelectTheme(theme: HdsThemes | undefined): void {
+  onSelectTheme = (theme: HdsThemes | undefined): void => {
     // we set the theme in the global service (and provide an optional user-defined callback)
     this.hdsTheming.setTheme({ theme, onSetTheme: this.args.onSetTheme });
-  }
+  };
+
+  <template>
+    {{!
+      ------------------------------------------------------------------------------------------
+      IMPORTANT: this is a temporary implementation, while we wait for the design specifications
+      ------------------------------------------------------------------------------------------
+    }}
+    <HdsDropdown
+      @enableCollisionDetection={{true}}
+      @matchToggleWidth={{@toggleIsFullWidth}}
+      class="hds-theme-switcher-control"
+      ...attributes
+      as |D|
+    >
+      <D.ToggleButton
+        @color="secondary"
+        @size={{this.toggleSize}}
+        @isFullWidth={{this.toggleIsFullWidth}}
+        @text={{this.toggleContent.label}}
+        @icon={{this.toggleContent.icon}}
+      />
+      {{#each-in this._options as |_key data|}}
+        <D.Interactive
+          @icon={{data.icon}}
+          {{on "click" (fn this.onSelectTheme data.theme)}}
+        >{{data.label}}</D.Interactive>
+      {{/each-in}}
+    </HdsDropdown>
+  </template>
 }
