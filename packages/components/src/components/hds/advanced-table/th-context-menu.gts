@@ -35,6 +35,7 @@ export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableNormalizedColumn;
     isFirstColumn: boolean;
+    isFirstNonStickyColumn: boolean;
     isLastColumn: boolean;
     hasResizableColumns?: boolean;
     hasReorderableColumns?: boolean;
@@ -100,7 +101,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   get _reorderOptions(): HdsAdvancedTableThContextMenuOption[] {
-    const { isFirstColumn, isLastColumn } = this.args;
+    const { isFirstNonStickyColumn, isLastColumn } = this.args;
 
     const translatedMoveColumnLabel = this.hdsIntl.t(
       'hds.advanced-table.th-context-menu.move-column',
@@ -116,7 +117,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       },
     ];
 
-    if (!isFirstColumn) {
+    if (!isFirstNonStickyColumn) {
       const translatedMoveColumnToStartLabel = this.hdsIntl.t(
         'hds.advanced-table.th-context-menu.move-column-to-start',
         { default: 'Move column to start' }
@@ -187,16 +188,11 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       allGroups = [...allGroups, this._resizeOptions];
     }
 
-    if (hasReorderableColumns && isStickyColumn === undefined) {
+    if (hasReorderableColumns && isStickyColumn !== true) {
       allGroups = [...allGroups, this._reorderOptions];
     }
 
-    // we don't allow pinning/unpinning of the sticky column if columns are reorderable
-    if (
-      isStickyColumn !== undefined &&
-      isFirstColumn &&
-      !hasReorderableColumns
-    ) {
+    if (isFirstColumn && isStickyColumn !== undefined) {
       allGroups = [...allGroups, this._stickyColumnOptions];
     }
 

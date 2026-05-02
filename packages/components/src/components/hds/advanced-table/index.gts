@@ -90,6 +90,9 @@ const DEFAULT_SCROLL_DIMENSIONS = {
   width: '0px',
 };
 
+const REORDER_EDGE_SCROLL_TRIGGER_PX = 48;
+const REORDER_EDGE_SCROLL_STEP_PX = 16;
+
 const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
@@ -208,7 +211,6 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
           | 'depth'
           | 'isExpandable'
           | 'isExpanded'
-          | 'isStickyColumn'
           | 'isStickyColumnPinned'
           | 'newLabel'
           | 'onClickToggle'
@@ -238,6 +240,7 @@ export default class HdsAdvancedTable<
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _scrollHandler!: (event: Event) => void;
+  private _dragOverHandler!: (event: DragEvent) => void;
   private _resizeObserver!: ResizeObserver;
   private _theadElement!: HTMLDivElement;
   private _scrollWrapperElement!: HTMLDivElement;
@@ -272,7 +275,53 @@ export default class HdsAdvancedTable<
       this._updateScrollIndicators(element);
     };
 
+    this._dragOverHandler = (event: DragEvent) => {
+      if (this.args.hasReorderableColumns !== true) {
+        return;
+      }
+
+      const canScrollHorizontally = element.scrollWidth > element.clientWidth;
+
+      if (!canScrollHorizontally) {
+        return;
+      }
+
+      const firstReorderDropTarget = element.querySelector(
+        '.hds-advanced-table__th-reorder-drop-target'
+      );
+
+      if (firstReorderDropTarget === null) {
+        return;
+      }
+
+      const stickyColumnHeaders = element.querySelectorAll(
+        '.hds-advanced-table__th--is-sticky-column'
+      );
+      const lastStickyColumnHeader = stickyColumnHeaders[
+        stickyColumnHeaders.length - 1
+      ] as HTMLDivElement | undefined;
+
+      const leftVisibleEdge =
+        lastStickyColumnHeader?.getBoundingClientRect().right ??
+        firstReorderDropTarget.getBoundingClientRect().left;
+
+      const leftScrollTrigger =
+        lastStickyColumnHeader !== undefined
+          ? leftVisibleEdge
+          : leftVisibleEdge + REORDER_EDGE_SCROLL_TRIGGER_PX;
+
+      const { right } = element.getBoundingClientRect();
+      const rightScrollTrigger = right - REORDER_EDGE_SCROLL_TRIGGER_PX;
+
+      if (event.clientX <= leftScrollTrigger) {
+        element.scrollBy({ left: -REORDER_EDGE_SCROLL_STEP_PX });
+      } else if (event.clientX >= rightScrollTrigger) {
+        element.scrollBy({ left: REORDER_EDGE_SCROLL_STEP_PX });
+      }
+    };
+
     element.addEventListener('scroll', this._scrollHandler);
+    element.addEventListener('dragover', this._dragOverHandler);
 
     const updateMeasurements = () => {
       const { isSelectable = false } = this.args;
@@ -346,6 +395,7 @@ export default class HdsAdvancedTable<
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
+      element.removeEventListener('dragover', this._dragOverHandler);
       this._resizeObserver.disconnect();
     };
   });
@@ -568,6 +618,14 @@ export default class HdsAdvancedTable<
       classes.push(`hds-advanced-table--nested`);
     }
 
+    if (this.hasStickyFirstColumn) {
+      classes.push('hds-advanced-table--has-sticky-first-column');
+    }
+
+    if (this.hasStickyFirstColumn && this.isStickyColumnPinned) {
+      classes.push('hds-advanced-table--sticky-first-column-pinned');
+    }
+
     return classes.join(' ');
   }
 
@@ -649,13 +707,6 @@ export default class HdsAdvancedTable<
       assert(
         `Cannot have resizable columns if there are nested rows.`,
         !hasResizableColumns
-      );
-    }
-
-    if (hasReorderableColumns) {
-      assert(
-        'Cannot have both reorderable columns and a sticky first column.',
-        hasStickyFirstColumn === undefined
       );
     }
   }
@@ -940,7 +991,7 @@ export default class HdsAdvancedTable<
           @columns={{@columns}}
           @columnOrder={{@columnOrder}}
           @hasReorderableColumns={{@hasReorderableColumns}}
-          @hasStickyFirstColumn={{@hasStickyFirstColumn}}
+          @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
           @isSelectable={{@isSelectable}}
           @onColumnReorder={{this._onColumnReorder}}
           as |CM|
@@ -995,6 +1046,7 @@ export default class HdsAdvancedTable<
                       @compositeItem={{C.item}}
                       @draggedColumnKey={{CM.draggedColumnKey}}
                       @firstColumnKey={{CM.firstColumnKey}}
+                      @firstNonStickyColumnKey={{CM.firstNonStickyColumnKey}}
                       @hasReorderableColumns={{@hasReorderableColumns}}
                       @hasResizableColumns={{@hasResizableColumns}}
                       @hasSelectableRows={{this.isSelectable}}
@@ -1118,7 +1170,6 @@ export default class HdsAdvancedTable<
                           scope="row"
                           newLabel=row.id
                           parentId=undefined
-                          isStickyColumn=this.hasStickyFirstColumn
                           isStickyColumnPinned=this.isStickyColumnPinned
                         )
                         Td=(component

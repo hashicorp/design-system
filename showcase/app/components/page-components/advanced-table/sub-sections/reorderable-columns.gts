@@ -6,6 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash, get } from '@ember/helper';
 import { eq, or } from 'ember-truth-helpers';
 import { formatDate } from 'ember-intl';
+import style from 'ember-style-modifier';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -123,6 +124,66 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
     @model={{MUSIC}}
     @columns={{SORTABLE_COLUMNS}}
     @hasReorderableColumns={{true}}
+  >
+    <:body as |B|>
+      <B.Tr as |R|>
+        {{#each R.orderedCells as |C|}}
+          {{#if (eq C.columnKey "artist")}}
+            <B.Th @scope="row"><HdsLinkInline @href="#showcase">
+                {{B.data.artist}}
+              </HdsLinkInline></B.Th>
+          {{else}}
+            <B.Td>
+              {{#if (eq C.columnKey "album")}}
+                <div class="shw-component-advanced-table-cell-content-div">
+                  <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
+                  {{B.data.album}}
+                </div>
+              {{else if (eq C.columnKey "year")}}
+                <HdsBadge
+                  @text={{B.data.year}}
+                  @type="outlined"
+                  @color={{B.data.badge-color}}
+                />
+              {{else}}
+                <HdsButtonSet>
+                  <HdsButton
+                    @text="Add"
+                    @isIconOnly={{true}}
+                    @icon="plus"
+                    @size="small"
+                  />
+                  <HdsButton
+                    @text="Edit"
+                    @isIconOnly={{true}}
+                    @icon="edit"
+                    @size="small"
+                    @color="secondary"
+                  />
+                  <HdsButton
+                    @text="Delete"
+                    @isIconOnly={{true}}
+                    @icon="trash"
+                    @size="small"
+                    @color="critical"
+                  />
+                </HdsButtonSet>
+              {{/if}}
+            </B.Td>
+          {{/if}}
+        {{/each}}
+      </B.Tr>
+    </:body>
+  </HdsAdvancedTable>
+
+  <ShwTextH4 @tag="h3">Reorderable columns with pinnable first column</ShwTextH4>
+
+  <HdsAdvancedTable
+    @model={{MUSIC}}
+    @columns={{SORTABLE_COLUMNS}}
+    @hasReorderableColumns={{true}}
+    @hasStickyFirstColumn={{true}}
+    {{style max-width="700px"}}
   >
     <:body as |B|>
       <B.Tr as |R|>

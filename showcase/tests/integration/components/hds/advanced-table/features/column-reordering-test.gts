@@ -12,7 +12,6 @@ import {
   focus,
   render,
   settled,
-  setupOnerror,
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
@@ -610,21 +609,269 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
-    test('it throws an assertion if @hasStickyFirstColumn is true and @hasReorderableColumns is true', async function (assert) {
-      const errorMessage =
-        'Cannot have both reorderable columns and a sticky first column.';
-
-      setupOnerror(function (error) {
-        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-      });
-
+    test('column reordering works when @hasStickyFirstColumn is true', async function (assert) {
       await createReorderableTable({
         hasStickyFirstColumn: true,
       });
 
-      assert.throws(function () {
-        throw new Error(errorMessage);
+      assert
+        .dom('.hds-advanced-table__th--is-sticky-column')
+        .exists({ count: 1 }, 'The first column is sticky');
+      assert
+        .dom('.hds-advanced-table__th-reorder-handle')
+        .exists({ count: 2 }, 'Only non-sticky columns render reorder handles');
+
+      const thElements = findAll('.hds-advanced-table__th');
+      const firstContextMenuToggle = thElements[0]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (firstContextMenuToggle) {
+        await click(firstContextMenuToggle);
+        assert
+          .dom('[data-test-context-option-key="move-column-to-end"]')
+          .doesNotExist('Sticky first column cannot be moved while pinned');
+        await click('[data-test-context-option-key="pin-first-column"]');
+
+        await click(firstContextMenuToggle);
+        assert
+          .dom('[data-test-context-option-key="move-column-to-end"]')
+          .exists('Move to end is available after unpinning the first column');
+        await click('[data-test-context-option-key="move-column-to-end"]');
+      }
+
+      const columnOrder = getColumnOrder();
+      assert.deepEqual(
+        columnOrder,
+        [
+          DEFAULT_REORDERABLE_COLUMNS[1]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[2]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[0]?.key,
+        ],
+        'First column can be moved after unpinning',
+      );
+    });
+
+    test('dragging near the left visible edge auto-scrolls left when sticky first column is pinned', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
       });
+
+      const gridElement = find('[role="grid"]') as HTMLDivElement | null;
+
+      assert.ok(gridElement, 'The grid element exists');
+
+      if (gridElement === null) {
+        return;
+      }
+
+      Object.defineProperty(gridElement, 'scrollWidth', {
+        configurable: true,
+        value: 1200,
+      });
+      Object.defineProperty(gridElement, 'clientWidth', {
+        configurable: true,
+        value: 600,
+      });
+
+      let mockedScrollLeft = 80;
+
+      Object.defineProperty(gridElement, 'scrollLeft', {
+        configurable: true,
+        get: () => mockedScrollLeft,
+        set: (value: number) => {
+          mockedScrollLeft = value;
+        },
+      });
+
+      Object.defineProperty(gridElement, 'scrollBy', {
+        configurable: true,
+        value: ({ left = 0 }: { left?: number }) => {
+          mockedScrollLeft += left;
+        },
+      });
+
+      const reorderHandle = find('.hds-advanced-table__th-reorder-handle');
+
+      await startReorderDrag(reorderHandle);
+      await settled();
+
+      mockedScrollLeft = 80;
+
+      const firstDropTarget = find(
+        '.hds-advanced-table__th-reorder-drop-target',
+      );
+      const stickyColumn = find('.hds-advanced-table__th--is-sticky-column');
+
+      assert.ok(firstDropTarget, 'A drop target is shown while dragging');
+      assert.ok(stickyColumn, 'The sticky first column exists');
+
+      if (firstDropTarget === null || stickyColumn === null) {
+        return;
+      }
+
+      const dropTargetRect = firstDropTarget.getBoundingClientRect();
+      const stickyRect = stickyColumn.getBoundingClientRect();
+
+      await triggerEvent(gridElement, 'dragover', {
+        clientX: stickyRect.right - 1,
+        clientY: dropTargetRect.top + dropTargetRect.height / 2,
+      });
+
+      assert.strictEqual(
+        mockedScrollLeft,
+        64,
+        'The table auto-scrolls left while dragging near the left visible edge',
+      );
+    });
+
+    test('dragging near the right visible edge auto-scrolls right', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
+      });
+
+      const gridElement = find('[role="grid"]') as HTMLDivElement | null;
+
+      assert.ok(gridElement, 'The grid element exists');
+
+      if (gridElement === null) {
+        return;
+      }
+
+      Object.defineProperty(gridElement, 'scrollWidth', {
+        configurable: true,
+        value: 1200,
+      });
+      Object.defineProperty(gridElement, 'clientWidth', {
+        configurable: true,
+        value: 600,
+      });
+
+      let mockedScrollLeft = 80;
+
+      Object.defineProperty(gridElement, 'scrollLeft', {
+        configurable: true,
+        get: () => mockedScrollLeft,
+        set: (value: number) => {
+          mockedScrollLeft = value;
+        },
+      });
+
+      Object.defineProperty(gridElement, 'scrollBy', {
+        configurable: true,
+        value: ({ left = 0 }: { left?: number }) => {
+          mockedScrollLeft += left;
+        },
+      });
+
+      const reorderHandle = find('.hds-advanced-table__th-reorder-handle');
+
+      await startReorderDrag(reorderHandle);
+      await settled();
+
+      mockedScrollLeft = 80;
+
+      const gridRect = gridElement.getBoundingClientRect();
+
+      await triggerEvent(gridElement, 'dragover', {
+        clientX: gridRect.right - 1,
+        clientY: gridRect.top + gridRect.height / 2,
+      });
+
+      assert.strictEqual(
+        mockedScrollLeft,
+        96,
+        'The table auto-scrolls right while dragging near the right visible edge',
+      );
+    });
+
+    test('move-to-start respects the first non-sticky column when sticky first column is pinned', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
+      });
+
+      const thElements = findAll('.hds-advanced-table__th');
+      const secondContextMenuToggle = thElements[1]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (secondContextMenuToggle) {
+        await click(secondContextMenuToggle);
+
+        assert
+          .dom('[data-test-context-option-key="move-column-to-start"]')
+          .doesNotExist(
+            'The first non-sticky column does not expose move-to-start',
+          );
+      }
+
+      const thirdContextMenuToggle = thElements[2]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (thirdContextMenuToggle) {
+        await click(thirdContextMenuToggle);
+
+        assert
+          .dom('[data-test-context-option-key="move-column-to-start"]')
+          .exists(
+            'Columns after the first non-sticky column expose move-to-start',
+          );
+
+        await click('[data-test-context-option-key="move-column-to-start"]');
+      }
+
+      const columnOrder = getColumnOrder();
+      assert.deepEqual(
+        columnOrder,
+        [
+          DEFAULT_REORDERABLE_COLUMNS[0]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[2]?.key,
+          DEFAULT_REORDERABLE_COLUMNS[1]?.key,
+        ],
+        'Move-to-start inserts the column into the first non-sticky position',
+      );
+    });
+
+    test('unpinning sticky first column updates move-to-start availability', async function (assert) {
+      await createReorderableTable({
+        hasStickyFirstColumn: true,
+      });
+
+      const thElements = findAll('.hds-advanced-table__th');
+      const firstContextMenuToggle = thElements[0]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (firstContextMenuToggle) {
+        await click(firstContextMenuToggle);
+        await click('[data-test-context-option-key="pin-first-column"]');
+      }
+
+      const updatedThElements = findAll('.hds-advanced-table__th');
+      const firstAfterUnpinToggle = updatedThElements[0]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (firstAfterUnpinToggle) {
+        await click(firstAfterUnpinToggle);
+        assert
+          .dom('[data-test-context-option-key="move-column-to-start"]')
+          .doesNotExist(
+            'First column does not expose move-to-start after unpinning',
+          );
+      }
+
+      const secondAfterUnpinToggle = updatedThElements[1]?.querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+
+      if (secondAfterUnpinToggle) {
+        await click(secondAfterUnpinToggle);
+        assert
+          .dom('[data-test-context-option-key="move-column-to-start"]')
+          .exists('Second column exposes move-to-start after unpinning');
+      }
     });
 
     test('column reordering works when columns are added and removed dynamically', async function (assert) {
