@@ -148,9 +148,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Base elements</ShwTextH2>
 
-    <ShwTextH3>Toggle</ShwTextH3>
-
-    <ShwTextH4>Text only</ShwTextH4>
+    <ShwTextH3>Toggle with text</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid @layout="column">
       <:theming>
@@ -158,93 +156,71 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
           <ShwFlex as |SF|>
             {{#each SIZES as |size|}}
               <SF.Item @label="{{capitalize color}} {{size}}">
-                <HdsDropdownToggleButton
-                  @color={{color}}
-                  @text="Select item"
-                  @size={{size}}
-                />
+                <ShwFlex @direction="column" as |SF|>
+                  <SF.Item @label="text only">
+                    <HdsDropdownToggleButton
+                      @color={{color}}
+                      @text="Select item"
+                      @size={{size}}
+                    />
+                  </SF.Item>
+                  <SF.Item @label="with icon & count">
+                    <HdsDropdownToggleButton
+                      @icon="hexagon"
+                      @count="12"
+                      @color={{color}}
+                      @text="Select item"
+                      @size={{size}}
+                    />
+                  </SF.Item>
+
+                  <SF.Item @label="with badge">
+                    <HdsDropdownToggleButton
+                      @color={{color}}
+                      @text="Select item"
+                      @size={{size}}
+                      @badge="Badge"
+                      @badgeIcon="hexagon"
+                    />
+                  </SF.Item>
+                </ShwFlex>
               </SF.Item>
             {{/each}}
+
             <SF.Item @label="{{capitalize color}} full width">
-              <ShwOutliner {{style width="300px"}}>
-                <HdsDropdownToggleButton
-                  @isFullWidth={{true}}
-                  @text="Select item"
-                  @color={{color}}
-                />
-              </ShwOutliner>
-            </SF.Item>
-          </ShwFlex>
-        {{/each}}
-      </:theming>
-      <:reference as |R|>
-        <R.NoEquivalent @isCompact={{true}} />
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwTextH4>With icon & count</ShwTextH4>
-
-    <ShwCarbonizationComparisonGrid @layout="column">
-      <:theming>
-        {{#each COLORS as |color|}}
-          <ShwFlex as |SF|>
-            {{#each SIZES as |size|}}
-              <SF.Item @label="{{capitalize color}} {{size}}">
-                <HdsDropdownToggleButton
-                  @icon="hexagon"
-                  @count="12"
-                  @color={{color}}
-                  @text="Select item"
-                  @size={{size}}
-                />
-              </SF.Item>
-            {{/each}}
-            <SF.Item @label="{{capitalize color}} full width">
-              <ShwOutliner {{style width="300px"}}>
-                <HdsDropdownToggleButton
-                  @icon="hexagon"
-                  @count="12"
-                  @isFullWidth={{true}}
-                  @text="Select item"
-                  @color={{color}}
-                />
-              </ShwOutliner>
-            </SF.Item>
-          </ShwFlex>
-        {{/each}}
-      </:theming>
-      <:reference as |R|>
-        <R.NoEquivalent @isCompact={{true}} />
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwTextH4>With badge</ShwTextH4>
-
-    <ShwCarbonizationComparisonGrid @layout="column">
-      <:theming>
-        {{#each COLORS as |color|}}
-          <ShwFlex as |SF|>
-            {{#each SIZES as |size|}}
-              <SF.Item @label="{{capitalize color}} {{size}}">
-                <HdsDropdownToggleButton
-                  @color={{color}}
-                  @text="Select item"
-                  @size={{size}}
-                  @badge="Badge"
-                  @badgeIcon="hexagon"
-                />
-              </SF.Item>
-            {{/each}}
-            <SF.Item @label="{{capitalize color}} full width">
-              <ShwOutliner {{style width="300px"}}>
-                <HdsDropdownToggleButton
-                  @isFullWidth={{true}}
-                  @text="Select item"
-                  @color={{color}}
-                  @badge="Badge"
-                  @badgeIcon="hexagon"
-                />
-              </ShwOutliner>
+              <ShwFlex @direction="column" as |SF|>
+                <SF.Item @label="text only">
+                  <ShwOutliner {{style width="300px"}}>
+                    <HdsDropdownToggleButton
+                      @isFullWidth={{true}}
+                      @text="Select item"
+                      @color={{color}}
+                    />
+                  </ShwOutliner>
+                </SF.Item>
+                <SF.Item @label="with icon & count">
+                  <ShwOutliner {{style width="300px"}}>
+                    <HdsDropdownToggleButton
+                      @icon="hexagon"
+                      @count="12"
+                      @isFullWidth={{true}}
+                      @text="Select item"
+                      @color={{color}}
+                    />
+                  </ShwOutliner>
+                </SF.Item>
+                <SF.Item @label="with badge">
+                  <ShwOutliner {{style width="300px"}}>
+                    <HdsDropdownToggleButton
+                      @isFullWidth={{true}}
+                      @text="Select item"
+                      @color={{color}}
+                      @badge="Badge"
+                      @badgeIcon="hexagon"
+                    />
+                  </ShwOutliner>
+                </SF.Item>
+              </ShwFlex>
             </SF.Item>
           </ShwFlex>
         {{/each}}
@@ -256,7 +232,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH3>Toggle with icon/image only</ShwTextH3>
+    <ShwTextH3>Toggle with icon/image</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid @layout="column">
       <:theming>
