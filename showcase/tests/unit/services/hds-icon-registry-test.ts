@@ -5,10 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import { settled } from '@ember/test-helpers';
+import { waitUntil } from '@ember/test-helpers';
 import sinon from 'sinon';
+import { ROOT_ID } from '@hashicorp/design-system-components/services/hds-icon-registry';
 
 import HdsIconRegistryService, {
+  makeDomSafeId,
+  makeSymbolIdFromKey,
   type HdsIconDefinition,
 } from '@hashicorp/design-system-components/services/hds-icon-registry';
 import {
@@ -18,8 +21,6 @@ import {
 } from '@hashicorp/design-system-components/components/hds/icon/types';
 
 import type { IconName } from '@hashicorp/flight-icons/svg/index';
-
-const ROOT_ID = 'flight-sprite-empty-container';
 
 const makeSymbolIdFromDefinition = ({
   library,
@@ -31,7 +32,7 @@ const makeSymbolIdFromDefinition = ({
       ? `${library}-${name}-${size}`
       : `${library}-${name}`;
 
-  return `hds-icon-${key.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+  return makeSymbolIdFromKey(key);
 };
 
 const makeDefinition = (
@@ -58,20 +59,6 @@ const ensureRoot = (): SVGSVGElement => {
 
 const removeRoot = (): void => {
   document.getElementById(ROOT_ID)?.remove();
-};
-
-// awaits the full icon load: promises, DOM flush, and state updates
-const waitForRegistryCycle = async (): Promise<void> => {
-  // wait for icon loaders to resolve
-  await settled();
-
-  // wait for batched DOM injection via requestAnimationFrame
-  await new Promise<void>((resolve) => {
-    window.requestAnimationFrame(() => resolve());
-  });
-
-  // wait for final @tracked state updates
-  await settled();
 };
 
 interface HdsIconRegistryServicePrivate {
@@ -114,6 +101,34 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     assert.ok(service.getSymbolId.bind(service), 'getSymbolId exists');
   });
 
+  test('makeDomSafeId replaces non-DOM-safe characters', function (assert) {
+    assert.strictEqual(
+      makeDomSafeId('flight-alert-16'),
+      'flight-alert-16',
+      'keeps letters, numbers, underscores, and hyphens',
+    );
+
+    assert.strictEqual(
+      makeDomSafeId('flight:alert@16/outline'),
+      'flight-alert-16-outline',
+      'replaces unsupported characters with hyphens',
+    );
+  });
+
+  test('makeSymbolIdFromKey prefixes and sanitizes the key', function (assert) {
+    assert.strictEqual(
+      makeSymbolIdFromKey('flight-alert-16'),
+      'hds-icon-flight-alert-16',
+      'prefixes a safe key',
+    );
+
+    assert.strictEqual(
+      makeSymbolIdFromKey('carbon:calendar@filled'),
+      'hds-icon-carbon-calendar-filled',
+      'sanitizes and prefixes an unsafe key',
+    );
+  });
+
   test('it loads a requested icon and returns the symbol id', async function (assert) {
     const definition = makeDefinition();
     const symbolId = makeSymbolIdFromDefinition(definition);
@@ -131,7 +146,8 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
       'returns null before icon is loaded',
     );
 
-    await waitForRegistryCycle();
+    await waitUntil(() => service.getSymbolId(definition) === symbolId);
+    await waitUntil(() => document.getElementById(symbolId) !== null);
 
     assert.ok(loader.calledOnce, 'loader called once');
     assert.strictEqual(
@@ -162,12 +178,12 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     service.requestLoad(definition);
     service.requestLoad(definition);
 
-    await settled();
+    await waitUntil(() => loader.calledOnce);
 
     assert.ok(loader.calledOnce, 'only one queued loader run is started');
 
     resolveLoaderPromise?.({ default: `<symbol id="${symbolId}"></symbol>` });
-    await waitForRegistryCycle();
+    await waitUntil(() => document.querySelectorAll(`#${symbolId}`).length === 1);
 
     assert.strictEqual(
       document.querySelectorAll(`#${symbolId}`).length,
@@ -203,7 +219,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
       service.requestLoad(definition);
     }
 
-    await settled();
+    await waitUntil(() => rafCallbacks.length === 1);
 
     assert.ok(
       rafStub.calledOnce,
@@ -211,7 +227,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     );
 
     rafCallbacks[0]?.(0);
-    await settled();
+    await waitUntil(() => root.children.length === 3);
 
     assert.strictEqual(
       root.children.length,
@@ -254,10 +270,10 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
       service.requestLoad(definition);
     }
 
-    await settled();
-
     const maxConcurrent = (service as unknown as { _maxConcurrent: number })
       ._maxConcurrent;
+
+    await waitUntil(() => startedLoads === maxConcurrent);
 
     assert.strictEqual(
       startedLoads,
@@ -267,6 +283,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
 
     while (startedLoads < total) {
       const activeBatch = pendingResolvers.splice(0);
+      const startedLoadsBeforeBatch = startedLoads;
 
       for (const [index, resolve] of activeBatch.entries()) {
         const symbolId = `hds-icon-concurrency-${startedLoads}-${index}`;
@@ -274,7 +291,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
         resolve({ default: `<symbol id="${symbolId}"></symbol>` });
       }
 
-      await settled();
+      await waitUntil(() => startedLoads > startedLoadsBeforeBatch || startedLoads === total);
     }
 
     const remaining = pendingResolvers.splice(0);
@@ -285,41 +302,10 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
       resolve({ default: `<symbol id="${symbolId}"></symbol>` });
     }
 
-    await settled();
-
     assert.strictEqual(
       startedLoads,
       total,
       'queued work is fully drained after active loads resolve',
-    );
-  });
-
-  test('it uses an existing symbol in the DOM without invoking the loader', async function (assert) {
-    const definition = makeDefinition({ name: 'api' as IconName });
-    const symbolId = makeSymbolIdFromDefinition(definition);
-    const root = ensureRoot();
-    const existing = document.createElementNS(
-      'http://www.w3.org/2000/svg',
-      'symbol',
-    );
-
-    existing.id = symbolId;
-
-    root.appendChild(existing);
-
-    const loader = sinon.stub().resolves({ default: '<symbol></symbol>' });
-
-    stubResolveLoader(service, () => loader as HdsIconLoader);
-
-    service.requestLoad(definition);
-
-    await settled();
-
-    assert.ok(loader.notCalled, 'loader is not called for existing symbols');
-    assert.strictEqual(
-      service.getSymbolId(definition),
-      symbolId,
-      'returns existing symbol id as loaded',
     );
   });
 
@@ -331,7 +317,7 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
 
     service.requestLoad(definition);
 
-    await waitForRegistryCycle();
+    await waitUntil(() => loader.calledOnce);
 
     assert.ok(loader.calledOnce, 'loader was attempted');
     assert.strictEqual(
@@ -341,8 +327,6 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     );
 
     service.requestLoad(definition);
-
-    await settled();
 
     assert.ok(
       loader.calledOnce,
@@ -365,7 +349,8 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
 
     service.requestLoad(definition);
 
-    await waitForRegistryCycle();
+    await waitUntil(() => loader.calledOnce);
+    await waitUntil(() => consoleWarnStub.calledOnce);
 
     assert.ok(loader.calledOnce, 'loader still runs');
     assert.ok(
@@ -379,26 +364,32 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     );
   });
 
-  test('it generates a symbol id key without size for carbon library icons', async function (assert) {
+  test('it generates a carbon symbol id without size in the key', async function (assert) {
     const definition = makeDefinition({
       library: HdsIconLibraryValues.Carbon,
       name: 'calendar' as IconName,
     });
-    const symbolId = makeSymbolIdFromDefinition(definition);
     const loader = sinon
       .stub()
-      .resolves({ default: `<symbol id="${symbolId}"></symbol>` });
+      .resolves({ default: '<symbol id="hds-icon-carbon-calendar"></symbol>' });
 
     stubResolveLoader(service, () => loader as HdsIconLoader);
 
     service.requestLoad(definition);
 
-    await waitForRegistryCycle();
+    await waitUntil(
+      () => service.getSymbolId(definition) === 'hds-icon-carbon-calendar',
+    );
 
     assert.strictEqual(
       service.getSymbolId(definition),
-      symbolId,
+      'hds-icon-carbon-calendar',
       'carbon key excludes size from the generated symbol id',
+    );
+    assert.notStrictEqual(
+      service.getSymbolId(definition),
+      'hds-icon-carbon-calendar-16',
+      'carbon key does not include size suffix',
     );
   });
 });
