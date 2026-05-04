@@ -6,7 +6,7 @@ caption: >-
   An internal utility component used to manage 1D and 2D keyboard navigation and roving focus for a collection of items.
 related:
   - components/table/advanced-table
-  - components/table/tabs
+  - components/tabs
 previewImage: assets/illustrations/utilities/composite.jpg
 navigation:
   keywords:
