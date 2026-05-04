@@ -16,3 +16,14 @@ export enum HdsModalColorValues {
   Critical = 'critical',
 }
 export type HdsModalColors = `${HdsModalColorValues}`;
+
+/**
+ * Maps the Helios `@size` argument values to the corresponding
+ * `cds-modal` `size` attribute values.
+ */
+export const HDS_MODAL_SIZE_TO_CDS: Record<HdsModalSizes, 'sm' | 'md' | 'lg'> =
+  {
+    small: 'sm',
+    medium: 'md',
+    large: 'lg',
+  };

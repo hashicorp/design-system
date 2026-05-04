@@ -9,19 +9,27 @@ import { assert } from '@ember/debug';
 import { buildWaiter } from '@ember/test-waiters';
 import { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
-// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
-import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
 import type { WithBoundArgs } from '@glint/template';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import HdsDialogPrimitiveHeader from '../dialog-primitive/header.gts';
-import HdsDialogPrimitiveBody from '../dialog-primitive/body.gts';
-import HdsDialogPrimitiveFooter from '../dialog-primitive/footer.gts';
-import HdsDialogPrimitiveWrapper from '../dialog-primitive/wrapper.gts';
-import HdsDialogPrimitiveOverlay from '../dialog-primitive/overlay.gts';
-import { HdsModalSizeValues, HdsModalColorValues } from './types.ts';
+import '@carbon/web-components/es/components/modal/index.js';
+
+// Minimal typed view of the `cds-modal` host element so we can safely toggle
+// the `open` property without resorting to `any`.
+interface CDSModalElement extends HTMLElement {
+  open: boolean;
+}
+
+import HdsIcon from '../icon/index.gts';
+import {
+  HdsModalSizeValues,
+  HdsModalColorValues,
+  HDS_MODAL_SIZE_TO_CDS,
+} from './types.ts';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 
+import type { HdsIconSignature } from '../icon/index.gts';
 import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
 const waiter = buildWaiter('@hashicorp/design-system-components:modal');
@@ -32,39 +40,144 @@ export const DEFAULT_COLOR = HdsModalColorValues.Neutral;
 export const SIZES: HdsModalSizes[] = Object.values(HdsModalSizeValues);
 export const COLORS: HdsModalColors[] = Object.values(HdsModalColorValues);
 
+// ---------------------------------------------------------------------------
+// Header subcomponent
+// ---------------------------------------------------------------------------
+
+interface HdsModalHeaderSignature {
+  Args: {
+    id?: string;
+    icon?: HdsIconSignature['Args']['name'];
+    tagline?: string;
+  };
+  Blocks: { default: [] };
+  Element: Element;
+}
+
+const HdsModalHeader: TemplateOnlyComponent<HdsModalHeaderSignature> =
+  <template>
+    {{! `cds-modal-close-button` must be rendered explicitly as a child of
+        `cds-modal-header`; Carbon does not insert it automatically. }}
+    <cds-modal-header class="hds-modal__header" ...attributes>
+      <cds-modal-close-button
+        class="hds-modal__dismiss"
+        close-button-label="Close"
+      ></cds-modal-close-button>
+      {{#if @icon}}
+        <HdsIcon class="hds-modal__icon" @name={{@icon}} @size="24" />
+      {{/if}}
+      {{#if @tagline}}
+        <cds-modal-label
+          class="hds-modal__tagline"
+        >{{@tagline}}</cds-modal-label>
+      {{/if}}
+      <cds-modal-heading class="hds-modal__title" id={{@id}}>
+        {{yield}}
+      </cds-modal-heading>
+    </cds-modal-header>
+  </template>;
+
+// ---------------------------------------------------------------------------
+// Body subcomponent
+// ---------------------------------------------------------------------------
+
+interface HdsModalBodySignature {
+  Args: Record<string, never>;
+  Blocks: { default: [] };
+  Element: Element;
+}
+
+const HdsModalBody: TemplateOnlyComponent<HdsModalBodySignature> = <template>
+  <cds-modal-body class="hds-modal__body" ...attributes>
+    {{yield}}
+  </cds-modal-body>
+</template>;
+
+// ---------------------------------------------------------------------------
+// Footer subcomponent
+// ---------------------------------------------------------------------------
+
+interface HdsModalFooterSignature {
+  Args: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
+  };
+  Blocks: {
+    default: [
+      {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        close: (event: MouseEvent, ...args: any[]) => void;
+      },
+    ];
+  };
+  Element: Element;
+}
+
+const NOOP = (): void => {};
+
+class HdsModalFooter extends Component<HdsModalFooterSignature> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  get onDismiss(): (event: MouseEvent, ...args: any[]) => void {
+    return typeof this.args.onDismiss === 'function'
+      ? this.args.onDismiss
+      : NOOP;
+  }
+
+  <template>
+    <cds-modal-footer class="hds-modal__footer" ...attributes>
+      {{yield (hash close=this.onDismiss)}}
+    </cds-modal-footer>
+  </template>
+}
+
+// ---------------------------------------------------------------------------
+// Modal
+// ---------------------------------------------------------------------------
+
 export interface HdsModalSignature {
   Args: {
+    /** When `true`, prevents the modal from being closed via the close button, ESC key, or click outside. */
     isDismissDisabled?: boolean;
+    /** The size of the modal. Maps to the underlying `cds-modal` `size` attribute. */
     size?: HdsModalSizes;
+    /**
+     * @deprecated `@color` has no equivalent on the underlying Carbon `cds-modal` web
+     * component. The argument is preserved for backwards-compatibility but no longer
+     * affects the rendered output beyond a CSS class hook.
+     */
     color?: HdsModalColors;
+    /**
+     * @deprecated `@returnFocusTo` has no equivalent on the underlying Carbon `cds-modal`
+     * web component. Carbon automatically returns focus to the element that had focus
+     * before the modal was opened.
+     */
     returnFocusTo?: string;
+    /**
+     * @deprecated `@onOpen` has no equivalent on the underlying Carbon `cds-modal` web
+     * component. The callback is still invoked once on initial render for
+     * backwards-compatibility but should not be relied on.
+     */
     onOpen?: () => void;
+    /** Invoked after the modal has been closed by the user (close button, ESC, or click outside). */
     onClose?: (event: Event) => void;
   };
   Blocks: {
     default: [
       {
-        Header?: WithBoundArgs<
-          typeof HdsDialogPrimitiveHeader,
-          'id' | 'onDismiss' | 'contextualClassPrefix'
-        >;
-        Body?: WithBoundArgs<typeof HdsDialogPrimitiveBody, 'contextualClass'>;
-        Footer?: WithBoundArgs<
-          typeof HdsDialogPrimitiveFooter,
-          'onDismiss' | 'contextualClass'
-        >;
+        Header?: WithBoundArgs<typeof HdsModalHeader, 'id'>;
+        Body?: typeof HdsModalBody;
+        Footer?: WithBoundArgs<typeof HdsModalFooter, 'onDismiss'>;
       },
     ];
   };
-  Element: HTMLDialogElement;
+  Element: HTMLElement;
 }
 
 export default class HdsModal extends Component<HdsModalSignature> {
   @tracked private _isOpen = false;
-  private _element!: HTMLDialogElement;
+  private _element!: HTMLElement;
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
-  private _clickOutsideToDismissHandler!: (event: MouseEvent) => void;
 
   get isDismissDisabled(): boolean {
     return this.args.isDismissDisabled ?? false;
@@ -72,27 +185,27 @@ export default class HdsModal extends Component<HdsModalSignature> {
 
   get size(): HdsModalSizes {
     const { size = DEFAULT_SIZE } = this.args;
-
     assert(
       `@size for "Hds::Modal" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
       SIZES.includes(size)
     );
-
     return size;
+  }
+
+  get cdsSize(): 'sm' | 'md' | 'lg' {
+    return HDS_MODAL_SIZE_TO_CDS[this.size];
   }
 
   get color(): HdsModalColors {
     const { color = DEFAULT_COLOR } = this.args;
-
     assert(
       `@color for "Hds::Modal" must be one of the following: ${COLORS.join(
         ', '
       )}; received: ${color}`,
       COLORS.includes(color)
     );
-
     return color;
   }
 
@@ -101,15 +214,11 @@ export default class HdsModal extends Component<HdsModalSignature> {
   }
 
   get classNames(): string {
-    const classes = ['hds-modal'];
-
-    // add a class based on the @size argument
-    classes.push(`hds-modal--size-${this.size}`);
-
-    // add a class based on the @color argument
-    classes.push(`hds-modal--color-${this.color}`);
-
-    return classes.join(' ');
+    return [
+      'hds-modal',
+      `hds-modal--size-${this.size}`,
+      `hds-modal--color-${this.color}`,
+    ].join(' ');
   }
 
   private _performCloseCleanup(): void {
@@ -130,7 +239,9 @@ export default class HdsModal extends Component<HdsModalSignature> {
       }
     }
 
-    // Return focus to a specific element (if provided)
+    // Return focus to a specific element if `@returnFocusTo` was provided.
+    // (Note: `cds-modal` already restores focus to its launcher; this only
+    // runs if a consumer explicitly opted into a specific override.)
     if (this.args.returnFocusTo) {
       const initiator = document.getElementById(this.args.returnFocusTo);
       if (initiator) {
@@ -139,165 +250,98 @@ export default class HdsModal extends Component<HdsModalSignature> {
     }
   }
 
-  registerOnCloseCallback = (event: Event): void => {
-    if (
-      !this.isDismissDisabled &&
-      this.args.onClose &&
-      typeof this.args.onClose === 'function'
-    ) {
-      this.args.onClose(event);
-    }
-
-    // If the dismissal of the modal is disabled, we keep the modal open/visible otherwise we mark it as closed
+  // Cancellable: fired before close on user gesture (close button, ESC, click outside).
+  private _handleBeforeClose = (event: Event): void => {
     if (this.isDismissDisabled) {
-      // If, in a chain of events, the element is not attached to the DOM, the `showModal` would fail
-      // so we add this safeguard condition that checks for the `<dialog>` to have a parent
-      if (this._element.parentElement) {
-        // As there is no way to `preventDefault` on `close` events, we call the `showModal` function
-        // preserving the state of the modal dialog
-        this._element.showModal();
-      }
-    } else {
-      this._performCloseCleanup();
+      event.preventDefault();
     }
   };
 
-  private _registerDialog = modifier((element: HTMLDialogElement) => {
-    // Store references of `<dialog>` and `<body>` elements
-    this._element = element;
+  private _handleClosed = (event: Event): void => {
+    if (this.args.onClose && typeof this.args.onClose === 'function') {
+      this.args.onClose(event);
+    }
+    this._performCloseCleanup();
+  };
+
+  private _registerModal = modifier((element: Element) => {
+    const el = element as HTMLElement;
+    this._element = el;
     this._body = document.body;
 
     if (this._body) {
-      // Store the initial `overflow` value of `<body>` so we can reset to it
       this._bodyInitialOverflowValue =
         this._body.style.getPropertyValue('overflow');
     }
 
-    // Register "onClose" callback function to be called when a native 'close' event is dispatched
+    element.addEventListener('cds-modal-beingclosed', this._handleBeforeClose);
+    element.addEventListener('cds-modal-closed', this._handleClosed);
 
-    this._element.addEventListener('close', this.registerOnCloseCallback, true);
-
-    // If the modal dialog is not already open
-    if (!this._element.open) {
-      this.open();
-    }
-
-    // Note: because the Modal has the `@isDismissedDisabled` argument, we need to add our own click outside to dismiss logic. This is because `ember-focus-trap` treats the `focusTrapOptions` as static, so we can't update it dynamically if `@isDismissDisabled` changes.
-    this._clickOutsideToDismissHandler = (event: MouseEvent) => {
-      // check if the click is outside the modal and the modal is open
-      if (!this._element.contains(event.target as Node) && this._isOpen) {
-        if (!this.isDismissDisabled) {
-          //  here we use `void` because `onDismiss` is an async function, but in reality we don't need to handle the result or wait for its completion
-          void this.onDismiss();
-        }
+    // Open the modal. `cds-modal` exposes an `open` boolean property — setting
+    // it to `true` triggers the show animation and focus management.
+    // We use a microtask to ensure the element is fully upgraded.
+    queueMicrotask(() => {
+      (el as CDSModalElement).open = true;
+      this._isOpen = true;
+      if (this._body) this._body.style.setProperty('overflow', 'hidden');
+      if (this.args.onOpen && typeof this.args.onOpen === 'function') {
+        this.args.onOpen();
       }
-    };
-
-    document.addEventListener('click', this._clickOutsideToDismissHandler, {
-      capture: true,
-      passive: false,
     });
 
     return () => {
-      // if the <dialog> is removed from the dom while open we emulate the close event
+      // If removed from DOM while open, emulate close cleanup but skip onClose
+      // (matches the previous behavior of not firing onClose for direct DOM removal).
       if (this._isOpen) {
         this._performCloseCleanup();
       }
-
-      this._element?.removeEventListener(
-        'close',
-
-        this.registerOnCloseCallback,
-        true
+      element.removeEventListener(
+        'cds-modal-beingclosed',
+        this._handleBeforeClose
       );
-
-      document.removeEventListener(
-        'click',
-        this._clickOutsideToDismissHandler,
-        true
-      );
+      element.removeEventListener('cds-modal-closed', this._handleClosed);
     };
   });
 
-  open = (): void => {
-    // Make modal dialog visible using the native `showModal` method
-    this._element.showModal();
-    this._isOpen = true;
-
-    // Prevent page from scrolling when the dialog is open
-    if (this._body) this._body.style.setProperty('overflow', 'hidden');
-
-    // Call "onOpen" callback function
-    if (this.args.onOpen && typeof this.args.onOpen === 'function') {
-      this.args.onOpen();
-    }
-  };
-
+  // Yielded to the Footer block as `F.close` so consumers can close via a button.
   // eslint-disable-next-line @typescript-eslint/require-await
   onDismiss = async (): Promise<void> => {
-    // allow ember test helpers to be aware of when the `close` event fires
-    // when using `click` or other helpers from '@ember/test-helpers'
-    if (this._element.open) {
+    if (this.isDismissDisabled) return;
+
+    // allow ember test helpers to wait for the close event to fire
+    if ((this._element as CDSModalElement).open) {
       const token = waiter.beginAsync();
       const listener = () => {
         waiter.endAsync(token);
-        this._element.removeEventListener('close', listener);
+        this._element.removeEventListener('cds-modal-closed', listener);
       };
-      this._element.addEventListener('close', listener);
+      this._element.addEventListener('cds-modal-closed', listener);
     }
 
-    // Make modal dialog invisible using the native `close` method
-    this._element.close();
+    (this._element as CDSModalElement).open = false;
+    // `cds-modal` only fires `cds-modal-closed` for *user-initiated* closes,
+    // so we manually run the closed handler here for programmatic dismissal.
+    this._handleClosed(new Event('cds-modal-closed'));
   };
 
   <template>
-    <HdsDialogPrimitiveWrapper
+    <cds-modal
+      id={{this.id}}
       class={{this.classNames}}
-      ...attributes
+      size={{this.cdsSize}}
+      prevent-close={{this.isDismissDisabled}}
+      prevent-close-on-click-outside={{this.isDismissDisabled}}
       aria-labelledby={{this.id}}
-      {{this._registerDialog}}
-      {{focusTrap
-        isActive=this._isOpen
-        focusTrapOptions=(hash onDeactivate=this.onDismiss)
-      }}
+      ...attributes
+      {{this._registerModal}}
     >
-      <:header>
-        {{yield
-          (hash
-            Header=(component
-              HdsDialogPrimitiveHeader
-              id=this.id
-              onDismiss=this.onDismiss
-              contextualClassPrefix="hds-modal"
-              titleTag="h1"
-            )
-          )
-        }}
-      </:header>
-      <:body>
-        {{yield
-          (hash
-            Body=(component
-              HdsDialogPrimitiveBody contextualClass="hds-modal__body"
-            )
-          )
-        }}
-      </:body>
-      <:footer>
-        {{yield
-          (hash
-            Footer=(component
-              HdsDialogPrimitiveFooter
-              onDismiss=this.onDismiss
-              contextualClass="hds-modal__footer"
-            )
-          )
-        }}
-      </:footer>
-    </HdsDialogPrimitiveWrapper>
-
-    {{#if this._isOpen}}
-      <HdsDialogPrimitiveOverlay @contextualClass="hds-modal__overlay" />
-    {{/if}}
+      {{yield
+        (hash
+          Header=(component HdsModalHeader id=this.id)
+          Body=HdsModalBody
+          Footer=(component HdsModalFooter onDismiss=this.onDismiss)
+        )
+      }}
+    </cds-modal>
   </template>
 }
