@@ -1,10 +1,15 @@
-const js = require('@eslint/js');
-const n = require('eslint-plugin-n');
-const prettierConfig = require('eslint-config-prettier');
-const prettierPlugin = require('eslint-plugin-prettier');
-const globals = require('globals');
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 
-module.exports = [
+import js from '@eslint/js';
+import n from 'eslint-plugin-n';
+import prettierConfig from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
+import globals from 'globals';
+
+export default [
   {
     ignores: ['node_modules/', '__testfixtures__/', '!**/.*'],
   },
@@ -16,7 +21,7 @@ module.exports = [
       prettier: prettierPlugin,
     },
     languageOptions: {
-      ecmaVersion: 2018,
+      ecmaVersion: 'latest',
       sourceType: 'script',
       globals: {
         ...globals.node,
@@ -29,7 +34,7 @@ module.exports = [
     },
   },
   {
-    files: ['transforms/**/test.js'],
+    files: ['**/__tests__/**/*.js', 'transforms/**/test.js'],
     languageOptions: {
       globals: {
         ...globals.jest,
