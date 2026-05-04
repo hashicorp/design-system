@@ -6,7 +6,7 @@
 `AdvancedTable` - Fixed typing for sticky first-column cells by exposing `isStickyColumn` in the yielded table-cell API and by passing an explicit `parentId` value when rendering row header cells.
 <!-- END -->
 
-<!-- START components/form/indicator -->
+<!-- START components/form/primitives -->
 `Form::Indicator` - Fixed invocation of `HdsTextBody` to use named arguments, which prevented incorrect argument forwarding.
 <!-- END -->
 
@@ -18,6 +18,6 @@
 `Form::Textarea` - Fixed element typing to `HTMLTextAreaElement` for stricter and more accurate Glint checks.
 <!-- END -->
 
-<!-- START components/table/th-sort -->
+<!-- START components/table/table -->
 `Table::ThSort` - Fixed element typing to `HTMLTableCellElement` to reflect the actual rendered table-cell element.
 <!-- END -->
