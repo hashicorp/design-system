@@ -183,7 +183,9 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
     assert.ok(loader.calledOnce, 'only one queued loader run is started');
 
     resolveLoaderPromise?.({ default: `<symbol id="${symbolId}"></symbol>` });
-    await waitUntil(() => document.querySelectorAll(`#${symbolId}`).length === 1);
+    await waitUntil(
+      () => document.querySelectorAll(`#${symbolId}`).length === 1,
+    );
 
     assert.strictEqual(
       document.querySelectorAll(`#${symbolId}`).length,
@@ -291,7 +293,9 @@ module('Unit | Service | hds-icon-registry', function (hooks) {
         resolve({ default: `<symbol id="${symbolId}"></symbol>` });
       }
 
-      await waitUntil(() => startedLoads > startedLoadsBeforeBatch || startedLoads === total);
+      await waitUntil(
+        () => startedLoads > startedLoadsBeforeBatch || startedLoads === total,
+      );
     }
 
     const remaining = pendingResolvers.splice(0);
