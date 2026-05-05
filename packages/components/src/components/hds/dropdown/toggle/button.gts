@@ -4,8 +4,11 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+
+import type HdsThemingService from '../../../../services/hds-theming.ts';
 
 import type { ModifierLike } from '@glint/template';
 
@@ -53,6 +56,8 @@ export interface HdsDropdownToggleButtonSignature {
 }
 
 export default class HdsDropdownToggleButton extends Component<HdsDropdownToggleButtonSignature> {
+  @service declare readonly hdsTheming: HdsThemingService;
+
   private _toggleButtonId = 'toggle-button-' + guidFor(this);
 
   get text(): string {
@@ -97,7 +102,17 @@ export default class HdsDropdownToggleButton extends Component<HdsDropdownToggle
   }
 
   get badgeType(): HdsBadgeCountSignature['Args']['type'] {
-    return this.color !== 'primary' ? 'inverted' : 'filled';
+    // if the button color is primary (i.e. it's "secondary" or "tertiary"), use the filled badge type
+    // else if the button color is not primary (i.e. it's "secondary", etc) AND there's a Carbon theme enabled,
+    // use the filled badge type; otherwise, use the inverted badge type
+    if (this.color === 'primary') {
+      return 'filled';
+    } else {
+      return this.hdsTheming.isCarbonThemeEnabled ? 'filled' : 'inverted';
+    }
+
+    // Original:
+    // return this.color !== 'primary' ? 'inverted' : 'filled';
   }
 
   get classNames(): string {
