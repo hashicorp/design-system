@@ -30,16 +30,19 @@ export interface HdsIconDefinition {
   size: HdsIconSizes;
 }
 
+// re-export the ROOT_ID for use in tests
+export { ROOT_ID };
+
 const HAS_DOM =
   typeof window !== 'undefined' && typeof document !== 'undefined';
 
 // important: if you update this function, update the identical one in `packages/flight-icons/scripts/build-parts/generateBundleSymbolJS.ts` as well (and vice versa)
-function makeDomSafeId(value: string): string {
+export function makeDomSafeId(value: string): string {
   return value.replace(/[^a-zA-Z0-9_-]/g, '-');
 }
 
 // important: if you update this function, update the identical one in `packages/flight-icons/scripts/build-parts/generateBundleSymbolJS.ts` as well (and vice versa)
-function makeSymbolIdFromKey(key: string): string {
+export function makeSymbolIdFromKey(key: string): string {
   return `hds-icon-${makeDomSafeId(key)}`;
 }
 
