@@ -11,6 +11,8 @@ import { convertObjectToDtcgFormat } from './convertObjectToDtcgFormat.ts';
 import { saveCarbonDtcgTokensAsJsonFile } from './saveCarbonDtcgTokensAsJsonFile.ts';
 import { dimensionRegex } from './convertObjectToDtcgFormat.ts';
 
+type NestedObject = Record<string, unknown>;
+
 export async function extractThemes(): Promise<void> {
 
   // button tokens
@@ -35,7 +37,7 @@ export async function extractThemes(): Promise<void> {
 
   // themes (this is a special case, )
   const carbonThemesAllTokensDtcg = convertThemeObjectToDtcg(cleanupObj(themes), '[root]');
-  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonThemesAllTokensDtcg, group: 'themes', file: 'themes' });
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonThemesAllTokensDtcg as object, group: 'themes', file: 'themes' });
 
 }
 
@@ -43,7 +45,7 @@ export async function extractThemes(): Promise<void> {
 // - replaces any key named 'whiteTheme' with 'white'
 // - removes entries whose value is an array (`breakpoints`)
 
-function cleanupObj(obj: Record<string, any>): Record<string, any> {
+function cleanupObj(obj: NestedObject): NestedObject {
   // Base case: if obj is not an object or is null, return it as is
   if (typeof obj !== 'object' || obj === null) {
     return obj;
@@ -51,11 +53,11 @@ function cleanupObj(obj: Record<string, any>): Record<string, any> {
 
   // For arrays, map over each element and process recursively
   if (Array.isArray(obj)) {
-    return obj.map(item => cleanupObj(item));
+    return obj;
   }
 
   // For objects, create a new object with potentially renamed keys
-  const result: Record<string, any> = {};
+  const result: NestedObject = {};
 
   for (const [key, value] of Object.entries(obj)) {
     // Skip entries whose value is an array
@@ -67,24 +69,29 @@ function cleanupObj(obj: Record<string, any>): Record<string, any> {
     const newKey = key === 'whiteTheme' ? 'white' : key;
 
     // Recursively process nested objects
-    result[newKey] = cleanupObj(value);
+    if (typeof value === 'object' && value !== null) {
+      result[newKey] = cleanupObj(value as NestedObject);
+    } else {
+      result[newKey] = value;
+    }
   }
 
   return result;
 }
 
-function convertThemeObjectToDtcg(obj: Record<string, any>, key: string) {
+function convertThemeObjectToDtcg(obj: unknown, key: string): unknown {
   if (typeof obj === 'object') {
     // it's an object, process all its keys
-    for (const key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        obj[key] = convertThemeObjectToDtcg(obj[key], key);
+    const objectValue = obj as Record<string, unknown>;
+    for (const key in objectValue) {
+      if (Object.prototype.hasOwnProperty.call(objectValue, key)) {
+        objectValue[key] = convertThemeObjectToDtcg(objectValue[key], key);
       }
     }
-    return obj;
+    return objectValue;
   } else {
     // it's a leaf, convert it
-    return convertThemeValueToDtcg(obj, key);
+    return convertThemeValueToDtcg(obj as string | number, key);
   }
 }
 
