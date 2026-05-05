@@ -294,10 +294,10 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
             {{#if (eq state "disabled")}}
               <SF.Item @label="Disabled">
                 <HdsDropdownToggleButton
-                  @text="Select"
+                  @text="Tgl"
                   @icon="hexagon"
-                  @count="5"
-                  @badge="Badge"
+                  @count="1"
+                  @badge="Bdg"
                   @badgeIcon="hexagon"
                   disabled
                 />
@@ -305,10 +305,10 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
             {{else}}
               <SF.Item @label="{{capitalize state}} state">
                 <HdsDropdownToggleButton
-                  @text="Select"
+                  @text="Tgl"
                   @icon="hexagon"
-                  @count="5"
-                  @badge="Badge"
+                  @count="1"
+                  @badge="Bdg"
                   @badgeIcon="hexagon"
                   mock-state-value={{state}}
                 />
@@ -528,30 +528,30 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
             <div class="hds-dropdown__content">
               <ul class="hds-dropdown__list">
                 <HdsDropdownListItemInteractive>
-                  List Item Interactive
+                  Interactive
                 </HdsDropdownListItemInteractive>
 
                 <HdsDropdownListItemSeparator />
 
                 <HdsDropdownListItemCheckmark @selected={{true}}>
-                  List Item Checkmark
+                  Checkmark
                 </HdsDropdownListItemCheckmark>
 
                 <HdsDropdownListItemSeparator />
 
                 <HdsDropdownListItemCheckbox>
-                  List Item Checkbox
+                  Checkbox
                 </HdsDropdownListItemCheckbox>
 
                 <HdsDropdownListItemSeparator />
 
                 <HdsDropdownListItemRadio>
-                  List Item Radio
+                  Radio
                 </HdsDropdownListItemRadio>
 
                 <HdsDropdownListItemSeparator />
 
-                <HdsDropdownListItemCopyItem @text="List Item Copy Item" />
+                <HdsDropdownListItemCopyItem @text="Copy Item" />
 
                 <HdsDropdownListItemSeparator />
 
@@ -559,7 +559,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   <span
                     class="hds-text hds-typography-body-200 hds-font-weight-medium hds-dropdown-list-item__interactive-text"
                   >
-                    List Item Generic
+                    Generic
                   </span>
                 </HdsDropdownListItemGeneric>
               </ul>
