@@ -22,6 +22,8 @@ import ShwOutliner from 'showcase/components/shw/outliner';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import {
+  HdsButton,
+  HdsButtonSet,
   HdsDropdown,
   HdsDropdownListItemInteractive,
   HdsDropdownListItemSeparator,
@@ -32,10 +34,17 @@ import {
   HdsDropdownListItemCopyItem,
   HdsDropdownToggleButton,
   HdsDropdownToggleIcon,
+  HdsDropdownListItemTitle,
+  HdsDropdownListItemDescription,
   HdsLinkStandalone,
+  HdsDropdownHeader,
+  HdsDropdownFooter,
+  HdsFormTextInputBase,
 } from '@hashicorp/design-system-components/components';
 
 const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
+const GENERIC_ITEMS = ['1', '2', '3'];
+const ORGANIZATIONS = ['Organization A', 'Organization B', 'Organization C'];
 
 import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
 
@@ -384,7 +393,133 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH3>All List Item component types</ShwTextH3>
+    <ShwTextH3>Dropdown Header and Footer</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item @label="Generic header and footer">
+            <div class="hds-dropdown__content">
+              <HdsDropdownHeader @hasDivider={{true}}>
+                <ShwPlaceholder
+                  @text="generic header content"
+                  @width="200"
+                  @height="36"
+                  @background="hsl(197, 100%, 75%, 0.2)"
+                />
+              </HdsDropdownHeader>
+              <ul class="hds-dropdown__list">
+                {{#each GENERIC_ITEMS}}
+                  <HdsDropdownListItemGeneric>
+                    <ShwPlaceholder
+                      @text="generic item content"
+                      @height="36"
+                      @background="hsl(197, 100%, 75%, 0.2)"
+                    />
+                  </HdsDropdownListItemGeneric>
+                {{/each}}
+              </ul>
+              <HdsDropdownFooter @hasDivider={{true}}>
+                <ShwPlaceholder
+                  @text="generic footer content"
+                  @width="200"
+                  @height="36"
+                  @background="hsl(197, 100%, 75%, 0.2)"
+                />
+              </HdsDropdownFooter>
+            </div>
+          </SF.Item>
+
+          <SF.Item @label="Input and Button Set">
+            <div class="hds-dropdown__content">
+              <HdsDropdownHeader @hasDivider={{true}}>
+                <HdsFormTextInputBase
+                  @type="search"
+                  placeholder="Narrow results"
+                />
+              </HdsDropdownHeader>
+              <ul class="hds-dropdown__list">
+                {{#each ORGANIZATIONS as |org|}}
+                  <HdsDropdownListItemInteractive @route="page-components">
+                    {{org}}
+                  </HdsDropdownListItemInteractive>
+                {{/each}}
+              </ul>
+              <HdsDropdownFooter @hasDivider={{true}}>
+                <HdsButtonSet>
+                  <HdsButton
+                    @text="Apply"
+                    @isFullWidth={{true}}
+                    @size="small"
+                  />
+                  <HdsButton
+                    @text="Cancel"
+                    @color="secondary"
+                    @isFullWidth={{true}}
+                    @size="small"
+                  />
+                </HdsButtonSet>
+              </HdsDropdownFooter>
+            </div>
+          </SF.Item>
+
+          <SF.Item @label="Input and Link, fixed height list">
+            <div class="hds-dropdown__content" {{style maxHeight="190px"}}>
+              <HdsDropdownHeader @hasDivider={{true}}>
+                <HdsFormTextInputBase
+                  @type="search"
+                  placeholder="Narrow results"
+                />
+              </HdsDropdownHeader>
+              <ul class="hds-dropdown__list">
+                {{#each ORGANIZATIONS as |org|}}
+                  <HdsDropdownListItemInteractive @route="page-components">
+                    {{org}}
+                  </HdsDropdownListItemInteractive>
+                {{/each}}
+              </ul>
+              <HdsDropdownFooter @hasDivider={{true}}>
+                <HdsLinkStandalone
+                  @icon="plus"
+                  @text="Add organization"
+                  @href="#"
+                />
+              </HdsDropdownFooter>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>List Item Title / Description / Separator</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <div class="hds-dropdown__content">
+          <ul class="hds-dropdown__list">
+            <HdsDropdownListItemTitle @text="A simple title" />
+            <HdsDropdownListItemDescription @text="A description." />
+            <HdsDropdownListItemSeparator />
+            <HdsDropdownListItemInteractive
+              @route="index"
+            >Item</HdsDropdownListItemInteractive>
+          </ul>
+        </div>
+      </:theming>
+
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>List Item component types</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
