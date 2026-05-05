@@ -2,6 +2,14 @@ While we provide visual styling for this component, the product team must implem
 
 ## How to use this component
 
+!!! Warning
+
+**Displaying Toasts in relation to a Flyout or Modal**
+
+When displaying a `Toast` in reaction to an action or event that has occurred related to an open `Flyout` or `Modal`, the `Toast` code must be included inside the `Flyout` or `Modal` component content or else it will be displayed below it and may not be visible. This is due to how z-index works for HTML `dialog` elements which the `Flyout` and `Modal` are based upon.
+
+!!!
+
 The basic invocation requires the `type` argument, an `onDismiss` callback function, and the `title` and/or `description` content. By default a `neutral` Toast is generated.
 
 [[code-snippets/toast-basic]]
