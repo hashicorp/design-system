@@ -331,6 +331,9 @@ importers:
       '@carbon/icons':
         specifier: ^11.76.0
         version: 11.76.0
+      '@eslint/js':
+        specifier: ^9.27.0
+        version: 9.32.0
       '@figma-export/cli':
         specifier: ^6.0.2
         version: 6.2.2
@@ -375,10 +378,10 @@ importers:
         version: 19.1.7(@types/react@19.1.9)
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.18.1
-        version: 8.38.0(@typescript-eslint/parser@8.38.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1)(typescript@5.9.2)
+        version: 8.38.0(@typescript-eslint/parser@8.38.0(eslint@9.32.0)(typescript@5.9.2))(eslint@9.32.0)(typescript@5.9.2)
       '@typescript-eslint/parser':
         specifier: ^8.18.1
-        version: 8.38.0(eslint@8.57.1)(typescript@5.9.2)
+        version: 8.38.0(eslint@9.32.0)(typescript@5.9.2)
       archiver:
         specifier: ^7.0.1
         version: 7.0.1
@@ -392,14 +395,17 @@ importers:
         specifier: ^16.4.7
         version: 16.6.1
       eslint:
-        specifier: ^8.57.1
-        version: 8.57.1
+        specifier: ^9.27.0
+        version: 9.32.0
       figma-api:
         specifier: ^2.2.0-beta
         version: 2.2.0-beta
       fs-extra:
         specifier: ^11.2.0
         version: 11.3.0
+      globals:
+        specifier: ^16.1.0
+        version: 16.3.0
       lodash:
         specifier: ^4.17.23
         version: 4.17.23
@@ -421,6 +427,9 @@ importers:
       typescript:
         specifier: ^5.7.2
         version: 5.9.2
+      typescript-eslint:
+        specifier: ^8.32.1
+        version: 8.38.0(eslint@9.32.0)(typescript@5.9.2)
 
   packages/tokens:
     devDependencies:

@@ -4,8 +4,7 @@
 
 /.env*
 /.eslintcache
-/.eslintignore
-/.eslintrc.js
+/eslint.config.mjs
 /.git/
 /.gitignore
 /.prettierignore

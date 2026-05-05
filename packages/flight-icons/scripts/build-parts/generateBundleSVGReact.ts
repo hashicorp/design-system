@@ -25,7 +25,7 @@ const getComponentName = (fileName: string) => {
     return upperFirst(camelCase(`Icon ${fileName}`));
 };
 
-const getComponentSource = ({ componentName, svgReact }: { componentName: string; svgReact: any }) => {
+const getComponentSource = ({ componentName, svgReact }: { componentName: string; svgReact: string }) => {
     return `
         import { forwardRef, useMemo } from 'react';
         import { IconProps } from './types';
@@ -68,7 +68,7 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
 
         // convert SVG to React/JSX
         // see: https://github.com/gregberge/svgr/blob/v5.5.0/packages/core/src/convert.js (notice: this is for v5.5.0)
-        let svgReact = await svgr(svgSource,
+        let svgReact: string = await svgr(svgSource,
             // CONFIG
             // for all the options see: https://github.com/gregberge/svgr/blob/v5.5.0/packages/core/src/index.d.ts (notice: this is for v5.5.0)
             // for the "outDir" option see: https://github.com/gregberge/svgr/issues/532 (essentially, it's only for CLI)
@@ -97,7 +97,7 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
             {
                 componentName: componentName
             }
-        );
+        ) as string;
 
         // remove the extra semi-colon added at the end of the output by the SVGR AST transformer
         svgReact = svgReact.replace(/;$/,'');
