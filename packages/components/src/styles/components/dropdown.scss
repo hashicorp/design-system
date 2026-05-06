@@ -41,15 +41,15 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 .hds-dropdown-toggle-icon {
   position: relative;
   display: flex;
-  gap: 2px;
+  gap: var(--token-dropdown-toggle-icon-gap);
   align-items: center;
   justify-content: center;
-  padding: 1px;
+  padding: var(--token-dropdown-toggle-icon-padding);
   // this variant mimics the secondary button, but not entirely (eg. it doesn't have an elevation shadow)
   // so we need to provide the same color values but without using the `hds-button-color-secondary()` mixin
-  color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-faint);
-  border: 1px solid var(--token-color-border-strong);
+  color: var(--token-button-foreground-color-secondary-default);
+  background-color: var(--token-button-surface-color-secondary-default);
+  border: 1px solid var(--token-button-border-color-secondary-default);
   border-radius: var(--token-button-border-radius);
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
@@ -57,24 +57,30 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
   &:hover,
   &.mock-hover {
-    background-color: var(--token-color-surface-interactive);
+    color: var(--token-button-foreground-color-secondary-hover);
+    background-color: var(--token-button-surface-color-secondary-hover);
+    border-color: var(--token-button-border-color-secondary-hover);
     cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
     @include hds-button-state-focus();
-    border-color: var(--token-color-focus-action-internal);
+
+    color: var(--token-button-foreground-color-secondary-focus);
+    background-color: var(--token-button-surface-color-secondary-focus);
+    border-color: var(--token-button-border-color-secondary-focus-internal);
 
     &::before {
-      border-color: var(--token-color-focus-action-external);
+      border-color: var(--token-button-border-color-secondary-focus-external);
     }
   }
 
   &:active,
   &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
+    color: var(--token-button-foreground-color-secondary-active);
+    background-color: var(--token-button-surface-color-secondary-active);
+    border-color: var(--token-button-border-color-secondary-active);
 
     &::before {
       border-color: transparent;
@@ -215,8 +221,11 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   margin-left: auto;
   padding-left: 2px;
 
-  @include hds-apply-only-if-carbon() {
-    padding-left: calc(32px - #{$hds-dropdown-toggle-button-carbon-gap});
+  // We add extra spacing only when used within a toggle button vs. in a toggle icon
+  .hds-dropdown-toggle-button & {
+    @include hds-apply-only-if-carbon() {
+      padding-left: calc(32px - #{$hds-dropdown-toggle-button-carbon-gap});
+    }
   }
 
   .hds-icon-chevron-down {
@@ -245,9 +254,6 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   background-color: var(--token-dropdown-surface-color-primary); // Note: token naming & structure are subject to change
   border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-surface-high-box-shadow);
-
-  // Default:
-  // box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
 
   @include hds-apply-only-if-carbon() {
     border-radius: 0;

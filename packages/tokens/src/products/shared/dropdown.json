@@ -78,6 +78,32 @@
           }
         }
       }
+    },
+    "toggle-icon": {
+      "gap": {
+        "$type": "dimension",
+        "$value": "2",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        }
+      },
+      "padding": {
+        "$type": "dimension",
+        "$value": "1",
+        "unit": "px",
+        "$modes": {
+          "default": "1",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        }
+      }
     }
   }
 }
