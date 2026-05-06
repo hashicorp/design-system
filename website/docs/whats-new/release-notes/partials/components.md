@@ -14,6 +14,8 @@
 
 ## 6.2.0
 
+[6.2.0 documentation](https://hds-website-6-2-0.vercel.app/)
+
 **Minor changes**
 
 <!-- START components/table/advanced-table -->
