@@ -30,6 +30,7 @@ type size = (typeof LINK_SIZE)[keyof typeof LINK_SIZE];
 
 export interface HdsLinkInlineSignature {
   Args: HdsInteractiveSignature['Args'] & {
+    useCds?: boolean;
     /**
      * @deprecated Carbon doesnt allow other colors
      */
@@ -94,7 +95,8 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
   }
 
   get shouldRenderCarbon() {
-    const { models, model, query, replace, route, isRouteExternal } = this.args;
+    const { models, model, query, replace, route, isRouteExternal, useCds } =
+      this.args;
 
     if (
       models ||
@@ -103,7 +105,8 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
       replace ||
       route ||
       isRouteExternal ||
-      this.args['current-when']
+      this.args['current-when'] ||
+      !useCds
     ) {
       return false;
     }
@@ -139,6 +142,8 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
         @replace={{@replace}}
         @route={{@route}}
         @isRouteExternal={{@isRouteExternal}}
+        @href={{@href}}
+        @isHrefExternal={{@isHrefExternal}}
         ...attributes
       >
         {{~#if (eq this.iconPosition "leading")~}}

@@ -29,6 +29,7 @@ import type { HdsIconSignature } from '../icon/index.gts';
 
 export interface HdsLinkStandaloneSignature {
   Args: HdsInteractiveSignature['Args'] & {
+    useCds?: boolean;
     size?: HdsLinkStandaloneSizes;
     /**
      * @deprecated Carbon doesnt allow other colors
@@ -148,7 +149,8 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
   }
 
   get shouldRenderCarbon() {
-    const { models, model, query, replace, route, isRouteExternal } = this.args;
+    const { models, model, query, replace, route, isRouteExternal, useCds } =
+      this.args;
 
     if (
       models ||
@@ -157,7 +159,8 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
       replace ||
       route ||
       isRouteExternal ||
-      this.args['current-when']
+      this.args['current-when'] ||
+      !useCds
     ) {
       return false;
     }

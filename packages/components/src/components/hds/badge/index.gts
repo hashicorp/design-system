@@ -29,6 +29,7 @@ export const DEFAULT_COLOR = HdsBadgeColorValues.Neutral;
 
 export interface HdsBadgeSignature {
   Args: {
+    useCds?: boolean;
     size?: HdsBadgeSizes;
     type?: HdsBadgeTypes;
     color?: HdsBadgeColors;
@@ -154,17 +155,33 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
   }
 
   <template>
-    <cds-tag
-      title={{this.text}}
-      type={{this.mappedCarbonType}}
-      size={{this.size}}
-      ...attributes
-    >
-      {{#if @icon}}
-        <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} slot="icon" />
-      {{/if}}
-
-      {{this.text}}
-    </cds-tag>
+    {{#if @useCds}}
+      <cds-tag
+        title={{this.text}}
+        type={{this.mappedCarbonType}}
+        size={{this.size}}
+        ...attributes
+      >
+        {{#if @icon}}
+          <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} slot="icon" />
+        {{/if}}
+        {{this.text}}
+      </cds-tag>
+    {{else}}
+      <div class={{this.classNames}} ...attributes>
+        {{#if @icon}}
+          <div class="hds-badge__icon">
+            <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+          </div>
+        {{/if}}
+        {{#if this.isIconOnly}}
+          <span class="sr-only">{{this.text}}</span>
+        {{else}}
+          <div class="hds-badge__text">
+            {{this.text}}
+          </div>
+        {{/if}}
+      </div>
+    {{/if}}
   </template>
 }

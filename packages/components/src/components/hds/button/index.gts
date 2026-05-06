@@ -40,6 +40,7 @@ export const DEFAULT_ICON_POSITION = HdsButtonIconPositionValues.Leading;
 
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
+    useCds?: boolean;
     size?: HdsButtonSizes;
     color?: HdsButtonColors;
     text: string;
@@ -166,7 +167,8 @@ export default class HdsButton extends Component<HdsButtonSignature> {
   }
 
   get shouldRenderCarbon() {
-    const { models, model, query, replace, route, isRouteExternal } = this.args;
+    const { models, model, query, replace, route, isRouteExternal, useCds } =
+      this.args;
 
     if (
       models ||
@@ -175,7 +177,8 @@ export default class HdsButton extends Component<HdsButtonSignature> {
       replace ||
       route ||
       isRouteExternal ||
-      this.args['current-when']
+      this.args['current-when'] ||
+      !useCds
     ) {
       return false;
     }
@@ -236,6 +239,8 @@ export default class HdsButton extends Component<HdsButtonSignature> {
         @replace={{@replace}}
         @route={{@route}}
         @isRouteExternal={{@isRouteExternal}}
+        @href={{@href}}
+        @isHrefExternal={{@isHrefExternal}}
         ...attributes
         aria-label={{if this.isIconOnly this.text null}}
       >
