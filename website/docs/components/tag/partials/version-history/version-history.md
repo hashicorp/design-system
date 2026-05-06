@@ -1,3 +1,7 @@
+## 6.2.0
+
+Fixed a runtime error when `ResizeObserver` is undefined (e.g. SSR).
+
 ## 6.1.0
 
 Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.

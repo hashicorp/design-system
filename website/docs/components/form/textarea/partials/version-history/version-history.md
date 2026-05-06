@@ -1,3 +1,7 @@
+## 6.2.0
+
+Fixed element typing to `HTMLTextAreaElement` for stricter and more accurate Glint checks.
+
 ## 6.1.1
 
 Fixed `TextareaField` signature element to be `HTMLInputElement` instead of `HTMLElement`.

@@ -20,8 +20,6 @@ navigation:
   keywords:
     - option
     - select
-status:
-  updated: 6.1.1
 ---
 
 <section data-tab="Guidelines">

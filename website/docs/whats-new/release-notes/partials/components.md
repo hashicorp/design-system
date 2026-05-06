@@ -18,41 +18,25 @@
 
 **Minor changes**
 
-<!-- START components/table/advanced-table -->
-
 `AdvancedTable` - Replaced custom keyboard navigation modifiers with the `Composite` utility component.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3818](https://github.com/hashicorp/design-system/pull/3818)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
-
 `AdvancedTable` - Added support for allowing a pinnable first column and reorderable columns at the same time.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3707](https://github.com/hashicorp/design-system/pull/3707)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
-
 `AdvancedTable` - Added generic types for `@model` values.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3699](https://github.com/hashicorp/design-system/pull/3699)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START utilities/composite -->
-
 `Composite` - Added a new utility component that enables accessible arrow-key keyboard navigation for complex components, such as `Tabs` and `AdvancedTable`.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3649](https://github.com/hashicorp/design-system/pull/3649)</small>
 
@@ -60,75 +44,39 @@
 
 **Patch changes**
 
-<!-- START components/table/advanced-table -->
-
 `AdvancedTable` - Fixed typing for sticky first-column cells by exposing `isStickyColumn` in the yielded table-cell API and by passing an explicit `parentId` value when rendering row header cells.
-
-<!-- END -->
-
-<!-- START components/form/primitives -->
 
 `Form::Indicator` - Fixed invocation of `HdsTextBody` to use named arguments, which prevented incorrect argument forwarding.
 
-<!-- END -->
-
-<!-- START components/form/masked-input -->
-
 `Form::MaskedInput` - Fixed element typing to match the underlying control element (`input` or `textarea`) instead of a generic `HTMLElement`.
-
-<!-- END -->
-
-<!-- START components/form/textarea -->
 
 `Form::Textarea` - Fixed element typing to `HTMLTextAreaElement` for stricter and more accurate Glint checks.
 
-<!-- END -->
-
-<!-- START components/table/table -->
-
 `Table::ThSort` - Fixed element typing to `HTMLTableCellElement` to reflect the actual rendered table-cell element.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3810](https://github.com/hashicorp/design-system/pull/3810) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
-
 `AdvancedTable` - Converted component to gts format.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3797](https://github.com/hashicorp/design-system/pull/3797)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/tag -->
-
 `Tag` - Fixed a runtime error when `ResizeObserver` is undefined (e.g. SSR).
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3839](https://github.com/hashicorp/design-system/pull/3839)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/copy/snippet-->
-
 `CopySnippet` - Translated `aria-label` string for button.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3816](https://github.com/hashicorp/design-system/pull/3816)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/key-value-inputs -->
-
 `KeyValueInputs` - Translated strings for `DeleteRowButton` and `Field` screen reader text.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3823](https://github.com/hashicorp/design-system/pull/3823)</small>
 

@@ -1,3 +1,7 @@
+## 6.2.0
+
+Fixed element typing to `HTMLTableCellElement` to reflect the actual rendered table-cell element.
+
 ## 6.1.1
 
 Converted component to gts format.
