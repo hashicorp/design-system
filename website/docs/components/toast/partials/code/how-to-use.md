@@ -4,9 +4,9 @@ While we provide visual styling for this component, the product team must implem
 
 !!! Warning
 
-**Displaying Toasts in relation to a Flyout or Modal**
+**Code alert**
 
-When displaying a `Toast` in reaction to an action or event that has occurred related to an open `Flyout` or `Modal`, the `Toast` code must be included inside the `Flyout` or `Modal` component content or else it will be displayed below it and may not be visible. This is due to how z-index works for HTML `dialog` elements which the `Flyout` and `Modal` are based upon.
+When displaying a Toast in reaction to an action or event that has occurred within an open Flyout or Modal, the Toast code must be included inside the Flyout or Modal component content or else it will be displayed below it and may not be visible. This is due to how z-index works for HTML dialog elements which the Flyout and Modal are based upon.
 
 !!!
 
