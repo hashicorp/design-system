@@ -27,9 +27,7 @@ function getExpandoButton(itemSelector: string): HTMLButtonElement | null {
 async function clickExpando(itemSelector: string): Promise<void> {
   const button = getExpandoButton(itemSelector);
   if (!button) {
-    throw new Error(
-      `Expando button not found for selector "${itemSelector}"`,
-    );
+    throw new Error(`Expando button not found for selector "${itemSelector}"`);
   }
   await click(button);
 }
@@ -306,9 +304,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       </template>,
     );
 
-    assert
-      .dom('#test-item')
-      .hasAttribute('aria-label', 'Custom toggle label');
+    assert.dom('#test-item').hasAttribute('aria-label', 'Custom toggle label');
   });
 
   // OPTIONS

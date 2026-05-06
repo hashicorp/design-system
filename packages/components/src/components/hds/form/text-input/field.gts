@@ -5,17 +5,16 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { concat } from '@ember/helper';
-// import { on } from '@ember/modifier';
-// import { hash } from '@ember/helper';
-// import style from 'ember-style-modifier';
+import { concat, hash } from '@ember/helper';
+import { on } from '@ember/modifier';
+import style from 'ember-style-modifier';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
 
-// import HdsFormField from '../field/index.gts';
+import HdsFormField from '../field/index.gts';
 import HdsFormTextInputBase from './base.gts';
-// import HdsFormVisibilityToggle from '../visibility-toggle/index.gts';
+import HdsFormVisibilityToggle from '../visibility-toggle/index.gts';
 import HdsFormCharacterCount from '../character-count/index.gts';
 
 import type { HdsFormFieldSignature } from '../field/index.gts';
@@ -29,6 +28,7 @@ export interface HdsFormTextInputFieldSignature {
       visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
       enableCounter?: boolean;
       maxCount?: number;
+      useCds?: boolean;
     };
   Blocks: {
     default: [
@@ -86,73 +86,75 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
   };
 
   <template>
-    <HdsFormTextInputBase
-      @type={{this.type}}
-      @value={{@value}}
-      @isInvalid={{@isInvalid}}
-      @isLoading={{@isLoading}}
-      @hasVisibilityToggle={{this.showVisibilityToggle}}
-      required={{@isRequired}}
-      @enableCounter={{@enableCounter}}
-      @maxCount={{@maxCount}}
-      @label={{@label}}
-      @helperText={{@helperText}}
-      ...attributes
-      @id={{@id}}
-      @ariaDescribedBy={{concat @ariaDescribedBy @extraAriaDescribedBy}}
-    >
-      <span slot="label-text">
-        {{yield to="label"}}
-      </span>
-      <span slot="helper-text">
-        {{yield to="helperText"}}
-      </span>
-      <span slot="validity-message">
-        {{yield to="error"}}
-      </span>
-    </HdsFormTextInputBase>
-    {{!-- id={{F.id}} --}}
-    {{!-- aria-describedby={{F.ariaDescribedBy}} --}}
-    {{!-- <HdsFormField
-      @layout="vertical"
-      @extraAriaDescribedBy={{@extraAriaDescribedBy}}
-      @isRequired={{@isRequired}}
-      @isOptional={{@isOptional}}
-      @id={{@id}}
-      as |F|
-    >
-      {{! Notice: the order of the elements is not relevant here, because is controlled at "HdsFormField" component level }}
-      {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
-      {{#if F.CharacterCount}}
-        {{yield
-          (hash CharacterCount=(component F.CharacterCount value=@value))
-        }}
-      {{/if}}
-      <F.Control>
-        <div class="hds-form-text-input__wrapper" {{style width=@width}}>
-          <HdsFormTextInputBase
-            @type={{this.type}}
-            @value={{@value}}
-            @isInvalid={{@isInvalid}}
-            @isLoading={{@isLoading}}
-            @hasVisibilityToggle={{this.showVisibilityToggle}}
-            required={{@isRequired}}
-            ...attributes
-            id={{F.id}}
-            aria-describedby={{F.ariaDescribedBy}}
-          />
-          {{#if this.showVisibilityToggle}}
-            <HdsFormVisibilityToggle
-              @isVisible={{this._isPasswordMasked}}
-              @ariaLabel={{this.visibilityToggleAriaLabel}}
-              @ariaMessageText={{this.visibilityToggleAriaMessageText}}
-              aria-controls={{F.id}}
-              class="hds-form-text-input__visibility-toggle"
-              {{on "click" this.onClickTogglePasswordReadability}}
+    {{#if @useCds}}
+      <HdsFormTextInputBase
+        @useCds={{@useCds}}
+        @type={{this.type}}
+        @value={{@value}}
+        @isInvalid={{@isInvalid}}
+        @isLoading={{@isLoading}}
+        @hasVisibilityToggle={{this.showVisibilityToggle}}
+        required={{@isRequired}}
+        @enableCounter={{@enableCounter}}
+        @maxCount={{@maxCount}}
+        @label={{@label}}
+        @helperText={{@helperText}}
+        ...attributes
+        @id={{@id}}
+        @ariaDescribedBy={{concat @ariaDescribedBy @extraAriaDescribedBy}}
+      >
+        <span slot="label-text">
+          {{yield to="label"}}
+        </span>
+        <span slot="helper-text">
+          {{yield to="helperText"}}
+        </span>
+        <span slot="validity-message">
+          {{yield to="error"}}
+        </span>
+      </HdsFormTextInputBase>
+    {{else}}
+      <HdsFormField
+        @layout="vertical"
+        @extraAriaDescribedBy={{@extraAriaDescribedBy}}
+        @isRequired={{@isRequired}}
+        @isOptional={{@isOptional}}
+        @id={{@id}}
+        as |F|
+      >
+        {{! Notice: the order of the elements is not relevant here, because is controlled at "HdsFormField" component level }}
+        {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
+        {{#if F.CharacterCount}}
+          {{yield
+            (hash CharacterCount=(component F.CharacterCount value=@value))
+          }}
+        {{/if}}
+        <F.Control>
+          <div class="hds-form-text-input__wrapper" {{style width=@width}}>
+            <HdsFormTextInputBase
+              @type={{this.type}}
+              @value={{@value}}
+              @isInvalid={{@isInvalid}}
+              @isLoading={{@isLoading}}
+              @hasVisibilityToggle={{this.showVisibilityToggle}}
+              required={{@isRequired}}
+              ...attributes
+              id={{F.id}}
+              aria-describedby={{F.ariaDescribedBy}}
             />
-          {{/if}}
-        </div>
-      </F.Control> --}}
-    {{! </HdsFormField> }}
+            {{#if this.showVisibilityToggle}}
+              <HdsFormVisibilityToggle
+                @isVisible={{this._isPasswordMasked}}
+                @ariaLabel={{this.visibilityToggleAriaLabel}}
+                @ariaMessageText={{this.visibilityToggleAriaMessageText}}
+                aria-controls={{F.id}}
+                class="hds-form-text-input__visibility-toggle"
+                {{on "click" this.onClickTogglePasswordReadability}}
+              />
+            {{/if}}
+          </div>
+        </F.Control>
+      </HdsFormField>
+    {{/if}}
   </template>
 }

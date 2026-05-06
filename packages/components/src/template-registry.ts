@@ -258,7 +258,7 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Accordion::Item': typeof HdsAccordionItemComponent;
   'hds/accordion/item': typeof HdsAccordionItemComponent;
-  
+
   // Advanced Table
   'Hds::AdvancedTable': typeof HdsAdvancedTableComponent;
   'hds/advanced-table': typeof HdsAdvancedTableComponent;
