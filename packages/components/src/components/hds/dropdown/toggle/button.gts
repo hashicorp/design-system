@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import { service } from '@ember/service';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 
