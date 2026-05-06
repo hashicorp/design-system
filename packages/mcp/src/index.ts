@@ -7,12 +7,19 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 
+import { loadComponentCatalog } from './component-catalog.js';
+import { registerGetComponentContextTool } from './tools/get-component-context.js';
+import { registerListComponentsTool } from './tools/list-components.js';
+
 const server = new McpServer({
   name: 'hds-mcp',
   version: '0.0.0',
 });
 
-// Tools, resources, and prompts will be registered here.
+const catalogStore = loadComponentCatalog();
+
+registerListComponentsTool(server, catalogStore);
+registerGetComponentContextTool(server, catalogStore);
 
 const main = async (): Promise<void> => {
   const transport = new StdioServerTransport();

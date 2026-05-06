@@ -1,0 +1,59 @@
+{
+  "version": "1",
+  "generatedAt": "2026-05-06T00:00:00.000Z",
+  "components": [
+    {
+      "name": "Button",
+      "slug": "button",
+      "summary": "Triggers an action in response to user interaction.",
+      "args": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Visible label text for the button."
+        },
+        {
+          "name": "isDisabled",
+          "type": "boolean",
+          "required": false,
+          "description": "Disables interaction when true."
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default",
+          "description": "Optional custom content rendered inside the button."
+        }
+      ],
+      "a11yNotes": [
+        "Provide an accessible label for icon-only content.",
+        "Use disabled state to prevent unavailable actions."
+      ],
+      "examples": ["<Hds::Button @text=\"Save\" />"]
+    },
+    {
+      "name": "Alert",
+      "slug": "alert",
+      "summary": "Highlights important status information to the user.",
+      "args": [
+        {
+          "name": "color",
+          "type": "enum",
+          "required": false,
+          "description": "Visual style indicating alert severity."
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default",
+          "description": "Alert title and body content."
+        }
+      ],
+      "a11yNotes": ["Use concise text and avoid relying on color alone."],
+      "examples": [
+        "<Hds::Alert @color=\"critical\">Something failed.</Hds::Alert>"
+      ]
+    }
+  ]
+}

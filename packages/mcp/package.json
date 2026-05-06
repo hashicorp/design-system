@@ -10,7 +10,8 @@
     "hds-mcp": "./dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "manifest"
   ],
   "scripts": {
     "build": "tsc",
