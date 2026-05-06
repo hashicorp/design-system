@@ -77,7 +77,7 @@ export interface HdsModalSignature {
       },
     ];
   };
-  Element: HTMLElement;
+  Element: HTMLElement | HTMLDialogElement;
 }
 
 export default class HdsModal extends Component<HdsModalSignature> {
