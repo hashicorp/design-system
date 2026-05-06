@@ -32,6 +32,12 @@
 
 ### Patch Changes
 
+`CopySnippet` - Translated `aria-label` string for button.
+
+<small class="doc-whats-new-changelog-metadata">[#3816](https://github.com/hashicorp/design-system/pull/3816)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 `AdvancedTable` - Fixed typing for sticky first-column cells by exposing `isStickyColumn` in the yielded table-cell API and by passing an explicit `parentId` value when rendering row header cells.
 
 `Form::Indicator` - Fixed invocation of `HdsTextBody` to use named arguments, which prevented incorrect argument forwarding.
