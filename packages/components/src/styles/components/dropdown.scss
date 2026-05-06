@@ -179,6 +179,15 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
 .hds-dropdown-toggle-button--color-secondary {
   @include hds-button-color-secondary();
+
+  @include hds-apply-only-if-carbon() {
+    .hds-dropdown-toggle-button__badge,
+    .hds-dropdown-toggle-button__count {
+      color: var(--token-badge-foreground-color-neutral-filled);
+      background-color: var(--token-badge-surface-color-neutral-filled);
+      border-color: transparent;
+    }
+  }
 }
 
 .hds-dropdown-toggle-button--width-full {
