@@ -401,8 +401,8 @@ importers:
         specifier: ^11.2.0
         version: 11.3.0
       lodash:
-        specifier: ^4.17.23
-        version: 4.17.23
+        specifier: ^4.18.1
+        version: 4.18.1
       mini-svg-data-uri:
         specifier: ^1.4.4
         version: 1.4.4
@@ -1031,8 +1031,8 @@ importers:
         specifier: ^4.7.0
         version: 4.7.0
       lodash:
-        specifier: ^4.17.23
-        version: 4.17.23
+        specifier: ^4.18.1
+        version: 4.18.1
       mdast-util-from-markdown:
         specifier: ^2.0.2
         version: 2.0.2
@@ -8860,8 +8860,8 @@ packages:
   lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
 
-  lodash@4.17.23:
-    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   log-symbols@2.2.0:
     resolution: {integrity: sha512-VeIAFslyIerEJLXHziedo2basKbMKtTw3vfn5IzG0XTjhAVEJyNHnL2p7vc+wBDSdQuUpNw3M2u6xb9QsAY5Eg==}
@@ -13850,7 +13850,7 @@ snapshots:
       handlebars: 4.7.9
       js-string-escape: 1.0.1
       jsdom: 25.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       resolve: 1.22.10
       resolve-package-path: 4.0.3
       resolve.exports: 2.0.3
@@ -13871,7 +13871,7 @@ snapshots:
       babel-import-util: 3.0.1
       ember-cli-babel: 7.26.11
       find-up: 5.0.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       resolve: 1.22.10
       semver: 7.7.4
     optionalDependencies:
@@ -13892,7 +13892,7 @@ snapshots:
       fs-extra: 9.1.0
       is-subdir: 1.2.0
       js-string-escape: 1.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       minimatch: 3.1.2
       pkg-entry-points: 1.1.1
       resolve-package-path: 4.0.3
@@ -13909,7 +13909,7 @@ snapshots:
       fs-extra: 9.1.0
       is-subdir: 1.2.0
       js-string-escape: 1.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       minimatch: 3.1.2
       pkg-entry-points: 1.1.1
       resolve-package-path: 4.0.3
@@ -13921,7 +13921,7 @@ snapshots:
 
   '@embroider/test-setup@4.0.0':
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
       resolve: 1.22.10
 
   '@embroider/util@1.13.4(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
@@ -16325,7 +16325,7 @@ snapshots:
       graceful-fs: 4.2.11
       is-stream: 2.0.1
       lazystream: 1.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       normalize-path: 3.0.0
       readable-stream: 4.7.0
 
@@ -16495,7 +16495,7 @@ snapshots:
 
   async@2.6.4:
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
 
   async@3.2.6: {}
 
@@ -16552,7 +16552,7 @@ snapshots:
       convert-source-map: 1.9.0
       debug: 2.6.9
       json5: 0.5.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       minimatch: 3.1.2
       path-is-absolute: 1.0.1
       private: 0.1.8
@@ -16572,7 +16572,7 @@ snapshots:
       babel-types: 6.26.0
       detect-indent: 4.0.0
       jsesc: 1.3.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       source-map: 0.5.7
       trim-right: 1.0.1
 
@@ -16598,7 +16598,7 @@ snapshots:
       babel-helper-function-name: 6.24.1
       babel-runtime: 6.26.0
       babel-types: 6.26.0
-      lodash: 4.17.23
+      lodash: 4.18.1
     transitivePeerDependencies:
       - supports-color
 
@@ -16639,7 +16639,7 @@ snapshots:
     dependencies:
       babel-runtime: 6.26.0
       babel-types: 6.26.0
-      lodash: 4.17.23
+      lodash: 4.18.1
 
   babel-helper-remap-async-to-generator@6.24.1:
     dependencies:
@@ -16831,7 +16831,7 @@ snapshots:
       babel-template: 6.26.0
       babel-traverse: 6.26.0
       babel-types: 6.26.0
-      lodash: 4.17.23
+      lodash: 4.18.1
     transitivePeerDependencies:
       - supports-color
 
@@ -17050,7 +17050,7 @@ snapshots:
       babel-runtime: 6.26.0
       core-js: 2.6.12
       home-or-tmp: 2.0.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       mkdirp: 0.5.6
       source-map-support: 0.4.18
     transitivePeerDependencies:
@@ -17076,7 +17076,7 @@ snapshots:
       babel-traverse: 6.26.0
       babel-types: 6.26.0
       babylon: 6.18.0
-      lodash: 4.17.23
+      lodash: 4.18.1
     transitivePeerDependencies:
       - supports-color
 
@@ -17090,7 +17090,7 @@ snapshots:
       debug: 2.6.9
       globals: 9.18.0
       invariant: 2.2.4
-      lodash: 4.17.23
+      lodash: 4.18.1
     transitivePeerDependencies:
       - supports-color
 
@@ -17098,7 +17098,7 @@ snapshots:
     dependencies:
       babel-runtime: 6.26.0
       esutils: 2.0.3
-      lodash: 4.17.23
+      lodash: 4.18.1
       to-fast-properties: 1.0.3
 
   babylon@6.18.0: {}
@@ -18156,7 +18156,7 @@ snapshots:
   concurrently@9.2.0:
     dependencies:
       chalk: 4.1.2
-      lodash: 4.17.23
+      lodash: 4.18.1
       rxjs: 7.8.1
       shell-quote: 1.8.2
       supports-color: 8.1.1
@@ -18191,13 +18191,13 @@ snapshots:
       ora: 3.4.0
       through2: 3.0.2
 
-  consolidate@0.16.0(babel-core@6.26.3)(handlebars@4.7.9)(lodash@4.17.23)(mustache@4.2.0)(underscore@1.13.8):
+  consolidate@0.16.0(babel-core@6.26.3)(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8):
     dependencies:
       bluebird: 3.7.2
     optionalDependencies:
       babel-core: 6.26.3
       handlebars: 4.7.9
-      lodash: 4.17.23
+      lodash: 4.18.1
       mustache: 4.2.0
       underscore: 1.13.8
 
@@ -19044,7 +19044,7 @@ snapshots:
       handlebars: 4.7.9
       is-subdir: 1.2.0
       js-string-escape: 1.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       mini-css-extract-plugin: 2.9.2(webpack@5.101.0)
       minimatch: 3.1.2
       parse5: 6.0.1
@@ -19534,7 +19534,7 @@ snapshots:
       is-git-url: 1.0.0
       is-language-code: 3.1.0
       isbinaryfile: 5.0.4
-      lodash: 4.17.23
+      lodash: 4.18.1
       markdown-it: 14.1.0
       markdown-it-terminal: 0.4.0(markdown-it@14.1.0)
       minimatch: 7.4.9
@@ -19675,7 +19675,7 @@ snapshots:
       is-git-url: 1.0.0
       is-language-code: 3.1.0
       isbinaryfile: 5.0.4
-      lodash: 4.17.23
+      lodash: 4.18.1
       markdown-it: 14.1.0
       markdown-it-terminal: 0.4.0(markdown-it@14.1.0)
       minimatch: 7.4.9
@@ -20336,7 +20336,7 @@ snapshots:
   ember-try-config@4.0.0:
     dependencies:
       ember-source-channel-url: 3.0.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       package-json: 6.5.0
       remote-git-tags: 3.0.0
       semver: 7.7.4
@@ -22129,7 +22129,7 @@ snapshots:
       cli-width: 2.2.1
       external-editor: 3.1.0
       figures: 2.0.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       mute-stream: 0.0.7
       run-async: 2.4.1
       rxjs: 6.6.7
@@ -22145,7 +22145,7 @@ snapshots:
       cli-width: 3.0.0
       external-editor: 3.1.0
       figures: 3.2.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       mute-stream: 0.0.8
       run-async: 2.4.1
       rxjs: 6.6.7
@@ -23001,7 +23001,7 @@ snapshots:
   jsonapi-serializer@3.6.9:
     dependencies:
       inflected: 1.1.7
-      lodash: 4.17.23
+      lodash: 4.18.1
 
   jsonc-parser@3.3.1: {}
 
@@ -23181,7 +23181,7 @@ snapshots:
 
   lodash.uniq@4.5.0: {}
 
-  lodash@4.17.23: {}
+  lodash@4.18.1: {}
 
   log-symbols@2.2.0:
     dependencies:
@@ -24406,7 +24406,7 @@ snapshots:
   postcss-reporter@6.0.1:
     dependencies:
       chalk: 2.4.2
-      lodash: 4.17.23
+      lodash: 4.18.1
       log-symbols: 2.2.0
       postcss: 7.0.39
 
@@ -24446,7 +24446,7 @@ snapshots:
 
   postcss-sorting@4.1.0:
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
       postcss: 7.0.39
 
   postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-jsx@0.36.4)(postcss-less@3.1.4)(postcss-markdown@0.36.0)(postcss-scss@2.1.1)(postcss@7.0.39):
@@ -25851,7 +25851,7 @@ snapshots:
 
   stylelint-order@2.2.1(stylelint@9.10.1):
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
       postcss: 7.0.39
       postcss-sorting: 4.1.0
       stylelint: 9.10.1
@@ -25931,7 +25931,7 @@ snapshots:
       imurmurhash: 0.1.4
       known-css-properties: 0.11.0
       leven: 2.1.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       log-symbols: 2.2.0
       mathml-tag-names: 2.1.3
       meow: 5.0.0
@@ -26058,7 +26058,7 @@ snapshots:
   table@5.4.6:
     dependencies:
       ajv: 6.12.6
-      lodash: 4.17.23
+      lodash: 4.18.1
       slice-ansi: 2.1.0
       string-width: 3.1.0
 
@@ -26127,14 +26127,14 @@ snapshots:
       charm: 1.0.2
       commander: 2.20.3
       compression: 1.8.0
-      consolidate: 0.16.0(babel-core@6.26.3)(handlebars@4.7.9)(lodash@4.17.23)(mustache@4.2.0)(underscore@1.13.8)
+      consolidate: 0.16.0(babel-core@6.26.3)(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8)
       execa: 1.0.0
       express: 4.21.2
       fireworm: 0.7.2
       glob: 7.2.3
       http-proxy: 1.18.1
       js-yaml: 3.14.2
-      lodash: 4.17.23
+      lodash: 4.18.1
       mkdirp: 3.0.1
       mustache: 4.2.0
       node-notifier: 10.0.1
