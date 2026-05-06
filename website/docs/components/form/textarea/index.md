@@ -18,7 +18,7 @@ navigation:
     - text box
     - form
 status:
-  updated: 6.1.1
+  updated: 6.2.0
 ---
 
 <section data-tab="Guidelines">

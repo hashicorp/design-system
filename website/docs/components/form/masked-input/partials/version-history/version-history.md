@@ -1,3 +1,7 @@
+## 6.2.0
+
+Fixed element typing to match the underlying control element (`input` or `textarea`) instead of a generic `HTMLElement`.
+
 ## 6.1.0
 
 Converted component to gts format.

@@ -1,3 +1,7 @@
+## 6.2.0
+
+Translated strings for `DeleteRowButton` and `Field` screen reader text.
+
 ## 6.1.1
 
 Translated strings for the KeyValueInputs AddRowButton ariaLabel and description text.

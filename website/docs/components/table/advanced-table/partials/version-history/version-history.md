@@ -1,3 +1,15 @@
+## 6.2.0
+
+Replaced custom keyboard navigation modifiers with the `Composite` utility component.
+
+Added support for allowing a pinnable first column and reorderable columns at the same time.
+
+Added generic types for `@model` values.
+
+Fixed typing for sticky first-column cells by exposing `isStickyColumn` in the yielded table-cell API and by passing an explicit `parentId` value when rendering row header cells.
+
+Converted component to gts format.
+
 ## 6.1.1
 
 Replaced model-based state with a DDAU architecture, improving isolation and decoupling row/column logic.

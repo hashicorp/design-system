@@ -1,3 +1,7 @@
+## 6.2.0
+
+`Form::Indicator` - Fixed invocation of `HdsTextBody` to use named arguments, which prevented incorrect argument forwarding.
+
 ## 6.1.0
 
 `Form::CharacterCount` - Converted component to gts format.

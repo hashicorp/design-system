@@ -1,3 +1,7 @@
+## 6.2.0
+
+Translated `aria-label` string for button.
+
 ## 6.1.0
 
 Converted component to gts format.

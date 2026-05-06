@@ -17,8 +17,6 @@ navigation:
     - radio group
     - radio button
     - select
-status:
-  updated: 6.1.1
 ---
 
 <section data-tab="Guidelines">
