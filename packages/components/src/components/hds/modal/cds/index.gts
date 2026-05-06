@@ -58,20 +58,17 @@ const HdsModalHeader: TemplateOnlyComponent<HdsModalHeaderSignature> =
   <template>
     {{! `cds-modal-close-button` must be rendered explicitly as a child of
         `cds-modal-header`; Carbon does not insert it automatically. }}
-    <cds-modal-header class="hds-modal__header" ...attributes>
+    <cds-modal-header ...attributes>
       <cds-modal-close-button
-        class="hds-modal__dismiss"
         close-button-label="Close"
       ></cds-modal-close-button>
       {{#if @icon}}
-        <HdsIcon class="hds-modal__icon" @name={{@icon}} @size="24" />
+        <HdsIcon @name={{@icon}} @size="24" />
       {{/if}}
       {{#if @tagline}}
-        <cds-modal-label
-          class="hds-modal__tagline"
-        >{{@tagline}}</cds-modal-label>
+        <cds-modal-label>{{@tagline}}</cds-modal-label>
       {{/if}}
-      <cds-modal-heading class="hds-modal__title" id={{@id}}>
+      <cds-modal-heading id={{@id}}>
         {{yield}}
       </cds-modal-heading>
     </cds-modal-header>
@@ -88,7 +85,7 @@ interface HdsModalBodySignature {
 }
 
 const HdsModalBody: TemplateOnlyComponent<HdsModalBodySignature> = <template>
-  <cds-modal-body class="hds-modal__body" ...attributes>
+  <cds-modal-body ...attributes>
     {{yield}}
   </cds-modal-body>
 </template>;
@@ -124,7 +121,7 @@ class HdsModalFooter extends Component<HdsModalFooterSignature> {
   }
 
   <template>
-    <cds-modal-footer class="hds-modal__footer" ...attributes>
+    <cds-modal-footer ...attributes>
       {{yield (hash close=this.onDismiss)}}
     </cds-modal-footer>
   </template>
@@ -211,14 +208,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
 
   get id(): string {
     return getElementId(this);
-  }
-
-  get classNames(): string {
-    return [
-      'hds-modal',
-      `hds-modal--size-${this.size}`,
-      `hds-modal--color-${this.color}`,
-    ].join(' ');
   }
 
   private _performCloseCleanup(): void {
@@ -327,7 +316,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
   <template>
     <cds-modal
       id={{this.id}}
-      class={{this.classNames}}
       size={{this.cdsSize}}
       prevent-close={{this.isDismissDisabled}}
       prevent-close-on-click-outside={{this.isDismissDisabled}}

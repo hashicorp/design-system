@@ -12,6 +12,7 @@ import SubSectionContent from 'showcase/components/page-components/button/sub-se
 import SubSectionDisplay from 'showcase/components/page-components/button/sub-sections/display';
 import SubSectionGeneratedElement from 'showcase/components/page-components/button/sub-sections/generated-element';
 import SubSectionStates from 'showcase/components/page-components/button/sub-sections/states';
+import SubSectionUseCds from 'showcase/components/page-components/button/sub-sections/use-cds';
 import SubSectionVariants from 'showcase/components/page-components/button/sub-sections/variants';
 
 const ButtonIndex: TemplateOnlyComponent = <template>
@@ -26,6 +27,7 @@ const ButtonIndex: TemplateOnlyComponent = <template>
     <SubSectionVariants />
     <SubSectionDisplay />
     <SubSectionStates />
+    <SubSectionUseCds />
     <SubSectionContainers />
   </section>
 </template>;

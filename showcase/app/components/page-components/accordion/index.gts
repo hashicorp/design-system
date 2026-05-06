@@ -11,6 +11,7 @@ import SubSectionBaseElements from 'showcase/components/page-components/accordio
 import SubSectionVariants from 'showcase/components/page-components/accordion/sub-sections/variants';
 import SubSectionContent from 'showcase/components/page-components/accordion/sub-sections/content';
 import SubSectionContext from 'showcase/components/page-components/accordion/sub-sections/context';
+import SubSectionUseCds from 'showcase/components/page-components/accordion/sub-sections/use-cds';
 
 const AccordionIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Accordion Component"}}
@@ -21,6 +22,7 @@ const AccordionIndex: TemplateOnlyComponent = <template>
     <SubSectionVariants />
     <SubSectionContent />
     <SubSectionContext />
+    <SubSectionUseCds />
     <SubSectionBaseElements />
   </section>
 </template>;

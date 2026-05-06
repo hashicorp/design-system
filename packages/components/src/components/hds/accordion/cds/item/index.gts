@@ -167,40 +167,6 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
   }
 
-  get sizeClassName(): HdsAccordionSizes {
-    return this.args.size ?? DEFAULT_SIZE;
-  }
-
-  get classNames() {
-    const classes = ['hds-accordion-item'];
-
-    // add a class based on the @isOpen argument
-    if (this.isOpen) {
-      classes.push('hds-accordion-item--is-open');
-    }
-
-    // add a class based on the @isStatic argument
-    if (this.args.isStatic) {
-      classes.push('hds-accordion-item--is-static');
-    }
-
-    // add a class based on the @size argument
-    classes.push(`hds-accordion-item--size-${this.sizeClassName}`);
-
-    // add a class based on the @type argument
-    classes.push(`hds-accordion-item--type-${this.type}`);
-
-    if (this.containsInteractive) {
-      // Entire accordion item including the chevron is interactive:
-      classes.push('hds-accordion-item--contains-interactive');
-    } else {
-      // Only chevron is interactive:
-      classes.push('hds-accordion-item--does-not-contain-interactive');
-    }
-
-    return classes.join(' ');
-  }
-
   // Handler for the cds-accordion-item-toggled event fired by the underlying
   // Carbon web component after a user gesture toggles the item.
   // Note: the cds event bubbles, so a nested accordion item toggling would
@@ -226,7 +192,6 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
 
   <template>
     <cds-accordion-item
-      class={{this.classNames}}
       aria-label={{@ariaLabel}}
       size={{this.size}}
       open={{this.isOpen}}
@@ -236,19 +201,16 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     >
       {{! Title slot: Carbon renders this inside its own button }}
       {{#let (element this.titleTag) as |TitleTag|}}
-        <TitleTag slot="title" class="hds-accordion-item__toggle-content">
+        <TitleTag slot="title">
           {{yield to="toggle"}}
         </TitleTag>
       {{/let}}
 
-      {{! Default slot: Carbon renders this in the content area }}
-      {{! We wrap in our content div for CSS class compatibility and only
-          render it when open so hds-accordion-item__content visibility
-          tracks the actual open state. }}
+      {{! Default slot: Carbon renders this in the content area.
+          Only render content when open so visibility tracks the actual
+          open state. }}
       {{#if this.isOpen}}
-        <div class="hds-accordion-item__content">
-          {{yield (hash close=this.close) to="content"}}
-        </div>
+        {{yield (hash close=this.close) to="content"}}
       {{/if}}
     </cds-accordion-item>
   </template>

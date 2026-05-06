@@ -54,7 +54,11 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
       SIZES.includes(size)
     );
 
-    switch (size) {
+    return size;
+  }
+
+  get mappedCarbonSize() {
+    switch (this.size) {
       case 'small':
         return TAG_SIZE.SMALL;
       case 'medium':
@@ -159,7 +163,7 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
       <cds-tag
         title={{this.text}}
         type={{this.mappedCarbonType}}
-        size={{this.size}}
+        size={{this.mappedCarbonSize}}
         ...attributes
       >
         {{#if @icon}}

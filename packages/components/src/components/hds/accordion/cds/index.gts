@@ -103,21 +103,8 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
     return this.args.size ?? DEFAULT_SIZE;
   }
 
-  get classNames() {
-    const classes = ['hds-accordion'];
-
-    // add a class based on the @size argument
-    classes.push(`hds-accordion--size-${this.sizeClassName}`);
-
-    // add a class based on the @type argument
-    classes.push(`hds-accordion--type-${this.type}`);
-
-    return classes.join(' ');
-  }
-
   <template>
     <cds-accordion
-      class={{this.classNames}}
       size={{this.size}}
       isflush={{this.isFlush}}
       alignment={{@alignment}}
