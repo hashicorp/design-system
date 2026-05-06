@@ -1,0 +1,47 @@
+{
+  "name": "@hashicorp/design-system-mcp",
+  "description": "Helios Design System MCP (Model Context Protocol) server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "dev": "tsc --watch",
+    "format": "prettier . --cache --write",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
+    "lint:format": "prettier . --cache --check",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "tsc --noEmit"
+  },
+  "keywords": [
+    "hashicorp",
+    "helios",
+    "design system",
+    "mcp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashicorp/design-system.git",
+    "directory": "packages/mcp"
+  },
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@types/node": "^22.10.0",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.5",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.0"
+  },
+  "engines": {
+    "node": ">= 24"
+  }
+}
