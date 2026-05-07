@@ -512,19 +512,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   // Selects item containing an interactive child which is hovered
   &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
     @include hds-apply-only-if-carbon() {
-      // Ensures separator is hidden in checkbox & radio variants
-      position: relative;
-      z-index: 2;
       background-color: var(--token-dropdown-list-item-surface-color-hover);
-      // Covers the top separator when the item is hovered
-      box-shadow:
-        0 1px 0 1px var(--token-dropdown-list-item-surface-color-hover),
-        0 -1px 0 1px var(--token-dropdown-list-item-surface-color-hover);
-
-      // Hides the bottom separator when the item is hovered
-      + .hds-dropdown-list-item--variant-separator::before {
-        border-bottom-color: transparent;
-      }
     }
   }
 }
@@ -613,6 +601,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   // Remove extra spacing around separator
   @include hds-apply-only-if-carbon() {
     height: 1px;
+    margin: 4px 0;
   }
 
   &::before {
@@ -620,7 +609,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
     right: 6px;
     bottom: 0;
     left: 6px;
-    border-bottom: 1px solid var(--token-color-border-primary);
+    border-bottom: 1px solid var(--token-dropdown-separator-border-color);
     content: "";
   }
 }

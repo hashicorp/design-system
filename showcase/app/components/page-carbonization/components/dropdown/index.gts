@@ -14,7 +14,6 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
-import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
@@ -85,13 +84,48 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsDropdown>
       </:theming>
       <:reference>
-        <cds-dropdown label="Select item">
-          <cds-dropdown-item value="option-0">Lorem, ipsum dolor sit amet
-            consectetur.</cds-dropdown-item>
-          <cds-dropdown-item value="option-1">Option 1</cds-dropdown-item>
-          <cds-dropdown-item value="option-2">Option 2</cds-dropdown-item>
-          <cds-dropdown-item value="option-3">Option 3</cds-dropdown-item>
-        </cds-dropdown>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item @label="Carbon Menu Button">
+            <cds-menu-button label="Select item">
+              <cds-menu>
+                <cds-menu-item
+                  label="Lorem, ipsum dolor sit amet
+                consectetur."
+                ></cds-menu-item>
+                <cds-menu-item label="Option 1"></cds-menu-item>
+                <cds-menu-item label="Option 2"></cds-menu-item>
+                <cds-menu-item label="Option 3"></cds-menu-item>
+                <cds-menu-item-divider></cds-menu-item-divider>
+                <cds-menu-item label="Danger action" kind="danger">
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    slot="render-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  ><path
+                      d="M12,24a4,4,0,1,1,4-4A4.0042,4.0042,0,0,1,12,24Zm0-6a2,2,0,1,0,2,2A2.0023,2.0023,0,0,0,12,18Z"
+                    ></path><path
+                      d="M30,6a4.0042,4.0042,0,0,0-4-4,3.949,3.949,0,0,0-1.8537.4768L7.7571,10.9579A9.9921,9.9921,0,1,0,21.066,24.1929l8.49-16.3994A3.9491,3.9491,0,0,0,30,6ZM26,4a2,2,0,1,1-2,2A2.0023,2.0023,0,0,1,26,4ZM22.0194,5.8083C22.0163,5.8732,22,5.9343,22,6a4.0042,4.0042,0,0,0,4,4c.0645,0,.1245-.016.1882-.019l-4.3318,8.3617a10.0168,10.0168,0,0,0-8.2158-8.1962ZM12,28a8,8,0,1,1,8-8A8.0092,8.0092,0,0,1,12,28Z"
+                    ></path></svg>
+                </cds-menu-item>
+              </cds-menu>
+            </cds-menu-button>
+          </SF.Item>
+          <SF.Item @label="Carbon Dropdown">
+            <cds-dropdown label="Select item">
+              <cds-dropdown-item value="option-0">Lorem, ipsum dolor sit amet
+                consectetur.</cds-dropdown-item>
+              <cds-dropdown-item value="option-1">Option 1</cds-dropdown-item>
+              <cds-dropdown-item value="option-2">Option 2</cds-dropdown-item>
+              <cds-dropdown-item value="option-3">Option 3</cds-dropdown-item>
+            </cds-dropdown>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -110,37 +144,30 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsDropdown>
       </:theming>
       <:reference>
-        <cds-dropdown label="Select item">
-          <cds-dropdown-item value="option-0">Lorem, ipsum dolor sit amet
-            consectetur.</cds-dropdown-item>
-          <cds-dropdown-item value="option-1">Option 1</cds-dropdown-item>
-          <cds-dropdown-item value="option-2">Option 2</cds-dropdown-item>
-          <cds-dropdown-item value="option-3">Option 3</cds-dropdown-item>
-        </cds-dropdown>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Dropdown with checkboxes</ShwTextH3>
-
-    <ShwTextBody>
-      Note: Carbon does not appear to have a “multiselect” variant of the
-      Dropdown web component, only of the Dropdown React component which would
-      be the closest equivalent to the HdsDropdown with checkboxes.
-    </ShwTextBody>
-
-    <ShwCarbonizationComparisonGrid @label="minimal equivalent features">
-      <:theming>
-        <HdsDropdown @matchToggleWidth={{true}} as |D|>
-          <D.ToggleButton @text="Select item" />
-          <D.Checkbox>Option 1</D.Checkbox>
-          <D.Checkbox>Option 2</D.Checkbox>
-          <D.Checkbox>Option 3</D.Checkbox>
-        </HdsDropdown>
-      </:theming>
-      <:reference as |R|>
-        <R.NoEquivalent @isCompact={{true}} />
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item @label="Carbon Menu Button">
+            <cds-menu-button label="Select item">
+              <cds-menu>
+                <cds-menu-item
+                  label="Lorem, ipsum dolor sit amet
+                consectetur."
+                ></cds-menu-item>
+                <cds-menu-item label="Option 1"></cds-menu-item>
+                <cds-menu-item label="Option 2"></cds-menu-item>
+                <cds-menu-item label="Option 3"></cds-menu-item>
+              </cds-menu>
+            </cds-menu-button>
+          </SF.Item>
+          <SF.Item @label="Carbon Dropdown">
+            <cds-dropdown label="Select item">
+              <cds-dropdown-item value="option-0">Lorem, ipsum dolor sit amet
+                consectetur.</cds-dropdown-item>
+              <cds-dropdown-item value="option-1">Option 1</cds-dropdown-item>
+              <cds-dropdown-item value="option-2">Option 2</cds-dropdown-item>
+              <cds-dropdown-item value="option-3">Option 3</cds-dropdown-item>
+            </cds-dropdown>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -503,8 +530,12 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
         </div>
       </:theming>
 
-      <:reference as |R|>
-        <R.NoEquivalent @isCompact={{true}} />
+      <:reference>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item @label="Carbon Divider">
+            <cds-menu-item-divider></cds-menu-item-divider>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -553,7 +584,239 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwTextH3>List Item Interactive states</ShwTextH3>
+    <ShwTextH3>List Item Interactive</ShwTextH3>
+
+    <ShwTextH4>With Icons</ShwTextH4>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item @label="No icon">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive>
+                  Basic
+                </HdsDropdownListItemInteractive>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Leading icon">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive @icon="settings">
+                  Settings
+                </HdsDropdownListItemInteractive>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Trailing icon">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive @trailingIcon="external-link">
+                  Documentation
+                </HdsDropdownListItemInteractive>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Leading + Trailing icons">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive
+                  @icon="terraform-color"
+                  @trailingIcon="external-link"
+                >
+                  Terraform
+                </HdsDropdownListItemInteractive>
+              </ul>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <cds-menu-button
+          label="With icons"
+          kind="primary"
+          menu-alignment="bottom"
+          menu-background-token=""
+          size="lg"
+          tab-index=""
+        >
+          <cds-menu>
+            <cds-menu-item label="Asset">
+              <svg
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                slot="render-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              ><path
+                  d="M12,24a4,4,0,1,1,4-4A4.0042,4.0042,0,0,1,12,24Zm0-6a2,2,0,1,0,2,2A2.0023,2.0023,0,0,0,12,18Z"
+                ></path><path
+                  d="M30,6a4.0042,4.0042,0,0,0-4-4,3.949,3.949,0,0,0-1.8537.4768L7.7571,10.9579A9.9921,9.9921,0,1,0,21.066,24.1929l8.49-16.3994A3.9491,3.9491,0,0,0,30,6ZM26,4a2,2,0,1,1-2,2A2.0023,2.0023,0,0,1,26,4ZM22.0194,5.8083C22.0163,5.8732,22,5.9343,22,6a4.0042,4.0042,0,0,0,4,4c.0645,0,.1245-.016.1882-.019l-4.3318,8.3617a10.0168,10.0168,0,0,0-8.2158-8.1962ZM12,28a8,8,0,1,1,8-8A8.0092,8.0092,0,0,1,12,28Z"
+                ></path></svg>
+            </cds-menu-item>
+            <cds-menu-item label="User">
+              <svg
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                slot="render-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+              ><path
+                  d="M8,2c1.4,0,2.5,1.1,2.5,2.5S9.4,7,8,7S5.5,5.9,5.5,4.5S6.6,2,8,2 M8,1C6.1,1,4.5,2.6,4.5,4.5S6.1,8,8,8s3.5-1.6,3.5-3.5	S9.9,1,8,1z"
+                ></path><path
+                  d="M13,15h-1v-2.5c0-1.4-1.1-2.5-2.5-2.5h-3C5.1,10,4,11.1,4,12.5V15H3v-2.5C3,10.6,4.6,9,6.5,9h3c1.9,0,3.5,1.6,3.5,3.5V15z"
+                ></path></svg>
+            </cds-menu-item>
+            <cds-menu-item label="User group">
+              <svg
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                slot="render-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              ><path
+                  d="M31,30H29V27a3,3,0,0,0-3-3H22a3,3,0,0,0-3,3v3H17V27a5,5,0,0,1,5-5h4a5,5,0,0,1,5,5Z"
+                ></path><path
+                  d="M24,12a3,3,0,1,1-3,3,3,3,0,0,1,3-3m0-2a5,5,0,1,0,5,5A5,5,0,0,0,24,10Z"
+                ></path><path
+                  d="M15,22H13V19a3,3,0,0,0-3-3H6a3,3,0,0,0-3,3v3H1V19a5,5,0,0,1,5-5h4a5,5,0,0,1,5,5Z"
+                ></path><path
+                  d="M8,4A3,3,0,1,1,5,7,3,3,0,0,1,8,4M8,2a5,5,0,1,0,5,5A5,5,0,0,0,8,2Z"
+                ></path></svg>
+            </cds-menu-item>
+          </cds-menu>
+        </cds-menu-button>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwTextH4>Badge</ShwTextH4>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item @label="No icon (default)">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive as |I|>
+                  With badge
+                  <I.Badge @text="Badge" />
+                </HdsDropdownListItemInteractive>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Trailing icon">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive
+                  @trailingIcon="external-link"
+                  as |I|
+                >
+                  With trailing icon
+                  <I.Badge @text="Badge" />
+                </HdsDropdownListItemInteractive>
+              </ul>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwTextH4>Colors</ShwTextH4>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item @label="Action (default)">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive
+                  @icon="settings"
+                  @color="action"
+                >
+                  Lorem ipsum dolor
+                </HdsDropdownListItemInteractive>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Critical">
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive @icon="trash" @color="critical">
+                  Lorem ipsum dolor
+                </HdsDropdownListItemInteractive>
+              </ul>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <cds-menu-button
+          label="Actions"
+          kind="primary"
+          menu-alignment="bottom"
+          menu-background-token="layer"
+          size="lg"
+          tab-index=""
+        >
+          <cds-menu>
+            <cds-menu-item label="Default action">
+              <svg
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                slot="render-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              ><path
+                  d="M12,24a4,4,0,1,1,4-4A4.0042,4.0042,0,0,1,12,24Zm0-6a2,2,0,1,0,2,2A2.0023,2.0023,0,0,0,12,18Z"
+                ></path><path
+                  d="M30,6a4.0042,4.0042,0,0,0-4-4,3.949,3.949,0,0,0-1.8537.4768L7.7571,10.9579A9.9921,9.9921,0,1,0,21.066,24.1929l8.49-16.3994A3.9491,3.9491,0,0,0,30,6ZM26,4a2,2,0,1,1-2,2A2.0023,2.0023,0,0,1,26,4ZM22.0194,5.8083C22.0163,5.8732,22,5.9343,22,6a4.0042,4.0042,0,0,0,4,4c.0645,0,.1245-.016.1882-.019l-4.3318,8.3617a10.0168,10.0168,0,0,0-8.2158-8.1962ZM12,28a8,8,0,1,1,8-8A8.0092,8.0092,0,0,1,12,28Z"
+                ></path></svg>
+            </cds-menu-item>
+            <cds-menu-item label="Danger action" kind="danger">
+              <svg
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                slot="render-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+              ><path
+                  d="M12,24a4,4,0,1,1,4-4A4.0042,4.0042,0,0,1,12,24Zm0-6a2,2,0,1,0,2,2A2.0023,2.0023,0,0,0,12,18Z"
+                ></path><path
+                  d="M30,6a4.0042,4.0042,0,0,0-4-4,3.949,3.949,0,0,0-1.8537.4768L7.7571,10.9579A9.9921,9.9921,0,1,0,21.066,24.1929l8.49-16.3994A3.9491,3.9491,0,0,0,30,6ZM26,4a2,2,0,1,1-2,2A2.0023,2.0023,0,0,1,26,4ZM22.0194,5.8083C22.0163,5.8732,22,5.9343,22,6a4.0042,4.0042,0,0,0,4,4c.0645,0,.1245-.016.1882-.019l-4.3318,8.3617a10.0168,10.0168,0,0,0-8.2158-8.1962ZM12,28a8,8,0,1,1,8-8A8.0092,8.0092,0,0,1,12,28Z"
+                ></path></svg>
+            </cds-menu-item>
+          </cds-menu>
+        </cds-menu-button>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwTextH4>Content variations</ShwTextH4>
+
+    <ShwTextH4>States</ShwTextH4>
 
     <ShwCarbonizationComparisonGrid
       @label="with title, description, footer, & matchToggleWidth=true"
