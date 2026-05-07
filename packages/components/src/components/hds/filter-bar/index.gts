@@ -36,6 +36,9 @@ import type {
   HdsFilterBarGenericFilterData,
 } from './types.ts';
 
+/**
+ * @componentDescription A filter bar helps users refine data sets with structured filters, search, and quick actions.
+ */
 export interface HdsFilterBarSignature {
   Args: {
     filters: HdsFilterBarFilters;

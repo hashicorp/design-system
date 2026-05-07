@@ -15,6 +15,9 @@ import HdsPopoverPrimitive from '../popover-primitive/index.gts';
 
 import type { HdsPopoverPrimitiveSignature } from '../popover-primitive/index.gts';
 
+/**
+ * @componentDescription A rich tooltip displays contextual, interactive content anchored to a toggle element.
+ */
 export interface HdsRichTooltipSignature {
   Args: Omit<HdsPopoverPrimitiveSignature['Args'], 'enableSoftEvents'>;
   Blocks: {

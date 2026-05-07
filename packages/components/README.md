@@ -53,6 +53,18 @@ Usage
 
 See the dedicated components website: https://helios.hashicorp.design/components
 
+Manifest
+------------------------------------------------------------------------------
+
+The package includes a generated component manifest at
+`dist/manifest/components.json` for machine-readable component metadata.
+
+Generate or refresh it with:
+
+```bash
+pnpm --filter @hashicorp/design-system-components generate:manifest
+```
+
 Contributing
 ------------------------------------------------------------------------------
 

@@ -26,16 +26,18 @@ export const registerListComponentsTool = (
     async ({ query }) => {
       const components = store.listComponents();
 
-      const filteredComponents = query
-        ? components.filter((component) => {
-            const normalizedQuery = query.trim().toLowerCase();
-            return (
-              component.name.toLowerCase().includes(normalizedQuery) ||
-              component.slug.toLowerCase().includes(normalizedQuery) ||
-              component.summary.toLowerCase().includes(normalizedQuery)
-            );
-          })
-        : components;
+      let filteredComponents = components;
+
+      if (query !== undefined) {
+        const normalizedQuery = query.trim().toLowerCase();
+        filteredComponents = components.filter((component) => {
+          return (
+            component.name.toLowerCase().includes(normalizedQuery) ||
+            component.slug.toLowerCase().includes(normalizedQuery) ||
+            component.summary.toLowerCase().includes(normalizedQuery)
+          );
+        });
+      }
 
       return {
         content: [

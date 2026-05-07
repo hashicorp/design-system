@@ -10,8 +10,7 @@
     "hds-mcp": "./dist/index.js"
   },
   "files": [
-    "dist",
-    "manifest"
+    "dist"
   ],
   "scripts": {
     "build": "tsc",
@@ -40,6 +39,7 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "dependencies": {
+    "@hashicorp/design-system-components": "workspace:^6.0.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "zod": "^3.24.1"
   },

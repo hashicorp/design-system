@@ -189,6 +189,9 @@ importers:
       luxon:
         specifier: ^3.4.2
         version: 3.7.1
+      node-html-parser:
+        specifier: ^7.0.1
+        version: 7.1.0
       prismjs:
         specifier: ^1.30.0
         version: 1.30.0
@@ -244,6 +247,9 @@ importers:
       '@types/luxon':
         specifier: ^3.4.2
         version: 3.7.1
+      '@types/node':
+        specifier: ^22.10.0
+        version: 22.17.0
       '@types/prismjs':
         specifier: ^1.26.5
         version: 1.26.5
@@ -316,6 +322,9 @@ importers:
       stylelint-config-standard-scss:
         specifier: ^14.0.0
         version: 14.0.0(postcss@8.5.6)(stylelint@16.23.0(typescript@5.9.2))
+      ts-morph:
+        specifier: ^28.0.0
+        version: 28.0.0
       typescript:
         specifier: ^5.8.2
         version: 5.9.2
@@ -424,6 +433,9 @@ importers:
 
   packages/mcp:
     dependencies:
+      '@hashicorp/design-system-components':
+        specifier: workspace:^6.0.0
+        version: file:packages/components(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       '@modelcontextprotocol/sdk':
         specifier: ^1.29.0
         version: 1.29.0(zod@3.25.76)
@@ -3576,6 +3588,9 @@ packages:
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
 
+  '@ts-morph/common@0.29.0':
+    resolution: {integrity: sha512-35oUmphHbJvQ/+UTwFNme/t2p3FoKiGJ5auTjjpNTop2dyREspirjMy82PLSC1pnDJ8ah1GU98hwpVt64YXQsg==}
+
   '@tsconfig/ember@3.0.11':
     resolution: {integrity: sha512-c9uaKBN4KxtdT/UNPPxoWghyoDsTRHzYb53Z5Fv9eum+4cok0U+hYwyKNjvCxkBjEPECS8QAyp8nGAhRifZnBQ==}
     deprecated: Please use @ember/app-tsconfig or @ember/library-tsconfig instead. These live at https://github.com/ember-cli/tsconfigs
@@ -5335,6 +5350,9 @@ packages:
   co@4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
+
+  code-block-writer@13.0.3:
+    resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
 
   codemirror-lang-hcl@0.0.0-beta.2:
     resolution: {integrity: sha512-R3ew7Z2EYTdHTMXsWKBW9zxnLoLPYO+CrAa3dPZjXLrIR96Q3GR4cwJKF7zkSsujsnWgwRQZonyWpXYXfhQYuQ==}
@@ -7896,6 +7914,10 @@ packages:
   hastscript@9.0.0:
     resolution: {integrity: sha512-jzaLBGavEDKHrc5EfFImKN7nZKKBdSLIdGvCwDZ9TfzbF2ffXiov8CKE445L2Z1Ek2t/m4SKQ2j6Ipv7NyUolw==}
 
+  he@1.2.0:
+    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
+    hasBin: true
+
   heimdalljs-fs-monitor@1.1.1:
     resolution: {integrity: sha512-BHB8oOXLRlrIaON0MqJSEjGVPDyqt2Y6gu+w2PaEZjrCxeVtZG7etEZp7M4ZQ80HNvnr66KIQ2lot2qdeG8HgQ==}
 
@@ -9534,6 +9556,9 @@ packages:
     peerDependenciesMeta:
       encoding:
         optional: true
+
+  node-html-parser@7.1.0:
+    resolution: {integrity: sha512-iJo8b2uYGT40Y8BTyy5ufL6IVbN8rbm/1QK2xffXU/1a/v3AAa0d1YAoqBNYqaS4R/HajkWIpIfdE6KcyFh1AQ==}
 
   node-int64@0.4.0:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
@@ -11605,6 +11630,9 @@ packages:
     resolution: {integrity: sha512-EDyGAwH1gO0Ausm9gV6T2nUvBgXT5kGoCMJPllOaooZ+4VvJiKBdZE7wK18N1deEowhcUptS+5GXZK8U/fvpwA==}
     peerDependencies:
       typescript: '>=4.0.0'
+
+  ts-morph@28.0.0:
+    resolution: {integrity: sha512-Wp3tnZ2bzwxyTZMtgWVzXDfm7lB1Drz+y9DmmYH/L702PQhPyVrp3pkou3yIz4qjS14GY9kcpmLiOOMvl8oG1g==}
 
   ts-node@10.9.2:
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
@@ -14652,6 +14680,7 @@ snapshots:
       ember-style-modifier: 4.5.1(@babel/core@7.28.0)(@ember/string@4.0.1)
       ember-truth-helpers: 5.0.0
       luxon: 3.7.1
+      node-html-parser: 7.1.0
       prismjs: 1.30.0
       tabbable: 6.2.0
       tippy.js: 6.3.7
@@ -14707,12 +14736,69 @@ snapshots:
       ember-style-modifier: 4.5.1(@babel/core@7.28.0)(@ember/string@4.0.1)
       ember-truth-helpers: 5.0.0
       luxon: 3.7.1
+      node-html-parser: 7.1.0
       prismjs: 1.30.0
       tabbable: 6.2.0
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0)
     optionalDependencies:
       ember-intl: 7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glint/template@1.7.7)(typescript@5.9.2)(webpack@5.101.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@ember/test-helpers'
+      - '@glimmer/component'
+      - '@glint/environment-ember-loose'
+      - '@glint/template'
+      - ember-source
+      - supports-color
+
+  '@hashicorp/design-system-components@file:packages/components(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
+    dependencies:
+      '@codemirror/autocomplete': 6.20.0
+      '@codemirror/commands': 6.8.1
+      '@codemirror/lang-go': 6.0.1
+      '@codemirror/lang-javascript': 6.2.4
+      '@codemirror/lang-json': 6.0.2
+      '@codemirror/lang-markdown': 6.3.3
+      '@codemirror/lang-sql': 6.9.1
+      '@codemirror/lang-yaml': 6.1.2
+      '@codemirror/language': 6.11.2
+      '@codemirror/legacy-modes': 6.5.1
+      '@codemirror/lint': 6.8.5
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.38.1
+      '@ember/render-modifiers': 3.0.0(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      '@ember/string': 4.0.1
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)
+      '@embroider/addon-shim': 1.10.2
+      '@embroider/macros': 1.19.6(@glint/template@1.7.7)
+      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      '@floating-ui/dom': 1.7.3
+      '@hashicorp/design-system-tokens': file:packages/tokens
+      '@hashicorp/flight-icons': file:packages/flight-icons
+      '@lezer/highlight': 1.2.1
+      '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      clipboard-polyfill: 4.1.1
+      codemirror-lang-hcl: 0.0.0-beta.2
+      decorator-transforms: 2.3.1(@babel/core@7.28.0)
+      ember-a11y-refocus: 5.1.0(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-basic-dropdown: 8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.7.7)
+      ember-element-helper: 0.8.8
+      ember-focus-trap: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-modifier: 4.2.2(@babel/core@7.28.0)
+      ember-power-select: 8.12.0(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-concurrency@4.0.4(@glint/template@1.7.7))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-stargate: 1.0.2(@babel/core@7.28.0)(@glimmer/component@2.0.0)(@glint/template@1.7.7)
+      ember-style-modifier: 4.5.1(@babel/core@7.28.0)(@ember/string@4.0.1)
+      ember-truth-helpers: 5.0.0
+      luxon: 3.7.1
+      node-html-parser: 7.1.0
+      prismjs: 1.30.0
+      tabbable: 6.2.0
+      tippy.js: 6.3.7
+      tracked-built-ins: 4.0.0(@babel/core@7.28.0)
+    optionalDependencies:
+      ember-intl: 8.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(typescript@5.9.2)
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'
@@ -15582,6 +15668,12 @@ snapshots:
   '@tootallnate/once@2.0.0': {}
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
+
+  '@ts-morph/common@0.29.0':
+    dependencies:
+      minimatch: 10.2.3
+      path-browserify: 1.0.1
+      tinyglobby: 0.2.14
 
   '@tsconfig/ember@3.0.11': {}
 
@@ -18248,6 +18340,8 @@ snapshots:
 
   co@4.6.0: {}
 
+  code-block-writer@13.0.3: {}
+
   codemirror-lang-hcl@0.0.0-beta.2:
     dependencies:
       '@codemirror/language': 6.11.2
@@ -19362,6 +19456,26 @@ snapshots:
       - ember-source
       - supports-color
 
+  ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)):
+    dependencies:
+      '@ember/test-helpers': 5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7)
+      '@embroider/addon-shim': 1.10.2
+      '@embroider/macros': 1.19.6(@glint/template@1.7.7)
+      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      '@glimmer/component': 2.0.0
+      decorator-transforms: 2.3.1(@babel/core@7.28.0)
+      ember-element-helper: 0.8.8
+      ember-modifier: 4.2.2(@babel/core@7.28.0)
+      ember-style-modifier: 4.5.1(@babel/core@7.28.0)(@ember/string@4.0.1)
+      ember-truth-helpers: 5.0.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@ember/string'
+      - '@glint/environment-ember-loose'
+      - '@glint/template'
+      - ember-source
+      - supports-color
+
   ember-body-class@3.0.0:
     dependencies:
       ember-cli-babel: 7.26.11
@@ -20310,6 +20424,26 @@ snapshots:
       decorator-transforms: 2.3.1(@babel/core@7.28.0)
       ember-assign-helper: 0.5.1
       ember-basic-dropdown: 8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.7.7)
+      ember-element-helper: 0.8.8
+      ember-modifier: 4.2.2(@babel/core@7.28.0)
+      ember-truth-helpers: 5.0.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@glint/environment-ember-loose'
+      - '@glint/template'
+      - ember-source
+      - supports-color
+
+  ember-power-select@8.12.0(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-concurrency@4.0.4(@glint/template@1.7.7))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)):
+    dependencies:
+      '@ember/test-helpers': 5.4.0(@babel/core@7.28.0)(@glint/template@1.7.7)
+      '@embroider/addon-shim': 1.10.2
+      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      '@glimmer/component': 2.0.0
+      decorator-transforms: 2.3.1(@babel/core@7.28.0)
+      ember-assign-helper: 0.5.1
+      ember-basic-dropdown: 8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.7.7)
       ember-element-helper: 0.8.8
       ember-modifier: 4.2.2(@babel/core@7.28.0)
@@ -22191,6 +22325,8 @@ snapshots:
       hast-util-parse-selector: 4.0.0
       property-information: 6.5.0
       space-separated-tokens: 2.0.2
+
+  he@1.2.0: {}
 
   heimdalljs-fs-monitor@1.1.1:
     dependencies:
@@ -24230,6 +24366,11 @@ snapshots:
   node-fetch@2.7.0:
     dependencies:
       whatwg-url: 5.0.0
+
+  node-html-parser@7.1.0:
+    dependencies:
+      css-select: 5.1.0
+      he: 1.2.0
 
   node-int64@0.4.0: {}
 
@@ -26760,6 +26901,11 @@ snapshots:
     dependencies:
       picomatch: 4.0.4
       typescript: 5.9.2
+
+  ts-morph@28.0.0:
+    dependencies:
+      '@ts-morph/common': 0.29.0
+      code-block-writer: 13.0.3
 
   ts-node@10.9.2(@types/node@22.17.0)(typescript@5.9.2):
     dependencies:

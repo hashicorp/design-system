@@ -6,6 +6,26 @@
 import Controller from '@ember/controller';
 
 export default class ComponentsController extends Controller {
+  get manifestCards() {
+    const manifestComponents = this.model.componentManifest?.components;
+
+    if (Array.isArray(manifestComponents) === false) {
+      return [];
+    }
+
+    return manifestComponents
+      .slice()
+      .sort((left, right) => left.name.localeCompare(right.name))
+      .map((component) => {
+        return {
+          title: component.name,
+          caption: component.summary,
+          route: 'show',
+          model: `components/${component.slug}`,
+        };
+      });
+  }
+
   get cards() {
     // we want to use a flat tree here...
     const tocTree = this.model.toc.flat;
@@ -31,6 +51,8 @@ export default class ComponentsController extends Controller {
           };
         });
     });
+    cards.components = this.manifestCards;
+
     return cards;
   }
 }

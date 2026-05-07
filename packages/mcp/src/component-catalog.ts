@@ -4,8 +4,7 @@
  */
 
 import { readFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 
 import {
   componentCatalogSchema,
@@ -20,9 +19,12 @@ const normalizeName = (value: string): string => {
     .replace(/^hds[-:\s]*/u, '');
 };
 
+const require = createRequire(import.meta.url);
+
 const getManifestPath = (): string => {
-  const sourceDir = dirname(fileURLToPath(import.meta.url));
-  return resolve(sourceDir, '../manifest/components.json');
+  return require.resolve(
+    '@hashicorp/design-system-components/manifest/components.json'
+  );
 };
 
 const getLookupKeys = (component: ComponentCatalogComponent): string[] => {

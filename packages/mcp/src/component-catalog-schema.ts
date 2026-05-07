@@ -10,6 +10,8 @@ const catalogArgSchema = z.object({
   type: z.string().min(1),
   required: z.boolean().optional(),
   description: z.string().optional(),
+  default: z.string().optional(),
+  values: z.array(z.string()).optional(),
 });
 
 const catalogBlockSchema = z.object({

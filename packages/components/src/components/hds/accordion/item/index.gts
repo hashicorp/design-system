@@ -39,26 +39,89 @@ const TEXT_SIZE_MAP = {
 
 export interface HdsAccordionItemSignature {
   Args: {
+    /**
+     * Accepts a string. The ariaLabel value is applied to the HTML button
+     * which controls visibility of the content block content.
+     * @default "Toggle display"
+     */
     ariaLabel?: string;
+
+    /**
+     * Controls whether the entire toggle block is interactive for toggling
+     * the content display or whether only the chevron button itself is
+     * interactive which allows for adding other interactive content in the toggle area.
+     * @default false
+     */
     containsInteractive?: boolean;
+
+    /**
+     * Controls the state of an Accordion::Item after the initial render
+     * by overriding its current state.
+     */
     forceState?: HdsAccordionForceStates;
+
+    /**
+     * Toggles the visibility of the content. To display content on page load,
+     * set the value to true.
+     * @default false
+     */
     isOpen?: boolean;
+
+    /**
+     * Removes the ability to interact with the toggle and hides the
+     * chevron element when set to true.
+     * @default false
+     */
     isStatic?: boolean;
+
+    /**
+     * Callback function invoked when the toggle is clicked.
+     */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
+
+    /**
+     * The size of the accordion item.
+     * @default "medium"
+     */
     size?: HdsAccordionSizes;
+
+    /**
+     * The HTML tag that wraps the content of the Accordion Item "toggle" block.
+     * @default "div"
+     */
     titleTag?: HdsAccordionItemTitleTags;
+
+    /**
+     * The visual style of the accordion item.
+     * @default "card"
+     */
     type?: HdsAccordionTypes;
   };
   Blocks: {
+    /**
+     * A named block that works as a “toggle” for the Accordion::Item.
+     * Elements passed as children are yielded as inner content of the "toggle" block.
+     */
     toggle?: [];
+
+    /**
+     * A named block for the content that is shown/hidden upon toggling.
+     * Elements passed as children are yielded as inner content of the "content" block.
+     */
     content: [
       {
+        /**
+         * A function to programmatically close the Accordion::Item.
+         */
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         close: (...args: any[]) => void;
       },
     ];
   };
+  /**
+   * Supports all standard HTML attributes, including `...attributes`.
+   */
   Element: HTMLElement;
 }
 

@@ -33,6 +33,9 @@ export const DEFAULT_SIZE = HdsButtonSizeValues.Medium;
 export const DEFAULT_COLOR = HdsButtonColorValues.Primary;
 export const DEFAULT_ICON_POSITION = HdsButtonIconPositionValues.Leading;
 
+/**
+ * @componentDescription Buttons allow users to initiate actions or navigation across the product experience.
+ */
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
     size?: HdsButtonSizes;

@@ -26,7 +26,7 @@ export const registerGetComponentContextTool = (
     async ({ nameOrSlug }) => {
       const component = store.getComponentContext(nameOrSlug);
 
-      if (!component) {
+      if (component === null) {
         return {
           content: [
             {

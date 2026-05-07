@@ -17,7 +17,8 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "rollup --config",
+    "generate:manifest": "node --experimental-strip-types ./scripts/generate-manifest/index.ts",
+    "build": "rollup --config && pnpm run generate:manifest",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
@@ -28,7 +29,7 @@
     "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "ember-tsc --noEmit",
+    "lint:types": "ember-tsc --noEmit && tsc -p ./scripts/tsconfig.json --noEmit",
     "start": "rollup --config --watch --environment development",
     "test:dist-files": "node scripts/check-dist-files.mjs",
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
@@ -70,6 +71,7 @@
     "ember-style-modifier": "^4.4.0",
     "ember-truth-helpers": "^5.0.0",
     "luxon": "^3.4.2",
+    "node-html-parser": "^7.0.1",
     "prismjs": "^1.30.0",
     "tabbable": "^6.2.0",
     "tippy.js": "^6.3.7",
@@ -90,6 +92,7 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@tsconfig/ember": "^3.0.10",
     "@types/luxon": "^3.4.2",
+    "@types/node": "^22.10.0",
     "@types/prismjs": "^1.26.5",
     "babel-plugin-ember-template-compilation": "^2.4.1",
     "concurrently": "^9.1.2",
@@ -115,6 +118,7 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^14.0.0",
     "typescript": "^5.8.2",
+    "ts-morph": "^28.0.0",
     "typescript-eslint": "^8.29.0",
     "webpack": "^5.97.1"
   },
@@ -400,7 +404,8 @@
     "./codemirror": {
       "types": "./declarations/re-exports/codemirror.d.ts",
       "default": "./dist/re-exports/codemirror.js"
-    }
+    },
+    "./manifest/components.json": "./dist/manifest/components.json"
   },
   "typesVersions": {
     "*": {

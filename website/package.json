@@ -18,7 +18,7 @@
     "generate-changelog-markdown-files": "node lib/changelog/generate-changelog-markdown-files.mjs",
     "generate-component-changelog-entries": "node lib/changelog/generate-component-changelog-entries.mjs",
     "build": "pnpm build:packages && ember build --environment=production",
-    "build:packages": "pnpm -F @hashicorp/design-system-components build",
+    "build:packages": "pnpm -F @hashicorp/design-system-components build && pnpm -F @hashicorp/design-system-mcp build",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:css": "stylelint \"**/*.scss\"",

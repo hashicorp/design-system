@@ -17,13 +17,25 @@ const fs = require('fs-extra');
 const path = require('path');
 const walkSync = require('walk-sync');
 
+const {
+  getManifestPath,
+  getManifestComponentApiContent,
+} = require('./component-api-from-manifest.js');
+
 // https://regex101.com/r/tesSl8/1
 const includeRegex = new RegExp(/^\s*@include "(.*\.md)"\s*$/, 'gm');
 
-const getFileContent = (folderPath, filePath) => {
+const getFileContent = (folderPath, filePath, inputFile) => {
   if (filePath.startsWith('.')) {
     return `[ERROR INCLUDING FILE ${filePath}: the file path must be relative (no '../' or './' are allowed)]`;
   }
+
+  const manifestComponentApi = getManifestComponentApiContent(inputFile, filePath);
+
+  if (manifestComponentApi !== undefined) {
+    return `\n<!-- generated from manifest: ${filePath} -->\n\n${manifestComponentApi}\n`;
+  }
+
   const fullFilePath = path.join(folderPath, filePath);
   if (fs.existsSync(fullFilePath)) {
     const fileContent = fs.readFileSync(fullFilePath, 'utf-8');
@@ -54,14 +66,14 @@ class MarkdownProcessIncludes extends Multifilter {
       // PROCESS MARKDOWN
       // we replace the `@include` directive with the actual content of the included file
       //
-      const includedFiles = [];
+      const includedFiles = [getManifestPath()];
       let newMarkdownFileContent;
       if (markdownFileContent.match(includeRegex)) {
         newMarkdownFileContent = markdownFileContent.replace(
           includeRegex,
           (_match, capture1) => {
             includedFiles.push(path.join(fullParentFolder, capture1));
-            return getFileContent(fullParentFolder, capture1);
+            return getFileContent(fullParentFolder, capture1, inputFile);
           },
         );
       } else {
