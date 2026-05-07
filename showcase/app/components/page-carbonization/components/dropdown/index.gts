@@ -52,6 +52,8 @@ import {
   SIZES,
 } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/button';
 
+const CARBON_SIZES = ['xs', 'sm', 'md', 'lg'] as const;
+
 const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Dropdown - Carbonization"}}
 
@@ -86,8 +88,8 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item @label="Carbon Menu Button">
-            <cds-menu-button label="Select item">
-              <cds-menu>
+            <cds-menu-button label="Select item" size="md">
+              <cds-menu size="md">
                 <cds-menu-item
                   label="Lorem, ipsum dolor sit amet
                 consectetur."
@@ -116,15 +118,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
               </cds-menu>
             </cds-menu-button>
           </SF.Item>
-          <SF.Item @label="Carbon Dropdown">
-            <cds-dropdown label="Select item">
-              <cds-dropdown-item value="option-0">Lorem, ipsum dolor sit amet
-                consectetur.</cds-dropdown-item>
-              <cds-dropdown-item value="option-1">Option 1</cds-dropdown-item>
-              <cds-dropdown-item value="option-2">Option 2</cds-dropdown-item>
-              <cds-dropdown-item value="option-3">Option 3</cds-dropdown-item>
-            </cds-dropdown>
-          </SF.Item>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -146,7 +139,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item @label="Carbon Menu Button">
-            <cds-menu-button label="Select item">
+            <cds-menu-button label="Select item" size="md">
               <cds-menu>
                 <cds-menu-item
                   label="Lorem, ipsum dolor sit amet
@@ -159,7 +152,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
             </cds-menu-button>
           </SF.Item>
           <SF.Item @label="Carbon Dropdown">
-            <cds-dropdown label="Select item">
+            <cds-dropdown label="Select item" size="md">
               <cds-dropdown-item value="option-0">Lorem, ipsum dolor sit amet
                 consectetur.</cds-dropdown-item>
               <cds-dropdown-item value="option-1">Option 1</cds-dropdown-item>
@@ -177,6 +170,8 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Toggle with text</ShwTextH3>
 
+    <ShwTextH4>Sizes</ShwTextH4>
+
     <ShwCarbonizationComparisonGrid @layout="column">
       <:theming>
         {{#each COLORS as |color|}}
@@ -184,13 +179,64 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
             {{#each SIZES as |size|}}
               <SF.Item @label="{{capitalize color}} {{size}}">
                 <ShwFlex @direction="column" as |SF|>
-                  <SF.Item @label="text only">
+                  <SF.Item>
                     <HdsDropdownToggleButton
                       @color={{color}}
                       @text="Select item"
                       @size={{size}}
                     />
                   </SF.Item>
+                </ShwFlex>
+              </SF.Item>
+            {{/each}}
+
+            <SF.Item @label="{{capitalize color}} full width">
+              <ShwOutliner {{style width="300px"}}>
+                <HdsDropdownToggleButton
+                  @isFullWidth={{true}}
+                  @text="Select item"
+                  @color={{color}}
+                />
+              </ShwOutliner>
+            </SF.Item>
+          </ShwFlex>
+        {{/each}}
+      </:theming>
+      <:reference>
+        <ShwFlex as |SF|>
+          {{#each CARBON_SIZES as |size|}}
+            <SF.Item>
+              <cds-menu-button
+                label="{{capitalize size}} menu button"
+                size={{size}}
+              >
+                <cds-menu>
+                  <cds-menu-item
+                    label="Lorem, ipsum dolor sit amet
+                  consectetur."
+                  ></cds-menu-item>
+                  <cds-menu-item label="Option 1"></cds-menu-item>
+                  <cds-menu-item label="Option 2"></cds-menu-item>
+                  <cds-menu-item label="Option 3"></cds-menu-item>
+                </cds-menu>
+              </cds-menu-button>
+            </SF.Item>
+          {{/each}}
+        </ShwFlex>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH4>Content</ShwTextH4>
+
+    <ShwCarbonizationComparisonGrid @layout="column">
+      <:theming>
+        {{#each COLORS as |color|}}
+          <ShwFlex as |SF|>
+            {{#each SIZES as |size|}}
+              <SF.Item @label="{{capitalize color}} {{size}}">
+                <ShwFlex @direction="column" as |SF|>
                   <SF.Item @label="with icon & count">
                     <HdsDropdownToggleButton
                       @icon="hexagon"
@@ -216,15 +262,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
             <SF.Item @label="{{capitalize color}} full width">
               <ShwFlex @direction="column" as |SF|>
-                <SF.Item @label="text only">
-                  <ShwOutliner {{style width="300px"}}>
-                    <HdsDropdownToggleButton
-                      @isFullWidth={{true}}
-                      @text="Select item"
-                      @color={{color}}
-                    />
-                  </ShwOutliner>
-                </SF.Item>
                 <SF.Item @label="with icon & count">
                   <ShwOutliner {{style width="300px"}}>
                     <HdsDropdownToggleButton
@@ -633,14 +670,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <cds-menu-button
-          label="With icons"
-          kind="primary"
-          menu-alignment="bottom"
-          menu-background-token=""
-          size="lg"
-          tab-index=""
-        >
+        <cds-menu-button label="With icons" size="md">
           <cds-menu>
             <cds-menu-item label="Asset">
               <svg
@@ -766,14 +796,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <cds-menu-button
-          label="Actions"
-          kind="primary"
-          menu-alignment="bottom"
-          menu-background-token="layer"
-          size="lg"
-          tab-index=""
-        >
+        <cds-menu-button label="Actions" size="md">
           <cds-menu>
             <cds-menu-item label="Default action">
               <svg
