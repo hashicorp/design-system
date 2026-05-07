@@ -2788,8 +2788,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: var(--token-app-side-nav-color-foreground-primary);
-  background: var(--token-app-side-nav-surface-color);
+  color: var(--token-color-foreground-primary);
+  background: var(--token-app-side-nav-wrapper-surface-color);
   border-right: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
 }
 .hds-app-side-nav--is-responsive .hds-app-side-nav__wrapper {
@@ -2852,7 +2852,7 @@
 .hds-app-side-nav__list-title {
   min-height: var(--token-app-side-nav-body-list-item-height);
   margin-top: var(--token-app-side-nav-body-list-margin-vertical);
-  padding: var(--token-app-side-nav-body-title-padding-vertical) var(--token-app-side-nav-body-list-item-padding-horizontal);
+  padding: var(--token-app-side-nav-body-list-title-padding-vertical) var(--token-app-side-nav-body-list-title-padding-horizontal);
   color: var(--token-color-foreground-faint);
   overflow-wrap: break-word;
 }
@@ -2934,7 +2934,7 @@
 }
 .hds-app-side-nav__list-item-link.active, .hds-app-side-nav__list-item-link.active:hover:focus {
   position: relative;
-  background: var(--token-app-side-nav-body-list-item-selected-surface-color);
+  background: var(--token-app-side-nav-body-list-item-surface-color-selected);
 }
 .hds-app-side-nav__list-item-link.active::after, .hds-app-side-nav__list-item-link.active:hover:focus::after {
   position: absolute;
@@ -2943,7 +2943,7 @@
   left: calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
   width: 4px;
   background: var(--token-color-foreground-action);
-  border-radius: 0 var(--token-app-side-nav-body-list-item-selected-indicator-border-radius) var(--token-app-side-nav-body-list-item-selected-indicator-border-radius) 0;
+  border-radius: 0 var(--token-app-side-nav-body-list-item-indicator-border-radius) var(--token-app-side-nav-body-list-item-indicator-border-radius) 0;
   content: "";
 }
 .hds-app-side-nav__list-item-link.active .hds-app-side-nav__list-item-text,
@@ -2951,7 +2951,7 @@
 .hds-app-side-nav__list-item-link.active .hds-app-side-nav__list-item-icon-trailing, .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-text,
 .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-icon-leading,
 .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-icon-trailing {
-  color: var(--token-app-side-nav-body-list-item-selected-foreground-color);
+  color: var(--token-app-side-nav-body-list-item-foreground-color-selected);
 }
 
 .hds-app-side-nav__list-item-link--back-link:active, .hds-app-side-nav__list-item-link--back-link.mock-active {
@@ -3004,7 +3004,7 @@
   padding: 0 4px;
   color: var(--token-color-foreground-primary);
   background: none;
-  background-color: var(--token-app-side-nav-surface-color);
+  background-color: var(--token-app-side-nav-wrapper-surface-color);
   border: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
   border-left-color: transparent;
   border-top-right-radius: var(--token-app-side-nav-toggle-button-border-radius);

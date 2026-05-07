@@ -7372,7 +7372,7 @@
     ]
   },
   {
-    "key": "{app-side-nav.surface.color}",
+    "key": "{app-side-nav.wrapper.surface.color}",
     "$type": "color",
     "$value": "#fafafa",
     "$modes": {
@@ -7392,14 +7392,15 @@
         "cds-g90": "{carbon.themes.g90.background}",
         "cds-g100": "{carbon.themes.g100.background}"
       },
-      "key": "{app-side-nav.surface.color}"
+      "key": "{app-side-nav.wrapper.surface.color}"
     },
-    "name": "token-app-side-nav-surface-color",
+    "name": "token-app-side-nav-wrapper-surface-color",
     "attributes": {
       "category": "app-side-nav"
     },
     "path": [
       "app-side-nav",
+      "wrapper",
       "surface",
       "color"
     ]
@@ -7606,6 +7607,64 @@
       "body",
       "list",
       "margin-vertical"
+    ]
+  },
+  {
+    "key": "{app-side-nav.body.list-title.padding.vertical}",
+    "$type": "dimension",
+    "$value": "9px",
+    "unit": "px",
+    "$modes": {
+      "default": "9",
+      "cds-g0": "7",
+      "cds-g10": "7",
+      "cds-g90": "7",
+      "cds-g100": "7"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "9",
+      "unit": "px",
+      "$modes": {
+        "default": "9",
+        "cds-g0": "7",
+        "cds-g10": "7",
+        "cds-g90": "7",
+        "cds-g100": "7"
+      },
+      "key": "{app-side-nav.body.list-title.padding.vertical}"
+    },
+    "name": "token-app-side-nav-body-list-title-padding-vertical",
+    "attributes": {
+      "category": "app-side-nav"
+    },
+    "path": [
+      "app-side-nav",
+      "body",
+      "list-title",
+      "padding",
+      "vertical"
+    ]
+  },
+  {
+    "key": "{app-side-nav.body.list-title.padding.horizontal}",
+    "$type": "dimension",
+    "$value": "8px",
+    "original": {
+      "$type": "dimension",
+      "$value": "{app-side-nav.body.list-item.padding.horizontal}",
+      "key": "{app-side-nav.body.list-title.padding.horizontal}"
+    },
+    "name": "token-app-side-nav-body-list-title-padding-horizontal",
+    "attributes": {
+      "category": "app-side-nav"
+    },
+    "path": [
+      "app-side-nav",
+      "body",
+      "list-title",
+      "padding",
+      "horizontal"
     ]
   },
   {
@@ -7828,6 +7887,42 @@
     ]
   },
   {
+    "key": "{app-side-nav.body.list-item.foreground.color.selected}",
+    "$type": "color",
+    "$value": "#1060ff",
+    "$modes": {
+      "default": "#1060ff",
+      "cds-g0": "#525252",
+      "cds-g10": "#525252",
+      "cds-g90": "#c6c6c6",
+      "cds-g100": "#c6c6c6"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{color.foreground.action}",
+      "$modes": {
+        "default": "{color.foreground.action}",
+        "cds-g0": "{carbon.themes.white.textSecondary}",
+        "cds-g10": "{carbon.themes.g10.textSecondary}",
+        "cds-g90": "{carbon.themes.g90.textSecondary}",
+        "cds-g100": "{carbon.themes.g100.textSecondary}"
+      },
+      "key": "{app-side-nav.body.list-item.foreground.color.selected}"
+    },
+    "name": "token-app-side-nav-body-list-item-foreground-color-selected",
+    "attributes": {
+      "category": "app-side-nav"
+    },
+    "path": [
+      "app-side-nav",
+      "body",
+      "list-item",
+      "foreground",
+      "color",
+      "selected"
+    ]
+  },
+  {
     "key": "{app-side-nav.body.list-item.surface.color.hover}",
     "$type": "color",
     "$value": "#f1f2f3",
@@ -7897,6 +7992,42 @@
       "surface",
       "color",
       "active"
+    ]
+  },
+  {
+    "key": "{app-side-nav.body.list-item.surface.color.selected}",
+    "$type": "color",
+    "$value": "#f1f2f3",
+    "$modes": {
+      "default": "#f1f2f3",
+      "cds-g0": "rgba(141, 141, 141, 0.2)",
+      "cds-g10": "rgba(141, 141, 141, 0.2)",
+      "cds-g90": "rgba(141, 141, 141, 0.24)",
+      "cds-g100": "rgba(141, 141, 141, 0.24)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{color.surface.strong}",
+      "$modes": {
+        "default": "{color.surface.strong}",
+        "cds-g0": "{carbon.themes.white.backgroundSelected}",
+        "cds-g10": "{carbon.themes.g10.backgroundSelected}",
+        "cds-g90": "{carbon.themes.g90.backgroundSelected}",
+        "cds-g100": "{carbon.themes.g100.backgroundSelected}"
+      },
+      "key": "{app-side-nav.body.list-item.surface.color.selected}"
+    },
+    "name": "token-app-side-nav-body-list-item-surface-color-selected",
+    "attributes": {
+      "category": "app-side-nav"
+    },
+    "path": [
+      "app-side-nav",
+      "body",
+      "list-item",
+      "surface",
+      "color",
+      "selected"
     ]
   },
   {
@@ -7994,79 +8125,7 @@
     ]
   },
   {
-    "key": "{app-side-nav.body.list-item.selected.foreground.color}",
-    "$type": "color",
-    "$value": "#1060ff",
-    "$modes": {
-      "default": "#1060ff",
-      "cds-g0": "#525252",
-      "cds-g10": "#525252",
-      "cds-g90": "#c6c6c6",
-      "cds-g100": "#c6c6c6"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{color.foreground.action}",
-      "$modes": {
-        "default": "{color.foreground.action}",
-        "cds-g0": "{carbon.themes.white.textSecondary}",
-        "cds-g10": "{carbon.themes.g10.textSecondary}",
-        "cds-g90": "{carbon.themes.g90.textSecondary}",
-        "cds-g100": "{carbon.themes.g100.textSecondary}"
-      },
-      "key": "{app-side-nav.body.list-item.selected.foreground.color}"
-    },
-    "name": "token-app-side-nav-body-list-item-selected-foreground-color",
-    "attributes": {
-      "category": "app-side-nav"
-    },
-    "path": [
-      "app-side-nav",
-      "body",
-      "list-item",
-      "selected",
-      "foreground",
-      "color"
-    ]
-  },
-  {
-    "key": "{app-side-nav.body.list-item.selected.surface.color}",
-    "$type": "color",
-    "$value": "#f1f2f3",
-    "$modes": {
-      "default": "#f1f2f3",
-      "cds-g0": "rgba(141, 141, 141, 0.2)",
-      "cds-g10": "rgba(141, 141, 141, 0.2)",
-      "cds-g90": "rgba(141, 141, 141, 0.24)",
-      "cds-g100": "rgba(141, 141, 141, 0.24)"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{color.surface.strong}",
-      "$modes": {
-        "default": "{color.surface.strong}",
-        "cds-g0": "{carbon.themes.white.backgroundSelected}",
-        "cds-g10": "{carbon.themes.g10.backgroundSelected}",
-        "cds-g90": "{carbon.themes.g90.backgroundSelected}",
-        "cds-g100": "{carbon.themes.g100.backgroundSelected}"
-      },
-      "key": "{app-side-nav.body.list-item.selected.surface.color}"
-    },
-    "name": "token-app-side-nav-body-list-item-selected-surface-color",
-    "attributes": {
-      "category": "app-side-nav"
-    },
-    "path": [
-      "app-side-nav",
-      "body",
-      "list-item",
-      "selected",
-      "surface",
-      "color"
-    ]
-  },
-  {
-    "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}",
+    "key": "{app-side-nav.body.list-item.indicator.border.radius}",
     "$type": "dimension",
     "$value": "2px",
     "unit": "px",
@@ -8088,9 +8147,9 @@
         "cds-g90": "0",
         "cds-g100": "0"
       },
-      "key": "{app-side-nav.body.list-item.selected.indicator.border.radius}"
+      "key": "{app-side-nav.body.list-item.indicator.border.radius}"
     },
-    "name": "token-app-side-nav-body-list-item-selected-indicator-border-radius",
+    "name": "token-app-side-nav-body-list-item-indicator-border-radius",
     "attributes": {
       "category": "app-side-nav"
     },
@@ -8098,47 +8157,9 @@
       "app-side-nav",
       "body",
       "list-item",
-      "selected",
       "indicator",
       "border",
       "radius"
-    ]
-  },
-  {
-    "key": "{app-side-nav.body.title.padding.vertical}",
-    "$type": "dimension",
-    "$value": "9px",
-    "unit": "px",
-    "$modes": {
-      "default": "9",
-      "cds-g0": "7",
-      "cds-g10": "7",
-      "cds-g90": "7",
-      "cds-g100": "7"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "9",
-      "unit": "px",
-      "$modes": {
-        "default": "9",
-        "cds-g0": "7",
-        "cds-g10": "7",
-        "cds-g90": "7",
-        "cds-g100": "7"
-      },
-      "key": "{app-side-nav.body.title.padding.vertical}"
-    },
-    "name": "token-app-side-nav-body-title-padding-vertical",
-    "attributes": {
-      "category": "app-side-nav"
-    },
-    "path": [
-      "app-side-nav",
-      "body",
-      "title",
-      "padding",
-      "vertical"
     ]
   },
   {
