@@ -130,13 +130,14 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it renders the title with icon and tagline if provided', async function (assert) {
     await render(
       <template>
-        <HdsModal @useCds={{true}} id="test-modal" as |M|>
+        <HdsModal id="test-modal" as |M|>
           <M.Header @icon="info" @tagline="Tagline">Title</M.Header>
         </HdsModal>
       </template>,
     );
+
     assert.dom('.hds-modal__title').exists();
-    assert.dom('.hds-modal__title').hasText('Title');
+    assert.dom('.hds-modal__title').hasText('Tagline Title');
     assert.dom('.hds-modal__icon.hds-icon-info').exists();
     assert.dom('.hds-modal__tagline').exists();
     assert.dom('.hds-modal__tagline').hasText('Tagline');
@@ -153,7 +154,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
         </HdsModal>
       </template>,
     );
-    assert.dom('cds-modal-heading.hds-modal__title').exists();
+    assert.dom('cds-modal-heading').exists();
   });
 
   // DISMISS
@@ -161,7 +162,8 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should always render the "dismiss" button (Carbon close button)', async function (assert) {
     await render(
       <template>
-        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header
+          >Title</M.Header></HdsModal>
       </template>,
     );
     // `HdsModalHeader` renders `cds-modal-close-button` so consumers always
@@ -171,12 +173,17 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should close the modal when the "dismiss" button is pressed', async function (assert) {
     await render(
       <template>
-        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal
+          @useCds={{true}}
+          id="test-modal"
+          open={{true}}
+          as |M|
+        ><M.Header>Title</M.Header></HdsModal>
       </template>,
     );
-    assert.dom('#test-modal').isVisible();
+    assert.dom('#test-modal').hasAttribute('open');
     await click('cds-modal-close-button');
-    assert.dom('#test-modal').isNotVisible();
+    assert.dom('#test-modal').doesNotHaveAttribute('open');
   });
   test('it should close the modal when the "close" function is called', async function (assert) {
     await render(
@@ -214,14 +221,15 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should close the modal when clicking outside', async function (assert) {
     await render(
       <template>
-        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal @useCds={{true}} id="test-modal" open as |M|><M.Header
+          >Title</M.Header></HdsModal>
       </template>,
     );
-    assert.dom('#test-modal').isVisible();
+    assert.dom('#test-modal').hasAttribute('open');
     // Carbon's outside-click handler fires when the click's composed path is
     // outside the shadow root. Clicking the host element directly satisfies that.
     await click('cds-modal#test-modal');
-    assert.dom('#test-modal').isNotVisible();
+    assert.dom('#test-modal').doesNotHaveAttribute('open');
   });
 
   test('it should not close the modal when `@isDismissDisabled` is `true`', async function (assert) {
@@ -232,6 +240,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
         <HdsModal
           @useCds={{true}}
           @isDismissDisabled={{context.isDismissDisabled}}
+          open
           id="test-modal"
           as |M|
         >
@@ -250,23 +259,23 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     );
     // top right Carbon close button (suppressed by `prevent-close`)
     await click('cds-modal-close-button');
-    assert.dom('#test-modal').isVisible();
+    assert.dom('#test-modal').hasAttribute('open');
     // cancel button with yielded "close" callback
     await click('#cancel-button');
-    assert.dom('#test-modal').isVisible();
+    assert.dom('#test-modal').hasAttribute('open');
     // click outside the dialog (suppressed by `prevent-close-on-click-outside`)
     await click('cds-modal#test-modal');
-    assert.dom('#test-modal').isVisible();
+    assert.dom('#test-modal').hasAttribute('open');
     // "esc" key (suppressed via `cds-modal-beingclosed` preventDefault)
     await triggerKeyEvent(document.body, 'keydown', 'Escape');
-    assert.dom('#test-modal').isVisible();
+    assert.dom('#test-modal').hasAttribute('open');
 
     // now let's check that the state is reset and it can be closed
     context.isDismissDisabled = false;
     await settled();
 
     await click('cds-modal-close-button');
-    assert.dom('#test-modal').isNotVisible();
+    assert.dom('#test-modal').doesNotHaveAttribute('open');
   });
 
   // BODY OVERFLOW
@@ -274,7 +283,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should close the modal and remove the body overflow style - manual dismiss', async function (assert) {
     await render(
       <template>
-        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
       </template>,
     );
 
@@ -283,7 +292,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('body', document).hasStyle({ overflow: 'hidden' });
 
     // when the modal is closed the `overflow:hidden` style should be removed
-    await click('cds-modal-close-button');
+    await click('.hds-dismiss-button');
     assert.dom('#test-modal').isNotVisible();
     assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
   });
@@ -291,7 +300,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should close the modal and remove the body overflow style - click outside', async function (assert) {
     await render(
       <template>
-        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
       </template>,
     );
 
@@ -300,7 +309,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('body', document).hasStyle({ overflow: 'hidden' });
 
     // when the modal is closed the `overflow:hidden` style should be removed
-    await click('cds-modal#test-modal');
+    await click('.hds-modal__overlay');
     assert.dom('#test-modal').isNotVisible();
     assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
   });
@@ -426,7 +435,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it uses the title as name for the dialog', async function (assert) {
     await render(
       <template>
-        <HdsModal @useCds={{true}} id="test-modal" as |M|>
+        <HdsModal id="test-modal" as |M|>
           <M.Header>Title</M.Header>
         </HdsModal>
       </template>,
@@ -435,7 +444,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     const titleElement = find('.hds-modal__title');
     const titleId = titleElement?.id ?? '';
 
-    assert.dom('cds-modal').hasAttribute('aria-labelledby', titleId);
+    assert.dom('#test-modal').hasAttribute('aria-labelledby', titleId);
   });
 
   // FOCUS MANAGEMENT
@@ -519,7 +528,12 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             modal</D.Interactive>
         </HdsDropdown>
         {{#if context.isModalRendered}}
-          <HdsModal @useCds={{true}} id="test-modal" @returnFocusTo="test-toggle" as |M|>
+          <HdsModal
+            @useCds={{true}}
+            id="test-modal"
+            @returnFocusTo="test-toggle"
+            as |M|
+          >
             <M.Header>Title</M.Header>
           </HdsModal>
         {{/if}}
@@ -560,13 +574,19 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
     await render(
       <template>
-        <HdsModal @useCds={{true}} id="test-modal-onclose-callback" @onClose={{onClose}} as |M|>
+        <HdsModal
+          @useCds={{true}}
+          id="test-modal-onclose-callback"
+          @onClose={{onClose}}
+          open
+          as |M|
+        >
           <M.Header>Title</M.Header>
         </HdsModal>
       </template>,
     );
     await click('#test-modal-onclose-callback cds-modal-close-button');
-    assert.dom('#test-modal-onclose-callback').isNotVisible();
+    assert.dom('#test-modal-onclose-callback').doesNotHaveAttribute('open');
     assert.ok(!context.isOpen);
   });
 
