@@ -2129,6 +2129,10 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-app-side-nav__content {
   margin: 0 calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
 }
@@ -2220,6 +2224,16 @@
 .hds-app-side-nav__list-item-link:focus, .hds-app-side-nav__list-item-link.mock-focus {
   z-index: 1;
 }
+.hds-mode-cds-g0 .hds-app-side-nav__list-item-link:focus::before, .hds-mode-cds-g0 .hds-app-side-nav__list-item-link.mock-focus::before,
+.hds-mode-cds-g10 .hds-app-side-nav__list-item-link:focus::before, .hds-mode-cds-g10 .hds-app-side-nav__list-item-link.mock-focus::before,
+.hds-mode-cds-g90 .hds-app-side-nav__list-item-link:focus::before, .hds-mode-cds-g90 .hds-app-side-nav__list-item-link.mock-focus::before,
+.hds-mode-cds-g100 .hds-app-side-nav__list-item-link:focus::before, .hds-mode-cds-g100 .hds-app-side-nav__list-item-link.mock-focus::before {
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+}
+
 .hds-app-side-nav__list-item-link:hover, .hds-app-side-nav__list-item-link.mock-hover {
   background: var(--token-app-side-nav-body-list-item-surface-color-hover);
   border-color: transparent;
@@ -2290,7 +2304,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-side-nav__toggle-button {
