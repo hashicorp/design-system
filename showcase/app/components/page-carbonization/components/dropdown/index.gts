@@ -71,13 +71,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
           <D.ToggleButton @text="Select item" />
           <D.Title @text="Title" />
           <D.Description @text="Description text" />
-          <D.Separator />
           <D.Interactive @href="#">Lorem, ipsum dolor sit amet consectetur.</D.Interactive>
-          <D.Separator />
           <D.Interactive @href="#">Option 1</D.Interactive>
-          <D.Separator />
           <D.Interactive @href="#">Option 2</D.Interactive>
-          <D.Separator />
           <D.Interactive @href="#">Option 3</D.Interactive>
           <D.Footer @hasDivider={{true}}>
             <HdsLinkStandalone
@@ -108,11 +104,8 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
         <HdsDropdown @matchToggleWidth={{true}} as |D|>
           <D.ToggleButton @text="Select item" />
           <D.Interactive @href="#">Lorem, ipsum dolor sit amet consectetur.</D.Interactive>
-          <D.Separator />
           <D.Interactive @href="#">Option 1</D.Interactive>
-          <D.Separator />
           <D.Interactive @href="#">Option 2</D.Interactive>
-          <D.Separator />
           <D.Interactive @href="#">Option 3</D.Interactive>
         </HdsDropdown>
       </:theming>
@@ -142,9 +135,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
         <HdsDropdown @matchToggleWidth={{true}} as |D|>
           <D.ToggleButton @text="Select item" />
           <D.Checkbox>Option 1</D.Checkbox>
-          <D.Separator />
           <D.Checkbox>Option 2</D.Checkbox>
-          <D.Separator />
           <D.Checkbox>Option 3</D.Checkbox>
         </HdsDropdown>
       </:theming>
@@ -531,29 +522,19 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   Interactive
                 </HdsDropdownListItemInteractive>
 
-                <HdsDropdownListItemSeparator />
-
                 <HdsDropdownListItemCheckmark @selected={{true}}>
                   Checkmark
                 </HdsDropdownListItemCheckmark>
-
-                <HdsDropdownListItemSeparator />
 
                 <HdsDropdownListItemCheckbox>
                   Checkbox
                 </HdsDropdownListItemCheckbox>
 
-                <HdsDropdownListItemSeparator />
-
                 <HdsDropdownListItemRadio>
                   Radio
                 </HdsDropdownListItemRadio>
 
-                <HdsDropdownListItemSeparator />
-
                 <HdsDropdownListItemCopyItem @text="Copy Item" />
-
-                <HdsDropdownListItemSeparator />
 
                 <HdsDropdownListItemGeneric>
                   <span
@@ -592,7 +573,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                         >
                           {{state}}
                         </HdsDropdownListItemInteractive>
-                        <HdsDropdownListItemSeparator />
                       {{/each}}
                       <HdsDropdownListItemInteractive
                         @color={{color}}
@@ -651,7 +631,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                 mock-state-value={{state}}
                 mock-state-selector="button"
               />
-              <HdsDropdownListItemSeparator />
             {{/each}}
           </ul>
         </div>
@@ -681,7 +660,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   <HdsDropdownListItemCheckmark mock-state-value={{state}}>
                     {{state}}
                   </HdsDropdownListItemCheckmark>
-                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemCheckmark
                   mock-state-value="disabled"
@@ -706,7 +684,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   >
                     {{state}}
                   </HdsDropdownListItemCheckmark>
-                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemCheckmark
                   mock-state-value="disabled"
@@ -753,7 +730,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   <HdsDropdownListItemCheckbox mock-state-value={{state}}>
                     {{state}}
                   </HdsDropdownListItemCheckbox>
-                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemCheckbox
                   mock-state-value="disabled"
@@ -774,7 +750,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   >
                     {{state}}
                   </HdsDropdownListItemCheckbox>
-                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemCheckbox
                   mock-state-value="disabled"
@@ -809,7 +784,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   <HdsDropdownListItemRadio mock-state-value={{state}}>
                     {{state}}
                   </HdsDropdownListItemRadio>
-                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemRadio mock-state-value="disabled" disabled>
                   disabled
@@ -824,7 +798,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                   <HdsDropdownListItemRadio mock-state-value={{state}} checked>
                     {{state}}
                   </HdsDropdownListItemRadio>
-                  <HdsDropdownListItemSeparator />
                 {{/each}}
                 <HdsDropdownListItemRadio
                   mock-state-value="disabled"
