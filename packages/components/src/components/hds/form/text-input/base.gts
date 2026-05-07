@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import style from 'ember-style-modifier';
+import '@carbon/web-components/es/components/text-input/index.js';
+import { INPUT_SIZE } from '@carbon/web-components/es/components/text-input/text-input.js';
 
 import { HdsFormTextInputTypeValues } from './types.ts';
 import type { HdsFormTextInputTypes } from './types.ts';
@@ -27,6 +29,16 @@ export interface HdsFormTextInputBaseSignature {
     width?: string;
     id?: string;
     ariaDescribedBy?: string;
+    size?: INPUT_SIZE;
+    label?: string;
+    helperText?: string;
+    enableCounter?: boolean;
+    invalidText?: string;
+    maxCount?: number;
+    useCds?: boolean;
+  };
+  Blocks: {
+    default: [];
   };
   Element: HTMLInputElement;
 }
@@ -70,14 +82,33 @@ export default class HdsFormTextInputBase extends Component<HdsFormTextInputBase
   }
 
   <template>
-    <input
-      class={{this.classNames}}
-      {{style width=@width}}
-      id={{@id}}
-      aria-describedby={{@ariaDescribedBy}}
-      ...attributes
-      value={{@value}}
-      type={{this.type}}
-    />
+    {{#if @useCds}}
+      <cds-text-input
+        aria-describedby={{@ariaDescribedBy}}
+        size={{@size}}
+        id={{@id}}
+        show-password-visibility-toggle={{@hasVisibilityToggle}}
+        label={{@label}}
+        helper-text={{@helperText}}
+        invalid-text={{@invalidText}}
+        enable-counter={{@enableCounter}}
+        max-count={{@maxCount}}
+        ...attributes
+        value={{@value}}
+        type={{this.type}}
+      >
+        {{yield}}
+      </cds-text-input>
+    {{else}}
+      <input
+        class={{this.classNames}}
+        {{style width=@width}}
+        id={{@id}}
+        aria-describedby={{@ariaDescribedBy}}
+        ...attributes
+        value={{@value}}
+        type={{this.type}}
+      />
+    {{/if}}
   </template>
 }

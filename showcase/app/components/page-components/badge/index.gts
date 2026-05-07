@@ -10,6 +10,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 
 import SubSectionContainers from 'showcase/components/page-components/badge/sub-sections/containers';
 import SubSectionContent from 'showcase/components/page-components/badge/sub-sections/content';
+import SubSectionUseCds from 'showcase/components/page-components/badge/sub-sections/use-cds';
 import SubSectionVariants from 'showcase/components/page-components/badge/sub-sections/variants';
 
 const BadgeIndex: TemplateOnlyComponent = <template>
@@ -20,6 +21,7 @@ const BadgeIndex: TemplateOnlyComponent = <template>
   <section data-test-percy>
     <SubSectionContent />
     <SubSectionVariants />
+    <SubSectionUseCds />
     <SubSectionContainers />
   </section>
 </template>;

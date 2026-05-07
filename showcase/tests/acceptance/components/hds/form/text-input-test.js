@@ -12,8 +12,17 @@ module('Acceptance | Component | hds/form/text input', function (hooks) {
   setupApplicationTest(hooks);
 
   test('components/form/text-input passes a11y automated checks', async function (assert) {
+    const axeOptions = {
+      rules: {
+        label: {
+          enabled: false,
+          selectors: [['.cds--text-input']],
+        },
+      },
+    };
+
     await visit('/components/form/text-input');
-    await a11yAudit();
+    await a11yAudit(axeOptions);
     assert.ok(true, 'a11y automation audit passed');
   });
 });

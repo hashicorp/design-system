@@ -22,6 +22,7 @@ export interface CodeFragmentWithTriggerSignature {
     returnFocusTo?: HdsModalSignature['Args']['returnFocusTo'];
     onOpen?: HdsModalSignature['Args']['onOpen'];
     onClose?: HdsModalSignature['Args']['onClose'];
+    useCds?: HdsModalSignature['Args']['useCds'];
   };
   Blocks: {
     trigger: [{ openModal: () => void }];
@@ -65,6 +66,7 @@ export default class CodeFragmentWithTrigger extends Component<CodeFragmentWithT
         @color={{@color}}
         @isDismissDisabled={{@isDismissDisabled}}
         @returnFocusTo={{@returnFocusTo}}
+        @useCds={{@useCds}}
         @onClose={{this.closeModal}}
         ...attributes
         as |M|

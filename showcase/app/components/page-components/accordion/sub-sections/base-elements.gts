@@ -16,12 +16,12 @@ import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
-import NOOP from 'showcase/utils/noop';
+// import NOOP from 'showcase/utils/noop';
 
 import { HdsAccordionItem } from '@hashicorp/design-system-components/components';
-import HdsAccordionItemButton from '@hashicorp/design-system-components/components/hds/accordion/item/button';
+// import HdsAccordionItemButton from '@hashicorp/design-system-components/components/hds/accordion/item/button';
 import {
-  SIZES,
+  // SIZES,
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
@@ -217,7 +217,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     {{/let}}
   {{/each}}
 
-  <ShwTextH3>AccordionItemButton</ShwTextH3>
+  {{!-- <ShwTextH3>AccordionItemButton</ShwTextH3>
 
   <ShwTextH4>States</ShwTextH4>
   {{#each SIZES as |size|}}
@@ -279,7 +279,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         </ShwFlex>
       {{/each}}
     {{/let}}
-  {{/each}}
+  {{/each}} --}}
 </template>;
 
 export default SubSectionBaseElements;

@@ -10,6 +10,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import SubSectionGeneratedElement from 'showcase/components/page-components/link/inline/sub-sections/generated-element';
 import SubSectionContent from 'showcase/components/page-components/link/inline/sub-sections/content';
 import SubSectionStates from 'showcase/components/page-components/link/inline/sub-sections/states';
+import SubSectionUseCds from 'showcase/components/page-components/link/inline/sub-sections/use-cds';
 
 const LinkInlineIndex: TemplateOnlyComponent = <template>
   {{pageTitle "LinkInline component"}}
@@ -20,6 +21,7 @@ const LinkInlineIndex: TemplateOnlyComponent = <template>
     <SubSectionGeneratedElement />
     <SubSectionContent />
     <SubSectionStates />
+    <SubSectionUseCds />
   </section>
 </template>;
 

@@ -14,6 +14,8 @@ showcase:
           fr: 🇫🇷 Francés (Francia)
           es: 🇪🇸 Español (España)
         title: Idioma seleccionado
+    web-component-tests:
+      badge-text: En Español
 hds:
   components:
     app-footer:

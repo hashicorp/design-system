@@ -52,13 +52,21 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
   <template>
     <HdsFormTextInputField
       @value={{this.value}}
+      @maxCount={{@maxLength}}
+      @enableCounter={{true}}
+      @isInvalid={{this.isInvalid}}
       {{on "input" this.updateValue}}
       as |F|
     >
       <F.Label>This is the label text</F.Label>
-      {{#if @hasHelperText}}
-        <F.HelperText>This is the helper text</F.HelperText>
-      {{/if}}
+      <F.HelperText>{{if
+          @hasHelperText
+          "This is the helper text"
+        }}</F.HelperText>
+      <F.Error>{{if
+          this.isInvalid
+          "Maximum number of characters exceeded"
+        }}</F.Error>
       {{#if (has-block "characterCount")}}
         <F.CharacterCount @maxLength={{@maxLength}} as |CC|>
           {{yield
@@ -69,9 +77,19 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
       {{else}}
         <F.CharacterCount @maxLength={{@maxLength}} />
       {{/if}}
-      {{#if this.isInvalid}}
-        <F.Error>Maximum numbers of characters exceeded</F.Error>
-      {{/if}}
+      {{!-- <F.Label>This is the label text</F.Label>
+      <F.HelperText>{{if @hasHelperText "This is the helper text"}}</F.HelperText>
+      <F.Error>{{if
+          this.isInvalid
+          "Maximum number of characters exceeded"
+        }}</:error> --}}
+      {{! TODO: the new HdsFormTextInputField API renders the character count
+        internally via @enableCounter / @maxCount. The custom ":characterCount"
+        named block (yielding currentLength / maxLength) is no longer
+        supported. Restore when custom rendering is reintroduced.
+
+
+      }}
     </HdsFormTextInputField>
   </template>
 }

@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
+import '@carbon/web-components/es/components/link/index.js';
+import { LINK_SIZE } from '@carbon/web-components/es/components/link/link.js';
 
 import type Owner from '@ember/owner';
 
@@ -27,10 +29,17 @@ import type { HdsIconSignature } from '../icon/index.gts';
 
 export interface HdsLinkStandaloneSignature {
   Args: HdsInteractiveSignature['Args'] & {
+    useCds?: boolean;
     size?: HdsLinkStandaloneSizes;
+    /**
+     * @deprecated Carbon doesnt allow other colors
+     */
     color?: HdsLinkColors;
     text: string;
     icon: HdsIconSignature['Args']['name'];
+    /**
+     * @deprecated Carbon doesnt allow leading icons for links
+     */
     iconPosition?: HdsLinkIconPositions;
   };
   Element: HdsInteractiveSignature['Element'];
@@ -139,43 +148,95 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     return classes.join(' ');
   }
 
+  get shouldRenderCarbon() {
+    const { models, model, query, replace, route, isRouteExternal, useCds } =
+      this.args;
+
+    if (
+      models ||
+      model ||
+      query ||
+      replace ||
+      route ||
+      isRouteExternal ||
+      this.args['current-when'] ||
+      !useCds
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
+  get mappedCarbonSize() {
+    switch (this.size) {
+      case HdsLinkStandaloneSizeValues.Small:
+        return LINK_SIZE.SMALL;
+      case HdsLinkStandaloneSizeValues.Medium:
+        return LINK_SIZE.MEDIUM;
+      case HdsLinkStandaloneSizeValues.Large:
+        return LINK_SIZE.LARGE;
+    }
+
+    return LINK_SIZE.MEDIUM;
+  }
+
   <template>
-    <HdsInteractive
-      class={{this.classNames}}
-      @current-when={{@current-when}}
-      @models={{@models}}
-      @model={{@model}}
-      @query={{@query}}
-      @replace={{@replace}}
-      @route={{@route}}
-      @isRouteExternal={{@isRouteExternal}}
-      @href={{@href}}
-      @isHrefExternal={{@isHrefExternal}}
-      ...attributes
-    >
-      {{#if (eq this.iconPosition "leading")}}
-        <span class="hds-link-standalone__icon">
-          <HdsIcon
-            @name={{this.icon}}
-            @size={{this.iconSize}}
-            @stretched={{true}}
-          />
-        </span>
-        <span class="hds-link-standalone__text">
-          {{this.text}}
-        </span>
-      {{else}}
-        <span class="hds-link-standalone__text">
-          {{this.text}}
-        </span>
-        <span class="hds-link-standalone__icon">
-          <HdsIcon
-            @name={{this.icon}}
-            @size={{this.iconSize}}
-            @stretched={{true}}
-          />
-        </span>
-      {{/if}}
-    </HdsInteractive>
+    {{#if this.shouldRenderCarbon}}
+      <cds-link
+        href={{@href}}
+        inline={{true}}
+        size={{this.mappedCarbonSize}}
+        target={{if (eq @isHrefExternal true) "_blank"}}
+        rel={{if (eq @isHrefExternal true) "noopener noreferrer"}}
+        ...attributes
+      >
+        <HdsIcon
+          @name={{this.icon}}
+          @size={{this.iconSize}}
+          @stretched={{true}}
+          slot="icon"
+        />
+        {{this.text}}
+      </cds-link>
+    {{else}}
+      <HdsInteractive
+        class={{this.classNames}}
+        @current-when={{@current-when}}
+        @models={{@models}}
+        @model={{@model}}
+        @query={{@query}}
+        @replace={{@replace}}
+        @route={{@route}}
+        @isRouteExternal={{@isRouteExternal}}
+        @href={{@href}}
+        @isHrefExternal={{@isHrefExternal}}
+        ...attributes
+      >
+        {{#if (eq this.iconPosition "leading")}}
+          <span class="hds-link-standalone__icon">
+            <HdsIcon
+              @name={{this.icon}}
+              @size={{this.iconSize}}
+              @stretched={{true}}
+            />
+          </span>
+          <span class="hds-link-standalone__text">
+            {{this.text}}
+          </span>
+        {{else}}
+          <span class="hds-link-standalone__text">
+            {{this.text}}
+          </span>
+          <span class="hds-link-standalone__icon">
+            <HdsIcon
+              @name={{this.icon}}
+              @size={{this.iconSize}}
+              @stretched={{true}}
+            />
+          </span>
+        {{/if}}
+      </HdsInteractive>
+    {{/if}}
   </template>
 }

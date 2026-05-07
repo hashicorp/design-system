@@ -4,6 +4,8 @@
  */
 
 import Component from '@glimmer/component';
+import '@carbon/web-components/es/components/link/index.js';
+import { LINK_SIZE } from '@carbon/web-components/es/components/link/link.js';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
 
@@ -24,11 +26,21 @@ export const ICON_POSITIONS: HdsLinkIconPositions[] = Object.values(
 );
 export const COLORS: HdsLinkColors[] = Object.values(HdsLinkColorValues);
 
+type size = (typeof LINK_SIZE)[keyof typeof LINK_SIZE];
+
 export interface HdsLinkInlineSignature {
   Args: HdsInteractiveSignature['Args'] & {
+    useCds?: boolean;
+    /**
+     * @deprecated Carbon doesnt allow other colors
+     */
     color?: HdsLinkColors;
     icon?: HdsIconSignature['Args']['name'];
+    /**
+     * @deprecated Carbon doesnt allow leading icons for links
+     */
     iconPosition?: HdsLinkIconPositions;
+    size?: size;
   };
   Blocks: {
     default: [];
@@ -82,36 +94,74 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
     return classes.join(' ');
   }
 
+  get shouldRenderCarbon() {
+    const { models, model, query, replace, route, isRouteExternal, useCds } =
+      this.args;
+
+    if (
+      models ||
+      model ||
+      query ||
+      replace ||
+      route ||
+      isRouteExternal ||
+      this.args['current-when'] ||
+      !useCds
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
   <template>
-    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
-    <HdsInteractive
-      class={{this.classNames}}
-      @current-when={{@current-when}}
-      @models={{@models}}
-      @model={{@model}}
-      @query={{@query}}
-      @replace={{@replace}}
-      @route={{@route}}
-      @isRouteExternal={{@isRouteExternal}}
-      @href={{@href}}
-      @isHrefExternal={{@isHrefExternal}}
-      ...attributes
-    >
-      {{~#if (eq this.iconPosition "leading")~}}
+    {{#if this.shouldRenderCarbon}}
+      <cds-link
+        href={{@href}}
+        inline={{true}}
+        size={{@size}}
+        target={{if (eq @isHrefExternal true) "_blank"}}
+        rel={{if (eq @isHrefExternal true) "noopener noreferrer"}}
+        ...attributes
+      >
         {{~#if @icon~}}
-          <span class="hds-link-inline__icon hds-link-inline__icon--leading">
+          <span class="hds-link-inline__icon" slot="icon">
             <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
           </span>
         {{~/if~}}
-      {{~/if~}}
-      {{yield}}
-      {{~#if (eq this.iconPosition "trailing")~}}
-        {{~#if @icon~}}
-          <span class="hds-link-inline__icon hds-link-inline__icon--trailing">
-            <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
-          </span>
+        {{yield}}
+      </cds-link>
+    {{else}}
+      {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+      <HdsInteractive
+        class={{this.classNames}}
+        @current-when={{@current-when}}
+        @models={{@models}}
+        @model={{@model}}
+        @query={{@query}}
+        @replace={{@replace}}
+        @route={{@route}}
+        @isRouteExternal={{@isRouteExternal}}
+        @href={{@href}}
+        @isHrefExternal={{@isHrefExternal}}
+        ...attributes
+      >
+        {{~#if (eq this.iconPosition "leading")~}}
+          {{~#if @icon~}}
+            <span class="hds-link-inline__icon hds-link-inline__icon--leading">
+              <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+            </span>
+          {{~/if~}}
         {{~/if~}}
-      {{~/if~}}
-    </HdsInteractive>
+        {{yield}}
+        {{~#if (eq this.iconPosition "trailing")~}}
+          {{~#if @icon~}}
+            <span class="hds-link-inline__icon hds-link-inline__icon--trailing">
+              <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+            </span>
+          {{~/if~}}
+        {{~/if~}}
+      </HdsInteractive>
+    {{/if}}
   </template>
 }

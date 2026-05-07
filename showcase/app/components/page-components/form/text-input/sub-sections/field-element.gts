@@ -90,6 +90,11 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
         <F.Error>This is the error</F.Error>
       </HdsFormTextInputField>
     </SG.Item>
+    {{!-- TODO: new HdsFormTextInputField API only supports a single ":error"
+      named block. Multiple errors via "<F.Error as |E|><E.Message />" are not
+      currently supported. Restore this demo when multi-message error support is
+      reintroduced.
+
     <SG.Item @label="Label + Helper text + Errors">
       <HdsFormTextInputField
         @value="Lorem ipsum dolor"
@@ -104,6 +109,7 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
         </F.Error>
       </HdsFormTextInputField>
     </SG.Item>
+    --}}
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
@@ -117,6 +123,12 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
         @value="Lorem ipsum dolor"
       />
     </SG.Item>
+    {{!-- TODO: new HdsFormTextInputField API renders the character count
+      internally via @enableCounter and @maxCount args. The custom
+      ":characterCount" block (with currentLength / maxLength yielded values)
+      is no longer supported. Restore this demo when custom character-count
+      rendering is reintroduced.
+
     <SG.Item @label="Label + Helper text + Character count (custom)">
       <CodeFragmentWithCharacterCount
         @maxLength={{40}}
@@ -132,6 +144,7 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
         </:characterCount>
       </CodeFragmentWithCharacterCount>
     </SG.Item>
+    --}}
     <SG.Item @label="Label + Helper text + Character count">
       <CodeFragmentWithCharacterCount
         @maxLength={{20}}
@@ -142,6 +155,9 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
+
+  {{!-- TODO: new HdsFormTextInputField does not currently wire through
+    @isRequired / @isOptional in its template. Restore when supported.
 
   <ShwTextH3>Required and optional</ShwTextH3>
 
@@ -168,6 +184,7 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
+  --}}
 
   <ShwTextH3>States</ShwTextH3>
 
@@ -221,11 +238,9 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
                 <F.Label>This is the label text that should go on multiple lines</F.Label>
                 <F.HelperText>This is the helper text that should go on multiple
                   lines</F.HelperText>
-                <F.Error as |E|>
-                  <E.Message>This is the first error text</E.Message>
-                  <E.Message>This is the second error text that should go on
-                    multiple lines</E.Message>
-                </F.Error>
+                <F.Error>This is the error text</F.Error>
+                {{! TODO: multi-message <F.Error as |E|><E.Message /> not
+                  supported in the new API. }}
               </HdsFormTextInputField>
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
@@ -239,11 +254,9 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
                 <F.Label>Custom width on password input</F.Label>
                 <F.HelperText>This is the helper text that should go on multiple
                   lines</F.HelperText>
-                <F.Error as |E|>
-                  <E.Message>This is the first error text</E.Message>
-                  <E.Message>This is the second error text that should go on
-                    multiple lines</E.Message>
-                </F.Error>
+                <F.Error>This is the error text</F.Error>
+                {{! TODO: multi-message <F.Error as |E|><E.Message /> not
+                  supported in the new API. }}
               </HdsFormTextInputField>
             </SF.Item>
           </ShwFlex>

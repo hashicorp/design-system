@@ -9,6 +9,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 
 import SubSectionBaseElement from 'showcase/components/page-components/form/text-input/sub-sections/base-element';
 import SubSectionFieldElement from 'showcase/components/page-components/form/text-input/sub-sections/field-element';
+import SubSectionUseCds from 'showcase/components/page-components/form/text-input/sub-sections/use-cds';
 
 const FormTextInputIndex: TemplateOnlyComponent = <template>
   {{pageTitle "TextInput Component"}}
@@ -18,6 +19,7 @@ const FormTextInputIndex: TemplateOnlyComponent = <template>
   <section data-test-percy>
     <SubSectionBaseElement />
     <SubSectionFieldElement />
+    <SubSectionUseCds />
   </section>
 </template>;
 

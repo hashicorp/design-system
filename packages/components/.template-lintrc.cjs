@@ -24,5 +24,13 @@ module.exports = {
         prettier: false,
       },
     },
+    // web component wrappers need to support all HTML attributes
+    {
+      files: ['**/cds-*/**/*.{gjs,gts}'],
+      rules: {
+        'no-autofocus-attribute': false,
+        'no-positive-tabindex': false,
+      },
+    },
   ],
 };

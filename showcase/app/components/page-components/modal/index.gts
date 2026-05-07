@@ -12,6 +12,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import SubSectionSize from 'showcase/components/page-components/modal/sub-sections/size';
 import SubSectionColor from 'showcase/components/page-components/modal/sub-sections/color';
 import SubSectionContent from 'showcase/components/page-components/modal/sub-sections/content';
+import SubSectionUseCds from 'showcase/components/page-components/modal/sub-sections/use-cds';
 import SubSectionDemo from 'showcase/components/page-components/modal/sub-sections/demo';
 
 const ModalIndex: TemplateOnlyComponent = <template>
@@ -23,6 +24,7 @@ const ModalIndex: TemplateOnlyComponent = <template>
     <SubSectionSize />
     <SubSectionColor />
     <SubSectionContent />
+    <SubSectionUseCds />
   </section>
 
   <ShwDivider />

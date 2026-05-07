@@ -6,10 +6,10 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 
-import HdsIcon from '../../icon/index.gts';
-import { HdsAccordionSizeValues } from '../types.ts';
+import HdsIcon from '../../../icon/index.gts';
+import { HdsAccordionSizeValues } from '../../types.ts';
 
-import type { HdsAccordionSizes } from '../types.ts';
+import type { HdsAccordionSizes } from '../../types.ts';
 
 export interface HdsAccordionItemButtonSignature {
   Args: {

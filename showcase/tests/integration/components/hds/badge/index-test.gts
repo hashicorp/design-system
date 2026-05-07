@@ -17,6 +17,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     await render(
       <template><HdsBadge @text="text renders" id="test-badge" /></template>,
     );
+
     assert.dom('#test-badge').hasClass('hds-badge');
   });
 

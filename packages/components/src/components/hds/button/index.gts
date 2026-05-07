@@ -4,9 +4,14 @@
  */
 
 import Component from '@glimmer/component';
+import '@carbon/web-components/es/components/button/index.js';
+import {
+  BUTTON_KIND,
+  BUTTON_SIZE,
+} from '@carbon/web-components/es/components/button/button.js';
+
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
-// TEST
 
 import {
   HdsButtonSizeValues,
@@ -35,12 +40,19 @@ export const DEFAULT_ICON_POSITION = HdsButtonIconPositionValues.Leading;
 
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
+    useCds?: boolean;
     size?: HdsButtonSizes;
     color?: HdsButtonColors;
     text: string;
     icon?: HdsIconSignature['Args']['name'];
+    /**
+     * @deprecated Carbon doesnt allow leading icons in buttons
+     */
     iconPosition?: HdsButtonIconPositions;
     isIconOnly?: boolean;
+    /**
+     * @deprecated Carbon doesnt have full width button
+     */
     isFullWidth?: boolean;
     isInline?: boolean;
   };
@@ -154,24 +166,60 @@ export default class HdsButton extends Component<HdsButtonSignature> {
     return classes.join(' ');
   }
 
+  get shouldRenderCarbon() {
+    const { models, model, query, replace, route, isRouteExternal, useCds } =
+      this.args;
+
+    if (
+      models ||
+      model ||
+      query ||
+      replace ||
+      route ||
+      isRouteExternal ||
+      this.args['current-when'] ||
+      !useCds
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
+  get mappedCarbonKind() {
+    switch (this.color) {
+      case 'primary':
+        return BUTTON_KIND.PRIMARY;
+      case 'secondary':
+        return BUTTON_KIND.SECONDARY;
+      case 'critical':
+        return BUTTON_KIND.DANGER;
+      case 'tertiary':
+        return BUTTON_KIND.GHOST;
+    }
+  }
+
+  get mappedCarbonSize() {
+    switch (this.size) {
+      case 'small':
+        return BUTTON_SIZE.SMALL;
+      case 'medium':
+        return BUTTON_SIZE.MEDIUM;
+      case 'large':
+        return BUTTON_SIZE.LARGE;
+    }
+  }
+
   <template>
-    <HdsInteractive
-      class={{this.classNames}}
-      @current-when={{@current-when}}
-      @models={{@models}}
-      @model={{@model}}
-      @query={{@query}}
-      @replace={{@replace}}
-      @route={{@route}}
-      @isRouteExternal={{@isRouteExternal}}
-      @href={{@href}}
-      @isHrefExternal={{@isHrefExternal}}
-      ...attributes
-      aria-label={{if this.isIconOnly this.text null}}
-    >
-      {{#if this.isIconOnly}}
+    {{#if this.shouldRenderCarbon}}
+      <cds-button
+        href={{@href}}
+        kind={{this.mappedCarbonKind}}
+        size={{this.mappedCarbonSize}}
+        ...attributes
+      >
         {{#if this.icon}}
-          <span class="hds-button__icon">
+          <span class="hds-button__icon" slot="icon">
             <HdsIcon
               @name={{this.icon}}
               @size={{this.iconSize}}
@@ -179,23 +227,25 @@ export default class HdsButton extends Component<HdsButtonSignature> {
             />
           </span>
         {{/if}}
-      {{else}}
-        {{#if this.icon}}
-          {{#if (eq this.iconPosition "leading")}}
-            <span class="hds-button__icon">
-              <HdsIcon
-                @name={{this.icon}}
-                @size={{this.iconSize}}
-                @stretched={{true}}
-              />
-            </span>
-            <span class="hds-button__text">
-              {{this.text}}
-            </span>
-          {{else}}
-            <span class="hds-button__text">
-              {{this.text}}
-            </span>
+        {{this.text}}
+      </cds-button>
+    {{else}}
+      <HdsInteractive
+        class={{this.classNames}}
+        @current-when={{@current-when}}
+        @models={{@models}}
+        @model={{@model}}
+        @query={{@query}}
+        @replace={{@replace}}
+        @route={{@route}}
+        @isRouteExternal={{@isRouteExternal}}
+        @href={{@href}}
+        @isHrefExternal={{@isHrefExternal}}
+        ...attributes
+        aria-label={{if this.isIconOnly this.text null}}
+      >
+        {{#if this.isIconOnly}}
+          {{#if this.icon}}
             <span class="hds-button__icon">
               <HdsIcon
                 @name={{this.icon}}
@@ -205,11 +255,37 @@ export default class HdsButton extends Component<HdsButtonSignature> {
             </span>
           {{/if}}
         {{else}}
-          <span class="hds-button__text">
-            {{this.text}}
-          </span>
+          {{#if this.icon}}
+            {{#if (eq this.iconPosition "leading")}}
+              <span class="hds-button__icon">
+                <HdsIcon
+                  @name={{this.icon}}
+                  @size={{this.iconSize}}
+                  @stretched={{true}}
+                />
+              </span>
+              <span class="hds-button__text">
+                {{this.text}}
+              </span>
+            {{else}}
+              <span class="hds-button__text">
+                {{this.text}}
+              </span>
+              <span class="hds-button__icon">
+                <HdsIcon
+                  @name={{this.icon}}
+                  @size={{this.iconSize}}
+                  @stretched={{true}}
+                />
+              </span>
+            {{/if}}
+          {{else}}
+            <span class="hds-button__text">
+              {{this.text}}
+            </span>
+          {{/if}}
         {{/if}}
-      {{/if}}
-    </HdsInteractive>
+      </HdsInteractive>
+    {{/if}}
   </template>
 }

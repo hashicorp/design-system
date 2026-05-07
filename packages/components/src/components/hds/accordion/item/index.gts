@@ -4,19 +4,17 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
-import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
 
-import {
-  HdsAccordionSizeValues,
-  HdsAccordionTypeValues,
-  HdsAccordionItemTitleTagValues,
-  HdsAccordionForceStateValues,
-} from '../types.ts';
-import HdsAccordionItemButton from './button.gts';
-import HdsTextBody from '../../text/body.gts';
-import HdsDisclosurePrimitive from '../../disclosure-primitive/index.gts';
+import HdsAccordionItemCds from '../cds/item/index.gts';
+import HdsAccordionItemHds from '../hds/item/index.gts';
+
+export {
+  SIZES,
+  DEFAULT_SIZE,
+  TYPES,
+  DEFAULT_TYPE,
+} from '../cds/item/index.gts';
 
 import type {
   HdsAccordionForceStates,
@@ -25,21 +23,13 @@ import type {
   HdsAccordionItemTitleTags,
 } from '../types.ts';
 
-export const SIZES: HdsAccordionSizes[] = Object.values(HdsAccordionSizeValues);
-export const DEFAULT_SIZE = HdsAccordionSizeValues.Medium;
-
-export const TYPES: HdsAccordionTypes[] = Object.values(HdsAccordionTypeValues);
-export const DEFAULT_TYPE = HdsAccordionTypeValues.Card;
-
-const TEXT_SIZE_MAP = {
-  small: 100,
-  medium: 200,
-  large: 300,
-};
-
 export interface HdsAccordionItemSignature {
   Args: {
     ariaLabel?: string;
+    /**
+     * Only meaningful for the original HDS implementation. Ignored when @useCds is true,
+     * since Carbon wraps the toggle content in a button.
+     */
     containsInteractive?: boolean;
     forceState?: HdsAccordionForceStates;
     isOpen?: boolean;
@@ -49,6 +39,11 @@ export interface HdsAccordionItemSignature {
     size?: HdsAccordionSizes;
     titleTag?: HdsAccordionItemTitleTags;
     type?: HdsAccordionTypes;
+    /**
+     * When true, renders the Carbon (cds) accordion item implementation.
+     * When false (default), renders the original HDS accordion item implementation.
+     */
+    useCds?: boolean;
   };
   Blocks: {
     toggle?: [];
@@ -63,138 +58,43 @@ export interface HdsAccordionItemSignature {
 }
 
 export default class HdsAccordionItem extends Component<HdsAccordionItemSignature> {
-  private _titleId = 'title-' + guidFor(this);
-
-  get ariaLabelledBy(): string | undefined {
-    if (!this.args.ariaLabel) {
-      return this._titleId;
-    }
-    return undefined;
-  }
-
-  get containsInteractive(): boolean {
-    return this.args.containsInteractive ?? false;
-  }
-
-  get toggleTextSize(): number {
-    const size = this.args.size ?? DEFAULT_SIZE;
-    return TEXT_SIZE_MAP[size];
-  }
-
-  get size(): HdsAccordionSizes {
-    const { size = DEFAULT_SIZE } = this.args;
-
-    assert(
-      `@size for "Hds::Accordion::Item" must be one of the following: ${SIZES.join(
-        ', '
-      )}; received: ${size}`,
-      SIZES.includes(size)
-    );
-
-    return size;
-  }
-
-  get isOpen(): boolean {
-    if (
-      this.args.isOpen ||
-      this.args.forceState === HdsAccordionForceStateValues.Open
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  get type(): HdsAccordionTypes {
-    const { type = DEFAULT_TYPE } = this.args;
-
-    assert(
-      `@type for "Hds::Accordion::Item" must be one of the following: ${TYPES.join(
-        ', '
-      )}; received: ${type}`,
-      TYPES.includes(type)
-    );
-
-    return type;
-  }
-
-  get titleTag(): HdsAccordionItemTitleTags {
-    return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
-  }
-
-  get classNames() {
-    const classes = ['hds-accordion-item'];
-
-    // add a class based on the @isOpen argument
-    if (this.args.isOpen) {
-      classes.push('hds-accordion-item--is-open');
-    }
-
-    // add a class based on the @isStatic argument
-    if (this.args.isStatic) {
-      classes.push('hds-accordion-item--is-static');
-    }
-
-    // add a class based on the @size argument
-    classes.push(`hds-accordion-item--size-${this.size}`);
-
-    // add a class based on the @type argument
-    classes.push(`hds-accordion-item--type-${this.type}`);
-
-    if (this.containsInteractive) {
-      // Entire accordion item including the chevron is interactive:
-      classes.push('hds-accordion-item--contains-interactive');
-    } else {
-      // Only chevron is interactive:
-      classes.push('hds-accordion-item--does-not-contain-interactive');
-    }
-
-    return classes.join(' ');
+  get useCds(): boolean {
+    return this.args.useCds ?? false;
   }
 
   <template>
-    <HdsDisclosurePrimitive
-      class={{this.classNames}}
-      @isOpen={{this.isOpen}}
-      @onClickToggle={{@onClickToggle}}
-      ...attributes
-    >
-      <:toggle as |t|>
-        <div class="hds-accordion-item__toggle">
-          <HdsAccordionItemButton
-            @isOpen={{t.isOpen}}
-            @onClickToggle={{t.onClickToggle}}
-            @contentId={{t.contentId}}
-            @ariaLabel={{@ariaLabel}}
-            @ariaLabelledBy={{this.ariaLabelledBy}}
-            @size={{this.size}}
-            @parentContainsInteractive={{this.containsInteractive}}
-          />
-
-          <HdsTextBody
-            @tag={{this.titleTag}}
-            @size={{this.toggleTextSize}}
-            @weight="semibold"
-            @color="strong"
-            id={{this._titleId}}
-            class="hds-accordion-item__toggle-content"
-          >
-            {{yield to="toggle"}}
-          </HdsTextBody>
-        </div>
-      </:toggle>
-
-      <:content as |c|>
-        <HdsTextBody
-          class="hds-accordion-item__content"
-          @tag="div"
-          @size="200"
-          @weight="regular"
-          @color="primary"
-        >
-          {{yield (hash close=c.close) to="content"}}
-        </HdsTextBody>
-      </:content>
-    </HdsDisclosurePrimitive>
+    {{#if this.useCds}}
+      <HdsAccordionItemCds
+        @ariaLabel={{@ariaLabel}}
+        @containsInteractive={{@containsInteractive}}
+        @forceState={{@forceState}}
+        @isOpen={{@isOpen}}
+        @isStatic={{@isStatic}}
+        @onClickToggle={{@onClickToggle}}
+        @size={{@size}}
+        @titleTag={{@titleTag}}
+        @type={{@type}}
+        ...attributes
+      >
+        <:toggle>{{yield to="toggle"}}</:toggle>
+        <:content as |c|>{{yield (hash close=c.close) to="content"}}</:content>
+      </HdsAccordionItemCds>
+    {{else}}
+      <HdsAccordionItemHds
+        @ariaLabel={{@ariaLabel}}
+        @containsInteractive={{@containsInteractive}}
+        @forceState={{@forceState}}
+        @isOpen={{@isOpen}}
+        @isStatic={{@isStatic}}
+        @onClickToggle={{@onClickToggle}}
+        @size={{@size}}
+        @titleTag={{@titleTag}}
+        @type={{@type}}
+        ...attributes
+      >
+        <:toggle>{{yield to="toggle"}}</:toggle>
+        <:content as |c|>{{yield (hash close=c.close) to="content"}}</:content>
+      </HdsAccordionItemHds>
+    {{/if}}
   </template>
 }
