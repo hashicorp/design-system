@@ -257,7 +257,6 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
   @include hds-apply-only-if-carbon() {
     border-radius: 0;
-    // x y blur spread color
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 30%);
   }
 
@@ -338,52 +337,6 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
 // LIST > LIST-ITEM
 // HDS::DROPDOWN::LIST-ITEM
-
-.hds-dropdown-list-item {
-  // Interactive list items
-  @include hds-apply-only-if-carbon() {
-    button,
-    a,
-    input {
-      &:focus,
-      &.mock-focus,
-      &:active,
-      &.mock-active {
-        // TODO: Refactor how/where color styles are applied. Make use of tokens vs. hds-apply-only-if-carbon mixin
-        color: var(--token-dropdown-list-item-foreground-color-action-default);
-      }
-
-      &:hover,
-      &.mock-hover {
-        color: var(--token-color-foreground-primary);
-      }
-
-      // Hide the side highlight border for interactive children
-      &::before {
-        display: none;
-      }
-    }
-  }
-
-  // Selects item containing an interactive child which is hovered
-  &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
-    @include hds-apply-only-if-carbon() {
-      // Ensures separator is hidden in checkbox & radio variants
-      position: relative;
-      z-index: 2;
-      background-color: var(--token-dropdown-list-item-surface-color-hover);
-      // Covers the top separator when the item is hovered
-      box-shadow:
-        0 1px 0 1px var(--token-dropdown-list-item-surface-color-hover),
-        0 -1px 0 1px var(--token-dropdown-list-item-surface-color-hover);
-
-      // Hides the bottom separator when the item is hovered
-      + .hds-dropdown-list-item--variant-separator::before {
-        border-bottom-color: transparent;
-      }
-    }
-  }
-}
 
 // HDS::DROPDOWN::LIST-ITEM::COPY-ITEM
 .hds-dropdown-list-item__copy-item-title {
@@ -528,6 +481,49 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
       &::before {
         background-color: currentColor;
+      }
+    }
+  }
+
+  @include hds-apply-only-if-carbon() {
+    button,
+    a,
+    input {
+      &:focus,
+      &.mock-focus,
+      &:active,
+      &.mock-active {
+        // TODO: Refactor how/where color styles are applied. Make use of tokens vs. hds-apply-only-if-carbon mixin
+        color: var(--token-dropdown-list-item-foreground-color-action-default);
+      }
+
+      &:hover,
+      &.mock-hover {
+        color: var(--token-color-foreground-primary);
+      }
+
+      // Hide the side highlight border for interactive children
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  // Selects item containing an interactive child which is hovered
+  &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
+    @include hds-apply-only-if-carbon() {
+      // Ensures separator is hidden in checkbox & radio variants
+      position: relative;
+      z-index: 2;
+      background-color: var(--token-dropdown-list-item-surface-color-hover);
+      // Covers the top separator when the item is hovered
+      box-shadow:
+        0 1px 0 1px var(--token-dropdown-list-item-surface-color-hover),
+        0 -1px 0 1px var(--token-dropdown-list-item-surface-color-hover);
+
+      // Hides the bottom separator when the item is hovered
+      + .hds-dropdown-list-item--variant-separator::before {
+        border-bottom-color: transparent;
       }
     }
   }
