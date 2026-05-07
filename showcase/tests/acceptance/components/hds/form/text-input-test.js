@@ -14,7 +14,7 @@ module('Acceptance | Component | hds/form/text input', function (hooks) {
   test('components/form/text-input passes a11y automated checks', async function (assert) {
     const axeOptions = {
       rules: {
-        'label': {
+        label: {
           enabled: false,
           selectors: [['.cds--text-input']],
         },
