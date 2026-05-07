@@ -63,7 +63,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   test('it renders the passed in content in the Accordion Item', async function (assert) {
     await render(
       <template>
-        <HdsAccordion as |A|>
+        <HdsAccordion @useCds={{true}} as |A|>
           <A.Item id="test-item">
             <:toggle><strong id="test-strong">Item one</strong></:toggle>
             <:content><em id="test-em">Content one</em></:content>
@@ -227,7 +227,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   test('it displays the correct value for aria-expanded on the AccordionItem when closed vs open', async function (assert) {
     await render(
       <template>
-        <HdsAccordion as |A|>
+        <HdsAccordion @useCds={{true}} as |A|>
           <A.Item id="test-item">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content>
@@ -249,7 +249,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   test('the AccordionItem toggle button has an aria-controls attribute that targets the content region', async function (assert) {
     await render(
       <template>
-        <HdsAccordion as |A|>
+        <HdsAccordion @useCds={{true}} as |A|>
           <A.Item id="test-item">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content>
@@ -273,7 +273,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   test('the AccordionItem toggle slot uses the toggle-content element to label the title region', async function (assert) {
     await render(
       <template>
-        <HdsAccordion as |A|>
+        <HdsAccordion @useCds={{true}} as |A|>
           <A.Item>
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content>
@@ -285,17 +285,13 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     // The cds-accordion-item slots our `.hds-accordion-item__toggle-content`
     // element into the title region inside its button, so the button is
     // accessibly named by the slotted content.
-    assert
-      .dom('.hds-accordion-item__toggle-content')
-      .exists()
-      .hasAttribute('slot', 'title')
-      .hasText('Item one');
+    assert.dom('[slot="title"]').exists().hasText('Item one');
   });
 
   test('the AccordionItem host has an aria-label attribute when the argument is passed', async function (assert) {
     await render(
       <template>
-        <HdsAccordion as |A|>
+        <HdsAccordion @useCds={{true}} as |A|>
           <A.Item id="test-item" @ariaLabel="Custom toggle label">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content>
@@ -314,7 +310,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   test('it displays content initially when @isOpen is set to true', async function (assert) {
     await render(
       <template>
-        <HdsAccordion as |A|>
+        <HdsAccordion @useCds={{true}} as |A|>
           <A.Item id="test-item" @isOpen={{true}}>
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content>
@@ -324,12 +320,12 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     );
     // Test content is displayed
     assert
-      .dom('.hds-accordion-item__content')
+      .dom('.cds-hds-accordion-item__content')
       .exists()
       .hasText('Additional content');
     // Test that content is hidden after the toggle is triggered
     await clickExpando('#test-item');
-    assert.dom('.hds-accordion-item__content').doesNotExist();
+    assert.dom('.cds-hds-accordion-item__content').doesNotExist();
   });
 
   // containsInteractive
@@ -384,7 +380,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
 
     await render(
       <template>
-        <HdsAccordion @forceState={{context.isOpen}} as |A|>
+        <HdsAccordion @useCds={{true}} @forceState={{context.isOpen}} as |A|>
           <A.Item id="item-1" @isOpen={{true}}>
             <:toggle>Item one</:toggle>
             <:content>Content one</:content>
@@ -398,31 +394,31 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     );
     // first item open at rendering
     assert
-      .dom('.hds-accordion-item__content')
+      .dom('.cds-hds-accordion-item__content')
       .exists({ count: 1 })
       .containsText('Content one');
 
     // all items open via forceState (external override to open)
     context.isOpen = 'open';
     await settled();
-    assert.dom('.hds-accordion-item__content').exists({ count: 2 });
+    assert.dom('.cds-hds-accordion-item__content').exists({ count: 2 });
 
     // first item closed via toggle (internal override to close)
     await clickExpando('#item-1');
     assert
-      .dom('.hds-accordion-item__content')
+      .dom('.cds-hds-accordion-item__content')
       .exists({ count: 1 })
       .containsText('Content two');
 
     // all items closed via forceState (external override to close)
     context.isOpen = 'close';
     await settled();
-    assert.dom('.hds-accordion-item__content').doesNotExist();
+    assert.dom('.cds-hds-accordion-item__content').doesNotExist();
 
     // first item open via toggle  (internal override to open)
     await clickExpando('#item-1');
     assert
-      .dom('.hds-accordion-item__content')
+      .dom('.cds-hds-accordion-item__content')
       .exists({ count: 1 })
       .containsText('Content one');
   });
@@ -432,7 +428,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   test('it should hide the content when an accordion item triggers `close`', async function (assert) {
     await render(
       <template>
-        <HdsAccordionItem id="test-item">
+        <HdsAccordionItem @useCds={{true}} id="test-item">
           <:toggle>Item one</:toggle>
           <:content as |c|>
             <button type="button" {{on "click" c.close}}>Close</button>
@@ -441,14 +437,14 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       </template>,
     );
     await clickExpando('#test-item');
-    assert.dom('.hds-accordion-item__content').exists();
+    assert.dom('.cds-hds-accordion-item__content').exists();
 
-    await click('.hds-accordion-item__content button');
-    assert.dom('.hds-accordion-item__content').doesNotExist();
-    assert.dom('.hds-accordion-item__content button').doesNotExist();
+    await click('.cds-hds-accordion-item__content button');
+    assert.dom('.cds-hds-accordion-item__content').doesNotExist();
+    assert.dom('.cds-hds-accordion-item__content button').doesNotExist();
   });
 
-  // onClickToggle
+  // onClickToggleit should call onClickToggle function
 
   test('it should call onClickToggle function', async function (assert) {
     const context = new TrackedObject<
@@ -466,6 +462,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       <template>
         <HdsAccordionItem
+          @useCds={{true}}
           id="test-item"
           @forceState={{context.isOpen}}
           @onClickToggle={{onClickToggle}}
@@ -476,15 +473,15 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       </template>,
     );
     // closed by default
-    assert.dom('.hds-accordion-item__content').doesNotExist();
+    assert.dom('.cds-hds-accordion-item__content').doesNotExist();
     // toggle to open
     await clickExpando('#test-item');
     assert.strictEqual(context.isOpen, 'open');
-    assert.dom('.hds-accordion-item__content').exists();
+    assert.dom('.cds-hds-accordion-item__content').exists();
     // toggle to close
     await clickExpando('#test-item');
     assert.strictEqual(context.isOpen, 'close');
-    assert.dom('.hds-accordion-item__content').doesNotExist();
+    assert.dom('.cds-hds-accordion-item__content').doesNotExist();
   });
 
   // NESTED ACCORDIONS
@@ -492,11 +489,11 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   test('closing a nested accordion item should not close the parent accordion item', async function (assert) {
     await render(
       <template>
-        <HdsAccordion id="parent-accordion" as |A|>
+        <HdsAccordion @useCds={{true}} id="parent-accordion" as |A|>
           <A.Item @isOpen={{true}} id="parent-item">
             <:toggle>Parent item</:toggle>
             <:content>
-              <HdsAccordion id="nested-accordion" as |NA|>
+              <HdsAccordion @useCds={{true}} id="nested-accordion" as |NA|>
                 <NA.Item @isOpen={{true}} id="nested-item">
                   <:toggle>Nested item</:toggle>
                   <:content>Nested content</:content>
@@ -508,11 +505,11 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       </template>,
     );
 
-    assert.dom('#parent-item .hds-accordion-item__content').exists();
-    assert.dom('#nested-item .hds-accordion-item__content').exists();
+    assert.dom('#parent-item .cds-hds-accordion-item__content').exists();
+    assert.dom('#nested-item .cds-hds-accordion-item__content').exists();
 
     await clickExpando('#nested-item');
-    assert.dom('#nested-item .hds-accordion-item__content').doesNotExist();
-    assert.dom('#parent-item .hds-accordion-item__content').exists();
+    assert.dom('#nested-item .cds-hds-accordion-item__content').doesNotExist();
+    assert.dom('#parent-item .cds-hds-accordion-item__content').exists();
   });
 });

@@ -210,7 +210,10 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
           Only render content when open so visibility tracks the actual
           open state. }}
       {{#if this.isOpen}}
-        {{yield (hash close=this.close) to="content"}}
+        {{! keeping the wrapper class for testing }}
+        <div class="cds-hds-accordion-item__content">
+          {{yield (hash close=this.close) to="content"}}
+        </div>
       {{/if}}
     </cds-accordion-item>
   </template>

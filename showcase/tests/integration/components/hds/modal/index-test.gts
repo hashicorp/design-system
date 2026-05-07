@@ -82,7 +82,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it renders a `cds-modal` element with the correct mapped size', async function (assert) {
     await render(
       <template>
-        <HdsModal @size="large" id="test-modal" as |M|>
+        <HdsModal @useCds={{true}} @size="large" id="test-modal" as |M|>
           <M.Header>Title</M.Header>
         </HdsModal>
       </template>,
@@ -130,7 +130,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it renders the title with icon and tagline if provided', async function (assert) {
     await render(
       <template>
-        <HdsModal id="test-modal" as |M|>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|>
           <M.Header @icon="info" @tagline="Tagline">Title</M.Header>
         </HdsModal>
       </template>,
@@ -148,7 +148,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it renders the title inside a `cds-modal-heading` element', async function (assert) {
     await render(
       <template>
-        <HdsModal id="test-modal" as |M|>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|>
           <M.Header @icon="info" @tagline="Tagline">Title</M.Header>
         </HdsModal>
       </template>,
@@ -161,7 +161,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should always render the "dismiss" button (Carbon close button)', async function (assert) {
     await render(
       <template>
-        <HdsModal id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
       </template>,
     );
     // `HdsModalHeader` renders `cds-modal-close-button` so consumers always
@@ -171,7 +171,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should close the modal when the "dismiss" button is pressed', async function (assert) {
     await render(
       <template>
-        <HdsModal id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
       </template>,
     );
     assert.dom('#test-modal').isVisible();
@@ -214,7 +214,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should close the modal when clicking outside', async function (assert) {
     await render(
       <template>
-        <HdsModal id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
       </template>,
     );
     assert.dom('#test-modal').isVisible();
@@ -230,6 +230,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       <template>
         <HdsModal
+          @useCds={{true}}
           @isDismissDisabled={{context.isDismissDisabled}}
           id="test-modal"
           as |M|
@@ -273,7 +274,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should close the modal and remove the body overflow style - manual dismiss', async function (assert) {
     await render(
       <template>
-        <HdsModal id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
       </template>,
     );
 
@@ -290,7 +291,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it should close the modal and remove the body overflow style - click outside', async function (assert) {
     await render(
       <template>
-        <HdsModal id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
       </template>,
     );
 
@@ -425,7 +426,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
   test('it uses the title as name for the dialog', async function (assert) {
     await render(
       <template>
-        <HdsModal id="test-modal" as |M|>
+        <HdsModal @useCds={{true}} id="test-modal" as |M|>
           <M.Header>Title</M.Header>
         </HdsModal>
       </template>,
@@ -464,7 +465,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
         <button id="test-button" type="button" {{on "click" showModal}}>open
           modal</button>
         {{#if context.isModalRendered}}
-          <HdsModal id="test-modal" as |M|>
+          <HdsModal @useCds={{true}} id="test-modal" as |M|>
             <M.Header>Title</M.Header>
           </HdsModal>
         {{/if}}
@@ -518,7 +519,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             modal</D.Interactive>
         </HdsDropdown>
         {{#if context.isModalRendered}}
-          <HdsModal id="test-modal" @returnFocusTo="test-toggle" as |M|>
+          <HdsModal @useCds={{true}} id="test-modal" @returnFocusTo="test-toggle" as |M|>
             <M.Header>Title</M.Header>
           </HdsModal>
         {{/if}}
@@ -559,7 +560,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
     await render(
       <template>
-        <HdsModal id="test-modal-onclose-callback" @onClose={{onClose}} as |M|>
+        <HdsModal @useCds={{true}} id="test-modal-onclose-callback" @onClose={{onClose}} as |M|>
           <M.Header>Title</M.Header>
         </HdsModal>
       </template>,

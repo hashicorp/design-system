@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
 import type Owner from '@ember/owner';
+import { hash } from '@ember/helper';
 
 import { HdsFormTextInputField } from '@hashicorp/design-system-components/components';
 
@@ -55,18 +56,17 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
       @enableCounter={{true}}
       @isInvalid={{this.isInvalid}}
       {{on "input" this.updateValue}}
+      as |F|
     >
-      <:label>This is the label text</:label>
-      <:helperText>{{if @hasHelperText "This is the helper text"}}</:helperText>
-      <:error>{{if
+      <F.Label>This is the label text</F.Label>
+      <F.HelperText>{{if
+          @hasHelperText
+          "This is the helper text"
+        }}</F.HelperText>
+      <F.Error>{{if
           this.isInvalid
           "Maximum number of characters exceeded"
-        }}</:error>
-      {{!-- TODO: the new HdsFormTextInputField API renders the character count
-        internally via @enableCounter / @maxCount. The custom ":characterCount"
-        named block (yielding currentLength / maxLength) is no longer
-        supported. Restore when custom rendering is reintroduced.
-
+        }}</F.Error>
       {{#if (has-block "characterCount")}}
         <F.CharacterCount @maxLength={{@maxLength}} as |CC|>
           {{yield
@@ -77,7 +77,19 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
       {{else}}
         <F.CharacterCount @maxLength={{@maxLength}} />
       {{/if}}
-      --}}
+      {{!-- <F.Label>This is the label text</F.Label>
+      <F.HelperText>{{if @hasHelperText "This is the helper text"}}</F.HelperText>
+      <F.Error>{{if
+          this.isInvalid
+          "Maximum number of characters exceeded"
+        }}</:error> --}}
+      {{! TODO: the new HdsFormTextInputField API renders the character count
+        internally via @enableCounter / @maxCount. The custom ":characterCount"
+        named block (yielding currentLength / maxLength) is no longer
+        supported. Restore when custom rendering is reintroduced.
+
+
+      }}
     </HdsFormTextInputField>
   </template>
 }

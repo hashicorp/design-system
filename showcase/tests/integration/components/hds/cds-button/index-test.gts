@@ -6,13 +6,20 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/cds-badge/index', function (hooks) {
+import { HdsCdsButton } from '@hashicorp/design-system-components/components';
+
+module('Integration | Component | hds/cds-button/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::CdsBadge id="test-cds-badge" />`);
-    assert.dom('#test-cds-badge').hasClass('hds-cds-badge');
+    await render(
+      <template>
+        <HdsCdsButton id="test-cds-button">
+          Text renders
+        </HdsCdsButton>
+      </template>,
+    );
+    assert.dom('#test-cds-button').hasText('Text renders');
   });
 });

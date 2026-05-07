@@ -38,6 +38,7 @@ const SubSectionUseCds: TemplateOnlyComponent = <template>
         @value="Lorem ipsum"
         @label="Label"
         @helperText="Helper text"
+        aria-labelledby="#foo"
       />
     </SF.Item>
     <SF.Item @label="useCds=true (invalid)">
@@ -83,9 +84,9 @@ const SubSectionUseCds: TemplateOnlyComponent = <template>
 
   <ShwFlex as |SF|>
     <SF.Item @label="HDS (default)">
-      <HdsFormTextInputField @value="Lorem ipsum">
-        <:label>This is the label text</:label>
-        <:helperText>This is the helper text</:helperText>
+      <HdsFormTextInputField @value="Lorem ipsum" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
       </HdsFormTextInputField>
     </SF.Item>
     <SF.Item @label="useCds=true">
