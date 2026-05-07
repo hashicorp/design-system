@@ -35,30 +35,7 @@ const AppHeaderCarbonizationIndex: TemplateOnlyComponent = <template>
   <section>
     <ShwTextH2>Content</ShwTextH2>
 
-    <ShwTextH3>Basic header with logo</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid @layout="column">
-      <:theming>
-        <HdsAppHeader @hasA11yRefocus={{false}}>
-          <:logo>
-            <HdsAppHeaderHomeLink
-              @icon="hashicorp"
-              @text="HashiCorp"
-              @href="#"
-            />
-          </:logo>
-        </HdsAppHeader>
-      </:theming>
-      <:reference>
-        <cds-header aria-label="HashiCorp">
-          <cds-header-name href="#" prefix="">HashiCorp</cds-header-name>
-        </cds-header>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Header with navigation and actions</ShwTextH3>
+    <ShwTextH3>With navigation and actions</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid @layout="column">
       <:theming>
