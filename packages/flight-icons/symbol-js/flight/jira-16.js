@@ -1,1 +1,6 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export default `<symbol id="hds-icon-flight-jira-16" viewBox="0 0 16 16"><path d="M15.323 7.558 7.99 0 .677 7.536c-.236.243-.236.64 0 .906l4.589 4.73L7.989 16l7.334-7.558a.64.64 0 0 0 0-.884M7.99 10.365 5.695 8l2.294-2.365L10.284 8z"/></symbol>`;

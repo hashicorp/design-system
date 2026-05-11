@@ -1,1 +1,6 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export default `<symbol id="hds-icon-flight-microsoft-color-24" viewBox="0 0 24 24"><path fill="#f35325" d="M3 3h8.5v8.5H3z"/><path fill="#81bc06" d="M12.5 3H21v8.5h-8.5z"/><path fill="#05a6f0" d="M3 12.5h8.5V21H3z"/><path fill="#ffba08" d="M12.5 12.5H21V21h-8.5z"/></symbol>`;

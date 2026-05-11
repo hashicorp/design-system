@@ -1,1 +1,6 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export default `<symbol id="hds-icon-flight-git-commit-16" viewBox="0 0 16 16"><path d="M8 4.75c1.398 0 2.572.956 2.905 2.25h2.345a.75.75 0 0 1 0 1.5h-2.345a3.001 3.001 0 0 1-5.81 0H2.75a.75.75 0 0 1 0-1.5h2.345A3 3 0 0 1 8 4.75m0 1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/></symbol>`;

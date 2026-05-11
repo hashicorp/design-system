@@ -1,3 +1,8 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import type { LinkTo } from '@ember/routing';
 
 let LINK_TO_EXTERNAL_COMPONENT: LinkTo | null = null;

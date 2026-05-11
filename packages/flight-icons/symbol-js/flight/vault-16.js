@@ -1,1 +1,6 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export default `<symbol id="hds-icon-flight-vault-16" viewBox="0 0 16 16"><path d="m0 0 7.971 15.516L16 0zm6.732 6.16h-1.27V4.89h1.27zm0-1.906h-1.27V2.985h1.27zm1.904 3.81h-1.27v-1.27h1.27zm0-1.905h-1.27V4.89h1.27zm0-1.905h-1.27V2.985h1.27zm1.894 1.905H9.26V4.89h1.27zM9.26 4.254V2.985h1.27v1.269z"/></symbol>`;

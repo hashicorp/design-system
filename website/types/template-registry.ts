@@ -1,3 +1,8 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import DocA11ySupport from '../app/components/doc/a11y-support';
 import DocBadge from '../app/components/doc/badge';
 import DocBadgeGroup from '../app/components/doc/badge-group';
