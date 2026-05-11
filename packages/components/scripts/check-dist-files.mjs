@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-
 import { existsSync } from 'node:fs';
 
 const FILES_TO_CHECK = [
