@@ -34,6 +34,9 @@
     --token-app-side-nav-body-list-item-typography-font-weight: var(
       --token-typography-font-weight-medium
     );
+    --token-app-side-nav-body-list-title-foreground-color: var(
+      --token-color-foreground-faint
+    );
     --token-app-side-nav-body-list-title-padding-vertical: 9px;
     --token-app-side-nav-toggle-button-border-radius: 5px;
     --token-app-side-nav-wrapper-padding-horizontal: 16px;
@@ -844,6 +847,7 @@
       0.2
     );
     --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-list-title-foreground-color: #161616;
     --token-app-side-nav-body-list-title-padding-vertical: 7px;
     --token-app-side-nav-toggle-button-border-radius: 0px;
     --token-app-side-nav-wrapper-padding-horizontal: 0px;
@@ -1341,6 +1345,7 @@
       0.24
     );
     --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-list-title-foreground-color: #f4f4f4;
     --token-app-side-nav-body-list-title-padding-vertical: 7px;
     --token-app-side-nav-toggle-button-border-radius: 0px;
     --token-app-side-nav-wrapper-padding-horizontal: 0px;
@@ -1843,6 +1848,7 @@
       0.2
     );
     --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-list-title-foreground-color: #161616;
     --token-app-side-nav-body-list-title-padding-vertical: 7px;
     --token-app-side-nav-toggle-button-border-radius: 0px;
     --token-app-side-nav-wrapper-padding-horizontal: 0px;
@@ -2340,6 +2346,7 @@
       0.2
     );
     --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-list-title-foreground-color: #161616;
     --token-app-side-nav-body-list-title-padding-vertical: 7px;
     --token-app-side-nav-toggle-button-border-radius: 0px;
     --token-app-side-nav-wrapper-padding-horizontal: 0px;
@@ -2837,6 +2844,7 @@
       0.24
     );
     --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-list-title-foreground-color: #f4f4f4;
     --token-app-side-nav-body-list-title-padding-vertical: 7px;
     --token-app-side-nav-toggle-button-border-radius: 0px;
     --token-app-side-nav-wrapper-padding-horizontal: 0px;
@@ -3339,6 +3347,7 @@
       0.24
     );
     --token-app-side-nav-body-list-item-typography-font-weight: 600;
+    --token-app-side-nav-body-list-title-foreground-color: #f4f4f4;
     --token-app-side-nav-body-list-title-padding-vertical: 7px;
     --token-app-side-nav-toggle-button-border-radius: 0px;
     --token-app-side-nav-wrapper-padding-horizontal: 0px;

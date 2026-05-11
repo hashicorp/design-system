@@ -252,6 +252,7 @@
   --token-app-side-nav-body-list-margin-vertical: 16px;
   --token-app-side-nav-body-list-title-padding-vertical: 9px;
   --token-app-side-nav-body-list-title-padding-horizontal: 8px;
+  --token-app-side-nav-body-list-title-foreground-color: #656a76;
   --token-app-side-nav-body-list-item-height: 36px;
   --token-app-side-nav-body-list-item-padding-horizontal: 8px;
   --token-app-side-nav-body-list-item-padding-vertical: 4px;
@@ -2858,7 +2859,7 @@
   min-height: var(--token-app-side-nav-body-list-item-height);
   margin-top: var(--token-app-side-nav-body-list-margin-vertical);
   padding: var(--token-app-side-nav-body-list-title-padding-vertical) var(--token-app-side-nav-body-list-title-padding-horizontal);
-  color: var(--token-color-foreground-faint);
+  color: var(--token-app-side-nav-body-list-title-foreground-color);
   overflow-wrap: break-word;
 }
 .hds-app-side-nav__list-wrapper:first-child .hds-app-side-nav__list-item:first-child > .hds-app-side-nav__list-title {

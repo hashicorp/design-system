@@ -17,6 +17,7 @@
   --token-app-side-nav-body-list-item-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-app-side-nav-body-list-item-surface-color-selected: rgba(141, 141, 141, 0.2);
   --token-app-side-nav-body-list-item-typography-font-weight: 600;
+  --token-app-side-nav-body-list-title-foreground-color: #161616;
   --token-app-side-nav-body-list-title-padding-vertical: 7px;
   --token-app-side-nav-toggle-button-border-radius: 0px;
   --token-app-side-nav-wrapper-padding-horizontal: 0px;

@@ -98,6 +98,19 @@
             "$type": "dimension",
             "$value": "{app-side-nav.body.list-item.padding.horizontal}"
           }
+        },
+        "foreground": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.foreground.faint}",
+            "$modes": {
+              "default": "{color.foreground.faint}",
+              "cds-g0": "{carbon.themes.white.textPrimary}",
+              "cds-g10": "{carbon.themes.g10.textPrimary}",
+              "cds-g90": "{carbon.themes.g90.textPrimary}",
+              "cds-g100": "{carbon.themes.g100.textPrimary}"
+            }
+          }
         }
       },
       "list-item": {

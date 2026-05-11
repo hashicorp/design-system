@@ -17,6 +17,7 @@
   --token-app-side-nav-body-list-item-surface-color-hover: var(--token-color-surface-interactive-hover);
   --token-app-side-nav-body-list-item-surface-color-selected: var(--token-color-surface-strong);
   --token-app-side-nav-body-list-item-typography-font-weight: var(--token-typography-font-weight-medium);
+  --token-app-side-nav-body-list-title-foreground-color: var(--token-color-foreground-faint);
   --token-app-side-nav-body-list-title-padding-vertical: 9px;
   --token-app-side-nav-toggle-button-border-radius: 5px;
   --token-app-side-nav-wrapper-padding-horizontal: 16px;
