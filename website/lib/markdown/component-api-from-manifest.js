@@ -8,13 +8,26 @@ const path = require('path');
 let manifestCache;
 let manifestPathCache;
 
+const directiveRegex =
+  /<!--\s*hds-api:([a-z-]+)(?:\s+name=([A-Za-z0-9_-]+))?\s*-->/g;
+
 function getManifestPath() {
   if (manifestPathCache !== undefined) {
     return manifestPathCache;
   }
 
+  const workspaceManifestPath = path.resolve(
+    __dirname,
+    '../../../packages/components/dist/manifest/components.json',
+  );
+
+  if (fs.existsSync(workspaceManifestPath) === true) {
+    manifestPathCache = workspaceManifestPath;
+    return manifestPathCache;
+  }
+
   manifestPathCache = require.resolve(
-    '@hashicorp/design-system-components/manifest/components.json'
+    '@hashicorp/design-system-components/manifest/components.json',
   );
 
   return manifestPathCache;
@@ -26,7 +39,6 @@ function loadManifest() {
   }
 
   const manifestPath = getManifestPath();
-
   manifestCache = fs.readJSONSync(manifestPath);
 
   return manifestCache;
@@ -42,6 +54,18 @@ function renderValues(values) {
   });
 
   return `{{array ${renderedValues.join(' ')}}}`;
+}
+
+function resolveSpecialValues(values) {
+  if (Array.isArray(values) === false) {
+    return values;
+  }
+
+  if (values.length === 1 && values[0] === '__icons__') {
+    return ['__HDS_ICON_NAMES__'];
+  }
+
+  return values;
 }
 
 function renderProperty(property, depth = 1) {
@@ -61,9 +85,12 @@ function renderProperty(property, depth = 1) {
   if (property.default !== undefined) {
     attrs.push(`@default="${quoteValue(property.default)}"`);
   }
-  if (Array.isArray(property.values) && property.values.length > 0) {
-    attrs.push(`@values=${renderValues(property.values)}`);
+
+  const values = resolveSpecialValues(property.values);
+  if (Array.isArray(values) === true && values.length > 0) {
+    attrs.push(`@values=${renderValues(values)}`);
   }
+
   if (property.valueNote !== undefined) {
     attrs.push(`@valueNote="${quoteValue(property.valueNote)}"`);
   }
@@ -74,7 +101,35 @@ function renderProperty(property, depth = 1) {
     lines.push(`${indent}  ${property.description}`);
   }
 
-  if (Array.isArray(property.properties) && property.properties.length > 0) {
+  if (Array.isArray(property.notes) === true && property.notes.length > 0) {
+    if (property.description !== undefined && property.description.length > 0) {
+      lines.push(`${indent}  <br />`);
+      lines.push(`${indent}  <br />`);
+    }
+
+    property.notes.forEach((note) => {
+      const kind = note.kind ?? 'note';
+      const text = note.text ?? '';
+
+      if (text.length === 0) {
+        return;
+      }
+
+      const prefix =
+        kind === 'important'
+          ? 'Important:'
+          : kind === 'warning'
+            ? 'Warning:'
+            : 'Notice:';
+
+      lines.push(`${indent}  _${prefix} ${text}_`);
+    });
+  }
+
+  if (
+    Array.isArray(property.properties) === true &&
+    property.properties.length > 0
+  ) {
     lines.push(`${indent}  <Doc::ComponentApi as |C|>`);
 
     property.properties.forEach((childProperty) => {
@@ -89,19 +144,11 @@ function renderProperty(property, depth = 1) {
   return lines.join('\n');
 }
 
-function renderSection(section) {
+function renderProperties(properties) {
   const lines = [];
 
-  lines.push(`### ${section.title}`);
-  lines.push('');
-
-  if (section.description !== undefined && section.description.length > 0) {
-    lines.push(section.description);
-    lines.push('');
-  }
-
   lines.push('<Doc::ComponentApi as |C|>');
-  section.properties.forEach((property) => {
+  properties.forEach((property) => {
     lines.push(renderProperty(property));
   });
   lines.push('</Doc::ComponentApi>');
@@ -109,27 +156,53 @@ function renderSection(section) {
   return lines.join('\n');
 }
 
-function docsPathToComponentSlug(inputFile) {
-  const explicitPilotMap = {
-    'components/accordion/index.md': 'accordion',
-    'components/button/index.md': 'button',
-  };
+function stripNestedProperties(properties) {
+  return properties.map((property) => {
+    const { properties: _nestedProperties, ...topLevelProperty } = property;
 
-  const explicitSlug = explicitPilotMap[inputFile];
-  if (explicitSlug !== undefined) {
-    return explicitSlug;
+    return topLevelProperty;
+  });
+}
+
+function keepYieldedComponentsOnly(properties) {
+  return properties.filter((property) => property.type === 'yielded component');
+}
+
+function normalizeContextualSummaryDescription(description) {
+  if (description === undefined || description.length === 0) {
+    return description;
   }
 
+  const normalized = description
+    .replace(/^The\s+/u, '')
+    .replace(/\s+component,\s+yielded as contextual component\.?$/u, '')
+    .trim();
+
+  if (normalized.length === 0) {
+    return description;
+  }
+
+  return `${normalized} yielded as contextual component (see below).`;
+}
+
+function formatTopLevelContextualComponent(property) {
+  return {
+    ...property,
+    name:
+      property.name !== undefined && property.name.startsWith('<') === false
+        ? `<${property.name}>`
+        : property.name,
+    description: normalizeContextualSummaryDescription(property.description),
+  };
+}
+
+function docsPathToComponentSlug(inputFile) {
   if (inputFile.startsWith('components/')) {
-    return inputFile
-      .replace(/^components\//, '')
-      .replace(/\/index\.md$/, '');
+    return inputFile.replace(/^components\//, '').replace(/\/index\.md$/, '');
   }
 
   if (inputFile.startsWith('utilities/')) {
-    return inputFile
-      .replace(/^utilities\//, '')
-      .replace(/\/index\.md$/, '');
+    return inputFile.replace(/^utilities\//, '').replace(/\/index\.md$/, '');
   }
 
   if (inputFile.startsWith('layouts/')) {
@@ -146,43 +219,164 @@ function getComponentFromManifest(inputFile) {
   const slug = docsPathToComponentSlug(inputFile);
 
   if (slug === undefined) {
-    return undefined;
+    throw new Error(
+      `Cannot hydrate hds-api directives for ${inputFile}: unable to resolve component slug.`,
+    );
   }
 
   const manifest = loadManifest();
+  const component = manifest.components.find((entry) => entry.slug === slug);
 
-  return manifest.components.find((component) => component.slug === slug);
+  if (component === undefined) {
+    throw new Error(
+      `Cannot hydrate hds-api directives for ${inputFile}: component slug "${slug}" is not present in manifest.`,
+    );
+  }
+
+  return component;
 }
 
-function renderComponentApiMarkdown(component) {
-  const lines = [];
+function getSection(component, title, inputFile) {
+  const section = component.api.sections.find((entry) => entry.title === title);
 
-  lines.push('## Component API');
-  lines.push('');
+  if (section === undefined) {
+    throw new Error(
+      `Cannot hydrate hds-api directives for ${inputFile}: section "${title}" is missing in manifest for "${component.slug}".`,
+    );
+  }
 
-  component.api.sections.forEach((section) => {
-    lines.push(renderSection(section));
-    lines.push('');
+  if (
+    Array.isArray(section.properties) === false ||
+    section.properties.length === 0
+  ) {
+    throw new Error(
+      `Cannot hydrate hds-api directives for ${inputFile}: section "${title}" has no properties in manifest for "${component.slug}".`,
+    );
+  }
+
+  return section;
+}
+
+function getSectionIfPresent(component, title) {
+  const section = component.api.sections.find((entry) => entry.title === title);
+
+  if (section === undefined) {
+    return undefined;
+  }
+
+  if (
+    Array.isArray(section.properties) === false ||
+    section.properties.length === 0
+  ) {
+    return undefined;
+  }
+
+  return section;
+}
+
+function getContextualProperty(component, contextualName, inputFile) {
+  const contextualSection = getSection(
+    component,
+    'Contextual components',
+    inputFile,
+  );
+  const contextualPattern = new RegExp(
+    `^\\[[^\\]]+\\]\\.${contextualName}$`,
+    'u',
+  );
+
+  const contextualProperty = contextualSection.properties.find((property) => {
+    return contextualPattern.test(property.name);
   });
 
-  return lines.join('\n').trimEnd();
+  if (contextualProperty === undefined) {
+    throw new Error(
+      `Cannot hydrate hds-api directives for ${inputFile}: contextual property "${contextualName}" is missing in manifest for "${component.slug}".`,
+    );
+  }
+
+  if (
+    Array.isArray(contextualProperty.properties) === false ||
+    contextualProperty.properties.length === 0
+  ) {
+    throw new Error(
+      `Cannot hydrate hds-api directives for ${inputFile}: contextual property "${contextualProperty.name}" has no nested properties in manifest.`,
+    );
+  }
+
+  return contextualProperty;
 }
 
-function getManifestComponentApiContent(inputFile, includeFilePath) {
-  if (includeFilePath !== 'partials/code/component-api.md') {
-    return undefined;
+function renderDirective(component, directive, name, inputFile) {
+  if (directive === 'arguments') {
+    const argumentsSection = getSection(component, 'Arguments', inputFile);
+    const contextualSection = getSectionIfPresent(
+      component,
+      'Contextual components',
+    );
+
+    if (contextualSection === undefined) {
+      return renderProperties(argumentsSection.properties);
+    }
+
+    const topLevelContextualComponents = stripNestedProperties(
+      keepYieldedComponentsOnly(contextualSection.properties),
+    ).map((property) => formatTopLevelContextualComponent(property));
+
+    return renderProperties([
+      ...topLevelContextualComponents,
+      ...argumentsSection.properties,
+    ]);
+  }
+
+  if (directive === 'blocks') {
+    return renderProperties(
+      getSection(component, 'Blocks', inputFile).properties,
+    );
+  }
+
+  if (directive === 'contextual') {
+    const contextualProperties = getSection(
+      component,
+      'Contextual components',
+      inputFile,
+    ).properties;
+
+    return renderProperties(
+      stripNestedProperties(keepYieldedComponentsOnly(contextualProperties)),
+    );
+  }
+
+  if (directive === 'contextual-args') {
+    if (name === undefined || name.length === 0) {
+      throw new Error(
+        `Cannot hydrate hds-api directives for ${inputFile}: contextual-args requires name=<ContextualName>.`,
+      );
+    }
+
+    return renderProperties(
+      getContextualProperty(component, name, inputFile).properties,
+    );
+  }
+
+  throw new Error(
+    `Cannot hydrate hds-api directives for ${inputFile}: unknown directive "${directive}".`,
+  );
+}
+
+function hydrateManifestApiDirectives(markdown, inputFile) {
+  if (markdown.includes('<!-- hds-api:') === false) {
+    return markdown;
   }
 
   const component = getComponentFromManifest(inputFile);
 
-  if (component === undefined) {
-    return undefined;
-  }
-
-  return `${renderComponentApiMarkdown(component)}\n`;
+  return markdown.replace(directiveRegex, (_match, directive, name) => {
+    return renderDirective(component, directive, name, inputFile);
+  });
 }
 
 module.exports = {
   getManifestPath,
-  getManifestComponentApiContent,
+  hydrateManifestApiDirectives,
 };

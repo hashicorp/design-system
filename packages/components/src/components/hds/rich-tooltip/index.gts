@@ -23,15 +23,29 @@ export interface HdsRichTooltipSignature {
   Blocks: {
     default: [
       {
+        /**
+         * The `RichTooltip::Toggle` component, yielded as contextual component.
+         */
         Toggle?: WithBoundArgs<
           typeof HdsRichTooltipToggle,
           'popoverId' | 'setupPrimitiveToggle' | 'isOpen'
         >;
+        /**
+         * The `RichTooltip::Bubble` component, yielded as contextual component.
+         */
         Bubble?: WithBoundArgs<
           typeof HdsRichTooltipBubble,
           'arrowId' | 'popoverId' | 'setupPrimitivePopover' | 'isOpen'
         >;
+        /**
+         * Hook into this tracked property to access the state of `isOpen`.
+         * @note In manual mode the tooltip remains open until explicitly dismissed.
+         */
         isOpen?: boolean;
+        /**
+         * Hook into this function to programmatically close the toggle.
+         * @important Useful for custom dismiss interactions in complex tooltip content.
+         */
         close: (event?: Event) => void;
       },
     ];

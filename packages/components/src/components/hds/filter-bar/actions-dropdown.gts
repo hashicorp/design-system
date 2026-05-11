@@ -22,7 +22,15 @@ export interface HdsFilterBarActionsDropdownSignature {
     | 'onClose'
     | 'onFocusOut'
   > & {
+    /**
+     * The text of the dropdown toggle button.
+     * @default "Actions"
+     */
     toggleButtonText?: HdsDropdownToggleButtonSignature['Args']['text'];
+
+    /**
+     * Acceptable value: any icon name.
+     */
     toggleButtonIcon?: HdsDropdownToggleButtonSignature['Args']['icon'];
   };
   Blocks: {

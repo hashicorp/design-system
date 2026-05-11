@@ -38,15 +38,63 @@ export const DEFAULT_ICON_POSITION = HdsButtonIconPositionValues.Leading;
  */
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
+    /**
+     * @default "medium"
+     */
     size?: HdsButtonSizes;
+
+    /**
+     * @default "primary"
+     */
     color?: HdsButtonColors;
+
+    /**
+     * Text of the button or value of `aria-label` if `isIconOnly` is set to
+     * `true`. If no text value is defined an error will be thrown.
+     */
     text: string;
+
+    /**
+     * Used to show an icon. Any icon name is accepted.
+     *
+     * Tertiary buttons have transparent backgrounds, and interactive elements
+     * must communicate interactivity with more than just color. Therefore, a
+     * leading or trailing icon is required when using the `tertiary` color.
+     */
     icon?: HdsIconSignature['Args']['name'];
+
+    /**
+     * Positions the icon before or after the text.
+     * @default "leading"
+     */
     iconPosition?: HdsButtonIconPositions;
+
+    /**
+     * Indicates if the button will only contain an icon. An internal check is
+     * in place to ensure that accessible text is still applied to the component.
+     * @default "false"
+     */
     isIconOnly?: boolean;
+
+    /**
+     * Indicates that a button should take up the full width of the parent
+     * container.
+     * @default "false"
+     */
     isFullWidth?: boolean;
+
+    /**
+     * If `true`, the element is displayed as `inline-block`. Otherwise, it uses
+     * block layout.
+     * @default "false"
+     */
     isInline?: boolean;
   };
+
+  /**
+   * Supports all standard HTML attributes for the rendered interactive element,
+   * including `...attributes`.
+   */
   Element: HdsInteractiveSignature['Element'];
 }
 

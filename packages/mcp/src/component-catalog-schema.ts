@@ -5,6 +5,11 @@
 
 import { z } from 'zod';
 
+const catalogApiNoteSchema = z.object({
+  kind: z.enum(['note', 'important', 'warning']),
+  text: z.string().min(1),
+});
+
 const catalogArgSchema = z.object({
   name: z.string().min(1),
   type: z.string().min(1),
@@ -12,11 +17,48 @@ const catalogArgSchema = z.object({
   description: z.string().optional(),
   default: z.string().optional(),
   values: z.array(z.string()).optional(),
+  notes: z.array(catalogApiNoteSchema).optional(),
 });
 
 const catalogBlockSchema = z.object({
   name: z.string().min(1),
   description: z.string().optional(),
+});
+
+type CatalogApiPropertyShape = {
+  name: string;
+  type?: string;
+  required?: boolean;
+  default?: string;
+  values?: string[];
+  valueNote?: string;
+  description?: string;
+  notes?: Array<{ kind: 'note' | 'important' | 'warning'; text: string }>;
+  properties?: CatalogApiPropertyShape[];
+};
+
+const catalogApiPropertySchema: z.ZodType<CatalogApiPropertyShape> = z.lazy(() =>
+  z.object({
+    name: z.string().min(1),
+    type: z.string().optional(),
+    required: z.boolean().optional(),
+    default: z.string().optional(),
+    values: z.array(z.string()).optional(),
+    valueNote: z.string().optional(),
+    description: z.string().optional(),
+    notes: z.array(catalogApiNoteSchema).optional(),
+    properties: z.array(catalogApiPropertySchema).optional(),
+  })
+);
+
+const catalogApiSectionSchema = z.object({
+  title: z.string().min(1),
+  description: z.string().optional(),
+  properties: z.array(catalogApiPropertySchema),
+});
+
+const catalogApiSchema = z.object({
+  sections: z.array(catalogApiSectionSchema),
 });
 
 const catalogComponentSchema = z.object({
@@ -25,6 +67,7 @@ const catalogComponentSchema = z.object({
   summary: z.string().min(1),
   args: z.array(catalogArgSchema).optional(),
   blocks: z.array(catalogBlockSchema).optional(),
+  api: catalogApiSchema,
   a11yNotes: z.array(z.string()).optional(),
   examples: z.array(z.string()).optional(),
 });

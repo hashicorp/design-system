@@ -4,7 +4,12 @@ import { componentsExportsPath } from './paths.ts';
 
 import type { ComponentExport } from './types.ts';
 
-const DEFAULT_COMPONENT_SCOPE = ['accordion', 'button'];
+const DEFAULT_COMPONENT_SCOPE = [
+  'rich-tooltip',
+  'filter-bar',
+  'accordion',
+  'button',
+];
 
 const componentScope = process.env['HDS_MANIFEST_COMPONENTS'];
 

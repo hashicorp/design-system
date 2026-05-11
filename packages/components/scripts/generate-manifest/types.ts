@@ -5,6 +5,12 @@ export type CatalogArg = {
   description?: string;
   default?: string;
   values?: string[];
+  notes?: CatalogApiNote[];
+};
+
+export type CatalogApiNote = {
+  kind: 'note' | 'important' | 'warning';
+  text: string;
 };
 
 export type CatalogBlock = {
@@ -20,6 +26,7 @@ export type CatalogApiProperty = {
   values?: string[];
   valueNote?: string;
   description?: string;
+  notes?: CatalogApiNote[];
   properties?: CatalogApiProperty[];
 };
 

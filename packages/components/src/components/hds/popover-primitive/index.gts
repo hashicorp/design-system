@@ -21,12 +21,36 @@ import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored
 
 export interface HdsPopoverPrimitiveSignature {
   Args: {
+    /**
+     * Controls if the tooltip should be rendered initially open.
+     * @note In this case the tooltip can't be dismissed via `esc` or "click outside" until the end user has interacted with it (it's in a "manual" state).
+     */
     isOpen?: boolean;
+    /**
+     * Assigns "soft" event listeners (`mouseenter/leave` and `focusin/out`) to control popover visibility.
+     */
     enableSoftEvents?: boolean;
+    /**
+     * Assigns a "click" event listener (`onclick`) to the toggle to control popover visibility.
+     * @note Enabling click event listeners disables soft event listeners.
+     */
     enableClickEvents?: boolean;
+    /**
+     * Optional collision boundary element or element id used for overflow detection.
+     */
     boundary?: HdsAnchoredPositionOptions['boundary'];
+    /**
+     * Callback invoked when the popover opens.
+     */
     onOpen?: () => void;
+    /**
+     * Callback invoked when the popover closes.
+     */
     onClose?: () => void;
+    /**
+     * Callback invoked when focus leaves the popover container with no related target.
+     * @important Use this callback to restore focus when dynamic content removal causes focus loss.
+     */
     onFocusOut?: () => void;
   };
   Blocks: {

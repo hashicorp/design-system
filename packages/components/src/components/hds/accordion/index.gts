@@ -31,7 +31,7 @@ export interface HdsAccordionSignature {
   Args: {
     /**
      * The size of the accordion items.
-     * @default "medium"
+      * @default "medium"
      */
     size?: HdsAccordionSizes;
 
