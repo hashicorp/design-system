@@ -1,3 +1,8 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import type { User } from 'showcase/mocks/user-data';
 
 export const getCursorParts = (cursor: string | null, records: User[]) => {
