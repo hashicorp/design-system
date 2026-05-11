@@ -6,11 +6,17 @@ export type CatalogArg = {
   default?: string;
   values?: string[];
   notes?: CatalogApiNote[];
+  links?: CatalogApiLink[];
 };
 
 export type CatalogApiNote = {
   kind: 'note' | 'important' | 'warning';
   text: string;
+};
+
+export type CatalogApiLink = {
+  href: string;
+  label?: string;
 };
 
 export type CatalogBlock = {
@@ -27,6 +33,7 @@ export type CatalogApiProperty = {
   valueNote?: string;
   description?: string;
   notes?: CatalogApiNote[];
+  links?: CatalogApiLink[];
   properties?: CatalogApiProperty[];
 };
 

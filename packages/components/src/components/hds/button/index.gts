@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
-// TEST
 
 import {
   HdsButtonSizeValues,
@@ -60,6 +59,8 @@ export interface HdsButtonSignature {
      * Tertiary buttons have transparent backgrounds, and interactive elements
      * must communicate interactivity with more than just color. Therefore, a
      * leading or trailing icon is required when using the `tertiary` color.
+     * @link /icons/library Icon library
+     * @link https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=141#use-of-color WCAG 2.2 Criterion 1.4.1: Use of Color (Level A)
      */
     icon?: HdsIconSignature['Args']['name'];
 
@@ -100,7 +101,6 @@ export interface HdsButtonSignature {
 
 export default class HdsButton extends Component<HdsButtonSignature> {
   get text(): string {
-    // TEST2
     const { text } = this.args;
 
     assert(

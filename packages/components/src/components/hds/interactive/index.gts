@@ -15,8 +15,23 @@ import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 
 export interface HdsInteractiveSignature {
   Args: {
+    /**
+     * URL parameter that is passed down to the `<a>` element.
+     */
     href?: string;
+
+    /**
+     * Controls whether or not the `<a>` link is external. When left undefined
+     * or explicitly set to `true` it adds `target="_blank"` and
+     * `rel="noopener noreferrer"` attributes to the `<a>` tag.
+     */
     isHrefExternal?: boolean;
+
+    /**
+     * Controls if `<LinkTo>` is external to the Ember engine, in which case
+     * `<LinkToExternal>` is used instead.
+     * @link https://ember-engines.com/docs/link-to-external Ember Engines LinkToExternal docs
+     */
     isRouteExternal?: boolean;
     // the arguments and types below are mirroring the ones in LinkTo https://github.com/typed-ember/glint/blob/main/packages/environment-ember-loose/-private/intrinsics/link-to.d.ts#L9
     // because they're not exported we're unable to import them directly from glint

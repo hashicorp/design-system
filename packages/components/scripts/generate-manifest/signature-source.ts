@@ -13,6 +13,16 @@ project.addSourceFilesAtPaths(
 
 const signatureSourceCache = new Map<string, InterfaceDeclaration | null>();
 
+function templateHasSplattributes(sourceText: string): boolean {
+  const templateIndex = sourceText.indexOf('<template>');
+
+  if (templateIndex < 0) {
+    return false;
+  }
+
+  return sourceText.slice(templateIndex).includes('...attributes');
+}
+
 function getInterfaceNameFromComponentClassName(
   componentClassName: string
 ): string | undefined {
@@ -99,6 +109,42 @@ function getSourcePathCandidates(
       'index.gts'
     ),
   ];
+}
+
+function getExistingSourcePath(candidates: string[]): string | undefined {
+  return candidates.find((candidatePath) => existsSync(candidatePath) === true);
+}
+
+export function hasSplattributesForComponent(componentPath: string): boolean {
+  const gtsSourcePath = resolve(
+    componentsSrcRoot,
+    'components/hds',
+    componentPath,
+    'index.gts'
+  );
+
+  if (existsSync(gtsSourcePath) === false) {
+    return false;
+  }
+
+  return templateHasSplattributes(readFileSync(gtsSourcePath, 'utf8'));
+}
+
+export function hasSplattributesForYieldedComponent(
+  parentComponentPath: string,
+  importSpecifier: string
+): boolean | undefined {
+  const sourcePathCandidates = getSourcePathCandidates(
+    parentComponentPath,
+    importSpecifier
+  );
+  const sourcePath = getExistingSourcePath(sourcePathCandidates);
+
+  if (sourcePath === undefined) {
+    return undefined;
+  }
+
+  return templateHasSplattributes(readFileSync(sourcePath, 'utf8'));
 }
 
 function getInterfaceFromGtsSource(

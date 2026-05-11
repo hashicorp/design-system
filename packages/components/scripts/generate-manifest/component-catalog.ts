@@ -10,12 +10,15 @@ import { getComponentExports } from './component-exports.ts';
 import {
   getInterfaceForComponent,
   getInterfaceForYieldedComponent,
+  hasSplattributesForComponent,
+  hasSplattributesForYieldedComponent,
 } from './signature-source.ts';
 import { parseType } from './types-parser.ts';
 import { normalizeDefaultValue, toTitleCase } from './utils.ts';
 
 import type {
   Catalog,
+  CatalogApiLink,
   CatalogApi,
   CatalogApiNote,
   CatalogApiProperty,
@@ -84,6 +87,50 @@ function getDocNotes(prop: PropertySignature): CatalogApiNote[] {
   return notes;
 }
 
+function parseDocLinkTagText(tagText: string): CatalogApiLink | undefined {
+  const text = tagText.trim();
+  if (text.length === 0) {
+    return undefined;
+  }
+
+  const parts = text.split(/\s+/u);
+  const href = parts[0];
+
+  if (href === undefined || href.length === 0) {
+    return undefined;
+  }
+
+  const label = text.slice(href.length).trim();
+
+  return {
+    href,
+    ...(label.length > 0 ? { label } : {}),
+  };
+}
+
+function getDocLinks(prop: PropertySignature): CatalogApiLink[] {
+  const docs = prop.getJsDocs()[0];
+
+  if (docs === undefined) {
+    return [];
+  }
+
+  const links: CatalogApiLink[] = [];
+
+  docs.getTags().forEach((tag) => {
+    if (tag.getTagName() !== 'link') {
+      return;
+    }
+
+    const link = parseDocLinkTagText(tag.getCommentText() ?? '');
+    if (link !== undefined) {
+      links.push(link);
+    }
+  });
+
+  return links;
+}
+
 function getInterfaceDocTag(
   taggableNode: InterfaceDeclaration,
   tagName: string
@@ -127,10 +174,13 @@ function getPropertySignatureFromSymbol(
 }
 
 function isIconNameType(typeText: string): boolean {
-  const iconNameTypePattern =
-    /HdsIconSignature\[['"]Args['"]\]\[['"]name['"]\]/u;
+  const iconNameTypePatterns = [
+    /HdsIconSignature\[['"]Args['"]\]\[['"]name['"]\]/u,
+    /\[['"]Args['"]\]\[['"]icon['"]\]/u,
+    /(^|[^A-Za-z0-9_])IconName($|[^A-Za-z0-9_])/u,
+  ];
 
-  return iconNameTypePattern.test(typeText);
+  return iconNameTypePatterns.some((pattern) => pattern.test(typeText));
 }
 
 function argsToApiProperties(args: CatalogArg[]): CatalogApiProperty[] {
@@ -143,6 +193,7 @@ function argsToApiProperties(args: CatalogArg[]): CatalogApiProperty[] {
       values: arg.values,
       description: arg.description,
       notes: arg.notes,
+      links: arg.links,
     };
   });
 }
@@ -151,6 +202,14 @@ function argsToApiSection(args: CatalogArg[]): CatalogApiSection {
   return {
     title: 'Arguments',
     properties: argsToApiProperties(args),
+  };
+}
+
+function getSplattributesApiProperty(): CatalogApiProperty {
+  return {
+    name: '...attributes',
+    description:
+      'This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).',
   };
 }
 
@@ -347,12 +406,16 @@ function parseYieldedComponentProperties(
     });
   }
 
-  if (yieldedInterface.getProperty('Element') !== undefined) {
-    yieldedProperties.push({
-      name: '...attributes',
-      description:
-        'This component supports use of `...attributes` for standard HTML attributes.',
-    });
+  const hasSplattributes = hasSplattributesForYieldedComponent(
+    parentComponentPath,
+    importSpecifier
+  );
+
+  if (
+    hasSplattributes === true ||
+    (hasSplattributes === undefined && yieldedInterface.getProperty('Element') !== undefined)
+  ) {
+    yieldedProperties.push(getSplattributesApiProperty());
   }
 
   return yieldedProperties;
@@ -454,6 +517,11 @@ function parseContextualProperties(
       if (notes.length > 0) {
         contextualProperty.notes = notes;
       }
+
+      const links = getDocLinks(contextDeclaration);
+      if (links.length > 0) {
+        contextualProperty.links = links;
+      }
     }
 
     contextualProperties.push(contextualProperty);
@@ -504,6 +572,7 @@ function parseArgs(interfaceDecl: InterfaceDeclaration): CatalogArg[] {
       const typeOverride = getDocTag(property, 'type');
       const valuesOverride = getDocTag(property, 'values');
       const notes = getDocNotes(property);
+      const links = getDocLinks(property);
 
       if (description !== undefined && description.length > 0) {
         arg.description = description;
@@ -524,6 +593,10 @@ function parseArgs(interfaceDecl: InterfaceDeclaration): CatalogArg[] {
 
       if (notes.length > 0) {
         arg.notes = notes;
+      }
+
+      if (links.length > 0) {
+        arg.links = links;
       }
     }
 
@@ -575,12 +648,19 @@ function parseBlocks(interfaceDecl: InterfaceDeclaration): CatalogBlock[] {
 function buildApi(
   args: CatalogArg[],
   blocks: CatalogBlock[],
-  contextualProperties: CatalogApiProperty[]
+  contextualProperties: CatalogApiProperty[],
+  hasSplattributes: boolean
 ): CatalogApi {
   const sections: CatalogApiSection[] = [];
 
   if (args.length > 0) {
-    sections.push(argsToApiSection(args));
+    const argsSection = argsToApiSection(args);
+
+    if (hasSplattributes === true) {
+      argsSection.properties.push(getSplattributesApiProperty());
+    }
+
+    sections.push(argsSection);
   }
 
   if (blocks.length > 0) {
@@ -649,12 +729,13 @@ function generateCatalogComponent(
     componentAlias,
     componentPath
   );
+  const hasSplattributes = hasSplattributesForComponent(componentPath);
 
   const component: CatalogComponent = {
     name: toTitleCase(componentPath.split('/').at(-1) ?? componentPath),
     slug: componentPath,
     summary: componentDescription,
-    api: buildApi(args, blocks, contextualProperties),
+    api: buildApi(args, blocks, contextualProperties, hasSplattributes),
   };
 
   if (args.length > 0) {

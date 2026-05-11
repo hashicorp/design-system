@@ -10,6 +10,11 @@ const catalogApiNoteSchema = z.object({
   text: z.string().min(1),
 });
 
+const catalogApiLinkSchema = z.object({
+  href: z.string().min(1),
+  label: z.string().min(1).optional(),
+});
+
 const catalogArgSchema = z.object({
   name: z.string().min(1),
   type: z.string().min(1),
@@ -18,6 +23,7 @@ const catalogArgSchema = z.object({
   default: z.string().optional(),
   values: z.array(z.string()).optional(),
   notes: z.array(catalogApiNoteSchema).optional(),
+  links: z.array(catalogApiLinkSchema).optional(),
 });
 
 const catalogBlockSchema = z.object({
@@ -34,21 +40,24 @@ type CatalogApiPropertyShape = {
   valueNote?: string;
   description?: string;
   notes?: Array<{ kind: 'note' | 'important' | 'warning'; text: string }>;
+  links?: Array<{ href: string; label?: string }>;
   properties?: CatalogApiPropertyShape[];
 };
 
-const catalogApiPropertySchema: z.ZodType<CatalogApiPropertyShape> = z.lazy(() =>
-  z.object({
-    name: z.string().min(1),
-    type: z.string().optional(),
-    required: z.boolean().optional(),
-    default: z.string().optional(),
-    values: z.array(z.string()).optional(),
-    valueNote: z.string().optional(),
-    description: z.string().optional(),
-    notes: z.array(catalogApiNoteSchema).optional(),
-    properties: z.array(catalogApiPropertySchema).optional(),
-  })
+const catalogApiPropertySchema: z.ZodType<CatalogApiPropertyShape> = z.lazy(
+  () =>
+    z.object({
+      name: z.string().min(1),
+      type: z.string().optional(),
+      required: z.boolean().optional(),
+      default: z.string().optional(),
+      values: z.array(z.string()).optional(),
+      valueNote: z.string().optional(),
+      description: z.string().optional(),
+      notes: z.array(catalogApiNoteSchema).optional(),
+      links: z.array(catalogApiLinkSchema).optional(),
+      properties: z.array(catalogApiPropertySchema).optional(),
+    })
 );
 
 const catalogApiSectionSchema = z.object({

@@ -68,6 +68,32 @@ function resolveSpecialValues(values) {
   return values;
 }
 
+function renderLinks(links) {
+  return links
+    .map((link) => {
+      const href = link.href?.trim();
+      if (href === undefined || href.length === 0) {
+        return undefined;
+      }
+
+      const label = link.label?.trim();
+      if (label !== undefined && label.length > 0) {
+        return `[${label}](${href})`;
+      }
+
+      return `<${href}>`;
+    })
+    .filter((link) => link !== undefined);
+}
+
+function normalizeDescription(description) {
+  if (description === undefined || description.length === 0) {
+    return description;
+  }
+
+  return description.replace(/\n\s*\n/gu, '\n<br />\n<br />\n');
+}
+
 function renderProperty(property, depth = 1) {
   const indent = '  '.repeat(depth);
   const lines = [];
@@ -97,12 +123,14 @@ function renderProperty(property, depth = 1) {
 
   lines.push(`${indent}<C.Property ${attrs.join(' ')}>`);
 
-  if (property.description !== undefined && property.description.length > 0) {
-    lines.push(`${indent}  ${property.description}`);
+  const description = normalizeDescription(property.description);
+
+  if (description !== undefined && description.length > 0) {
+    lines.push(`${indent}  ${description}`);
   }
 
   if (Array.isArray(property.notes) === true && property.notes.length > 0) {
-    if (property.description !== undefined && property.description.length > 0) {
+    if (description !== undefined && description.length > 0) {
       lines.push(`${indent}  <br />`);
       lines.push(`${indent}  <br />`);
     }
@@ -124,6 +152,22 @@ function renderProperty(property, depth = 1) {
 
       lines.push(`${indent}  _${prefix} ${text}_`);
     });
+  }
+
+  if (Array.isArray(property.links) === true && property.links.length > 0) {
+    const renderedLinks = renderLinks(property.links);
+
+    if (renderedLinks.length > 0) {
+      if (
+        (description !== undefined && description.length > 0) ||
+        (Array.isArray(property.notes) === true && property.notes.length > 0)
+      ) {
+        lines.push(`${indent}  <br />`);
+        lines.push(`${indent}  <br />`);
+      }
+
+      lines.push(`${indent}  See also: ${renderedLinks.join(', ')}.`);
+    }
   }
 
   if (
@@ -173,9 +217,18 @@ function normalizeContextualSummaryDescription(description) {
     return description;
   }
 
+  if (/yielded as contextual component \(see below\)\.?$/u.test(description)) {
+    return description;
+  }
+
   const normalized = description
     .replace(/^The\s+/u, '')
-    .replace(/\s+component,\s+yielded as contextual component\.?$/u, '')
+    .replace(
+      /\s+component,\s+yielded as (?:a\s+)?contextual component\.?$/u,
+      '',
+    )
+    .replace(/\s+component\s+yielded as (?:a\s+)?contextual component\.?$/u, '')
+    .replace(/\s+yielded as (?:a\s+)?contextual component\.?$/u, '')
     .trim();
 
   if (normalized.length === 0) {

@@ -30,6 +30,7 @@ export interface HdsFilterBarActionsDropdownSignature {
 
     /**
      * Acceptable value: any icon name.
+     * @link /icons/library Icon library
      */
     toggleButtonIcon?: HdsDropdownToggleButtonSignature['Args']['icon'];
   };
