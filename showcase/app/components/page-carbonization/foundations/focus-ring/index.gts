@@ -7,16 +7,19 @@ import { pageTitle } from 'ember-page-title';
 import style from 'ember-style-modifier';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
-import { array, concat, hash } from '@ember/helper';
+import { array, hash } from '@ember/helper';
+import PowerSelect from 'ember-power-select/components/power-select';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwOutliner from 'showcase/components/shw/outliner';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
+import FilterBarCodeFragmentWithGenericContent from 'showcase/components/page-components/filter-bar/code-fragments/with-generic-content';
 import FormSuperSelectCodeFragmentWithSingleBaseElement from 'showcase/components/page-components/form/super-select/code-fragments/with-single-base-element';
 import FormSuperSelectCodeFragmentWithMultipleBaseElement from 'showcase/components/page-components/form/super-select/code-fragments/with-multiple-base-element';
 import NOOP from 'showcase/utils/noop';
@@ -34,6 +37,8 @@ import {
   HdsBreadcrumbItem,
   HdsBreadcrumbTruncation,
   HdsButton,
+  HdsButtonSet,
+  HdsCodeBlock,
   HdsCodeEditor,
   HdsCopyButton,
   HdsCopySnippet,
@@ -45,6 +50,7 @@ import {
   HdsDropdownListItemCheckmark,
   HdsDropdownListItemCheckbox,
   HdsDropdownListItemRadio,
+  HdsFilterBarTabs,
   HdsFormCheckboxBase,
   HdsFormFileInputBase,
   HdsFormMaskedInputBase,
@@ -62,7 +68,7 @@ import {
   HdsRevealToggleButton,
   HdsRichTooltip,
   HdsStepperNav,
-  HdsTabsTab,
+  HdsTabs,
   HdsTable,
   HdsTableTh,
   HdsTableThSelectable,
@@ -77,7 +83,10 @@ import {
 } from '@hashicorp/design-system-components/components';
 import HdsAdvancedTableThResizeHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-resize-handle';
 import HdsAdvancedTableThReorderHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-reorder-handle';
+import HdsAdvancedTableThContextMenu from '@hashicorp/design-system-components/components/hds/advanced-table/th-context-menu';
 
+import { TYPES as ACCORDION_TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
+import { THEMES as APPFOOTER_THEMES } from '@hashicorp/design-system-components/components/hds/app-footer/index';
 import {
   COLORS as BUTTON_COLORS,
   SIZES as BUTTON_SIZES,
@@ -87,11 +96,37 @@ import { COLORS as DROPDOWN_ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-sy
 import { SIZES as TABS_SIZES } from '@hashicorp/design-system-components/components/hds/tabs/index';
 import { COLORS as TAG_COLORS } from '@hashicorp/design-system-components/components/hds/tag/index';
 
+const CODE_BLOCK_SNIPPET = `def convert_object_to_array(obj)
+  arr = obj.keys
+           .map { |key| [key, obj[key]] }
+           .flatten
+           .sort
+  return arr
+end
+
+def assert_objects_equal(actual, expected, test_name)
+  actual_str = convert_object_to_array(actual).to_s
+  expected_str = convert_object_to_array(expected).to_s
+  puts 'ACTUAL: #{actual_str}  EXPECTED: #{expected_str}'
+  if actual_str == expected_str
+    puts 'passed'
+  else
+    puts 'FAILED [#{test_name}] Expected #{expected}, but got #{actual}'
+  end
+end`;
+
 const CODE_EDITOR_SNIPPET = `package main
-import "fmt"
+
+import 'fmt'
+
 func main() {
-  fmt.Println("Hello, world!")
+  res = 'Lorem ipsum dolor sit amet'
+  fmt.Println(res)
 }`;
+
+const POWERSELECT_OPTIONS: string[] = ['foo', 'bar', 'baz', 'abc', 'xyz'];
+const POWERSELECT_SINGLE_SELECTED: string[] = ['foo'];
+const POWERSELECT_MULTIPLE_SELECTED: string[] = ['foo', 'baz', 'xyz'];
 
 const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Focus ring"}}
@@ -106,8 +141,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
             <div
-              class="hds-focus-ring-action-box-shadow"
-              {{style width="fit-content"}}
+              class="hds-focus-ring-action-box-shadow shw-component-focus-ring-box-corners"
             >
               <ShwPlaceholder
                 @width="100"
@@ -119,7 +153,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
           <SF.Item>
             <div
               class="hds-focus-ring-action-box-shadow"
-              {{style border-radius="5px" width="fit-content"}}
+              {{style width="fit-content" border-radius="5px"}}
             >
               <ShwPlaceholder
                 @width="100"
@@ -131,7 +165,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
           <SF.Item>
             <div
               class="hds-focus-ring-critical-box-shadow"
-              {{style border-radius="5px" width="fit-content"}}
+              {{style width="fit-content" border-radius="5px"}}
             >
               <ShwPlaceholder
                 @width="100"
@@ -149,57 +183,64 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH2>Components with focus ring</ShwTextH2>
 
     <ShwTextH4 @tag="h3">Accordion</ShwTextH4>
-    <ShwCarbonizationComparisonGrid>
-      <:theming>
-        <ShwFlex @direction="column" @gap="2rem" as |SF|>
-          {{#let (array false true) as |booleans|}}
-            {{#each booleans as |containsInteractive|}}
-              {{#each booleans as |isOpen|}}
-                <SF.Item>
-                  <HdsAccordionItem
-                    @containsInteractive={{containsInteractive}}
-                    @isOpen={{isOpen}}
-                    @type="card"
-                    mock-state-value="focus"
-                    mock-state-selector="{{if
-                      containsInteractive
-                      '.hds-accordion-item__button'
-                      '.hds-accordion-item__button'
-                    }}"
-                  >
-                    {{! '.hds-disclosure-primitive__toggle' }}
-                    <:toggle>Item</:toggle>
-                    <:content>
-                      <ShwPlaceholder @text="generic content" @height="40" />
-                    </:content>
-                  </HdsAccordionItem>
-                </SF.Item>
+    {{#each ACCORDION_TYPES as |type|}}
+      <ShwCarbonizationComparisonGrid @label={{type}}>
+        <:theming>
+          <ShwFlex @direction="column" @gap="2rem" as |SF|>
+            {{#let (array false true) as |booleans|}}
+              {{#each booleans as |containsInteractive|}}
+                {{#each booleans as |isOpen|}}
+                  <SF.Item>
+                    <HdsAccordionItem
+                      @containsInteractive={{containsInteractive}}
+                      @isOpen={{isOpen}}
+                      @type={{type}}
+                      mock-state-value="focus"
+                      mock-state-selector=".hds-accordion-item__button"
+                    >
+                      <:toggle>Item</:toggle>
+                      <:content>
+                        <ShwPlaceholder @text="generic content" @height="40" />
+                      </:content>
+                    </HdsAccordionItem>
+                  </SF.Item>
+                {{/each}}
               {{/each}}
-            {{/each}}
-          {{/let}}
-        </ShwFlex>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
+            {{/let}}
+          </ShwFlex>
+        </:theming>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider @level={{2}} />
 
     <ShwTextH4 @tag="h3">AppFooter</ShwTextH4>
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column">
       <:theming>
-        <HdsAppFooter
-          mock-state-value="focus"
-          mock-state-selector="button, a"
-          as |AF|
-        >
-          <AF.StatusLink @status="operational" />
-          <AF.Link
-            @href="https://cloud.hashicorp.com/docs/changelog"
-            @icon="logs"
-            @iconPosition="leading"
-          >Changelog</AF.Link>
-          <AF.Link @href="#">Lorem</AF.Link>
-          <AF.Link @href="#">Ipsum</AF.Link>
-        </HdsAppFooter>
+        <ShwFlex @direction="column" as |SF|>
+          {{! NOTE: for the CDS blocks we hide the `dark` variant via CSS }}
+          {{#each APPFOOTER_THEMES as |theme|}}
+            <SF.Item>
+              <div class="shw-component-app-footer-wrapper">
+                <HdsAppFooter
+                  @theme={{theme}}
+                  mock-state-value="focus"
+                  mock-state-selector="button, a"
+                  as |AF|
+                >
+                  <AF.StatusLink @status="operational" />
+                  <AF.Link
+                    @href="https://cloud.hashicorp.com/docs/changelog"
+                    @icon="logs"
+                    @iconPosition="leading"
+                  >Changelog</AF.Link>
+                  <AF.Link @href="#">Lorem</AF.Link>
+                  <AF.Link @href="#">Ipsum</AF.Link>
+                </HdsAppFooter>
+              </div>
+            </SF.Item>
+          {{/each}}
+        </ShwFlex>
       </:theming>
     </ShwCarbonizationComparisonGrid>
 
@@ -246,7 +287,11 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
-          <HdsAppSideNavListBackLink @text="Back to parent page" @href="#" />
+          <HdsAppSideNavListBackLink
+            @text="Back to parent page"
+            @href="#"
+            mock-state-value="focus"
+          />
           <HdsAppSideNavListLink @text="Packer" @icon="packer" @href="#" />
           <HdsAppSideNavListLink
             @text="Terraform"
@@ -283,14 +328,14 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     <ShwTextH4 @tag="h3">Breadcrumb</ShwTextH4>
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column">
       <:theming>
         <HdsBreadcrumb aria-label="breadcrumb in focus state example">
           <HdsBreadcrumbItem
             @text="One"
             @icon="org"
             mock-state-value="focus"
-            mock-state-selector="a"
+            mock-state-selector="button"
           />
           <HdsBreadcrumbTruncation
             mock-state-value="focus"
@@ -302,14 +347,10 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
           <HdsBreadcrumbItem
             @text="Four"
             mock-state-value="focus"
-            mock-state-selector="a"
+            mock-state-selector="button"
           />
-          <HdsBreadcrumbItem
-            @text="Curr"
-            @current={{true}}
-            mock-state-value="focus"
-            mock-state-selector="a"
-          />
+          <HdsBreadcrumbItem @text="Five" />
+          <HdsBreadcrumbItem @text="Curr" @current={{true}} />
         </HdsBreadcrumb>
       </:theming>
     </ShwCarbonizationComparisonGrid>
@@ -339,16 +380,75 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 @tag="h3">CodeEditor</ShwTextH4>
+    <ShwTextH4 @tag="h3">ButtonSet</ShwTextH4>
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        {{! TODO understand how we can apply the focus at runtime }}
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item mock-state-value="focus" mock-state-selector="a, button">
+            <HdsButtonSet>
+              <HdsButton @text="Submit" type="submit" />
+              <HdsButton
+                @text="Cancel"
+                @color="secondary"
+                @href="https://hashicorp.com"
+              />
+            </HdsButtonSet>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH4 @tag="h3">CodeBlock</ShwTextH4>
+    <ShwCarbonizationComparisonGrid @layout="column">
+      <:theming>
+        <HdsCodeBlock
+          @value={{CODE_BLOCK_SNIPPET}}
+          @language="ruby"
+          @maxHeight="200px"
+          @ariaLabel="maxHeight='200px'"
+          @hasCopyButton={{true}}
+          @hasLineNumbers={{true}}
+          @highlightLines="4, 12"
+          mock-state-value="focus"
+          mock-state-selector=".hds-code-block__code, .hds-code-block__copy-button, .hds-code-block__height-toggle-button"
+          mock-state-delay="200"
+          as |CB|
+        >
+          <CB.Title>Lorem ipsum</CB.Title>
+        </HdsCodeBlock>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH4 @tag="h3">CodeEditor</ShwTextH4>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
+      <:theming>
+        {{! TODO understand if we can apply the focus at runtime }}
         <HdsCodeEditor
-          @ariaLabel="CodeEditor demo"
+          @ariaLabel="With complex content"
           @language="go"
           @value={{CODE_EDITOR_SNIPPET}}
-          class="cm-focused"
-        />
+          @hasFullScreenButton={{true}}
+          @hasCopyButton={{true}}
+          mock-state-value="focus"
+          mock-state-selector=".hds-code-editor__header-actions .hds-code-editor__button, .hds-code-editor__header-generic .hds-button"
+          as |CE|
+        >
+          <CE.Title>Lorem ipsum</CE.Title>
+          <CE.Description>Sit amet consectetur</CE.Description>
+          <CE.Generic class="my-code-editor-custom-content">
+            <HdsButton @text="Custom action" @size="small" />
+            <HdsButton
+              @text="Search"
+              @icon="search"
+              @isIconOnly={{true}}
+              @size="small"
+            />
+          </CE.Generic>
+        </HdsCodeEditor>
       </:theming>
     </ShwCarbonizationComparisonGrid>
 
@@ -444,7 +544,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item @label={{capitalize color}}>
               <ShwFlex as |SF|>
-                <SF.Item>
+                <SF.Item class="shw-component-dropdown-reset-content-width">
                   <div class="hds-dropdown__content">
                     <ul class="hds-dropdown__list">
                       <HdsDropdownListItemInteractive @color={{color}}>
@@ -585,6 +685,42 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
             </div>
           </SF.Item>
         </ShwFlex>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH4 @tag="h3">FilterBar</ShwTextH4>
+    <ShwCarbonizationComparisonGrid @label="FilterBar" @layout="column">
+      <:theming>
+        <div mock-state-value="focus" mock-state-selector="button,input">
+          <FilterBarCodeFragmentWithGenericContent
+            @hasSearch={{true}}
+            @hasActionsDropdown={{true}}
+            @hasFilters={{true}}
+          />
+        </div>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwCarbonizationComparisonGrid @label="Tabs" @layout="column">
+      <:theming>
+        <ShwOutliner class="shw-component-filter-bar-tabs-wrapper">
+          <HdsFilterBarTabs @selectedTabIndex={{0}} as |T|>
+            <T.Tab mock-state-value="focus" mock-state-selector="button">Tab 1</T.Tab>
+            <T.Tab>Tab 2</T.Tab>
+            <T.Tab mock-state-value="focus" mock-state-selector="button">Tab 3</T.Tab>
+            <T.Panel>
+              <ShwPlaceholder @text="Content one" />
+            </T.Panel>
+            <T.Panel>
+              <ShwPlaceholder @text="Content two" />
+            </T.Panel>
+            <T.Panel>
+              <ShwPlaceholder @text="Content three" />
+            </T.Panel>
+          </HdsFilterBarTabs>
+        </ShwOutliner>
       </:theming>
     </ShwCarbonizationComparisonGrid>
 
@@ -811,6 +947,45 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
     </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="PowerSelect overrides">
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item>
+            <div class="hds-power-select">
+              <PowerSelect
+                @options={{POWERSELECT_OPTIONS}}
+                @selected={{POWERSELECT_SINGLE_SELECTED}}
+                @onChange={{NOOP}}
+                @renderInPlace={{true}}
+                {{! special case, we apply directly the mock classname }}
+                class="mock-focus"
+                mock-state-value="focus"
+                mock-state-target=".hds-power-select .ember-power-select-trigger"
+                as |option|
+              >
+                {{option}}
+              </PowerSelect>
+            </div>
+          </SF.Item>
+          <SF.Item>
+            <div class="hds-power-select">
+              <PowerSelect
+                @multiple={{true}}
+                @options={{POWERSELECT_OPTIONS}}
+                @selected={{POWERSELECT_MULTIPLE_SELECTED}}
+                @onChange={{NOOP}}
+                @renderInPlace={{true}}
+                {{! special case, we apply directly the mock classname }}
+                class="mock-focus"
+                as |option|
+              >
+                {{option}}
+              </PowerSelect>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
 
@@ -845,7 +1020,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     <ShwTextH4 @tag="h3">Pagination</ShwTextH4>
-    <ShwCarbonizationComparisonGrid @label="Inline">
+    <ShwCarbonizationComparisonGrid @layout="column">
       <:theming>
         <ShwFlex
           @gap="0.5rem"
@@ -1024,42 +1199,6 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH4 @tag="h3">Tabs</ShwTextH4>
-    {{#each TABS_SIZES as |size|}}
-      <ShwCarbonizationComparisonGrid @label={{capitalize size}}>
-        <:theming>
-          <div
-            class={{concat
-              "hds-tabs--size-"
-              size
-              " shw-component-tabs-selector-example"
-            }}
-          >
-            <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-              <HdsTabsTab
-                mock-state-value="focus"
-                mock-state-selector="button"
-              >Lorem ipsum</HdsTabsTab>
-            </ul>
-            <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-              <HdsTabsTab
-                class="hds-tabs__tab--is-selected"
-                @icon="hexagon"
-                @count="10"
-                mock-state-value="focus"
-                mock-state-selector="button"
-              >Lorem ipsum</HdsTabsTab>
-              {{! template-lint-disable no-invalid-role }}
-              <li class="hds-tabs__tab-indicator" role="presentation"></li>
-              {{! template-lint-enable no-invalid-role }}
-            </ul>
-          </div>
-        </:theming>
-      </ShwCarbonizationComparisonGrid>
-    {{/each}}
-
-    <ShwDivider @level={{2}} />
-
     <ShwTextH4 @tag="h3">Table</ShwTextH4>
     <ShwCarbonizationComparisonGrid @label="ThSort">
       <:theming>
@@ -1145,90 +1284,104 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     <ShwTextH4 @tag="h3">AdvancedTable</ShwTextH4>
-    <ShwCarbonizationComparisonGrid @label="Th (sortable)">
+    <ShwCarbonizationComparisonGrid @label="Th">
       <:theming>
-        <div
-          class="hds-advanced-table"
-          role="grid"
-          {{style gridTemplateColumns="1fr"}}
-        >
-          <div class="hds-advanced-table__thead" role="rowgroup">
-            <div class="hds-advanced-table__tr" role="row">
-              <HdsAdvancedTableTh
-                @tooltip="Here is more information"
-                @column={{hash label="Unsorted" key="unsorted" isSortable=true}}
-                mock-state-value="focus"
-                mock-state-selector="button"
-              >
-                Lorem
-              </HdsAdvancedTableTh>
+        <ShwFlex @direction="column" as |SF|>
+          {{#let (array "" "button") as |selectors|}}
+            {{#each selectors as |selector|}}
+              <SF.Item>
+                <div
+                  class="hds-advanced-table"
+                  role="grid"
+                  {{style gridTemplateColumns="1fr"}}
+                >
+                  <div class="hds-advanced-table__thead" role="rowgroup">
+                    <div class="hds-advanced-table__tr" role="row">
+                      <HdsAdvancedTableTh
+                        @tooltip="Here is more information"
+                        @column={{hash
+                          label="Unsorted"
+                          key="unsorted"
+                          isSortable=true
+                        }}
+                        mock-state-value="focus"
+                        mock-state-selector={{selector}}
+                      >
+                        Lorem
+                      </HdsAdvancedTableTh>
+                    </div>
+                  </div>
+                  <div class="hds-advanced-table__tbody" role="rowgroup">
+                    <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
+                  </div>
+                </div>
+              </SF.Item>
+            {{/each}}
+          {{/let}}
+          <SF.Item>
+            <div
+              class="hds-advanced-table"
+              role="grid"
+              {{style gridTemplateColumns="1fr"}}
+            >
+              <div class="hds-advanced-table__thead" role="rowgroup">
+                <div class="hds-advanced-table__tr" role="row">
+                  <HdsAdvancedTableTh
+                    @isExpandable={{true}}
+                    @hasExpandAllButton={{true}}
+                    @tooltip="Here is more information"
+                    mock-state-value="focus"
+                    mock-state-selector="button"
+                  >
+                    Lorem
+                  </HdsAdvancedTableTh>
+                </div>
+              </div>
+              <div class="hds-advanced-table__tbody" role="rowgroup">
+                <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
+              </div>
             </div>
-          </div>
-          <div class="hds-advanced-table__tbody" role="rowgroup">
-            <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
-          </div>
-        </div>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Th (expandable)">
-      <:theming>
-        <div
-          class="hds-advanced-table"
-          role="grid"
-          {{style gridTemplateColumns="1fr"}}
-        >
-          <div class="hds-advanced-table__thead" role="rowgroup">
-            <div class="hds-advanced-table__tr" role="row">
-              <HdsAdvancedTableTh
-                @isExpandable={{true}}
-                @hasExpandAllButton={{true}}
-                @tooltip="Here is more information"
-                mock-state-value="focus"
-                mock-state-selector="button"
-              >
-                Lorem
-              </HdsAdvancedTableTh>
-            </div>
-          </div>
-          <div class="hds-advanced-table__tbody" role="rowgroup">
-            <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
-          </div>
-        </div>
+          </SF.Item>
+        </ShwFlex>
       </:theming>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid @label="ThSelectable">
       <:theming>
         <ShwFlex @direction="row" @gap="2rem" as |SF|>
-          {{#let (array false true) as |booleans|}}
-            {{#each booleans as |bool|}}
-              <SF.Item>
-                <div
-                  class="hds-advanced-table hds-advanced-table--density-medium"
-                  role="grid"
-                  {{style gridTemplateColumns="auto 1fr"}}
-                >
-                  <div class="hds-advanced-table__thead" role="rowgroup">
-                    <div class="hds-advanced-table__tr" role="row">
-                      <HdsAdvancedTableThSelectable
-                        @selectionScope="col"
-                        @isSelected={{bool}}
-                        mock-state-value="focus"
-                        mock-state-selector="input"
-                      />
-                      <HdsAdvancedTableTh>Lorem</HdsAdvancedTableTh>
+          {{#let (array "" "input") as |selectors|}}
+            {{#each selectors as |selector|}}
+              {{#let (array false true) as |booleans|}}
+                {{#each booleans as |bool|}}
+                  <SF.Item>
+                    <div
+                      class="hds-advanced-table hds-advanced-table--density-medium"
+                      role="grid"
+                      {{style gridTemplateColumns="auto 1fr"}}
+                    >
+                      <div class="hds-advanced-table__thead" role="rowgroup">
+                        <div class="hds-advanced-table__tr" role="row">
+                          <HdsAdvancedTableThSelectable
+                            @selectionScope="col"
+                            @isSelected={{bool}}
+                            mock-state-value="focus"
+                            mock-state-selector={{selector}}
+                          />
+                          <HdsAdvancedTableTh>Lorem</HdsAdvancedTableTh>
+                        </div>
+                      </div>
+                      <div class="hds-advanced-table__tbody" role="rowgroup">
+                        <div class="hds-advanced-table__tr" role="row">
+                          <HdsAdvancedTableThSelectable
+                            @selectionScope="row"
+                            @isSelected={{bool}}
+                          />
+                          <HdsAdvancedTableTd>Ipsum</HdsAdvancedTableTd>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="hds-advanced-table__tbody" role="rowgroup">
-                    <div class="hds-advanced-table__tr" role="row">
-                      <HdsAdvancedTableThSelectable
-                        @selectionScope="row"
-                        @isSelected={{bool}}
-                      />
-                      <HdsAdvancedTableTd>Ipsum</HdsAdvancedTableTd>
-                    </div>
-                  </div>
-                </div>
-              </SF.Item>
+                  </SF.Item>
+                {{/each}}
+              {{/let}}
             {{/each}}
           {{/let}}
         </ShwFlex>
@@ -1279,6 +1432,87 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
         </div>
       </:theming>
     </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="ThContextMenu">
+      <:theming>
+        <HdsAdvancedTableThContextMenu
+          {{! @glint-ignore }}
+          @column={{(hash key="lorem" label="Lorem")}}
+          @isFirstColumn={{false}}
+          @isFirstNonStickyColumn={{true}}
+          @isLastColumn={{false}}
+          @hasResizableColumns={{true}}
+          mock-state-value="focus"
+          mock-state-selector="button"
+        />
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Td">
+      <:theming>
+        <div
+          class="hds-advanced-table hds-advanced-table--density-medium shw-component-table-container"
+          role="grid"
+          {{style gridTemplateColumns="1fr"}}
+        >
+          <div class="hds-advanced-table__thead" role="rowgroup">
+            <div class="hds-advanced-table__tr" role="row">
+              <HdsAdvancedTableTh
+                @isExpandable={{false}}
+                @hasExpandAllButton={{false}}
+              >Lorem ipsum</HdsAdvancedTableTh>
+            </div>
+          </div>
+          <div class="hds-advanced-table__tbody" role="rowgroup">
+            <div
+              class="hds-advanced-table__tr hds-advanced-table__tr--last-row"
+              role="row"
+            >
+              <HdsAdvancedTableTd mock-state-value="focus">Dolor sit amet</HdsAdvancedTableTd>
+            </div>
+          </div>
+        </div>
+
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH4 @tag="h3">Tabs</ShwTextH4>
+    {{#each TABS_SIZES as |size|}}
+      <ShwCarbonizationComparisonGrid
+        @label={{capitalize size}}
+        @layout="column-stacked"
+      >
+        <:theming>
+          <HdsTabs @size={{size}} as |T|>
+            <T.Tab>Lorem</T.Tab>
+            <T.Tab
+              @isSelected={{true}}
+              mock-state-value="focus"
+              mock-state-selector="button"
+            >Ipsum</T.Tab>
+            <T.Tab>Dolor</T.Tab>
+            <T.Panel />
+            <T.Panel />
+            <T.Panel />
+          </HdsTabs>
+          <br />
+          <HdsTabs @size={{size}} as |T|>
+            <T.Tab>Lorem</T.Tab>
+            <T.Tab
+              @isSelected={{true}}
+              @icon="hexagon"
+              @count="10"
+              mock-state-value="focus"
+              mock-state-selector="button"
+            >Ipsum</T.Tab>
+            <T.Tab>Dolor</T.Tab>
+            <T.Panel />
+            <T.Panel />
+            <T.Panel />
+          </HdsTabs>
+        </:theming>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider @level={{2}} />
 
@@ -1286,14 +1520,56 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
     {{#each TAG_COLORS as |color|}}
       <ShwCarbonizationComparisonGrid @label={{capitalize color}}>
         <:theming>
-          <HdsTag
-            @color={{color}}
-            @href="#"
-            @text="My link tag"
-            @onDismiss={{NOOP}}
-            mock-state-value="focus"
-            mock-state-selector="button"
-          />
+          <ShwFlex @direction="column" as |SF|>
+            <SF.Item>
+              <HdsTag
+                @color={{color}}
+                @text="My link tag"
+                @href="#"
+                mock-state-value="focus"
+                mock-state-selector="a"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsTag
+                @color={{color}}
+                @href="#"
+                @text="My link tag"
+                @onDismiss={{NOOP}}
+                mock-state-value="focus"
+                mock-state-selector="button"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsTag
+                @color={{color}}
+                @href="#"
+                @text="My link tag"
+                @onDismiss={{NOOP}}
+                mock-state-value="focus"
+                mock-state-selector="a"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsTag
+                @text="This is a very long text that should go on multiple lines"
+                @tooltipPlacement="bottom"
+                mock-state-value="focus"
+                mock-state-selector="button"
+                mock-state-delay="200"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsTag
+                @text="This is a very long text that should go on multiple lines"
+                @tooltipPlacement="bottom"
+                @onDismiss={{NOOP}}
+                mock-state-value="focus"
+                mock-state-selector=".hds-tooltip-button"
+                mock-state-delay="200"
+              />
+            </SF.Item>
+          </ShwFlex>
         </:theming>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
