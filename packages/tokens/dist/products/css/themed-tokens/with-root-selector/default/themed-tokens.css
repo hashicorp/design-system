@@ -139,8 +139,8 @@
   --token-code-block-button-surface-color-active: #2b303c;
   --token-code-block-button-surface-color-default: var(--token-code-block-surface-color-faint);
   --token-code-block-button-surface-color-hover: var(--token-code-block-surface-color-primary);
-  --token-code-block-focus-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #2b89ff;
   --token-code-block-foreground-color-faint: #b2b6bd;
   --token-code-block-foreground-color-primary: #d5d7db;

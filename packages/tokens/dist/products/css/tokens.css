@@ -393,8 +393,8 @@
   --token-code-block-surface-color-selection: #86ff13;
   --token-code-block-border-color-strong: rgba(178, 182, 189, 0.4);
   --token-code-block-border-color-primary: rgba(178, 182, 189, 0.2);
-  --token-code-block-focus-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-typography-font-size: 0.8125rem;
   --token-code-block-button-surface-color-default: #15181e;
   --token-code-block-button-surface-color-hover: #0d0e12;

@@ -12067,7 +12067,7 @@
     ]
   },
   {
-    "key": "{code-block.focus.color.action-internal}",
+    "key": "{code-block.focus-ring.color.action-internal}",
     "$type": "color",
     "$value": "#9bc7fd",
     "comment": "TODO: Remove once global tokens for dark themes are implemented",
@@ -12089,21 +12089,21 @@
         "cds-g90": "{carbon.themes.g90.focusInset}",
         "cds-g100": "{carbon.themes.g100.focusInset}"
       },
-      "key": "{code-block.focus.color.action-internal}"
+      "key": "{code-block.focus-ring.color.action-internal}"
     },
-    "name": "token-code-block-focus-color-action-internal",
+    "name": "token-code-block-focus-ring-color-action-internal",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "focus",
+      "focus-ring",
       "color",
       "action-internal"
     ]
   },
   {
-    "key": "{code-block.focus.color.action-external}",
+    "key": "{code-block.focus-ring.color.action-external}",
     "$type": "color",
     "$value": "#0d69f2",
     "comment": "TODO: Remove once global tokens for dark themes are implemented",
@@ -12125,15 +12125,15 @@
         "cds-g90": "{carbon.themes.g90.focus}",
         "cds-g100": "{carbon.themes.g100.focus}"
       },
-      "key": "{code-block.focus.color.action-external}"
+      "key": "{code-block.focus-ring.color.action-external}"
     },
-    "name": "token-code-block-focus-color-action-external",
+    "name": "token-code-block-focus-ring-color-action-external",
     "attributes": {
       "category": "code-block"
     },
     "path": [
       "code-block",
-      "focus",
+      "focus-ring",
       "color",
       "action-external"
     ]

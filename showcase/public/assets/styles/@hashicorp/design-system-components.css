@@ -397,8 +397,8 @@
   --token-code-block-surface-color-selection: #86ff13;
   --token-code-block-border-color-strong: rgba(178, 182, 189, 0.4);
   --token-code-block-border-color-primary: rgba(178, 182, 189, 0.2);
-  --token-code-block-focus-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-typography-font-size: 0.8125rem;
   --token-code-block-button-surface-color-default: #15181e;
   --token-code-block-button-surface-color-hover: #0d0e12;
@@ -4353,13 +4353,13 @@ button.hds-button[href]::after {
 .hds-code-block__copy-button.hds-copy-button:focus-visible {
   color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-default);
-  border-color: var(--token-code-block-focus-color-action-internal);
+  border-color: var(--token-code-block-focus-ring-color-action-internal);
 }
 .hds-code-block__height-toggle-button:focus::before, .hds-code-block__height-toggle-button.mock-focus::before, .hds-code-block__height-toggle-button:focus-visible::before,
 .hds-code-block__copy-button.hds-copy-button:focus::before,
 .hds-code-block__copy-button.hds-copy-button.mock-focus::before,
 .hds-code-block__copy-button.hds-copy-button:focus-visible::before {
-  border-color: var(--token-code-block-focus-color-action-external);
+  border-color: var(--token-code-block-focus-ring-color-action-external);
 }
 .hds-code-block__height-toggle-button .hds-icon,
 .hds-code-block__copy-button.hds-copy-button .hds-icon {
@@ -4595,10 +4595,10 @@ button.hds-button[href]::after {
 }
 .hds-code-editor .hds-button:focus, .hds-code-editor .hds-button.mock-focus, .hds-code-editor .hds-button:hover, .hds-code-editor .hds-button.mock-hover {
   background-color: var(--token-code-block-button-surface-color-hover);
-  border-color: var(--token-code-block-focus-color-action-internal);
+  border-color: var(--token-code-block-focus-ring-color-action-internal);
 }
 .hds-code-editor .hds-button:focus::before, .hds-code-editor .hds-button.mock-focus::before, .hds-code-editor .hds-button:hover::before, .hds-code-editor .hds-button.mock-hover::before {
-  border-color: var(--token-code-block-focus-color-action-external);
+  border-color: var(--token-code-block-focus-ring-color-action-external);
 }
 .hds-code-editor .hds-button:focus .hds-button__icon, .hds-code-editor .hds-button.mock-focus .hds-button__icon, .hds-code-editor .hds-button:hover .hds-button__icon, .hds-code-editor .hds-button.mock-hover .hds-button__icon {
   color: var(--token-code-block-foreground-color-primary);
