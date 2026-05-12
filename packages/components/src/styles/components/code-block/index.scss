@@ -187,10 +187,10 @@ $hds-code-block-code-footer-height: 48px;
   &:focus-visible {
     color: var(--token-code-block-foreground-color-primary);
     background-color: var(--token-code-block-button-surface-color-default);
-    border-color: var(--token-code-block-focus-color-action-internal);
+    border-color: var(--token-code-block-focus-ring-color-action-internal);
 
     &::before {
-      border-color: var(--token-code-block-focus-color-action-external);
+      border-color: var(--token-code-block-focus-ring-color-action-external);
     }
   }
 
