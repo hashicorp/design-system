@@ -43,11 +43,12 @@
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-surface-color);
+    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
+      var(--token-app-side-nav-wrapper-surface-color);
     content: "";
 
     @include hds-apply-only-if-carbon() {
-      content: none;
+      top: -1px;
     }
   }
 
@@ -61,12 +62,13 @@
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-surface-color);
+    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
+      var(--token-app-side-nav-wrapper-surface-color);
     transform: scaleY(-1); // rotate so same clip path can be used
     content: "";
 
     @include hds-apply-only-if-carbon() {
-      content: none;
+      bottom: -1px;
     }
   }
 
