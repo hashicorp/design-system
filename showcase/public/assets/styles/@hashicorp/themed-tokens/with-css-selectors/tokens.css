@@ -25,7 +25,6 @@
   --token-alert-inline-border-left-width: 3px;
   --token-alert-inline-padding-horizontal: 13px;
   --token-alert-inline-padding-vertical: 15px;
-  --token-alert-page-padding-right: 14px;
   --token-alert-page-padding-vertical: 15px;
   --token-alert-surface-color-critical: #fff1f1;
   --token-alert-surface-color-highlight: #edf5ff;
@@ -525,7 +524,6 @@
     --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-right: 14px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #fff1f1;
     --token-alert-surface-color-highlight: #edf5ff;
@@ -1031,7 +1029,6 @@
     --token-alert-inline-border-left-width: 3px;
     --token-alert-inline-padding-horizontal: 13px;
     --token-alert-inline-padding-vertical: 15px;
-    --token-alert-page-padding-right: 14px;
     --token-alert-page-padding-vertical: 15px;
     --token-alert-surface-color-critical: #262626;
     --token-alert-surface-color-highlight: #262626;
@@ -1541,7 +1538,6 @@
   --token-alert-inline-border-left-width: 3px;
   --token-alert-inline-padding-horizontal: 13px;
   --token-alert-inline-padding-vertical: 15px;
-  --token-alert-page-padding-right: 14px;
   --token-alert-page-padding-vertical: 15px;
   --token-alert-surface-color-critical: #fff1f1;
   --token-alert-surface-color-highlight: #edf5ff;
@@ -2040,7 +2036,6 @@
   --token-alert-inline-border-left-width: 3px;
   --token-alert-inline-padding-horizontal: 13px;
   --token-alert-inline-padding-vertical: 15px;
-  --token-alert-page-padding-right: 14px;
   --token-alert-page-padding-vertical: 15px;
   --token-alert-surface-color-critical: #262626;
   --token-alert-surface-color-highlight: #262626;
@@ -2539,7 +2534,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
 .hds-theme-system,
 .hds-theme-light,
 .hds-theme-dark {
-  --token-alert-page-padding-left: 48px;
+  --token-alert-page-padding-horizontal: 48px;
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;

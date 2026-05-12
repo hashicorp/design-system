@@ -228,8 +228,7 @@
   --token-alert-icon-color-critical: #c00005;
   --token-alert-icon-margin-right: 12px;
   --token-alert-page-padding-vertical: 16px;
-  --token-alert-page-padding-left: 48px;
-  --token-alert-page-padding-right: 48px;
+  --token-alert-page-padding-horizontal: 48px;
   --token-alert-inline-padding-vertical: 16px;
   --token-alert-inline-padding-horizontal: 16px;
   --token-alert-inline-border-left-width: 1px;
@@ -2134,7 +2133,7 @@
 }
 
 .hds-alert--type-page {
-  padding: var(--token-alert-page-padding-vertical) var(--token-alert-page-padding-right) var(--token-alert-page-padding-vertical) var(--token-alert-page-padding-left);
+  padding: var(--token-alert-page-padding-vertical) var(--token-alert-page-padding-horizontal);
   border-width: 1px;
   border-bottom-style: solid;
 }
@@ -2142,7 +2141,7 @@
 .hds-mode-cds-g10 .hds-alert--type-page .hds-alert__dismiss,
 .hds-mode-cds-g90 .hds-alert--type-page .hds-alert__dismiss,
 .hds-mode-cds-g100 .hds-alert--type-page .hds-alert__dismiss {
-  margin: calc(-1 * var(--token-alert-page-padding-vertical)) -16px 0 var(--token-alert-dismiss-margin-left);
+  margin: calc(-1 * var(--token-alert-page-padding-vertical)) calc(-1 * var(--token-alert-page-padding-horizontal)) 0 var(--token-alert-dismiss-margin-left);
 }
 
 .hds-alert--type-inline {

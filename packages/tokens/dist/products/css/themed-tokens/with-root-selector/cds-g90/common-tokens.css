@@ -3,7 +3,7 @@
  */
 
 :root {
-  --token-alert-page-padding-left: 48px;
+  --token-alert-page-padding-horizontal: 48px;
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
