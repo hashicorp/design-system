@@ -11,13 +11,10 @@ import {
   type ComponentCatalog,
   type ComponentCatalogComponent,
 } from './component-catalog-schema.js';
-
-const normalizeName = (value: string): string => {
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/^hds[-:\s]*/u, '');
-};
+import {
+  getLookupKeys,
+  normalizeComponentName,
+} from './component-catalog-utils.js';
 
 const require = createRequire(import.meta.url);
 
@@ -27,12 +24,12 @@ const getManifestPath = (): string => {
   );
 };
 
-const getLookupKeys = (component: ComponentCatalogComponent): string[] => {
-  return [normalizeName(component.name), normalizeName(component.slug)];
-};
-
 export type ComponentCatalogStore = {
   catalog: ComponentCatalog;
+  getManifestMeta: () => {
+    generatedAt: string | null;
+    componentCount: number;
+  };
   listComponents: () => Array<{
     name: string;
     slug: string;
@@ -57,6 +54,12 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
 
   return {
     catalog,
+    getManifestMeta: () => {
+      return {
+        generatedAt: catalog.generatedAt ?? null,
+        componentCount: catalog.components.length,
+      };
+    },
     listComponents: () => {
       return catalog.components.map(({ name, slug, summary }) => ({
         name,
@@ -65,7 +68,7 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
       }));
     },
     getComponentContext: (nameOrSlug: string) => {
-      const normalizedInput = normalizeName(nameOrSlug);
+      const normalizedInput = normalizeComponentName(nameOrSlug);
       return componentLookup.get(normalizedInput) ?? null;
     },
   };

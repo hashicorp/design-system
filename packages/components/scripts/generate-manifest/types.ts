@@ -44,7 +44,9 @@ export type CatalogApiSection = {
 };
 
 export type CatalogApi = {
-  sections: CatalogApiSection[];
+  arguments?: CatalogApiProperty[];
+  blocks?: CatalogApiProperty[];
+  contextualComponents?: CatalogApiProperty[];
 };
 
 export type CatalogApiDoc = {
@@ -61,7 +63,6 @@ export type CatalogComponent = {
 };
 
 export type Catalog = {
-  version: string;
   generatedAt: string;
   components: CatalogComponent[];
 };

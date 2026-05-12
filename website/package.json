@@ -36,7 +36,8 @@
     "algolia:index": "node docs-scraper/index-website-content.mjs",
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
     "test:ember": "pnpm build:packages && ember test",
-    "test:ember-a11y": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ember test --server"
+    "test:ember-a11y": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ember test --server",
+    "test:node": "node --test ./tests/node/**/*.js"
   },
   "devDependencies": {
     "@algolia/autocomplete-js": "^1.17.8",

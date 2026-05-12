@@ -8,6 +8,35 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 
 import type { ComponentCatalogStore } from '../component-catalog.js';
+import { toTextResponse, withGeneratedAt } from './utils.js';
+
+export const buildListComponentsPayload = (
+  store: ComponentCatalogStore,
+  query?: string
+) => {
+  const manifestMeta = store.getManifestMeta();
+  const components = store.listComponents();
+
+  let filteredComponents = components;
+
+  if (query !== undefined) {
+    const normalizedQuery = query.trim().toLowerCase();
+    filteredComponents = components.filter((component) => {
+      return (
+        component.name.toLowerCase().includes(normalizedQuery) ||
+        component.slug.toLowerCase().includes(normalizedQuery) ||
+        component.summary.toLowerCase().includes(normalizedQuery)
+      );
+    });
+  }
+
+  return withGeneratedAt(store, {
+    query: query ?? null,
+    totalComponentCount: manifestMeta.componentCount,
+    componentCount: filteredComponents.length,
+    components: filteredComponents,
+  });
+};
 
 export const registerListComponentsTool = (
   server: McpServer,
@@ -24,37 +53,7 @@ export const registerListComponentsTool = (
       },
     },
     async ({ query }) => {
-      const components = store.listComponents();
-
-      let filteredComponents = components;
-
-      if (query !== undefined) {
-        const normalizedQuery = query.trim().toLowerCase();
-        filteredComponents = components.filter((component) => {
-          return (
-            component.name.toLowerCase().includes(normalizedQuery) ||
-            component.slug.toLowerCase().includes(normalizedQuery) ||
-            component.summary.toLowerCase().includes(normalizedQuery)
-          );
-        });
-      }
-
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify(
-              {
-                manifestVersion: store.catalog.version,
-                componentCount: filteredComponents.length,
-                components: filteredComponents,
-              },
-              null,
-              2
-            ),
-          },
-        ],
-      };
+      return toTextResponse(buildListComponentsPayload(store, query));
     }
   );
 };

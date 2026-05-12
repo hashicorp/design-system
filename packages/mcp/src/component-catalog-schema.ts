@@ -60,14 +60,10 @@ const catalogApiPropertySchema: z.ZodType<CatalogApiPropertyShape> = z.lazy(
     })
 );
 
-const catalogApiSectionSchema = z.object({
-  title: z.string().min(1),
-  description: z.string().optional(),
-  properties: z.array(catalogApiPropertySchema),
-});
-
 const catalogApiSchema = z.object({
-  sections: z.array(catalogApiSectionSchema),
+  arguments: z.array(catalogApiPropertySchema).optional(),
+  blocks: z.array(catalogApiPropertySchema).optional(),
+  contextualComponents: z.array(catalogApiPropertySchema).optional(),
 });
 
 const catalogComponentSchema = z.object({
@@ -82,7 +78,6 @@ const catalogComponentSchema = z.object({
 });
 
 export const componentCatalogSchema = z.object({
-  version: z.string().min(1),
   generatedAt: z.string().datetime().optional(),
   components: z.array(catalogComponentSchema),
 });

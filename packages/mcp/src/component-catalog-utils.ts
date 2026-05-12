@@ -1,0 +1,20 @@
+/**
+ * Copyright HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import type { ComponentCatalogComponent } from './component-catalog-schema.js';
+
+export const normalizeComponentName = (value: string): string => {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/^hds[-:\s]*/u, '');
+};
+
+export const getLookupKeys = (component: ComponentCatalogComponent): string[] => {
+  return [
+    normalizeComponentName(component.name),
+    normalizeComponentName(component.slug),
+  ];
+};
