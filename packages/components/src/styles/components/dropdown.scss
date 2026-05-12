@@ -347,6 +347,17 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 .hds-dropdown-list-item--variant-copy-item {
   width: 100%;
   padding: 10px 16px 12px;
+
+  @include hds-apply-only-if-carbon() {
+    // We add an outline to make the hover state visible for Carbon themes
+    // (outline is used vs. border to avoid increasing height)
+    .hds-copy-snippet--color-secondary {
+      &:hover,
+      &.mock-hover {
+        outline: 1px solid var(--token-color-border-strong);
+      }
+    }
+  }
 }
 
 // HDS::DROPDOWN::LIST-ITEM::DESCRIPTION
@@ -539,6 +550,8 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
     vertical-align: bottom; // align badge to the text baseline
   }
 }
+
+// List Item color variants
 
 .hds-dropdown-list-item--color-action {
   a,

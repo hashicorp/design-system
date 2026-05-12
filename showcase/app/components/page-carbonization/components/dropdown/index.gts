@@ -41,7 +41,7 @@ import {
   HdsFormTextInputBase,
 } from '@hashicorp/design-system-components/components';
 
-const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
+const STATES = ['default', 'hover', 'active', 'focus'];
 const GENERIC_ITEMS = ['1', '2', '3'];
 const ORGANIZATIONS = ['Organization A', 'Organization B', 'Organization C'];
 
@@ -651,18 +651,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
               <ul class="hds-dropdown__list">
                 <HdsDropdownListItemInteractive @trailingIcon="external-link">
                   Documentation
-                </HdsDropdownListItemInteractive>
-              </ul>
-            </div>
-          </SF.Item>
-          <SF.Item @label="Leading + Trailing icons">
-            <div class="hds-dropdown__content">
-              <ul class="hds-dropdown__list">
-                <HdsDropdownListItemInteractive
-                  @icon="terraform-color"
-                  @trailingIcon="external-link"
-                >
-                  Terraform
                 </HdsDropdownListItemInteractive>
               </ul>
             </div>
