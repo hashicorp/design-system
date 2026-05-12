@@ -306,8 +306,8 @@
   --token-code-block-button-surface-color-hover: var(
     --token-code-block-surface-color-primary
   );
-  --token-code-block-focus-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #2b89ff;
   --token-code-block-foreground-color-faint: #b2b6bd;
   --token-code-block-foreground-color-primary: #d5d7db;
@@ -916,8 +916,8 @@
     --token-code-block-button-surface-color-active: #c6c6c6;
     --token-code-block-button-surface-color-default: #e8e8e8;
     --token-code-block-button-surface-color-hover: #c6c6c6;
-    --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #0f62fe;
     --token-code-block-foreground-color-faint: #525252;
     --token-code-block-foreground-color-primary: #161616;
@@ -1392,8 +1392,8 @@
     --token-code-block-button-surface-color-active: #525252;
     --token-code-block-button-surface-color-default: #333333;
     --token-code-block-button-surface-color-hover: #525252;
-    --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #78a9ff;
     --token-code-block-foreground-color-faint: #c6c6c6;
     --token-code-block-foreground-color-primary: #f4f4f4;
@@ -1861,8 +1861,8 @@
   --token-code-block-button-surface-color-active: #c6c6c6;
   --token-code-block-button-surface-color-default: #e8e8e8;
   --token-code-block-button-surface-color-hover: #c6c6c6;
-  --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #0f62fe;
   --token-code-block-foreground-color-faint: #525252;
   --token-code-block-foreground-color-primary: #161616;
@@ -2325,8 +2325,8 @@
   --token-code-block-button-surface-color-active: #525252;
   --token-code-block-button-surface-color-default: #333333;
   --token-code-block-button-surface-color-hover: #525252;
-  --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #78a9ff;
   --token-code-block-foreground-color-faint: #c6c6c6;
   --token-code-block-foreground-color-primary: #f4f4f4;

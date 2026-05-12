@@ -113,9 +113,10 @@ const hdsTheme = EditorView.theme({
   '.cm-panel.cm-panel-lint ul:focus li.cm-diagnostic[aria-selected]': {
     background: 'none',
     backgroundColor: 'var(--token-code-block-surface-color-primary)',
-    border: '4px solid var(--token-code-block-focus-color-action-external)',
+    border:
+      '4px solid var(--token-code-block-focus-ring-color-action-external)',
     boxShadow:
-      'inset 0 0 0 1px var(--token-code-block-focus-color-action-internal)',
+      'inset 0 0 0 1px var(--token-code-block-focus-ring-color-action-internal)',
     color: 'var(--token-code-block-foreground-color-primary)',
   },
   '.cm-panels-bottom': {
@@ -161,8 +162,9 @@ const hdsTheme = EditorView.theme({
       color: 'var(--token-code-block-foreground-color-primary)',
     },
   [`${CLOSE_BUTTON_SELECTOR}:focus`]: {
-    borderColor: 'var(--token-code-block-focus-color-action-internal)',
-    outline: '3px solid var(--token-code-block-focus-color-action-external)',
+    borderColor: 'var(--token-code-block-focus-ring-color-action-internal)',
+    outline:
+      '3px solid var(--token-code-block-focus-ring-color-action-external)',
   },
 
   // tooltips

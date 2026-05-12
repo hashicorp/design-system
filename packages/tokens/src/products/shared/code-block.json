@@ -190,7 +190,7 @@
         }
       }
     },
-    "focus": {
+    "focus-ring": {
       "color": {
         "action-internal": {
           "$type": "color",
