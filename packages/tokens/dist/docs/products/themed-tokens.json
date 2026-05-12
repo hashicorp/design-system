@@ -21530,25 +21530,11 @@
       "$value": "0.8125rem",
       "unit": "px",
       "comment": "13px/0.8125rem",
-      "$modes": {
-        "default": "13",
-        "cds-g0": "0.875rem",
-        "cds-g10": "0.875rem",
-        "cds-g90": "0.875rem",
-        "cds-g100": "0.875rem"
-      },
       "original": {
         "$type": "font-size",
         "$value": "13",
         "unit": "px",
         "comment": "13px/0.8125rem",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
-        },
         "key": "{typography.body-100.font-size}"
       },
       "name": "token-typography-body-100-font-size",
@@ -36395,7 +36381,7 @@
       "$type": "font-size",
       "$value": "0.75rem",
       "$modes": {
-        "default": "0.875rem",
+        "default": "0.8125rem",
         "cds-g0": "0.75rem",
         "cds-g10": "0.75rem",
         "cds-g90": "0.75rem",
@@ -43444,28 +43430,14 @@
     "token-typography-body-100-font-size": {
       "key": "{typography.body-100.font-size}",
       "$type": "font-size",
-      "$value": "0.875rem",
+      "$value": "0.8125rem",
       "unit": "px",
       "comment": "13px/0.8125rem",
-      "$modes": {
-        "default": "13",
-        "cds-g0": "0.875rem",
-        "cds-g10": "0.875rem",
-        "cds-g90": "0.875rem",
-        "cds-g100": "0.875rem"
-      },
       "original": {
         "$type": "font-size",
-        "$value": "{carbon.typography.bodyCompact01.font-size}",
+        "$value": "13",
         "unit": "px",
         "comment": "13px/0.8125rem",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
-        },
         "key": "{typography.body-100.font-size}"
       },
       "name": "token-typography-body-100-font-size",
@@ -58312,7 +58284,7 @@
       "$type": "font-size",
       "$value": "0.75rem",
       "$modes": {
-        "default": "0.875rem",
+        "default": "0.8125rem",
         "cds-g0": "0.75rem",
         "cds-g10": "0.75rem",
         "cds-g90": "0.75rem",
@@ -65361,28 +65333,14 @@
     "token-typography-body-100-font-size": {
       "key": "{typography.body-100.font-size}",
       "$type": "font-size",
-      "$value": "0.875rem",
+      "$value": "0.8125rem",
       "unit": "px",
       "comment": "13px/0.8125rem",
-      "$modes": {
-        "default": "13",
-        "cds-g0": "0.875rem",
-        "cds-g10": "0.875rem",
-        "cds-g90": "0.875rem",
-        "cds-g100": "0.875rem"
-      },
       "original": {
         "$type": "font-size",
-        "$value": "{carbon.typography.bodyCompact01.font-size}",
+        "$value": "13",
         "unit": "px",
         "comment": "13px/0.8125rem",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
-        },
         "key": "{typography.body-100.font-size}"
       },
       "name": "token-typography-body-100-font-size",
@@ -80229,7 +80187,7 @@
       "$type": "font-size",
       "$value": "0.75rem",
       "$modes": {
-        "default": "0.875rem",
+        "default": "0.8125rem",
         "cds-g0": "0.75rem",
         "cds-g10": "0.75rem",
         "cds-g90": "0.75rem",
@@ -87278,28 +87236,14 @@
     "token-typography-body-100-font-size": {
       "key": "{typography.body-100.font-size}",
       "$type": "font-size",
-      "$value": "0.875rem",
+      "$value": "0.8125rem",
       "unit": "px",
       "comment": "13px/0.8125rem",
-      "$modes": {
-        "default": "13",
-        "cds-g0": "0.875rem",
-        "cds-g10": "0.875rem",
-        "cds-g90": "0.875rem",
-        "cds-g100": "0.875rem"
-      },
       "original": {
         "$type": "font-size",
-        "$value": "{carbon.typography.bodyCompact01.font-size}",
+        "$value": "13",
         "unit": "px",
         "comment": "13px/0.8125rem",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
-        },
         "key": "{typography.body-100.font-size}"
       },
       "name": "token-typography-body-100-font-size",
@@ -102146,7 +102090,7 @@
       "$type": "font-size",
       "$value": "0.75rem",
       "$modes": {
-        "default": "0.875rem",
+        "default": "0.8125rem",
         "cds-g0": "0.75rem",
         "cds-g10": "0.75rem",
         "cds-g90": "0.75rem",
@@ -109195,28 +109139,14 @@
     "token-typography-body-100-font-size": {
       "key": "{typography.body-100.font-size}",
       "$type": "font-size",
-      "$value": "0.875rem",
+      "$value": "0.8125rem",
       "unit": "px",
       "comment": "13px/0.8125rem",
-      "$modes": {
-        "default": "13",
-        "cds-g0": "0.875rem",
-        "cds-g10": "0.875rem",
-        "cds-g90": "0.875rem",
-        "cds-g100": "0.875rem"
-      },
       "original": {
         "$type": "font-size",
-        "$value": "{carbon.typography.bodyCompact01.font-size}",
+        "$value": "13",
         "unit": "px",
         "comment": "13px/0.8125rem",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
-        },
         "key": "{typography.body-100.font-size}"
       },
       "name": "token-typography-body-100-font-size",

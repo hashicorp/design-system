@@ -440,7 +440,6 @@
   --token-tooltip-padding-horizontal: 16px;
   --token-tooltip-padding-vertical: 16px;
   --token-typography-body-100-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
-  --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.28572; /** 18px */
   --token-typography-body-200-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
   --token-typography-body-200-font-size: 0.875rem; /** 14px/0.875rem */

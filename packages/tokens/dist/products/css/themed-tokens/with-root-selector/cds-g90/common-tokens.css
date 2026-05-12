@@ -212,4 +212,5 @@
   --token-tag-padding-top: 3px;
   --token-tooltip-focus-offset: -2px;
   --token-tooltip-transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+  --token-typography-body-100-font-size: 0.8125rem; /** 13px/0.8125rem */
 }

@@ -805,7 +805,6 @@
   --token-typography-body-100-font-family: var(
     --token-typography-font-stack-text
   );
-  --token-typography-body-100-font-size: 0.8125rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.3846; /** 18px */
   --token-typography-body-200-font-family: var(
     --token-typography-font-stack-text
@@ -1340,7 +1339,6 @@
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
-    --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
     --token-typography-body-100-line-height: 1.28572; /** 18px */
     --token-typography-body-200-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -1883,7 +1881,6 @@
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
-    --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
     --token-typography-body-100-line-height: 1.28572; /** 18px */
     --token-typography-body-200-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -2416,7 +2413,6 @@
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
-  --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.28572; /** 18px */
   --token-typography-body-200-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -2948,7 +2944,6 @@
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
-  --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.28572; /** 18px */
   --token-typography-body-200-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -3479,7 +3474,6 @@
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
-  --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.28572; /** 18px */
   --token-typography-body-200-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -4010,7 +4004,6 @@
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
-  --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.28572; /** 18px */
   --token-typography-body-200-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -4394,4 +4387,5 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     0.38,
     1.11
   );
+  --token-typography-body-100-font-size: 0.8125rem; /** 13px/0.8125rem */
 }
