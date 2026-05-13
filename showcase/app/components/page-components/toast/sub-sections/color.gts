@@ -7,6 +7,7 @@ import { capitalize } from '@ember/string';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
+import ShwDivider from 'showcase/components/shw/divider';
 import NOOP from 'showcase/utils/noop';
 
 import { HdsToast } from '@hashicorp/design-system-components/components';
@@ -29,6 +30,8 @@ const SubSectionColor: TemplateOnlyComponent = <template>
       </SF.Item>
     {{/each}}
   </ShwFlex>
+
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionColor;

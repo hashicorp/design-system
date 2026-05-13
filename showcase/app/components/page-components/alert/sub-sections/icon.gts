@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwGrid from 'showcase/components/shw/grid';
+import ShwDivider from 'showcase/components/shw/divider';
 
 import { HdsAlert } from '@hashicorp/design-system-components/components';
 
@@ -39,6 +40,8 @@ const SubSectionIcon: TemplateOnlyComponent = <template>
       </HdsAlert>
     </SG.Item>
   </ShwGrid>
+
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionIcon;

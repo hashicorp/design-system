@@ -10,6 +10,7 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwFlex from 'showcase/components/shw/flex';
+import ShwDivider from 'showcase/components/shw/divider';
 
 import {
   HdsAlert,
@@ -162,6 +163,8 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       </HdsAlert>
     </SG.Item>
   </ShwGrid>
+
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionContent;

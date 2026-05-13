@@ -10,6 +10,7 @@ import { capitalize } from '@ember/string';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwFlex from 'showcase/components/shw/flex';
+import ShwDivider from 'showcase/components/shw/divider';
 
 import { HdsAlert } from '@hashicorp/design-system-components/components';
 import { TYPES } from '@hashicorp/design-system-components/components/hds/alert/index';
@@ -28,6 +29,8 @@ const SubSectionType: TemplateOnlyComponent = <template>
       </SF.Item>
     </ShwFlex>
   {{/each}}
+
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionType;
