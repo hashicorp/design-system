@@ -48,6 +48,7 @@
       "systeminformation": "5.31.0",
       "undici": "6.24.0",
       "underscore": "1.13.8",
+      "yaml@1": "1.10.3",
       "yaml@2": "2.8.3"
     },
     "patchedDependencies": {
