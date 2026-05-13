@@ -9,6 +9,7 @@ import { capitalize } from '@ember/string';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwGrid from 'showcase/components/shw/grid';
+import ShwDivider from 'showcase/components/shw/divider';
 
 import { HdsAlert } from '@hashicorp/design-system-components/components';
 import {
@@ -35,6 +36,8 @@ const SubSectionColor: TemplateOnlyComponent = <template>
       {{/each}}
     {{/each}}
   </ShwGrid>
+
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionColor;

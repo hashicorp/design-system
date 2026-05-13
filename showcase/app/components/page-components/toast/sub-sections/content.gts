@@ -8,6 +8,7 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
+import ShwDivider from 'showcase/components/shw/divider';
 import NOOP from 'showcase/utils/noop';
 
 import {
@@ -110,6 +111,8 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       </ShwFlex>
     </SG.Item>
   </ShwGrid>
+
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionContent;
