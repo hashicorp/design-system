@@ -12,7 +12,7 @@ export interface ShwCarbonizationComparisonGridSignature {
     label?: string;
     hideThemeLabels?: boolean;
     hideCarbonLabels?: boolean;
-    layout?: 'row' | 'column' | 'side-by-side';
+    layout?: 'row' | 'column' | 'column-stacked' | 'side-by-side';
   };
   Blocks: {
     label: [];
