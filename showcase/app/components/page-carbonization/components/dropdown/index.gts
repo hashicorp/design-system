@@ -41,7 +41,7 @@ import {
   HdsFormTextInputBase,
 } from '@hashicorp/design-system-components/components';
 
-const STATES = ['default', 'hover', 'active', 'focus'];
+const STATES = ['default', 'hover', 'focus', 'active'];
 const GENERIC_ITEMS = ['1', '2', '3'];
 const ORGANIZATIONS = ['Organization A', 'Organization B', 'Organization C'];
 
@@ -578,7 +578,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
-    <ShwTextH3>List Item component types</ShwTextH3>
+    <ShwTextH3>All List Item component types</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -720,7 +720,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwTextH4>Badge</ShwTextH4>
+    <ShwTextH4>With Badge</ShwTextH4>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -755,7 +755,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwTextH4>Colors</ShwTextH4>
+    <ShwTextH4>Interactive Item colors</ShwTextH4>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -825,9 +825,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwTextH4>Content variations</ShwTextH4>
-
-    <ShwTextH4>States</ShwTextH4>
+    <ShwTextH4>Interactive Item states</ShwTextH4>
 
     <ShwCarbonizationComparisonGrid
       @label="with title, description, footer, & matchToggleWidth=true"

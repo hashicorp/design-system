@@ -145,10 +145,10 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
   &:disabled,
   &.mock-disabled,
-  &:disabled:focus,
-  &.mock-disabled:focus,
   &:disabled:hover,
-  &.mock-disabled:hover {
+  &.mock-disabled:hover,
+  &:disabled:focus,
+  &.mock-disabled:focus {
     @include hds-button-state-disabled();
 
     .hds-dropdown-toggle-button__badge,
@@ -248,10 +248,10 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   position: relative;
   display: flex;
   flex-direction: column;
-  width: max-content; // notice: this is important because being in a position absolute means the layout algorithm assigns a width of 0 and this impacts on the flex algorithm of the children (in some cases they don't use the full width)
+  width: max-content; // Important: in position absolute the layout algorithm assigns a width of 0 which impacts the flex algorithm of the children (in some cases they don't use the full width)
   min-width: 200px;
   max-width: 400px;
-  background-color: var(--token-dropdown-surface-color-primary); // Note: token naming & structure are subject to change
+  background-color: var(--token-dropdown-surface-color-primary);
   border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-surface-high-box-shadow);
 
@@ -500,30 +500,10 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
     button,
     a,
     input {
-      &:focus,
-      &.mock-focus,
-      &:active,
-      &.mock-active {
-        // TODO: Refactor how/where color styles are applied. Make use of tokens vs. hds-apply-only-if-carbon mixin
-        color: var(--token-dropdown-list-item-foreground-color-action-default);
-      }
-
-      &:hover,
-      &.mock-hover {
-        color: var(--token-color-foreground-primary);
-      }
-
       // Hide the side highlight border for interactive children
       &::before {
         display: none;
       }
-    }
-  }
-
-  // Selects item containing an interactive child which is hovered
-  &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
-    @include hds-apply-only-if-carbon() {
-      background-color: var(--token-dropdown-list-item-surface-color-hover);
     }
   }
 }
@@ -551,38 +531,53 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   }
 }
 
-// List Item color variants
+// Interactive List Item color variants
 
+// Action color (default)
 .hds-dropdown-list-item--color-action {
   a,
   button {
-    color: var(--token-color-foreground-primary);
+    color: var(--token-dropdown-foreground-color-action-default);
 
     // assign the values to the local CSS variables used above
-    --current-color-hover: var(--token-color-foreground-action-hover);
-    --current-color-focus: var(--token-color-foreground-action-active);
-    --current-color-active: var(--token-color-foreground-action-active);
+    --current-color-hover: var(--token-dropdown-list-item-foreground-color-action-hover);
+    --current-color-focus: var(--token-dropdown-list-item-foreground-color-action-focus);
+    --current-color-active: var(--token-dropdown-list-item-foreground-color-action-active);
 
     &::after {
       --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
     }
   }
+
+  // Selects item containing an interactive child which is hovered
+  &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
+    background-color: var(--token-dropdown-list-item-surface-color-action-hover);
+  }
 }
 
+// Critical color
 .hds-dropdown-list-item--color-critical {
   a,
   button {
-    color: var(--token-color-foreground-critical);
+    color: var(--token-dropdown-foreground-color-critical-default);
 
     // assign the values to the local CSS variables used above
-    --current-color-hover: var(--token-color-palette-red-300);
-    --current-color-focus: var(--token-color-palette-red-400);
-    --current-color-active: var(--token-color-palette-red-400);
+    --current-color-hover: var(--token-dropdown-list-item-foreground-color-critical-hover);
+    --current-color-focus: var(--token-dropdown-list-item-foreground-color-critical-focus);
+    --current-color-active: var(--token-dropdown-list-item-foreground-color-critical-active);
 
     &::after {
       --current-background-color: var(--token-color-surface-critical);
       --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
     }
+  }
+
+  // Selects item containing an interactive child which has a particular state
+  // focus, active & focus use the same colors
+  &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover),
+  &:has(button:focus, button.mock-focus, a:focus, a.mock-focus, input:focus, input.mock-focus),
+  &:has(button:active, button.mock-active, a:active, a.mock-active, input:active, input.mock-active) {
+    background-color: var(--token-dropdown-list-item-surface-color-critical-hover);
   }
 }
 
