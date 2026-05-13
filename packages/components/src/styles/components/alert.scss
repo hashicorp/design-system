@@ -141,9 +141,6 @@
   border-radius: var(--token-border-radius-medium);
 
   @include hds-apply-only-if-carbon() {
-    --token-alert-inline-border-left-color: var(
-      --token-alert-inline-border-left-color-neutral
-    ); // default value, will be overridden by color modifiers
     position: relative;
     padding-left: calc(var(--token-alert-inline-padding-horizontal) + var(--token-alert-inline-border-left-width));
     border-left-width: 0;
@@ -156,7 +153,6 @@
       left: 0;
       width: var(--token-alert-inline-border-left-width);
       height: calc(100% + 2px); // Compensate the 1px border-width of both top and bottom borders
-      background-color: var(--token-alert-inline-border-left-color);
       content: "";
     }
 
@@ -184,103 +180,28 @@
 }
 
 // COLORS (& TYPES)
+$hds-alert-colors: ("neutral", "highlight", "success", "warning", "critical");
 
-.hds-alert--color-neutral {
-  &.hds-alert--type-page,
-  &.hds-alert--type-inline {
-    background-color: var(--token-alert-surface-color-neutral);
-    border-color: var(--token-alert-border-color-neutral);
-  }
+@each $color in $hds-alert-colors {
+  .hds-alert--color-#{$color} {
+    &.hds-alert--type-page,
+    &.hds-alert--type-inline {
+      background-color: var(--token-alert-surface-color-#{$color});
+      border-color: var(--token-alert-border-color-#{$color});
+    }
 
-  .hds-alert__icon {
-    color: var(--token-alert-icon-color-neutral);
-  }
+    @include hds-apply-only-if-carbon() {
+      &.hds-alert--type-inline::before {
+        background-color: var(--token-alert-inline-border-left-color-#{$color});
+      }
+    }
 
-  .hds-alert__title {
-    color: var(--token-alert-title-foreground-color-neutral);
-  }
+    .hds-alert__icon {
+      color: var(--token-alert-icon-color-#{$color});
+    }
 
-  @include hds-apply-only-if-carbon() {
-    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-neutral);
-  }
-}
-
-.hds-alert--color-highlight {
-  &.hds-alert--type-page,
-  &.hds-alert--type-inline {
-    background-color: var(--token-alert-surface-color-highlight);
-    border-color: var(--token-alert-border-color-highlight);
-  }
-
-  .hds-alert__icon {
-    color: var(--token-alert-icon-color-highlight);
-  }
-
-  .hds-alert__title {
-    color: var(--token-alert-title-foreground-color-highlight);
-  }
-
-  @include hds-apply-only-if-carbon() {
-    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-highlight);
-  }
-}
-
-.hds-alert--color-success {
-  &.hds-alert--type-page,
-  &.hds-alert--type-inline {
-    background-color: var(--token-alert-surface-color-success);
-    border-color: var(--token-alert-border-color-success);
-  }
-
-  .hds-alert__icon {
-    color: var(--token-alert-icon-color-success);
-  }
-
-  .hds-alert__title {
-    color: var(--token-alert-title-foreground-color-success);
-  }
-
-  @include hds-apply-only-if-carbon() {
-    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-success);
-  }
-}
-
-.hds-alert--color-warning {
-  &.hds-alert--type-page,
-  &.hds-alert--type-inline {
-    background-color: var(--token-alert-surface-color-warning);
-    border-color: var(--token-alert-border-color-warning);
-  }
-
-  .hds-alert__icon {
-    color: var(--token-alert-icon-color-warning);
-  }
-
-  .hds-alert__title {
-    color: var(--token-alert-title-foreground-color-warning);
-  }
-
-  @include hds-apply-only-if-carbon() {
-    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-warning);
-  }
-}
-
-.hds-alert--color-critical {
-  &.hds-alert--type-page,
-  &.hds-alert--type-inline {
-    background-color: var(--token-alert-surface-color-critical);
-    border-color: var(--token-alert-border-color-critical);
-  }
-
-  .hds-alert__icon {
-    color: var(--token-alert-icon-color-critical);
-  }
-
-  .hds-alert__title {
-    color: var(--token-alert-title-foreground-color-critical);
-  }
-
-  @include hds-apply-only-if-carbon() {
-    --token-alert-inline-border-left-color: var(--token-alert-inline-border-left-color-critical);
+    .hds-alert__title {
+      color: var(--token-alert-title-foreground-color-#{$color});
+    }
   }
 }
