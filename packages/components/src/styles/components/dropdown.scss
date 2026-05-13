@@ -537,7 +537,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 .hds-dropdown-list-item--color-action {
   a,
   button {
-    color: var(--token-dropdown-foreground-color-action-default);
+    color: var(--token-dropdown-list-item-foreground-color-action-default);
 
     // assign the values to the local CSS variables used above
     --current-color-hover: var(--token-dropdown-list-item-foreground-color-action-hover);
@@ -559,7 +559,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 .hds-dropdown-list-item--color-critical {
   a,
   button {
-    color: var(--token-dropdown-foreground-color-critical-default);
+    color: var(--token-dropdown-list-item-foreground-color-critical-default);
 
     // assign the values to the local CSS variables used above
     --current-color-hover: var(--token-dropdown-list-item-foreground-color-critical-hover);
