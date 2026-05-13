@@ -41,14 +41,14 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <HdsCardContainer>
-          <div {{style width="200px" height="150px"}}>
+          <div {{style width="100px" height="150px"}}>
             <HdsTextBody>Card content</HdsTextBody>
           </div>
         </HdsCardContainer>
       </:theming>
       <:reference>
         <cds-tile>
-          <div {{style width="200px" height="150px"}}>
+          <div {{style width="100%" height="150px"}}>
             Card content
           </div>
         </cds-tile>
@@ -67,7 +67,6 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
               <HdsCardContainer @level={{level}}>
                 <ShwPlaceholder
                   @text={{level}}
-                  @width="200"
                   @height="100"
                   @background="transparent"
                 />
@@ -93,7 +92,6 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
               <HdsCardContainer @level={{level}} @hasBorder={{true}}>
                 <ShwPlaceholder
                   @text={{level}}
-                  @width="200"
                   @height="100"
                   @background="transparent"
                 />
@@ -119,7 +117,6 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
               <HdsCardContainer @level={{level}}>
                 <ShwPlaceholder
                   @text={{level}}
-                  @width="200"
                   @height="100"
                   @background="transparent"
                 />
@@ -141,7 +138,6 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
               <HdsCardContainer @levelHover={{level}} mock-state-value="hover">
                 <ShwPlaceholder
                   @text={{level}}
-                  @width="200"
                   @height="100"
                   @background="transparent"
                 />
@@ -166,7 +162,6 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
               >
                 <ShwPlaceholder
                   @text={{level}}
-                  @width="200"
                   @height="100"
                   @background="transparent"
                 />
@@ -193,7 +188,6 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
             >
               <ShwPlaceholder
                 @text="Lorem ipsum"
-                @width="200"
                 @height="100"
                 @background="transparent"
               />
@@ -218,7 +212,6 @@ const CardCarbonizationIndex: TemplateOnlyComponent = <template>
               <HdsCardContainer @level="mid" @background={{background}}>
                 <ShwPlaceholder
                   @text={{background}}
-                  @width="200"
                   @height="100"
                   @background="transparent"
                 />

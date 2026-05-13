@@ -61,7 +61,7 @@ export default class CodeEditorCarbonizationIndex extends Component {
 
       <ShwTextH2>Content</ShwTextH2>
 
-      <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:theming>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
@@ -104,7 +104,7 @@ export default class CodeEditorCarbonizationIndex extends Component {
 
       <ShwTextH2>Title and Description</ShwTextH2>
 
-      <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:theming>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
@@ -134,7 +134,7 @@ export default class CodeEditorCarbonizationIndex extends Component {
 
       <ShwTextH2>Copy Button</ShwTextH2>
 
-      <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:theming>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
@@ -161,7 +161,7 @@ export default class CodeEditorCarbonizationIndex extends Component {
 
       <ShwTextH2>Fullscreen Toggle</ShwTextH2>
 
-      <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:theming>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
@@ -183,7 +183,7 @@ export default class CodeEditorCarbonizationIndex extends Component {
 
       <ShwTextH2>Complex content</ShwTextH2>
 
-      <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:theming>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
@@ -219,7 +219,7 @@ export default class CodeEditorCarbonizationIndex extends Component {
 
       <ShwTextH2>Linting</ShwTextH2>
 
-      <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:theming>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>

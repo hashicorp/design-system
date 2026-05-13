@@ -119,7 +119,7 @@ export default class CopySnippetCarbonizationIndex extends Component {
 
       <ShwCarbonizationComparisonGrid @layout="side-by-side">
         <:theming>
-          <div {{style width="500px"}}>
+          <div {{style width="100%"}}>
             <HdsCopySnippet
               @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r"
               @isFullWidth={{true}}

@@ -22,7 +22,7 @@ const ApplicationStateCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="With icon and error code"
-      @layout="side-by-side"
+      @layout="column-stacked"
     >
       <:theming>
         <CodeFragmentWithActionVariants

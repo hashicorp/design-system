@@ -30,6 +30,7 @@ const DialogPrimitiveCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="Header + Description + Body + Footer"
+      @layout="column-stacked"
     >
       <:theming>
         <HdsDialogPrimitiveWrapper open>
@@ -166,7 +167,10 @@ const DialogPrimitiveCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>DialogPrimitiveFooter</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid @label="One action">
+    <ShwCarbonizationComparisonGrid
+      @label="One action"
+      @layout="column-stacked"
+    >
       <:theming>
         <div class="hds-dialog-primitive__wrapper-footer">
           <HdsDialogPrimitiveFooter>
@@ -176,7 +180,10 @@ const DialogPrimitiveCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwCarbonizationComparisonGrid @label="Two actions">
+    <ShwCarbonizationComparisonGrid
+      @label="Two actions"
+      @layout="column-stacked"
+    >
       <:theming>
         <div class="hds-dialog-primitive__wrapper-footer">
           <HdsDialogPrimitiveFooter>
@@ -189,7 +196,10 @@ const DialogPrimitiveCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwCarbonizationComparisonGrid @label="Three actions">
+    <ShwCarbonizationComparisonGrid
+      @label="Three actions"
+      @layout="column-stacked"
+    >
       <:theming>
         <div class="hds-dialog-primitive__wrapper-footer">
           <HdsDialogPrimitiveFooter>
@@ -213,7 +223,10 @@ const DialogPrimitiveCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>DialogPrimitiveOverlay</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid @label="Overlay element">
+    <ShwCarbonizationComparisonGrid
+      @label="Overlay element"
+      @layout="column-stacked"
+    >
       <:theming>
         <div class="shw-utility-dialog-primitive-overlay-container">
           <div class="shw-utility-dialog-primitive-overlay-mock-content">
