@@ -4,6 +4,70 @@
 
 :root,
 .hds-theme-default {
+  --token-alert-actions-margin-top: 16px;
+  --token-alert-border-color-critical: var(--token-color-border-critical);
+  --token-alert-border-color-highlight: var(--token-color-border-highlight);
+  --token-alert-border-color-neutral: var(--token-color-border-strong);
+  --token-alert-border-color-success: var(--token-color-border-success);
+  --token-alert-border-color-warning: var(--token-color-border-warning);
+  --token-alert-content-gap: 4px;
+  --token-alert-dismiss-margin-left: 12px;
+  --token-alert-icon-color-critical: var(
+    --token-color-foreground-critical-on-surface
+  );
+  --token-alert-icon-color-highlight: var(
+    --token-color-foreground-highlight-on-surface
+  );
+  --token-alert-icon-color-neutral: var(--token-color-foreground-faint);
+  --token-alert-icon-color-success: var(
+    --token-color-foreground-success-on-surface
+  );
+  --token-alert-icon-color-warning: var(
+    --token-color-foreground-warning-on-surface
+  );
+  --token-alert-icon-margin-right: 12px;
+  --token-alert-inline-border-left-color-critical: var(
+    --token-color-border-critical
+  );
+  --token-alert-inline-border-left-color-highlight: var(
+    --token-color-border-highlight
+  );
+  --token-alert-inline-border-left-color-neutral: var(
+    --token-color-border-strong
+  );
+  --token-alert-inline-border-left-color-success: var(
+    --token-color-border-success
+  );
+  --token-alert-inline-border-left-color-warning: var(
+    --token-color-border-warning
+  );
+  --token-alert-inline-border-left-width: 1px;
+  --token-alert-inline-padding-horizontal: 16px;
+  --token-alert-inline-padding-vertical: 16px;
+  --token-alert-page-padding-vertical: 16px;
+  --token-alert-surface-color-critical: var(--token-color-surface-critical);
+  --token-alert-surface-color-highlight: var(--token-color-surface-highlight);
+  --token-alert-surface-color-neutral: var(--token-color-surface-faint);
+  --token-alert-surface-color-success: var(--token-color-surface-success);
+  --token-alert-surface-color-warning: var(--token-color-surface-warning);
+  --token-alert-title-foreground-color-critical: var(
+    --token-color-foreground-critical-on-surface
+  );
+  --token-alert-title-foreground-color-highlight: var(
+    --token-color-foreground-highlight-on-surface
+  );
+  --token-alert-title-foreground-color-neutral: var(
+    --token-color-foreground-primary
+  );
+  --token-alert-title-foreground-color-success: var(
+    --token-color-foreground-success-on-surface
+  );
+  --token-alert-title-foreground-color-warning: var(
+    --token-color-foreground-warning-on-surface
+  );
+  --token-alert-typography-line-height: var(
+    --token-typography-body-200-line-height
+  );
   --token-app-footer-link-focus-outline-color: var(
     --token-color-focus-action-internal
   );
@@ -340,8 +404,8 @@
   --token-code-block-button-surface-color-hover: var(
     --token-code-block-surface-color-primary
   );
-  --token-code-block-focus-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #2b89ff;
   --token-code-block-foreground-color-faint: #b2b6bd;
   --token-code-block-foreground-color-primary: #d5d7db;
@@ -597,6 +661,24 @@
   );
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
+  --token-reveal-foreground-color-active: var(
+    --token-button-foreground-color-tertiary-active
+  );
+  --token-reveal-foreground-color-default: var(
+    --token-button-foreground-color-tertiary-default
+  );
+  --token-reveal-foreground-color-hover: var(
+    --token-button-foreground-color-tertiary-hover
+  );
+  --token-reveal-surface-color-active: var(
+    --token-button-surface-color-tertiary-active
+  );
+  --token-reveal-surface-color-focus: var(
+    --token-button-surface-color-tertiary-focus
+  );
+  --token-reveal-surface-color-hover: var(
+    --token-button-surface-color-tertiary-hover
+  );
   --token-rich-tooltip-bubble-arrow-size: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
@@ -795,6 +877,40 @@
 
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
+    --token-alert-actions-margin-top: 15px;
+    --token-alert-border-color-critical: #da1e2866;
+    --token-alert-border-color-highlight: #0043ce66;
+    --token-alert-border-color-neutral: #8d8d8d66;
+    --token-alert-border-color-success: #24a14866;
+    --token-alert-border-color-warning: #f1c21b66;
+    --token-alert-content-gap: 0px;
+    --token-alert-dismiss-margin-left: 14px;
+    --token-alert-icon-color-critical: #da1e28;
+    --token-alert-icon-color-highlight: #0043ce;
+    --token-alert-icon-color-neutral: #6f6f6f;
+    --token-alert-icon-color-success: #24a148;
+    --token-alert-icon-color-warning: #f1c21b;
+    --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-border-left-color-critical: #da1e28;
+    --token-alert-inline-border-left-color-highlight: #0043ce;
+    --token-alert-inline-border-left-color-neutral: #6f6f6f;
+    --token-alert-inline-border-left-color-success: #24a148;
+    --token-alert-inline-border-left-color-warning: #f1c21b;
+    --token-alert-inline-border-left-width: 3px;
+    --token-alert-inline-padding-horizontal: 13px;
+    --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-vertical: 15px;
+    --token-alert-surface-color-critical: #fff1f1;
+    --token-alert-surface-color-highlight: #edf5ff;
+    --token-alert-surface-color-neutral: #f4f4f4;
+    --token-alert-surface-color-success: #defbe6;
+    --token-alert-surface-color-warning: #fcf4d6;
+    --token-alert-title-foreground-color-critical: #161616;
+    --token-alert-title-foreground-color-highlight: #161616;
+    --token-alert-title-foreground-color-neutral: #161616;
+    --token-alert-title-foreground-color-success: #161616;
+    --token-alert-title-foreground-color-warning: #161616;
+    --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #0f62fe;
     --token-app-side-nav-body-list-item-border-radius: 0px;
     --token-app-side-nav-body-list-item-foreground-color-default: #525252;
@@ -965,8 +1081,8 @@
     --token-code-block-button-surface-color-active: #c6c6c6;
     --token-code-block-button-surface-color-default: #e8e8e8;
     --token-code-block-button-surface-color-hover: #c6c6c6;
-    --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #0f62fe;
     --token-code-block-foreground-color-faint: #525252;
     --token-code-block-foreground-color-primary: #161616;
@@ -1147,6 +1263,12 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-reveal-foreground-color-active: #0043ce;
+    --token-reveal-foreground-color-default: #0f62fe;
+    --token-reveal-foreground-color-hover: #0043ce;
+    --token-reveal-surface-color-active: rgba(141, 141, 141, 0.5);
+    --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
+    --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1293,6 +1415,40 @@
 
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
+    --token-alert-actions-margin-top: 15px;
+    --token-alert-border-color-critical: #da1e2866;
+    --token-alert-border-color-highlight: #0043ce66;
+    --token-alert-border-color-neutral: #8d8d8d66;
+    --token-alert-border-color-success: #24a14866;
+    --token-alert-border-color-warning: #f1c21b66;
+    --token-alert-content-gap: 0px;
+    --token-alert-dismiss-margin-left: 14px;
+    --token-alert-icon-color-critical: #fa4d56;
+    --token-alert-icon-color-highlight: #4589ff;
+    --token-alert-icon-color-neutral: #8d8d8d;
+    --token-alert-icon-color-success: #42be65;
+    --token-alert-icon-color-warning: #f1c21b;
+    --token-alert-icon-margin-right: 16px;
+    --token-alert-inline-border-left-color-critical: #fa4d56;
+    --token-alert-inline-border-left-color-highlight: #4589ff;
+    --token-alert-inline-border-left-color-neutral: #8d8d8d;
+    --token-alert-inline-border-left-color-success: #42be65;
+    --token-alert-inline-border-left-color-warning: #f1c21b;
+    --token-alert-inline-border-left-width: 3px;
+    --token-alert-inline-padding-horizontal: 13px;
+    --token-alert-inline-padding-vertical: 15px;
+    --token-alert-page-padding-vertical: 15px;
+    --token-alert-surface-color-critical: #262626;
+    --token-alert-surface-color-highlight: #262626;
+    --token-alert-surface-color-neutral: #262626;
+    --token-alert-surface-color-success: #262626;
+    --token-alert-surface-color-warning: #262626;
+    --token-alert-title-foreground-color-critical: #f4f4f4;
+    --token-alert-title-foreground-color-highlight: #f4f4f4;
+    --token-alert-title-foreground-color-neutral: #f4f4f4;
+    --token-alert-title-foreground-color-success: #f4f4f4;
+    --token-alert-title-foreground-color-warning: #f4f4f4;
+    --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #ffffff;
     --token-app-side-nav-body-list-item-border-radius: 0px;
     --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
@@ -1468,8 +1624,8 @@
     --token-code-block-button-surface-color-active: #525252;
     --token-code-block-button-surface-color-default: #333333;
     --token-code-block-button-surface-color-hover: #525252;
-    --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
-    --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+    --token-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
     --token-code-block-foreground-color-action: #78a9ff;
     --token-code-block-foreground-color-faint: #c6c6c6;
     --token-code-block-foreground-color-primary: #f4f4f4;
@@ -1650,6 +1806,12 @@
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-reveal-foreground-color-active: #a6c8ff;
+    --token-reveal-foreground-color-default: #78a9ff;
+    --token-reveal-foreground-color-hover: #a6c8ff;
+    --token-reveal-surface-color-active: rgba(141, 141, 141, 0.4);
+    --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
+    --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1795,6 +1957,40 @@
 }
 
 .hds-theme-light {
+  --token-alert-actions-margin-top: 15px;
+  --token-alert-border-color-critical: #da1e2866;
+  --token-alert-border-color-highlight: #0043ce66;
+  --token-alert-border-color-neutral: #8d8d8d66;
+  --token-alert-border-color-success: #24a14866;
+  --token-alert-border-color-warning: #f1c21b66;
+  --token-alert-content-gap: 0px;
+  --token-alert-dismiss-margin-left: 14px;
+  --token-alert-icon-color-critical: #da1e28;
+  --token-alert-icon-color-highlight: #0043ce;
+  --token-alert-icon-color-neutral: #6f6f6f;
+  --token-alert-icon-color-success: #24a148;
+  --token-alert-icon-color-warning: #f1c21b;
+  --token-alert-icon-margin-right: 16px;
+  --token-alert-inline-border-left-color-critical: #da1e28;
+  --token-alert-inline-border-left-color-highlight: #0043ce;
+  --token-alert-inline-border-left-color-neutral: #6f6f6f;
+  --token-alert-inline-border-left-color-success: #24a148;
+  --token-alert-inline-border-left-color-warning: #f1c21b;
+  --token-alert-inline-border-left-width: 3px;
+  --token-alert-inline-padding-horizontal: 13px;
+  --token-alert-inline-padding-vertical: 15px;
+  --token-alert-page-padding-vertical: 15px;
+  --token-alert-surface-color-critical: #fff1f1;
+  --token-alert-surface-color-highlight: #edf5ff;
+  --token-alert-surface-color-neutral: #f4f4f4;
+  --token-alert-surface-color-success: #defbe6;
+  --token-alert-surface-color-warning: #fcf4d6;
+  --token-alert-title-foreground-color-critical: #161616;
+  --token-alert-title-foreground-color-highlight: #161616;
+  --token-alert-title-foreground-color-neutral: #161616;
+  --token-alert-title-foreground-color-success: #161616;
+  --token-alert-title-foreground-color-warning: #161616;
+  --token-alert-typography-line-height: 1.28572;
   --token-app-footer-link-focus-outline-color: #0f62fe;
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #525252;
@@ -1964,8 +2160,8 @@
   --token-code-block-button-surface-color-active: #c6c6c6;
   --token-code-block-button-surface-color-default: #e8e8e8;
   --token-code-block-button-surface-color-hover: #c6c6c6;
-  --token-code-block-focus-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #0f62fe;
   --token-code-block-foreground-color-faint: #525252;
   --token-code-block-foreground-color-primary: #161616;
@@ -2142,6 +2338,12 @@
   --token-pagination-nav-control-typography-font-weight-active: 600;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --token-reveal-foreground-color-active: #0043ce;
+  --token-reveal-foreground-color-default: #0f62fe;
+  --token-reveal-foreground-color-hover: #0043ce;
+  --token-reveal-surface-color-active: rgba(141, 141, 141, 0.5);
+  --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
+  --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -2286,6 +2488,40 @@
 }
 
 .hds-theme-dark {
+  --token-alert-actions-margin-top: 15px;
+  --token-alert-border-color-critical: #da1e2866;
+  --token-alert-border-color-highlight: #0043ce66;
+  --token-alert-border-color-neutral: #8d8d8d66;
+  --token-alert-border-color-success: #24a14866;
+  --token-alert-border-color-warning: #f1c21b66;
+  --token-alert-content-gap: 0px;
+  --token-alert-dismiss-margin-left: 14px;
+  --token-alert-icon-color-critical: #fa4d56;
+  --token-alert-icon-color-highlight: #4589ff;
+  --token-alert-icon-color-neutral: #8d8d8d;
+  --token-alert-icon-color-success: #42be65;
+  --token-alert-icon-color-warning: #f1c21b;
+  --token-alert-icon-margin-right: 16px;
+  --token-alert-inline-border-left-color-critical: #fa4d56;
+  --token-alert-inline-border-left-color-highlight: #4589ff;
+  --token-alert-inline-border-left-color-neutral: #8d8d8d;
+  --token-alert-inline-border-left-color-success: #42be65;
+  --token-alert-inline-border-left-color-warning: #f1c21b;
+  --token-alert-inline-border-left-width: 3px;
+  --token-alert-inline-padding-horizontal: 13px;
+  --token-alert-inline-padding-vertical: 15px;
+  --token-alert-page-padding-vertical: 15px;
+  --token-alert-surface-color-critical: #262626;
+  --token-alert-surface-color-highlight: #262626;
+  --token-alert-surface-color-neutral: #262626;
+  --token-alert-surface-color-success: #262626;
+  --token-alert-surface-color-warning: #262626;
+  --token-alert-title-foreground-color-critical: #f4f4f4;
+  --token-alert-title-foreground-color-highlight: #f4f4f4;
+  --token-alert-title-foreground-color-neutral: #f4f4f4;
+  --token-alert-title-foreground-color-success: #f4f4f4;
+  --token-alert-title-foreground-color-warning: #f4f4f4;
+  --token-alert-typography-line-height: 1.28572;
   --token-app-footer-link-focus-outline-color: #ffffff;
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
@@ -2455,8 +2691,8 @@
   --token-code-block-button-surface-color-active: #525252;
   --token-code-block-button-surface-color-default: #333333;
   --token-code-block-button-surface-color-hover: #525252;
-  --token-code-block-focus-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-code-block-focus-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #78a9ff;
   --token-code-block-foreground-color-faint: #c6c6c6;
   --token-code-block-foreground-color-primary: #f4f4f4;
@@ -2633,6 +2869,12 @@
   --token-pagination-nav-control-typography-font-weight-active: 600;
   --token-pagination-nav-indicator-height: 4px;
   --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --token-reveal-foreground-color-active: #a6c8ff;
+  --token-reveal-foreground-color-default: #78a9ff;
+  --token-reveal-foreground-color-hover: #a6c8ff;
+  --token-reveal-surface-color-active: rgba(141, 141, 141, 0.4);
+  --token-reveal-surface-color-focus: rgba(0, 0, 0, 0);
+  --token-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -2800,6 +3042,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
 .hds-theme-system,
 .hds-theme-light,
 .hds-theme-dark {
+  --token-alert-page-padding-horizontal: 48px;
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
