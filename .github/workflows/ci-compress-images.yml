@@ -7,6 +7,12 @@ on:
 env:
   NODE_VERSION: "24.x"
 
+# peter-evans/create-pull-request uses secrets.PAT_TOKEN to open the
+# compression PR; default GITHUB_TOKEN only needs read for the checkout +
+# calibre/image-actions report.
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Compress Images & Open PR

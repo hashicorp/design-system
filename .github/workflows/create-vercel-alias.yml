@@ -6,6 +6,10 @@ on:
 env:
   NODE_VERSION: "24.x"
 
+# Vercel aliasing uses VERCEL_TOKEN; default GITHUB_TOKEN only needs read.
+permissions:
+  contents: read
+
 jobs:
   create-vercel-alias:
     name: "Create Vercel Alias"

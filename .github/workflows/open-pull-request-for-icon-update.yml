@@ -6,6 +6,10 @@ on:
 env:
   NODE_VERSION: "24.x"
 
+# peter-evans/create-pull-request opens the icon-update PR via PAT_TOKEN.
+permissions:
+  contents: read
+
 jobs:
   sync_iconset:
     runs-on: ubuntu-latest

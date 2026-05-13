@@ -8,6 +8,10 @@ on:
 env:
   NODE_VERSION: "24.x"
 
+# changesets/action and pnpm release-packages use PAT_TOKEN + NPM_TOKEN.
+permissions:
+  contents: read
+
 jobs:
   release:
     name: Release

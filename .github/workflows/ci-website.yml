@@ -13,6 +13,9 @@ concurrency:
   group: ci-website-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   conditional-skip:
     runs-on: ubuntu-latest
