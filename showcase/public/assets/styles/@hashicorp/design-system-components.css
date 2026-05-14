@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
@@ -700,7 +700,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
@@ -1063,6 +1063,10 @@
   padding: 0;
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
 #ember-a11y-refocus-nav-message {
   position: absolute;
   width: 1px;
@@ -1092,7 +1096,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
@@ -1333,7 +1337,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-advanced-table__container {
@@ -1439,10 +1443,17 @@
 .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.hds-advanced-table__th--is-being-dragged .hds-advanced-table__th-reorder-handle {
   opacity: 0;
 }
+.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th--is-sticky-column ~ .hds-advanced-table__th:not(.hds-advanced-table__th--is-sticky-column) {
+  z-index: 0;
+}
+.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th--is-sticky-column ~ .hds-advanced-table__th:not(.hds-advanced-table__th--is-sticky-column):has(.hds-advanced-table__th-reorder-drop-target--is-dragging-over) {
+  z-index: 1;
+}
 .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-reorder-drop-target {
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
   z-index: 1;
 }
@@ -1892,18 +1903,20 @@
 .hds-advanced-table--density-tall .hds-advanced-table__tbody .hds-advanced-table__td {
   padding: 22px 16px 21px 16px;
 }
-.hds-advanced-table__tbody .hds-advanced-table__th--is-sticky-column {
+.hds-advanced-table--has-sticky-first-column .hds-advanced-table__tbody .hds-advanced-table__tr > :first-child,
+.hds-advanced-table--has-sticky-first-column .hds-advanced-table__tbody .hds-advanced-table__tr > .hds-advanced-table__th--is-selectable + * {
   position: sticky;
-  z-index: 3;
+  z-index: 4;
 }
-.hds-advanced-table__tbody .hds-advanced-table__th--is-sticky-column-pinned:first-of-type {
+.hds-advanced-table--has-sticky-first-column .hds-advanced-table__tbody .hds-advanced-table__tr > :first-child:not(.hds-advanced-table__th--is-selectable),
+.hds-advanced-table--has-sticky-first-column .hds-advanced-table__tbody .hds-advanced-table__tr > .hds-advanced-table__th--is-selectable + *:not(.hds-advanced-table__th--is-selectable) {
+  border-right: 3px solid var(--token-color-border-primary);
+}
+.hds-advanced-table--sticky-first-column-pinned .hds-advanced-table__tbody .hds-advanced-table__tr > :first-child {
   left: -1px;
   border-left: calc(1px + 1px) solid var(--token-color-border-primary);
 }
-.hds-advanced-table__tbody .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
-  border-right: 3px solid var(--token-color-border-primary);
-}
-.hds-advanced-table__tbody .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
+.hds-advanced-table--sticky-first-column-pinned .hds-advanced-table__tbody .hds-advanced-table__tr > .hds-advanced-table__th--is-selectable + * {
   left: var(--hds-advanced-table-sticky-column-offset, 0);
   border-left-width: 1px;
 }
@@ -2464,7 +2477,7 @@
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
@@ -2472,7 +2485,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-header {
@@ -2728,7 +2741,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 :root {
@@ -2830,7 +2843,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-side-nav__content {
@@ -3408,7 +3421,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-breadcrumb {
@@ -4137,7 +4150,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
@@ -4632,7 +4645,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-code-editor {
@@ -5856,7 +5869,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-filter-bar {
@@ -6074,7 +6087,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-flyout {
@@ -8009,7 +8022,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-layout-grid {
