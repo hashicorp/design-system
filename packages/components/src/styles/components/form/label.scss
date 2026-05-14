@@ -7,11 +7,21 @@
 // FORM > LABEL
 //
 
+@use "../../mixins/carbonization" as *;
+
 .hds-form-label {
   display: block;
   width: max-content; // to avoid it extends the full width of the parent container, leading to invisible interactive area
   max-width: 100%;
   color: var(--token-form-label-color);
+  font-weight: var(--token-typography-font-weight-semibold);
+  font-size: var(--token-form-label-font-size);
+  font-family: var(--token-typography-body-200-font-family);
+  line-height: var(--token-typography-body-200-line-height);
+
+  @include hds-apply-only-if-carbon() {
+    font-weight: 400;
+  }
 
   // if a "badge" element (included the 'required' indicator) is child of the label
   // we need to make sure that it correctly aligns with the label text because the

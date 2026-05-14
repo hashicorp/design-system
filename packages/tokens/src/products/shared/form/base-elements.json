@@ -5,6 +5,18 @@
         "$type": "color",
         "$value": "{color.foreground.strong}",
         "group": "components"
+      },
+      "font-size": {
+        "$type": "font-size",
+        "$value": "0.875rem",
+        "unit": "px",
+        "$modes": {
+          "default": "14",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
+        }
       }
     },
     "legend": {

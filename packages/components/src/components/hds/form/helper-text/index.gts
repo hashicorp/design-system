@@ -62,6 +62,7 @@ export default class HdsFormHelperText extends Component<HdsFormHelperTextSignat
   }
 
   <template>
+    {{! TODO: Refactor to work with carbon themes? }}
     <HdsTextBody
       class={{this.classNames}}
       @tag="div"
