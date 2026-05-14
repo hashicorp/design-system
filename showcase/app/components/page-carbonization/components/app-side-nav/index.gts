@@ -33,7 +33,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
   <section>
     <ShwTextH2>Content</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:theming>
         <div class="shw-component-sim-app-side-nav-root-container">
           <HdsAppSideNav @isResponsive={{false}}>
@@ -52,7 +52,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Yielded content</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:label>With product icons using text color</:label>
       <:theming>
         <div class="shw-component-sim-app-side-nav-root-container">
@@ -109,7 +109,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:label>With back link</:label>
       <:theming>
         <div class="shw-component-sim-app-side-nav-root-container">
@@ -155,7 +155,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>HdsAppSideNavList</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:theming>
         <div class="shw-component-sim-app-side-nav-body">
           <HdsAppSideNavList aria-label="Multiple items" as |SNL|>
@@ -205,7 +205,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>AppSideNavListTitle</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:theming>
         <ul class="shw-component-sim-app-side-nav-body">
           <HdsAppSideNavListTitle>Group title</HdsAppSideNavListTitle>
@@ -222,7 +222,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>AppSideNavListLink</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:theming>
         <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
           <HdsAppSideNavListLink @text="Boundary" @href="#" />
@@ -255,7 +255,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH4>States</ShwTextH4>
 
     {{#each STATES as |state|}}
-      <ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:label>{{state}}</:label>
         <:theming>
           <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
@@ -280,7 +280,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH4>States with @isActive=true</ShwTextH4>
 
     {{#each STATES as |state|}}
-      <ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:label>{{state}}</:label>
         <:theming>
           <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
@@ -308,7 +308,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH4>Base</ShwTextH4>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:theming>
         <ul class="shw-component-sim-app-side-nav-body">
           <HdsAppSideNavListBackLink @text="Back to parent page" @href="#" />
@@ -326,7 +326,7 @@ const AppSideNavCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH4>States</ShwTextH4>
 
     {{#each STATES as |state|}}
-      <ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid @layout="column-stacked">
         <:label>{{state}}</:label>
         <:theming>
           <ul class="shw-component-sim-app-side-nav-body">

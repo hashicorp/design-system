@@ -345,15 +345,14 @@ export default class CodeBlockCarbonizationIndex extends Component {
 
       <ShwCarbonizationComparisonGrid @layout="side-by-side">
         <:theming>
-          <ShwFlex as |SF|>
-            <SF.Item {{style width="500px"}}>
-              <HdsCodeBlock
-                @language="go"
-                @hasLineNumbers={{false}}
-                @highlightLines="2, 4"
-                @hasCopyButton={{true}}
-                @ariaLabel="Highlight lines 2 & 4, hasLineNumbers=false"
-                @value="{
+          {{! template-lint-disable no-whitespace-for-layout }}
+          <HdsCodeBlock
+            @language="go"
+            @hasLineNumbers={{false}}
+            @highlightLines="2, 4"
+            @hasCopyButton={{true}}
+            @ariaLabel="Highlight lines 2 & 4, hasLineNumbers=false"
+            @value="{
   'result': [
     {
       'expressions': [
@@ -369,16 +368,22 @@ export default class CodeBlockCarbonizationIndex extends Component {
     }
   ]
 }"
-              />
-            </SF.Item>
-            <SF.Item {{style width="500px"}}>
-              {{! template-lint-disable no-whitespace-for-layout }}
-              <HdsCodeBlock
-                @language="ruby"
-                @highlightLines="10-12"
-                @hasCopyButton={{true}}
-                @ariaLabel="Highlight lines 10-12"
-                @value="{
+          />
+          {{! template-lint-enable no-whitespace-for-layout }}
+        </:theming>
+        <:reference as |R|>
+          <R.NoEquivalent @isCompact={{true}} />
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid @layout="side-by-side">
+        <:theming>
+          {{! template-lint-disable no-whitespace-for-layout }}
+          <HdsCodeBlock
+            @language="ruby"
+            @highlightLines="10-12"
+            @hasCopyButton={{true}}
+            @ariaLabel="Highlight lines 10-12"
+            @value="{
   'result': [
     {
       'expressions': [
@@ -394,10 +399,8 @@ export default class CodeBlockCarbonizationIndex extends Component {
     }
   ]
 }"
-              />
-              {{! template-lint-enable no-whitespace-for-layout }}
-            </SF.Item>
-          </ShwFlex>
+          />
+          {{! template-lint-enable no-whitespace-for-layout }}
         </:theming>
         <:reference as |R|>
           <R.NoEquivalent @isCompact={{true}} />

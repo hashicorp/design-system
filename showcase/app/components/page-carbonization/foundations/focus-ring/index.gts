@@ -206,7 +206,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     <ShwTextH4 @tag="h3">AppHeader</ShwTextH4>
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:theming>
         <div mock-state-value="focus" mock-state-selector="button, a">
           <HdsAppHeader @hasA11yRefocus={{false}}>

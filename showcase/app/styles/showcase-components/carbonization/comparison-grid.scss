@@ -33,6 +33,16 @@
   grid-template-columns: 1fr;
 }
 
+.shw-carbonization-comparison-grid--column-stacked {
+  grid-template-areas:
+    "hds cds-g0 cds-g10"
+    "--- cwc-g0 cwc-g10"
+    "--- cds-g90 cds-g100"
+    "--- cwc-g90 cwc-g100";
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .shw-carbonization-comparison-grid--side-by-side {
   grid-template-areas:
     "hds cds-g0 cwc-g0"
