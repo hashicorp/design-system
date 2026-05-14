@@ -40,6 +40,59 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
   <ShwTextH1>Form / Base elements (Primitives) - Carbonization</ShwTextH1>
 
   <section>
+    <ShwTextH2>Field</ShwTextH2>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          {{#each FIELD_LAYOUT_TYPES as |layout|}}
+            <SF.Item @label="{{capitalize layout}} layout">
+              <HdsFormField @layout={{layout}} as |F|>
+                <F.Label>This is the label</F.Label>
+                <F.HelperText>This is the helper text</F.HelperText>
+                <F.Control>
+                  {{#if (eq layout "vertical")}}
+                    <ShwPlaceholder
+                      @text="control"
+                      @width="100%"
+                      @height="32"
+                    />
+                  {{/if}}
+                  {{#if (eq layout "flag")}}
+                    <ShwPlaceholder @text="✔" @width="16" @height="16" />
+                  {{/if}}
+                </F.Control>
+                <F.Error>This is the error</F.Error>
+              </HdsFormField>
+            </SF.Item>
+          {{/each}}
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-text-input
+              label="This is the label"
+              label-description="Helper text for a text input component."
+              placeholder="Placeholder text"
+              helper-text="This is the Helper text"
+            ></cds-text-input>
+          </SF.Item>
+          <SF.Item>
+            <cds-text-input
+              label="This is the label"
+              label-description="Helper text for a text input component."
+              placeholder="Placeholder text"
+              invalid
+              invalid-text="This is the error"
+            ></cds-text-input>
+          </SF.Item>
+        </ShwFlex>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider />
+
     <ShwTextH2>Label</ShwTextH2>
 
     <ShwCarbonizationComparisonGrid>
@@ -57,7 +110,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <code>???</code>
+        <cds-text-input label="Label for input"> </cds-text-input>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -84,7 +137,9 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <code>???</code>
+        <cds-text-input
+          helper-text="This is helper text for an input"
+        ></cds-text-input>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -132,8 +187,8 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
           </SG.Item>
         </ShwGrid>
       </:theming>
-      <:reference>
-        <code>???</code>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -144,10 +199,10 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwCarbonizationComparisonGrid>
       <:theming>
         <ShwFlex @direction="column" as |SF|>
-          <SF.Item @label="With simple text">
+          <SF.Item>
             <HdsFormError>A simple error message</HdsFormError>
           </SF.Item>
-          <SF.Item @label="With text that spans multiple lines">
+          <SF.Item>
             <ShwOutliner {{style width="190px"}}>
               <HdsFormError>Long error message spanning multiple lines</HdsFormError>
             </ShwOutliner>
@@ -155,42 +210,28 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <code>???</code>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwDivider />
-
-    <ShwTextH2>Field</ShwTextH2>
-
-    <ShwCarbonizationComparisonGrid>
-      <:theming>
         <ShwFlex @direction="column" as |SF|>
-          {{#each FIELD_LAYOUT_TYPES as |layout|}}
-            <SF.Item @label="{{capitalize layout}} layout">
-              <HdsFormField @layout={{layout}} as |F|>
-                <F.Label>This is the label</F.Label>
-                <F.HelperText>This is the helper text</F.HelperText>
-                <F.Control>
-                  {{#if (eq layout "vertical")}}
-                    <ShwPlaceholder
-                      @text="control"
-                      @width="100%"
-                      @height="32"
-                    />
-                  {{/if}}
-                  {{#if (eq layout "flag")}}
-                    <ShwPlaceholder @text="✔" @width="16" @height="16" />
-                  {{/if}}
-                </F.Control>
-                <F.Error>This is the error</F.Error>
-              </HdsFormField>
-            </SF.Item>
-          {{/each}}
+          <SF.Item>
+            <cds-text-input
+              required=""
+              type="password"
+              label="Password"
+              pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$"
+              invalid=""
+              invalid-text="A simple error message"
+            ></cds-text-input>
+          </SF.Item>
+          <SF.Item>
+            <cds-text-input
+              required=""
+              type="password"
+              label="Password"
+              pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$"
+              invalid=""
+              invalid-text="Long error message spanning multipe lines"
+            ></cds-text-input>
+          </SF.Item>
         </ShwFlex>
-      </:theming>
-      <:reference>
-        <code>???</code>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -230,7 +271,18 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <code>???</code>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-form-group
+              legend-text="This is a simple legend"
+            ></cds-form-group>
+          </SF.Item>
+          <SF.Item>
+            <cds-form-group
+              legend-text="This is a very long legend spanning multiple lines"
+            ></cds-form-group>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -269,7 +321,12 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <code>???</code>
+        <cds-form-group legend-text="This is the legend">
+          <cds-stack gap="7">
+            <cds-text-input label="field"> </cds-text-input>
+            <cds-text-input label="field"> </cds-text-input>
+          </cds-stack>
+        </cds-form-group>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -298,8 +355,8 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
         </ShwFlex>
       </:theming>
-      <:reference>
-        <code>???</code>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
       </:reference>
     </ShwCarbonizationComparisonGrid>
   </section>
