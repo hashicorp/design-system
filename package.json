@@ -45,7 +45,7 @@
       "path-to-regexp@8": "8.4.2",
       "picomatch": "4.0.4",
       "qs": "6.14.1",
-      "serialize-javascript": "7.0.3",
+      "serialize-javascript": "7.0.5",
       "socket.io-parser": "4.2.6",
       "systeminformation": "5.31.0",
       "undici": "6.24.0",
