@@ -694,6 +694,10 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
     flex-grow: 1;
     align-items: flex-start;
     color: var(--token-color-foreground-primary);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .hds-dropdown-list-item__icon {
