@@ -3,7 +3,7 @@
 module.exports = {
   extends: [
     'stylelint-config-standard-scss',
-    'stylelint-config-rational-order', // https://github.com/constverum/stylelint-config-rational-order
+    'stylelint-config-clean-order',
     // 'stylelint-prettier/recommended',
     // 'stylelint-config-prettier-scss',
   ],
@@ -24,6 +24,9 @@ module.exports = {
     // see: https://stylelint.io/user-guide/rules/list/declaration-empty-line-before/
     'declaration-empty-line-before': null,
 
+    // preserve the existing SCSS authoring baseline after replacing the deprecated ordering config
+    'at-rule-empty-line-before': null,
+
     // we've decided to disable this rule because we want to be able to order our declarations based on different criteria, if/when needed
     // see: https://stylelint.io/user-guide/rules/list/no-descending-specificity/
     'no-descending-specificity': null,
@@ -31,6 +34,10 @@ module.exports = {
     // we've decided to disable this rule because we want to be able to order our declarations based on different criteria, if/when needed
     // see: https://stylelint.io/user-guide/rules/list/no-duplicate-selectors/
     'no-duplicate-selectors': null,
+
+    // keep the Stylelint 16 remediation behaviorally neutral and avoid repo-wide property ordering churn
+    'order/order': null,
+    'order/properties-order': null,
 
     // we've decided to enforce the `.hds|.mock|.flight` naming convention (plus, using the default stylelint rule one doesn't work for us, because we're using BEM)
     // see: https://stylelint.io/user-guide/rules/list/selector-class-pattern/
