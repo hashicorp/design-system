@@ -48,8 +48,8 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
           {{#each FIELD_LAYOUT_TYPES as |layout|}}
             <SF.Item @label="{{capitalize layout}} layout">
               <HdsFormField @layout={{layout}} as |F|>
-                <F.Label>This is the label</F.Label>
-                <F.HelperText>This is the helper text</F.HelperText>
+                <F.Label>Label</F.Label>
+                <F.HelperText>Helper text</F.HelperText>
                 <F.Control>
                   {{#if (eq layout "vertical")}}
                     <ShwPlaceholder
@@ -72,15 +72,15 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
             <cds-text-input
-              label="This is the label"
+              label="Label"
               label-description="Helper text for a text input component."
               placeholder="Placeholder text"
-              helper-text="This is the Helper text"
+              helper-text="Helper text"
             ></cds-text-input>
           </SF.Item>
           <SF.Item>
             <cds-text-input
-              label="This is the label"
+              label="Label"
               label-description="Helper text for a text input component."
               placeholder="Placeholder text"
               invalid
@@ -122,8 +122,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
-            <HdsFormHelperText>This is the helper text, usually used jointly
-              with the label.</HdsFormHelperText>
+            <HdsFormHelperText>Helper text, usually used jointly with the label.</HdsFormHelperText>
           </SF.Item>
           <SF.Item>
             <HdsFormHelperText>This is helper text
@@ -296,8 +295,8 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
           {{#each FIELDSET_LAYOUT_TYPES as |layout|}}
             <SF.Item @label="{{capitalize layout}} layout">
               <HdsFormFieldset @layout={{layout}} as |F|>
-                <F.Legend>This is the legend</F.Legend>
-                <F.HelperText>This is the helper text</F.HelperText>
+                <F.Legend>Legend</F.Legend>
+                <F.HelperText>Helper text</F.HelperText>
                 <F.Control>
                   <ShwPlaceholder
                     @text="field"
@@ -321,7 +320,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <cds-form-group legend-text="This is the legend">
+        <cds-form-group legend-text="Legend">
           <cds-stack gap="7">
             <cds-text-input label="field"> </cds-text-input>
             <cds-text-input label="field"> </cds-text-input>

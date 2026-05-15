@@ -1,5 +1,19 @@
 {
   "form": {
+    "character-count": {
+      "font-size": {
+        "$type": "font-size",
+        "$value": "0.8125rem",
+        "unit": "px",
+        "$modes": {
+          "default": "13",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
+        }
+      }
+    },
     "label": {
       "color": {
         "$type": "color",
@@ -31,6 +45,18 @@
         "$type": "color",
         "$value": "{color.foreground.faint}",
         "group": "components"
+      },
+      "font-size": {
+        "$type": "font-size",
+        "$value": "0.8125rem",
+        "unit": "px",
+        "$modes": {
+          "default": "13",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
+        }
       }
     },
     "indicator": {
@@ -47,6 +73,18 @@
         "$type": "color",
         "$value": "{color.palette.red-300}",
         "group": "components"
+      },
+      "font-size": {
+        "$type": "font-size",
+        "$value": "0.8125rem",
+        "unit": "px",
+        "$modes": {
+          "default": "13",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
+        }
       },
       "icon-size": {
         "$type": "dimension",
