@@ -374,6 +374,75 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   padding-left: 16px;
 }
 
+// Shared interactive state styles
+.hds-dropdown-list-item--variant-interactive,
+.hds-dropdown-list-item--variant-checkmark,
+.hds-dropdown-list-item--variant-checkbox,
+.hds-dropdown-list-item--variant-radio {
+  a,
+  button,
+  .hds-dropdown-list-item__label {
+    // Notice: to avoid too much duplication we define two local CSS variables
+    // and define their values in the color variants below
+
+    &:hover,
+    &.mock-hover {
+      color: var(--current-color-hover);
+
+      &::before {
+        background-color: currentColor;
+      }
+    }
+
+    // default focus for browsers that still rely on ":focus"
+    &:focus,
+    &.mock-focus {
+      color: var(--current-color-focus);
+
+      &::after {
+        left: 4px;
+        box-shadow: var(--current-focus-ring-box-shadow);
+      }
+    }
+    // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
+    &:focus:not(:focus-visible) {
+      &::after {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+    // set focus for browsers that support ":focus-visible"
+    &:focus-visible {
+      color: var(--current-color-focus);
+
+      &::after {
+        left: 4px;
+        box-shadow: var(--current-focus-ring-box-shadow);
+      }
+    }
+
+    // remove the focus ring on "active + focused" state (by design)
+    &:focus:active,
+    &:focus-visible:active,
+    &.mock-focus.mock-active {
+      &::after {
+        left: 10px;
+        background-color: var(--current-background-color);
+        box-shadow: none;
+      }
+    }
+
+    &:active,
+    &.mock-active {
+      color: var(--current-color-active);
+
+      &::before {
+        background-color: currentColor;
+      }
+    }
+  }
+}
+
 // HDS::DROPDOWN::LIST-ITEM::INTERACTIVE & HDS::DROPDOWN::LIST-ITEM::CHECKMARK
 .hds-dropdown-list-item--variant-interactive,
 .hds-dropdown-list-item--variant-checkmark {
@@ -435,71 +504,12 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
         bottom: 3px;
       }
     }
-
-    // Notice: to avoid too much duplication we define two local CSS variables
-    // and define their values in the color variants below
-
-    &:hover,
-    &.mock-hover {
-      color: var(--current-color-hover);
-
-      &::before {
-        background-color: currentColor;
-      }
-    }
-
-    // default focus for browsers that still rely on ":focus"
-    &:focus,
-    &.mock-focus {
-      color: var(--current-color-focus);
-
-      &::after {
-        left: 4px;
-        box-shadow: var(--current-focus-ring-box-shadow);
-      }
-    }
-    // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-    &:focus:not(:focus-visible) {
-      &::after {
-        background-color: transparent;
-        box-shadow: none;
-      }
-    }
-    // set focus for browsers that support ":focus-visible"
-    &:focus-visible {
-      color: var(--current-color-focus);
-
-      &::after {
-        left: 4px;
-        box-shadow: var(--current-focus-ring-box-shadow);
-      }
-    }
-
-    // remove the focus ring on "active + focused" state (by design)
-    &:focus:active,
-    &:focus-visible:active,
-    &.mock-focus.mock-active {
-      &::after {
-        left: 10px;
-        background-color: var(--current-background-color);
-        box-shadow: none;
-      }
-    }
-
-    &:active,
-    &.mock-active {
-      color: var(--current-color-active);
-
-      &::before {
-        background-color: currentColor;
-      }
-    }
   }
 
   @include hds-apply-only-if-carbon() {
     button,
     a,
-    input {
+    .hds-dropdown-list-item__label {
       // Hide the side highlight border for interactive children
       &::before {
         display: none;
@@ -536,7 +546,8 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 // Action color (default)
 .hds-dropdown-list-item--color-action {
   a,
-  button {
+  button,
+  .hds-dropdown-list-item__label {
     color: var(--token-dropdown-list-item-foreground-color-action-default);
 
     // assign the values to the local CSS variables used above
