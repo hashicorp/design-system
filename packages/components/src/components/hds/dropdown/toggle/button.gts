@@ -101,16 +101,6 @@ export default class HdsDropdownToggleButton extends Component<HdsDropdownToggle
   }
 
   get badgeType(): HdsBadgeCountSignature['Args']['type'] {
-    // if the button color is primary (i.e. it's "secondary" or "tertiary"), use the filled badge type
-    // else if the button color is not primary (i.e. it's "secondary", etc) AND there's a Carbon theme enabled,
-    // use the filled badge type; otherwise, use the inverted badge type
-    // if (this.color === 'primary') {
-    //   return 'filled';
-    // } else {
-    //   return this.hdsTheming.isCarbonThemeEnabled ? 'filled' : 'inverted';
-    // }
-
-    // Original:
     return this.color === 'primary' ? 'filled' : 'inverted';
   }
 
