@@ -1,5 +1,5 @@
 /**
- * Copyright HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 
@@ -17,7 +17,7 @@ const {
 test('hydrates arguments directive for accordion docs', () => {
   const output = hydrateManifestApiDirectives(
     '<!-- hds-api:arguments -->',
-    'components/accordion/index.md'
+    'components/accordion/index.md',
   );
 
   assert.match(output, /<Doc::ComponentApi as \|C\|>/u);
@@ -28,7 +28,7 @@ test('hydrates arguments directive for accordion docs', () => {
 test('hydrates contextual args directive for accordion item', () => {
   const output = hydrateManifestApiDirectives(
     '<!-- hds-api:contextual-args name=Item -->',
-    'components/accordion/index.md'
+    'components/accordion/index.md',
   );
 
   assert.match(output, /@name="<:toggle>"/u);
@@ -39,7 +39,7 @@ test('keeps markdown unchanged when no hds-api directive exists', () => {
   const markdown = 'No directive here.';
   const output = hydrateManifestApiDirectives(
     markdown,
-    'components/accordion/index.md'
+    'components/accordion/index.md',
   );
 
   assert.equal(output, markdown);

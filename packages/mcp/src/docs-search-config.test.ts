@@ -1,12 +1,12 @@
 /**
- * Copyright HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { getDocsSearchConfig } from '../docs-search-config.js';
+import { getDocsSearchConfig } from './docs-search-config.js';
 
 test('getDocsSearchConfig returns available when env vars are present', () => {
   const configState = getDocsSearchConfig({

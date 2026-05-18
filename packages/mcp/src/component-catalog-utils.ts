@@ -1,5 +1,5 @@
 /**
- * Copyright HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 
@@ -12,7 +12,9 @@ export const normalizeComponentName = (value: string): string => {
     .replace(/^hds[-:\s]*/u, '');
 };
 
-export const getLookupKeys = (component: ComponentCatalogComponent): string[] => {
+export const getLookupKeys = (
+  component: ComponentCatalogComponent
+): string[] => {
   return [
     normalizeComponentName(component.name),
     normalizeComponentName(component.slug),

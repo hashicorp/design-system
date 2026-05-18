@@ -1,5 +1,5 @@
 /**
- * Copyright HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 
@@ -11,7 +11,7 @@ import {
   getFilterForScope,
   normalizeDocsSearchResult,
   truncateSnippet,
-} from '../docs-search-client.js';
+} from './docs-search-client.js';
 
 test('getFilterForScope returns undefined for all scope', () => {
   assert.equal(getFilterForScope('all'), undefined);

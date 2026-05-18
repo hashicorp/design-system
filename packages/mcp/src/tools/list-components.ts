@@ -1,14 +1,13 @@
 /**
- * Copyright HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 
 import { z } from 'zod';
+import { toTextResponse, withGeneratedAt } from './utils.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-
 import type { ComponentCatalogStore } from '../component-catalog.js';
-import { toTextResponse, withGeneratedAt } from './utils.js';
 
 export const buildListComponentsPayload = (
   store: ComponentCatalogStore,
@@ -21,6 +20,7 @@ export const buildListComponentsPayload = (
 
   if (query !== undefined) {
     const normalizedQuery = query.trim().toLowerCase();
+
     filteredComponents = components.filter((component) => {
       return (
         component.name.toLowerCase().includes(normalizedQuery) ||

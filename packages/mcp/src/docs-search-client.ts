@@ -1,5 +1,5 @@
 /**
- * Copyright HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 
@@ -32,7 +32,8 @@ const DOCS_SEARCH_SCOPE_FILTERS: DocsSearchFilterMap = {
   tokens: 'pageSection:foundations AND type:token AND source:token',
   componentApi:
     'pageMainCategory:components AND (type:component-api-property OR source:component-api)',
-  content: '(source:heading OR source:paragraph OR source:table OR source:wcag-list)',
+  content:
+    '(source:heading OR source:paragraph OR source:table OR source:wcag-list)',
 };
 
 export type RawHit = {
@@ -146,7 +147,9 @@ export const normalizeDocsSearchResult = (hit: RawHit): DocsSearchResult => {
   };
 };
 
-export const getFilterForScope = (scope: DocsSearchScope): string | undefined => {
+export const getFilterForScope = (
+  scope: DocsSearchScope
+): string | undefined => {
   if (scope === 'all') {
     return undefined;
   }
@@ -204,10 +207,12 @@ export const createAlgoliaDocsSearchClient = (
         requests:
           filters === undefined
             ? [searchRequest]
-            : [{
-                ...searchRequest,
-                filters,
-              }],
+            : [
+                {
+                  ...searchRequest,
+                  filters,
+                },
+              ],
       })) as unknown as SearchResponse;
 
       const hits = response.results?.[0]?.hits ?? [];
