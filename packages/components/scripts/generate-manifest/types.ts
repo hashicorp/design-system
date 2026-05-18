@@ -53,10 +53,17 @@ export type CatalogApiDoc = {
   sections: CatalogApiSection[];
 };
 
+export type CatalogDesign = {
+  figmaUrl: string;
+  nodeId?: string;
+  fileKey?: string;
+};
+
 export type CatalogComponent = {
   name: string;
   slug: string;
   summary: string;
+  design?: CatalogDesign;
   args?: CatalogArg[];
   blocks?: CatalogBlock[];
   api: CatalogApi;

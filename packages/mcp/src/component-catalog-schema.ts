@@ -31,6 +31,12 @@ const catalogBlockSchema = z.object({
   description: z.string().optional(),
 });
 
+const catalogDesignSchema = z.object({
+  figmaUrl: z.string().url(),
+  nodeId: z.string().min(1).optional(),
+  fileKey: z.string().min(1).optional(),
+});
+
 type CatalogApiPropertyShape = {
   name: string;
   type?: string;
@@ -70,6 +76,7 @@ const catalogComponentSchema = z.object({
   name: z.string().min(1),
   slug: z.string().min(1),
   summary: z.string().min(1),
+  design: catalogDesignSchema.optional(),
   args: z.array(catalogArgSchema).optional(),
   blocks: z.array(catalogBlockSchema).optional(),
   api: catalogApiSchema,

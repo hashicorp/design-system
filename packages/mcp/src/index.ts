@@ -8,6 +8,8 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 
 import { loadComponentCatalog } from './component-catalog.js';
+import { createDocsSearchClient } from './docs-search-client.js';
+import { getDocsSearchConfig } from './docs-search-config.js';
 import { registerTools } from './tools/register-tools.js';
 
 const server = new McpServer({
@@ -16,8 +18,9 @@ const server = new McpServer({
 });
 
 const catalogStore = loadComponentCatalog();
+const docsSearchClient = createDocsSearchClient(getDocsSearchConfig());
 
-registerTools(server, catalogStore);
+registerTools(server, catalogStore, docsSearchClient);
 
 const main = async (): Promise<void> => {
   const transport = new StdioServerTransport();

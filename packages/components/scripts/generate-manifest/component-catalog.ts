@@ -2,6 +2,7 @@ import type { InterfaceDeclaration } from 'ts-morph';
 
 import { normalizeApiText } from './api-text.ts';
 import { buildApi } from './build-api.ts';
+import { getComponentDesignMetadata } from './design-metadata.ts';
 import { getComponentExports } from './component-exports.ts';
 import { getInterfaceDocTag } from './doc-tags.ts';
 import { parseArgs } from './parse-args.ts';
@@ -72,6 +73,7 @@ function generateCatalogComponent(
     name: toTitleCase(componentPath.split('/').at(-1) ?? componentPath),
     slug: componentPath,
     summary: normalizeApiText(componentDescription),
+    design: getComponentDesignMetadata(componentPath),
     api: buildApi(args, blocks, contextualProperties, hasSplattributes),
   };
 

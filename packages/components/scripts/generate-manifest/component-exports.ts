@@ -5,9 +5,6 @@ import { componentsExportsPath } from './paths.ts';
 import type { ComponentExport } from './types.ts';
 
 const DEFAULT_COMPONENT_SCOPE = [
-  'rich-tooltip',
-  'filter-bar',
-  'accordion',
   'button',
 ];
 
