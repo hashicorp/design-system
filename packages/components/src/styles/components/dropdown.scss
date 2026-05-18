@@ -14,6 +14,7 @@
 @use "../mixins/carbonization" as *;
 
 $hds-dropdown-toggle-button-carbon-gap: 6px;
+// var(--token-dropdown-toggle-button-gap) // WIP, to replace the above
 
 // DROPDOWN
 
@@ -253,12 +254,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   max-width: 400px;
   background-color: var(--token-dropdown-surface-color-primary);
   border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-surface-high-box-shadow);
-
-  @include hds-apply-only-if-carbon() {
-    border-radius: 0;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 30%);
-  }
+  box-shadow: var(--token-dropdown-box-shadow);
 
   // the "popover" attributes comes with pre-defined styling so we need to override it
   :where(&[popover]) {
@@ -286,14 +282,10 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 .hds-dropdown__list {
   flex: 1 1 auto;
   margin: 0;
-  padding: 4px 0;
+  padding: var(--token-dropdown-list-padding-vertical) 0;
   overflow-y: auto;
   list-style: none;
   overscroll-behavior: contain;
-
-  @include hds-apply-only-if-carbon() {
-    padding: 0;
-  }
 }
 
 // HEADER & FOOTER
