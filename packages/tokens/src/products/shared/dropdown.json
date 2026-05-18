@@ -190,8 +190,8 @@
                 "default": "transparent",
                 "cds-g0": "{carbon.themes.white.supportError}",
                 "cds-g10": "{carbon.themes.g10.supportError}",
-                "cds-g90": "{carbon.themes.g90.supportError}",
-                "cds-g100": "{carbon.themes.g100.supportError}"
+                "cds-g90": "{carbon.color.red.60}",
+                "cds-g100": "{carbon.color.red.60}"
               }
             },
             "focus": {
@@ -201,8 +201,8 @@
                 "default": "transparent",
                 "cds-g0": "{carbon.themes.white.supportError}",
                 "cds-g10": "{carbon.themes.g10.supportError}",
-                "cds-g90": "{carbon.themes.g90.supportError}",
-                "cds-g100": "{carbon.themes.g100.supportError}"
+                "cds-g90": "{carbon.color.red.60}",
+                "cds-g100": "{carbon.color.red.60}"
               }
             },
             "active": {
@@ -212,8 +212,8 @@
                 "default": "transparent",
                 "cds-g0": "{carbon.themes.white.supportError}",
                 "cds-g10": "{carbon.themes.g10.supportError}",
-                "cds-g90": "{carbon.themes.g90.supportError}",
-                "cds-g100": "{carbon.themes.g100.supportError}"
+                "cds-g90": "{carbon.color.red.60}",
+                "cds-g100": "{carbon.color.red.60}"
               }
             }
           }
