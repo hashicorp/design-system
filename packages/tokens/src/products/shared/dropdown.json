@@ -227,24 +227,24 @@
     "toggle-button": {
       "padding": {
         "right": {
-          "medium": {
-            "$type": "dimension",
-            "$value": "9",
-            "unit": "px",
-            "$modes": {
-              "default": "9",
-              "cds-g0": "12",
-              "cds-g10": "12",
-              "cds-g90": "12",
-              "cds-g100": "12"
-            }
-          },
           "small": {
             "$type": "dimension",
             "$value": "6",
             "unit": "px",
             "$modes": {
               "default": "6",
+              "cds-g0": "12",
+              "cds-g10": "12",
+              "cds-g90": "12",
+              "cds-g100": "12"
+            }
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "9",
+            "unit": "px",
+            "$modes": {
+              "default": "9",
               "cds-g0": "12",
               "cds-g10": "12",
               "cds-g90": "12",
