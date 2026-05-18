@@ -252,7 +252,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   width: max-content; // Important: in position absolute the layout algorithm assigns a width of 0 which impacts the flex algorithm of the children (in some cases they don't use the full width)
   min-width: 200px;
   max-width: 400px;
-  background-color: var(--token-dropdown-surface-color-primary);
+  background-color: var(--token-color-surface-primary);
   border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-dropdown-box-shadow);
 
