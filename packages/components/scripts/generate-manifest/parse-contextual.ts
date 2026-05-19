@@ -8,12 +8,7 @@ import {
   SPLATTRIBUTES_API_PROPERTY,
   argsToApiProperties,
 } from './build-api.ts';
-import {
-  getDocLinks,
-  getDocNotes,
-  getDocTag,
-  parseValuesTag,
-} from './doc-tags.ts';
+import { getDocLinks, getDocNotes } from './doc-tags.ts';
 import {
   getInterfaceForYieldedComponent,
   hasSplattributesForYieldedComponent,
@@ -23,22 +18,17 @@ import {
   getFirstTupleElementType,
   getPropertySignatureFromSymbol,
 } from './ts-morph-helpers.ts';
-import { normalizeDefaultValue } from './utils.ts';
 import { normalizeApiText } from './api-text.ts';
+import { applyPropertyDocMetadata } from './property-doc-metadata.ts';
+import { ICON_ENUM_PARSED_TYPE, isIconNameType } from './type-overrides.ts';
+import {
+  getImportSpecifierForIdentifier,
+  parseYieldedSourceText,
+} from './contextual-helpers.ts';
 import { parseArgs } from './parse-args.ts';
 import { parseBlocks } from './parse-blocks.ts';
 
 import type { CatalogApiProperty } from './types.ts';
-
-function isIconNameType(typeText: string): boolean {
-  const iconNameTypePatterns = [
-    /HdsIconSignature\[['"]Args['"]\]\[['"]name['"]\]/u,
-    /\[['"]Args['"]\]\[['"]icon['"]\]/u,
-    /(^|[^A-Za-z0-9_])IconName($|[^A-Za-z0-9_])/u,
-  ];
-
-  return iconNameTypePatterns.some((pattern) => pattern.test(typeText));
-}
 
 function getContextualTypeLabel(
   propertyName: string,
@@ -85,101 +75,82 @@ function getRawContextTypeText(
   return fallbackTypeText;
 }
 
-export function getImportSpecifierForIdentifier(
-  interfaceDecl: InterfaceDeclaration,
-  identifierName: string
-): string | undefined {
-  const sourceFile = interfaceDecl.getSourceFile();
-
-  for (const importDeclaration of sourceFile.getImportDeclarations()) {
-    const defaultImport = importDeclaration.getDefaultImport();
-
-    if (
-      defaultImport !== undefined &&
-      defaultImport.getText() === identifierName
-    ) {
-      return importDeclaration.getModuleSpecifierValue();
-    }
-
-    const namedImport = importDeclaration
-      .getNamedImports()
-      .find((namedSpecifier) => {
-        // Match against both the original imported name and the local alias
-        // (e.g. `import { Foo as Bar }` should match identifier `Bar`).
-        const aliasName = namedSpecifier.getAliasNode()?.getText();
-        return (
-          namedSpecifier.getName() === identifierName ||
-          aliasName === identifierName
-        );
-      });
-
-    if (namedImport !== undefined) {
-      return importDeclaration.getModuleSpecifierValue();
-    }
-  }
-
-  return undefined;
-}
-
-export function parseYieldedSourceText(typeText: string):
-  | {
-      className: string;
-      boundArgs: Set<string>;
-    }
-  | undefined {
-  const withBoundMatch = typeText.match(
-    /WithBoundArgs<\s*typeof\s+([A-Za-z0-9_]+)\s*,\s*([^>]+)>/u
-  );
-
-  if (withBoundMatch !== null) {
-    const className = withBoundMatch[1];
-    const rawUnion = withBoundMatch[2];
-
-    if (className !== undefined && rawUnion !== undefined) {
-      const values = rawUnion
-        .split('|')
-        .map((part) => part.trim())
-        .map((part) => part.replace(/^['"`]|['"`]$/gu, ''))
-        .filter((part) => part.length > 0 && part !== 'never');
-
-      return {
-        className,
-        boundArgs: new Set(values),
-      };
-    }
-  }
-
-  const typeofMatch = typeText.match(/^typeof\s+([A-Za-z0-9_]+)/u);
-  if (typeofMatch !== null && typeofMatch[1] !== undefined) {
-    return {
-      className: typeofMatch[1],
-      boundArgs: new Set<string>(),
-    };
-  }
-
-  return undefined;
-}
-
 function getBlockAlias(blockName: string): string {
   const first = blockName.trim().charAt(0).toUpperCase();
   return first.length > 0 ? first : 'B';
 }
 
-function escapeRegExp(value: string): string {
-  return value.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+const NAMED_BLOCK_YIELD_SENTENCE_PREFIX =
+  'Elements passed as children are yielded as inner content of the ';
+const NAMED_BLOCK_YIELD_SENTENCE_SUFFIX = ' block';
+
+// Open/close quote pairs we expect around the block name in authored docs:
+// straight ASCII double quotes and Unicode "smart" curly quotes.
+const NAMED_BLOCK_QUOTE_PAIRS: ReadonlyArray<[string, string]> = [
+  ['"', '"'],
+  ['\u201C', '\u201D'],
+];
+
+function isWhitespaceChar(value: string): boolean {
+  return value === ' ' || value === '\t' || value === '\n' || value === '\r';
 }
 
+/**
+ * Remove the boilerplate "Elements passed as children are yielded as inner
+ * content of the \"<blockName>\" block." sentence from a block description
+ * if present, returning the remaining trimmed text.
+ *
+ * Uses plain string scanning rather than a dynamically constructed regex so
+ * the block name (which is untrusted authoring input) cannot influence
+ * pattern semantics.
+ */
 function normalizeNamedBlockDescription(
   blockName: string,
   description: string
 ): string {
-  const escapedBlockName = escapeRegExp(blockName);
-  const yieldSentencePattern = new RegExp(
-    `\\s*Elements passed as children are yielded as inner content of the ["“]${escapedBlockName}["”] block\\.?`,
-    'u'
-  );
+  for (const [openQuote, closeQuote] of NAMED_BLOCK_QUOTE_PAIRS) {
+    const sentenceCore =
+      NAMED_BLOCK_YIELD_SENTENCE_PREFIX +
+      openQuote +
+      blockName +
+      closeQuote +
+      NAMED_BLOCK_YIELD_SENTENCE_SUFFIX;
 
-  return description.replace(yieldSentencePattern, '').trim();
+    for (const terminator of ['.', '']) {
+      const sentence = sentenceCore + terminator;
+      const index = description.indexOf(sentence);
+
+      if (index === -1) {
+        continue;
+      }
+
+      // Guard against matching a substring embedded in a larger word: ensure
+      // the match is bounded by start/end-of-string, whitespace, or (for the
+      // trailing edge) a sentence-ending period.
+      const charBefore = index === 0 ? '' : description.charAt(index - 1);
+      const charAfter = description.charAt(index + sentence.length);
+      const boundedBefore = charBefore === '' || isWhitespaceChar(charBefore);
+      const boundedAfter =
+        charAfter === '' || isWhitespaceChar(charAfter) || charAfter === '.';
+
+      if (boundedBefore === false || boundedAfter === false) {
+        continue;
+      }
+
+      const before = description.slice(0, index);
+      const after = description.slice(index + sentence.length);
+
+      // Trim trailing whitespace from `before` without a regex.
+      let beforeEnd = before.length;
+      while (beforeEnd > 0 && isWhitespaceChar(before.charAt(beforeEnd - 1))) {
+        beforeEnd -= 1;
+      }
+
+      return (before.slice(0, beforeEnd) + after).trim();
+    }
+  }
+
+  return description.trim();
 }
 
 export function parseYieldedNamedBlockProperties(
@@ -250,76 +221,24 @@ export function parseYieldedNamedBlockProperties(
         const contextSignature = getPropertySignatureFromSymbol(contextSymbol);
         const rawTypeText = contextSignature?.getTypeNode()?.getText();
         const typeTextForIconCheck = rawTypeText ?? contextType.getText();
-        const parsedType =
-          isIconNameType(typeTextForIconCheck) === true
-            ? {
-                typeName: 'enum',
-                values: ['__icons__'],
-              }
-            : parseType(contextType);
+        const parsedType = isIconNameType(typeTextForIconCheck)
+          ? ICON_ENUM_PARSED_TYPE
+          : parseType(contextType);
 
         const contextualProperty: CatalogApiProperty = {
           name: `[${blockAlias}].${contextSymbol.getName()}`,
           type: parsedType.typeName,
         };
 
+        // Seed inferred enum values first so doc overrides applied by
+        // `applyPropertyDocMetadata` can intentionally win as the final
+        // authority on `type` and `values`.
         if (parsedType.values !== undefined && parsedType.values.length > 0) {
-          contextualProperty.values = parsedType.values;
+          contextualProperty.values = [...parsedType.values];
         }
 
         if (contextSignature !== undefined) {
-          const contextDescription = contextSignature
-            .getJsDocs()[0]
-            ?.getDescription()
-            .trim();
-          const contextDefaultValue = getDocTag(contextSignature, 'default');
-          const contextTypeOverride = getDocTag(contextSignature, 'type');
-          const contextValuesOverride = getDocTag(contextSignature, 'values');
-          const contextNotes = getDocNotes(contextSignature);
-          const contextLinks = getDocLinks(contextSignature);
-
-          if (
-            contextDescription !== undefined &&
-            contextDescription.length > 0
-          ) {
-            contextualProperty.description =
-              normalizeApiText(contextDescription);
-          }
-
-          if (
-            contextDefaultValue !== undefined &&
-            contextDefaultValue.length > 0
-          ) {
-            contextualProperty.default =
-              normalizeDefaultValue(contextDefaultValue);
-          }
-
-          if (
-            contextTypeOverride !== undefined &&
-            contextTypeOverride.length > 0
-          ) {
-            // Precedence policy: @type overrides inferred type label and
-            // clears inferred `values` so a stale enum list cannot leak.
-            contextualProperty.type = contextTypeOverride;
-            contextualProperty.values = undefined;
-          }
-
-          if (
-            contextValuesOverride !== undefined &&
-            contextValuesOverride.length > 0
-          ) {
-            // Precedence policy: @values is the final authority for the
-            // values list and must not be overwritten by inferred values.
-            contextualProperty.values = parseValuesTag(contextValuesOverride);
-          }
-
-          if (contextNotes.length > 0) {
-            contextualProperty.notes = contextNotes;
-          }
-
-          if (contextLinks.length > 0) {
-            contextualProperty.links = contextLinks;
-          }
+          applyPropertyDocMetadata(contextSignature, contextualProperty);
         }
 
         namedBlockProperty.properties?.push(contextualProperty);

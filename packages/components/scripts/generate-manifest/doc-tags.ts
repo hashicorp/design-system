@@ -117,14 +117,25 @@ function parseDocLinkTagText(tagText: string): CatalogApiLink | undefined {
     return undefined;
   }
 
-  const parts = text.split(/\s+/u);
-  const href = parts[0];
+  // Find the first whitespace boundary by scanning, so we can split the tag
+  // text into `<href> <label?>` without invoking a regex.
+  let whitespaceIndex = -1;
+  for (let i = 0; i < text.length; i += 1) {
+    const ch = text.charAt(i);
+    if (ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r') {
+      whitespaceIndex = i;
+      break;
+    }
+  }
 
-  if (href === undefined || href.length === 0) {
+  const href = whitespaceIndex === -1 ? text : text.slice(0, whitespaceIndex);
+
+  if (href.length === 0) {
     return undefined;
   }
 
-  const label = text.slice(href.length).trim();
+  const label =
+    whitespaceIndex === -1 ? '' : text.slice(whitespaceIndex).trim();
 
   return {
     href,

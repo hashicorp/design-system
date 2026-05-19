@@ -3,9 +3,9 @@ import { strict as assert } from 'node:assert';
 
 import {
   getImportSpecifierForIdentifier,
-  parseYieldedNamedBlockProperties,
   parseYieldedSourceText,
-} from '../parse-contextual.ts';
+} from '../contextual-helpers.ts';
+import { parseYieldedNamedBlockProperties } from '../parse-contextual.ts';
 import {
   addFixtureSource,
   createFixtureProject,

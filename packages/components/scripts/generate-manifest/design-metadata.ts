@@ -1,5 +1,8 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+
+import matter from 'gray-matter';
+
 import { repoRoot } from './paths.ts';
 
 import type { CatalogDesign } from './types.ts';
@@ -7,7 +10,7 @@ import type { CatalogDesign } from './types.ts';
 const docsRoot = resolve(repoRoot, 'website/docs/components');
 
 const normalizeNodeId = (nodeId: string): string => {
-  return nodeId.replace(/:/gu, '-');
+  return nodeId.replaceAll(':', '-');
 };
 
 const parseFigmaMetadata = (figmaUrl: string): CatalogDesign => {
@@ -38,6 +41,28 @@ const parseFigmaMetadata = (figmaUrl: string): CatalogDesign => {
   };
 };
 
+/**
+ * Narrow shape we expect from a docs page's YAML frontmatter. We only read
+ * `links.figma`, so we intentionally keep the type to that subset and treat
+ * everything else as opaque.
+ */
+interface DocFrontmatter {
+  links?: {
+    figma?: unknown;
+  };
+}
+
+const extractFigmaUrl = (frontmatter: DocFrontmatter): string | undefined => {
+  const figmaValue = frontmatter.links?.figma;
+
+  if (typeof figmaValue !== 'string') {
+    return undefined;
+  }
+
+  const trimmed = figmaValue.trim();
+  return trimmed.length > 0 ? trimmed : undefined;
+};
+
 const getFigmaUrlFromDoc = (componentPath: string): string | undefined => {
   const docPath = resolve(docsRoot, componentPath, 'index.md');
 
@@ -46,15 +71,16 @@ const getFigmaUrlFromDoc = (componentPath: string): string | undefined => {
   }
 
   const source = readFileSync(docPath, 'utf8');
-  const figmaMatch = source.match(
-    /\n\s*figma:\s*>-\s*\n\s*(https:\/\/www\.figma\.com\/[^\s]+)/u
-  );
 
-  if (figmaMatch === null) {
+  let parsed;
+  try {
+    parsed = matter(source);
+  } catch {
+    // Malformed frontmatter: skip rather than fail the whole manifest build.
     return undefined;
   }
 
-  return figmaMatch[1]?.trim();
+  return extractFigmaUrl(parsed.data as DocFrontmatter);
 };
 
 export const getComponentDesignMetadata = (

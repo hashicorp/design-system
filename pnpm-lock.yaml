@@ -292,6 +292,9 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.3.0
+      gray-matter:
+        specifier: ^4.0.3
+        version: 4.0.3
       postcss:
         specifier: ^8.5.3
         version: 8.5.6

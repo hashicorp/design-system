@@ -13,6 +13,35 @@ project.addSourceFilesAtPaths(
 
 const signatureSourceCache = new Map<string, InterfaceDeclaration | null>();
 
+/**
+ * Strip a trailing `.gts` or `.ts` extension from an import specifier or
+ * filesystem path. Plain string compare avoids the indirection of a regex
+ * and makes the supported extension set obvious at the call site.
+ */
+function stripModuleExtension(value: string): string {
+  if (value.endsWith('.gts')) {
+    return value.slice(0, -'.gts'.length);
+  }
+
+  if (value.endsWith('.ts')) {
+    return value.slice(0, -'.ts'.length);
+  }
+
+  return value;
+}
+
+/**
+ * Replace a `.gts` suffix with `.generated.ts`. Used to build virtual file
+ * paths for template-stripped TS sources we feed to ts-morph.
+ */
+function toGeneratedTsPath(gtsPath: string): string {
+  if (gtsPath.endsWith('.gts') === false) {
+    return gtsPath;
+  }
+
+  return gtsPath.slice(0, -'.gts'.length) + '.generated.ts';
+}
+
 function templateHasSplattributes(sourceText: string): boolean {
   const templateIndex = sourceText.indexOf('<template>');
 
@@ -37,7 +66,7 @@ function getDeclarationPathCandidates(
   parentComponentPath: string,
   importSpecifier: string
 ): string[] {
-  const normalizedImport = importSpecifier.replace(/\.(gts|ts)$/u, '');
+  const normalizedImport = stripModuleExtension(importSpecifier);
 
   if (normalizedImport.startsWith('.')) {
     return [
@@ -76,7 +105,7 @@ function getSourcePathCandidates(
   parentComponentPath: string,
   importSpecifier: string
 ): string[] {
-  const normalizedImport = importSpecifier.replace(/\.(gts|ts)$/u, '');
+  const normalizedImport = stripModuleExtension(importSpecifier);
 
   if (normalizedImport.startsWith('.')) {
     return [
@@ -163,7 +192,7 @@ function getInterfaceFromGtsSource(
   }
 
   const parseableSourceText = sourceText.slice(0, classIndex);
-  const tsVirtualPath = sourcePath.replace(/\.gts$/u, '.generated.ts');
+  const tsVirtualPath = toGeneratedTsPath(sourcePath);
 
   const existingVirtualFile = project.getSourceFile(tsVirtualPath);
   if (existingVirtualFile) {
@@ -266,7 +295,7 @@ export function getInterfaceForComponent(
     componentPath,
     'index.gts'
   );
-  const tsVirtualPath = gtsSourcePath.replace(/\.gts$/u, '.generated.ts');
+  const tsVirtualPath = toGeneratedTsPath(gtsSourcePath);
   const sourceText = readFileSync(gtsSourcePath, 'utf8');
   const classIndex = sourceText.indexOf('export default class');
 
