@@ -20,13 +20,11 @@ export function argsToApiProperties(args: CatalogArg[]): CatalogApiProperty[] {
   });
 }
 
-export function getSplattributesApiProperty(): CatalogApiProperty {
-  return {
-    name: '...attributes',
-    description:
-      'This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).',
-  };
-}
+export const SPLATTRIBUTES_API_PROPERTY: CatalogApiProperty = Object.freeze({
+  name: '...attributes',
+  description:
+    'This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).',
+});
 
 function blocksToApiProperties(blocks: CatalogBlock[]): CatalogApiProperty[] {
   return blocks.map((block) => {
@@ -46,11 +44,11 @@ export function buildApi(
 ): CatalogApi {
   const api: CatalogApi = {};
 
-  if (args.length > 0) {
+  if (args.length > 0 || hasSplattributes === true) {
     const apiArgs = argsToApiProperties(args);
 
     if (hasSplattributes === true) {
-      apiArgs.push(getSplattributesApiProperty());
+      apiArgs.push(SPLATTRIBUTES_API_PROPERTY);
     }
 
     api.arguments = apiArgs;

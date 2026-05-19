@@ -1,13 +1,28 @@
-import { Node, type InterfaceDeclaration, type Symbol as MorphSymbol } from 'ts-morph';
+import {
+  Node,
+  type InterfaceDeclaration,
+  type Symbol as MorphSymbol,
+} from 'ts-morph';
 
-import { argsToApiProperties, getSplattributesApiProperty } from './build-api.ts';
-import { getDocLinks, getDocNotes, getDocTag, parseValuesTag } from './doc-tags.ts';
+import {
+  SPLATTRIBUTES_API_PROPERTY,
+  argsToApiProperties,
+} from './build-api.ts';
+import {
+  getDocLinks,
+  getDocNotes,
+  getDocTag,
+  parseValuesTag,
+} from './doc-tags.ts';
 import {
   getInterfaceForYieldedComponent,
   hasSplattributesForYieldedComponent,
 } from './signature-source.ts';
 import { parseType } from './types-parser.ts';
-import { getFirstTupleElementType, getPropertySignatureFromSymbol } from './ts-morph-helpers.ts';
+import {
+  getFirstTupleElementType,
+  getPropertySignatureFromSymbol,
+} from './ts-morph-helpers.ts';
 import { normalizeDefaultValue } from './utils.ts';
 import { normalizeApiText } from './api-text.ts';
 import { parseArgs } from './parse-args.ts';
@@ -78,6 +93,7 @@ function getImportSpecifierForIdentifier(
 
   for (const importDeclaration of sourceFile.getImportDeclarations()) {
     const defaultImport = importDeclaration.getDefaultImport();
+
     if (
       defaultImport !== undefined &&
       defaultImport.getText() === identifierName
@@ -87,7 +103,15 @@ function getImportSpecifierForIdentifier(
 
     const namedImport = importDeclaration
       .getNamedImports()
-      .find((namedSpecifier) => namedSpecifier.getName() === identifierName);
+      .find((namedSpecifier) => {
+        // Match against both the original imported name and the local alias
+        // (e.g. `import { Foo as Bar }` should match identifier `Bar`).
+        const aliasName = namedSpecifier.getAliasNode()?.getText();
+        return (
+          namedSpecifier.getName() === identifierName ||
+          aliasName === identifierName
+        );
+      });
 
     if (namedImport !== undefined) {
       return importDeclaration.getModuleSpecifierValue();
@@ -97,10 +121,12 @@ function getImportSpecifierForIdentifier(
   return undefined;
 }
 
-function parseYieldedSourceText(typeText: string): {
-  className: string;
-  boundArgs: Set<string>;
-} | undefined {
+function parseYieldedSourceText(typeText: string):
+  | {
+      className: string;
+      boundArgs: Set<string>;
+    }
+  | undefined {
   const withBoundMatch = typeText.match(
     /WithBoundArgs<\s*typeof\s+([A-Za-z0-9_]+)\s*,\s*([^>]+)>/u
   );
@@ -160,6 +186,7 @@ function parseYieldedNamedBlockProperties(
   yieldedInterface: InterfaceDeclaration
 ): CatalogApiProperty[] {
   const blocksProperty = yieldedInterface.getProperty('Blocks');
+
   if (blocksProperty === undefined) {
     return [];
   }
@@ -191,7 +218,10 @@ function parseYieldedNamedBlockProperties(
       ],
     };
 
-    const blockDescription = blockSignature.getJsDocs()[0]?.getDescription().trim();
+    const blockDescription = blockSignature
+      .getJsDocs()[0]
+      ?.getDescription()
+      .trim();
     if (blockDescription !== undefined && blockDescription.length > 0) {
       const normalizedDescription = normalizeNamedBlockDescription(
         blockName,
@@ -199,7 +229,9 @@ function parseYieldedNamedBlockProperties(
       );
 
       if (normalizedDescription.length > 0) {
-        namedBlockProperty.description = normalizeApiText(normalizedDescription);
+        namedBlockProperty.description = normalizeApiText(
+          normalizedDescription
+        );
       }
     }
 
@@ -246,18 +278,28 @@ function parseYieldedNamedBlockProperties(
           const contextNotes = getDocNotes(contextSignature);
           const contextLinks = getDocLinks(contextSignature);
 
-          if (contextDescription !== undefined && contextDescription.length > 0) {
-            contextualProperty.description = normalizeApiText(contextDescription);
+          if (
+            contextDescription !== undefined &&
+            contextDescription.length > 0
+          ) {
+            contextualProperty.description =
+              normalizeApiText(contextDescription);
           }
 
           if (
             contextDefaultValue !== undefined &&
             contextDefaultValue.length > 0
           ) {
-            contextualProperty.default = normalizeDefaultValue(contextDefaultValue);
+            contextualProperty.default =
+              normalizeDefaultValue(contextDefaultValue);
           }
 
-          if (contextTypeOverride !== undefined && contextTypeOverride.length > 0) {
+          if (
+            contextTypeOverride !== undefined &&
+            contextTypeOverride.length > 0
+          ) {
+            // Precedence policy: @type overrides inferred type label and
+            // clears inferred `values` so a stale enum list cannot leak.
             contextualProperty.type = contextTypeOverride;
             contextualProperty.values = undefined;
           }
@@ -266,6 +308,8 @@ function parseYieldedNamedBlockProperties(
             contextValuesOverride !== undefined &&
             contextValuesOverride.length > 0
           ) {
+            // Precedence policy: @values is the final authority for the
+            // values list and must not be overwritten by inferred values.
             contextualProperty.values = parseValuesTag(contextValuesOverride);
           }
 
@@ -343,9 +387,10 @@ function parseYieldedComponentProperties(
 
   if (
     hasSplattributes === true ||
-    (hasSplattributes === undefined && yieldedInterface.getProperty('Element') !== undefined)
+    (hasSplattributes === undefined &&
+      yieldedInterface.getProperty('Element') !== undefined)
   ) {
-    yieldedProperties.push(getSplattributesApiProperty());
+    yieldedProperties.push(SPLATTRIBUTES_API_PROPERTY);
   }
 
   return yieldedProperties;
@@ -371,12 +416,15 @@ export function parseContextualProperties(
     return [];
   }
 
-  const defaultBlockSignature = getPropertySignatureFromSymbol(defaultBlockSymbol);
+  const defaultBlockSignature =
+    getPropertySignatureFromSymbol(defaultBlockSymbol);
   if (defaultBlockSignature === undefined) {
     return [];
   }
 
-  const defaultBlockType = defaultBlockSymbol.getTypeAtLocation(defaultBlockSignature);
+  const defaultBlockType = defaultBlockSymbol.getTypeAtLocation(
+    defaultBlockSignature
+  );
   const contextualElementType = getFirstTupleElementType(defaultBlockType);
   if (contextualElementType === undefined) {
     return [];
@@ -419,7 +467,10 @@ export function parseContextualProperties(
       contextDeclaration !== undefined &&
       Node.isPropertySignature(contextDeclaration)
     ) {
-      const description = contextDeclaration.getJsDocs()[0]?.getDescription().trim();
+      const description = contextDeclaration
+        .getJsDocs()[0]
+        ?.getDescription()
+        .trim();
 
       if (description !== undefined && description.length > 0) {
         contextualProperty.description = normalizeApiText(description);

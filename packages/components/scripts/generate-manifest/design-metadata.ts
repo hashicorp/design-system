@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-
 import { repoRoot } from './paths.ts';
 
 import type { CatalogDesign } from './types.ts';
@@ -21,8 +20,12 @@ const parseFigmaMetadata = (figmaUrl: string): CatalogDesign => {
   }
 
   const nodeId = parsedUrl.searchParams.get('node-id');
-  const pathnameTokens = parsedUrl.pathname.split('/').filter((token) => token.length > 0);
-  const designTokenIndex = pathnameTokens.findIndex((token) => token === 'design');
+  const pathnameTokens = parsedUrl.pathname
+    .split('/')
+    .filter((token) => token.length > 0);
+  const designTokenIndex = pathnameTokens.findIndex(
+    (token) => token === 'design'
+  );
   const fileKey =
     designTokenIndex >= 0 && pathnameTokens[designTokenIndex + 1] !== undefined
       ? pathnameTokens[designTokenIndex + 1]
@@ -43,7 +46,9 @@ const getFigmaUrlFromDoc = (componentPath: string): string | undefined => {
   }
 
   const source = readFileSync(docPath, 'utf8');
-  const figmaMatch = source.match(/\n\s*figma:\s*>-\s*\n\s*(https:\/\/www\.figma\.com\/[^\s]+)/u);
+  const figmaMatch = source.match(
+    /\n\s*figma:\s*>-\s*\n\s*(https:\/\/www\.figma\.com\/[^\s]+)/u
+  );
 
   if (figmaMatch === null) {
     return undefined;

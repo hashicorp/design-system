@@ -17,10 +17,8 @@ export function getPropertySignatureFromSymbol(
   }
 
   const declaration = symbol.getValueDeclaration();
-  if (
-    declaration !== undefined &&
-    Node.isPropertySignature(declaration)
-  ) {
+
+  if (declaration !== undefined && Node.isPropertySignature(declaration)) {
     return declaration;
   }
 
@@ -29,12 +27,14 @@ export function getPropertySignatureFromSymbol(
 
 export function getFirstTupleElementType(type: Type): Type | undefined {
   const tupleElements = type.getTupleElements();
+
   if (tupleElements[0] !== undefined) {
     return tupleElements[0];
   }
 
   for (const unionType of type.getUnionTypes()) {
     const unionTupleElements = unionType.getTupleElements();
+
     if (unionTupleElements[0] !== undefined) {
       return unionTupleElements[0];
     }

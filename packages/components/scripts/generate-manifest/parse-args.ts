@@ -54,6 +54,12 @@ export function parseArgs(interfaceDecl: InterfaceDeclaration): CatalogArg[] {
       required: property?.hasQuestionToken() === false,
     };
 
+    // Seed inferred enum values from TS first, so doc overrides below can
+    // intentionally win as the final authority on `type` and `values`.
+    if (parsedType.values !== undefined && parsedType.values.length > 0) {
+      arg.values = parsedType.values;
+    }
+
     if (property !== undefined) {
       const description = property.getJsDocs()[0]?.getDescription().trim();
       const defaultValue = getDocTag(property, 'default');
@@ -70,11 +76,15 @@ export function parseArgs(interfaceDecl: InterfaceDeclaration): CatalogArg[] {
         arg.default = normalizeDefaultValue(defaultValue);
       }
 
+      // Precedence policy: @type overrides inferred type label and clears any
+      // previously inferred `values` so a stale enum list cannot leak through.
       if (typeOverride !== undefined && typeOverride.length > 0) {
         arg.type = typeOverride;
         arg.values = undefined;
       }
 
+      // Precedence policy: @values is the final authority for the values list,
+      // so it must be applied last and not be overwritten by inferred values.
       if (valuesOverride !== undefined && valuesOverride.length > 0) {
         arg.values = parseValuesTag(valuesOverride);
       }
@@ -86,10 +96,6 @@ export function parseArgs(interfaceDecl: InterfaceDeclaration): CatalogArg[] {
       if (links.length > 0) {
         arg.links = links;
       }
-    }
-
-    if (parsedType.values !== undefined && parsedType.values.length > 0) {
-      arg.values = parsedType.values;
     }
 
     args.push(arg);

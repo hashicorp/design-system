@@ -1,12 +1,9 @@
 import { Project } from 'ts-morph';
-
 import { componentsExportsPath } from './paths.ts';
 
 import type { ComponentExport } from './types.ts';
 
-const DEFAULT_COMPONENT_SCOPE = [
-  'button',
-];
+const DEFAULT_COMPONENT_SCOPE = ['button'];
 
 const componentScope = process.env['HDS_MANIFEST_COMPONENTS'];
 
@@ -23,15 +20,13 @@ function isIncludedInScope(componentPath: string): boolean {
 }
 
 export function getComponentExports(): ComponentExport[] {
-  // Read the public component surface from components.ts rather than scanning
-  // directories. This ensures we only include components intentionally exported
-  // by the package.
   const project = new Project();
   const sourceFile = project.addSourceFileAtPath(componentsExportsPath);
   const exports: ComponentExport[] = [];
 
   for (const declaration of sourceFile.getExportDeclarations()) {
     const moduleSpecifier = declaration.getModuleSpecifierValue();
+
     if (moduleSpecifier === undefined) {
       continue;
     }
