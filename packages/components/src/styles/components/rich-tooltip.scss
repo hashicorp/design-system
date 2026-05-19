@@ -48,13 +48,23 @@
     --icon-color: var(--token-rich-tooltip-toggle-foreground-color-hover);
   }
 
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced(
+      // we want the focus ring to extend a bit around the content
+      $pseudo-element-inset-hds: -2px,
+      $pseudo-element-inset-cds: -2px,
+      // we can't rely on the parent's border radius here and inherit it
+      // so we assign a generic border radius that works for most of the cases
+      $pseudo-element-border-radius: var(--token-border-radius-medium)
+    );
+  }
+
   &:active,
   &.mock-active {
     --text-color: var(--token-rich-tooltip-toggle-foreground-color-active);
     --icon-color: var(--token-rich-tooltip-toggle-foreground-color-active);
   }
-
-  @include hds-focus-ring-with-pseudo-element($top: -2px, $right: -2px, $bottom: -2px, $left: -2px);
 }
 
 // decorated text
