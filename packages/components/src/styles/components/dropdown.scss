@@ -417,6 +417,11 @@
         left: 10px;
         background-color: var(--current-background-color);
         box-shadow: none;
+
+        @include hds-apply-only-if-carbon() {
+          left: 0;
+          background-color: transparent;
+        }
       }
     }
 
