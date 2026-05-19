@@ -2,7 +2,37 @@
 
 ### FilterBar
 
-<!-- hds-api:arguments -->
+<Doc::ComponentApi as |C|>
+  <C.Property @name="<[F].FiltersDropdown>" @type="yielded component">
+    `FilterBar::FiltersDropdown` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[F].ActionsGeneric>" @type="yielded component">
+    `FilterBar::ActionsGeneric` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[F].ActionsDropdown>" @type="yielded component">
+    `FilterBar::ActionsDropdown` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="filters" @type="object" @required={{true}}>
+    Object representing the currently applied filters. The shape is dependent upon the filter type ([see below](#filter-types-1)). It is required to set a `string` filter key for each entry. Ex: `{ 'my-filter-key': {...}}`.
+  </C.Property>
+  <C.Property @name="isLiveFilter" @type="boolean" @default="false">
+    If `true`, the `@onFilter` callback is invoked immediately as filters are added in the dropdown (live updates). If `false`, changes in the dropdown are applied only when the user confirms via the "Apply filters" button, or clears with the "Clear all filters" button.
+    <br/><br/>
+    **Note:** The behavior of the search input is unaffected by this argument. The search filter is always applied after user submission via the `change` event.
+  </C.Property>
+  <C.Property @name="hasSearch" @type="boolean" @default="false">
+    When `true`, a search input is shown in the Filter Bar. Search input values are reported to the `@onFilter` callback as a filter with the key `search`.
+  </C.Property>
+  <C.Property @name="searchPlaceholder" @type="string" @default="&quot;Search&quot;">
+    Placeholder text for the search input when `@hasSearch` is `true`.
+  </C.Property>
+  <C.Property @name="onFilter" @type="function">
+    Callback invoked when filters are applied, changed, or cleared. Receives a single argument: the updated `HdsFilterBarFilters` object.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
 
 ### Filter types
 
@@ -185,7 +215,23 @@ The required structure of the `data` property when `type` is equal to `generic`.
 
 The `FilterBar::FiltersDropdown` is yielded as the `[F].FiltersDropdown` contextual component.
 
-<!-- hds-api:contextual-args name=FiltersDropdown -->
+<Doc::ComponentApi as |C|>
+  <C.Property @name="<[F].FilterGroup>" @type="yielded component">
+    `FilterBar::FilterGroup` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="height" @type="string" @default="600px">
+    If a `@height` parameter is provided then the tabs and tab panels will have a max-height. Can be any valid CSS height (px, rem, etc).
+  </C.Property>
+  <C.Property @name="onFocusOut" @type="function">
+    A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided).
+    <br />
+    <br />
+    _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
 
 ### FilterBar::FilterGroup
 
@@ -242,7 +288,14 @@ The `FilterBar::FilterGroup::Checkbox` is yielded as the `[F].Checkbox` contextu
 
 The `FilterBar::ActionsGeneric` is yielded as the `[F].ActionsGeneric` contextual component.
 
-<!-- hds-api:contextual-args name=ActionsGeneric -->
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements passed as children are yielded as inner content of the component.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
 
 ### FilterBar::ActionsDropdown
 
@@ -254,4 +307,37 @@ Note: This component is an extension of the [Dropdown](/components/dropdown) com
 
 The `FilterBar::ActionsDropdown` is yielded as the `[F].ActionsDropdown` contextual component.
 
-<!-- hds-api:contextual-args name=ActionsDropdown -->
+<Doc::ComponentApi as |C|>
+  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false">
+    Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
+  </C.Property>
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
+    By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
+    <br/><br/>We discourage the use of percentage values for this argument. The Dropdown list is [a `popover` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover), so relative units use `document` as a reference (not the parent element), meaning percentage values act similar to `vw`.
+    If `@matchToggleWidth` is set, `@width` is overridden.
+  </C.Property>
+  <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
+    If a `@height` parameter is provided then the list will have a max-height.
+  </C.Property>
+  <C.Property @name="preserveContentInDom" @type="boolean" @default="false">
+    Controls if the content is always rendered in the DOM, even when the Dropdown is closed.
+  </C.Property>
+  <C.Property @name="onClose" @type="function">
+    Callback function invoked when the dropdown is closed (if provided).
+  </C.Property>
+  <C.Property @name="onFocusOut" @type="function">
+    A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided).
+    <br />
+    <br />
+    _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._
+  </C.Property>
+  <C.Property @name="toggleButtonText" @type="text" @default="&quot;Actions&quot;">
+    The text of the dropdown toggle button.
+  </C.Property>
+  <C.Property @name="toggleButtonIcon" @type="string">
+    Acceptable value: any [icon](/icons/library) name.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
