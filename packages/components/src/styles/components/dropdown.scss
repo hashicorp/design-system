@@ -284,7 +284,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 .hds-dropdown__list {
   flex: 1 1 auto;
   margin: 0;
-  padding: var(--token-dropdown-list-padding-vertical) 0;
+  padding: 4px 0;
   overflow-y: auto;
   list-style: none;
   overscroll-behavior: contain;
@@ -665,11 +665,6 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 .hds-dropdown-list-item--variant-radio {
   display: flex;
   align-items: self-start;
-  padding: 8px 16px;
-
-  @include hds-apply-only-if-carbon() {
-    padding: 11px 16px;
-  }
 
   .hds-dropdown-list-item__control {
     flex-shrink: 0;
@@ -687,10 +682,15 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
     display: flex;
     flex-grow: 1;
     align-items: flex-start;
+    padding: 8px 16px;
     color: var(--token-color-foreground-primary);
 
     &:hover {
       cursor: pointer;
+    }
+
+    @include hds-apply-only-if-carbon() {
+      padding: 11px 16px;
     }
   }
 
