@@ -18,6 +18,7 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
     "generate:manifest": "node --experimental-strip-types ./scripts/generate-manifest/index.ts",
+    "test:scripts": "node --experimental-strip-types --test ./scripts/generate-manifest/__tests__/*.test.ts",
     "build": "rollup --config && pnpm run generate:manifest",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",

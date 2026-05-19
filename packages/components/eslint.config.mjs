@@ -134,5 +134,18 @@ export default ts.config(
         ...globals.node,
       },
     },
+  },
+  /**
+   * Script-level tests using `node:test`.
+   *
+   * `node:test` `describe`/`it` are typed as returning Promises, which trips
+   * `@typescript-eslint/no-floating-promises` even though the runtime is
+   * synchronous-by-default and the runner manages its own lifecycle.
+   */
+  {
+    files: ['scripts/**/__tests__/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-floating-promises': 'off',
+    },
   }
 );

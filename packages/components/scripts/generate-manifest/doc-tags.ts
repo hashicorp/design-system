@@ -1,8 +1,58 @@
-import type { InterfaceDeclaration, PropertySignature } from 'ts-morph';
+import type {
+  InterfaceDeclaration,
+  JSDocTag,
+  PropertySignature,
+} from 'ts-morph';
+import { Node } from 'ts-morph';
 
 import { normalizeApiText } from './api-text.ts';
 
 import type { CatalogApiLink, CatalogApiNote } from './types.ts';
+
+/**
+ * Extract the human-authored value of a JSDoc tag.
+ *
+ * Most tags expose their value via `getCommentText()`. TypeScript treats a
+ * handful of tags as "typed" JSDoc tags (e.g. `@type`, `@param`, `@returns`),
+ * and for those `getCommentText()` returns undefined because the value is
+ * modeled as a type expression rather than a comment. For our use case
+ * (`@type icon`, `@type {icon}`) we want to recover that text, so we fall
+ * back to reading the type expression or the raw tag text when the tag is a
+ * typed JSDoc tag node.
+ */
+function getJsDocTagValue(tag: JSDocTag): string | undefined {
+  const comment = tag.getCommentText()?.trim();
+
+  if (comment !== undefined && comment.length > 0) {
+    return comment;
+  }
+
+  if (Node.isJSDocTypeTag(tag)) {
+    const typeExpressionText = tag
+      .getTypeExpression()
+      ?.getTypeNode()
+      ?.getText()
+      .trim();
+
+    if (typeExpressionText !== undefined && typeExpressionText.length > 0) {
+      return typeExpressionText;
+    }
+
+    // Fallback: parse the raw tag text (e.g. `@type icon`) for the form
+    // that does not use curly braces.
+    const rawText = tag.getText().trim();
+    const rawAfterTagName = rawText
+      .replace(/^@[A-Za-z]+/u, '')
+      .replace(/^\s*\*\s*/u, '')
+      .trim();
+
+    if (rawAfterTagName.length > 0) {
+      return rawAfterTagName;
+    }
+  }
+
+  return undefined;
+}
 
 export function getDocTag(
   prop: PropertySignature,
@@ -14,13 +64,11 @@ export function getDocTag(
   }
 
   const tag = docs.getTags().find((entry) => entry.getTagName() === tagName);
-  const comment = tag?.getCommentText()?.trim();
-
-  if (comment !== undefined && comment.length > 0) {
-    return comment;
+  if (tag === undefined) {
+    return undefined;
   }
 
-  return undefined;
+  return getJsDocTagValue(tag);
 }
 
 export function parseValuesTag(valuesTag: string): string[] {
@@ -118,11 +166,9 @@ export function getInterfaceDocTag(
   }
 
   const tag = docs.getTags().find((entry) => entry.getTagName() === tagName);
-  const comment = tag?.getCommentText()?.trim();
-
-  if (comment !== undefined && comment.length > 0) {
-    return comment;
+  if (tag === undefined) {
+    return undefined;
   }
 
-  return undefined;
+  return getJsDocTagValue(tag);
 }

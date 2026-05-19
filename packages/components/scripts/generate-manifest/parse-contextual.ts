@@ -85,7 +85,7 @@ function getRawContextTypeText(
   return fallbackTypeText;
 }
 
-function getImportSpecifierForIdentifier(
+export function getImportSpecifierForIdentifier(
   interfaceDecl: InterfaceDeclaration,
   identifierName: string
 ): string | undefined {
@@ -121,7 +121,7 @@ function getImportSpecifierForIdentifier(
   return undefined;
 }
 
-function parseYieldedSourceText(typeText: string):
+export function parseYieldedSourceText(typeText: string):
   | {
       className: string;
       boundArgs: Set<string>;
@@ -182,7 +182,7 @@ function normalizeNamedBlockDescription(
   return description.replace(yieldSentencePattern, '').trim();
 }
 
-function parseYieldedNamedBlockProperties(
+export function parseYieldedNamedBlockProperties(
   yieldedInterface: InterfaceDeclaration
 ): CatalogApiProperty[] {
   const blocksProperty = yieldedInterface.getProperty('Blocks');
@@ -338,6 +338,7 @@ function parseYieldedComponentProperties(
   contextualTypeText: string
 ): CatalogApiProperty[] {
   const yieldedSource = parseYieldedSourceText(contextualTypeText);
+
   if (yieldedSource === undefined) {
     return [];
   }
@@ -418,6 +419,7 @@ export function parseContextualProperties(
 
   const defaultBlockSignature =
     getPropertySignatureFromSymbol(defaultBlockSymbol);
+
   if (defaultBlockSignature === undefined) {
     return [];
   }
@@ -426,6 +428,7 @@ export function parseContextualProperties(
     defaultBlockSignature
   );
   const contextualElementType = getFirstTupleElementType(defaultBlockType);
+
   if (contextualElementType === undefined) {
     return [];
   }
@@ -477,11 +480,13 @@ export function parseContextualProperties(
       }
 
       const notes = getDocNotes(contextDeclaration);
+
       if (notes.length > 0) {
         contextualProperty.notes = notes;
       }
 
       const links = getDocLinks(contextDeclaration);
+
       if (links.length > 0) {
         contextualProperty.links = links;
       }
