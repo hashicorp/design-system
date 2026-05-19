@@ -20,16 +20,7 @@ import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored
 export interface HdsRichTooltipBubbleSignature {
   Args: {
     placement?: HdsAnchoredPositionOptions['placement'];
-    /**
-     * @type number|object
-     * @default "12"
-     */
     offset?: HdsAnchoredPositionOptions['offsetOptions'];
-    /**
-     * @type boolean|string
-     * @values true,false,flip,shift,auto
-     * @default "true"
-     */
     enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
     width?: string;
     height?: string;

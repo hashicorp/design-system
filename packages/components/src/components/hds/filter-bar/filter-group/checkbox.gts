@@ -14,35 +14,11 @@ import type { HdsFilterBarFilter } from '../types.ts';
 
 export interface HdsFilterBarFilterGroupCheckboxSignature {
   Args: {
-    /**
-     * The value of the checkbox button.
-     */
     value: string;
-
-    /**
-     * The label of the checkbox button. It is also passed to the applied filter
-     * object on filter change.
-     */
     label: string;
-
-    /**
-     * The `name` shared by the checkbox group.
-     */
     name: string;
-
-    /**
-     * Search query used to filter visible options in the list.
-     */
     searchValue?: string;
-
-    /**
-     * The currently applied filter for this key, if any.
-     */
     keyFilter?: HdsFilterBarFilter;
-
-    /**
-     * Callback invoked when checkbox selection changes.
-     */
     onChange?: (event: Event, label?: string) => void;
   };
   Blocks: {

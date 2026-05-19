@@ -34,19 +34,8 @@ export interface HdsRichTooltipToggleSignature {
   Args: {
     text?: string;
     icon?: HdsIconSignature['Args']['name'];
-    /**
-     * @default "trailing"
-     */
     iconPosition?: HdsRichTooltipToggleIconPositions;
-    /**
-     * @type string
-     * @values undefined,small,medium,large
-     * @default "undefined"
-     */
     size?: undefined | HdsRichTooltipToggleSizes;
-    /**
-     * @default "false"
-     */
     isInline?: boolean;
     isOpen?: boolean;
     popoverId: string;

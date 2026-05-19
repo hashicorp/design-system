@@ -26,51 +26,19 @@ export const DEFAULT_DROPDOWN_HEIGHT = '600px';
 
 export interface HdsFilterBarFiltersDropdownSignature {
   Args: {
-    /**
-     * Object representing the currently applied filters.
-     */
     filters: HdsFilterBarFilters;
-
-    /**
-     * If `true`, filters are applied immediately as they change.
-     * @default "false"
-     */
     isLiveFilter?: boolean;
-
-    /**
-     * If a `@height` parameter is provided then the tabs and tab panels will have a
-     * max-height. Can be any valid CSS height (px, rem, etc).
-     * @default "600px"
-     */
     height?: string;
-
-    /**
-     * Callback invoked when filters are applied, changed, or cleared.
-     */
     onFilter?: (filters: HdsFilterBarFilters) => void;
-
-    /**
-     * A callback function invoked when the dropdown menu loses focus, and focus does
-     * not move to another element (if provided).
-     *
-     * @note Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost.
-     */
     onFocusOut?: HdsDropdownSignature['Args']['onFocusOut'];
   };
   Blocks: {
     default: [
       {
-        /**
-         * The `FilterBar::FilterGroup` component, yielded as contextual component.
-         */
         FilterGroup?: WithBoundArgs<
           typeof HdsFilterBarFilterGroup,
           'tab' | 'panel' | 'filters' | 'onChange'
         >;
-
-        /**
-         * A function to programmatically close the dropdown.
-         */
         close: HdsDropdownSignature['Blocks']['default'][0]['close'];
       },
     ];

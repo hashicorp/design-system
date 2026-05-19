@@ -14,35 +14,11 @@ import type { HdsFilterBarFilter } from '../types.ts';
 
 export interface HdsFilterBarFilterGroupRadioSignature {
   Args: {
-    /**
-     * The value of the radio button.
-     */
     value: string;
-
-    /**
-     * The label of the radio button. It is also passed to the applied filter
-     * object on filter change.
-     */
     label: string;
-
-    /**
-     * The `name` shared by the radio group.
-     */
     name: string;
-
-    /**
-     * Search query used to filter visible options in the list.
-     */
     searchValue?: string;
-
-    /**
-     * The currently applied filter for this key, if any.
-     */
     keyFilter?: HdsFilterBarFilter;
-
-    /**
-     * Callback invoked when radio selection changes.
-     */
     onChange?: (event: Event, label?: string) => void;
   };
   Blocks: {

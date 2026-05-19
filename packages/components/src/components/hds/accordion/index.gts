@@ -24,43 +24,16 @@ import type {
   HdsAccordionItemTitleTags,
 } from './types.ts';
 
-/**
- * @componentDescription An accordion is a vertically stacked list of container-like toggles that reveal or hide associated sections of content.
- */
 export interface HdsAccordionSignature {
   Args: {
-    /**
-     * The size of the accordion items.
-      * @default "medium"
-     */
     size?: HdsAccordionSizes;
-
-    /**
-     * The visual style of the accordion.
-     * @default "card"
-     */
     type?: HdsAccordionTypes;
-
-    /**
-     * Controls the state of all items within a group. Can be used to expand or collapse all items at once.
-     */
     forceState?: HdsAccordionForceStates;
-
-    /**
-     * The HTML tag that wraps the content of each Accordion Item "toggle" block.
-     * @default "div"
-     */
     titleTag?: HdsAccordionItemTitleTags;
   };
   Blocks: {
-    /**
-     * Default yield for Accordion items.
-     */
     default: [
       {
-        /**
-         * The Accordion::Item component, yielded as a contextual component.
-         */
         Item?: WithBoundArgs<
           typeof HdsAccordionItem,
           'titleTag' | 'size' | 'type' | 'forceState'
@@ -68,9 +41,6 @@ export interface HdsAccordionSignature {
       },
     ];
   };
-  /**
-   * Supports all standard HTML attributes of a div element, including `...attributes`.
-   */
   Element: HTMLDivElement;
 }
 

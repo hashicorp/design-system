@@ -33,79 +33,27 @@ import type {
 
 export interface HdsFilterBarFilterGroupSignature {
   Args: {
-    /**
-     * The tab yielded from `FilterBar::Tabs` used to render the group label.
-     */
     tab?: WithBoundArgs<typeof HdsFilterBarTabsTab, never>;
-
-    /**
-     * The panel yielded from `FilterBar::Tabs` used to render group content.
-     */
     panel?: WithBoundArgs<typeof HdsFilterBarTabsPanel, never>;
-
-    /**
-     * The key value used in the applied filters object for filters emitted for
-     * this `FilterGroup`.
-     */
     key: string;
-
-    /**
-     * The text used for this `FilterGroup` in `FiltersDropdown` tabs and in
-     * applied filter tags.
-     */
     text: string;
-
-    /**
-     * The type of data being filtered.
-     */
     type: HdsFilterBarFilterType;
-
-    /**
-     * Object representing the currently applied filters.
-     */
     filters: HdsFilterBarFilters;
-
-    /**
-     * When `true`, a search input is shown in the filter group panel, which can
-     * be used to filter available options.
-     *
-     * @default "false"
-     * @note This is only applicable to `single-select` and `multi-select` filter types when used with the `Radio` and `Checkbox` contextual components.
-     */
     searchEnabled?: boolean;
-
-    /**
-     * Callback invoked when a filter in the group changes.
-     */
     onChange: (key: string, keyFilter?: HdsFilterBarFilter) => void;
-
-    /**
-     * Callback invoked when the current group is cleared.
-     */
     onClear?: (key: string) => void;
   };
   Blocks: {
     default: [
       {
-        /**
-         * The `FilterBar::FilterGroup::Generic` component, yielded as contextual component.
-         */
         Generic?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupGeneric,
           'onChange'
         >;
-
-        /**
-         * The `FilterBar::FilterGroup::Checkbox` component, yielded as contextual component.
-         */
         Checkbox?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupCheckbox,
           'keyFilter' | 'name' | 'searchValue' | 'onChange'
         >;
-
-        /**
-         * The `FilterBar::FilterGroup::Radio` component, yielded as contextual component.
-         */
         Radio?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupRadio,
           'keyFilter' | 'name' | 'searchValue' | 'onChange'

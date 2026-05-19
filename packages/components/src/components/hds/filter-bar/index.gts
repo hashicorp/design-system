@@ -36,70 +36,25 @@ import type {
   HdsFilterBarGenericFilterData,
 } from './types.ts';
 
-/**
- * @componentDescription A filter bar helps users refine data sets with structured filters, search, and quick actions.
- */
 export interface HdsFilterBarSignature {
   Args: {
-    /**
-     * Object representing the currently applied filters. The shape is dependent upon
-     * the filter type. It is required to set a string filter key for each entry.
-     * Ex: `{ 'my-filter-key': {...} }`.
-     */
     filters: HdsFilterBarFilters;
-
-    /**
-     * If `true`, the `@onFilter` callback is invoked immediately as filters are
-     * added in the dropdown (live updates). If `false`, changes in the dropdown
-     * are applied only when the user confirms via the "Apply filters" button,
-     * or clears with the "Clear all filters" button.
-     *
-     * @default "false"
-     * @note The behavior of the search input is unaffected by this argument. The search filter is always applied after user submission via the `change` event.
-     */
     isLiveFilter?: boolean;
-
-    /**
-     * When `true`, a search input is shown in the Filter Bar. Search input values
-     * are reported to the `@onFilter` callback as a filter with the key `search`.
-     * @default "false"
-     */
     hasSearch?: boolean;
-
-    /**
-     * Placeholder text for the search input when `@hasSearch` is `true`.
-     * @default "Search"
-     */
     searchPlaceholder?: string;
-
-    /**
-     * Callback invoked when filters are applied, changed, or cleared.
-     * Receives a single argument: the updated `HdsFilterBarFilters` object.
-     */
     onFilter?: (filters: HdsFilterBarFilters) => void;
   };
   Blocks: {
     default?: [
       {
-        /**
-         * The `FilterBar::FiltersDropdown` component, yielded as contextual component.
-         */
         FiltersDropdown?: WithBoundArgs<
           typeof HdsFilterBarFiltersDropdown,
           'filters' | 'isLiveFilter' | 'onFilter'
         >;
-
-        /**
-         * The `FilterBar::ActionsDropdown` component, yielded as contextual component.
-         */
         ActionsDropdown?: WithBoundArgs<
           typeof HdsFilterBarActionsDropdown,
           never
         >;
-
-        /**
-         * The `FilterBar::ActionsGeneric` component, yielded as contextual component.
-         */
         ActionsGeneric?: typeof HdsYield;
       },
     ];
