@@ -13,9 +13,6 @@
 @use "../mixins/focus-ring" as *;
 @use "../mixins/carbonization" as *;
 
-$hds-dropdown-toggle-button-carbon-gap: 6px;
-// var(--token-dropdown-toggle-button-gap) // WIP, to replace the above
-
 // DROPDOWN
 
 .hds-dropdown {
@@ -138,6 +135,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
 .hds-dropdown-toggle-button {
   @include hds-button();
+  gap: var(--token-dropdown-toggle-button-gap);
 
   &:focus,
   &.mock-focus {
@@ -159,16 +157,12 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
     }
   }
 
-  @include hds-apply-only-if-carbon() {
-    gap: $hds-dropdown-toggle-button-carbon-gap; // TODO: refactor to use token
-  }
-
   &:not(:disabled, .mock-disabled) {
     @include hds-apply-only-if-carbon() {
       .hds-dropdown-toggle-button__badge,
       .hds-dropdown-toggle-button__count {
         color: #161616; // the color is the same for all carbon themes
-        background-color: #E0E0E0; // the color is the same for all carbon themes
+        background-color: #e0e0e0; // the color is the same for all carbon themes
         border-color: transparent;
       }
     }
@@ -227,7 +221,7 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
   // We add extra spacing only when used within a toggle button vs. in a toggle icon
   .hds-dropdown-toggle-button & {
     @include hds-apply-only-if-carbon() {
-      padding-left: calc(32px - #{$hds-dropdown-toggle-button-carbon-gap});
+      padding-left: calc(32px - var(--token-dropdown-toggle-button-gap));
     }
   }
 
@@ -495,7 +489,9 @@ $hds-dropdown-toggle-button-carbon-gap: 6px;
 
       @include hds-apply-only-if-carbon() {
         top: 3px;
+        right: 3px;
         bottom: 3px;
+        left: 3px;
       }
     }
   }
