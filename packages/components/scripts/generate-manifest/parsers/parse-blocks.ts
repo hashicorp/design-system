@@ -1,9 +1,9 @@
 import type { InterfaceDeclaration } from 'ts-morph';
 
-import { normalizeApiText } from './api-text.ts';
-import { getPropertySignatureFromSymbol } from './ts-morph-helpers.ts';
+import { normalizeApiText } from '../normalize-api-text.ts';
+import { getPropertySignatureFromSymbol } from '../shared/ts-morph-helpers.ts';
 
-import type { CatalogBlock } from './types.ts';
+import type { CatalogBlock } from '../types.ts';
 
 export function parseBlocks(interfaceDecl: InterfaceDeclaration): CatalogBlock[] {
   const blocksProperty = interfaceDecl.getProperty('Blocks');

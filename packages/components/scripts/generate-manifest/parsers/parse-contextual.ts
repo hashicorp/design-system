@@ -7,28 +7,28 @@ import {
 import {
   SPLATTRIBUTES_API_PROPERTY,
   argsToApiProperties,
-} from './build-api.ts';
-import { getDocLinks, getDocNotes } from './doc-tags.ts';
+} from '../build-api.ts';
+import { getDocLinks, getDocNotes } from '../metadata/doc-tags.ts';
 import {
   getInterfaceForYieldedComponent,
   hasSplattributesForYieldedComponent,
-} from './signature-source.ts';
-import { parseType } from './types-parser.ts';
+} from '../signature-source.ts';
+import { parseType } from './parse-types.ts';
 import {
   getFirstTupleElementType,
   getPropertySignatureFromSymbol,
-} from './ts-morph-helpers.ts';
-import { normalizeApiText } from './api-text.ts';
-import { applyPropertyDocMetadata } from './property-doc-metadata.ts';
-import { ICON_ENUM_PARSED_TYPE, isIconNameType } from './type-overrides.ts';
+} from '../shared/ts-morph-helpers.ts';
+import { normalizeApiText } from '../normalize-api-text.ts';
+import { applyPropertyDocMetadata } from '../metadata/apply-property-doc-metadata.ts';
+import { ICON_ENUM_PARSED_TYPE, isIconNameType } from '../metadata/type-overrides.ts';
 import {
   getImportSpecifierForIdentifier,
   parseYieldedSourceText,
-} from './contextual-helpers.ts';
+} from '../shared/contextual-helpers.ts';
 import { parseArgs } from './parse-args.ts';
 import { parseBlocks } from './parse-blocks.ts';
 
-import type { CatalogApiProperty } from './types.ts';
+import type { CatalogApiProperty } from '../types.ts';
 
 function getContextualTypeLabel(
   propertyName: string,

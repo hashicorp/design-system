@@ -20,11 +20,11 @@
 
 import type { PropertySignature } from 'ts-morph';
 
-import { normalizeApiText } from './api-text.ts';
+import { normalizeApiText } from '../normalize-api-text.ts';
+import { normalizeDefaultValue } from '../shared/string-utils.ts';
 import { getDocLinks, getDocNotes, getDocTag, parseValuesTag } from './doc-tags.ts';
-import { normalizeDefaultValue } from './utils.ts';
 
-import type { CatalogApiLink, CatalogApiNote } from './types.ts';
+import type { CatalogApiLink, CatalogApiNote } from '../types.ts';
 
 export interface PropertyDocMetadataTarget {
   type?: string;

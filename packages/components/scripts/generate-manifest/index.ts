@@ -1,4 +1,4 @@
-import { generateCatalog } from './component-catalog.ts';
+import { generateCatalog } from './generate-catalog.ts';
 import { writeManifest } from './write-manifest.ts';
 
 const catalog = generateCatalog();

@@ -1,19 +1,19 @@
 import type { InterfaceDeclaration } from 'ts-morph';
 
-import { normalizeApiText } from './api-text.ts';
+import { normalizeApiText } from './normalize-api-text.ts';
 import { buildApi } from './build-api.ts';
 import { getComponentDesignMetadata } from './design-metadata.ts';
 import { getComponentExports } from './component-exports.ts';
-import { getInterfaceDocTag } from './doc-tags.ts';
-import { parseArgs } from './parse-args.ts';
-import { parseBlocks } from './parse-blocks.ts';
-import { parseContextualProperties } from './parse-contextual.ts';
+import { getInterfaceDocTag } from './metadata/doc-tags.ts';
+import { parseArgs } from './parsers/parse-args.ts';
+import { parseBlocks } from './parsers/parse-blocks.ts';
+import { parseContextualProperties } from './parsers/parse-contextual.ts';
 import {
   getInterfaceForComponent,
   hasSplattributesForComponent,
 } from './signature-source.ts';
-import { toTitleCase } from './utils.ts';
-import { validateCatalogComponent } from './validate-catalog.ts';
+import { toTitleCase } from './shared/string-utils.ts';
+import { validateCatalogComponent } from './validate-catalog-component.ts';
 
 import type { Catalog, CatalogComponent } from './types.ts';
 

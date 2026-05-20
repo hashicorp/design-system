@@ -1,11 +1,11 @@
 import type { InterfaceDeclaration } from 'ts-morph';
 
-import { parseType } from './types-parser.ts';
-import { getPropertySignatureFromSymbol } from './ts-morph-helpers.ts';
-import { applyPropertyDocMetadata } from './property-doc-metadata.ts';
-import { ICON_ENUM_PARSED_TYPE, isIconNameType } from './type-overrides.ts';
+import { parseType } from './parse-types.ts';
+import { applyPropertyDocMetadata } from '../metadata/apply-property-doc-metadata.ts';
+import { ICON_ENUM_PARSED_TYPE, isIconNameType } from '../metadata/type-overrides.ts';
+import { getPropertySignatureFromSymbol } from '../shared/ts-morph-helpers.ts';
 
-import type { CatalogArg } from './types.ts';
+import type { CatalogArg } from '../types.ts';
 
 export function parseArgs(interfaceDecl: InterfaceDeclaration): CatalogArg[] {
   const argsProperty = interfaceDecl.getProperty('Args');

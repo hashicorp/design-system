@@ -5,9 +5,9 @@ import type {
 } from 'ts-morph';
 import { Node } from 'ts-morph';
 
-import { normalizeApiText } from './api-text.ts';
+import { normalizeApiText } from '../normalize-api-text.ts';
 
-import type { CatalogApiLink, CatalogApiNote } from './types.ts';
+import type { CatalogApiLink, CatalogApiNote } from '../types.ts';
 
 /**
  * Extract the human-authored value of a JSDoc tag.

@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test';
 import { strict as assert } from 'node:assert';
 
-import { parseArgs } from '../parse-args.ts';
+import { parseArgs } from '../parsers/parse-args.ts';
 import {
   addFixtureSource,
   createFixtureProject,
