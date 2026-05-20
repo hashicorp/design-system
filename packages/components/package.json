@@ -72,7 +72,6 @@
     "ember-style-modifier": "^4.4.0",
     "ember-truth-helpers": "^5.0.0",
     "luxon": "^3.4.2",
-    "node-html-parser": "^7.0.1",
     "prismjs": "^1.30.0",
     "tabbable": "^6.2.0",
     "tippy.js": "^6.3.7",

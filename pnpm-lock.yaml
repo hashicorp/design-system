@@ -189,9 +189,6 @@ importers:
       luxon:
         specifier: ^3.4.2
         version: 3.7.1
-      node-html-parser:
-        specifier: ^7.0.1
-        version: 7.1.0
       prismjs:
         specifier: ^1.30.0
         version: 1.30.0
@@ -7980,10 +7977,6 @@ packages:
   hastscript@9.0.0:
     resolution: {integrity: sha512-jzaLBGavEDKHrc5EfFImKN7nZKKBdSLIdGvCwDZ9TfzbF2ffXiov8CKE445L2Z1Ek2t/m4SKQ2j6Ipv7NyUolw==}
 
-  he@1.2.0:
-    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
-    hasBin: true
-
   heimdalljs-fs-monitor@1.1.1:
     resolution: {integrity: sha512-BHB8oOXLRlrIaON0MqJSEjGVPDyqt2Y6gu+w2PaEZjrCxeVtZG7etEZp7M4ZQ80HNvnr66KIQ2lot2qdeG8HgQ==}
 
@@ -9622,9 +9615,6 @@ packages:
     peerDependenciesMeta:
       encoding:
         optional: true
-
-  node-html-parser@7.1.0:
-    resolution: {integrity: sha512-iJo8b2uYGT40Y8BTyy5ufL6IVbN8rbm/1QK2xffXU/1a/v3AAa0d1YAoqBNYqaS4R/HajkWIpIfdE6KcyFh1AQ==}
 
   node-int64@0.4.0:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
@@ -14830,7 +14820,6 @@ snapshots:
       ember-style-modifier: 4.5.1(@babel/core@7.28.0)(@ember/string@4.0.1)
       ember-truth-helpers: 5.0.0
       luxon: 3.7.1
-      node-html-parser: 7.1.0
       prismjs: 1.30.0
       tabbable: 6.2.0
       tippy.js: 6.3.7
@@ -14886,7 +14875,6 @@ snapshots:
       ember-style-modifier: 4.5.1(@babel/core@7.28.0)(@ember/string@4.0.1)
       ember-truth-helpers: 5.0.0
       luxon: 3.7.1
-      node-html-parser: 7.1.0
       prismjs: 1.30.0
       tabbable: 6.2.0
       tippy.js: 6.3.7
@@ -14942,7 +14930,6 @@ snapshots:
       ember-style-modifier: 4.5.1(@babel/core@7.28.0)(@ember/string@4.0.1)
       ember-truth-helpers: 5.0.0
       luxon: 3.7.1
-      node-html-parser: 7.1.0
       prismjs: 1.30.0
       tabbable: 6.2.0
       tippy.js: 6.3.7
@@ -22493,8 +22480,6 @@ snapshots:
       property-information: 6.5.0
       space-separated-tokens: 2.0.2
 
-  he@1.2.0: {}
-
   heimdalljs-fs-monitor@1.1.1:
     dependencies:
       callsites: 3.1.0
@@ -24533,11 +24518,6 @@ snapshots:
   node-fetch@2.7.0:
     dependencies:
       whatwg-url: 5.0.0
-
-  node-html-parser@7.1.0:
-    dependencies:
-      css-select: 5.1.0
-      he: 1.2.0
 
   node-int64@0.4.0: {}
 

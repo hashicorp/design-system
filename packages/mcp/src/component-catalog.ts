@@ -5,16 +5,16 @@
 
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
-
-import {
-  componentCatalogSchema,
-  type ComponentCatalog,
-  type ComponentCatalogComponent,
-} from './component-catalog-schema.js';
 import {
   getLookupKeys,
   normalizeComponentName,
 } from './component-catalog-utils.js';
+import { componentCatalogSchema } from './component-catalog-schema.js';
+
+import type {
+  ComponentCatalog,
+  ComponentCatalogComponent,
+} from './component-catalog-schema.js';
 
 const require = createRequire(import.meta.url);
 
