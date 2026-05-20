@@ -16,7 +16,7 @@ export const PLACEMENTS: HdsTooltipPlacements[] = Object.values(
   HdsTooltipPlacementValues
 );
 
-export interface HdsTooltipSignature {
+export interface HdsTooltipButtonSignature {
   Args: {
     extraTippyOptions?: Partial<Omit<TippyProps, 'placement' | 'offset'>>;
     isInline?: boolean;
@@ -30,7 +30,7 @@ export interface HdsTooltipSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsTooltip extends Component<HdsTooltipSignature> {
+export default class HdsTooltip extends Component<HdsTooltipButtonSignature> {
   get text(): string {
     const { text } = this.args;
 

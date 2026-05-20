@@ -52,10 +52,11 @@ function generateCatalogComponent(
     interfaceDecl,
     'componentDescription'
   );
+  const componentName = toTitleCase(componentPath.split('/').at(-1) ?? componentPath);
 
   if (componentDescription === undefined) {
-    throw new Error(
-      `Cannot generate manifest for "${componentPath}" because @componentDescription is missing on ${exportName}Signature.`
+    console.warn(
+      `Missing @componentDescription on ${exportName}Signature. Falling back to a generated summary for "${componentPath}".`
     );
   }
 
@@ -70,9 +71,11 @@ function generateCatalogComponent(
   const hasSplattributes = hasSplattributesForComponent(componentPath);
 
   const component: CatalogComponent = {
-    name: toTitleCase(componentPath.split('/').at(-1) ?? componentPath),
+    name: componentName,
     slug: componentPath,
-    summary: normalizeApiText(componentDescription),
+    summary: normalizeApiText(
+      componentDescription ?? `${componentName} component.`
+    ),
     design: getComponentDesignMetadata(componentPath),
     api: buildApi(args, blocks, contextualProperties, hasSplattributes),
   };
