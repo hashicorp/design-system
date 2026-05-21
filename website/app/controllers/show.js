@@ -1,12 +1,11 @@
 import Controller from '@ember/controller';
-import showdown from 'showdown';
 import { set, action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { A } from '@ember/array';
 import { schedule } from '@ember/runloop';
 import { service } from '@ember/service';
 
-import { showdownConfig } from '../shared/showdown-config';
+import { renderMarkdown } from '../shared/markdown/render';
 
 const getAnchoredHeadings = (container) => {
   let headings = [];
@@ -146,8 +145,7 @@ export default class ShowController extends Controller {
         this.didInsertContent();
       });
     }
-    const converter = new showdown.Converter(showdownConfig);
-    return converter.makeHtml(this.model.content);
+    return renderMarkdown(this.model.content);
   }
 
   get hasTabs() {
