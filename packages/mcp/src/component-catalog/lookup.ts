@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { ComponentCatalogComponent } from './component-catalog-schema.js';
+import type { ComponentCatalogComponent } from './schema.js';
 
 export const normalizeComponentName = (value: string): string => {
   return value

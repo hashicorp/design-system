@@ -5,8 +5,8 @@
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 
-import type { ComponentCatalogStore } from '../component-catalog.js';
-import { toTextResponse } from './utils.js';
+import type { ComponentCatalogStore } from '../component-catalog/store.js';
+import { toTextResponse } from './response-envelope.js';
 
 export const registerGetManifestMetaTool = (
   server: McpServer,

@@ -11,7 +11,7 @@ import {
   registerSearchDocsTool,
 } from './search-docs.js';
 
-import type { DocsSearchClient } from '../docs-search-client.js';
+import type { DocsSearchClient } from '../docs-search/client.js';
 
 type RegisteredTool = {
   name: string;

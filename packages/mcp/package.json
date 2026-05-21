@@ -13,7 +13,10 @@
     "dist"
   ],
   "scripts": {
+    "clean": "node ./scripts/clean-dist.mjs",
+    "prebuild": "pnpm run clean",
     "build": "tsc",
+    "pretest": "pnpm run build",
     "test": "node --test ./dist/**/*.test.js",
     "start": "node ./dist/index.js",
     "dev": "tsc --watch",

@@ -4,10 +4,10 @@
  */
 
 import { z } from 'zod';
-import { toTextResponse, withGeneratedAt } from './utils.js';
+import { toTextResponse, withGeneratedAt } from './response-envelope.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { ComponentCatalogStore } from '../component-catalog.js';
+import type { ComponentCatalogStore } from '../component-catalog/store.js';
 
 export const buildListComponentsPayload = (
   store: ComponentCatalogStore,

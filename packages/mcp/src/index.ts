@@ -6,9 +6,9 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 
-import { loadComponentCatalog } from './component-catalog.js';
-import { createDocsSearchClient } from './docs-search-client.js';
-import { getDocsSearchConfig } from './docs-search-config.js';
+import { loadComponentCatalog } from './component-catalog/store.js';
+import { createDocsSearchClient } from './docs-search/client.js';
+import { getDocsSearchConfig } from './docs-search/config.js';
 import { registerTools } from './tools/register-tools.js';
 
 const server = new McpServer({

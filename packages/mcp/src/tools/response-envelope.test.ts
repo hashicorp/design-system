@@ -6,9 +6,9 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { toTextResponse, withGeneratedAt } from './utils.js';
+import { toTextResponse, withGeneratedAt } from './response-envelope.js';
 
-import type { ComponentCatalogStore } from '../component-catalog.js';
+import type { ComponentCatalogStore } from '../component-catalog/store.js';
 
 const store: ComponentCatalogStore = {
   catalog: {

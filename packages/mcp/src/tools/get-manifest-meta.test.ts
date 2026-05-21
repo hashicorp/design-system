@@ -8,7 +8,7 @@ import { test } from 'node:test';
 
 import { registerGetManifestMetaTool } from './get-manifest-meta.js';
 
-import type { ComponentCatalogStore } from '../component-catalog.js';
+import type { ComponentCatalogStore } from '../component-catalog/store.js';
 
 type RegisteredTool = {
   name: string;

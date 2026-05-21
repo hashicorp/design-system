@@ -4,14 +4,12 @@
  */
 
 import { z } from 'zod';
-import { DOCS_SEARCH_SCOPES } from '../docs-search-client.js';
-import { toTextResponse } from './utils.js';
+import { DOCS_SEARCH_SCOPES } from '../docs-search/scopes.js';
+import { toTextResponse } from './response-envelope.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type {
-  DocsSearchClient,
-  DocsSearchScope,
-} from '../docs-search-client.js';
+import type { DocsSearchClient } from '../docs-search/client.js';
+import type { DocsSearchScope } from '../docs-search/scopes.js';
 
 const docsSearchScopeSchema = z.enum(DOCS_SEARCH_SCOPES);
 

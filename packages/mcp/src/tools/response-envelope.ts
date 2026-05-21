@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { ComponentCatalogStore } from '../component-catalog.js';
+import type { ComponentCatalogStore } from '../component-catalog/store.js';
 
 type JsonObject = Record<string, unknown>;
 

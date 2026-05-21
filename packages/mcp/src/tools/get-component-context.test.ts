@@ -8,7 +8,7 @@ import { test } from 'node:test';
 
 import { buildGetComponentContextPayload } from './get-component-context.js';
 
-import type { ComponentCatalogStore } from '../component-catalog.js';
+import type { ComponentCatalogStore } from '../component-catalog/store.js';
 
 function createStore(): ComponentCatalogStore {
   const component = {

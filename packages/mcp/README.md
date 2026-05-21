@@ -50,11 +50,20 @@ Current basic tools:
 
 ## Internals
 
-- `component-catalog.ts` loads and validates manifest data, then exposes read-only lookup helpers.
+- `component-catalog/store.ts` loads and validates manifest data, then exposes read-only lookup helpers.
+- `component-catalog/schema.ts` defines and validates the component catalog schema.
+- `component-catalog/lookup.ts` centralizes lookup key and name normalization logic.
 - `tools/register-tools.ts` owns MCP tool registration.
-- `tools/utils.ts` centralizes response envelope formatting.
-- `docs-search-config.ts` parses and validates Algolia environment variables.
-- `docs-search-client.ts` owns scope filter mapping, Algolia querying, and normalized result shaping.
+- `tools/response-envelope.ts` centralizes response envelope formatting.
+- `docs-search/config.ts` parses and validates Algolia environment variables.
+- `docs-search/scopes.ts` defines docs search scopes and scope filter mapping.
+- `docs-search/normalize-result.ts` normalizes Algolia hits into stable MCP result entries.
+- `docs-search/client.ts` handles docs search client availability and Algolia querying.
+
+## Testing workflow
+
+- `pnpm --filter @hashicorp/design-system-mcp test` triggers a clean rebuild before running tests.
+- Tests execute from `dist/**/*.test.js` to validate emitted package output.
 
 ## Example responses
 
