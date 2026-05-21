@@ -48,7 +48,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
           {{#each FIELD_LAYOUT_TYPES as |layout|}}
             <SF.Item @label="{{capitalize layout}} layout">
               <HdsFormField @layout={{layout}} as |F|>
-                <F.Label>Label</F.Label>
+                <F.Label @isOptional={{true}}>Label</F.Label>
                 <F.HelperText>Helper text</F.HelperText>
                 <F.Control>
                   {{#if (eq layout "vertical")}}

@@ -1,16 +1,18 @@
 {
   "form": {
     "character-count": {
-      "font-size": {
-        "$type": "font-size",
-        "$value": "0.8125rem",
-        "unit": "px",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+      "typography": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-100.font-size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{typography.body-100.font-size}",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
         }
       }
     },
@@ -18,18 +20,28 @@
       "color": {
         "$type": "color",
         "$value": "{color.foreground.strong}",
-        "group": "components"
-      },
-      "font-size": {
-        "$type": "font-size",
-        "$value": "0.875rem",
-        "unit": "px",
+        "group": "components",
         "$modes": {
-          "default": "14",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+          "default": "{color.foreground.strong}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        }
+      },
+      "typography": {
+        "font-weight": {
+          "active": {
+            "$type": "font-weight",
+            "$value": "{typography.font-weight.medium}",
+            "$modes": {
+              "default": "{typography.font-weight.medium}",
+              "cds-g0": "{carbon.typography.font-weight.regular}",
+              "cds-g10": "{carbon.typography.font-weight.regular}",
+              "cds-g90": "{carbon.typography.font-weight.regular}",
+              "cds-g100": "{carbon.typography.font-weight.regular}"
+            }
+          }
         }
       }
     },
@@ -46,16 +58,18 @@
         "$value": "{color.foreground.faint}",
         "group": "components"
       },
-      "font-size": {
-        "$type": "font-size",
-        "$value": "0.8125rem",
-        "unit": "px",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+      "typography": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-100.font-size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{typography.body-100.font-size}",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
         }
       }
     },
@@ -66,24 +80,47 @@
           "$value": "{color.foreground.faint}",
           "group": "components"
         }
+      },
+      "typography": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-100.font-size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{typography.body-100.font-size}",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        }
       }
     },
     "error": {
       "color": {
         "$type": "color",
         "$value": "{color.palette.red-300}",
-        "group": "components"
-      },
-      "font-size": {
-        "$type": "font-size",
-        "$value": "0.8125rem",
-        "unit": "px",
+        "group": "components",
         "$modes": {
-          "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+          "default": "{color.palette.red-300}",
+          "cds-g0": "{carbon.color.red.60}",
+          "cds-g10": "{carbon.color.red.60}",
+          "cds-g90": "{carbon.color.red.60}",
+          "cds-g100": "{carbon.color.red.60}"
+        }
+      },
+      "typography": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-100.font-size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{typography.body-100.font-size}",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
         }
       },
       "icon-size": {
