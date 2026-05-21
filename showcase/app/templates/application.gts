@@ -57,7 +57,9 @@ export default class Application extends Component {
     {{pageTitle "HDS Showcase"}}
 
     {{#if this.isFrameless}}
-      {{outlet}}
+      <main {{this.handleInitialStateClasses}}>
+        {{outlet}}
+      </main>
     {{else}}
       <header class="shw-page-header">
         <LinkTo

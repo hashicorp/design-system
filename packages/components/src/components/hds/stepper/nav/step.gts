@@ -187,14 +187,6 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
 
     classes.push(`hds-stepper-nav__step--${this.status}`);
 
-    if (this.isInteractive) {
-      classes.push('hds-stepper-nav__step--interactive');
-    }
-
-    if (this.isNavInteractive) {
-      classes.push('hds-stepper-nav__step--nav-interactive');
-    }
-
     return classes.join(' ');
   }
 

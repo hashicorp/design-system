@@ -119,9 +119,6 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     await createNavStep({});
     assert.dom('.hds-stepper-nav__step').hasAttribute('role', 'presentation');
     assert
-      .dom('.hds-stepper-nav__step')
-      .hasClass('hds-stepper-nav__step--nav-interactive');
-    assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--is-interactive');
     assert
@@ -132,9 +129,6 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
   test('it sets the step to non-interactive when the @isNavInteractive argument is provided to the parent', async function (assert) {
     await createNavStep({ isNavInteractive: false });
     assert.dom('.hds-stepper-nav__step').hasNoAttribute('role');
-    assert
-      .dom('.hds-stepper-nav__step')
-      .hasNoClass('hds-stepper-nav__step--interactive');
     assert
       .dom('.hds-stepper-indicator-step')
       .hasNoClass('hds-stepper-indicator-step--is-interactive');
