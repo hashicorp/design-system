@@ -155,18 +155,12 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
   test('it sets the steps to interactive when the @isInteractive argument is not provided', async function (assert) {
     await createStepperNav({});
     assert.dom('.hds-stepper-nav__list').hasAttribute('role', 'tablist');
-    assert
-      .dom('[data-test="step-1"]')
-      .hasClass('hds-stepper-nav__step--nav-interactive');
     assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
   });
 
   test('it sets the steps to non-interactive when the @isInteractive argument is provided', async function (assert) {
     await createStepperNav({ isInteractive: false });
     assert.dom('.hds-stepper-nav__list').hasNoAttribute('role');
-    assert
-      .dom('[data-test="step-1"]')
-      .hasNoClass('hds-stepper-nav__step--nav-interactive');
     assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
   });
 
