@@ -14,8 +14,4 @@
   font-size: var(--token-form-character-count-typography-font-size);
   font-family: var(--token-typography-body-100-font-family);
   line-height: var(--token-typography-body-100-line-height);
-
-  @include hds-apply-only-if-carbon() {
-    margin-top: 8px;
-  }
 }

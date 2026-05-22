@@ -62,6 +62,9 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
                     <ShwPlaceholder @text="✔" @width="16" @height="16" />
                   {{/if}}
                 </F.Control>
+                {{#if (eq layout "vertical")}}
+                  <F.CharacterCount @value="" />
+                {{/if}}
                 <F.Error>This is the error</F.Error>
               </HdsFormField>
             </SF.Item>
