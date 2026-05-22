@@ -18,11 +18,43 @@ pnpm --filter @hashicorp/design-system-mcp start
 - `ALGOLIA_API_KEY_SEARCH`
 - `ALGOLIA_INDEX_ID`
 
-Create `packages/mcp/.env` from `packages/mcp/.env.example` and populate real values:
+### Recommended: configure env vars in your MCP host
+
+This server reads credentials from `process.env`.
+When running via an MCP client/host, configure env vars on the server entry in that host config
+so they are injected into the MCP process at startup.
+
+Example pattern (host-specific keys may vary):
+
+```json
+{
+  "mcpServers": {
+    "hds": {
+      "command": "pnpm",
+      "args": ["--filter", "@hashicorp/design-system-mcp", "start"],
+      "env": {
+        "ALGOLIA_APPLICATION_ID": "...",
+        "ALGOLIA_API_KEY_SEARCH": "...",
+        "ALGOLIA_INDEX_ID": "..."
+      }
+    }
+  }
+}
+```
+
+Prefer your host's secret-management feature when available instead of committing credentials.
+
+### Local manual runs (optional)
+
+For local development, you can create `packages/mcp/.env` from
+`packages/mcp/.env.example` and populate real values:
 
 ```sh
 cp packages/mcp/.env.example packages/mcp/.env
 ```
+
+When present, `packages/mcp/.env` is loaded automatically by the server at startup.
+Values that are already set in the runtime environment (for example by your MCP host) take precedence.
 
 If any of these are missing, the server still starts and deterministic manifest tools remain available.
 `hds_search_docs` responds with `available: false` and a message describing missing variables.

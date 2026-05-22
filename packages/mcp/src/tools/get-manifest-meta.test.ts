@@ -41,6 +41,12 @@ const store: ComponentCatalogStore = {
   }),
   listComponents: () => [],
   getComponentContext: () => null,
+  getComponentByDesignNode: () => null,
+  getDesignCoverage: () => ({
+    totalComponentCount: 12,
+    componentsWithDesignCount: 0,
+    componentsMissingDesignCount: 12,
+  }),
 };
 
 test('registerGetManifestMetaTool returns manifest metadata', async () => {

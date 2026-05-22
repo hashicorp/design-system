@@ -35,6 +35,12 @@ function createStore(): ComponentCatalogStore {
     }),
     listComponents: () => components,
     getComponentContext: () => null,
+    getComponentByDesignNode: () => null,
+    getDesignCoverage: () => ({
+      totalComponentCount: components.length,
+      componentsWithDesignCount: 0,
+      componentsMissingDesignCount: components.length,
+    }),
   };
 }
 

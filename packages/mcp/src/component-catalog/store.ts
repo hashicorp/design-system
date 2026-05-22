@@ -30,6 +30,15 @@ export type ComponentCatalogStore = {
     summary: string;
   }>;
   getComponentContext: (nameOrSlug: string) => ComponentCatalogComponent | null;
+  getComponentByDesignNode: (
+    fileKey: string,
+    nodeId: string
+  ) => ComponentCatalogComponent | null;
+  getDesignCoverage: () => {
+    totalComponentCount: number;
+    componentsWithDesignCount: number;
+    componentsMissingDesignCount: number;
+  };
 };
 
 export const loadComponentCatalog = (): ComponentCatalogStore => {
@@ -39,12 +48,28 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
   const catalog = componentCatalogSchema.parse(parsedManifest);
 
   const componentLookup = new Map<string, ComponentCatalogComponent>();
+  const designNodeLookup = new Map<string, ComponentCatalogComponent>();
 
   for (const component of catalog.components) {
     for (const key of getLookupKeys(component)) {
       componentLookup.set(key, component);
     }
+
+    if (
+      component.design !== undefined &&
+      component.design.fileKey !== undefined &&
+      component.design.nodeId !== undefined
+    ) {
+      designNodeLookup.set(
+        `${component.design.fileKey}:${component.design.nodeId}`,
+        component
+      );
+    }
   }
+
+  const componentsWithDesignCount = catalog.components.filter(
+    (component) => component.design !== undefined
+  ).length;
 
   return {
     catalog,
@@ -65,6 +90,17 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
       const normalizedInput = normalizeComponentName(nameOrSlug);
 
       return componentLookup.get(normalizedInput) ?? null;
+    },
+    getComponentByDesignNode: (fileKey: string, nodeId: string) => {
+      return designNodeLookup.get(`${fileKey.trim()}:${nodeId.trim()}`) ?? null;
+    },
+    getDesignCoverage: () => {
+      return {
+        totalComponentCount: catalog.components.length,
+        componentsWithDesignCount,
+        componentsMissingDesignCount:
+          catalog.components.length - componentsWithDesignCount,
+      };
     },
   };
 };

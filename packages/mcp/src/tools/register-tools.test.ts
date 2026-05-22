@@ -34,6 +34,12 @@ const store: ComponentCatalogStore = {
   }),
   listComponents: () => [],
   getComponentContext: () => null,
+  getComponentByDesignNode: () => null,
+  getDesignCoverage: () => ({
+    totalComponentCount: 0,
+    componentsWithDesignCount: 0,
+    componentsMissingDesignCount: 0,
+  }),
 };
 
 const docsSearchClient: DocsSearchClient = {
@@ -60,6 +66,8 @@ test('registerTools registers manifest tools and docs search tool', () => {
       'hds_list_components',
       'hds_get_component_context',
       'hds_get_manifest_meta',
+      'hds_resolve_figma_node',
+      'hds_resolve_figma_frame',
       'hds_search_docs',
     ]
   );

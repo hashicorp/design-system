@@ -5,11 +5,22 @@
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { existsSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { loadEnvFile } from 'node:process';
+import { fileURLToPath } from 'node:url';
 
 import { loadComponentCatalog } from './component-catalog/store.js';
 import { createDocsSearchClient } from './docs-search/client.js';
 import { getDocsSearchConfig } from './docs-search/config.js';
 import { registerTools } from './tools/register-tools.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const localEnvPath = resolve(__dirname, '../.env');
+
+if (existsSync(localEnvPath)) {
+  loadEnvFile(localEnvPath);
+}
 
 const server = new McpServer({
   name: 'hds-mcp',

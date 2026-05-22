@@ -21,6 +21,12 @@ const store: ComponentCatalogStore = {
   }),
   listComponents: () => [],
   getComponentContext: () => null,
+  getComponentByDesignNode: () => null,
+  getDesignCoverage: () => ({
+    totalComponentCount: 12,
+    componentsWithDesignCount: 0,
+    componentsMissingDesignCount: 12,
+  }),
 };
 
 test('withGeneratedAt adds generatedAt envelope field', () => {

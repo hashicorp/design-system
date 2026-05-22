@@ -6,6 +6,8 @@
 import { registerGetComponentContextTool } from './get-component-context.js';
 import { registerGetManifestMetaTool } from './get-manifest-meta.js';
 import { registerListComponentsTool } from './list-components.js';
+import { registerResolveFigmaFrameTool } from './resolve-figma-frame.js';
+import { registerResolveFigmaNodeTool } from './resolve-figma-node.js';
 import { registerSearchDocsTool } from './search-docs.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
@@ -20,5 +22,7 @@ export const registerTools = (
   registerListComponentsTool(server, store);
   registerGetComponentContextTool(server, store);
   registerGetManifestMetaTool(server, store);
+  registerResolveFigmaNodeTool(server, store);
+  registerResolveFigmaFrameTool(server, store);
   registerSearchDocsTool(server, docsSearchClient);
 };
