@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 
-// import type HdsThemingService from '../../../../services/hds-theming.ts';
 
 import type { ModifierLike } from '@glint/template';
 
@@ -55,7 +54,6 @@ export interface HdsDropdownToggleButtonSignature {
 }
 
 export default class HdsDropdownToggleButton extends Component<HdsDropdownToggleButtonSignature> {
-  // @service declare readonly hdsTheming: HdsThemingService;
 
   private _toggleButtonId = 'toggle-button-' + guidFor(this);
 
