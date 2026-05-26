@@ -820,7 +820,6 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
             <HdsDropdownListItemGeneric>
               <ShwPlaceholder
                 @text="generic content"
-                @width="200"
                 @height="40"
                 @background="hsl(197, 100%, 75%, 0.2)"
               />
