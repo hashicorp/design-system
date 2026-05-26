@@ -454,6 +454,10 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   display: block;
   flex: 1;
   text-align: left; // the button element was centering text
+
+  .hds-badge {
+    vertical-align: bottom; // align badge to the text baseline
+  }
 }
 
 .hds-dropdown-list-item--color-action {
