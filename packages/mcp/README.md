@@ -80,6 +80,18 @@ Current basic tools:
   - Optional `scope` values: `all`, `components`, `foundations`, `patterns`, `about`, `icons`, `tokens`, `componentApi`, `content`.
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `25`.
 
+## Tool docs
+
+Detailed per-tool docs live in `packages/mcp/docs/tools`:
+
+- `packages/mcp/docs/tools/hds_get_manifest_meta.md`
+- `packages/mcp/docs/tools/hds_list_components.md`
+- `packages/mcp/docs/tools/hds_get_component_context.md`
+- `packages/mcp/docs/tools/hds_resolve_figma_node.md`
+- `packages/mcp/docs/tools/hds_resolve_figma_frame.md`
+- `packages/mcp/docs/tools/hds_search_docs.md`
+- `packages/mcp/docs/tools/response-contract.md`
+
 ## Internals
 
 - `component-catalog/store.ts` loads and validates manifest data, then exposes read-only lookup helpers.
