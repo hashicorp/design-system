@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 
-
 import type { ModifierLike } from '@glint/template';
 
 import {
@@ -54,7 +53,6 @@ export interface HdsDropdownToggleButtonSignature {
 }
 
 export default class HdsDropdownToggleButton extends Component<HdsDropdownToggleButtonSignature> {
-
   private _toggleButtonId = 'toggle-button-' + guidFor(this);
 
   get text(): string {
