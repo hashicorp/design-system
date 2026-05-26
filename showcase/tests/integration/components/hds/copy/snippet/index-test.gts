@@ -175,11 +175,18 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
       </template>,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
+    // Test the copy success message is not rendered before the button is clicked:
+    assert
+      .dom('#test-copy-snippet + .sr-only')
+      .doesNotContainText('Copied to clipboard');
+
     await click('button#test-copy-snippet');
     assert.true(context.success);
     assert
       .dom('#test-copy-snippet')
       .hasClass('hds-copy-snippet--status-success');
+    // Test the copy success message is rendered after the button is clicked:
+    assert.dom('#test-copy-snippet + .sr-only').hasText('Copied to clipboard');
   });
 
   test('it should update the status back to idle after success', async function (assert) {
