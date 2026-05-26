@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { concat } from '@ember/helper';
+import { service } from '@ember/service';
 
 import { HdsCopySnippetColorValues } from './types.ts';
 import HdsTextCode from '../../text/code.gts';
@@ -17,6 +18,7 @@ import hdsT from '../../../../helpers/hds-t.ts';
 import type { HdsCopySnippetColors } from './types.ts';
 import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
 import type { HdsIconSignature } from '../../icon/index.gts';
+import type HdsIntlService from '../../../../services/hds-intl';
 
 export const DEFAULT_COLOR = HdsCopySnippetColorValues.Primary;
 export const COLORS: HdsCopySnippetColors[] = Object.values(
@@ -36,11 +38,14 @@ export interface HdsCopySnippetSignature {
     isTruncated?: boolean;
     onSuccess?: HdsClipboardModifierSignature['Args']['Named']['onSuccess'];
     onError?: HdsClipboardModifierSignature['Args']['Named']['onError'];
+    ariaMessageText?: string;
   };
   Element: HTMLButtonElement;
 }
 
 export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   @tracked private _status = DEFAULT_STATUS;
   @tracked private _timer: ReturnType<typeof setTimeout> | undefined;
 
@@ -107,6 +112,19 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     return classes.join(' ');
   }
 
+  get ariaMessageText(): string {
+    if (this._status === 'success') {
+      return (
+        this.args.ariaMessageText ??
+        this.hdsIntl.t('hds.components.copy-snippet.aria-message-text', {
+          default: 'Copied to clipboard',
+        })
+      );
+    } else {
+      return '';
+    }
+  }
+
   onSuccess = (
     args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']
   ): void => {
@@ -162,5 +180,6 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
       </HdsTextCode>
       <HdsIcon @name={{this.icon}} class="hds-copy-snippet__icon" />
     </button>
+    <span class="sr-only" aria-live="polite">{{this.ariaMessageText}}</span>
   </template>
 }

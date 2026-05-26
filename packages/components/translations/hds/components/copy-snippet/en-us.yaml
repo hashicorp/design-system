@@ -1,2 +1,3 @@
+aria-message-text: Copied to clipboard
 button:
   aria-label: copy {textToCopy}
