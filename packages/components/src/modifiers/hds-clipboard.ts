@@ -90,7 +90,9 @@ export const getTextToCopyFromTargetElement = (
       // Hide any screen reader only text from the innerText calculation
       const srOnlyTexts = targetElement.querySelectorAll('.sr-only');
       srOnlyTexts.forEach((el: Element) => {
-        el.setAttribute('style', 'display: none;');
+        if (el instanceof HTMLElement) {
+          el.style.setProperty('display', 'none');
+        }
       });
 
       // simplest approach
@@ -98,7 +100,9 @@ export const getTextToCopyFromTargetElement = (
 
       // Restore visibility of screen reader only text
       srOnlyTexts.forEach((el: Element) => {
-        el.removeAttribute('style');
+        if (el instanceof HTMLElement) {
+          el.style.removeProperty('display');
+        }
       });
 
       // approach based on text selection (left for backup just in case)

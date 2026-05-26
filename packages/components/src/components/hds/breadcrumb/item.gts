@@ -4,10 +4,8 @@
  */
 
 import Component from '@glimmer/component';
-import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
-
-import type { SafeString } from '@ember/template';
+import style from 'ember-style-modifier';
 
 import HdsInteractive from '../interactive/index.gts';
 import HdsIcon from '../icon/index.gts';
@@ -48,11 +46,11 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
     }
   }
 
-  get itemStyle(): SafeString | undefined {
+  get itemStyle(): Record<string, string> {
     if (this.maxWidth) {
-      return htmlSafe(`max-width: ${this.maxWidth}`);
+      return { 'max-width': this.maxWidth };
     } else {
-      return undefined;
+      return {};
     }
   }
 
@@ -63,7 +61,7 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
   }
 
   <template>
-    <li class="hds-breadcrumb__item" style={{this.itemStyle}} ...attributes>
+    <li class="hds-breadcrumb__item" {{style this.itemStyle}} ...attributes>
       {{#if @current}}
         <div class="hds-breadcrumb__current">
           {{#if @icon}}

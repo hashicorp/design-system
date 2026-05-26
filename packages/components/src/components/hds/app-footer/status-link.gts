@@ -4,8 +4,8 @@
  */
 
 import Component from '@glimmer/component';
-import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
+import style from 'ember-style-modifier';
 
 import type { SafeString } from '@ember/template';
 import type Owner from '@ember/owner';
@@ -75,13 +75,13 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
     );
   }
 
-  get itemStyle(): SafeString | undefined {
+  get itemStyle(): Record<string, string> {
     if (this.args.statusIconColor) {
-      return htmlSafe(
-        `--hds-app-footer-status-icon-color: ${this.args.statusIconColor}`
-      );
+      return {
+        '--hds-app-footer-status-icon-color': this.args.statusIconColor,
+      };
     } else {
-      return undefined;
+      return {};
     }
   }
 
@@ -110,7 +110,7 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
   <template>
     <HdsAppFooterLink
       class={{this.classNames}}
-      style={{this.itemStyle}}
+      {{style this.itemStyle}}
       @current-when={{@current-when}}
       @models={{@models}}
       @model={{@model}}
