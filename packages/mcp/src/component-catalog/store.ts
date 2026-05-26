@@ -10,6 +10,13 @@ import { componentCatalogSchema } from './schema.js';
 
 import type { ComponentCatalog, ComponentCatalogComponent } from './schema.js';
 
+export type ComponentDesignMapping = {
+  name: string;
+  slug: string;
+  fileKey: string;
+  nodeId: string;
+};
+
 const require = createRequire(import.meta.url);
 
 const getManifestPath = (): string => {
@@ -36,6 +43,7 @@ export type ComponentCatalogStore = {
     fileKey: string,
     nodeId: string
   ) => ComponentCatalogComponent | null;
+  listDesignMappings: () => ComponentDesignMapping[];
   getDesignCoverage: () => {
     totalComponentCount: number;
     componentsWithDesignCount: number;
@@ -76,6 +84,27 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
     (component) => component.design !== undefined
   ).length;
 
+  const designMappings: ComponentDesignMapping[] = catalog.components.flatMap(
+    (component) => {
+      if (
+        component.design === undefined ||
+        component.design.fileKey === undefined ||
+        component.design.nodeId === undefined
+      ) {
+        return [];
+      }
+
+      return [
+        {
+          name: component.name,
+          slug: component.slug,
+          fileKey: component.design.fileKey,
+          nodeId: component.design.nodeId,
+        },
+      ];
+    }
+  );
+
   return {
     catalog,
     getManifestMeta: () => {
@@ -106,6 +135,9 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
     },
     getComponentByDesignNode: (fileKey: string, nodeId: string) => {
       return designNodeLookup.get(`${fileKey.trim()}:${nodeId.trim()}`) ?? null;
+    },
+    listDesignMappings: () => {
+      return designMappings;
     },
     getDesignCoverage: () => {
       return {

@@ -49,6 +49,7 @@ const store: ComponentCatalogStore = {
   getComponentBySlug: () => component,
   getComponentContext: () => component,
   getComponentByDesignNode: () => null,
+  listDesignMappings: () => [],
   getDesignCoverage: () => ({
     totalComponentCount: 1,
     componentsWithDesignCount: 0,
@@ -66,6 +67,12 @@ test('registerResources registers all catalog resources', () => {
 
   assert.deepEqual(
     server.calls.map((call) => call.name),
-    ['hds_manifest_meta', 'hds_components', 'hds_component_by_slug']
+    [
+      'hds_manifest_meta',
+      'hds_design_mappings',
+      'hds_components',
+      'hds_component_by_slug',
+      'hds_figma_node',
+    ]
   );
 });

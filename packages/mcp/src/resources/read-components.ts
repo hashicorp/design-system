@@ -9,7 +9,9 @@ import type { ComponentCatalogStore } from '../component-catalog/store.js';
 
 export const COMPONENTS_URI = 'hds://components';
 
-export const buildComponentsResourcePayload = (store: ComponentCatalogStore) => {
+export const buildComponentsResourcePayload = (
+  store: ComponentCatalogStore
+) => {
   const manifestMeta = store.getManifestMeta();
 
   return {

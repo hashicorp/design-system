@@ -37,6 +37,7 @@ const store: ComponentCatalogStore = {
   getComponentBySlug: () => null,
   getComponentContext: () => null,
   getComponentByDesignNode: () => null,
+  listDesignMappings: () => [],
   getDesignCoverage: () => ({
     totalComponentCount: 0,
     componentsWithDesignCount: 0,
@@ -64,11 +65,6 @@ test('registerTools registers search, figma, and docs tools', () => {
 
   assert.deepEqual(
     server.calls.map((call) => call.name),
-    [
-      'hds_search_components',
-      'hds_resolve_figma_node',
-      'hds_resolve_figma_frame',
-      'hds_search_docs',
-    ]
+    ['hds_search_components', 'hds_resolve_figma_frame', 'hds_search_docs']
   );
 });

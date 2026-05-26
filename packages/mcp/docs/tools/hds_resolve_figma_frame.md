@@ -58,3 +58,4 @@ Resolves many Figma nodes in one request using `fileKey` + `nodeId` per node.
 
 - Deterministic, exact lookup only.
 - Output preserves per-node results so agents can handle mixed matched/unmatched frames.
+- `hds://manifest/meta` includes canonical `designCoverage`; this tool repeats a coverage warning for action-time visibility.

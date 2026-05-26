@@ -78,6 +78,14 @@ const store: ComponentCatalogStore = {
 
     return null;
   },
+  listDesignMappings: () => [
+    {
+      name: 'Button',
+      slug: 'button',
+      fileKey: 'file-1',
+      nodeId: '1:1',
+    },
+  ],
   getDesignCoverage: () => ({
     totalComponentCount: 1,
     componentsWithDesignCount: 1,

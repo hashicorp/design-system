@@ -69,11 +69,15 @@ signatures or docs metadata change.
 Current resources:
 
 - `hds://manifest/meta`
-  - Returns manifest metadata: `generatedAt`, `componentCount`.
+  - Returns manifest metadata: `generatedAt`, `componentCount`, and `designCoverage`.
+- `hds://design/mappings`
+  - Returns canonical mapped `fileKey`/`nodeId` pairs for components with design metadata.
 - `hds://components`
   - Returns a stable component index envelope with `generatedAt`, `totalComponentCount`, and `components`.
 - `hds://components/{slug}`
   - Returns canonical per-component context by slug (`found`, `slug`, and either `component` or `message`).
+- `hds://figma/{fileKey}/nodes/{nodeId}`
+  - Returns canonical mapping lookup for one Figma node (`found`, `fileKey`, `nodeId`, and either `component` or `message`).
 
 Current tools:
 
@@ -84,8 +88,6 @@ Current tools:
   - This tool is search-backed and non-deterministic by relevance ranking and index freshness.
   - Optional `scope` values: `all`, `components`, `foundations`, `patterns`, `about`, `icons`, `tokens`, `componentApi`, `content`.
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `25`.
-- `hds_resolve_figma_node` (input: `fileKey`, `nodeId`, optional node metadata)
-  - Resolves one Figma node to an HDS component using strict mapping.
 - `hds_resolve_figma_frame` (input: `fileKey`, `nodes[]`)
   - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
 
@@ -99,13 +101,14 @@ Detailed docs live in:
 Resource docs:
 
 - `packages/mcp/docs/resources/hds_manifest_meta.md`
+- `packages/mcp/docs/resources/hds_design_mappings.md`
 - `packages/mcp/docs/resources/hds_components.md`
 - `packages/mcp/docs/resources/hds_component_by_slug.md`
+- `packages/mcp/docs/resources/hds_figma_node.md`
 
 Tool docs:
 
 - `packages/mcp/docs/tools/hds_search_components.md`
-- `packages/mcp/docs/tools/hds_resolve_figma_node.md`
 - `packages/mcp/docs/tools/hds_resolve_figma_frame.md`
 - `packages/mcp/docs/tools/hds_search_docs.md`
 - `packages/mcp/docs/tools/response-contract.md`
@@ -134,7 +137,35 @@ Tool docs:
 ```json
 {
   "generatedAt": "2026-05-12T00:29:04.586Z",
-  "componentCount": 4
+  "componentCount": 4,
+  "designCoverage": {
+    "totalComponentCount": 4,
+    "componentsWithDesignCount": 2,
+    "componentsMissingDesignCount": 2
+  }
+}
+```
+
+`hds://design/mappings`
+
+```json
+{
+  "generatedAt": "2026-05-12T00:29:04.586Z",
+  "totalMappingCount": 2,
+  "mappings": [
+    {
+      "name": "Button",
+      "slug": "button",
+      "fileKey": "iweq3r2Pi8xiJfD9e6lOhF",
+      "nodeId": "67397:95918"
+    },
+    {
+      "name": "Alert",
+      "slug": "alert",
+      "fileKey": "iweq3r2Pi8xiJfD9e6lOhF",
+      "nodeId": "67397:95940"
+    }
+  ]
 }
 ```
 
@@ -162,6 +193,18 @@ Tool docs:
   "generatedAt": "2026-05-12T00:29:04.586Z",
   "slug": "does-not-exist",
   "message": "Component not found for provided slug."
+}
+```
+
+`hds://figma/{fileKey}/nodes/{nodeId}` (not found)
+
+```json
+{
+  "generatedAt": "2026-05-12T00:29:04.586Z",
+  "found": false,
+  "fileKey": "iweq3r2Pi8xiJfD9e6lOhF",
+  "nodeId": "99999:1",
+  "message": "No design mapping found for this fileKey/nodeId."
 }
 ```
 

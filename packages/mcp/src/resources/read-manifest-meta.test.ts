@@ -28,6 +28,7 @@ const store: ComponentCatalogStore = {
   getComponentBySlug: () => null,
   getComponentContext: () => null,
   getComponentByDesignNode: () => null,
+  listDesignMappings: () => [],
   getDesignCoverage: () => ({
     totalComponentCount: 12,
     componentsWithDesignCount: 0,
@@ -41,6 +42,11 @@ test('buildManifestMetaResourcePayload returns manifest metadata', () => {
   assert.deepEqual(payload, {
     generatedAt: '2026-01-01T00:00:00.000Z',
     componentCount: 12,
+    designCoverage: {
+      totalComponentCount: 12,
+      componentsWithDesignCount: 0,
+      componentsMissingDesignCount: 12,
+    },
   });
 });
 
@@ -55,8 +61,12 @@ test('readManifestMetaResource wraps payload in resource contents', () => {
   const payload = JSON.parse(content?.text ?? '{}') as {
     generatedAt: string;
     componentCount: number;
+    designCoverage: {
+      componentsMissingDesignCount: number;
+    };
   };
 
   assert.equal(payload.generatedAt, '2026-01-01T00:00:00.000Z');
   assert.equal(payload.componentCount, 12);
+  assert.equal(payload.designCoverage.componentsMissingDesignCount, 12);
 });

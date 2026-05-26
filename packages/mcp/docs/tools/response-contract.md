@@ -39,9 +39,9 @@ Resource reads return `contents[]` entries with JSON text:
 
 ## Determinism guarantees
 
-- `hds://manifest/meta`, `hds://components`, and `hds://components/{slug}` are deterministic for a fixed manifest.
+- `hds://manifest/meta`, `hds://design/mappings`, `hds://components`, `hds://components/{slug}`, and `hds://figma/{fileKey}/nodes/{nodeId}` are deterministic for a fixed manifest.
 - `hds_search_components` is deterministic for a fixed manifest and query.
-- `hds_resolve_figma_node` and `hds_resolve_figma_frame` are deterministic for a fixed manifest and input values.
+- `hds_resolve_figma_frame` is deterministic for a fixed manifest and input values.
 - `hds_search_docs` depends on Algolia relevance/index freshness and is not deterministic by ranking over time.
 
 ## Common envelope patterns

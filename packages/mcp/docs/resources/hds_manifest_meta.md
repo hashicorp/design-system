@@ -12,7 +12,12 @@ Returns top-level HDS component manifest metadata.
 ```json
 {
   "generatedAt": "2026-05-12T00:29:04.586Z",
-  "componentCount": 123
+  "componentCount": 123,
+  "designCoverage": {
+    "totalComponentCount": 123,
+    "componentsWithDesignCount": 100,
+    "componentsMissingDesignCount": 23
+  }
 }
 ```
 

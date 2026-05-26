@@ -24,6 +24,7 @@ const store: ComponentCatalogStore = {
   getComponentBySlug: () => null,
   getComponentContext: () => null,
   getComponentByDesignNode: () => null,
+  listDesignMappings: () => [],
   getDesignCoverage: () => ({
     totalComponentCount: 12,
     componentsWithDesignCount: 0,

@@ -35,9 +35,7 @@ export const buildResolveFigmaFramePayload = (
     resolveFigmaFrameNodeMatch(store, input.fileKey, node.nodeId)
   );
 
-  const resolvedNodeCount = matches.filter(
-    (match) => match.matched
-  ).length;
+  const resolvedNodeCount = matches.filter((match) => match.matched).length;
   const unresolvedNodeCount = input.nodes.length - resolvedNodeCount;
 
   return withGeneratedAt(store, {

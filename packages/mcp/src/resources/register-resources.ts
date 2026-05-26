@@ -11,6 +11,15 @@ import {
 } from './read-component-by-slug.js';
 import { COMPONENTS_URI, readComponentsResource } from './read-components.js';
 import {
+  DESIGN_MAPPINGS_URI,
+  readDesignMappingsResource,
+} from './read-design-mappings.js';
+import {
+  FIGMA_NODE_URI_TEMPLATE,
+  getFigmaNodeUri,
+  readFigmaNodeResource,
+} from './read-figma-node.js';
+import {
   MANIFEST_META_URI,
   readManifestMetaResource,
 } from './read-manifest-meta.js';
@@ -27,11 +36,26 @@ export const registerResources = (
     MANIFEST_META_URI,
     {
       title: 'HDS manifest metadata',
-      description: 'Top-level manifest metadata including generatedAt and componentCount.',
+      description:
+        'Top-level manifest metadata including generatedAt and componentCount.',
       mimeType: 'application/json',
     },
     async () => {
       return readManifestMetaResource(store);
+    }
+  );
+
+  server.registerResource(
+    'hds_design_mappings',
+    DESIGN_MAPPINGS_URI,
+    {
+      title: 'HDS design mappings',
+      description:
+        'Canonical mapping table from Figma fileKey/nodeId pairs to HDS components.',
+      mimeType: 'application/json',
+    },
+    async () => {
+      return readDesignMappingsResource(store);
     }
   );
 
@@ -63,7 +87,8 @@ export const registerResources = (
     }),
     {
       title: 'HDS component context by slug',
-      description: 'Canonical per-component context resource keyed by component slug.',
+      description:
+        'Canonical per-component context resource keyed by component slug.',
       mimeType: 'application/json',
     },
     async (_uri, variables) => {
@@ -74,6 +99,36 @@ export const registerResources = (
       }
 
       return readComponentBySlugResource(store, slug);
+    }
+  );
+
+  server.registerResource(
+    'hds_figma_node',
+    new ResourceTemplate(FIGMA_NODE_URI_TEMPLATE, {
+      list: async () => {
+        return {
+          resources: store.listDesignMappings().map((mapping) => ({
+            name: `HDS mapped node: ${mapping.name}`,
+            uri: getFigmaNodeUri(mapping.fileKey, mapping.nodeId),
+            mimeType: 'application/json',
+          })),
+        };
+      },
+    }),
+    {
+      title: 'HDS component by Figma node mapping',
+      description:
+        'Resolve a mapped Figma fileKey/nodeId pair to an HDS component.',
+      mimeType: 'application/json',
+    },
+    async (_uri, variables) => {
+      const fileKey = variables['fileKey'];
+      const nodeId = variables['nodeId'];
+
+      return readFigmaNodeResource(store, {
+        fileKey: typeof fileKey === 'string' ? fileKey : '',
+        nodeId: typeof nodeId === 'string' ? nodeId : '',
+      });
     }
   );
 };
