@@ -33,6 +33,8 @@ const store: ComponentCatalogStore = {
     componentCount: 0,
   }),
   listComponents: () => [],
+  getAllComponents: () => [],
+  getComponentBySlug: () => null,
   getComponentContext: () => null,
   getComponentByDesignNode: () => null,
   getDesignCoverage: () => ({
@@ -51,7 +53,7 @@ const docsSearchClient: DocsSearchClient = {
   }),
 };
 
-test('registerTools registers manifest tools and docs search tool', () => {
+test('registerTools registers search, figma, and docs tools', () => {
   const server = new FakeServer();
 
   registerTools(
@@ -63,9 +65,7 @@ test('registerTools registers manifest tools and docs search tool', () => {
   assert.deepEqual(
     server.calls.map((call) => call.name),
     [
-      'hds_list_components',
-      'hds_get_component_context',
-      'hds_get_manifest_meta',
+      'hds_search_components',
       'hds_resolve_figma_node',
       'hds_resolve_figma_frame',
       'hds_search_docs',

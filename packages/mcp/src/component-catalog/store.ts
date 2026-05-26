@@ -29,6 +29,8 @@ export type ComponentCatalogStore = {
     slug: string;
     summary: string;
   }>;
+  getAllComponents: () => ComponentCatalog['components'];
+  getComponentBySlug: (slug: string) => ComponentCatalogComponent | null;
   getComponentContext: (nameOrSlug: string) => ComponentCatalogComponent | null;
   getComponentByDesignNode: (
     fileKey: string,
@@ -48,12 +50,15 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
   const catalog = componentCatalogSchema.parse(parsedManifest);
 
   const componentLookup = new Map<string, ComponentCatalogComponent>();
+  const componentBySlugLookup = new Map<string, ComponentCatalogComponent>();
   const designNodeLookup = new Map<string, ComponentCatalogComponent>();
 
   for (const component of catalog.components) {
     for (const key of getLookupKeys(component)) {
       componentLookup.set(key, component);
     }
+
+    componentBySlugLookup.set(normalizeComponentName(component.slug), component);
 
     if (
       component.design !== undefined &&
@@ -85,6 +90,14 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
         slug,
         summary,
       }));
+    },
+    getAllComponents: () => {
+      return catalog.components;
+    },
+    getComponentBySlug: (slug: string) => {
+      const normalizedSlug = normalizeComponentName(slug);
+
+      return componentBySlugLookup.get(normalizedSlug) ?? null;
     },
     getComponentContext: (nameOrSlug: string) => {
       const normalizedInput = normalizeComponentName(nameOrSlug);

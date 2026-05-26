@@ -13,6 +13,7 @@ import { fileURLToPath } from 'node:url';
 import { loadComponentCatalog } from './component-catalog/store.js';
 import { createDocsSearchClient } from './docs-search/client.js';
 import { getDocsSearchConfig } from './docs-search/config.js';
+import { registerResources } from './resources/register-resources.js';
 import { registerTools } from './tools/register-tools.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -30,6 +31,7 @@ const server = new McpServer({
 const catalogStore = loadComponentCatalog();
 const docsSearchClient = createDocsSearchClient(getDocsSearchConfig());
 
+registerResources(server, catalogStore);
 registerTools(server, catalogStore, docsSearchClient);
 
 const main = async (): Promise<void> => {

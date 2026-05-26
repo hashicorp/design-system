@@ -66,27 +66,45 @@ The server reads component context from
 Regenerate the manifest from the components package whenever component
 signatures or docs metadata change.
 
-Current basic tools:
+Current resources:
 
-- `hds_get_manifest_meta`
+- `hds://manifest/meta`
   - Returns manifest metadata: `generatedAt`, `componentCount`.
-- `hds_list_components` (optional `query` filter)
-  - Returns a stable envelope with `generatedAt`, `query`, `totalComponentCount`, `componentCount`, and `components`.
-- `hds_get_component_context` (input: `nameOrSlug`)
-  - Returns a stable envelope with `found`, `generatedAt`, `query`, and either `component` (when found) or `message` (when not found).
+- `hds://components`
+  - Returns a stable component index envelope with `generatedAt`, `totalComponentCount`, and `components`.
+- `hds://components/{slug}`
+  - Returns canonical per-component context by slug (`found`, `slug`, and either `component` or `message`).
+
+Current tools:
+
+- `hds_search_components` (input: `query`, optional `limit`)
+  - Returns filtered components for discovery-style text search.
 - `hds_search_docs` (input: `query`, optional `scope`, optional `limit`)
   - Returns Helios documentation search results for discovery use cases (patterns, accessibility/content guidance, foundations, icons, tokens).
   - This tool is search-backed and non-deterministic by relevance ranking and index freshness.
   - Optional `scope` values: `all`, `components`, `foundations`, `patterns`, `about`, `icons`, `tokens`, `componentApi`, `content`.
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `25`.
+- `hds_resolve_figma_node` (input: `fileKey`, `nodeId`, optional node metadata)
+  - Resolves one Figma node to an HDS component using strict mapping.
+- `hds_resolve_figma_frame` (input: `fileKey`, `nodes[]`)
+  - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
 
 ## Tool docs
 
-Detailed per-tool docs live in `packages/mcp/docs/tools`:
+Detailed docs live in:
 
-- `packages/mcp/docs/tools/hds_get_manifest_meta.md`
-- `packages/mcp/docs/tools/hds_list_components.md`
-- `packages/mcp/docs/tools/hds_get_component_context.md`
+- `packages/mcp/docs/resources`
+- `packages/mcp/docs/tools`
+
+Resource docs:
+
+- `packages/mcp/docs/resources/hds_manifest_meta.md`
+- `packages/mcp/docs/resources/hds_components.md`
+- `packages/mcp/docs/resources/hds_component_by_slug.md`
+
+Tool docs:
+
+- `packages/mcp/docs/tools/hds_search_components.md`
 - `packages/mcp/docs/tools/hds_resolve_figma_node.md`
 - `packages/mcp/docs/tools/hds_resolve_figma_frame.md`
 - `packages/mcp/docs/tools/hds_search_docs.md`
@@ -111,7 +129,7 @@ Detailed per-tool docs live in `packages/mcp/docs/tools`:
 
 ## Example responses
 
-`hds_get_manifest_meta`
+`hds://manifest/meta`
 
 ```json
 {
@@ -120,14 +138,12 @@ Detailed per-tool docs live in `packages/mcp/docs/tools`:
 }
 ```
 
-`hds_list_components` (with `query`)
+`hds://components`
 
 ```json
 {
   "generatedAt": "2026-05-12T00:29:04.586Z",
-  "query": "accordion",
   "totalComponentCount": 4,
-  "componentCount": 1,
   "components": [
     {
       "name": "Accordion",
@@ -138,14 +154,33 @@ Detailed per-tool docs live in `packages/mcp/docs/tools`:
 }
 ```
 
-`hds_get_component_context` (not found)
+`hds://components/{slug}` (not found)
 
 ```json
 {
   "found": false,
   "generatedAt": "2026-05-12T00:29:04.586Z",
-  "query": "does-not-exist",
-  "message": "Component not found. Use hds_list_components to discover valid names."
+  "slug": "does-not-exist",
+  "message": "Component not found for provided slug."
+}
+```
+
+`hds_search_components`
+
+```json
+{
+  "generatedAt": "2026-05-12T00:29:04.586Z",
+  "query": "accordion",
+  "limit": 10,
+  "totalComponentCount": 4,
+  "resultCount": 1,
+  "results": [
+    {
+      "name": "Accordion",
+      "slug": "accordion",
+      "summary": "An accordion is a vertically stacked list of container-like toggles that reveal or hide associated sections of content."
+    }
+  ]
 }
 ```
 

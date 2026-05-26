@@ -60,6 +60,14 @@ const store: ComponentCatalogStore = {
     componentCount: 1,
   }),
   listComponents: () => [],
+  getAllComponents: () => [component],
+  getComponentBySlug: (slug: string) => {
+    if (slug === 'button') {
+      return component;
+    }
+
+    return null;
+  },
   getComponentContext: () => null,
   getComponentByDesignNode: (fileKey: string, nodeId: string) => {
     if (fileKey === 'file-1' && nodeId === '1:1') {

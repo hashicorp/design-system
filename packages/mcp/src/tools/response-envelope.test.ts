@@ -20,6 +20,8 @@ const store: ComponentCatalogStore = {
     componentCount: 12,
   }),
   listComponents: () => [],
+  getAllComponents: () => [],
+  getComponentBySlug: () => null,
   getComponentContext: () => null,
   getComponentByDesignNode: () => null,
   getDesignCoverage: () => ({
