@@ -96,6 +96,28 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   });
 
   // @ariaMessageText ARGUMENT
+
+  test('it should set a default success message in the aria-live region if a custom message is not passed', async function (assert) {
+    await render(
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
+    );
+    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
+    // Test the copy success message is not rendered before the button is clicked:
+    assert
+      .dom('#test-copy-button + .sr-only')
+      .doesNotContainText('Copied to clipboard');
+
+    await click('button#test-copy-button');
+    // Test the copy success message is rendered after the button is clicked:
+    assert.dom('#test-copy-button + .sr-only').hasText('Copied to clipboard');
+  });
+
   test('it should set a custom success message in the aria-live region if passed', async function (assert) {
     await render(
       <template>
@@ -222,16 +244,9 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
       </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
-    // Test the copy success message is not rendered before the button is clicked:
-    assert
-      .dom('#test-copy-button + .sr-only')
-      .doesNotContainText('Copied to clipboard');
-
     await click('button#test-copy-button');
     assert.true(context.success);
-    // Test the copy success message is rendered after the button is clicked:
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
-    assert.dom('#test-copy-button + .sr-only').hasText('Copied to clipboard');
   });
 
   test('it should update the status back to idle after success', async function (assert) {
