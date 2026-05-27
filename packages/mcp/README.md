@@ -91,35 +91,58 @@ Current tools:
 - `hds_resolve_figma_frame` (input: `fileKey`, `nodes[]`)
   - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
 
+Current prompts:
+
+- `hds_component_usage` (args: `nameOrSlug`, optional `scenario`)
+  - Generates an idiomatic, manifest-grounded usage example for a specific HDS component.
+  - References `hds://components/{slug}` by URI; never inlines manifest data into prompt text.
+- `hds_implement_figma_frame` (args: `fileKey`, `nodeIds`, optional `framework`, optional `notes`)
+  - Generates an HDS-conformant Ember or Glimmer template for one or more Figma nodes.
+  - References `hds://manifest/meta` and one `hds://figma/{fileKey}/nodes/{nodeId}` per input node, and names `hds_resolve_figma_frame` and `hds://components/{slug}` as the canonical resolution path.
+  - Includes a capability-described integration hint so that any sibling Figma MCP server (e.g. Figma Dev Mode MCP) is used opportunistically without being required.
+  - MCP prompt args are protocol-level strings; pass multiple node IDs as a single comma/space/newline-separated string.
+
 ## Tool docs
 
 Detailed docs live in:
 
-- `packages/mcp/docs/resources`
-- `packages/mcp/docs/tools`
+- `packages/mcp/docs/mcp/resources`
+- `packages/mcp/docs/mcp/tools`
+- `packages/mcp/docs/mcp/prompts`
 
 Resource docs:
 
-- `packages/mcp/docs/resources/hds_manifest_meta.md`
-- `packages/mcp/docs/resources/hds_design_mappings.md`
-- `packages/mcp/docs/resources/hds_components.md`
-- `packages/mcp/docs/resources/hds_component_by_slug.md`
-- `packages/mcp/docs/resources/hds_figma_node.md`
+- `packages/mcp/docs/mcp/resources/hds_manifest_meta.md`
+- `packages/mcp/docs/mcp/resources/hds_design_mappings.md`
+- `packages/mcp/docs/mcp/resources/hds_components.md`
+- `packages/mcp/docs/mcp/resources/hds_component_by_slug.md`
+- `packages/mcp/docs/mcp/resources/hds_figma_node.md`
 
 Tool docs:
 
-- `packages/mcp/docs/tools/hds_search_components.md`
-- `packages/mcp/docs/tools/hds_resolve_figma_frame.md`
-- `packages/mcp/docs/tools/hds_search_docs.md`
-- `packages/mcp/docs/tools/response-contract.md`
+- `packages/mcp/docs/mcp/tools/hds_search_components.md`
+- `packages/mcp/docs/mcp/tools/hds_resolve_figma_frame.md`
+- `packages/mcp/docs/mcp/tools/hds_search_docs.md`
+- `packages/mcp/docs/mcp/tools/response-contract.md`
+
+Prompt docs:
+
+- `packages/mcp/docs/mcp/prompts/hds_component_usage.md`
+- `packages/mcp/docs/mcp/prompts/hds_implement_figma_frame.md`
+- `packages/mcp/docs/mcp/prompts/response-contract.md`
 
 ## Internals
+
+The MCP surface is organized under `src/mcp` by PVC pillars: prompts, resources, and tools.
+Shared supporting infrastructure remains at the `src` root.
 
 - `component-catalog/store.ts` loads and validates manifest data, then exposes read-only lookup helpers.
 - `component-catalog/schema.ts` defines and validates the component catalog schema.
 - `component-catalog/lookup.ts` centralizes lookup key and name normalization logic.
-- `tools/register-tools.ts` owns MCP tool registration.
-- `tools/response-envelope.ts` centralizes response envelope formatting.
+- `mcp/tools/register-tools.ts` owns MCP tool registration.
+- `mcp/tools/response-envelope.ts` centralizes response envelope formatting.
+- `mcp/prompts/register-prompts.ts` owns MCP prompt registration.
+- `mcp/prompts/response-prompt.ts` centralizes prompt message and envelope construction.
 - `docs-search/config.ts` parses and validates Algolia environment variables.
 - `docs-search/scopes.ts` defines docs search scopes and scope filter mapping.
 - `docs-search/normalize-result.ts` normalizes Algolia hits into stable MCP result entries.

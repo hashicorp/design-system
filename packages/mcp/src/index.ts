@@ -13,8 +13,9 @@ import { fileURLToPath } from 'node:url';
 import { loadComponentCatalog } from './component-catalog/store.js';
 import { createDocsSearchClient } from './docs-search/client.js';
 import { getDocsSearchConfig } from './docs-search/config.js';
-import { registerResources } from './resources/register-resources.js';
-import { registerTools } from './tools/register-tools.js';
+import { registerPrompts } from './mcp/prompts/register-prompts.js';
+import { registerResources } from './mcp/resources/register-resources.js';
+import { registerTools } from './mcp/tools/register-tools.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const localEnvPath = resolve(__dirname, '../.env');
@@ -33,6 +34,7 @@ const docsSearchClient = createDocsSearchClient(getDocsSearchConfig());
 
 registerResources(server, catalogStore);
 registerTools(server, catalogStore, docsSearchClient);
+registerPrompts(server, catalogStore);
 
 const main = async (): Promise<void> => {
   const transport = new StdioServerTransport();

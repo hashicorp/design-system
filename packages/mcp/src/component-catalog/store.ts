@@ -66,7 +66,10 @@ export const loadComponentCatalog = (): ComponentCatalogStore => {
       componentLookup.set(key, component);
     }
 
-    componentBySlugLookup.set(normalizeComponentName(component.slug), component);
+    componentBySlugLookup.set(
+      normalizeComponentName(component.slug),
+      component
+    );
 
     if (
       component.design !== undefined &&
