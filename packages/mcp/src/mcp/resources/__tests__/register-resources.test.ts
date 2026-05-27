@@ -9,6 +9,7 @@ import { test } from 'node:test';
 import { registerResources } from '../register-resources.js';
 
 import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { TokenCatalogStore } from '../../../tokens/store.js';
 
 type RegisteredCall = {
   name: string;
@@ -57,12 +58,30 @@ const store: ComponentCatalogStore = {
   }),
 };
 
+const tokenStore: TokenCatalogStore = {
+  getMeta: () => ({ totalTokenCount: 1 }),
+  listTokens: () => [
+    {
+      key: '{color.foreground.action}',
+      name: 'token-color-foreground-action',
+      type: 'color',
+      value: '#1060ff',
+      cssVar: '--token-color-foreground-action',
+      category: 'color',
+      path: ['color', 'foreground', 'action'],
+    },
+  ],
+  getTokenByKey: () => null,
+  searchTokens: () => [],
+};
+
 test('registerResources registers all catalog resources', () => {
   const server = new FakeServer();
 
   registerResources(
     server as unknown as Parameters<typeof registerResources>[0],
-    store
+    store,
+    tokenStore
   );
 
   assert.deepEqual(
@@ -71,6 +90,8 @@ test('registerResources registers all catalog resources', () => {
       'hds_manifest_meta',
       'hds_design_mappings',
       'hds_components',
+      'hds_tokens',
+      'hds_token_by_key',
       'hds_component_by_slug',
       'hds_figma_node',
     ]

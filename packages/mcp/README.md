@@ -78,6 +78,10 @@ Current resources:
   - Returns canonical per-component context by slug (`found`, `slug`, and either `component` or `message`).
 - `hds://figma/{fileKey}/nodes/{nodeId}`
   - Returns canonical mapping lookup for one Figma node (`found`, `fileKey`, `nodeId`, and either `component` or `message`).
+- `hds://tokens`
+  - Returns a stable token index envelope with `totalTokenCount` and `tokens`.
+- `hds://tokens/{tokenKey}`
+  - Returns canonical per-token context by token key (`found`, `requestedTokenKey`, and either `token` or `message`).
 
 Current tools:
 
@@ -90,6 +94,9 @@ Current tools:
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `25`.
 - `hds_resolve_figma_frame` (input: `fileKey`, `nodes[]`)
   - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
+- `hds_search_tokens` (input: `query`, optional `limit`, optional `type`, optional `category`)
+  - Returns filtered tokens for discovery-style token search by key/name/path/category/value text.
+  - Optional `limit`: defaults to `10`, minimum `1`, maximum `50`.
 
 Current prompts:
 
@@ -117,12 +124,15 @@ Resource docs:
 - `packages/mcp/docs/mcp/resources/hds_components.md`
 - `packages/mcp/docs/mcp/resources/hds_component_by_slug.md`
 - `packages/mcp/docs/mcp/resources/hds_figma_node.md`
+- `packages/mcp/docs/mcp/resources/hds_tokens.md`
+- `packages/mcp/docs/mcp/resources/hds_token_by_key.md`
 
 Tool docs:
 
 - `packages/mcp/docs/mcp/tools/hds_search_components.md`
 - `packages/mcp/docs/mcp/tools/hds_resolve_figma_frame.md`
 - `packages/mcp/docs/mcp/tools/hds_search_docs.md`
+- `packages/mcp/docs/mcp/tools/hds_search_tokens.md`
 - `packages/mcp/docs/mcp/tools/response-contract.md`
 
 Prompt docs:
@@ -147,6 +157,9 @@ Shared supporting infrastructure remains at the `src` root.
 - `docs-search/scopes.ts` defines docs search scopes and scope filter mapping.
 - `docs-search/normalize-result.ts` normalizes Algolia hits into stable MCP result entries.
 - `docs-search/client.ts` handles docs search client availability and Algolia querying.
+- `tokens/store.ts` loads and validates token catalog data, then exposes read-only token lookup helpers.
+- `tokens/schema.ts` defines and validates the token catalog schema.
+- `tokens/lookup.ts` centralizes token lookup key and token type normalization logic.
 
 ## Testing workflow
 
@@ -216,6 +229,49 @@ Shared supporting infrastructure remains at the `src` root.
   "generatedAt": "2026-05-12T00:29:04.586Z",
   "slug": "does-not-exist",
   "message": "Component not found for provided slug."
+}
+```
+
+`hds://tokens`
+
+```json
+{
+  "totalTokenCount": 999,
+  "tokens": [
+    {
+      "key": "{color.foreground.action}",
+      "name": "token-color-foreground-action",
+      "type": "color",
+      "value": "#1060ff",
+      "cssVar": "--token-color-foreground-action",
+      "category": "color",
+      "path": ["color", "foreground", "action"]
+    }
+  ]
+}
+```
+
+`hds_search_tokens`
+
+```json
+{
+  "query": "foreground action",
+  "limit": 10,
+  "type": "color",
+  "category": "color",
+  "totalTokenCount": 999,
+  "resultCount": 1,
+  "results": [
+    {
+      "key": "{color.foreground.action}",
+      "name": "token-color-foreground-action",
+      "type": "color",
+      "value": "#1060ff",
+      "cssVar": "--token-color-foreground-action",
+      "category": "color",
+      "path": ["color", "foreground", "action"]
+    }
+  ]
 }
 ```
 

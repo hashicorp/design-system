@@ -23,13 +23,21 @@ import {
   MANIFEST_META_URI,
   readManifestMetaResource,
 } from './read-manifest-meta.js';
+import {
+  TOKEN_BY_KEY_URI_TEMPLATE,
+  getTokenByKeyUri,
+  readTokenByKeyResource,
+} from './read-token-by-key.js';
+import { TOKENS_URI, readTokensResource } from './read-tokens.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { TokenCatalogStore } from '../../tokens/store.js';
 
 export const registerResources = (
   server: McpServer,
-  store: ComponentCatalogStore
+  store: ComponentCatalogStore,
+  tokenStore: TokenCatalogStore
 ): void => {
   server.registerResource(
     'hds_manifest_meta',
@@ -69,6 +77,47 @@ export const registerResources = (
     },
     async () => {
       return readComponentsResource(store);
+    }
+  );
+
+  server.registerResource(
+    'hds_tokens',
+    TOKENS_URI,
+    {
+      title: 'HDS token catalog index',
+      description: 'Canonical list of HDS tokens with summary metadata.',
+      mimeType: 'application/json',
+    },
+    async () => {
+      return readTokensResource(tokenStore);
+    }
+  );
+
+  server.registerResource(
+    'hds_token_by_key',
+    new ResourceTemplate(TOKEN_BY_KEY_URI_TEMPLATE, {
+      list: async () => {
+        return {
+          resources: tokenStore.listTokens().map((token) => ({
+            name: `HDS token: ${token.key}`,
+            uri: getTokenByKeyUri(token.key),
+            mimeType: 'application/json',
+          })),
+        };
+      },
+    }),
+    {
+      title: 'HDS token detail by key',
+      description: 'Canonical token lookup keyed by token key or token path.',
+      mimeType: 'application/json',
+    },
+    async (_uri, variables) => {
+      const tokenKey = variables['tokenKey'];
+
+      return readTokenByKeyResource(
+        tokenStore,
+        typeof tokenKey === 'string' ? tokenKey : ''
+      );
     }
   );
 

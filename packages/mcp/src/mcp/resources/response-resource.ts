@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-type JsonObject = Record<string, unknown>;
+import type { JsonObject } from '../../types.js';
 
 export const toJsonResourceResponse = (uri: string, payload: JsonObject) => {
   return {

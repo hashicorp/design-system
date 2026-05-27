@@ -44,6 +44,7 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "dependencies": {
     "@hashicorp/design-system-components": "workspace:^6.0.0",
+    "@hashicorp/design-system-tokens": "workspace:^5.0.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "algoliasearch": "^5.18.0",
     "zod": "^3.24.1"

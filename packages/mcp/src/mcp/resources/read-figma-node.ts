@@ -5,6 +5,7 @@
 
 import { toJsonResourceResponse } from './response-resource.js';
 
+import type { JsonObject } from '../../types.js';
 import type { ComponentCatalogStore } from '../../component-catalog/store.js';
 
 export const FIGMA_NODE_URI_TEMPLATE = 'hds://figma/{fileKey}/nodes/{nodeId}';
@@ -19,7 +20,7 @@ export const buildFigmaNodeResourcePayload = (
     fileKey: string;
     nodeId: string;
   }
-): Record<string, unknown> => {
+): JsonObject => {
   const component = store.getComponentByDesignNode(input.fileKey, input.nodeId);
 
   if (component === null) {

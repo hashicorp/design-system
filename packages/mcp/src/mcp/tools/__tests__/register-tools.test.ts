@@ -10,6 +10,7 @@ import { registerTools } from '../register-tools.js';
 
 import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
 import type { DocsSearchClient } from '../../../docs-search/client.js';
+import type { TokenCatalogStore } from '../../../tokens/store.js';
 
 type RegisteredCall = {
   name: string;
@@ -54,17 +55,32 @@ const docsSearchClient: DocsSearchClient = {
   }),
 };
 
+const tokenStore: TokenCatalogStore = {
+  getMeta: () => ({
+    totalTokenCount: 0,
+  }),
+  listTokens: () => [],
+  getTokenByKey: () => null,
+  searchTokens: () => [],
+};
+
 test('registerTools registers search, figma, and docs tools', () => {
   const server = new FakeServer();
 
   registerTools(
     server as unknown as Parameters<typeof registerTools>[0],
     store,
-    docsSearchClient
+    docsSearchClient,
+    tokenStore
   );
 
   assert.deepEqual(
     server.calls.map((call) => call.name),
-    ['hds_search_components', 'hds_resolve_figma_frame', 'hds_search_docs']
+    [
+      'hds_search_components',
+      'hds_resolve_figma_frame',
+      'hds_search_docs',
+      'hds_search_tokens',
+    ]
   );
 });

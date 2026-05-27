@@ -16,6 +16,7 @@ import { getDocsSearchConfig } from './docs-search/config.js';
 import { registerPrompts } from './mcp/prompts/register-prompts.js';
 import { registerResources } from './mcp/resources/register-resources.js';
 import { registerTools } from './mcp/tools/register-tools.js';
+import { loadTokenCatalog } from './tokens/store.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const localEnvPath = resolve(__dirname, '../.env');
@@ -30,10 +31,11 @@ const server = new McpServer({
 });
 
 const catalogStore = loadComponentCatalog();
+const tokenStore = loadTokenCatalog();
 const docsSearchClient = createDocsSearchClient(getDocsSearchConfig());
 
-registerResources(server, catalogStore);
-registerTools(server, catalogStore, docsSearchClient);
+registerResources(server, catalogStore, tokenStore);
+registerTools(server, catalogStore, docsSearchClient, tokenStore);
 registerPrompts(server, catalogStore);
 
 const main = async (): Promise<void> => {

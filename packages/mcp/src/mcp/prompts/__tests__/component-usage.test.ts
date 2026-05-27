@@ -11,6 +11,7 @@ import {
   registerComponentUsagePrompt,
 } from '../component-usage.js';
 
+import type { JsonObject } from '../../../types.js';
 import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
 
 type RegisteredPrompt = {
@@ -21,7 +22,7 @@ type RegisteredPrompt = {
     argsSchema?: unknown;
   };
   handler: (args: { nameOrSlug: string; scenario?: string }) => {
-    messages: Array<Record<string, unknown>>;
+    messages: Array<JsonObject>;
   };
 };
 

@@ -13,6 +13,7 @@ import {
 } from '../implement-figma-frame.js';
 
 import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { JsonObject } from '../../../types.js';
 
 type RegisteredPrompt = {
   name: string;
@@ -26,7 +27,7 @@ type RegisteredPrompt = {
     nodeIds: string;
     framework?: string;
     notes?: string;
-  }) => { messages: Array<Record<string, unknown>> };
+  }) => { messages: Array<JsonObject> };
 };
 
 class FakeServer {

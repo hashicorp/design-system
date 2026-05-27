@@ -4,8 +4,7 @@
  */
 
 import type { ComponentCatalogStore } from '../../component-catalog/store.js';
-
-type JsonObject = Record<string, unknown>;
+import type { JsonObject } from '../../types.js';
 
 export const withGeneratedAt = (
   store: ComponentCatalogStore,
