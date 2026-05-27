@@ -27,6 +27,9 @@ This component uses the [Clipboard API](https://developer.mozilla.org/en-US/docs
   <C.Property @name="onError" @type="function">
     Callback function invoked (if provided) when the "copy" action fails.
   </C.Property>
+  <C.Property @name="ariaMessageText" @type="string" @default="Copied to clipboard">
+    Custom success message announced via the component’s aria-live region after a successful copy. Shown only while status is `success`.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
