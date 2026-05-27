@@ -13,7 +13,7 @@ import {
   readComponentBySlugResource,
 } from '../read-component-by-slug.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 
 const buttonComponent = {
   name: 'Button',

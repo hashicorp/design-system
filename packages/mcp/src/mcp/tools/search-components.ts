@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { toTextResponse, withGeneratedAt } from './response-envelope.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 
 const DEFAULT_LIMIT = 10;
 const MAX_LIMIT = 50;

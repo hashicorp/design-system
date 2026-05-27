@@ -12,7 +12,7 @@ import {
   readDesignMappingsResource,
 } from '../read-design-mappings.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 
 const designMappings = [
   {

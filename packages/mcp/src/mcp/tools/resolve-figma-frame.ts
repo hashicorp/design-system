@@ -8,7 +8,7 @@ import { toTextResponse, withGeneratedAt } from './response-envelope.js';
 import { resolveFigmaFrameNodeMatch } from '../../figma/resolve-frame-node-match.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 import type { ResolveFigmaFrameNodeMatch } from '../../figma/resolve-frame-node-match.js';
 
 export const buildResolveFigmaFramePayload = (

@@ -12,7 +12,7 @@ import {
 } from '../component-usage.js';
 
 import type { JsonObject } from '../../../types.js';
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 
 type RegisteredPrompt = {
   name: string;

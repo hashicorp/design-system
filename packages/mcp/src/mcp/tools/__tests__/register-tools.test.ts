@@ -8,9 +8,9 @@ import { test } from 'node:test';
 
 import { registerTools } from '../register-tools.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 import type { DocsSearchClient } from '../../../docs-search/client.js';
-import type { TokenCatalogStore } from '../../../tokens/store.js';
+import type { TokenCatalogStore } from '../../../catalogs/tokens/store.js';
 
 type RegisteredCall = {
   name: string;

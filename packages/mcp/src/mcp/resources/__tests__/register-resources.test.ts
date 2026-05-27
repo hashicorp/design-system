@@ -8,8 +8,8 @@ import { test } from 'node:test';
 
 import { registerResources } from '../register-resources.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
-import type { TokenCatalogStore } from '../../../tokens/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
+import type { TokenCatalogStore } from '../../../catalogs/tokens/store.js';
 
 type RegisteredCall = {
   name: string;

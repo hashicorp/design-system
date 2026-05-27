@@ -5,7 +5,7 @@
 
 import { toJsonResourceResponse } from './response-resource.js';
 
-import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 import type { JsonObject } from '../../types.js';
 
 export const COMPONENT_BY_SLUG_URI_TEMPLATE = 'hds://components/{slug}';

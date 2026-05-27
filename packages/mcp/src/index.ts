@@ -10,13 +10,13 @@ import { dirname, resolve } from 'node:path';
 import { loadEnvFile } from 'node:process';
 import { fileURLToPath } from 'node:url';
 
-import { loadComponentCatalog } from './component-catalog/store.js';
+import { loadComponentCatalog } from './catalogs/components/store.js';
 import { createDocsSearchClient } from './docs-search/client.js';
 import { getDocsSearchConfig } from './docs-search/config.js';
 import { registerPrompts } from './mcp/prompts/register-prompts.js';
 import { registerResources } from './mcp/resources/register-resources.js';
 import { registerTools } from './mcp/tools/register-tools.js';
-import { loadTokenCatalog } from './tokens/store.js';
+import { loadTokenCatalog } from './catalogs/tokens/store.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const localEnvPath = resolve(__dirname, '../.env');

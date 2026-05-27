@@ -11,7 +11,7 @@ import {
   registerSearchTokensTool,
 } from '../search-tokens.js';
 
-import type { TokenCatalogStore } from '../../../tokens/store.js';
+import type { TokenCatalogStore } from '../../../catalogs/tokens/store.js';
 
 type RegisteredTool = {
   name: string;

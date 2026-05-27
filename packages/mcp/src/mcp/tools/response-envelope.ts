@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 import type { JsonObject } from '../../types.js';
 
 export const withGeneratedAt = (

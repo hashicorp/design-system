@@ -9,9 +9,9 @@ import { registerSearchDocsTool } from './search-docs.js';
 import { registerSearchTokensTool } from './search-tokens.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 import type { DocsSearchClient } from '../../docs-search/client.js';
-import type { TokenCatalogStore } from '../../tokens/store.js';
+import type { TokenCatalogStore } from '../../catalogs/tokens/store.js';
 
 export const registerTools = (
   server: McpServer,

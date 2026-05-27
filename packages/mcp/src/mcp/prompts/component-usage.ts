@@ -5,7 +5,7 @@
 
 import { z } from 'zod';
 
-import { normalizeComponentName } from '../../component-catalog/lookup.js';
+import { normalizeComponentName } from '../../catalogs/components/lookup.js';
 import { getComponentBySlugUri } from '../resources/read-component-by-slug.js';
 import {
   toPromptResponse,
@@ -14,7 +14,7 @@ import {
 } from './response-prompt.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 import type { PromptMessage } from './response-prompt.js';
 
 const MAX_NEAREST_MATCHES = 5;

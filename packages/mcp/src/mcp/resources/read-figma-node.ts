@@ -6,7 +6,7 @@
 import { toJsonResourceResponse } from './response-resource.js';
 
 import type { JsonObject } from '../../types.js';
-import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 
 export const FIGMA_NODE_URI_TEMPLATE = 'hds://figma/{fileKey}/nodes/{nodeId}';
 

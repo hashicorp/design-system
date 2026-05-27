@@ -6,7 +6,7 @@
 import { toJsonResourceResponse } from './response-resource.js';
 
 import type { JsonObject } from '../../types.js';
-import type { TokenCatalogStore } from '../../tokens/store.js';
+import type { TokenCatalogStore } from '../../catalogs/tokens/store.js';
 
 export const TOKEN_BY_KEY_URI_TEMPLATE = 'hds://tokens/{tokenKey}';
 

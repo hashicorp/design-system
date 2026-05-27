@@ -5,7 +5,7 @@
 
 import { toJsonResourceResponse } from './response-resource.js';
 
-import type { TokenCatalogStore } from '../../tokens/store.js';
+import type { TokenCatalogStore } from '../../catalogs/tokens/store.js';
 
 export const TOKENS_URI = 'hds://tokens';
 

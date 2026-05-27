@@ -13,7 +13,7 @@ import {
   readFigmaNodeResource,
 } from '../read-figma-node.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 
 const component = {
   name: 'Button',

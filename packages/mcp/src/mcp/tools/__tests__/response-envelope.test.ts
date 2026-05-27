@@ -8,7 +8,7 @@ import { test } from 'node:test';
 
 import { toTextResponse, withGeneratedAt } from '../response-envelope.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 
 const store: ComponentCatalogStore = {
   catalog: {

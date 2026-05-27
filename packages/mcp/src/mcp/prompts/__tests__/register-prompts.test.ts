@@ -8,7 +8,7 @@ import { test } from 'node:test';
 
 import { registerPrompts } from '../register-prompts.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 
 type RegisteredCall = {
   name: string;

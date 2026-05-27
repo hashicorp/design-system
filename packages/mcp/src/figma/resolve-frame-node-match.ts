@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { ComponentCatalogComponent } from '../component-catalog/schema.js';
-import type { ComponentCatalogStore } from '../component-catalog/store.js';
+import type { ComponentCatalogComponent } from '../catalogs/components/schema.js';
+import type { ComponentCatalogStore } from '../catalogs/components/store.js';
 
 export const UNMATCHED_NODE_WARNING =
   'No design mapping found for this fileKey/nodeId.';

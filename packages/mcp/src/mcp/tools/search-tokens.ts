@@ -4,11 +4,11 @@
  */
 
 import { z } from 'zod';
-import { TOKEN_TYPES } from '../../tokens/schema.js';
+import { TOKEN_TYPES } from '../../catalogs/tokens/schema.js';
 import { toTextResponse } from './response-envelope.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { TokenCatalogStore } from '../../tokens/store.js';
+import type { TokenCatalogStore } from '../../catalogs/tokens/store.js';
 
 const DEFAULT_LIMIT = 10;
 const MAX_LIMIT = 50;

@@ -5,7 +5,7 @@
 
 import { toJsonResourceResponse } from './response-resource.js';
 
-import type { ComponentCatalogStore } from '../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 
 export const DESIGN_MAPPINGS_URI = 'hds://design/mappings';
 

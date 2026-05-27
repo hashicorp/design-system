@@ -11,7 +11,7 @@ import {
   registerSearchComponentsTool,
 } from '../search-components.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 
 type RegisteredTool = {
   name: string;

@@ -13,7 +13,7 @@ import {
   TOKEN_BY_KEY_URI_TEMPLATE,
 } from '../read-token-by-key.js';
 
-import type { TokenCatalogStore } from '../../../tokens/store.js';
+import type { TokenCatalogStore } from '../../../catalogs/tokens/store.js';
 
 const token = {
   key: '{color.foreground.action}',

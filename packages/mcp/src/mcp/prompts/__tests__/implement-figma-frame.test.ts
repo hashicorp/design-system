@@ -12,7 +12,7 @@ import {
   registerImplementFigmaFramePrompt,
 } from '../implement-figma-frame.js';
 
-import type { ComponentCatalogStore } from '../../../component-catalog/store.js';
+import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 import type { JsonObject } from '../../../types.js';
 
 type RegisteredPrompt = {
