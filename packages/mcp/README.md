@@ -10,6 +10,11 @@ pnpm --filter @hashicorp/design-system-mcp build
 pnpm --filter @hashicorp/design-system-mcp start
 ```
 
+When using `pnpm start` for local development, the inspector runner persists a stable
+proxy auth token at `packages/mcp/.mcp-inspector-auth-token` and disables automatic browser
+open by default. This keeps the inspector URL stable across watch restarts and avoids opening
+new tabs on each rebuild.
+
 ## Configuration
 
 `hds_search_docs` requires Algolia search credentials and index metadata:
@@ -82,6 +87,15 @@ Current resources:
   - Returns a stable token index envelope with `totalTokenCount` and `tokens`.
 - `hds://tokens/{tokenKey}`
   - Returns canonical per-token context by token key (`found`, `requestedTokenKey`, and either `token` or `message`).
+- `hds://icons`
+  - Returns a stable icon index envelope with `totalIconCount`, `totalAssetCount`, `categories`, and `icons`.
+- `hds://icons/{iconName}`
+  - Returns canonical per-icon context by icon name (`found`, `requestedIconName`, and either `icon` or `message`).
+
+Resource listing behavior:
+
+- `resources/list` is intentionally kept concise and returns top-level index resources.
+- High-cardinality template resources (for example, `hds://tokens/{tokenKey}` and `hds://icons/{iconName}`) are resolved on-demand via direct URI reads instead of eager enumeration.
 
 Current tools:
 
@@ -96,6 +110,9 @@ Current tools:
   - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
 - `hds_search_tokens` (input: `query`, optional `limit`, optional `type`, optional `category`)
   - Returns filtered tokens for discovery-style token search by key/name/path/category/value text.
+  - Optional `limit`: defaults to `10`, minimum `1`, maximum `50`.
+- `hds_search_icons` (input: `query`, optional `limit`, optional `category`, optional `size`, optional `hasMapping`)
+  - Returns filtered Flight icons for discovery-style search by icon name, file name, category, description, and mapping.
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `50`.
 
 Current prompts:
@@ -126,6 +143,8 @@ Resource docs:
 - `packages/mcp/docs/mcp/resources/hds_figma_node.md`
 - `packages/mcp/docs/mcp/resources/hds_tokens.md`
 - `packages/mcp/docs/mcp/resources/hds_token_by_key.md`
+- `packages/mcp/docs/mcp/resources/hds_icons.md`
+- `packages/mcp/docs/mcp/resources/hds_icon_by_name.md`
 
 Tool docs:
 
@@ -133,6 +152,7 @@ Tool docs:
 - `packages/mcp/docs/mcp/tools/hds_resolve_figma_frame.md`
 - `packages/mcp/docs/mcp/tools/hds_search_docs.md`
 - `packages/mcp/docs/mcp/tools/hds_search_tokens.md`
+- `packages/mcp/docs/mcp/tools/hds_search_icons.md`
 - `packages/mcp/docs/mcp/tools/response-contract.md`
 
 Prompt docs:
@@ -146,9 +166,9 @@ Prompt docs:
 The MCP surface is organized under `src/mcp` by PVC pillars: prompts, resources, and tools.
 Shared supporting infrastructure remains at the `src` root.
 
-- `component-catalog/store.ts` loads and validates manifest data, then exposes read-only lookup helpers.
-- `component-catalog/schema.ts` defines and validates the component catalog schema.
-- `component-catalog/lookup.ts` centralizes lookup key and name normalization logic.
+- `catalogs/components/store.ts` loads and validates manifest data, then exposes read-only lookup helpers.
+- `catalogs/components/schema.ts` defines and validates the component catalog schema.
+- `catalogs/components/lookup.ts` centralizes lookup key and name normalization logic.
 - `mcp/tools/register-tools.ts` owns MCP tool registration.
 - `mcp/tools/response-envelope.ts` centralizes response envelope formatting.
 - `mcp/prompts/register-prompts.ts` owns MCP prompt registration.
@@ -157,9 +177,12 @@ Shared supporting infrastructure remains at the `src` root.
 - `docs-search/scopes.ts` defines docs search scopes and scope filter mapping.
 - `docs-search/normalize-result.ts` normalizes Algolia hits into stable MCP result entries.
 - `docs-search/client.ts` handles docs search client availability and Algolia querying.
-- `tokens/store.ts` loads and validates token catalog data, then exposes read-only token lookup helpers.
-- `tokens/schema.ts` defines and validates the token catalog schema.
-- `tokens/lookup.ts` centralizes token lookup key and token type normalization logic.
+- `catalogs/tokens/store.ts` loads and validates token catalog data, then exposes read-only token lookup helpers.
+- `catalogs/tokens/schema.ts` defines and validates the token catalog schema.
+- `catalogs/tokens/lookup.ts` centralizes token lookup key and token type normalization logic.
+- `catalogs/icons/store.ts` loads and validates icon catalog data, then exposes read-only icon lookup helpers.
+- `catalogs/icons/schema.ts` defines and validates the icon catalog schema.
+- `catalogs/icons/lookup.ts` centralizes icon lookup key normalization and icon aggregation logic.
 
 ## Testing workflow
 
@@ -270,6 +293,48 @@ Shared supporting infrastructure remains at the `src` root.
       "cssVar": "--token-color-foreground-action",
       "category": "color",
       "path": ["color", "foreground", "action"]
+    }
+  ]
+}
+```
+
+`hds://icons`
+
+```json
+{
+  "totalIconCount": 672,
+  "totalAssetCount": 1344,
+  "categories": ["Animated", "Services"],
+  "icons": [
+    {
+      "iconName": "apple",
+      "description": "apple, macos, ios",
+      "category": "Services",
+      "sizes": ["16", "24"],
+      "hasMapping": true
+    }
+  ]
+}
+```
+
+`hds_search_icons`
+
+```json
+{
+  "query": "apple",
+  "limit": 10,
+  "category": "Services",
+  "size": "16",
+  "hasMapping": true,
+  "totalIconCount": 672,
+  "resultCount": 1,
+  "results": [
+    {
+      "iconName": "apple",
+      "description": "apple, macos, ios",
+      "category": "Services",
+      "sizes": ["16", "24"],
+      "hasMapping": true
     }
   ]
 }

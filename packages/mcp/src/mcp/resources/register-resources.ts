@@ -6,7 +6,6 @@
 import { ResourceTemplate } from '@modelcontextprotocol/sdk/server/mcp.js';
 import {
   COMPONENT_BY_SLUG_URI_TEMPLATE,
-  getComponentBySlugUri,
   readComponentBySlugResource,
 } from './read-component-by-slug.js';
 import { COMPONENTS_URI, readComponentsResource } from './read-components.js';
@@ -16,7 +15,6 @@ import {
 } from './read-design-mappings.js';
 import {
   FIGMA_NODE_URI_TEMPLATE,
-  getFigmaNodeUri,
   readFigmaNodeResource,
 } from './read-figma-node.js';
 import {
@@ -24,20 +22,26 @@ import {
   readManifestMetaResource,
 } from './read-manifest-meta.js';
 import {
+  ICON_BY_NAME_URI_TEMPLATE,
+  readIconByNameResource,
+} from './read-icon-by-name.js';
+import { ICONS_URI, readIconsResource } from './read-icons.js';
+import {
   TOKEN_BY_KEY_URI_TEMPLATE,
-  getTokenByKeyUri,
   readTokenByKeyResource,
 } from './read-token-by-key.js';
 import { TOKENS_URI, readTokensResource } from './read-tokens.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
+import type { IconCatalogStore } from '../../catalogs/icons/store.js';
 import type { TokenCatalogStore } from '../../catalogs/tokens/store.js';
 
 export const registerResources = (
   server: McpServer,
   store: ComponentCatalogStore,
-  tokenStore: TokenCatalogStore
+  tokenStore: TokenCatalogStore,
+  iconStore: IconCatalogStore
 ): void => {
   server.registerResource(
     'hds_manifest_meta',
@@ -94,18 +98,40 @@ export const registerResources = (
   );
 
   server.registerResource(
+    'hds_icons',
+    ICONS_URI,
+    {
+      title: 'HDS icon catalog index',
+      description: 'Canonical list of Flight icons with summary metadata.',
+      mimeType: 'application/json',
+    },
+    async () => {
+      return readIconsResource(iconStore);
+    }
+  );
+
+  server.registerResource(
+    'hds_icon_by_name',
+    new ResourceTemplate(ICON_BY_NAME_URI_TEMPLATE, { list: undefined }),
+    {
+      title: 'HDS icon detail by icon name',
+      description:
+        'Canonical icon lookup keyed by icon name, with file name alias support.',
+      mimeType: 'application/json',
+    },
+    async (_uri, variables) => {
+      const iconName = variables['iconName'];
+
+      return readIconByNameResource(
+        iconStore,
+        typeof iconName === 'string' ? iconName : ''
+      );
+    }
+  );
+
+  server.registerResource(
     'hds_token_by_key',
-    new ResourceTemplate(TOKEN_BY_KEY_URI_TEMPLATE, {
-      list: async () => {
-        return {
-          resources: tokenStore.listTokens().map((token) => ({
-            name: `HDS token: ${token.key}`,
-            uri: getTokenByKeyUri(token.key),
-            mimeType: 'application/json',
-          })),
-        };
-      },
-    }),
+    new ResourceTemplate(TOKEN_BY_KEY_URI_TEMPLATE, { list: undefined }),
     {
       title: 'HDS token detail by key',
       description: 'Canonical token lookup keyed by token key or token path.',
@@ -123,17 +149,7 @@ export const registerResources = (
 
   server.registerResource(
     'hds_component_by_slug',
-    new ResourceTemplate(COMPONENT_BY_SLUG_URI_TEMPLATE, {
-      list: async () => {
-        return {
-          resources: store.listComponents().map((component) => ({
-            name: `HDS component: ${component.name}`,
-            uri: getComponentBySlugUri(component.slug),
-            mimeType: 'application/json',
-          })),
-        };
-      },
-    }),
+    new ResourceTemplate(COMPONENT_BY_SLUG_URI_TEMPLATE, { list: undefined }),
     {
       title: 'HDS component context by slug',
       description:
@@ -153,17 +169,7 @@ export const registerResources = (
 
   server.registerResource(
     'hds_figma_node',
-    new ResourceTemplate(FIGMA_NODE_URI_TEMPLATE, {
-      list: async () => {
-        return {
-          resources: store.listDesignMappings().map((mapping) => ({
-            name: `HDS mapped node: ${mapping.name}`,
-            uri: getFigmaNodeUri(mapping.fileKey, mapping.nodeId),
-            mimeType: 'application/json',
-          })),
-        };
-      },
-    }),
+    new ResourceTemplate(FIGMA_NODE_URI_TEMPLATE, { list: undefined }),
     {
       title: 'HDS component by Figma node mapping',
       description:

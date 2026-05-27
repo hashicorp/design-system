@@ -2,3 +2,4 @@
 /dist
 /.eslintcache
 /.env
+/.mcp-inspector-auth-token

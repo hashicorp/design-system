@@ -43,8 +43,11 @@ const toSearchBlob = (icon: IconRecord): string => {
   const mappings = icon.variants
     .map((variant) => variant.mapping ?? '')
     .join(' ');
+  const fileNames = icon.variants
+    .map((variant) => variant.fileName)
+    .join(' ');
 
-  return [icon.iconName, icon.description, icon.category, mappings]
+  return [icon.iconName, icon.description, icon.category, mappings, fileNames]
     .join(' ')
     .toLowerCase();
 };

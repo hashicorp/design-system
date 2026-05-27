@@ -9,6 +9,7 @@ import { test } from 'node:test';
 import { registerTools } from '../register-tools.js';
 
 import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
+import type { IconCatalogStore } from '../../../catalogs/icons/store.js';
 import type { DocsSearchClient } from '../../../docs-search/client.js';
 import type { TokenCatalogStore } from '../../../catalogs/tokens/store.js';
 
@@ -64,6 +65,17 @@ const tokenStore: TokenCatalogStore = {
   searchTokens: () => [],
 };
 
+const iconStore: IconCatalogStore = {
+  getMeta: () => ({
+    totalIconCount: 0,
+    totalAssetCount: 0,
+    categories: [],
+  }),
+  listIcons: () => [],
+  getIconByName: () => null,
+  searchIcons: () => [],
+};
+
 test('registerTools registers search, figma, and docs tools', () => {
   const server = new FakeServer();
 
@@ -71,7 +83,8 @@ test('registerTools registers search, figma, and docs tools', () => {
     server as unknown as Parameters<typeof registerTools>[0],
     store,
     docsSearchClient,
-    tokenStore
+    tokenStore,
+    iconStore
   );
 
   assert.deepEqual(
@@ -81,6 +94,7 @@ test('registerTools registers search, figma, and docs tools', () => {
       'hds_resolve_figma_frame',
       'hds_search_docs',
       'hds_search_tokens',
+      'hds_search_icons',
     ]
   );
 });
