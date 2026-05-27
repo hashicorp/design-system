@@ -1,1 +1,3 @@
-aria-message-text: Copied to clipboard
+aria-message-text:
+  success: Copied to clipboard
+  error: Failed to copy to clipboard

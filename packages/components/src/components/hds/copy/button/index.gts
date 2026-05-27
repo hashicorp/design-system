@@ -83,9 +83,16 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
     if (this._status === 'success') {
       return (
         this.args.ariaMessageText ??
-        this.hdsIntl.t('hds.components.copy-button.aria-message-text', {
+        this.hdsIntl.t('hds.components.copy-button.aria-message-text.success', {
           default: 'Copied to clipboard',
         })
+      );
+    } else if (this._status === 'error') {
+      return this.hdsIntl.t(
+        'hds.components.copy-button.aria-message-text.error',
+        {
+          default: 'Failed to copy to clipboard',
+        }
       );
     } else {
       return '';
