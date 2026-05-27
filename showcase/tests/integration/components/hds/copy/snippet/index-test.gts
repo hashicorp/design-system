@@ -216,6 +216,10 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
     await click('button#test-copy-snippet');
     assert.false(context.success);
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-error');
+    // Test the copy error message is rendered:
+    assert
+      .dom('#test-copy-snippet + .sr-only')
+      .hasText('Failed to copy to clipboard');
     await wait(2000); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
   });

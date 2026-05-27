@@ -116,9 +116,19 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     if (this._status === 'success') {
       return (
         this.args.ariaMessageText ??
-        this.hdsIntl.t('hds.components.copy-snippet.aria-message-text', {
-          default: 'Copied to clipboard',
-        })
+        this.hdsIntl.t(
+          'hds.components.copy-snippet.aria-message-text.success',
+          {
+            default: 'Copied to clipboard',
+          }
+        )
+      );
+    } else if (this._status === 'error') {
+      return this.hdsIntl.t(
+        'hds.components.copy-snippet.aria-message-text.error',
+        {
+          default: 'Failed to copy to clipboard',
+        }
       );
     } else {
       return '';

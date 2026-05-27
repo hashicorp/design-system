@@ -282,6 +282,10 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     await click('button#test-copy-button');
     assert.false(context.success);
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-error');
+    // Test the copy error message is rendered:
+    assert
+      .dom('#test-copy-button + .sr-only')
+      .hasText('Failed to copy to clipboard');
     await wait(2000); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
   });
