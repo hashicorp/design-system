@@ -58,7 +58,7 @@
   &:focus-within,
   &.mock-focus {
     border-color: var(--token-color-focus-action-internal);
-    box-shadow: 0 0 0 3px var(--token-color-focus-action-external);
+    outline: 3px solid var(--token-color-focus-action-external);
   }
 
   &.hds-form-radio-card--checked {
