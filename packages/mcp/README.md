@@ -17,52 +17,30 @@ new tabs on each rebuild.
 
 ## Configuration
 
-`hds_search_docs` requires Algolia search credentials and index metadata:
+`hds_search_docs` uses a local MiniSearch index built at server startup.
+It indexes content from:
 
-- `ALGOLIA_APPLICATION_ID`
-- `ALGOLIA_API_KEY_SEARCH`
-- `ALGOLIA_INDEX_ID`
+- `website/dist/docs` (website docs JSON)
 
-### Recommended: configure env vars in your MCP host
+### Prerequisites
 
-This server reads credentials from `process.env`.
-When running via an MCP client/host, configure env vars on the server entry in that host config
-so they are injected into the MCP process at startup.
-
-Example pattern (host-specific keys may vary):
-
-```json
-{
-  "mcpServers": {
-    "hds": {
-      "command": "pnpm",
-      "args": ["--filter", "@hashicorp/design-system-mcp", "start"],
-      "env": {
-        "ALGOLIA_APPLICATION_ID": "...",
-        "ALGOLIA_API_KEY_SEARCH": "...",
-        "ALGOLIA_INDEX_ID": "..."
-      }
-    }
-  }
-}
-```
-
-Prefer your host's secret-management feature when available instead of committing credentials.
+- Build website docs before starting MCP so `website/dist/docs` exists.
 
 ### Local manual runs (optional)
 
 For local development, you can create `packages/mcp/.env` from
-`packages/mcp/.env.example` and populate real values:
+`packages/mcp/.env.example`:
 
 ```sh
 cp packages/mcp/.env.example packages/mcp/.env
 ```
 
 When present, `packages/mcp/.env` is loaded automatically by the server at startup.
-Values that are already set in the runtime environment (for example by your MCP host) take precedence.
+Values already set in the runtime environment (for example by your MCP host) take precedence.
 
-If any of these are missing, the server still starts and deterministic manifest tools remain available.
-`hds_search_docs` responds with `available: false` and a message describing missing variables.
+If docs source data is unavailable (for example `website/dist/docs` is missing),
+the server still starts and deterministic manifest tools remain available.
+In that case, `hds_search_docs` responds with `available: false` and an availability message.
 
 ## Manifest
 
@@ -102,9 +80,10 @@ Current tools:
 - `hds_search_components` (input: `query`, optional `limit`)
   - Returns filtered components for discovery-style text search.
 - `hds_search_docs` (input: `query`, optional `scope`, optional `limit`)
-  - Returns Helios documentation search results for discovery use cases (patterns, accessibility/content guidance, foundations, icons, tokens).
-  - This tool is search-backed and non-deterministic by relevance ranking and index freshness.
-  - Optional `scope` values: `all`, `components`, `foundations`, `patterns`, `about`, `icons`, `tokens`, `componentApi`, `content`.
+  - Returns Helios documentation search results for discovery use cases (patterns, accessibility/content guidance, and docs reference pages).
+  - Search uses a local MiniSearch index and deterministic tie-breaking over the same indexed snapshot.
+  - Results can still change when source docs content changes between runs.
+  - Optional `scope` values: `all`, `components`, `foundations`, `patterns`, `about`, `componentApi`, `content`.
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `25`.
 - `hds_resolve_figma_frame` (input: `fileKey`, `nodes[]`)
   - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
@@ -173,10 +152,10 @@ Shared supporting infrastructure remains at the `src` root.
 - `mcp/tools/response-envelope.ts` centralizes response envelope formatting.
 - `mcp/prompts/register-prompts.ts` owns MCP prompt registration.
 - `mcp/prompts/response-prompt.ts` centralizes prompt message and envelope construction.
-- `docs-search/config.ts` parses and validates Algolia environment variables.
-- `docs-search/scopes.ts` defines docs search scopes and scope filter mapping.
-- `docs-search/normalize-result.ts` normalizes Algolia hits into stable MCP result entries.
-- `docs-search/client.ts` handles docs search client availability and Algolia querying.
+- `catalogs/docs/store.ts` builds the local docs index and exposes search + availability metadata.
+- `catalogs/docs/scopes.ts` defines docs search scopes and scope filtering.
+- `catalogs/docs/normalize-result.ts` normalizes docs search records into stable MCP result entries.
+- `catalogs/docs/schema.ts` validates website docs page JSON records before indexing.
 - `catalogs/tokens/store.ts` loads and validates token catalog data, then exposes read-only token lookup helpers.
 - `catalogs/tokens/schema.ts` defines and validates the token catalog schema.
 - `catalogs/tokens/lookup.ts` centralizes token lookup key and token type normalization logic.
@@ -384,7 +363,7 @@ Shared supporting infrastructure remains at the `src` root.
     {
       "title": "Accessibility",
       "url": "https://helios.hashicorp.design/foundations/accessibility",
-      "kind": "text",
+      "kind": "heading",
       "section": "foundations",
       "snippet": "Guidance on accessibility requirements and testing."
     }
@@ -392,7 +371,7 @@ Shared supporting infrastructure remains at the `src` root.
 }
 ```
 
-`hds_search_docs` (unavailable due to missing env)
+`hds_search_docs` (unavailable)
 
 ```json
 {
@@ -402,6 +381,6 @@ Shared supporting infrastructure remains at the `src` root.
   "limit": 10,
   "resultCount": 0,
   "results": [],
-  "message": "Docs search is unavailable. Missing environment variables: ALGOLIA_APPLICATION_ID, ALGOLIA_API_KEY_SEARCH, ALGOLIA_INDEX_ID."
+  "message": "Docs catalog unavailable: website docs folder not found at /path/to/repo/website/dist/docs."
 }
 ```

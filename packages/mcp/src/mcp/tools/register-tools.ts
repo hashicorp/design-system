@@ -11,20 +11,20 @@ import { registerSearchTokensTool } from './search-tokens.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
+import type { DocsCatalogStore } from '../../catalogs/docs/store.js';
 import type { IconCatalogStore } from '../../catalogs/icons/store.js';
-import type { DocsSearchClient } from '../../docs-search/client.js';
 import type { TokenCatalogStore } from '../../catalogs/tokens/store.js';
 
 export const registerTools = (
   server: McpServer,
   store: ComponentCatalogStore,
-  docsSearchClient: DocsSearchClient,
+  docsStore: DocsCatalogStore,
   tokenStore: TokenCatalogStore,
   iconStore: IconCatalogStore
 ): void => {
   registerSearchComponentsTool(server, store);
   registerResolveFigmaFrameTool(server, store);
-  registerSearchDocsTool(server, docsSearchClient);
+  registerSearchDocsTool(server, docsStore);
   registerSearchTokensTool(server, tokenStore);
   registerSearchIconsTool(server, iconStore);
 };

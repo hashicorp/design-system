@@ -1,6 +1,6 @@
 # `hds_search_docs`
 
-Searches Helios documentation content through Algolia.
+Searches Helios documentation content through a local MiniSearch index.
 
 ## Input
 
@@ -23,8 +23,6 @@ Supported scopes:
 - `foundations`
 - `patterns`
 - `about`
-- `icons`
-- `tokens`
 - `componentApi`
 - `content`
 
@@ -41,7 +39,7 @@ Supported scopes:
     {
       "title": "Accessibility",
       "url": "https://helios.hashicorp.design/foundations/accessibility",
-      "kind": "text",
+      "kind": "heading",
       "section": "foundations",
       "snippet": "Guidance on accessibility requirements and testing."
     }
@@ -59,11 +57,13 @@ Supported scopes:
   "limit": 10,
   "resultCount": 0,
   "results": [],
-  "message": "Docs search is unavailable. Missing environment variables: ALGOLIA_APPLICATION_ID, ALGOLIA_API_KEY_SEARCH, ALGOLIA_INDEX_ID."
+  "message": "Docs catalog unavailable: website docs folder not found at /path/to/repo/website/dist/docs."
 }
 ```
 
 ## Notes
 
-- Requires `ALGOLIA_APPLICATION_ID`, `ALGOLIA_API_KEY_SEARCH`, and `ALGOLIA_INDEX_ID`.
-- Search ranking can vary with index state and relevance, so this tool is not deterministic over time.
+- Search index data is loaded from `website/dist/docs`.
+- No docs search API credentials are required.
+- Ranking uses deterministic tie-breaking for a fixed indexed snapshot.
+- Results can change when the indexed source content changes.

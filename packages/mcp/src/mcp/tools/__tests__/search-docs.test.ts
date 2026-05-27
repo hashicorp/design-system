@@ -11,7 +11,7 @@ import {
   registerSearchDocsTool,
 } from '../search-docs.js';
 
-import type { DocsSearchClient } from '../../../docs-search/client.js';
+import type { DocsCatalogStore } from '../../../catalogs/docs/store.js';
 
 type RegisteredTool = {
   name: string;
@@ -42,7 +42,7 @@ test('buildSearchDocsUnavailablePayload returns deterministic envelope', () => {
     'accessibility',
     'all',
     10,
-    ['ALGOLIA_APPLICATION_ID', 'ALGOLIA_API_KEY_SEARCH']
+    'Docs catalog unavailable: website docs folder has no records.'
   );
 
   assert.deepEqual(payload, {
@@ -52,17 +52,23 @@ test('buildSearchDocsUnavailablePayload returns deterministic envelope', () => {
     limit: 10,
     resultCount: 0,
     results: [],
-    message:
-      'Docs search is unavailable. Missing environment variables: ALGOLIA_APPLICATION_ID, ALGOLIA_API_KEY_SEARCH.',
+    message: 'Docs catalog unavailable: website docs folder has no records.',
   });
 });
 
-test('registerSearchDocsTool returns unavailable payload when client unavailable', async () => {
+test('registerSearchDocsTool returns unavailable payload when store unavailable', async () => {
   const server = new FakeServer();
-  const docsSearchClient: DocsSearchClient = {
-    available: false,
-    missingEnvVars: ['ALGOLIA_APPLICATION_ID'],
-    search: async () => ({
+  const docsStore: DocsCatalogStore = {
+    getMeta: () => ({
+      totalRecordCount: 0,
+      sources: {
+        docs: 0,
+      },
+      builtAt: null,
+      available: false,
+      message: 'Docs catalog unavailable: website docs failed to load (unknown error).',
+    }),
+    search: () => ({
       resultCount: 0,
       results: [],
     }),
@@ -70,7 +76,7 @@ test('registerSearchDocsTool returns unavailable payload when client unavailable
 
   registerSearchDocsTool(
     server as unknown as Parameters<typeof registerSearchDocsTool>[0],
-    docsSearchClient
+    docsStore
   );
 
   const tool = server.registeredTools[0];
@@ -94,15 +100,61 @@ test('registerSearchDocsTool returns unavailable payload when client unavailable
   assert.equal(payload.resultCount, 0);
   assert.equal(
     payload.message,
-    'Docs search is unavailable. Missing environment variables: ALGOLIA_APPLICATION_ID.'
+    'Docs catalog unavailable: website docs failed to load (unknown error).'
   );
 });
 
-test('registerSearchDocsTool returns available payload when client is available', async () => {
+test('registerSearchDocsTool returns unavailable payload with fallback when message missing', async () => {
   const server = new FakeServer();
-  const docsSearchClient: DocsSearchClient = {
-    available: true,
-    search: async () => ({
+  const docsStore: DocsCatalogStore = {
+    getMeta: () => ({
+      totalRecordCount: 0,
+      sources: {
+        docs: 0,
+      },
+      builtAt: null,
+      available: false,
+    }),
+    search: () => ({
+      resultCount: 0,
+      results: [],
+    }),
+  };
+
+  registerSearchDocsTool(
+    server as unknown as Parameters<typeof registerSearchDocsTool>[0],
+    docsStore
+  );
+
+  const tool = server.registeredTools[0];
+  if (tool === undefined) {
+    throw new Error('Expected hds_search_docs to be registered');
+  }
+
+  const response = await tool.handler({
+    query: 'patterns',
+    scope: 'all',
+    limit: 10,
+  });
+  const payload = JSON.parse(response.content[0]?.text ?? '{}') as {
+    message: string;
+  };
+
+  assert.equal(payload.message, 'Docs search is unavailable.');
+});
+
+test('registerSearchDocsTool returns available payload when store is available', async () => {
+  const server = new FakeServer();
+  const docsStore: DocsCatalogStore = {
+    getMeta: () => ({
+      totalRecordCount: 1,
+      sources: {
+        docs: 1,
+      },
+      builtAt: '2026-01-01T00:00:00.000Z',
+      available: true,
+    }),
+    search: () => ({
       resultCount: 1,
       results: [
         {
@@ -118,7 +170,7 @@ test('registerSearchDocsTool returns available payload when client is available'
 
   registerSearchDocsTool(
     server as unknown as Parameters<typeof registerSearchDocsTool>[0],
-    docsSearchClient
+    docsStore
   );
 
   const tool = server.registeredTools[0];

@@ -4,12 +4,12 @@
  */
 
 import { z } from 'zod';
-import { DOCS_SEARCH_SCOPES } from '../../docs-search/scopes.js';
+import { DOCS_SEARCH_SCOPES } from '../../catalogs/docs/scopes.js';
 import { toTextResponse } from './response-envelope.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { DocsSearchClient } from '../../docs-search/client.js';
-import type { DocsSearchScope } from '../../docs-search/scopes.js';
+import type { DocsSearchScope } from '../../catalogs/docs/scopes.js';
+import type { DocsCatalogStore } from '../../catalogs/docs/store.js';
 
 const docsSearchScopeSchema = z.enum(DOCS_SEARCH_SCOPES);
 
@@ -17,7 +17,7 @@ export const buildSearchDocsUnavailablePayload = (
   query: string,
   scope: DocsSearchScope,
   limit: number,
-  missingEnvVars: string[]
+  message: string
 ) => {
   return {
     available: false,
@@ -26,13 +26,13 @@ export const buildSearchDocsUnavailablePayload = (
     limit,
     resultCount: 0,
     results: [],
-    message: `Docs search is unavailable. Missing environment variables: ${missingEnvVars.join(', ')}.`,
+    message,
   };
 };
 
 export const registerSearchDocsTool = (
   server: McpServer,
-  docsSearchClient: DocsSearchClient
+  docsStore: DocsCatalogStore
 ): void => {
   server.registerTool(
     'hds_search_docs',
@@ -47,18 +47,20 @@ export const registerSearchDocsTool = (
       },
     },
     async ({ query, scope, limit }) => {
-      if (docsSearchClient.available === false) {
+      const meta = docsStore.getMeta();
+
+      if (meta.available === false) {
         return toTextResponse(
           buildSearchDocsUnavailablePayload(
             query,
             scope,
             limit,
-            docsSearchClient.missingEnvVars ?? []
+            meta.message ?? 'Docs search is unavailable.'
           )
         );
       }
 
-      const output = await docsSearchClient.search({ query, scope, limit });
+      const output = docsStore.search({ query, scope, limit });
 
       return toTextResponse({
         available: true,

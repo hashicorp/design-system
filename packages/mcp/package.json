@@ -50,7 +50,7 @@
     "@hashicorp/flight-icons": "workspace:^5.0.0",
     "@hashicorp/design-system-tokens": "workspace:^5.0.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "algoliasearch": "^5.18.0",
+    "minisearch": "^7.2.0",
     "zod": "^3.24.1"
   },
   "devDependencies": {

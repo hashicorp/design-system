@@ -9,8 +9,8 @@ import { test } from 'node:test';
 import { registerTools } from '../register-tools.js';
 
 import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
+import type { DocsCatalogStore } from '../../../catalogs/docs/store.js';
 import type { IconCatalogStore } from '../../../catalogs/icons/store.js';
-import type { DocsSearchClient } from '../../../docs-search/client.js';
 import type { TokenCatalogStore } from '../../../catalogs/tokens/store.js';
 
 type RegisteredCall = {
@@ -47,10 +47,17 @@ const store: ComponentCatalogStore = {
   }),
 };
 
-const docsSearchClient: DocsSearchClient = {
-  available: false,
-  missingEnvVars: ['ALGOLIA_APPLICATION_ID'],
-  search: async () => ({
+const docsStore: DocsCatalogStore = {
+  getMeta: () => ({
+    totalRecordCount: 0,
+    sources: {
+      docs: 0,
+    },
+    builtAt: null,
+    available: false,
+    message: 'Docs catalog unavailable: website docs folder has no records.',
+  }),
+  search: () => ({
     resultCount: 0,
     results: [],
   }),
@@ -82,7 +89,7 @@ test('registerTools registers search, figma, and docs tools', () => {
   registerTools(
     server as unknown as Parameters<typeof registerTools>[0],
     store,
-    docsSearchClient,
+    docsStore,
     tokenStore,
     iconStore
   );

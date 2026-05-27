@@ -11,9 +11,8 @@ import { loadEnvFile } from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { loadComponentCatalog } from './catalogs/components/store.js';
+import { loadDocsCatalog } from './catalogs/docs/store.js';
 import { loadIconCatalog } from './catalogs/icons/store.js';
-import { createDocsSearchClient } from './docs-search/client.js';
-import { getDocsSearchConfig } from './docs-search/config.js';
 import { registerPrompts } from './mcp/prompts/register-prompts.js';
 import { registerResources } from './mcp/resources/register-resources.js';
 import { registerTools } from './mcp/tools/register-tools.js';
@@ -34,10 +33,10 @@ const server = new McpServer({
 const catalogStore = loadComponentCatalog();
 const tokenStore = loadTokenCatalog();
 const iconStore = loadIconCatalog();
-const docsSearchClient = createDocsSearchClient(getDocsSearchConfig());
+const docsStore = loadDocsCatalog();
 
 registerResources(server, catalogStore, tokenStore, iconStore);
-registerTools(server, catalogStore, docsSearchClient, tokenStore, iconStore);
+registerTools(server, catalogStore, docsStore, tokenStore, iconStore);
 registerPrompts(server, catalogStore);
 
 const main = async (): Promise<void> => {
