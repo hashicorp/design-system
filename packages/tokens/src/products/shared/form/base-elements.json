@@ -1,6 +1,11 @@
 {
   "form": {
     "character-count": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.foreground.faint}",
+        "group": "components"
+      },
       "typography": {
         "font-size": {
           "$type": "font-size",
@@ -30,6 +35,18 @@
         }
       },
       "typography": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-200.font-size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{typography.body-200.font-size}",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        },
         "font-weight": {
           "active": {
             "$type": "font-weight",
@@ -105,8 +122,8 @@
           "default": "{color.palette.red-300}",
           "cds-g0": "{carbon.color.red.60}",
           "cds-g10": "{carbon.color.red.60}",
-          "cds-g90": "{carbon.color.red.60}",
-          "cds-g100": "{carbon.color.red.60}"
+          "cds-g90": "{carbon.color.red.30}",
+          "cds-g100": "{carbon.color.red.40}"
         }
       },
       "typography": {
