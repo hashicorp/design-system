@@ -48,16 +48,14 @@
           }
         },
         "font-weight": {
-          "active": {
-            "$type": "font-weight",
-            "$value": "{typography.font-weight.medium}",
-            "$modes": {
-              "default": "{typography.font-weight.medium}",
-              "cds-g0": "{carbon.typography.font-weight.regular}",
-              "cds-g10": "{carbon.typography.font-weight.regular}",
-              "cds-g90": "{carbon.typography.font-weight.regular}",
-              "cds-g100": "{carbon.typography.font-weight.regular}"
-            }
+          "$type": "font-weight",
+          "$value": "{typography.font-weight.semibold}",
+          "$modes": {
+            "default": "{typography.font-weight.semibold}",
+            "cds-g0": "{carbon.typography.font-weight.regular}",
+            "cds-g10": "{carbon.typography.font-weight.regular}",
+            "cds-g90": "{carbon.typography.font-weight.regular}",
+            "cds-g100": "{carbon.typography.font-weight.regular}"
           }
         }
       }
