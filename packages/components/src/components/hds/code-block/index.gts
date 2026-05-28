@@ -17,6 +17,7 @@ import style from 'ember-style-modifier';
 
 import type { SafeString } from '@ember/template';
 import type { WithBoundArgs } from '@glint/template';
+import hdsT from '../../../helpers/hds-t.ts';
 
 import { HdsCodeBlockLanguageValues } from './types.ts';
 import HdsCodeBlockCopyButton from './copy-button.gts';
@@ -396,7 +397,17 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
         <div class="hds-code-block__overlay-footer">
           <HdsButton
             class="hds-code-block__height-toggle-button"
-            @text={{if this._isExpanded "Show less code" "Show more code"}}
+            @text={{if
+              this._isExpanded
+              (hdsT
+                "hds.components.code-block.height-toggle-button.show-less"
+                default="Show less code"
+              )
+              (hdsT
+                "hds.components.code-block.height-toggle-button.show-more"
+                default="Show more code"
+              )
+            }}
             @color="secondary"
             @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
             @size="small"
