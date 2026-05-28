@@ -9,6 +9,10 @@ export type DocsSearchResult = {
   kind: string | null;
   section: string | null;
   snippet: string | null;
+  docId?: string | null;
+  anchor?: string | null;
+  score?: number | null;
+  rankBucket?: string | null;
 };
 
 const normalizeValue = (value: unknown): string | null => {
@@ -39,14 +43,35 @@ export const normalizeDocsSearchResult = (input: {
   kind?: string;
   section?: string;
   snippet?: string;
+  docId?: string;
+  anchor?: string;
+  score?: number;
+  rankBucket?: string;
 }): DocsSearchResult => {
   const snippet = normalizeValue(input.snippet);
-
-  return {
+  const result: DocsSearchResult = {
     title: normalizeValue(input.title),
     url: normalizeValue(input.url),
     kind: normalizeValue(input.kind)?.toLowerCase() ?? null,
     section: normalizeValue(input.section),
     snippet: snippet === null ? null : truncateSnippet(snippet),
   };
+
+  if (input.docId !== undefined) {
+    result.docId = normalizeValue(input.docId);
+  }
+
+  if (input.anchor !== undefined) {
+    result.anchor = normalizeValue(input.anchor);
+  }
+
+  if (input.score !== undefined) {
+    result.score = Number.isFinite(input.score) ? input.score : null;
+  }
+
+  if (input.rankBucket !== undefined) {
+    result.rankBucket = normalizeValue(input.rankBucket)?.toLowerCase() ?? null;
+  }
+
+  return result;
 };

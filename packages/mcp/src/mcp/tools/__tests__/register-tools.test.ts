@@ -61,6 +61,16 @@ const docsStore: DocsCatalogStore = {
     resultCount: 0,
     results: [],
   }),
+  readDoc: ({ maxSections, maxChars }) => ({
+    found: false,
+    requested: {
+      detail: 'full',
+      maxSections,
+      maxChars,
+    },
+    sections: [],
+    message: 'Requested doc was not found in the docs catalog.',
+  }),
 };
 
 const tokenStore: TokenCatalogStore = {
@@ -99,6 +109,7 @@ test('registerTools registers search, figma, and docs tools', () => {
     [
       'hds_search_components',
       'hds_resolve_figma_frame',
+      'hds_read_doc',
       'hds_search_docs',
       'hds_search_tokens',
       'hds_search_icons',

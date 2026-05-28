@@ -6,8 +6,8 @@
 import { randomBytes } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import process from 'node:process';
 import { spawn } from 'node:child_process';
-import { process } from 'node:process';
 
 const TOKEN_FILE = resolve(process.cwd(), '.mcp-inspector-auth-token');
 
@@ -25,6 +25,7 @@ const readOrCreateToken = () => {
   }
 
   const token = randomBytes(32).toString('hex');
+
   writeFileSync(TOKEN_FILE, `${token}\n`, {
     encoding: 'utf8',
     mode: 0o600,

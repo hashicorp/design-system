@@ -122,6 +122,26 @@ test('buildComponentUsagePromptMessages returns framing, resource link, and deli
     (deliverable?.content as { type: 'text'; text: string }).text,
     /Deliverable:/u
   );
+  assert.match(
+    (deliverable?.content as { type: 'text'; text: string }).text,
+    /hds_search_docs/u
+  );
+  assert.match(
+    (deliverable?.content as { type: 'text'; text: string }).text,
+    /hds_read_doc/u
+  );
+  assert.match(
+    (deliverable?.content as { type: 'text'; text: string }).text,
+    /truncated: true/u
+  );
+  assert.match(
+    (deliverable?.content as { type: 'text'; text: string }).text,
+    /nextCursor/u
+  );
+  assert.match(
+    (deliverable?.content as { type: 'text'; text: string }).text,
+    /hds:\/\/components\/\{slug\}.*canonical API source/u
+  );
 });
 
 test('buildComponentUsagePromptMessages normalizes name variants', () => {

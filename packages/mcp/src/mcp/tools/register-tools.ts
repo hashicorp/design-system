@@ -4,6 +4,7 @@
  */
 
 import { registerResolveFigmaFrameTool } from './resolve-figma-frame.js';
+import { registerReadDocTool } from './read-doc.js';
 import { registerSearchComponentsTool } from './search-components.js';
 import { registerSearchDocsTool } from './search-docs.js';
 import { registerSearchIconsTool } from './search-icons.js';
@@ -24,6 +25,7 @@ export const registerTools = (
 ): void => {
   registerSearchComponentsTool(server, store);
   registerResolveFigmaFrameTool(server, store);
+  registerReadDocTool(server, docsStore);
   registerSearchDocsTool(server, docsStore);
   registerSearchTokensTool(server, tokenStore);
   registerSearchIconsTool(server, iconStore);

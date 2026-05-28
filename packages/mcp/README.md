@@ -81,10 +81,17 @@ Current tools:
   - Returns filtered components for discovery-style text search.
 - `hds_search_docs` (input: `query`, optional `scope`, optional `limit`)
   - Returns Helios documentation search results for discovery use cases (patterns, accessibility/content guidance, and docs reference pages).
+  - Discovery-only step for docs workflows; use `hds_read_doc` to retrieve sections before making guidance claims.
+  - Result entries may include additive metadata fields (for example doc identifiers or anchors); treat unknown fields as optional metadata.
   - Search uses a local MiniSearch index and deterministic tie-breaking over the same indexed snapshot.
   - Results can still change when source docs content changes between runs.
   - Optional `scope` values: `all`, `components`, `foundations`, `patterns`, `about`, `componentApi`, `content`.
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `25`.
+- `hds_read_doc` (input: doc locator from search results, optional `anchor`, optional `detail`, optional `cursor`, optional section/size controls)
+  - Retrieves focused sections from a Helios documentation page.
+  - `detail` defaults to full detail retrieval when omitted.
+  - If a response includes `truncated: true` or a `nextCursor`, continue by calling `hds_read_doc` again with `cursor: nextCursor` before making final docs-based guidance claims.
+  - Use after `hds_search_docs` when citing guidance from docs content.
 - `hds_resolve_figma_frame` (input: `fileKey`, `nodes[]`)
   - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
 - `hds_search_tokens` (input: `query`, optional `limit`, optional `type`, optional `category`)
@@ -98,9 +105,11 @@ Current prompts:
 
 - `hds_component_usage` (args: `nameOrSlug`, optional `scenario`)
   - Generates an idiomatic, manifest-grounded usage example for a specific HDS component.
+  - Instructs docs flow for guidance claims: `hds_search_docs` (discover) then `hds_read_doc` (retrieve cited sections).
   - References `hds://components/{slug}` by URI; never inlines manifest data into prompt text.
 - `hds_implement_figma_frame` (args: `fileKey`, `nodeIds`, optional `framework`, optional `notes`)
   - Generates an HDS-conformant Ember or Glimmer template for one or more Figma nodes.
+  - Instructs docs flow for guidance claims: `hds_search_docs` (discover) then `hds_read_doc` (retrieve cited sections).
   - References `hds://manifest/meta` and one `hds://figma/{fileKey}/nodes/{nodeId}` per input node, and names `hds_resolve_figma_frame` and `hds://components/{slug}` as the canonical resolution path.
   - Includes a capability-described integration hint so that any sibling Figma MCP server (e.g. Figma Dev Mode MCP) is used opportunistically without being required.
   - MCP prompt args are protocol-level strings; pass multiple node IDs as a single comma/space/newline-separated string.
@@ -130,6 +139,7 @@ Tool docs:
 - `packages/mcp/docs/mcp/tools/hds_search_components.md`
 - `packages/mcp/docs/mcp/tools/hds_resolve_figma_frame.md`
 - `packages/mcp/docs/mcp/tools/hds_search_docs.md`
+- `packages/mcp/docs/mcp/tools/hds_read_doc.md`
 - `packages/mcp/docs/mcp/tools/hds_search_tokens.md`
 - `packages/mcp/docs/mcp/tools/hds_search_icons.md`
 - `packages/mcp/docs/mcp/tools/response-contract.md`
@@ -365,9 +375,52 @@ Shared supporting infrastructure remains at the `src` root.
       "url": "https://helios.hashicorp.design/foundations/accessibility",
       "kind": "heading",
       "section": "foundations",
-      "snippet": "Guidance on accessibility requirements and testing."
+      "snippet": "Guidance on accessibility requirements and testing.",
+      "docId": "foundations/accessibility",
+      "anchor": "overview"
     }
   ]
+}
+```
+
+`hds_read_doc` (focused retrieval)
+
+```json
+{
+  "found": true,
+  "requested": {
+    "docId": "foundations/accessibility",
+    "anchor": "overview",
+    "detail": "full",
+    "maxSections": 1,
+    "maxChars": 800
+  },
+  "doc": {
+    "docId": "foundations/accessibility",
+    "url": "https://helios.hashicorp.design/foundations/accessibility",
+    "title": "Accessibility",
+    "section": "foundations"
+  },
+  "sections": [
+    {
+      "heading": "Overview",
+      "anchor": "overview",
+      "url": "https://helios.hashicorp.design/foundations/accessibility#overview",
+      "excerpt": "Guidance on accessibility requirements and testing."
+    }
+  ],
+  "truncated": true,
+  "nextCursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJvZmZzZXQiOjF9"
+}
+```
+
+When `truncated` is `true` (or `nextCursor` is present), continue reading with:
+
+```json
+{
+  "docId": "foundations/accessibility",
+  "detail": "full",
+  "cursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJvZmZzZXQiOjF9"
 }
 ```
 

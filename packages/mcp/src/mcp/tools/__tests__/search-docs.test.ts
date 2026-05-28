@@ -72,6 +72,16 @@ test('registerSearchDocsTool returns unavailable payload when store unavailable'
       resultCount: 0,
       results: [],
     }),
+    readDoc: ({ maxSections, maxChars }) => ({
+      found: false,
+      requested: {
+        detail: 'full',
+        maxSections,
+        maxChars,
+      },
+      sections: [],
+      message: 'Requested doc was not found in the docs catalog.',
+    }),
   };
 
   registerSearchDocsTool(
@@ -119,6 +129,16 @@ test('registerSearchDocsTool returns unavailable payload with fallback when mess
       resultCount: 0,
       results: [],
     }),
+    readDoc: ({ maxSections, maxChars }) => ({
+      found: false,
+      requested: {
+        detail: 'full',
+        maxSections,
+        maxChars,
+      },
+      sections: [],
+      message: 'Requested doc was not found in the docs catalog.',
+    }),
   };
 
   registerSearchDocsTool(
@@ -163,8 +183,22 @@ test('registerSearchDocsTool returns available payload when store is available',
           kind: 'text',
           section: 'components',
           snippet: 'Button docs',
+          docId: 'components/button',
+          anchor: 'usage',
+          score: 12.34,
+          rankBucket: 'prefix',
         },
       ],
+    }),
+    readDoc: ({ maxSections, maxChars }) => ({
+      found: false,
+      requested: {
+        detail: 'full',
+        maxSections,
+        maxChars,
+      },
+      sections: [],
+      message: 'Requested doc was not found in the docs catalog.',
     }),
   };
 
@@ -186,10 +220,12 @@ test('registerSearchDocsTool returns available payload when store is available',
   const payload = JSON.parse(response.content[0]?.text ?? '{}') as {
     available: boolean;
     resultCount: number;
-    results: Array<{ title: string }>;
+    results: Array<{ title: string; docId?: string; rankBucket?: string }>;
   };
 
   assert.equal(payload.available, true);
   assert.equal(payload.resultCount, 1);
   assert.equal(payload.results[0]?.title, 'Button');
+  assert.equal(payload.results[0]?.docId, 'components/button');
+  assert.equal(payload.results[0]?.rankBucket, 'prefix');
 });

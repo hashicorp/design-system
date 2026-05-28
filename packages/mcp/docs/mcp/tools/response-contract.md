@@ -43,9 +43,12 @@ Resource reads return `contents[]` entries with JSON text:
 - `hds_search_components` is deterministic for a fixed manifest and query.
 - `hds_resolve_figma_frame` is deterministic for a fixed manifest and input values.
 - `hds_search_docs` uses a local index with deterministic ranking for a fixed indexed snapshot; results can change when source docs data changes.
+- `hds_read_doc` is deterministic for a fixed indexed docs snapshot and identical read parameters; retrieved content can change when source docs data changes.
 
 ## Common envelope patterns
 
 - Catalog-based responses usually include `generatedAt` from manifest metadata.
 - Resolution tools return explicit matched/unmatched results instead of dropping unmatched nodes.
 - Search tool includes `available: true|false` and explicit unavailable reasons when local source data is missing.
+- Docs tool results include stable core fields, and may include additive metadata fields over time; callers should ignore unknown fields safely.
+- `hds_read_doc` supports continuation semantics: responses may include `truncated: true` and `nextCursor`; callers should continue with `cursor: nextCursor` to retrieve remaining sections before final docs-based guidance claims.

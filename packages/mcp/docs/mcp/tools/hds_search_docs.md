@@ -2,6 +2,15 @@
 
 Searches Helios documentation content through a local MiniSearch index.
 
+Use this tool as a discovery step. For any guidance claim, follow with
+`hds_read_doc` to retrieve the exact section content.
+
+When chaining into `hds_read_doc`, pass identifiers from the selected search
+result (`docId`, `url`, optional `anchor`) and rely on full detail retrieval by
+default. If the read response includes `truncated: true` or `nextCursor`, call
+`hds_read_doc` again with `cursor: nextCursor` before making final guidance
+claims.
+
 ## Input
 
 ```json
@@ -41,11 +50,17 @@ Supported scopes:
       "url": "https://helios.hashicorp.design/foundations/accessibility",
       "kind": "heading",
       "section": "foundations",
-      "snippet": "Guidance on accessibility requirements and testing."
+      "snippet": "Guidance on accessibility requirements and testing.",
+      "docId": "foundations/accessibility",
+      "anchor": "overview"
     }
   ]
 }
 ```
+
+`results[]` always include core fields (`title`, `url`, `kind`, `section`,
+`snippet`). Additional metadata fields may be included over time (for example
+`docId`, `anchor`) to help callers chain into `hds_read_doc`.
 
 ## Output (unavailable)
 
@@ -67,3 +82,7 @@ Supported scopes:
 - No docs search API credentials are required.
 - Ranking uses deterministic tie-breaking for a fixed indexed snapshot.
 - Results can change when the indexed source content changes.
+- `hds_search_docs` is for discovery, not citation; use `hds_read_doc` to fetch
+  focused source text before citing docs guidance.
+- For complete retrieval, continue `hds_read_doc` calls with `cursor` whenever
+  `nextCursor` is returned.

@@ -160,6 +160,14 @@ test('buildImplementFigmaFramePromptMessages workflow text includes capability-d
     /HDS manifest is the source of truth for component APIs/u
   );
   assert.match(workflowText, /If no such Figma MCP capability is available/u);
+  assert.match(workflowText, /hds_search_docs/u);
+  assert.match(workflowText, /hds_read_doc/u);
+  assert.match(workflowText, /truncated: true/u);
+  assert.match(workflowText, /nextCursor/u);
+  assert.match(
+    workflowText,
+    /Treat `hds_search_docs` as discovery only; do not cite guidance from search snippets alone/u
+  );
 });
 
 test('buildImplementFigmaFramePromptMessages selects gts deliverable fence when framework is gts', () => {
