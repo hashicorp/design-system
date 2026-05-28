@@ -6,7 +6,11 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { toString } from 'mdast-util-to-string';
 import MiniSearch from 'minisearch';
+import { slug as toGithubSlug } from 'github-slugger';
+import remarkParse from 'remark-parse';
+import { unified } from 'unified';
 import {
   normalizeDocsSearchResult,
   truncateSnippet,
@@ -16,6 +20,16 @@ import { isRecordInScope } from './scopes.js';
 
 import type { DocsSearchResult } from './normalize-result.js';
 import type { DocsSearchScope } from './scopes.js';
+
+type MarkdownNode = {
+  type: string;
+  depth?: number;
+};
+
+type MarkdownRoot = {
+  type: 'root';
+  children: MarkdownNode[];
+};
 
 type DocsCatalogSource = 'docs';
 
@@ -147,15 +161,7 @@ const toNormalizedText = (value: string): string => {
   return value.replace(/\s+/gu, ' ').trim().toLowerCase();
 };
 
-const toPlainText = (value: string): string => {
-  return value
-    .replace(/!\[[^\]]*\]\([^)]+\)/gu, ' ')
-    .replace(/\[([^\]]+)\]\([^)]+\)/gu, '$1')
-    .replace(/<[^>]+>/gu, ' ')
-    .replace(/`+/gu, ' ')
-    .replace(/\s+/gu, ' ')
-    .trim();
-};
+const markdownParser = unified().use(remarkParse);
 
 const stripJsonExtension = (value: string): string => {
   if (value.endsWith('.json')) {
@@ -166,11 +172,7 @@ const stripJsonExtension = (value: string): string => {
 };
 
 const toAnchorSlug = (value: string): string => {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/gu, '')
-    .trim()
-    .replace(/\s+/gu, '-');
+  return toGithubSlug(value.trim());
 };
 
 const normalizeAnchorInput = (value: string): string => {
@@ -264,7 +266,7 @@ const getDocsScopesForSection = (
 };
 
 const normalizeSectionText = (value: string): string => {
-  return toPlainText(value).replace(/\s+/gu, ' ').trim();
+  return value.replace(/\s+/gu, ' ').trim();
 };
 
 const createUniqueAnchor = (
@@ -296,9 +298,9 @@ const parseDocSections = (
   url: string,
   title: string
 ): ParsedDocSection[] => {
-  const lines = content.split('\n');
+  const tree = markdownParser.parse(content) as MarkdownRoot;
   const usedAnchors = new Set<string>();
-  const preambleLines: string[] = [];
+  const preambleNodes: MarkdownNode[] = [];
   const sections: ParsedDocSection[] = [];
 
   let current:
@@ -306,7 +308,7 @@ const parseDocSections = (
         heading: string;
         level: number;
         anchor: string;
-        lines: string[];
+        nodes: MarkdownNode[];
       }
     | undefined;
 
@@ -315,7 +317,9 @@ const parseDocSections = (
       return;
     }
 
-    const sectionText = normalizeSectionText(current.lines.join('\n'));
+    const sectionText = normalizeSectionText(
+      toString({ type: 'root', children: current.nodes })
+    );
 
     sections.push({
       heading: current.heading,
@@ -328,13 +332,13 @@ const parseDocSections = (
     current = undefined;
   };
 
-  for (const rawLine of lines) {
-    const headingMatch = rawLine.match(/^(#{1,6})\s+(.+)$/u);
+  const children = tree.children.filter((node) => node.type !== 'definition');
 
-    if (headingMatch !== null) {
+  for (const node of children) {
+    if (node.type === 'heading') {
       pushCurrentSection();
 
-      const headingText = normalizeSectionText(headingMatch[2] ?? '');
+      const headingText = normalizeSectionText(toString(node));
 
       if (headingText === '') {
         continue;
@@ -347,24 +351,26 @@ const parseDocSections = (
 
       current = {
         heading: headingText,
-        level: headingMatch[1]?.length ?? 1,
+        level: node.depth ?? 1,
         anchor: headingAnchor,
-        lines: [],
+        nodes: [],
       };
 
       continue;
     }
 
     if (current !== undefined) {
-      current.lines.push(rawLine);
+      current.nodes.push(node);
     } else {
-      preambleLines.push(rawLine);
+      preambleNodes.push(node);
     }
   }
 
   pushCurrentSection();
 
-  const preambleText = normalizeSectionText(preambleLines.join('\n'));
+  const preambleText = normalizeSectionText(
+    toString({ type: 'root', children: preambleNodes })
+  );
 
   if (preambleText !== '') {
     const overviewAnchor = createUniqueAnchor('overview', usedAnchors);
@@ -382,7 +388,7 @@ const parseDocSections = (
     return sections;
   }
 
-  const fallbackText = normalizeSectionText(content);
+  const fallbackText = normalizeSectionText(toString(tree));
 
   return [
     {
