@@ -62,16 +62,21 @@ export default class Application extends Component {
     document.querySelectorAll('[mock-state-value]').forEach((element) => {
       let targets;
       const mockStateSelector = element.getAttribute('mock-state-selector');
-      if (mockStateSelector) {
-        targets = element.querySelectorAll(mockStateSelector);
-      } else {
-        targets = [element];
-      }
-      const states = element.getAttribute('mock-state-value')!.split('+');
-      const classes = states.map((state) => `mock-${state.trim()}`);
-      targets.forEach((target) => {
-        target.classList.add(...classes);
-      });
+      const mockStateDelay = Number(
+        element.getAttribute('mock-state-delay') || 0,
+      );
+      setTimeout(() => {
+        if (mockStateSelector) {
+          targets = element.querySelectorAll(mockStateSelector);
+        } else {
+          targets = [element];
+        }
+        const states = element.getAttribute('mock-state-value')!.split('+');
+        const classes = states.map((state) => `mock-${state.trim()}`);
+        targets.forEach((target) => {
+          target.classList.add(...classes);
+        });
+      }, mockStateDelay);
     });
   };
 
