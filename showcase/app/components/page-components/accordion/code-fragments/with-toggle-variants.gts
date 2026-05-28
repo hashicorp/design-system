@@ -9,11 +9,14 @@ import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import { HdsAccordion } from '@hashicorp/design-system-components/components';
 
 import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
+import type { HdsAccordionItemSignature } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
 export interface CodeFragmentWithToggleVariantsSignature {
   Args: {
     type?: HdsAccordionSignature['Args']['type'];
     size?: HdsAccordionSignature['Args']['size'];
+    favorite?: HdsAccordionItemSignature['Args']['favorite'];
+    favoriteIcon?: HdsAccordionItemSignature['Args']['favoriteIcon'];
   };
   Element: HTMLDivElement;
 }
@@ -21,21 +24,29 @@ export interface CodeFragmentWithToggleVariantsSignature {
 const CodeFragmentWithToggleVariants: TemplateOnlyComponent<CodeFragmentWithToggleVariantsSignature> =
   <template>
     <HdsAccordion @type={{@type}} @size={{@size}} as |A|>
-      <A.Item>
+      <A.Item @favorite={{@favorite}} @favoriteIcon={{@favoriteIcon}}>
         <:toggle>Item one</:toggle>
         <:content>
           <ShwPlaceholder @text="generic content" @height="40" />
         </:content>
       </A.Item>
 
-      <A.Item @isStatic={{true}}>
+      <A.Item
+        @isStatic={{true}}
+        @favorite={{@favorite}}
+        @favoriteIcon={{@favoriteIcon}}
+      >
         <:toggle>Item two</:toggle>
         <:content>
           <ShwPlaceholder @text="generic content" @height="40" />
         </:content>
       </A.Item>
 
-      <A.Item @containsInteractive={{true}}>
+      <A.Item
+        @containsInteractive={{true}}
+        @favorite={{@favorite}}
+        @favoriteIcon={{@favoriteIcon}}
+      >
         <:toggle>Item three</:toggle>
         <:content>
           <ShwPlaceholder @text="generic content" @height="40" />

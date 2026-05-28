@@ -206,6 +206,25 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .hasClass('hds-accordion-item--type-card');
   });
 
+  // FAVORITE
+
+  test('it should render the default favorite icon when @favorite is set to true', async function (assert) {
+    await render(
+      <template>
+        <HdsAccordion id="test-accordion" as |A|>
+          <A.Item @favorite={{true}}>
+            <:toggle>Item one</:toggle>
+            <:content>Content one</:content>
+          </A.Item>
+        </HdsAccordion>
+      </template>,
+    );
+    assert
+      .dom('#test-accordion .hds-accordion-item-favorite-icon')
+      .exists()
+      .hasClass('hds-icon-starred');
+  });
+
   // A11Y
 
   test('it displays the correct value for aria-expanded on the AccordionItem when closed vs open', async function (assert) {
