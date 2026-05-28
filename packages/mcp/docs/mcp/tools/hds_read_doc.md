@@ -5,7 +5,7 @@ Retrieves focused Helios docs content for a specific document and optional secti
 Use this after `hds_search_docs` when you need to cite guidance from docs content.
 
 By default, read requests use full detail retrieval. If the response includes
-`truncated: true` or `nextCursor`, call `hds_read_doc` again with
+`nextCursor`, call `hds_read_doc` again with
 `cursor: nextCursor` before making final docs-based guidance claims.
 
 ## Input
@@ -15,7 +15,7 @@ By default, read requests use full detail retrieval. If the response includes
   "docId": "foundations/accessibility",
   "anchor": "overview",
   "detail": "full",
-  "cursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJvZmZzZXQiOjB9",
+  "cursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJhbmNob3IiOiJvdmVydmlldyIsIm9mZnNldCI6MH0",
   "maxSections": 3,
   "maxChars": 1200
 }
@@ -54,21 +54,20 @@ By default, read requests use full detail retrieval. If the response includes
       "url": "https://helios.hashicorp.design/foundations/accessibility#overview"
     }
   ],
-  "truncated": true,
-  "nextCursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJvZmZzZXQiOjF9"
+  "nextCursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJhbmNob3IiOiJvdmVydmlldyIsIm9mZnNldCI6MX0"
 }
 ```
 
 ## Output continuation (follow-up call)
 
-When `truncated` is `true` (or `nextCursor` is present), call again with the
-cursor from the prior response:
+When `nextCursor` is present, call again with the cursor from the prior
+response:
 
 ```json
 {
   "docId": "foundations/accessibility",
   "detail": "full",
-  "cursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJvZmZzZXQiOjF9"
+  "cursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJhbmNob3IiOiJvdmVydmlldyIsIm9mZnNldCI6MX0"
 }
 ```
 
@@ -92,6 +91,6 @@ cursor from the prior response:
 
 - Prefer passing `docId` or `url` returned by `hds_search_docs`.
 - Retrieve focused sections before making docs-based guidance claims.
-- If `truncated`/`nextCursor` are returned, continue reading with `cursor`
+- If `nextCursor` is returned, continue reading with `cursor`
   until complete before final guidance claims.
 - Output may include additive metadata fields over time; treat unknown fields as optional.

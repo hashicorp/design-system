@@ -136,10 +136,6 @@ test('buildComponentUsagePromptMessages returns framing, resource link, and deli
   );
   assert.match(
     (deliverable?.content as { type: 'text'; text: string }).text,
-    /truncated: true/u
-  );
-  assert.match(
-    (deliverable?.content as { type: 'text'; text: string }).text,
     /nextCursor/u
   );
   assert.match(

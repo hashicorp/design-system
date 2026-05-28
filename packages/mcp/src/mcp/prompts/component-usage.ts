@@ -87,7 +87,7 @@ export const buildComponentUsagePromptMessages = (
     '',
     '1. Read `hds://components/{slug}` first and treat it as the canonical API source for supported arguments, blocks, and accessibility notes.',
     '2. Call `hds_extract_showcase_snippets` for this component slug to gather reusable implementation examples and helper fragments. Use snippet output to mirror idiomatic implementation style, but keep API decisions anchored to `hds://components/{slug}`.',
-    '3. If you need Helios guidance claims (patterns, content, accessibility, or best practices), call `hds_search_docs` to discover relevant docs, then call `hds_read_doc` to retrieve the focused section(s) you cite. Treat `hds_search_docs` as discovery only; do not cite guidance from search snippets alone. If `hds_read_doc` returns `truncated: true` or a `nextCursor`, call `hds_read_doc` again with that `nextCursor` before making final guidance claims.',
+    '3. If you need Helios guidance claims (patterns, content, accessibility, or best practices), call `hds_search_docs` to discover relevant docs, then call `hds_read_doc` to retrieve the focused section(s) you cite. Treat `hds_search_docs` as discovery only; do not cite guidance from search snippets alone. If `hds_read_doc` returns a `nextCursor`, call `hds_read_doc` again with that `nextCursor` before making final guidance claims.',
     '',
     'Deliverable:',
     '',

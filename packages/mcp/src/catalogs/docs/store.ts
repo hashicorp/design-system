@@ -60,7 +60,6 @@ export type DocsReadSection = {
   excerpt: string;
   url: string;
   level?: number;
-  truncated?: boolean;
   remainingChars?: number;
   nextCursor?: string;
 };
@@ -150,8 +149,8 @@ const toNormalizedText = (value: string): string => {
 
 const toPlainText = (value: string): string => {
   return value
-    .replace(/!\[[^\]]*\]\([^\)]+\)/gu, ' ')
-    .replace(/\[([^\]]+)\]\([^\)]+\)/gu, '$1')
+    .replace(/!\[[^\]]*\]\([^)]+\)/gu, ' ')
+    .replace(/\[([^\]]+)\]\([^)]+\)/gu, '$1')
     .replace(/<[^>]+>/gu, ' ')
     .replace(/`+/gu, ' ')
     .replace(/\s+/gu, ' ')
@@ -782,7 +781,6 @@ const toSectionExcerpt = (
           : sectionText.slice(sliceStart),
       url: section.url,
       level: section.level,
-      truncated: false,
       remainingChars: 0,
     };
   }
@@ -801,7 +799,6 @@ const toSectionExcerpt = (
       detail === 'summary' ? truncateSnippet(excerptRaw, maxChars) : excerptRaw,
     url: section.url,
     level: section.level,
-    truncated: true,
     remainingChars: sectionText.length - (sliceStart + excerptRaw.length),
     nextCursor,
   };

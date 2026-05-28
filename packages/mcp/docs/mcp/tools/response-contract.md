@@ -52,4 +52,4 @@ Resource reads return `contents[]` entries with JSON text:
 - Resolution tools return explicit matched/unmatched results instead of dropping unmatched nodes.
 - Search tool includes `available: true|false` and explicit unavailable reasons when local source data is missing.
 - Docs tool results include stable core fields, and may include additive metadata fields over time; callers should ignore unknown fields safely.
-- `hds_read_doc` supports continuation semantics: responses may include `truncated: true` and `nextCursor`; callers should continue with `cursor: nextCursor` to retrieve remaining sections before final docs-based guidance claims.
+- `hds_read_doc` supports continuation semantics: responses may include `nextCursor`; callers should continue with `cursor: nextCursor` to retrieve remaining sections before final docs-based guidance claims.

@@ -79,6 +79,14 @@ test('parseNodeIds drops empty entries', () => {
   assert.deepEqual(parseNodeIds(' , , 1:2 ,, '), ['1:2']);
 });
 
+test('parseNodeIds dedupes values while preserving first-seen order', () => {
+  assert.deepEqual(parseNodeIds('1:2, 3:4 1:2\n5:6 3:4'), [
+    '1:2',
+    '3:4',
+    '5:6',
+  ]);
+});
+
 test('buildImplementFigmaFramePromptMessages emits framing, manifest meta, one resource link per node, and workflow', () => {
   const messages = buildImplementFigmaFramePromptMessages(createStore(), {
     fileKey: 'FILEKEY',
@@ -145,6 +153,37 @@ test('buildImplementFigmaFramePromptMessages preserves node order', () => {
   ]);
 });
 
+test('registerImplementFigmaFramePrompt dedupes repeated nodeIds from prompt input', () => {
+  const server = new FakeServer();
+
+  registerImplementFigmaFramePrompt(
+    server as unknown as Parameters<
+      typeof registerImplementFigmaFramePrompt
+    >[0],
+    createStore()
+  );
+
+  const prompt = server.registeredPrompts[0];
+
+  const response = prompt?.handler({
+    fileKey: 'FILEKEY',
+    nodeIds: '1:2, 3:4, 1:2 3:4',
+  });
+
+  const resourceLinks =
+    response?.messages
+      .map((message) => message as { content: { type: string; uri?: string } })
+      .filter((message) => message.content.type === 'resource_link')
+      .map((message) => message.content.uri)
+      .filter((uri): uri is string => typeof uri === 'string') ?? [];
+
+  assert.deepEqual(resourceLinks, [
+    'hds://manifest/meta',
+    'hds://figma/FILEKEY/nodes/1%3A2',
+    'hds://figma/FILEKEY/nodes/3%3A4',
+  ]);
+});
+
 test('buildImplementFigmaFramePromptMessages workflow text includes capability-described Figma MCP hint', () => {
   const messages = buildImplementFigmaFramePromptMessages(createStore(), {
     fileKey: 'FILEKEY',
@@ -167,7 +206,6 @@ test('buildImplementFigmaFramePromptMessages workflow text includes capability-d
   assert.match(workflowText, /hds_search_docs/u);
   assert.match(workflowText, /hds_read_doc/u);
   assert.match(workflowText, /snippet `path` values/u);
-  assert.match(workflowText, /truncated: true/u);
   assert.match(workflowText, /nextCursor/u);
   assert.match(
     workflowText,

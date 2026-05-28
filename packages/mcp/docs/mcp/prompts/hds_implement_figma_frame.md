@@ -20,8 +20,8 @@ Figma MCP server that might also be connected.
 - `fileKey` (required): Figma file key the target nodes belong to.
 - `nodeIds` (required): one or more Figma node IDs as a single string.
   Separate multiple IDs with commas, spaces, or newlines. The prompt parses
-  this into an ordered list of unique trimmed values, preserves input order,
-  and rejects empty input or more than 200 IDs.
+  this into an ordered list of unique, trimmed values, preserves first-seen
+  input order, and rejects empty input or more than 200 IDs.
 - `framework` (optional): `ember` (default) or `gts`. Selects the deliverable
   code-fence (` ```hbs ` or ` ```gts `). Unknown values fall back to `ember`.
 - `notes` (optional): free-form context surfaced verbatim in the framing

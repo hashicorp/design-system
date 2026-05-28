@@ -25,10 +25,24 @@ export type SupportedFramework = (typeof SUPPORTED_FRAMEWORKS)[number];
 const DEFAULT_FRAMEWORK: SupportedFramework = 'ember';
 
 export const parseNodeIds = (raw: string): string[] => {
-  return raw
+  const parsedNodeIds = raw
     .split(/[\s,]+/u)
     .map((value) => value.trim())
     .filter((value) => value !== '');
+
+  const seenNodeIds = new Set<string>();
+  const dedupedNodeIds: string[] = [];
+
+  for (const nodeId of parsedNodeIds) {
+    if (seenNodeIds.has(nodeId)) {
+      continue;
+    }
+
+    seenNodeIds.add(nodeId);
+    dedupedNodeIds.push(nodeId);
+  }
+
+  return dedupedNodeIds;
 };
 
 const isSupportedFramework = (value: string): value is SupportedFramework => {
@@ -121,7 +135,7 @@ export const buildImplementFigmaFramePromptMessages = (
     'Workflow:',
     '',
     '1. Call the `hds_resolve_figma_frame` tool exactly once with the `fileKey` and full list of `nodeIds` above. This is the authoritative batched matcher.',
-    '2. If you need Helios guidance claims (patterns, content, accessibility, or best practices), first call `hds_search_docs` to discover relevant docs, then call `hds_read_doc` to retrieve the focused section(s) you cite. Treat `hds_search_docs` as discovery only; do not cite guidance from search snippets alone. If `hds_read_doc` returns `truncated: true` or a `nextCursor`, call `hds_read_doc` again with that `nextCursor` before making final guidance claims.',
+    '2. If you need Helios guidance claims (patterns, content, accessibility, or best practices), first call `hds_search_docs` to discover relevant docs, then call `hds_read_doc` to retrieve the focused section(s) you cite. Treat `hds_search_docs` as discovery only; do not cite guidance from search snippets alone. If `hds_read_doc` returns a `nextCursor`, call `hds_read_doc` again with that `nextCursor` before making final guidance claims.',
     '3. For each matched node, read the corresponding `hds://components/{slug}` resource and use ONLY the documented arguments, blocks, and accessibility notes from that resource. `hds://components/{slug}` remains the canonical API source.',
     '4. Call `hds_extract_showcase_snippets` with the set of matched component slugs (and an optional focused `query` when needed) to ground implementation style in real showcase code fragments. Treat snippets as examples/helpers, not API contracts, and keep API decisions anchored to `hds://components/{slug}`.',
     '5. When you make implementation-pattern claims from snippets, cite the snippet `path` values that support those claims.',

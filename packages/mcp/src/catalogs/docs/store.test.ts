@@ -380,7 +380,6 @@ test('readDoc supports cursor continuation with truncation metadata', () => {
   });
 
   assert.equal(first.sections[0]?.excerpt, '1234567890');
-  assert.equal(first.sections[0]?.truncated, true);
   assert.equal(first.sections[0]?.remainingChars, 10);
   assert.equal(first.nextCursor, first.sections[0]?.nextCursor);
 
@@ -399,7 +398,6 @@ test('readDoc supports cursor continuation with truncation metadata', () => {
 
   assert.equal(second.sections[0]?.anchor, 'usage');
   assert.equal(second.sections[0]?.excerpt, 'abcdefghij');
-  assert.equal(second.sections[0]?.truncated, false);
   assert.equal(second.sections[0]?.remainingChars, 0);
   assert.equal(second.nextCursor, undefined);
 });

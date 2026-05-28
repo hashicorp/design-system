@@ -7,7 +7,7 @@ Use this tool as a discovery step. For any guidance claim, follow with
 
 When chaining into `hds_read_doc`, pass identifiers from the selected search
 result (`docId`, `url`, optional `anchor`) and rely on full detail retrieval by
-default. If the read response includes `truncated: true` or `nextCursor`, call
+default. If the read response includes `nextCursor`, call
 `hds_read_doc` again with `cursor: nextCursor` before making final guidance
 claims.
 

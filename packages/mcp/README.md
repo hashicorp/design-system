@@ -90,7 +90,7 @@ Current tools:
 - `hds_read_doc` (input: doc locator from search results, optional `anchor`, optional `detail`, optional `cursor`, optional section/size controls)
   - Retrieves focused sections from a Helios documentation page.
   - `detail` defaults to full detail retrieval when omitted.
-  - If a response includes `truncated: true` or a `nextCursor`, continue by calling `hds_read_doc` again with `cursor: nextCursor` before making final docs-based guidance claims.
+  - If a response includes `nextCursor`, continue by calling `hds_read_doc` again with `cursor: nextCursor` before making final docs-based guidance claims.
   - Use after `hds_search_docs` when citing guidance from docs content.
 - `hds_resolve_figma_frame` (input: `fileKey`, `nodes[]`)
   - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
@@ -417,18 +417,17 @@ Shared supporting infrastructure remains at the `src` root.
       "excerpt": "Guidance on accessibility requirements and testing."
     }
   ],
-  "truncated": true,
-  "nextCursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJvZmZzZXQiOjF9"
+  "nextCursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJhbmNob3IiOiJvdmVydmlldyIsIm9mZnNldCI6MX0"
 }
 ```
 
-When `truncated` is `true` (or `nextCursor` is present), continue reading with:
+When `nextCursor` is present, continue reading with:
 
 ```json
 {
   "docId": "foundations/accessibility",
   "detail": "full",
-  "cursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJvZmZzZXQiOjF9"
+  "cursor": "eyJkb2NJZCI6ImZvdW5kYXRpb25zL2FjY2Vzc2liaWxpdHkiLCJhbmNob3IiOiJvdmVydmlldyIsIm9mZnNldCI6MX0"
 }
 ```
 
