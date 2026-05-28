@@ -10,7 +10,7 @@
 @use "../../mixins/carbonization" as *;
 
 .hds-form-character-count {
-  color: var(--token-form-character-count-color);
+  color: var(--token-form-foreground-color-faint);
   font-size: var(--token-form-character-count-typography-font-size);
   font-family: var(--token-typography-body-100-font-family);
   line-height: var(--token-typography-body-100-line-height);

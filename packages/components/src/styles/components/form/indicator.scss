@@ -9,9 +9,9 @@
 
 // Used for the 'optional' indicator
 .hds-form-indicator--optional {
-  color: var(--token-form-indicator-optional-color);
+  color: var(--token-form-foreground-color-faint);
   font-weight: var(--token-typography-font-weight-regular);
-  font-size: var(--token-form-indicator-typography-font-size);
+  font-size: var(--token-form-indicator-optional-typography-font-size);
   font-family: var(--token-typography-body-100-font-family);
   line-height: var(--token-typography-body-100-line-height);
 }
