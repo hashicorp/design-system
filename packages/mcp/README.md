@@ -100,6 +100,12 @@ Current tools:
 - `hds_search_icons` (input: `query`, optional `limit`, optional `category`, optional `size`, optional `hasMapping`)
   - Returns filtered Flight icons for discovery-style search by icon name, file name, category, description, and mapping.
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `50`.
+- `hds_extract_showcase_snippets` (input: `components[]`, optional `query`, optional `limitPerComponent`, optional `includeSource`)
+  - Returns grouped showcase code-fragment snippets for flat or nested component slugs (for example `button`, `copy/button`, `form/super-select`).
+  - Deterministic output: groups follow input component order; snippets sort by path within each group.
+  - Classifies `code-fragments/helpers/**` as `helper` snippets and all other code fragments as `example` snippets.
+  - Optional `limitPerComponent`: defaults to `3`, minimum `1`, maximum `10`.
+  - Optional `includeSource`: defaults to `true`; set `false` for metadata-only results.
 
 Current prompts:
 
@@ -142,6 +148,7 @@ Tool docs:
 - `packages/mcp/docs/mcp/tools/hds_read_doc.md`
 - `packages/mcp/docs/mcp/tools/hds_search_tokens.md`
 - `packages/mcp/docs/mcp/tools/hds_search_icons.md`
+- `packages/mcp/docs/mcp/tools/hds_extract_showcase_snippets.md`
 - `packages/mcp/docs/mcp/tools/response-contract.md`
 
 Prompt docs:
@@ -172,6 +179,7 @@ Shared supporting infrastructure remains at the `src` root.
 - `catalogs/icons/store.ts` loads and validates icon catalog data, then exposes read-only icon lookup helpers.
 - `catalogs/icons/schema.ts` defines and validates the icon catalog schema.
 - `catalogs/icons/lookup.ts` centralizes icon lookup key normalization and icon aggregation logic.
+- `catalogs/showcase-snippets/store.ts` indexes showcase code fragments and exposes deterministic component-grouped snippet extraction.
 
 ## Testing workflow
 

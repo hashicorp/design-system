@@ -11,6 +11,7 @@ import { registerTools } from '../register-tools.js';
 import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 import type { DocsCatalogStore } from '../../../catalogs/docs/store.js';
 import type { IconCatalogStore } from '../../../catalogs/icons/store.js';
+import type { ShowcaseSnippetsCatalogStore } from '../../../catalogs/showcase-snippets/store.js';
 import type { TokenCatalogStore } from '../../../catalogs/tokens/store.js';
 
 type RegisteredCall = {
@@ -93,7 +94,28 @@ const iconStore: IconCatalogStore = {
   searchIcons: () => [],
 };
 
-test('registerTools registers search, figma, and docs tools', () => {
+const showcaseSnippetsStore: ShowcaseSnippetsCatalogStore = {
+  getMeta: () => ({
+    available: true,
+    totalSnippetCount: 0,
+    builtAt: '2026-01-01T00:00:00.000Z',
+  }),
+  extractSnippets: ({ query, limitPerComponent, includeSource, components }) => ({
+    query: query?.trim().toLowerCase() ?? null,
+    limitPerComponent,
+    includeSource,
+    resultCount: 0,
+    results: components.map((component) => ({
+      component,
+      resolvedSlug: null,
+      snippetCount: 0,
+      snippets: [],
+      message: 'No showcase code fragments found for this component.',
+    })),
+  }),
+};
+
+test('registerTools registers search, figma, docs, and showcase tools', () => {
   const server = new FakeServer();
 
   registerTools(
@@ -101,7 +123,8 @@ test('registerTools registers search, figma, and docs tools', () => {
     store,
     docsStore,
     tokenStore,
-    iconStore
+    iconStore,
+    showcaseSnippetsStore
   );
 
   assert.deepEqual(
@@ -113,6 +136,7 @@ test('registerTools registers search, figma, and docs tools', () => {
       'hds_search_docs',
       'hds_search_tokens',
       'hds_search_icons',
+      'hds_extract_showcase_snippets',
     ]
   );
 });

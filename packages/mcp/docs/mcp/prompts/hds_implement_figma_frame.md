@@ -40,8 +40,10 @@ The prompt always emits exactly the following sequence when inputs are valid:
 3. One `resource_link` to `hds://figma/{fileKey}/nodes/{nodeId}` per input
    node, in the same order as the input.
 4. A workflow `text` message that names `hds_resolve_figma_frame` and
-   `hds://components/{slug}` as the canonical resolution path, describes the
-   deliverable, and provides the optional Figma MCP integration hint.
+   `hds://components/{slug}` as the canonical resolution path, instructs use of
+   `hds_extract_showcase_snippets` for implementation-style grounding,
+   describes the deliverable, and provides the optional Figma MCP integration
+   hint.
 
 ## Optional Figma MCP integration
 

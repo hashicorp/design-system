@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { registerExtractShowcaseSnippetsTool } from './extract-showcase-snippets.js';
 import { registerResolveFigmaFrameTool } from './resolve-figma-frame.js';
 import { registerReadDocTool } from './read-doc.js';
 import { registerSearchComponentsTool } from './search-components.js';
@@ -14,6 +15,7 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 import type { DocsCatalogStore } from '../../catalogs/docs/store.js';
 import type { IconCatalogStore } from '../../catalogs/icons/store.js';
+import type { ShowcaseSnippetsCatalogStore } from '../../catalogs/showcase-snippets/store.js';
 import type { TokenCatalogStore } from '../../catalogs/tokens/store.js';
 
 export const registerTools = (
@@ -21,7 +23,8 @@ export const registerTools = (
   store: ComponentCatalogStore,
   docsStore: DocsCatalogStore,
   tokenStore: TokenCatalogStore,
-  iconStore: IconCatalogStore
+  iconStore: IconCatalogStore,
+  showcaseSnippetsStore: ShowcaseSnippetsCatalogStore
 ): void => {
   registerSearchComponentsTool(server, store);
   registerResolveFigmaFrameTool(server, store);
@@ -29,4 +32,5 @@ export const registerTools = (
   registerSearchDocsTool(server, docsStore);
   registerSearchTokensTool(server, tokenStore);
   registerSearchIconsTool(server, iconStore);
+  registerExtractShowcaseSnippetsTool(server, showcaseSnippetsStore);
 };

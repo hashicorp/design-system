@@ -86,14 +86,16 @@ export const buildComponentUsagePromptMessages = (
     'Workflow:',
     '',
     '1. Read `hds://components/{slug}` first and treat it as the canonical API source for supported arguments, blocks, and accessibility notes.',
-    '2. If you need Helios guidance claims (patterns, content, accessibility, or best practices), call `hds_search_docs` to discover relevant docs, then call `hds_read_doc` to retrieve the focused section(s) you cite. Treat `hds_search_docs` as discovery only; do not cite guidance from search snippets alone. If `hds_read_doc` returns `truncated: true` or a `nextCursor`, call `hds_read_doc` again with that `nextCursor` before making final guidance claims.',
+    '2. Call `hds_extract_showcase_snippets` for this component slug to gather reusable implementation examples and helper fragments. Use snippet output to mirror idiomatic implementation style, but keep API decisions anchored to `hds://components/{slug}`.',
+    '3. If you need Helios guidance claims (patterns, content, accessibility, or best practices), call `hds_search_docs` to discover relevant docs, then call `hds_read_doc` to retrieve the focused section(s) you cite. Treat `hds_search_docs` as discovery only; do not cite guidance from search snippets alone. If `hds_read_doc` returns `truncated: true` or a `nextCursor`, call `hds_read_doc` again with that `nextCursor` before making final guidance claims.',
     '',
     'Deliverable:',
     '',
     `1. A minimal, idiomatic example using \`${component.name}\` (Glimmer/Handlebars). Use only documented arguments and blocks from the referenced resource. Use HDS design tokens for any custom styling and BEM class names following the \`hds-${component.slug}\` convention if you add wrappers.`,
     "2. A short notes section calling out the most important accessibility expectations from the resource's `a11yNotes`, if any.",
-    '3. If you include docs-based guidance claims, cite only sections you retrieved with `hds_read_doc`.',
-    '4. If the scenario above is non-empty, tailor the example to that scenario.',
+    '3. If you include snippet-based implementation-pattern claims, cite snippet `path` values from `hds_extract_showcase_snippets`.',
+    '4. If you include docs-based guidance claims, cite only sections you retrieved with `hds_read_doc`.',
+    '5. If the scenario above is non-empty, tailor the example to that scenario.',
   ].join('\n');
 
   return [

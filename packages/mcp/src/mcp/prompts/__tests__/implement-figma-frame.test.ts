@@ -120,6 +120,10 @@ test('buildImplementFigmaFramePromptMessages emits framing, manifest meta, one r
     (workflow?.content as { type: 'text'; text: string }).text,
     /hds_resolve_figma_frame/u
   );
+  assert.match(
+    (workflow?.content as { type: 'text'; text: string }).text,
+    /hds_extract_showcase_snippets/u
+  );
 });
 
 test('buildImplementFigmaFramePromptMessages preserves node order', () => {
@@ -162,6 +166,7 @@ test('buildImplementFigmaFramePromptMessages workflow text includes capability-d
   assert.match(workflowText, /If no such Figma MCP capability is available/u);
   assert.match(workflowText, /hds_search_docs/u);
   assert.match(workflowText, /hds_read_doc/u);
+  assert.match(workflowText, /snippet `path` values/u);
   assert.match(workflowText, /truncated: true/u);
   assert.match(workflowText, /nextCursor/u);
   assert.match(

@@ -128,6 +128,10 @@ test('buildComponentUsagePromptMessages returns framing, resource link, and deli
   );
   assert.match(
     (deliverable?.content as { type: 'text'; text: string }).text,
+    /hds_extract_showcase_snippets/u
+  );
+  assert.match(
+    (deliverable?.content as { type: 'text'; text: string }).text,
     /hds_read_doc/u
   );
   assert.match(
@@ -141,6 +145,10 @@ test('buildComponentUsagePromptMessages returns framing, resource link, and deli
   assert.match(
     (deliverable?.content as { type: 'text'; text: string }).text,
     /hds:\/\/components\/\{slug\}.*canonical API source/u
+  );
+  assert.match(
+    (deliverable?.content as { type: 'text'; text: string }).text,
+    /snippet `path` values/u
   );
 });
 
@@ -190,6 +198,16 @@ test('buildComponentUsagePromptMessages includes scenario when provided', () => 
     (framing as { type: 'text'; text: string }).text,
     /with leading icon/u
   );
+});
+
+test('buildComponentUsagePromptMessages deliverable instructs snippet path citation', () => {
+  const messages = buildComponentUsagePromptMessages(createStore(), {
+    nameOrSlug: 'button',
+  });
+  const deliverable = messages[2]?.content;
+
+  assert.equal(deliverable?.type, 'text');
+  assert.match((deliverable as { text: string }).text, /snippet `path` values/u);
 });
 
 test('buildComponentUsagePromptMessages returns fallback with nearest matches on miss', () => {

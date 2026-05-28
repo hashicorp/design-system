@@ -4,6 +4,8 @@ Generates an idiomatic, manifest-grounded usage example for a specific HDS
 component. The prompt references the canonical
 `hds://components/{slug}` resource as the source of truth and instructs the
 model to use only documented arguments, blocks, and accessibility notes.
+It also instructs the model to call `hds_extract_showcase_snippets` for
+implementation-style grounding and to cite snippet paths for pattern claims.
 
 ## Input
 
@@ -62,5 +64,7 @@ No `resource_link` content is included in this case.
 - Deterministic for a fixed manifest and inputs.
 - Never inlines manifest fields into prompt text; manifest data is surfaced
   only by reference via `hds://components/{slug}`.
+- Workflow includes `hds_extract_showcase_snippets` for reusable showcase
+  examples; API decisions remain anchored to `hds://components/{slug}`.
 - See `packages/mcp/docs/mcp/prompts/response-contract.md` for the full envelope
   and policy.
