@@ -38,6 +38,8 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       </template>,
     );
 
+    await waitFor('.hds-code-editor__editor .cm-editor [role="textbox"]');
+
     // can't use assert.dom to access elements in head
     assert.ok(document.querySelector(`style[nonce="${cspNonce}"]`));
   });
@@ -80,6 +82,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
         </HdsCodeEditor>
       </template>,
     );
+    await waitFor('.hds-code-editor__editor .cm-editor [role="textbox"]');
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-labelledby', 'test-title');
@@ -112,6 +115,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
         </HdsCodeEditor>
       </template>,
     );
+    await waitFor('.hds-code-editor__editor .cm-editor [role="textbox"]');
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-describedby', 'test-description');
@@ -319,6 +323,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
         />
       </template>,
     );
+    await waitFor('.hds-code-editor__editor .cm-editor [role="textbox"]');
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-describedby', 'test-description');
@@ -329,6 +334,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await render(
       <template><HdsCodeEditor @ariaLabel="Test Code Editor" /></template>,
     );
+    await waitFor('.hds-code-editor__editor .cm-editor [role="textbox"]');
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-label', 'Test Code Editor');
@@ -339,6 +345,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await render(
       <template><HdsCodeEditor @ariaLabelledBy="test-label" /></template>,
     );
+    await waitFor('.hds-code-editor__editor .cm-editor [role="textbox"]');
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-labelledby', 'test-label');
@@ -352,6 +359,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
         />
       </template>,
     );
+    await waitFor('.hds-code-editor__editor .cm-editor [role="textbox"]');
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-label', 'Test Code Editor');
@@ -374,6 +382,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
         />
       </template>,
     );
+    await waitFor('.hds-code-editor__editor .cm-editor .cm-content');
     assert
       .dom('.hds-code-editor__editor .cm-editor .cm-content')
       .hasClass('cm-lineWrapping');
@@ -392,6 +401,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
         <HdsCodeEditor @ariaLabel="code editor" @value="Test Code" />
       </template>,
     );
+    await waitFor('.hds-code-editor__editor .cm-editor');
     assert.dom('.hds-code-editor__editor .cm-editor').includesText('Test Code');
   });
 
@@ -415,6 +425,8 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
         />
       </template>,
     );
+
+    await waitFor('.hds-code-editor__editor .cm-editor [role="textbox"]');
 
     context.editorView?.dispatch({
       changes: {
