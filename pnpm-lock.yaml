@@ -31,7 +31,7 @@ overrides:
   serialize-javascript: 7.0.5
   socks: 2.8.9
   socket.io-parser: 4.2.6
-  systeminformation: 5.31.0
+  systeminformation: 5.31.6
   undici: 6.24.0
   underscore: 1.13.8
   yaml@1: 1.10.3
@@ -11061,8 +11061,8 @@ packages:
     resolution: {integrity: sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  systeminformation@5.31.0:
-    resolution: {integrity: sha512-z5pjzvC8UnQJ/iu34z+mo3lAeMzTGdArjPQoG5uPyV5XY4BY+M6ZcRTl4XnZqudz6sP713LhWMKv6e0kGFGCgQ==}
+  systeminformation@5.31.6:
+    resolution: {integrity: sha512-Uv2b2uGGM6ns+26czgW2cYRabYdnswM0ddSOOlryHOaelzsmDSet1iM/NT7VOYxW8x/BW+HkY+b1Ve2pLTSGSA==}
     engines: {node: '>=8.0.0'}
     hasBin: true
 
@@ -15011,7 +15011,7 @@ snapshots:
       '@percy/config': 1.31.1(typescript@5.9.2)
       '@percy/logger': 1.31.1
       '@percy/sdk-utils': 1.31.1
-      systeminformation: 5.31.0
+      systeminformation: 5.31.6
     transitivePeerDependencies:
       - typescript
 
@@ -25923,7 +25923,7 @@ snapshots:
     dependencies:
       '@pkgr/core': 0.2.9
 
-  systeminformation@5.31.0: {}
+  systeminformation@5.31.6: {}
 
   tabbable@5.3.3: {}
 
