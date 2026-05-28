@@ -162,7 +162,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH4>Closest Carbon equivalent</ShwTextH4>
 
     <ShwCarbonizationComparisonGrid
-      @label="minimal features & matchToggleWidth=true"
+      @label="with minimal features & matchToggleWidth=true"
     >
       <:theming>
         <HdsDropdown @matchToggleWidth={{true}} as |D|>
