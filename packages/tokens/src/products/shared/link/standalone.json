@@ -35,10 +35,22 @@
             "unit": "rem",
             "$modes": {
               "default": "0.8125",
-              "cds-g0": "{carbon.typography.helperText01.font-size}",
-              "cds-g10": "{carbon.typography.helperText01.font-size}",
-              "cds-g90": "{carbon.typography.helperText01.font-size}",
-              "cds-g100": "{carbon.typography.helperText01.font-size}"
+              "cds-g0": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g10": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g90": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g100": {
+                "$value": "0.75",
+                "unit": "rem"
+              }
             }
           },
           "medium": {

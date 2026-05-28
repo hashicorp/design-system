@@ -245,6 +245,9 @@
     --token-breadcrumb-truncation-toggle-surface-color-hover: var(
       --token-color-surface-interactive
     );
+    --token-breadcrumb-typography-font-size: var(
+      --token-typography-body-100-font-size
+    );
     --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: var(
       --token-color-palette-red-400
@@ -662,6 +665,9 @@
     );
     --token-pagination-bar-border-color: rgba(0, 0, 0, 0);
     --token-pagination-bar-surface-color: var(--token-color-surface-primary);
+    --token-pagination-info-typography-font-size: var(
+      --token-typography-body-100-font-size
+    );
     --token-pagination-nav-control-foreground-color-active: var(
       --token-color-foreground-action-active
     );
@@ -672,11 +678,17 @@
       --token-color-foreground-action-hover
     );
     --token-pagination-nav-control-height: 36px;
+    --token-pagination-nav-control-typography-font-size: var(
+      --token-typography-body-100-font-size
+    );
     --token-pagination-nav-control-typography-font-weight-active: var(
       --token-typography-font-weight-medium
     );
     --token-pagination-nav-indicator-height: 2px;
     --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-pagination-size-selector-typography-font-size: var(
+      --token-typography-body-100-font-size
+    );
     --token-reveal-foreground-color-active: var(
       --token-button-foreground-color-tertiary-active
     );
@@ -1028,6 +1040,7 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-breadcrumb-typography-font-size: 0.875rem;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -1278,13 +1291,16 @@
     --token-modal-header-tagline-color-warning: #525252;
     --token-pagination-bar-border-color: #c6c6c6;
     --token-pagination-bar-surface-color: #f4f4f4;
+    --token-pagination-info-typography-font-size: 0.875rem;
     --token-pagination-nav-control-foreground-color-active: #161616;
     --token-pagination-nav-control-foreground-color-default: #161616;
     --token-pagination-nav-control-foreground-color-hover: #161616;
     --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-control-typography-font-size: 0.875rem;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-pagination-size-selector-typography-font-size: 0.875rem;
     --token-reveal-foreground-color-active: #0043ce;
     --token-reveal-foreground-color-default: #0f62fe;
     --token-reveal-foreground-color-hover: #0043ce;
@@ -1565,6 +1581,7 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-breadcrumb-typography-font-size: 0.875rem;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -1820,13 +1837,16 @@
     --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-pagination-bar-border-color: #525252;
     --token-pagination-bar-surface-color: #262626;
+    --token-pagination-info-typography-font-size: 0.875rem;
     --token-pagination-nav-control-foreground-color-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-default: #f4f4f4;
     --token-pagination-nav-control-foreground-color-hover: #f4f4f4;
     --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-control-typography-font-size: 0.875rem;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-pagination-size-selector-typography-font-size: 0.875rem;
     --token-reveal-foreground-color-active: #a6c8ff;
     --token-reveal-foreground-color-default: #78a9ff;
     --token-reveal-foreground-color-hover: #a6c8ff;
@@ -2107,6 +2127,7 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-breadcrumb-typography-font-size: 0.875rem;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -2357,13 +2378,16 @@
     --token-modal-header-tagline-color-warning: #525252;
     --token-pagination-bar-border-color: #c6c6c6;
     --token-pagination-bar-surface-color: #f4f4f4;
+    --token-pagination-info-typography-font-size: 0.875rem;
     --token-pagination-nav-control-foreground-color-active: #161616;
     --token-pagination-nav-control-foreground-color-default: #161616;
     --token-pagination-nav-control-foreground-color-hover: #161616;
     --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-control-typography-font-size: 0.875rem;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-pagination-size-selector-typography-font-size: 0.875rem;
     --token-reveal-foreground-color-active: #0043ce;
     --token-reveal-foreground-color-default: #0f62fe;
     --token-reveal-foreground-color-hover: #0043ce;
@@ -2644,6 +2668,7 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-breadcrumb-typography-font-size: 0.875rem;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -2894,13 +2919,16 @@
     --token-modal-header-tagline-color-warning: #525252;
     --token-pagination-bar-border-color: #e0e0e0;
     --token-pagination-bar-surface-color: #ffffff;
+    --token-pagination-info-typography-font-size: 0.875rem;
     --token-pagination-nav-control-foreground-color-active: #161616;
     --token-pagination-nav-control-foreground-color-default: #161616;
     --token-pagination-nav-control-foreground-color-hover: #161616;
     --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-control-typography-font-size: 0.875rem;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --token-pagination-size-selector-typography-font-size: 0.875rem;
     --token-reveal-foreground-color-active: #0043ce;
     --token-reveal-foreground-color-default: #0f62fe;
     --token-reveal-foreground-color-hover: #0043ce;
@@ -3181,6 +3209,7 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-breadcrumb-typography-font-size: 0.875rem;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -3436,13 +3465,16 @@
     --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-pagination-bar-border-color: #6f6f6f;
     --token-pagination-bar-surface-color: #393939;
+    --token-pagination-info-typography-font-size: 0.875rem;
     --token-pagination-nav-control-foreground-color-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-default: #f4f4f4;
     --token-pagination-nav-control-foreground-color-hover: #f4f4f4;
     --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-control-typography-font-size: 0.875rem;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-pagination-size-selector-typography-font-size: 0.875rem;
     --token-reveal-foreground-color-active: #a6c8ff;
     --token-reveal-foreground-color-default: #78a9ff;
     --token-reveal-foreground-color-hover: #a6c8ff;
@@ -3723,6 +3755,7 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-breadcrumb-typography-font-size: 0.875rem;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -3978,13 +4011,16 @@
     --token-modal-header-tagline-color-warning: #c6c6c6;
     --token-pagination-bar-border-color: #525252;
     --token-pagination-bar-surface-color: #262626;
+    --token-pagination-info-typography-font-size: 0.875rem;
     --token-pagination-nav-control-foreground-color-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-default: #f4f4f4;
     --token-pagination-nav-control-foreground-color-hover: #f4f4f4;
     --token-pagination-nav-control-height: 40px;
+    --token-pagination-nav-control-typography-font-size: 0.875rem;
     --token-pagination-nav-control-typography-font-weight-active: 600;
     --token-pagination-nav-indicator-height: 4px;
     --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --token-pagination-size-selector-typography-font-size: 0.875rem;
     --token-reveal-foreground-color-active: #a6c8ff;
     --token-reveal-foreground-color-default: #78a9ff;
     --token-reveal-foreground-color-hover: #a6c8ff;

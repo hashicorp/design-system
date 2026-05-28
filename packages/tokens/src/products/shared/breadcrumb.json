@@ -1,6 +1,17 @@
 {
   "breadcrumb": {
     "typography": {
+      "font-size": {
+        "$type": "font-size",
+        "$value": "{typography.body-100.font-size}",
+        "$modes": {
+          "default": "{typography.body-100.font-size}",
+          "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+          "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+          "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+          "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+        }
+      },
       "line-height": {
         "$type": "number",
         "$value": 1.2308,

@@ -324,6 +324,7 @@
   --token-badge-icon-size-small: 12px;
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-large: 16px;
+  --token-breadcrumb-typography-font-size: 0.8125rem;
   --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
   --token-breadcrumb-divider-color: #c2c5cb;
   --token-breadcrumb-link-foreground-color-default: #656a76;
@@ -570,10 +571,13 @@
   --token-pagination-nav-control-foreground-color-hover: #0c56e9;
   --token-pagination-nav-control-foreground-color-active: #0046d1;
   --token-pagination-nav-control-icon-spacing: 6px;
+  --token-pagination-nav-control-typography-font-size: 0.8125rem;
   --token-pagination-nav-control-typography-font-weight-active: var(--token-typography-font-weight-medium);
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
+  --token-pagination-info-typography-font-size: 0.8125rem;
+  --token-pagination-size-selector-typography-font-size: 0.8125rem;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-reveal-foreground-color-default: #1060ff;
@@ -3543,8 +3547,8 @@
 .hds-breadcrumb__text {
   padding: calc((28px - 1rem) / 2) 0;
   overflow: hidden;
-  font-size: var(--token-typography-body-100-font-size);
-  font-family: var(--token-typography-body-100-font-family);
+  font-size: var(--token-breadcrumb-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
   line-height: var(--token-breadcrumb-typography-line-height);
   white-space: nowrap;
   text-decoration: underline;
@@ -8649,6 +8653,7 @@ button.hds-button[href]::after {
 }
 
 .hds-pagination-info {
+  font-size: var(--token-pagination-info-typography-font-size);
   white-space: nowrap;
 }
 
@@ -8739,6 +8744,11 @@ button.hds-button[href]::after {
   justify-content: flex-end;
 }
 
+.hds-pagination-nav__arrow-label,
+.hds-pagination-nav__number-content {
+  font-size: var(--token-pagination-nav-control-typography-font-size);
+}
+
 .hds-pagination-nav__number--is-selected {
   position: relative;
   color: var(--token-pagination-nav-control-foreground-color-default);
@@ -8779,6 +8789,7 @@ button.hds-button[href]::after {
 }
 .hds-pagination-size-selector > label {
   white-space: nowrap;
+  font-size: var(--token-pagination-size-selector-typography-font-size);
 }
 .hds-theme-light .hds-pagination-size-selector > label::after,
 .hds-theme-dark .hds-pagination-size-selector > label::after,
@@ -8790,7 +8801,7 @@ button.hds-button[href]::after {
   height: 28px;
   margin-left: 12px;
   padding: 0 24px 0 8px;
-  font-size: var(--token-typography-body-100-font-size);
+  font-size: var(--token-pagination-size-selector-typography-font-size);
   font-family: var(--token-typography-body-100-font-family);
   line-height: var(--token-typography-body-100-line-height);
   background-position: center right 5px;
