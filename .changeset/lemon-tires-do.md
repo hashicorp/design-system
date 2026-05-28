@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/code-block -->
-`CodeBlock` - Translatd strings for height toggle button text
+`CodeBlock` - Translated strings for height toggle button text
 <!-- END -->
