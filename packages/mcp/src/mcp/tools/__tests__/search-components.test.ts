@@ -120,3 +120,40 @@ test('registerSearchComponentsTool registers and returns payload envelope', asyn
   assert.equal(payload.resultCount, 1);
   assert.equal(payload.results[0]?.slug, 'button');
 });
+
+test('registerSearchComponentsTool returns internal error payload when handler throws', async () => {
+  const server = new FakeServer();
+
+  registerSearchComponentsTool(
+    server as unknown as Parameters<typeof registerSearchComponentsTool>[0],
+    {
+      ...createStore(),
+      listComponents: () => {
+        throw new Error('boom');
+      },
+    }
+  );
+
+  const tool = server.registeredTools[0];
+
+  if (tool === undefined) {
+    throw new Error('Expected hds_search_components to be registered');
+  }
+
+  const response = await tool.handler({
+    query: 'button',
+    limit: 10,
+  });
+  const payload = JSON.parse(response.content[0]?.text ?? '{}') as {
+    ok?: boolean;
+    error?: {
+      code?: string;
+      tool?: string;
+      message?: string;
+    };
+  };
+
+  assert.equal(payload.ok, false);
+  assert.equal(payload.error?.code, 'INTERNAL_ERROR');
+  assert.equal(payload.error?.tool, 'hds_search_components');
+});

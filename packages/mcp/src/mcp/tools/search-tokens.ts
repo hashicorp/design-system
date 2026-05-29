@@ -6,6 +6,7 @@
 import { z } from 'zod';
 import { TOKEN_TYPES } from '../../catalogs/tokens/schema.js';
 import { toTextResponse } from './response-envelope.js';
+import { withSafeToolHandler } from './safe-tool-handler.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { TokenCatalogStore } from '../../catalogs/tokens/store.js';
@@ -59,7 +60,7 @@ export const registerSearchTokensTool = (
         category: z.string().trim().min(1).optional(),
       },
     },
-    async ({ query, limit, type, category }) => {
+    withSafeToolHandler('hds_search_tokens', async ({ query, limit, type, category }) => {
       return toTextResponse(
         buildSearchTokensPayload(store, {
           query,
@@ -68,6 +69,6 @@ export const registerSearchTokensTool = (
           ...(category === undefined ? {} : { category }),
         })
       );
-    }
+    })
   );
 };

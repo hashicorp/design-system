@@ -90,6 +90,7 @@ response:
 ## Notes
 
 - Prefer passing `docId` or `url` returned by `hds_search_docs`.
+- Excerpts remove MDX/include markup artifacts for cleaner learner-facing output.
 - Retrieve focused sections before making docs-based guidance claims.
 - If `nextCursor` is returned, continue reading with `cursor`
   until complete before final guidance claims.

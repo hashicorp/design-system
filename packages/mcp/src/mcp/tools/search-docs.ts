@@ -6,6 +6,7 @@
 import { z } from 'zod';
 import { DOCS_SEARCH_SCOPES } from '../../catalogs/docs/scopes.js';
 import { toTextResponse } from './response-envelope.js';
+import { withSafeToolHandler } from './safe-tool-handler.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { DocsSearchScope } from '../../catalogs/docs/scopes.js';
@@ -46,7 +47,7 @@ export const registerSearchDocsTool = (
         limit: z.number().int().min(1).max(25).default(10),
       },
     },
-    async ({ query, scope, limit }) => {
+    withSafeToolHandler('hds_search_docs', async ({ query, scope, limit }) => {
       const meta = docsStore.getMeta();
 
       if (meta.available === false) {
@@ -70,6 +71,6 @@ export const registerSearchDocsTool = (
         resultCount: output.resultCount,
         results: output.results,
       });
-    }
+    })
   );
 };

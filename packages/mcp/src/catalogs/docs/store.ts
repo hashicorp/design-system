@@ -3,9 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import fg from 'fast-glob';
 import { toString } from 'mdast-util-to-string';
 import MiniSearch from 'minisearch';
 import { slug as toGithubSlug } from 'github-slugger';
@@ -266,7 +267,10 @@ const getDocsScopesForSection = (
 };
 
 const normalizeSectionText = (value: string): string => {
-  return value.replace(/\s+/gu, ' ').trim();
+  const withoutComments = value.replace(/<!--([\s\S]*?)-->/gu, ' ');
+  const withoutTags = withoutComments.replace(/<[^>]+>/gu, ' ');
+
+  return withoutTags.replace(/\s+/gu, ' ').trim();
 };
 
 const createUniqueAnchor = (
@@ -509,30 +513,13 @@ const toWebsiteDocRecords = (rawJson: string): InternalCatalogRecord[] => {
 };
 
 const readJsonFilesRecursively = (directoryPath: string): string[] => {
-  const queue = [directoryPath];
-  const filePaths: string[] = [];
-
-  while (queue.length > 0) {
-    const currentPath = queue.shift();
-
-    if (currentPath === undefined) {
-      continue;
-    }
-
-    const entries = readdirSync(currentPath, { withFileTypes: true });
-
-    for (const entry of entries) {
-      const fullPath = resolve(currentPath, entry.name);
-
-      if (entry.isDirectory()) {
-        queue.push(fullPath);
-      } else if (entry.isFile() && fullPath.endsWith('.json')) {
-        filePaths.push(fullPath);
-      }
-    }
-  }
-
-  return filePaths.sort((a, b) => a.localeCompare(b));
+  return fg
+    .sync('**/*.json', {
+      cwd: directoryPath,
+      absolute: true,
+      onlyFiles: true,
+    })
+    .sort((a, b) => a.localeCompare(b));
 };
 
 const loadWebsiteDocsRecords = (): InternalCatalogRecord[] => {
@@ -773,7 +760,7 @@ const toSectionExcerpt = (
   maxChars: number,
   docId: string
 ): DocsReadSection => {
-  const sectionText = section.text;
+  const sectionText = normalizeSectionText(section.text);
   const sliceStart = Math.max(0, Math.min(offset, sectionText.length));
   const remaining = sectionText.length - sliceStart;
 

@@ -4,6 +4,7 @@
  */
 
 import { toJsonResourceResponse } from './response-resource.js';
+import { resolveFigmaFrameNodeMatch } from '../../figma/resolve-frame-node-match.js';
 
 import type { JsonObject } from '../../types.js';
 import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
@@ -21,15 +22,16 @@ export const buildFigmaNodeResourcePayload = (
     nodeId: string;
   }
 ): JsonObject => {
-  const component = store.getComponentByDesignNode(input.fileKey, input.nodeId);
+  const match = resolveFigmaFrameNodeMatch(store, input.fileKey, input.nodeId);
 
-  if (component === null) {
+  if (match.matched === false) {
     return {
       generatedAt: store.getManifestMeta().generatedAt,
       found: false,
       fileKey: input.fileKey,
       nodeId: input.nodeId,
       message: 'No design mapping found for this fileKey/nodeId.',
+      ...(match.warnings === undefined ? {} : { warnings: match.warnings }),
     };
   }
 
@@ -38,7 +40,7 @@ export const buildFigmaNodeResourcePayload = (
     found: true,
     fileKey: input.fileKey,
     nodeId: input.nodeId,
-    component,
+    component: match.component,
   };
 };
 

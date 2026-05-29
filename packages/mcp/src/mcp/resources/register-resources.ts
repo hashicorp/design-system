@@ -31,6 +31,7 @@ import {
   readTokenByKeyResource,
 } from './read-token-by-key.js';
 import { TOKENS_URI, readTokensResource } from './read-tokens.js';
+import { withSafeResourceHandler } from './safe-resource-handler.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
@@ -52,9 +53,13 @@ export const registerResources = (
         'Top-level manifest metadata including generatedAt and componentCount.',
       mimeType: 'application/json',
     },
-    async () => {
-      return readManifestMetaResource(store);
-    }
+    withSafeResourceHandler(
+      'hds_manifest_meta',
+      async () => {
+        return readManifestMetaResource(store);
+      },
+      MANIFEST_META_URI
+    )
   );
 
   server.registerResource(
@@ -66,9 +71,13 @@ export const registerResources = (
         'Canonical mapping table from Figma fileKey/nodeId pairs to HDS components.',
       mimeType: 'application/json',
     },
-    async () => {
-      return readDesignMappingsResource(store);
-    }
+    withSafeResourceHandler(
+      'hds_design_mappings',
+      async () => {
+        return readDesignMappingsResource(store);
+      },
+      DESIGN_MAPPINGS_URI
+    )
   );
 
   server.registerResource(
@@ -79,9 +88,13 @@ export const registerResources = (
       description: 'Canonical list of components with name, slug, and summary.',
       mimeType: 'application/json',
     },
-    async () => {
-      return readComponentsResource(store);
-    }
+    withSafeResourceHandler(
+      'hds_components',
+      async () => {
+        return readComponentsResource(store);
+      },
+      COMPONENTS_URI
+    )
   );
 
   server.registerResource(
@@ -92,9 +105,13 @@ export const registerResources = (
       description: 'Canonical list of HDS tokens with summary metadata.',
       mimeType: 'application/json',
     },
-    async () => {
-      return readTokensResource(tokenStore);
-    }
+    withSafeResourceHandler(
+      'hds_tokens',
+      async () => {
+        return readTokensResource(tokenStore);
+      },
+      TOKENS_URI
+    )
   );
 
   server.registerResource(
@@ -105,9 +122,13 @@ export const registerResources = (
       description: 'Canonical list of Flight icons with summary metadata.',
       mimeType: 'application/json',
     },
-    async () => {
-      return readIconsResource(iconStore);
-    }
+    withSafeResourceHandler(
+      'hds_icons',
+      async () => {
+        return readIconsResource(iconStore);
+      },
+      ICONS_URI
+    )
   );
 
   server.registerResource(
@@ -119,14 +140,17 @@ export const registerResources = (
         'Canonical icon lookup keyed by icon name, with file name alias support.',
       mimeType: 'application/json',
     },
-    async (_uri, variables) => {
+    withSafeResourceHandler('hds_icon_by_name', async (_uri, variables) => {
       const iconName = variables['iconName'];
 
-      return readIconByNameResource(
-        iconStore,
-        typeof iconName === 'string' ? iconName : ''
-      );
-    }
+      if (typeof iconName !== 'string' || iconName.trim() === '') {
+        throw new Error(
+          'Resource variable "iconName" must be a non-empty string.'
+        );
+      }
+
+      return readIconByNameResource(iconStore, iconName);
+    })
   );
 
   server.registerResource(
@@ -137,14 +161,17 @@ export const registerResources = (
       description: 'Canonical token lookup keyed by token key or token path.',
       mimeType: 'application/json',
     },
-    async (_uri, variables) => {
+    withSafeResourceHandler('hds_token_by_key', async (_uri, variables) => {
       const tokenKey = variables['tokenKey'];
 
-      return readTokenByKeyResource(
-        tokenStore,
-        typeof tokenKey === 'string' ? tokenKey : ''
-      );
-    }
+      if (typeof tokenKey !== 'string' || tokenKey.trim() === '') {
+        throw new Error(
+          'Resource variable "tokenKey" must be a non-empty string.'
+        );
+      }
+
+      return readTokenByKeyResource(tokenStore, tokenKey);
+    })
   );
 
   server.registerResource(
@@ -156,15 +183,20 @@ export const registerResources = (
         'Canonical per-component context resource keyed by component slug.',
       mimeType: 'application/json',
     },
-    async (_uri, variables) => {
-      const slug = variables['slug'];
+    withSafeResourceHandler(
+      'hds_component_by_slug',
+      async (_uri, variables) => {
+        const slug = variables['slug'];
 
-      if (typeof slug !== 'string') {
-        return readComponentBySlugResource(store, '');
+        if (typeof slug !== 'string' || slug.trim() === '') {
+          throw new Error(
+            'Resource variable "slug" must be a non-empty string.'
+          );
+        }
+
+        return readComponentBySlugResource(store, slug);
       }
-
-      return readComponentBySlugResource(store, slug);
-    }
+    )
   );
 
   server.registerResource(
@@ -176,14 +208,26 @@ export const registerResources = (
         'Resolve a mapped Figma fileKey/nodeId pair to an HDS component.',
       mimeType: 'application/json',
     },
-    async (_uri, variables) => {
+    withSafeResourceHandler('hds_figma_node', async (_uri, variables) => {
       const fileKey = variables['fileKey'];
       const nodeId = variables['nodeId'];
 
+      if (typeof fileKey !== 'string' || fileKey.trim() === '') {
+        throw new Error(
+          'Resource variable "fileKey" must be a non-empty string.'
+        );
+      }
+
+      if (typeof nodeId !== 'string' || nodeId.trim() === '') {
+        throw new Error(
+          'Resource variable "nodeId" must be a non-empty string.'
+        );
+      }
+
       return readFigmaNodeResource(store, {
-        fileKey: typeof fileKey === 'string' ? fileKey : '',
-        nodeId: typeof nodeId === 'string' ? nodeId : '',
+        fileKey,
+        nodeId,
       });
-    }
+    })
   );
 };

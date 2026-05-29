@@ -5,12 +5,12 @@
 
 import {
   existsSync,
-  readdirSync,
   readFileSync,
   statSync,
 } from 'node:fs';
 import { dirname, extname, posix, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import fg from 'fast-glob';
 
 export type ShowcaseSnippetLanguage = 'gts' | 'ts' | 'hbs' | 'js';
 export type ShowcaseSnippetKind = 'example' | 'helper';
@@ -112,38 +112,17 @@ const normalizeQuery = (value: string | undefined): string | null => {
 };
 
 const readSnippetFilesRecursively = (directoryPath: string): string[] => {
-  const queue: string[] = [directoryPath];
-  const filePaths: string[] = [];
+  const paths = fg.sync('**/*.{gts,ts,hbs,js}', {
+    cwd: directoryPath,
+    absolute: true,
+    onlyFiles: true,
+  });
 
-  while (queue.length > 0) {
-    const currentPath = queue.shift();
-
-    if (currentPath === undefined) {
-      continue;
-    }
-
-    const entries = readdirSync(currentPath, { withFileTypes: true });
-
-    for (const entry of entries) {
-      const fullPath = resolve(currentPath, entry.name);
-
-      if (entry.isDirectory()) {
-        queue.push(fullPath);
-
-        continue;
-      }
-
-      if (!entry.isFile()) {
-        continue;
-      }
-
-      if (SUPPORTED_EXTENSIONS.has(extname(entry.name).toLowerCase())) {
-        filePaths.push(fullPath);
-      }
-    }
-  }
-
-  return filePaths.sort((a, b) => a.localeCompare(b));
+  return paths
+    .filter((filePath) => {
+      return SUPPORTED_EXTENSIONS.has(extname(filePath).toLowerCase());
+    })
+    .sort((a, b) => a.localeCompare(b));
 };
 
 const listDefaultSnippetFiles = (): string[] => {

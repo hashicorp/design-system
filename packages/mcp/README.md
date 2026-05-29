@@ -61,6 +61,7 @@ Current resources:
   - Returns canonical per-component context by slug (`found`, `slug`, and either `component` or `message`).
 - `hds://figma/{fileKey}/nodes/{nodeId}`
   - Returns canonical mapping lookup for one Figma node (`found`, `fileKey`, `nodeId`, and either `component` or `message`).
+  - Normalizes common node ID variants for lookup (for example `67397-95918` -> `67397:95918`) and may include corrective warnings on misses.
 - `hds://tokens`
   - Returns a stable token index envelope with `totalTokenCount` and `tokens`.
 - `hds://tokens/{tokenKey}`
@@ -89,11 +90,13 @@ Current tools:
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `25`.
 - `hds_read_doc` (input: doc locator from search results, optional `anchor`, optional `detail`, optional `cursor`, optional section/size controls)
   - Retrieves focused sections from a Helios documentation page.
+  - Cleans learner-facing excerpts by stripping MDX/include markup artifacts.
   - `detail` defaults to full detail retrieval when omitted.
   - If a response includes `nextCursor`, continue by calling `hds_read_doc` again with `cursor: nextCursor` before making final docs-based guidance claims.
   - Use after `hds_search_docs` when citing guidance from docs content.
 - `hds_resolve_figma_frame` (input: `fileKey`, `nodes[]`)
   - Resolves many Figma nodes to HDS components and returns matched/unmatched summary.
+  - Normalizes common node ID variants for lookup (for example `67397-95918` -> `67397:95918`) and includes corrective warnings on misses when available.
 - `hds_search_tokens` (input: `query`, optional `limit`, optional `type`, optional `category`)
   - Returns filtered tokens for discovery-style token search by key/name/path/category/value text.
   - Optional `limit`: defaults to `10`, minimum `1`, maximum `50`.
@@ -345,7 +348,12 @@ Shared supporting infrastructure remains at the `src` root.
   "found": false,
   "fileKey": "iweq3r2Pi8xiJfD9e6lOhF",
   "nodeId": "99999:1",
-  "message": "No design mapping found for this fileKey/nodeId."
+  "message": "No design mapping found for this fileKey/nodeId.",
+  "warnings": [
+    "No design mapping found for this fileKey/nodeId.",
+    "Node ID formats often use \":\" separators; dash-delimited IDs are normalized automatically.",
+    "Did you mean nodeId \"67397:95918\"?"
+  ]
 }
 ```
 

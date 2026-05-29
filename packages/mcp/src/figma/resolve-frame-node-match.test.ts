@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import {
+  FIGMA_NODE_ID_FORMAT_HINT,
   resolveFigmaFrameNodeMatch,
   UNMATCHED_NODE_WARNING,
 } from './resolve-frame-node-match.js';
@@ -87,5 +88,21 @@ test('resolveFigmaFrameNodeMatch returns unmatched with warning for missing node
   if (match.matched !== false) {
     throw new Error('Expected unmatched result');
   }
-  assert.deepEqual(match.warnings ?? [], [UNMATCHED_NODE_WARNING]);
+  assert.deepEqual(match.warnings ?? [], [
+    UNMATCHED_NODE_WARNING,
+    FIGMA_NODE_ID_FORMAT_HINT,
+  ]);
+});
+
+test('resolveFigmaFrameNodeMatch matches dashed nodeId via normalization', () => {
+  const match = resolveFigmaFrameNodeMatch(store, 'file-1', '1-1');
+
+  assert.equal(match.nodeId, '1-1');
+  assert.equal(match.matched, true);
+
+  if (match.matched !== true) {
+    throw new Error('Expected normalized match');
+  }
+
+  assert.equal(match.component?.name, 'Button');
 });

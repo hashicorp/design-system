@@ -5,6 +5,7 @@
 
 import { z } from 'zod';
 import { toTextResponse, withGeneratedAt } from './response-envelope.js';
+import { withSafeToolHandler } from './safe-tool-handler.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
@@ -55,13 +56,13 @@ export const registerSearchComponentsTool = (
         limit: z.number().int().min(1).max(MAX_LIMIT).default(DEFAULT_LIMIT),
       },
     },
-    async ({ query, limit }) => {
+    withSafeToolHandler('hds_search_components', async ({ query, limit }) => {
       return toTextResponse(
         buildSearchComponentsPayload(store, {
           query,
           limit,
         })
       );
-    }
+    })
   );
 };

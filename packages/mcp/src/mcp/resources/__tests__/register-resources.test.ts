@@ -14,13 +14,22 @@ import type { TokenCatalogStore } from '../../../catalogs/tokens/store.js';
 
 type RegisteredCall = {
   name: string;
+  handler?: (
+    uri: string,
+    variables: Record<string, unknown>
+  ) => Promise<{ contents: Array<{ uri: string; text: string }> }>;
 };
 
 class FakeServer {
   calls: RegisteredCall[] = [];
 
-  registerResource(name: string): void {
-    this.calls.push({ name });
+  registerResource(
+    name: string,
+    _templateOrUri?: unknown,
+    _meta?: unknown,
+    handler?: RegisteredCall['handler']
+  ): void {
+    this.calls.push({ name, handler });
   }
 }
 
@@ -137,4 +146,37 @@ test('registerResources registers all catalog resources', () => {
       'hds_figma_node',
     ]
   );
+});
+
+test('registerResources returns internal error payload for invalid resource variables', async () => {
+  const server = new FakeServer();
+
+  registerResources(
+    server as unknown as Parameters<typeof registerResources>[0],
+    store,
+    tokenStore,
+    iconStore
+  );
+
+  const iconByName = server.calls.find((call) => call.name === 'hds_icon_by_name');
+
+  if (iconByName?.handler === undefined) {
+    throw new Error('Expected hds_icon_by_name handler to be registered');
+  }
+
+  const response = await iconByName.handler('hds://icons/{iconName}', {
+    iconName: 123,
+  });
+  const payload = JSON.parse(response.contents[0]?.text ?? '{}') as {
+    ok?: boolean;
+    error?: {
+      code?: string;
+      resource?: string;
+      message?: string;
+    };
+  };
+
+  assert.equal(payload.ok, false);
+  assert.equal(payload.error?.code, 'INTERNAL_ERROR');
+  assert.equal(payload.error?.resource, 'hds_icon_by_name');
 });

@@ -42,7 +42,11 @@ Resolves many Figma nodes in one request using `fileKey` + `nodeId` per node.
     {
       "nodeId": "99999:1",
       "matched": false,
-      "warnings": ["No design mapping found for this fileKey/nodeId."]
+      "warnings": [
+        "No design mapping found for this fileKey/nodeId.",
+        "Node ID formats often use \":\" separators; dash-delimited IDs are normalized automatically.",
+        "Did you mean nodeId \"67397:95918\"?"
+      ]
     }
   ],
   "warnings": []
@@ -51,6 +55,6 @@ Resolves many Figma nodes in one request using `fileKey` + `nodeId` per node.
 
 ## Notes
 
-- Deterministic, exact lookup only.
+- Deterministic lookup with node ID normalization for common dash format (`123-456` -> `123:456`).
 - Output preserves per-node results so agents can handle mixed matched/unmatched frames.
 - `hds://manifest/meta` includes canonical `designCoverage`; this tool repeats a coverage warning for action-time visibility.

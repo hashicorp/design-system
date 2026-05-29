@@ -5,6 +5,7 @@
 
 import { z } from 'zod';
 import { toTextResponse } from './response-envelope.js';
+import { withSafeToolHandler } from './safe-tool-handler.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ShowcaseSnippetsCatalogStore } from '../../catalogs/showcase-snippets/store.js';
@@ -51,15 +52,18 @@ export const registerExtractShowcaseSnippetsTool = (
         includeSource: z.boolean().default(true),
       },
     },
-    async ({ components, query, limitPerComponent, includeSource }) => {
-      return toTextResponse(
-        buildExtractShowcaseSnippetsPayload(store, {
-          components,
-          ...(query === undefined ? {} : { query }),
-          limitPerComponent,
-          includeSource,
-        })
-      );
-    }
+    withSafeToolHandler(
+      'hds_extract_showcase_snippets',
+      async ({ components, query, limitPerComponent, includeSource }) => {
+        return toTextResponse(
+          buildExtractShowcaseSnippetsPayload(store, {
+            components,
+            ...(query === undefined ? {} : { query }),
+            limitPerComponent,
+            includeSource,
+          })
+        );
+      }
+    )
   );
 };

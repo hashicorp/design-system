@@ -50,6 +50,7 @@
     "@hashicorp/design-system-tokens": "workspace:^5.0.0",
     "@hashicorp/flight-icons": "workspace:^5.0.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
+    "fast-glob": "^3.3.3",
     "github-slugger": "^2.0.0",
     "mdast-util-to-string": "^4.0.0",
     "minisearch": "^7.2.0",

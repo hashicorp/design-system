@@ -6,6 +6,7 @@
 import { z } from 'zod';
 import { toTextResponse, withGeneratedAt } from './response-envelope.js';
 import { resolveFigmaFrameNodeMatch } from '../../figma/resolve-frame-node-match.js';
+import { withSafeToolHandler } from './safe-tool-handler.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
@@ -77,13 +78,13 @@ export const registerResolveFigmaFrameTool = (
           .max(200),
       },
     },
-    async ({ fileKey, nodes }) => {
+    withSafeToolHandler('hds_resolve_figma_frame', async ({ fileKey, nodes }) => {
       return toTextResponse(
         buildResolveFigmaFramePayload(store, {
           fileKey,
           nodes,
         })
       );
-    }
+    })
   );
 };

@@ -5,6 +5,7 @@
 
 import { z } from 'zod';
 import { toTextResponse } from './response-envelope.js';
+import { withSafeToolHandler } from './safe-tool-handler.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { IconCatalogStore } from '../../catalogs/icons/store.js';
@@ -66,7 +67,9 @@ export const registerSearchIconsTool = (
         hasMapping: z.boolean().optional(),
       },
     },
-    async ({ query, limit, category, size, hasMapping }) => {
+    withSafeToolHandler(
+      'hds_search_icons',
+      async ({ query, limit, category, size, hasMapping }) => {
       return toTextResponse(
         buildSearchIconsPayload(store, {
           query,
@@ -76,6 +79,7 @@ export const registerSearchIconsTool = (
           ...(hasMapping === undefined ? {} : { hasMapping }),
         })
       );
-    }
+      }
+    )
   );
 };

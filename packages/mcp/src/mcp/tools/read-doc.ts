@@ -5,6 +5,7 @@
 
 import { z } from 'zod';
 import { toTextResponse } from './response-envelope.js';
+import { withSafeToolHandler } from './safe-tool-handler.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { DocsCatalogStore } from '../../catalogs/docs/store.js';
@@ -33,7 +34,9 @@ export const registerReadDocTool = (
         maxChars: z.number().int().min(200).max(5000).default(DEFAULT_MAX_CHARS),
       },
     },
-    async ({ docId, url, anchor, detail, cursor, maxSections, maxChars }) => {
+    withSafeToolHandler(
+      'hds_read_doc',
+      async ({ docId, url, anchor, detail, cursor, maxSections, maxChars }) => {
       const resolvedDetail = detail ?? DEFAULT_DETAIL;
 
       if (docId === undefined && url === undefined) {
@@ -62,6 +65,7 @@ export const registerReadDocTool = (
           maxChars,
         })
       );
-    }
+      }
+    )
   );
 };

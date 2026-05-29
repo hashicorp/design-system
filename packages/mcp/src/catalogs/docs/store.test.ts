@@ -47,6 +47,44 @@ test('search returns docs results for a basic query', () => {
   }
 });
 
+test('readDoc strips MDX and include artifacts from section excerpts', () => {
+  const store = loadDocsCatalog({
+    loadWebsiteDocsRecords: () => [
+      {
+        id: 'docs:components/example:page',
+        source: 'docs',
+        docId: 'components/example/index',
+        title: 'Example',
+        url: 'https://helios.hashicorp.design/components/example',
+        kind: 'page',
+        section: 'components',
+        snippet: 'Example docs',
+        scopes: new Set(['components']),
+        searchableText: 'example docs',
+        contentText: 'fallback text',
+        sections: [
+          {
+            heading: 'Usage',
+            anchor: 'usage',
+            level: 2,
+            text: 'Before <!-- include:foo --> <SectionHeader /> after',
+            url: 'https://helios.hashicorp.design/components/example#usage',
+          },
+        ],
+      },
+    ],
+  });
+
+  const output = store.readDoc({
+    docId: 'components/example/index',
+    maxSections: 1,
+    maxChars: 300,
+  });
+
+  assert.equal(output.found, true);
+  assert.equal(output.sections[0]?.excerpt, 'Before after');
+});
+
 test('search scope filtering works for components, content, and componentApi', () => {
   const store = loadDocsCatalog();
 
@@ -77,7 +115,9 @@ test('search scope filtering works for components, content, and componentApi', (
   );
   assert.ok(content.results.every((result) => result.kind === 'heading'));
   assert.ok(
-    componentApi.results.every((result) => result.kind === 'component-api-property')
+    componentApi.results.every(
+      (result) => result.kind === 'component-api-property'
+    )
   );
 });
 
@@ -413,7 +453,10 @@ test('readDoc returns not found payload for unknown doc', () => {
 
   assert.equal(output.found, false);
   assert.equal(output.sections.length, 0);
-  assert.equal(output.message, 'Requested doc was not found in the docs catalog.');
+  assert.equal(
+    output.message,
+    'Requested doc was not found in the docs catalog.'
+  );
 });
 
 test('search dedupes by canonical page url and preserves deterministic ranking', () => {
@@ -470,7 +513,10 @@ test('search dedupes by canonical page url and preserves deterministic ranking',
   });
 
   assert.equal(output.resultCount, 1);
-  assert.equal(output.results[0]?.url, 'https://helios.hashicorp.design/components/button');
+  assert.equal(
+    output.results[0]?.url,
+    'https://helios.hashicorp.design/components/button'
+  );
 });
 
 test('search applies relevance floor, emits metadata, and generates match-local snippet', () => {

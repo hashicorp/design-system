@@ -107,10 +107,25 @@ test('buildResolveFigmaFramePayload returns mixed exact and unmatched results', 
 
   const [first, second] = payload.matches as Array<{
     matched: boolean;
+    warnings?: string[];
   }>;
 
   assert.equal(first?.matched, true);
   assert.equal(second?.matched, false);
+  assert.ok((second?.warnings?.length ?? 0) >= 2);
+});
+
+test('buildResolveFigmaFramePayload normalizes dashed node ids', () => {
+  const payload = buildResolveFigmaFramePayload(store, {
+    fileKey: 'file-1',
+    nodes: [{ nodeId: '1-1' }],
+  });
+
+  assert.deepEqual(payload.summary, {
+    total: 1,
+    matched: 1,
+    unmatched: 0,
+  });
 });
 
 test('registerResolveFigmaFrameTool registers and returns payload envelope', async () => {

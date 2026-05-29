@@ -84,6 +84,18 @@ test('buildFigmaNodeResourcePayload returns not-found payload', () => {
   assert.equal(payload.fileKey, 'file-1');
   assert.equal(payload.nodeId, '9:9');
   assert.equal(typeof payload.message, 'string');
+  assert.ok(Array.isArray(payload.warnings));
+});
+
+test('buildFigmaNodeResourcePayload normalizes dashed node ids', () => {
+  const payload = buildFigmaNodeResourcePayload(store, {
+    fileKey: 'file-1',
+    nodeId: '1-1',
+  });
+
+  assert.equal(payload.generatedAt, '2026-01-01T00:00:00.000Z');
+  assert.equal(payload.found, true);
+  assert.equal((payload.component as { name: string }).name, 'Button');
 });
 
 test('readFigmaNodeResource wraps payload in resource contents', () => {

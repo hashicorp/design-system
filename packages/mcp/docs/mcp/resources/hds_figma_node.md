@@ -32,11 +32,16 @@ Returns the mapped HDS component for one Figma node identified by `fileKey` and 
   "found": false,
   "fileKey": "iweq3r2Pi8xiJfD9e6lOhF",
   "nodeId": "99999:1",
-  "message": "No design mapping found for this fileKey/nodeId."
+  "message": "No design mapping found for this fileKey/nodeId.",
+  "warnings": [
+    "No design mapping found for this fileKey/nodeId.",
+    "Node ID formats often use \":\" separators; dash-delimited IDs are normalized automatically.",
+    "Did you mean nodeId \"67397:95918\"?"
+  ]
 }
 ```
 
 ## Notes
 
-- Matching is deterministic and exact (`fileKey` + `nodeId`).
+- Matching is deterministic and normalizes common node ID variants (`123-456` -> `123:456`).
 - Template listing only includes known mapped node URIs.
