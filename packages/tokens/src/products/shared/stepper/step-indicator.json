@@ -1,0 +1,128 @@
+{
+  "step-indicator": {
+    "foreground": {
+      "color": {
+        "incomplete": {
+          "$type": "color",
+          "$value": "{color.foreground.primary}",
+          "$modes": {
+            "default": "{color.foreground.primary}",
+            "cds-g0": "{carbon.themes.white.iconPrimary}",
+            "cds-g10": "{carbon.themes.g10.iconPrimary}",
+            "cds-g90": "{carbon.themes.g90.iconPrimary}",
+            "cds-g100": "{carbon.themes.g100.iconPrimary}"
+          }
+        },
+        "progress": {
+          "$type": "color",
+          "$value": "{color.foreground.high-contrast}",
+          "$modes": {
+            "default": "{color.foreground.high-contrast}",
+            "cds-g0": "{carbon.themes.white.iconPrimary}",
+            "cds-g10": "{carbon.themes.g10.iconPrimary}",
+            "cds-g90": "{carbon.themes.g90.iconPrimary}",
+            "cds-g100": "{carbon.themes.g100.iconPrimary}"
+          }
+        },
+        "processing": {
+          "$type": "color",
+          "$value": "{color.foreground.high-contrast}",
+          "$modes": {
+            "default": "{color.foreground.high-contrast}",
+            "cds-g0": "{carbon.themes.white.iconPrimary}",
+            "cds-g10": "{carbon.themes.g10.iconPrimary}",
+            "cds-g90": "{carbon.themes.g90.iconPrimary}",
+            "cds-g100": "{carbon.themes.g100.iconPrimary}"
+          }
+        },
+        "complete": {
+          "$type": "color",
+          "$value": "{color.foreground.high-contrast}",
+          "$modes": {
+            "default": "{color.foreground.high-contrast}",
+            "cds-g0": "{carbon.themes.white.iconPrimary}",
+            "cds-g10": "{carbon.themes.g10.iconPrimary}",
+            "cds-g90": "{carbon.themes.g90.iconPrimary}",
+            "cds-g100": "{carbon.themes.g100.iconPrimary}"
+          }
+        }
+      }
+    },
+    "icon": {
+      "height": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        }
+      },
+      "width": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        }
+      }
+    },
+    "interactive": {
+      "foreground": {
+        "color": {
+          "incomplete": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.white.iconPrimary}",
+              "cds-g10": "{carbon.themes.g10.iconPrimary}",
+              "cds-g90": "{carbon.themes.g90.iconPrimary}",
+              "cds-g100": "{carbon.themes.g100.iconPrimary}"
+            }
+          },
+          "progress": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.interactive}",
+              "cds-g10": "{carbon.themes.g10.interactive}",
+              "cds-g90": "{carbon.themes.g90.interactive}",
+              "cds-g100": "{carbon.themes.g100.interactive}"
+            }
+          },
+          "processing": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.interactive}",
+              "cds-g10": "{carbon.themes.g10.interactive}",
+              "cds-g90": "{carbon.themes.g90.interactive}",
+              "cds-g100": "{carbon.themes.g100.interactive}"
+            }
+          },
+          "complete": {
+            "$type": "color",
+            "$value": "{color.palette.blue-200}",
+            "$modes": {
+              "default": "{color.palette.blue-200}",
+              "cds-g0": "{carbon.themes.white.interactive}",
+              "cds-g10": "{carbon.themes.g10.interactive}",
+              "cds-g90": "{carbon.themes.g90.interactive}",
+              "cds-g100": "{carbon.themes.g100.interactive}"
+            }
+          }
+        }
+      }
+    }
+  }
+}
