@@ -130,7 +130,7 @@
     "mdast-util-from-markdown": "^2.0.2",
     "mdast-util-to-string": "^4.0.0",
     "object-hash": "^3.0.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.10",
     "prember": "^2.1.0",
     "prember-middleware": "^0.1.0",
     "prember-sitemap-generator": "git://github.com/shipshapecode/prember-sitemap-generator#c95f47042d86c4fa7b8b631f271da090672e13df",
