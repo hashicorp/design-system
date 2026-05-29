@@ -6,21 +6,25 @@
 //
 // LINK > INLINE COMPONENT
 //
-// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
-// see https://github.com/hashicorp/design-system-components/issues/132
-//
 
+@use "../../mixins/focus-ring" as *;
 @use "../../mixins/carbonization" as *;
 
 .hds-link-inline {
   border-radius: var(--token-border-radius-x-small); // this is used by the outline too
 
   &:focus,
-  &.mock-focus,
-  &:focus-visible {
+  &:focus-visible,
+  &.mock-focus {
     text-decoration: none;
-    outline: var(--token-link-inline-outline-width) solid var(--token-link-inline-outline-color);
-    outline-offset: 1px;
+
+    @include hds-focus-ring-basic(
+      $external-outline-width: var(--token-link-inline-outline-width),
+      $external-outline-color: var(--token-link-inline-outline-color),
+      // we want the focus ring to extend a bit around the content
+      $external-outline-offset: 1px,
+      $has-internal-border: false
+    );
   }
 
   @include hds-apply-only-if-carbon() {
