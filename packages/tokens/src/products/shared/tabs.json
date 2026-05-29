@@ -28,8 +28,15 @@
         },
         "radius": {
           "$type": "dimension",
-          "$value": "5",
-          "unit": "px"
+          "$value": "{border.radius.small}",
+          "unit": "px",
+          "$modes": {
+            "default": "{border.radius.small}",
+            "cds-g0": "0",
+            "cds-g10": "0",
+            "cds-g90": "0",
+            "cds-g100": "0"
+          }
         }
       },
       "height": {
@@ -56,13 +63,6 @@
             "cds-g90": "48",
             "cds-g100": "48"
           }
-        }
-      },
-      "focus": {
-        "inset": {
-          "$type": "dimension",
-          "$value": "6",
-          "unit": "px"
         }
       },
       "foreground": {
@@ -200,7 +200,7 @@
       "transition": {
         "timing-function": {
           "$type": "cubicBezier",
-          "$value": [0.5, 1, 0.89, 1]
+          "$value": [ 0.5, 1, 0.89, 1 ]
         },
         "duration": {
           "$type": "duration",
