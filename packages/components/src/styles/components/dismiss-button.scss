@@ -33,8 +33,10 @@
     background-color: var(--token-dismiss-button-surface-color-hover);
   }
 
-  // we use `-1px` here so the dark blue line seems the border of the button
-  @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced();
+  }
 
   &:active,
   &.mock-active {
