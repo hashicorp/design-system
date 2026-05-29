@@ -10,7 +10,8 @@
 // and are meant to provide overrides through specificity
 //
 
-/* stylelint-disable selector-class-pattern */
+@use "../mixins/focus-ring" as *;
+
 .hds-power-select {
   font-size: 0.875rem; // 14px
   font-family: var(--token-typography-font-stack-text);
@@ -38,11 +39,11 @@
       border-color: var(--token-form-control-base-border-color-hover);
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
       border-color: var(--token-color-focus-action-internal);
-      outline: 3px solid var(--token-color-focus-action-external);
-      outline-offset: 0;
+
+      @include hds-focus-ring-basic();
     }
 
     &[aria-expanded="true"] {
@@ -119,11 +120,11 @@
 
       // focus (same for all the states)
 
-      &:focus,
+      &:focus-visible,
       &.mock-focus {
         border-color: var(--token-color-focus-action-internal);
-        outline: 3px solid var(--token-color-focus-action-external);
-        outline-offset: 0;
+
+        @include hds-focus-ring-basic();
       }
 
       &[type="search"] {

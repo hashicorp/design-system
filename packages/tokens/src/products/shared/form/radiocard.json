@@ -16,15 +16,8 @@
         },
         "radius": {
           "$type": "dimension",
-          "$value": "6",
-          "unit": "px",
-          "$modes": {
-            "default": "6",
-            "cds-g0": "0",
-            "cds-g10": "0",
-            "cds-g90": "0",
-            "cds-g100": "0"
-          }
+          "$value": "{border.radius.medium}",
+          "unit": "px"
         },
         "color": {
           "default": {
