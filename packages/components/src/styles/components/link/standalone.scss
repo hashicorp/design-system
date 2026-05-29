@@ -6,8 +6,6 @@
 //
 // LINK > STANDALONE COMPONENT
 //
-// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
-//
 
 @use "sass:map";
 @use "../../mixins/focus-ring" as *;
@@ -26,8 +24,16 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
   font-family: var(--token-typography-font-stack-text);
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
+  border-radius: var(--token-border-radius-small);
 
-  @include hds-focus-ring-with-pseudo-element($left: -2px, $right: -2px, $radius: var(--token-border-radius-small));
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced(
+      // we want the focus ring to extend a bit around the content
+      $pseudo-element-inset-hds: 0 -7px 0 -5px,
+      $pseudo-element-inset-cds: 0 -7px 0 -5px
+    );
+  }
 }
 
 .hds-link-standalone__icon {
