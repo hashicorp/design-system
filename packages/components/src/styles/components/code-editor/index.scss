@@ -118,10 +118,10 @@
     &:focus-visible,
     &.mock-focus {
       background-color: var(--token-code-block-button-surface-color-default);
-      border-color: var(--token-code-block-focus-ring-color-action-internal);
 
       &::before {
         border-color: var(--token-code-block-focus-ring-color-action-internal);
+        outline-color: var(--token-code-block-focus-ring-color-action-external);
         // override the focus ring external offset in case primary buttons are used, eg. in the custom content of the header
         outline-offset: 0;
       }
