@@ -134,7 +134,6 @@ $hds-code-block-code-footer-height: 48px;
 
 // Code
 .hds-code-block__code {
-  @include hds-focus-ring-basic();
   position: relative;
   display: grid;
   margin: 0;
@@ -143,6 +142,15 @@ $hds-code-block-code-footer-height: 48px;
   scrollbar-width: thin;
   scrollbar-color: var(--token-color-palette-neutral-400) var(--token-color-palette-neutral-500);
   border-radius: inherit;
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-basic(
+      // we want the outline to be inside the element, or it will be cut out by the `overflow` of the parent
+      $external-outline-offset: calc(-1 * var(--token-focus-ring-width-external)),
+      $has-internal-border: false
+    );
+  }
 
   ::selection {
     color: var(--token-code-block-foreground-color-selection);
@@ -176,22 +184,21 @@ $hds-code-block-code-footer-height: 48px;
     border-color: var(--token-code-block-border-color-strong);
   }
 
+  &:focus-visible,
+  &.mock-focus {
+    color: var(--token-code-block-foreground-color-primary);
+    background-color: var(--token-code-block-button-surface-color-default);
+
+    &::before {
+      border-color: var(--token-code-block-focus-ring-color-action-internal);
+      outline-color: var(--token-code-block-focus-ring-color-action-external);
+    }
+  }
+
   &:active,
   &.mock-active {
     color: var(--token-code-block-foreground-color-primary);
     background-color: var(--token-code-block-button-surface-color-active);
-  }
-
-  &:focus,
-  &.mock-focus,
-  &:focus-visible {
-    color: var(--token-code-block-foreground-color-primary);
-    background-color: var(--token-code-block-button-surface-color-default);
-    border-color: var(--token-code-block-focus-ring-color-action-internal);
-
-    &::before {
-      border-color: var(--token-code-block-focus-ring-color-action-external);
-    }
   }
 
   .hds-icon {
