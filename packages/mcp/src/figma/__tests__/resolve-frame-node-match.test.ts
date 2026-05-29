@@ -10,9 +10,9 @@ import {
   FIGMA_NODE_ID_FORMAT_HINT,
   resolveFigmaFrameNodeMatch,
   UNMATCHED_NODE_WARNING,
-} from './resolve-frame-node-match.js';
+} from '../resolve-frame-node-match.js';
 
-import type { ComponentCatalogStore } from '../catalogs/components/store.js';
+import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
 
 const component = {
   name: 'Button',

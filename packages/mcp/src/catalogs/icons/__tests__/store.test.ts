@@ -6,7 +6,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { loadIconCatalog } from './store.js';
+import { loadIconCatalog } from '../store.js';
 
 test('loadIconCatalog exposes meta and icon list', () => {
   const store = loadIconCatalog();

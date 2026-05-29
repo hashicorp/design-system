@@ -6,7 +6,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { loadTokenCatalog } from './store.js';
+import { loadTokenCatalog } from '../store.js';
 
 test('loadTokenCatalog exposes meta and token list', () => {
   const store = loadTokenCatalog();

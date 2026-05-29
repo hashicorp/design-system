@@ -6,7 +6,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { loadShowcaseSnippetsCatalog } from './store.js';
+import { loadShowcaseSnippetsCatalog } from '../store.js';
 
 const files = [
   '/repo/showcase/app/components/page-components/button/code-fragments/with-loading-state.gts',

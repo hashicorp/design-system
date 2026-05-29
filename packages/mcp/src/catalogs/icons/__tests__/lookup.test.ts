@@ -10,7 +10,7 @@ import {
   getIconLookupKeys,
   normalizeLookupValue,
   toIconRecord,
-} from './lookup.js';
+} from '../lookup.js';
 
 test('normalizeLookupValue trims and lowercases', () => {
   assert.equal(normalizeLookupValue(' Apple-16 '), 'apple-16');

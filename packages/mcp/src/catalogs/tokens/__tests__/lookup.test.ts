@@ -11,7 +11,7 @@ import {
   normalizeTokenLookupKey,
   toCssVarName,
   toTokenType,
-} from './lookup.js';
+} from '../lookup.js';
 
 test('normalizeTokenLookupKey trims braces and lowercases', () => {
   assert.equal(

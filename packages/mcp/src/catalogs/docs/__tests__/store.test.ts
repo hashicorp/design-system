@@ -6,7 +6,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { loadDocsCatalog, rankSearchResults } from './store.js';
+import { loadDocsCatalog, rankSearchResults } from '../store.js';
 
 test('loadDocsCatalog exposes available meta and source counts', () => {
   const store = loadDocsCatalog();
