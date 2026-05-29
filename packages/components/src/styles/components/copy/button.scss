@@ -28,7 +28,7 @@
     }
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
     color: var(--token-copy-button-foreground-color);
     background-color: var(--token-copy-button-surface-color-focus);
