@@ -4,6 +4,8 @@
  */
 
 @use "sass:map";
+@use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 $hds-button-sizes: ("small", "medium", "large");
 
@@ -24,8 +26,7 @@ $hds-button-sizes: ("small", "medium", "large");
   text-decoration: none;
   border: var(--token-button-border-width) solid transparent; // We need this to be transparent for a11y
   border-radius: var(--token-button-border-radius);
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent; // We need this to be transparent for a11y
+  outline: none;
   isolation: isolate;
 }
 
@@ -35,26 +36,6 @@ $hds-button-sizes: ("small", "medium", "large");
   border-color: var(--token-button-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
-}
-
-@mixin hds-button-state-focus() {
-  box-shadow: none;
-
-  &::before {
-    // the position absolute of an element is computed from the inside of the border of the container
-    // so we have to take in account the border width of the pseudo-element container itself
-    $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-    $radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width));
-    position: absolute;
-    top: $shift;
-    right: $shift;
-    bottom: $shift;
-    left: $shift;
-    z-index: -1;
-    border: var(--token-button-focus-ring-border-width) solid transparent;
-    border-radius: $radius;
-    content: "";
-  }
 }
 
 @mixin hds-button-color-primary() {
@@ -71,25 +52,18 @@ $hds-button-sizes: ("small", "medium", "large");
     cursor: pointer;
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
     color: var(--token-button-foreground-color-primary-focus);
     background-color: var(--token-button-surface-color-primary-focus);
-    border-color: var(--token-button-border-color-primary-focus-internal);
 
-    &::before {
-      // the position absolute of an element is computed from the inside of the border of the container
-      // so we have to take in account the border width of the pseudo-element container itself
-      // plus for the primary button we want to have a 2px gap between the button and the focus
-      $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-      $radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width) + 2px);
-      top: $shift;
-      right: $shift;
-      bottom: $shift;
-      left: $shift;
-      border-color: var(--token-button-border-color-primary-focus-external);
-      border-radius: $radius;
-    }
+    @include hds-focus-ring-advanced(
+      // the element has already a `position: relative` with `isolation: isolate`
+      $element-position: false,
+      // this is a special case
+      $external-outline-offset-hds: 2px,
+      $internal-border-width-cds: 1px
+    );
   }
 
   &:active,
@@ -119,15 +93,17 @@ $hds-button-sizes: ("small", "medium", "large");
     cursor: pointer;
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
     color: var(--token-button-foreground-color-secondary-focus);
     background-color: var(--token-button-surface-color-secondary-focus);
-    border-color: var(--token-button-border-color-secondary-focus-internal);
 
-    &::before {
-      border-color: var(--token-button-border-color-secondary-focus-external);
-    }
+    @include hds-focus-ring-advanced(
+      // the element has already a `position: relative` with `isolation: isolate`
+      $element-position: false,
+      // we want to see the white/black inner border for cds
+      $internal-border-width-cds: 1px
+    );
   }
 
   &:active,
@@ -156,15 +132,17 @@ $hds-button-sizes: ("small", "medium", "large");
     cursor: pointer;
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
     color: var(--token-button-foreground-color-tertiary-focus);
     background-color: var(--token-button-surface-color-tertiary-focus);
-    border-color: var(--token-button-border-color-tertiary-focus-internal);
 
-    &::before {
-      border-color: var(--token-button-border-color-tertiary-focus-external);
-    }
+    @include hds-focus-ring-advanced(
+      // the element has already a `position: relative` with `isolation: isolate`
+      $element-position: false,
+      // we want to see the white/black inner border for cds
+      $internal-border-width-cds: 1px
+    );
   }
 
   &:active,
@@ -217,14 +195,29 @@ $hds-button-sizes: ("small", "medium", "large");
     cursor: pointer;
   }
 
-  &:focus,
+  // This is a special focus ring, that has:
+  // • hds → "critical" focus ring
+  // • cds → external outline of 2px + internal outline of 1px
+  // Note: we can't apply the box-shadow directly to the element, because it has a border
+  // and the inner ring (`inset` box-shadow) would be rendered _inside_ the border
+  &:focus-visible,
   &.mock-focus {
     color: var(--token-button-foreground-color-critical-focus);
     background-color: var(--token-button-surface-color-critical-focus);
-    border-color: var(--token-button-border-color-critical-focus-internal);
 
     &::before {
-      border-color: var(--token-button-border-color-critical-focus-external);
+      position: absolute;
+      inset: -1px; // we have to take into account the border
+      z-index: -1;
+      border-radius: inherit;
+      box-shadow: var(--token-focus-ring-critical-box-shadow);
+      content: "";
+
+      @include hds-apply-only-if-carbon() {
+        box-shadow:
+          inset 0 0 0 2px var(--token-color-focus-action-external),
+          inset 0 0 0 3px var(--token-color-focus-action-internal);
+      }
     }
   }
 

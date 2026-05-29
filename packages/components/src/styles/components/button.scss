@@ -6,8 +6,6 @@
 //
 // BUTTON COMPONENT
 //
-// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
-//
 
 @use "../mixins/button" as *;
 @use "../mixins/carbonization" as *;
@@ -59,11 +57,6 @@
     .hds-button__text {
       flex: 0 0 auto;
     }
-  }
-
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
   }
 }
 
