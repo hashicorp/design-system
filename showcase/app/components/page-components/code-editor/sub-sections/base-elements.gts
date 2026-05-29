@@ -14,6 +14,7 @@ import {
   HdsCodeEditorDescription,
   HdsCodeEditorFullScreenButton,
   HdsCodeEditorTitle,
+  HdsCopyButton,
 } from '@hashicorp/design-system-components/components';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
@@ -37,13 +38,23 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     </HdsCodeEditorDescription>
   </div>
 
-  <ShwTextH3>CodeEditorFullScreenButton</ShwTextH3>
+  <ShwTextH3>CodeEditor Header action buttons</ShwTextH3>
 
   <ShwFlex as |SF|>
     {{#each STATES as |state|}}
       <SF.Item @label={{state}}>
         <div class="hds-code-editor" {{style padding="16px"}}>
-          <ShwFlex as |SFI|>
+          <ShwFlex class="hds-code-editor__header-actions" as |SFI|>
+            <SFI.Item>
+              <HdsCopyButton
+                class="hds-code-editor__button hds-code-editor__copy-button"
+                @isIconOnly={{true}}
+                @size="small"
+                @text="Copy"
+                @textToCopy="Lorem ipsum"
+                mock-state-value={{state}}
+              />
+            </SFI.Item>
             <SFI.Item>
               <HdsCodeEditorFullScreenButton
                 @isFullScreen={{false}}
