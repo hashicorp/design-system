@@ -6,8 +6,6 @@
 //
 // DROPDOWN COMPONENT
 //
-// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
-//
 
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
@@ -49,8 +47,6 @@
   background-color: var(--token-button-surface-color-secondary-default);
   border: 1px solid var(--token-button-border-color-secondary-default);
   border-radius: var(--token-button-border-radius);
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent; // We need this to be transparent for a11y
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
   &:hover,
@@ -61,17 +57,19 @@
     cursor: pointer;
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    @include hds-button-state-focus();
-
     color: var(--token-button-foreground-color-secondary-focus);
     background-color: var(--token-button-surface-color-secondary-focus);
-    border-color: var(--token-button-border-color-secondary-focus-internal);
 
-    &::before {
-      border-color: var(--token-button-border-color-secondary-focus-external);
-    }
+    @include hds-focus-ring-advanced(
+      // the element has already a `position: relative` with `isolation: isolate`
+      $element-position: false,
+      // needs to overlay the avatar image
+      $pseudo-element-z-index: 1,
+      // we want to see the white/black inner border for cds
+      $internal-border-width-cds: 1px
+    );
   }
 
   &:active,
@@ -79,10 +77,6 @@
     color: var(--token-button-foreground-color-secondary-active);
     background-color: var(--token-button-surface-color-secondary-active);
     border-color: var(--token-button-border-color-secondary-active);
-
-    &::before {
-      border-color: transparent;
-    }
   }
 
   &:disabled,
@@ -136,11 +130,6 @@
 .hds-dropdown-toggle-button {
   @include hds-button();
   gap: var(--token-dropdown-toggle-button-gap);
-
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
-  }
 
   &:disabled,
   &.mock-disabled,
@@ -382,46 +371,13 @@
       }
     }
 
-    // default focus for browsers that still rely on ":focus"
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
       color: var(--current-color-focus);
 
       &::after {
         left: 4px;
         box-shadow: var(--current-focus-ring-box-shadow);
-      }
-    }
-    // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-    &:focus:not(:focus-visible) {
-      &::after {
-        background-color: transparent;
-        box-shadow: none;
-      }
-    }
-    // set focus for browsers that support ":focus-visible"
-    &:focus-visible {
-      color: var(--current-color-focus);
-
-      &::after {
-        left: 4px;
-        box-shadow: var(--current-focus-ring-box-shadow);
-      }
-    }
-
-    // remove the focus ring on "active + focused" state (by design)
-    &:focus:active,
-    &:focus-visible:active,
-    &.mock-focus.mock-active {
-      &::after {
-        left: 10px;
-        background-color: var(--current-background-color);
-        box-shadow: none;
-
-        @include hds-apply-only-if-carbon() {
-          left: 0;
-          background-color: transparent;
-        }
       }
     }
 
@@ -461,8 +417,6 @@
     padding: 7px 9px 7px 15px; // notice: we're subtracting 1px because of the transparent border
     text-decoration: none;
     border: 1px solid transparent; // because a border for the button is needed for a11y, we apply it to both the button and the link so they have the same height
-    outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-    outline-color: transparent;
 
     @include hds-apply-only-if-carbon() {
       padding: 11px 16px;
@@ -484,19 +438,13 @@
     // and also has a background color, so we can't use the existing focus-ring mixins
     &::after {
       position: absolute;
-      top: 0;
-      right: 4px;
-      bottom: 0;
-      left: 10px;
+      inset: 0 4px 0 10px;
       z-index: -1;
       border-radius: var(--token-border-radius-small);
       content: "";
 
       @include hds-apply-only-if-carbon() {
-        top: 3px;
-        right: 3px;
-        bottom: 3px;
-        left: 3px;
+        inset: 0;
       }
     }
   }
