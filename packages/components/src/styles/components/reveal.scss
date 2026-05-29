@@ -31,7 +31,7 @@
     background-color: var(--token-reveal-surface-color-hover);
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
     // The focus state color is the same as the default's
     color: var(--token-reveal-foreground-color-default);
