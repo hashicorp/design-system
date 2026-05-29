@@ -149,29 +149,16 @@ $pagination-nav-control-padding-horizontal: 12px;
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
-
-  // NOTE: The "focus-ring" currently included a 1px white solid box-shadow (--token-focus-ring-action-box-shadow).
-  // The white color could possibly be replaced with a transparent color for carbon themes.
-  @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-pagination-nav-control-focus-inset),
-    $right: var(--token-pagination-nav-control-focus-inset),
-    $bottom: var(--token-pagination-nav-control-focus-inset),
-    $left: var(--token-pagination-nav-control-focus-inset)
-  );
-
-  @include hds-apply-only-if-carbon() {
-    // Adjust positioning of focus ring for Carbon themes
-    &::before {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-  }
+  border-radius: var(--token-border-radius-medium);
 
   &:hover,
   &.mock-hover {
     color: var(--token-pagination-nav-control-foreground-color-hover);
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced($pseudo-element-inset-hds: 4px, $pseudo-element-inset-cds: 0);
   }
 
   &:not(.hds-pagination-nav__number--is-selected, [disabled]) {
@@ -234,7 +221,7 @@ $pagination-nav-control-padding-horizontal: 12px;
   &::after {
     position: absolute;
     right: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
-    bottom: -1px;
+    bottom: 0;
     left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
     height: var(--token-pagination-nav-indicator-height);
     margin: 0 auto;

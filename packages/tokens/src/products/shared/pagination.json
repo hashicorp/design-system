@@ -42,13 +42,6 @@
             "cds-g100": "40"
           }
         },
-        "focus": {
-          "inset": {
-            "$type": "dimension",
-            "$value": "4",
-            "unit": "px"
-          }
-        },
         "foreground": {
           "color": {
             "default": {
