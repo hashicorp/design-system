@@ -38,6 +38,7 @@
   --token-alert-title-foreground-color-warning: #f4f4f4;
   --token-alert-typography-line-height: 1.28572;
   --token-app-footer-link-focus-outline-color: #ffffff;
+  --token-app-footer-link-focus-outline-width: 1px;
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
   --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
@@ -111,6 +112,8 @@
   --token-breadcrumb-link-foreground-color-default: #78a9ff;
   --token-breadcrumb-link-foreground-color-hover: #a6c8ff;
   --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  --token-breadcrumb-truncation-toggle-border-color-active: rgba(0, 0, 0, 0);
+  --token-breadcrumb-truncation-toggle-border-color-hover: rgba(0, 0, 0, 0);
   --token-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
   --token-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
   --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
@@ -353,8 +356,10 @@
   --token-elevation-low-box-shadow: none;
   --token-elevation-mid-box-shadow: none;
   --token-elevation-overlay-box-shadow: none;
-  --token-focus-ring-action-box-shadow: inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
-  --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
+  --token-focus-ring-action-box-shadow: inset 0 0 0 var(--token-focus-ring-width-external) var(--token-color-focus-action-external);
+  --token-focus-ring-critical-box-shadow: inset 0 0 0 var(--token-focus-ring-width-external) var(--token-color-focus-critical-external);
+  --token-focus-ring-width-external: 2px;
+  --token-focus-ring-width-internal: 0px;
   --token-form-character-count-foreground-color: #a8a8a8;
   --token-form-character-count-typography-font-size: 0.75rem;
   --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -378,7 +383,6 @@
   --token-form-radiocard-border-color-default-checked: #ffc0cb;
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
-  --token-form-radiocard-border-radius: 0px;
   --token-icon-tile-border-color-logo: #525252;
   --token-icon-tile-border-color-overlay: #6f6f6f;
   --token-icon-tile-surface-color-overlay: #393939;

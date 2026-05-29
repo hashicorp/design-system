@@ -2,7 +2,14 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-/* stylelint-disable selector-class-pattern */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-power-select {
   font-size: 0.875rem;
   font-family: var(--token-typography-font-stack-text);
@@ -28,12 +35,23 @@
 .hds-power-select .ember-power-select-trigger.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
-.hds-power-select .ember-basic-dropdown-trigger:focus, .hds-power-select .ember-basic-dropdown-trigger.mock-focus,
-.hds-power-select .ember-power-select-trigger:focus,
+.hds-power-select .ember-basic-dropdown-trigger:focus-visible, .hds-power-select .ember-basic-dropdown-trigger.mock-focus,
+.hds-power-select .ember-power-select-trigger:focus-visible,
+.hds-power-select .ember-power-select-trigger.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-power-select .ember-basic-dropdown-trigger:focus-visible, .hds-theme-light .hds-power-select .ember-basic-dropdown-trigger.mock-focus, .hds-theme-light .hds-power-select .ember-power-select-trigger:focus-visible, .hds-theme-light .hds-power-select .ember-power-select-trigger.mock-focus,
+.hds-theme-dark .hds-power-select .ember-basic-dropdown-trigger:focus-visible, .hds-theme-dark .hds-power-select .ember-basic-dropdown-trigger.mock-focus, .hds-theme-dark .hds-power-select .ember-power-select-trigger:focus-visible, .hds-theme-dark .hds-power-select .ember-power-select-trigger.mock-focus,
+.hds-theme-system .hds-power-select .ember-basic-dropdown-trigger:focus-visible, .hds-theme-system .hds-power-select .ember-basic-dropdown-trigger.mock-focus, .hds-theme-system .hds-power-select .ember-power-select-trigger:focus-visible, .hds-theme-system .hds-power-select .ember-power-select-trigger.mock-focus {
+  border-color: transparent;
+}
+
+.hds-power-select .ember-basic-dropdown-trigger:focus-visible, .hds-power-select .ember-basic-dropdown-trigger.mock-focus,
+.hds-power-select .ember-power-select-trigger:focus-visible,
 .hds-power-select .ember-power-select-trigger.mock-focus {
   border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
-  outline-offset: 0;
 }
 .hds-power-select .ember-basic-dropdown-trigger[aria-expanded=true].ember-basic-dropdown-trigger--in-place,
 .hds-power-select .ember-power-select-trigger[aria-expanded=true].ember-basic-dropdown-trigger--in-place {
@@ -93,10 +111,19 @@
 .hds-power-select .ember-power-select-search .ember-power-select-search-input:hover, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
-.hds-power-select .ember-power-select-search .ember-power-select-search-input:focus, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-focus {
-  border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
+.hds-power-select .ember-power-select-search .ember-power-select-search-input:focus-visible, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-power-select .ember-power-select-search .ember-power-select-search-input:focus-visible, .hds-theme-light .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-focus,
+.hds-theme-dark .hds-power-select .ember-power-select-search .ember-power-select-search-input:focus-visible, .hds-theme-dark .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-focus,
+.hds-theme-system .hds-power-select .ember-power-select-search .ember-power-select-search-input:focus-visible, .hds-theme-system .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-focus {
+  border-color: transparent;
+}
+
+.hds-power-select .ember-power-select-search .ember-power-select-search-input:focus-visible, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-focus {
+  border-color: var(--token-color-focus-action-internal);
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input[type=search] {
   padding-left: calc(var(--token-form-control-padding) + 24px);

@@ -411,6 +411,18 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-accordion {
   display: flex;
   flex-direction: column;
@@ -509,34 +521,6 @@
 }
 
 .hds-accordion-item__button--parent-does-not-contain-interactive {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-accordion-item__button--parent-does-not-contain-interactive::before {
-  position: absolute;
-  top: var(--hds-accordion-item-focus-ring-offset);
-  right: var(--hds-accordion-item-focus-ring-offset);
-  bottom: var(--hds-accordion-item-focus-ring-offset);
-  left: var(--hds-accordion-item-focus-ring-offset);
-  z-index: -1;
-  border-radius: var(--token-border-radius-medium);
-  content: "";
-}
-.hds-accordion-item__button--parent-does-not-contain-interactive:focus::before, .hds-accordion-item__button--parent-does-not-contain-interactive.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-accordion-item__button--parent-does-not-contain-interactive:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-accordion-item__button--parent-does-not-contain-interactive:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-accordion-item__button--parent-does-not-contain-interactive:focus:active::before, .hds-accordion-item__button--parent-does-not-contain-interactive.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-accordion-item__button--parent-does-not-contain-interactive {
   position: static;
   display: flex;
   align-items: center;
@@ -545,8 +529,27 @@
   color: var(--token-color-foreground-primary);
   background: transparent;
   border: 0;
+  border-radius: var(--token-button-border-radius);
 }
-
+.hds-accordion-item__button--parent-does-not-contain-interactive::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+.hds-accordion-item__button--parent-does-not-contain-interactive:focus-visible, .hds-accordion-item__button--parent-does-not-contain-interactive.mock-focus {
+  outline: none;
+}
+.hds-accordion-item__button--parent-does-not-contain-interactive:focus-visible::before, .hds-accordion-item__button--parent-does-not-contain-interactive.mock-focus::before {
+  position: absolute;
+  inset: var(--hds-accordion-item-focus-ring-offset);
+  z-index: 1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
 .hds-accordion-item__button--parent-contains-interactive {
   position: relative;
   display: flex;
@@ -559,25 +562,8 @@
   text-decoration: none;
   border: var(--token-button-border-width) solid transparent;
   border-radius: var(--token-button-border-radius);
-  outline-style: solid;
-  outline-color: transparent;
+  outline: none;
   isolation: isolate;
-}
-.hds-accordion-item__button--parent-contains-interactive:focus, .hds-accordion-item__button--parent-contains-interactive.mock-focus {
-  box-shadow: none;
-}
-.hds-accordion-item__button--parent-contains-interactive:focus::before, .hds-accordion-item__button--parent-contains-interactive.mock-focus::before {
-  position: absolute;
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  z-index: -1;
-  border: var(--token-button-focus-ring-border-width) solid transparent;
-  border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width));
-  content: "";
-}
-.hds-accordion-item__button--parent-contains-interactive {
   color: var(--token-button-foreground-color-secondary-default);
   background-color: var(--token-button-surface-color-secondary-default);
   border-color: var(--token-button-border-color-secondary-default);
@@ -589,13 +575,30 @@
   border-color: var(--token-button-border-color-secondary-hover);
   cursor: pointer;
 }
-.hds-accordion-item__button--parent-contains-interactive:focus, .hds-accordion-item__button--parent-contains-interactive.mock-focus {
+.hds-accordion-item__button--parent-contains-interactive:focus-visible, .hds-accordion-item__button--parent-contains-interactive.mock-focus {
+  outline: none;
+}
+.hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-accordion-item__button--parent-contains-interactive.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-light .hds-accordion-item__button--parent-contains-interactive.mock-focus::before,
+.hds-theme-dark .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-dark .hds-accordion-item__button--parent-contains-interactive.mock-focus::before,
+.hds-theme-system .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-system .hds-accordion-item__button--parent-contains-interactive.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-accordion-item__button--parent-contains-interactive:focus-visible, .hds-accordion-item__button--parent-contains-interactive.mock-focus {
   color: var(--token-button-foreground-color-secondary-focus);
   background-color: var(--token-button-surface-color-secondary-focus);
-  border-color: var(--token-button-border-color-secondary-focus-internal);
-}
-.hds-accordion-item__button--parent-contains-interactive:focus::before, .hds-accordion-item__button--parent-contains-interactive.mock-focus::before {
-  border-color: var(--token-button-border-color-secondary-focus-external);
 }
 .hds-accordion-item__button--parent-contains-interactive:active, .hds-accordion-item__button--parent-contains-interactive.mock-active {
   color: var(--token-button-foreground-color-secondary-active);
@@ -632,6 +635,10 @@
   border-bottom: none;
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -704,41 +711,28 @@
   text-align: left;
   background-color: var(--token-color-surface-strong);
 }
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus {
-  position: sticky;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus::before {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  bottom: 3px;
-  left: 3px;
-  z-index: -1;
-  border-radius: inherit;
-  content: "";
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus:focus::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus.mock-focus::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus:focus::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus:focus:not(:focus-visible)::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus:focus-visible::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus:focus:active::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus.mock-focus.mock-active::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus:focus:active::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus {
-  z-index: 1;
-  isolation: isolate;
-}
 .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:hover .hds-advanced-table__th-reorder-handle, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-hover .hds-advanced-table__th-reorder-handle, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus-within .hds-advanced-table__th-reorder-handle {
   visibility: visible;
   opacity: 1;
+}
+.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus-visible, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus {
+  position: sticky;
+  isolation: isolate;
+  outline: none;
+}
+.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus-visible::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus::before {
+  position: absolute;
+  inset: var(--token-focus-ring-width-external);
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus-visible, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-focus {
+  z-index: 1;
 }
 .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.hds-advanced-table__th--is-being-dragged .hds-advanced-table__th-reorder-handle {
   opacity: 0;
@@ -795,33 +789,6 @@
 }
 .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle {
   position: absolute;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: var(--token-border-radius-medium);
-  content: "";
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus:active::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle {
   top: 0;
   right: 0;
   bottom: 0;
@@ -840,6 +807,26 @@
   z-index: 2;
   content: "";
 }
+.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus-visible, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-focus {
+  outline: none;
+}
+.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus-visible::before, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-focus::before {
+  position: absolute;
+  inset: 3px 0 3px 0;
+  z-index: 3;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: var(--token-border-radius-medium);
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus-visible::before, .hds-theme-light .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-focus::before,
+.hds-theme-dark .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus-visible::before, .hds-theme-dark .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-focus::before,
+.hds-theme-system .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus-visible::before, .hds-theme-system .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-focus::before {
+  inset: 2px 0 2px 0;
+}
+
 .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:focus::after, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-focus::after, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle:hover::after, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-hover::after, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.hds-advanced-table__th-resize-handle--resizing::after, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th-resize-handle.mock-active::after {
   width: 3px;
   transform: translateX(-10.5px);
@@ -970,36 +957,36 @@
 .hds-advanced-table__th-reorder-handle:hover .hds-advanced-table__th-reorder-handle__inner, .hds-advanced-table__th-reorder-handle.mock-hover .hds-advanced-table__th-reorder-handle__inner {
   background-color: var(--token-color-surface-interactive-hover);
 }
+.hds-advanced-table__th-reorder-handle:focus-visible, .hds-advanced-table__th-reorder-handle.mock-focus {
+  position: absolute;
+  isolation: isolate;
+  outline: none;
+}
+.hds-advanced-table__th-reorder-handle:focus-visible::before, .hds-advanced-table__th-reorder-handle.mock-focus::before {
+  position: absolute;
+  inset: 3px 0 3px 0;
+  z-index: 1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: var(--token-border-radius-small);
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-advanced-table__th-reorder-handle:focus-visible::before, .hds-theme-light .hds-advanced-table__th-reorder-handle.mock-focus::before,
+.hds-theme-dark .hds-advanced-table__th-reorder-handle:focus-visible::before, .hds-theme-dark .hds-advanced-table__th-reorder-handle.mock-focus::before,
+.hds-theme-system .hds-advanced-table__th-reorder-handle:focus-visible::before, .hds-theme-system .hds-advanced-table__th-reorder-handle.mock-focus::before {
+  inset: 4px 0 4px 0;
+}
+
+.hds-advanced-table__th-reorder-handle:focus-visible .hds-advanced-table__th-reorder-handle__inner, .hds-advanced-table__th-reorder-handle.mock-focus .hds-advanced-table__th-reorder-handle__inner {
+  background-color: var(--token-color-surface-interactive);
+}
 .hds-advanced-table__th-reorder-handle:active, .hds-advanced-table__th-reorder-handle.mock-active {
   cursor: grabbing;
 }
 .hds-advanced-table__th-reorder-handle:active .hds-advanced-table__th-reorder-handle__inner, .hds-advanced-table__th-reorder-handle.mock-active .hds-advanced-table__th-reorder-handle__inner {
   background-color: var(--token-color-surface-interactive-hover);
-}
-.hds-advanced-table__th-reorder-handle:focus, .hds-advanced-table__th-reorder-handle.mock-focus {
-  position: absolute;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-advanced-table__th-reorder-handle:focus::before, .hds-advanced-table__th-reorder-handle.mock-focus::before {
-  position: absolute;
-  top: 3px;
-  right: 0;
-  bottom: 3px;
-  left: 0;
-  z-index: -1;
-  border-radius: var(--token-border-radius-medium);
-  content: "";
-}
-.hds-advanced-table__th-reorder-handle:focus:focus::before, .hds-advanced-table__th-reorder-handle:focus.mock-focus::before, .hds-advanced-table__th-reorder-handle.mock-focus:focus::before, .hds-advanced-table__th-reorder-handle.mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-advanced-table__th-reorder-handle:focus:focus:active::before, .hds-advanced-table__th-reorder-handle:focus.mock-focus.mock-active::before, .hds-advanced-table__th-reorder-handle.mock-focus:focus:active::before, .hds-advanced-table__th-reorder-handle.mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-advanced-table__th-reorder-handle:focus .hds-advanced-table__th-reorder-handle__inner, .hds-advanced-table__th-reorder-handle.mock-focus .hds-advanced-table__th-reorder-handle__inner {
-  background-color: var(--token-color-surface-interactive);
 }
 
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon {
@@ -1013,20 +1000,7 @@
   border-radius: var(--token-border-radius-x-small);
 }
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:hover, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-hover {
-  color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-interactive);
-  border-color: var(--token-color-border-strong);
   box-shadow: var(--token-elevation-low-box-shadow);
-}
-.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus::before, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus::before,
-.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon .hds-dropdown-toggle-icon--is-open::before {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border: none;
-  border-radius: var(--token-border-radius-x-small);
-  box-shadow: var(--token-focus-ring-action-box-shadow);
 }
 
 .hds-advanced-table__th-button {
@@ -1041,7 +1015,7 @@
   color: var(--token-color-foreground-faint);
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: var(--token-border-radius-x-small);
 }
 .hds-advanced-table__th-button:hover, .hds-advanced-table__th-button.mock-hover {
   color: var(--token-color-foreground-primary);
@@ -1050,33 +1024,21 @@
   box-shadow: var(--token-elevation-low-box-shadow);
   cursor: pointer;
 }
-.hds-advanced-table__th-button {
+.hds-advanced-table__th-button:focus-visible, .hds-advanced-table__th-button.mock-focus {
   position: relative;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-advanced-table__th-button::before {
+.hds-advanced-table__th-button:focus-visible::before, .hds-advanced-table__th-button.mock-focus::before {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
   border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
-}
-.hds-advanced-table__th-button:focus::before, .hds-advanced-table__th-button.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-advanced-table__th-button:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-advanced-table__th-button:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-advanced-table__th-button:focus:active::before, .hds-advanced-table__th-button.mock-focus.mock-active::before {
-  box-shadow: none;
+  pointer-events: auto;
 }
 .hds-advanced-table__th-button:active, .hds-advanced-table__th-button.mock-active {
   color: var(--token-color-foreground-primary);
@@ -1141,55 +1103,41 @@
   text-align: left;
   background-color: var(--token-color-surface-primary);
 }
-.hds-advanced-table__tbody .hds-advanced-table__th:focus, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus,
+.hds-advanced-table__tbody .hds-advanced-table__th:focus-visible, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus,
+.hds-advanced-table__tbody .hds-advanced-table__td:focus-visible,
 .hds-advanced-table__tbody .hds-advanced-table__td.mock-focus {
   position: sticky;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-advanced-table__tbody .hds-advanced-table__th:focus::before, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus::before,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus::before,
+.hds-advanced-table__tbody .hds-advanced-table__th:focus-visible::before, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus::before,
+.hds-advanced-table__tbody .hds-advanced-table__td:focus-visible::before,
 .hds-advanced-table__tbody .hds-advanced-table__td.mock-focus::before {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  bottom: 3px;
-  left: 3px;
+  inset: 3px;
   z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
   border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
+  pointer-events: auto;
 }
-.hds-advanced-table__tbody .hds-advanced-table__th:focus:focus::before, .hds-advanced-table__tbody .hds-advanced-table__th:focus.mock-focus::before, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus:focus::before, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus.mock-focus::before,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus:focus::before,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus.mock-focus::before,
-.hds-advanced-table__tbody .hds-advanced-table__td.mock-focus:focus::before,
-.hds-advanced-table__tbody .hds-advanced-table__td.mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
+.hds-theme-light .hds-advanced-table__tbody .hds-advanced-table__th:focus-visible::before, .hds-theme-light .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus::before, .hds-theme-light .hds-advanced-table__tbody .hds-advanced-table__td:focus-visible::before, .hds-theme-light .hds-advanced-table__tbody .hds-advanced-table__td.mock-focus::before,
+.hds-theme-dark .hds-advanced-table__tbody .hds-advanced-table__th:focus-visible::before, .hds-theme-dark .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus::before, .hds-theme-dark .hds-advanced-table__tbody .hds-advanced-table__td:focus-visible::before, .hds-theme-dark .hds-advanced-table__tbody .hds-advanced-table__td.mock-focus::before,
+.hds-theme-system .hds-advanced-table__tbody .hds-advanced-table__th:focus-visible::before, .hds-theme-system .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus::before, .hds-theme-system .hds-advanced-table__tbody .hds-advanced-table__td:focus-visible::before, .hds-theme-system .hds-advanced-table__tbody .hds-advanced-table__td.mock-focus::before {
+  inset: 2px;
 }
-.hds-advanced-table__tbody .hds-advanced-table__th:focus:focus:not(:focus-visible)::before, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus:focus:not(:focus-visible)::before,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus:focus:not(:focus-visible)::before,
-.hds-advanced-table__tbody .hds-advanced-table__td.mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-advanced-table__tbody .hds-advanced-table__th:focus:focus-visible::before, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus:focus-visible::before,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus:focus-visible::before,
-.hds-advanced-table__tbody .hds-advanced-table__td.mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-advanced-table__tbody .hds-advanced-table__th:focus:focus:active::before, .hds-advanced-table__tbody .hds-advanced-table__th:focus.mock-focus.mock-active::before, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus:focus:active::before, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus.mock-focus.mock-active::before,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus:focus:active::before,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus.mock-focus.mock-active::before,
-.hds-advanced-table__tbody .hds-advanced-table__td.mock-focus:focus:active::before,
-.hds-advanced-table__tbody .hds-advanced-table__td.mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-advanced-table__tbody .hds-advanced-table__th:focus, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus,
-.hds-advanced-table__tbody .hds-advanced-table__td:focus,
+
+.hds-advanced-table__tbody .hds-advanced-table__th:focus-visible, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus,
+.hds-advanced-table__tbody .hds-advanced-table__td:focus-visible,
 .hds-advanced-table__tbody .hds-advanced-table__td.mock-focus {
   z-index: 1;
-  isolation: isolate;
+}
+.hds-advanced-table__tbody .hds-advanced-table__th:focus-visible .hds-advanced-table__th-reorder-handle__inner, .hds-advanced-table__tbody .hds-advanced-table__th.mock-focus .hds-advanced-table__th-reorder-handle__inner,
+.hds-advanced-table__tbody .hds-advanced-table__td:focus-visible .hds-advanced-table__th-reorder-handle__inner,
+.hds-advanced-table__tbody .hds-advanced-table__td.mock-focus .hds-advanced-table__th-reorder-handle__inner {
+  background-color: var(--token-color-surface-interactive);
 }
 .hds-advanced-table--density-short .hds-advanced-table__tbody .hds-advanced-table__th,
 .hds-advanced-table--density-short .hds-advanced-table__tbody .hds-advanced-table__td {
@@ -1250,11 +1198,6 @@
 }
 .hds-advanced-table--valign-baseline .hds-advanced-table__tbody .hds-advanced-table__th,
 .hds-advanced-table--valign-baseline .hds-advanced-table__tbody .hds-advanced-table__td {
-  /**
-    setting to center because in FlexBox, when you set align-items: baseline, it also aligns content to the top - unlike display: table-cell which aligns the content to the center
-
-    we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
-  */
   align-items: center;
 }
 .hds-advanced-table__tbody .hds-advanced-table__tr--hidden {
@@ -1357,7 +1300,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-alert {
@@ -1587,6 +1530,10 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-app-footer {
   display: flex;
   flex-wrap: wrap;
@@ -1640,25 +1587,25 @@
 
 .hds-app-footer__link.hds-link-inline--color-secondary,
 .hds-app-footer__status-link {
-  color: var(--app-footer-link-default-color);
+  color: var(--app-footer-link-foreground-color-default);
   text-align: right;
 }
 .hds-app-footer__link.hds-link-inline--color-secondary:hover, .hds-app-footer__link.hds-link-inline--color-secondary.mock-hover,
 .hds-app-footer__status-link:hover,
 .hds-app-footer__status-link.mock-hover {
-  color: var(--app-footer-link-hover-color);
+  color: var(--app-footer-link-foreground-color-hover);
+}
+.hds-app-footer__link.hds-link-inline--color-secondary:focus-visible, .hds-app-footer__link.hds-link-inline--color-secondary.mock-focus,
+.hds-app-footer__status-link:focus-visible,
+.hds-app-footer__status-link.mock-focus {
+  outline: var(--token-app-footer-link-focus-outline-width) solid var(--app-footer-link-outline-color);
+  outline-offset: 1px;
+  color: var(--app-footer-link-foreground-color-focus);
 }
 .hds-app-footer__link.hds-link-inline--color-secondary:active, .hds-app-footer__link.hds-link-inline--color-secondary.mock-active,
 .hds-app-footer__status-link:active,
 .hds-app-footer__status-link.mock-active {
-  color: var(--app-footer-link-active-color);
-}
-.hds-app-footer__link.hds-link-inline--color-secondary:focus, .hds-app-footer__link.hds-link-inline--color-secondary.mock-focus, .hds-app-footer__link.hds-link-inline--color-secondary:focus-visible,
-.hds-app-footer__status-link:focus,
-.hds-app-footer__status-link.mock-focus,
-.hds-app-footer__status-link:focus-visible {
-  color: var(--app-footer-link-focus-color);
-  outline-color: var(--app-footer-link-focus-outline-color);
+  color: var(--app-footer-link-foreground-color-active);
 }
 
 .hds-app-footer__list-item {
@@ -1681,11 +1628,11 @@
 .hds-app-footer--theme-light {
   --app-footer-foreground-color: var(--token-color-foreground-primary);
   --app-footer-border-top-color: var(--token-color-border-primary);
-  --app-footer-link-default-color: var(--token-color-foreground-faint);
-  --app-footer-link-hover-color: var(--token-color-foreground-primary);
-  --app-footer-link-active-color: var(--token-color-foreground-strong);
-  --app-footer-link-focus-color: var(--token-color-foreground-faint);
-  --app-footer-link-focus-outline-color: var(--token-app-footer-link-focus-outline-color);
+  --app-footer-link-foreground-color-default: var(--token-color-foreground-faint);
+  --app-footer-link-foreground-color-hover: var(--token-color-foreground-primary);
+  --app-footer-link-foreground-color-active: var(--token-color-foreground-strong);
+  --app-footer-link-foreground-color-focus: var(--token-color-foreground-faint);
+  --app-footer-link-outline-color: var(--token-app-footer-link-focus-outline-color);
   --app-footer-copyright-text-color: var(--token-color-foreground-faint);
   --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
   --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
@@ -1697,11 +1644,11 @@
 .hds-app-footer--theme-dark {
   --app-footer-foreground-color: #b2b6bd;
   --app-footer-border-top-color: #b2b6bd66;
-  --app-footer-link-default-color: #b2b6bd;
-  --app-footer-link-hover-color: #d5d7db;
-  --app-footer-link-active-color: #efeff1;
-  --app-footer-link-focus-color: #b2b6bd;
-  --app-footer-link-focus-outline-color: #389aff;
+  --app-footer-link-foreground-color-default: #b2b6bd;
+  --app-footer-link-foreground-color-hover: #d5d7db;
+  --app-footer-link-foreground-color-active: #efeff1;
+  --app-footer-link-foreground-color-focus: #b2b6bd;
+  --app-footer-link-outline-color: #389aff;
   --app-footer-copyright-text-color: #b2b6bd;
   --app-footer-copyright-icon-color: #fff;
   --app-footer-status-link-icon-operational-color: #009241;
@@ -1778,6 +1725,10 @@
 
 /**
  * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/**
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
@@ -1868,66 +1819,44 @@
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-600);
 }
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
   position: relative;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
   position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
+  inset: -1px;
   z-index: -1;
-  border-radius: var(--token-border-radius-medium);
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
+  pointer-events: auto;
 }
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
+.hds-theme-light .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-theme-light .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before, .hds-theme-light .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-theme-light .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
+.hds-theme-dark .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-theme-dark .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before, .hds-theme-dark .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-theme-dark .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
+.hds-theme-system .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-theme-system .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before, .hds-theme-system .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-theme-system .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
+  inset: 1px;
 }
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus-visible::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:active::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:active::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
+
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-700);
   border-color: #bcc7fd;
 }
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
   color: var(--token-color-foreground-high-contrast);
   border: none;
-}
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before {
-  box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active,
@@ -1968,44 +1897,35 @@
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-600);
 }
-.hds-app-header__home-link:focus, .hds-app-header__home-link.mock-focus {
+.hds-app-header__home-link:focus-visible, .hds-app-header__home-link.mock-focus {
   position: relative;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-app-header__home-link:focus::before, .hds-app-header__home-link.mock-focus::before {
+.hds-app-header__home-link:focus-visible::before, .hds-app-header__home-link.mock-focus::before {
   position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
+  inset: -1px;
   z-index: -1;
-  border-radius: var(--token-border-radius-medium);
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
+  pointer-events: auto;
 }
-.hds-app-header__home-link:focus:focus::before, .hds-app-header__home-link:focus.mock-focus::before, .hds-app-header__home-link.mock-focus:focus::before, .hds-app-header__home-link.mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
+.hds-theme-light .hds-app-header__home-link:focus-visible::before, .hds-theme-light .hds-app-header__home-link.mock-focus::before,
+.hds-theme-dark .hds-app-header__home-link:focus-visible::before, .hds-theme-dark .hds-app-header__home-link.mock-focus::before,
+.hds-theme-system .hds-app-header__home-link:focus-visible::before, .hds-theme-system .hds-app-header__home-link.mock-focus::before {
+  inset: 1px;
 }
-.hds-app-header__home-link:focus:focus:not(:focus-visible)::before, .hds-app-header__home-link.mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-app-header__home-link:focus:focus-visible::before, .hds-app-header__home-link.mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-app-header__home-link:focus:focus:active::before, .hds-app-header__home-link:focus.mock-focus.mock-active::before, .hds-app-header__home-link.mock-focus:focus:active::before, .hds-app-header__home-link.mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-app-header__home-link:focus, .hds-app-header__home-link.mock-focus {
+
+.hds-app-header__home-link:focus-visible, .hds-app-header__home-link.mock-focus {
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-700);
 }
-.hds-app-header__home-link:focus::before, .hds-app-header__home-link.mock-focus::before {
+.hds-app-header__home-link:focus-visible::before, .hds-app-header__home-link.mock-focus::before {
   color: var(--token-color-foreground-high-contrast);
   border: none;
-}
-.hds-app-header__home-link:focus:focus:not(:focus-visible)::before {
-  box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
 }
 .hds-app-header__home-link:active, .hds-app-header__home-link.mock-active {
   color: var(--token-color-foreground-high-contrast);
@@ -2143,6 +2063,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/**
  * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
@@ -2206,46 +2130,10 @@
   border-width: 0;
   border-radius: var(--token-app-side-nav-body-list-item-border-radius);
 }
-.hds-app-side-nav__list-item-link:focus, .hds-app-side-nav__list-item-link.mock-focus {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-app-side-nav__list-item-link:focus::before, .hds-app-side-nav__list-item-link.mock-focus::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: var(--token-border-radius-medium);
-  content: "";
-}
-.hds-app-side-nav__list-item-link:focus:focus::before, .hds-app-side-nav__list-item-link:focus.mock-focus::before, .hds-app-side-nav__list-item-link.mock-focus:focus::before, .hds-app-side-nav__list-item-link.mock-focus.mock-focus::before {
+.hds-app-side-nav__list-item-link:focus-visible, .hds-app-side-nav__list-item-link.mock-focus {
+  outline: none;
   box-shadow: var(--token-focus-ring-action-box-shadow);
 }
-.hds-app-side-nav__list-item-link:focus:focus:not(:focus-visible)::before, .hds-app-side-nav__list-item-link.mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-app-side-nav__list-item-link:focus:focus-visible::before, .hds-app-side-nav__list-item-link.mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-app-side-nav__list-item-link:focus:focus:active::before, .hds-app-side-nav__list-item-link:focus.mock-focus.mock-active::before, .hds-app-side-nav__list-item-link.mock-focus:focus:active::before, .hds-app-side-nav__list-item-link.mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-app-side-nav__list-item-link:focus, .hds-app-side-nav__list-item-link.mock-focus {
-  z-index: 1;
-}
-.hds-theme-light .hds-app-side-nav__list-item-link:focus::before, .hds-theme-light .hds-app-side-nav__list-item-link.mock-focus::before,
-.hds-theme-dark .hds-app-side-nav__list-item-link:focus::before, .hds-theme-dark .hds-app-side-nav__list-item-link.mock-focus::before,
-.hds-theme-system .hds-app-side-nav__list-item-link:focus::before, .hds-theme-system .hds-app-side-nav__list-item-link.mock-focus::before {
-  top: 3px;
-  right: 3px;
-  bottom: 3px;
-  left: 3px;
-}
-
 .hds-app-side-nav__list-item-link:hover, .hds-app-side-nav__list-item-link.mock-hover {
   background: var(--token-app-side-nav-body-list-item-surface-color-hover);
   border-color: transparent;
@@ -2311,6 +2199,10 @@
   margin-left: auto;
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -2387,18 +2279,25 @@
 .hds-app-side-nav__toggle-button:hover::before, .hds-app-side-nav__toggle-button:hover::after, .hds-app-side-nav__toggle-button.mock-hover::before, .hds-app-side-nav__toggle-button.mock-hover::after {
   box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-surface-interactive-hover);
 }
+.hds-app-side-nav__toggle-button:focus-visible::before, .hds-app-side-nav__toggle-button:focus-visible::after, .hds-app-side-nav__toggle-button.mock-focus::before, .hds-app-side-nav__toggle-button.mock-focus::after {
+  display: none;
+}
+.hds-app-side-nav__toggle-button:focus-visible, .hds-app-side-nav__toggle-button.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-app-side-nav__toggle-button:focus-visible, .hds-theme-light .hds-app-side-nav__toggle-button.mock-focus,
+.hds-theme-dark .hds-app-side-nav__toggle-button:focus-visible, .hds-theme-dark .hds-app-side-nav__toggle-button.mock-focus,
+.hds-theme-system .hds-app-side-nav__toggle-button:focus-visible, .hds-theme-system .hds-app-side-nav__toggle-button.mock-focus {
+  border-color: transparent;
+}
+
 .hds-app-side-nav__toggle-button:active, .hds-app-side-nav__toggle-button.mock-active {
   background-color: var(--token-color-palette-neutral-300);
 }
 .hds-app-side-nav__toggle-button:active::before, .hds-app-side-nav__toggle-button:active::after, .hds-app-side-nav__toggle-button.mock-active::before, .hds-app-side-nav__toggle-button.mock-active::after {
   box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-palette-neutral-300);
-}
-.hds-app-side-nav__toggle-button:focus-visible, .hds-app-side-nav__toggle-button.mock-focus {
-  border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
-}
-.hds-app-side-nav__toggle-button:focus-visible::before, .hds-app-side-nav__toggle-button:focus-visible::after, .hds-app-side-nav__toggle-button.mock-focus::before, .hds-app-side-nav__toggle-button.mock-focus::after {
-  display: none;
 }
 .hds-app-side-nav--is-minimized .hds-app-side-nav__toggle-button {
   transform: translateX(var(--hds-app-side-nav-width-minimized));
@@ -2793,34 +2692,36 @@
 .hds-breadcrumb__link:hover > .hds-breadcrumb__text, .hds-breadcrumb__link.mock-hover > .hds-breadcrumb__text {
   text-decoration-color: currentColor;
 }
-.hds-breadcrumb__link {
-  outline-style: solid;
-  outline-color: transparent;
+.hds-theme-light .hds-breadcrumb__link:focus-visible, .hds-theme-light .hds-breadcrumb__link.mock-focus,
+.hds-theme-dark .hds-breadcrumb__link:focus-visible, .hds-theme-dark .hds-breadcrumb__link.mock-focus,
+.hds-theme-system .hds-breadcrumb__link:focus-visible, .hds-theme-system .hds-breadcrumb__link.mock-focus {
+  text-decoration: underline;
 }
-.hds-breadcrumb__link:focus, .hds-breadcrumb__link.mock-focus {
+
+.hds-breadcrumb__link:focus-visible, .hds-breadcrumb__link.mock-focus {
+  position: relative;
+  outline: none;
+  isolation: isolate;
+}
+.hds-breadcrumb__link:focus-visible::before, .hds-breadcrumb__link.mock-focus::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
   box-shadow: var(--token-focus-ring-action-box-shadow);
+  content: "";
 }
-.hds-breadcrumb__link:focus:not(:focus-visible) {
-  box-shadow: none;
+.hds-theme-light .hds-breadcrumb__link:focus-visible::before, .hds-theme-light .hds-breadcrumb__link.mock-focus::before,
+.hds-theme-dark .hds-breadcrumb__link:focus-visible::before, .hds-theme-dark .hds-breadcrumb__link.mock-focus::before,
+.hds-theme-system .hds-breadcrumb__link:focus-visible::before, .hds-theme-system .hds-breadcrumb__link.mock-focus::before {
+  box-shadow: 0 0 0 1px var(--token-color-focus-action-external);
 }
-.hds-breadcrumb__link:focus-visible {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-breadcrumb__link:focus:active, .hds-breadcrumb__link.mock-focus.mock-active {
-  box-shadow: none;
-}
+
 .hds-breadcrumb__link:active, .hds-breadcrumb__link.mock-active {
   color: var(--token-breadcrumb-link-foreground-color-active);
 }
 .hds-breadcrumb__link:active > .hds-breadcrumb__text, .hds-breadcrumb__link.mock-active > .hds-breadcrumb__text {
   text-decoration-color: currentColor;
-}
-.hds-theme-light .hds-breadcrumb__link:focus, .hds-theme-light .hds-breadcrumb__link.mock-focus,
-.hds-theme-dark .hds-breadcrumb__link:focus,
-.hds-theme-dark .hds-breadcrumb__link.mock-focus,
-.hds-theme-system .hds-breadcrumb__link:focus,
-.hds-theme-system .hds-breadcrumb__link.mock-focus {
-  text-decoration: underline;
 }
 
 .hds-breadcrumb__current {
@@ -2881,7 +2782,40 @@
 .hds-theme-system .hds-breadcrumb__truncation-toggle {
   align-items: end;
   padding-bottom: 3px;
-  border: none;
+  border-color: transparent;
+}
+
+.hds-breadcrumb__truncation-toggle:hover, .hds-breadcrumb__truncation-toggle.mock-hover {
+  color: var(--token-breadcrumb-truncation-toggle-foreground-color-hover);
+  background-color: var(--token-breadcrumb-truncation-toggle-surface-color-hover);
+  border-color: var(--token-breadcrumb-truncation-toggle-border-color-hover);
+}
+.hds-breadcrumb__truncation-toggle:focus-visible, .hds-breadcrumb__truncation-toggle.mock-focus {
+  position: relative;
+  outline: none;
+  isolation: isolate;
+}
+.hds-breadcrumb__truncation-toggle:focus-visible::before, .hds-breadcrumb__truncation-toggle.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: var(--token-focus-ring-action-box-shadow);
+  content: "";
+}
+.hds-theme-light .hds-breadcrumb__truncation-toggle:focus-visible::before, .hds-theme-light .hds-breadcrumb__truncation-toggle.mock-focus::before,
+.hds-theme-dark .hds-breadcrumb__truncation-toggle:focus-visible::before, .hds-theme-dark .hds-breadcrumb__truncation-toggle.mock-focus::before,
+.hds-theme-system .hds-breadcrumb__truncation-toggle:focus-visible::before, .hds-theme-system .hds-breadcrumb__truncation-toggle.mock-focus::before {
+  box-shadow: 0 0 0 1px var(--token-color-focus-action-external);
+}
+
+.hds-breadcrumb__truncation-toggle:focus-visible, .hds-breadcrumb__truncation-toggle.mock-focus {
+  background-color: transparent;
+}
+.hds-breadcrumb__truncation-toggle:active, .hds-breadcrumb__truncation-toggle.mock-active {
+  color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
+  background-color: var(--token-breadcrumb-truncation-toggle-surface-color-active);
+  border-color: var(--token-breadcrumb-truncation-toggle-border-color-active);
 }
 .hds-theme-light .hds-breadcrumb__truncation-toggle::after,
 .hds-theme-dark .hds-breadcrumb__truncation-toggle::after,
@@ -2892,37 +2826,6 @@
   height: 1px;
   background-color: transparent;
   content: "";
-}
-
-.hds-breadcrumb__truncation-toggle:hover, .hds-breadcrumb__truncation-toggle.mock-hover {
-  color: var(--token-breadcrumb-truncation-toggle-foreground-color-hover);
-  background-color: var(--token-breadcrumb-truncation-toggle-surface-color-hover);
-  border-color: var(--token-color-border-strong);
-}
-.hds-breadcrumb__truncation-toggle {
-  outline-style: solid;
-  outline-color: transparent;
-}
-.hds-breadcrumb__truncation-toggle:focus, .hds-breadcrumb__truncation-toggle.mock-focus {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-breadcrumb__truncation-toggle:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-.hds-breadcrumb__truncation-toggle:focus-visible {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-breadcrumb__truncation-toggle:focus:active, .hds-breadcrumb__truncation-toggle.mock-focus.mock-active {
-  box-shadow: none;
-}
-.hds-breadcrumb__truncation-toggle:focus, .hds-breadcrumb__truncation-toggle.mock-focus {
-  background-color: transparent;
-  border: none;
-}
-.hds-breadcrumb__truncation-toggle:active, .hds-breadcrumb__truncation-toggle.mock-active {
-  color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
-  background-color: var(--token-breadcrumb-truncation-toggle-surface-color-active);
-  border-color: var(--token-color-border-strong);
 }
 .hds-theme-light .hds-breadcrumb__truncation-toggle:hover::after, .hds-theme-light .hds-breadcrumb__truncation-toggle.mock-hover::after,
 .hds-theme-dark .hds-breadcrumb__truncation-toggle:hover::after,
@@ -3030,8 +2933,7 @@
   text-decoration: none;
   border: var(--token-button-border-width) solid transparent;
   border-radius: var(--token-button-border-radius);
-  outline-style: solid;
-  outline-color: transparent;
+  outline: none;
   isolation: isolate;
 }
 a.hds-button {
@@ -3061,20 +2963,6 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
 .hds-button.hds-button--width-full .hds-button__text {
   flex: 0 0 auto;
 }
-.hds-button:focus, .hds-button.mock-focus {
-  box-shadow: none;
-}
-.hds-button:focus::before, .hds-button.mock-focus::before {
-  position: absolute;
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  z-index: -1;
-  border: var(--token-button-focus-ring-border-width) solid transparent;
-  border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width));
-  content: "";
-}
 
 .hds-button__icon {
   display: block;
@@ -3098,18 +2986,31 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-primary-hover);
   cursor: pointer;
 }
-.hds-button--color-primary:focus, .hds-button--color-primary.mock-focus {
+.hds-button--color-primary:focus-visible, .hds-button--color-primary.mock-focus {
+  outline: none;
+}
+.hds-button--color-primary:focus-visible::before, .hds-button--color-primary.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 2px;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-button--color-primary:focus-visible::before, .hds-theme-light .hds-button--color-primary.mock-focus::before,
+.hds-theme-dark .hds-button--color-primary:focus-visible::before, .hds-theme-dark .hds-button--color-primary.mock-focus::before,
+.hds-theme-system .hds-button--color-primary:focus-visible::before, .hds-theme-system .hds-button--color-primary.mock-focus::before {
+  inset: 1px;
+  outline-offset: 0;
+  border-width: 1px;
+}
+
+.hds-button--color-primary:focus-visible, .hds-button--color-primary.mock-focus {
   color: var(--token-button-foreground-color-primary-focus);
   background-color: var(--token-button-surface-color-primary-focus);
-  border-color: var(--token-button-border-color-primary-focus-internal);
-}
-.hds-button--color-primary:focus::before, .hds-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-  border-color: var(--token-button-border-color-primary-focus-external);
-  border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width) + 2px);
 }
 .hds-button--color-primary:active, .hds-button--color-primary.mock-active {
   color: var(--token-button-foreground-color-primary-active);
@@ -3133,13 +3034,30 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-secondary-hover);
   cursor: pointer;
 }
-.hds-button--color-secondary:focus, .hds-button--color-secondary.mock-focus {
+.hds-button--color-secondary:focus-visible, .hds-button--color-secondary.mock-focus {
+  outline: none;
+}
+.hds-button--color-secondary:focus-visible::before, .hds-button--color-secondary.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-button--color-secondary:focus-visible::before, .hds-theme-light .hds-button--color-secondary.mock-focus::before,
+.hds-theme-dark .hds-button--color-secondary:focus-visible::before, .hds-theme-dark .hds-button--color-secondary.mock-focus::before,
+.hds-theme-system .hds-button--color-secondary:focus-visible::before, .hds-theme-system .hds-button--color-secondary.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-button--color-secondary:focus-visible, .hds-button--color-secondary.mock-focus {
   color: var(--token-button-foreground-color-secondary-focus);
   background-color: var(--token-button-surface-color-secondary-focus);
-  border-color: var(--token-button-border-color-secondary-focus-internal);
-}
-.hds-button--color-secondary:focus::before, .hds-button--color-secondary.mock-focus::before {
-  border-color: var(--token-button-border-color-secondary-focus-external);
 }
 .hds-button--color-secondary:active, .hds-button--color-secondary.mock-active {
   color: var(--token-button-foreground-color-secondary-active);
@@ -3162,13 +3080,30 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-tertiary-hover);
   cursor: pointer;
 }
-.hds-button--color-tertiary:focus, .hds-button--color-tertiary.mock-focus {
+.hds-button--color-tertiary:focus-visible, .hds-button--color-tertiary.mock-focus {
+  outline: none;
+}
+.hds-button--color-tertiary:focus-visible::before, .hds-button--color-tertiary.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-button--color-tertiary:focus-visible::before, .hds-theme-light .hds-button--color-tertiary.mock-focus::before,
+.hds-theme-dark .hds-button--color-tertiary:focus-visible::before, .hds-theme-dark .hds-button--color-tertiary.mock-focus::before,
+.hds-theme-system .hds-button--color-tertiary:focus-visible::before, .hds-theme-system .hds-button--color-tertiary.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-button--color-tertiary:focus-visible, .hds-button--color-tertiary.mock-focus {
   color: var(--token-button-foreground-color-tertiary-focus);
   background-color: var(--token-button-surface-color-tertiary-focus);
-  border-color: var(--token-button-border-color-tertiary-focus-internal);
-}
-.hds-button--color-tertiary:focus::before, .hds-button--color-tertiary.mock-focus::before {
-  border-color: var(--token-button-border-color-tertiary-focus-external);
 }
 .hds-button--color-tertiary:active, .hds-button--color-tertiary.mock-active {
   color: var(--token-button-foreground-color-tertiary-active);
@@ -3200,14 +3135,24 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-critical-hover);
   cursor: pointer;
 }
-.hds-button--color-critical:focus, .hds-button--color-critical.mock-focus {
+.hds-button--color-critical:focus-visible, .hds-button--color-critical.mock-focus {
   color: var(--token-button-foreground-color-critical-focus);
   background-color: var(--token-button-surface-color-critical-focus);
-  border-color: var(--token-button-border-color-critical-focus-internal);
 }
-.hds-button--color-critical:focus::before, .hds-button--color-critical.mock-focus::before {
-  border-color: var(--token-button-border-color-critical-focus-external);
+.hds-button--color-critical:focus-visible::before, .hds-button--color-critical.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: var(--token-focus-ring-critical-box-shadow);
+  content: "";
 }
+.hds-theme-light .hds-button--color-critical:focus-visible::before, .hds-theme-light .hds-button--color-critical.mock-focus::before,
+.hds-theme-dark .hds-button--color-critical:focus-visible::before, .hds-theme-dark .hds-button--color-critical.mock-focus::before,
+.hds-theme-system .hds-button--color-critical:focus-visible::before, .hds-theme-system .hds-button--color-critical.mock-focus::before {
+  box-shadow: inset 0 0 0 2px var(--token-color-focus-action-external), inset 0 0 0 3px var(--token-color-focus-action-internal);
+}
+
 .hds-button--color-critical:active, .hds-button--color-critical.mock-active {
   color: var(--token-button-foreground-color-critical-active);
   background-color: var(--token-button-surface-color-critical-active);
@@ -3445,6 +3390,10 @@ button.hds-button[href]::after {
   overflow: visible;
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -3727,22 +3676,6 @@ button.hds-button[href]::after {
 }
 
 .hds-code-block__code {
-  outline-style: solid;
-  outline-color: transparent;
-}
-.hds-code-block__code:focus, .hds-code-block__code.mock-focus {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-code-block__code:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-.hds-code-block__code:focus-visible {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-code-block__code:focus:active, .hds-code-block__code.mock-focus.mock-active {
-  box-shadow: none;
-}
-.hds-code-block__code {
   position: relative;
   display: grid;
   margin: 0;
@@ -3751,6 +3684,10 @@ button.hds-button[href]::after {
   scrollbar-width: thin;
   scrollbar-color: var(--token-color-palette-neutral-400) var(--token-color-palette-neutral-500);
   border-radius: inherit;
+}
+.hds-code-block__code:focus-visible, .hds-code-block__code.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: calc(-1 * var(--token-focus-ring-width-external));
 }
 .hds-code-block__code ::selection {
   color: var(--token-code-block-foreground-color-selection);
@@ -3782,25 +3719,23 @@ button.hds-button[href]::after {
   background-color: var(--token-code-block-button-surface-color-hover);
   border-color: var(--token-code-block-border-color-strong);
 }
+.hds-code-block__height-toggle-button:focus-visible, .hds-code-block__height-toggle-button.mock-focus,
+.hds-code-block__copy-button.hds-copy-button:focus-visible,
+.hds-code-block__copy-button.hds-copy-button.mock-focus {
+  color: var(--token-code-block-foreground-color-primary);
+  background-color: var(--token-code-block-button-surface-color-default);
+}
+.hds-code-block__height-toggle-button:focus-visible::before, .hds-code-block__height-toggle-button.mock-focus::before,
+.hds-code-block__copy-button.hds-copy-button:focus-visible::before,
+.hds-code-block__copy-button.hds-copy-button.mock-focus::before {
+  border-color: var(--token-code-block-focus-ring-color-action-internal);
+  outline-color: var(--token-code-block-focus-ring-color-action-external);
+}
 .hds-code-block__height-toggle-button:active, .hds-code-block__height-toggle-button.mock-active,
 .hds-code-block__copy-button.hds-copy-button:active,
 .hds-code-block__copy-button.hds-copy-button.mock-active {
   color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-active);
-}
-.hds-code-block__height-toggle-button:focus, .hds-code-block__height-toggle-button.mock-focus, .hds-code-block__height-toggle-button:focus-visible,
-.hds-code-block__copy-button.hds-copy-button:focus,
-.hds-code-block__copy-button.hds-copy-button.mock-focus,
-.hds-code-block__copy-button.hds-copy-button:focus-visible {
-  color: var(--token-code-block-foreground-color-primary);
-  background-color: var(--token-code-block-button-surface-color-default);
-  border-color: var(--token-code-block-focus-ring-color-action-internal);
-}
-.hds-code-block__height-toggle-button:focus::before, .hds-code-block__height-toggle-button.mock-focus::before, .hds-code-block__height-toggle-button:focus-visible::before,
-.hds-code-block__copy-button.hds-copy-button:focus::before,
-.hds-code-block__copy-button.hds-copy-button.mock-focus::before,
-.hds-code-block__copy-button.hds-copy-button:focus-visible::before {
-  border-color: var(--token-code-block-focus-ring-color-action-external);
 }
 .hds-code-block__height-toggle-button .hds-icon,
 .hds-code-block__copy-button.hds-copy-button .hds-icon {
@@ -4014,9 +3949,6 @@ button.hds-button[href]::after {
   gap: 8px;
   align-items: center;
 }
-.hds-code-editor .hds-code-editor__header-actions .hds-button {
-  outline-offset: 0;
-}
 .hds-code-editor .hds-code-editor__editor {
   flex-grow: 1;
   overflow: auto;
@@ -4034,31 +3966,30 @@ button.hds-button[href]::after {
   background-color: var(--token-code-block-button-surface-color-default);
   border: 1px solid var(--token-code-block-border-color-strong);
 }
-.hds-code-editor .hds-button:focus, .hds-code-editor .hds-button.mock-focus, .hds-code-editor .hds-button:hover, .hds-code-editor .hds-button.mock-hover {
+.hds-theme-light .hds-code-editor .hds-button,
+.hds-theme-dark .hds-code-editor .hds-button,
+.hds-theme-system .hds-code-editor .hds-button {
+  border: none;
+}
+
+.hds-code-editor .hds-button:hover, .hds-code-editor .hds-button.mock-hover {
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-hover);
   border-color: var(--token-code-block-focus-ring-color-action-internal);
 }
-.hds-code-editor .hds-button:focus::before, .hds-code-editor .hds-button.mock-focus::before, .hds-code-editor .hds-button:hover::before, .hds-code-editor .hds-button.mock-hover::before {
-  border-color: var(--token-code-block-focus-ring-color-action-external);
+.hds-code-editor .hds-button:focus-visible, .hds-code-editor .hds-button.mock-focus {
+  background-color: var(--token-code-block-button-surface-color-default);
 }
-.hds-code-editor .hds-button:focus .hds-button__icon, .hds-code-editor .hds-button.mock-focus .hds-button__icon, .hds-code-editor .hds-button:hover .hds-button__icon, .hds-code-editor .hds-button.mock-hover .hds-button__icon {
-  color: var(--token-code-block-foreground-color-primary);
+.hds-code-editor .hds-button:focus-visible::before, .hds-code-editor .hds-button.mock-focus::before {
+  border-color: var(--token-code-block-focus-ring-color-action-internal);
+  outline-color: var(--token-code-block-focus-ring-color-action-external);
+  outline-offset: 0;
 }
-.hds-theme-light .hds-code-editor .hds-button:focus, .hds-theme-light .hds-code-editor .hds-button.mock-focus, .hds-theme-light .hds-code-editor .hds-button:hover, .hds-theme-light .hds-code-editor .hds-button.mock-hover,
-.hds-theme-dark .hds-code-editor .hds-button:focus, .hds-theme-dark .hds-code-editor .hds-button.mock-focus, .hds-theme-dark .hds-code-editor .hds-button:hover, .hds-theme-dark .hds-code-editor .hds-button.mock-hover,
-.hds-theme-system .hds-code-editor .hds-button:focus, .hds-theme-system .hds-code-editor .hds-button.mock-focus, .hds-theme-system .hds-code-editor .hds-button:hover, .hds-theme-system .hds-code-editor .hds-button.mock-hover {
-  border-color: transparent;
-}
-.hds-theme-light .hds-code-editor .hds-button:focus::before, .hds-theme-light .hds-code-editor .hds-button.mock-focus::before, .hds-theme-light .hds-code-editor .hds-button:hover::before, .hds-theme-light .hds-code-editor .hds-button.mock-hover::before,
-.hds-theme-dark .hds-code-editor .hds-button:focus::before, .hds-theme-dark .hds-code-editor .hds-button.mock-focus::before, .hds-theme-dark .hds-code-editor .hds-button:hover::before, .hds-theme-dark .hds-code-editor .hds-button.mock-hover::before,
-.hds-theme-system .hds-code-editor .hds-button:focus::before, .hds-theme-system .hds-code-editor .hds-button.mock-focus::before, .hds-theme-system .hds-code-editor .hds-button:hover::before, .hds-theme-system .hds-code-editor .hds-button.mock-hover::before {
-  border-color: transparent;
-}
-
 .hds-code-editor .hds-button:active, .hds-code-editor .hds-button.mock-active {
+  color: var(--token-code-block-foreground-color-primary);
   background-color: var(--token-code-block-button-surface-color-active);
 }
-.hds-code-editor .hds-button .hds-button__icon {
+.hds-code-editor .hds-button .hds-button__icon .hds-icon {
   color: var(--token-code-block-foreground-color-primary);
 }
 
@@ -4085,7 +4016,7 @@ button.hds-button[href]::after {
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
   color: var(--token-copy-button-icon-color-hover);
 }
-.hds-copy-button:focus, .hds-copy-button.mock-focus {
+.hds-copy-button:focus-visible, .hds-copy-button.mock-focus {
   color: var(--token-copy-button-foreground-color);
   background-color: var(--token-copy-button-surface-color-focus);
 }
@@ -4111,34 +4042,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-.hds-copy-snippet {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-copy-snippet::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: var(--token-border-radius-medium);
-  content: "";
-}
-.hds-copy-snippet:focus::before, .hds-copy-snippet.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-copy-snippet:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-copy-snippet:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-copy-snippet:focus:active::before, .hds-copy-snippet.mock-focus.mock-active::before {
-  box-shadow: none;
-}
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-copy-snippet {
   display: flex;
   gap: 8px;
@@ -4150,6 +4057,28 @@ button.hds-button[href]::after {
   border-radius: var(--token-border-radius-small);
   cursor: pointer;
 }
+.hds-copy-snippet:focus-visible, .hds-copy-snippet.mock-focus {
+  position: relative;
+  isolation: isolate;
+  outline: none;
+}
+.hds-copy-snippet:focus-visible::before, .hds-copy-snippet.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-copy-snippet:focus-visible::before, .hds-theme-light .hds-copy-snippet.mock-focus::before,
+.hds-theme-dark .hds-copy-snippet:focus-visible::before, .hds-theme-dark .hds-copy-snippet.mock-focus::before,
+.hds-theme-system .hds-copy-snippet:focus-visible::before, .hds-theme-system .hds-copy-snippet.mock-focus::before {
+  inset: 1px;
+}
+
 .hds-theme-light .hds-copy-snippet,
 .hds-theme-dark .hds-copy-snippet,
 .hds-theme-system .hds-copy-snippet {
@@ -4421,6 +4350,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-dismiss-button {
   display: inline-flex;
   flex: none;
@@ -4442,40 +4375,38 @@ button.hds-button[href]::after {
 .hds-dismiss-button:hover, .hds-dismiss-button.mock-hover {
   background-color: var(--token-dismiss-button-surface-color-hover);
 }
-.hds-dismiss-button {
+.hds-dismiss-button:focus-visible, .hds-dismiss-button.mock-focus {
   position: relative;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-dismiss-button::before {
+.hds-dismiss-button:focus-visible::before, .hds-dismiss-button.mock-focus::before {
   position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
+  inset: -1px;
   z-index: -1;
-  border-radius: var(--token-border-radius-medium);
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
+  pointer-events: auto;
 }
-.hds-dismiss-button:focus::before, .hds-dismiss-button.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
+.hds-theme-light .hds-dismiss-button:focus-visible::before, .hds-theme-light .hds-dismiss-button.mock-focus::before,
+.hds-theme-dark .hds-dismiss-button:focus-visible::before, .hds-theme-dark .hds-dismiss-button.mock-focus::before,
+.hds-theme-system .hds-dismiss-button:focus-visible::before, .hds-theme-system .hds-dismiss-button.mock-focus::before {
+  inset: 1px;
 }
-.hds-dismiss-button:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-dismiss-button:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-dismiss-button:focus:active::before, .hds-dismiss-button.mock-focus.mock-active::before {
-  box-shadow: none;
-}
+
 .hds-dismiss-button:active, .hds-dismiss-button.mock-active {
   color: var(--token-dismiss-button-foreground-color-active);
   background-color: var(--token-dismiss-button-surface-color-active);
   border-color: var(--token-dismiss-button-border-color-active);
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -4514,8 +4445,6 @@ button.hds-button[href]::after {
   background-color: var(--token-button-surface-color-secondary-default);
   border: 1px solid var(--token-button-border-color-secondary-default);
   border-radius: var(--token-button-border-radius);
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
 }
 .hds-dropdown-toggle-icon:hover, .hds-dropdown-toggle-icon.mock-hover {
@@ -4524,35 +4453,35 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-secondary-hover);
   cursor: pointer;
 }
-.hds-dropdown-toggle-icon:focus, .hds-dropdown-toggle-icon.mock-focus {
-  box-shadow: none;
+.hds-dropdown-toggle-icon:focus-visible, .hds-dropdown-toggle-icon.mock-focus {
+  outline: none;
 }
-.hds-dropdown-toggle-icon:focus::before, .hds-dropdown-toggle-icon.mock-focus::before {
+.hds-dropdown-toggle-icon:focus-visible::before, .hds-dropdown-toggle-icon.mock-focus::before {
   position: absolute;
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  z-index: -1;
-  border: var(--token-button-focus-ring-border-width) solid transparent;
-  border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width));
+  inset: -1px;
+  z-index: 1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
+  pointer-events: auto;
 }
-.hds-dropdown-toggle-icon:focus, .hds-dropdown-toggle-icon.mock-focus {
+.hds-theme-light .hds-dropdown-toggle-icon:focus-visible::before, .hds-theme-light .hds-dropdown-toggle-icon.mock-focus::before,
+.hds-theme-dark .hds-dropdown-toggle-icon:focus-visible::before, .hds-theme-dark .hds-dropdown-toggle-icon.mock-focus::before,
+.hds-theme-system .hds-dropdown-toggle-icon:focus-visible::before, .hds-theme-system .hds-dropdown-toggle-icon.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-dropdown-toggle-icon:focus-visible, .hds-dropdown-toggle-icon.mock-focus {
   color: var(--token-button-foreground-color-secondary-focus);
   background-color: var(--token-button-surface-color-secondary-focus);
-  border-color: var(--token-button-border-color-secondary-focus-internal);
-}
-.hds-dropdown-toggle-icon:focus::before, .hds-dropdown-toggle-icon.mock-focus::before {
-  border-color: var(--token-button-border-color-secondary-focus-external);
 }
 .hds-dropdown-toggle-icon:active, .hds-dropdown-toggle-icon.mock-active {
   color: var(--token-button-foreground-color-secondary-active);
   background-color: var(--token-button-surface-color-secondary-active);
   border-color: var(--token-button-border-color-secondary-active);
-}
-.hds-dropdown-toggle-icon:active::before, .hds-dropdown-toggle-icon.mock-active::before {
-  border-color: transparent;
 }
 .hds-dropdown-toggle-icon:disabled, .hds-dropdown-toggle-icon.mock-disabled {
   color: var(--token-button-foreground-color-disabled);
@@ -4601,24 +4530,9 @@ button.hds-button[href]::after {
   text-decoration: none;
   border: var(--token-button-border-width) solid transparent;
   border-radius: var(--token-button-border-radius);
-  outline-style: solid;
-  outline-color: transparent;
+  outline: none;
   isolation: isolate;
   gap: var(--token-dropdown-toggle-button-gap);
-}
-.hds-dropdown-toggle-button:focus, .hds-dropdown-toggle-button.mock-focus {
-  box-shadow: none;
-}
-.hds-dropdown-toggle-button:focus::before, .hds-dropdown-toggle-button.mock-focus::before {
-  position: absolute;
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width)));
-  z-index: -1;
-  border: var(--token-button-focus-ring-border-width) solid transparent;
-  border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width));
-  content: "";
 }
 .hds-dropdown-toggle-button:disabled, .hds-dropdown-toggle-button.mock-disabled, .hds-dropdown-toggle-button:disabled:hover, .hds-dropdown-toggle-button.mock-disabled:hover, .hds-dropdown-toggle-button:disabled:focus, .hds-dropdown-toggle-button.mock-disabled:focus {
   color: var(--token-button-foreground-color-disabled);
@@ -4726,18 +4640,31 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-primary-hover);
   cursor: pointer;
 }
-.hds-dropdown-toggle-button--color-primary:focus, .hds-dropdown-toggle-button--color-primary.mock-focus {
+.hds-dropdown-toggle-button--color-primary:focus-visible, .hds-dropdown-toggle-button--color-primary.mock-focus {
+  outline: none;
+}
+.hds-dropdown-toggle-button--color-primary:focus-visible::before, .hds-dropdown-toggle-button--color-primary.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 2px;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-dropdown-toggle-button--color-primary:focus-visible::before, .hds-theme-light .hds-dropdown-toggle-button--color-primary.mock-focus::before,
+.hds-theme-dark .hds-dropdown-toggle-button--color-primary:focus-visible::before, .hds-theme-dark .hds-dropdown-toggle-button--color-primary.mock-focus::before,
+.hds-theme-system .hds-dropdown-toggle-button--color-primary:focus-visible::before, .hds-theme-system .hds-dropdown-toggle-button--color-primary.mock-focus::before {
+  inset: 1px;
+  outline-offset: 0;
+  border-width: 1px;
+}
+
+.hds-dropdown-toggle-button--color-primary:focus-visible, .hds-dropdown-toggle-button--color-primary.mock-focus {
   color: var(--token-button-foreground-color-primary-focus);
   background-color: var(--token-button-surface-color-primary-focus);
-  border-color: var(--token-button-border-color-primary-focus-internal);
-}
-.hds-dropdown-toggle-button--color-primary:focus::before, .hds-dropdown-toggle-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-ring-border-width) + 2px));
-  border-color: var(--token-button-border-color-primary-focus-external);
-  border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-ring-border-width) + 2px);
 }
 .hds-dropdown-toggle-button--color-primary:active, .hds-dropdown-toggle-button--color-primary.mock-active {
   color: var(--token-button-foreground-color-primary-active);
@@ -4761,13 +4688,30 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-secondary-hover);
   cursor: pointer;
 }
-.hds-dropdown-toggle-button--color-secondary:focus, .hds-dropdown-toggle-button--color-secondary.mock-focus {
+.hds-dropdown-toggle-button--color-secondary:focus-visible, .hds-dropdown-toggle-button--color-secondary.mock-focus {
+  outline: none;
+}
+.hds-dropdown-toggle-button--color-secondary:focus-visible::before, .hds-dropdown-toggle-button--color-secondary.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-dropdown-toggle-button--color-secondary:focus-visible::before, .hds-theme-light .hds-dropdown-toggle-button--color-secondary.mock-focus::before,
+.hds-theme-dark .hds-dropdown-toggle-button--color-secondary:focus-visible::before, .hds-theme-dark .hds-dropdown-toggle-button--color-secondary.mock-focus::before,
+.hds-theme-system .hds-dropdown-toggle-button--color-secondary:focus-visible::before, .hds-theme-system .hds-dropdown-toggle-button--color-secondary.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-dropdown-toggle-button--color-secondary:focus-visible, .hds-dropdown-toggle-button--color-secondary.mock-focus {
   color: var(--token-button-foreground-color-secondary-focus);
   background-color: var(--token-button-surface-color-secondary-focus);
-  border-color: var(--token-button-border-color-secondary-focus-internal);
-}
-.hds-dropdown-toggle-button--color-secondary:focus::before, .hds-dropdown-toggle-button--color-secondary.mock-focus::before {
-  border-color: var(--token-button-border-color-secondary-focus-external);
 }
 .hds-dropdown-toggle-button--color-secondary:active, .hds-dropdown-toggle-button--color-secondary.mock-active {
   color: var(--token-button-foreground-color-secondary-active);
@@ -4968,146 +4912,57 @@ button.hds-button[href]::after {
 .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-hover::before {
   background-color: currentColor;
 }
-.hds-dropdown-list-item--variant-interactive a:focus, .hds-dropdown-list-item--variant-interactive a.mock-focus,
-.hds-dropdown-list-item--variant-interactive button:focus,
+.hds-dropdown-list-item--variant-interactive a:focus-visible, .hds-dropdown-list-item--variant-interactive a.mock-focus,
+.hds-dropdown-list-item--variant-interactive button:focus-visible,
 .hds-dropdown-list-item--variant-interactive button.mock-focus,
-.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus,
+.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus-visible,
 .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label.mock-focus,
-.hds-dropdown-list-item--variant-checkmark a:focus,
+.hds-dropdown-list-item--variant-checkmark a:focus-visible,
 .hds-dropdown-list-item--variant-checkmark a.mock-focus,
-.hds-dropdown-list-item--variant-checkmark button:focus,
+.hds-dropdown-list-item--variant-checkmark button:focus-visible,
 .hds-dropdown-list-item--variant-checkmark button.mock-focus,
-.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus,
+.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus-visible,
 .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label.mock-focus,
-.hds-dropdown-list-item--variant-checkbox a:focus,
+.hds-dropdown-list-item--variant-checkbox a:focus-visible,
 .hds-dropdown-list-item--variant-checkbox a.mock-focus,
-.hds-dropdown-list-item--variant-checkbox button:focus,
+.hds-dropdown-list-item--variant-checkbox button:focus-visible,
 .hds-dropdown-list-item--variant-checkbox button.mock-focus,
-.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus,
+.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus-visible,
 .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label.mock-focus,
-.hds-dropdown-list-item--variant-radio a:focus,
+.hds-dropdown-list-item--variant-radio a:focus-visible,
 .hds-dropdown-list-item--variant-radio a.mock-focus,
-.hds-dropdown-list-item--variant-radio button:focus,
+.hds-dropdown-list-item--variant-radio button:focus-visible,
 .hds-dropdown-list-item--variant-radio button.mock-focus,
-.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus,
+.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible,
 .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-focus {
   color: var(--current-color-focus);
 }
-.hds-dropdown-list-item--variant-interactive a:focus::after, .hds-dropdown-list-item--variant-interactive a.mock-focus::after,
-.hds-dropdown-list-item--variant-interactive button:focus::after,
+.hds-dropdown-list-item--variant-interactive a:focus-visible::after, .hds-dropdown-list-item--variant-interactive a.mock-focus::after,
+.hds-dropdown-list-item--variant-interactive button:focus-visible::after,
 .hds-dropdown-list-item--variant-interactive button.mock-focus::after,
-.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus::after,
+.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus-visible::after,
 .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label.mock-focus::after,
-.hds-dropdown-list-item--variant-checkmark a:focus::after,
+.hds-dropdown-list-item--variant-checkmark a:focus-visible::after,
 .hds-dropdown-list-item--variant-checkmark a.mock-focus::after,
-.hds-dropdown-list-item--variant-checkmark button:focus::after,
+.hds-dropdown-list-item--variant-checkmark button:focus-visible::after,
 .hds-dropdown-list-item--variant-checkmark button.mock-focus::after,
-.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus::after,
+.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus-visible::after,
 .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label.mock-focus::after,
-.hds-dropdown-list-item--variant-checkbox a:focus::after,
+.hds-dropdown-list-item--variant-checkbox a:focus-visible::after,
 .hds-dropdown-list-item--variant-checkbox a.mock-focus::after,
-.hds-dropdown-list-item--variant-checkbox button:focus::after,
+.hds-dropdown-list-item--variant-checkbox button:focus-visible::after,
 .hds-dropdown-list-item--variant-checkbox button.mock-focus::after,
-.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus::after,
+.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus-visible::after,
 .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label.mock-focus::after,
-.hds-dropdown-list-item--variant-radio a:focus::after,
+.hds-dropdown-list-item--variant-radio a:focus-visible::after,
 .hds-dropdown-list-item--variant-radio a.mock-focus::after,
-.hds-dropdown-list-item--variant-radio button:focus::after,
+.hds-dropdown-list-item--variant-radio button:focus-visible::after,
 .hds-dropdown-list-item--variant-radio button.mock-focus::after,
-.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus::after,
+.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible::after,
 .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-focus::after {
   left: 4px;
   box-shadow: var(--current-focus-ring-box-shadow);
 }
-.hds-dropdown-list-item--variant-interactive a:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-interactive button:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-checkmark a:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-checkmark button:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-checkbox a:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-checkbox button:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-radio a:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-radio button:focus:not(:focus-visible)::after,
-.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus:not(:focus-visible)::after {
-  background-color: transparent;
-  box-shadow: none;
-}
-.hds-dropdown-list-item--variant-interactive a:focus-visible,
-.hds-dropdown-list-item--variant-interactive button:focus-visible,
-.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus-visible,
-.hds-dropdown-list-item--variant-checkmark a:focus-visible,
-.hds-dropdown-list-item--variant-checkmark button:focus-visible,
-.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus-visible,
-.hds-dropdown-list-item--variant-checkbox a:focus-visible,
-.hds-dropdown-list-item--variant-checkbox button:focus-visible,
-.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus-visible,
-.hds-dropdown-list-item--variant-radio a:focus-visible,
-.hds-dropdown-list-item--variant-radio button:focus-visible,
-.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible {
-  color: var(--current-color-focus);
-}
-.hds-dropdown-list-item--variant-interactive a:focus-visible::after,
-.hds-dropdown-list-item--variant-interactive button:focus-visible::after,
-.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus-visible::after,
-.hds-dropdown-list-item--variant-checkmark a:focus-visible::after,
-.hds-dropdown-list-item--variant-checkmark button:focus-visible::after,
-.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus-visible::after,
-.hds-dropdown-list-item--variant-checkbox a:focus-visible::after,
-.hds-dropdown-list-item--variant-checkbox button:focus-visible::after,
-.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus-visible::after,
-.hds-dropdown-list-item--variant-radio a:focus-visible::after,
-.hds-dropdown-list-item--variant-radio button:focus-visible::after,
-.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible::after {
-  left: 4px;
-  box-shadow: var(--current-focus-ring-box-shadow);
-}
-.hds-dropdown-list-item--variant-interactive a:focus:active::after, .hds-dropdown-list-item--variant-interactive a:focus-visible:active::after, .hds-dropdown-list-item--variant-interactive a.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-interactive button:focus:active::after,
-.hds-dropdown-list-item--variant-interactive button:focus-visible:active::after,
-.hds-dropdown-list-item--variant-interactive button.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus:active::after,
-.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus-visible:active::after,
-.hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-checkmark a:focus:active::after,
-.hds-dropdown-list-item--variant-checkmark a:focus-visible:active::after,
-.hds-dropdown-list-item--variant-checkmark a.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-checkmark button:focus:active::after,
-.hds-dropdown-list-item--variant-checkmark button:focus-visible:active::after,
-.hds-dropdown-list-item--variant-checkmark button.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus:active::after,
-.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus-visible:active::after,
-.hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-checkbox a:focus:active::after,
-.hds-dropdown-list-item--variant-checkbox a:focus-visible:active::after,
-.hds-dropdown-list-item--variant-checkbox a.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-checkbox button:focus:active::after,
-.hds-dropdown-list-item--variant-checkbox button:focus-visible:active::after,
-.hds-dropdown-list-item--variant-checkbox button.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus:active::after,
-.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus-visible:active::after,
-.hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-radio a:focus:active::after,
-.hds-dropdown-list-item--variant-radio a:focus-visible:active::after,
-.hds-dropdown-list-item--variant-radio a.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-radio button:focus:active::after,
-.hds-dropdown-list-item--variant-radio button:focus-visible:active::after,
-.hds-dropdown-list-item--variant-radio button.mock-focus.mock-active::after,
-.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus:active::after,
-.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible:active::after,
-.hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-focus.mock-active::after {
-  left: 10px;
-  background-color: var(--current-background-color);
-  box-shadow: none;
-}
-.hds-theme-light .hds-dropdown-list-item--variant-interactive a:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive a:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive a.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive button:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive button:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive button.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark a:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark a:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark a.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark button:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark button:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark button.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox a:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox a:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox a.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox button:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox button:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox button.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio a:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio a:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio a.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio button:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio button:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio button.mock-focus.mock-active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus:active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-light .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-focus.mock-active::after,
-.hds-theme-dark .hds-dropdown-list-item--variant-interactive a:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive a:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive a.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive button:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive button:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive button.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark a:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark a:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark a.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark button:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark button:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark button.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox a:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox a:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox a.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox button:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox button:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox button.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio a:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio a:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio a.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio button:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio button:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio button.mock-focus.mock-active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-dark .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-focus.mock-active::after,
-.hds-theme-system .hds-dropdown-list-item--variant-interactive a:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive a:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive a.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive button:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive button:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive button.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark a:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark a:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark a.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark button:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark button:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark button.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox a:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox a:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox a.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox button:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox button:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox button.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-checkbox .hds-dropdown-list-item__label.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio a:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio a:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio a.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio button:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio button:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio button.mock-focus.mock-active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus:active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible:active::after, .hds-theme-system .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-focus.mock-active::after {
-  left: 0;
-  background-color: transparent;
-}
-
 .hds-dropdown-list-item--variant-interactive a:active, .hds-dropdown-list-item--variant-interactive a.mock-active,
 .hds-dropdown-list-item--variant-interactive button:active,
 .hds-dropdown-list-item--variant-interactive button.mock-active,
@@ -5183,8 +5038,6 @@ button.hds-button[href]::after {
   padding: 7px 9px 7px 15px;
   text-decoration: none;
   border: 1px solid transparent;
-  outline-style: solid;
-  outline-color: transparent;
 }
 .hds-theme-light .hds-dropdown-list-item--variant-interactive a, .hds-theme-light .hds-dropdown-list-item--variant-interactive button, .hds-theme-light .hds-dropdown-list-item--variant-checkmark a, .hds-theme-light .hds-dropdown-list-item--variant-checkmark button,
 .hds-theme-dark .hds-dropdown-list-item--variant-interactive a, .hds-theme-dark .hds-dropdown-list-item--variant-interactive button, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark a, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark button,
@@ -5210,10 +5063,7 @@ button.hds-button[href]::after {
 .hds-dropdown-list-item--variant-checkmark a::after,
 .hds-dropdown-list-item--variant-checkmark button::after {
   position: absolute;
-  top: 0;
-  right: 4px;
-  bottom: 0;
-  left: 10px;
+  inset: 0 4px 0 10px;
   z-index: -1;
   border-radius: var(--token-border-radius-small);
   content: "";
@@ -5221,10 +5071,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-dropdown-list-item--variant-interactive a::after, .hds-theme-light .hds-dropdown-list-item--variant-interactive button::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark a::after, .hds-theme-light .hds-dropdown-list-item--variant-checkmark button::after,
 .hds-theme-dark .hds-dropdown-list-item--variant-interactive a::after, .hds-theme-dark .hds-dropdown-list-item--variant-interactive button::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark a::after, .hds-theme-dark .hds-dropdown-list-item--variant-checkmark button::after,
 .hds-theme-system .hds-dropdown-list-item--variant-interactive a::after, .hds-theme-system .hds-dropdown-list-item--variant-interactive button::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark a::after, .hds-theme-system .hds-dropdown-list-item--variant-checkmark button::after {
-  top: 3px;
-  right: 3px;
-  bottom: 3px;
-  left: 3px;
+  inset: 0;
 }
 
 .hds-theme-light .hds-dropdown-list-item--variant-interactive button::before,
@@ -5420,6 +5267,10 @@ button.hds-button[href]::after {
 }
 
 /**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/**
  * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
@@ -5474,6 +5325,7 @@ button.hds-button[href]::after {
   gap: 4px;
   width: 50%;
   max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
+  margin: 0;
   padding: 8px;
   overflow-y: auto;
   list-style: none;
@@ -5487,22 +5339,6 @@ button.hds-button[href]::after {
 }
 
 .hds-filter-bar__tabs__tab__button {
-  outline-style: solid;
-  outline-color: transparent;
-}
-.hds-filter-bar__tabs__tab__button:focus, .hds-filter-bar__tabs__tab__button.mock-focus {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-filter-bar__tabs__tab__button:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-.hds-filter-bar__tabs__tab__button:focus-visible {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-filter-bar__tabs__tab__button:focus:active, .hds-filter-bar__tabs__tab__button.mock-focus.mock-active {
-  box-shadow: none;
-}
-.hds-filter-bar__tabs__tab__button {
   display: flex;
   gap: 16px;
   align-items: center;
@@ -5514,11 +5350,33 @@ button.hds-button[href]::after {
   border: none;
   border-radius: var(--token-border-radius-x-small);
 }
-.hds-filter-bar__tabs__tab__button.mock-hover, .hds-filter-bar__tabs__tab__button:hover {
+.hds-filter-bar__tabs__tab__button:hover, .hds-filter-bar__tabs__tab__button.mock-hover {
   background-color: var(--token-color-surface-interactive-hover);
   cursor: pointer;
 }
-.hds-filter-bar__tabs__tab__button.mock-active, .hds-filter-bar__tabs__tab__button:active {
+.hds-filter-bar__tabs__tab__button:focus-visible, .hds-filter-bar__tabs__tab__button.mock-focus {
+  position: relative;
+  isolation: isolate;
+  outline: none;
+}
+.hds-filter-bar__tabs__tab__button:focus-visible::before, .hds-filter-bar__tabs__tab__button.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-filter-bar__tabs__tab__button:focus-visible::before, .hds-theme-light .hds-filter-bar__tabs__tab__button.mock-focus::before,
+.hds-theme-dark .hds-filter-bar__tabs__tab__button:focus-visible::before, .hds-theme-dark .hds-filter-bar__tabs__tab__button.mock-focus::before,
+.hds-theme-system .hds-filter-bar__tabs__tab__button:focus-visible::before, .hds-theme-system .hds-filter-bar__tabs__tab__button.mock-focus::before {
+  inset: 1px;
+}
+
+.hds-filter-bar__tabs__tab__button:active, .hds-filter-bar__tabs__tab__button.mock-active {
   background-color: var(--token-color-surface-interactive-active);
 }
 
@@ -5535,7 +5393,7 @@ button.hds-button[href]::after {
   color: var(--token-color-foreground-action);
   background-color: var(--token-color-surface-strong);
 }
-.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button::before {
+.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button::after {
   position: absolute;
   top: 6px;
   left: 4px;
@@ -5545,18 +5403,18 @@ button.hds-button[href]::after {
   border-radius: 1px;
   content: "";
 }
-.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button.mock-hover, .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button:hover {
+.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button:hover, .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button.mock-hover {
   color: var(--token-color-palette-blue-400);
   background-color: var(--token-color-palette-neutral-200);
 }
-.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button.mock-hover::before, .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button:hover::before {
+.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button:hover::after, .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button.mock-hover::after {
   background-color: var(--token-color-palette-blue-400);
 }
-.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button.mock-active, .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button:active {
+.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button:active, .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button.mock-active {
   color: var(--token-color-palette-blue-500);
   background-color: var(--token-color-palette-neutral-300);
 }
-.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button.mock-active::before, .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button:active::before {
+.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button:active::after, .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button.mock-active::after {
   background-color: var(--token-color-palette-blue-500);
 }
 
@@ -5891,6 +5749,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-file-input {
   width: 100%;
   margin: -4px 0 -4px -4px;
@@ -5927,10 +5789,21 @@ button.hds-button[href]::after {
 
 .hds-form-file-input:focus-within::file-selector-button,
 .hds-form-file-input.mock-focus::file-selector-button {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-form-file-input:focus-within::file-selector-button, .hds-theme-light .hds-form-file-input.mock-focus::file-selector-button,
+.hds-theme-dark .hds-form-file-input:focus-within::file-selector-button, .hds-theme-dark .hds-form-file-input.mock-focus::file-selector-button,
+.hds-theme-system .hds-form-file-input:focus-within::file-selector-button, .hds-theme-system .hds-form-file-input.mock-focus::file-selector-button {
+  border-color: transparent;
+}
+
+.hds-form-file-input:focus-within::file-selector-button,
+.hds-form-file-input.mock-focus::file-selector-button {
   color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-faint);
   border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
 }
 
 .hds-form-file-input:not(:focus, .mock-focus)::file-selector-button {
@@ -6036,6 +5909,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-checkbox {
   width: var(--token-form-checkbox-size);
   height: var(--token-form-checkbox-size);
@@ -6072,8 +5949,8 @@ button.hds-button[href]::after {
   background-color: var(--token-form-control-checked-border-color-default);
   border-color: var(--token-form-control-checked-border-color-hover);
 }
-.hds-form-checkbox:focus, .hds-form-checkbox.mock-focus {
-  outline: 3px solid var(--token-color-focus-action-external);
+.hds-form-checkbox:focus-visible, .hds-form-checkbox.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 1px;
 }
 .hds-form-checkbox:disabled:not(:checked, :indeterminate) {
@@ -6140,6 +6017,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-radio {
   width: var(--token-form-radio-size);
   height: var(--token-form-radio-size);
@@ -6171,8 +6052,8 @@ button.hds-button[href]::after {
   background-color: var(--token-form-control-checked-border-color-default);
   border-color: var(--token-form-control-checked-border-color-hover);
 }
-.hds-form-radio:focus, .hds-form-radio.mock-focus {
-  outline: 3px solid var(--token-color-focus-action-external);
+.hds-form-radio:focus-visible, .hds-form-radio.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 1px;
 }
 .hds-form-radio:disabled:not(:checked) {
@@ -6189,6 +6070,10 @@ button.hds-button[href]::after {
   cursor: not-allowed;
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -6226,9 +6111,16 @@ button.hds-button[href]::after {
   transition: var(--token-form-radiocard-transition-duration);
 }
 .hds-form-radio-card:focus-within, .hds-form-radio-card.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
 }
+.hds-theme-light .hds-form-radio-card:focus-within, .hds-theme-light .hds-form-radio-card.mock-focus,
+.hds-theme-dark .hds-form-radio-card:focus-within, .hds-theme-dark .hds-form-radio-card.mock-focus,
+.hds-theme-system .hds-form-radio-card:focus-within, .hds-theme-system .hds-form-radio-card.mock-focus {
+  border-color: transparent;
+}
+
 .hds-form-radio-card.hds-form-radio-card--checked {
   border-color: var(--token-color-palette-blue-300);
 }
@@ -6324,6 +6216,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-select {
   max-width: 100%;
   padding: var(--token-form-control-padding);
@@ -6342,10 +6238,19 @@ button.hds-button[href]::after {
 .hds-form-select:hover, .hds-form-select.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
-.hds-form-select:focus, .hds-form-select.mock-focus {
-  border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
+.hds-form-select:focus-visible, .hds-form-select.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-form-select:focus-visible, .hds-theme-light .hds-form-select.mock-focus,
+.hds-theme-dark .hds-form-select:focus-visible, .hds-theme-dark .hds-form-select.mock-focus,
+.hds-theme-system .hds-form-select:focus-visible, .hds-theme-system .hds-form-select.mock-focus {
+  border-color: transparent;
+}
+
+.hds-form-select:focus-visible, .hds-form-select.mock-focus {
+  border-color: var(--token-color-focus-action-internal);
 }
 .hds-form-select:disabled {
   color: var(--token-form-control-disabled-foreground-color);
@@ -6361,7 +6266,7 @@ button.hds-button[href]::after {
 .hds-form-select.hds-form-select--is-invalid:hover, .hds-form-select.hds-form-select--is-invalid.mock-hover {
   border-color: var(--token-form-control-invalid-border-color-hover);
 }
-.hds-form-select.hds-form-select--is-invalid:focus, .hds-form-select.hds-form-select--is-invalid.mock-focus {
+.hds-form-select.hds-form-select--is-invalid:focus-visible, .hds-form-select.hds-form-select--is-invalid.mock-focus {
   border-color: var(--token-color-focus-critical-internal);
   outline-color: var(--token-color-focus-critical-external);
 }
@@ -6389,6 +6294,10 @@ button.hds-button[href]::after {
   font-style: normal;
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -6424,12 +6333,23 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
-.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:focus, .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus,
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus,
+.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:focus-visible, .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus-visible,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:focus-visible, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus-visible, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-focus,
+.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:focus-visible, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus-visible, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-focus,
+.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:focus-visible, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus-visible, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-focus {
+  border-color: transparent;
+}
+
+.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:focus-visible, .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus-visible,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-focus {
   border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
-  outline-offset: 0;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-expanded=true].ember-basic-dropdown-trigger--in-place,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-expanded=true].ember-basic-dropdown-trigger--in-place {
@@ -6591,10 +6511,19 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:focus, .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-focus {
-  border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:focus-visible, .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:focus-visible, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-focus,
+.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:focus-visible, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-focus,
+.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:focus-visible, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-focus {
+  border-color: transparent;
+}
+
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:focus-visible, .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-focus {
+  border-color: var(--token-color-focus-action-internal);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input[type=search] {
   padding-left: calc(var(--token-form-control-padding) + 24px);
@@ -6661,8 +6590,8 @@ button.hds-button[href]::after {
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger.mock-hover {
   border-color: var(--token-form-control-invalid-border-color-hover);
 }
-.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger:focus, .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus,
-.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger:focus,
+.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger:focus-visible, .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus,
+.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger:focus-visible,
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger.mock-focus {
   border-color: var(--token-color-focus-critical-internal);
   outline-color: var(--token-color-focus-critical-external);
@@ -6816,6 +6745,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-text-input {
   width: 100%;
   max-width: 100%;
@@ -6832,10 +6765,19 @@ button.hds-button[href]::after {
 .hds-form-text-input:hover, .hds-form-text-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
-.hds-form-text-input:focus, .hds-form-text-input.mock-focus {
-  border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
+.hds-form-text-input:focus-visible, .hds-form-text-input.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-form-text-input:focus-visible, .hds-theme-light .hds-form-text-input.mock-focus,
+.hds-theme-dark .hds-form-text-input:focus-visible, .hds-theme-dark .hds-form-text-input.mock-focus,
+.hds-theme-system .hds-form-text-input:focus-visible, .hds-theme-system .hds-form-text-input.mock-focus {
+  border-color: transparent;
+}
+
+.hds-form-text-input:focus-visible, .hds-form-text-input.mock-focus {
+  border-color: var(--token-color-focus-action-internal);
 }
 .hds-form-text-input:read-only {
   color: var(--token-form-control-readonly-foreground-color);
@@ -6856,7 +6798,7 @@ button.hds-button[href]::after {
 .hds-form-text-input.hds-form-text-input--is-invalid:hover, .hds-form-text-input.hds-form-text-input--is-invalid.mock-hover {
   border-color: var(--token-form-control-invalid-border-color-hover);
 }
-.hds-form-text-input.hds-form-text-input--is-invalid:focus, .hds-form-text-input.hds-form-text-input--is-invalid.mock-focus {
+.hds-form-text-input.hds-form-text-input--is-invalid:focus-visible, .hds-form-text-input.hds-form-text-input--is-invalid.mock-focus {
   border-color: var(--token-color-focus-critical-internal);
   outline-color: var(--token-color-focus-critical-external);
 }
@@ -6919,6 +6861,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-textarea {
   width: 100%;
   max-width: 100%;
@@ -6937,10 +6883,19 @@ button.hds-button[href]::after {
 .hds-form-textarea:hover, .hds-form-textarea.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
-.hds-form-textarea:focus, .hds-form-textarea.mock-focus {
-  border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
+.hds-form-textarea:focus-visible, .hds-form-textarea.mock-focus {
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 0;
+  border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-form-textarea:focus-visible, .hds-theme-light .hds-form-textarea.mock-focus,
+.hds-theme-dark .hds-form-textarea:focus-visible, .hds-theme-dark .hds-form-textarea.mock-focus,
+.hds-theme-system .hds-form-textarea:focus-visible, .hds-theme-system .hds-form-textarea.mock-focus {
+  border-color: transparent;
+}
+
+.hds-form-textarea:focus-visible, .hds-form-textarea.mock-focus {
+  border-color: var(--token-color-focus-action-internal);
 }
 .hds-form-textarea:read-only {
   color: var(--token-form-control-readonly-foreground-color);
@@ -6961,11 +6916,15 @@ button.hds-button[href]::after {
 .hds-form-textarea.hds-form-textarea--is-invalid:hover, .hds-form-textarea.hds-form-textarea--is-invalid.mock-hover {
   border-color: var(--token-form-control-invalid-border-color-hover);
 }
-.hds-form-textarea.hds-form-textarea--is-invalid:focus, .hds-form-textarea.hds-form-textarea--is-invalid.mock-focus {
+.hds-form-textarea.hds-form-textarea--is-invalid:focus-visible, .hds-form-textarea.hds-form-textarea--is-invalid.mock-focus {
   border-color: var(--token-color-focus-critical-internal);
   outline-color: var(--token-color-focus-critical-external);
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -7039,13 +6998,8 @@ button.hds-button[href]::after {
 }
 .hds-form-toggle__facade::before {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  bottom: -5px;
-  left: -5px;
-  margin: auto;
-  border-width: 3px;
-  border-radius: calc(var(--token-form-toggle-height) / 2 + 3px + 1px);
+  inset: calc(-1 * var(--token-form-radio-border-width));
+  border-radius: inherit;
   content: "";
 }
 :not(:checked) + .hds-form-toggle__facade {
@@ -7067,8 +7021,8 @@ button.hds-button[href]::after {
   background-color: var(--token-form-control-checked-border-color-default);
 }
 :focus + .hds-form-toggle__facade::before, .mock-focus + .hds-form-toggle__facade::before {
-  border-color: var(--token-color-focus-action-external);
-  border-style: solid;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 1px;
 }
 :disabled:not(:checked) + .hds-form-toggle__facade, :disabled:checked + .hds-form-toggle__facade {
   --border-color: var(--token-form-control-disabled-border-color);
@@ -7812,13 +7766,17 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-link-inline {
   border-radius: var(--token-border-radius-x-small);
 }
-.hds-link-inline:focus, .hds-link-inline.mock-focus, .hds-link-inline:focus-visible {
-  text-decoration: none;
+.hds-link-inline:focus, .hds-link-inline:focus-visible, .hds-link-inline.mock-focus {
   outline: var(--token-link-inline-outline-width) solid var(--token-link-inline-outline-color);
   outline-offset: 1px;
+  text-decoration: none;
 }
 .hds-theme-light .hds-link-inline,
 .hds-theme-dark .hds-link-inline,
@@ -7867,6 +7825,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-link-standalone {
   display: flex;
   gap: var(--token-link-standalone-gap);
@@ -7877,32 +7839,28 @@ button.hds-button[href]::after {
   font-weight: var(--token-typography-font-weight-regular);
   font-family: var(--token-typography-font-stack-text);
   text-decoration-color: transparent;
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-link-standalone::before {
-  position: absolute;
-  top: 0;
-  right: -2px;
-  bottom: 0;
-  left: -2px;
-  z-index: -1;
   border-radius: var(--token-border-radius-small);
+}
+.hds-link-standalone:focus-visible, .hds-link-standalone.mock-focus {
+  position: relative;
+  isolation: isolate;
+  outline: none;
+}
+.hds-link-standalone:focus-visible::before, .hds-link-standalone.mock-focus::before {
+  position: absolute;
+  inset: 0 -7px 0 -5px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
+  pointer-events: auto;
 }
-.hds-link-standalone:focus::before, .hds-link-standalone.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-link-standalone:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-link-standalone:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-link-standalone:focus:active::before, .hds-link-standalone.mock-focus.mock-active::before {
-  box-shadow: none;
+.hds-theme-light .hds-link-standalone:focus-visible::before, .hds-theme-light .hds-link-standalone.mock-focus::before,
+.hds-theme-dark .hds-link-standalone:focus-visible::before, .hds-theme-dark .hds-link-standalone.mock-focus::before,
+.hds-theme-system .hds-link-standalone:focus-visible::before, .hds-theme-system .hds-link-standalone.mock-focus::before {
+  outline-width: 1px;
 }
 
 .hds-link-standalone__icon {
@@ -8137,6 +8095,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-pagination {
   display: grid;
   grid-template-areas: "info nav selector";
@@ -8260,45 +8222,33 @@ button.hds-button[href]::after {
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-pagination-nav__control::before {
-  position: absolute;
-  top: var(--token-pagination-nav-control-focus-inset);
-  right: var(--token-pagination-nav-control-focus-inset);
-  bottom: var(--token-pagination-nav-control-focus-inset);
-  left: var(--token-pagination-nav-control-focus-inset);
-  z-index: -1;
   border-radius: var(--token-border-radius-medium);
-  content: "";
 }
-.hds-pagination-nav__control:focus::before, .hds-pagination-nav__control.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-pagination-nav__control:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-pagination-nav__control:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-pagination-nav__control:focus:active::before, .hds-pagination-nav__control.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-theme-light .hds-pagination-nav__control::before,
-.hds-theme-dark .hds-pagination-nav__control::before,
-.hds-theme-system .hds-pagination-nav__control::before {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .hds-pagination-nav__control:hover, .hds-pagination-nav__control.mock-hover {
   color: var(--token-pagination-nav-control-foreground-color-hover);
 }
+.hds-pagination-nav__control:focus-visible, .hds-pagination-nav__control.mock-focus {
+  position: relative;
+  isolation: isolate;
+  outline: none;
+}
+.hds-pagination-nav__control:focus-visible::before, .hds-pagination-nav__control.mock-focus::before {
+  position: absolute;
+  inset: 4px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-pagination-nav__control:focus-visible::before, .hds-theme-light .hds-pagination-nav__control.mock-focus::before,
+.hds-theme-dark .hds-pagination-nav__control:focus-visible::before, .hds-theme-dark .hds-pagination-nav__control.mock-focus::before,
+.hds-theme-system .hds-pagination-nav__control:focus-visible::before, .hds-theme-system .hds-pagination-nav__control.mock-focus::before {
+  inset: 0;
+}
+
 .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]):hover, .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]).mock-hover, .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]):active, .hds-pagination-nav__control:not(.hds-pagination-nav__number--is-selected, [disabled]).mock-active {
   background-color: var(--token-pagination-nav-surface-color-hover);
 }
@@ -8342,7 +8292,7 @@ button.hds-button[href]::after {
 .hds-pagination-nav__number--is-selected::after {
   position: absolute;
   right: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
-  bottom: -1px;
+  bottom: 0;
   left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
   height: var(--token-pagination-nav-indicator-height);
   margin: 0 auto;
@@ -8422,7 +8372,7 @@ button.hds-button[href]::after {
   color: var(--token-reveal-foreground-color-hover);
   background-color: var(--token-reveal-surface-color-hover);
 }
-.hds-reveal__toggle-button:focus, .hds-reveal__toggle-button.mock-focus {
+.hds-reveal__toggle-button:focus-visible, .hds-reveal__toggle-button.mock-focus {
   color: var(--token-reveal-foreground-color-default);
   background-color: var(--token-reveal-surface-color-focus);
 }
@@ -8444,6 +8394,10 @@ button.hds-button[href]::after {
   margin-top: 4px;
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -8477,37 +8431,25 @@ button.hds-button[href]::after {
   --text-color: var(--token-rich-tooltip-toggle-foreground-color-hover);
   --icon-color: var(--token-rich-tooltip-toggle-foreground-color-hover);
 }
+.hds-rich-tooltip__toggle:focus-visible, .hds-rich-tooltip__toggle.mock-focus {
+  position: relative;
+  isolation: isolate;
+  outline: none;
+}
+.hds-rich-tooltip__toggle:focus-visible::before, .hds-rich-tooltip__toggle.mock-focus::before {
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: var(--token-border-radius-medium);
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
 .hds-rich-tooltip__toggle:active, .hds-rich-tooltip__toggle.mock-active {
   --text-color: var(--token-rich-tooltip-toggle-foreground-color-active);
   --icon-color: var(--token-rich-tooltip-toggle-foreground-color-active);
-}
-.hds-rich-tooltip__toggle {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-rich-tooltip__toggle::before {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  z-index: -1;
-  border-radius: var(--token-border-radius-medium);
-  content: "";
-}
-.hds-rich-tooltip__toggle:focus::before, .hds-rich-tooltip__toggle.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-rich-tooltip__toggle:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-rich-tooltip__toggle:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-rich-tooltip__toggle:focus:active::before, .hds-rich-tooltip__toggle.mock-focus.mock-active::before {
-  box-shadow: none;
 }
 
 .hds-rich-tooltip__toggle-text {
@@ -8756,15 +8698,15 @@ button.hds-button[href]::after {
 .hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button::before {
   border-radius: inherit;
 }
-.hds-segmented-group > .hds-button:focus, .hds-segmented-group > .hds-button.mock-focus,
+.hds-segmented-group > .hds-button:focus-visible, .hds-segmented-group > .hds-button.mock-focus,
 .hds-segmented-group > .hds-button .hds-dropdown-toggle-button:focus,
-.hds-segmented-group > .hds-dropdown:focus,
+.hds-segmented-group > .hds-dropdown:focus-visible,
 .hds-segmented-group > .hds-dropdown.mock-focus,
 .hds-segmented-group > .hds-dropdown .hds-dropdown-toggle-button:focus,
-.hds-segmented-group > .hds-form-select:focus,
+.hds-segmented-group > .hds-form-select:focus-visible,
 .hds-segmented-group > .hds-form-select.mock-focus,
 .hds-segmented-group > .hds-form-select .hds-dropdown-toggle-button:focus,
-.hds-segmented-group > .hds-form-text-input:focus,
+.hds-segmented-group > .hds-form-text-input:focus-visible,
 .hds-segmented-group > .hds-form-text-input.mock-focus,
 .hds-segmented-group > .hds-form-text-input .hds-dropdown-toggle-button:focus {
   z-index: 1;
@@ -8867,6 +8809,10 @@ button.hds-button[href]::after {
   border-radius: 0 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small);
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -9123,33 +9069,21 @@ button.hds-button[href]::after {
 .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button .hds-stepper-nav__step-title {
   color: var(--token-color-foreground-action);
 }
-.hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button {
+.hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus-visible, .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button.mock-focus {
   position: relative;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button::before {
+.hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus-visible::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button.mock-focus::before {
   position: absolute;
-  top: -3px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
+  inset: -3px -1px -1px -1px;
   z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
   border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium);
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
-}
-.hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus:active::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button.mock-focus.mock-active::before {
-  box-shadow: none;
+  pointer-events: auto;
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button {
   cursor: pointer;
@@ -9166,33 +9100,21 @@ button.hds-button[href]::after {
 .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-nav__step-title, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-nav__step-title {
   color: var(--token-color-foreground-action-hover);
 }
-.hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button {
+.hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus-visible, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-focus {
   position: relative;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button::before {
+.hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus-visible::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-focus::before {
   position: absolute;
-  top: -3px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
+  inset: -3px -1px -1px -1px;
   z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
   border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium);
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
-}
-.hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus:active::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-focus.mock-active::before {
-  box-shadow: none;
+  pointer-events: auto;
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active {
   background-color: var(--token-color-surface-interactive-active);
@@ -9411,41 +9333,25 @@ button.hds-button[href]::after {
     margin-top: 4px;
     padding: 0;
   }
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button,
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button {
+  .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus-visible, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-focus,
+  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus-visible,
+  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button.mock-focus {
     position: relative;
-    outline-style: solid;
-    outline-color: transparent;
     isolation: isolate;
+    outline: none;
   }
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button::before,
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button::before {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
-    z-index: -1;
-    border-radius: 0;
-    content: "";
-  }
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-focus::before,
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus::before,
+  .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus-visible::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-focus::before,
+  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus-visible::before,
   .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button.mock-focus::before {
-    box-shadow: var(--token-focus-ring-action-box-shadow);
-  }
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus:not(:focus-visible)::before,
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus:not(:focus-visible)::before {
-    box-shadow: none;
-  }
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus-visible::before,
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus-visible::before {
-    box-shadow: var(--token-focus-ring-action-box-shadow);
-  }
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:focus:active::before, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-focus.mock-active::before,
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus:active::before,
-  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button.mock-focus.mock-active::before {
-    box-shadow: none;
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+    border-radius: 0;
+    outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+    outline-offset: 0;
+    content: "";
+    pointer-events: auto;
   }
   .hds-stepper-nav__step--active .hds-stepper-indicator-step__svg-hexagon path,
   .hds-stepper-nav__step--active .hds-stepper-indicator-step__status,
@@ -9516,6 +9422,10 @@ button.hds-button[href]::after {
   color: var(--token-color-palette-green-400);
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -9599,33 +9509,21 @@ button.hds-button[href]::after {
   box-shadow: var(--token-elevation-low-box-shadow);
   cursor: pointer;
 }
-.hds-table__th-button {
+.hds-table__th-button:focus-visible, .hds-table__th-button.mock-focus {
   position: relative;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-table__th-button::before {
+.hds-table__th-button:focus-visible::before, .hds-table__th-button.mock-focus::before {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
   border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
-}
-.hds-table__th-button:focus::before, .hds-table__th-button.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-table__th-button:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-table__th-button:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-table__th-button:focus:active::before, .hds-table__th-button.mock-focus.mock-active::before {
-  box-shadow: none;
+  pointer-events: auto;
 }
 .hds-table__th-button:active, .hds-table__th-button.mock-active {
   color: var(--token-color-foreground-primary);
@@ -9720,6 +9618,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-tabs__tablist-wrapper {
   position: relative;
 }
@@ -9793,40 +9695,6 @@ button.hds-button[href]::after {
 }
 
 .hds-tabs__tab-button {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-tabs__tab-button::before {
-  position: absolute;
-  top: var(--token-tabs-tab-focus-inset);
-  right: var(--token-tabs-tab-focus-inset);
-  bottom: var(--token-tabs-tab-focus-inset);
-  left: var(--token-tabs-tab-focus-inset);
-  z-index: -1;
-  border-radius: var(--token-border-radius-medium);
-  content: "";
-}
-.hds-tabs__tab-button:focus::before, .hds-tabs__tab-button.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-tabs__tab-button:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-tabs__tab-button:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-tabs__tab-button:focus:active::before, .hds-tabs__tab-button.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-theme-light .hds-tabs__tab-button::before,
-.hds-theme-dark .hds-tabs__tab-button::before,
-.hds-theme-system .hds-tabs__tab-button::before {
-  inset: 3px 3px 1px 3px;
-}
-
-.hds-tabs__tab-button {
   position: static;
   display: flex;
   gap: var(--token-tabs-tab-gutter);
@@ -9844,6 +9712,25 @@ button.hds-button[href]::after {
   position: absolute;
   content: "";
   inset: 0;
+}
+.hds-tabs__tab-button:focus-visible, .hds-tabs__tab-button.mock-focus {
+  outline: none;
+}
+.hds-tabs__tab-button:focus-visible::before, .hds-tabs__tab-button.mock-focus::before {
+  position: absolute;
+  inset: 6px;
+  z-index: 1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-tabs__tab-button:focus-visible::before, .hds-theme-light .hds-tabs__tab-button.mock-focus::before,
+.hds-theme-dark .hds-tabs__tab-button:focus-visible::before, .hds-theme-dark .hds-tabs__tab-button.mock-focus::before,
+.hds-theme-system .hds-tabs__tab-button:focus-visible::before, .hds-theme-system .hds-tabs__tab-button.mock-focus::before {
+  inset: 2px 2px 0 2px;
 }
 
 .hds-tabs__tab-indicator {
@@ -9892,6 +9779,10 @@ button.hds-button[href]::after {
   font-size: var(--token-typography-body-300-font-size);
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -9964,67 +9855,52 @@ button.hds-button[href]::after {
 .hds-tag__link {
   cursor: pointer;
 }
-.hds-tag__dismiss:focus, .hds-tag__dismiss.mock-focus,
-.hds-tag__link:focus,
+.hds-tag__dismiss:focus-visible, .hds-tag__dismiss.mock-focus,
+.hds-tag__link:focus-visible,
 .hds-tag__link.mock-focus {
-  outline-style: solid;
-  outline-color: transparent;
+  position: relative;
+  isolation: isolate;
+  outline: none;
 }
-.hds-tag__dismiss:focus:focus, .hds-tag__dismiss:focus.mock-focus, .hds-tag__dismiss.mock-focus:focus, .hds-tag__dismiss.mock-focus.mock-focus,
-.hds-tag__link:focus:focus,
-.hds-tag__link:focus.mock-focus,
-.hds-tag__link.mock-focus:focus,
-.hds-tag__link.mock-focus.mock-focus {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-tag__dismiss:focus:focus:not(:focus-visible), .hds-tag__dismiss.mock-focus:focus:not(:focus-visible),
-.hds-tag__link:focus:focus:not(:focus-visible),
-.hds-tag__link.mock-focus:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-.hds-tag__dismiss:focus:focus-visible, .hds-tag__dismiss.mock-focus:focus-visible,
-.hds-tag__link:focus:focus-visible,
-.hds-tag__link.mock-focus:focus-visible {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-tag__dismiss:focus:focus:active, .hds-tag__dismiss:focus.mock-focus.mock-active, .hds-tag__dismiss.mock-focus:focus:active, .hds-tag__dismiss.mock-focus.mock-focus.mock-active,
-.hds-tag__link:focus:focus:active,
-.hds-tag__link:focus.mock-focus.mock-active,
-.hds-tag__link.mock-focus:focus:active,
-.hds-tag__link.mock-focus.mock-focus.mock-active {
-  box-shadow: none;
-}
-.hds-tag__dismiss:focus, .hds-tag__dismiss.mock-focus,
-.hds-tag__link:focus,
-.hds-tag__link.mock-focus {
+.hds-tag__dismiss:focus-visible::before, .hds-tag__dismiss.mock-focus::before,
+.hds-tag__link:focus-visible::before,
+.hds-tag__link.mock-focus::before {
+  position: absolute;
+  inset: 0;
   z-index: 1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-tag__dismiss:focus-visible::before, .hds-theme-light .hds-tag__dismiss.mock-focus::before, .hds-theme-light .hds-tag__link:focus-visible::before, .hds-theme-light .hds-tag__link.mock-focus::before,
+.hds-theme-dark .hds-tag__dismiss:focus-visible::before, .hds-theme-dark .hds-tag__dismiss.mock-focus::before, .hds-theme-dark .hds-tag__link:focus-visible::before, .hds-theme-dark .hds-tag__link.mock-focus::before,
+.hds-theme-system .hds-tag__dismiss:focus-visible::before, .hds-theme-system .hds-tag__dismiss.mock-focus::before, .hds-theme-system .hds-tag__link:focus-visible::before, .hds-theme-system .hds-tag__link.mock-focus::before {
+  inset: 1px var(--hds-tag-focus-ring-inset-right-cds, 1px) 1px var(--hds-tag-focus-ring-inset-left-cds, 1px);
+  outline-offset: 3px;
 }
 
 .hds-tooltip-button.hds-tag__text {
   cursor: text;
   user-select: text;
 }
-.hds-tooltip-button.hds-tag__text:focus, .hds-tooltip-button.hds-tag__text.mock-focus {
-  outline-style: solid;
-  outline-color: transparent;
+.hds-tooltip-button.hds-tag__text:focus-visible::before, .hds-tooltip-button.hds-tag__text.mock-focus::before {
+  border-radius: inherit;
+  inset: 0;
 }
-.hds-tooltip-button.hds-tag__text:focus:focus, .hds-tooltip-button.hds-tag__text:focus.mock-focus, .hds-tooltip-button.hds-tag__text.mock-focus:focus, .hds-tooltip-button.hds-tag__text.mock-focus.mock-focus {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
+.hds-theme-light .hds-tooltip-button.hds-tag__text:focus-visible::before, .hds-theme-light .hds-tooltip-button.hds-tag__text.mock-focus::before,
+.hds-theme-dark .hds-tooltip-button.hds-tag__text:focus-visible::before, .hds-theme-dark .hds-tooltip-button.hds-tag__text.mock-focus::before,
+.hds-theme-system .hds-tooltip-button.hds-tag__text:focus-visible::before, .hds-theme-system .hds-tooltip-button.hds-tag__text.mock-focus::before {
+  inset: -2px -2px -2px var(--hds-tag-focus-ring-inset-left-cds, -2px);
 }
-.hds-tooltip-button.hds-tag__text:focus:focus:not(:focus-visible), .hds-tooltip-button.hds-tag__text.mock-focus:focus:not(:focus-visible) {
-  box-shadow: none;
+
+.hds-tag__dismiss {
+  --hds-tag-focus-ring-inset-right-cds: 3px;
 }
-.hds-tooltip-button.hds-tag__text:focus:focus-visible, .hds-tooltip-button.hds-tag__text.mock-focus:focus-visible {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-tooltip-button.hds-tag__text:focus:focus:active, .hds-tooltip-button.hds-tag__text:focus.mock-focus.mock-active, .hds-tooltip-button.hds-tag__text.mock-focus:focus:active, .hds-tooltip-button.hds-tag__text.mock-focus.mock-focus.mock-active {
-  box-shadow: none;
-}
-.hds-tooltip-button.hds-tag__text:focus, .hds-tooltip-button.hds-tag__text.mock-focus {
-  z-index: 1;
-}
-.hds-tooltip-button.hds-tag__text:focus-visible::before {
-  box-shadow: none;
+.hds-tag__dismiss + .hds-tag__link, .hds-tag__dismiss + .hds-tooltip-button.hds-tag__text {
+  --hds-tag-focus-ring-inset-left-cds: 0;
 }
 
 .hds-tag--is-static {
@@ -10159,35 +10035,26 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-.hds-tooltip-button {
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+.hds-tooltip-button:focus-visible, .hds-tooltip-button.mock-focus {
   position: relative;
-  outline-style: solid;
-  outline-color: transparent;
   isolation: isolate;
+  outline: none;
 }
-.hds-tooltip-button::before {
+.hds-tooltip-button:focus-visible::before, .hds-tooltip-button.mock-focus::before {
   position: absolute;
-  top: var(--token-tooltip-focus-offset);
-  right: var(--token-tooltip-focus-offset);
-  bottom: var(--token-tooltip-focus-offset);
-  left: var(--token-tooltip-focus-offset);
+  inset: -2px;
   z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
   border-radius: var(--token-border-radius-medium);
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
   content: "";
+  pointer-events: auto;
 }
-.hds-tooltip-button:focus::before, .hds-tooltip-button.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-tooltip-button:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-tooltip-button:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-tooltip-button:focus:active::before, .hds-tooltip-button.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-
 :where(.hds-tooltip-button) {
   margin: 0;
   padding: 0;

@@ -71,6 +71,7 @@
   --token-app-footer-link-focus-outline-color: var(
     --token-color-focus-action-internal
   );
+  --token-app-footer-link-focus-outline-width: 2px;
   --token-app-side-nav-body-list-item-border-radius: 5px;
   --token-app-side-nav-body-list-item-foreground-color-default: var(
     --token-color-foreground-strong
@@ -227,6 +228,12 @@
   );
   --token-breadcrumb-truncation-content-box-shadow: var(
     --token-surface-high-box-shadow
+  );
+  --token-breadcrumb-truncation-toggle-border-color-active: var(
+    --token-color-border-strong
+  );
+  --token-breadcrumb-truncation-toggle-border-color-hover: var(
+    --token-color-border-strong
   );
   --token-breadcrumb-truncation-toggle-foreground-color-active: var(
     --token-color-foreground-primary
@@ -636,9 +643,17 @@
   --token-elevation-overlay-box-shadow:
     0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --token-focus-ring-action-box-shadow:
-    inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
+    inset 0 0 0 var(--token-focus-ring-width-internal)
+      var(--token-color-focus-action-internal),
+    0 0 0 var(--token-focus-ring-width-external)
+      var(--token-color-focus-action-external);
   --token-focus-ring-critical-box-shadow:
-    inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+    inset 0 0 0 var(--token-focus-ring-width-internal)
+      var(--token-color-focus-critical-internal),
+    0 0 0 var(--token-focus-ring-width-external)
+      var(--token-color-focus-critical-external);
+  --token-focus-ring-width-external: 3px;
+  --token-focus-ring-width-internal: 1px;
   --token-form-character-count-foreground-color: #656a76;
   --token-form-character-count-typography-font-size: var(
     --token-typography-body-100-font-size
@@ -696,7 +711,6 @@
   --token-form-radiocard-border-color-focus: var(
     --token-color-focus-action-internal
   );
-  --token-form-radiocard-border-radius: 6px;
   --token-icon-tile-border-color-logo: var(--token-color-border-primary);
   --token-icon-tile-border-color-overlay: var(--token-color-border-primary);
   --token-icon-tile-surface-color-overlay: var(--token-color-surface-primary);
@@ -1009,6 +1023,7 @@
     --token-alert-title-foreground-color-warning: #161616;
     --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #0f62fe;
+    --token-app-footer-link-focus-outline-width: 1px;
     --token-app-side-nav-body-list-item-border-radius: 0px;
     --token-app-side-nav-body-list-item-foreground-color-default: #525252;
     --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
@@ -1098,6 +1113,8 @@
     --token-breadcrumb-link-foreground-color-hover: #0043ce;
     --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px
       rgba(0, 0, 0, 0.3);
+    --token-breadcrumb-truncation-toggle-border-color-active: rgba(0, 0, 0, 0);
+    --token-breadcrumb-truncation-toggle-border-color-hover: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
     --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
@@ -1340,10 +1357,14 @@
     --token-elevation-low-box-shadow: none;
     --token-elevation-mid-box-shadow: none;
     --token-elevation-overlay-box-shadow: none;
-    --token-focus-ring-action-box-shadow:
-      inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
-    --token-focus-ring-critical-box-shadow:
-      inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
+    --token-focus-ring-action-box-shadow: inset 0 0 0
+      var(--token-focus-ring-width-external)
+      var(--token-color-focus-action-external);
+    --token-focus-ring-critical-box-shadow: inset 0 0 0
+      var(--token-focus-ring-width-external)
+      var(--token-color-focus-critical-external);
+    --token-focus-ring-width-external: 2px;
+    --token-focus-ring-width-internal: 0px;
     --token-form-character-count-foreground-color: #6f6f6f;
     --token-form-character-count-typography-font-size: 0.75rem;
     --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -1369,7 +1390,6 @@
     --token-form-radiocard-border-color-default-checked: #ffc0cb;
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
-    --token-form-radiocard-border-radius: 0px;
     --token-icon-tile-border-color-logo: #c6c6c6;
     --token-icon-tile-border-color-overlay: #e0e0e0;
     --token-icon-tile-surface-color-overlay: #ffffff;
@@ -1594,6 +1614,7 @@
     --token-alert-title-foreground-color-warning: #f4f4f4;
     --token-alert-typography-line-height: 1.28572;
     --token-app-footer-link-focus-outline-color: #ffffff;
+    --token-app-footer-link-focus-outline-width: 1px;
     --token-app-side-nav-body-list-item-border-radius: 0px;
     --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
     --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
@@ -1683,6 +1704,8 @@
     --token-breadcrumb-link-foreground-color-hover: #a6c8ff;
     --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px
       rgba(0, 0, 0, 0.8);
+    --token-breadcrumb-truncation-toggle-border-color-active: rgba(0, 0, 0, 0);
+    --token-breadcrumb-truncation-toggle-border-color-hover: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
     --token-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
@@ -1930,10 +1953,14 @@
     --token-elevation-low-box-shadow: none;
     --token-elevation-mid-box-shadow: none;
     --token-elevation-overlay-box-shadow: none;
-    --token-focus-ring-action-box-shadow:
-      inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
-    --token-focus-ring-critical-box-shadow:
-      inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
+    --token-focus-ring-action-box-shadow: inset 0 0 0
+      var(--token-focus-ring-width-external)
+      var(--token-color-focus-action-external);
+    --token-focus-ring-critical-box-shadow: inset 0 0 0
+      var(--token-focus-ring-width-external)
+      var(--token-color-focus-critical-external);
+    --token-focus-ring-width-external: 2px;
+    --token-focus-ring-width-internal: 0px;
     --token-form-character-count-foreground-color: #a8a8a8;
     --token-form-character-count-typography-font-size: 0.75rem;
     --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -1959,7 +1986,6 @@
     --token-form-radiocard-border-color-default-checked: #ffc0cb;
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
-    --token-form-radiocard-border-radius: 0px;
     --token-icon-tile-border-color-logo: #525252;
     --token-icon-tile-border-color-overlay: #6f6f6f;
     --token-icon-tile-surface-color-overlay: #393939;
@@ -2183,6 +2209,7 @@
   --token-alert-title-foreground-color-warning: #161616;
   --token-alert-typography-line-height: 1.28572;
   --token-app-footer-link-focus-outline-color: #0f62fe;
+  --token-app-footer-link-focus-outline-width: 1px;
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #525252;
   --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
@@ -2271,6 +2298,8 @@
   --token-breadcrumb-link-foreground-color-default: #0f62fe;
   --token-breadcrumb-link-foreground-color-hover: #0043ce;
   --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --token-breadcrumb-truncation-toggle-border-color-active: rgba(0, 0, 0, 0);
+  --token-breadcrumb-truncation-toggle-border-color-hover: rgba(0, 0, 0, 0);
   --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
   --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
   --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
@@ -2513,10 +2542,14 @@
   --token-elevation-low-box-shadow: none;
   --token-elevation-mid-box-shadow: none;
   --token-elevation-overlay-box-shadow: none;
-  --token-focus-ring-action-box-shadow:
-    inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
-  --token-focus-ring-critical-box-shadow:
-    inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
+  --token-focus-ring-action-box-shadow: inset 0 0 0
+    var(--token-focus-ring-width-external)
+    var(--token-color-focus-action-external);
+  --token-focus-ring-critical-box-shadow: inset 0 0 0
+    var(--token-focus-ring-width-external)
+    var(--token-color-focus-critical-external);
+  --token-focus-ring-width-external: 2px;
+  --token-focus-ring-width-internal: 0px;
   --token-form-character-count-foreground-color: #6f6f6f;
   --token-form-character-count-typography-font-size: 0.75rem;
   --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -2542,7 +2575,6 @@
   --token-form-radiocard-border-color-default-checked: #ffc0cb;
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
-  --token-form-radiocard-border-radius: 0px;
   --token-icon-tile-border-color-logo: #c6c6c6;
   --token-icon-tile-border-color-overlay: #e0e0e0;
   --token-icon-tile-surface-color-overlay: #ffffff;
@@ -2761,6 +2793,7 @@
   --token-alert-title-foreground-color-warning: #f4f4f4;
   --token-alert-typography-line-height: 1.28572;
   --token-app-footer-link-focus-outline-color: #ffffff;
+  --token-app-footer-link-focus-outline-width: 1px;
   --token-app-side-nav-body-list-item-border-radius: 0px;
   --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
   --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
@@ -2849,6 +2882,8 @@
   --token-breadcrumb-link-foreground-color-default: #78a9ff;
   --token-breadcrumb-link-foreground-color-hover: #a6c8ff;
   --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  --token-breadcrumb-truncation-toggle-border-color-active: rgba(0, 0, 0, 0);
+  --token-breadcrumb-truncation-toggle-border-color-hover: rgba(0, 0, 0, 0);
   --token-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
   --token-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
   --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
@@ -3091,10 +3126,14 @@
   --token-elevation-low-box-shadow: none;
   --token-elevation-mid-box-shadow: none;
   --token-elevation-overlay-box-shadow: none;
-  --token-focus-ring-action-box-shadow:
-    inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
-  --token-focus-ring-critical-box-shadow:
-    inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
+  --token-focus-ring-action-box-shadow: inset 0 0 0
+    var(--token-focus-ring-width-external)
+    var(--token-color-focus-action-external);
+  --token-focus-ring-critical-box-shadow: inset 0 0 0
+    var(--token-focus-ring-width-external)
+    var(--token-color-focus-critical-external);
+  --token-focus-ring-width-external: 2px;
+  --token-focus-ring-width-internal: 0px;
   --token-form-character-count-foreground-color: #a8a8a8;
   --token-form-character-count-typography-font-size: 0.75rem;
   --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -3120,7 +3159,6 @@
   --token-form-radiocard-border-color-default-checked: #ffc0cb;
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
-  --token-form-radiocard-border-radius: 0px;
   --token-icon-tile-border-color-logo: #525252;
   --token-icon-tile-border-color-overlay: #6f6f6f;
   --token-icon-tile-surface-color-overlay: #393939;
@@ -3382,7 +3420,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   );
   --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
-  --token-button-focus-ring-border-width: 3px;
   --token-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
   --token-code-block-foreground-color-selection: #0d0e12;
   --token-code-block-surface-color-selection: #86ff13;
@@ -3473,7 +3510,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --token-form-checkbox-background-image-size: 12px;
-  --token-form-checkbox-border-radius: 3px;
+  --token-form-checkbox-border-radius: var(--token-border-radius-x-small);
   --token-form-checkbox-border-width: 1px;
   --token-form-checkbox-size: 16px;
   --token-form-control-base-border-color-default: var(
@@ -3494,7 +3531,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-form-control-base-surface-color-hover: var(
     --token-color-surface-interactive-hover
   );
-  --token-form-control-border-radius: 5px;
+  --token-form-control-border-radius: var(--token-border-radius-small);
   --token-form-control-border-width: 1px;
   --token-form-control-checked-border-color-default: var(
     --token-color-palette-blue-300
@@ -3538,6 +3575,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-form-radio-background-image-size: 12px;
   --token-form-radio-border-width: 1px;
   --token-form-radio-size: 16px;
+  --token-form-radiocard-border-radius: var(--token-border-radius-medium);
   --token-form-radiocard-border-width: 1px;
   --token-form-radiocard-content-padding: 24px;
   --token-form-radiocard-control-padding: 8px;
@@ -3566,7 +3604,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-form-toggle-base-surface-color-default: var(
     --token-color-surface-strong
   ); /** the toggle has a different base surface color, compared to the other controls */
-  --token-form-toggle-border-radius: 3px;
+  --token-form-toggle-border-radius: var(--token-border-radius-x-small);
   --token-form-toggle-border-width: 1px;
   --token-form-toggle-height: 16px;
   --token-form-toggle-thumb-size: var(--token-form-toggle-height);
@@ -3583,7 +3621,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-link-standalone-typography-font-size-medium: 0.875rem;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-pagination-child-spacing-vertical: 8px;
-  --token-pagination-nav-control-focus-inset: 4px;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-tabs-divider-height: 1px;
@@ -3594,13 +3631,11 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     0.89,
     1
   );
-  --token-tabs-tab-border-radius: 5px;
-  --token-tabs-tab-focus-inset: 6px;
+  --token-tabs-tab-border-radius: var(--token-border-radius-small);
   --token-tabs-tab-gutter: 6px;
   --token-tabs-tab-padding-vertical: 0px;
   --token-tag-dismissible-padding-right: 8px;
   --token-tag-padding-top: 3px;
-  --token-tooltip-focus-offset: -2px;
   --token-tooltip-transition-timing-function: cubic-bezier(
     0.54,
     1.5,

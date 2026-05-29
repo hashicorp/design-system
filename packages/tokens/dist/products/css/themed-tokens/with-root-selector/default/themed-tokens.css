@@ -38,6 +38,7 @@
   --token-alert-title-foreground-color-warning: var(--token-color-foreground-warning-on-surface);
   --token-alert-typography-line-height: var(--token-typography-body-200-line-height);
   --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
+  --token-app-footer-link-focus-outline-width: 2px;
   --token-app-side-nav-body-list-item-border-radius: 5px;
   --token-app-side-nav-body-list-item-foreground-color-default: var(--token-color-foreground-strong);
   --token-app-side-nav-body-list-item-foreground-color-hover: var(--token-color-foreground-primary);
@@ -111,6 +112,8 @@
   --token-breadcrumb-link-foreground-color-default: var(--token-color-foreground-faint);
   --token-breadcrumb-link-foreground-color-hover: var(--token-color-foreground-primary);
   --token-breadcrumb-truncation-content-box-shadow: var(--token-surface-high-box-shadow);
+  --token-breadcrumb-truncation-toggle-border-color-active: var(--token-color-border-strong);
+  --token-breadcrumb-truncation-toggle-border-color-hover: var(--token-color-border-strong);
   --token-breadcrumb-truncation-toggle-foreground-color-active: var(--token-color-foreground-primary);
   --token-breadcrumb-truncation-toggle-foreground-color-default: var(--token-color-foreground-faint);
   --token-breadcrumb-truncation-toggle-foreground-color-hover: var(--token-color-foreground-faint);
@@ -353,8 +356,10 @@
   --token-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
   --token-elevation-mid-box-shadow: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --token-elevation-overlay-box-shadow: 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
-  --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
-  --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --token-focus-ring-action-box-shadow: inset 0 0 0 var(--token-focus-ring-width-internal) var(--token-color-focus-action-internal), 0 0 0 var(--token-focus-ring-width-external) var(--token-color-focus-action-external);
+  --token-focus-ring-critical-box-shadow: inset 0 0 0 var(--token-focus-ring-width-internal) var(--token-color-focus-critical-internal), 0 0 0 var(--token-focus-ring-width-external) var(--token-color-focus-critical-external);
+  --token-focus-ring-width-external: 3px;
+  --token-focus-ring-width-internal: 1px;
   --token-form-character-count-foreground-color: #656a76;
   --token-form-character-count-typography-font-size: var(--token-typography-body-100-font-size);
   --token-form-character-count-typography-line-height: var(--token-typography-body-100-line-height); /** The character-count line-height is the same as the helper-text as per design */
@@ -378,7 +383,6 @@
   --token-form-radiocard-border-color-default-checked: var(--token-color-palette-blue-300);
   --token-form-radiocard-border-color-default: var(--token-color-surface-primary);
   --token-form-radiocard-border-color-focus: var(--token-color-focus-action-internal);
-  --token-form-radiocard-border-radius: 6px;
   --token-icon-tile-border-color-logo: var(--token-color-border-primary);
   --token-icon-tile-border-color-overlay: var(--token-color-border-primary);
   --token-icon-tile-surface-color-overlay: var(--token-color-surface-primary);
