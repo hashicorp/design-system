@@ -11,12 +11,17 @@
 @use "../mixins/carbonization" as *;
 
 .hds-tooltip-button {
-  @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-tooltip-focus-offset),
-    $right: var(--token-tooltip-focus-offset),
-    $bottom: var(--token-tooltip-focus-offset),
-    $left: var(--token-tooltip-focus-offset)
-  );
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced(
+      // we want the focus ring to extend a bit around the content
+      $pseudo-element-inset-hds: -2px,
+      $pseudo-element-inset-cds: -2px,
+      // we can't rely on the parent's border radius here and inherit it
+      // so we assign a generic border radius that works for most of the cases
+      $pseudo-element-border-radius: var(--token-border-radius-medium)
+    );
+  }
 }
 
 // The special declarations below are used to allow the button to inherit styles from the parent element

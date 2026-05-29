@@ -88,11 +88,6 @@
         }
       }
     },
-    "focus-offset": {
-      "$type": "dimension",
-      "$value": "-2",
-      "unit": "px"
-    },
     "transition": {
       "timing-function": {
         "$type": "cubicBezier",
