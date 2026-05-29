@@ -4,6 +4,10 @@
  */
 
 import { toJsonResourceResponse } from './response-resource.js';
+import {
+  classifyErrorCode,
+  INTERNAL_ERROR_CODE,
+} from '../error-classification.js';
 
 type ResourceResponse = ReturnType<typeof toJsonResourceResponse>;
 
@@ -18,15 +22,21 @@ export const withSafeResourceHandler = <TArgs extends unknown[]>(
     } catch (error) {
       console.error(`Resource handler failed (${resourceName}):`, error);
 
+      const code = classifyErrorCode(error);
+      const message =
+        code === INTERNAL_ERROR_CODE
+          ? 'Resource read failed due to an internal error.'
+          : 'Resource read failed due to invalid input parameters.';
+
       const uri =
         typeof args[0] === 'string' ? args[0] : (fallbackUri ?? 'hds://error');
 
       return toJsonResourceResponse(uri, {
         ok: false,
         error: {
-          code: 'INTERNAL_ERROR',
+          code,
           resource: resourceName,
-          message: 'Resource read failed due to an internal error.',
+          message,
         },
       });
     }

@@ -32,6 +32,7 @@ import {
 } from './read-token-by-key.js';
 import { TOKENS_URI, readTokensResource } from './read-tokens.js';
 import { withSafeResourceHandler } from './safe-resource-handler.js';
+import { McpInvalidParamsError } from '../error-classification.js';
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { ComponentCatalogStore } from '../../catalogs/components/store.js';
@@ -144,7 +145,7 @@ export const registerResources = (
       const iconName = variables['iconName'];
 
       if (typeof iconName !== 'string' || iconName.trim() === '') {
-        throw new Error(
+        throw new McpInvalidParamsError(
           'Resource variable "iconName" must be a non-empty string.'
         );
       }
@@ -165,7 +166,7 @@ export const registerResources = (
       const tokenKey = variables['tokenKey'];
 
       if (typeof tokenKey !== 'string' || tokenKey.trim() === '') {
-        throw new Error(
+        throw new McpInvalidParamsError(
           'Resource variable "tokenKey" must be a non-empty string.'
         );
       }
@@ -189,7 +190,7 @@ export const registerResources = (
         const slug = variables['slug'];
 
         if (typeof slug !== 'string' || slug.trim() === '') {
-          throw new Error(
+          throw new McpInvalidParamsError(
             'Resource variable "slug" must be a non-empty string.'
           );
         }
@@ -213,13 +214,13 @@ export const registerResources = (
       const nodeId = variables['nodeId'];
 
       if (typeof fileKey !== 'string' || fileKey.trim() === '') {
-        throw new Error(
+        throw new McpInvalidParamsError(
           'Resource variable "fileKey" must be a non-empty string.'
         );
       }
 
       if (typeof nodeId !== 'string' || nodeId.trim() === '') {
-        throw new Error(
+        throw new McpInvalidParamsError(
           'Resource variable "nodeId" must be a non-empty string.'
         );
       }

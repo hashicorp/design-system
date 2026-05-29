@@ -148,7 +148,7 @@ test('registerResources registers all catalog resources', () => {
   );
 });
 
-test('registerResources returns internal error payload for invalid resource variables', async () => {
+test('registerResources returns invalid params payload for invalid resource variables', async () => {
   const server = new FakeServer();
 
   registerResources(
@@ -177,6 +177,10 @@ test('registerResources returns internal error payload for invalid resource vari
   };
 
   assert.equal(payload.ok, false);
-  assert.equal(payload.error?.code, 'INTERNAL_ERROR');
+  assert.equal(payload.error?.code, 'INVALID_PARAMS');
   assert.equal(payload.error?.resource, 'hds_icon_by_name');
+  assert.equal(
+    payload.error?.message,
+    'Resource read failed due to invalid input parameters.'
+  );
 });

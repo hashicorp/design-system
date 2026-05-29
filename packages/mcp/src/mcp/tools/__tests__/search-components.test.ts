@@ -10,6 +10,7 @@ import {
   buildSearchComponentsPayload,
   registerSearchComponentsTool,
 } from '../search-components.js';
+import { McpInvalidParamsError } from '../../error-classification.js';
 
 import type { ComponentCatalogStore } from '../../../catalogs/components/store.js';
 
@@ -156,4 +157,42 @@ test('registerSearchComponentsTool returns internal error payload when handler t
   assert.equal(payload.ok, false);
   assert.equal(payload.error?.code, 'INTERNAL_ERROR');
   assert.equal(payload.error?.tool, 'hds_search_components');
+});
+
+test('registerSearchComponentsTool returns invalid params payload for invalid input errors', async () => {
+  const server = new FakeServer();
+
+  registerSearchComponentsTool(
+    server as unknown as Parameters<typeof registerSearchComponentsTool>[0],
+    {
+      ...createStore(),
+      listComponents: () => {
+        throw new McpInvalidParamsError('Invalid query');
+      },
+    }
+  );
+
+  const tool = server.registeredTools[0];
+
+  if (tool === undefined) {
+    throw new Error('Expected hds_search_components to be registered');
+  }
+
+  const response = await tool.handler({ query: 'button', limit: 10 });
+  const payload = JSON.parse(response.content[0]?.text ?? '{}') as {
+    ok?: boolean;
+    error?: {
+      code?: string;
+      tool?: string;
+      message?: string;
+    };
+  };
+
+  assert.equal(payload.ok, false);
+  assert.equal(payload.error?.code, 'INVALID_PARAMS');
+  assert.equal(payload.error?.tool, 'hds_search_components');
+  assert.equal(
+    payload.error?.message,
+    'Tool execution failed due to invalid input parameters.'
+  );
 });
