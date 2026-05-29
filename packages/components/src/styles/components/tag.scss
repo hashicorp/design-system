@@ -78,10 +78,14 @@
 .hds-tag__link {
   cursor: pointer;
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    @include hds-focus-ring-basic();
-    z-index: 1; // ensures focus is not obscured by adjacent elements
+    @include hds-focus-ring-advanced(
+      // ensures focus is not obscured by adjacent elements
+      $pseudo-element-z-index: 1,
+      $pseudo-element-inset-hds: 0,
+      $pseudo-element-inset-cds: 0
+    );
   }
 }
 
@@ -89,14 +93,17 @@
   cursor: text;
   user-select: text;
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    @include hds-focus-ring-basic();
-    z-index: 1; // ensures focus is not obscured by adjacent elements
-  }
+    // we override the tooltip button focus ring (slighly different)
+    &::before {
+      border-radius: inherit;
+      inset: 0;
 
-  &:focus-visible::before {
-    box-shadow: none; // override default tooltip button focus styles
+      @include hds-apply-only-if-carbon() {
+        inset: -1px;
+      }
+    }
   }
 }
 
