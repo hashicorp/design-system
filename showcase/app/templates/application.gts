@@ -58,25 +58,33 @@ export default class Application extends Component {
     return isCarbonizationRoute(this.router?.currentRouteName);
   }
 
+  applyMockStatesToElement = (element: Element) => {
+    const mockStateSelector = element.getAttribute('mock-state-selector');
+    const targets = mockStateSelector
+      ? Array.from(element.querySelectorAll(mockStateSelector))
+      : [element];
+
+    const states = element.getAttribute('mock-state-value')!.split('+');
+    const classes = states.map((state) => `mock-${state.trim()}`);
+    targets.forEach((target) => {
+      target.classList.add(...classes);
+    });
+  };
+
   addMockStateClasses = () => {
     document.querySelectorAll('[mock-state-value]').forEach((element) => {
-      let targets;
-      const mockStateSelector = element.getAttribute('mock-state-selector');
       const mockStateDelay = Number(
         element.getAttribute('mock-state-delay') || 0,
       );
-      setTimeout(() => {
-        if (mockStateSelector) {
-          targets = element.querySelectorAll(mockStateSelector);
-        } else {
-          targets = [element];
-        }
-        const states = element.getAttribute('mock-state-value')!.split('+');
-        const classes = states.map((state) => `mock-${state.trim()}`);
-        targets.forEach((target) => {
-          target.classList.add(...classes);
-        });
-      }, mockStateDelay);
+
+      if (mockStateDelay === 0) {
+        this.applyMockStatesToElement(element);
+      } else {
+        setTimeout(
+          () => this.applyMockStatesToElement(element),
+          mockStateDelay,
+        );
+      }
     });
   };
 
