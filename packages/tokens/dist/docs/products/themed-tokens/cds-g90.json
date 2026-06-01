@@ -15727,80 +15727,469 @@
     ]
   },
   {
-    "key": "{form.label.color}",
+    "key": "{form.character-count.foreground.color}",
     "$type": "color",
-    "$value": "#f4f4f4",
+    "$value": "#c6c6c6",
     "group": "components",
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.strong}",
+      "$value": "{form.foreground.color.faint}",
       "group": "components",
-      "key": "{form.label.color}"
+      "key": "{form.character-count.foreground.color}"
     },
-    "name": "token-form-label-color",
+    "name": "token-form-character-count-foreground-color",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "character-count",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{form.character-count.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.helperText01.font-size}",
+      "unit": "px",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.helperText01.font-size}",
+        "cds-g10": "{carbon.typography.helperText01.font-size}",
+        "cds-g90": "{carbon.typography.helperText01.font-size}",
+        "cds-g100": "{carbon.typography.helperText01.font-size}"
+      },
+      "key": "{form.character-count.typography.font-size}"
+    },
+    "name": "token-form-character-count-typography-font-size",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "character-count",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{form.character-count.typography.line-height}",
+    "$type": "number",
+    "$value": 1.33333,
+    "$modes": {
+      "default": 1.28572,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
+    "comment": "The character-count line-height is the same as the helper-text as per design",
+    "original": {
+      "$type": "number",
+      "$value": "{carbon.typography.helperText01.line-height}",
+      "$modes": {
+        "default": "{typography.body-100.line-height}",
+        "cds-g0": "{carbon.typography.helperText01.line-height}",
+        "cds-g10": "{carbon.typography.helperText01.line-height}",
+        "cds-g90": "{carbon.typography.helperText01.line-height}",
+        "cds-g100": "{carbon.typography.helperText01.line-height}"
+      },
+      "comment": "The character-count line-height is the same as the helper-text as per design",
+      "key": "{form.character-count.typography.line-height}"
+    },
+    "name": "token-form-character-count-typography-line-height",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "character-count",
+      "typography",
+      "line-height"
+    ]
+  },
+  {
+    "key": "{form.label.foreground.color}",
+    "$type": "color",
+    "$value": "#c6c6c6",
+    "group": "components",
+    "original": {
+      "$type": "color",
+      "$value": "{form.foreground.color.strong}",
+      "group": "components",
+      "key": "{form.label.foreground.color}"
+    },
+    "name": "token-form-label-foreground-color",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "label",
+      "foreground",
       "color"
     ]
   },
   {
-    "key": "{form.legend.color}",
+    "key": "{form.label.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "0.875rem",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.label01.font-size}",
+      "unit": "px",
+      "$modes": {
+        "default": "{typography.body-200.font-size}",
+        "cds-g0": "{carbon.typography.label01.font-size}",
+        "cds-g10": "{carbon.typography.label01.font-size}",
+        "cds-g90": "{carbon.typography.label01.font-size}",
+        "cds-g100": "{carbon.typography.label01.font-size}"
+      },
+      "key": "{form.label.typography.font-size}"
+    },
+    "name": "token-form-label-typography-font-size",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "label",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{form.label.typography.font-weight}",
+    "$type": "font-weight",
+    "$value": 400,
+    "$modes": {
+      "default": 600,
+      "cds-g0": 400,
+      "cds-g10": 400,
+      "cds-g90": 400,
+      "cds-g100": 400
+    },
+    "original": {
+      "$type": "font-weight",
+      "$value": "{carbon.typography.label01.font-weight}",
+      "$modes": {
+        "default": "{typography.font-weight.semibold}",
+        "cds-g0": "{carbon.typography.label01.font-weight}",
+        "cds-g10": "{carbon.typography.label01.font-weight}",
+        "cds-g90": "{carbon.typography.label01.font-weight}",
+        "cds-g100": "{carbon.typography.label01.font-weight}"
+      },
+      "key": "{form.label.typography.font-weight}"
+    },
+    "name": "token-form-label-typography-font-weight",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "label",
+      "typography",
+      "font-weight"
+    ]
+  },
+  {
+    "key": "{form.label.typography.line-height}",
+    "$type": "number",
+    "$value": 1.33333,
+    "$modes": {
+      "default": 1.42857,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
+    "original": {
+      "$type": "number",
+      "$value": "{carbon.typography.label01.line-height}",
+      "$modes": {
+        "default": "{typography.body-200.line-height}",
+        "cds-g0": "{carbon.typography.label01.line-height}",
+        "cds-g10": "{carbon.typography.label01.line-height}",
+        "cds-g90": "{carbon.typography.label01.line-height}",
+        "cds-g100": "{carbon.typography.label01.line-height}"
+      },
+      "key": "{form.label.typography.line-height}"
+    },
+    "name": "token-form-label-typography-line-height",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "label",
+      "typography",
+      "line-height"
+    ]
+  },
+  {
+    "key": "{form.legend.foreground.color}",
     "$type": "color",
-    "$value": "#f4f4f4",
+    "$value": "#c6c6c6",
     "group": "components",
     "original": {
       "$type": "color",
-      "$value": "{form.label.color}",
+      "$value": "{form.foreground.color.strong}",
       "group": "components",
-      "key": "{form.legend.color}"
+      "key": "{form.legend.foreground.color}"
     },
-    "name": "token-form-legend-color",
+    "name": "token-form-legend-foreground-color",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "legend",
+      "foreground",
       "color"
     ]
   },
   {
-    "key": "{form.helper-text.color}",
+    "key": "{form.legend.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "0.875rem",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.label01.font-size}",
+      "unit": "px",
+      "$modes": {
+        "default": "{typography.body-200.font-size}",
+        "cds-g0": "{carbon.typography.label01.font-size}",
+        "cds-g10": "{carbon.typography.label01.font-size}",
+        "cds-g90": "{carbon.typography.label01.font-size}",
+        "cds-g100": "{carbon.typography.label01.font-size}"
+      },
+      "key": "{form.legend.typography.font-size}"
+    },
+    "name": "token-form-legend-typography-font-size",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "legend",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{form.legend.typography.font-weight}",
+    "$type": "font-weight",
+    "$value": 400,
+    "$modes": {
+      "default": 600,
+      "cds-g0": 400,
+      "cds-g10": 400,
+      "cds-g90": 400,
+      "cds-g100": 400
+    },
+    "original": {
+      "$type": "font-weight",
+      "$value": "{carbon.typography.font-weight.regular}",
+      "$modes": {
+        "default": "{typography.font-weight.semibold}",
+        "cds-g0": "{carbon.typography.font-weight.regular}",
+        "cds-g10": "{carbon.typography.font-weight.regular}",
+        "cds-g90": "{carbon.typography.font-weight.regular}",
+        "cds-g100": "{carbon.typography.font-weight.regular}"
+      },
+      "key": "{form.legend.typography.font-weight}"
+    },
+    "name": "token-form-legend-typography-font-weight",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "legend",
+      "typography",
+      "font-weight"
+    ]
+  },
+  {
+    "key": "{form.legend.typography.line-height}",
+    "$type": "number",
+    "$value": 1.33333,
+    "$modes": {
+      "default": 1.42857,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
+    "original": {
+      "$type": "number",
+      "$value": "{carbon.typography.label01.line-height}",
+      "$modes": {
+        "default": "{typography.body-200.line-height}",
+        "cds-g0": "{carbon.typography.label01.line-height}",
+        "cds-g10": "{carbon.typography.label01.line-height}",
+        "cds-g90": "{carbon.typography.label01.line-height}",
+        "cds-g100": "{carbon.typography.label01.line-height}"
+      },
+      "key": "{form.legend.typography.line-height}"
+    },
+    "name": "token-form-legend-typography-line-height",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "legend",
+      "typography",
+      "line-height"
+    ]
+  },
+  {
+    "key": "{form.helper-text.foreground.color}",
     "$type": "color",
     "$value": "#c6c6c6",
     "group": "components",
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.faint}",
+      "$value": "{form.foreground.color.faint}",
       "group": "components",
-      "key": "{form.helper-text.color}"
+      "key": "{form.helper-text.foreground.color}"
     },
-    "name": "token-form-helper-text-color",
+    "name": "token-form-helper-text-foreground-color",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "helper-text",
+      "foreground",
       "color"
     ]
   },
   {
-    "key": "{form.indicator.optional.color}",
+    "key": "{form.helper-text.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.helperText01.font-size}",
+      "unit": "px",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.helperText01.font-size}",
+        "cds-g10": "{carbon.typography.helperText01.font-size}",
+        "cds-g90": "{carbon.typography.helperText01.font-size}",
+        "cds-g100": "{carbon.typography.helperText01.font-size}"
+      },
+      "key": "{form.helper-text.typography.font-size}"
+    },
+    "name": "token-form-helper-text-typography-font-size",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "helper-text",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{form.helper-text.typography.line-height}",
+    "$type": "number",
+    "$value": 1.33333,
+    "$modes": {
+      "default": 1.28572,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
+    "original": {
+      "$type": "number",
+      "$value": "{carbon.typography.helperText01.line-height}",
+      "$modes": {
+        "default": "{typography.body-100.line-height}",
+        "cds-g0": "{carbon.typography.helperText01.line-height}",
+        "cds-g10": "{carbon.typography.helperText01.line-height}",
+        "cds-g90": "{carbon.typography.helperText01.line-height}",
+        "cds-g100": "{carbon.typography.helperText01.line-height}"
+      },
+      "key": "{form.helper-text.typography.line-height}"
+    },
+    "name": "token-form-helper-text-typography-line-height",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "helper-text",
+      "typography",
+      "line-height"
+    ]
+  },
+  {
+    "key": "{form.indicator.optional.foreground.color}",
     "$type": "color",
     "$value": "#c6c6c6",
     "group": "components",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#c6c6c6",
+      "cds-g90": "#c6c6c6",
+      "cds-g100": "#c6c6c6"
+    },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.faint}",
+      "$value": "{form.label.foreground.color}",
       "group": "components",
-      "key": "{form.indicator.optional.color}"
+      "$modes": {
+        "default": "{form.foreground.color.faint}",
+        "cds-g0": "{form.label.foreground.color}",
+        "cds-g10": "{form.label.foreground.color}",
+        "cds-g90": "{form.label.foreground.color}",
+        "cds-g100": "{form.label.foreground.color}"
+      },
+      "key": "{form.indicator.optional.foreground.color}"
     },
-    "name": "token-form-indicator-optional-color",
+    "name": "token-form-indicator-optional-foreground-color",
     "attributes": {
       "category": "form"
     },
@@ -15808,28 +16197,186 @@
       "form",
       "indicator",
       "optional",
+      "foreground",
       "color"
     ]
   },
   {
-    "key": "{form.error.color}",
+    "key": "{form.indicator.optional.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.label01.font-size}",
+      "unit": "px",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.label01.font-size}",
+        "cds-g10": "{carbon.typography.label01.font-size}",
+        "cds-g90": "{carbon.typography.label01.font-size}",
+        "cds-g100": "{carbon.typography.label01.font-size}"
+      },
+      "key": "{form.indicator.optional.typography.font-size}"
+    },
+    "name": "token-form-indicator-optional-typography-font-size",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "indicator",
+      "optional",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{form.indicator.optional.typography.line-height}",
+    "$type": "number",
+    "$value": 1.33333,
+    "$modes": {
+      "default": 1.28572,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
+    "original": {
+      "$type": "number",
+      "$value": "{carbon.typography.label01.line-height}",
+      "$modes": {
+        "default": "{typography.body-100.line-height}",
+        "cds-g0": "{carbon.typography.label01.line-height}",
+        "cds-g10": "{carbon.typography.label01.line-height}",
+        "cds-g90": "{carbon.typography.label01.line-height}",
+        "cds-g100": "{carbon.typography.label01.line-height}"
+      },
+      "key": "{form.indicator.optional.typography.line-height}"
+    },
+    "name": "token-form-indicator-optional-typography-line-height",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "indicator",
+      "optional",
+      "typography",
+      "line-height"
+    ]
+  },
+  {
+    "key": "{form.error.foreground.color}",
     "$type": "color",
-    "$value": "#a2191f",
+    "$value": "#ffb3b8",
     "group": "components",
+    "$modes": {
+      "default": "#a2191f",
+      "cds-g0": "#da1e28",
+      "cds-g10": "#da1e28",
+      "cds-g90": "#ffb3b8",
+      "cds-g100": "#ff8389"
+    },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.red-300}",
+      "$value": "{carbon.themes.g90.textError}",
       "group": "components",
-      "key": "{form.error.color}"
+      "$modes": {
+        "default": "{color.palette.red-300}",
+        "cds-g0": "{carbon.themes.white.textError}",
+        "cds-g10": "{carbon.themes.g10.textError}",
+        "cds-g90": "{carbon.themes.g90.textError}",
+        "cds-g100": "{carbon.themes.g100.textError}"
+      },
+      "key": "{form.error.foreground.color}"
     },
-    "name": "token-form-error-color",
+    "name": "token-form-error-foreground-color",
     "attributes": {
       "category": "form"
     },
     "path": [
       "form",
       "error",
+      "foreground",
       "color"
+    ]
+  },
+  {
+    "key": "{form.error.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.75rem",
+    "unit": "px",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.75rem",
+      "cds-g10": "0.75rem",
+      "cds-g90": "0.75rem",
+      "cds-g100": "0.75rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.helperText01.font-size}",
+      "unit": "px",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.helperText01.font-size}",
+        "cds-g10": "{carbon.typography.helperText01.font-size}",
+        "cds-g90": "{carbon.typography.helperText01.font-size}",
+        "cds-g100": "{carbon.typography.helperText01.font-size}"
+      },
+      "key": "{form.error.typography.font-size}"
+    },
+    "name": "token-form-error-typography-font-size",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "error",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{form.error.typography.line-height}",
+    "$type": "number",
+    "$value": 1.33333,
+    "$modes": {
+      "default": 1.28572,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
+    "original": {
+      "$type": "number",
+      "$value": "{carbon.typography.helperText01.line-height}",
+      "$modes": {
+        "default": "{typography.body-100.line-height}",
+        "cds-g0": "{carbon.typography.helperText01.line-height}",
+        "cds-g10": "{carbon.typography.helperText01.line-height}",
+        "cds-g90": "{carbon.typography.helperText01.line-height}",
+        "cds-g100": "{carbon.typography.helperText01.line-height}"
+      },
+      "key": "{form.error.typography.line-height}"
+    },
+    "name": "token-form-error-typography-line-height",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "error",
+      "typography",
+      "line-height"
     ]
   },
   {

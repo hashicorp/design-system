@@ -355,6 +355,26 @@
   --token-elevation-overlay-box-shadow: 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --token-form-character-count-foreground-color: #656a76;
+  --token-form-character-count-typography-font-size: var(--token-typography-body-100-font-size);
+  --token-form-character-count-typography-line-height: var(--token-typography-body-100-line-height); /** The character-count line-height is the same as the helper-text as per design */
+  --token-form-error-foreground-color: var(--token-color-palette-red-300);
+  --token-form-error-typography-font-size: var(--token-typography-body-100-font-size);
+  --token-form-error-typography-line-height: var(--token-typography-body-100-line-height);
+  --token-form-helper-text-foreground-color: #656a76;
+  --token-form-helper-text-typography-font-size: var(--token-typography-body-100-font-size);
+  --token-form-helper-text-typography-line-height: var(--token-typography-body-100-line-height);
+  --token-form-indicator-optional-foreground-color: #656a76;
+  --token-form-indicator-optional-typography-font-size: var(--token-typography-body-100-font-size);
+  --token-form-indicator-optional-typography-line-height: var(--token-typography-body-100-line-height);
+  --token-form-label-foreground-color: #0c0c0e;
+  --token-form-label-typography-font-size: var(--token-typography-body-200-font-size);
+  --token-form-label-typography-font-weight: var(--token-typography-font-weight-semibold);
+  --token-form-label-typography-line-height: var(--token-typography-body-200-line-height);
+  --token-form-legend-foreground-color: #0c0c0e;
+  --token-form-legend-typography-font-size: var(--token-typography-body-200-font-size);
+  --token-form-legend-typography-font-weight: var(--token-typography-font-weight-semibold);
+  --token-form-legend-typography-line-height: var(--token-typography-body-200-line-height);
   --token-form-radiocard-border-color-default-checked: var(--token-color-palette-blue-300);
   --token-form-radiocard-border-color-default: var(--token-color-surface-primary);
   --token-form-radiocard-border-color-focus: var(--token-color-focus-action-internal);
