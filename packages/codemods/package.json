@@ -27,10 +27,12 @@
     "codemod-cli": "^3.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-node": "^11.1.0",
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-n": "^17.18.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^16.1.0",
     "jest": "^29.7.0",
     "prettier": "^3.4.2"
   },
