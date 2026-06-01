@@ -13,26 +13,6 @@ import { getAssetsMetadata } from './sync-parts/getAssetsMetadata';
 import { getAssetsCatalog } from './sync-parts/getAssetsCatalog';
 import { exportAssetsToFolder } from './sync-parts/exportAssetsToFolder';
 
-interface InputAsset {
-    id: string;
-    fileName: string;
-    iconName: string;
-    category: string;
-    size: string;
-    width: number;
-    height: number;
-}
-
-interface InputCatalog {
-    assets: InputAsset[];
-    lastRunTimeISO: string;
-    lastRunFigma: {
-        id: string;
-        page: string;
-        excludeFrames: string[];
-    };
-}
-
 // read the environment variables from the ".env" file
 dotenv.config();
 
