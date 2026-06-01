@@ -320,6 +320,7 @@
   --token-badge-icon-size-small: 12px;
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-large: 16px;
+  --token-breadcrumb-typography-font-size: 0.8125rem;
   --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
   --token-breadcrumb-divider-color: #c2c5cb;
   --token-breadcrumb-link-foreground-color-default: #656a76;
@@ -589,10 +590,13 @@
   --token-pagination-nav-control-foreground-color-hover: #0c56e9;
   --token-pagination-nav-control-foreground-color-active: #0046d1;
   --token-pagination-nav-control-icon-spacing: 6px;
+  --token-pagination-nav-control-typography-font-size: 0.8125rem;
   --token-pagination-nav-control-typography-font-weight-active: var(--token-typography-font-weight-medium);
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
+  --token-pagination-info-typography-font-size: 0.8125rem;
+  --token-pagination-size-selector-typography-font-size: 0.8125rem;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-reveal-foreground-color-default: #1060ff;

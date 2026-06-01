@@ -117,6 +117,7 @@ $pagination-nav-control-padding-horizontal: 12px;
 // * Sub-component: Info
 // ---------------------------------------
 .hds-pagination-info {
+  font-size: var(--token-pagination-info-typography-font-size);
   white-space: nowrap;
 }
 
@@ -210,6 +211,11 @@ $pagination-nav-control-padding-horizontal: 12px;
   justify-content: flex-end;
 }
 
+.hds-pagination-nav__arrow-label,
+.hds-pagination-nav__number-content {
+  font-size: var(--token-pagination-nav-control-typography-font-size);
+}
+
 .hds-pagination-nav__number--is-selected {
   position: relative;
   color: var(--token-pagination-nav-control-foreground-color-default);
@@ -259,6 +265,8 @@ $pagination-nav-control-padding-horizontal: 12px;
   align-items: center;
 
   > label {
+    // font styles for this select differ from standard `Form::Select::Base` styles
+    font-size: var(--token-pagination-size-selector-typography-font-size);
     white-space: nowrap;
 
     @include hds-apply-only-if-carbon() {
@@ -274,7 +282,7 @@ $pagination-nav-control-padding-horizontal: 12px;
     margin-left: 12px;
     padding: 0 24px 0 8px;
     // font styles for this select differ from standard `Form::Select::Base` styles
-    font-size: var(--token-typography-body-100-font-size);
+    font-size: var(--token-pagination-size-selector-typography-font-size);
     font-family: var(--token-typography-body-100-font-family);
     line-height: var(--token-typography-body-100-line-height);
     // TODO: Test simplifying value in select.scss

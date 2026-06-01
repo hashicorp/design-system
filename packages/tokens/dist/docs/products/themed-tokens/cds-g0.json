@@ -10111,6 +10111,39 @@
     ]
   },
   {
+    "key": "{breadcrumb.typography.font-size}",
+    "$type": "font-size",
+    "$value": "0.875rem",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
+    "original": {
+      "$type": "font-size",
+      "$value": "{carbon.typography.bodyCompact01.font-size}",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+      },
+      "key": "{breadcrumb.typography.font-size}"
+    },
+    "name": "token-breadcrumb-typography-font-size",
+    "attributes": {
+      "category": "breadcrumb"
+    },
+    "path": [
+      "breadcrumb",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
     "key": "{breadcrumb.typography.line-height}",
     "$type": "number",
     "$value": 1.28572,
@@ -14481,28 +14514,78 @@
     "$type": "font-size",
     "$value": "0.75rem",
     "$modes": {
-      "default": "0.875rem",
-      "cds-g0": "0.75rem",
-      "cds-g10": "0.75rem",
-      "cds-g90": "0.75rem",
-      "cds-g100": "0.75rem"
+      "default": "0.8125rem",
+      "cds-g0": {
+        "$value": "0.75",
+        "unit": "rem",
+        "filePath": "src/products/shared/dialog-primitive.json",
+        "isSource": true,
+        "$type": "font-size"
+      },
+      "cds-g10": {
+        "$value": "0.75",
+        "unit": "rem",
+        "filePath": "src/products/shared/dialog-primitive.json",
+        "isSource": true,
+        "$type": "font-size"
+      },
+      "cds-g90": {
+        "$value": "0.75",
+        "unit": "rem",
+        "filePath": "src/products/shared/dialog-primitive.json",
+        "isSource": true,
+        "$type": "font-size"
+      },
+      "cds-g100": {
+        "$value": "0.75",
+        "unit": "rem",
+        "filePath": "src/products/shared/dialog-primitive.json",
+        "isSource": true,
+        "$type": "font-size"
+      }
     },
     "comments": {
       "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
     },
+    "unit": "rem",
     "original": {
       "$type": "font-size",
-      "$value": "{carbon.typography.label01.font-size}",
+      "$value": "0.75",
       "$modes": {
         "default": "{typography.body-100.font-size}",
-        "cds-g0": "{carbon.typography.label01.font-size}",
-        "cds-g10": "{carbon.typography.label01.font-size}",
-        "cds-g90": "{carbon.typography.label01.font-size}",
-        "cds-g100": "{carbon.typography.label01.font-size}"
+        "cds-g0": {
+          "$value": "0.75",
+          "unit": "rem",
+          "filePath": "src/products/shared/dialog-primitive.json",
+          "isSource": true,
+          "$type": "font-size"
+        },
+        "cds-g10": {
+          "$value": "0.75",
+          "unit": "rem",
+          "filePath": "src/products/shared/dialog-primitive.json",
+          "isSource": true,
+          "$type": "font-size"
+        },
+        "cds-g90": {
+          "$value": "0.75",
+          "unit": "rem",
+          "filePath": "src/products/shared/dialog-primitive.json",
+          "isSource": true,
+          "$type": "font-size"
+        },
+        "cds-g100": {
+          "$value": "0.75",
+          "unit": "rem",
+          "filePath": "src/products/shared/dialog-primitive.json",
+          "isSource": true,
+          "$type": "font-size"
+        }
       },
       "comments": {
         "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
       },
+      "unit": "rem",
       "key": "{dialog-primitive.header.tagline.typography.font-size}"
     },
     "name": "token-dialog-primitive-header-tagline-typography-font-size",
@@ -17600,21 +17683,69 @@
     "unit": "rem",
     "$modes": {
       "default": "0.8125",
-      "cds-g0": "0.75rem",
-      "cds-g10": "0.75rem",
-      "cds-g90": "0.75rem",
-      "cds-g100": "0.75rem"
+      "cds-g0": {
+        "$value": "0.75",
+        "unit": "rem",
+        "filePath": "src/products/shared/link/standalone.json",
+        "isSource": true,
+        "$type": "font-size"
+      },
+      "cds-g10": {
+        "$value": "0.75",
+        "unit": "rem",
+        "filePath": "src/products/shared/link/standalone.json",
+        "isSource": true,
+        "$type": "font-size"
+      },
+      "cds-g90": {
+        "$value": "0.75",
+        "unit": "rem",
+        "filePath": "src/products/shared/link/standalone.json",
+        "isSource": true,
+        "$type": "font-size"
+      },
+      "cds-g100": {
+        "$value": "0.75",
+        "unit": "rem",
+        "filePath": "src/products/shared/link/standalone.json",
+        "isSource": true,
+        "$type": "font-size"
+      }
     },
     "original": {
       "$type": "font-size",
-      "$value": "{carbon.typography.helperText01.font-size}",
+      "$value": "0.75",
       "unit": "rem",
       "$modes": {
         "default": "0.8125",
-        "cds-g0": "{carbon.typography.helperText01.font-size}",
-        "cds-g10": "{carbon.typography.helperText01.font-size}",
-        "cds-g90": "{carbon.typography.helperText01.font-size}",
-        "cds-g100": "{carbon.typography.helperText01.font-size}"
+        "cds-g0": {
+          "$value": "0.75",
+          "unit": "rem",
+          "filePath": "src/products/shared/link/standalone.json",
+          "isSource": true,
+          "$type": "font-size"
+        },
+        "cds-g10": {
+          "$value": "0.75",
+          "unit": "rem",
+          "filePath": "src/products/shared/link/standalone.json",
+          "isSource": true,
+          "$type": "font-size"
+        },
+        "cds-g90": {
+          "$value": "0.75",
+          "unit": "rem",
+          "filePath": "src/products/shared/link/standalone.json",
+          "isSource": true,
+          "$type": "font-size"
+        },
+        "cds-g100": {
+          "$value": "0.75",
+          "unit": "rem",
+          "filePath": "src/products/shared/link/standalone.json",
+          "isSource": true,
+          "$type": "font-size"
+        }
       },
       "key": "{link.standalone.typography.font-size.small}"
     },
@@ -18423,6 +18554,41 @@
     ]
   },
   {
+    "key": "{pagination.nav.control.typography.font-size}",
+    "$type": "typography",
+    "$value": "0.875rem",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
+    "original": {
+      "$type": "typography",
+      "$value": "{carbon.typography.bodyCompact01.font-size}",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+      },
+      "key": "{pagination.nav.control.typography.font-size}"
+    },
+    "name": "token-pagination-nav-control-typography-font-size",
+    "attributes": {
+      "category": "pagination"
+    },
+    "path": [
+      "pagination",
+      "nav",
+      "control",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
     "key": "{pagination.nav.control.typography.font-weight.active}",
     "$type": "font-weight",
     "$value": 600,
@@ -18549,6 +18715,74 @@
       "surface",
       "color",
       "hover"
+    ]
+  },
+  {
+    "key": "{pagination.info.typography.font-size}",
+    "$type": "typography",
+    "$value": "0.875rem",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
+    "original": {
+      "$type": "typography",
+      "$value": "{carbon.typography.bodyCompact01.font-size}",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+      },
+      "key": "{pagination.info.typography.font-size}"
+    },
+    "name": "token-pagination-info-typography-font-size",
+    "attributes": {
+      "category": "pagination"
+    },
+    "path": [
+      "pagination",
+      "info",
+      "typography",
+      "font-size"
+    ]
+  },
+  {
+    "key": "{pagination.size-selector.typography.font-size}",
+    "$type": "typography",
+    "$value": "0.875rem",
+    "$modes": {
+      "default": "0.8125rem",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
+    "original": {
+      "$type": "typography",
+      "$value": "{carbon.typography.bodyCompact01.font-size}",
+      "$modes": {
+        "default": "{typography.body-100.font-size}",
+        "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+      },
+      "key": "{pagination.size-selector.typography.font-size}"
+    },
+    "name": "token-pagination-size-selector-typography-font-size",
+    "attributes": {
+      "category": "pagination"
+    },
+    "path": [
+      "pagination",
+      "size-selector",
+      "typography",
+      "font-size"
     ]
   },
   {
@@ -22335,28 +22569,14 @@
   {
     "key": "{typography.body-100.font-size}",
     "$type": "font-size",
-    "$value": "0.875rem",
+    "$value": "0.8125rem",
     "unit": "px",
     "comment": "13px/0.8125rem",
-    "$modes": {
-      "default": "13",
-      "cds-g0": "0.875rem",
-      "cds-g10": "0.875rem",
-      "cds-g90": "0.875rem",
-      "cds-g100": "0.875rem"
-    },
     "original": {
       "$type": "font-size",
-      "$value": "{carbon.typography.bodyCompact01.font-size}",
+      "$value": "13",
       "unit": "px",
       "comment": "13px/0.8125rem",
-      "$modes": {
-        "default": "13",
-        "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
-        "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
-        "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
-        "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
-      },
       "key": "{typography.body-100.font-size}"
     },
     "name": "token-typography-body-100-font-size",

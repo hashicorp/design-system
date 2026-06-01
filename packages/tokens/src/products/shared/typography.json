@@ -543,14 +543,7 @@
         "$type": "font-size",
         "$value": "13",
         "unit": "px",
-        "comment": "13px/0.8125rem",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
-          "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
-        }
+        "comment": "13px/0.8125rem"
       },
       "line-height": {
         "$type": "number",

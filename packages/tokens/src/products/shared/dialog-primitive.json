@@ -47,10 +47,22 @@
             "$value": "{typography.body-100.font-size}",
             "$modes": {
               "default": "{typography.body-100.font-size}",
-              "cds-g0": "{carbon.typography.label01.font-size}",
-              "cds-g10": "{carbon.typography.label01.font-size}",
-              "cds-g90": "{carbon.typography.label01.font-size}",
-              "cds-g100": "{carbon.typography.label01.font-size}"
+              "cds-g0": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g10": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g90": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g100": {
+                "$value": "0.75",
+                "unit": "rem"
+              }
             },
             "comments": {
               "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
