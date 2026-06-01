@@ -4,7 +4,7 @@
  */
 
 
-type Args = { key?: string, value: Record<string, any>; type: string; group?: string };
+type Args = { key?: string; value: unknown; type: string; group?: string };
 
 import type { CarbonDesignTokens, CarbonDesignToken } from './@types/CarbonDesignTokens.d.ts'
 
@@ -16,14 +16,15 @@ export function convertObjectToDtcgFormat({ value, type, group }: Args): CarbonD
   return recursivelyProcessObject({ value, type, group });
 }
 
-function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesignTokens | CarbonDesignToken | Record<string, any> {
+function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesignTokens | CarbonDesignToken | Record<string, unknown> {
   if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
     // recursively process each key
-    const result: Record<string, any> = {};
+    const result: Record<string, unknown> = {};
+    const objectValue = value as Record<string, unknown>;
     for (const key in value) {
       // for better safety (says Copilot)
-      if (Object.prototype.hasOwnProperty.call(value, key)) {
-        result[key] = recursivelyProcessObject({ key, value: value[key], type, group });
+      if (Object.prototype.hasOwnProperty.call(objectValue, key)) {
+        result[key] = recursivelyProcessObject({ key, value: objectValue[key], type, group });
       }
     }
     return result;
@@ -39,8 +40,8 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             'private': true,
             'cds-original-value': value
           };
-        case 'cubic-bezier':
-          const convertedCubicBezierValue = convertCubicBezierValue(value);
+        case 'cubic-bezier': {
+          const convertedCubicBezierValue = typeof value === 'string' ? convertCubicBezierValue(value) : undefined;
           if (convertedCubicBezierValue !== undefined) {
             return {
               // see: https://www.designtokens.org/tr/drafts/format/#cubic-bezier
@@ -50,12 +51,12 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
               'private': true,
               'cds-original-value': value
             };
-          } else {
-            const unknownCubicBezierToken = returnUnknownToken(value, `🚨 convertCubicBezierValue: value for key "${key}" / group "${group}" is not in the expected format:`);
-            return unknownCubicBezierToken;
           }
-        case 'duration':
-          const convertedDurationValue = convertDurationValue(value);
+          const unknownCubicBezierToken = returnUnknownToken(value, `🚨 convertCubicBezierValue: value for key "${key}" / group "${group}" is not in the expected format:`);
+          return unknownCubicBezierToken;
+        }
+        case 'duration': {
+          const convertedDurationValue = typeof value === 'string' ? convertDurationValue(value) : undefined;
           if (convertedDurationValue !== undefined) {
             return {
               '$type': 'duration',
@@ -65,10 +66,10 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
               'private': true,
               'cds-original-value': value
             };
-          } else {
-            const unknownDurationToken = returnUnknownToken(value, `🚨 convertDurationValue: value for key "${key}" / group "${group}" is not in the expected format:`);
-            return unknownDurationToken;
           }
+          const unknownDurationToken = returnUnknownToken(value, `🚨 convertDurationValue: value for key "${key}" / group "${group}" is not in the expected format:`);
+          return unknownDurationToken;
+        }
         case 'font-family':
           return {
             '$type': 'font-family',
@@ -77,7 +78,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             'private': true,
             'cds-original-value': value
           };
-        case 'font-size':
+        case 'font-size': {
           const convertedFontSizeValue = convertSizeValue(value, true);
           if (convertedFontSizeValue !== undefined) {
             return {
@@ -88,10 +89,10 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
               'private': true,
               'cds-original-value': value
             };
-          } else {
-            const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
-            return unknownSizeToken;
           }
+          const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
+          return unknownSizeToken;
+        }
         case 'font-weight':
           return {
             '$type': 'font-weight',
@@ -108,7 +109,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             'private': true,
             'cds-original-value': value
           };
-        case 'letter-spacing':
+        case 'letter-spacing': {
           const convertedLetterSpacingValue = convertSizeValue(value, false);
           if (convertedLetterSpacingValue !== undefined) {
             return {
@@ -119,10 +120,10 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
               'private': true,
               'cds-original-value': value
             };
-          } else {
-            const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
-            return unknownSizeToken;
           }
+          const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
+          return unknownSizeToken;
+        }
         case 'number':
           return {
             '$type': 'number',
@@ -131,7 +132,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             'private': true,
             'cds-original-value': value
           };
-        case 'dimension':
+        case 'dimension': {
           const convertedSizeValue = convertSizeValue(value);
           if (convertedSizeValue !== undefined) {
             return {
@@ -142,10 +143,10 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
               'private': true,
               'cds-original-value': value
             };
-          } else {
-            const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
-            return unknownSizeToken;
           }
+          const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
+          return unknownSizeToken;
+        }
         default:
           return {
             '$type': 'unknown',

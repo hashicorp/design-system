@@ -15,7 +15,7 @@ export function generateFocusRingHelpers(tokens: TransformedTokens, outputCssVar
 
   Object.keys(tokens).forEach((key: string) => {
     const color = key;
-    if (tokens && tokens[color] && tokens[color].hasOwnProperty('box-shadow')) {
+    if (tokens && tokens[color] && Object.prototype.hasOwnProperty.call(tokens[color], 'box-shadow')) {
       const selector = `.${PREFIX}-focus-ring-${color}-box-shadow`;
       const value = outputCssVars ? `var(--token-focus-ring-${color}-box-shadow)` : tokens[color]['box-shadow'].$value;
       helpersFocusRing.push(`${selector} { box-shadow: ${value}; }`);

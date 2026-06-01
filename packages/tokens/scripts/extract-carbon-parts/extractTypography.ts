@@ -18,6 +18,7 @@ type CarbonStyle = {
 };
 
 type CarbonStyles = Record<string, CarbonStyle>;
+type CarbonStyleKey = Exclude<keyof CarbonStyle, 'breakpoints'>;
 
 type MergedStyle = {
   'font-family'?: string;
@@ -64,8 +65,10 @@ export async function extractTypography(): Promise<void> {
     Object.entries(styleObj).forEach(([key, value]) => {
       // at the moment we're not interested in responsive typography
       if (key !== 'breakpoints') {
-        // Type assertion to ensure key is one of the expected keys
-        (carbonTypographyStylesEntries as any)[key][styleName] = value;
+        if (key in carbonTypographyStylesEntries) {
+          const typedKey = key as CarbonStyleKey;
+          carbonTypographyStylesEntries[typedKey][styleName] = value as CarbonStyle[CarbonStyleKey];
+        }
       }
     });
   });
@@ -88,7 +91,13 @@ export async function extractTypography(): Promise<void> {
   const carbonTypographyStylesFontWeightDtcg = convertObjectToDtcgFormat({ value: carbonTypographyStylesEntries.fontWeight, type: 'font-weight', group: 'cds-typography' });
   const carbonTypographyStylesLineHeightDtcg = convertObjectToDtcgFormat({ value: carbonTypographyStylesEntries.lineHeight, type: 'line-height', group: 'cds-typography' });
   const carbonTypographyStylesLetterSpacingDtcg = convertObjectToDtcgFormat({ value: carbonTypographyStylesEntries.letterSpacing, type: 'letter-spacing', group: 'cds-typography' });
-  const carbonTypographyStyle = mergeCarbonTypographyStyles(carbonTypographyStylesFontFamilyDtcg, carbonTypographyStylesFontSizeDtcg, carbonTypographyStylesFontWeightDtcg, carbonTypographyStylesLineHeightDtcg, carbonTypographyStylesLetterSpacingDtcg);
+  const carbonTypographyStyle = mergeCarbonTypographyStyles(
+    carbonTypographyStylesFontFamilyDtcg as Record<string, CarbonStyle['fontFamily']>,
+    carbonTypographyStylesFontSizeDtcg as Record<string, CarbonStyle['fontSize']>,
+    carbonTypographyStylesFontWeightDtcg as Record<string, CarbonStyle['fontWeight']>,
+    carbonTypographyStylesLineHeightDtcg as Record<string, CarbonStyle['lineHeight']>,
+    carbonTypographyStylesLetterSpacingDtcg as Record<string, CarbonStyle['letterSpacing']>
+  );
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonTypographyStyle, group: 'typography', file: 'styles' });
 
 }

@@ -49,7 +49,7 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
 
     } else {
 
-      let stylename = key;
+      const stylename = key;
 
       // basic font styles
       if (outputCssVars) {

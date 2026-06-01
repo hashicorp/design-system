@@ -19,11 +19,12 @@
   "type": "module",
   "scripts": {
     "typecheck": "pnpm tsc --noEmit",
-    "lint": "pnpm eslint --quiet --ext .js,.ts",
+    "lint": "pnpm eslint --quiet .",
     "extract-carbon-tokens": "tsx ./scripts/extract-carbon-tokens",
     "build": "tsx ./scripts/build"
   },
   "devDependencies": {
+    "@eslint/js": "^9.27.0",
     "@carbon/colors": "^11.39.0",
     "@carbon/grid": "^11.42.0",
     "@carbon/layout": "^11.40.0",
@@ -36,8 +37,9 @@
     "@types/tinycolor2": "^1.4.6",
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
-    "eslint": "^8.57.1",
+    "eslint": "^9.27.0",
     "fs-extra": "^11.2.0",
+    "globals": "^16.1.0",
     "lodash-es": "^4.18.1",
     "path": "^0.12.7",
     "prettier": "^3.4.2",
@@ -45,6 +47,7 @@
     "tinycolor2": "^1.6.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
+    "typescript-eslint": "^8.32.1",
     "typescript": "^5.7.2"
   }
 }
