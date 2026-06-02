@@ -99,6 +99,17 @@
             "$value": "{color.foreground.high-contrast}",
             "$modes": {
               "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textSecondary}",
+              "cds-g10": "{carbon.themes.g10.textSecondary}",
+              "cds-g90": "{carbon.themes.g90.textSecondary}",
+              "cds-g100": "{carbon.themes.g100.textSecondary}"
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -216,6 +227,19 @@
           "cds-g10": "10",
           "cds-g90": "10",
           "cds-g100": "10"
+        }
+      },
+      "foreground": {
+        "color": {
+          "$type": "color",
+          "$value": "{color.foreground.high-contrast}",
+          "$modes": {
+            "default": "{color.foreground.high-contrast}",
+            "cds-g0": "{carbon.themes.white.textPrimary}",
+            "cds-g10": "{carbon.themes.g10.textPrimary}",
+            "cds-g90": "{carbon.themes.g90.textPrimary}",
+            "cds-g100": "{carbon.themes.g100.textPrimary}"
+          }
         }
       },
       "logo": {
