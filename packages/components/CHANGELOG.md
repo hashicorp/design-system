@@ -1,5 +1,73 @@
 # @hashicorp/design-system-components
 
+## 6.2.1
+
+### Patch Changes
+
+<!-- START components/dropdown -->
+
+`Dropdown` - Fixed vertical alignment between text and `Badge` in `DropdownListItemInteractive`
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3889](https://github.com/hashicorp/design-system/pull/3889)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/code-block -->
+
+`CodeBlock` - Translated strings for height toggle button text
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3895](https://github.com/hashicorp/design-system/pull/3895)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/copy/snippet -->
+
+`CopySnippet` - Fixed a11y issue by adding `@ariaMessageText` argument to an aria-live region to announce to screen readers when content has been copied. Added handling for copy to clipboard error state in `ariaMessageText`
+
+<!-- END -->
+
+<!-- START components/copy/button -->
+
+`CopyButton` - Added handling for copy to clipboard error state in `ariaMessageText`
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3890](https://github.com/hashicorp/design-system/pull/3890)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/stepper/nav -->
+
+`Stepper::Nav` - Refactored classes for step to removed unneeded interactive classes
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3885](https://github.com/hashicorp/design-system/pull/3885)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/app-footer -->
+
+`HdsAppFooter` - Switched usage of inline styles with `ember-style-modifier`.
+
+<!-- END -->
+
+<!-- START components/breadcrumb -->
+
+`HdsBreadcrumbItem` - Switched usage of inline styles with `ember-style-modifier`.
+
+<!-- END -->
+
+`HdsClipboard` Modifier - Switched usage of `setAttribute` for `setProperty` when updating a `style` value.
+
+<small class="doc-whats-new-changelog-metadata">[#3856](https://github.com/hashicorp/design-system/pull/3856) - Thanks [@kgriffcodes](https://github.com/kgriffcodes) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.2.0
 
 [6.2.0 documentation](https://hds-website-6-2-0.vercel.app/)
