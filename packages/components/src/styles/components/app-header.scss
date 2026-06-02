@@ -192,6 +192,10 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
 
     .hds-dropdown-toggle-button {
       gap: 8px;
+
+      .hds-dropdown-toggle-chevron {
+        padding-left: 0;
+      }
     }
 
     .hds-dropdown-toggle-icon {
