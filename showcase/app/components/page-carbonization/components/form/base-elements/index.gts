@@ -11,6 +11,7 @@ import style from 'ember-style-modifier';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwOutliner from 'showcase/components/shw/outliner';
@@ -40,7 +41,63 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
   <ShwTextH1>Form / Base elements (Primitives) - Carbonization</ShwTextH1>
 
   <section>
-    <ShwTextH2>Label</ShwTextH2>
+    <ShwTextH2>Form primitives in context</ShwTextH2>
+
+    <ShwCarbonizationComparisonGrid @label="with closest Carbon equivalents">
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsFormField @layout="vertical" } as |F|>
+              <F.Label @isOptional={{true}}>Label</F.Label>
+              <F.HelperText>Helper text</F.HelperText>
+              <F.Control>
+                <ShwPlaceholder @text="control" @width="100%" @height="32" />
+              </F.Control>
+              <F.CharacterCount @value="" />
+            </HdsFormField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormField @layout="vertical" } as |F|>
+              <F.Label @isRequired={{true}}>Label</F.Label>
+              <F.HelperText>Helper text</F.HelperText>
+              <F.Control>
+                <ShwPlaceholder @text="control" @width="100%" @height="32" />
+              </F.Control>
+              <F.CharacterCount @value="" />
+              <F.Error>This is the error</F.Error>
+            </HdsFormField>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-text-input
+              label="Label (optional)"
+              label-description="Helper text for a text input component."
+              placeholder="Placeholder text"
+              helper-text="Helper text"
+            ></cds-text-input>
+          </SF.Item>
+          <SF.Item>
+            <cds-text-input
+              label="Label (required)"
+              label-description="Helper text for a text input component."
+              placeholder="Placeholder text"
+              helper-text="Helper text"
+              invalid
+              invalid-text="This is the error"
+            ></cds-text-input>
+          </SF.Item>
+        </ShwFlex>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider />
+
+    <ShwTextH2>Individual components</ShwTextH2>
+
+    <ShwTextH3>Label</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid @layout="row">
       <:theming>
@@ -114,7 +171,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>Helper text</ShwTextH2>
+    <ShwTextH3>Helper text</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -172,7 +229,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>Character count</ShwTextH2>
+    <ShwTextH3>Character count</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -189,7 +246,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>Error</ShwTextH2>
+    <ShwTextH3>Error</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -240,7 +297,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>Legend</ShwTextH2>
+    <ShwTextH3>Legend</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
@@ -300,14 +357,10 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>Field</ShwTextH2>
+    <ShwTextH3>Field</ShwTextH3>
 
     {{#each FIELD_LAYOUT_TYPES as |layout|}}
-      <ShwCarbonizationComparisonGrid
-        @label="{{capitalize layout}} layout"
-        @hideThemeLabels={{true}}
-        @hideCarbonLabels={{true}}
-      >
+      <ShwCarbonizationComparisonGrid @label="{{capitalize layout}} layout">
         <:theming>
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
@@ -364,7 +417,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>Fieldset</ShwTextH2>
+    <ShwTextH3>Fieldset</ShwTextH3>
 
     {{#each FIELDSET_LAYOUT_TYPES as |layout|}}
       <ShwCarbonizationComparisonGrid
@@ -407,7 +460,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>Visibility toggle</ShwTextH2>
+    <ShwTextH3>Visibility toggle</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>

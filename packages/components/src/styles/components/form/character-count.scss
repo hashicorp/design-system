@@ -12,6 +12,6 @@
 .hds-form-character-count {
   color: var(--token-form-foreground-color-faint);
   font-size: var(--token-form-character-count-typography-font-size);
-  font-family: var(--token-typography-font-stack-text)
-  line-height: var(--token-typography-body-100-line-height);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-character-count-typography-line-height);
 }

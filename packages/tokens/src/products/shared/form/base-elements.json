@@ -28,6 +28,18 @@
             "cds-g90": "12",
             "cds-g100": "12"
           }
+        },
+        "line-height": {
+          "$type": "number",
+          "$value": "{typography.body-100.line-height}",
+          "$modes": {
+            "default": "{typography.body-100.line-height}",
+            "cds-g0": "{carbon.typography.helperText01.line-height}",
+            "cds-g10": "{carbon.typography.helperText01.line-height}",
+            "cds-g90": "{carbon.typography.helperText01.line-height}",
+            "cds-g100": "{carbon.typography.helperText01.line-height}"
+          },
+          "comment": "The character-count line-height is the same as the helper-text as per design"
         }
       }
     },
@@ -67,6 +79,17 @@
             "cds-g90": "{carbon.typography.font-weight.regular}",
             "cds-g100": "{carbon.typography.font-weight.regular}"
           }
+        },
+        "line-height": {
+          "$type": "number",
+          "$value": "{typography.body-200.line-height}",
+          "$modes": {
+            "default": "{typography.body-200.line-height}",
+            "cds-g0": "{carbon.typography.label01.line-height}",
+            "cds-g10": "{carbon.typography.label01.line-height}",
+            "cds-g90": "{carbon.typography.label01.line-height}",
+            "cds-g100": "{carbon.typography.label01.line-height}"
+          }
         }
       }
     },
@@ -90,6 +113,17 @@
             "cds-g90": "12",
             "cds-g100": "12"
           }
+        },
+        "line-height": {
+          "$type": "number",
+          "$value": "{typography.body-100.line-height}",
+          "$modes": {
+            "default": "{typography.body-100.line-height}",
+            "cds-g0": "{carbon.typography.helperText01.line-height}",
+            "cds-g10": "{carbon.typography.helperText01.line-height}",
+            "cds-g90": "{carbon.typography.helperText01.line-height}",
+            "cds-g100": "{carbon.typography.helperText01.line-height}"
+          }
         }
       }
     },
@@ -106,6 +140,17 @@
               "cds-g10": "12",
               "cds-g90": "12",
               "cds-g100": "12"
+            }
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": "{typography.body-100.line-height}",
+            "$modes": {
+              "default": "{typography.body-100.line-height}",
+              "cds-g0": "{carbon.typography.label01.line-height}",
+              "cds-g10": "{carbon.typography.label01.line-height}",
+              "cds-g90": "{carbon.typography.label01.line-height}",
+              "cds-g100": "{carbon.typography.label01.line-height}"
             }
           }
         }
@@ -135,6 +180,17 @@
             "cds-g10": "12",
             "cds-g90": "12",
             "cds-g100": "12"
+          }
+        },
+         "line-height": {
+          "$type": "number",
+          "$value": "{typography.body-100.line-height}",
+          "$modes": {
+            "default": "{typography.body-100.line-height}",
+            "cds-g0": "{carbon.typography.helperText01.line-height}",
+            "cds-g10": "{carbon.typography.helperText01.line-height}",
+            "cds-g90": "{carbon.typography.helperText01.line-height}",
+            "cds-g100": "{carbon.typography.helperText01.line-height}"
           }
         }
       },

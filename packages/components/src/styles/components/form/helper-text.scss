@@ -12,6 +12,6 @@
   color: var(--token-form-foreground-color-faint);
   font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-form-helper-text-typography-font-size);
-  font-family: var(--token-typography-font-stack-text)
-  line-height: var(--token-typography-body-100-line-height);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-helper-text-typography-line-height);
 }
