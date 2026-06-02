@@ -12,8 +12,8 @@
 @use "../mixins/button" as *;
 
 $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
-  inset 0 0 0 1px var(--token-app-header-interactive-focus-action-internal),
-  0 0 0 3px var(--token-app-header-interactive-focus-action-external);
+  inset 0 0 0 1px var(--token-app-header-interactive-focus-ring-color-action-internal),
+  0 0 0 3px var(--token-app-header-interactive-focus-ring-color-action-external);
 
 // Used for interactive elements such as Button & Dropdown
 @mixin hds-interactive-app-header-theme($add-visible-border: true) {
@@ -58,7 +58,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
       background-color: var(--token-app-header-interactive-surface-color-default);
 
       @if ($add-visible-border) {
-        border-color: var(--token-app-header-interactive-focus-action-internal);
+        border-color: var(--token-app-header-interactive-focus-ring-color-action-internal);
       }
     }
 
@@ -78,7 +78,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
     background-color: var(--token-app-header-interactive-surface-color-active);
 
     @if ($add-visible-border) {
-      border-color: var(--token-app-header-interactive-border-color-default);
+      border-color: var(--token-app-header-interactive-border-color-active);
     }
   }
 }
