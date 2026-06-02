@@ -1,3 +1,8 @@
+## 6.2.1
+
+Fixed vertical alignment between text and `Badge` in `DropdownListItemInteractive`
+
+
 ## 6.1.0
 
 Added `@onFocusOut` argument to manage focus for dynamic dropdown content and prevent the dropdown from closing when content changes

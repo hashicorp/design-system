@@ -1,3 +1,8 @@
+## 6.2.1
+
+Fixed a11y issue by adding `@ariaMessageText` argument to an aria-live region to announce to screen readers when content has been copied. Added handling for copy to clipboard error state in `ariaMessageText`
+
+
 ## 6.2.0
 
 Translated `aria-label` string for button.

@@ -1,3 +1,8 @@
+## 6.2.1
+
+Refactored classes for step to removed unneeded interactive classes
+
+
 ## 6.1.1
 
 Translated strings for status value types

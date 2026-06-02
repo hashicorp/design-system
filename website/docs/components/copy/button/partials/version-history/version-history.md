@@ -1,3 +1,8 @@
+## 6.2.1
+
+Added handling for copy to clipboard error state in `ariaMessageText`
+
+
 ## 6.1.0
 
 Converted component to gts format.

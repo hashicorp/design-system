@@ -1,3 +1,8 @@
+## 6.2.1
+
+Translated strings for height toggle button text
+
+
 ## 6.1.0
 
 Converted component to gts format.

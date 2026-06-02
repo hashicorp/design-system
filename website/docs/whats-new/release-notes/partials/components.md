@@ -12,6 +12,62 @@
   </a>
 </p>
 
+## 6.2.1
+
+[6.2.1 documentation](https://hds-website-6-2-1.vercel.app/)
+
+**Patch changes**
+
+
+`Dropdown` - Fixed vertical alignment between text and `Badge` in `DropdownListItemInteractive`
+
+
+<small class="doc-whats-new-changelog-metadata">[#3889](https://github.com/hashicorp/design-system/pull/3889)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CodeBlock` - Translated strings for height toggle button text
+
+
+<small class="doc-whats-new-changelog-metadata">[#3895](https://github.com/hashicorp/design-system/pull/3895)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CopySnippet` - Fixed a11y issue by adding `@ariaMessageText` argument to an aria-live region to announce to screen readers when content has been copied. Added handling for copy to clipboard error state in `ariaMessageText`
+
+
+
+`CopyButton` - Added handling for copy to clipboard error state in `ariaMessageText`
+
+
+<small class="doc-whats-new-changelog-metadata">[#3890](https://github.com/hashicorp/design-system/pull/3890)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Stepper::Nav` - Refactored classes for step to removed unneeded interactive classes
+
+
+<small class="doc-whats-new-changelog-metadata">[#3885](https://github.com/hashicorp/design-system/pull/3885)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`HdsAppFooter` - Switched usage of inline styles with `ember-style-modifier`.
+
+
+
+`HdsBreadcrumbItem` - Switched usage of inline styles with `ember-style-modifier`.
+
+
+`HdsClipboard` Modifier - Switched usage of `setAttribute` for `setProperty` when updating a `style` value.
+
+<small class="doc-whats-new-changelog-metadata">[#3856](https://github.com/hashicorp/design-system/pull/3856) - Thanks [@kgriffcodes](https://github.com/kgriffcodes) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.2.0
 
 [6.2.0 documentation](https://hds-website-6-2-0.vercel.app/)
@@ -47,6 +103,8 @@
 `CopySnippet` - Translated `aria-label` string for button.
 
 <small class="doc-whats-new-changelog-metadata">[#3816](https://github.com/hashicorp/design-system/pull/3816)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
 
 `AdvancedTable` - Fixed typing for sticky first-column cells by exposing `isStickyColumn` in the yielded table-cell API and by passing an explicit `parentId` value when rendering row header cells.
 
@@ -1658,32 +1716,6 @@ Update ember-stargate to 0.5.0
 `Modal` - Fixed issue with focus trap when modal is displayed inline.
 
 <small class="doc-whats-new-changelog-metadata">[#2834](https://github.com/hashicorp/design-system/pull/2834)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 4.18.2
-
-[4.18.2 documentation](https://hds-website-4-18-2.vercel.app/)
-
-**Patch changes**
-
-`AdvancedTable` - Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
-
-<small class="doc-whats-new-changelog-metadata">[#2811](https://github.com/hashicorp/design-system/pull/2811)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AdvancedTable` - Fixed styling issues with the sticky column and scroll indicators.
-
-<small class="doc-whats-new-changelog-metadata">[#2821](https://github.com/hashicorp/design-system/pull/2821)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-code-editor` - Added the value and `EditorView` instance as arguments for the `onLint` callback. Added the `EditorView` instance as an argument to the `onInput` callback.
-
-`CodeEditor` - Added the value and `EditorView` instance as arguments for the `onLint` callback. Added the `EditorView` instance as an argument to the `onInput` callback.
-
-<small class="doc-whats-new-changelog-metadata">[#2825](https://github.com/hashicorp/design-system/pull/2825)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
