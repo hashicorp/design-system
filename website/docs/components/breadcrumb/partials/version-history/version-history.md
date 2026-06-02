@@ -1,3 +1,8 @@
+## 6.2.1
+
+Switched usage of inline styles with `ember-style-modifier`.
+
+
 ## 6.1.0
 
 Converted component to gts format.
