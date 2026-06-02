@@ -260,7 +260,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
   gap: 8px;
   align-items: center;
   justify-content: center;
-  padding: 3px;
+  padding: var(--token-app-header-home-link-padding);
   text-decoration: none;
 
   // disabled state:
@@ -278,8 +278,8 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
 
   // Set SVG logo size:
   svg {
-    width: var(--token-app-header-logo-size);
-    height: var(--token-app-header-logo-size);
+    width: var(--token-app-header-home-link-logo-width);
+    height: var(--token-app-header-home-link-logo-height);
   }
 }
 
