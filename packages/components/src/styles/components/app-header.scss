@@ -32,7 +32,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
   }
 
   @include hds-apply-only-if-carbon() {
-    height: 100%;
+    min-height: 100%;
   }
 
   // Hover:
@@ -175,6 +175,12 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
         width: 100%;
       }
     }
+
+    @include hds-apply-only-if-carbon() {
+      .hds-app-header__menu-button {
+        gap: 8px;
+      }
+    }
   }
 
   // CONTENT
@@ -184,6 +190,27 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
     display: flex;
     gap: var(--token-app-header-actions-gap);
     align-items: center;
+
+    @include hds-apply-only-if-carbon() {
+      .hds-dropdown-toggle-button {
+        gap: 8px;
+      }
+    }
+  }
+
+  @include hds-apply-only-if-carbon() {
+    align-items: stretch;
+
+    .hds-app-header__actions,
+    .hds-app-header__global-actions,
+    .hds-app-header__utility-actions {
+      align-items: stretch;
+    }
+
+    .hds-app-header__global-actions > *,
+    .hds-app-header__utility-actions > * {
+      min-height: 100%;
+    }
   }
 
   // Dropdown & Button color theming overrides
@@ -235,17 +262,6 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
   justify-content: center;
   padding: 3px;
   text-decoration: none;
-
-  // Remove interactive styles on home link for Carbon themes
-  @include hds-apply-only-if-carbon() {
-    &:hover,
-    &.mock-hover,
-    &:active,
-    &.mock-active {
-      color: var(--token-interactive-theme-foreground-color-default);
-      background-color: var(--token-app-header-interactive-surface-color-default);
-    }
-  }
 
   // disabled state:
   &:disabled,

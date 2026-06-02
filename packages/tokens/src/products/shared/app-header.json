@@ -18,10 +18,7 @@
         "$value": "11",
         "unit": "px",
         "$modes": {
-          "default": {
-            "value": "11",
-            "comment": "Account for 1px border at the bottom of the header"
-          },
+          "default": "11",
           "cds-g0": "0",
           "cds-g10": "0",
           "cds-g90": "0",
