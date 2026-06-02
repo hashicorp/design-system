@@ -32,7 +32,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
   }
 
   @include hds-apply-only-if-carbon() {
-    min-height: 100%;
+    height: var(--token-app-header-height);
   }
 
   // Hover:
@@ -175,12 +175,6 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
         width: 100%;
       }
     }
-
-    @include hds-apply-only-if-carbon() {
-      .hds-app-header__menu-button {
-        gap: 8px;
-      }
-    }
   }
 
   // CONTENT
@@ -190,26 +184,25 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
     display: flex;
     gap: var(--token-app-header-actions-gap);
     align-items: center;
-
-    @include hds-apply-only-if-carbon() {
-      .hds-dropdown-toggle-button {
-        gap: 8px;
-      }
-    }
   }
 
   @include hds-apply-only-if-carbon() {
-    align-items: stretch;
-
-    .hds-app-header__actions,
-    .hds-app-header__global-actions,
-    .hds-app-header__utility-actions {
-      align-items: stretch;
+    // Override default button and dropdown paddings for Carbon themes
+    .hds-button--is-icon-only {
+      padding: 16px;
     }
 
-    .hds-app-header__global-actions > *,
-    .hds-app-header__utility-actions > * {
-      min-height: 100%;
+    .hds-dropdown-toggle-button {
+      gap: 8px;
+    }
+
+    .hds-dropdown-toggle-icon {
+      padding: 8px;
+    }
+
+    // Remove chevrons from icon dropdowns for Carbon themes
+    .hds-dropdown-toggle-icon--has-chevron .hds-dropdown-toggle-chevron {
+      display: none;
     }
   }
 
@@ -288,4 +281,12 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
   display: flex;
   flex: 1;
   gap: inherit;
+}
+
+// Menu button
+
+.hds-app-header__menu-button {
+  @include hds-apply-only-if-carbon() {
+    gap: 8px;
+  }
 }
