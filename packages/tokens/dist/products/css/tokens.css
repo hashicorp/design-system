@@ -237,9 +237,28 @@
   --token-alert-inline-border-left-color-critical: #fbd4d4;
   --token-app-footer-link-focus-outline-width: 2px;
   --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
+  --token-app-header-padding-top: 12px;
+  --token-app-header-padding-bottom: 11px;
+  --token-app-header-border-color: #656a76;
+  --token-app-header-foreground-color: #ffffff;
+  --token-app-header-surface-color: #0c0c0e;
+  --token-app-header-interactive-border-color-default: #656a76;
+  --token-app-header-interactive-border-color-active: #8c909c;
+  --token-app-header-interactive-foreground-color-default: #ffffff;
+  --token-app-header-interactive-foreground-color-hover: #ffffff;
+  --token-app-header-interactive-foreground-color-disabled: #8c909c;
+  --token-app-header-interactive-surface-color-default: #0c0c0e;
+  --token-app-header-interactive-surface-color-hover: #3b3d45;
+  --token-app-header-interactive-surface-color-active: #656a76;
+  --token-app-header-interactive-surface-color-disabled: #3b3d45;
+  --token-app-header-interactive-focus-ring-color-action-internal: #bcc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-app-header-interactive-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-app-header-height: 60px;
-  --token-app-header-home-link-size: 36px;
-  --token-app-header-logo-size: 28px;
+  --token-app-header-home-link-padding: 3px;
+  --token-app-header-home-link-foreground-color: #ffffff;
+  --token-app-header-home-link-logo-width: 28px;
+  --token-app-header-home-link-logo-height: 28px;
+  --token-app-header-actions-gap: 12px;
   --token-app-side-nav-wrapper-surface-color: #fafafa;
   --token-app-side-nav-wrapper-border-width: 1px;
   --token-app-side-nav-wrapper-border-color: #dedfe3;
