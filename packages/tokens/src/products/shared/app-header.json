@@ -78,17 +78,6 @@
               "cds-g90": "transparent",
               "cds-g100": "transparent"
             }
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.palette.neutral-400}",
-            "$modes": {
-              "default": "{color.palette.neutral-400}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
           }
         }
       },

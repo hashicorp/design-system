@@ -77,7 +77,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
     background-color: var(--token-app-header-interactive-surface-color-active);
 
     @if ($add-visible-border) {
-      border-color: var(--token-app-header-interactive-border-color-disabled);
+      border-color: var(--token-app-header-interactive-border-color-default);
     }
   }
 }
@@ -85,7 +85,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
 @mixin hds-interactive-app-header-theme-state-disabled() {
   color: var(--token-app-header-interactive-foreground-color-disabled);
   background-color: var(--token-app-header-interactive-surface-color-disabled);
-  border-color: var(--token-app-header-interactive-border-color-disabled);
+  border-color: var(--token-app-header-interactive-border-color-default);
 }
 
 // ----------------
