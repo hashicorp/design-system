@@ -14,6 +14,8 @@
 
 ## 6.2.1
 
+[6.2.1 documentation](https://hds-website-6-2-1.vercel.app/)
+
 **Patch changes**
 
 <!-- START components/dropdown -->
