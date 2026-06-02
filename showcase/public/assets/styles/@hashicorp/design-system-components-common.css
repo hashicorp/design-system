@@ -1959,6 +1959,7 @@
 .hds-app-header__home-link:focus-visible, .hds-app-header__home-link.mock-focus {
   color: var(--token-app-header-interactive-foreground-color-default);
   background-color: var(--token-app-header-interactive-surface-color-default);
+  border-color: var(--token-app-header-interactive-focus-ring-color-action-internal);
 }
 .hds-app-header__home-link:focus-visible::before, .hds-app-header__home-link.mock-focus::before {
   color: var(--token-color-foreground-high-contrast);

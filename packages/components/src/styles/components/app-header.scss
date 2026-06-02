@@ -56,10 +56,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
     & {
       color: var(--token-app-header-interactive-foreground-color-default);
       background-color: var(--token-app-header-interactive-surface-color-default);
-
-      @if ($add-visible-border) {
-        border-color: var(--token-app-header-interactive-focus-ring-color-action-internal);
-      }
+      border-color: var(--token-app-header-interactive-focus-ring-color-action-internal);
     }
 
     // focus ring:
