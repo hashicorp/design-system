@@ -63,10 +63,10 @@
           "unit": "px",
           "$modes": {
             "default": "{typography.body-200.font-size}",
-            "cds-g0": "12",
-            "cds-g10": "12",
-            "cds-g90": "12",
-            "cds-g100": "12"
+            "cds-g0": "{carbon.typography.label01.font-size}",
+            "cds-g10": "{carbon.typography.label01.font-size}",
+            "cds-g90": "{carbon.typography.label01.font-size}",
+            "cds-g100": "{carbon.typography.label01.font-size}"
           }
         },
         "font-weight": {
@@ -74,10 +74,10 @@
           "$value": "{typography.font-weight.semibold}",
           "$modes": {
             "default": "{typography.font-weight.semibold}",
-            "cds-g0": "{carbon.typography.font-weight.regular}",
-            "cds-g10": "{carbon.typography.font-weight.regular}",
-            "cds-g90": "{carbon.typography.font-weight.regular}",
-            "cds-g100": "{carbon.typography.font-weight.regular}"
+            "cds-g0": "{carbon.typography.label01.font-weight}",
+            "cds-g10": "{carbon.typography.label01.font-weight}",
+            "cds-g90": "{carbon.typography.label01.font-weight}",
+            "cds-g100": "{carbon.typography.label01.font-weight}"
           }
         },
         "line-height": {
@@ -106,10 +106,10 @@
           "unit": "px",
           "$modes": {
             "default": "{typography.body-200.font-size}",
-            "cds-g0": "12",
-            "cds-g10": "12",
-            "cds-g90": "12",
-            "cds-g100": "12"
+            "cds-g0": "{carbon.typography.label01.font-size}",
+            "cds-g10": "{carbon.typography.label01.font-size}",
+            "cds-g90": "{carbon.typography.label01.font-size}",
+            "cds-g100": "{carbon.typography.label01.font-size}"
           }
         },
         "font-weight": {
@@ -172,10 +172,10 @@
             "unit": "px",
             "$modes": {
               "default": "{typography.body-100.font-size}",
-              "cds-g0": "12",
-              "cds-g10": "12",
-              "cds-g90": "12",
-              "cds-g100": "12"
+              "cds-g0": "{carbon.typography.label01.font-size}",
+              "cds-g10": "{carbon.typography.label01.font-size}",
+              "cds-g90": "{carbon.typography.label01.font-size}",
+              "cds-g100": "{carbon.typography.label01.font-size}"
             }
           },
           "line-height": {
