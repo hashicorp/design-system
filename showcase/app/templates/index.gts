@@ -411,7 +411,7 @@ const Index: TemplateOnlyComponent = <template>
         </li>
         <li>
           <LinkTo @route="page-carbonization.foundations.focus-ring">
-            Focus-ring
+            Focus ring
           </LinkTo>
         </li>
       </ol>
