@@ -98,6 +98,42 @@
         "$type": "color",
         "$value": "{form.label.color}",
         "group": "components"
+      },
+      "typography": {
+        "font-size": {
+          "$type": "font-size",
+          "$value": "{typography.body-200.font-size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{typography.body-200.font-size}",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        },
+        "font-weight": {
+          "$type": "font-weight",
+          "$value": "{typography.font-weight.semibold}",
+          "$modes": {
+            "default": "{typography.font-weight.semibold}",
+            "cds-g0": "{carbon.typography.font-weight.regular}",
+            "cds-g10": "{carbon.typography.font-weight.regular}",
+            "cds-g90": "{carbon.typography.font-weight.regular}",
+            "cds-g100": "{carbon.typography.font-weight.regular}"
+          }
+        },
+        "line-height": {
+          "$type": "number",
+          "$value": "{typography.body-200.line-height}",
+          "$modes": {
+            "default": "{typography.body-200.line-height}",
+            "cds-g0": "{carbon.typography.label01.line-height}",
+            "cds-g10": "{carbon.typography.label01.line-height}",
+            "cds-g90": "{carbon.typography.label01.line-height}",
+            "cds-g100": "{carbon.typography.label01.line-height}"
+          }
+        }
       }
     },
     "helper-text": {
