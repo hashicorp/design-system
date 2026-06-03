@@ -100,5 +100,6 @@ export interface HdsAppHeaderSignature {
       },
     ];
   };
+  /** @splattributes */
   Element: HTMLDivElement;
 }

@@ -4,9 +4,14 @@
     {
       "tagName": "@dependsOn",
       "syntaxKind": "block"
+    },
+    {
+      "tagName": "@splattributes",
+      "syntaxKind": "block"
     }
   ],
   "supportForTags": {
-    "@dependsOn": true
+    "@dependsOn": true,
+    "@splattributes": true
   }
 }
