@@ -37,7 +37,6 @@
     background-color: var(--token-app-header-interactive-surface-color-default);
   }
 
-
   &:active,
   &.mock-active {
     color: var(--token-app-header-interactive-foreground-color-default);
@@ -224,6 +223,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--token-app-header-home-link-padding);
+  // Note: The home link has a different foreground color than other interactive elements in the AppHeader, so we override it here and in the focus state
   color: var(--token-app-header-home-link-foreground-color);
   text-decoration: none;
   border-radius: var(--token-border-radius-small);
@@ -232,6 +232,11 @@
     .hds-text {
       font-weight: var(--token-typography-font-weight-bold);
     }
+  }
+
+  &:focus,
+  &.mock-focus {
+    color: var(--token-app-header-home-link-foreground-color);
   }
 
   // Set SVG logo size:
