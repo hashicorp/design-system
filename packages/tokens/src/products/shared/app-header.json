@@ -209,10 +209,10 @@
             "comment": "TODO: Remove once global tokens for dark themes are implemented",
             "$modes": {
               "default": "#bcc7fd",
-              "cds-g0": "{carbon.themes.white.focusInset}",
-              "cds-g10": "{carbon.themes.g10.focusInset}",
-              "cds-g90": "{carbon.themes.g90.focusInset}",
-              "cds-g100": "{carbon.themes.g100.focusInset}"
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
             }
           },
           "action-external": {
@@ -240,7 +240,7 @@
         "cds-g10": "48",
         "cds-g90": "48",
         "cds-g100": "48"
-       }
+      }
     },
     "home-link": {
       "padding": {
