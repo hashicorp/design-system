@@ -71,6 +71,7 @@ export interface HdsAppHeaderSignature {
      */
     a11yRefocusExcludeAllQueryParams?: boolean;
   };
+
   Blocks: {
     /**
      * A named block where the main product logo linked to your app’s home page is rendered. The `AppHeader::HomeLink`
@@ -100,6 +101,7 @@ export interface HdsAppHeaderSignature {
       },
     ];
   };
+
   /** @splattributes */
   Element: HTMLDivElement;
 }
