@@ -204,10 +204,10 @@
           "group": "components",
           "$modes": {
             "default": "{color.palette.red-300}",
-            "cds-g0": "{carbon.color.red.60}",
-            "cds-g10": "{carbon.color.red.60}",
-            "cds-g90": "{carbon.color.red.30}",
-            "cds-g100": "{carbon.color.red.40}"
+            "cds-g0": "{carbon.themes.white.textError}",
+            "cds-g10": "{carbon.themes.g10.textError}",
+            "cds-g90": "{carbon.themes.g90.textError}",
+            "cds-g100": "{carbon.themes.g100.textError}"
           }
         }
       },
