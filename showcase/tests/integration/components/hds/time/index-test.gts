@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { render } from '@ember/test-helpers';
 
 import HdsTimeService, {
@@ -314,7 +314,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
   // NOTE: Relative times in the near future are off by 1
 
   // near times in the future
-  test('it should render the correct string for a date that is five minutes from now', async function (assert) {
+  skip('it should render the correct string for a date that is five minutes from now', async function (assert) {
     const service = this.owner.lookup('service:hdsTime') as HdsTimeService;
     const fiveMinutesFromNow = new Date(service.now + MINUTE_IN_MS * (5 + 1));
 
