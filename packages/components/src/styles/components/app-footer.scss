@@ -93,8 +93,6 @@ $hds-app-footer-icon-text-gap: 6px;
 
   &:focus-visible,
   &.mock-focus {
-    color: var(--app-footer-link-foreground-color-focus);
-
     @include hds-focus-ring-basic(
       $external-outline-width: var(--token-app-footer-link-focus-outline-width),
       $external-outline-color: var(--app-footer-link-outline-color),
@@ -102,6 +100,7 @@ $hds-app-footer-icon-text-gap: 6px;
       $external-outline-offset: 1px,
       $has-internal-border: false
     );
+    color: var(--app-footer-link-foreground-color-focus);
   }
 
   &:active,

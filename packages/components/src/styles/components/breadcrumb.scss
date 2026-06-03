@@ -213,12 +213,11 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:focus-visible,
   &.mock-focus {
-    background-color: transparent;
-
     @include hds-focus-ring-breadcrumb(
       // we have to take into account the border of the toggle
       $pseudo-element-inset: -1px
     );
+    background-color: transparent;
   }
 
   &:active,

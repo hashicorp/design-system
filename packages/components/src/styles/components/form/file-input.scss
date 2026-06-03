@@ -54,11 +54,10 @@
 
 .hds-form-file-input:focus-within::file-selector-button,
 .hds-form-file-input.mock-focus::file-selector-button {
+  @include hds-focus-ring-basic();
   color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-faint);
   border-color: var(--token-color-focus-action-internal);
-
-  @include hds-focus-ring-basic();
 }
 
 // Fix issue with button focus style which was displaying after button was activated

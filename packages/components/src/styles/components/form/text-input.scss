@@ -38,9 +38,8 @@
 
   &:focus-visible,
   &.mock-focus {
-    border-color: var(--token-color-focus-action-internal);
-
     @include hds-focus-ring-basic();
+    border-color: var(--token-color-focus-action-internal);
   }
 
   // READONLY

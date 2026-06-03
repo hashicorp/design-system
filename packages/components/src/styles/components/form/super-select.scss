@@ -52,9 +52,8 @@ $hds-super-select-item-height: 36px;
 
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--token-color-focus-action-internal);
-
       @include hds-focus-ring-basic();
+      border-color: var(--token-color-focus-action-internal);
     }
 
     &[aria-expanded="true"] {
@@ -271,9 +270,8 @@ $hds-super-select-item-height: 36px;
     // focus (same for all the states)
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--token-color-focus-action-internal);
-
       @include hds-focus-ring-basic();
+      border-color: var(--token-color-focus-action-internal);
     }
 
     &[type="search"] {

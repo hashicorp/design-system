@@ -16,8 +16,6 @@
   &:focus,
   &:focus-visible,
   &.mock-focus {
-    text-decoration: none;
-
     @include hds-focus-ring-basic(
       $external-outline-width: var(--token-link-inline-outline-width),
       $external-outline-color: var(--token-link-inline-outline-color),
@@ -25,6 +23,7 @@
       $external-outline-offset: 1px,
       $has-internal-border: false
     );
+    text-decoration: none;
   }
 
   @include hds-apply-only-if-carbon() {

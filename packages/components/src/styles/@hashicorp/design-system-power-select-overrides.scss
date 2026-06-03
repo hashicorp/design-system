@@ -41,9 +41,8 @@
 
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--token-color-focus-action-internal);
-
       @include hds-focus-ring-basic();
+      border-color: var(--token-color-focus-action-internal);
     }
 
     &[aria-expanded="true"] {
@@ -122,9 +121,8 @@
 
       &:focus-visible,
       &.mock-focus {
-        border-color: var(--token-color-focus-action-internal);
-
         @include hds-focus-ring-basic();
+        border-color: var(--token-color-focus-action-internal);
       }
 
       &[type="search"] {

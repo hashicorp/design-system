@@ -59,9 +59,6 @@
 
   &:focus-visible,
   &.mock-focus {
-    color: var(--token-button-foreground-color-secondary-focus);
-    background-color: var(--token-button-surface-color-secondary-focus);
-
     @include hds-focus-ring-advanced(
       // the element has already a `position: relative` with `isolation: isolate`
       $element-position: false,
@@ -70,6 +67,8 @@
       // we want to see the white/black inner border for cds
       $internal-border-width-cds: 1px
     );
+    color: var(--token-button-foreground-color-secondary-focus);
+    background-color: var(--token-button-surface-color-secondary-focus);
   }
 
   &:active,

@@ -109,8 +109,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       &:focus-visible,
       &.mock-focus {
-        z-index: 1;
-
         @include hds-focus-ring-advanced(
           // we want the focus ring to fill the `th` element
           $element-position: sticky,
@@ -118,6 +116,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
           $pseudo-element-inset-hds: var(--token-focus-ring-width-external),
           $pseudo-element-inset-cds: var(--token-focus-ring-width-external)
         );
+        z-index: 1;
       }
 
       &.hds-advanced-table__th--is-being-dragged .hds-advanced-table__th-reorder-handle {
@@ -576,8 +575,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
     &:focus-visible,
     &.mock-focus {
-      z-index: 1;
-
       @include hds-focus-ring-advanced(
         // we want the focus ring to fill the `th/td` elements
         $element-position: sticky,
@@ -585,6 +582,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         $pseudo-element-inset-hds: 3px,
         $pseudo-element-inset-cds: 2px
       );
+      z-index: 1;
 
       .hds-advanced-table__th-reorder-handle__inner {
         background-color: var(--token-color-surface-interactive);
