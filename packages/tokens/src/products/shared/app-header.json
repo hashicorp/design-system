@@ -89,7 +89,7 @@
         }
       }
     },
-    "interactive": {
+    "button": {
       "border": {
         "color": {
           "default": {

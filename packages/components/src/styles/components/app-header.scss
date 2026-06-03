@@ -13,8 +13,8 @@
 
 // Used for interactive elements such as Button & Dropdown
 @mixin hds-interactive-app-header-theme() {
-  color: var(--token-app-header-interactive-foreground-color-default);
-  background-color: var(--token-app-header-interactive-surface-color-default);
+  color: var(--token-app-header-button-foreground-color-default);
+  background-color: var(--token-app-header-button-surface-color-default);
 
   @include hds-apply-only-if-carbon() {
     height: var(--token-app-header-height);
@@ -22,25 +22,25 @@
 
   &:hover,
   &.mock-hover {
-    color: var(--token-app-header-interactive-foreground-color-hover);
-    background-color: var(--token-app-header-interactive-surface-color-hover);
+    color: var(--token-app-header-button-foreground-color-hover);
+    background-color: var(--token-app-header-button-surface-color-hover);
   }
 
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-advanced(
       // the AppHeader has special focus-ring colors for the `hds` "faux-dark" styles
-      $external-outline-color: var(--token-app-header-interactive-focus-ring-color-action-external),
-      $internal-border-color: var(--token-app-header-interactive-focus-ring-color-action-internal)
+      $external-outline-color: var(--token-app-header-button-focus-ring-color-action-external),
+      $internal-border-color: var(--token-app-header-button-focus-ring-color-action-internal)
     );
-    color: var(--token-app-header-interactive-foreground-color-default);
-    background-color: var(--token-app-header-interactive-surface-color-default);
+    color: var(--token-app-header-button-foreground-color-default);
+    background-color: var(--token-app-header-button-surface-color-default);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-app-header-interactive-foreground-color-default);
-    background-color: var(--token-app-header-interactive-surface-color-active);
+    color: var(--token-app-header-button-foreground-color-default);
+    background-color: var(--token-app-header-button-surface-color-active);
   }
 
   &:disabled,
@@ -52,8 +52,8 @@
   &:disabled:hover,
   &[disabled]:hover,
   &.mock-disabled:hover {
-    color: var(--token-app-header-interactive-foreground-color-disabled);
-    background-color: var(--token-app-header-interactive-surface-color-disabled);
+    color: var(--token-app-header-button-foreground-color-disabled);
+    background-color: var(--token-app-header-button-surface-color-disabled);
   }
 }
 
@@ -186,16 +186,16 @@
     // Apply dark theme to child interactive components not within a nested content container
     &:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
       @include hds-interactive-app-header-theme();
-      border-color: var(--token-app-header-interactive-border-color-default);
+      border-color: var(--token-app-header-button-border-color-default);
 
       &:hover,
       &.mock-hover {
-        border-color: var(--token-app-header-interactive-border-color-default);
+        border-color: var(--token-app-header-button-border-color-default);
       }
 
       &:active,
       &.mock-active {
-        border-color: var(--token-app-header-interactive-border-color-active);
+        border-color: var(--token-app-header-button-border-color-active);
       }
     }
   }
