@@ -11,21 +11,11 @@
 @use "../mixins/focus-ring" as *;
 @use "../mixins/button" as *;
 
-$hds-interactive-app-header-theme-focus-ring-action-box-shadow:
-  inset 0 0 0 1px var(--token-app-header-interactive-focus-ring-color-action-internal),
-  0 0 0 3px var(--token-app-header-interactive-focus-ring-color-action-external);
-
 // Used for interactive elements such as Button & Dropdown
 @mixin hds-interactive-app-header-theme($add-visible-border: true) {
-  // Override token used in focus ring mixin
-  --token-focus-ring-action-box-shadow: #{$hds-interactive-app-header-theme-focus-ring-action-box-shadow};
-
   color: var(--token-app-header-interactive-foreground-color-default);
   background-color: var(--token-app-header-interactive-surface-color-default);
-
-  // Default:
   border: 1px solid transparent;
-  border-radius: var(--token-button-border-radius);
   cursor: pointer;
 
   @if ($add-visible-border) {
@@ -63,15 +53,15 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
     &::before {
       color: var(--token-color-foreground-high-contrast);
       border: none;
+      outline-color: var(--token-app-header-interactive-focus-ring-color-action-external);
     }
   }
 
   // Active:
   &:active,
   &.mock-active {
-    color: var(
-      --token-app-header-interactive-foreground-color-default
-    ); // to avoid overrides by specificity (eg. `a:hover`)
+    // to avoid overrides by specificity (eg. `a:hover`)
+    color: var(--token-app-header-interactive-foreground-color-default);
     background-color: var(--token-app-header-interactive-surface-color-active);
 
     @if ($add-visible-border) {
@@ -95,7 +85,8 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
   align-items: center;
   justify-content: space-between;
   min-height: var(--token-app-header-height);
-  padding: var(--token-app-header-padding-top) 16px var(--token-app-header-padding-bottom) 16px;
+  padding: var(--token-app-header-padding-top) var(--token-app-header-padding-right)
+    var(--token-app-header-padding-bottom) var(--token-app-header-padding-left);
   background: var(--token-app-header-surface-color);
   border-bottom: 1px solid var(--token-app-header-border-color);
 
@@ -255,6 +246,7 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
   padding: var(--token-app-header-home-link-padding);
   color: var(--token-app-header-home-link-foreground-color);
   text-decoration: none;
+  border-radius: var(--token-border-radius-small);
 
   @include hds-apply-only-if-carbon() {
     .hds-text {
@@ -277,8 +269,8 @@ $hds-interactive-app-header-theme-focus-ring-action-box-shadow:
 
   // Set SVG logo size:
   svg {
-    width: var(--token-app-header-home-link-logo-width);
-    height: var(--token-app-header-home-link-logo-height);
+    width: var(--token-app-header-home-link-logo-size);
+    height: var(--token-app-header-home-link-logo-size);
   }
 }
 

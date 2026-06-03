@@ -57,6 +57,8 @@
   --token-app-header-interactive-surface-color-disabled: #c6c6c6;
   --token-app-header-interactive-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-app-header-padding-bottom: 0px;
+  --token-app-header-padding-left: 0px;
+  --token-app-header-padding-right: 0px;
   --token-app-header-padding-top: 0px;
   --token-app-header-surface-color: var(--token-color-page-primary);
   --token-app-side-nav-body-list-item-border-radius: 0px;

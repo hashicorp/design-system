@@ -352,7 +352,7 @@ const AppHeaderCarbonizationIndex: TemplateOnlyComponent = <template>
               </SF.Item>
             </ShwFlex>
           {{else}}
-            <pre>TODO: add static image here</pre>
+            <pre>TODO: add static image</pre>
           {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>
@@ -428,7 +428,7 @@ const AppHeaderCarbonizationIndex: TemplateOnlyComponent = <template>
                 ></path></svg>
             </cds-header-global-action>
           {{else}}
-            <pre>TODO: add static image here</pre>
+            <pre>TODO: add static image</pre>
           {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>
@@ -528,7 +528,7 @@ const AppHeaderCarbonizationIndex: TemplateOnlyComponent = <template>
               </cds-header-menu>
             </cds-header-nav>
           {{else}}
-            <pre>TODO: add static image here</pre>
+            <pre>TODO: add static image</pre>
           {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>

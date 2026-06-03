@@ -7521,6 +7521,76 @@
         "bottom"
       ]
     },
+    "token-app-header-padding-left": {
+      "key": "{app-header.padding.left}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.left}"
+      },
+      "name": "token-app-header-padding-left",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "left"
+      ]
+    },
+    "token-app-header-padding-right": {
+      "key": "{app-header.padding.right}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.right}"
+      },
+      "name": "token-app-header-padding-right",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "right"
+      ]
+    },
     "token-app-header-border-color": {
       "key": "{app-header.border.color}",
       "$type": "color",
@@ -8112,8 +8182,8 @@
         "color"
       ]
     },
-    "token-app-header-home-link-logo-width": {
-      "key": "{app-header.home-link.logo.width}",
+    "token-app-header-home-link-logo-size": {
+      "key": "{app-header.home-link.logo.size}",
       "$type": "dimension",
       "$value": "28px",
       "unit": "px",
@@ -8121,9 +8191,9 @@
         "$type": "dimension",
         "$value": "28",
         "unit": "px",
-        "key": "{app-header.home-link.logo.width}"
+        "key": "{app-header.home-link.logo.size}"
       },
-      "name": "token-app-header-home-link-logo-width",
+      "name": "token-app-header-home-link-logo-size",
       "attributes": {
         "category": "app-header"
       },
@@ -8131,29 +8201,7 @@
         "app-header",
         "home-link",
         "logo",
-        "width"
-      ]
-    },
-    "token-app-header-home-link-logo-height": {
-      "key": "{app-header.home-link.logo.height}",
-      "$type": "dimension",
-      "$value": "28px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "28",
-        "unit": "px",
-        "key": "{app-header.home-link.logo.height}"
-      },
-      "name": "token-app-header-home-link-logo-height",
-      "attributes": {
-        "category": "app-header"
-      },
-      "path": [
-        "app-header",
-        "home-link",
-        "logo",
-        "height"
+        "size"
       ]
     },
     "token-app-header-actions-gap": {
@@ -31798,6 +31846,76 @@
         "bottom"
       ]
     },
+    "token-app-header-padding-left": {
+      "key": "{app-header.padding.left}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.left}"
+      },
+      "name": "token-app-header-padding-left",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "left"
+      ]
+    },
+    "token-app-header-padding-right": {
+      "key": "{app-header.padding.right}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.right}"
+      },
+      "name": "token-app-header-padding-right",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "right"
+      ]
+    },
     "token-app-header-border-color": {
       "key": "{app-header.border.color}",
       "$type": "color",
@@ -32389,8 +32507,8 @@
         "color"
       ]
     },
-    "token-app-header-home-link-logo-width": {
-      "key": "{app-header.home-link.logo.width}",
+    "token-app-header-home-link-logo-size": {
+      "key": "{app-header.home-link.logo.size}",
       "$type": "dimension",
       "$value": "28px",
       "unit": "px",
@@ -32398,9 +32516,9 @@
         "$type": "dimension",
         "$value": "28",
         "unit": "px",
-        "key": "{app-header.home-link.logo.width}"
+        "key": "{app-header.home-link.logo.size}"
       },
-      "name": "token-app-header-home-link-logo-width",
+      "name": "token-app-header-home-link-logo-size",
       "attributes": {
         "category": "app-header"
       },
@@ -32408,29 +32526,7 @@
         "app-header",
         "home-link",
         "logo",
-        "width"
-      ]
-    },
-    "token-app-header-home-link-logo-height": {
-      "key": "{app-header.home-link.logo.height}",
-      "$type": "dimension",
-      "$value": "28px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "28",
-        "unit": "px",
-        "key": "{app-header.home-link.logo.height}"
-      },
-      "name": "token-app-header-home-link-logo-height",
-      "attributes": {
-        "category": "app-header"
-      },
-      "path": [
-        "app-header",
-        "home-link",
-        "logo",
-        "height"
+        "size"
       ]
     },
     "token-app-header-actions-gap": {
@@ -56077,6 +56173,76 @@
         "bottom"
       ]
     },
+    "token-app-header-padding-left": {
+      "key": "{app-header.padding.left}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.left}"
+      },
+      "name": "token-app-header-padding-left",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "left"
+      ]
+    },
+    "token-app-header-padding-right": {
+      "key": "{app-header.padding.right}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.right}"
+      },
+      "name": "token-app-header-padding-right",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "right"
+      ]
+    },
     "token-app-header-border-color": {
       "key": "{app-header.border.color}",
       "$type": "color",
@@ -56668,8 +56834,8 @@
         "color"
       ]
     },
-    "token-app-header-home-link-logo-width": {
-      "key": "{app-header.home-link.logo.width}",
+    "token-app-header-home-link-logo-size": {
+      "key": "{app-header.home-link.logo.size}",
       "$type": "dimension",
       "$value": "28px",
       "unit": "px",
@@ -56677,9 +56843,9 @@
         "$type": "dimension",
         "$value": "28",
         "unit": "px",
-        "key": "{app-header.home-link.logo.width}"
+        "key": "{app-header.home-link.logo.size}"
       },
-      "name": "token-app-header-home-link-logo-width",
+      "name": "token-app-header-home-link-logo-size",
       "attributes": {
         "category": "app-header"
       },
@@ -56687,29 +56853,7 @@
         "app-header",
         "home-link",
         "logo",
-        "width"
-      ]
-    },
-    "token-app-header-home-link-logo-height": {
-      "key": "{app-header.home-link.logo.height}",
-      "$type": "dimension",
-      "$value": "28px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "28",
-        "unit": "px",
-        "key": "{app-header.home-link.logo.height}"
-      },
-      "name": "token-app-header-home-link-logo-height",
-      "attributes": {
-        "category": "app-header"
-      },
-      "path": [
-        "app-header",
-        "home-link",
-        "logo",
-        "height"
+        "size"
       ]
     },
     "token-app-header-actions-gap": {
@@ -80356,6 +80500,76 @@
         "bottom"
       ]
     },
+    "token-app-header-padding-left": {
+      "key": "{app-header.padding.left}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.left}"
+      },
+      "name": "token-app-header-padding-left",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "left"
+      ]
+    },
+    "token-app-header-padding-right": {
+      "key": "{app-header.padding.right}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.right}"
+      },
+      "name": "token-app-header-padding-right",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "right"
+      ]
+    },
     "token-app-header-border-color": {
       "key": "{app-header.border.color}",
       "$type": "color",
@@ -80947,8 +81161,8 @@
         "color"
       ]
     },
-    "token-app-header-home-link-logo-width": {
-      "key": "{app-header.home-link.logo.width}",
+    "token-app-header-home-link-logo-size": {
+      "key": "{app-header.home-link.logo.size}",
       "$type": "dimension",
       "$value": "28px",
       "unit": "px",
@@ -80956,9 +81170,9 @@
         "$type": "dimension",
         "$value": "28",
         "unit": "px",
-        "key": "{app-header.home-link.logo.width}"
+        "key": "{app-header.home-link.logo.size}"
       },
-      "name": "token-app-header-home-link-logo-width",
+      "name": "token-app-header-home-link-logo-size",
       "attributes": {
         "category": "app-header"
       },
@@ -80966,29 +81180,7 @@
         "app-header",
         "home-link",
         "logo",
-        "width"
-      ]
-    },
-    "token-app-header-home-link-logo-height": {
-      "key": "{app-header.home-link.logo.height}",
-      "$type": "dimension",
-      "$value": "28px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "28",
-        "unit": "px",
-        "key": "{app-header.home-link.logo.height}"
-      },
-      "name": "token-app-header-home-link-logo-height",
-      "attributes": {
-        "category": "app-header"
-      },
-      "path": [
-        "app-header",
-        "home-link",
-        "logo",
-        "height"
+        "size"
       ]
     },
     "token-app-header-actions-gap": {
@@ -104635,6 +104827,76 @@
         "bottom"
       ]
     },
+    "token-app-header-padding-left": {
+      "key": "{app-header.padding.left}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.left}"
+      },
+      "name": "token-app-header-padding-left",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "left"
+      ]
+    },
+    "token-app-header-padding-right": {
+      "key": "{app-header.padding.right}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{app-header.padding.right}"
+      },
+      "name": "token-app-header-padding-right",
+      "attributes": {
+        "category": "app-header"
+      },
+      "path": [
+        "app-header",
+        "padding",
+        "right"
+      ]
+    },
     "token-app-header-border-color": {
       "key": "{app-header.border.color}",
       "$type": "color",
@@ -105226,8 +105488,8 @@
         "color"
       ]
     },
-    "token-app-header-home-link-logo-width": {
-      "key": "{app-header.home-link.logo.width}",
+    "token-app-header-home-link-logo-size": {
+      "key": "{app-header.home-link.logo.size}",
       "$type": "dimension",
       "$value": "28px",
       "unit": "px",
@@ -105235,9 +105497,9 @@
         "$type": "dimension",
         "$value": "28",
         "unit": "px",
-        "key": "{app-header.home-link.logo.width}"
+        "key": "{app-header.home-link.logo.size}"
       },
-      "name": "token-app-header-home-link-logo-width",
+      "name": "token-app-header-home-link-logo-size",
       "attributes": {
         "category": "app-header"
       },
@@ -105245,29 +105507,7 @@
         "app-header",
         "home-link",
         "logo",
-        "width"
-      ]
-    },
-    "token-app-header-home-link-logo-height": {
-      "key": "{app-header.home-link.logo.height}",
-      "$type": "dimension",
-      "$value": "28px",
-      "unit": "px",
-      "original": {
-        "$type": "dimension",
-        "$value": "28",
-        "unit": "px",
-        "key": "{app-header.home-link.logo.height}"
-      },
-      "name": "token-app-header-home-link-logo-height",
-      "attributes": {
-        "category": "app-header"
-      },
-      "path": [
-        "app-header",
-        "home-link",
-        "logo",
-        "height"
+        "size"
       ]
     },
     "token-app-header-actions-gap": {

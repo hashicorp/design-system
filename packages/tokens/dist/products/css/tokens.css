@@ -239,6 +239,8 @@
   --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
   --token-app-header-padding-top: 12px;
   --token-app-header-padding-bottom: 11px;
+  --token-app-header-padding-left: 16px;
+  --token-app-header-padding-right: 16px;
   --token-app-header-border-color: #656a76;
   --token-app-header-foreground-color: #ffffff;
   --token-app-header-surface-color: #0c0c0e;
@@ -256,8 +258,7 @@
   --token-app-header-height: 60px;
   --token-app-header-home-link-padding: 3px;
   --token-app-header-home-link-foreground-color: #ffffff;
-  --token-app-header-home-link-logo-width: 28px;
-  --token-app-header-home-link-logo-height: 28px;
+  --token-app-header-home-link-logo-size: 28px;
   --token-app-header-actions-gap: 12px;
   --token-app-side-nav-wrapper-surface-color: #fafafa;
   --token-app-side-nav-wrapper-border-width: 1px;

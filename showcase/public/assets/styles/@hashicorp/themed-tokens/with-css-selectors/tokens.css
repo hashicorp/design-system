@@ -62,6 +62,8 @@
   --token-app-header-interactive-surface-color-disabled: #c6c6c6;
   --token-app-header-interactive-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-app-header-padding-bottom: 0px;
+  --token-app-header-padding-left: 0px;
+  --token-app-header-padding-right: 0px;
   --token-app-header-padding-top: 0px;
   --token-app-header-surface-color: var(--token-color-page-primary);
   --token-app-side-nav-body-list-item-border-radius: 0px;
@@ -682,6 +684,8 @@
       0.12
     );
     --token-app-header-padding-bottom: 0px;
+    --token-app-header-padding-left: 0px;
+    --token-app-header-padding-right: 0px;
     --token-app-header-padding-top: 0px;
     --token-app-header-surface-color: var(--token-color-page-primary);
     --token-app-side-nav-body-list-item-border-radius: 0px;
@@ -1308,6 +1312,8 @@
       0.16
     );
     --token-app-header-padding-bottom: 0px;
+    --token-app-header-padding-left: 0px;
+    --token-app-header-padding-right: 0px;
     --token-app-header-padding-top: 0px;
     --token-app-header-surface-color: var(--token-color-page-primary);
     --token-app-side-nav-body-list-item-border-radius: 0px;
@@ -1928,6 +1934,8 @@
   --token-app-header-interactive-surface-color-disabled: #c6c6c6;
   --token-app-header-interactive-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-app-header-padding-bottom: 0px;
+  --token-app-header-padding-left: 0px;
+  --token-app-header-padding-right: 0px;
   --token-app-header-padding-top: 0px;
   --token-app-header-surface-color: var(--token-color-page-primary);
   --token-app-side-nav-body-list-item-border-radius: 0px;
@@ -2537,6 +2545,8 @@
   --token-app-header-interactive-surface-color-disabled: #525252;
   --token-app-header-interactive-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-app-header-padding-bottom: 0px;
+  --token-app-header-padding-left: 0px;
+  --token-app-header-padding-right: 0px;
   --token-app-header-padding-top: 0px;
   --token-app-header-surface-color: var(--token-color-page-primary);
   --token-app-side-nav-body-list-item-border-radius: 0px;
@@ -3110,8 +3120,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
 .hds-theme-light,
 .hds-theme-dark {
   --token-alert-page-padding-horizontal: 48px;
-  --token-app-header-home-link-logo-height: 28px;
-  --token-app-header-home-link-logo-width: 28px;
+  --token-app-header-home-link-logo-size: 28px;
   --token-app-side-nav-body-list-item-content-gap: 8px;
   --token-app-side-nav-body-list-margin-vertical: 16px;
   --token-app-side-nav-body-list-title-padding-horizontal: var(

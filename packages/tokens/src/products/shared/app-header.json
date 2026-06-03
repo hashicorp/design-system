@@ -24,6 +24,30 @@
           "cds-g90": "0",
           "cds-g100": "0"
         }
+      },
+      "left": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      },
+      "right": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
       }
     },
     "border": {
@@ -245,12 +269,7 @@
         }
       },
       "logo": {
-        "width": {
-          "$type": "dimension",
-          "$value": "28",
-          "unit": "px"
-        },
-        "height": {
+        "size": {
           "$type": "dimension",
           "$value": "28",
           "unit": "px"
