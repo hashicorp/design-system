@@ -57,9 +57,9 @@
         "$modes": {
           "default": "{color.palette.neutral-500}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.color.gray.30}",
-          "cds-g90": "{carbon.color.gray.70}",
-          "cds-g100": "{carbon.color.gray.80}"
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         }
       }
     },
