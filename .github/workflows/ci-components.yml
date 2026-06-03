@@ -59,6 +59,8 @@ jobs:
         working-directory: showcase
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
+          LOG_LEVEL: debug
+          PERCY_DEBUG: "*"
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
