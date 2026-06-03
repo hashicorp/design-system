@@ -600,11 +600,11 @@ importers:
         specifier: ^5.2.11
         version: 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       '@percy/cli':
-        specifier: ^1.31.14
+        specifier: 1.31.14
         version: 1.31.14(typescript@5.9.2)
       '@percy/ember':
-        specifier: ^5.0.1
-        version: 5.0.1(@babel/core@7.28.0)(@glint/template@1.7.7)(webpack@5.101.0)
+        specifier: 4.2.0
+        version: 4.2.0
       '@tsconfig/ember':
         specifier: ^3.0.10
         version: 3.0.11
@@ -3281,9 +3281,9 @@ packages:
   '@percy/dom@1.31.14':
     resolution: {integrity: sha512-Ilz9qSf9Z80jHah9b7OfX2M2N9vmY4hkGEhMO953ui3NSQhXZsezr4aIPREYdyZdo11pEWm+JWU1AEZw54CbbA==}
 
-  '@percy/ember@5.0.1':
-    resolution: {integrity: sha512-f/lnUq2MmCQOOJPIX2aypxVNbvEcSEdBaAETqa9yckzKyEedTVgYhDCD6WtgZtMu+azWLXHmqyMbxti4KN6OLQ==}
-    engines: {node: '>= 16'}
+  '@percy/ember@4.2.0':
+    resolution: {integrity: sha512-D/WckDD2tQetdn8uq46nQA1rOVgov8jsZG4uN7snAq6SrOpxNxacONg37QPwczmICBc7o/NlipCAUteukmtKzg==}
+    engines: {node: '>= 14'}
 
   '@percy/env@1.31.14':
     resolution: {integrity: sha512-eRW4Ot2Z5WESKPJHcdLc9JFLtjxJaALzRxGa7Z+0R5t5wOlqbEVQytLBzgFWWTVa2XEejR4Sffs5cYqM+ldgEA==}
@@ -15022,10 +15022,7 @@ snapshots:
     dependencies:
       '@percy/cli-command': 1.31.14(typescript@5.9.2)
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-command@1.31.14(typescript@5.9.2)':
     dependencies:
@@ -15042,10 +15039,7 @@ snapshots:
     dependencies:
       '@percy/cli-command': 1.31.14(typescript@5.9.2)
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-doctor@1.31.14(typescript@5.9.2)':
     dependencies:
@@ -15081,10 +15075,7 @@ snapshots:
       '@percy/cli-command': 1.31.14(typescript@5.9.2)
       yaml: 2.8.3
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-upload@1.31.14(typescript@5.9.2)':
     dependencies:
@@ -15092,10 +15083,7 @@ snapshots:
       fast-glob: 3.3.3
       image-size: 1.2.1
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli@1.31.14(typescript@5.9.2)':
     dependencies:
@@ -15164,16 +15152,12 @@ snapshots:
 
   '@percy/dom@1.31.14': {}
 
-  '@percy/ember@5.0.1(@babel/core@7.28.0)(@glint/template@1.7.7)(webpack@5.101.0)':
+  '@percy/ember@4.2.0':
     dependencies:
       '@percy/sdk-utils': 1.31.14
-      ember-auto-import: 2.10.0(@glint/template@1.7.7)(webpack@5.101.0)
-      ember-cli-babel: 8.2.0(@babel/core@7.28.0)
+      ember-cli-babel: 7.26.11
     transitivePeerDependencies:
-      - '@babel/core'
-      - '@glint/template'
       - supports-color
-      - webpack
 
   '@percy/env@1.31.14':
     dependencies:
