@@ -16,6 +16,13 @@
       }
     },
     "character-count": {
+      "foreground": {
+        "color": {
+          "$type": "color",
+          "$value": "{form.foreground.color.faint}",
+          "group": "components"
+        }
+      },
       "typography": {
         "font-size": {
           "$type": "font-size",
@@ -141,6 +148,13 @@
       }
     },
     "helper-text": {
+      "foreground": {
+        "color": {
+          "$type": "color",
+          "$value": "{form.foreground.color.faint}",
+          "group": "components"
+        }
+      },
       "typography": {
         "font-size": {
           "$type": "font-size",
@@ -169,6 +183,13 @@
     },
     "indicator": {
       "optional": {
+        "foreground": {
+          "color": {
+            "$type": "color",
+            "$value": "{form.foreground.color.faint}",
+            "group": "components"
+          }
+        },
         "typography": {
           "font-size": {
             "$type": "font-size",
