@@ -39,7 +39,7 @@ export const registerReadDocTool = (
       async ({ docId, url, anchor, detail, cursor, maxSections, maxChars }) => {
       const resolvedDetail = detail ?? DEFAULT_DETAIL;
 
-      if (docId === undefined && url === undefined) {
+      if (docId === undefined && url === undefined && cursor === undefined) {
         return toTextResponse({
           found: false,
           requested: {
@@ -50,7 +50,7 @@ export const registerReadDocTool = (
             maxChars,
           },
           sections: [],
-          message: 'One of docId or url is required.',
+          message: 'One of docId, url, or cursor is required.',
         });
       }
 

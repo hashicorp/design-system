@@ -81,7 +81,7 @@ const createDocsStore = (): DocsCatalogStore => {
   };
 };
 
-test('registerReadDocTool requires docId or url', async () => {
+test('registerReadDocTool requires docId, url, or cursor', async () => {
   const server = new FakeServer();
 
   registerReadDocTool(
@@ -110,7 +110,40 @@ test('registerReadDocTool requires docId or url', async () => {
   assert.equal(tool.name, 'hds_read_doc');
   assert.equal(payload.found, false);
   assert.equal(payload.requested.detail, 'full');
-  assert.equal(payload.message, 'One of docId or url is required.');
+  assert.equal(payload.message, 'One of docId, url, or cursor is required.');
+});
+
+test('registerReadDocTool allows cursor-only continuation', async () => {
+  const server = new FakeServer();
+
+  registerReadDocTool(
+    server as unknown as Parameters<typeof registerReadDocTool>[0],
+    createDocsStore()
+  );
+
+  const tool = server.registeredTools[0];
+
+  if (tool === undefined) {
+    throw new Error('Expected hds_read_doc to be registered');
+  }
+
+  const response = await tool.handler({
+    cursor: 'cursor-token',
+    detail: 'summary',
+    maxSections: 1,
+    maxChars: 500,
+  });
+  const payload = JSON.parse(response.content[0]?.text ?? '{}') as {
+    found: boolean;
+    requested: {
+      cursor?: string;
+      detail: 'full' | 'summary';
+    };
+  };
+
+  assert.equal(payload.found, true);
+  assert.equal(payload.requested.cursor, 'cursor-token');
+  assert.equal(payload.requested.detail, 'summary');
 });
 
 test('registerReadDocTool defaults detail to full', async () => {
