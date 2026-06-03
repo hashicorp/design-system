@@ -41,21 +41,21 @@
   --token-app-footer-link-focus-outline-width: 1px;
   --token-app-header-actions-gap: 0px;
   --token-app-header-border-color: #393939;
+  --token-app-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --token-app-header-button-border-color-default: rgba(0, 0, 0, 0);
+  --token-app-header-button-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-app-header-button-focus-ring-color-action-internal: rgba(0, 0, 0, 0); /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-app-header-button-foreground-color-default: #c6c6c6;
+  --token-app-header-button-foreground-color-disabled: rgba(244, 244, 244, 0.25);
+  --token-app-header-button-foreground-color-hover: #f4f4f4;
+  --token-app-header-button-surface-color-active: rgba(141, 141, 141, 0.4);
+  --token-app-header-button-surface-color-default: carbon.themes.g100.backgroundHover;
+  --token-app-header-button-surface-color-disabled: #525252;
+  --token-app-header-button-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-app-header-foreground-color: #f4f4f4;
   --token-app-header-height: 48px;
   --token-app-header-home-link-foreground-color: #f4f4f4;
   --token-app-header-home-link-padding: 10px;
-  --token-app-header-interactive-border-color-active: rgba(0, 0, 0, 0);
-  --token-app-header-interactive-border-color-default: rgba(0, 0, 0, 0);
-  --token-app-header-interactive-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-app-header-interactive-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-app-header-interactive-foreground-color-default: #c6c6c6;
-  --token-app-header-interactive-foreground-color-disabled: rgba(244, 244, 244, 0.25);
-  --token-app-header-interactive-foreground-color-hover: #f4f4f4;
-  --token-app-header-interactive-surface-color-active: rgba(141, 141, 141, 0.4);
-  --token-app-header-interactive-surface-color-default: carbon.themes.g100.backgroundHover;
-  --token-app-header-interactive-surface-color-disabled: #525252;
-  --token-app-header-interactive-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-app-header-padding-bottom: 0px;
   --token-app-header-padding-left: 0px;
   --token-app-header-padding-right: 0px;

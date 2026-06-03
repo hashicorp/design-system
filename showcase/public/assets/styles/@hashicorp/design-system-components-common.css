@@ -1829,11 +1829,8 @@
 
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
-  color: var(--token-app-header-interactive-foreground-color-default);
-  background-color: var(--token-app-header-interactive-surface-color-default);
-  border: 1px solid transparent;
-  cursor: pointer;
-  border-color: var(--token-app-header-interactive-border-color-default);
+  color: var(--token-app-header-button-foreground-color-default);
+  background-color: var(--token-app-header-button-surface-color-default);
 }
 .hds-theme-light .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *), .hds-theme-light .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
 .hds-theme-dark .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *), .hds-theme-dark .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
@@ -1844,9 +1841,8 @@
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover {
-  border-color: var(--token-app-header-interactive-border-color-default);
-  color: var(--token-app-header-interactive-foreground-color-hover);
-  background-color: var(--token-app-header-interactive-surface-color-hover);
+  color: var(--token-app-header-button-foreground-color-hover);
+  background-color: var(--token-app-header-button-surface-color-hover);
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible,
@@ -1861,9 +1857,9 @@
   position: absolute;
   inset: -1px;
   z-index: -1;
-  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border: var(--token-focus-ring-width-internal) solid var(--token-app-header-button-focus-ring-color-action-internal);
   border-radius: inherit;
-  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline: var(--token-focus-ring-width-external) solid var(--token-app-header-button-focus-ring-color-action-external);
   outline-offset: 0;
   content: "";
   pointer-events: auto;
@@ -1877,23 +1873,14 @@
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
-  color: var(--token-app-header-interactive-foreground-color-default);
-  background-color: var(--token-app-header-interactive-surface-color-default);
-  border-color: var(--token-app-header-interactive-focus-ring-color-action-internal);
-}
-.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus-visible::before,
-.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
-  color: var(--token-color-foreground-high-contrast);
-  border: none;
-  outline-color: var(--token-app-header-interactive-focus-ring-color-action-external);
+  color: var(--token-app-header-button-foreground-color-default);
+  background-color: var(--token-app-header-button-surface-color-default);
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active {
-  color: var(--token-app-header-interactive-foreground-color-default);
-  background-color: var(--token-app-header-interactive-surface-color-active);
-  border-color: var(--token-app-header-interactive-border-color-active);
+  color: var(--token-app-header-button-foreground-color-default);
+  background-color: var(--token-app-header-button-surface-color-active);
 }
 .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled], .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled,
@@ -1905,9 +1892,22 @@
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover,
 .hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover {
-  color: var(--token-app-header-interactive-foreground-color-disabled);
-  background-color: var(--token-app-header-interactive-surface-color-disabled);
-  border-color: var(--token-app-header-interactive-border-color-default);
+  color: var(--token-app-header-button-foreground-color-disabled);
+  background-color: var(--token-app-header-button-surface-color-disabled);
+}
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
+  border-color: var(--token-app-header-button-border-color-default);
+}
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover {
+  border-color: var(--token-app-header-button-border-color-default);
+}
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active {
+  border-color: var(--token-app-header-button-border-color-active);
 }
 
 .hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized) .hds-app-header > * {
@@ -1916,10 +1916,8 @@
 }
 
 .hds-app-header__home-link {
-  color: var(--token-app-header-interactive-foreground-color-default);
-  background-color: var(--token-app-header-interactive-surface-color-default);
-  border: 1px solid transparent;
-  cursor: pointer;
+  color: var(--token-app-header-button-foreground-color-default);
+  background-color: var(--token-app-header-button-surface-color-default);
 }
 .hds-theme-light .hds-app-header__home-link,
 .hds-theme-dark .hds-app-header__home-link,
@@ -1928,8 +1926,8 @@
 }
 
 .hds-app-header__home-link:hover, .hds-app-header__home-link.mock-hover {
-  color: var(--token-app-header-interactive-foreground-color-hover);
-  background-color: var(--token-app-header-interactive-surface-color-hover);
+  color: var(--token-app-header-button-foreground-color-hover);
+  background-color: var(--token-app-header-button-surface-color-hover);
 }
 .hds-app-header__home-link:focus-visible, .hds-app-header__home-link.mock-focus {
   position: relative;
@@ -1940,9 +1938,9 @@
   position: absolute;
   inset: -1px;
   z-index: -1;
-  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border: var(--token-focus-ring-width-internal) solid var(--token-app-header-button-focus-ring-color-action-internal);
   border-radius: inherit;
-  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline: var(--token-focus-ring-width-external) solid var(--token-app-header-button-focus-ring-color-action-external);
   outline-offset: 0;
   content: "";
   pointer-events: auto;
@@ -1954,18 +1952,16 @@
 }
 
 .hds-app-header__home-link:focus-visible, .hds-app-header__home-link.mock-focus {
-  color: var(--token-app-header-interactive-foreground-color-default);
-  background-color: var(--token-app-header-interactive-surface-color-default);
-  border-color: var(--token-app-header-interactive-focus-ring-color-action-internal);
-}
-.hds-app-header__home-link:focus-visible::before, .hds-app-header__home-link.mock-focus::before {
-  color: var(--token-color-foreground-high-contrast);
-  border: none;
-  outline-color: var(--token-app-header-interactive-focus-ring-color-action-external);
+  color: var(--token-app-header-button-foreground-color-default);
+  background-color: var(--token-app-header-button-surface-color-default);
 }
 .hds-app-header__home-link:active, .hds-app-header__home-link.mock-active {
-  color: var(--token-app-header-interactive-foreground-color-default);
-  background-color: var(--token-app-header-interactive-surface-color-active);
+  color: var(--token-app-header-button-foreground-color-default);
+  background-color: var(--token-app-header-button-surface-color-active);
+}
+.hds-app-header__home-link:disabled, .hds-app-header__home-link[disabled], .hds-app-header__home-link.mock-disabled, .hds-app-header__home-link:disabled:focus, .hds-app-header__home-link[disabled]:focus, .hds-app-header__home-link.mock-disabled:focus, .hds-app-header__home-link:disabled:hover, .hds-app-header__home-link[disabled]:hover, .hds-app-header__home-link.mock-disabled:hover {
+  color: var(--token-app-header-button-foreground-color-disabled);
+  background-color: var(--token-app-header-button-surface-color-disabled);
 }
 .hds-app-header__home-link {
   display: flex;
@@ -1983,10 +1979,8 @@
   font-weight: var(--token-typography-font-weight-bold);
 }
 
-.hds-app-header__home-link:disabled, .hds-app-header__home-link[disabled], .hds-app-header__home-link.mock-disabled, .hds-app-header__home-link:disabled:focus, .hds-app-header__home-link[disabled]:focus, .hds-app-header__home-link.mock-disabled:focus, .hds-app-header__home-link:disabled:hover, .hds-app-header__home-link[disabled]:hover, .hds-app-header__home-link.mock-disabled:hover {
-  color: var(--token-app-header-interactive-foreground-color-disabled);
-  background-color: var(--token-app-header-interactive-surface-color-disabled);
-  border-color: var(--token-app-header-interactive-border-color-default);
+.hds-app-header__home-link:focus, .hds-app-header__home-link.mock-focus {
+  color: var(--token-app-header-home-link-foreground-color);
 }
 .hds-app-header__home-link svg {
   width: var(--token-app-header-home-link-logo-size);

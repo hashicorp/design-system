@@ -7608,9 +7608,9 @@
         "$modes": {
           "default": "{color.palette.neutral-500}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.color.gray.30}",
-          "cds-g90": "{carbon.color.gray.70}",
-          "cds-g100": "{carbon.color.gray.80}"
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
         "key": "{app-header.border.color}"
       },
@@ -7690,8 +7690,8 @@
         "color"
       ]
     },
-    "token-app-header-interactive-border-color-default": {
-      "key": "{app-header.interactive.border.color.default}",
+    "token-app-header-button-border-color-default": {
+      "key": "{app-header.button.border.color.default}",
       "$type": "color",
       "$value": "#656a76",
       "$modes": {
@@ -7711,22 +7711,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.default}"
+        "key": "{app-header.button.border.color.default}"
       },
-      "name": "token-app-header-interactive-border-color-default",
+      "name": "token-app-header-button-border-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-border-color-active": {
-      "key": "{app-header.interactive.border.color.active}",
+    "token-app-header-button-border-color-active": {
+      "key": "{app-header.button.border.color.active}",
       "$type": "color",
       "$value": "#8c909c",
       "$modes": {
@@ -7746,22 +7746,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.active}"
+        "key": "{app-header.button.border.color.active}"
       },
-      "name": "token-app-header-interactive-border-color-active",
+      "name": "token-app-header-button-border-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-foreground-color-default": {
-      "key": "{app-header.interactive.foreground.color.default}",
+    "token-app-header-button-foreground-color-default": {
+      "key": "{app-header.button.foreground.color.default}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -7781,22 +7781,22 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{app-header.interactive.foreground.color.default}"
+        "key": "{app-header.button.foreground.color.default}"
       },
-      "name": "token-app-header-interactive-foreground-color-default",
+      "name": "token-app-header-button-foreground-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-foreground-color-hover": {
-      "key": "{app-header.interactive.foreground.color.hover}",
+    "token-app-header-button-foreground-color-hover": {
+      "key": "{app-header.button.foreground.color.hover}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -7816,22 +7816,22 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{app-header.interactive.foreground.color.hover}"
+        "key": "{app-header.button.foreground.color.hover}"
       },
-      "name": "token-app-header-interactive-foreground-color-hover",
+      "name": "token-app-header-button-foreground-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-foreground-color-disabled": {
-      "key": "{app-header.interactive.foreground.color.disabled}",
+    "token-app-header-button-foreground-color-disabled": {
+      "key": "{app-header.button.foreground.color.disabled}",
       "$type": "color",
       "$value": "#8c909c",
       "$modes": {
@@ -7851,22 +7851,22 @@
           "cds-g90": "{carbon.themes.g90.textDisabled}",
           "cds-g100": "{carbon.themes.g100.textDisabled}"
         },
-        "key": "{app-header.interactive.foreground.color.disabled}"
+        "key": "{app-header.button.foreground.color.disabled}"
       },
-      "name": "token-app-header-interactive-foreground-color-disabled",
+      "name": "token-app-header-button-foreground-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-surface-color-default": {
-      "key": "{app-header.interactive.surface.color.default}",
+    "token-app-header-button-surface-color-default": {
+      "key": "{app-header.button.surface.color.default}",
       "$type": "color",
       "$value": "#0c0c0e",
       "$modes": {
@@ -7886,22 +7886,22 @@
           "cds-g90": "transparent",
           "cds-g100": "carbon.themes.g100.backgroundHover"
         },
-        "key": "{app-header.interactive.surface.color.default}"
+        "key": "{app-header.button.surface.color.default}"
       },
-      "name": "token-app-header-interactive-surface-color-default",
+      "name": "token-app-header-button-surface-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-surface-color-hover": {
-      "key": "{app-header.interactive.surface.color.hover}",
+    "token-app-header-button-surface-color-hover": {
+      "key": "{app-header.button.surface.color.hover}",
       "$type": "color",
       "$value": "#3b3d45",
       "$modes": {
@@ -7921,22 +7921,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{app-header.interactive.surface.color.hover}"
+        "key": "{app-header.button.surface.color.hover}"
       },
-      "name": "token-app-header-interactive-surface-color-hover",
+      "name": "token-app-header-button-surface-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-surface-color-active": {
-      "key": "{app-header.interactive.surface.color.active}",
+    "token-app-header-button-surface-color-active": {
+      "key": "{app-header.button.surface.color.active}",
       "$type": "color",
       "$value": "#656a76",
       "$modes": {
@@ -7956,22 +7956,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundActive}",
           "cds-g100": "{carbon.themes.g100.backgroundActive}"
         },
-        "key": "{app-header.interactive.surface.color.active}"
+        "key": "{app-header.button.surface.color.active}"
       },
-      "name": "token-app-header-interactive-surface-color-active",
+      "name": "token-app-header-button-surface-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-surface-color-disabled": {
-      "key": "{app-header.interactive.surface.color.disabled}",
+    "token-app-header-button-surface-color-disabled": {
+      "key": "{app-header.button.surface.color.disabled}",
       "$type": "color",
       "$value": "#3b3d45",
       "$modes": {
@@ -7991,31 +7991,31 @@
           "cds-g90": "{carbon.color.gray.60}",
           "cds-g100": "{carbon.color.gray.70}"
         },
-        "key": "{app-header.interactive.surface.color.disabled}"
+        "key": "{app-header.button.surface.color.disabled}"
       },
-      "name": "token-app-header-interactive-surface-color-disabled",
+      "name": "token-app-header-button-surface-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-internal": {
-      "key": "{app-header.interactive.focus-ring.color.action-internal}",
+    "token-app-header-button-focus-ring-color-action-internal": {
+      "key": "{app-header.button.focus-ring.color.action-internal}",
       "$type": "color",
       "$value": "#bcc7fd",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
       "$modes": {
         "default": "#bcc7fd",
-        "cds-g0": "#ffffff",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#161616",
-        "cds-g100": "#161616"
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
       },
       "original": {
         "$type": "color",
@@ -8023,27 +8023,27 @@
         "comment": "TODO: Remove once global tokens for dark themes are implemented",
         "$modes": {
           "default": "#bcc7fd",
-          "cds-g0": "{carbon.themes.white.focusInset}",
-          "cds-g10": "{carbon.themes.g10.focusInset}",
-          "cds-g90": "{carbon.themes.g90.focusInset}",
-          "cds-g100": "{carbon.themes.g100.focusInset}"
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-internal}"
+        "key": "{app-header.button.focus-ring.color.action-internal}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-internal",
+      "name": "token-app-header-button-focus-ring-color-action-internal",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-internal"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-external": {
-      "key": "{app-header.interactive.focus-ring.color.action-external}",
+    "token-app-header-button-focus-ring-color-action-external": {
+      "key": "{app-header.button.focus-ring.color.action-external}",
       "$type": "color",
       "$value": "#0d69f2",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
@@ -8065,15 +8065,15 @@
           "cds-g90": "{carbon.themes.g90.focus}",
           "cds-g100": "{carbon.themes.g100.focus}"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-external}"
+        "key": "{app-header.button.focus-ring.color.action-external}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-external",
+      "name": "token-app-header-button-focus-ring-color-action-external",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-external"
@@ -31933,9 +31933,9 @@
         "$modes": {
           "default": "{color.palette.neutral-500}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.color.gray.30}",
-          "cds-g90": "{carbon.color.gray.70}",
-          "cds-g100": "{carbon.color.gray.80}"
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
         "key": "{app-header.border.color}"
       },
@@ -32015,8 +32015,8 @@
         "color"
       ]
     },
-    "token-app-header-interactive-border-color-default": {
-      "key": "{app-header.interactive.border.color.default}",
+    "token-app-header-button-border-color-default": {
+      "key": "{app-header.button.border.color.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -32036,22 +32036,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.default}"
+        "key": "{app-header.button.border.color.default}"
       },
-      "name": "token-app-header-interactive-border-color-default",
+      "name": "token-app-header-button-border-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-border-color-active": {
-      "key": "{app-header.interactive.border.color.active}",
+    "token-app-header-button-border-color-active": {
+      "key": "{app-header.button.border.color.active}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -32071,22 +32071,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.active}"
+        "key": "{app-header.button.border.color.active}"
       },
-      "name": "token-app-header-interactive-border-color-active",
+      "name": "token-app-header-button-border-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-foreground-color-default": {
-      "key": "{app-header.interactive.foreground.color.default}",
+    "token-app-header-button-foreground-color-default": {
+      "key": "{app-header.button.foreground.color.default}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -32106,22 +32106,22 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{app-header.interactive.foreground.color.default}"
+        "key": "{app-header.button.foreground.color.default}"
       },
-      "name": "token-app-header-interactive-foreground-color-default",
+      "name": "token-app-header-button-foreground-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-foreground-color-hover": {
-      "key": "{app-header.interactive.foreground.color.hover}",
+    "token-app-header-button-foreground-color-hover": {
+      "key": "{app-header.button.foreground.color.hover}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -32141,22 +32141,22 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{app-header.interactive.foreground.color.hover}"
+        "key": "{app-header.button.foreground.color.hover}"
       },
-      "name": "token-app-header-interactive-foreground-color-hover",
+      "name": "token-app-header-button-foreground-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-foreground-color-disabled": {
-      "key": "{app-header.interactive.foreground.color.disabled}",
+    "token-app-header-button-foreground-color-disabled": {
+      "key": "{app-header.button.foreground.color.disabled}",
       "$type": "color",
       "$value": "rgba(22, 22, 22, 0.25)",
       "$modes": {
@@ -32176,22 +32176,22 @@
           "cds-g90": "{carbon.themes.g90.textDisabled}",
           "cds-g100": "{carbon.themes.g100.textDisabled}"
         },
-        "key": "{app-header.interactive.foreground.color.disabled}"
+        "key": "{app-header.button.foreground.color.disabled}"
       },
-      "name": "token-app-header-interactive-foreground-color-disabled",
+      "name": "token-app-header-button-foreground-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-surface-color-default": {
-      "key": "{app-header.interactive.surface.color.default}",
+    "token-app-header-button-surface-color-default": {
+      "key": "{app-header.button.surface.color.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -32211,22 +32211,22 @@
           "cds-g90": "transparent",
           "cds-g100": "carbon.themes.g100.backgroundHover"
         },
-        "key": "{app-header.interactive.surface.color.default}"
+        "key": "{app-header.button.surface.color.default}"
       },
-      "name": "token-app-header-interactive-surface-color-default",
+      "name": "token-app-header-button-surface-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-surface-color-hover": {
-      "key": "{app-header.interactive.surface.color.hover}",
+    "token-app-header-button-surface-color-hover": {
+      "key": "{app-header.button.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.12)",
       "$modes": {
@@ -32246,22 +32246,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{app-header.interactive.surface.color.hover}"
+        "key": "{app-header.button.surface.color.hover}"
       },
-      "name": "token-app-header-interactive-surface-color-hover",
+      "name": "token-app-header-button-surface-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-surface-color-active": {
-      "key": "{app-header.interactive.surface.color.active}",
+    "token-app-header-button-surface-color-active": {
+      "key": "{app-header.button.surface.color.active}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.5)",
       "$modes": {
@@ -32281,22 +32281,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundActive}",
           "cds-g100": "{carbon.themes.g100.backgroundActive}"
         },
-        "key": "{app-header.interactive.surface.color.active}"
+        "key": "{app-header.button.surface.color.active}"
       },
-      "name": "token-app-header-interactive-surface-color-active",
+      "name": "token-app-header-button-surface-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-surface-color-disabled": {
-      "key": "{app-header.interactive.surface.color.disabled}",
+    "token-app-header-button-surface-color-disabled": {
+      "key": "{app-header.button.surface.color.disabled}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -32316,59 +32316,59 @@
           "cds-g90": "{carbon.color.gray.60}",
           "cds-g100": "{carbon.color.gray.70}"
         },
-        "key": "{app-header.interactive.surface.color.disabled}"
+        "key": "{app-header.button.surface.color.disabled}"
       },
-      "name": "token-app-header-interactive-surface-color-disabled",
+      "name": "token-app-header-button-surface-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-internal": {
-      "key": "{app-header.interactive.focus-ring.color.action-internal}",
+    "token-app-header-button-focus-ring-color-action-internal": {
+      "key": "{app-header.button.focus-ring.color.action-internal}",
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "rgba(0, 0, 0, 0)",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
       "$modes": {
         "default": "#bcc7fd",
-        "cds-g0": "#ffffff",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#161616",
-        "cds-g100": "#161616"
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.themes.white.focusInset}",
+        "$value": "transparent",
         "comment": "TODO: Remove once global tokens for dark themes are implemented",
         "$modes": {
           "default": "#bcc7fd",
-          "cds-g0": "{carbon.themes.white.focusInset}",
-          "cds-g10": "{carbon.themes.g10.focusInset}",
-          "cds-g90": "{carbon.themes.g90.focusInset}",
-          "cds-g100": "{carbon.themes.g100.focusInset}"
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-internal}"
+        "key": "{app-header.button.focus-ring.color.action-internal}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-internal",
+      "name": "token-app-header-button-focus-ring-color-action-internal",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-internal"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-external": {
-      "key": "{app-header.interactive.focus-ring.color.action-external}",
+    "token-app-header-button-focus-ring-color-action-external": {
+      "key": "{app-header.button.focus-ring.color.action-external}",
       "$type": "color",
       "$value": "#0f62fe",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
@@ -32390,15 +32390,15 @@
           "cds-g90": "{carbon.themes.g90.focus}",
           "cds-g100": "{carbon.themes.g100.focus}"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-external}"
+        "key": "{app-header.button.focus-ring.color.action-external}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-external",
+      "name": "token-app-header-button-focus-ring-color-action-external",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-external"
@@ -56256,13 +56256,13 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.color.gray.30}",
+        "$value": "{carbon.themes.g10.borderSubtle00}",
         "$modes": {
           "default": "{color.palette.neutral-500}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.color.gray.30}",
-          "cds-g90": "{carbon.color.gray.70}",
-          "cds-g100": "{carbon.color.gray.80}"
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
         "key": "{app-header.border.color}"
       },
@@ -56342,8 +56342,8 @@
         "color"
       ]
     },
-    "token-app-header-interactive-border-color-default": {
-      "key": "{app-header.interactive.border.color.default}",
+    "token-app-header-button-border-color-default": {
+      "key": "{app-header.button.border.color.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -56363,22 +56363,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.default}"
+        "key": "{app-header.button.border.color.default}"
       },
-      "name": "token-app-header-interactive-border-color-default",
+      "name": "token-app-header-button-border-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-border-color-active": {
-      "key": "{app-header.interactive.border.color.active}",
+    "token-app-header-button-border-color-active": {
+      "key": "{app-header.button.border.color.active}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -56398,22 +56398,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.active}"
+        "key": "{app-header.button.border.color.active}"
       },
-      "name": "token-app-header-interactive-border-color-active",
+      "name": "token-app-header-button-border-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-foreground-color-default": {
-      "key": "{app-header.interactive.foreground.color.default}",
+    "token-app-header-button-foreground-color-default": {
+      "key": "{app-header.button.foreground.color.default}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -56433,22 +56433,22 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{app-header.interactive.foreground.color.default}"
+        "key": "{app-header.button.foreground.color.default}"
       },
-      "name": "token-app-header-interactive-foreground-color-default",
+      "name": "token-app-header-button-foreground-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-foreground-color-hover": {
-      "key": "{app-header.interactive.foreground.color.hover}",
+    "token-app-header-button-foreground-color-hover": {
+      "key": "{app-header.button.foreground.color.hover}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -56468,22 +56468,22 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{app-header.interactive.foreground.color.hover}"
+        "key": "{app-header.button.foreground.color.hover}"
       },
-      "name": "token-app-header-interactive-foreground-color-hover",
+      "name": "token-app-header-button-foreground-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-foreground-color-disabled": {
-      "key": "{app-header.interactive.foreground.color.disabled}",
+    "token-app-header-button-foreground-color-disabled": {
+      "key": "{app-header.button.foreground.color.disabled}",
       "$type": "color",
       "$value": "rgba(22, 22, 22, 0.25)",
       "$modes": {
@@ -56503,22 +56503,22 @@
           "cds-g90": "{carbon.themes.g90.textDisabled}",
           "cds-g100": "{carbon.themes.g100.textDisabled}"
         },
-        "key": "{app-header.interactive.foreground.color.disabled}"
+        "key": "{app-header.button.foreground.color.disabled}"
       },
-      "name": "token-app-header-interactive-foreground-color-disabled",
+      "name": "token-app-header-button-foreground-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-surface-color-default": {
-      "key": "{app-header.interactive.surface.color.default}",
+    "token-app-header-button-surface-color-default": {
+      "key": "{app-header.button.surface.color.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -56538,22 +56538,22 @@
           "cds-g90": "transparent",
           "cds-g100": "carbon.themes.g100.backgroundHover"
         },
-        "key": "{app-header.interactive.surface.color.default}"
+        "key": "{app-header.button.surface.color.default}"
       },
-      "name": "token-app-header-interactive-surface-color-default",
+      "name": "token-app-header-button-surface-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-surface-color-hover": {
-      "key": "{app-header.interactive.surface.color.hover}",
+    "token-app-header-button-surface-color-hover": {
+      "key": "{app-header.button.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.12)",
       "$modes": {
@@ -56573,22 +56573,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{app-header.interactive.surface.color.hover}"
+        "key": "{app-header.button.surface.color.hover}"
       },
-      "name": "token-app-header-interactive-surface-color-hover",
+      "name": "token-app-header-button-surface-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-surface-color-active": {
-      "key": "{app-header.interactive.surface.color.active}",
+    "token-app-header-button-surface-color-active": {
+      "key": "{app-header.button.surface.color.active}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.5)",
       "$modes": {
@@ -56608,22 +56608,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundActive}",
           "cds-g100": "{carbon.themes.g100.backgroundActive}"
         },
-        "key": "{app-header.interactive.surface.color.active}"
+        "key": "{app-header.button.surface.color.active}"
       },
-      "name": "token-app-header-interactive-surface-color-active",
+      "name": "token-app-header-button-surface-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-surface-color-disabled": {
-      "key": "{app-header.interactive.surface.color.disabled}",
+    "token-app-header-button-surface-color-disabled": {
+      "key": "{app-header.button.surface.color.disabled}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -56643,59 +56643,59 @@
           "cds-g90": "{carbon.color.gray.60}",
           "cds-g100": "{carbon.color.gray.70}"
         },
-        "key": "{app-header.interactive.surface.color.disabled}"
+        "key": "{app-header.button.surface.color.disabled}"
       },
-      "name": "token-app-header-interactive-surface-color-disabled",
+      "name": "token-app-header-button-surface-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-internal": {
-      "key": "{app-header.interactive.focus-ring.color.action-internal}",
+    "token-app-header-button-focus-ring-color-action-internal": {
+      "key": "{app-header.button.focus-ring.color.action-internal}",
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "rgba(0, 0, 0, 0)",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
       "$modes": {
         "default": "#bcc7fd",
-        "cds-g0": "#ffffff",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#161616",
-        "cds-g100": "#161616"
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.themes.g10.focusInset}",
+        "$value": "transparent",
         "comment": "TODO: Remove once global tokens for dark themes are implemented",
         "$modes": {
           "default": "#bcc7fd",
-          "cds-g0": "{carbon.themes.white.focusInset}",
-          "cds-g10": "{carbon.themes.g10.focusInset}",
-          "cds-g90": "{carbon.themes.g90.focusInset}",
-          "cds-g100": "{carbon.themes.g100.focusInset}"
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-internal}"
+        "key": "{app-header.button.focus-ring.color.action-internal}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-internal",
+      "name": "token-app-header-button-focus-ring-color-action-internal",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-internal"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-external": {
-      "key": "{app-header.interactive.focus-ring.color.action-external}",
+    "token-app-header-button-focus-ring-color-action-external": {
+      "key": "{app-header.button.focus-ring.color.action-external}",
       "$type": "color",
       "$value": "#0f62fe",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
@@ -56717,15 +56717,15 @@
           "cds-g90": "{carbon.themes.g90.focus}",
           "cds-g100": "{carbon.themes.g100.focus}"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-external}"
+        "key": "{app-header.button.focus-ring.color.action-external}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-external",
+      "name": "token-app-header-button-focus-ring-color-action-external",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-external"
@@ -80583,13 +80583,13 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.color.gray.70}",
+        "$value": "{carbon.themes.g90.borderSubtle00}",
         "$modes": {
           "default": "{color.palette.neutral-500}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.color.gray.30}",
-          "cds-g90": "{carbon.color.gray.70}",
-          "cds-g100": "{carbon.color.gray.80}"
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
         "key": "{app-header.border.color}"
       },
@@ -80669,8 +80669,8 @@
         "color"
       ]
     },
-    "token-app-header-interactive-border-color-default": {
-      "key": "{app-header.interactive.border.color.default}",
+    "token-app-header-button-border-color-default": {
+      "key": "{app-header.button.border.color.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -80690,22 +80690,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.default}"
+        "key": "{app-header.button.border.color.default}"
       },
-      "name": "token-app-header-interactive-border-color-default",
+      "name": "token-app-header-button-border-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-border-color-active": {
-      "key": "{app-header.interactive.border.color.active}",
+    "token-app-header-button-border-color-active": {
+      "key": "{app-header.button.border.color.active}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -80725,22 +80725,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.active}"
+        "key": "{app-header.button.border.color.active}"
       },
-      "name": "token-app-header-interactive-border-color-active",
+      "name": "token-app-header-button-border-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-foreground-color-default": {
-      "key": "{app-header.interactive.foreground.color.default}",
+    "token-app-header-button-foreground-color-default": {
+      "key": "{app-header.button.foreground.color.default}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -80760,22 +80760,22 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{app-header.interactive.foreground.color.default}"
+        "key": "{app-header.button.foreground.color.default}"
       },
-      "name": "token-app-header-interactive-foreground-color-default",
+      "name": "token-app-header-button-foreground-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-foreground-color-hover": {
-      "key": "{app-header.interactive.foreground.color.hover}",
+    "token-app-header-button-foreground-color-hover": {
+      "key": "{app-header.button.foreground.color.hover}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -80795,22 +80795,22 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{app-header.interactive.foreground.color.hover}"
+        "key": "{app-header.button.foreground.color.hover}"
       },
-      "name": "token-app-header-interactive-foreground-color-hover",
+      "name": "token-app-header-button-foreground-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-foreground-color-disabled": {
-      "key": "{app-header.interactive.foreground.color.disabled}",
+    "token-app-header-button-foreground-color-disabled": {
+      "key": "{app-header.button.foreground.color.disabled}",
       "$type": "color",
       "$value": "rgba(244, 244, 244, 0.25)",
       "$modes": {
@@ -80830,22 +80830,22 @@
           "cds-g90": "{carbon.themes.g90.textDisabled}",
           "cds-g100": "{carbon.themes.g100.textDisabled}"
         },
-        "key": "{app-header.interactive.foreground.color.disabled}"
+        "key": "{app-header.button.foreground.color.disabled}"
       },
-      "name": "token-app-header-interactive-foreground-color-disabled",
+      "name": "token-app-header-button-foreground-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-surface-color-default": {
-      "key": "{app-header.interactive.surface.color.default}",
+    "token-app-header-button-surface-color-default": {
+      "key": "{app-header.button.surface.color.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -80865,22 +80865,22 @@
           "cds-g90": "transparent",
           "cds-g100": "carbon.themes.g100.backgroundHover"
         },
-        "key": "{app-header.interactive.surface.color.default}"
+        "key": "{app-header.button.surface.color.default}"
       },
-      "name": "token-app-header-interactive-surface-color-default",
+      "name": "token-app-header-button-surface-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-surface-color-hover": {
-      "key": "{app-header.interactive.surface.color.hover}",
+    "token-app-header-button-surface-color-hover": {
+      "key": "{app-header.button.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.16)",
       "$modes": {
@@ -80900,22 +80900,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{app-header.interactive.surface.color.hover}"
+        "key": "{app-header.button.surface.color.hover}"
       },
-      "name": "token-app-header-interactive-surface-color-hover",
+      "name": "token-app-header-button-surface-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-surface-color-active": {
-      "key": "{app-header.interactive.surface.color.active}",
+    "token-app-header-button-surface-color-active": {
+      "key": "{app-header.button.surface.color.active}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.4)",
       "$modes": {
@@ -80935,22 +80935,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundActive}",
           "cds-g100": "{carbon.themes.g100.backgroundActive}"
         },
-        "key": "{app-header.interactive.surface.color.active}"
+        "key": "{app-header.button.surface.color.active}"
       },
-      "name": "token-app-header-interactive-surface-color-active",
+      "name": "token-app-header-button-surface-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-surface-color-disabled": {
-      "key": "{app-header.interactive.surface.color.disabled}",
+    "token-app-header-button-surface-color-disabled": {
+      "key": "{app-header.button.surface.color.disabled}",
       "$type": "color",
       "$value": "#6f6f6f",
       "$modes": {
@@ -80970,59 +80970,59 @@
           "cds-g90": "{carbon.color.gray.60}",
           "cds-g100": "{carbon.color.gray.70}"
         },
-        "key": "{app-header.interactive.surface.color.disabled}"
+        "key": "{app-header.button.surface.color.disabled}"
       },
-      "name": "token-app-header-interactive-surface-color-disabled",
+      "name": "token-app-header-button-surface-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-internal": {
-      "key": "{app-header.interactive.focus-ring.color.action-internal}",
+    "token-app-header-button-focus-ring-color-action-internal": {
+      "key": "{app-header.button.focus-ring.color.action-internal}",
       "$type": "color",
-      "$value": "#161616",
+      "$value": "rgba(0, 0, 0, 0)",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
       "$modes": {
         "default": "#bcc7fd",
-        "cds-g0": "#ffffff",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#161616",
-        "cds-g100": "#161616"
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.themes.g90.focusInset}",
+        "$value": "transparent",
         "comment": "TODO: Remove once global tokens for dark themes are implemented",
         "$modes": {
           "default": "#bcc7fd",
-          "cds-g0": "{carbon.themes.white.focusInset}",
-          "cds-g10": "{carbon.themes.g10.focusInset}",
-          "cds-g90": "{carbon.themes.g90.focusInset}",
-          "cds-g100": "{carbon.themes.g100.focusInset}"
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-internal}"
+        "key": "{app-header.button.focus-ring.color.action-internal}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-internal",
+      "name": "token-app-header-button-focus-ring-color-action-internal",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-internal"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-external": {
-      "key": "{app-header.interactive.focus-ring.color.action-external}",
+    "token-app-header-button-focus-ring-color-action-external": {
+      "key": "{app-header.button.focus-ring.color.action-external}",
       "$type": "color",
       "$value": "#ffffff",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
@@ -81044,15 +81044,15 @@
           "cds-g90": "{carbon.themes.g90.focus}",
           "cds-g100": "{carbon.themes.g100.focus}"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-external}"
+        "key": "{app-header.button.focus-ring.color.action-external}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-external",
+      "name": "token-app-header-button-focus-ring-color-action-external",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-external"
@@ -104910,13 +104910,13 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.color.gray.80}",
+        "$value": "{carbon.themes.g100.borderSubtle00}",
         "$modes": {
           "default": "{color.palette.neutral-500}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.color.gray.30}",
-          "cds-g90": "{carbon.color.gray.70}",
-          "cds-g100": "{carbon.color.gray.80}"
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
         "key": "{app-header.border.color}"
       },
@@ -104996,8 +104996,8 @@
         "color"
       ]
     },
-    "token-app-header-interactive-border-color-default": {
-      "key": "{app-header.interactive.border.color.default}",
+    "token-app-header-button-border-color-default": {
+      "key": "{app-header.button.border.color.default}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -105017,22 +105017,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.default}"
+        "key": "{app-header.button.border.color.default}"
       },
-      "name": "token-app-header-interactive-border-color-default",
+      "name": "token-app-header-button-border-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-border-color-active": {
-      "key": "{app-header.interactive.border.color.active}",
+    "token-app-header-button-border-color-active": {
+      "key": "{app-header.button.border.color.active}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -105052,22 +105052,22 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.border.color.active}"
+        "key": "{app-header.button.border.color.active}"
       },
-      "name": "token-app-header-interactive-border-color-active",
+      "name": "token-app-header-button-border-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "border",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-foreground-color-default": {
-      "key": "{app-header.interactive.foreground.color.default}",
+    "token-app-header-button-foreground-color-default": {
+      "key": "{app-header.button.foreground.color.default}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -105087,22 +105087,22 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{app-header.interactive.foreground.color.default}"
+        "key": "{app-header.button.foreground.color.default}"
       },
-      "name": "token-app-header-interactive-foreground-color-default",
+      "name": "token-app-header-button-foreground-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-foreground-color-hover": {
-      "key": "{app-header.interactive.foreground.color.hover}",
+    "token-app-header-button-foreground-color-hover": {
+      "key": "{app-header.button.foreground.color.hover}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -105122,22 +105122,22 @@
           "cds-g90": "{carbon.themes.g90.textPrimary}",
           "cds-g100": "{carbon.themes.g100.textPrimary}"
         },
-        "key": "{app-header.interactive.foreground.color.hover}"
+        "key": "{app-header.button.foreground.color.hover}"
       },
-      "name": "token-app-header-interactive-foreground-color-hover",
+      "name": "token-app-header-button-foreground-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-foreground-color-disabled": {
-      "key": "{app-header.interactive.foreground.color.disabled}",
+    "token-app-header-button-foreground-color-disabled": {
+      "key": "{app-header.button.foreground.color.disabled}",
       "$type": "color",
       "$value": "rgba(244, 244, 244, 0.25)",
       "$modes": {
@@ -105157,22 +105157,22 @@
           "cds-g90": "{carbon.themes.g90.textDisabled}",
           "cds-g100": "{carbon.themes.g100.textDisabled}"
         },
-        "key": "{app-header.interactive.foreground.color.disabled}"
+        "key": "{app-header.button.foreground.color.disabled}"
       },
-      "name": "token-app-header-interactive-foreground-color-disabled",
+      "name": "token-app-header-button-foreground-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "foreground",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-surface-color-default": {
-      "key": "{app-header.interactive.surface.color.default}",
+    "token-app-header-button-surface-color-default": {
+      "key": "{app-header.button.surface.color.default}",
       "$type": "color",
       "$value": "carbon.themes.g100.backgroundHover",
       "$modes": {
@@ -105192,22 +105192,22 @@
           "cds-g90": "transparent",
           "cds-g100": "carbon.themes.g100.backgroundHover"
         },
-        "key": "{app-header.interactive.surface.color.default}"
+        "key": "{app-header.button.surface.color.default}"
       },
-      "name": "token-app-header-interactive-surface-color-default",
+      "name": "token-app-header-button-surface-color-default",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "default"
       ]
     },
-    "token-app-header-interactive-surface-color-hover": {
-      "key": "{app-header.interactive.surface.color.hover}",
+    "token-app-header-button-surface-color-hover": {
+      "key": "{app-header.button.surface.color.hover}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.16)",
       "$modes": {
@@ -105227,22 +105227,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundHover}",
           "cds-g100": "{carbon.themes.g100.backgroundHover}"
         },
-        "key": "{app-header.interactive.surface.color.hover}"
+        "key": "{app-header.button.surface.color.hover}"
       },
-      "name": "token-app-header-interactive-surface-color-hover",
+      "name": "token-app-header-button-surface-color-hover",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "hover"
       ]
     },
-    "token-app-header-interactive-surface-color-active": {
-      "key": "{app-header.interactive.surface.color.active}",
+    "token-app-header-button-surface-color-active": {
+      "key": "{app-header.button.surface.color.active}",
       "$type": "color",
       "$value": "rgba(141, 141, 141, 0.4)",
       "$modes": {
@@ -105262,22 +105262,22 @@
           "cds-g90": "{carbon.themes.g90.backgroundActive}",
           "cds-g100": "{carbon.themes.g100.backgroundActive}"
         },
-        "key": "{app-header.interactive.surface.color.active}"
+        "key": "{app-header.button.surface.color.active}"
       },
-      "name": "token-app-header-interactive-surface-color-active",
+      "name": "token-app-header-button-surface-color-active",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "active"
       ]
     },
-    "token-app-header-interactive-surface-color-disabled": {
-      "key": "{app-header.interactive.surface.color.disabled}",
+    "token-app-header-button-surface-color-disabled": {
+      "key": "{app-header.button.surface.color.disabled}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -105297,59 +105297,59 @@
           "cds-g90": "{carbon.color.gray.60}",
           "cds-g100": "{carbon.color.gray.70}"
         },
-        "key": "{app-header.interactive.surface.color.disabled}"
+        "key": "{app-header.button.surface.color.disabled}"
       },
-      "name": "token-app-header-interactive-surface-color-disabled",
+      "name": "token-app-header-button-surface-color-disabled",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "surface",
         "color",
         "disabled"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-internal": {
-      "key": "{app-header.interactive.focus-ring.color.action-internal}",
+    "token-app-header-button-focus-ring-color-action-internal": {
+      "key": "{app-header.button.focus-ring.color.action-internal}",
       "$type": "color",
-      "$value": "#161616",
+      "$value": "rgba(0, 0, 0, 0)",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
       "$modes": {
         "default": "#bcc7fd",
-        "cds-g0": "#ffffff",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#161616",
-        "cds-g100": "#161616"
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.themes.g100.focusInset}",
+        "$value": "transparent",
         "comment": "TODO: Remove once global tokens for dark themes are implemented",
         "$modes": {
           "default": "#bcc7fd",
-          "cds-g0": "{carbon.themes.white.focusInset}",
-          "cds-g10": "{carbon.themes.g10.focusInset}",
-          "cds-g90": "{carbon.themes.g90.focusInset}",
-          "cds-g100": "{carbon.themes.g100.focusInset}"
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-internal}"
+        "key": "{app-header.button.focus-ring.color.action-internal}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-internal",
+      "name": "token-app-header-button-focus-ring-color-action-internal",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-internal"
       ]
     },
-    "token-app-header-interactive-focus-ring-color-action-external": {
-      "key": "{app-header.interactive.focus-ring.color.action-external}",
+    "token-app-header-button-focus-ring-color-action-external": {
+      "key": "{app-header.button.focus-ring.color.action-external}",
       "$type": "color",
       "$value": "#ffffff",
       "comment": "TODO: Remove once global tokens for dark themes are implemented",
@@ -105371,15 +105371,15 @@
           "cds-g90": "{carbon.themes.g90.focus}",
           "cds-g100": "{carbon.themes.g100.focus}"
         },
-        "key": "{app-header.interactive.focus-ring.color.action-external}"
+        "key": "{app-header.button.focus-ring.color.action-external}"
       },
-      "name": "token-app-header-interactive-focus-ring-color-action-external",
+      "name": "token-app-header-button-focus-ring-color-action-external",
       "attributes": {
         "category": "app-header"
       },
       "path": [
         "app-header",
-        "interactive",
+        "button",
         "focus-ring",
         "color",
         "action-external"

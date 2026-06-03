@@ -41,21 +41,21 @@
   --token-app-footer-link-focus-outline-width: 2px;
   --token-app-header-actions-gap: 12px;
   --token-app-header-border-color: var(--token-color-palette-neutral-500);
+  --token-app-header-button-border-color-active: var(--token-color-palette-neutral-400);
+  --token-app-header-button-border-color-default: var(--token-color-palette-neutral-500);
+  --token-app-header-button-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-app-header-button-focus-ring-color-action-internal: #bcc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
+  --token-app-header-button-foreground-color-default: var(--token-color-foreground-high-contrast);
+  --token-app-header-button-foreground-color-disabled: var(--token-color-foreground-disabled);
+  --token-app-header-button-foreground-color-hover: var(--token-color-foreground-high-contrast);
+  --token-app-header-button-surface-color-active: var(--token-color-palette-neutral-500);
+  --token-app-header-button-surface-color-default: var(--token-color-palette-neutral-700);
+  --token-app-header-button-surface-color-disabled: var(--token-color-palette-neutral-600);
+  --token-app-header-button-surface-color-hover: var(--token-color-palette-neutral-600);
   --token-app-header-foreground-color: var(--token-color-foreground-high-contrast);
   --token-app-header-height: 60px;
   --token-app-header-home-link-foreground-color: var(--token-color-foreground-high-contrast);
   --token-app-header-home-link-padding: 3px;
-  --token-app-header-interactive-border-color-active: var(--token-color-palette-neutral-400);
-  --token-app-header-interactive-border-color-default: var(--token-color-palette-neutral-500);
-  --token-app-header-interactive-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-app-header-interactive-focus-ring-color-action-internal: #bcc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
-  --token-app-header-interactive-foreground-color-default: var(--token-color-foreground-high-contrast);
-  --token-app-header-interactive-foreground-color-disabled: var(--token-color-foreground-disabled);
-  --token-app-header-interactive-foreground-color-hover: var(--token-color-foreground-high-contrast);
-  --token-app-header-interactive-surface-color-active: var(--token-color-palette-neutral-500);
-  --token-app-header-interactive-surface-color-default: var(--token-color-palette-neutral-700);
-  --token-app-header-interactive-surface-color-disabled: var(--token-color-palette-neutral-600);
-  --token-app-header-interactive-surface-color-hover: var(--token-color-palette-neutral-600);
   --token-app-header-padding-bottom: 11px;
   --token-app-header-padding-left: 16px;
   --token-app-header-padding-right: 16px;
