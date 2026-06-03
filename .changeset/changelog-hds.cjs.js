@@ -31,6 +31,7 @@ const SKIP_USERS = [
   'shleewhite',
   'LilithJames-HDS',
   'dchyun',
+  'pkj-web',
   // bots
   'apps/dependabot',
   'apps/hashicorp-copywrite',
