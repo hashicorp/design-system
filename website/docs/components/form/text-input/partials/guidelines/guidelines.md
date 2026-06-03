@@ -11,7 +11,7 @@
 
 ## Types of text inputs
 
-Text Input accepts [all native HTML types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types), but we offer built in styling for the following:
+Text Input accepts [a subset of types](https://helios.hashicorp.design/components/form/text-input?tab=code#component-api) and offer built in styling for the following:
 
 ### Text
 
