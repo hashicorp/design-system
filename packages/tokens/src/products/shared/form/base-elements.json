@@ -13,6 +13,19 @@
             "cds-g100": "{carbon.themes.g100.textHelper}"
           },
           "private": true
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.foreground.strong}",
+          "group": "components",
+          "$modes": {
+            "default": "{color.foreground.strong}",
+            "cds-g0": "{carbon.themes.white.textSecondary}",
+            "cds-g10": "{carbon.themes.g10.textSecondary}",
+            "cds-g90": "{carbon.themes.g90.textSecondary}",
+            "cds-g100": "{carbon.themes.g100.textSecondary}"
+          },
+          "private": true
         }
       }
     },
@@ -55,15 +68,8 @@
       "foreground": {
         "color": {
           "$type": "color",
-          "$value": "{color.foreground.strong}",
-          "group": "components",
-          "$modes": {
-            "default": "{color.foreground.strong}",
-            "cds-g0": "{carbon.themes.white.textSecondary}",
-            "cds-g10": "{carbon.themes.g10.textSecondary}",
-            "cds-g90": "{carbon.themes.g90.textSecondary}",
-            "cds-g100": "{carbon.themes.g100.textSecondary}"
-          }
+          "$value": "{form.foreground.color.strong}",
+          "group": "components"
         }
       },
       "typography": {
@@ -107,7 +113,7 @@
       "foreground": {
         "color": {
           "$type": "color",
-          "$value": "{form.label.foreground.color}",
+          "$value": "{form.foreground.color.strong}",
           "group": "components"
         }
       },
