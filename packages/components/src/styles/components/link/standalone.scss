@@ -31,7 +31,9 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
     @include hds-focus-ring-advanced(
       // we want the focus ring to extend a bit around the content
       $pseudo-element-inset-hds: 0 -7px 0 -5px,
-      $pseudo-element-inset-cds: 0 -7px 0 -5px
+      $pseudo-element-inset-cds: 0 -7px 0 -5px,
+      // per design specs, we're using the same outline width as the normal link in Carbon (which is 1px)
+      $external-outline-width-cds: 1px
     );
   }
 }
