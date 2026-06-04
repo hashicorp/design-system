@@ -11,7 +11,8 @@
             "cds-g10": "{carbon.themes.g10.textHelper}",
             "cds-g90": "{carbon.themes.g90.textHelper}",
             "cds-g100": "{carbon.themes.g100.textHelper}"
-          }
+          },
+          "private": true
         }
       }
     },
@@ -187,7 +188,14 @@
           "color": {
             "$type": "color",
             "$value": "{form.foreground.color.faint}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{form.foreground.color.faint}",
+              "cds-g0": "{carbon.themes.white.textSecondary}",
+              "cds-g10": "{carbon.themes.g10.textSecondary}",
+              "cds-g90": "{carbon.themes.g90.textSecondary}",
+              "cds-g100": "{carbon.themes.g100.textSecondary}"
+            }
           }
         },
         "typography": {

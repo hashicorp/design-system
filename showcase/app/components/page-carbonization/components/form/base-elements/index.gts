@@ -212,17 +212,6 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
                 on multiple lines"
             ></cds-text-input>
           </SF.Item>
-          <SF.Item>
-            {{! Not working? }}
-            <cds-text-input>
-              <div slot="helper-text">
-                A helper text may contain some
-                <code>&lt;code&gt;</code>
-                for example, or a
-                <strong>&lt;strong&gt;</strong>.
-              </div>
-            </cds-text-input>
-          </SF.Item>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
