@@ -17,3 +17,9 @@ A `processing` status is used to indicate an ongoing process in the background, 
 Using the named `<:title>` block is required. Additional information for a step is added through the named blocks `<:description>` and `<:content>`.
 
 [[code-snippets/stepper-list-blocks]]
+
+#### Conditional content
+
+If you need to conditionally show the `<:description>` or `<:content>`, you must add `~` in your conditional blocks. The `<:description>` and `<:content>` elements are shown based on the CSS `:empty` selector which requires no whitespace be present. Otherwise, the HTML elements will be visible and add unintended spacing inside the component.
+
+[[code-snippets/stepper-list-blocks-conditional]]

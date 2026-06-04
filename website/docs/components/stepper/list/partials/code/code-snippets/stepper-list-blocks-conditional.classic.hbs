@@ -1,0 +1,36 @@
+<Hds::Stepper::List @ariaLabel="Additional information" as |S|>
+  <S.Step @status="complete">
+    <:title>Completed step</:title>
+    <:description>
+      {{~#if this.showBlocks~}}
+        Step description
+      {{/if~}}
+    </:description>
+  </S.Step>
+  <S.Step @status="progress">
+    <:title>Current step</:title>
+    <:description>
+      {{~#if this.showBlocks~}}
+        Step description
+      {{/if~}}
+    </:description>
+    <:content>
+      {{~#if this.showBlocks~}}
+        <Hds::Button @text="Do step action" />
+      {{/if~}}
+    </:content>
+  </S.Step>
+  <S.Step>
+    <:title>Upcoming step</:title>
+    <:description>
+      {{~#if this.showBlocks~}}
+        Step description
+      {{/if~}}
+    </:description>
+  </S.Step>
+</Hds::Stepper::List>
+<Hds::Button
+  @text={{if this.showBlocks "Hide blocks" "Show blocks"}}
+  {{on "click" this.toggleBlocks}}
+  {{style marginTop="24px"}}
+/>
