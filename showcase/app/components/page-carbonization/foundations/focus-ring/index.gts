@@ -1552,6 +1552,16 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
             </SF.Item>
             <SF.Item>
               <HdsTag
+                @color={{color}}
+                @href="#"
+                @text="My link tag"
+                @onDismiss={{NOOP}}
+                mock-state-value="focus"
+                mock-state-selector="a, button"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsTag
                 @text="This is a very long text that should go on multiple lines"
                 @tooltipPlacement="bottom"
                 mock-state-value="focus"
@@ -1566,6 +1576,16 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
                 @onDismiss={{NOOP}}
                 mock-state-value="focus"
                 mock-state-selector=".hds-tooltip-button"
+                mock-state-delay="200"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsTag
+                @text="This is a very long text that should go on multiple lines"
+                @tooltipPlacement="bottom"
+                @onDismiss={{NOOP}}
+                mock-state-value="focus"
+                mock-state-selector=".hds-tag__dismiss, .hds-tooltip-button"
                 mock-state-delay="200"
               />
             </SF.Item>

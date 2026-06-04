@@ -84,8 +84,22 @@
       // ensures focus is not obscured by adjacent elements
       $pseudo-element-z-index: 1,
       $pseudo-element-inset-hds: 0,
-      $pseudo-element-inset-cds: 0
+      // we need to use this trick to handle the asymmetric nature of the focus ring
+      // for these two side-by-side elements (due to the visual offset applied when `cds`)
+      $pseudo-element-inset-cds: 1px var(--hds-tag-focus-ring-offset-right-cds, 1px) 1px
+        var(--hds-tag-focus-ring-offset-left-cds, 1px),
+      // per design specs, to match how it's applied in Carbon tags
+      $external-outline-offset-cds: 3px
     );
+  }
+}
+
+// handle the asymmetric nature of the focus rings for these two side-by-side elements (see above)
+.hds-tag__dismiss {
+  --hds-tag-focus-ring-offset-right-cds: 3px;
+
+  & + .hds-tag__link {
+    --hds-tag-focus-ring-offset-left-cds: 3px;
   }
 }
 
@@ -101,7 +115,7 @@
       inset: 0;
 
       @include hds-apply-only-if-carbon() {
-        inset: -1px;
+        inset: -2px -2px -2px 1px;
       }
     }
   }
