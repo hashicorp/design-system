@@ -29,14 +29,7 @@
         "radius": {
           "$type": "dimension",
           "$value": "{border.radius.small}",
-          "unit": "px",
-          "$modes": {
-            "default": "{border.radius.small}",
-            "cds-g0": "0",
-            "cds-g10": "0",
-            "cds-g90": "0",
-            "cds-g100": "0"
-          }
+          "unit": "px"
         }
       },
       "height": {

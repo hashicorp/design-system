@@ -115,6 +115,8 @@ $hds-tabs-sizes: ("medium", "large");
     @include hds-focus-ring-advanced(
       // the `position` is already set above
       $element-position: false,
+      // we want the focus ring to appear above the indicator, in `cds-g90/cds-g100`
+      $pseudo-element-z-index: 1,
       // by design
       $pseudo-element-inset-hds: 6px,
       // 2px = focus-ring's external width; 0px only at the bottom so it overlaps with the indicator
