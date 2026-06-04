@@ -8,10 +8,15 @@
     {
       "tagName": "@splattributes",
       "syntaxKind": "block"
+    },
+    {
+      "tagName": "@valueNote",
+      "syntaxKind": "block"
     }
   ],
   "supportForTags": {
     "@dependsOn": true,
-    "@splattributes": true
+    "@splattributes": true,
+    "@valueNote": true
   }
 }

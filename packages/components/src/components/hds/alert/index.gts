@@ -13,7 +13,6 @@ import { on } from '@ember/modifier';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
-import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
 
 import { HdsAlertColorValues, HdsAlertTypeValues } from './types.ts';
@@ -25,6 +24,7 @@ import HdsButton from '../button/index.gts';
 import HdsLinkStandalone from '../link/standalone.gts';
 import HdsYield from '../yield/index.gts';
 
+import type { HdsAlertSignature } from './index.types';
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
 import type { HdsIconSignature } from '../icon/index.gts';
 
@@ -43,28 +43,6 @@ export const MAPPING_COLORS_TO_ICONS = {
 const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
 const TITLE_ELEMENT_SELECTOR = '.hds-alert__title';
 const DESCRIPTION_ELEMENT_SELECTOR = '.hds-alert__description';
-
-export interface HdsAlertSignature {
-  Args: {
-    type: HdsAlertTypes;
-    color?: HdsAlertColors;
-    icon?: HdsIconSignature['Args']['name'] | false;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
-  };
-  Blocks: {
-    default: [
-      {
-        Title?: typeof HdsAlertTitle;
-        Description?: typeof HdsAlertDescription;
-        Generic?: typeof HdsYield;
-        LinkStandalone?: WithBoundArgs<typeof HdsLinkStandalone, 'size'>;
-        Button?: WithBoundArgs<typeof HdsButton, 'size'>;
-      },
-    ];
-  };
-  Element: HTMLDivElement;
-}
 
 export default class HdsAlert extends Component<HdsAlertSignature> {
   @tracked private _role?: string;

@@ -1,6 +1,18 @@
 # Notes on TSDocs exploration
 
+## The Problem
+
+We need a way to parse the docs into a JSON document with a strict schema. Our documents are written in a non-standardized method. While we follow the same general patterns across docs, there is enough nuance in how some items are documented that parsing becomes difficult.
+
+## The Proposal
+
+Component API documentation should be a deterministic output based on TSDoc comments and defined types.
+
 ## Issues
+
+### General
+
+- We need to change the way we use Enums
 
 ### AppHeader
 
@@ -14,3 +26,14 @@
   - Remarks included in description
 - `a11yRefocusExcludeAllQueryParams`
   - Remarks included in description
+
+### Alert
+
+[Types file](packages/components/src/components/hds/alert/index.types.ts)
+
+- `color`
+  - Need to reference the enum itself rather than the stringified values
+
+## RANDOM THOUGHTS
+
+- Make this the default for when yielded components fo not have an explicit description: "`Alert::Description` yielded as contextual component (see below)."

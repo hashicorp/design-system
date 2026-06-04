@@ -4,7 +4,7 @@ module.exports = {
   plugins: ['prettier-plugin-ember-template-tag'],
   trailingComma: 'es5',
 
-  jsdocPrintWidth: 120,
+  jsdocPrintWidth: 80,
 
   overrides: [
     {
