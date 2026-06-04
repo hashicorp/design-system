@@ -11,8 +11,6 @@ import style from 'ember-style-modifier';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
-import type { WithBoundArgs } from '@glint/template';
-
 import {
   HdsDropdownPositionToPlacementValues,
   HdsDropdownPositionValues,
@@ -32,57 +30,14 @@ import HdsDropdownListItemSeparator from './list-item/separator.gts';
 import HdsDropdownListItemTitle from './list-item/title.gts';
 import HdsDropdownFooter from './footer.gts';
 
-import type { HdsPopoverPrimitiveSignature } from '../popover-primitive/index.gts';
 import type { HdsDropdownPositions } from './types.ts';
+import type { HdsDropdownSignature } from './index.types';
 import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
 
 export const DEFAULT_POSITION = HdsDropdownPositionValues.BottomRight;
 export const POSITIONS: HdsDropdownPositions[] = Object.values(
   HdsDropdownPositionValues
 );
-
-export interface HdsDropdownSignature {
-  Args: {
-    height?: string;
-    isInline?: boolean;
-    isOpen?: HdsPopoverPrimitiveSignature['Args']['isOpen'];
-    listPosition?: HdsDropdownPositions;
-    width?: string;
-    enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
-    preserveContentInDom?: boolean;
-    matchToggleWidth?: boolean;
-    onClose?: HdsPopoverPrimitiveSignature['Args']['onClose'];
-    onFocusOut?: HdsPopoverPrimitiveSignature['Args']['onFocusOut'];
-    boundary?: HdsAnchoredPositionOptions['boundary'];
-  };
-  Blocks: {
-    default: [
-      {
-        Footer?: typeof HdsDropdownFooter;
-        Header?: typeof HdsDropdownHeader;
-        Checkbox?: typeof HdsDropdownListItemCheckbox;
-        Checkmark?: typeof HdsDropdownListItemCheckmark;
-        CopyItem?: typeof HdsDropdownListItemCopyItem;
-        Description?: typeof HdsDropdownListItemDescription;
-        Generic?: typeof HdsDropdownListItemGeneric;
-        Interactive?: typeof HdsDropdownListItemInteractive;
-        Radio?: typeof HdsDropdownListItemRadio;
-        Separator?: typeof HdsDropdownListItemSeparator;
-        Title?: typeof HdsDropdownListItemTitle;
-        ToggleButton?: WithBoundArgs<
-          typeof HdsDropdownToggleButton,
-          'isOpen' | 'setupPrimitiveToggle'
-        >;
-        ToggleIcon?: WithBoundArgs<
-          typeof HdsDropdownToggleIcon,
-          'isOpen' | 'setupPrimitiveToggle'
-        >;
-        close: (event?: Event) => void;
-      },
-    ];
-  };
-  Element: HTMLDivElement;
-}
 
 export default class HdsDropdown extends Component<HdsDropdownSignature> {
   get listPosition(): HdsDropdownPositions {
