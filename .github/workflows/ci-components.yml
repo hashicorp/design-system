@@ -45,6 +45,16 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install
+      - name: Restore Percy browser cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.2.3
+        with:
+          path: |
+            ~/.cache/puppeteer
+            ~/.cache/ms-playwright
+            ~/.cache/percy
+          key: percy-browser-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            percy-browser-cache-${{ runner.os }}-
       - name: Build Components
         run: pnpm build
         working-directory: packages/components
@@ -55,8 +65,28 @@ jobs:
         run: pnpm lint
         working-directory: packages/components
       - name: Run Tests
-        run: pnpm test:ember:percy
+        run: |
+          set -euo pipefail
+
+          for attempt in 1 2 3; do
+            echo "Percy test attempt ${attempt}/3"
+
+            if timeout 30m pnpm test:ember:percy; then
+              exit 0
+            fi
+
+            exit_code=$?
+            echo "Percy test attempt ${attempt} failed with exit code ${exit_code}"
+
+            if [ "${attempt}" -lt 3 ]; then
+              echo "Retrying Percy test to recover from transient Chromium download/upload failures..."
+            fi
+          done
+
+          echo "Percy test failed after 3 attempts"
+          exit 1
         working-directory: showcase
+        timeout-minutes: 35
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
           LOG_LEVEL: debug
