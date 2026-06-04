@@ -73,12 +73,16 @@
         inset: $pseudo-element-inset-cds;
       }
 
-      @if $internal-border-width-cds != $internal-border-width-hds {
-        border-width: $internal-border-width-cds;
+      @if $external-outline-width-cds != $external-outline-width-hds {
+        outline-width: $external-outline-width-cds;
       }
 
       @if $external-outline-offset-cds != $external-outline-offset-hds {
         outline-offset: $external-outline-offset-cds;
+      }
+
+      @if $internal-border-width-cds != $internal-border-width-hds {
+        border-width: $internal-border-width-cds;
       }
     }
   }
