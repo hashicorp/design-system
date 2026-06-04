@@ -64,6 +64,21 @@ jobs:
       - name: Lint Components
         run: pnpm lint
         working-directory: packages/components
+      - name: Resolve browser executable for Percy
+        run: |
+          set -euo pipefail
+
+          if command -v google-chrome >/dev/null 2>&1; then
+            echo "PERCY_BROWSER_EXECUTABLE=$(command -v google-chrome)" >> "$GITHUB_ENV"
+          elif command -v google-chrome-stable >/dev/null 2>&1; then
+            echo "PERCY_BROWSER_EXECUTABLE=$(command -v google-chrome-stable)" >> "$GITHUB_ENV"
+          elif command -v chromium-browser >/dev/null 2>&1; then
+            echo "PERCY_BROWSER_EXECUTABLE=$(command -v chromium-browser)" >> "$GITHUB_ENV"
+          elif command -v chromium >/dev/null 2>&1; then
+            echo "PERCY_BROWSER_EXECUTABLE=$(command -v chromium)" >> "$GITHUB_ENV"
+          else
+            echo "No system Chrome/Chromium executable found; Percy will download Chromium."
+          fi
       - name: Run Tests
         run: |
           set -euo pipefail
@@ -89,6 +104,7 @@ jobs:
         timeout-minutes: 35
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
+          PERCY_POSTINSTALL_BROWSER: 0
           LOG_LEVEL: debug
           PERCY_DEBUG: "*"
 
