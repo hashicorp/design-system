@@ -13,8 +13,8 @@
 
 .hds-form-select {
   max-width: 100%;
-  padding: var(--hds-form-control-padding);
-  padding-right: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
+  padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
+  padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
   color: var(--hds-form-control-base-foreground-color);
   background-color: var(--hds-form-control-base-surface-color-default);
   background-image: var(--hds-form-select-background-image-data-url);
