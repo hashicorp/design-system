@@ -36,8 +36,7 @@
 }
 
 .hds-filter-bar__search.hds-form-text-input {
-  --hds-form-control-padding-horizontal: 3px;
-  --hds-form-control-padding-vertical: 3px;
+  --hds-form-control-padding: 3px;
   max-width: 320px;
   font-size: var(--hds-typography-body-100-font-size);
 }

@@ -15,7 +15,7 @@
 .hds-form-text-input {
   width: 100%;
   max-width: 100%;
-  padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
+  padding: var(--hds-form-control-padding);
   color: var(--hds-form-control-base-foreground-color);
   background-color: var(--hds-form-control-base-surface-color-default);
   border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
@@ -24,9 +24,10 @@
 
   // TODO: Add token(s) instead?
   @include hds-apply-only-if-carbon() {
-    border-top: none;
-    border-right: none;
-    border-left: none;
+    min-height: 40px;
+    padding: 0 var(--hds-form-control-padding);
+    // Carbon's text input has only a bottom border
+    border-width: 0 0 var(--hds-form-control-border-width) 0;
   }
 
   // PLACEHOLDER
@@ -78,6 +79,7 @@
     @include hds-apply-only-if-carbon() {
       border-color: transparent;
       outline: 2px solid var(--hds-form-control-invalid-border-color-default);
+      outline-offset: -2px;
     }
 
     &:hover,
@@ -103,13 +105,13 @@
 // PASSWORD
 
 .hds-form-text-input--has-visibility-toggle {
-  padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px);
+  padding-right: calc(var(--hds-form-control-padding) + 24px);
 }
 
 .hds-form-text-input__visibility-toggle {
   position: absolute;
-  top: calc(var(--hds-form-control-padding-vertical) - var(--hds-form-control-border-width));
-  right: calc(var(--hds-form-control-padding-horizontal) - var(--hds-form-control-border-width));
+  top: calc(var(--hds-form-control-padding) - var(--hds-form-control-border-width));
+  right: calc(var(--hds-form-control-padding) - var(--hds-form-control-border-width));
 }
 
 .hds-form-text-input {
@@ -176,7 +178,7 @@
 
   // SEARCH
   &[type="search"] {
-    padding-left: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
+    padding-left: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
     background-image: var(--hds-form-text-input-background-image-data-url-search);
     background-repeat: no-repeat;
     background-position: var(--hds-form-text-input-background-image-position-x) 50%;
@@ -184,7 +186,7 @@
 
     @include hds-apply-only-if-carbon() {
       // TODO: Use token for padding-left instead?
-      padding-left: var(--hds-form-control-padding-horizontal);
+      padding-left: var(--hds-form-control-padding);
       background-image: revert;
       background-position: revert;
       background-size: revert;

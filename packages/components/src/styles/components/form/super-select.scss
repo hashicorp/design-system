@@ -28,7 +28,7 @@ $hds-super-select-item-height: 36px;
     max-width: 100%;
     min-height: $hds-super-select-item-height;
     padding-top: 4px;
-    padding-right: calc(var(--hds-form-control-padding-horizontal) + 21px); // extra space for the icon
+    padding-right: calc(var(--hds-form-control-padding) + 21px); // extra space for the icon
     padding-bottom: 4px;
     padding-left: 11px;
     color: var(--hds-form-control-base-foreground-color);
@@ -246,7 +246,7 @@ $hds-super-select-item-height: 36px;
   .ember-power-select-search-input {
     width: 100%;
     min-height: $hds-super-select-item-height;
-    padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
+    padding: var(--hds-form-control-padding);
     color: var(--hds-form-control-base-foreground-color);
     font-size: var(--hds-typography-body-200-font-size);
     font-family: var(--hds-typography-body-200-font-family);
@@ -275,7 +275,7 @@ $hds-super-select-item-height: 36px;
     }
 
     &[type="search"] {
-      padding-left: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
+      padding-left: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
       background-image: var(--hds-form-text-input-background-image-data-url-search);
       background-repeat: no-repeat;
       background-position: var(--hds-form-text-input-background-image-position-x) 50%;

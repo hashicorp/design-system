@@ -2,32 +2,17 @@
   "form": {
     "control": {
       "padding": {
-        "vertical": {
-          "$type": "dimension",
-          "$value": "7",
-          "unit": "px",
-          "$modes": {
-            "default": "7",
-            "cds-g0": "11",
-            "cds-g10": "11",
-            "cds-g90": "11",
-            "cds-g100": "11"
-          },
-          "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma."
+        "$type": "dimension",
+        "$value": "7",
+        "unit": "px",
+        "$modes": {
+          "default": "7",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
         },
-        "horizontal": {
-          "$type": "dimension",
-          "$value": "7",
-          "unit": "px",
-          "$modes": {
-            "default": "7",
-            "cds-g0": "16",
-            "cds-g10": "16",
-            "cds-g90": "16",
-            "cds-g100": "16"
-          },
-          "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma."
-        }
+        "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding"
       },
       "border": {
         "radius": {
