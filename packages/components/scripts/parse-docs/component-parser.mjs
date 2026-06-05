@@ -16,14 +16,18 @@ export function parseComponentsFromEntry({
 
     if (!moduleSpecifier) {
       stats.skippedWithoutModuleSpecifier += 1;
+
       continue;
     }
 
-    const targetFile = sourceFileResolver.resolveTypesSourceFile(moduleSpecifier);
+    const targetFile =
+      sourceFileResolver.resolveTypesSourceFile(moduleSpecifier);
 
     if (!targetFile) {
       stats.skippedMissingTypesFile += 1;
+
       onMissingTypesModule(moduleSpecifier);
+
       continue;
     }
 
@@ -60,6 +64,7 @@ export function parseComponentsFromEntry({
 
           if (!declaration) {
             stats.skippedMissingArgDeclaration += 1;
+
             return;
           }
 
@@ -87,6 +92,7 @@ export function parseComponentsFromEntry({
 
           if (!declaration) {
             stats.skippedMissingBlockDeclaration += 1;
+
             return;
           }
 
@@ -144,6 +150,7 @@ export function parseComponentsFromEntry({
 
       if (elementProperty) {
         const docData = extractDocData(elementProperty);
+
         componentDocs.element = elementProperty.getType().getText();
 
         if (docData.hasSplattributesTag) {
@@ -159,6 +166,7 @@ export function parseComponentsFromEntry({
       componentDocs.blocks.sort((a, b) => a.name.localeCompare(b.name));
 
       allDocPayloads[componentName] = componentDocs;
+
       stats.componentsGenerated += 1;
     });
   }
