@@ -77,7 +77,7 @@
     // TODO: Should tokens be used instead? Carbon uses an outline on top of the border to add a red outline/border
     @include hds-apply-only-if-carbon() {
       border-color: transparent;
-      outline: 2px solid var(--token-form-control-invalid-border-color-default)
+      outline: 2px solid var(--token-form-control-invalid-border-color-default);
     }
 
     &:hover,
