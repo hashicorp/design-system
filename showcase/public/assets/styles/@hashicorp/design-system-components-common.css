@@ -5951,6 +5951,11 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/* stylelint-disable scss/operator-no-newline-after */
 .hds-form-file-input {
   width: 100%;
   margin: -4px 0 -4px -4px;
@@ -5962,27 +5967,168 @@ button.hds-button[href]::after {
 }
 
 .hds-form-file-input::file-selector-button {
+  position: relative;
+  display: flex;
+  gap: var(--token-button-gap);
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  font-weight: var(--token-typography-font-weight-regular);
+  font-family: var(--token-typography-font-stack-text);
+  text-decoration: none;
+  border: var(--token-button-border-width) solid transparent;
+  border-radius: var(--token-button-border-radius);
+  outline: none;
+  isolation: isolate;
+  color: var(--token-button-foreground-color-secondary-default);
+  background-color: var(--token-button-surface-color-secondary-default);
+  border-color: var(--token-button-border-color-secondary-default);
+  box-shadow: var(--token-elevation-low-box-shadow);
+}
+.hds-form-file-input::file-selector-button:hover, .hds-form-file-input::file-selector-button.mock-hover {
+  color: var(--token-button-foreground-color-secondary-hover);
+  background-color: var(--token-button-surface-color-secondary-hover);
+  border-color: var(--token-button-border-color-secondary-hover);
+  cursor: pointer;
+}
+.hds-form-file-input::file-selector-button:focus-visible, .hds-form-file-input::file-selector-button.mock-focus {
+  outline: none;
+}
+.hds-form-file-input::file-selector-button:focus-visible::before, .hds-form-file-input::file-selector-button.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before,
+.hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before,
+.hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-form-file-input::file-selector-button:focus-visible, .hds-form-file-input::file-selector-button.mock-focus {
+  color: var(--token-button-foreground-color-secondary-focus);
+  background-color: var(--token-button-surface-color-secondary-focus);
+}
+.hds-form-file-input::file-selector-button:active, .hds-form-file-input::file-selector-button.mock-active {
+  color: var(--token-button-foreground-color-secondary-active);
+  background-color: var(--token-button-surface-color-secondary-active);
+  border-color: var(--token-button-border-color-secondary-active);
+  box-shadow: none;
+}
+.hds-form-file-input::file-selector-button:active::before, .hds-form-file-input::file-selector-button.mock-active::before {
+  border-color: transparent;
+}
+.hds-form-file-input::file-selector-button {
+  display: inline-flex;
   min-height: 36px;
   margin-right: 16px;
-  padding: 7px 16px 7px 37px;
-  color: var(--token-color-foreground-primary);
-  font: inherit;
-  background-color: var(--token-color-surface-faint);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%233b3d45'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
+  padding: 7px 16px 7px;
+  padding-left: calc(15px + var(--token-form-text-input-background-image-size) + var(--token-button-gap));
+  background-image: var(--token-form-file-input-background-image-data-url-file-selector-button-default);
   background-repeat: no-repeat;
   background-position: 15px 50%;
   background-size: var(--token-form-text-input-background-image-size);
-  border: var(--token-button-border-width) solid var(--token-color-border-strong);
-  border-radius: var(--token-button-border-radius);
+}
+.hds-theme-light .hds-form-file-input::file-selector-button,
+.hds-theme-dark .hds-form-file-input::file-selector-button,
+.hds-theme-system .hds-form-file-input::file-selector-button {
+  color: var(--token-button-foreground-color-primary-default);
+  background-color: var(--token-button-surface-color-primary-default);
+  border-color: var(--token-button-border-color-primary-default);
   box-shadow: var(--token-elevation-low-box-shadow);
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:hover, .hds-theme-light .hds-form-file-input::file-selector-button.mock-hover,
+.hds-theme-dark .hds-form-file-input::file-selector-button:hover,
+.hds-theme-dark .hds-form-file-input::file-selector-button.mock-hover,
+.hds-theme-system .hds-form-file-input::file-selector-button:hover,
+.hds-theme-system .hds-form-file-input::file-selector-button.mock-hover {
+  color: var(--token-button-foreground-color-primary-hover);
+  background-color: var(--token-button-surface-color-primary-hover);
+  border-color: var(--token-button-border-color-primary-hover);
   cursor: pointer;
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:focus-visible, .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus,
+.hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible,
+.hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus,
+.hds-theme-system .hds-form-file-input::file-selector-button:focus-visible,
+.hds-theme-system .hds-form-file-input::file-selector-button.mock-focus {
+  outline: none;
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before,
+.hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before,
+.hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before,
+.hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before,
+.hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 2px;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-light .hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-light .hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-light .hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before,
+.hds-theme-dark .hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-dark .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-dark .hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-dark .hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-dark .hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-dark .hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before,
+.hds-theme-system .hds-theme-light .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-system .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-system .hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-system .hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus::before, .hds-theme-system .hds-theme-system .hds-form-file-input::file-selector-button:focus-visible::before, .hds-theme-system .hds-theme-system .hds-form-file-input::file-selector-button.mock-focus::before {
+  inset: 1px;
+  outline-offset: 0;
+  border-width: 1px;
+}
+
+.hds-theme-light .hds-form-file-input::file-selector-button:focus-visible, .hds-theme-light .hds-form-file-input::file-selector-button.mock-focus,
+.hds-theme-dark .hds-form-file-input::file-selector-button:focus-visible,
+.hds-theme-dark .hds-form-file-input::file-selector-button.mock-focus,
+.hds-theme-system .hds-form-file-input::file-selector-button:focus-visible,
+.hds-theme-system .hds-form-file-input::file-selector-button.mock-focus {
+  color: var(--token-button-foreground-color-primary-focus);
+  background-color: var(--token-button-surface-color-primary-focus);
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:active, .hds-theme-light .hds-form-file-input::file-selector-button.mock-active,
+.hds-theme-dark .hds-form-file-input::file-selector-button:active,
+.hds-theme-dark .hds-form-file-input::file-selector-button.mock-active,
+.hds-theme-system .hds-form-file-input::file-selector-button:active,
+.hds-theme-system .hds-form-file-input::file-selector-button.mock-active {
+  color: var(--token-button-foreground-color-primary-active);
+  background-color: var(--token-button-surface-color-primary-active);
+  border-color: var(--token-button-border-color-primary-active);
+  box-shadow: none;
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:active::before, .hds-theme-light .hds-form-file-input::file-selector-button.mock-active::before,
+.hds-theme-dark .hds-form-file-input::file-selector-button:active::before,
+.hds-theme-dark .hds-form-file-input::file-selector-button.mock-active::before,
+.hds-theme-system .hds-form-file-input::file-selector-button:active::before,
+.hds-theme-system .hds-form-file-input::file-selector-button.mock-active::before {
+  border-color: transparent;
+}
+.hds-theme-light .hds-form-file-input::file-selector-button,
+.hds-theme-dark .hds-form-file-input::file-selector-button,
+.hds-theme-system .hds-form-file-input::file-selector-button {
+  min-height: 40px;
 }
 
 .hds-form-file-input::file-selector-button:hover,
 .hds-form-file-input.mock-hover::file-selector-button {
-  color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-primary);
-  border-color: var(--token-color-border-strong);
+  color: var(--token-button-foreground-color-secondary-hover);
+  background-color: var(--token-button-surface-color-secondary-hover);
+  border-color: var(--token-button-border-color-secondary-hover);
+  cursor: pointer;
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:hover, .hds-theme-light .hds-form-file-input.mock-hover::file-selector-button,
+.hds-theme-dark .hds-form-file-input::file-selector-button:hover, .hds-theme-dark .hds-form-file-input.mock-hover::file-selector-button,
+.hds-theme-system .hds-form-file-input::file-selector-button:hover, .hds-theme-system .hds-form-file-input.mock-hover::file-selector-button {
+  color: var(--token-button-foreground-color-primary-hover);
+  background-color: var(--token-button-surface-color-primary-hover);
+  border-color: var(--token-button-border-color-primary-hover);
+  cursor: pointer;
 }
 
 .hds-form-file-input:focus-within::file-selector-button,
@@ -5999,22 +6145,50 @@ button.hds-button[href]::after {
 
 .hds-form-file-input:focus-within::file-selector-button,
 .hds-form-file-input.mock-focus::file-selector-button {
-  color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-faint);
+  color: var(--token-button-foreground-color-secondary-focus);
+  background-color: var(--token-button-surface-color-secondary-focus);
   border-color: var(--token-color-focus-action-internal);
+}
+.hds-theme-light .hds-form-file-input:focus-within::file-selector-button, .hds-theme-light .hds-form-file-input.mock-focus::file-selector-button,
+.hds-theme-dark .hds-form-file-input:focus-within::file-selector-button, .hds-theme-dark .hds-form-file-input.mock-focus::file-selector-button,
+.hds-theme-system .hds-form-file-input:focus-within::file-selector-button, .hds-theme-system .hds-form-file-input.mock-focus::file-selector-button {
+  color: var(--token-button-foreground-color-primary-focus);
+  background-color: var(--token-button-surface-color-primary-focus);
 }
 
 .hds-form-file-input:not(:focus, .mock-focus)::file-selector-button {
-  border-color: var(--token-color-border-strong);
+  border-color: var(--token-button-border-color-secondary-default);
   outline: 0;
+}
+.hds-theme-light .hds-form-file-input:not(:focus, .mock-focus)::file-selector-button,
+.hds-theme-dark .hds-form-file-input:not(:focus, .mock-focus)::file-selector-button,
+.hds-theme-system .hds-form-file-input:not(:focus, .mock-focus)::file-selector-button {
+  border-color: var(--token-button-border-color-primary-default);
 }
 
 .hds-form-file-input::file-selector-button:active,
 .hds-form-file-input.mock-active::file-selector-button {
-  color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-interactive-active);
-  border-color: var(--token-color-border-strong);
+  color: var(--token-button-foreground-color-secondary-active);
+  background-color: var(--token-button-surface-color-secondary-active);
+  border-color: var(--token-button-border-color-secondary-active);
   box-shadow: none;
+}
+.hds-form-file-input::file-selector-button:active::before,
+.hds-form-file-input.mock-active::file-selector-button::before {
+  border-color: transparent;
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:active, .hds-theme-light .hds-form-file-input.mock-active::file-selector-button,
+.hds-theme-dark .hds-form-file-input::file-selector-button:active, .hds-theme-dark .hds-form-file-input.mock-active::file-selector-button,
+.hds-theme-system .hds-form-file-input::file-selector-button:active, .hds-theme-system .hds-form-file-input.mock-active::file-selector-button {
+  color: var(--token-button-foreground-color-primary-active);
+  background-color: var(--token-button-surface-color-primary-active);
+  border-color: var(--token-button-border-color-primary-active);
+  box-shadow: none;
+}
+.hds-theme-light .hds-form-file-input::file-selector-button:active::before, .hds-theme-light .hds-form-file-input.mock-active::file-selector-button::before,
+.hds-theme-dark .hds-form-file-input::file-selector-button:active::before, .hds-theme-dark .hds-form-file-input.mock-active::file-selector-button::before,
+.hds-theme-system .hds-form-file-input::file-selector-button:active::before, .hds-theme-system .hds-form-file-input.mock-active::file-selector-button::before {
+  border-color: transparent;
 }
 
 .hds-form-file-input:disabled, .hds-form-file-input[disabled], .hds-form-file-input.mock-disabled, .hds-form-file-input:disabled:focus, .hds-form-file-input[disabled]:focus, .hds-form-file-input.mock-disabled:focus, .hds-form-file-input:disabled:hover, .hds-form-file-input[disabled]:hover, .hds-form-file-input.mock-disabled:hover {
@@ -6026,7 +6200,7 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%238c909c'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: var(--token-form-file-input-background-image-data-url-file-selector-button-disabled);
 }
 
 /**
@@ -6117,6 +6291,7 @@ button.hds-button[href]::after {
   height: var(--token-form-checkbox-size);
   margin: 0;
   padding: 0;
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: var(--token-form-checkbox-background-image-size) var(--token-form-checkbox-background-image-size);
   border-style: solid;
@@ -6153,23 +6328,23 @@ button.hds-button[href]::after {
   outline-offset: 1px;
 }
 .hds-form-checkbox:disabled:not(:checked, :indeterminate) {
-  background-color: var(--token-form-control-disabled-surface-color);
-  border-color: var(--token-form-control-disabled-border-color);
+  background-color: var(--token-form-checkbox-surface-color-disabled);
+  border-color: var(--token-form-checkbox-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 .hds-form-checkbox:disabled:checked {
-  background-color: var(--token-form-control-disabled-surface-color);
+  background-color: var(--token-form-checkbox-surface-color-checked-disabled);
   background-image: var(--token-form-checkbox-background-image-data-url-disabled);
-  border-color: var(--token-form-control-disabled-border-color);
+  border-color: var(--token-form-checkbox-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 .hds-form-checkbox:disabled:indeterminate {
-  background-color: var(--token-form-control-disabled-surface-color);
+  background-color: var(--token-form-checkbox-surface-color-checked-disabled);
   background-image: var(--token-form-checkbox-background-image-data-url-indeterminate-disabled);
   background-repeat: no-repeat;
-  border-color: var(--token-form-control-disabled-border-color);
+  border-color: var(--token-form-checkbox-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
@@ -6419,6 +6594,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-select {
   max-width: 100%;
   padding: var(--token-form-control-padding);
@@ -6434,9 +6613,28 @@ button.hds-button[href]::after {
   box-shadow: var(--token-elevation-low-box-shadow);
   appearance: none;
 }
+.hds-theme-light .hds-form-select,
+.hds-theme-dark .hds-form-select,
+.hds-theme-system .hds-form-select {
+  min-height: 40px;
+  padding: 0 var(--token-form-control-padding);
+  padding-right: 48px;
+}
+.hds-theme-light .hds-form-select:not([multiple]),
+.hds-theme-dark .hds-form-select:not([multiple]),
+.hds-theme-system .hds-form-select:not([multiple]) {
+  border-width: 0 0 var(--token-form-control-border-width) 0;
+}
+
 .hds-form-select:hover, .hds-form-select.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
+.hds-theme-light .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]),
+.hds-theme-dark .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]),
+.hds-theme-system .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]) {
+  background-color: var(--token-form-select-surface-color-hover);
+}
+
 .hds-form-select:focus-visible, .hds-form-select.mock-focus {
   outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 0;
@@ -6451,6 +6649,12 @@ button.hds-button[href]::after {
 .hds-form-select:focus-visible, .hds-form-select.mock-focus {
   border-color: var(--token-color-focus-action-internal);
 }
+.hds-theme-light .hds-form-select:focus-visible, .hds-theme-light .hds-form-select.mock-focus,
+.hds-theme-dark .hds-form-select:focus-visible, .hds-theme-dark .hds-form-select.mock-focus,
+.hds-theme-system .hds-form-select:focus-visible, .hds-theme-system .hds-form-select.mock-focus {
+  outline-offset: -2px;
+}
+
 .hds-form-select:disabled {
   color: var(--token-form-control-disabled-foreground-color);
   background-color: var(--token-form-control-disabled-surface-color);
@@ -6462,6 +6666,13 @@ button.hds-button[href]::after {
 .hds-form-select.hds-form-select--is-invalid {
   border-color: var(--token-form-control-invalid-border-color-default);
 }
+.hds-theme-light .hds-form-select.hds-form-select--is-invalid,
+.hds-theme-dark .hds-form-select.hds-form-select--is-invalid,
+.hds-theme-system .hds-form-select.hds-form-select--is-invalid {
+  outline: 2px solid var(--token-form-control-invalid-border-color-default);
+  outline-offset: -2px;
+}
+
 .hds-form-select.hds-form-select--is-invalid:hover, .hds-form-select.hds-form-select--is-invalid.mock-hover {
   border-color: var(--token-form-control-invalid-border-color-hover);
 }
@@ -6487,6 +6698,12 @@ button.hds-button[href]::after {
   color: var(--token-color-foreground-high-contrast);
   background: var(--token-color-palette-blue-200);
 }
+.hds-theme-light .hds-form-select[multiple] option:checked, .hds-theme-light .hds-form-select[size] option:checked,
+.hds-theme-dark .hds-form-select[multiple] option:checked, .hds-theme-dark .hds-form-select[size] option:checked,
+.hds-theme-system .hds-form-select[multiple] option:checked, .hds-theme-system .hds-form-select[size] option:checked {
+  color: #fff;
+}
+
 .hds-form-select[multiple] optgroup, .hds-form-select[size] optgroup {
   color: var(--token-color-foreground-strong);
   font-weight: var(--token-typography-font-weight-semibold);
@@ -6567,7 +6784,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger .ember-power-select-placeholder,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger .ember-power-select-placeholder {
-  color: var(--token-form-control-base-placeholder-foreground-color);
+  color: var(--token-form-control-base-placeholder-foreground-color-default);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
@@ -6705,7 +6922,7 @@ button.hds-button[href]::after {
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input::placeholder {
-  color: var(--token-form-control-base-placeholder-foreground-color);
+  color: var(--token-form-control-base-placeholder-foreground-color-default);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
@@ -6726,7 +6943,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input[type=search] {
   padding-left: calc(var(--token-form-control-padding) + 24px);
-  background-image: var(--token-form-text-input-background-image-data-url-search);
+  background-image: var(--token-form-text-input-background-image-data-url-search-default);
   background-repeat: no-repeat;
   background-position: var(--token-form-text-input-background-image-position-x) 50%;
   background-size: var(--token-form-text-input-background-image-size);
@@ -6948,6 +7165,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-text-input {
   width: 100%;
   max-width: 100%;
@@ -6958,12 +7179,26 @@ button.hds-button[href]::after {
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
-.hds-form-text-input ::placeholder {
-  color: var(--token-form-control-base-placeholder-foreground-color);
+.hds-theme-light .hds-form-text-input,
+.hds-theme-dark .hds-form-text-input,
+.hds-theme-system .hds-form-text-input {
+  min-height: 40px;
+  padding: 0 var(--token-form-control-padding);
+  border-width: 0 0 var(--token-form-control-border-width) 0;
+}
+
+.hds-form-text-input::placeholder {
+  color: var(--token-form-control-base-placeholder-foreground-color-default);
 }
 .hds-form-text-input:hover, .hds-form-text-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
 }
+.hds-theme-light .hds-form-text-input:hover, .hds-theme-light .hds-form-text-input.mock-hover,
+.hds-theme-dark .hds-form-text-input:hover, .hds-theme-dark .hds-form-text-input.mock-hover,
+.hds-theme-system .hds-form-text-input:hover, .hds-theme-system .hds-form-text-input.mock-hover {
+  border-color: var(--token-form-control-base-border-color-default);
+}
+
 .hds-form-text-input:focus-visible, .hds-form-text-input.mock-focus {
   outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
   outline-offset: 0;
@@ -6978,6 +7213,12 @@ button.hds-button[href]::after {
 .hds-form-text-input:focus-visible, .hds-form-text-input.mock-focus {
   border-color: var(--token-color-focus-action-internal);
 }
+.hds-theme-light .hds-form-text-input:focus-visible, .hds-theme-light .hds-form-text-input.mock-focus,
+.hds-theme-dark .hds-form-text-input:focus-visible, .hds-theme-dark .hds-form-text-input.mock-focus,
+.hds-theme-system .hds-form-text-input:focus-visible, .hds-theme-system .hds-form-text-input.mock-focus {
+  outline-offset: -2px;
+}
+
 .hds-form-text-input:read-only {
   color: var(--token-form-control-readonly-foreground-color);
   background-color: var(--token-form-control-readonly-surface-color);
@@ -6991,9 +7232,19 @@ button.hds-button[href]::after {
   box-shadow: none;
   cursor: not-allowed;
 }
+.hds-form-text-input:disabled::placeholder {
+  color: var(--token-form-control-base-placeholder-foreground-color-disabled);
+}
 .hds-form-text-input.hds-form-text-input--is-invalid {
   border-color: var(--token-form-control-invalid-border-color-default);
 }
+.hds-theme-light .hds-form-text-input.hds-form-text-input--is-invalid,
+.hds-theme-dark .hds-form-text-input.hds-form-text-input--is-invalid,
+.hds-theme-system .hds-form-text-input.hds-form-text-input--is-invalid {
+  outline: 2px solid var(--token-form-control-invalid-border-color-default);
+  outline-offset: -2px;
+}
+
 .hds-form-text-input.hds-form-text-input--is-invalid:hover, .hds-form-text-input.hds-form-text-input--is-invalid.mock-hover {
   border-color: var(--token-form-control-invalid-border-color-hover);
 }
@@ -7013,45 +7264,119 @@ button.hds-button[href]::after {
 
 .hds-form-text-input__visibility-toggle {
   position: absolute;
-  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  top: 0;
   right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  bottom: 0;
+  margin: auto 0;
 }
 
 .hds-form-text-input[type=date], .hds-form-text-input[type=time], .hds-form-text-input[type=datetime-local], .hds-form-text-input[type=month], .hds-form-text-input[type=week] {
-  width: initial;
+  width: var(--token-form-text-input-date-time-width);
 }
 .hds-form-text-input[type=date]:disabled::-webkit-calendar-picker-indicator, .hds-form-text-input[type=time]:disabled::-webkit-calendar-picker-indicator, .hds-form-text-input[type=datetime-local]:disabled::-webkit-calendar-picker-indicator, .hds-form-text-input[type=month]:disabled::-webkit-calendar-picker-indicator, .hds-form-text-input[type=week]:disabled::-webkit-calendar-picker-indicator {
   visibility: visible;
   opacity: 0.5;
 }
+.hds-theme-light .hds-form-text-input[type=date]:disabled::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=time]:disabled::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=datetime-local]:disabled::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=month]:disabled::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=week]:disabled::-webkit-calendar-picker-indicator,
+.hds-theme-dark .hds-form-text-input[type=date]:disabled::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=time]:disabled::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=datetime-local]:disabled::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=month]:disabled::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=week]:disabled::-webkit-calendar-picker-indicator,
+.hds-theme-system .hds-form-text-input[type=date]:disabled::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=time]:disabled::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=datetime-local]:disabled::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=month]:disabled::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=week]:disabled::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
 .hds-form-text-input[type=date][readonly]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=time][readonly]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=datetime-local][readonly]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=month][readonly]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=week][readonly]::-webkit-calendar-picker-indicator {
   visibility: visible;
 }
+.hds-theme-light .hds-form-text-input[type=date][readonly]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=time][readonly]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=datetime-local][readonly]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=month][readonly]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=week][readonly]::-webkit-calendar-picker-indicator,
+.hds-theme-dark .hds-form-text-input[type=date][readonly]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=time][readonly]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=datetime-local][readonly]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=month][readonly]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=week][readonly]::-webkit-calendar-picker-indicator,
+.hds-theme-system .hds-form-text-input[type=date][readonly]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=time][readonly]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=datetime-local][readonly]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=month][readonly]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=week][readonly]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
 .hds-form-text-input[type=date]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=datetime-local]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=month]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=week]::-webkit-calendar-picker-indicator {
-  background-image: var(--token-form-text-input-background-image-data-url-date);
+  background-image: var(--token-form-text-input-background-image-data-url-date-default);
   background-position: center center;
   background-size: var(--token-form-text-input-background-image-size);
 }
+.hds-theme-light .hds-form-text-input[type=date]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=datetime-local]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=month]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=week]::-webkit-calendar-picker-indicator,
+.hds-theme-dark .hds-form-text-input[type=date]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=datetime-local]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=month]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=week]::-webkit-calendar-picker-indicator,
+.hds-theme-system .hds-form-text-input[type=date]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=datetime-local]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=month]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=week]::-webkit-calendar-picker-indicator {
+  background-image: revert;
+  background-position: revert;
+  background-size: revert;
+}
+
 .hds-form-text-input[type=time]::-webkit-calendar-picker-indicator {
   background-image: var(--token-form-text-input-background-image-data-url-time);
   background-position: center center;
   background-size: var(--token-form-text-input-background-image-size);
 }
+.hds-theme-light .hds-form-text-input[type=time]::-webkit-calendar-picker-indicator,
+.hds-theme-dark .hds-form-text-input[type=time]::-webkit-calendar-picker-indicator,
+.hds-theme-system .hds-form-text-input[type=time]::-webkit-calendar-picker-indicator {
+  background-image: revert;
+  background-position: revert;
+  background-size: revert;
+}
+
 .hds-form-text-input[type=search] {
   padding-left: calc(var(--token-form-control-padding) + 24px);
-  background-image: var(--token-form-text-input-background-image-data-url-search);
+  background-image: var(--token-form-text-input-background-image-data-url-search-default);
   background-repeat: no-repeat;
   background-position: var(--token-form-text-input-background-image-position-x) 50%;
   background-size: var(--token-form-text-input-background-image-size);
 }
+.hds-theme-light .hds-form-text-input[type=search].hds-form-text-input--is-invalid,
+.hds-theme-dark .hds-form-text-input[type=search].hds-form-text-input--is-invalid,
+.hds-theme-system .hds-form-text-input[type=search].hds-form-text-input--is-invalid {
+  padding-right: calc(2.5rem + 40px);
+}
+
+.hds-theme-light .hds-form-text-input[type=search],
+.hds-theme-dark .hds-form-text-input[type=search],
+.hds-theme-system .hds-form-text-input[type=search] {
+  padding-right: calc(40px + var(--token-form-control-padding));
+}
+.hds-theme-light .hds-form-text-input[type=search]:disabled,
+.hds-theme-dark .hds-form-text-input[type=search]:disabled,
+.hds-theme-system .hds-form-text-input[type=search]:disabled {
+  background-image: var(--token-form-text-input-background-image-data-url-search-disabled);
+}
+
 .hds-form-text-input[type=search]::-webkit-search-cancel-button {
   width: var(--token-form-text-input-background-image-size);
   height: var(--token-form-text-input-background-image-size);
   background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: var(--token-form-text-input-background-image-size);
   -webkit-appearance: none;
 }
+.hds-form-text-input[type=search]:not(:disabled, [readonly]):hover::-webkit-search-cancel-button, .hds-form-text-input[type=search]:not(:disabled, [readonly]).mock-hover::-webkit-search-cancel-button {
+  opacity: 1;
+}
+.hds-theme-light .hds-form-text-input[type=search]:not(:disabled, [readonly]).mock-hover::-webkit-search-cancel-button,
+.hds-theme-dark .hds-form-text-input[type=search]:not(:disabled, [readonly]).mock-hover::-webkit-search-cancel-button,
+.hds-theme-system .hds-form-text-input[type=search]:not(:disabled, [readonly]).mock-hover::-webkit-search-cancel-button {
+  background-color: var(--token-color-surface-interactive-hover);
+}
+.hds-theme-light .hds-form-text-input[type=search]:not(:disabled, [readonly])::-webkit-search-cancel-button,
+.hds-theme-dark .hds-form-text-input[type=search]:not(:disabled, [readonly])::-webkit-search-cancel-button,
+.hds-theme-system .hds-form-text-input[type=search]:not(:disabled, [readonly])::-webkit-search-cancel-button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 40px;
+  height: auto;
+  margin: 0;
+  opacity: 1;
+}
+.hds-theme-light .hds-form-text-input[type=search]:not(:disabled, [readonly])::-webkit-search-cancel-button:hover,
+.hds-theme-dark .hds-form-text-input[type=search]:not(:disabled, [readonly])::-webkit-search-cancel-button:hover,
+.hds-theme-system .hds-form-text-input[type=search]:not(:disabled, [readonly])::-webkit-search-cancel-button:hover {
+  background-color: var(--token-color-surface-interactive-hover);
+}
+
 .hds-form-text-input[type=search].hds-form-text-input--is-loading {
   background-image: var(--token-form-text-input-background-image-data-url-search-loading);
 }
@@ -7076,8 +7401,8 @@ button.hds-button[href]::after {
   box-shadow: var(--token-elevation-inset-box-shadow);
   resize: vertical;
 }
-.hds-form-textarea ::placeholder {
-  color: var(--token-form-control-base-placeholder-foreground-color);
+.hds-form-textarea::placeholder {
+  color: var(--token-form-control-base-placeholder-foreground-color-default);
 }
 .hds-form-textarea:hover, .hds-form-textarea.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);

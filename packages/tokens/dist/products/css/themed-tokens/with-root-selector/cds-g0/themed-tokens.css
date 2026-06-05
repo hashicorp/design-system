@@ -416,9 +416,36 @@
   --token-form-character-count-foreground-color: #6f6f6f;
   --token-form-character-count-typography-font-size: 0.75rem;
   --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --token-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23fff' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23fff' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --token-form-checkbox-background-image-size: 8px;
+  --token-form-checkbox-border-color-disabled: rgba(22, 22, 22, 0.25);
+  --token-form-checkbox-border-radius: 2px;
+  --token-form-checkbox-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --token-form-checkbox-surface-color-disabled: rgba(0, 0, 0, 0);
+  --token-form-control-base-border-color-default: #8d8d8d;
+  --token-form-control-base-border-color-hover: #8d8d8d;
+  --token-form-control-base-placeholder-foreground-color-default: rgba(22, 22, 22, 0.4);
+  --token-form-control-base-placeholder-foreground-color-disabled: rgba(22, 22, 22, 0.25);
+  --token-form-control-base-surface-color-hover: #f4f4f4;
+  --token-form-control-checked-border-color-default: #161616;
+  --token-form-control-checked-border-color-hover: #161616;
+  --token-form-control-checked-foreground-color: #161616;
+  --token-form-control-checked-surface-color-default: #161616;
+  --token-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --token-form-control-disabled-foreground-color: rgba(22, 22, 22, 0.25);
+  --token-form-control-disabled-surface-color: #f4f4f4;
+  --token-form-control-invalid-border-color-default: #da1e28;
+  --token-form-control-invalid-border-color-hover: #da1e28;
+  --token-form-control-padding: 16px;
+  --token-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
   --token-form-error-foreground-color: #da1e28;
   --token-form-error-typography-font-size: 0.75rem;
   --token-form-error-typography-line-height: 1.33333;
+  --token-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --token-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238d8d8d' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
   --token-form-helper-text-foreground-color: #6f6f6f;
   --token-form-helper-text-typography-font-size: 0.75rem;
   --token-form-helper-text-typography-line-height: 1.33333;
@@ -436,6 +463,14 @@
   --token-form-radiocard-border-color-default-checked: #ffc0cb;
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
+  --token-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --token-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --token-form-select-surface-color-hover: #e8e8e8;
+  --token-form-text-input-background-image-data-url-date-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='rgba(22, 22, 22, 0.25)' %3E%3Cpath d='M26,4h-4V2h-2v2h-8V2h-2v2H6C4.9,4,4,4.9,4,6v20c0,1.1,0.9,2,2,2h20c1.1,0,2-0.9,2-2V6C28,4.9,27.1,4,26,4z M26,26H6V12h20 V26z M26,10H6V6h4v2h2V6h8v2h2V6h4V10z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-position-x: 10px;
   --token-icon-tile-border-color-logo: #c6c6c6;
   --token-icon-tile-border-color-overlay: #e0e0e0;
   --token-icon-tile-surface-color-overlay: #ffffff;
