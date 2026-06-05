@@ -197,10 +197,10 @@
             "group": "components",
             "$modes": {
               "default": "{form.foreground.color.faint}",
-              "cds-g0": "{carbon.themes.white.textSecondary}",
-              "cds-g10": "{carbon.themes.g10.textSecondary}",
-              "cds-g90": "{carbon.themes.g90.textSecondary}",
-              "cds-g100": "{carbon.themes.g100.textSecondary}"
+              "cds-g0": "{form.label.foreground.color}",
+              "cds-g10": "{form.label.foreground.color}",
+              "cds-g90": "{form.label.foreground.color}",
+              "cds-g100": "{form.label.foreground.color}"
             }
           }
         },
