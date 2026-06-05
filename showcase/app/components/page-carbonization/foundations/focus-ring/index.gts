@@ -129,7 +129,7 @@ const POWERSELECT_SINGLE_SELECTED: string[] = ['foo'];
 const POWERSELECT_MULTIPLE_SELECTED: string[] = ['foo', 'baz', 'xyz'];
 
 const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
-  {{pageTitle "Focus ring"}}
+  {{pageTitle "Focus ring - Carbonization"}}
 
   <ShwTextH1>Focus Ring - Carbonization</ShwTextH1>
 
