@@ -75,9 +75,7 @@
   &.hds-form-text-input--is-invalid {
     border-color: var(--hds-form-control-invalid-border-color-default);
 
-    // TODO: Should tokens be used instead? Carbon uses an outline on top of the border to add a red outline/border
     @include hds-apply-only-if-carbon() {
-      border-color: transparent;
       outline: 2px solid var(--hds-form-control-invalid-border-color-default);
       outline-offset: -2px;
     }
@@ -140,6 +138,10 @@
     // notice: don't change the "[readonly]" selector to ":readonly" because it's needed to overwrite the specificity in Chrome
     &[readonly]::-webkit-calendar-picker-indicator {
       visibility: visible;
+
+      @include hds-apply-only-if-carbon() {
+        visibility: hidden;
+      }
     }
   }
 
