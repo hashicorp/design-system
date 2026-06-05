@@ -77,6 +77,7 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
   function resolveTypeFromDeclaration(declaration, seen, depth) {
     if (!declaration || depth > limits.maxDepth) {
       stats.typeResolutionCapped += 1;
+
       return null;
     }
 
@@ -99,6 +100,7 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
       if (members.length > 0) {
         if (members.length > limits.maxUnionMembers) {
           stats.typeResolutionCapped += 1;
+
           return declaration.getName();
         }
 
@@ -150,11 +152,14 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
     if (seen.has(declarationKey)) {
       // break recursive type cycles instead of recursing indefinitely
       stats.typeResolutionCapped += 1;
+
       return typeNameText;
     }
 
     seen.add(declarationKey);
+
     const resolved = resolveTypeFromDeclaration(declaration, seen, depth + 1);
+
     seen.delete(declarationKey);
 
     const baseType = resolved || typeNameText;
@@ -173,11 +178,13 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
 
     if (Node.isTypeLiteral(containerNode)) {
       const property = containerNode.getProperty(propertyName);
+
       return property?.getTypeNode() || null;
     }
 
     if (Node.isInterfaceDeclaration(containerNode)) {
       const property = containerNode.getProperty(propertyName);
+
       return property?.getTypeNode() || null;
     }
 
