@@ -180,6 +180,23 @@ export function createTypeResolver({
       return property?.getTypeNode() || null;
     }
 
+    // Semantic fallback for containers such as intersection/union/type-reference
+    // where the property may not be represented as a direct AST child node.
+    if (typeof containerNode.getType === 'function') {
+      const containerType = containerNode.getType();
+      const propertySymbol = containerType.getProperty(propertyName);
+      const propertyDeclaration =
+        propertySymbol?.getValueDeclaration()
+        || propertySymbol?.getDeclarations()?.[0];
+
+      if (
+        propertyDeclaration
+        && typeof propertyDeclaration.getTypeNode === 'function'
+      ) {
+        return propertyDeclaration.getTypeNode() || null;
+      }
+    }
+
     return null;
   }
 
