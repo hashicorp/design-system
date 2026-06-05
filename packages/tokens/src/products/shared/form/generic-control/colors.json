@@ -111,13 +111,20 @@
                 "cds-g10": "{carbon.themes.g10.supportError}",
                 "cds-g90": "{carbon.themes.g90.supportError}",
                 "cds-g100": "{carbon.themes.g100.supportError}",
-                "comment": "TODO: 1) Carbon uses outline instead (should border stay the same color?) 2) Double-check carbon colors"
+                "comment": "Carbon uses outline instead of a border color change"
               }
             },
             "hover": {
               "$type": "color",
               "$value": "{color.palette.red-400}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.red-400}",
+                "cds-g0": "{carbon.themes.white.supportError}",
+                "cds-g10": "{carbon.themes.g10.supportError}",
+                "cds-g90": "{carbon.themes.g90.supportError}",
+                "cds-g100": "{carbon.themes.g100.supportError}"
+              }
             }
           }
         }
