@@ -415,6 +415,7 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
+
       <ShwTextH4 @tag="h3">Components</ShwTextH4>
       <ol class="shw-text-body">
         <li>
@@ -493,16 +494,6 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-carbonization.components.form.text-input">
-            Form::TextInput
-          </LinkTo>
-        </li>
-        <li>
-          <LinkTo @route="page-carbonization.components.form.radio-card">
-            Form::RadioCard
-          </LinkTo>
-        </li>
-        <li>
           <LinkTo @route="page-carbonization.components.icon-tile">
             IconTile
           </LinkTo>
@@ -573,6 +564,26 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
+
+      <ShwTextH4 @tag="h3">Form components</ShwTextH4>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbonization.components.form.base-elements">
+            Form / Base elements
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.form.text-input">
+            Form::TextInput
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.form.radio-card">
+            Form::RadioCard
+          </LinkTo>
+        </li>
+      </ol>
+
       <ShwTextH4 @tag="h3">Utilities</ShwTextH4>
       <ol class="shw-text-body">
         <li>

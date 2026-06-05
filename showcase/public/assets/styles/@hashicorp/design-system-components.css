@@ -487,11 +487,26 @@
   --token-dropdown-toggle-button-padding-right-medium: 9px;
   --token-dropdown-toggle-icon-gap: 2px;
   --token-dropdown-toggle-icon-padding: 1px;
-  --token-form-label-color: #0c0c0e;
-  --token-form-legend-color: #0c0c0e;
-  --token-form-helper-text-color: #656a76;
-  --token-form-indicator-optional-color: #656a76;
-  --token-form-error-color: #c00005;
+  --token-form-character-count-foreground-color: #656a76;
+  --token-form-character-count-typography-font-size: 0.8125rem;
+  --token-form-character-count-typography-line-height: 1.3846; /** The character-count line-height is the same as the helper-text as per design */
+  --token-form-label-foreground-color: #0c0c0e;
+  --token-form-label-typography-font-size: 0.875rem;
+  --token-form-label-typography-font-weight: 600;
+  --token-form-label-typography-line-height: 1.4286;
+  --token-form-legend-foreground-color: #0c0c0e;
+  --token-form-legend-typography-font-size: 0.875rem;
+  --token-form-legend-typography-font-weight: 600;
+  --token-form-legend-typography-line-height: 1.4286;
+  --token-form-helper-text-foreground-color: #656a76;
+  --token-form-helper-text-typography-font-size: 0.8125rem;
+  --token-form-helper-text-typography-line-height: 1.3846;
+  --token-form-indicator-optional-foreground-color: #656a76;
+  --token-form-indicator-optional-typography-font-size: 0.8125rem;
+  --token-form-indicator-optional-typography-line-height: 1.3846;
+  --token-form-error-foreground-color: #c00005;
+  --token-form-error-typography-font-size: 0.8125rem;
+  --token-form-error-typography-line-height: 1.3846;
   --token-form-error-icon-size: 14px;
   --token-form-checkbox-size: 16px;
   --token-form-checkbox-border-radius: 3px;
@@ -6472,7 +6487,11 @@ button.hds-button[href]::after {
   display: block;
   width: max-content;
   max-width: 100%;
-  color: var(--token-form-label-color);
+  color: var(--token-form-label-foreground-color);
+  font-weight: var(--token-form-label-typography-font-weight);
+  font-size: var(--token-form-label-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-label-typography-line-height);
 }
 .hds-form-label .hds-badge {
   vertical-align: initial;
@@ -6484,17 +6503,32 @@ button.hds-button[href]::after {
  */
 .hds-form-helper-text {
   display: block;
-  color: var(--token-form-helper-text-color);
+  color: var(--token-form-helper-text-foreground-color);
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-form-helper-text-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-helper-text-typography-line-height);
 }
 
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-character-count {
-  color: var(--token-form-helper-text-color);
+  color: var(--token-form-character-count-foreground-color);
+  font-size: var(--token-form-character-count-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-character-count-typography-line-height);
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -6503,7 +6537,11 @@ button.hds-button[href]::after {
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  color: var(--token-form-error-color);
+  color: var(--token-form-error-foreground-color);
+  font-weight: var(--token-typography-font-weight-medium);
+  font-size: var(--token-form-error-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-error-typography-line-height);
 }
 
 .hds-form-error__icon {
@@ -6511,6 +6549,11 @@ button.hds-button[href]::after {
   width: var(--token-form-error-icon-size);
   height: var(--token-form-error-icon-size);
   margin: 2px 0 2px 0;
+}
+.hds-theme-light .hds-form-error__icon,
+.hds-theme-dark .hds-form-error__icon,
+.hds-theme-system .hds-form-error__icon {
+  margin: 1px 0 1px 0;
 }
 
 .hds-form-error__content {
@@ -6663,7 +6706,11 @@ button.hds-button[href]::after {
  */
 .hds-form-legend {
   display: block;
-  color: var(--token-form-legend-color);
+  color: var(--token-form-legend-foreground-color);
+  font-weight: var(--token-form-legend-typography-font-weight);
+  font-size: var(--token-form-legend-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-legend-typography-line-height);
 }
 .hds-form-legend .hds-badge {
   vertical-align: initial;
@@ -6720,7 +6767,11 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-indicator--optional {
-  color: var(--token-form-indicator-optional-color);
+  color: var(--token-form-indicator-optional-foreground-color);
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-form-indicator-optional-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-indicator-optional-typography-line-height);
 }
 
 /**
@@ -6988,7 +7039,7 @@ button.hds-button[href]::after {
 .hds-form-radio-card__label {
   display: block;
   margin: 8px 0;
-  color: var(--token-form-label-color);
+  color: var(--token-form-label-foreground-color);
   overflow-wrap: break-word;
 }
 .hds-form-radio-card__label:first-child {
@@ -9059,8 +9110,8 @@ button.hds-button[href]::after {
   align-items: center;
 }
 .hds-pagination-size-selector > label {
-  white-space: nowrap;
   font-size: var(--token-pagination-size-selector-typography-font-size);
+  white-space: nowrap;
 }
 .hds-theme-light .hds-pagination-size-selector > label::after,
 .hds-theme-dark .hds-pagination-size-selector > label::after,

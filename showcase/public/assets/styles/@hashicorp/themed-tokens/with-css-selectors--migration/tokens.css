@@ -639,6 +639,54 @@
     inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-focus-ring-critical-box-shadow:
     inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --token-form-character-count-foreground-color: #656a76;
+  --token-form-character-count-typography-font-size: var(
+    --token-typography-body-100-font-size
+  );
+  --token-form-character-count-typography-line-height: var(
+    --token-typography-body-100-line-height
+  ); /** The character-count line-height is the same as the helper-text as per design */
+  --token-form-error-foreground-color: var(--token-color-palette-red-300);
+  --token-form-error-typography-font-size: var(
+    --token-typography-body-100-font-size
+  );
+  --token-form-error-typography-line-height: var(
+    --token-typography-body-100-line-height
+  );
+  --token-form-helper-text-foreground-color: #656a76;
+  --token-form-helper-text-typography-font-size: var(
+    --token-typography-body-100-font-size
+  );
+  --token-form-helper-text-typography-line-height: var(
+    --token-typography-body-100-line-height
+  );
+  --token-form-indicator-optional-foreground-color: #656a76;
+  --token-form-indicator-optional-typography-font-size: var(
+    --token-typography-body-100-font-size
+  );
+  --token-form-indicator-optional-typography-line-height: var(
+    --token-typography-body-100-line-height
+  );
+  --token-form-label-foreground-color: #0c0c0e;
+  --token-form-label-typography-font-size: var(
+    --token-typography-body-200-font-size
+  );
+  --token-form-label-typography-font-weight: var(
+    --token-typography-font-weight-semibold
+  );
+  --token-form-label-typography-line-height: var(
+    --token-typography-body-200-line-height
+  );
+  --token-form-legend-foreground-color: #0c0c0e;
+  --token-form-legend-typography-font-size: var(
+    --token-typography-body-200-font-size
+  );
+  --token-form-legend-typography-font-weight: var(
+    --token-typography-font-weight-semibold
+  );
+  --token-form-legend-typography-line-height: var(
+    --token-typography-body-200-line-height
+  );
   --token-form-radiocard-border-color-default-checked: var(
     --token-color-palette-blue-300
   );
@@ -1296,6 +1344,28 @@
       inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
     --token-focus-ring-critical-box-shadow:
       inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
+    --token-form-character-count-foreground-color: #6f6f6f;
+    --token-form-character-count-typography-font-size: 0.75rem;
+    --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-error-foreground-color: #da1e28;
+    --token-form-error-typography-font-size: 0.75rem;
+    --token-form-error-typography-line-height: 1.33333;
+    --token-form-helper-text-foreground-color: #6f6f6f;
+    --token-form-helper-text-typography-font-size: 0.75rem;
+    --token-form-helper-text-typography-line-height: 1.33333;
+    --token-form-indicator-optional-foreground-color: var(
+      --token-form-label-foreground-color
+    );
+    --token-form-indicator-optional-typography-font-size: 0.75rem;
+    --token-form-indicator-optional-typography-line-height: 1.33333;
+    --token-form-label-foreground-color: #525252;
+    --token-form-label-typography-font-size: 0.75rem;
+    --token-form-label-typography-font-weight: 400;
+    --token-form-label-typography-line-height: 1.33333;
+    --token-form-legend-foreground-color: #525252;
+    --token-form-legend-typography-font-size: 0.75rem;
+    --token-form-legend-typography-font-weight: 400;
+    --token-form-legend-typography-line-height: 1.33333;
     --token-form-radiocard-border-color-default-checked: #ffc0cb;
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
@@ -1864,6 +1934,28 @@
       inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
     --token-focus-ring-critical-box-shadow:
       inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
+    --token-form-character-count-foreground-color: #a8a8a8;
+    --token-form-character-count-typography-font-size: 0.75rem;
+    --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-error-foreground-color: #ff8389;
+    --token-form-error-typography-font-size: 0.75rem;
+    --token-form-error-typography-line-height: 1.33333;
+    --token-form-helper-text-foreground-color: #a8a8a8;
+    --token-form-helper-text-typography-font-size: 0.75rem;
+    --token-form-helper-text-typography-line-height: 1.33333;
+    --token-form-indicator-optional-foreground-color: var(
+      --token-form-label-foreground-color
+    );
+    --token-form-indicator-optional-typography-font-size: 0.75rem;
+    --token-form-indicator-optional-typography-line-height: 1.33333;
+    --token-form-label-foreground-color: #c6c6c6;
+    --token-form-label-typography-font-size: 0.75rem;
+    --token-form-label-typography-font-weight: 400;
+    --token-form-label-typography-line-height: 1.33333;
+    --token-form-legend-foreground-color: #c6c6c6;
+    --token-form-legend-typography-font-size: 0.75rem;
+    --token-form-legend-typography-font-weight: 400;
+    --token-form-legend-typography-line-height: 1.33333;
     --token-form-radiocard-border-color-default-checked: #ffc0cb;
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
@@ -2425,6 +2517,28 @@
     inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
   --token-focus-ring-critical-box-shadow:
     inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
+  --token-form-character-count-foreground-color: #6f6f6f;
+  --token-form-character-count-typography-font-size: 0.75rem;
+  --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --token-form-error-foreground-color: #da1e28;
+  --token-form-error-typography-font-size: 0.75rem;
+  --token-form-error-typography-line-height: 1.33333;
+  --token-form-helper-text-foreground-color: #6f6f6f;
+  --token-form-helper-text-typography-font-size: 0.75rem;
+  --token-form-helper-text-typography-line-height: 1.33333;
+  --token-form-indicator-optional-foreground-color: var(
+    --token-form-label-foreground-color
+  );
+  --token-form-indicator-optional-typography-font-size: 0.75rem;
+  --token-form-indicator-optional-typography-line-height: 1.33333;
+  --token-form-label-foreground-color: #525252;
+  --token-form-label-typography-font-size: 0.75rem;
+  --token-form-label-typography-font-weight: 400;
+  --token-form-label-typography-line-height: 1.33333;
+  --token-form-legend-foreground-color: #525252;
+  --token-form-legend-typography-font-size: 0.75rem;
+  --token-form-legend-typography-font-weight: 400;
+  --token-form-legend-typography-line-height: 1.33333;
   --token-form-radiocard-border-color-default-checked: #ffc0cb;
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
@@ -2981,6 +3095,28 @@
     inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
   --token-focus-ring-critical-box-shadow:
     inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
+  --token-form-character-count-foreground-color: #a8a8a8;
+  --token-form-character-count-typography-font-size: 0.75rem;
+  --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --token-form-error-foreground-color: #ff8389;
+  --token-form-error-typography-font-size: 0.75rem;
+  --token-form-error-typography-line-height: 1.33333;
+  --token-form-helper-text-foreground-color: #a8a8a8;
+  --token-form-helper-text-typography-font-size: 0.75rem;
+  --token-form-helper-text-typography-line-height: 1.33333;
+  --token-form-indicator-optional-foreground-color: var(
+    --token-form-label-foreground-color
+  );
+  --token-form-indicator-optional-typography-font-size: 0.75rem;
+  --token-form-indicator-optional-typography-line-height: 1.33333;
+  --token-form-label-foreground-color: #c6c6c6;
+  --token-form-label-typography-font-size: 0.75rem;
+  --token-form-label-typography-font-weight: 400;
+  --token-form-label-typography-line-height: 1.33333;
+  --token-form-legend-foreground-color: #c6c6c6;
+  --token-form-legend-typography-font-size: 0.75rem;
+  --token-form-legend-typography-font-weight: 400;
+  --token-form-legend-typography-line-height: 1.33333;
   --token-form-radiocard-border-color-default-checked: #ffc0cb;
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
@@ -3396,12 +3532,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-form-control-readonly-surface-color: var(
     --token-color-surface-strong
   );
-  --token-form-error-color: var(--token-color-palette-red-300);
   --token-form-error-icon-size: 14px;
-  --token-form-helper-text-color: var(--token-color-foreground-faint);
-  --token-form-indicator-optional-color: var(--token-color-foreground-faint);
-  --token-form-label-color: var(--token-color-foreground-strong);
-  --token-form-legend-color: var(--token-form-label-color);
   --token-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */
   --token-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */
   --token-form-radio-background-image-size: 12px;

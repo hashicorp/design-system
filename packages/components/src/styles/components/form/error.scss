@@ -7,11 +7,17 @@
 // FORM > ERROR
 //
 
+@use "../../mixins/carbonization" as *;
+
 .hds-form-error {
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  color: var(--token-form-error-color);
+  color: var(--token-form-error-foreground-color);
+  font-weight: var(--token-typography-font-weight-medium);
+  font-size: var(--token-form-error-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-error-typography-line-height);
 }
 
 .hds-form-error__icon {
@@ -19,6 +25,10 @@
   width: var(--token-form-error-icon-size);
   height: var(--token-form-error-icon-size);
   margin: 2px 0 2px 0;
+
+  @include hds-apply-only-if-carbon() {
+    margin: 1px 0 1px 0;
+  }
 }
 
 .hds-form-error__content {
