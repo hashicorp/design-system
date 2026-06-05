@@ -8,22 +8,30 @@
 //
 
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 // "BASE" CONTROL
 
 .hds-form-text-input {
   width: 100%;
   max-width: 100%;
-  padding: var(--token-form-control-padding);
+  padding: var(--token-form-control-padding-vertical) var(--token-form-control-padding-horizontal);
   color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-inset-box-shadow);
 
+  // TODO: Add token(s) instead?
+  @include hds-apply-only-if-carbon() {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
+
   // PLACEHOLDER
 
-  ::placeholder {
+  &::placeholder {
     color: var(--token-form-control-base-placeholder-foreground-color);
   }
 
@@ -66,6 +74,12 @@
   &.hds-form-text-input--is-invalid {
     border-color: var(--token-form-control-invalid-border-color-default);
 
+    // TODO: Should tokens be used instead? Carbon uses an outline on top of the border to add a red outline/border
+    @include hds-apply-only-if-carbon() {
+      border-color: transparent;
+      outline: 2px solid var(--token-form-control-invalid-border-color-default)
+    }
+
     &:hover,
     &.mock-hover {
       border-color: var(--token-form-control-invalid-border-color-hover);
@@ -89,13 +103,13 @@
 // PASSWORD
 
 .hds-form-text-input--has-visibility-toggle {
-  padding-right: calc(var(--token-form-control-padding) + 24px);
+  padding-right: calc(var(--token-form-control-padding-horizontal) + 24px);
 }
 
 .hds-form-text-input__visibility-toggle {
   position: absolute;
-  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
-  right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  top: calc(var(--token-form-control-padding-vertical) - var(--token-form-control-border-width));
+  right: calc(var(--token-form-control-padding-horizontal) - var(--token-form-control-border-width));
 }
 
 .hds-form-text-input {
@@ -108,6 +122,11 @@
   &[type="week"] {
     // browsers set a specific width for these controls, we want to keep it
     width: initial;
+
+    // TODO: Create design token?
+    @include hds-apply-only-if-carbon() {
+      width: 100%;
+    }
 
     // show the native icon dimmed if disabled (hidden in Chrome)
     &:disabled::-webkit-calendar-picker-indicator {
@@ -132,6 +151,12 @@
       background-image: var(--token-form-text-input-background-image-data-url-date);
       background-position: center center;
       background-size: var(--token-form-text-input-background-image-size);
+
+      @include hds-apply-only-if-carbon() {
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+      }
     }
   }
 
@@ -140,16 +165,30 @@
       background-image: var(--token-form-text-input-background-image-data-url-time);
       background-position: center center;
       background-size: var(--token-form-text-input-background-image-size);
+
+      @include hds-apply-only-if-carbon() {
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+      }
     }
   }
 
   // SEARCH
   &[type="search"] {
-    padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+    padding-left: calc(var(--token-form-control-padding-horizontal) + 24px); // extra space for the icon
     background-image: var(--token-form-text-input-background-image-data-url-search);
     background-repeat: no-repeat;
     background-position: var(--token-form-text-input-background-image-position-x) 50%;
     background-size: var(--token-form-text-input-background-image-size);
+
+    @include hds-apply-only-if-carbon() {
+      // TODO: Use token for padding-left instead?
+      padding-left: var(--token-form-control-padding-horizontal);
+      background-image: revert;
+      background-position: revert;
+      background-size: revert;
+    }
 
     &::-webkit-search-cancel-button {
       width: var(--token-form-text-input-background-image-size);
@@ -159,11 +198,21 @@
       background-size: var(--token-form-text-input-background-image-size);
       // stylelint-disable-next-line property-no-vendor-prefix
       -webkit-appearance: none;
+
+      @include hds-apply-only-if-carbon() {
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+      }
     }
 
     // IS LOADING
     &.hds-form-text-input--is-loading {
       background-image: var(--token-form-text-input-background-image-data-url-search-loading);
+
+      @include hds-apply-only-if-carbon() {
+        background-image: none;
+      }
     }
   }
 }
