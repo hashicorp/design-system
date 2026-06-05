@@ -28,7 +28,14 @@
             "default": {
               "$type": "color",
               "$value": "{color.palette.neutral-400}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.neutral-400}",
+                "cds-g0": "{carbon.themes.white.borderStrong01}",
+                "cds-g10": "{carbon.themes.g10.borderStrong01}",
+                "cds-g90": "{carbon.themes.g90.borderStrong01}",
+                "cds-g100": "{carbon.themes.g100.borderStrong01}"
+              }
             },
             "hover": {
               "$type": "color",
@@ -42,7 +49,14 @@
             "color": {
               "$type": "color",
               "$value": "{color.foreground.faint}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.foreground.faint}",
+                "cds-g0": "{carbon.themes.white.textPlaceholder}",
+                "cds-g10": "{carbon.themes.g10.textPlaceholder}",
+                "cds-g90": "{carbon.themes.g90.textPlaceholder}",
+                "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+              }
             }
           }
         }
@@ -90,7 +104,15 @@
             "default": {
               "$type": "color",
               "$value": "{color.palette.red-300}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.red-300}",
+                "cds-g0": "{carbon.themes.white.supportError}",
+                "cds-g10": "{carbon.themes.g10.supportError}",
+                "cds-g90": "{carbon.themes.g90.supportError}",
+                "cds-g100": "{carbon.themes.g100.supportError}",
+                "comment": "TODO: 1) Carbon uses outline instead (should border stay the same color?) 2) Double-check carbon colors"
+              }
             },
             "hover": {
               "$type": "color",
