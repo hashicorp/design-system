@@ -141,7 +141,14 @@
           "color": {
             "$type": "color",
             "$value": "{color.surface.strong}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{color.surface.strong}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
           }
         },
         "border": {
@@ -157,21 +164,42 @@
           "color": {
             "$type": "color",
             "$value": "{color.foreground.disabled}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{color.foreground.disabled}",
+              "cds-g0": "{carbon.themes.white.textDisabled}",
+              "cds-g10": "{carbon.themes.g10.textDisabled}",
+              "cds-g90": "{carbon.themes.g90.textDisabled}",
+              "cds-g100": "{carbon.themes.g100.textDisabled}"
+            }
           }
         },
         "surface": {
           "color": {
             "$type": "color",
             "$value": "{color.surface.interactive-disabled}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{color.surface.interactive-disabled}",
+              "cds-g0": "{carbon.themes.white.field01}",
+              "cds-g10": "{carbon.themes.g10.field01}",
+              "cds-g90": "{carbon.themes.g90.field01}",
+              "cds-g100": "{carbon.themes.g100.field01}"
+            }
           }
         },
         "border": {
           "color": {
             "$type": "color",
             "$value": "{color.border.primary}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{color.border.primary}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
           }
         }
       }
