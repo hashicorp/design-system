@@ -17555,10 +17555,24 @@
       "$type": "color",
       "$value": "#8c909c",
       "group": "components",
+      "$modes": {
+        "default": "#8c909c",
+        "cds-g0": "#8d8d8d",
+        "cds-g10": "#8d8d8d",
+        "cds-g90": "#8d8d8d",
+        "cds-g100": "#6f6f6f"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.palette.neutral-400}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "{carbon.themes.white.borderStrong01}",
+          "cds-g10": "{carbon.themes.g10.borderStrong01}",
+          "cds-g90": "{carbon.themes.g90.borderStrong01}",
+          "cds-g100": "{carbon.themes.g100.borderStrong01}"
+        },
         "key": "{form.control.base.border.color.default}"
       },
       "name": "token-form-control-base-border-color-default",
@@ -17603,10 +17617,24 @@
       "$type": "color",
       "$value": "#656a76",
       "group": "components",
+      "$modes": {
+        "default": "#656a76",
+        "cds-g0": "rgba(22, 22, 22, 0.4)",
+        "cds-g10": "rgba(22, 22, 22, 0.4)",
+        "cds-g90": "rgba(244, 244, 244, 0.4)",
+        "cds-g100": "rgba(244, 244, 244, 0.4)"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.foreground.faint}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.faint}",
+          "cds-g0": "{carbon.themes.white.textPlaceholder}",
+          "cds-g10": "{carbon.themes.g10.textPlaceholder}",
+          "cds-g90": "{carbon.themes.g90.textPlaceholder}",
+          "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+        },
         "key": "{form.control.base.placeholder.foreground.color}"
       },
       "name": "token-form-control-base-placeholder-foreground-color",
@@ -17746,10 +17774,26 @@
       "$type": "color",
       "$value": "#c00005",
       "group": "components",
+      "$modes": {
+        "default": "#c00005",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56",
+        "comment": "Carbon uses outline instead of a border color change"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.palette.red-300}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-300}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}",
+          "comment": "Carbon uses outline instead of a border color change"
+        },
         "key": "{form.control.invalid.border.color.default}"
       },
       "name": "token-form-control-invalid-border-color-default",
@@ -17770,10 +17814,24 @@
       "$type": "color",
       "$value": "#940004",
       "group": "components",
+      "$modes": {
+        "default": "#940004",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.palette.red-400}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-400}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}"
+        },
         "key": "{form.control.invalid.border.color.hover}"
       },
       "name": "token-form-control-invalid-border-color-hover",
@@ -17817,10 +17875,24 @@
       "$type": "color",
       "$value": "#f1f2f3",
       "group": "components",
+      "$modes": {
+        "default": "#f1f2f3",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.surface.strong}",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.readonly.surface.color}"
       },
       "name": "token-form-control-readonly-surface-color",
@@ -17863,10 +17935,24 @@
       "$type": "color",
       "$value": "#8c909c",
       "group": "components",
+      "$modes": {
+        "default": "#8c909c",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.foreground.disabled}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
         "key": "{form.control.disabled.foreground.color}"
       },
       "name": "token-form-control-disabled-foreground-color",
@@ -17886,10 +17972,24 @@
       "$type": "color",
       "$value": "#fafafa",
       "group": "components",
+      "$modes": {
+        "default": "#fafafa",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.surface.interactive-disabled}",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.interactive-disabled}",
+          "cds-g0": "{carbon.themes.white.field01}",
+          "cds-g10": "{carbon.themes.g10.field01}",
+          "cds-g90": "{carbon.themes.g90.field01}",
+          "cds-g100": "{carbon.themes.g100.field01}"
+        },
         "key": "{form.control.disabled.surface.color}"
       },
       "name": "token-form-control-disabled-surface-color",
@@ -17909,10 +18009,24 @@
       "$type": "color",
       "$value": "#656a7633",
       "group": "components",
+      "$modes": {
+        "default": "#656a7633",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
         "$value": "{color.border.primary}",
         "group": "components",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.disabled.border.color}"
       },
       "name": "token-form-control-disabled-border-color",
@@ -17932,12 +18046,26 @@
       "$type": "dimension",
       "$value": "7px",
       "unit": "px",
-      "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+      "$modes": {
+        "default": "7",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
       "original": {
         "$type": "dimension",
         "$value": "7",
         "unit": "px",
-        "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+        "$modes": {
+          "default": "7",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
         "key": "{form.control.padding}"
       },
       "name": "token-form-control-padding",
@@ -41882,10 +42010,24 @@
       "$type": "color",
       "$value": "#8d8d8d",
       "group": "components",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "#8d8d8d",
+        "cds-g10": "#8d8d8d",
+        "cds-g90": "#8d8d8d",
+        "cds-g100": "#6f6f6f"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.neutral-400}",
+        "$value": "{carbon.themes.white.borderStrong01}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "{carbon.themes.white.borderStrong01}",
+          "cds-g10": "{carbon.themes.g10.borderStrong01}",
+          "cds-g90": "{carbon.themes.g90.borderStrong01}",
+          "cds-g100": "{carbon.themes.g100.borderStrong01}"
+        },
         "key": "{form.control.base.border.color.default}"
       },
       "name": "token-form-control-base-border-color-default",
@@ -41928,12 +42070,26 @@
     "token-form-control-base-placeholder-foreground-color": {
       "key": "{form.control.base.placeholder.foreground.color}",
       "$type": "color",
-      "$value": "#525252",
+      "$value": "rgba(22, 22, 22, 0.4)",
       "group": "components",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "rgba(22, 22, 22, 0.4)",
+        "cds-g10": "rgba(22, 22, 22, 0.4)",
+        "cds-g90": "rgba(244, 244, 244, 0.4)",
+        "cds-g100": "rgba(244, 244, 244, 0.4)"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.faint}",
+        "$value": "{carbon.themes.white.textPlaceholder}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.faint}",
+          "cds-g0": "{carbon.themes.white.textPlaceholder}",
+          "cds-g10": "{carbon.themes.g10.textPlaceholder}",
+          "cds-g90": "{carbon.themes.g90.textPlaceholder}",
+          "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+        },
         "key": "{form.control.base.placeholder.foreground.color}"
       },
       "name": "token-form-control-base-placeholder-foreground-color",
@@ -42071,12 +42227,28 @@
     "token-form-control-invalid-border-color-default": {
       "key": "{form.control.invalid.border.color.default}",
       "$type": "color",
-      "$value": "#a2191f",
+      "$value": "#da1e28",
       "group": "components",
+      "$modes": {
+        "default": "#a2191f",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56",
+        "comment": "Carbon uses outline instead of a border color change"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.red-300}",
+        "$value": "{carbon.themes.white.supportError}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-300}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}",
+          "comment": "Carbon uses outline instead of a border color change"
+        },
         "key": "{form.control.invalid.border.color.default}"
       },
       "name": "token-form-control-invalid-border-color-default",
@@ -42095,12 +42267,26 @@
     "token-form-control-invalid-border-color-hover": {
       "key": "{form.control.invalid.border.color.hover}",
       "$type": "color",
-      "$value": "#750e13",
+      "$value": "#da1e28",
       "group": "components",
+      "$modes": {
+        "default": "#750e13",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.red-400}",
+        "$value": "{carbon.themes.white.supportError}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-400}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}"
+        },
         "key": "{form.control.invalid.border.color.hover}"
       },
       "name": "token-form-control-invalid-border-color-hover",
@@ -42142,12 +42328,26 @@
     "token-form-control-readonly-surface-color": {
       "key": "{form.control.readonly.surface.color}",
       "$type": "color",
-      "$value": "#e0e0e0",
+      "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
+      "$modes": {
+        "default": "#e0e0e0",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.strong}",
+        "$value": "transparent",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.readonly.surface.color}"
       },
       "name": "token-form-control-readonly-surface-color",
@@ -42190,10 +42390,24 @@
       "$type": "color",
       "$value": "rgba(22, 22, 22, 0.25)",
       "group": "components",
+      "$modes": {
+        "default": "rgba(22, 22, 22, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.disabled}",
+        "$value": "{carbon.themes.white.textDisabled}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
         "key": "{form.control.disabled.foreground.color}"
       },
       "name": "token-form-control-disabled-foreground-color",
@@ -42211,12 +42425,26 @@
     "token-form-control-disabled-surface-color": {
       "key": "{form.control.disabled.surface.color}",
       "$type": "color",
-      "$value": "#c6c6c6",
+      "$value": "#f4f4f4",
       "group": "components",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.interactive-disabled}",
+        "$value": "{carbon.themes.white.field01}",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.interactive-disabled}",
+          "cds-g0": "{carbon.themes.white.field01}",
+          "cds-g10": "{carbon.themes.g10.field01}",
+          "cds-g90": "{carbon.themes.g90.field01}",
+          "cds-g100": "{carbon.themes.g100.field01}"
+        },
         "key": "{form.control.disabled.surface.color}"
       },
       "name": "token-form-control-disabled-surface-color",
@@ -42234,12 +42462,26 @@
     "token-form-control-disabled-border-color": {
       "key": "{form.control.disabled.border.color}",
       "$type": "color",
-      "$value": "#c6c6c6",
+      "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.primary}",
+        "$value": "transparent",
         "group": "components",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.disabled.border.color}"
       },
       "name": "token-form-control-disabled-border-color",
@@ -42257,14 +42499,28 @@
     "token-form-control-padding": {
       "key": "{form.control.padding}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "unit": "px",
-      "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+      "$modes": {
+        "default": "7",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
       "original": {
         "$type": "dimension",
-        "$value": "7",
+        "$value": "16",
         "unit": "px",
-        "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+        "$modes": {
+          "default": "7",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
         "key": "{form.control.padding}"
       },
       "name": "token-form-control-padding",
@@ -42685,7 +42941,7 @@
     "token-form-select-background-image-position-right-x": {
       "key": "{form.select.background-image.position-right-x}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "original": {
         "$type": "dimension",
         "$value": "{form.control.padding}",
@@ -42789,7 +43045,7 @@
     "token-form-text-input-background-image-position-x": {
       "key": "{form.text-input.background-image.position-x}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "original": {
         "$type": "dimension",
         "$value": "{form.control.padding}",
@@ -66209,10 +66465,24 @@
       "$type": "color",
       "$value": "#8d8d8d",
       "group": "components",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "#8d8d8d",
+        "cds-g10": "#8d8d8d",
+        "cds-g90": "#8d8d8d",
+        "cds-g100": "#6f6f6f"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.neutral-400}",
+        "$value": "{carbon.themes.g10.borderStrong01}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "{carbon.themes.white.borderStrong01}",
+          "cds-g10": "{carbon.themes.g10.borderStrong01}",
+          "cds-g90": "{carbon.themes.g90.borderStrong01}",
+          "cds-g100": "{carbon.themes.g100.borderStrong01}"
+        },
         "key": "{form.control.base.border.color.default}"
       },
       "name": "token-form-control-base-border-color-default",
@@ -66255,12 +66525,26 @@
     "token-form-control-base-placeholder-foreground-color": {
       "key": "{form.control.base.placeholder.foreground.color}",
       "$type": "color",
-      "$value": "#525252",
+      "$value": "rgba(22, 22, 22, 0.4)",
       "group": "components",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "rgba(22, 22, 22, 0.4)",
+        "cds-g10": "rgba(22, 22, 22, 0.4)",
+        "cds-g90": "rgba(244, 244, 244, 0.4)",
+        "cds-g100": "rgba(244, 244, 244, 0.4)"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.faint}",
+        "$value": "{carbon.themes.g10.textPlaceholder}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.faint}",
+          "cds-g0": "{carbon.themes.white.textPlaceholder}",
+          "cds-g10": "{carbon.themes.g10.textPlaceholder}",
+          "cds-g90": "{carbon.themes.g90.textPlaceholder}",
+          "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+        },
         "key": "{form.control.base.placeholder.foreground.color}"
       },
       "name": "token-form-control-base-placeholder-foreground-color",
@@ -66398,12 +66682,28 @@
     "token-form-control-invalid-border-color-default": {
       "key": "{form.control.invalid.border.color.default}",
       "$type": "color",
-      "$value": "#a2191f",
+      "$value": "#da1e28",
       "group": "components",
+      "$modes": {
+        "default": "#a2191f",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56",
+        "comment": "Carbon uses outline instead of a border color change"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.red-300}",
+        "$value": "{carbon.themes.g10.supportError}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-300}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}",
+          "comment": "Carbon uses outline instead of a border color change"
+        },
         "key": "{form.control.invalid.border.color.default}"
       },
       "name": "token-form-control-invalid-border-color-default",
@@ -66422,12 +66722,26 @@
     "token-form-control-invalid-border-color-hover": {
       "key": "{form.control.invalid.border.color.hover}",
       "$type": "color",
-      "$value": "#750e13",
+      "$value": "#da1e28",
       "group": "components",
+      "$modes": {
+        "default": "#750e13",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.red-400}",
+        "$value": "{carbon.themes.g10.supportError}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-400}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}"
+        },
         "key": "{form.control.invalid.border.color.hover}"
       },
       "name": "token-form-control-invalid-border-color-hover",
@@ -66469,12 +66783,26 @@
     "token-form-control-readonly-surface-color": {
       "key": "{form.control.readonly.surface.color}",
       "$type": "color",
-      "$value": "#e0e0e0",
+      "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
+      "$modes": {
+        "default": "#e0e0e0",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.strong}",
+        "$value": "transparent",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.readonly.surface.color}"
       },
       "name": "token-form-control-readonly-surface-color",
@@ -66517,10 +66845,24 @@
       "$type": "color",
       "$value": "rgba(22, 22, 22, 0.25)",
       "group": "components",
+      "$modes": {
+        "default": "rgba(22, 22, 22, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.disabled}",
+        "$value": "{carbon.themes.g10.textDisabled}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
         "key": "{form.control.disabled.foreground.color}"
       },
       "name": "token-form-control-disabled-foreground-color",
@@ -66538,12 +66880,26 @@
     "token-form-control-disabled-surface-color": {
       "key": "{form.control.disabled.surface.color}",
       "$type": "color",
-      "$value": "#c6c6c6",
+      "$value": "#ffffff",
       "group": "components",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.interactive-disabled}",
+        "$value": "{carbon.themes.g10.field01}",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.interactive-disabled}",
+          "cds-g0": "{carbon.themes.white.field01}",
+          "cds-g10": "{carbon.themes.g10.field01}",
+          "cds-g90": "{carbon.themes.g90.field01}",
+          "cds-g100": "{carbon.themes.g100.field01}"
+        },
         "key": "{form.control.disabled.surface.color}"
       },
       "name": "token-form-control-disabled-surface-color",
@@ -66561,12 +66917,26 @@
     "token-form-control-disabled-border-color": {
       "key": "{form.control.disabled.border.color}",
       "$type": "color",
-      "$value": "#e0e0e0",
+      "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
+      "$modes": {
+        "default": "#e0e0e0",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.primary}",
+        "$value": "transparent",
         "group": "components",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.disabled.border.color}"
       },
       "name": "token-form-control-disabled-border-color",
@@ -66584,14 +66954,28 @@
     "token-form-control-padding": {
       "key": "{form.control.padding}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "unit": "px",
-      "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+      "$modes": {
+        "default": "7",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
       "original": {
         "$type": "dimension",
-        "$value": "7",
+        "$value": "16",
         "unit": "px",
-        "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+        "$modes": {
+          "default": "7",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
         "key": "{form.control.padding}"
       },
       "name": "token-form-control-padding",
@@ -67012,7 +67396,7 @@
     "token-form-select-background-image-position-right-x": {
       "key": "{form.select.background-image.position-right-x}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "original": {
         "$type": "dimension",
         "$value": "{form.control.padding}",
@@ -67116,7 +67500,7 @@
     "token-form-text-input-background-image-position-x": {
       "key": "{form.text-input.background-image.position-x}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "original": {
         "$type": "dimension",
         "$value": "{form.control.padding}",
@@ -90536,10 +90920,24 @@
       "$type": "color",
       "$value": "#8d8d8d",
       "group": "components",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "#8d8d8d",
+        "cds-g10": "#8d8d8d",
+        "cds-g90": "#8d8d8d",
+        "cds-g100": "#6f6f6f"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.neutral-400}",
+        "$value": "{carbon.themes.g90.borderStrong01}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "{carbon.themes.white.borderStrong01}",
+          "cds-g10": "{carbon.themes.g10.borderStrong01}",
+          "cds-g90": "{carbon.themes.g90.borderStrong01}",
+          "cds-g100": "{carbon.themes.g100.borderStrong01}"
+        },
         "key": "{form.control.base.border.color.default}"
       },
       "name": "token-form-control-base-border-color-default",
@@ -90582,12 +90980,26 @@
     "token-form-control-base-placeholder-foreground-color": {
       "key": "{form.control.base.placeholder.foreground.color}",
       "$type": "color",
-      "$value": "#c6c6c6",
+      "$value": "rgba(244, 244, 244, 0.4)",
       "group": "components",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "rgba(22, 22, 22, 0.4)",
+        "cds-g10": "rgba(22, 22, 22, 0.4)",
+        "cds-g90": "rgba(244, 244, 244, 0.4)",
+        "cds-g100": "rgba(244, 244, 244, 0.4)"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.faint}",
+        "$value": "{carbon.themes.g90.textPlaceholder}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.faint}",
+          "cds-g0": "{carbon.themes.white.textPlaceholder}",
+          "cds-g10": "{carbon.themes.g10.textPlaceholder}",
+          "cds-g90": "{carbon.themes.g90.textPlaceholder}",
+          "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+        },
         "key": "{form.control.base.placeholder.foreground.color}"
       },
       "name": "token-form-control-base-placeholder-foreground-color",
@@ -90725,12 +91137,28 @@
     "token-form-control-invalid-border-color-default": {
       "key": "{form.control.invalid.border.color.default}",
       "$type": "color",
-      "$value": "#a2191f",
+      "$value": "#ff8389",
       "group": "components",
+      "$modes": {
+        "default": "#a2191f",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56",
+        "comment": "Carbon uses outline instead of a border color change"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.red-300}",
+        "$value": "{carbon.themes.g90.supportError}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-300}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}",
+          "comment": "Carbon uses outline instead of a border color change"
+        },
         "key": "{form.control.invalid.border.color.default}"
       },
       "name": "token-form-control-invalid-border-color-default",
@@ -90749,12 +91177,26 @@
     "token-form-control-invalid-border-color-hover": {
       "key": "{form.control.invalid.border.color.hover}",
       "$type": "color",
-      "$value": "#750e13",
+      "$value": "#ff8389",
       "group": "components",
+      "$modes": {
+        "default": "#750e13",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.red-400}",
+        "$value": "{carbon.themes.g90.supportError}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-400}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}"
+        },
         "key": "{form.control.invalid.border.color.hover}"
       },
       "name": "token-form-control-invalid-border-color-hover",
@@ -90796,12 +91238,26 @@
     "token-form-control-readonly-surface-color": {
       "key": "{form.control.readonly.surface.color}",
       "$type": "color",
-      "$value": "#525252",
+      "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.strong}",
+        "$value": "transparent",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.readonly.surface.color}"
       },
       "name": "token-form-control-readonly-surface-color",
@@ -90844,10 +91300,24 @@
       "$type": "color",
       "$value": "rgba(244, 244, 244, 0.25)",
       "group": "components",
+      "$modes": {
+        "default": "rgba(244, 244, 244, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.disabled}",
+        "$value": "{carbon.themes.g90.textDisabled}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
         "key": "{form.control.disabled.foreground.color}"
       },
       "name": "token-form-control-disabled-foreground-color",
@@ -90865,12 +91335,26 @@
     "token-form-control-disabled-surface-color": {
       "key": "{form.control.disabled.surface.color}",
       "$type": "color",
-      "$value": "#6f6f6f",
+      "$value": "#393939",
       "group": "components",
+      "$modes": {
+        "default": "#6f6f6f",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.interactive-disabled}",
+        "$value": "{carbon.themes.g90.field01}",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.interactive-disabled}",
+          "cds-g0": "{carbon.themes.white.field01}",
+          "cds-g10": "{carbon.themes.g10.field01}",
+          "cds-g90": "{carbon.themes.g90.field01}",
+          "cds-g100": "{carbon.themes.g100.field01}"
+        },
         "key": "{form.control.disabled.surface.color}"
       },
       "name": "token-form-control-disabled-surface-color",
@@ -90888,12 +91372,26 @@
     "token-form-control-disabled-border-color": {
       "key": "{form.control.disabled.border.color}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.primary}",
+        "$value": "transparent",
         "group": "components",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.disabled.border.color}"
       },
       "name": "token-form-control-disabled-border-color",
@@ -90911,14 +91409,28 @@
     "token-form-control-padding": {
       "key": "{form.control.padding}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "unit": "px",
-      "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+      "$modes": {
+        "default": "7",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
       "original": {
         "$type": "dimension",
-        "$value": "7",
+        "$value": "16",
         "unit": "px",
-        "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+        "$modes": {
+          "default": "7",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
         "key": "{form.control.padding}"
       },
       "name": "token-form-control-padding",
@@ -91339,7 +91851,7 @@
     "token-form-select-background-image-position-right-x": {
       "key": "{form.select.background-image.position-right-x}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "original": {
         "$type": "dimension",
         "$value": "{form.control.padding}",
@@ -91443,7 +91955,7 @@
     "token-form-text-input-background-image-position-x": {
       "key": "{form.text-input.background-image.position-x}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "original": {
         "$type": "dimension",
         "$value": "{form.control.padding}",
@@ -114861,12 +115373,26 @@
     "token-form-control-base-border-color-default": {
       "key": "{form.control.base.border.color.default}",
       "$type": "color",
-      "$value": "#8d8d8d",
+      "$value": "#6f6f6f",
       "group": "components",
+      "$modes": {
+        "default": "#8d8d8d",
+        "cds-g0": "#8d8d8d",
+        "cds-g10": "#8d8d8d",
+        "cds-g90": "#8d8d8d",
+        "cds-g100": "#6f6f6f"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.neutral-400}",
+        "$value": "{carbon.themes.g100.borderStrong01}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.neutral-400}",
+          "cds-g0": "{carbon.themes.white.borderStrong01}",
+          "cds-g10": "{carbon.themes.g10.borderStrong01}",
+          "cds-g90": "{carbon.themes.g90.borderStrong01}",
+          "cds-g100": "{carbon.themes.g100.borderStrong01}"
+        },
         "key": "{form.control.base.border.color.default}"
       },
       "name": "token-form-control-base-border-color-default",
@@ -114909,12 +115435,26 @@
     "token-form-control-base-placeholder-foreground-color": {
       "key": "{form.control.base.placeholder.foreground.color}",
       "$type": "color",
-      "$value": "#c6c6c6",
+      "$value": "rgba(244, 244, 244, 0.4)",
       "group": "components",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "rgba(22, 22, 22, 0.4)",
+        "cds-g10": "rgba(22, 22, 22, 0.4)",
+        "cds-g90": "rgba(244, 244, 244, 0.4)",
+        "cds-g100": "rgba(244, 244, 244, 0.4)"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.faint}",
+        "$value": "{carbon.themes.g100.textPlaceholder}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.faint}",
+          "cds-g0": "{carbon.themes.white.textPlaceholder}",
+          "cds-g10": "{carbon.themes.g10.textPlaceholder}",
+          "cds-g90": "{carbon.themes.g90.textPlaceholder}",
+          "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+        },
         "key": "{form.control.base.placeholder.foreground.color}"
       },
       "name": "token-form-control-base-placeholder-foreground-color",
@@ -115052,12 +115592,28 @@
     "token-form-control-invalid-border-color-default": {
       "key": "{form.control.invalid.border.color.default}",
       "$type": "color",
-      "$value": "#a2191f",
+      "$value": "#fa4d56",
       "group": "components",
+      "$modes": {
+        "default": "#a2191f",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56",
+        "comment": "Carbon uses outline instead of a border color change"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.red-300}",
+        "$value": "{carbon.themes.g100.supportError}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-300}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}",
+          "comment": "Carbon uses outline instead of a border color change"
+        },
         "key": "{form.control.invalid.border.color.default}"
       },
       "name": "token-form-control-invalid-border-color-default",
@@ -115076,12 +115632,26 @@
     "token-form-control-invalid-border-color-hover": {
       "key": "{form.control.invalid.border.color.hover}",
       "$type": "color",
-      "$value": "#750e13",
+      "$value": "#fa4d56",
       "group": "components",
+      "$modes": {
+        "default": "#750e13",
+        "cds-g0": "#da1e28",
+        "cds-g10": "#da1e28",
+        "cds-g90": "#ff8389",
+        "cds-g100": "#fa4d56"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.red-400}",
+        "$value": "{carbon.themes.g100.supportError}",
         "group": "components",
+        "$modes": {
+          "default": "{color.palette.red-400}",
+          "cds-g0": "{carbon.themes.white.supportError}",
+          "cds-g10": "{carbon.themes.g10.supportError}",
+          "cds-g90": "{carbon.themes.g90.supportError}",
+          "cds-g100": "{carbon.themes.g100.supportError}"
+        },
         "key": "{form.control.invalid.border.color.hover}"
       },
       "name": "token-form-control-invalid-border-color-hover",
@@ -115123,12 +115693,26 @@
     "token-form-control-readonly-surface-color": {
       "key": "{form.control.readonly.surface.color}",
       "$type": "color",
-      "$value": "#393939",
+      "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
+      "$modes": {
+        "default": "#393939",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.strong}",
+        "$value": "transparent",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.strong}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.readonly.surface.color}"
       },
       "name": "token-form-control-readonly-surface-color",
@@ -115171,10 +115755,24 @@
       "$type": "color",
       "$value": "rgba(244, 244, 244, 0.25)",
       "group": "components",
+      "$modes": {
+        "default": "rgba(244, 244, 244, 0.25)",
+        "cds-g0": "rgba(22, 22, 22, 0.25)",
+        "cds-g10": "rgba(22, 22, 22, 0.25)",
+        "cds-g90": "rgba(244, 244, 244, 0.25)",
+        "cds-g100": "rgba(244, 244, 244, 0.25)"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.foreground.disabled}",
+        "$value": "{carbon.themes.g100.textDisabled}",
         "group": "components",
+        "$modes": {
+          "default": "{color.foreground.disabled}",
+          "cds-g0": "{carbon.themes.white.textDisabled}",
+          "cds-g10": "{carbon.themes.g10.textDisabled}",
+          "cds-g90": "{carbon.themes.g90.textDisabled}",
+          "cds-g100": "{carbon.themes.g100.textDisabled}"
+        },
         "key": "{form.control.disabled.foreground.color}"
       },
       "name": "token-form-control-disabled-foreground-color",
@@ -115192,12 +115790,26 @@
     "token-form-control-disabled-surface-color": {
       "key": "{form.control.disabled.surface.color}",
       "$type": "color",
-      "$value": "#525252",
+      "$value": "#262626",
       "group": "components",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#f4f4f4",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#393939",
+        "cds-g100": "#262626"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.surface.interactive-disabled}",
+        "$value": "{carbon.themes.g100.field01}",
         "group": "components",
+        "$modes": {
+          "default": "{color.surface.interactive-disabled}",
+          "cds-g0": "{carbon.themes.white.field01}",
+          "cds-g10": "{carbon.themes.g10.field01}",
+          "cds-g90": "{carbon.themes.g90.field01}",
+          "cds-g100": "{carbon.themes.g100.field01}"
+        },
         "key": "{form.control.disabled.surface.color}"
       },
       "name": "token-form-control-disabled-surface-color",
@@ -115215,12 +115827,26 @@
     "token-form-control-disabled-border-color": {
       "key": "{form.control.disabled.border.color}",
       "$type": "color",
-      "$value": "#6f6f6f",
+      "$value": "rgba(0, 0, 0, 0)",
       "group": "components",
+      "$modes": {
+        "default": "#6f6f6f",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
       "original": {
         "$type": "color",
-        "$value": "{color.border.primary}",
+        "$value": "transparent",
         "group": "components",
+        "$modes": {
+          "default": "{color.border.primary}",
+          "cds-g0": "transparent",
+          "cds-g10": "transparent",
+          "cds-g90": "transparent",
+          "cds-g100": "transparent"
+        },
         "key": "{form.control.disabled.border.color}"
       },
       "name": "token-form-control-disabled-border-color",
@@ -115238,14 +115864,28 @@
     "token-form-control-padding": {
       "key": "{form.control.padding}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "unit": "px",
-      "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+      "$modes": {
+        "default": "7",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
       "original": {
         "$type": "dimension",
-        "$value": "7",
+        "$value": "16",
         "unit": "px",
-        "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma.",
+        "$modes": {
+          "default": "7",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding",
         "key": "{form.control.padding}"
       },
       "name": "token-form-control-padding",
@@ -115666,7 +116306,7 @@
     "token-form-select-background-image-position-right-x": {
       "key": "{form.select.background-image.position-right-x}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "original": {
         "$type": "dimension",
         "$value": "{form.control.padding}",
@@ -115770,7 +116410,7 @@
     "token-form-text-input-background-image-position-x": {
       "key": "{form.text-input.background-image.position-x}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "16px",
       "original": {
         "$type": "dimension",
         "$value": "{form.control.padding}",
