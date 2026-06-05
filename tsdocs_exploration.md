@@ -34,6 +34,19 @@ Component API documentation should be a deterministic output based on TSDoc comm
 - `color`
   - Need to reference the enum itself rather than the stringified values
 
+### Dropdown
+
+- We don't always nest dependent attributes
+- `enableCollisionDetection` is improperly documented as only a boolean
+- We have multiple components documented in one section
+  - `#### [D].Header / [D].Footer`
+
 ## RANDOM THOUGHTS
 
 - Make this the default for when yielded components fo not have an explicit description: "`Alert::Description` yielded as contextual component (see below)."
+- We don't document params for function arguments.
+- We have multiple ways of adding "notes" to documentation
+  - Banners
+  - Italic text
+  - "Warning:"
+  - "Note:"

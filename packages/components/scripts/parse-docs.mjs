@@ -22,10 +22,12 @@ import {
 
 if (!existsSync(ENTRY_FILE_PATH)) {
   console.error(`❌ Central entry file not found at: ${ENTRY_FILE_PATH}`);
+
   process.exit(1);
 }
 
 const outputDir = dirname(OUTPUT_FILE_PATH);
+
 if (!existsSync(outputDir)) {
   mkdirSync(outputDir, { recursive: true });
 }
@@ -42,6 +44,7 @@ const typeResolver = createTypeResolver({
   resolveImportSourceFile: sourceFileResolver.resolveImportSourceFile,
 });
 
+// walk only from the central components entrypoint so output order and coverage stay deterministic
 console.log(`🔍 Crawling entry point via AST: ${ENTRY_FILE_PATH}\n`);
 
 const allDocPayloads = parseComponentsFromEntry({
@@ -56,6 +59,7 @@ const allDocPayloads = parseComponentsFromEntry({
 });
 
 const sortedDocPayloads = sortDocPayloads(allDocPayloads);
+
 writeManifest(OUTPUT_FILE_PATH, sortedDocPayloads);
 
 printSuccess(OUTPUT_FILE_PATH);

@@ -21,8 +21,11 @@ export function printMissingTypesSample(missingTypesModules) {
     return;
   }
 
+  // cap console output so large missing lists do not bury parse stats
   const sample = missingTypesModules.slice(0, 10);
+
   console.log('  Sample exports without a matching types file:');
+
   sample.forEach((modulePath) => {
     console.log(`    - ${modulePath}`);
   });

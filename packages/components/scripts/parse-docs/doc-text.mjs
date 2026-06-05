@@ -4,6 +4,7 @@ export function normalizeTagText(tag) {
     typeof tag.getComment === 'function' ? tag.getComment() : undefined;
 
   if (typeof tagComment === 'string') {
+    // ts-morph can return structured tag comment text so normalize line endings here
     return tagComment
       .split('\n')
       .map((line) => line.trimEnd())
@@ -95,6 +96,7 @@ export function normalizeMarkdownText(value) {
 
     if (listMatch) {
       flushCurrentLine();
+      // keep list item boundaries while still collapsing wrapped lines
       currentMode = 'list';
       currentLine = `${listMatch[1]} ${listMatch[2]}`;
       continue;
@@ -139,6 +141,7 @@ export function extractDocData(declarationNode) {
   }
 
   const doc = jsDocs[0];
+  // intentionally prefer the first jsdoc block to match current authoring conventions
 
   result.description = toSingleLineText(doc.getComment());
 
@@ -149,12 +152,15 @@ export function extractDocData(declarationNode) {
     if (tagName === 'remarks') {
       result.remarks = normalizeMarkdownText(tagText);
     }
+
     if (tagName === 'defaultValue') {
       result.defaultValue = toSingleLineText(tagText) || null;
     }
+
     if (tagName === 'dependsOn') {
       result.dependsOn = toSingleLineText(tagText) || null;
     }
+
     if (tagName === 'splattributes') {
       result.hasSplattributesTag = true;
       result.splattributes = toSingleLineText(tagText) || null;

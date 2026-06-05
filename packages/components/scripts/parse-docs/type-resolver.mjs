@@ -1,33 +1,30 @@
 import { Node, SyntaxKind } from 'ts-morph';
 
-export function createTypeResolver({
-  limits,
-  stats,
-  resolveImportSourceFile,
-}) {
+export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
   function isKeywordTypeNode(node) {
     return (
-      Node.isAnyKeyword(node)
-      || Node.isBooleanKeyword(node)
-      || Node.isNumberKeyword(node)
-      || Node.isStringKeyword(node)
-      || Node.isSymbolKeyword(node)
-      || Node.isObjectKeyword(node)
-      || Node.isUndefinedKeyword(node)
-      || Node.isNeverKeyword(node)
+      Node.isAnyKeyword(node) ||
+      Node.isBooleanKeyword(node) ||
+      Node.isNumberKeyword(node) ||
+      Node.isStringKeyword(node) ||
+      Node.isSymbolKeyword(node) ||
+      Node.isObjectKeyword(node) ||
+      Node.isUndefinedKeyword(node) ||
+      Node.isNeverKeyword(node)
     );
   }
 
   function findDeclaredTypeByName(sourceFile, typeName) {
     return (
-      sourceFile.getTypeAlias(typeName)
-      || sourceFile.getInterface(typeName)
-      || sourceFile.getEnum(typeName)
-      || sourceFile.getClass(typeName)
+      sourceFile.getTypeAlias(typeName) ||
+      sourceFile.getInterface(typeName) ||
+      sourceFile.getEnum(typeName) ||
+      sourceFile.getClass(typeName)
     );
   }
 
   function findImportedTypeDeclaration(sourceFile, localTypeName) {
+    // resolve both aliased named imports and default imports before falling back to raw text
     for (const importDecl of sourceFile.getImportDeclarations()) {
       const moduleSpecifier = importDecl.getModuleSpecifierValue();
       const importedFile = resolveImportSourceFile(sourceFile, moduleSpecifier);
@@ -67,7 +64,10 @@ export function createTypeResolver({
   }
 
   function splitUnionText(typeText) {
-    return typeText.split('|').map((part) => part.trim()).filter(Boolean);
+    return typeText
+      .split('|')
+      .map((part) => part.trim())
+      .filter(Boolean);
   }
 
   function isQuotedLiteralText(typeText) {
@@ -90,6 +90,7 @@ export function createTypeResolver({
     }
 
     if (Node.isEnumDeclaration(declaration)) {
+      // expand enum members to a literal union when possible for clearer docs output
       const members = declaration
         .getMembers()
         .map((member) => member.getInitializer()?.getText() || member.getName())
@@ -108,8 +109,8 @@ export function createTypeResolver({
     }
 
     if (
-      Node.isClassDeclaration(declaration)
-      || Node.isInterfaceDeclaration(declaration)
+      Node.isClassDeclaration(declaration) ||
+      Node.isInterfaceDeclaration(declaration)
     ) {
       return declaration.getName() || declaration.getText();
     }
@@ -144,10 +145,10 @@ export function createTypeResolver({
       return `${typeNameText}<${resolvedTypeArgs.join(', ')}>`;
     }
 
-    const declarationKey =
-      `${declaration.getSourceFile().getFilePath()}:${typeNameText}`;
+    const declarationKey = `${declaration.getSourceFile().getFilePath()}:${typeNameText}`;
 
     if (seen.has(declarationKey)) {
+      // break recursive type cycles instead of recursing indefinitely
       stats.typeResolutionCapped += 1;
       return typeNameText;
     }
@@ -186,12 +187,12 @@ export function createTypeResolver({
       const containerType = containerNode.getType();
       const propertySymbol = containerType.getProperty(propertyName);
       const propertyDeclaration =
-        propertySymbol?.getValueDeclaration()
-        || propertySymbol?.getDeclarations()?.[0];
+        propertySymbol?.getValueDeclaration() ||
+        propertySymbol?.getDeclarations()?.[0];
 
       if (
-        propertyDeclaration
-        && typeof propertyDeclaration.getTypeNode === 'function'
+        propertyDeclaration &&
+        typeof propertyDeclaration.getTypeNode === 'function'
       ) {
         return propertyDeclaration.getTypeNode() || null;
       }
@@ -207,11 +208,11 @@ export function createTypeResolver({
 
     for (const span of spans) {
       const spanTypeNode =
-        span.getFirstChildIfKind(SyntaxKind.TypeReference)
-        || span.getFirstChildIfKind(SyntaxKind.TemplateLiteralType)
-        || span.getFirstChildIfKind(SyntaxKind.UnionType)
-        || span.getFirstChildIfKind(SyntaxKind.LiteralType)
-        || span.getFirstChild();
+        span.getFirstChildIfKind(SyntaxKind.TypeReference) ||
+        span.getFirstChildIfKind(SyntaxKind.TemplateLiteralType) ||
+        span.getFirstChildIfKind(SyntaxKind.UnionType) ||
+        span.getFirstChildIfKind(SyntaxKind.LiteralType) ||
+        span.getFirstChild();
 
       if (!spanTypeNode || !Node.isTypeNode(spanTypeNode)) {
         return 'string';
@@ -229,6 +230,7 @@ export function createTypeResolver({
         .map((option) => option.slice(1, -1));
 
       if (spanOptions.length === 0) {
+        // if any segment is non-literal the cartesian expansion becomes open-ended
         return 'string';
       }
 
@@ -264,7 +266,13 @@ export function createTypeResolver({
     return literalUnion.join(' | ');
   }
 
-  function resolveIndexedAccessTypeNodeToText(typeNode, sourceFile, seen, depth) {
+  function resolveIndexedAccessTypeNodeToText(
+    typeNode,
+    sourceFile,
+    seen,
+    depth
+  ) {
+    // unwind nested indexed access nodes so we can walk each key in order
     const keys = [];
     let currentNode = typeNode;
 
@@ -290,8 +298,8 @@ export function createTypeResolver({
     if (Node.isTypeReference(rootTypeNode)) {
       const rootName = rootTypeNode.getTypeName().getText();
       const declaration =
-        findDeclaredTypeByName(sourceFile, rootName)
-        || findImportedTypeDeclaration(sourceFile, rootName);
+        findDeclaredTypeByName(sourceFile, rootName) ||
+        findImportedTypeDeclaration(sourceFile, rootName);
 
       if (!declaration) {
         return typeNode.getText();
@@ -314,8 +322,8 @@ export function createTypeResolver({
       if (!nextTypeNode && Node.isTypeReference(container)) {
         const referencedName = container.getTypeName().getText();
         const declaration =
-          findDeclaredTypeByName(rootSourceFile, referencedName)
-          || findImportedTypeDeclaration(rootSourceFile, referencedName);
+          findDeclaredTypeByName(rootSourceFile, referencedName) ||
+          findImportedTypeDeclaration(rootSourceFile, referencedName);
 
         if (!declaration) {
           return typeNode.getText();
@@ -340,7 +348,12 @@ export function createTypeResolver({
     return typeNode.getText();
   }
 
-  function resolveTypeNodeToText(typeNode, sourceFile, seen = new Set(), depth = 0) {
+  function resolveTypeNodeToText(
+    typeNode,
+    sourceFile,
+    seen = new Set(),
+    depth = 0
+  ) {
     if (!typeNode || depth > limits.maxDepth) {
       stats.typeResolutionCapped += 1;
       return 'unknown';
@@ -404,15 +417,30 @@ export function createTypeResolver({
     }
 
     if (Node.isTemplateLiteralTypeNode(typeNode)) {
-      return expandTemplateLiteralTypeNode(typeNode, sourceFile, seen, depth + 1);
+      return expandTemplateLiteralTypeNode(
+        typeNode,
+        sourceFile,
+        seen,
+        depth + 1
+      );
     }
 
     if (Node.isTypeReference(typeNode)) {
-      return resolveTypeReferenceNodeToText(typeNode, sourceFile, seen, depth + 1);
+      return resolveTypeReferenceNodeToText(
+        typeNode,
+        sourceFile,
+        seen,
+        depth + 1
+      );
     }
 
     if (Node.isIndexedAccessTypeNode(typeNode)) {
-      return resolveIndexedAccessTypeNodeToText(typeNode, sourceFile, seen, depth + 1);
+      return resolveIndexedAccessTypeNodeToText(
+        typeNode,
+        sourceFile,
+        seen,
+        depth + 1
+      );
     }
 
     return typeNode.getText();
@@ -422,15 +450,20 @@ export function createTypeResolver({
     const typeNode = declaration.getTypeNode?.();
 
     if (typeNode) {
-      const tracedText = resolveTypeNodeToText(typeNode, declaration.getSourceFile());
+      const tracedText = resolveTypeNodeToText(
+        typeNode,
+        declaration.getSourceFile()
+      );
 
       if (tracedText && tracedText !== 'unknown') {
         stats.typeResolvedViaAst += 1;
+
         return tracedText;
       }
     }
 
     stats.typeResolutionFallbacks += 1;
+    // semantic type text can be noisy so normalize function signatures for readability
     const fallbackTypeText = declaration.getType().getText(declaration);
 
     if (fallbackTypeText.includes('=>')) {
@@ -455,10 +488,11 @@ export function createTypeResolver({
     }
 
     if (
-      Node.isTypeReference(typeNode)
-      && typeNode.getTypeName().getText() === 'WithBoundArgs'
+      Node.isTypeReference(typeNode) &&
+      typeNode.getTypeName().getText() === 'WithBoundArgs'
     ) {
       const firstTypeArg = typeNode.getTypeArguments()[0];
+
       if (firstTypeArg && Node.isTypeQuery(firstTypeArg)) {
         return 'component';
       }

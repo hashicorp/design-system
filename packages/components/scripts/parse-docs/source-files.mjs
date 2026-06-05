@@ -29,7 +29,9 @@ export function createSourceFileResolver({ project, entryFile }) {
   function resolveImportSourceFile(fromSourceFile, moduleSpecifier) {
     const resolvedByTs = fromSourceFile
       .getImportDeclarations()
-      .find((importDecl) => importDecl.getModuleSpecifierValue() === moduleSpecifier)
+      .find(
+        (importDecl) => importDecl.getModuleSpecifierValue() === moduleSpecifier
+      )
       ?.getModuleSpecifierSourceFile();
 
     if (resolvedByTs) {
@@ -37,6 +39,7 @@ export function createSourceFileResolver({ project, entryFile }) {
     }
 
     if (!moduleSpecifier.startsWith('.')) {
+      // non-relative imports are intentionally skipped to avoid crawling external packages
       return null;
     }
 
@@ -54,6 +57,7 @@ export function createSourceFileResolver({ project, entryFile }) {
 
     for (const candidatePath of candidates) {
       const sourceFile = project.addSourceFileAtPathIfExists(candidatePath);
+
       if (sourceFile) {
         return sourceFile;
       }

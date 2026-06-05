@@ -100,6 +100,7 @@ export function parseComponentsFromEntry({
               const yieldedProps = tupleElement.getProperties();
 
               if (yieldedProps.length > 0) {
+                // object-like tuple members represent named yield values
                 yieldedProps.forEach((yieldedProp) => {
                   const yieldDecl = yieldedProp.getValueDeclaration();
                   const yieldDocData = yieldDecl
@@ -122,6 +123,7 @@ export function parseComponentsFromEntry({
                 return;
               }
 
+              // primitive tuple members get synthetic positional names
               yields.push({
                 name: `item${index + 1}`,
                 type: tupleElement.getText(declaration),
@@ -150,6 +152,7 @@ export function parseComponentsFromEntry({
       }
 
       componentDocs.args.sort((a, b) => a.name.localeCompare(b.name));
+      // keep stable ordering in manifest diffs
       componentDocs.blocks.forEach((block) => {
         block.yields.sort((a, b) => a.name.localeCompare(b.name));
       });
