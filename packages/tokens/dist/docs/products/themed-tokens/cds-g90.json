@@ -5787,10 +5787,100 @@
     ]
   },
   {
-    "key": "{focus-ring.action.box-shadow}",
-    "$value": "inset 0 0 0 1px #161616, 0 0 0 3px #ffffff",
+    "key": "{focus-ring.width.external}",
+    "$type": "dimension",
+    "$value": "2px",
+    "unit": "px",
+    "$modes": {
+      "default": "3",
+      "cds-g0": "2",
+      "cds-g10": "2",
+      "cds-g90": "2",
+      "cds-g100": "2"
+    },
     "original": {
-      "$value": "{focus-ring.action.internal-box-shadow}, {focus-ring.action.external-box-shadow}",
+      "$type": "dimension",
+      "$value": "2",
+      "unit": "px",
+      "$modes": {
+        "default": "3",
+        "cds-g0": "2",
+        "cds-g10": "2",
+        "cds-g90": "2",
+        "cds-g100": "2"
+      },
+      "key": "{focus-ring.width.external}"
+    },
+    "name": "token-focus-ring-width-external",
+    "attributes": {
+      "category": "focus-ring"
+    },
+    "path": [
+      "focus-ring",
+      "width",
+      "external"
+    ]
+  },
+  {
+    "key": "{focus-ring.width.internal}",
+    "$type": "dimension",
+    "$value": "0px",
+    "unit": "px",
+    "$modes": {
+      "default": "1",
+      "cds-g0": "0",
+      "cds-g10": "0",
+      "cds-g90": "0",
+      "cds-g100": "0"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "0",
+      "unit": "px",
+      "$modes": {
+        "default": "1",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "key": "{focus-ring.width.internal}"
+    },
+    "name": "token-focus-ring-width-internal",
+    "attributes": {
+      "category": "focus-ring"
+    },
+    "path": [
+      "focus-ring",
+      "width",
+      "internal"
+    ]
+  },
+  {
+    "key": "{focus-ring.action.box-shadow}",
+    "$value": "inset 0 0 0 2px #ffffff",
+    "$modes": {
+      "default": "inset 0 0 0 0px #161616, 0 0 0 2px #ffffff",
+      "cds-g0": "inset 0 0 0 2px #ffffff",
+      "cds-g10": "inset 0 0 0 2px #ffffff",
+      "cds-g90": "inset 0 0 0 2px #ffffff",
+      "cds-g100": "inset 0 0 0 2px #ffffff"
+    },
+    "comments": {
+      "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
+    },
+    "original": {
+      "$value": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+      "$modes": {
+        "default": "inset 0 0 0 {focus-ring.width.internal} {color.focus.action.internal}, 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+        "cds-g0": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+        "cds-g10": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+        "cds-g90": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+        "cds-g100": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}"
+      },
+      "comments": {
+        "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
+      },
       "key": "{focus-ring.action.box-shadow}"
     },
     "name": "token-focus-ring-action-box-shadow",
@@ -5805,9 +5895,23 @@
   },
   {
     "key": "{focus-ring.critical.box-shadow}",
-    "$value": "inset 0 0 0 1px #161616, 0 0 0 3px #ffffff",
+    "$value": "inset 0 0 0 2px #ffffff",
+    "$modes": {
+      "default": "inset 0 0 0 0px #161616, 0 0 0 2px #ffffff",
+      "cds-g0": "inset 0 0 0 2px #ffffff",
+      "cds-g10": "inset 0 0 0 2px #ffffff",
+      "cds-g90": "inset 0 0 0 2px #ffffff",
+      "cds-g100": "inset 0 0 0 2px #ffffff"
+    },
     "original": {
-      "$value": "{focus-ring.critical.internal-box-shadow}, {focus-ring.critical.external-box-shadow}",
+      "$value": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+      "$modes": {
+        "default": "inset 0 0 0 {focus-ring.width.internal} {color.focus.critical.internal}, 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+        "cds-g0": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+        "cds-g10": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+        "cds-g90": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+        "cds-g100": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}"
+      },
       "key": "{focus-ring.critical.box-shadow}"
     },
     "name": "token-focus-ring-critical-box-shadow",
@@ -7276,6 +7380,43 @@
       "left",
       "color",
       "critical"
+    ]
+  },
+  {
+    "key": "{app-footer.link.focus.outline.width}",
+    "$type": "dimension",
+    "$value": "1px",
+    "unit": "px",
+    "$modes": {
+      "default": "2",
+      "cds-g0": "1",
+      "cds-g10": "1",
+      "cds-g90": "1",
+      "cds-g100": "1"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "1",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "1",
+        "cds-g10": "1",
+        "cds-g90": "1",
+        "cds-g100": "1"
+      },
+      "key": "{app-footer.link.focus.outline.width}"
+    },
+    "name": "token-app-footer-link-focus-outline-width",
+    "attributes": {
+      "category": "app-footer"
+    },
+    "path": [
+      "app-footer",
+      "link",
+      "focus",
+      "outline",
+      "width"
     ]
   },
   {
@@ -10519,6 +10660,78 @@
     ]
   },
   {
+    "key": "{breadcrumb.truncation.toggle.border.color.hover}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{breadcrumb.truncation.toggle.border.color.hover}"
+    },
+    "name": "token-breadcrumb-truncation-toggle-border-color-hover",
+    "attributes": {
+      "category": "breadcrumb"
+    },
+    "path": [
+      "breadcrumb",
+      "truncation",
+      "toggle",
+      "border",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{breadcrumb.truncation.toggle.border.color.active}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{breadcrumb.truncation.toggle.border.color.active}"
+    },
+    "name": "token-breadcrumb-truncation-toggle-border-color-active",
+    "attributes": {
+      "category": "breadcrumb"
+    },
+    "path": [
+      "breadcrumb",
+      "truncation",
+      "toggle",
+      "border",
+      "color",
+      "active"
+    ]
+  },
+  {
     "key": "{breadcrumb.truncation.content.box-shadow}",
     "$value": "0 2px 6px rgba(0, 0, 0, 0.8)",
     "$modes": {
@@ -13095,28 +13308,6 @@
       "border",
       "color",
       "disabled"
-    ]
-  },
-  {
-    "key": "{button.focus-ring.border.width}",
-    "$type": "dimension",
-    "$value": "3px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "3",
-      "unit": "px",
-      "key": "{button.focus-ring.border.width}"
-    },
-    "name": "token-button-focus-ring-border-width",
-    "attributes": {
-      "category": "button"
-    },
-    "path": [
-      "button",
-      "focus-ring",
-      "border",
-      "width"
     ]
   },
   {
@@ -16424,11 +16615,11 @@
   {
     "key": "{form.checkbox.border.radius}",
     "$type": "dimension",
-    "$value": "3px",
+    "$value": "0px",
     "unit": "px",
     "original": {
       "$type": "dimension",
-      "$value": "3",
+      "$value": "{border.radius.x-small}",
       "unit": "px",
       "key": "{form.checkbox.border.radius}"
     },
@@ -17041,11 +17232,11 @@
   {
     "key": "{form.control.border.radius}",
     "$type": "dimension",
-    "$value": "5px",
+    "$value": "0px",
     "unit": "px",
     "original": {
       "$type": "dimension",
-      "$value": "5",
+      "$value": "{border.radius.small}",
       "unit": "px",
       "key": "{form.control.border.radius}"
     },
@@ -17235,24 +17426,10 @@
     "$type": "dimension",
     "$value": "0px",
     "unit": "px",
-    "$modes": {
-      "default": "6",
-      "cds-g0": "0",
-      "cds-g10": "0",
-      "cds-g90": "0",
-      "cds-g100": "0"
-    },
     "original": {
       "$type": "dimension",
-      "$value": "0",
+      "$value": "{border.radius.medium}",
       "unit": "px",
-      "$modes": {
-        "default": "6",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "key": "{form.radiocard.border.radius}"
     },
     "name": "token-form-radiocard-border-radius",
@@ -17752,11 +17929,11 @@
   {
     "key": "{form.toggle.border.radius}",
     "$type": "dimension",
-    "$value": "3px",
+    "$value": "0px",
     "unit": "px",
     "original": {
       "$type": "dimension",
-      "$value": "3",
+      "$value": "{border.radius.x-small}",
       "unit": "px",
       "key": "{form.toggle.border.radius}"
     },
@@ -18947,29 +19124,6 @@
     ]
   },
   {
-    "key": "{pagination.nav.control.focus.inset}",
-    "$type": "dimension",
-    "$value": "4px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "4",
-      "unit": "px",
-      "key": "{pagination.nav.control.focus.inset}"
-    },
-    "name": "token-pagination-nav-control-focus-inset",
-    "attributes": {
-      "category": "pagination"
-    },
-    "path": [
-      "pagination",
-      "nav",
-      "control",
-      "focus",
-      "inset"
-    ]
-  },
-  {
     "key": "{pagination.nav.control.foreground.color.default}",
     "$type": "color",
     "$value": "#f4f4f4",
@@ -20011,11 +20165,11 @@
   {
     "key": "{tabs.tab.border.radius}",
     "$type": "dimension",
-    "$value": "5px",
+    "$value": "0px",
     "unit": "px",
     "original": {
       "$type": "dimension",
-      "$value": "5",
+      "$value": "{border.radius.small}",
       "unit": "px",
       "key": "{tabs.tab.border.radius}"
     },
@@ -20100,28 +20254,6 @@
       "tab",
       "height",
       "large"
-    ]
-  },
-  {
-    "key": "{tabs.tab.focus.inset}",
-    "$type": "dimension",
-    "$value": "6px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "6",
-      "unit": "px",
-      "key": "{tabs.tab.focus.inset}"
-    },
-    "name": "token-tabs-tab-focus-inset",
-    "attributes": {
-      "category": "tabs"
-    },
-    "path": [
-      "tabs",
-      "tab",
-      "focus",
-      "inset"
     ]
   },
   {
@@ -21893,26 +22025,6 @@
       "tooltip",
       "caret",
       "width"
-    ]
-  },
-  {
-    "key": "{tooltip.focus-offset}",
-    "$type": "dimension",
-    "$value": "-2px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "-2",
-      "unit": "px",
-      "key": "{tooltip.focus-offset}"
-    },
-    "name": "token-tooltip-focus-offset",
-    "attributes": {
-      "category": "tooltip"
-    },
-    "path": [
-      "tooltip",
-      "focus-offset"
     ]
   },
   {

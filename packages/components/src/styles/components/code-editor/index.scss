@@ -83,10 +83,6 @@
     display: flex;
     gap: 8px;
     align-items: center;
-
-    .hds-button {
-      outline-offset: 0;
-    }
   }
 
   .hds-code-editor__editor {
@@ -108,36 +104,37 @@
     background-color: var(--token-code-block-button-surface-color-default);
     border: 1px solid var(--token-code-block-border-color-strong);
 
-    &:focus,
-    &.mock-focus,
+    @include hds-apply-only-if-carbon() {
+      border: none;
+    }
+
     &:hover,
     &.mock-hover {
+      color: var(--token-code-block-foreground-color-primary);
       background-color: var(--token-code-block-button-surface-color-hover);
       border-color: var(--token-code-block-focus-ring-color-action-internal);
+    }
+
+    &:focus-visible,
+    &.mock-focus {
+      background-color: var(--token-code-block-button-surface-color-default);
 
       &::before {
-        border-color: var(--token-code-block-focus-ring-color-action-external);
-      }
-
-      .hds-button__icon {
-        color: var(--token-code-block-foreground-color-primary);
-      }
-
-      @include hds-apply-only-if-carbon() {
-        border-color: transparent;
-
-        &::before {
-          border-color: transparent;
-        }
+        border-color: var(--token-code-block-focus-ring-color-action-internal);
+        outline-color: var(--token-code-block-focus-ring-color-action-external);
+        // override the focus ring external offset in case primary buttons are used, eg. in the custom content of the header
+        outline-offset: 0;
       }
     }
 
     &:active,
     &.mock-active {
+      color: var(--token-code-block-foreground-color-primary);
       background-color: var(--token-code-block-button-surface-color-active);
     }
 
-    .hds-button__icon {
+    // we need to artificially increase the specificity here
+    .hds-button__icon .hds-icon {
       color: var(--token-code-block-foreground-color-primary);
     }
   }

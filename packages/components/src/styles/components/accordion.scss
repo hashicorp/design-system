@@ -136,15 +136,7 @@
   }
 }
 
-// entire toggle area is interactive
 .hds-accordion-item__button--parent-does-not-contain-interactive {
-  @include hds-focus-ring-with-pseudo-element(
-    $top: var(--hds-accordion-item-focus-ring-offset),
-    $right: var(--hds-accordion-item-focus-ring-offset),
-    $bottom: var(--hds-accordion-item-focus-ring-offset),
-    $left: var(--hds-accordion-item-focus-ring-offset)
-  );
-
   position: static;
   display: flex;
   align-items: center;
@@ -153,18 +145,30 @@
   color: var(--token-color-foreground-primary);
   background: transparent;
   border: 0;
+  border-radius: var(--token-button-border-radius);
+
+  // we want to make the entire toggle area interactive
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced(
+      // the `position` is already set above
+      $element-position: false,
+      $pseudo-element-z-index: 1,
+      $pseudo-element-inset-hds: var(--hds-accordion-item-focus-ring-offset),
+      $pseudo-element-inset-cds: var(--hds-accordion-item-focus-ring-offset)
+    );
+  }
 }
 
 // only chevron button area is interactive
 .hds-accordion-item__button--parent-contains-interactive {
   @include hds-button();
-
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
-  }
-
-  // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
   @include hds-button-color-secondary();
 }
 

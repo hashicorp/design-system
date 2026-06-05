@@ -38,7 +38,6 @@
   --token-button-border-color-tertiary-focus-internal: var(--token-color-focus-action-internal);
   --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
-  --token-button-focus-ring-border-width: 3px;
   --token-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
   --token-code-block-foreground-color-selection: #0d0e12;
   --token-code-block-surface-color-selection: #86ff13;
@@ -129,7 +128,7 @@
   --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --token-form-checkbox-background-image-size: 12px;
-  --token-form-checkbox-border-radius: 3px;
+  --token-form-checkbox-border-radius: var(--token-border-radius-x-small);
   --token-form-checkbox-border-width: 1px;
   --token-form-checkbox-size: 16px;
   --token-form-control-base-border-color-default: var(--token-color-palette-neutral-400);
@@ -138,7 +137,7 @@
   --token-form-control-base-placeholder-foreground-color: var(--token-color-foreground-faint);
   --token-form-control-base-surface-color-default: var(--token-color-surface-interactive);
   --token-form-control-base-surface-color-hover: var(--token-color-surface-interactive-hover);
-  --token-form-control-border-radius: 5px;
+  --token-form-control-border-radius: var(--token-border-radius-small);
   --token-form-control-border-width: 1px;
   --token-form-control-checked-border-color-default: var(--token-color-palette-blue-300);
   --token-form-control-checked-border-color-hover: var(--token-color-palette-blue-400);
@@ -160,6 +159,7 @@
   --token-form-radio-background-image-size: 12px;
   --token-form-radio-border-width: 1px;
   --token-form-radio-size: 16px;
+  --token-form-radiocard-border-radius: var(--token-border-radius-medium);
   --token-form-radiocard-border-width: 1px;
   --token-form-radiocard-content-padding: 24px;
   --token-form-radiocard-control-padding: 8px;
@@ -182,7 +182,7 @@
   --token-form-toggle-background-image-position-x: 2px;
   --token-form-toggle-background-image-size: 12px;
   --token-form-toggle-base-surface-color-default: var(--token-color-surface-strong); /** the toggle has a different base surface color, compared to the other controls */
-  --token-form-toggle-border-radius: 3px;
+  --token-form-toggle-border-radius: var(--token-border-radius-x-small);
   --token-form-toggle-border-width: 1px;
   --token-form-toggle-height: 16px;
   --token-form-toggle-thumb-size: var(--token-form-toggle-height);
@@ -194,19 +194,16 @@
   --token-link-standalone-typography-font-size-medium: 0.875rem;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-pagination-child-spacing-vertical: 8px;
-  --token-pagination-nav-control-focus-inset: 4px;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-tabs-divider-height: 1px;
   --token-tabs-indicator-transition-duration: 0.6s;
   --token-tabs-indicator-transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
-  --token-tabs-tab-border-radius: 5px;
-  --token-tabs-tab-focus-inset: 6px;
+  --token-tabs-tab-border-radius: var(--token-border-radius-small);
   --token-tabs-tab-gutter: 6px;
   --token-tabs-tab-padding-vertical: 0px;
   --token-tag-dismissible-padding-right: 8px;
   --token-tag-padding-top: 3px;
-  --token-tooltip-focus-offset: -2px;
   --token-tooltip-transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
   --token-typography-body-100-font-size: 0.8125rem; /** 13px/0.8125rem */
 }

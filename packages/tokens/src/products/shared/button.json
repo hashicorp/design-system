@@ -854,15 +854,6 @@
         }
       }
     },
-    "focus-ring": {
-      "border": {
-        "width": {
-          "$type": "dimension",
-          "$value": "3",
-          "unit": "px"
-        }
-      }
-    },
     "icon": {
       "size": {
         "small": {

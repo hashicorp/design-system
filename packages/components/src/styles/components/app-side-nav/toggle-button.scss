@@ -7,6 +7,7 @@
 // APP-SIDE-NAV > TOGGLE BUTTON
 //
 
+@use "../../mixins/focus-ring" as *;
 @use "../../mixins/carbonization" as *;
 
 .hds-app-side-nav__toggle-button {
@@ -83,6 +84,17 @@
     }
   }
 
+  &:focus-visible,
+  &.mock-focus {
+    // we hide the decorations
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    @include hds-focus-ring-basic();
+  }
+
   &:active,
   &.mock-active {
     background-color: var(--token-color-palette-neutral-300);
@@ -90,17 +102,6 @@
     &::before,
     &::after {
       box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-palette-neutral-300);
-    }
-  }
-
-  &:focus-visible,
-  &.mock-focus {
-    border-color: var(--token-color-focus-action-internal);
-    outline: 3px solid var(--token-color-focus-action-external);
-
-    &::before,
-    &::after {
-      display: none;
     }
   }
 

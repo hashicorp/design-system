@@ -57,9 +57,9 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
   }
 
   // Focus:
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+    @include hds-focus-ring-advanced();
 
     // See: https://sass-lang.com/d/mixed-decls
     & {
@@ -76,11 +76,6 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
       color: var(--token-color-foreground-high-contrast);
       border: none;
     }
-  }
-
-  // override style removing the focus style
-  &:focus:focus:not(:focus-visible)::before {
-    box-shadow: $hds-interactive-dark-theme-focus-ring-action-box-shadow;
   }
 
   // Active:

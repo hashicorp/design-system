@@ -28,8 +28,6 @@
 }
 
 .hds-copy-snippet {
-  @include hds-focus-ring-with-pseudo-element();
-
   display: flex;
   gap: 8px;
   align-items: center;
@@ -39,6 +37,11 @@
   border: 1px solid transparent;
   border-radius: var(--token-border-radius-small);
   cursor: pointer;
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced();
+  }
 
   @include hds-apply-only-if-carbon() {
     border: none;

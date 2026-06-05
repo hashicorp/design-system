@@ -196,6 +196,8 @@
   --token-surface-high-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-surface-higher-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --token-focus-ring-width-external: 3px;
+  --token-focus-ring-width-internal: 1px;
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
   --token-alert-border-color-neutral: #3b3d4566;
@@ -233,6 +235,7 @@
   --token-alert-inline-border-left-color-success: #cceeda;
   --token-alert-inline-border-left-color-warning: #fbeabf;
   --token-alert-inline-border-left-color-critical: #fbd4d4;
+  --token-app-footer-link-focus-outline-width: 2px;
   --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
@@ -332,6 +335,8 @@
   --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
   --token-breadcrumb-truncation-toggle-surface-color-hover: #ffffff;
   --token-breadcrumb-truncation-toggle-surface-color-active: #dedfe3;
+  --token-breadcrumb-truncation-toggle-border-color-hover: #3b3d4566;
+  --token-breadcrumb-truncation-toggle-border-color-active: #3b3d4566;
   --token-breadcrumb-truncation-content-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-button-height-small: 28px;
   --token-button-height-medium: 36px;
@@ -408,7 +413,6 @@
   --token-button-border-color-critical-focus-external: #dd7578;
   --token-button-border-color-critical-active: #940004;
   --token-button-border-color-disabled: #656a7633;
-  --token-button-focus-ring-border-width: 3px;
   --token-button-icon-size-small: 12px;
   --token-button-icon-size-medium: 16px;
   --token-button-icon-size-large: 24px;
@@ -600,7 +604,6 @@
   --token-pagination-bar-border-color: rgba(0, 0, 0, 0);
   --token-pagination-bar-surface-color: #ffffff;
   --token-pagination-nav-control-height: 36px;
-  --token-pagination-nav-control-focus-inset: 4px;
   --token-pagination-nav-control-foreground-color-default: #1060ff;
   --token-pagination-nav-control-foreground-color-hover: #0c56e9;
   --token-pagination-nav-control-foreground-color-active: #0046d1;
@@ -634,7 +637,6 @@
   --token-tabs-tab-border-radius: 5px;
   --token-tabs-tab-height-medium: 36px;
   --token-tabs-tab-height-large: 48px;
-  --token-tabs-tab-focus-inset: 6px;
   --token-tabs-tab-foreground-color-default: #3b3d45;
   --token-tabs-tab-foreground-color-hover: #0c56e9;
   --token-tabs-tab-gutter: 6px;
@@ -688,7 +690,6 @@
   --token-tooltip-caret-clip-path: path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z');
   --token-tooltip-caret-height: 7px;
   --token-tooltip-caret-width: 16px;
-  --token-tooltip-focus-offset: -2px;
   --token-tooltip-transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
   --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;

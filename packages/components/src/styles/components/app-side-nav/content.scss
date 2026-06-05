@@ -98,26 +98,12 @@
   border-width: 0;
   border-radius: var(--token-app-side-nav-body-list-item-border-radius);
 
-  // :Focus
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element();
-    // to move the item link above the siblings elements when they have a solid background (eg. active) so that the focus ring is not cut out
-    z-index: 1;
-
-    // for carbon themes, inset the pseudo-element so the focus ring renders within
-    // the element bounds and is not clipped by the parent's overflow: hidden
-    @include hds-apply-only-if-carbon() {
-      &::before {
-        top: 3px;
-        right: 3px;
-        bottom: 3px;
-        left: 3px;
-      }
-    }
+    outline: none;
+    box-shadow: var(--token-focus-ring-action-box-shadow);
   }
 
-  // :Hover
   &:hover,
   &.mock-hover {
     background: var(--token-app-side-nav-body-list-item-surface-color-hover);
@@ -130,7 +116,6 @@
     }
   }
 
-  // :Active
   &:active,
   &.mock-active {
     background: var(--token-app-side-nav-body-list-item-surface-color-active);

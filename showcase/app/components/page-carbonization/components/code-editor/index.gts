@@ -17,6 +17,7 @@ import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonizatio
 
 import {
   HdsButton,
+  HdsCopyButton,
   HdsCodeEditor,
   HdsCodeEditorFullScreenButton,
 } from '@hashicorp/design-system-components/components';
@@ -245,13 +246,23 @@ export default class CodeEditorCarbonizationIndex extends Component {
 
       <ShwTextH2>Base elements</ShwTextH2>
 
-      <ShwTextH3>FullScreenButton</ShwTextH3>
+      <ShwTextH3>Header action buttons</ShwTextH3>
 
       {{#each STATES as |state|}}
         <ShwCarbonizationComparisonGrid @label={{state}}>
           <:theming>
             <div class="hds-code-editor" {{style padding="16px"}}>
               <ShwFlex as |SF|>
+                <SF.Item>
+                  <HdsCopyButton
+                    class="hds-code-editor__button hds-code-editor__copy-button"
+                    @isIconOnly={{true}}
+                    @size="small"
+                    @text="Copy"
+                    @textToCopy="Lorem ipsum"
+                    mock-state-value={{state}}
+                  />
+                </SF.Item>
                 <SF.Item>
                   <HdsCodeEditorFullScreenButton
                     @isFullScreen={{false}}
