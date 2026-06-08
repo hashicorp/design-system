@@ -183,10 +183,7 @@ const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
               <:toggle>
                 <HdsLayoutFlex @align="center" @gap="8" as |LF|>
                   <LF.Item @grow={{true}} @shrink={{false}}>
-                    <HdsLinkInline
-                      @color="secondary"
-                      @href="#"
-                    >Link</HdsLinkInline>
+                    <HdsLinkInline @href="#">Link</HdsLinkInline>
                   </LF.Item>
                   <LF.Item @grow={{false}}>
                     <HdsBadge @text="New" @size="small" @color="highlight" />
@@ -207,10 +204,7 @@ const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
             <cds-accordion-item open="true">
               <HdsLayoutFlex @align="center" @gap="8" slot="title" as |LF|>
                 <LF.Item @grow={{true}} @shrink={{false}}>
-                  <HdsLinkInline
-                    @color="secondary"
-                    @href="#"
-                  >Link</HdsLinkInline>
+                  <cds-link inline="" href="#">Link</cds-link>
                 </LF.Item>
                 <LF.Item @grow={{false}}>
                   <HdsBadge @text="New" @size="small" @color="highlight" />
@@ -506,9 +500,6 @@ const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
             {{/each}}
           </ShwFlex>
         </:theming>
-        <:reference>
-          <code>???</code>
-        </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
