@@ -55,6 +55,21 @@ function formatTopLevelContextualComponent(property) {
   };
 }
 
+function formatNamedBlock(property) {
+  const name = property.name;
+  const hasNamedBlockSyntax =
+    name !== undefined && /^<:[^>]+>$/u.test(name) === true;
+
+  return {
+    ...property,
+    name:
+      hasNamedBlockSyntax === true || name === undefined
+        ? name
+        : `<:${name}>`,
+    type: 'named block',
+  };
+}
+
 function getApiProperties(component, key, inputFile, label) {
   const properties = component.api?.[key];
 
@@ -118,6 +133,20 @@ function getContextualProperty(component, contextualName, inputFile) {
 }
 
 function renderDirective(component, directive, name, inputFile) {
+  if (directive === 'api') {
+    const blocksProperties = getApiProperties(component, 'blocks', inputFile, 'Blocks').map(
+      (property) => formatNamedBlock(property),
+    );
+    const argumentsProperties = getApiProperties(
+      component,
+      'arguments',
+      inputFile,
+      'Arguments',
+    );
+
+    return renderProperties([...blocksProperties, ...argumentsProperties]);
+  }
+
   if (directive === 'arguments') {
     const argumentsProperties = getApiProperties(
       component,
@@ -145,9 +174,14 @@ function renderDirective(component, directive, name, inputFile) {
   }
 
   if (directive === 'blocks') {
-    return renderProperties(
-      getApiProperties(component, 'blocks', inputFile, 'Blocks'),
-    );
+    const blocksProperties = getApiProperties(
+      component,
+      'blocks',
+      inputFile,
+      'Blocks',
+    ).map((property) => formatNamedBlock(property));
+
+    return renderProperties(blocksProperties);
   }
 
   if (directive === 'contextual') {

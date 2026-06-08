@@ -2,7 +2,7 @@
 
 ### AppHeader
 
-<!-- hds-api::arguments -->
+<!-- hds-api::api -->
 
 ### AppHeader::HomeLink
 

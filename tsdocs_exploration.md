@@ -27,7 +27,9 @@ Component API documentation should be a deterministic output based on TSDoc comm
   - Incorrectly documented as a string
 - `a11yRefocusExcludeAllQueryParams`
   - Remarks included in description
-  - Missing default value
+  - Default not included
+- `breakpoint`
+  - Not formatted as string
 
 ### Alert
 
