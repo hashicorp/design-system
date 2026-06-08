@@ -5,7 +5,7 @@ export const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 export const ENTRY_FILE_PATH = resolve(SCRIPT_DIR, '../../src/components.ts');
 export const OUTPUT_FILE_PATH = resolve(
   SCRIPT_DIR,
-  '../../dist/manifest/component.json'
+  '../../dist/manifest/components.json'
 );
 export const TSCONFIG_PATH = resolve(SCRIPT_DIR, '../../tsconfig.json');
 

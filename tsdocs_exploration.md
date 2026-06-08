@@ -24,8 +24,10 @@ Component API documentation should be a deterministic output based on TSDoc comm
   - Default value is in the description
 - `a11yRefocusRouteChangeValidator`
   - Remarks included in description
+  - Incorrectly documented as a string
 - `a11yRefocusExcludeAllQueryParams`
   - Remarks included in description
+  - Missing default value
 
 ### Alert
 
@@ -50,3 +52,8 @@ Component API documentation should be a deterministic output based on TSDoc comm
   - Italic text
   - "Warning:"
   - "Note:"
+
+## Write-up outline
+
+- Why cant we just parse the existing docs?
+-

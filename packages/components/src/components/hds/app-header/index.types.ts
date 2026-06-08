@@ -22,7 +22,9 @@ export interface HdsAppHeaderSignature {
      *   [Success Criteria
      *   2.4.1](https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html).
      *   Since this component appears on every page, the application will not be
-     *   considered conformant.
+     *   considered conformant. <br /><br /> _For details about the addon
+     *   behavior and functionality, refer to the [official
+     *   documentation](https://github.com/ember-a11y/ember-a11y-refocus#readme)._
      * @defaultValue true
      */
     hasA11yRefocus?: boolean;
@@ -50,7 +52,7 @@ export interface HdsAppHeaderSignature {
      * Pass-through property for the `navigationText` argument - The text passed
      * in the navigation narrator.
      *
-     * @defaultValue 'You are in the main navigation'
+     * @defaultValue 'The page navigation is complete. You may now navigate the page content as you wish.'
      * @dependsOn hasA11yRefocus
      */
     a11yRefocusNavigationText?: string;
@@ -63,7 +65,6 @@ export interface HdsAppHeaderSignature {
      * @remarks
      *   For details see [Customizing the definition of a route
      *   change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
-     * @defaultValue 'You are in the main navigation'
      * @dependsOn hasA11yRefocus
      */
     a11yRefocusRouteChangeValidator?: NavigationNarratorSignature['Args']['routeChangeValidator'];

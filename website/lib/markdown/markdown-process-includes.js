@@ -17,6 +17,11 @@ const fs = require('fs-extra');
 const path = require('path');
 const walkSync = require('walk-sync');
 
+const {
+  hydrateManifestApiDirectives,
+} = require('./component-api-from-manifest.js');
+const { getManifestPath } = require('./component-api-manifest-loader.js');
+
 // https://regex101.com/r/tesSl8/1
 const includeRegex = new RegExp(/^\s*@include "(.*\.md)"\s*$/, 'gm');
 
@@ -54,7 +59,8 @@ class MarkdownProcessIncludes extends Multifilter {
       // PROCESS MARKDOWN
       // we replace the `@include` directive with the actual content of the included file
       //
-      const includedFiles = [];
+      const manifestFiles = getManifestPath();
+      const includedFiles = [manifestFiles];
       let newMarkdownFileContent;
       if (markdownFileContent.match(includeRegex)) {
         newMarkdownFileContent = markdownFileContent.replace(
@@ -67,6 +73,11 @@ class MarkdownProcessIncludes extends Multifilter {
       } else {
         newMarkdownFileContent = markdownFileContent;
       }
+
+      newMarkdownFileContent = hydrateManifestApiDirectives(
+        newMarkdownFileContent,
+        inputFile,
+      );
 
       if (fs.existsSync(outputFolder)) {
         if (fs.existsSync(fullOutputPath)) {

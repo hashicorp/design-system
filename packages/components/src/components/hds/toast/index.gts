@@ -8,7 +8,7 @@ import { hash } from '@ember/helper';
 
 import HdsAlert from '../alert/index.gts';
 
-import type { HdsAlertSignature } from '../alert/index.gts';
+import type { HdsAlertSignature } from '../alert/index.types.ts';
 
 export interface HdsToastSignature extends Omit<HdsAlertSignature, 'Args'> {
   Args: Omit<HdsAlertSignature['Args'], 'type'>;
