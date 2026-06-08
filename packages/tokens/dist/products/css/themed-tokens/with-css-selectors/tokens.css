@@ -201,6 +201,9 @@
   --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-default: #0f62fe;
   --token-button-border-color-tertiary-disabled: #c6c6c6;
@@ -218,6 +221,10 @@
   --token-button-foreground-color-secondary-default: #ffffff;
   --token-button-foreground-color-secondary-focus: #ffffff;
   --token-button-foreground-color-secondary-hover: #ffffff;
+  --token-button-foreground-color-secondary-muted-active: #161616;
+  --token-button-foreground-color-secondary-muted-default: #161616;
+  --token-button-foreground-color-secondary-muted-focus: #161616;
+  --token-button-foreground-color-secondary-muted-hover: #161616;
   --token-button-foreground-color-tertiary-active: #ffffff;
   --token-button-foreground-color-tertiary-default: #0f62fe;
   --token-button-foreground-color-tertiary-focus: #ffffff;
@@ -248,6 +255,10 @@
   --token-button-surface-color-secondary-default: #393939;
   --token-button-surface-color-secondary-focus: #393939;
   --token-button-surface-color-secondary-hover: #474747;
+  --token-button-surface-color-secondary-muted-active: #a8a8a8;
+  --token-button-surface-color-secondary-muted-default: #e0e0e0;
+  --token-button-surface-color-secondary-muted-focus: #e0e0e0;
+  --token-button-surface-color-secondary-muted-hover: #d1d1d1;
   --token-button-surface-color-tertiary-active: #002d9c;
   --token-button-surface-color-tertiary-focus: #0050e6;
   --token-button-surface-color-tertiary-hover: #0050e6;
@@ -806,6 +817,9 @@
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
+    --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-tertiary-default: #0f62fe;
     --token-button-border-color-tertiary-disabled: #c6c6c6;
@@ -823,6 +837,10 @@
     --token-button-foreground-color-secondary-default: #ffffff;
     --token-button-foreground-color-secondary-focus: #ffffff;
     --token-button-foreground-color-secondary-hover: #ffffff;
+    --token-button-foreground-color-secondary-muted-active: #161616;
+    --token-button-foreground-color-secondary-muted-default: #161616;
+    --token-button-foreground-color-secondary-muted-focus: #161616;
+    --token-button-foreground-color-secondary-muted-hover: #161616;
     --token-button-foreground-color-tertiary-active: #ffffff;
     --token-button-foreground-color-tertiary-default: #0f62fe;
     --token-button-foreground-color-tertiary-focus: #ffffff;
@@ -853,6 +871,10 @@
     --token-button-surface-color-secondary-default: #393939;
     --token-button-surface-color-secondary-focus: #393939;
     --token-button-surface-color-secondary-hover: #474747;
+    --token-button-surface-color-secondary-muted-active: #a8a8a8;
+    --token-button-surface-color-secondary-muted-default: #e0e0e0;
+    --token-button-surface-color-secondary-muted-focus: #e0e0e0;
+    --token-button-surface-color-secondary-muted-hover: #d1d1d1;
     --token-button-surface-color-tertiary-active: #002d9c;
     --token-button-surface-color-tertiary-focus: #0050e6;
     --token-button-surface-color-tertiary-hover: #0050e6;
@@ -1416,6 +1438,9 @@
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+    --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
+    --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
+    --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-tertiary-default: #ffffff;
     --token-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3);
@@ -1433,6 +1458,10 @@
     --token-button-foreground-color-secondary-default: #ffffff;
     --token-button-foreground-color-secondary-focus: #ffffff;
     --token-button-foreground-color-secondary-hover: #ffffff;
+    --token-button-foreground-color-secondary-muted-active: #f4f4f4;
+    --token-button-foreground-color-secondary-muted-default: #f4f4f4;
+    --token-button-foreground-color-secondary-muted-focus: #f4f4f4;
+    --token-button-foreground-color-secondary-muted-hover: #f4f4f4;
     --token-button-foreground-color-tertiary-active: #161616;
     --token-button-foreground-color-tertiary-default: #ffffff;
     --token-button-foreground-color-tertiary-focus: #161616;
@@ -1463,6 +1492,10 @@
     --token-button-surface-color-secondary-default: #6f6f6f;
     --token-button-surface-color-secondary-focus: #6f6f6f;
     --token-button-surface-color-secondary-hover: #5e5e5e;
+    --token-button-surface-color-secondary-muted-active: #6f6f6f;
+    --token-button-surface-color-secondary-muted-default: #393939;
+    --token-button-surface-color-secondary-muted-focus: #393939;
+    --token-button-surface-color-secondary-muted-hover: #474747;
     --token-button-surface-color-tertiary-active: #c6c6c6;
     --token-button-surface-color-tertiary-focus: #f4f4f4;
     --token-button-surface-color-tertiary-hover: #f4f4f4;
@@ -2024,6 +2057,9 @@
   --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-default: #0f62fe;
   --token-button-border-color-tertiary-disabled: #c6c6c6;
@@ -2041,6 +2077,10 @@
   --token-button-foreground-color-secondary-default: #ffffff;
   --token-button-foreground-color-secondary-focus: #ffffff;
   --token-button-foreground-color-secondary-hover: #ffffff;
+  --token-button-foreground-color-secondary-muted-active: #161616;
+  --token-button-foreground-color-secondary-muted-default: #161616;
+  --token-button-foreground-color-secondary-muted-focus: #161616;
+  --token-button-foreground-color-secondary-muted-hover: #161616;
   --token-button-foreground-color-tertiary-active: #ffffff;
   --token-button-foreground-color-tertiary-default: #0f62fe;
   --token-button-foreground-color-tertiary-focus: #ffffff;
@@ -2071,6 +2111,10 @@
   --token-button-surface-color-secondary-default: #393939;
   --token-button-surface-color-secondary-focus: #393939;
   --token-button-surface-color-secondary-hover: #474747;
+  --token-button-surface-color-secondary-muted-active: #a8a8a8;
+  --token-button-surface-color-secondary-muted-default: #e0e0e0;
+  --token-button-surface-color-secondary-muted-focus: #e0e0e0;
+  --token-button-surface-color-secondary-muted-hover: #d1d1d1;
   --token-button-surface-color-tertiary-active: #002d9c;
   --token-button-surface-color-tertiary-focus: #0050e6;
   --token-button-surface-color-tertiary-hover: #0050e6;
@@ -2627,6 +2671,9 @@
   --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-default: #ffffff;
   --token-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3);
@@ -2644,6 +2691,10 @@
   --token-button-foreground-color-secondary-default: #ffffff;
   --token-button-foreground-color-secondary-focus: #ffffff;
   --token-button-foreground-color-secondary-hover: #ffffff;
+  --token-button-foreground-color-secondary-muted-active: #f4f4f4;
+  --token-button-foreground-color-secondary-muted-default: #f4f4f4;
+  --token-button-foreground-color-secondary-muted-focus: #f4f4f4;
+  --token-button-foreground-color-secondary-muted-hover: #f4f4f4;
   --token-button-foreground-color-tertiary-active: #161616;
   --token-button-foreground-color-tertiary-default: #ffffff;
   --token-button-foreground-color-tertiary-focus: #161616;
@@ -2674,6 +2725,10 @@
   --token-button-surface-color-secondary-default: #6f6f6f;
   --token-button-surface-color-secondary-focus: #6f6f6f;
   --token-button-surface-color-secondary-hover: #5e5e5e;
+  --token-button-surface-color-secondary-muted-active: #6f6f6f;
+  --token-button-surface-color-secondary-muted-default: #393939;
+  --token-button-surface-color-secondary-muted-focus: #393939;
+  --token-button-surface-color-secondary-muted-hover: #474747;
   --token-button-surface-color-tertiary-active: #c6c6c6;
   --token-button-surface-color-tertiary-focus: #f4f4f4;
   --token-button-surface-color-tertiary-hover: #f4f4f4;
@@ -3118,6 +3173,36 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --token-color-foreground-primary
   );
   --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-critical-focus-external: var(
+    --token-color-focus-critical-external
+  );
+  --token-button-border-color-critical-focus-internal: var(
+    --token-color-focus-critical-internal
+  );
+  --token-button-border-color-primary-focus-external: var(
+    --token-color-focus-action-external
+  );
+  --token-button-border-color-primary-focus-internal: var(
+    --token-color-focus-action-internal
+  );
+  --token-button-border-color-secondary-focus-external: var(
+    --token-color-focus-action-external
+  );
+  --token-button-border-color-secondary-focus-internal: var(
+    --token-color-focus-action-internal
+  );
+  --token-button-border-color-secondary-muted-focus-external: var(
+    --token-color-focus-action-external
+  );
+  --token-button-border-color-secondary-muted-focus-internal: var(
+    --token-color-focus-action-internal
+  );
+  --token-button-border-color-tertiary-focus-external: var(
+    --token-color-focus-action-external
+  );
+  --token-button-border-color-tertiary-focus-internal: var(
+    --token-color-focus-action-internal
+  );
   --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
   --token-button-foreground-color-tertiary-disabled: var(
