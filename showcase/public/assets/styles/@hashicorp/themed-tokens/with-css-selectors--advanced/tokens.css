@@ -4,6 +4,39 @@
 
 :root,
 .hds-theme-default {
+  --token-accordion-card-gap-large: 12px;
+  --token-accordion-card-gap-medium: 8px;
+  --token-accordion-card-gap-small: 4px;
+  --token-accordion-item-border-color: var(--token-color-border-primary);
+  --token-accordion-item-card-surface-color-default: var(
+    --token-color-surface-primary
+  );
+  --token-accordion-item-card-surface-color-hover: var(
+    --token-color-surface-primary
+  );
+  --token-accordion-item-flush-surface-color-hover: var(
+    --token-color-surface-interactive-hover
+  );
+  --token-accordion-item-toggle-gap-large: 12px;
+  --token-accordion-item-toggle-gap-medium: 12px;
+  --token-accordion-item-toggle-gap-small: 8px;
+  --token-accordion-item-toggle-icon-size-large: 24px;
+  --token-accordion-item-toggle-icon-size-medium: 20px;
+  --token-accordion-item-toggle-icon-size-small: 16px;
+  --token-accordion-item-toggle-padding-bottom-large: 16px;
+  --token-accordion-item-toggle-padding-bottom-medium: 12px;
+  --token-accordion-item-toggle-padding-bottom-small: 8px;
+  --token-accordion-item-toggle-padding-left-large: 12px;
+  --token-accordion-item-toggle-padding-left-medium: 8px;
+  --token-accordion-item-toggle-padding-left-small: 8px;
+  --token-accordion-item-toggle-padding-right-medium: 12px;
+  --token-accordion-item-toggle-padding-right-small: 8px;
+  --token-accordion-item-toggle-padding-top-large: 16px;
+  --token-accordion-item-toggle-padding-top-medium: 12px;
+  --token-accordion-item-toggle-padding-top-small: 8px;
+  --token-accordion-item-toggle-typography-font-weight: var(
+    --token-typography-font-weight-semibold
+  );
   --token-alert-actions-margin-top: 16px;
   --token-alert-border-color-critical: var(--token-color-border-critical);
   --token-alert-border-color-highlight: var(--token-color-border-highlight);
@@ -959,6 +992,31 @@
 
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
+    --token-accordion-card-gap-large: 0px;
+    --token-accordion-card-gap-medium: 0px;
+    --token-accordion-card-gap-small: 0px;
+    --token-accordion-item-border-color: #e0e0e0;
+    --token-accordion-item-card-surface-color-default: rgba(0, 0, 0, 0);
+    --token-accordion-item-card-surface-color-hover: #e8e8e8;
+    --token-accordion-item-flush-surface-color-hover: #e8e8e8;
+    --token-accordion-item-toggle-gap-large: 16px;
+    --token-accordion-item-toggle-gap-medium: 16px;
+    --token-accordion-item-toggle-gap-small: 16px;
+    --token-accordion-item-toggle-icon-size-large: 16px;
+    --token-accordion-item-toggle-icon-size-medium: 16px;
+    --token-accordion-item-toggle-icon-size-small: 16px;
+    --token-accordion-item-toggle-padding-bottom-large: 14px;
+    --token-accordion-item-toggle-padding-bottom-medium: 10px;
+    --token-accordion-item-toggle-padding-bottom-small: 6px;
+    --token-accordion-item-toggle-padding-left-large: 16px;
+    --token-accordion-item-toggle-padding-left-medium: 16px;
+    --token-accordion-item-toggle-padding-left-small: 16px;
+    --token-accordion-item-toggle-padding-right-medium: 16px;
+    --token-accordion-item-toggle-padding-right-small: 16px;
+    --token-accordion-item-toggle-padding-top-large: 14px;
+    --token-accordion-item-toggle-padding-top-medium: 10px;
+    --token-accordion-item-toggle-padding-top-small: 6px;
+    --token-accordion-item-toggle-typography-font-weight: 400;
     --token-alert-actions-margin-top: 15px;
     --token-alert-border-color-critical: #da1e2866;
     --token-alert-border-color-highlight: #0043ce66;
@@ -1528,6 +1586,31 @@
 
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
+    --token-accordion-card-gap-large: 0px;
+    --token-accordion-card-gap-medium: 0px;
+    --token-accordion-card-gap-small: 0px;
+    --token-accordion-item-border-color: #393939;
+    --token-accordion-item-card-surface-color-default: rgba(0, 0, 0, 0);
+    --token-accordion-item-card-surface-color-hover: #333333;
+    --token-accordion-item-flush-surface-color-hover: #333333;
+    --token-accordion-item-toggle-gap-large: 16px;
+    --token-accordion-item-toggle-gap-medium: 16px;
+    --token-accordion-item-toggle-gap-small: 16px;
+    --token-accordion-item-toggle-icon-size-large: 16px;
+    --token-accordion-item-toggle-icon-size-medium: 16px;
+    --token-accordion-item-toggle-icon-size-small: 16px;
+    --token-accordion-item-toggle-padding-bottom-large: 14px;
+    --token-accordion-item-toggle-padding-bottom-medium: 10px;
+    --token-accordion-item-toggle-padding-bottom-small: 6px;
+    --token-accordion-item-toggle-padding-left-large: 16px;
+    --token-accordion-item-toggle-padding-left-medium: 16px;
+    --token-accordion-item-toggle-padding-left-small: 16px;
+    --token-accordion-item-toggle-padding-right-medium: 16px;
+    --token-accordion-item-toggle-padding-right-small: 16px;
+    --token-accordion-item-toggle-padding-top-large: 14px;
+    --token-accordion-item-toggle-padding-top-medium: 10px;
+    --token-accordion-item-toggle-padding-top-small: 6px;
+    --token-accordion-item-toggle-typography-font-weight: 400;
     --token-alert-actions-margin-top: 15px;
     --token-alert-border-color-critical: #da1e2866;
     --token-alert-border-color-highlight: #0043ce66;
@@ -2097,6 +2180,31 @@
 
 .hds-theme-light,
 .hds-mode-cds-g0 {
+  --token-accordion-card-gap-large: 0px;
+  --token-accordion-card-gap-medium: 0px;
+  --token-accordion-card-gap-small: 0px;
+  --token-accordion-item-border-color: #e0e0e0;
+  --token-accordion-item-card-surface-color-default: rgba(0, 0, 0, 0);
+  --token-accordion-item-card-surface-color-hover: #e8e8e8;
+  --token-accordion-item-flush-surface-color-hover: #e8e8e8;
+  --token-accordion-item-toggle-gap-large: 16px;
+  --token-accordion-item-toggle-gap-medium: 16px;
+  --token-accordion-item-toggle-gap-small: 16px;
+  --token-accordion-item-toggle-icon-size-large: 16px;
+  --token-accordion-item-toggle-icon-size-medium: 16px;
+  --token-accordion-item-toggle-icon-size-small: 16px;
+  --token-accordion-item-toggle-padding-bottom-large: 14px;
+  --token-accordion-item-toggle-padding-bottom-medium: 10px;
+  --token-accordion-item-toggle-padding-bottom-small: 6px;
+  --token-accordion-item-toggle-padding-left-large: 16px;
+  --token-accordion-item-toggle-padding-left-medium: 16px;
+  --token-accordion-item-toggle-padding-left-small: 16px;
+  --token-accordion-item-toggle-padding-right-medium: 16px;
+  --token-accordion-item-toggle-padding-right-small: 16px;
+  --token-accordion-item-toggle-padding-top-large: 14px;
+  --token-accordion-item-toggle-padding-top-medium: 10px;
+  --token-accordion-item-toggle-padding-top-small: 6px;
+  --token-accordion-item-toggle-typography-font-weight: 400;
   --token-alert-actions-margin-top: 15px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;
@@ -2660,6 +2768,31 @@
 
 .hds-theme-dark,
 .hds-mode-cds-g100 {
+  --token-accordion-card-gap-large: 0px;
+  --token-accordion-card-gap-medium: 0px;
+  --token-accordion-card-gap-small: 0px;
+  --token-accordion-item-border-color: #393939;
+  --token-accordion-item-card-surface-color-default: rgba(0, 0, 0, 0);
+  --token-accordion-item-card-surface-color-hover: #333333;
+  --token-accordion-item-flush-surface-color-hover: #333333;
+  --token-accordion-item-toggle-gap-large: 16px;
+  --token-accordion-item-toggle-gap-medium: 16px;
+  --token-accordion-item-toggle-gap-small: 16px;
+  --token-accordion-item-toggle-icon-size-large: 16px;
+  --token-accordion-item-toggle-icon-size-medium: 16px;
+  --token-accordion-item-toggle-icon-size-small: 16px;
+  --token-accordion-item-toggle-padding-bottom-large: 14px;
+  --token-accordion-item-toggle-padding-bottom-medium: 10px;
+  --token-accordion-item-toggle-padding-bottom-small: 6px;
+  --token-accordion-item-toggle-padding-left-large: 16px;
+  --token-accordion-item-toggle-padding-left-medium: 16px;
+  --token-accordion-item-toggle-padding-left-small: 16px;
+  --token-accordion-item-toggle-padding-right-medium: 16px;
+  --token-accordion-item-toggle-padding-right-small: 16px;
+  --token-accordion-item-toggle-padding-top-large: 14px;
+  --token-accordion-item-toggle-padding-top-medium: 10px;
+  --token-accordion-item-toggle-padding-top-small: 6px;
+  --token-accordion-item-toggle-typography-font-weight: 400;
   --token-alert-actions-margin-top: 15px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;
@@ -3222,6 +3355,31 @@
 }
 
 .hds-mode-cds-g10 {
+  --token-accordion-card-gap-large: 0px;
+  --token-accordion-card-gap-medium: 0px;
+  --token-accordion-card-gap-small: 0px;
+  --token-accordion-item-border-color: #c6c6c6;
+  --token-accordion-item-card-surface-color-default: rgba(0, 0, 0, 0);
+  --token-accordion-item-card-surface-color-hover: #e8e8e8;
+  --token-accordion-item-flush-surface-color-hover: #e8e8e8;
+  --token-accordion-item-toggle-gap-large: 16px;
+  --token-accordion-item-toggle-gap-medium: 16px;
+  --token-accordion-item-toggle-gap-small: 16px;
+  --token-accordion-item-toggle-icon-size-large: 16px;
+  --token-accordion-item-toggle-icon-size-medium: 16px;
+  --token-accordion-item-toggle-icon-size-small: 16px;
+  --token-accordion-item-toggle-padding-bottom-large: 14px;
+  --token-accordion-item-toggle-padding-bottom-medium: 10px;
+  --token-accordion-item-toggle-padding-bottom-small: 6px;
+  --token-accordion-item-toggle-padding-left-large: 16px;
+  --token-accordion-item-toggle-padding-left-medium: 16px;
+  --token-accordion-item-toggle-padding-left-small: 16px;
+  --token-accordion-item-toggle-padding-right-medium: 16px;
+  --token-accordion-item-toggle-padding-right-small: 16px;
+  --token-accordion-item-toggle-padding-top-large: 14px;
+  --token-accordion-item-toggle-padding-top-medium: 10px;
+  --token-accordion-item-toggle-padding-top-small: 6px;
+  --token-accordion-item-toggle-typography-font-weight: 400;
   --token-alert-actions-margin-top: 15px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;
@@ -3784,6 +3942,31 @@
 }
 
 .hds-mode-cds-g90 {
+  --token-accordion-card-gap-large: 0px;
+  --token-accordion-card-gap-medium: 0px;
+  --token-accordion-card-gap-small: 0px;
+  --token-accordion-item-border-color: #525252;
+  --token-accordion-item-card-surface-color-default: rgba(0, 0, 0, 0);
+  --token-accordion-item-card-surface-color-hover: #474747;
+  --token-accordion-item-flush-surface-color-hover: #474747;
+  --token-accordion-item-toggle-gap-large: 16px;
+  --token-accordion-item-toggle-gap-medium: 16px;
+  --token-accordion-item-toggle-gap-small: 16px;
+  --token-accordion-item-toggle-icon-size-large: 16px;
+  --token-accordion-item-toggle-icon-size-medium: 16px;
+  --token-accordion-item-toggle-icon-size-small: 16px;
+  --token-accordion-item-toggle-padding-bottom-large: 14px;
+  --token-accordion-item-toggle-padding-bottom-medium: 10px;
+  --token-accordion-item-toggle-padding-bottom-small: 6px;
+  --token-accordion-item-toggle-padding-left-large: 16px;
+  --token-accordion-item-toggle-padding-left-medium: 16px;
+  --token-accordion-item-toggle-padding-left-small: 16px;
+  --token-accordion-item-toggle-padding-right-medium: 16px;
+  --token-accordion-item-toggle-padding-right-small: 16px;
+  --token-accordion-item-toggle-padding-top-large: 14px;
+  --token-accordion-item-toggle-padding-top-medium: 10px;
+  --token-accordion-item-toggle-padding-top-small: 6px;
+  --token-accordion-item-toggle-typography-font-weight: 400;
   --token-alert-actions-margin-top: 15px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;
@@ -4373,6 +4556,20 @@ we redeclare each "computed" variable in every theme scope where its "source" va
 .hds-mode-cds-g10,
 .hds-mode-cds-g90,
 .hds-mode-cds-g100 {
+  --token-accordion-item-content-padding-bottom-large: 16px;
+  --token-accordion-item-content-padding-bottom-medium: 12px;
+  --token-accordion-item-content-padding-bottom-small: 8px;
+  --token-accordion-item-content-padding-left-large: 16px;
+  --token-accordion-item-content-padding-left-medium: 12px;
+  --token-accordion-item-content-padding-left-small: 12px;
+  --token-accordion-item-content-padding-right-large: 16px;
+  --token-accordion-item-content-padding-right-medium: 12px;
+  --token-accordion-item-content-padding-right-small: 8px;
+  --token-accordion-item-content-padding-top-large: 4px;
+  --token-accordion-item-content-padding-top-medium: 4px;
+  --token-accordion-item-content-padding-top-small: 4px;
+  --token-accordion-item-flush-surface-color-default: rgba(0, 0, 0, 0);
+  --token-accordion-item-toggle-padding-right-large: 16px;
   --token-alert-page-padding-horizontal: 48px;
   --token-alert-surface-color-neutral: var(--token-color-surface-faint);
   --token-alert-title-foreground-color-neutral: var(
