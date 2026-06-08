@@ -6348,23 +6348,9 @@
     "key": "{alert.surface.color.neutral}",
     "$type": "color",
     "$value": "#393939",
-    "$modes": {
-      "default": "#393939",
-      "cds-g0": "#f4f4f4",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.layer01}",
-      "$modes": {
-        "default": "{color.surface.faint}",
-        "cds-g0": "{carbon.themes.white.layer01}",
-        "cds-g10": "{carbon.themes.g10.layer01}",
-        "cds-g90": "{carbon.themes.g90.layer01}",
-        "cds-g100": "{carbon.themes.g100.layer01}"
-      },
+      "$value": "{color.surface.faint}",
       "key": "{alert.surface.color.neutral}"
     },
     "name": "token-alert-surface-color-neutral",
@@ -6551,23 +6537,9 @@
     "key": "{alert.title.foreground.color.neutral}",
     "$type": "color",
     "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textPrimary}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
+      "$value": "{color.foreground.primary}",
       "key": "{alert.title.foreground.color.neutral}"
     },
     "name": "token-alert-title-foreground-color-neutral",
@@ -7837,23 +7809,9 @@
     "key": "{app-header.button.foreground.color.disabled}",
     "$type": "color",
     "$value": "rgba(244, 244, 244, 0.25)",
-    "$modes": {
-      "default": "rgba(244, 244, 244, 0.25)",
-      "cds-g0": "rgba(22, 22, 22, 0.25)",
-      "cds-g10": "rgba(22, 22, 22, 0.25)",
-      "cds-g90": "rgba(244, 244, 244, 0.25)",
-      "cds-g100": "rgba(244, 244, 244, 0.25)"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textDisabled}",
-      "$modes": {
-        "default": "{color.foreground.disabled}",
-        "cds-g0": "{carbon.themes.white.textDisabled}",
-        "cds-g10": "{carbon.themes.g10.textDisabled}",
-        "cds-g90": "{carbon.themes.g90.textDisabled}",
-        "cds-g100": "{carbon.themes.g100.textDisabled}"
-      },
+      "$value": "{color.foreground.disabled}",
       "key": "{app-header.button.foreground.color.disabled}"
     },
     "name": "token-app-header-button-foreground-color-disabled",
@@ -8426,25 +8384,9 @@
     "key": "{app-side-nav.toggle-button.border.radius}",
     "$type": "dimension",
     "$value": "0px",
-    "unit": "px",
-    "$modes": {
-      "default": "5",
-      "cds-g0": "0",
-      "cds-g10": "0",
-      "cds-g90": "0",
-      "cds-g100": "0"
-    },
     "original": {
       "$type": "dimension",
-      "$value": "0",
-      "unit": "px",
-      "$modes": {
-        "default": "5",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
+      "$value": "{border.radius.small}",
       "key": "{app-side-nav.toggle-button.border.radius}"
     },
     "name": "token-app-side-nav-toggle-button-border-radius",
@@ -8995,29 +8937,13 @@
     ]
   },
   {
-    "key": "{app-side-nav.body.list-item.border-radius}",
+    "key": "{app-side-nav.body.list-item.border.radius}",
     "$type": "dimension",
     "$value": "0px",
-    "unit": "px",
-    "$modes": {
-      "default": "5",
-      "cds-g0": "0",
-      "cds-g10": "0",
-      "cds-g90": "0",
-      "cds-g100": "0"
-    },
     "original": {
       "$type": "dimension",
-      "$value": "0",
-      "unit": "px",
-      "$modes": {
-        "default": "5",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
-      "key": "{app-side-nav.body.list-item.border-radius}"
+      "$value": "{border.radius.small}",
+      "key": "{app-side-nav.body.list-item.border.radius}"
     },
     "name": "token-app-side-nav-body-list-item-border-radius",
     "attributes": {
@@ -9027,7 +8953,8 @@
       "app-side-nav",
       "body",
       "list-item",
-      "border-radius"
+      "border",
+      "radius"
     ]
   },
   {
@@ -9843,23 +9770,9 @@
     "key": "{badge.foreground.color.neutral-dark-mode.filled}",
     "$type": "color",
     "$value": "#161616",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#ffffff",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#161616",
-      "cds-g100": "#161616"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textInverse}",
-      "$modes": {
-        "default": "{color.foreground.high-contrast}",
-        "cds-g0": "{carbon.themes.white.textInverse}",
-        "cds-g10": "{carbon.themes.g10.textInverse}",
-        "cds-g90": "{carbon.themes.g90.textInverse}",
-        "cds-g100": "{carbon.themes.g100.textInverse}"
-      },
+      "$value": "{color.foreground.high-contrast}",
       "key": "{badge.foreground.color.neutral-dark-mode.filled}"
     },
     "name": "token-badge-foreground-color-neutral-dark-mode-filled",
@@ -9913,26 +9826,12 @@
     "key": "{badge.foreground.color.neutral-dark-mode.outlined}",
     "$type": "color",
     "$value": "#161616",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#ffffff",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#161616",
-      "cds-g100": "#161616"
-    },
     "comments": {
       "cds": "In Figma the `cds` value uses a token `Tag/HighContrast/TagColor` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textInverse}",
-      "$modes": {
-        "default": "{color.foreground.high-contrast}",
-        "cds-g0": "{carbon.themes.white.textInverse}",
-        "cds-g10": "{carbon.themes.g10.textInverse}",
-        "cds-g90": "{carbon.themes.g90.textInverse}",
-        "cds-g100": "{carbon.themes.g100.textInverse}"
-      },
+      "$value": "{color.foreground.high-contrast}",
       "comments": {
         "cds": "In Figma the `cds` value uses a token `Tag/HighContrast/TagColor` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
       },
@@ -9991,23 +9890,9 @@
     "key": "{badge.foreground.color.highlight.inverted}",
     "$type": "color",
     "$value": "#161616",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#ffffff",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#161616",
-      "cds-g100": "#161616"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textInverse}",
-      "$modes": {
-        "default": "{color.foreground.high-contrast}",
-        "cds-g0": "{carbon.themes.white.textInverse}",
-        "cds-g10": "{carbon.themes.g10.textInverse}",
-        "cds-g90": "{carbon.themes.g90.textInverse}",
-        "cds-g100": "{carbon.themes.g100.textInverse}"
-      },
+      "$value": "{color.foreground.high-contrast}",
       "key": "{badge.foreground.color.highlight.inverted}"
     },
     "name": "token-badge-foreground-color-highlight-inverted",
@@ -10098,23 +9983,9 @@
     "key": "{badge.foreground.color.success.inverted}",
     "$type": "color",
     "$value": "#161616",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#ffffff",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#161616",
-      "cds-g100": "#161616"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textInverse}",
-      "$modes": {
-        "default": "{color.foreground.high-contrast}",
-        "cds-g0": "{carbon.themes.white.textInverse}",
-        "cds-g10": "{carbon.themes.g10.textInverse}",
-        "cds-g90": "{carbon.themes.g90.textInverse}",
-        "cds-g100": "{carbon.themes.g100.textInverse}"
-      },
+      "$value": "{color.foreground.high-contrast}",
       "key": "{badge.foreground.color.success.inverted}"
     },
     "name": "token-badge-foreground-color-success-inverted",
@@ -10211,23 +10082,9 @@
     "key": "{badge.foreground.color.warning.inverted}",
     "$type": "color",
     "$value": "#161616",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#ffffff",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#161616",
-      "cds-g100": "#161616"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textInverse}",
-      "$modes": {
-        "default": "{color.foreground.high-contrast}",
-        "cds-g0": "{carbon.themes.white.textInverse}",
-        "cds-g10": "{carbon.themes.g10.textInverse}",
-        "cds-g90": "{carbon.themes.g90.textInverse}",
-        "cds-g100": "{carbon.themes.g100.textInverse}"
-      },
+      "$value": "{color.foreground.high-contrast}",
       "key": "{badge.foreground.color.warning.inverted}"
     },
     "name": "token-badge-foreground-color-warning-inverted",
@@ -10324,23 +10181,9 @@
     "key": "{badge.foreground.color.critical.inverted}",
     "$type": "color",
     "$value": "#161616",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#ffffff",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#161616",
-      "cds-g100": "#161616"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textInverse}",
-      "$modes": {
-        "default": "{color.foreground.high-contrast}",
-        "cds-g0": "{carbon.themes.white.textInverse}",
-        "cds-g10": "{carbon.themes.g10.textInverse}",
-        "cds-g90": "{carbon.themes.g90.textInverse}",
-        "cds-g100": "{carbon.themes.g100.textInverse}"
-      },
+      "$value": "{color.foreground.high-contrast}",
       "key": "{badge.foreground.color.critical.inverted}"
     },
     "name": "token-badge-foreground-color-critical-inverted",
@@ -11152,23 +10995,9 @@
     "key": "{breadcrumb.link.foreground.color.active}",
     "$type": "color",
     "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textPrimary}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
+      "$value": "{color.foreground.primary}",
       "key": "{breadcrumb.link.foreground.color.active}"
     },
     "name": "token-breadcrumb-link-foreground-color-active",
@@ -12514,26 +12343,12 @@
     "key": "{button.foreground.color.tertiary.disabled}",
     "$type": "color",
     "$value": "rgba(244, 244, 244, 0.25)",
-    "$modes": {
-      "default": "rgba(244, 244, 244, 0.25)",
-      "cds-g0": "rgba(22, 22, 22, 0.25)",
-      "cds-g10": "rgba(22, 22, 22, 0.25)",
-      "cds-g90": "rgba(244, 244, 244, 0.25)",
-      "cds-g100": "rgba(244, 244, 244, 0.25)"
-    },
     "comments": {
       "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.textDisabled}",
-      "$modes": {
-        "default": "{color.foreground.disabled}",
-        "cds-g0": "{carbon.themes.white.textDisabled}",
-        "cds-g10": "{carbon.themes.g10.textDisabled}",
-        "cds-g90": "{carbon.themes.g90.textDisabled}",
-        "cds-g100": "{carbon.themes.g100.textDisabled}"
-      },
+      "$value": "{color.foreground.disabled}",
       "comments": {
         "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
@@ -19783,23 +19598,9 @@
     "key": "{pagination.bar.surface.color}",
     "$type": "color",
     "$value": "#393939",
-    "$modes": {
-      "default": "#393939",
-      "cds-g0": "#f4f4f4",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
-    },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.g90.layer01}",
-      "$modes": {
-        "default": "{color.surface.primary}",
-        "cds-g0": "{carbon.themes.white.layer01}",
-        "cds-g10": "{carbon.themes.g10.layer01}",
-        "cds-g90": "{carbon.themes.g90.layer01}",
-        "cds-g100": "{carbon.themes.g100.layer01}"
-      },
+      "$value": "{color.surface.primary}",
       "key": "{pagination.bar.surface.color}"
     },
     "name": "token-pagination-bar-surface-color",
@@ -20671,22 +20472,8 @@
   {
     "key": "{rich-tooltip.toggle.foreground.color.hover}",
     "$value": "#f4f4f4",
-    "$modes": {
-      "default": "#f4f4f4",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
     "original": {
-      "$value": "{carbon.themes.g90.textPrimary}",
-      "$modes": {
-        "default": "{color.foreground.primary}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
-      },
+      "$value": "{color.foreground.primary}",
       "key": "{rich-tooltip.toggle.foreground.color.hover}"
     },
     "name": "token-rich-tooltip-toggle-foreground-color-hover",
@@ -20704,22 +20491,8 @@
   {
     "key": "{rich-tooltip.toggle.foreground.color.active}",
     "$value": "#c6c6c6",
-    "$modes": {
-      "default": "#c6c6c6",
-      "cds-g0": "#525252",
-      "cds-g10": "#525252",
-      "cds-g90": "#c6c6c6",
-      "cds-g100": "#c6c6c6"
-    },
     "original": {
-      "$value": "{carbon.themes.g90.textSecondary}",
-      "$modes": {
-        "default": "{color.foreground.faint}",
-        "cds-g0": "{carbon.themes.white.textSecondary}",
-        "cds-g10": "{carbon.themes.g10.textSecondary}",
-        "cds-g90": "{carbon.themes.g90.textSecondary}",
-        "cds-g100": "{carbon.themes.g100.textSecondary}"
-      },
+      "$value": "{color.foreground.faint}",
       "key": "{rich-tooltip.toggle.foreground.color.active}"
     },
     "name": "token-rich-tooltip-toggle-foreground-color-active",
@@ -23012,23 +22785,9 @@
     "key": "{typography.display-500.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-    "$modes": {
-      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.sans}",
-      "$modes": {
-        "default": "{typography.font-stack.display}",
-        "cds-g0": "{carbon.typography.font-family.sans}",
-        "cds-g10": "{carbon.typography.font-family.sans}",
-        "cds-g90": "{carbon.typography.font-family.sans}",
-        "cds-g100": "{carbon.typography.font-family.sans}"
-      },
+      "$value": "{typography.font-stack.display}",
       "key": "{typography.display-500.font-family}"
     },
     "name": "token-typography-display-500-font-family",
@@ -23152,23 +22911,9 @@
     "key": "{typography.display-400.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-    "$modes": {
-      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.sans}",
-      "$modes": {
-        "default": "{typography.font-stack.display}",
-        "cds-g0": "{carbon.typography.font-family.sans}",
-        "cds-g10": "{carbon.typography.font-family.sans}",
-        "cds-g90": "{carbon.typography.font-family.sans}",
-        "cds-g100": "{carbon.typography.font-family.sans}"
-      },
+      "$value": "{typography.font-stack.display}",
       "key": "{typography.display-400.font-family}"
     },
     "name": "token-typography-display-400-font-family",
@@ -23292,23 +23037,9 @@
     "key": "{typography.display-300.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-    "$modes": {
-      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.sans}",
-      "$modes": {
-        "default": "{typography.font-stack.text}",
-        "cds-g0": "{carbon.typography.font-family.sans}",
-        "cds-g10": "{carbon.typography.font-family.sans}",
-        "cds-g90": "{carbon.typography.font-family.sans}",
-        "cds-g100": "{carbon.typography.font-family.sans}"
-      },
+      "$value": "{typography.font-stack.text}",
       "key": "{typography.display-300.font-family}"
     },
     "name": "token-typography-display-300-font-family",
@@ -23432,23 +23163,9 @@
     "key": "{typography.display-200.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-    "$modes": {
-      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.sans}",
-      "$modes": {
-        "default": "{typography.font-stack.display}",
-        "cds-g0": "{carbon.typography.font-family.sans}",
-        "cds-g10": "{carbon.typography.font-family.sans}",
-        "cds-g90": "{carbon.typography.font-family.sans}",
-        "cds-g100": "{carbon.typography.font-family.sans}"
-      },
+      "$value": "{typography.font-stack.display}",
       "key": "{typography.display-200.font-family}"
     },
     "name": "token-typography-display-200-font-family",
@@ -23572,23 +23289,9 @@
     "key": "{typography.display-100.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-    "$modes": {
-      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.sans}",
-      "$modes": {
-        "default": "{typography.font-stack.display}",
-        "cds-g0": "{carbon.typography.font-family.sans}",
-        "cds-g10": "{carbon.typography.font-family.sans}",
-        "cds-g90": "{carbon.typography.font-family.sans}",
-        "cds-g100": "{carbon.typography.font-family.sans}"
-      },
+      "$value": "{typography.font-stack.display}",
       "key": "{typography.display-100.font-family}"
     },
     "name": "token-typography-display-100-font-family",
@@ -23712,23 +23415,9 @@
     "key": "{typography.body-300.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-    "$modes": {
-      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.sans}",
-      "$modes": {
-        "default": "{typography.font-stack.text}",
-        "cds-g0": "{carbon.typography.font-family.sans}",
-        "cds-g10": "{carbon.typography.font-family.sans}",
-        "cds-g90": "{carbon.typography.font-family.sans}",
-        "cds-g100": "{carbon.typography.font-family.sans}"
-      },
+      "$value": "{typography.font-stack.text}",
       "key": "{typography.body-300.font-family}"
     },
     "name": "token-typography-body-300-font-family",
@@ -23817,23 +23506,9 @@
     "key": "{typography.body-200.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-    "$modes": {
-      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.sans}",
-      "$modes": {
-        "default": "{typography.font-stack.text}",
-        "cds-g0": "{carbon.typography.font-family.sans}",
-        "cds-g10": "{carbon.typography.font-family.sans}",
-        "cds-g90": "{carbon.typography.font-family.sans}",
-        "cds-g100": "{carbon.typography.font-family.sans}"
-      },
+      "$value": "{typography.font-stack.text}",
       "key": "{typography.body-200.font-family}"
     },
     "name": "token-typography-body-200-font-family",
@@ -23922,23 +23597,9 @@
     "key": "{typography.body-100.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-    "$modes": {
-      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
-      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.sans}",
-      "$modes": {
-        "default": "{typography.font-stack.text}",
-        "cds-g0": "{carbon.typography.font-family.sans}",
-        "cds-g10": "{carbon.typography.font-family.sans}",
-        "cds-g90": "{carbon.typography.font-family.sans}",
-        "cds-g100": "{carbon.typography.font-family.sans}"
-      },
+      "$value": "{typography.font-stack.text}",
       "key": "{typography.body-100.font-family}"
     },
     "name": "token-typography-body-100-font-family",
@@ -24013,23 +23674,9 @@
     "key": "{typography.code-300.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-    "$modes": {
-      "default": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g0": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g10": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g90": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g100": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.mono}",
-      "$modes": {
-        "default": "{typography.font-stack.code}",
-        "cds-g0": "{carbon.typography.font-family.mono}",
-        "cds-g10": "{carbon.typography.font-family.mono}",
-        "cds-g90": "{carbon.typography.font-family.mono}",
-        "cds-g100": "{carbon.typography.font-family.mono}"
-      },
+      "$value": "{typography.font-stack.code}",
       "key": "{typography.code-300.font-family}"
     },
     "name": "token-typography-code-300-font-family",
@@ -24118,23 +23765,9 @@
     "key": "{typography.code-200.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-    "$modes": {
-      "default": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g0": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g10": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g90": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g100": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.mono}",
-      "$modes": {
-        "default": "{typography.font-stack.code}",
-        "cds-g0": "{carbon.typography.font-family.mono}",
-        "cds-g10": "{carbon.typography.font-family.mono}",
-        "cds-g90": "{carbon.typography.font-family.mono}",
-        "cds-g100": "{carbon.typography.font-family.mono}"
-      },
+      "$value": "{typography.font-stack.code}",
       "key": "{typography.code-200.font-family}"
     },
     "name": "token-typography-code-200-font-family",
@@ -24223,23 +23856,9 @@
     "key": "{typography.code-100.font-family}",
     "$type": "font-family",
     "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-    "$modes": {
-      "default": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g0": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g10": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g90": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
-      "cds-g100": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace"
-    },
     "original": {
       "$type": "font-family",
-      "$value": "{carbon.typography.font-family.mono}",
-      "$modes": {
-        "default": "{typography.font-stack.code}",
-        "cds-g0": "{carbon.typography.font-family.mono}",
-        "cds-g10": "{carbon.typography.font-family.mono}",
-        "cds-g90": "{carbon.typography.font-family.mono}",
-        "cds-g100": "{carbon.typography.font-family.mono}"
-      },
+      "$value": "{typography.font-stack.code}",
       "key": "{typography.code-100.font-family}"
     },
     "name": "token-typography-code-100-font-family",

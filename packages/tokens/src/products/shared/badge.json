@@ -230,14 +230,7 @@
         "neutral-dark-mode": {
           "filled": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
-            "$modes": {
-              "default": "{color.foreground.high-contrast}",
-              "cds-g0": "{carbon.themes.white.textInverse}",
-              "cds-g10": "{carbon.themes.g10.textInverse}",
-              "cds-g90": "{carbon.themes.g90.textInverse}",
-              "cds-g100": "{carbon.themes.g100.textInverse}"
-            }
+            "$value": "{color.foreground.high-contrast}"
           },
           "inverted": {
             "$type": "color",
@@ -253,13 +246,6 @@
           "outlined": {
             "$type": "color",
             "$value": "{color.foreground.high-contrast}",
-            "$modes": {
-              "default": "{color.foreground.high-contrast}",
-              "cds-g0": "{carbon.themes.white.textInverse}",
-              "cds-g10": "{carbon.themes.g10.textInverse}",
-              "cds-g90": "{carbon.themes.g90.textInverse}",
-              "cds-g100": "{carbon.themes.g100.textInverse}"
-            },
             "comments": {
               "cds": "In Figma the `cds` value uses a token `Tag/HighContrast/TagColor` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
             }
@@ -280,14 +266,7 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
-            "$modes": {
-              "default": "{color.foreground.high-contrast}",
-              "cds-g0": "{carbon.themes.white.textInverse}",
-              "cds-g10": "{carbon.themes.g10.textInverse}",
-              "cds-g90": "{carbon.themes.g90.textInverse}",
-              "cds-g100": "{carbon.themes.g100.textInverse}"
-            }
+            "$value": "{color.foreground.high-contrast}"
           },
           "outlined": {
             "$type": "color",
@@ -316,14 +295,7 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
-            "$modes": {
-              "default": "{color.foreground.high-contrast}",
-              "cds-g0": "{carbon.themes.white.textInverse}",
-              "cds-g10": "{carbon.themes.g10.textInverse}",
-              "cds-g90": "{carbon.themes.g90.textInverse}",
-              "cds-g100": "{carbon.themes.g100.textInverse}"
-            }
+            "$value": "{color.foreground.high-contrast}"
           },
           "outlined": {
             "$type": "color",
@@ -355,14 +327,7 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
-            "$modes": {
-              "default": "{color.foreground.high-contrast}",
-              "cds-g0": "{carbon.themes.white.textInverse}",
-              "cds-g10": "{carbon.themes.g10.textInverse}",
-              "cds-g90": "{carbon.themes.g90.textInverse}",
-              "cds-g100": "{carbon.themes.g100.textInverse}"
-            }
+            "$value": "{color.foreground.high-contrast}"
           },
           "outlined": {
             "$type": "color",
@@ -394,14 +359,7 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
-            "$modes": {
-              "default": "{color.foreground.high-contrast}",
-              "cds-g0": "{carbon.themes.white.textInverse}",
-              "cds-g10": "{carbon.themes.g10.textInverse}",
-              "cds-g90": "{carbon.themes.g90.textInverse}",
-              "cds-g100": "{carbon.themes.g100.textInverse}"
-            }
+            "$value": "{color.foreground.high-contrast}"
           },
           "outlined": {
             "$type": "color",
