@@ -80,24 +80,10 @@
             }
           },
           "hover": {
-            "$value": "{color.foreground.primary}",
-            "$modes": {
-              "default": "{color.foreground.primary}",
-              "cds-g0": "{carbon.themes.white.textPrimary}",
-              "cds-g10": "{carbon.themes.g10.textPrimary}",
-              "cds-g90": "{carbon.themes.g90.textPrimary}",
-              "cds-g100": "{carbon.themes.g100.textPrimary}"
-            }
+            "$value": "{color.foreground.primary}"
           },
           "active": {
-            "$value": "{color.foreground.faint}",
-            "$modes": {
-              "default": "{color.foreground.faint}",
-              "cds-g0": "{carbon.themes.white.textSecondary}",
-              "cds-g10": "{carbon.themes.g10.textSecondary}",
-              "cds-g90": "{carbon.themes.g90.textSecondary}",
-              "cds-g100": "{carbon.themes.g100.textSecondary}"
-            }
+            "$value": "{color.foreground.faint}"
           }
         }
       },

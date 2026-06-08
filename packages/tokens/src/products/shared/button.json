@@ -363,13 +363,6 @@
           "disabled": {
             "$type": "color",
             "$value": "{color.foreground.disabled}",
-            "$modes": {
-              "default": "{color.foreground.disabled}",
-              "cds-g0": "{carbon.themes.white.textDisabled}",
-              "cds-g10": "{carbon.themes.g10.textDisabled}",
-              "cds-g90": "{carbon.themes.g90.textDisabled}",
-              "cds-g100": "{carbon.themes.g100.textDisabled}"
-            },
             "comments": {
               "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
             }
