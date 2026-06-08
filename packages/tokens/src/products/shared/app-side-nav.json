@@ -60,15 +60,7 @@
       "border": {
         "radius": {
           "$type": "dimension",
-          "$value": "5",
-          "unit": "px",
-          "$modes": {
-            "default": "5",
-            "cds-g0": "0",
-            "cds-g10": "0",
-            "cds-g90": "0",
-            "cds-g100": "0"
-          }
+          "$value": "{border.radius.small}"
         }
       }
     },
@@ -260,16 +252,10 @@
             "unit": "px"
           }
         },
-        "border-radius": {
-          "$type": "dimension",
-          "$value": "5",
-          "unit": "px",
-          "$modes": {
-            "default": "5",
-            "cds-g0": "0",
-            "cds-g10": "0",
-            "cds-g90": "0",
-            "cds-g100": "0"
+        "border": {
+          "radius": {
+            "$type": "dimension",
+            "$value": "{border.radius.small}"
           }
         },
         "indicator": {

@@ -4,15 +4,26 @@
 
 :root {
   --token-alert-page-padding-horizontal: 48px;
+  --token-alert-surface-color-neutral: var(--token-color-surface-faint);
+  --token-alert-title-foreground-color-neutral: var(--token-color-foreground-primary);
+  --token-app-header-button-foreground-color-disabled: var(--token-color-foreground-disabled);
   --token-app-header-home-link-logo-size: 28px;
+  --token-app-side-nav-body-list-item-border-radius: var(--token-border-radius-small);
   --token-app-side-nav-body-list-item-content-gap: 8px;
   --token-app-side-nav-body-list-margin-vertical: 16px;
   --token-app-side-nav-body-list-title-padding-horizontal: var(--token-app-side-nav-body-list-item-padding-horizontal);
+  --token-app-side-nav-toggle-button-border-radius: var(--token-border-radius-small);
   --token-app-side-nav-wrapper-border-color: var(--token-color-palette-neutral-200);
   --token-app-side-nav-wrapper-border-width: 1px;
   --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
   --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
   --token-app-side-nav-wrapper-padding-vertical: 16px;
+  --token-badge-foreground-color-critical-inverted: var(--token-color-foreground-high-contrast);
+  --token-badge-foreground-color-highlight-inverted: var(--token-color-foreground-high-contrast);
+  --token-badge-foreground-color-neutral-dark-mode-filled: var(--token-color-foreground-high-contrast);
+  --token-badge-foreground-color-neutral-dark-mode-outlined: var(--token-color-foreground-high-contrast);
+  --token-badge-foreground-color-success-inverted: var(--token-color-foreground-high-contrast);
+  --token-badge-foreground-color-warning-inverted: var(--token-color-foreground-high-contrast);
   --token-badge-height-large: 32px;
   --token-badge-height-medium: 24px;
   --token-badge-icon-size-large: 16px;
@@ -25,6 +36,7 @@
   --token-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
   --token-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
   --token-border-radius-rounded: 1000000000px;
+  --token-breadcrumb-link-foreground-color-active: var(--token-color-foreground-primary);
   --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-focus-external: var(--token-color-focus-critical-external);
   --token-button-border-color-critical-focus-internal: var(--token-color-focus-critical-internal);
@@ -36,6 +48,7 @@
   --token-button-border-color-tertiary-focus-internal: var(--token-color-focus-action-internal);
   --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
+  --token-button-foreground-color-tertiary-disabled: var(--token-color-foreground-disabled);
   --token-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
   --token-code-block-foreground-color-selection: #0d0e12;
   --token-code-block-surface-color-selection: #86ff13;
@@ -190,10 +203,13 @@
   --token-link-standalone-icon-size-medium: 1rem;
   --token-link-standalone-typography-font-size-large: 1rem;
   --token-link-standalone-typography-font-size-medium: 0.875rem;
+  --token-pagination-bar-surface-color: var(--token-color-surface-primary);
   --token-pagination-child-spacing-horizontal: 20px;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-spacing: 6px;
+  --token-rich-tooltip-toggle-foreground-color-active: var(--token-color-foreground-faint);
+  --token-rich-tooltip-toggle-foreground-color-hover: var(--token-color-foreground-primary);
   --token-tabs-divider-height: 1px;
   --token-tabs-indicator-transition-duration: 0.6s;
   --token-tabs-indicator-transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
@@ -203,5 +219,16 @@
   --token-tag-dismissible-padding-right: 8px;
   --token-tag-padding-top: 3px;
   --token-tooltip-transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+  --token-typography-body-100-font-family: var(--token-typography-font-stack-text);
   --token-typography-body-100-font-size: 0.8125rem; /** 13px/0.8125rem */
+  --token-typography-body-200-font-family: var(--token-typography-font-stack-text);
+  --token-typography-body-300-font-family: var(--token-typography-font-stack-text);
+  --token-typography-code-100-font-family: var(--token-typography-font-stack-code);
+  --token-typography-code-200-font-family: var(--token-typography-font-stack-code);
+  --token-typography-code-300-font-family: var(--token-typography-font-stack-code);
+  --token-typography-display-100-font-family: var(--token-typography-font-stack-display);
+  --token-typography-display-200-font-family: var(--token-typography-font-stack-display);
+  --token-typography-display-300-font-family: var(--token-typography-font-stack-text);
+  --token-typography-display-400-font-family: var(--token-typography-font-stack-display);
+  --token-typography-display-500-font-family: var(--token-typography-font-stack-display);
 }

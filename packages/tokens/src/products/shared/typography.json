@@ -204,14 +204,7 @@
     "display-500": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.display}",
-        "$modes": {
-          "default": "{typography.font-stack.display}",
-          "cds-g0": "{carbon.typography.font-family.sans}",
-          "cds-g10": "{carbon.typography.font-family.sans}",
-          "cds-g90": "{carbon.typography.font-family.sans}",
-          "cds-g100": "{carbon.typography.font-family.sans}"
-        }
+        "$value": "{typography.font-stack.display}"
       },
       "font-size": {
         "$type": "font-size",
@@ -254,14 +247,7 @@
     "display-400": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.display}",
-        "$modes": {
-          "default": "{typography.font-stack.display}",
-          "cds-g0": "{carbon.typography.font-family.sans}",
-          "cds-g10": "{carbon.typography.font-family.sans}",
-          "cds-g90": "{carbon.typography.font-family.sans}",
-          "cds-g100": "{carbon.typography.font-family.sans}"
-        }
+        "$value": "{typography.font-stack.display}"
       },
       "font-size": {
         "$type": "font-size",
@@ -304,14 +290,7 @@
     "display-300": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}",
-        "$modes": {
-          "default": "{typography.font-stack.text}",
-          "cds-g0": "{carbon.typography.font-family.sans}",
-          "cds-g10": "{carbon.typography.font-family.sans}",
-          "cds-g90": "{carbon.typography.font-family.sans}",
-          "cds-g100": "{carbon.typography.font-family.sans}"
-        }
+        "$value": "{typography.font-stack.text}"
       },
       "font-size": {
         "$type": "font-size",
@@ -354,14 +333,7 @@
     "display-200": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.display}",
-        "$modes": {
-          "default": "{typography.font-stack.display}",
-          "cds-g0": "{carbon.typography.font-family.sans}",
-          "cds-g10": "{carbon.typography.font-family.sans}",
-          "cds-g90": "{carbon.typography.font-family.sans}",
-          "cds-g100": "{carbon.typography.font-family.sans}"
-        }
+        "$value": "{typography.font-stack.display}"
       },
       "font-size": {
         "$type": "font-size",
@@ -404,14 +376,7 @@
     "display-100": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.display}",
-        "$modes": {
-          "default": "{typography.font-stack.display}",
-          "cds-g0": "{carbon.typography.font-family.sans}",
-          "cds-g10": "{carbon.typography.font-family.sans}",
-          "cds-g90": "{carbon.typography.font-family.sans}",
-          "cds-g100": "{carbon.typography.font-family.sans}"
-        }
+        "$value": "{typography.font-stack.display}"
       },
       "font-size": {
         "$type": "font-size",
@@ -454,14 +419,7 @@
     "body-300": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}",
-        "$modes": {
-          "default": "{typography.font-stack.text}",
-          "cds-g0": "{carbon.typography.font-family.sans}",
-          "cds-g10": "{carbon.typography.font-family.sans}",
-          "cds-g90": "{carbon.typography.font-family.sans}",
-          "cds-g100": "{carbon.typography.font-family.sans}"
-        }
+        "$value": "{typography.font-stack.text}"
       },
       "font-size": {
         "$type": "font-size",
@@ -492,14 +450,7 @@
     "body-200": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}",
-        "$modes": {
-          "default": "{typography.font-stack.text}",
-          "cds-g0": "{carbon.typography.font-family.sans}",
-          "cds-g10": "{carbon.typography.font-family.sans}",
-          "cds-g90": "{carbon.typography.font-family.sans}",
-          "cds-g100": "{carbon.typography.font-family.sans}"
-        }
+        "$value": "{typography.font-stack.text}"
       },
       "font-size": {
         "$type": "font-size",
@@ -530,14 +481,7 @@
     "body-100": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}",
-        "$modes": {
-          "default": "{typography.font-stack.text}",
-          "cds-g0": "{carbon.typography.font-family.sans}",
-          "cds-g10": "{carbon.typography.font-family.sans}",
-          "cds-g90": "{carbon.typography.font-family.sans}",
-          "cds-g100": "{carbon.typography.font-family.sans}"
-        }
+        "$value": "{typography.font-stack.text}"
       },
       "font-size": {
         "$type": "font-size",
@@ -561,14 +505,7 @@
     "code-300": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.code}",
-        "$modes": {
-          "default": "{typography.font-stack.code}",
-          "cds-g0": "{carbon.typography.font-family.mono}",
-          "cds-g10": "{carbon.typography.font-family.mono}",
-          "cds-g90": "{carbon.typography.font-family.mono}",
-          "cds-g100": "{carbon.typography.font-family.mono}"
-        }
+        "$value": "{typography.font-stack.code}"
       },
       "font-size": {
         "$type": "font-size",
@@ -599,14 +536,7 @@
     "code-200": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.code}",
-        "$modes": {
-          "default": "{typography.font-stack.code}",
-          "cds-g0": "{carbon.typography.font-family.mono}",
-          "cds-g10": "{carbon.typography.font-family.mono}",
-          "cds-g90": "{carbon.typography.font-family.mono}",
-          "cds-g100": "{carbon.typography.font-family.mono}"
-        }
+        "$value": "{typography.font-stack.code}"
       },
       "font-size": {
         "$type": "font-size",
@@ -637,14 +567,7 @@
     "code-100": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.code}",
-        "$modes": {
-          "default": "{typography.font-stack.code}",
-          "cds-g0": "{carbon.typography.font-family.mono}",
-          "cds-g10": "{carbon.typography.font-family.mono}",
-          "cds-g90": "{carbon.typography.font-family.mono}",
-          "cds-g100": "{carbon.typography.font-family.mono}"
-        }
+        "$value": "{typography.font-stack.code}"
       },
       "font-size": {
         "$type": "font-size",
