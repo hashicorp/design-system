@@ -6,6 +6,12 @@ const { renderProperties } = require('./component-api-renderer.js');
 const directiveRegex =
   /<!--\s*hds-api:+([a-z-]+)(?:\s+name=([A-Za-z0-9_-]+))?\s*-->/g;
 
+const SPLATTRIBUTES_PROPERTY = {
+  name: '...attributes',
+  description:
+    'This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).',
+};
+
 function stripNestedProperties(properties) {
   return properties.map((property) => {
     const { properties: _nestedProperties, ...topLevelProperty } = property;
@@ -68,6 +74,22 @@ function formatNamedBlock(property) {
         : `<:${name}>`,
     type: 'named block',
   };
+}
+
+function appendSplattributesPropertyIfNeeded(component, properties) {
+  if (component.splattributes !== true) {
+    return properties;
+  }
+
+  const hasSplattributesProperty = properties.some((property) => {
+    return property.name === '...attributes' || property.name === '…attributes';
+  });
+
+  if (hasSplattributesProperty === true) {
+    return properties;
+  }
+
+  return [...properties, SPLATTRIBUTES_PROPERTY];
 }
 
 function getApiProperties(component, key, inputFile, label) {
@@ -137,22 +159,28 @@ function renderDirective(component, directive, name, inputFile) {
     const blocksProperties = getApiProperties(component, 'blocks', inputFile, 'Blocks').map(
       (property) => formatNamedBlock(property),
     );
-    const argumentsProperties = getApiProperties(
+    const argumentsProperties = appendSplattributesPropertyIfNeeded(
+      component,
+      getApiProperties(
       component,
       'arguments',
       inputFile,
       'Arguments',
+      ),
     );
 
     return renderProperties([...blocksProperties, ...argumentsProperties]);
   }
 
   if (directive === 'arguments') {
-    const argumentsProperties = getApiProperties(
+    const argumentsProperties = appendSplattributesPropertyIfNeeded(
       component,
-      'arguments',
-      inputFile,
-      'Arguments',
+      getApiProperties(
+        component,
+        'arguments',
+        inputFile,
+        'Arguments',
+      ),
     );
     const contextualProperties = getApiPropertiesIfPresent(
       component,

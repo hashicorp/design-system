@@ -108,6 +108,7 @@ function normalizeParsedComponentApiEntry(componentName, parsedEntry) {
   return {
     name: parsedEntry.name ?? componentName,
     slug: parsedEntry.slug,
+    splattributes: parsedEntry.splattributes === true,
     api: {
       arguments: argumentsProperties,
       blocks: blocksProperties,
