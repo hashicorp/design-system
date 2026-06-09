@@ -401,7 +401,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
           @totalItems={{100}}
           @currentPage={{context.currentPage}}
           @currentPageSize={{context.currentPageSize}}
-          @route="page-components.pagination"
+          @model="pagination-test"
           @queryFunction={{queryFunction}}
           @onPageChange={{onPageChange}}
           @onPageSizeChange={{onPageSizeChange}}
