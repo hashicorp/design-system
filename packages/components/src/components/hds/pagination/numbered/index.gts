@@ -22,6 +22,7 @@ import HdsPaginationSizeSelector from '../size-selector/index.gts';
 import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 import type {
+  HdsPaginationDirections,
   HdsPaginationPage,
   HdsPaginationRoutingProps,
   HdsPaginationElliptizedPageArray,
