@@ -63,6 +63,7 @@
   --token-app-side-nav-body-list-item-foreground-color-selected: var(--token-color-foreground-action);
   --token-app-side-nav-body-list-item-height: 36px;
   --token-app-side-nav-body-list-item-indicator-border-radius: 2px;
+  --token-app-side-nav-body-list-item-indicator-surface-color: var(--token-color-foreground-action);
   --token-app-side-nav-body-list-item-margin-top: 2px;
   --token-app-side-nav-body-list-item-padding-horizontal: 8px;
   --token-app-side-nav-body-list-item-padding-vertical: 4px;
