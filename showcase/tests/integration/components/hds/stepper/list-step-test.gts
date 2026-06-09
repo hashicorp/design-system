@@ -153,6 +153,17 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     assert.dom('.hds-stepper-list__step-description').doesNotExist();
   });
 
+  test('it hides the description when the description contextual component block is empty', async function (assert) {
+    await render(
+      <template>
+        <HdsStepperListStep>
+          <:description></:description>
+        </HdsStepperListStep>
+      </template>,
+    );
+    assert.dom('.hds-stepper-list__step-description').isNotVisible();
+  });
+
   test('it renders the description when the description contextual component block is used', async function (assert) {
     await render(
       <template>
@@ -170,6 +181,17 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   test('it does not render the content when the content contextual component block is not used', async function (assert) {
     await render(<template><HdsStepperListStep /></template>);
     assert.dom('.hds-stepper-list__step-content').doesNotExist();
+  });
+
+  test('it hides the content when the content contextual component block is empty', async function (assert) {
+    await render(
+      <template>
+        <HdsStepperListStep>
+          <:content></:content>
+        </HdsStepperListStep>
+      </template>,
+    );
+    assert.dom('.hds-stepper-list__step-content').isNotVisible();
   });
 
   test('it renders the content when the content contextual component block is used', async function (assert) {

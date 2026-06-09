@@ -138,6 +138,7 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
           {{yield to="title"}}
           <span class="sr-only">{{this.statusSrOnlyText}}</span>
         </HdsTextBody>
+        {{! we use :empty in CSS so we have to add squishes here to avoid whitespaces }}
         {{#if (has-block "description")}}
           <HdsTextBody
             class="hds-stepper-list__step-description"
@@ -146,12 +147,12 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
             @weight="regular"
             @color="primary"
           >
-            {{yield to="description"}}
+            {{~yield to="description"~}}
           </HdsTextBody>
         {{/if}}
         {{#if (has-block "content")}}
           <div class="hds-stepper-list__step-content">
-            {{yield to="content"}}
+            {{~yield to="content"~}}
           </div>
         {{/if}}
       </div>

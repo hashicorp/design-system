@@ -68,10 +68,18 @@ $hds-stepper-list-gap-spacing: 16px;
 
 .hds-stepper-list__step-description {
   margin-top: 4px;
+
+  &:empty {
+    display: none;
+  }
 }
 
 .hds-stepper-list__step-content {
   margin-top: 8px;
+
+  &:empty {
+    display: none;
+  }
 }
 
 // STATUSES

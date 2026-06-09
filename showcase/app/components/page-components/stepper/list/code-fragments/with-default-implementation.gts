@@ -5,6 +5,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
+import { eq } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 import type Owner from '@ember/owner';
 
@@ -22,7 +23,7 @@ import type { HdsStepperListSignature } from '@hashicorp/design-system-component
 type ListData = {
   title: string;
   status: HdsStepperStatuses;
-  description: string;
+  description?: string;
 };
 
 const STEP_DATA: ListData[] = [
@@ -34,7 +35,6 @@ const STEP_DATA: ListData[] = [
   {
     title: 'Step 2',
     status: 'progress',
-    description: 'Description for Step 2',
   },
   {
     title: 'Step 3',
@@ -127,7 +127,9 @@ export default class CodeFragmentWithDefaultImplementationComponents extends Com
           <:title>{{step.title}}</:title>
           <:description>{{step.description}}</:description>
           <:content>
-            <ShwPlaceholder @text="Generic content" @height="20" />
+            {{~#unless (eq step.title "Step 2")}}
+              <ShwPlaceholder @text="Generic content" @height="20" />
+            {{/unless~}}
           </:content>
         </S.Step>
       {{/each}}
