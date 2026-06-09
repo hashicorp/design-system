@@ -26,6 +26,21 @@ function slugToComponentName(slug) {
   return `Hds${parts.map((part) => toPascalCase(part)).join('')}`;
 }
 
+function componentNameToYieldPrefix(componentName) {
+  if (typeof componentName !== 'string' || componentName.length === 0) {
+    return undefined;
+  }
+
+  const withoutPrefix = componentName.replace(/^Hds/u, '');
+  const initials = withoutPrefix.match(/[A-Z]/gu)?.join('');
+
+  if (initials === undefined || initials.length === 0) {
+    return undefined;
+  }
+
+  return initials;
+}
+
 function normalizeParsedArgument(arg) {
   const enumValues =
     Array.isArray(arg.values) && arg.values.length > 0
@@ -131,6 +146,7 @@ function normalizeParsedArguments(args) {
 
 function normalizeParsedComponentApiEntry(componentName, parsedEntry) {
   const argumentsProperties = normalizeParsedArguments(parsedEntry.args);
+  const yieldPrefix = componentNameToYieldPrefix(parsedEntry.name ?? componentName);
 
   const blocksProperties = (parsedEntry.blocks ?? []).map((block) => ({
     name: block.name,
@@ -150,17 +166,21 @@ function normalizeParsedComponentApiEntry(componentName, parsedEntry) {
         return;
       }
 
+      const contextualNamePrefix =
+        yieldPrefix === undefined ? block.name : `[${yieldPrefix}]`;
+
       contextualComponents.push({
-        name: `[${block.name}].${yieldedValue.name}`,
+        name: `${contextualNamePrefix}.${yieldedValue.name}`,
         type: 'yielded component',
         description: yieldedValue.description,
+        remarks: yieldedValue.remarks || undefined,
       });
     });
   });
 
   return {
     name: parsedEntry.name ?? componentName,
-    slug: parsedEntry.slug,
+    slug: parsedEntry.slug ?? parsedEntry.name ?? componentName,
     splattributes: parsedEntry.splattributes === true,
     api: {
       arguments: argumentsProperties,

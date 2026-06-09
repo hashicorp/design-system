@@ -50,14 +50,52 @@ function normalizeContextualSummaryDescription(description) {
   return `${normalized} yielded as contextual component (see below).`;
 }
 
-function formatTopLevelContextualComponent(property) {
+function getContextualComponentSummaryName(component, propertyName) {
+  if (typeof propertyName !== 'string' || propertyName.length === 0) {
+    return undefined;
+  }
+
+  const contextualNameMatch = /^\[[^\]]+\]\.(.+)$/u.exec(propertyName);
+  const contextualName = contextualNameMatch?.[1];
+
+  if (contextualName === undefined || contextualName.length === 0) {
+    return undefined;
+  }
+
+  const componentName = component.name;
+
+  if (typeof componentName !== 'string' || componentName.length === 0) {
+    return undefined;
+  }
+
+  const baseComponentName = componentName.replace(/^Hds/u, '');
+
+  if (baseComponentName.length === 0) {
+    return undefined;
+  }
+
+  return `${baseComponentName}::${contextualName}`;
+}
+
+function formatTopLevelContextualComponent(component, property) {
+  const summaryName = getContextualComponentSummaryName(component, property.name);
+  const normalizedDescription = normalizeContextualSummaryDescription(
+    property.description,
+  );
+  const fallbackDescription =
+    normalizedDescription === undefined || normalizedDescription.length === 0
+      ? summaryName === undefined
+        ? undefined
+        : `\`${summaryName}\` yielded as contextual component (see below).`
+      : normalizedDescription;
+
   return {
     ...property,
     name:
       property.name !== undefined && property.name.startsWith('<') === false
         ? `<${property.name}>`
         : property.name,
-    description: normalizeContextualSummaryDescription(property.description),
+    description: fallbackDescription,
   };
 }
 
@@ -78,6 +116,21 @@ function formatNamedBlock(property) {
 
 function keepNamedBlocksOnly(properties) {
   return properties.filter((property) => property.name !== 'default');
+}
+
+function getYieldedComponentProperties(component, inputFile) {
+  const contextualProperties = getApiPropertiesIfPresent(
+    component,
+    'contextualComponents',
+  );
+
+  if (contextualProperties === undefined) {
+    return [];
+  }
+
+  return stripNestedProperties(
+    keepYieldedComponentsOnly(contextualProperties),
+  ).map((property) => formatTopLevelContextualComponent(component, property));
 }
 
 function appendSplattributesPropertyIfNeeded(component, properties) {
@@ -192,9 +245,13 @@ function getContextualProperty(component, contextualName, inputFile) {
 
 function renderDirective(component, directive, name, inputFile) {
   if (directive === 'api') {
-    const blocksProperties = keepNamedBlocksOnly(
+    const namedBlocksProperties = keepNamedBlocksOnly(
       getApiProperties(component, 'blocks', inputFile, 'Blocks'),
     ).map((property) => formatNamedBlock(property));
+    const yieldedComponentsProperties = getYieldedComponentProperties(
+      component,
+      inputFile,
+    );
     const argumentsProperties = appendSplattributesPropertyIfNeeded(
       component,
       sortPropertiesByRequiredThenName(
@@ -202,7 +259,11 @@ function renderDirective(component, directive, name, inputFile) {
       ),
     );
 
-    return renderProperties([...blocksProperties, ...argumentsProperties]);
+    return renderProperties([
+      ...namedBlocksProperties,
+      ...yieldedComponentsProperties,
+      ...argumentsProperties,
+    ]);
   }
 
   if (directive === 'arguments') {
@@ -223,7 +284,7 @@ function renderDirective(component, directive, name, inputFile) {
 
     const topLevelContextualComponents = stripNestedProperties(
       keepYieldedComponentsOnly(contextualProperties),
-    ).map((property) => formatTopLevelContextualComponent(property));
+    ).map((property) => formatTopLevelContextualComponent(component, property));
 
     return renderProperties([
       ...topLevelContextualComponents,
@@ -232,16 +293,23 @@ function renderDirective(component, directive, name, inputFile) {
   }
 
   if (directive === 'blocks') {
-    const blocksProperties = keepNamedBlocksOnly(
+    const namedBlocksProperties = keepNamedBlocksOnly(
       getApiProperties(
-      component,
-      'blocks',
-      inputFile,
-      'Blocks',
+        component,
+        'blocks',
+        inputFile,
+        'Blocks',
       ),
     ).map((property) => formatNamedBlock(property));
+    const yieldedComponentsProperties = getYieldedComponentProperties(
+      component,
+      inputFile,
+    );
 
-    return renderProperties(blocksProperties);
+    return renderProperties([
+      ...namedBlocksProperties,
+      ...yieldedComponentsProperties,
+    ]);
   }
 
   if (directive === 'contextual') {
