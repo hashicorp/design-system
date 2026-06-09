@@ -147,11 +147,14 @@
 
   &:not(:disabled, .mock-disabled) {
     @include hds-apply-only-if-carbon() {
-      .hds-dropdown-toggle-button__badge,
-      .hds-dropdown-toggle-button__count {
-        color: #161616; // the color is the same for all carbon themes
-        background-color: #e0e0e0; // the color is the same for all carbon themes
-        border-color: transparent;
+      &.hds-dropdown-toggle-button--color-primary,
+      &.hds-dropdown-toggle-button--color-secondary {
+        .hds-dropdown-toggle-button__badge,
+        .hds-dropdown-toggle-button__count {
+          color: #161616;
+          background-color: #e0e0e0;
+          border-color: transparent;
+        }
       }
     }
   }
@@ -179,6 +182,10 @@
 
 .hds-dropdown-toggle-button--color-secondary {
   @include hds-button-color-secondary();
+}
+
+.hds-dropdown-toggle-button--color-secondary-muted {
+  @include hds-button-color-secondary-muted();
 }
 
 .hds-dropdown-toggle-button--width-full {

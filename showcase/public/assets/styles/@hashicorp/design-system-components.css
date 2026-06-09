@@ -5482,12 +5482,17 @@ button.hds-button[href]::after {
   color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-strong);
 }
-.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled) .hds-dropdown-toggle-button__badge,
-.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled) .hds-dropdown-toggle-button__count,
-.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled) .hds-dropdown-toggle-button__badge,
-.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled) .hds-dropdown-toggle-button__count,
-.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled) .hds-dropdown-toggle-button__badge,
-.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled) .hds-dropdown-toggle-button__count {
+.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
+.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count, .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
+.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count,
+.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
+.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count,
+.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
+.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count,
+.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
+.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count,
+.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
+.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count {
   color: #161616;
   background-color: #e0e0e0;
   border-color: transparent;
@@ -5651,6 +5656,36 @@ button.hds-button[href]::after {
   box-shadow: none;
 }
 .hds-dropdown-toggle-button--color-secondary:active::before, .hds-dropdown-toggle-button--color-secondary.mock-active::before {
+  border-color: transparent;
+}
+
+.hds-dropdown-toggle-button--color-secondary-muted {
+  color: var(--token-button-foreground-color-secondary-muted-default);
+  background-color: var(--token-button-surface-color-secondary-muted-default);
+  border-color: var(--token-button-border-color-secondary-muted-default);
+  box-shadow: var(--token-elevation-low-box-shadow);
+}
+.hds-dropdown-toggle-button--color-secondary-muted:hover, .hds-dropdown-toggle-button--color-secondary-muted.mock-hover {
+  color: var(--token-button-foreground-color-secondary-muted-hover);
+  background-color: var(--token-button-surface-color-secondary-muted-hover);
+  border-color: var(--token-button-border-color-secondary-muted-hover);
+  cursor: pointer;
+}
+.hds-dropdown-toggle-button--color-secondary-muted:focus, .hds-dropdown-toggle-button--color-secondary-muted.mock-focus {
+  color: var(--token-button-foreground-color-secondary-muted-focus);
+  background-color: var(--token-button-surface-color-secondary-muted-focus);
+  border-color: var(--token-button-border-color-secondary-muted-focus-internal);
+}
+.hds-dropdown-toggle-button--color-secondary-muted:focus::before, .hds-dropdown-toggle-button--color-secondary-muted.mock-focus::before {
+  border-color: var(--token-button-border-color-secondary-muted-focus-external);
+}
+.hds-dropdown-toggle-button--color-secondary-muted:active, .hds-dropdown-toggle-button--color-secondary-muted.mock-active {
+  color: var(--token-button-foreground-color-secondary-muted-active);
+  background-color: var(--token-button-surface-color-secondary-muted-active);
+  border-color: var(--token-button-border-color-secondary-muted-active);
+  box-shadow: none;
+}
+.hds-dropdown-toggle-button--color-secondary-muted:active::before, .hds-dropdown-toggle-button--color-secondary-muted.mock-active::before {
   border-color: transparent;
 }
 
