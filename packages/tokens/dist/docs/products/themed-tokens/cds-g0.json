@@ -8996,6 +8996,42 @@
     ]
   },
   {
+    "key": "{app-side-nav.body.list-item.indicator.surface.color}",
+    "$type": "color",
+    "$value": "#0f62fe",
+    "$modes": {
+      "default": "#0f62fe",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#4589ff",
+      "cds-g100": "#4589ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.borderInteractive}",
+      "$modes": {
+        "default": "{color.foreground.action}",
+        "cds-g0": "{carbon.themes.white.borderInteractive}",
+        "cds-g10": "{carbon.themes.g10.borderInteractive}",
+        "cds-g90": "{carbon.themes.g90.borderInteractive}",
+        "cds-g100": "{carbon.themes.g100.borderInteractive}"
+      },
+      "key": "{app-side-nav.body.list-item.indicator.surface.color}"
+    },
+    "name": "token-app-side-nav-body-list-item-indicator-surface-color",
+    "attributes": {
+      "category": "app-side-nav"
+    },
+    "path": [
+      "app-side-nav",
+      "body",
+      "list-item",
+      "indicator",
+      "surface",
+      "color"
+    ]
+  },
+  {
     "key": "{badge-count.padding.horizontal.small}",
     "$type": "dimension",
     "$value": "8px",

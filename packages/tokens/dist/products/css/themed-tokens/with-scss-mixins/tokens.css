@@ -120,6 +120,9 @@
     );
     --token-app-side-nav-body-list-item-height: 36px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 2px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: var(
+      --token-color-foreground-action
+    );
     --token-app-side-nav-body-list-item-margin-top: 2px;
     --token-app-side-nav-body-list-item-padding-horizontal: 8px;
     --token-app-side-nav-body-list-item-padding-vertical: 4px;
@@ -1047,6 +1050,7 @@
     --token-app-side-nav-body-list-item-foreground-color-selected: #525252;
     --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -1616,6 +1620,7 @@
     --token-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
     --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -2185,6 +2190,7 @@
     --token-app-side-nav-body-list-item-foreground-color-selected: #525252;
     --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -2754,6 +2760,7 @@
     --token-app-side-nav-body-list-item-foreground-color-selected: #525252;
     --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -3323,6 +3330,7 @@
     --token-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
     --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -3892,6 +3900,7 @@
     --token-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
     --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;

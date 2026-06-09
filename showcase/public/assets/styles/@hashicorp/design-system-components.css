@@ -290,6 +290,7 @@
   --token-app-side-nav-body-list-item-content-gap: 8px;
   --token-app-side-nav-body-list-item-border-radius: 5px;
   --token-app-side-nav-body-list-item-indicator-border-radius: 2px;
+  --token-app-side-nav-body-list-item-indicator-surface-color: #1060ff;
   --token-badge-count-padding-horizontal-small: 8px;
   --token-badge-count-padding-horizontal-medium: 12px;
   --token-badge-count-padding-horizontal-large: 14px;
@@ -2965,7 +2966,7 @@
   bottom: 0;
   left: calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
   width: 4px;
-  background: var(--token-color-foreground-action);
+  background: var(--token-app-side-nav-body-list-item-indicator-surface-color);
   border-radius: 0 var(--token-app-side-nav-body-list-item-indicator-border-radius) var(--token-app-side-nav-body-list-item-indicator-border-radius) 0;
   content: "";
 }
