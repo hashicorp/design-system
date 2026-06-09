@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import { array } from '@ember/helper';
 import {
   click,
+  focus,
   select,
   render,
   resetOnerror,
@@ -332,6 +333,44 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       )
       .hasClass('hds-pagination-nav__number--is-selected');
     assert.dom('.hds-pagination-nav__arrow--direction-next').isDisabled();
+  });
+
+  test('it moves focus to the opposite arrow when an activated arrow becomes disabled', async function (assert) {
+    // reaching the first page disables "prev" and moves focus to "next"
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{30}} @currentPage={{2}} />
+      </template>,
+    );
+
+    await focus('.hds-pagination-nav__arrow--direction-prev');
+    await click('.hds-pagination-nav__arrow--direction-prev');
+
+    // Wait one animation frame so RAF-scheduled focus updates complete before assertions.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve()),
+    );
+
+    assert.dom('.hds-pagination-nav__arrow--direction-prev').isDisabled();
+    assert.dom('.hds-pagination-nav__arrow--direction-next').isFocused();
+
+    // reaching the last page disables "next" and moves focus to "prev"
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{30}} @currentPage={{2}} />
+      </template>,
+    );
+
+    await focus('.hds-pagination-nav__arrow--direction-next');
+    await click('.hds-pagination-nav__arrow--direction-next');
+
+    // Wait one animation frame so RAF-scheduled focus updates complete before assertions.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve()),
+    );
+
+    assert.dom('.hds-pagination-nav__arrow--direction-next').isDisabled();
+    assert.dom('.hds-pagination-nav__arrow--direction-prev').isFocused();
   });
 
   // INTERACTION
