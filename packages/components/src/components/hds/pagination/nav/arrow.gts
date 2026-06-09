@@ -61,9 +61,13 @@ export default class HdsPaginationControlArrow extends Component<HdsPaginationCo
       element.focus();
 
       if (typeof onFocusHandled === 'function') {
-        requestAnimationFrame(() => {
+        const onFocusHandledFrame = requestAnimationFrame(() => {
           onFocusHandled();
         });
+
+        return () => {
+          cancelAnimationFrame(onFocusHandledFrame);
+        };
       }
     }
   });
