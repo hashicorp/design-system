@@ -37,6 +37,8 @@ Component API documentation should be a deterministic output based on TSDoc comm
 
 - `color`
   - Need to reference the enum itself rather than the stringified values
+- `icon`
+  - Let's us correct the type
 
 ### Dropdown
 

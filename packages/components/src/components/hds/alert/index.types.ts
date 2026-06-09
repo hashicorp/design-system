@@ -18,14 +18,14 @@ export interface HdsAlertSignature {
      * `description`, which **cannot** be overridden.
      *
      * @remarks
-     *   - `color` results in a default `icon`, which **can** be overridden.
-     *   - For the “success”, “warning”, and “critical” colors, either
-     *       `role="alert"` or “success”, “warning”, and “critical” colors,
-     *       either `role="alert"` or `role="alertdialog"` and
-     *       `aria-live="polite"` will be included by default which can be
-     *       overridden if necessary.
-     *   - The “neutral” and “highlight” colors do not include a role attribute or
-     *       `aria-live="polite"` by default.
+     *   `color` results in a default `icon`, which **can** be overridden.<br
+     *   /><br /> For the “success”, “warning”, and “critical” colors, either
+     *   `role="alert"` or “success”, “warning”, and “critical” colors, either
+     *   `role="alert"` or `role="alertdialog"` and `aria-live="polite"` will be
+     *   included by default which can be overridden if necessary.<br /><br />
+     *   The “neutral” and “highlight” colors do not include a role attribute or
+     *   `aria-live="polite"` by default.
+     * @defaultValue 'neutral'
      */
     color?: HdsAlertColors;
 

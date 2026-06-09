@@ -48,7 +48,7 @@ function normalizeDescription(description) {
     return description;
   }
 
-  return description.replace(/\n\s*\n/gu, '\n<br />\n<br />\n');
+  return description;
 }
 
 function renderProperty(property, depth = 1) {

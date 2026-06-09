@@ -76,6 +76,10 @@ function formatNamedBlock(property) {
   };
 }
 
+function keepNamedBlocksOnly(properties) {
+  return properties.filter((property) => property.name !== 'default');
+}
+
 function appendSplattributesPropertyIfNeeded(component, properties) {
   if (component.splattributes !== true) {
     return properties;
@@ -120,6 +124,38 @@ function getApiPropertiesIfPresent(component, key) {
   return properties;
 }
 
+function sortPropertiesByRequiredThenName(properties) {
+  return [...properties]
+    .map((property) => {
+      const normalizedProperty = { ...property };
+
+      if (
+        Array.isArray(normalizedProperty.properties) === true &&
+        normalizedProperty.properties.length > 0
+      ) {
+        normalizedProperty.properties = sortPropertiesByRequiredThenName(
+          normalizedProperty.properties,
+        );
+      }
+
+      return normalizedProperty;
+    })
+    .sort((a, b) => {
+      if (a.required === true && b.required !== true) {
+        return -1;
+      }
+
+      if (a.required !== true && b.required === true) {
+        return 1;
+      }
+
+      const aName = a.name ?? '';
+      const bName = b.name ?? '';
+
+      return aName.localeCompare(bName);
+    });
+}
+
 function getContextualProperty(component, contextualName, inputFile) {
   const contextualProperties = getApiProperties(
     component,
@@ -156,16 +192,13 @@ function getContextualProperty(component, contextualName, inputFile) {
 
 function renderDirective(component, directive, name, inputFile) {
   if (directive === 'api') {
-    const blocksProperties = getApiProperties(component, 'blocks', inputFile, 'Blocks').map(
-      (property) => formatNamedBlock(property),
-    );
+    const blocksProperties = keepNamedBlocksOnly(
+      getApiProperties(component, 'blocks', inputFile, 'Blocks'),
+    ).map((property) => formatNamedBlock(property));
     const argumentsProperties = appendSplattributesPropertyIfNeeded(
       component,
-      getApiProperties(
-      component,
-      'arguments',
-      inputFile,
-      'Arguments',
+      sortPropertiesByRequiredThenName(
+        getApiProperties(component, 'arguments', inputFile, 'Arguments'),
       ),
     );
 
@@ -175,11 +208,8 @@ function renderDirective(component, directive, name, inputFile) {
   if (directive === 'arguments') {
     const argumentsProperties = appendSplattributesPropertyIfNeeded(
       component,
-      getApiProperties(
-        component,
-        'arguments',
-        inputFile,
-        'Arguments',
+      sortPropertiesByRequiredThenName(
+        getApiProperties(component, 'arguments', inputFile, 'Arguments'),
       ),
     );
     const contextualProperties = getApiPropertiesIfPresent(
@@ -202,11 +232,13 @@ function renderDirective(component, directive, name, inputFile) {
   }
 
   if (directive === 'blocks') {
-    const blocksProperties = getApiProperties(
+    const blocksProperties = keepNamedBlocksOnly(
+      getApiProperties(
       component,
       'blocks',
       inputFile,
       'Blocks',
+      ),
     ).map((property) => formatNamedBlock(property));
 
     return renderProperties(blocksProperties);
@@ -233,7 +265,9 @@ function renderDirective(component, directive, name, inputFile) {
     }
 
     return renderProperties(
-      getContextualProperty(component, name, inputFile).properties,
+      sortPropertiesByRequiredThenName(
+        getContextualProperty(component, name, inputFile).properties,
+      ),
     );
   }
 

@@ -6,6 +6,41 @@ export function parseComponentsFromEntry({
   stats,
   onMissingTypesModule,
 }) {
+  function unquoteLiteralValue(value) {
+    const match = /^(['"])(.*)\1$/u.exec(value);
+
+    if (match === null) {
+      return value;
+    }
+
+    return match[2];
+  }
+
+  function parseEnumValues(typeText) {
+    if (typeof typeText !== 'string') {
+      return undefined;
+    }
+
+    const values = typeText
+      .split('|')
+      .map((part) => part.trim())
+      .filter(Boolean);
+
+    if (values.length < 2) {
+      return undefined;
+    }
+
+    const areAllStringLiterals = values.every((value) => {
+      return /^(['"]).*\1$/u.test(value);
+    });
+
+    if (areAllStringLiterals === false) {
+      return undefined;
+    }
+
+    return values.map((value) => unquoteLiteralValue(value));
+  }
+
   const allDocPayloads = {};
   const exportDeclarations = entryFile.getExportDeclarations();
 
@@ -69,16 +104,26 @@ export function parseComponentsFromEntry({
           }
 
           const docData = extractDocData(declaration);
+          const resolvedTypeText = typeResolver.resolveDeclarationTypeText(
+            declaration,
+          );
+          const enumValues = parseEnumValues(resolvedTypeText);
 
-          componentDocs.args.push({
+          const parsedArg = {
             name: prop.getName(),
-            type: typeResolver.resolveDeclarationTypeText(declaration),
+            type: enumValues === undefined ? resolvedTypeText : 'enum',
             required: !declaration.hasQuestionToken(),
             description: docData.description,
             remarks: docData.remarks,
             defaultValue: docData.defaultValue,
             dependsOn: docData.dependsOn,
-          });
+          };
+
+          if (enumValues !== undefined) {
+            parsedArg.values = enumValues;
+          }
+
+          componentDocs.args.push(parsedArg);
         });
       }
 

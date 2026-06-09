@@ -27,14 +27,67 @@ function slugToComponentName(slug) {
 }
 
 function normalizeParsedArgument(arg) {
+  const enumValues =
+    Array.isArray(arg.values) && arg.values.length > 0
+      ? arg.values
+      : parseEnumValues(arg.type);
+
   return {
     name: arg.name,
-    type: arg.type,
+    type: enumValues === undefined ? arg.type : 'enum',
+    values: enumValues,
     required: arg.required,
-    default: arg.defaultValue ?? undefined,
+    default: normalizeDefaultValue(arg.defaultValue),
     description: arg.description,
     remarks: arg.remarks || undefined,
   };
+}
+
+function unquoteLiteralValue(value) {
+  const match = /^(['"])(.*)\1$/u.exec(value);
+
+  if (match === null) {
+    return value;
+  }
+
+  return match[2];
+}
+
+function normalizeDefaultValue(defaultValue) {
+  if (defaultValue === null || defaultValue === undefined) {
+    return undefined;
+  }
+
+  if (typeof defaultValue !== 'string') {
+    return defaultValue;
+  }
+
+  return unquoteLiteralValue(defaultValue);
+}
+
+function parseEnumValues(typeText) {
+  if (typeof typeText !== 'string') {
+    return undefined;
+  }
+
+  const values = typeText
+    .split('|')
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  if (values.length < 2) {
+    return undefined;
+  }
+
+  const areAllStringLiterals = values.every((value) => {
+    return /^(['"]).*\1$/u.test(value);
+  });
+
+  if (areAllStringLiterals === false) {
+    return undefined;
+  }
+
+  return values.map((value) => unquoteLiteralValue(value));
 }
 
 function normalizeParsedArguments(args) {
