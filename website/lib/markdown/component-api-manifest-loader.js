@@ -163,16 +163,15 @@ function normalizeParsedComponentApiEntry(componentName, parsedEntry) {
   const contextualComponents = [];
   (parsedEntry.blocks ?? []).forEach((block) => {
     (block.yields ?? []).forEach((yieldedValue) => {
-      if (yieldedValue.type !== 'component') {
-        return;
-      }
-
       const contextualNamePrefix =
         yieldPrefix === undefined ? block.name : `[${yieldPrefix}]`;
 
       contextualComponents.push({
         name: `${contextualNamePrefix}.${yieldedValue.name}`,
-        type: 'yielded component',
+        type:
+          yieldedValue.type === 'component'
+            ? 'yielded component'
+            : yieldedValue.type,
         description: yieldedValue.description,
         remarks: yieldedValue.remarks || undefined,
         sourcePath: yieldedValue.sourcePath || undefined,

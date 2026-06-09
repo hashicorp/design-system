@@ -219,6 +219,7 @@ export function parseComponentsFromEntry({
                       ? typeResolver.resolveYieldTypeText(yieldDecl)
                       : 'unknown',
                     description: yieldDocData.description,
+                    remarks: yieldDocData.remarks,
                     sourcePath: yieldDecl
                       ? getYieldedComponentSourcePath(yieldDecl)
                       : undefined,

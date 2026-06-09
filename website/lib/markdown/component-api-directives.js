@@ -24,6 +24,40 @@ function keepYieldedComponentsOnly(properties) {
   return properties.filter((property) => property.type === 'yielded component');
 }
 
+function keepTopLevelYieldedValuesOnly(properties) {
+  return properties.filter((property) => {
+    return typeof property.name === 'string' && /^\[[^\]]+\]\./u.test(property.name);
+  });
+}
+
+function getYieldedPropertyCategoryRank(property) {
+  if (property.type === 'yielded component') {
+    return 0;
+  }
+
+  if (property.type === 'function') {
+    return 2;
+  }
+
+  return 1;
+}
+
+function sortYieldedProperties(properties) {
+  return [...properties].sort((a, b) => {
+    const categoryRankDiff =
+      getYieldedPropertyCategoryRank(a) - getYieldedPropertyCategoryRank(b);
+
+    if (categoryRankDiff !== 0) {
+      return categoryRankDiff;
+    }
+
+    const aName = a.name ?? '';
+    const bName = b.name ?? '';
+
+    return aName.localeCompare(bName);
+  });
+}
+
 function normalizeContextualSummaryDescription(description) {
   if (description === undefined || description.length === 0) {
     return description;
@@ -126,7 +160,15 @@ function getContextualComponentSummaryNameFromSourcePath(component, sourcePath) 
   return `${baseComponentName}::${sourceSegments.join('::')}`;
 }
 
-function formatTopLevelContextualComponent(component, property) {
+function formatTopLevelYieldedProperty(component, property) {
+  if (property.type !== 'yielded component') {
+    return {
+      ...property,
+      description: property.description,
+      remarks: property.remarks,
+    };
+  }
+
   const summaryName =
     getContextualComponentSummaryNameFromSourcePath(
       component,
@@ -171,7 +213,7 @@ function keepNamedBlocksOnly(properties) {
   return properties.filter((property) => property.name !== 'default');
 }
 
-function getYieldedComponentProperties(component, inputFile) {
+function getYieldedProperties(component) {
   const contextualProperties = getApiPropertiesIfPresent(
     component,
     'contextualComponents',
@@ -181,9 +223,9 @@ function getYieldedComponentProperties(component, inputFile) {
     return [];
   }
 
-  return stripNestedProperties(
-    keepYieldedComponentsOnly(contextualProperties),
-  ).map((property) => formatTopLevelContextualComponent(component, property));
+  return sortYieldedProperties(
+    stripNestedProperties(keepTopLevelYieldedValuesOnly(contextualProperties)),
+  ).map((property) => formatTopLevelYieldedProperty(component, property));
 }
 
 function appendSplattributesPropertyIfNeeded(component, properties) {
@@ -301,10 +343,7 @@ function renderDirective(component, directive, name, inputFile) {
     const namedBlocksProperties = keepNamedBlocksOnly(
       getApiProperties(component, 'blocks', inputFile, 'Blocks'),
     ).map((property) => formatNamedBlock(property));
-    const yieldedComponentsProperties = getYieldedComponentProperties(
-      component,
-      inputFile,
-    );
+    const yieldedComponentsProperties = getYieldedProperties(component);
     const argumentsProperties = appendSplattributesPropertyIfNeeded(
       component,
       sortPropertiesByRequiredThenName(
@@ -337,7 +376,7 @@ function renderDirective(component, directive, name, inputFile) {
 
     const topLevelContextualComponents = stripNestedProperties(
       keepYieldedComponentsOnly(contextualProperties),
-    ).map((property) => formatTopLevelContextualComponent(component, property));
+    ).map((property) => formatTopLevelYieldedProperty(component, property));
 
     return renderProperties([
       ...topLevelContextualComponents,
@@ -354,10 +393,7 @@ function renderDirective(component, directive, name, inputFile) {
         'Blocks',
       ),
     ).map((property) => formatNamedBlock(property));
-    const yieldedComponentsProperties = getYieldedComponentProperties(
-      component,
-      inputFile,
-    );
+    const yieldedComponentsProperties = getYieldedProperties(component);
 
     return renderProperties([
       ...namedBlocksProperties,
