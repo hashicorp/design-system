@@ -182,7 +182,7 @@
                 "cds-g100": "{carbon.themes.g100.textSecondary}"
               }
             },
-            "selected": {
+            "active": {
               "$type": "color",
               "$value": "{color.foreground.action}",
               "$modes": {
@@ -219,7 +219,7 @@
                 "cds-g100": "{carbon.themes.g100.backgroundActive}"
               }
             },
-            "selected": {
+            "active": {
               "$type": "color",
               "$value": "{color.surface.strong}",
               "$modes": {
@@ -270,6 +270,19 @@
                 "cds-g10": "0",
                 "cds-g90": "0",
                 "cds-g100": "0"
+              }
+            }
+          },
+          "surface": {
+            "color": {
+              "$type": "color",
+              "$value": "{color.foreground.action}",
+              "$modes": {
+                "default": "{color.foreground.action}",
+                "cds-g0": "{carbon.themes.white.borderInteractive}",
+                "cds-g10": "{carbon.themes.g10.borderInteractive}",
+                "cds-g90": "{carbon.themes.g90.borderInteractive}",
+                "cds-g100": "{carbon.themes.g100.borderInteractive}"
               }
             }
           }

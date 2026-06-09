@@ -132,7 +132,7 @@
   &.active,
   &.active:hover:focus {
     position: relative; // for the "active" indicator bar to be correctly positioned
-    background: var(--token-app-side-nav-body-list-item-surface-color-selected);
+    background: var(--token-app-side-nav-body-list-item-surface-color-active);
 
     // indicator bar
     &::after {
@@ -141,7 +141,7 @@
       bottom: 0;
       left: calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
       width: 4px;
-      background: var(--token-color-foreground-action);
+      background: var(--token-app-side-nav-body-list-item-indicator-surface-color);
       border-radius: 0 var(--token-app-side-nav-body-list-item-indicator-border-radius)
         var(--token-app-side-nav-body-list-item-indicator-border-radius) 0;
       content: "";
@@ -150,7 +150,7 @@
     .hds-app-side-nav__list-item-text,
     .hds-app-side-nav__list-item-icon-leading,
     .hds-app-side-nav__list-item-icon-trailing {
-      color: var(--token-app-side-nav-body-list-item-foreground-color-selected);
+      color: var(--token-app-side-nav-body-list-item-foreground-color-active);
     }
   }
 }

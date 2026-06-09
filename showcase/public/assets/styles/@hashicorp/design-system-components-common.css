@@ -2194,7 +2194,7 @@
 }
 .hds-app-side-nav__list-item-link.active, .hds-app-side-nav__list-item-link.active:hover:focus {
   position: relative;
-  background: var(--token-app-side-nav-body-list-item-surface-color-selected);
+  background: var(--token-app-side-nav-body-list-item-surface-color-active);
 }
 .hds-app-side-nav__list-item-link.active::after, .hds-app-side-nav__list-item-link.active:hover:focus::after {
   position: absolute;
@@ -2202,7 +2202,7 @@
   bottom: 0;
   left: calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
   width: 4px;
-  background: var(--token-color-foreground-action);
+  background: var(--token-app-side-nav-body-list-item-indicator-surface-color);
   border-radius: 0 var(--token-app-side-nav-body-list-item-indicator-border-radius) var(--token-app-side-nav-body-list-item-indicator-border-radius) 0;
   content: "";
 }
@@ -2211,7 +2211,7 @@
 .hds-app-side-nav__list-item-link.active .hds-app-side-nav__list-item-icon-trailing, .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-text,
 .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-icon-leading,
 .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-icon-trailing {
-  color: var(--token-app-side-nav-body-list-item-foreground-color-selected);
+  color: var(--token-app-side-nav-body-list-item-foreground-color-active);
 }
 
 .hds-app-side-nav__list-item-link--back-link:active, .hds-app-side-nav__list-item-link--back-link.mock-active {

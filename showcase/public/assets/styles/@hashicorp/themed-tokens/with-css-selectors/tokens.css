@@ -63,11 +63,12 @@
   --token-app-header-padding-right: 0px;
   --token-app-header-padding-top: 0px;
   --token-app-header-surface-color: var(--token-color-page-primary);
+  --token-app-side-nav-body-list-item-foreground-color-active: #525252;
   --token-app-side-nav-body-list-item-foreground-color-default: #525252;
   --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
-  --token-app-side-nav-body-list-item-foreground-color-selected: #525252;
   --token-app-side-nav-body-list-item-height: 32px;
   --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+  --token-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
   --token-app-side-nav-body-list-item-margin-top: 0px;
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -75,19 +76,13 @@
     141,
     141,
     141,
-    0.5
+    0.2
   );
   --token-app-side-nav-body-list-item-surface-color-hover: rgba(
     141,
     141,
     141,
     0.12
-  );
-  --token-app-side-nav-body-list-item-surface-color-selected: rgba(
-    141,
-    141,
-    141,
-    0.2
   );
   --token-app-side-nav-body-list-item-typography-font-weight: 600;
   --token-app-side-nav-body-list-title-foreground-color: #161616;
@@ -626,11 +621,12 @@
     --token-app-header-padding-right: 0px;
     --token-app-header-padding-top: 0px;
     --token-app-header-surface-color: var(--token-color-page-primary);
+    --token-app-side-nav-body-list-item-foreground-color-active: #525252;
     --token-app-side-nav-body-list-item-foreground-color-default: #525252;
     --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
-    --token-app-side-nav-body-list-item-foreground-color-selected: #525252;
     --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -638,19 +634,13 @@
       141,
       141,
       141,
-      0.5
+      0.2
     );
     --token-app-side-nav-body-list-item-surface-color-hover: rgba(
       141,
       141,
       141,
       0.12
-    );
-    --token-app-side-nav-body-list-item-surface-color-selected: rgba(
-      141,
-      141,
-      141,
-      0.2
     );
     --token-app-side-nav-body-list-item-typography-font-weight: 600;
     --token-app-side-nav-body-list-title-foreground-color: #161616;
@@ -1195,11 +1185,12 @@
     --token-app-header-padding-right: 0px;
     --token-app-header-padding-top: 0px;
     --token-app-header-surface-color: var(--token-color-page-primary);
+    --token-app-side-nav-body-list-item-foreground-color-active: #c6c6c6;
     --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
     --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
-    --token-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
     --token-app-side-nav-body-list-item-height: 32px;
     --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+    --token-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
     --token-app-side-nav-body-list-item-margin-top: 0px;
     --token-app-side-nav-body-list-item-padding-horizontal: 16px;
     --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -1207,19 +1198,13 @@
       141,
       141,
       141,
-      0.4
+      0.24
     );
     --token-app-side-nav-body-list-item-surface-color-hover: rgba(
       141,
       141,
       141,
       0.16
-    );
-    --token-app-side-nav-body-list-item-surface-color-selected: rgba(
-      141,
-      141,
-      141,
-      0.24
     );
     --token-app-side-nav-body-list-item-typography-font-weight: 600;
     --token-app-side-nav-body-list-title-foreground-color: #f4f4f4;
@@ -1763,11 +1748,12 @@
   --token-app-header-padding-right: 0px;
   --token-app-header-padding-top: 0px;
   --token-app-header-surface-color: var(--token-color-page-primary);
+  --token-app-side-nav-body-list-item-foreground-color-active: #525252;
   --token-app-side-nav-body-list-item-foreground-color-default: #525252;
   --token-app-side-nav-body-list-item-foreground-color-hover: #525252;
-  --token-app-side-nav-body-list-item-foreground-color-selected: #525252;
   --token-app-side-nav-body-list-item-height: 32px;
   --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+  --token-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
   --token-app-side-nav-body-list-item-margin-top: 0px;
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -1775,19 +1761,13 @@
     141,
     141,
     141,
-    0.5
+    0.2
   );
   --token-app-side-nav-body-list-item-surface-color-hover: rgba(
     141,
     141,
     141,
     0.12
-  );
-  --token-app-side-nav-body-list-item-surface-color-selected: rgba(
-    141,
-    141,
-    141,
-    0.2
   );
   --token-app-side-nav-body-list-item-typography-font-weight: 600;
   --token-app-side-nav-body-list-title-foreground-color: #161616;
@@ -2325,11 +2305,12 @@
   --token-app-header-padding-right: 0px;
   --token-app-header-padding-top: 0px;
   --token-app-header-surface-color: var(--token-color-page-primary);
+  --token-app-side-nav-body-list-item-foreground-color-active: #c6c6c6;
   --token-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
   --token-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
-  --token-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
   --token-app-side-nav-body-list-item-height: 32px;
   --token-app-side-nav-body-list-item-indicator-border-radius: 0px;
+  --token-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
   --token-app-side-nav-body-list-item-margin-top: 0px;
   --token-app-side-nav-body-list-item-padding-horizontal: 16px;
   --token-app-side-nav-body-list-item-padding-vertical: 7px;
@@ -2337,19 +2318,13 @@
     141,
     141,
     141,
-    0.4
+    0.24
   );
   --token-app-side-nav-body-list-item-surface-color-hover: rgba(
     141,
     141,
     141,
     0.16
-  );
-  --token-app-side-nav-body-list-item-surface-color-selected: rgba(
-    141,
-    141,
-    141,
-    0.24
   );
   --token-app-side-nav-body-list-item-typography-font-weight: 600;
   --token-app-side-nav-body-list-title-foreground-color: #f4f4f4;
