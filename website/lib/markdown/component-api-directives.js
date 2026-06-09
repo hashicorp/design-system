@@ -77,8 +77,61 @@ function getContextualComponentSummaryName(component, propertyName) {
   return `${baseComponentName}::${contextualName}`;
 }
 
+function sourcePathToContextualSegments(sourcePath) {
+  if (typeof sourcePath !== 'string' || sourcePath.length === 0) {
+    return undefined;
+  }
+
+  const withoutPrefix = sourcePath.replace(/^\.\//u, '');
+  const withoutExtension = withoutPrefix.replace(/\.[a-z0-9]+$/iu, '');
+  const segments = withoutExtension
+    .split('/')
+    .map((segment) => segment.trim())
+    .filter(Boolean)
+    .map((segment) => {
+      return segment
+        .split('-')
+        .filter(Boolean)
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join('');
+    })
+    .filter(Boolean);
+
+  if (segments.length === 0) {
+    return undefined;
+  }
+
+  return segments;
+}
+
+function getContextualComponentSummaryNameFromSourcePath(component, sourcePath) {
+  const componentName = component.name;
+
+  if (typeof componentName !== 'string' || componentName.length === 0) {
+    return undefined;
+  }
+
+  const baseComponentName = componentName.replace(/^Hds/u, '');
+
+  if (baseComponentName.length === 0) {
+    return undefined;
+  }
+
+  const sourceSegments = sourcePathToContextualSegments(sourcePath);
+
+  if (sourceSegments === undefined || sourceSegments.length === 0) {
+    return undefined;
+  }
+
+  return `${baseComponentName}::${sourceSegments.join('::')}`;
+}
+
 function formatTopLevelContextualComponent(component, property) {
-  const summaryName = getContextualComponentSummaryName(component, property.name);
+  const summaryName =
+    getContextualComponentSummaryNameFromSourcePath(
+      component,
+      property.sourcePath,
+    ) ?? getContextualComponentSummaryName(component, property.name);
   const normalizedDescription = normalizeContextualSummaryDescription(
     property.description,
   );

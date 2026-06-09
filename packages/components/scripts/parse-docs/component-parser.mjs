@@ -1,3 +1,5 @@
+import { Node } from 'ts-morph';
+
 export function parseComponentsFromEntry({
   entryFile,
   sourceFileResolver,
@@ -39,6 +41,55 @@ export function parseComponentsFromEntry({
     }
 
     return values.map((value) => unquoteLiteralValue(value));
+  }
+
+  function getYieldedComponentSourcePath(yieldDeclaration) {
+    const typeNode = yieldDeclaration.getTypeNode?.();
+
+    if (!typeNode) {
+      return undefined;
+    }
+
+    let typeQueryNode;
+
+    if (Node.isTypeQuery(typeNode)) {
+      typeQueryNode = typeNode;
+    } else if (
+      Node.isTypeReference(typeNode) &&
+      typeNode.getTypeName().getText() === 'WithBoundArgs'
+    ) {
+      const firstTypeArg = typeNode.getTypeArguments()[0];
+
+      if (firstTypeArg && Node.isTypeQuery(firstTypeArg)) {
+        typeQueryNode = firstTypeArg;
+      }
+    }
+
+    if (!typeQueryNode) {
+      return undefined;
+    }
+
+    const symbolName = typeQueryNode.getExprName().getText();
+    const sourceFile = yieldDeclaration.getSourceFile();
+
+    for (const importDecl of sourceFile.getImportDeclarations()) {
+      const defaultImportName = importDecl.getDefaultImport()?.getText();
+
+      if (defaultImportName === symbolName) {
+        return importDecl.getModuleSpecifierValue();
+      }
+
+      for (const namedImport of importDecl.getNamedImports()) {
+        const localName =
+          namedImport.getAliasNode()?.getText() || namedImport.getName();
+
+        if (localName === symbolName) {
+          return importDecl.getModuleSpecifierValue();
+        }
+      }
+    }
+
+    return undefined;
   }
 
   const allDocPayloads = {};
@@ -168,6 +219,9 @@ export function parseComponentsFromEntry({
                       ? typeResolver.resolveYieldTypeText(yieldDecl)
                       : 'unknown',
                     description: yieldDocData.description,
+                    sourcePath: yieldDecl
+                      ? getYieldedComponentSourcePath(yieldDecl)
+                      : undefined,
                   });
                 });
 

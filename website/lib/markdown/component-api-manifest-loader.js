@@ -156,6 +156,7 @@ function normalizeParsedComponentApiEntry(componentName, parsedEntry) {
       type: yieldedValue.type,
       description: yieldedValue.description,
       remarks: yieldedValue.remarks || undefined,
+      sourcePath: yieldedValue.sourcePath || undefined,
     })),
   }));
 
@@ -174,6 +175,7 @@ function normalizeParsedComponentApiEntry(componentName, parsedEntry) {
         type: 'yielded component',
         description: yieldedValue.description,
         remarks: yieldedValue.remarks || undefined,
+        sourcePath: yieldedValue.sourcePath || undefined,
       });
     });
   });

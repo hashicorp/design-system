@@ -16,7 +16,96 @@ The Dropdown component is composed of different child components each with their
 
 ### Dropdown
 
-<!-- hds-api::api -->
+<Doc::ComponentApi as |C|>
+  <C.Property @name="<[D].ToggleButton>" @type="yielded component">
+    `Dropdown::Toggle::Button` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].ToggleIcon>" @type="yielded component">
+    `Dropdown::Toggle::Icon` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Header>" @type="yielded component">
+    `Dropdown::Header` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Title>" @type="yielded component">
+    `Dropdown::ListItem::Title` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Description>" @type="yielded component">
+    `Dropdown::ListItem::Description` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Separator>" @type="yielded component">
+    `Dropdown::ListItem::Separator` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Interactive>" @type="yielded component">
+    `Dropdown::ListItem::Interactive` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].CopyItem>" @type="yielded component">
+    `Dropdown::ListItem::CopyItem` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Checkmark>" @type="yielded component">
+    `Dropdown::ListItem::Checkmark` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Checkbox>" @type="yielded component">
+    `Dropdown::ListItem::Checkbox` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Radio>" @type="yielded component">
+    `Dropdown::ListItem::Radio` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Generic>" @type="yielded component">
+    `Dropdown::ListItem::Generic` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Footer>" @type="yielded component">
+    `Dropdown::Footer` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="[D].close" @type="function">
+    Function to programmatically close the Dropdown yielded to the content.
+    <br/><br/>
+    If this function is invoked using an `\{{on "click"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component which requires a workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).
+  </C.Property>
+  <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right">
+    _Note: If `@enableCollisionDetection` is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._
+  </C.Property>
+  <C.Property @name="isInline" @type="boolean" @default="false" @values={{array "true" "false"}}>
+    If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.
+  </C.Property>
+  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false" @values={{array "true" "false"}}>
+    Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
+  </C.Property>
+  <C.Property @name="isOpen" @type="boolean" @default="false" @values={{array "true" "false"}}>
+    Controls if the list should be rendered initially opened.
+  </C.Property>
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
+    By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
+    <br/><br/>We discourage the use of percentage values for this argument. The Dropdown list is [a `popover` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover), so relative units use `document` as a reference (not the parent element), meaning percentage values act similar to `vw`.
+    If `@matchToggleWidth` is set, `@width` is overridden.
+  </C.Property>
+  <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
+    If a `@height` parameter is provided then the list will have a max-height.
+  </C.Property>
+  <C.Property @name="matchToggleWidth" @type="boolean" @default="false">
+    Sets the Dropdown List’s width to match the width of the Toggle. It overrides the `@width` value if set.
+  </C.Property>
+  <C.Property @name="preserveContentInDom" @type="boolean" @default="false">
+    Controls if the content is always rendered in the DOM, even when the dropdown is closed.
+  </C.Property>
+  <C.Property @name="onClose" @type="function">
+    Callback function invoked when the dropdown is closed (if provided).
+  </C.Property>
+  <C.Property @name="onFocusOut" @type="function">
+    A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided).
+    <br />
+    <br />
+    _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._
+  </C.Property>
+  <C.Property @name="boundary" @type="Boundary | string">
+    Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a `Boundary` type as specified in the [Floating UI library documentation](https://floating-ui.com/docs/detectoverflow#options) or an id string for the boundary container element.
+    <br />
+    <br />
+    Must be used in conjunction with setting `enableCollisionDetection` to `true`.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
 
 ### Contextual components
 
