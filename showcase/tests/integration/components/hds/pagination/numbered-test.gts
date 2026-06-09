@@ -13,6 +13,7 @@ import {
   resetOnerror,
   setupOnerror,
 } from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsPaginationNumbered } from '@hashicorp/design-system-components/components';
 
@@ -371,6 +372,55 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
 
     assert.dom('.hds-pagination-nav__arrow--direction-next').isDisabled();
     assert.dom('.hds-pagination-nav__arrow--direction-prev').isFocused();
+  });
+
+  test('changing page size clears arrow focus intent and does not move focus to the opposite arrow', async function (assert) {
+    const context = new TrackedObject({
+      currentPage: 5,
+      currentPageSize: 10,
+    });
+
+    const queryFunction = (page: number, pageSize: number) => ({
+      page,
+      pageSize,
+    });
+
+    const onPageChange = (page: number, pageSize: number) => {
+      context.currentPage = page;
+      context.currentPageSize = pageSize;
+    };
+
+    const onPageSizeChange = (pageSize: number) => {
+      context.currentPageSize = pageSize;
+      context.currentPage = 2;
+    };
+
+    await render(
+      <template>
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @currentPage={{context.currentPage}}
+          @currentPageSize={{context.currentPageSize}}
+          @route="page-components.pagination"
+          @queryFunction={{queryFunction}}
+          @onPageChange={{onPageChange}}
+          @onPageSizeChange={{onPageSizeChange}}
+        />
+      </template>,
+    );
+
+    await click('.hds-pagination-nav__arrow--direction-next');
+    await focus('.hds-pagination-size-selector select');
+    await select('.hds-pagination-size-selector select', '50');
+
+    // Wait one animation frame so RAF-scheduled focus updates complete before assertions.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve()),
+    );
+
+    assert.dom('.hds-pagination-nav__arrow--direction-next').isDisabled();
+    assert.dom('.hds-pagination-nav__arrow--direction-prev').isNotFocused();
+    assert.dom('.hds-pagination-size-selector select').isFocused();
   });
 
   // INTERACTION

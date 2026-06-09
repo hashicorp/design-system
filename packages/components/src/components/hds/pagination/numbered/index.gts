@@ -462,6 +462,8 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   };
 
   onPageSizeChange = (newPageSize: number) => {
+    this._lastActivatedDirection = undefined;
+
     const { onPageSizeChange } = this.args;
 
     if (!this._isControlled) {

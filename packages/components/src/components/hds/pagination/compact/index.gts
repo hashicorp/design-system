@@ -256,6 +256,8 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   };
 
   onPageSizeChange = (newPageSize: number): void => {
+    this._lastActivatedDirection = undefined;
+
     const { onPageSizeChange } = this.args;
 
     // invoke the callback function
