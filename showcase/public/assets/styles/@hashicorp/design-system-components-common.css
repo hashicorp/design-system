@@ -2194,7 +2194,7 @@
 }
 .hds-app-side-nav__list-item-link.active, .hds-app-side-nav__list-item-link.active:hover:focus {
   position: relative;
-  background: var(--token-app-side-nav-body-list-item-surface-color-active);
+  background: var(--token-app-side-nav-body-list-item-surface-color-selected);
 }
 .hds-app-side-nav__list-item-link.active::after, .hds-app-side-nav__list-item-link.active:hover:focus::after {
   position: absolute;
@@ -2211,7 +2211,7 @@
 .hds-app-side-nav__list-item-link.active .hds-app-side-nav__list-item-icon-trailing, .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-text,
 .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-icon-leading,
 .hds-app-side-nav__list-item-link.active:hover:focus .hds-app-side-nav__list-item-icon-trailing {
-  color: var(--token-app-side-nav-body-list-item-foreground-color-active);
+  color: var(--token-app-side-nav-body-list-item-foreground-color-selected);
 }
 
 .hds-app-side-nav__list-item-link--back-link:active, .hds-app-side-nav__list-item-link--back-link.mock-active {

@@ -8735,7 +8735,7 @@
     ]
   },
   {
-    "key": "{app-side-nav.body.list-item.foreground.color.active}",
+    "key": "{app-side-nav.body.list-item.foreground.color.selected}",
     "$type": "color",
     "$value": "#c6c6c6",
     "$modes": {
@@ -8755,9 +8755,9 @@
         "cds-g90": "{carbon.themes.g90.textSecondary}",
         "cds-g100": "{carbon.themes.g100.textSecondary}"
       },
-      "key": "{app-side-nav.body.list-item.foreground.color.active}"
+      "key": "{app-side-nav.body.list-item.foreground.color.selected}"
     },
-    "name": "token-app-side-nav-body-list-item-foreground-color-active",
+    "name": "token-app-side-nav-body-list-item-foreground-color-selected",
     "attributes": {
       "category": "app-side-nav"
     },
@@ -8767,7 +8767,7 @@
       "list-item",
       "foreground",
       "color",
-      "active"
+      "selected"
     ]
   },
   {
@@ -8809,6 +8809,42 @@
   {
     "key": "{app-side-nav.body.list-item.surface.color.active}",
     "$type": "color",
+    "$value": "rgba(141, 141, 141, 0.4)",
+    "$modes": {
+      "default": "#525252",
+      "cds-g0": "rgba(141, 141, 141, 0.5)",
+      "cds-g10": "rgba(141, 141, 141, 0.5)",
+      "cds-g90": "rgba(141, 141, 141, 0.4)",
+      "cds-g100": "rgba(141, 141, 141, 0.4)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.backgroundActive}",
+      "$modes": {
+        "default": "{color.surface.interactive-active}",
+        "cds-g0": "{carbon.themes.white.backgroundActive}",
+        "cds-g10": "{carbon.themes.g10.backgroundActive}",
+        "cds-g90": "{carbon.themes.g90.backgroundActive}",
+        "cds-g100": "{carbon.themes.g100.backgroundActive}"
+      },
+      "key": "{app-side-nav.body.list-item.surface.color.active}"
+    },
+    "name": "token-app-side-nav-body-list-item-surface-color-active",
+    "attributes": {
+      "category": "app-side-nav"
+    },
+    "path": [
+      "app-side-nav",
+      "body",
+      "list-item",
+      "surface",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{app-side-nav.body.list-item.surface.color.selected}",
+    "$type": "color",
     "$value": "rgba(141, 141, 141, 0.24)",
     "$modes": {
       "default": "#393939",
@@ -8827,9 +8863,9 @@
         "cds-g90": "{carbon.themes.g90.backgroundSelected}",
         "cds-g100": "{carbon.themes.g100.backgroundSelected}"
       },
-      "key": "{app-side-nav.body.list-item.surface.color.active}"
+      "key": "{app-side-nav.body.list-item.surface.color.selected}"
     },
-    "name": "token-app-side-nav-body-list-item-surface-color-active",
+    "name": "token-app-side-nav-body-list-item-surface-color-selected",
     "attributes": {
       "category": "app-side-nav"
     },
@@ -8839,7 +8875,7 @@
       "list-item",
       "surface",
       "color",
-      "active"
+      "selected"
     ]
   },
   {

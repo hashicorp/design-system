@@ -278,9 +278,10 @@
   --token-app-side-nav-body-list-item-margin-top: 2px;
   --token-app-side-nav-body-list-item-foreground-color-default: #0c0c0e;
   --token-app-side-nav-body-list-item-foreground-color-hover: #3b3d45;
-  --token-app-side-nav-body-list-item-foreground-color-active: #1060ff;
+  --token-app-side-nav-body-list-item-foreground-color-selected: #1060ff;
   --token-app-side-nav-body-list-item-surface-color-hover: #f1f2f3;
-  --token-app-side-nav-body-list-item-surface-color-active: #f1f2f3;
+  --token-app-side-nav-body-list-item-surface-color-active: #dedfe3;
+  --token-app-side-nav-body-list-item-surface-color-selected: #f1f2f3;
   --token-app-side-nav-body-list-item-typography-font-weight: 500;
   --token-app-side-nav-body-list-item-content-gap: 8px;
   --token-app-side-nav-body-list-item-border-radius: 5px;

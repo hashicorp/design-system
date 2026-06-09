@@ -132,7 +132,7 @@
   &.active,
   &.active:hover:focus {
     position: relative; // for the "active" indicator bar to be correctly positioned
-    background: var(--token-app-side-nav-body-list-item-surface-color-active);
+    background: var(--token-app-side-nav-body-list-item-surface-color-selected);
 
     // indicator bar
     &::after {
@@ -150,7 +150,7 @@
     .hds-app-side-nav__list-item-text,
     .hds-app-side-nav__list-item-icon-leading,
     .hds-app-side-nav__list-item-icon-trailing {
-      color: var(--token-app-side-nav-body-list-item-foreground-color-active);
+      color: var(--token-app-side-nav-body-list-item-foreground-color-selected);
     }
   }
 }

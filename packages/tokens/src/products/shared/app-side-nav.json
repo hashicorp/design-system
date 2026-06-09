@@ -182,7 +182,7 @@
                 "cds-g100": "{carbon.themes.g100.textSecondary}"
               }
             },
-            "active": {
+            "selected": {
               "$type": "color",
               "$value": "{color.foreground.action}",
               "$modes": {
@@ -219,7 +219,7 @@
                 "cds-g100": "{carbon.themes.g100.backgroundActive}"
               }
             },
-            "active": {
+            "selected": {
               "$type": "color",
               "$value": "{color.surface.strong}",
               "$modes": {
