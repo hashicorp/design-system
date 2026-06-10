@@ -45,15 +45,49 @@ function escapeHtml(value: string): string {
 }
 
 function markdownToInlineHtml(markdown: string): string {
-  return markdown
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/gu, '<a href="$2">$1</a>')
-    .replace(/`([^`]+)`/gu, '<code>$1</code>')
-    .replace(/\n/gu, '<br />');
+  const codeSnippets: string[] = [];
+
+  const withCodePlaceholders = markdown.replace(
+    /`([^`]+)`/gu,
+    (_match, code) => {
+      const placeholder = `@@HDS_CODE_SNIPPET_${codeSnippets.length}@@`;
+      codeSnippets.push(`<code>${code}</code>`);
+      return placeholder;
+    },
+  );
+
+  const withLinks = withCodePlaceholders.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/gu,
+    '<a href="$2">$1</a>',
+  );
+
+  const withEmphasis = withLinks
+    .replace(
+      /(^|[\s([{"'])_(\S(?:.*?\S)?)_(?=$|[\s)\]}"'.,!?;:])/gu,
+      '$1<em>$2</em>',
+    )
+    .replace(
+      /(^|[\s([{"'])\*(\S(?:.*?\S)?)\*(?=$|[\s)\]}"'.,!?;:])/gu,
+      '$1<em>$2</em>',
+    );
+
+  const withLineBreaks = withEmphasis.replace(/\n/gu, '<br />');
+
+  return withLineBreaks.replace(
+    /@@HDS_CODE_SNIPPET_(\d+)@@/gu,
+    (_match, index) => {
+      const snippet = codeSnippets[Number(index)];
+      return snippet ?? '';
+    },
+  );
 }
 
 export default class DocComponentApiProperty extends Component<DocComponentApiPropertySignature> {
   get descriptionHtml() {
-    if (this.args.description === undefined || this.args.description.length === 0) {
+    if (
+      this.args.description === undefined ||
+      this.args.description.length === 0
+    ) {
       return undefined;
     }
 
@@ -149,7 +183,9 @@ export default class DocComponentApiProperty extends Component<DocComponentApiPr
         </ul>
       {{/if}}
 
-      {{#if (or this.descriptionHtml this.remarksHtml this.linksHtml (has-block))}}
+      {{#if
+        (or this.descriptionHtml this.remarksHtml this.linksHtml (has-block))
+      }}
         <div class="doc-component-api__property-description">
           {{#if this.descriptionHtml}}
             {{this.descriptionHtml}}
