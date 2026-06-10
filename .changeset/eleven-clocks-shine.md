@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/form/toggle -->
-`Toggle` - Added `aria-checked` attribute to the input for accessibility, it is synced with the `checked` attribute.
+`Toggle` - Added the `aria-checked` attribute to the input for accessibility. It is synced with the `checked` attribute.
 <!-- END -->
