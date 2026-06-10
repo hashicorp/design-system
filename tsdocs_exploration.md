@@ -46,6 +46,8 @@ Component API documentation should be a deterministic output based on TSDoc comm
 - `enableCollisionDetection` is improperly documented as only a boolean
 - We have multiple components documented in one section
   - `#### [D].Header / [D].Footer`
+- `boundary`
+  - `
 
 ## RANDOM THOUGHTS
 

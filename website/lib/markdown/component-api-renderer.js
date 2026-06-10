@@ -13,16 +13,63 @@ function renderValues(values) {
   return `{{array ${renderedValues.join(' ')}}}`;
 }
 
-function resolveSpecialValues(values) {
+function deriveValuesFromType(type) {
+  if (typeof type !== 'string' || type.length === 0) {
+    return undefined;
+  }
+
+  const hasBoolean = /\bboolean\b/u.test(type);
+  const literalMatches = [...type.matchAll(/'([^']*)'|"([^"]*)"/gu)];
+  const literalValues = literalMatches
+    .map((match) => match[1] ?? match[2])
+    .filter((value) => value !== undefined && value.length > 0);
+
+  if (hasBoolean === false && literalValues.length === 0) {
+    return undefined;
+  }
+
+  const values = [];
+
+  if (hasBoolean === true) {
+    values.push('true', 'false');
+  }
+
+  literalValues.forEach((value) => {
+    if (values.includes(value) === false) {
+      values.push(value);
+    }
+  });
+
+  return values;
+}
+
+function resolveSpecialValues(property) {
+  const values = property.values;
+
   if (Array.isArray(values) === false) {
-    return values;
+    return deriveValuesFromType(property.type);
   }
 
   if (values.length === 1 && values[0] === '__icons__') {
     return ['__HDS_ICON_NAMES__'];
   }
 
-  return values;
+  const derivedValues = deriveValuesFromType(property.type);
+
+  if (Array.isArray(derivedValues) === false || derivedValues.length === 0) {
+    return values;
+  }
+
+  const mergedValues = [...derivedValues];
+
+  values.forEach((value) => {
+    if (mergedValues.includes(value) === false) {
+      mergedValues.push(value);
+    }
+  });
+
+  return mergedValues;
+
 }
 
 function renderLinks(links) {
@@ -73,7 +120,7 @@ function renderProperty(property, depth = 1) {
     attrs.push(`@default="${quoteValue(property.default)}"`);
   }
 
-  const values = resolveSpecialValues(property.values);
+  const values = resolveSpecialValues(property);
 
   if (Array.isArray(values) === true && values.length > 0) {
     attrs.push(`@values=${renderValues(values)}`);
