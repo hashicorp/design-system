@@ -30,6 +30,7 @@ export interface HdsDropdownSignature {
      * @remarks
      *   Must be used in conjunction with setting `enableCollisionDetection` to
      *   `true`.
+     * @dependsOn enableCollisionDetection
      */
     boundary?: HdsAnchoredPositionOptions['boundary'];
 

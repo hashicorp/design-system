@@ -16,7 +16,7 @@ The Dropdown component is composed of different child components each with their
 
 ### Dropdown
 
-<!-- hds-api::api -->
+<Doc::ComponentApi @component="dropdown" @section="api" />
 
 ### Contextual components
 

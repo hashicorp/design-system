@@ -2,7 +2,7 @@
 
 ### Alert
 
-<!-- hds-api::api -->
+<Doc::ComponentApi @component="alert" @section="api" />
 
 ### Contextual components
 

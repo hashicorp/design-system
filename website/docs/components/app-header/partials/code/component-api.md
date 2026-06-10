@@ -2,7 +2,7 @@
 
 ### AppHeader
 
-<!-- hds-api::api -->
+<Doc::ComponentApi @component="app-header" @section="api" />
 
 ### AppHeader::HomeLink
 
