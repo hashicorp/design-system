@@ -24,6 +24,7 @@ interface DocComponentApiSignature {
     default: [
       {
         Property: typeof DocComponentApiProperty;
+        properties: DocComponentApiPropertyShape[];
       },
     ];
   };
@@ -62,37 +63,45 @@ export default class DocComponentApi extends Component<DocComponentApiSignature>
   <template>
     <div class="doc-component-api" ...attributes>
       {{#if this.hasRuntimeApiData}}
-        {{#each this.apiProperties as |property|}}
-          <DocComponentApiProperty
-            @name={{property.name}}
-            @type={{property.type}}
-            @required={{property.required}}
-            @values={{property.values}}
-            @default={{property.default}}
-            @valueNote={{property.valueNote}}
-            @description={{property.description}}
-            @remarks={{property.remarks}}
-            @links={{property.links}}
-          >
-            {{#if property.properties}}
-              <div class="doc-component-api">
-                {{#each property.properties as |nestedProperty|}}
-                  <DocComponentApiProperty
-                    @name={{nestedProperty.name}}
-                    @type={{nestedProperty.type}}
-                    @required={{nestedProperty.required}}
-                    @values={{nestedProperty.values}}
-                    @default={{nestedProperty.default}}
-                    @valueNote={{nestedProperty.valueNote}}
-                    @description={{nestedProperty.description}}
-                    @remarks={{nestedProperty.remarks}}
-                    @links={{nestedProperty.links}}
-                  />
-                {{/each}}
-              </div>
-            {{/if}}
-          </DocComponentApiProperty>
-        {{/each}}
+        {{#if (has-block)}}
+          {{yield
+            (hash
+              Property=DocComponentApiProperty properties=this.apiProperties
+            )
+          }}
+        {{else}}
+          {{#each this.apiProperties as |property|}}
+            <DocComponentApiProperty
+              @name={{property.name}}
+              @type={{property.type}}
+              @required={{property.required}}
+              @values={{property.values}}
+              @default={{property.default}}
+              @valueNote={{property.valueNote}}
+              @description={{property.description}}
+              @remarks={{property.remarks}}
+              @links={{property.links}}
+            >
+              {{#if property.properties}}
+                <div class="doc-component-api">
+                  {{#each property.properties as |nestedProperty|}}
+                    <DocComponentApiProperty
+                      @name={{nestedProperty.name}}
+                      @type={{nestedProperty.type}}
+                      @required={{nestedProperty.required}}
+                      @values={{nestedProperty.values}}
+                      @default={{nestedProperty.default}}
+                      @valueNote={{nestedProperty.valueNote}}
+                      @description={{nestedProperty.description}}
+                      @remarks={{nestedProperty.remarks}}
+                      @links={{nestedProperty.links}}
+                    />
+                  {{/each}}
+                </div>
+              {{/if}}
+            </DocComponentApiProperty>
+          {{/each}}
+        {{/if}}
       {{else}}
         {{yield (hash Property=DocComponentApiProperty)}}
       {{/if}}

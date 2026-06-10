@@ -158,16 +158,76 @@ function parseEnumValues(typeText: string | undefined): string[] | undefined {
   return values.map((value) => unquoteLiteralValue(value));
 }
 
+function deriveValuesFromType(typeText: string | undefined): string[] | undefined {
+  if (typeof typeText !== 'string' || typeText.length === 0) {
+    return undefined;
+  }
+
+  const hasBoolean = /\bboolean\b/u.test(typeText);
+  const literalMatches = [...typeText.matchAll(/'([^']*)'|"([^"]*)"/gu)];
+  const literalValues = literalMatches
+    .map((match) => match[1] ?? match[2])
+    .filter((value): value is string => value !== undefined && value.length > 0);
+
+  if (hasBoolean === false && literalValues.length === 0) {
+    return undefined;
+  }
+
+  const values: string[] = [];
+
+  if (hasBoolean === true) {
+    values.push('true', 'false');
+  }
+
+  literalValues.forEach((value) => {
+    if (values.includes(value) === false) {
+      values.push(value);
+    }
+  });
+
+  return values;
+}
+
+function mergeValues(
+  explicitValues: string[] | undefined,
+  derivedValues: string[] | undefined,
+): string[] | undefined {
+  if (
+    Array.isArray(explicitValues) === false ||
+    explicitValues.length === 0
+  ) {
+    return derivedValues;
+  }
+
+  if (Array.isArray(derivedValues) === false || derivedValues.length === 0) {
+    return explicitValues;
+  }
+
+  const mergedValues = [...derivedValues];
+
+  explicitValues.forEach((value) => {
+    if (mergedValues.includes(value) === false) {
+      mergedValues.push(value);
+    }
+  });
+
+  return mergedValues;
+}
+
 function normalizeParsedArgument(arg: ParsedArgument): DocComponentApiProperty {
-  const enumValues =
-    Array.isArray(arg.values) && arg.values.length > 0
-      ? arg.values
-      : parseEnumValues(arg.type);
+  const stringEnumValues = parseEnumValues(arg.type);
+  const derivedValues = deriveValuesFromType(arg.type);
+  const explicitValues =
+    Array.isArray(arg.values) && arg.values.length > 0 ? arg.values : undefined;
+  const values = mergeValues(
+    explicitValues ?? stringEnumValues,
+    derivedValues,
+  );
 
   return {
     name: arg.name,
-    type: enumValues === undefined ? arg.type : 'enum',
-    values: enumValues,
+    type: stringEnumValues === undefined ? arg.type : 'enum',
+    values,
     required: arg.required,
     default: normalizeDefaultValue(arg.defaultValue),
     description: arg.description,
