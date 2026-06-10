@@ -48,6 +48,17 @@ module('Integration | Component | hds/form/toggle/base', function (hooks) {
     assert.dom('#test-form-toggle').hasAttribute('aria-checked', 'true');
   });
 
+  test('it should render aria-checked="false" when checked="mixed"', async function (assert) {
+    await render(
+      <template>
+        <HdsFormToggleBase id="test-form-toggle" checked="mixed" />
+      </template>,
+    );
+
+    assert.dom('#test-form-toggle').hasAttribute('checked', 'mixed');
+    assert.dom('#test-form-toggle').hasAttribute('aria-checked', 'false');
+  });
+
   test('it should keep aria-checked in sync with checked when toggled', async function (assert) {
     await render(
       <template><HdsFormToggleBase id="test-form-toggle" /></template>,

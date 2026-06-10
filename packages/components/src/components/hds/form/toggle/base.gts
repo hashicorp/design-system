@@ -16,7 +16,16 @@ export interface HdsFormToggleBaseSignature {
 export default class HdsFormToggleBase extends Component<HdsFormToggleBaseSignature> {
   private _syncAriaChecked = modifier((element: HTMLInputElement) => {
     const syncAriaChecked = () => {
-      element.setAttribute('aria-checked', element.checked ? 'true' : 'false');
+      const checkedValue = element.getAttribute('checked');
+      let ariaCheckedValue: 'true' | 'false';
+
+      if (checkedValue === 'mixed') {
+        ariaCheckedValue = 'false';
+      } else {
+        ariaCheckedValue = element.checked ? 'true' : 'false';
+      }
+
+      element.setAttribute('aria-checked', ariaCheckedValue);
     };
 
     syncAriaChecked();
