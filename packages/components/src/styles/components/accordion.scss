@@ -13,6 +13,8 @@
 
 // ACCORDION
 
+$hds-accordion-sizes: ("small", "medium", "large");
+
 .hds-accordion {
   display: flex;
   flex-direction: column;
@@ -34,43 +36,19 @@
 
 // ACCORDION ITEM > VARIANTS MAPPINGS
 
-.hds-accordion-item--size-small {
-  --hds-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-small);
-  --hds-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-top-small);
-  --hds-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-top-small);
-  --hds-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-small);
-  --hds-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-small);
-  --hds-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-small);
-  --hds-accordion-item-content-padding-top: var(--token-accordion-item-content-padding-top-small);
-  --hds-accordion-item-content-padding-right: var(--token-accordion-item-content-padding-right-small);
-  --hds-accordion-item-content-padding-bottom: var(--token-accordion-item-content-padding-bottom-small);
-  --hds-accordion-item-content-padding-left: var(--token-accordion-item-content-padding-left-small);
-}
-
-.hds-accordion-item--size-medium {
-  --hds-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-medium);
-  --hds-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-top-medium);
-  --hds-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-top-medium);
-  --hds-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-medium);
-  --hds-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-medium);
-  --hds-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-medium);
-  --hds-accordion-item-content-padding-top: var(--token-accordion-item-content-padding-top-medium);
-  --hds-accordion-item-content-padding-right: var(--token-accordion-item-content-padding-right-medium);
-  --hds-accordion-item-content-padding-bottom: var(--token-accordion-item-content-padding-bottom-medium);
-  --hds-accordion-item-content-padding-left: var(--token-accordion-item-content-padding-left-medium);
-}
-
-.hds-accordion-item--size-large {
-  --hds-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-large);
-  --hds-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-right-large);
-  --hds-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-bottom-large);
-  --hds-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-large);
-  --hds-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-large);
-  --hds-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-large);
-  --hds-accordion-item-content-padding-top: var(--token-accordion-item-content-padding-top-large);
-  --hds-accordion-item-content-padding-right: var(--token-accordion-item-content-padding-right-large);
-  --hds-accordion-item-content-padding-bottom: var(--token-accordion-item-content-padding-bottom-large);
-  --hds-accordion-item-content-padding-left: var(--token-accordion-item-content-padding-left-large);
+@each $size in $hds-accordion-sizes {
+  .hds-accordion-item--size-#{$size} {
+    --hds-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-#{$size});
+    --hds-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-#{$size});
+    --hds-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-#{$size});
+    --hds-accordion-item-content-padding-top: var(--token-accordion-item-content-padding-top-#{$size});
+    --hds-accordion-item-content-padding-right: var(--token-accordion-item-content-padding-right-#{$size});
+    --hds-accordion-item-content-padding-bottom: var(--token-accordion-item-content-padding-bottom-#{$size});
+    --hds-accordion-item-content-padding-left: var(--token-accordion-item-content-padding-left-#{$size});
+  }
 }
 
 .hds-accordion-item--type-card {
