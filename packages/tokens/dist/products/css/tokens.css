@@ -204,10 +204,6 @@
   --token-accordion-card-gap-small: 4px;
   --token-accordion-card-gap-medium: 8px;
   --token-accordion-card-gap-large: 12px;
-  --token-accordion-item-card-surface-color-default: #ffffff;
-  --token-accordion-item-card-surface-color-hover: #ffffff;
-  --token-accordion-item-flush-surface-color-default: rgba(0, 0, 0, 0);
-  --token-accordion-item-flush-surface-color-hover: #f1f2f3;
   --token-accordion-item-border-color: #656a7633;
   --token-accordion-item-toggle-padding-top-small: 8px;
   --token-accordion-item-toggle-padding-top-medium: 12px;
@@ -224,10 +220,12 @@
   --token-accordion-item-toggle-gap-small: 8px;
   --token-accordion-item-toggle-gap-medium: 12px;
   --token-accordion-item-toggle-gap-large: 12px;
-  --token-accordion-item-toggle-typography-font-weight: 600;
   --token-accordion-item-toggle-icon-size-small: 16px;
   --token-accordion-item-toggle-icon-size-medium: 20px;
   --token-accordion-item-toggle-icon-size-large: 24px;
+  --token-accordion-item-toggle-icon-transform-rotate: -180deg;
+  --token-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --token-accordion-item-toggle-icon-transition-duration: 0.3s;
   --token-accordion-item-content-padding-top-small: 4px;
   --token-accordion-item-content-padding-top-medium: 4px;
   --token-accordion-item-content-padding-top-large: 4px;
