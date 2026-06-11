@@ -289,19 +289,6 @@
             }
           }
         },
-        "typography": {
-          "font-weight": {
-            "$type": "font-weight",
-            "$value": "{typography.font-weight.semibold}",
-            "$modes": {
-              "default": "{typography.font-weight.semibold}",
-              "cds-g0": "{carbon.typography.font-weight.regular}",
-              "cds-g10": "{carbon.typography.font-weight.regular}",
-              "cds-g90": "{carbon.typography.font-weight.regular}",
-              "cds-g100": "{carbon.typography.font-weight.regular}"
-            }
-          }
-        },
         "icon": {
           "size": {
             "small": {

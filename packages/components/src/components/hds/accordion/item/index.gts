@@ -174,6 +174,7 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
           <HdsTextBody
             @tag={{this.titleTag}}
             @size={{this.toggleTextSize}}
+            @weight="semibold"
             @color="strong"
             id={{this._titleId}}
             class="hds-accordion-item__toggle-content"
