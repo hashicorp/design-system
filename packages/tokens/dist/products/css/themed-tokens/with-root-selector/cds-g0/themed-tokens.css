@@ -3,6 +3,40 @@
  */
 
 :root {
+  --token-accordion-card-gap-large: 0px;
+  --token-accordion-card-gap-medium: 0px;
+  --token-accordion-card-gap-small: 0px;
+  --token-accordion-item-border-color: #e0e0e0;
+  --token-accordion-item-content-padding-bottom-large: 24px;
+  --token-accordion-item-content-padding-bottom-medium: 24px;
+  --token-accordion-item-content-padding-bottom-small: 24px;
+  --token-accordion-item-content-padding-left-large: 48px;
+  --token-accordion-item-content-padding-left-medium: 48px;
+  --token-accordion-item-content-padding-left-small: 48px;
+  --token-accordion-item-content-padding-right-medium: 16px;
+  --token-accordion-item-content-padding-right-small: 16px;
+  --token-accordion-item-content-padding-top-large: 8px;
+  --token-accordion-item-content-padding-top-medium: 8px;
+  --token-accordion-item-content-padding-top-small: 8px;
+  --token-accordion-item-toggle-gap-large: 16px;
+  --token-accordion-item-toggle-gap-medium: 16px;
+  --token-accordion-item-toggle-gap-small: 16px;
+  --token-accordion-item-toggle-icon-size-large: 16px;
+  --token-accordion-item-toggle-icon-size-medium: 16px;
+  --token-accordion-item-toggle-icon-transform-rotate: 180deg;
+  --token-accordion-item-toggle-icon-transition-duration: 0.11s;
+  --token-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --token-accordion-item-toggle-padding-bottom-large: 14px;
+  --token-accordion-item-toggle-padding-bottom-medium: 10px;
+  --token-accordion-item-toggle-padding-bottom-small: 6px;
+  --token-accordion-item-toggle-padding-left-large: 16px;
+  --token-accordion-item-toggle-padding-left-medium: 16px;
+  --token-accordion-item-toggle-padding-left-small: 16px;
+  --token-accordion-item-toggle-padding-right-medium: 16px;
+  --token-accordion-item-toggle-padding-right-small: 16px;
+  --token-accordion-item-toggle-padding-top-large: 14px;
+  --token-accordion-item-toggle-padding-top-medium: 10px;
+  --token-accordion-item-toggle-padding-top-small: 6px;
   --token-alert-actions-margin-top: 15px;
   --token-alert-border-color-critical: #da1e2866;
   --token-alert-border-color-highlight: #0043ce66;

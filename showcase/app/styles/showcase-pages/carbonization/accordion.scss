@@ -1,0 +1,99 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > ACCORDION
+
+body.page-carbonization-components-accordion {
+  .shw-component-accordion-standalone-button {
+    position: relative;
+    width: fit-content;
+  }
+
+  .shw-component-accordion-temp-layout-highlight {
+    .shw-component-accordion-temp-variants {
+      .hds-accordion,
+      cds-accordion {
+        position: relative;
+
+        &::before {
+          position: absolute;
+          z-index: 1;
+          inset: 4px 0;
+          border-right: 1px dashed #2196f3;
+          border-left: 1px dashed #2196f3;
+          content: "";
+          pointer-events: none;
+        }
+
+      }
+
+      .hds-theme-default .hds-accordion--type-card::before {
+        content: none;
+      }
+
+      .hds-accordion-item__content {
+        position: relative;
+
+        &::before {
+          position: absolute;
+          z-index: 1;
+          inset: 0 6px;
+          border-top: 1px dashed #ff9800;
+          content: "";
+          pointer-events: none;
+        }
+      }
+    }
+
+    .shw-component-accordion-temp-card-nesting {
+      .hds-accordion {
+        position: relative;
+
+        &::before {
+          position: absolute;
+          z-index: 1;
+          inset: 0;
+          border-right: 1px dashed #2196f3;
+          border-left: 1px dashed #2196f3;
+          content: "";
+          pointer-events: none;
+        }
+
+        &::after {
+          position: absolute;
+          z-index: 1;
+          inset: 0 12px;
+          border-right: 1px dotted #ff9800;
+          border-left: 1px dotted #ff9800;
+          content: "";
+          pointer-events: none;
+        }
+      }
+
+      .hds-mode-hds {
+        .hds-accordion::after {
+          inset: 0 12px;
+        }
+      }
+
+      .hds-mode-cds-g0,
+      .hds-mode-cds-g10,
+      .hds-mode-cds-g90,
+      .hds-mode-cds-g100 {
+        .hds-accordion::after {
+          inset: 0 16px 0 48px;
+        }
+      }
+    }
+  }
+
+  .shw-component-accordion-temp-card-nesting {
+    --shw-placeholder-background-color: #cee8f4;
+
+    .hds-card__container {
+      padding: 16px;
+    }
+  }
+}
