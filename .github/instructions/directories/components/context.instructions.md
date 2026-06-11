@@ -20,6 +20,13 @@ The `packages/components` library is the core reusable Ember component library f
 - `pnpm lint:fix` - Runs ESLint and Stylelint with auto-fix enabled to fix any fixable issues
 - `pnpm format` - Runs Prettier to format code according to the project's code style rules
 
+## Requirements
+- All components must be implemented using single-file components with a `.gts` extension
+- All changes to components must be accompanied by appropriate changesets to ensure they are included in the next release
+- All component arguments, events, and contextual components must have associated tests in `showcase/tests`
+- All component arguments, events, and contextual components must be documented in the `website/docs`
+- All component UI text must be defined as translation strings in the `translations` directory and referenced in the component templates
+
 ## Related instructions
 
 - `components.instructions.md`
