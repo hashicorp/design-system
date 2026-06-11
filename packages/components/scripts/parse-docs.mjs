@@ -1,3 +1,13 @@
+/** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
+
+/**
+ * Parse component docs metadata from signature types.
+ *
+ * Input: src/components.ts central public exports. Output:
+ * dist/manifest/components.json consumed by docs tooling. Invoked during `pnpm
+ * build` in this package.
+ */
+
 import { Project } from 'ts-morph';
 import { existsSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';

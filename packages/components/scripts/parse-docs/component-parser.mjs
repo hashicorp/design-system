@@ -1,4 +1,17 @@
-import { Node } from 'ts-morph';
+/** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
+
+import {
+  PROP_ARGS,
+  PROP_BLOCKS,
+  PROP_ELEMENT,
+  SIGNATURE_SUFFIX,
+  TYPE_ENUM,
+  TYPE_UNKNOWN,
+} from './constants.mjs';
+import {
+  findImportForLocalName,
+  getContextualComponentTypeQuery,
+} from './ast-helpers.mjs';
 
 export function parseComponentsFromEntry({
   entryFile,
@@ -8,62 +21,9 @@ export function parseComponentsFromEntry({
   stats,
   onMissingTypesModule,
 }) {
-  function unquoteLiteralValue(value) {
-    const match = /^(['"])(.*)\1$/u.exec(value);
-
-    if (match === null) {
-      return value;
-    }
-
-    return match[2];
-  }
-
-  function parseEnumValues(typeText) {
-    if (typeof typeText !== 'string') {
-      return undefined;
-    }
-
-    const values = typeText
-      .split('|')
-      .map((part) => part.trim())
-      .filter(Boolean);
-
-    if (values.length < 2) {
-      return undefined;
-    }
-
-    const areAllStringLiterals = values.every((value) => {
-      return /^(['"]).*\1$/u.test(value);
-    });
-
-    if (areAllStringLiterals === false) {
-      return undefined;
-    }
-
-    return values.map((value) => unquoteLiteralValue(value));
-  }
-
   function getYieldedComponentSourcePath(yieldDeclaration) {
     const typeNode = yieldDeclaration.getTypeNode?.();
-
-    if (!typeNode) {
-      return undefined;
-    }
-
-    let typeQueryNode;
-
-    if (Node.isTypeQuery(typeNode)) {
-      typeQueryNode = typeNode;
-    } else if (
-      Node.isTypeReference(typeNode) &&
-      typeNode.getTypeName().getText() === 'WithBoundArgs'
-    ) {
-      const firstTypeArg = typeNode.getTypeArguments()[0];
-
-      if (firstTypeArg && Node.isTypeQuery(firstTypeArg)) {
-        typeQueryNode = firstTypeArg;
-      }
-    }
+    const typeQueryNode = getContextualComponentTypeQuery(typeNode);
 
     if (!typeQueryNode) {
       return undefined;
@@ -71,25 +31,155 @@ export function parseComponentsFromEntry({
 
     const symbolName = typeQueryNode.getExprName().getText();
     const sourceFile = yieldDeclaration.getSourceFile();
+    const importMatch = findImportForLocalName(sourceFile, symbolName);
 
-    for (const importDecl of sourceFile.getImportDeclarations()) {
-      const defaultImportName = importDecl.getDefaultImport()?.getText();
-
-      if (defaultImportName === symbolName) {
-        return importDecl.getModuleSpecifierValue();
-      }
-
-      for (const namedImport of importDecl.getNamedImports()) {
-        const localName =
-          namedImport.getAliasNode()?.getText() || namedImport.getName();
-
-        if (localName === symbolName) {
-          return importDecl.getModuleSpecifierValue();
-        }
-      }
+    if (!importMatch) {
+      return undefined;
     }
 
-    return undefined;
+    return importMatch.moduleSpecifier;
+  }
+
+  function parseArgs(signatureInterface) {
+    const args = [];
+    const argsProperty = signatureInterface.getProperty(PROP_ARGS);
+
+    if (!argsProperty) {
+      return args;
+    }
+
+    const argsType = argsProperty.getType().getApparentType();
+
+    argsType.getProperties().forEach((prop) => {
+      const declaration = prop.getValueDeclaration();
+
+      if (!declaration) {
+        stats.skippedMissingArgDeclaration += 1;
+
+        return;
+      }
+
+      const docData = extractDocData(declaration);
+      const resolvedType = typeResolver.resolveDeclarationType(declaration);
+
+      const parsedArg = {
+        name: prop.getName(),
+        type:
+          resolvedType.enumValues === undefined ? resolvedType.text : TYPE_ENUM,
+        required: !declaration.hasQuestionToken(),
+        description: docData.description,
+        remarks: docData.remarks,
+        defaultValue: docData.defaultValue,
+        dependsOn: docData.dependsOn,
+      };
+
+      if (resolvedType.enumValues !== undefined) {
+        parsedArg.values = resolvedType.enumValues;
+      }
+
+      args.push(parsedArg);
+    });
+
+    return args;
+  }
+
+  function parseBlockYields(declaration) {
+    const yields = [];
+    const tupleElements = declaration.getType().getTupleElements();
+
+    if (tupleElements.length === 0) {
+      return yields;
+    }
+
+    tupleElements.forEach((tupleElement, index) => {
+      const yieldedProps = tupleElement.getProperties();
+
+      if (yieldedProps.length > 0) {
+        // object-like tuple members represent named yield values
+        yieldedProps.forEach((yieldedProp) => {
+          const yieldDecl = yieldedProp.getValueDeclaration();
+          const yieldDocData = yieldDecl
+            ? extractDocData(yieldDecl)
+            : { description: '' };
+
+          if (!yieldDecl) {
+            stats.skippedMissingYieldDeclaration += 1;
+          }
+
+          yields.push({
+            name: yieldedProp.getName(),
+            type: yieldDecl
+              ? typeResolver.resolveYieldTypeText(yieldDecl)
+              : TYPE_UNKNOWN,
+            description: yieldDocData.description,
+            remarks: yieldDocData.remarks,
+            sourcePath: yieldDecl
+              ? getYieldedComponentSourcePath(yieldDecl)
+              : undefined,
+          });
+        });
+
+        return;
+      }
+
+      yields.push({
+        name: `item${index + 1}`,
+        type: tupleElement.getText(declaration),
+        description: '',
+      });
+    });
+
+    return yields;
+  }
+
+  function parseBlocks(signatureInterface) {
+    const blocks = [];
+    const blocksProperty = signatureInterface.getProperty(PROP_BLOCKS);
+
+    if (!blocksProperty) {
+      return blocks;
+    }
+
+    const blocksType = blocksProperty.getType().getApparentType();
+
+    blocksType.getProperties().forEach((prop) => {
+      const declaration = prop.getValueDeclaration();
+
+      if (!declaration) {
+        stats.skippedMissingBlockDeclaration += 1;
+
+        return;
+      }
+
+      const docData = extractDocData(declaration);
+      const yields = parseBlockYields(declaration);
+
+      blocks.push({
+        name: prop.getName(),
+        description: docData.description,
+        yields,
+      });
+    });
+
+    return blocks;
+  }
+
+  function parseElement(signatureInterface) {
+    const elementProperty = signatureInterface.getProperty(PROP_ELEMENT);
+
+    if (!elementProperty) {
+      return {
+        element: null,
+        splattributes: false,
+      };
+    }
+
+    const docData = extractDocData(elementProperty);
+
+    return {
+      element: elementProperty.getType().getText(),
+      splattributes: docData.hasSplattributesTag,
+    };
   }
 
   const allDocPayloads = {};
@@ -119,11 +209,11 @@ export function parseComponentsFromEntry({
 
     const signatures = targetFile
       .getInterfaces()
-      .filter((i) => i.getName().endsWith('Signature'));
+      .filter((i) => i.getName().endsWith(SIGNATURE_SUFFIX));
 
     signatures.forEach((signatureInterface) => {
       const interfaceName = signatureInterface.getName();
-      const componentName = interfaceName.replace('Signature', '');
+      const componentName = interfaceName.replace(SIGNATURE_SUFFIX, '');
 
       if (allDocPayloads[componentName]) {
         stats.skippedDuplicateComponent += 1;
@@ -140,123 +230,12 @@ export function parseComponentsFromEntry({
         splattributes: false,
       };
 
-      const argsProperty = signatureInterface.getProperty('Args');
+      componentDocs.args = parseArgs(signatureInterface);
+      componentDocs.blocks = parseBlocks(signatureInterface);
 
-      if (argsProperty) {
-        const argsType = argsProperty.getType().getApparentType();
-
-        argsType.getProperties().forEach((prop) => {
-          const declaration = prop.getValueDeclaration();
-
-          if (!declaration) {
-            stats.skippedMissingArgDeclaration += 1;
-
-            return;
-          }
-
-          const docData = extractDocData(declaration);
-          const resolvedTypeText = typeResolver.resolveDeclarationTypeText(
-            declaration,
-          );
-          const enumValues = parseEnumValues(resolvedTypeText);
-
-          const parsedArg = {
-            name: prop.getName(),
-            type: enumValues === undefined ? resolvedTypeText : 'enum',
-            required: !declaration.hasQuestionToken(),
-            description: docData.description,
-            remarks: docData.remarks,
-            defaultValue: docData.defaultValue,
-            dependsOn: docData.dependsOn,
-          };
-
-          if (enumValues !== undefined) {
-            parsedArg.values = enumValues;
-          }
-
-          componentDocs.args.push(parsedArg);
-        });
-      }
-
-      const blocksProperty = signatureInterface.getProperty('Blocks');
-
-      if (blocksProperty) {
-        const blocksType = blocksProperty.getType().getApparentType();
-
-        blocksType.getProperties().forEach((prop) => {
-          const declaration = prop.getValueDeclaration();
-
-          if (!declaration) {
-            stats.skippedMissingBlockDeclaration += 1;
-
-            return;
-          }
-
-          const docData = extractDocData(declaration);
-          const yields = [];
-
-          const tupleElements = declaration.getType().getTupleElements();
-
-          if (tupleElements.length > 0) {
-            tupleElements.forEach((tupleElement, index) => {
-              const yieldedProps = tupleElement.getProperties();
-
-              if (yieldedProps.length > 0) {
-                // object-like tuple members represent named yield values
-                yieldedProps.forEach((yieldedProp) => {
-                  const yieldDecl = yieldedProp.getValueDeclaration();
-                  const yieldDocData = yieldDecl
-                    ? extractDocData(yieldDecl)
-                    : { description: '' };
-
-                  if (!yieldDecl) {
-                    stats.skippedMissingYieldDeclaration += 1;
-                  }
-
-                  yields.push({
-                    name: yieldedProp.getName(),
-                    type: yieldDecl
-                      ? typeResolver.resolveYieldTypeText(yieldDecl)
-                      : 'unknown',
-                    description: yieldDocData.description,
-                    remarks: yieldDocData.remarks,
-                    sourcePath: yieldDecl
-                      ? getYieldedComponentSourcePath(yieldDecl)
-                      : undefined,
-                  });
-                });
-
-                return;
-              }
-
-              // primitive tuple members get synthetic positional names
-              yields.push({
-                name: `item${index + 1}`,
-                type: tupleElement.getText(declaration),
-                description: '',
-              });
-            });
-          }
-
-          componentDocs.blocks.push({
-            name: prop.getName(),
-            description: docData.description,
-            yields,
-          });
-        });
-      }
-
-      const elementProperty = signatureInterface.getProperty('Element');
-
-      if (elementProperty) {
-        const docData = extractDocData(elementProperty);
-
-        componentDocs.element = elementProperty.getType().getText();
-
-        if (docData.hasSplattributesTag) {
-          componentDocs.splattributes = true;
-        }
-      }
+      const parsedElement = parseElement(signatureInterface);
+      componentDocs.element = parsedElement.element;
+      componentDocs.splattributes = parsedElement.splattributes;
 
       componentDocs.args.sort((a, b) => a.name.localeCompare(b.name));
       // keep stable ordering in manifest diffs

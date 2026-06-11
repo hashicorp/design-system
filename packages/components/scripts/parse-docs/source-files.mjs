@@ -1,3 +1,5 @@
+/** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
+
 import { dirname, resolve } from 'node:path';
 
 export function createSourceFileResolver({ project, entryFile }) {
@@ -7,9 +9,9 @@ export function createSourceFileResolver({ project, entryFile }) {
     if (moduleSpecifier.endsWith('.types.ts')) {
       candidates.push(moduleSpecifier);
     } else if (moduleSpecifier.endsWith('.gts')) {
-      candidates.push(moduleSpecifier.replace(/\.gts$/, '.types.ts'));
+      candidates.push(`${moduleSpecifier.slice(0, -4)}.types.ts`);
     } else if (moduleSpecifier.endsWith('.ts')) {
-      candidates.push(moduleSpecifier.replace(/\.ts$/, '.types.ts'));
+      candidates.push(`${moduleSpecifier.slice(0, -3)}.types.ts`);
     }
 
     const dedupedCandidates = [...new Set(candidates)];

@@ -1,6 +1,29 @@
+/** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
+
 import { Node, SyntaxKind } from 'ts-morph';
 
+import {
+  TYPE_FUNCTION,
+  TYPE_STRING,
+  TYPE_UNKNOWN,
+  TYPE_YIELDED_COMPONENT,
+} from './constants.mjs';
+import {
+  findImportForLocalName,
+  getContextualComponentTypeQuery,
+} from './ast-helpers.mjs';
+import {
+  isQuotedLiteral,
+  parseStringEnumValues,
+  splitUnion,
+  unquoteLiteral,
+} from './literal.mjs';
+
 export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
+  function incrementTypeResolutionCapped() {
+    stats.typeResolutionCapped += 1;
+  }
+
   function isKeywordTypeNode(node) {
     return (
       Node.isAnyKeyword(node) ||
@@ -25,58 +48,75 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
 
   function findImportedTypeDeclaration(sourceFile, localTypeName) {
     // resolve both aliased named imports and default imports before falling back to raw text
-    for (const importDecl of sourceFile.getImportDeclarations()) {
-      const moduleSpecifier = importDecl.getModuleSpecifierValue();
-      const importedFile = resolveImportSourceFile(sourceFile, moduleSpecifier);
+    const importMatch = findImportForLocalName(sourceFile, localTypeName);
 
-      if (!importedFile) {
-        continue;
+    if (!importMatch) {
+      return null;
+    }
+
+    const importedFile = resolveImportSourceFile(
+      sourceFile,
+      importMatch.moduleSpecifier
+    );
+
+    if (!importedFile) {
+      return null;
+    }
+
+    if (importMatch.isDefault) {
+      const defaultExportSymbol = importedFile.getDefaultExportSymbol();
+      const declaration = defaultExportSymbol?.getDeclarations()?.[0];
+
+      if (declaration) {
+        return declaration;
       }
 
-      for (const specifier of importDecl.getNamedImports()) {
-        const localName =
-          specifier.getAliasNode()?.getText() || specifier.getName();
+      return null;
+    }
 
-        if (localName !== localTypeName) {
-          continue;
-        }
+    const declaration = findDeclaredTypeByName(
+      importedFile,
+      importMatch.importedName
+    );
 
-        const importedName = specifier.getName();
-        const declaration = findDeclaredTypeByName(importedFile, importedName);
-
-        if (declaration) {
-          return declaration;
-        }
-      }
-
-      const defaultImport = importDecl.getDefaultImport();
-      if (defaultImport && defaultImport.getText() === localTypeName) {
-        const defaultExportSymbol = importedFile.getDefaultExportSymbol();
-        const declaration = defaultExportSymbol?.getDeclarations()?.[0];
-
-        if (declaration) {
-          return declaration;
-        }
-      }
+    if (declaration) {
+      return declaration;
     }
 
     return null;
   }
 
-  function splitUnionText(typeText) {
-    return typeText
-      .split('|')
-      .map((part) => part.trim())
-      .filter(Boolean);
+  function findTypeDeclarationFromReference(sourceFile, typeName) {
+    return (
+      findDeclaredTypeByName(sourceFile, typeName) ||
+      findImportedTypeDeclaration(sourceFile, typeName)
+    );
   }
 
-  function isQuotedLiteralText(typeText) {
-    return /^(['"]).*\1$/.test(typeText);
+  function createDeclarationKey(declaration, typeName) {
+    return `${declaration.getSourceFile().getFilePath()}:${typeName}`;
+  }
+
+  function withDeclarationCycleGuard(seen, declaration, typeName, onResolve) {
+    const declarationKey = createDeclarationKey(declaration, typeName);
+
+    if (seen.has(declarationKey)) {
+      // break recursive type cycles instead of recursing indefinitely
+      incrementTypeResolutionCapped();
+
+      return null;
+    }
+
+    seen.add(declarationKey);
+    const resolved = onResolve();
+    seen.delete(declarationKey);
+
+    return resolved;
   }
 
   function resolveTypeFromDeclaration(declaration, seen, depth) {
     if (!declaration || depth > limits.maxDepth) {
-      stats.typeResolutionCapped += 1;
+      incrementTypeResolutionCapped();
 
       return null;
     }
@@ -99,7 +139,7 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
 
       if (members.length > 0) {
         if (members.length > limits.maxUnionMembers) {
-          stats.typeResolutionCapped += 1;
+          incrementTypeResolutionCapped();
 
           return declaration.getName();
         }
@@ -133,11 +173,10 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
       resolveTypeNodeToText(arg, sourceFile, seen, depth + 1)
     );
 
-    const localDeclaration = findDeclaredTypeByName(sourceFile, typeNameText);
-    const importDeclaration = localDeclaration
-      ? null
-      : findImportedTypeDeclaration(sourceFile, typeNameText);
-    const declaration = localDeclaration || importDeclaration;
+    const declaration = findTypeDeclarationFromReference(
+      sourceFile,
+      typeNameText
+    );
 
     if (!declaration) {
       if (resolvedTypeArgs.length === 0) {
@@ -147,20 +186,12 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
       return `${typeNameText}<${resolvedTypeArgs.join(', ')}>`;
     }
 
-    const declarationKey = `${declaration.getSourceFile().getFilePath()}:${typeNameText}`;
-
-    if (seen.has(declarationKey)) {
-      // break recursive type cycles instead of recursing indefinitely
-      stats.typeResolutionCapped += 1;
-
-      return typeNameText;
-    }
-
-    seen.add(declarationKey);
-
-    const resolved = resolveTypeFromDeclaration(declaration, seen, depth + 1);
-
-    seen.delete(declarationKey);
+    const resolved = withDeclarationCycleGuard(
+      seen,
+      declaration,
+      typeNameText,
+      () => resolveTypeFromDeclaration(declaration, seen, depth + 1)
+    );
 
     const baseType = resolved || typeNameText;
 
@@ -222,7 +253,7 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
         span.getFirstChild();
 
       if (!spanTypeNode || !Node.isTypeNode(spanTypeNode)) {
-        return 'string';
+        return TYPE_STRING;
       }
 
       const spanTypeText = resolveTypeNodeToText(
@@ -232,13 +263,13 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
         depth + 1
       );
 
-      const spanOptions = splitUnionText(spanTypeText)
-        .filter((option) => isQuotedLiteralText(option))
-        .map((option) => option.slice(1, -1));
+      const spanOptions = splitUnion(spanTypeText)
+        .filter((option) => isQuotedLiteral(option))
+        .map((option) => unquoteLiteral(option));
 
       if (spanOptions.length === 0) {
         // if any segment is non-literal the cartesian expansion becomes open-ended
-        return 'string';
+        return TYPE_STRING;
       }
 
       const tailNode = span.getLastChild();
@@ -254,8 +285,8 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
           nextCombinations.push(`${prefix}${option}${tailText}`);
 
           if (nextCombinations.length > limits.maxTemplateExpansions) {
-            stats.typeResolutionCapped += 1;
-            return 'string';
+            incrementTypeResolutionCapped();
+            return TYPE_STRING;
           }
         }
       }
@@ -266,8 +297,8 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
     const literalUnion = combinations.map((value) => `'${value}'`);
 
     if (literalUnion.length > limits.maxUnionMembers) {
-      stats.typeResolutionCapped += 1;
-      return 'string';
+      incrementTypeResolutionCapped();
+      return TYPE_STRING;
     }
 
     return literalUnion.join(' | ');
@@ -304,9 +335,10 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
 
     if (Node.isTypeReference(rootTypeNode)) {
       const rootName = rootTypeNode.getTypeName().getText();
-      const declaration =
-        findDeclaredTypeByName(sourceFile, rootName) ||
-        findImportedTypeDeclaration(sourceFile, rootName);
+      const declaration = findTypeDeclarationFromReference(
+        sourceFile,
+        rootName
+      );
 
       if (!declaration) {
         return typeNode.getText();
@@ -328,9 +360,10 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
 
       if (!nextTypeNode && Node.isTypeReference(container)) {
         const referencedName = container.getTypeName().getText();
-        const declaration =
-          findDeclaredTypeByName(rootSourceFile, referencedName) ||
-          findImportedTypeDeclaration(rootSourceFile, referencedName);
+        const declaration = findTypeDeclarationFromReference(
+          rootSourceFile,
+          referencedName
+        );
 
         if (!declaration) {
           return typeNode.getText();
@@ -362,8 +395,8 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
     depth = 0
   ) {
     if (!typeNode || depth > limits.maxDepth) {
-      stats.typeResolutionCapped += 1;
-      return 'unknown';
+      incrementTypeResolutionCapped();
+      return TYPE_UNKNOWN;
     }
 
     if (Node.isParenthesizedTypeNode(typeNode)) {
@@ -379,7 +412,7 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
       const nodes = typeNode.getTypeNodes();
 
       if (nodes.length > limits.maxUnionMembers) {
-        stats.typeResolutionCapped += 1;
+        incrementTypeResolutionCapped();
         return typeNode.getText();
       }
 
@@ -420,7 +453,7 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
     }
 
     if (Node.isFunctionTypeNode(typeNode)) {
-      return 'function';
+      return TYPE_FUNCTION;
     }
 
     if (Node.isTemplateLiteralTypeNode(typeNode)) {
@@ -453,7 +486,71 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
     return typeNode.getText();
   }
 
-  function resolveDeclarationTypeText(declaration) {
+  function tryResolveEnumValues(typeNode, sourceFile, seen, depth) {
+    if (!typeNode || depth > limits.maxDepth) {
+      return undefined;
+    }
+
+    if (Node.isTypeReference(typeNode)) {
+      const typeNameText = typeNode.getTypeName().getText();
+      const declaration = findTypeDeclarationFromReference(
+        sourceFile,
+        typeNameText
+      );
+
+      if (!declaration) {
+        return undefined;
+      }
+
+      const resolved = withDeclarationCycleGuard(
+        seen,
+        declaration,
+        typeNameText,
+        () => {
+          if (!Node.isTypeAliasDeclaration(declaration)) {
+            return undefined;
+          }
+
+          return tryResolveEnumValues(
+            declaration.getTypeNode(),
+            declaration.getSourceFile(),
+            seen,
+            depth + 1
+          );
+        }
+      );
+
+      return resolved === null ? undefined : resolved;
+    }
+
+    if (!Node.isUnionTypeNode(typeNode)) {
+      return undefined;
+    }
+
+    const values = [];
+
+    for (const node of typeNode.getTypeNodes()) {
+      if (!Node.isLiteralTypeNode(node)) {
+        return undefined;
+      }
+
+      const literalNode = node.getLiteral();
+
+      if (!Node.isStringLiteral(literalNode)) {
+        return undefined;
+      }
+
+      values.push(literalNode.getLiteralText());
+    }
+
+    if (values.length < 2) {
+      return undefined;
+    }
+
+    return values;
+  }
+
+  function resolveDeclarationType(declaration) {
     const typeNode = declaration.getTypeNode?.();
 
     if (typeNode) {
@@ -462,22 +559,41 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
         declaration.getSourceFile()
       );
 
-      if (tracedText && tracedText !== 'unknown') {
+      if (tracedText && tracedText !== TYPE_UNKNOWN) {
         stats.typeResolvedViaAst += 1;
 
-        return tracedText;
+        const enumValuesFromAst = tryResolveEnumValues(
+          typeNode,
+          declaration.getSourceFile(),
+          new Set(),
+          0
+        );
+
+        return {
+          text: tracedText,
+          enumValues:
+            enumValuesFromAst === undefined
+              ? parseStringEnumValues(tracedText)
+              : enumValuesFromAst,
+        };
       }
     }
 
     stats.typeResolutionFallbacks += 1;
     // semantic type text can be noisy so normalize function signatures for readability
     const fallbackTypeText = declaration.getType().getText(declaration);
+    const normalizedText = fallbackTypeText.includes('=>')
+      ? TYPE_FUNCTION
+      : fallbackTypeText;
 
-    if (fallbackTypeText.includes('=>')) {
-      return 'function';
-    }
+    return {
+      text: normalizedText,
+      enumValues: parseStringEnumValues(normalizedText),
+    };
+  }
 
-    return fallbackTypeText;
+  function resolveDeclarationTypeText(declaration) {
+    return resolveDeclarationType(declaration).text;
   }
 
   function resolveYieldTypeText(declaration) {
@@ -490,25 +606,15 @@ export function createTypeResolver({ limits, stats, resolveImportSourceFile }) {
     // In this codebase, yielded contextual components are authored as either
     // `typeof ComponentName` or `WithBoundArgs<typeof ComponentName, ...>`.
     // For docs readability, normalize both to `component`.
-    if (Node.isTypeQuery(typeNode)) {
-      return 'component';
-    }
-
-    if (
-      Node.isTypeReference(typeNode) &&
-      typeNode.getTypeName().getText() === 'WithBoundArgs'
-    ) {
-      const firstTypeArg = typeNode.getTypeArguments()[0];
-
-      if (firstTypeArg && Node.isTypeQuery(firstTypeArg)) {
-        return 'component';
-      }
+    if (getContextualComponentTypeQuery(typeNode)) {
+      return TYPE_YIELDED_COMPONENT;
     }
 
     return resolveDeclarationTypeText(declaration);
   }
 
   return {
+    resolveDeclarationType,
     resolveDeclarationTypeText,
     resolveYieldTypeText,
   };

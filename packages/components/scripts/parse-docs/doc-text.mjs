@@ -1,7 +1,7 @@
+/** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
+
 export function normalizeTagText(tag) {
-  const tagName = tag.getTagName();
-  const tagComment =
-    typeof tag.getComment === 'function' ? tag.getComment() : undefined;
+  const tagComment = tag.getCommentText();
 
   if (typeof tagComment === 'string') {
     // ts-morph can return structured tag comment text so normalize line endings here
@@ -11,14 +11,7 @@ export function normalizeTagText(tag) {
       .join('\n');
   }
 
-  const rawText = tag.getText();
-  const withoutTagName = rawText.replace(new RegExp(`^@${tagName}\\b`), '');
-
-  return withoutTagName
-    .split('\n')
-    .map((line) => line.replace(/^\s*\*\s?/, '').trimEnd())
-    .join('\n')
-    .trim();
+  return '';
 }
 
 export function toSingleLineText(value) {

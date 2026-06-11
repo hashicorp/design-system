@@ -152,7 +152,7 @@ export interface HdsDropdownSignature {
          * content.
          *
          * @remarks
-         *   If this function is invoked using an `\{{on "click"}}` modifier
+         *   If this function is invoked using an `{{on "click"}}` modifier
          *   applied to the `ListItem::Interactive` element, there is a quirky
          *   behavior of the Ember `<LinkTo>` component which requires a
          *   workaround to have the events executed in the right order (this
