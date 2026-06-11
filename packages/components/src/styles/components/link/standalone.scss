@@ -100,6 +100,8 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
 
   &:hover,
   &.mock-hover {
+    color: var(--token-color-foreground-strong);
+
     .hds-link-standalone__text {
       text-decoration-color: var(--token-color-foreground-strong);
     }
