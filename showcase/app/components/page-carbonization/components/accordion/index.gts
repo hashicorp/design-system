@@ -3,11 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq, lt } from 'ember-truth-helpers';
 import { get, hash, array } from '@ember/helper';
+import { on } from '@ember/modifier';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -26,6 +28,7 @@ import {
   HdsBadge,
   HdsLayoutFlex,
   HdsLinkInline,
+  HdsCardContainer,
 } from '@hashicorp/design-system-components/components';
 import HdsAccordionItemButton from '@hashicorp/design-system-components/components/hds/accordion/item/button';
 import {
@@ -40,224 +43,424 @@ import {
   getMockStateSelector,
 } from '../../../page-components/accordion/sub-sections/base-elements';
 
-const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
-  {{pageTitle "Accordion - Carbonization"}}
+export default class AccordionCarbonizationIndex extends Component {
+  @tracked showHighlight = true;
 
-  <ShwTextH1>Accordion - Carbonization</ShwTextH1>
+  toggleHighlight = () => {
+    this.showHighlight = !this.showHighlight;
+  };
 
-  <section>
+  <template>
+    {{pageTitle "Accordion - Carbonization"}}
 
-    <ShwTextH2>Type</ShwTextH2>
+    <ShwTextH1>Accordion - Carbonization</ShwTextH1>
 
-    {{#each TYPES as |type index|}}
-      <ShwTextH3>{{capitalize type}}</ShwTextH3>
-      <ShwCarbonizationComparisonGrid @label="One item">
+    <section
+      class={{if
+        this.showHighlight
+        "shw-component-accordion-temp-layout-highlight"
+      }}
+    >
+
+      <ShwTextH2>🚧 🚧 🚧 [TEMP] Padding visualization 🚧 🚧 🚧</ShwTextH2>
+
+      <ShwTextH3>Variants combinations</ShwTextH3>
+
+      <button type="button" {{on "click" this.toggleHighlight}}>
+        👉 👉 👉
+        {{if this.showHighlight "Hide" "Show"}}
+        layout highlight 👈 👈 👈
+      </button>
+
+      {{#each SIZES as |size index|}}
+        <ShwTextH4>size={{size}}</ShwTextH4>
+        {{#each TYPES as |type|}}
+          <ShwCarbonizationComparisonGrid
+            @label="{{if
+              (eq type 'card')
+              'card'
+              'flush (note: type=flush and isFlush=true are two different things)'
+            }}"
+            class="shw-component-accordion-temp-variants"
+            @layout="row"
+          >
+            <:theming>
+              <HdsAccordion @type={{type}} @size={{size}} as |A|>
+                <A.Item @isOpen={{true}}>
+                  <:toggle>type={{type}}</:toggle>
+                  <:content>
+                    <ShwPlaceholder @text="generic content" @height="40" />
+                  </:content>
+                </A.Item>
+              </HdsAccordion>
+            </:theming>
+            <:reference>
+              {{#let (hash small="sm" medium="md" large="lg") as |sizeMap|}}
+                <cds-accordion
+                  alignment={{if (eq type "flush") "end" "start"}}
+                  isFlush={{eq type "flush"}}
+                  size={{get sizeMap size}}
+                >
+                  <cds-accordion-item
+                    title="isFlush={{if (eq type 'flush') 'true' 'false'}}"
+                    open="true"
+                  >
+                    <ShwPlaceholder @text="generic content" @height="40" />
+                  </cds-accordion-item>
+                </cds-accordion>
+              {{/let}}
+            </:reference>
+          </ShwCarbonizationComparisonGrid>
+        {{/each}}
+
+        {{#if (lt index 2)}}
+          <ShwDivider @level={{2}} />
+        {{/if}}
+      {{/each}}
+
+      <ShwDivider />
+
+      <ShwTextH3>Example of type=flush HdsAccordion inside an HdsCard</ShwTextH3>
+
+      <button type="button" {{on "click" this.toggleHighlight}}>
+        👉 👉 👉
+        {{if this.showHighlight "Hide" "Show"}}
+        layout highlight 👈 👈 👈
+      </button>
+
+      <br />
+      <br />
+
+      <ShwCarbonizationComparisonGrid
+        @layout="side-by-side"
+        class="shw-component-accordion-temp-card-nesting"
+      >
         <:theming>
-          <CodeFragmentWithPlaceholderContent @type={{type}} />
+          <HdsCardContainer @level="mid">
+            <HdsAccordion @type="flush" @size="medium" as |A|>
+              <A.Item>
+                <:toggle>Lorem ipsum</:toggle>
+                <:content>
+                  <ShwPlaceholder @text="generic content" @height="40" />
+                </:content>
+              </A.Item>
+              <A.Item @isOpen={{true}}>
+                <:toggle>Dolor sit amet</:toggle>
+                <:content>
+                  <ShwPlaceholder @text="generic content" @height="40" />
+                </:content>
+              </A.Item>
+              <A.Item>
+                <:toggle>Consectetur</:toggle>
+                <:content>
+                  <ShwPlaceholder @text="generic content" @height="40" />
+                </:content>
+              </A.Item>
+            </HdsAccordion>
+          </HdsCardContainer>
         </:theming>
         <:reference>
-          <cds-accordion
-            alignment={{if (eq type "flush") "end" "start"}}
-            isFlush={{eq type "flush"}}
-          >
-            <cds-accordion-item title="Item one">
-              <ShwPlaceholder @text="generic content" @height="40" />
-            </cds-accordion-item>
-          </cds-accordion>
+          <cds-tile>
+            <cds-accordion alignment="start" isFlush={{true}} size="md">
+              <cds-accordion-item title="Lorem ipsum">
+                <ShwPlaceholder @text="generic content" @height="40" />
+              </cds-accordion-item>
+              <cds-accordion-item title="Dolor sit amet" open="true">
+                <ShwPlaceholder @text="generic content" @height="40" />
+              </cds-accordion-item>
+              <cds-accordion-item title="Consectetur">
+                <ShwPlaceholder @text="generic content" @height="40" />
+              </cds-accordion-item>
+            </cds-accordion>
+          </cds-tile>
         </:reference>
       </ShwCarbonizationComparisonGrid>
 
-      <ShwCarbonizationComparisonGrid @label="Multiple items">
-        <:theming>
-          <CodeFragmentWithToggleVariants @type={{type}} />
-        </:theming>
-        <:reference>
-          <cds-accordion
-            alignment={{if (eq type "flush") "end" "start"}}
-            isFlush={{eq type "flush"}}
-          >
-            <cds-accordion-item title="Item one">
-              <ShwPlaceholder @text="generic content" @height="40" />
-            </cds-accordion-item>
-            <cds-accordion-item title="Item two">
-              <ShwPlaceholder @text="generic content" @height="40" />
-            </cds-accordion-item>
-            <cds-accordion-item title="Item three">
-              <ShwPlaceholder @text="generic content" @height="40" />
-            </cds-accordion-item>
-          </cds-accordion>
-        </:reference>
-      </ShwCarbonizationComparisonGrid>
+      <ShwTextH2>🚧 🚧 🚧 [TEMP] END 🚧 🚧 🚧</ShwTextH2>
 
-      {{#if (lt index 1)}}
-        <ShwDivider @level={{2}} />
-      {{/if}}
-    {{/each}}
+      <ShwDivider />
 
-    <ShwDivider />
+    </section>
 
-    <ShwTextH2>Size</ShwTextH2>
+    <section>
 
-    {{#each SIZES as |size index|}}
-      <ShwTextH3>{{capitalize size}}</ShwTextH3>
+      <ShwTextH2>Type</ShwTextH2>
 
-      {{#each TYPES as |type|}}
-        <ShwCarbonizationComparisonGrid @label={{type}}>
+      {{#each TYPES as |type index|}}
+        <ShwTextH3>{{capitalize type}}</ShwTextH3>
+        <ShwCarbonizationComparisonGrid @label="One item">
           <:theming>
-            <CodeFragmentWithToggleVariants @size={{size}} @type={{type}} />
+            <CodeFragmentWithPlaceholderContent @type={{type}} />
           </:theming>
           <:reference>
-            {{#let (hash small="sm" medium="md" large="lg") as |sizeMap|}}
-              <cds-accordion
-                alignment={{if (eq type "flush") "end" "start"}}
-                isFlush={{eq type "flush"}}
-                size={{get sizeMap size}}
-              >
-                <cds-accordion-item title="Item one">
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </cds-accordion-item>
-                <cds-accordion-item title="Item two">
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </cds-accordion-item>
-                <cds-accordion-item title="Item three">
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </cds-accordion-item>
-              </cds-accordion>
-            {{/let}}
+            <cds-accordion
+              alignment={{if (eq type "flush") "end" "start"}}
+              isFlush={{eq type "flush"}}
+            >
+              <cds-accordion-item title="Item one">
+                <ShwPlaceholder @text="generic content" @height="40" />
+              </cds-accordion-item>
+            </cds-accordion>
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+
+        <ShwCarbonizationComparisonGrid @label="Multiple items">
+          <:theming>
+            <CodeFragmentWithToggleVariants @type={{type}} />
+          </:theming>
+          <:reference>
+            <cds-accordion
+              alignment={{if (eq type "flush") "end" "start"}}
+              isFlush={{eq type "flush"}}
+            >
+              <cds-accordion-item title="Item one">
+                <ShwPlaceholder @text="generic content" @height="40" />
+              </cds-accordion-item>
+              <cds-accordion-item title="Item two">
+                <ShwPlaceholder @text="generic content" @height="40" />
+              </cds-accordion-item>
+              <cds-accordion-item title="Item three">
+                <ShwPlaceholder @text="generic content" @height="40" />
+              </cds-accordion-item>
+            </cds-accordion>
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+
+        {{#if (lt index 1)}}
+          <ShwDivider @level={{2}} />
+        {{/if}}
+      {{/each}}
+
+      <ShwDivider />
+
+      <ShwTextH2>Size</ShwTextH2>
+
+      {{#each SIZES as |size index|}}
+        <ShwTextH3>{{capitalize size}}</ShwTextH3>
+
+        {{#each TYPES as |type|}}
+          <ShwCarbonizationComparisonGrid @label={{type}}>
+            <:theming>
+              <HdsAccordion @type={{type}} @size={{size}} as |A|>
+                <A.Item @isOpen={{true}}>
+                  <:toggle>{{type}} / {{size}}</:toggle>
+                  <:content>
+                    <ShwPlaceholder @text="generic content" @height="40" />
+                  </:content>
+                </A.Item>
+              </HdsAccordion>
+            </:theming>
+            <:reference>
+              {{#let (hash small="sm" medium="md" large="lg") as |sizeMap|}}
+                <cds-accordion
+                  alignment={{if (eq type "flush") "end" "start"}}
+                  isFlush={{eq type "flush"}}
+                  size={{get sizeMap size}}
+                >
+                  <cds-accordion-item
+                    title="{{if (eq type 'flush') 'flush' 'default'}} / {{get
+                      sizeMap
+                      size
+                    }}"
+                    open="true"
+                  >
+                    <ShwPlaceholder @text="generic content" @height="40" />
+                  </cds-accordion-item>
+                </cds-accordion>
+              {{/let}}
+            </:reference>
+          </ShwCarbonizationComparisonGrid>
+        {{/each}}
+
+        {{#if (lt index 2)}}
+          <ShwDivider @level={{2}} />
+        {{/if}}
+      {{/each}}
+
+      <ShwDivider />
+
+      <ShwTextH2>Content</ShwTextH2>
+
+      <ShwTextH3>Generic content</ShwTextH3>
+
+      {{#each TYPES as |type|}}
+        <ShwCarbonizationComparisonGrid
+          @label="{{capitalize type}} with generic content in toggle"
+        >
+          <:theming>
+            <HdsAccordion @type={{type}} as |A|>
+              <A.Item @isOpen={{true}}>
+                <:toggle>
+                  <ShwPlaceholder @text=":toggle" @height="24" />
+                </:toggle>
+                <:content>
+                  <ShwPlaceholder @text=":content" @height="40" />
+                </:content>
+              </A.Item>
+            </HdsAccordion>
+          </:theming>
+          <:reference>
+            <cds-accordion
+              alignment={{if (eq type "flush") "end" "start"}}
+              isFlush={{eq type "flush"}}
+            >
+              <cds-accordion-item open="true">
+                <ShwPlaceholder @text=":toggle" @height="24" slot="title" />
+                <ShwPlaceholder @text=":content" @height="40" />
+              </cds-accordion-item>
+            </cds-accordion>
           </:reference>
         </ShwCarbonizationComparisonGrid>
       {{/each}}
 
-      {{#if (lt index 2)}}
-        <ShwDivider @level={{2}} />
-      {{/if}}
-    {{/each}}
+      <ShwDivider @level={{2}} />
 
-    <ShwDivider />
+      <ShwTextH3>Rich content</ShwTextH3>
 
-    <ShwTextH2>Content</ShwTextH2>
-
-    <ShwTextH3>Generic content</ShwTextH3>
-
-    {{#each TYPES as |type|}}
-      <ShwCarbonizationComparisonGrid
-        @label="{{capitalize type}} with generic content in toggle"
-      >
-        <:theming>
-          <HdsAccordion @type={{type}} as |A|>
-            <A.Item @isOpen={{true}}>
-              <:toggle>
-                <ShwPlaceholder @text=":toggle" @height="24" />
-              </:toggle>
-              <:content>
-                <ShwPlaceholder @text=":content" @height="40" />
-              </:content>
-            </A.Item>
-          </HdsAccordion>
-        </:theming>
-        <:reference>
-          <cds-accordion
-            alignment={{if (eq type "flush") "end" "start"}}
-            isFlush={{eq type "flush"}}
-          >
-            <cds-accordion-item open="true">
-              <ShwPlaceholder @text=":toggle" @height="24" slot="title" />
-              <ShwPlaceholder @text=":content" @height="40" />
-            </cds-accordion-item>
-          </cds-accordion>
-        </:reference>
-      </ShwCarbonizationComparisonGrid>
-    {{/each}}
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Rich content</ShwTextH3>
-
-    {{#each TYPES as |type|}}
-      <ShwCarbonizationComparisonGrid
-        @label="{{capitalize type}} with rich content in toggle"
-      >
-        <:theming>
-          <HdsAccordion @type={{type}} as |A|>
-            <A.Item @isOpen={{true}} @containsInteractive={{true}}>
-              <:toggle>
-                <HdsLayoutFlex @align="center" @gap="8" as |LF|>
+      {{#each TYPES as |type|}}
+        <ShwCarbonizationComparisonGrid
+          @label="{{capitalize type}} with rich content in toggle"
+        >
+          <:theming>
+            <HdsAccordion @type={{type}} as |A|>
+              <A.Item @isOpen={{true}} @containsInteractive={{true}}>
+                <:toggle>
+                  <HdsLayoutFlex @align="center" @gap="8" as |LF|>
+                    <LF.Item @grow={{true}} @shrink={{false}}>
+                      <HdsLinkInline @href="#">Link</HdsLinkInline>
+                    </LF.Item>
+                    <LF.Item @grow={{false}}>
+                      <HdsBadge @text="New" @size="small" @color="highlight" />
+                    </LF.Item>
+                  </HdsLayoutFlex>
+                </:toggle>
+                <:content>
+                  <ShwPlaceholder @text="generic content" @height="40" />
+                </:content>
+              </A.Item>
+            </HdsAccordion>
+          </:theming>
+          <:reference>
+            <cds-accordion
+              alignment={{if (eq type "flush") "end" "start"}}
+              isFlush={{eq type "flush"}}
+            >
+              <cds-accordion-item open="true">
+                <HdsLayoutFlex @align="center" @gap="8" slot="title" as |LF|>
                   <LF.Item @grow={{true}} @shrink={{false}}>
-                    <HdsLinkInline @href="#">Link</HdsLinkInline>
+                    <cds-link inline="" href="#">Link</cds-link>
                   </LF.Item>
                   <LF.Item @grow={{false}}>
                     <HdsBadge @text="New" @size="small" @color="highlight" />
                   </LF.Item>
                 </HdsLayoutFlex>
-              </:toggle>
-              <:content>
                 <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-          </HdsAccordion>
-        </:theming>
-        <:reference>
-          <cds-accordion
-            alignment={{if (eq type "flush") "end" "start"}}
-            isFlush={{eq type "flush"}}
-          >
-            <cds-accordion-item open="true">
-              <HdsLayoutFlex @align="center" @gap="8" slot="title" as |LF|>
-                <LF.Item @grow={{true}} @shrink={{false}}>
-                  <cds-link inline="" href="#">Link</cds-link>
-                </LF.Item>
-                <LF.Item @grow={{false}}>
-                  <HdsBadge @text="New" @size="small" @color="highlight" />
-                </LF.Item>
-              </HdsLayoutFlex>
-              <ShwPlaceholder @text="generic content" @height="40" />
-            </cds-accordion-item>
-          </cds-accordion>
-        </:reference>
-      </ShwCarbonizationComparisonGrid>
-    {{/each}}
+              </cds-accordion-item>
+            </cds-accordion>
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+      {{/each}}
 
-    <ShwDivider @level={{2}} />
+      <ShwDivider @level={{2}} />
 
-    <ShwTextH3>Nested Accordions</ShwTextH3>
+      <ShwTextH3>Nested Accordions</ShwTextH3>
 
-    {{#each TYPES as |type|}}
-      <ShwTextH4>{{capitalize type}}</ShwTextH4>
+      {{#each TYPES as |type|}}
+        <ShwTextH4>{{capitalize type}}</ShwTextH4>
 
-      <ShwCarbonizationComparisonGrid>
+        <ShwCarbonizationComparisonGrid>
+          <:theming>
+            <HdsAccordion @type={{type}} as |A|>
+              <A.Item @isOpen={{true}}>
+                <:toggle>Item one</:toggle>
+                <:content>
+                  <HdsAccordion @type={{type}} as |AA|>
+                    <AA.Item>
+                      <:toggle>Nested item one/1</:toggle>
+                      <:content><ShwPlaceholder
+                          @text="generic content"
+                          @height="40"
+                        /></:content>
+                    </AA.Item>
+                  </HdsAccordion>
+                </:content>
+              </A.Item>
+              <A.Item @isOpen={{true}}>
+                <:toggle>Item two</:toggle>
+                <:content>
+                  <HdsAccordion @type={{type}} as |AA|>
+                    <AA.Item>
+                      <:toggle>Nested item two/1</:toggle>
+                      <:content><ShwPlaceholder
+                          @text="generic content"
+                          @height="40"
+                        /></:content>
+                    </AA.Item>
+                    <AA.Item>
+                      <:toggle>Nested item two/2</:toggle>
+                      <:content><ShwPlaceholder
+                          @text="generic content"
+                          @height="40"
+                        /></:content>
+                    </AA.Item>
+                  </HdsAccordion>
+                </:content>
+              </A.Item>
+            </HdsAccordion>
+          </:theming>
+          <:reference>
+            <cds-accordion
+              alignment={{if (eq type "flush") "end" "start"}}
+              isFlush={{eq type "flush"}}
+            >
+              <cds-accordion-item title="Item one" open="true">
+                <cds-accordion
+                  alignment={{if (eq type "flush") "end" "start"}}
+                  isFlush={{eq type "flush"}}
+                >
+                  <cds-accordion-item title="Nested item one/1">
+                    <ShwPlaceholder @text="generic content" @height="40" />
+                  </cds-accordion-item>
+                </cds-accordion>
+              </cds-accordion-item>
+              <cds-accordion-item title="Item two" open="true">
+                <cds-accordion
+                  alignment={{if (eq type "flush") "end" "start"}}
+                  isFlush={{eq type "flush"}}
+                >
+                  <cds-accordion-item title="Nested item two/1">
+                    <ShwPlaceholder @text="generic content" @height="40" />
+                  </cds-accordion-item>
+                  <cds-accordion-item title="Nested item two/2">
+                    <ShwPlaceholder @text="generic content" @height="40" />
+                  </cds-accordion-item>
+                </cds-accordion>
+              </cds-accordion-item>
+            </cds-accordion>
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+      {{/each}}
+
+      <ShwTextH4>Mixed</ShwTextH4>
+
+      <ShwCarbonizationComparisonGrid @label="type=flush nested in type=card">
         <:theming>
-          <HdsAccordion @type={{type}} as |A|>
+          <HdsAccordion as |A|>
             <A.Item @isOpen={{true}}>
               <:toggle>Item one</:toggle>
               <:content>
-                <HdsAccordion @type={{type}} as |AA|>
+                <HdsAccordion @type="flush" as |AA|>
                   <AA.Item>
-                    <:toggle>Nested item one/1</:toggle>
-                    <:content><ShwPlaceholder
-                        @text="generic content"
-                        @height="40"
-                      /></:content>
+                    <:toggle>Nested item one</:toggle>
+                    <:content>
+                      <ShwPlaceholder @text="generic content" @height="40" />
+                    </:content>
                   </AA.Item>
-                </HdsAccordion>
-              </:content>
-            </A.Item>
-            <A.Item @isOpen={{true}}>
-              <:toggle>Item two</:toggle>
-              <:content>
-                <HdsAccordion @type={{type}} as |AA|>
-                  <AA.Item>
-                    <:toggle>Nested item two/1</:toggle>
-                    <:content><ShwPlaceholder
-                        @text="generic content"
-                        @height="40"
-                      /></:content>
-                  </AA.Item>
-                  <AA.Item>
-                    <:toggle>Nested item two/2</:toggle>
-                    <:content><ShwPlaceholder
-                        @text="generic content"
-                        @height="40"
-                      /></:content>
+                  <AA.Item @containsInteractive={{true}}>
+                    <:toggle>Nested item two</:toggle>
+                    <:content>
+                      <ShwPlaceholder @text="generic content" @height="40" />
+                    </:content>
                   </AA.Item>
                 </HdsAccordion>
               </:content>
@@ -265,29 +468,13 @@ const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
           </HdsAccordion>
         </:theming>
         <:reference>
-          <cds-accordion
-            alignment={{if (eq type "flush") "end" "start"}}
-            isFlush={{eq type "flush"}}
-          >
+          <cds-accordion alignment="start">
             <cds-accordion-item title="Item one" open="true">
-              <cds-accordion
-                alignment={{if (eq type "flush") "end" "start"}}
-                isFlush={{eq type "flush"}}
-              >
-                <cds-accordion-item title="Nested item one/1">
+              <cds-accordion alignment="end" isFlush="true">
+                <cds-accordion-item title="Nested item one">
                   <ShwPlaceholder @text="generic content" @height="40" />
                 </cds-accordion-item>
-              </cds-accordion>
-            </cds-accordion-item>
-            <cds-accordion-item title="Item two" open="true">
-              <cds-accordion
-                alignment={{if (eq type "flush") "end" "start"}}
-                isFlush={{eq type "flush"}}
-              >
-                <cds-accordion-item title="Nested item two/1">
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </cds-accordion-item>
-                <cds-accordion-item title="Nested item two/2">
+                <cds-accordion-item title="Nested item two">
                   <ShwPlaceholder @text="generic content" @height="40" />
                 </cds-accordion-item>
               </cds-accordion>
@@ -295,179 +482,135 @@ const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
           </cds-accordion>
         </:reference>
       </ShwCarbonizationComparisonGrid>
-    {{/each}}
 
-    <ShwTextH4>Mixed</ShwTextH4>
-
-    <ShwCarbonizationComparisonGrid @label="type=flush nested in type=card">
-      <:theming>
-        <HdsAccordion as |A|>
-          <A.Item @isOpen={{true}}>
-            <:toggle>Item one</:toggle>
-            <:content>
-              <HdsAccordion @type="flush" as |AA|>
-                <AA.Item>
-                  <:toggle>Nested item one</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </AA.Item>
-                <AA.Item @containsInteractive={{true}}>
-                  <:toggle>Nested item two</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </AA.Item>
-              </HdsAccordion>
-            </:content>
-          </A.Item>
-        </HdsAccordion>
-      </:theming>
-      <:reference>
-        <cds-accordion alignment="start">
-          <cds-accordion-item title="Item one" open="true">
-            <cds-accordion alignment="end" isFlush="true">
-              <cds-accordion-item title="Nested item one">
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </cds-accordion-item>
-              <cds-accordion-item title="Nested item two">
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </cds-accordion-item>
-            </cds-accordion>
-          </cds-accordion-item>
-        </cds-accordion>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwCarbonizationComparisonGrid @label="type=card nested in type=flush">
-      <:theming>
-        <HdsAccordion @type="flush" as |A|>
-          <A.Item @isOpen={{true}}>
-            <:toggle>Item one</:toggle>
-            <:content>
-              <HdsAccordion as |AA|>
-                <AA.Item>
-                  <:toggle>Nested item one</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </AA.Item>
-                <AA.Item @containsInteractive={{true}}>
-                  <:toggle>Nested item two</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </AA.Item>
-              </HdsAccordion>
-            </:content>
-          </A.Item>
-        </HdsAccordion>
-      </:theming>
-      <:reference>
-        <cds-accordion alignment="end" isFlush="true">
-          <cds-accordion-item title="Item one" open="true">
-            <cds-accordion alignment="start">
-              <cds-accordion-item title="Nested item one">
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </cds-accordion-item>
-              <cds-accordion-item title="Nested item two">
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </cds-accordion-item>
-            </cds-accordion>
-          </cds-accordion-item>
-        </cds-accordion>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwDivider />
-
-    <ShwTextH2>Base elements</ShwTextH2>
-
-    <ShwTextH3>AccordionItem</ShwTextH3>
-
-    <ShwTextH4>States</ShwTextH4>
-
-    {{#each TYPES as |type|}}
-      {{#let (array false true) as |booleans|}}
-        {{#each booleans as |containsInteractive|}}
-          <ShwTextBody>{{capitalize type}}
-            {{if
-              containsInteractive
-              " (with interactive content)"
-            }}</ShwTextBody>
-          {{#each STATES as |state|}}
-            <ShwCarbonizationComparisonGrid
-              @label={{state}}
-              @hideThemeLabels={{true}}
-              @hideCarbonLabels={{true}}
-            >
-              <:theming>
-                <ShwFlex @direction="column" as |SF|>
-                  {{#each booleans as |isOpen|}}
-                    <SF.Item>
-                      <HdsAccordionItem
-                        @containsInteractive={{containsInteractive}}
-                        @isOpen={{isOpen}}
-                        @type={{type}}
-                        mock-state-value={{state}}
-                        mock-state-selector={{getMockStateSelector
-                          type
-                          state
-                          containsInteractive
-                        }}
-                      >
-                        <:toggle>Item</:toggle>
-                        <:content>
-                          <ShwPlaceholder
-                            @text="generic content"
-                            @height="40"
-                          />
-                        </:content>
-                      </HdsAccordionItem>
-                    </SF.Item>
-                  {{/each}}
-                </ShwFlex>
-              </:theming>
-            </ShwCarbonizationComparisonGrid>
-          {{/each}}
-        {{/each}}
-        <ShwDivider @level={{2}} />
-      {{/let}}
-    {{/each}}
-
-    <ShwTextH3>AccordionItemButton</ShwTextH3>
-
-    <ShwTextH4>States (only with parentContainsInteractive=true)</ShwTextH4>
-    {{#each STATES as |state|}}
-      <ShwCarbonizationComparisonGrid
-        @label={{state}}
-        @hideThemeLabels={{true}}
-        @hideCarbonLabels={{true}}
-      >
+      <ShwCarbonizationComparisonGrid @label="type=card nested in type=flush">
         <:theming>
-          <ShwFlex @gap="0.75rem" as |SF|>
-            {{#each SIZES as |size|}}
-              <SF.Item>
-                <div
-                  class="hds-accordion-item--type-card hds-accordion-item--size-{{size}}
-                    shw-component-accordion-standalone-button"
-                >
-                  <HdsAccordionItemButton
-                    @parentContainsInteractive={{true}}
-                    @onClickToggle={{NOOP}}
-                    @size={{size}}
-                    mock-state-value={{state}}
-                    aria-label={{state}}
-                  />
-                </div>
-              </SF.Item>
-            {{/each}}
-          </ShwFlex>
+          <HdsAccordion @type="flush" as |A|>
+            <A.Item @isOpen={{true}}>
+              <:toggle>Item one</:toggle>
+              <:content>
+                <HdsAccordion as |AA|>
+                  <AA.Item>
+                    <:toggle>Nested item one</:toggle>
+                    <:content>
+                      <ShwPlaceholder @text="generic content" @height="40" />
+                    </:content>
+                  </AA.Item>
+                  <AA.Item @containsInteractive={{true}}>
+                    <:toggle>Nested item two</:toggle>
+                    <:content>
+                      <ShwPlaceholder @text="generic content" @height="40" />
+                    </:content>
+                  </AA.Item>
+                </HdsAccordion>
+              </:content>
+            </A.Item>
+          </HdsAccordion>
         </:theming>
+        <:reference>
+          <cds-accordion alignment="end" isFlush="true">
+            <cds-accordion-item title="Item one" open="true">
+              <cds-accordion alignment="start">
+                <cds-accordion-item title="Nested item one">
+                  <ShwPlaceholder @text="generic content" @height="40" />
+                </cds-accordion-item>
+                <cds-accordion-item title="Nested item two">
+                  <ShwPlaceholder @text="generic content" @height="40" />
+                </cds-accordion-item>
+              </cds-accordion>
+            </cds-accordion-item>
+          </cds-accordion>
+        </:reference>
       </ShwCarbonizationComparisonGrid>
-    {{/each}}
 
-  </section>
-</template>;
+      <ShwDivider />
 
-export default AccordionCarbonizationIndex;
+      <ShwTextH2>Base elements</ShwTextH2>
+
+      <ShwTextH3>AccordionItem</ShwTextH3>
+
+      <ShwTextH4>States</ShwTextH4>
+
+      {{#each TYPES as |type|}}
+        {{#let (array false true) as |booleans|}}
+          {{#each booleans as |containsInteractive|}}
+            <ShwTextBody>{{capitalize type}}
+              {{if
+                containsInteractive
+                " (with interactive content)"
+              }}</ShwTextBody>
+            {{#each STATES as |state|}}
+              <ShwCarbonizationComparisonGrid
+                @label={{state}}
+                @hideThemeLabels={{true}}
+                @hideCarbonLabels={{true}}
+              >
+                <:theming>
+                  <ShwFlex @direction="column" as |SF|>
+                    {{#each booleans as |isOpen|}}
+                      <SF.Item>
+                        <HdsAccordionItem
+                          @containsInteractive={{containsInteractive}}
+                          @isOpen={{isOpen}}
+                          @type={{type}}
+                          mock-state-value={{state}}
+                          mock-state-selector={{getMockStateSelector
+                            type
+                            state
+                            containsInteractive
+                          }}
+                        >
+                          <:toggle>Item</:toggle>
+                          <:content>
+                            <ShwPlaceholder
+                              @text="generic content"
+                              @height="40"
+                            />
+                          </:content>
+                        </HdsAccordionItem>
+                      </SF.Item>
+                    {{/each}}
+                  </ShwFlex>
+                </:theming>
+              </ShwCarbonizationComparisonGrid>
+            {{/each}}
+          {{/each}}
+          <ShwDivider @level={{2}} />
+        {{/let}}
+      {{/each}}
+
+      <ShwTextH3>AccordionItemButton</ShwTextH3>
+
+      <ShwTextH4>States (only with parentContainsInteractive=true)</ShwTextH4>
+      {{#each STATES as |state|}}
+        <ShwCarbonizationComparisonGrid
+          @label={{state}}
+          @hideThemeLabels={{true}}
+          @hideCarbonLabels={{true}}
+        >
+          <:theming>
+            <ShwFlex @gap="0.75rem" as |SF|>
+              {{#each SIZES as |size|}}
+                <SF.Item>
+                  <div
+                    class="hds-accordion-item--type-card hds-accordion-item--size-{{size}}
+                      shw-component-accordion-standalone-button"
+                  >
+                    <HdsAccordionItemButton
+                      @parentContainsInteractive={{true}}
+                      @onClickToggle={{NOOP}}
+                      @size={{size}}
+                      mock-state-value={{state}}
+                      aria-label={{state}}
+                    />
+                  </div>
+                </SF.Item>
+              {{/each}}
+            </ShwFlex>
+          </:theming>
+        </ShwCarbonizationComparisonGrid>
+      {{/each}}
+
+    </section>
+  </template>
+}
