@@ -25,7 +25,7 @@ import {
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
-export const STATES = ['default', 'active', 'hover', 'focus'] as const;
+export const STATES = ['default', 'hover', 'active', 'focus'] as const;
 
 export function getMockStateSelector(
   type: (typeof TYPES)[number],
