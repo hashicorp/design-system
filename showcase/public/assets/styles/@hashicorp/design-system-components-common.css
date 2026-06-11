@@ -470,8 +470,8 @@
 
 .hds-accordion-item--size-large {
   --hds-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-large);
-  --hds-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-right-large);
-  --hds-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-bottom-large);
+  --hds-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-top-large);
+  --hds-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-top-large);
   --hds-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-large);
   --hds-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-large);
   --hds-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-large);
@@ -482,19 +482,13 @@
 }
 
 .hds-accordion-item--type-card {
-  --hds-accordion-item-focus-ring-inset-hds: 0;
-}
-
-.hds-accordion-item--type-flush {
-  --hds-accordion-item-focus-ring-inset-hds: 3px;
-}
-
-.hds-accordion-item--type-card {
+  background-color: var(--token-color-surface-primary);
   border-radius: var(--token-border-radius-medium);
 }
 .hds-theme-light .hds-accordion-item--type-card,
 .hds-theme-dark .hds-accordion-item--type-card,
 .hds-theme-system .hds-accordion-item--type-card {
+  background-color: transparent;
   border-bottom: 1px solid var(--token-accordion-item-border-color);
 }
 .hds-theme-light .hds-accordion-item--type-card:first-child,
@@ -509,15 +503,14 @@
 .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static):hover, .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static).mock-hover {
   box-shadow: var(--token-surface-high-box-shadow);
 }
-.hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle {
-  background-color: var(--token-accordion-item-card-surface-color-default);
+.hds-theme-light .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:hover, .hds-theme-light .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-hover,
+.hds-theme-dark .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:hover, .hds-theme-dark .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-hover,
+.hds-theme-system .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:hover, .hds-theme-system .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-hover {
+  background-color: var(--token-color-surface-interactive-hover);
   border-radius: inherit;
 }
-.hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:hover, .hds-accordion-item--type-card.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-hover {
-  background-color: var(--token-accordion-item-card-surface-color-hover);
-}
+
 .hds-accordion-item--type-card.hds-accordion-item--contains-interactive, .hds-accordion-item--type-card.hds-accordion-item--is-static {
-  background-color: var(--token-accordion-item-card-surface-color-default);
   box-shadow: var(--token-surface-base-box-shadow);
 }
 
@@ -530,11 +523,16 @@
   border-top: 1px solid var(--token-accordion-item-border-color);
 }
 
-.hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle {
-  background-color: var(--token-accordion-item-flush-surface-color-default);
-}
 .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:hover, .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-hover {
-  background-color: var(--token-accordion-item-flush-surface-color-hover);
+  background-color: var(--token-color-surface-interactive-hover);
+}
+.hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:active, .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-active {
+  background-color: var(--token-color-surface-interactive-active);
+}
+.hds-theme-light .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:active, .hds-theme-light .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-active,
+.hds-theme-dark .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:active, .hds-theme-dark .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-active,
+.hds-theme-system .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle:active, .hds-theme-system .hds-accordion-item--type-flush.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle.mock-active {
+  background-color: transparent;
 }
 
 .hds-accordion-item__toggle {
@@ -546,11 +544,22 @@
 }
 
 .hds-accordion-item__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hds-accordion-item-toggle-icon-size);
+  height: var(--hds-accordion-item-toggle-icon-size);
   padding: 0;
+  border: var(--token-button-border-width) solid transparent;
+  border-radius: var(--token-border-radius-small);
+  cursor: pointer;
+}
+.hds-accordion-item__button.hds-accordion-item__button--is-open .hds-icon {
+  transform: rotate(var(--token-accordion-item-toggle-icon-transform-rotate));
 }
 @media (prefers-reduced-motion: no-preference) {
   .hds-accordion-item__button .hds-icon {
-    transition: transform 0.3s;
+    transition: transform var(--token-accordion-item-toggle-icon-transition-duration) var(--token-accordion-item-toggle-icon-transition-timing-function);
   }
 }
 .hds-accordion-item--is-static.hds-accordion-item .hds-accordion-item__button {
@@ -559,27 +568,27 @@
 
 .hds-accordion-item__button--parent-does-not-contain-interactive {
   position: static;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: -1px 0;
   color: var(--token-color-foreground-primary);
-  background: transparent;
-  border: 0;
-  border-radius: var(--token-button-border-radius);
-  cursor: pointer;
+  background-color: transparent;
 }
 .hds-accordion-item__button--parent-does-not-contain-interactive::before {
   position: absolute;
   inset: 0;
   content: "";
 }
+.hds-accordion-item--type-card .hds-accordion-item__button--parent-does-not-contain-interactive {
+  --hds-accordion-item-button-focus-ring-inset-hds: 0;
+}
+.hds-accordion-item--type-flush .hds-accordion-item__button--parent-does-not-contain-interactive {
+  --hds-accordion-item-button-focus-ring-inset-hds: 3px;
+}
 .hds-accordion-item__button--parent-does-not-contain-interactive:focus-visible, .hds-accordion-item__button--parent-does-not-contain-interactive.mock-focus {
   outline: none;
 }
 .hds-accordion-item__button--parent-does-not-contain-interactive:focus-visible::before, .hds-accordion-item__button--parent-does-not-contain-interactive.mock-focus::before {
   position: absolute;
-  inset: var(--hds-accordion-item-focus-ring-inset-hds);
+  inset: var(--hds-accordion-item-button-focus-ring-inset-hds);
   z-index: 1;
   border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
   border-radius: inherit;
@@ -596,18 +605,6 @@
 
 .hds-accordion-item__button--parent-contains-interactive {
   position: relative;
-  display: flex;
-  gap: var(--token-button-gap);
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  font-weight: var(--token-typography-font-weight-regular);
-  font-family: var(--token-typography-font-stack-text);
-  text-decoration: none;
-  border: var(--token-button-border-width) solid transparent;
-  border-radius: var(--token-button-border-radius);
-  outline: none;
-  isolation: isolate;
   color: var(--token-button-foreground-color-secondary-default);
   background-color: var(--token-button-surface-color-secondary-default);
   border-color: var(--token-button-border-color-secondary-default);
@@ -625,7 +622,7 @@
 .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-accordion-item__button--parent-contains-interactive.mock-focus::before {
   position: absolute;
   inset: -1px;
-  z-index: -1;
+  z-index: 0;
   border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
   border-radius: inherit;
   outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
@@ -633,45 +630,22 @@
   content: "";
   pointer-events: auto;
 }
-.hds-theme-light .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-light .hds-accordion-item__button--parent-contains-interactive.mock-focus::before,
-.hds-theme-dark .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-dark .hds-accordion-item__button--parent-contains-interactive.mock-focus::before,
-.hds-theme-system .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-system .hds-accordion-item__button--parent-contains-interactive.mock-focus::before {
-  inset: 1px;
-  border-width: 1px;
-}
-
-.hds-accordion-item__button--parent-contains-interactive:focus-visible, .hds-accordion-item__button--parent-contains-interactive.mock-focus {
-  color: var(--token-button-foreground-color-secondary-focus);
-  background-color: var(--token-button-surface-color-secondary-focus);
-}
 .hds-accordion-item__button--parent-contains-interactive:active, .hds-accordion-item__button--parent-contains-interactive.mock-active {
   color: var(--token-button-foreground-color-secondary-active);
   background-color: var(--token-button-surface-color-secondary-active);
   border-color: var(--token-button-border-color-secondary-active);
   box-shadow: none;
 }
-.hds-accordion-item__button--parent-contains-interactive:active::before, .hds-accordion-item__button--parent-contains-interactive.mock-active::before {
-  border-color: transparent;
-}
-.hds-theme-light .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-light .hds-accordion-item__button--parent-contains-interactive.mock-focus::before,
-.hds-theme-dark .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-dark .hds-accordion-item__button--parent-contains-interactive.mock-focus::before,
-.hds-theme-system .hds-accordion-item__button--parent-contains-interactive:focus-visible::before, .hds-theme-system .hds-accordion-item__button--parent-contains-interactive.mock-focus::before {
-  inset: -2px;
-}
-
-.hds-accordion-item__button {
-  width: var(--hds-accordion-item-toggle-icon-size);
-  height: var(--hds-accordion-item-toggle-icon-size);
-}
-
-.hds-accordion-item__button--is-open .hds-icon-chevron-down {
-  transform: rotate(-180deg);
-}
 
 .hds-accordion-item__toggle-content {
   flex: 1;
-  font-weight: var(--token-accordion-item-toggle-typography-font-weight);
   border-radius: inherit;
+}
+.hds-theme-light .hds-accordion-item__toggle-content,
+.hds-theme-dark .hds-accordion-item__toggle-content,
+.hds-theme-system .hds-accordion-item__toggle-content {
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-typography-body-200-font-size);
 }
 
 .hds-accordion-item .hds-accordion-item__content {
@@ -682,13 +656,19 @@
   padding: 0 var(--hds-accordion-item-content-padding-right) 0 var(--hds-accordion-item-content-padding-left);
   border-top: 1px solid var(--token-accordion-item-border-color);
 }
+.hds-theme-light .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush),
+.hds-theme-dark .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush),
+.hds-theme-system .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) {
+  padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right) var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
+}
 .hds-theme-light .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) .hds-accordion-item--type-flush:first-child,
 .hds-theme-dark .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) .hds-accordion-item--type-flush:first-child,
 .hds-theme-system .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) .hds-accordion-item--type-flush:first-child {
   border-top: none;
 }
-
-.hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) .hds-accordion-item--type-flush:last-child {
+.hds-theme-light .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush):last-child,
+.hds-theme-dark .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush):last-child,
+.hds-theme-system .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush):last-child {
   border-bottom: none;
 }
 

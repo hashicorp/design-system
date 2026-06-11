@@ -6039,136 +6039,6 @@
     ]
   },
   {
-    "key": "{accordion.item.card.surface.color.default}",
-    "$type": "color",
-    "$value": "#ffffff",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "transparent",
-      "cds-g10": "transparent",
-      "cds-g90": "transparent",
-      "cds-g100": "transparent"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{color.surface.primary}",
-      "$modes": {
-        "default": "{color.surface.primary}",
-        "cds-g0": "transparent",
-        "cds-g10": "transparent",
-        "cds-g90": "transparent",
-        "cds-g100": "transparent"
-      },
-      "key": "{accordion.item.card.surface.color.default}"
-    },
-    "name": "token-accordion-item-card-surface-color-default",
-    "attributes": {
-      "category": "accordion"
-    },
-    "path": [
-      "accordion",
-      "item",
-      "card",
-      "surface",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{accordion.item.card.surface.color.hover}",
-    "$type": "color",
-    "$value": "#ffffff",
-    "$modes": {
-      "default": "#ffffff",
-      "cds-g0": "#e8e8e8",
-      "cds-g10": "#e8e8e8",
-      "cds-g90": "#474747",
-      "cds-g100": "#333333"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{color.surface.primary}",
-      "$modes": {
-        "default": "{color.surface.primary}",
-        "cds-g0": "{carbon.themes.white.layerHover01}",
-        "cds-g10": "{carbon.themes.g10.layerHover01}",
-        "cds-g90": "{carbon.themes.g90.layerHover01}",
-        "cds-g100": "{carbon.themes.g100.layerHover01}"
-      },
-      "key": "{accordion.item.card.surface.color.hover}"
-    },
-    "name": "token-accordion-item-card-surface-color-hover",
-    "attributes": {
-      "category": "accordion"
-    },
-    "path": [
-      "accordion",
-      "item",
-      "card",
-      "surface",
-      "color",
-      "hover"
-    ]
-  },
-  {
-    "key": "{accordion.item.flush.surface.color.default}",
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "original": {
-      "$type": "color",
-      "$value": "transparent",
-      "key": "{accordion.item.flush.surface.color.default}"
-    },
-    "name": "token-accordion-item-flush-surface-color-default",
-    "attributes": {
-      "category": "accordion"
-    },
-    "path": [
-      "accordion",
-      "item",
-      "flush",
-      "surface",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{accordion.item.flush.surface.color.hover}",
-    "$type": "color",
-    "$value": "#f1f2f3",
-    "$modes": {
-      "default": "#f1f2f3",
-      "cds-g0": "#e8e8e8",
-      "cds-g10": "#e8e8e8",
-      "cds-g90": "#474747",
-      "cds-g100": "#333333"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{color.surface.interactive-hover}",
-      "$modes": {
-        "default": "{color.surface.interactive-hover}",
-        "cds-g0": "{carbon.themes.white.layerHover01}",
-        "cds-g10": "{carbon.themes.g10.layerHover01}",
-        "cds-g90": "{carbon.themes.g90.layerHover01}",
-        "cds-g100": "{carbon.themes.g100.layerHover01}"
-      },
-      "key": "{accordion.item.flush.surface.color.hover}"
-    },
-    "name": "token-accordion-item-flush-surface-color-hover",
-    "attributes": {
-      "category": "accordion"
-    },
-    "path": [
-      "accordion",
-      "item",
-      "flush",
-      "surface",
-      "color",
-      "hover"
-    ]
-  },
-  {
     "key": "{accordion.item.border.color}",
     "$type": "color",
     "$value": "#656a7633",
@@ -6756,63 +6626,14 @@
     ]
   },
   {
-    "key": "{accordion.item.toggle.typography.font-weight}",
-    "$type": "font-weight",
-    "$value": "600",
-    "$modes": {
-      "default": "600",
-      "cds-g0": 400,
-      "cds-g10": 400,
-      "cds-g90": 400,
-      "cds-g100": 400
-    },
-    "original": {
-      "$type": "font-weight",
-      "$value": "{typography.font-weight.semibold}",
-      "$modes": {
-        "default": "{typography.font-weight.semibold}",
-        "cds-g0": "{carbon.typography.font-weight.regular}",
-        "cds-g10": "{carbon.typography.font-weight.regular}",
-        "cds-g90": "{carbon.typography.font-weight.regular}",
-        "cds-g100": "{carbon.typography.font-weight.regular}"
-      },
-      "key": "{accordion.item.toggle.typography.font-weight}"
-    },
-    "name": "token-accordion-item-toggle-typography-font-weight",
-    "attributes": {
-      "category": "accordion"
-    },
-    "path": [
-      "accordion",
-      "item",
-      "toggle",
-      "typography",
-      "font-weight"
-    ]
-  },
-  {
     "key": "{accordion.item.toggle.icon.size.small}",
     "$type": "dimension",
     "$value": "16px",
     "unit": "px",
-    "$modes": {
-      "default": "16",
-      "cds-g0": "16",
-      "cds-g10": "16",
-      "cds-g90": "16",
-      "cds-g100": "16"
-    },
     "original": {
       "$type": "dimension",
       "$value": "16",
       "unit": "px",
-      "$modes": {
-        "default": "16",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
       "key": "{accordion.item.toggle.icon.size.small}"
     },
     "name": "token-accordion-item-toggle-icon-size-small",
@@ -6905,14 +6726,205 @@
     ]
   },
   {
+    "key": "{accordion.item.toggle.icon.transform.rotate}",
+    "$value": "-180deg",
+    "$modes": {
+      "default": "-180deg",
+      "cds-g0": "180deg",
+      "cds-g10": "180deg",
+      "cds-g90": "180deg",
+      "cds-g100": "180deg"
+    },
+    "original": {
+      "$value": "-180deg",
+      "$modes": {
+        "default": "-180deg",
+        "cds-g0": "180deg",
+        "cds-g10": "180deg",
+        "cds-g90": "180deg",
+        "cds-g100": "180deg"
+      },
+      "key": "{accordion.item.toggle.icon.transform.rotate}"
+    },
+    "name": "token-accordion-item-toggle-icon-transform-rotate",
+    "attributes": {
+      "category": "accordion"
+    },
+    "path": [
+      "accordion",
+      "item",
+      "toggle",
+      "icon",
+      "transform",
+      "rotate"
+    ]
+  },
+  {
+    "0": 0.25,
+    "1": 0.1,
+    "2": 0.25,
+    "3": 1,
+    "key": "{accordion.item.toggle.icon.transition.timing-function}",
+    "$type": "cubicBezier",
+    "$value": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+    "$modes": {
+      "default": [
+        0.25,
+        0.1,
+        0.25,
+        1
+      ],
+      "cds-g0": [
+        0.2,
+        0,
+        0.38,
+        0.9
+      ],
+      "cds-g10": [
+        0.2,
+        0,
+        0.38,
+        0.9
+      ],
+      "cds-g90": [
+        0.2,
+        0,
+        0.38,
+        0.9
+      ],
+      "cds-g100": [
+        0.2,
+        0,
+        0.38,
+        0.9
+      ]
+    },
+    "comments": {
+      "hds": "the values correspond to the `ease` timing function, the browser's default"
+    },
+    "original": {
+      "0": 0.25,
+      "1": 0.1,
+      "2": 0.25,
+      "3": 1,
+      "$type": "cubicBezier",
+      "$value": [
+        0.25,
+        0.1,
+        0.25,
+        1
+      ],
+      "$modes": {
+        "default": [
+          0.25,
+          0.1,
+          0.25,
+          1
+        ],
+        "cds-g0": [
+          0.2,
+          0,
+          0.38,
+          0.9
+        ],
+        "cds-g10": [
+          0.2,
+          0,
+          0.38,
+          0.9
+        ],
+        "cds-g90": [
+          0.2,
+          0,
+          0.38,
+          0.9
+        ],
+        "cds-g100": [
+          0.2,
+          0,
+          0.38,
+          0.9
+        ]
+      },
+      "comments": {
+        "hds": "the values correspond to the `ease` timing function, the browser's default"
+      },
+      "key": "{accordion.item.toggle.icon.transition.timing-function}"
+    },
+    "name": "token-accordion-item-toggle-icon-transition-timing-function",
+    "attributes": {
+      "category": "accordion"
+    },
+    "path": [
+      "accordion",
+      "item",
+      "toggle",
+      "icon",
+      "transition",
+      "timing-function"
+    ]
+  },
+  {
+    "key": "{accordion.item.toggle.icon.transition.duration}",
+    "$type": "duration",
+    "$value": "0.3s",
+    "unit": "s",
+    "$modes": {
+      "default": "0.3",
+      "cds-g0": "0.11",
+      "cds-g10": "0.11",
+      "cds-g90": "0.11",
+      "cds-g100": "0.11"
+    },
+    "original": {
+      "$type": "duration",
+      "$value": "0.3",
+      "unit": "s",
+      "$modes": {
+        "default": "0.3",
+        "cds-g0": "0.11",
+        "cds-g10": "0.11",
+        "cds-g90": "0.11",
+        "cds-g100": "0.11"
+      },
+      "key": "{accordion.item.toggle.icon.transition.duration}"
+    },
+    "name": "token-accordion-item-toggle-icon-transition-duration",
+    "attributes": {
+      "category": "accordion"
+    },
+    "path": [
+      "accordion",
+      "item",
+      "toggle",
+      "icon",
+      "transition",
+      "duration"
+    ]
+  },
+  {
     "key": "{accordion.item.content.padding.top.small}",
     "$type": "dimension",
     "$value": "4px",
     "unit": "px",
+    "$modes": {
+      "default": "4",
+      "cds-g0": "8",
+      "cds-g10": "8",
+      "cds-g90": "8",
+      "cds-g100": "8"
+    },
     "original": {
       "$type": "dimension",
       "$value": "4",
       "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
       "key": "{accordion.item.content.padding.top.small}"
     },
     "name": "token-accordion-item-content-padding-top-small",
@@ -6933,10 +6945,24 @@
     "$type": "dimension",
     "$value": "4px",
     "unit": "px",
+    "$modes": {
+      "default": "4",
+      "cds-g0": "8",
+      "cds-g10": "8",
+      "cds-g90": "8",
+      "cds-g100": "8"
+    },
     "original": {
       "$type": "dimension",
       "$value": "4",
       "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
       "key": "{accordion.item.content.padding.top.medium}"
     },
     "name": "token-accordion-item-content-padding-top-medium",
@@ -6957,10 +6983,24 @@
     "$type": "dimension",
     "$value": "4px",
     "unit": "px",
+    "$modes": {
+      "default": "4",
+      "cds-g0": "8",
+      "cds-g10": "8",
+      "cds-g90": "8",
+      "cds-g100": "8"
+    },
     "original": {
       "$type": "dimension",
       "$value": "4",
       "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
       "key": "{accordion.item.content.padding.top.large}"
     },
     "name": "token-accordion-item-content-padding-top-large",
@@ -6981,10 +7021,24 @@
     "$type": "dimension",
     "$value": "8px",
     "unit": "px",
+    "$modes": {
+      "default": "8",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
     "original": {
       "$type": "dimension",
       "$value": "8",
       "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "key": "{accordion.item.content.padding.right.small}"
     },
     "name": "token-accordion-item-content-padding-right-small",
@@ -7005,10 +7059,24 @@
     "$type": "dimension",
     "$value": "12px",
     "unit": "px",
+    "$modes": {
+      "default": "12",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
     "original": {
       "$type": "dimension",
       "$value": "12",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
       "key": "{accordion.item.content.padding.right.medium}"
     },
     "name": "token-accordion-item-content-padding-right-medium",
@@ -7053,10 +7121,24 @@
     "$type": "dimension",
     "$value": "8px",
     "unit": "px",
+    "$modes": {
+      "default": "8",
+      "cds-g0": "24",
+      "cds-g10": "24",
+      "cds-g90": "24",
+      "cds-g100": "24"
+    },
     "original": {
       "$type": "dimension",
       "$value": "8",
       "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "24",
+        "cds-g10": "24",
+        "cds-g90": "24",
+        "cds-g100": "24"
+      },
       "key": "{accordion.item.content.padding.bottom.small}"
     },
     "name": "token-accordion-item-content-padding-bottom-small",
@@ -7077,10 +7159,24 @@
     "$type": "dimension",
     "$value": "12px",
     "unit": "px",
+    "$modes": {
+      "default": "12",
+      "cds-g0": "24",
+      "cds-g10": "24",
+      "cds-g90": "24",
+      "cds-g100": "24"
+    },
     "original": {
       "$type": "dimension",
       "$value": "12",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "24",
+        "cds-g10": "24",
+        "cds-g90": "24",
+        "cds-g100": "24"
+      },
       "key": "{accordion.item.content.padding.bottom.medium}"
     },
     "name": "token-accordion-item-content-padding-bottom-medium",
@@ -7101,10 +7197,24 @@
     "$type": "dimension",
     "$value": "16px",
     "unit": "px",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "24",
+      "cds-g10": "24",
+      "cds-g90": "24",
+      "cds-g100": "24"
+    },
     "original": {
       "$type": "dimension",
       "$value": "16",
       "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "24",
+        "cds-g10": "24",
+        "cds-g90": "24",
+        "cds-g100": "24"
+      },
       "key": "{accordion.item.content.padding.bottom.large}"
     },
     "name": "token-accordion-item-content-padding-bottom-large",
@@ -7125,10 +7235,24 @@
     "$type": "dimension",
     "$value": "12px",
     "unit": "px",
+    "$modes": {
+      "default": "12",
+      "cds-g0": "48",
+      "cds-g10": "48",
+      "cds-g90": "48",
+      "cds-g100": "48"
+    },
     "original": {
       "$type": "dimension",
       "$value": "12",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "key": "{accordion.item.content.padding.left.small}"
     },
     "name": "token-accordion-item-content-padding-left-small",
@@ -7149,10 +7273,24 @@
     "$type": "dimension",
     "$value": "12px",
     "unit": "px",
+    "$modes": {
+      "default": "12",
+      "cds-g0": "48",
+      "cds-g10": "48",
+      "cds-g90": "48",
+      "cds-g100": "48"
+    },
     "original": {
       "$type": "dimension",
       "$value": "12",
       "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "key": "{accordion.item.content.padding.left.medium}"
     },
     "name": "token-accordion-item-content-padding-left-medium",
@@ -7173,10 +7311,24 @@
     "$type": "dimension",
     "$value": "16px",
     "unit": "px",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "48",
+      "cds-g10": "48",
+      "cds-g90": "48",
+      "cds-g100": "48"
+    },
     "original": {
       "$type": "dimension",
       "$value": "16",
       "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
+      },
       "key": "{accordion.item.content.padding.left.large}"
     },
     "name": "token-accordion-item-content-padding-left-large",
