@@ -295,43 +295,6 @@ const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
           </cds-accordion>
         </:reference>
       </ShwCarbonizationComparisonGrid>
-
-      {{!-- <ShwCarbonizationComparisonGrid>
-        <:theming>
-          <HdsAccordion @type={{type}} as |A|>
-            <A.Item @isOpen={{true}}>
-              <:toggle>Item one</:toggle>
-              <:content>
-                <CodeFragmentWithPlaceholderContent
-                  @type={{type}}
-                  @numberOfItems={{2}}
-                  @labelPrefix="Nested"
-                />
-              </:content>
-            </A.Item>
-          </HdsAccordion>
-        </:theming>
-        <:reference>
-          <cds-accordion
-            alignment={{if (eq type "flush") "end" "start"}}
-            isFlush={{eq type "flush"}}
-          >
-            <cds-accordion-item title="Item one" open="true">
-              <cds-accordion
-                alignment={{if (eq type "flush") "end" "start"}}
-                isFlush={{eq type "flush"}}
-              >
-                <cds-accordion-item title="Nested item one">
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </cds-accordion-item>
-                <cds-accordion-item title="Nested item two">
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </cds-accordion-item>
-              </cds-accordion>
-            </cds-accordion-item>
-          </cds-accordion>
-        </:reference>
-      </ShwCarbonizationComparisonGrid> --}}
     {{/each}}
 
     <ShwTextH4>Mixed</ShwTextH4>
