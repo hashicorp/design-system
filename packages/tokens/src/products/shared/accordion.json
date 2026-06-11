@@ -320,29 +320,64 @@
             "small": {
               "$type": "dimension",
               "$value": "4",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "4",
+                "cds-g0": "8",
+                "cds-g10": "8",
+                "cds-g90": "8",
+                "cds-g100": "8"
+              }
             },
             "medium": {
               "$type": "dimension",
               "$value": "4",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "4",
+                "cds-g0": "8",
+                "cds-g10": "8",
+                "cds-g90": "8",
+                "cds-g100": "8"
+              }
             },
             "large": {
               "$type": "dimension",
               "$value": "4",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "4",
+                "cds-g0": "8",
+                "cds-g10": "8",
+                "cds-g90": "8",
+                "cds-g100": "8"
+              }
             }
           },
           "right": {
             "small": {
               "$type": "dimension",
               "$value": "8",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "8",
+                "cds-g0": "16",
+                "cds-g10": "16",
+                "cds-g90": "16",
+                "cds-g100": "16"
+              }
             },
             "medium": {
               "$type": "dimension",
               "$value": "12",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "12",
+                "cds-g0": "16",
+                "cds-g10": "16",
+                "cds-g90": "16",
+                "cds-g100": "16"
+              }
             },
             "large": {
               "$type": "dimension",
@@ -354,34 +389,76 @@
             "small": {
               "$type": "dimension",
               "$value": "8",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "8",
+                "cds-g0": "24",
+                "cds-g10": "24",
+                "cds-g90": "24",
+                "cds-g100": "24"
+              }
             },
             "medium": {
               "$type": "dimension",
               "$value": "12",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "12",
+                "cds-g0": "24",
+                "cds-g10": "24",
+                "cds-g90": "24",
+                "cds-g100": "24"
+              }
             },
             "large": {
               "$type": "dimension",
               "$value": "16",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "16",
+                "cds-g0": "24",
+                "cds-g10": "24",
+                "cds-g90": "24",
+                "cds-g100": "24"
+              }
             }
           },
           "left": {
             "small": {
               "$type": "dimension",
               "$value": "12",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "12",
+                "cds-g0": "48",
+                "cds-g10": "48",
+                "cds-g90": "48",
+                "cds-g100": "48"
+              }
             },
             "medium": {
               "$type": "dimension",
               "$value": "12",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "12",
+                "cds-g0": "48",
+                "cds-g10": "48",
+                "cds-g90": "48",
+                "cds-g100": "48"
+              }
             },
             "large": {
               "$type": "dimension",
               "$value": "16",
-              "unit": "px"
+              "unit": "px",
+              "$modes": {
+                "default": "16",
+                "cds-g0": "48",
+                "cds-g10": "48",
+                "cds-g90": "48",
+                "cds-g100": "48"
+              }
             }
           }
         }
