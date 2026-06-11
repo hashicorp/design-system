@@ -449,7 +449,8 @@ const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
             {{#each SIZES as |size|}}
               <SF.Item>
                 <div
-                  class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+                  class="hds-accordion-item--type-card hds-accordion-item--size-{{size}}
+                    shw-component-accordion-standalone-button"
                 >
                   <HdsAccordionItemButton
                     @parentContainsInteractive={{true}}
