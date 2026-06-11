@@ -51,16 +51,6 @@ $hds-accordion-sizes: ("small", "medium", "large");
   }
 }
 
-.hds-accordion-item--type-card {
-  --hds-accordion-item-focus-ring-inset-hds: 0;
-}
-
-.hds-accordion-item--type-flush {
-  // for the `hds` flush we want the focus ring to appear
-  // inside the toggle (to avoid extending outside its bounding box)
-  --hds-accordion-item-focus-ring-inset-hds: 3px;
-}
-
 // ACCORDION ITEM > TYPE: CARD
 
 .hds-accordion-item--type-card {
@@ -120,6 +110,15 @@ $hds-accordion-sizes: ("small", "medium", "large");
       &.mock-hover {
         background-color: var(--token-color-surface-interactive-hover);
       }
+
+      &:active,
+      &.mock-active {
+        background-color: var(--token-color-surface-interactive-active);
+
+        @include hds-apply-only-if-carbon() {
+          background-color: transparent;
+        }
+      }
     }
   }
 }
@@ -136,9 +135,15 @@ $hds-accordion-sizes: ("small", "medium", "large");
 }
 
 .hds-accordion-item__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: var(--hds-accordion-item-toggle-icon-size);
   height: var(--hds-accordion-item-toggle-icon-size);
   padding: 0;
+  border: var(--token-button-border-width) solid transparent;
+  border-radius: var(--token-border-radius-small);
+  cursor: pointer;
 
   // animate `chevron-down` icon
   &.hds-accordion-item__button--is-open {
@@ -162,15 +167,9 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
 .hds-accordion-item__button--parent-does-not-contain-interactive {
   position: static;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: -1px 0;
   color: var(--token-color-foreground-primary);
-  background: transparent;
-  border: 0;
-  border-radius: var(--token-button-border-radius);
-  cursor: pointer;
+  background-color: transparent;
 
   // we want to make the entire toggle area interactive (even when not focused)
   &::before {
@@ -179,13 +178,25 @@ $hds-accordion-sizes: ("small", "medium", "large");
     content: "";
   }
 
+  // focus is slightly different between the two `type` variants (card/flush)
+
+  .hds-accordion-item--type-card & {
+    --hds-accordion-item-button-focus-ring-inset-hds: 0;
+  }
+
+  .hds-accordion-item--type-flush & {
+    // for the `hds` flush we want the focus ring to appear
+    // inside the toggle (to avoid extending outside its bounding box)
+    --hds-accordion-item-button-focus-ring-inset-hds: 3px;
+  }
+
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-advanced(
       // the `position` is already set above
       $element-position: false,
       $pseudo-element-z-index: 1,
-      $pseudo-element-inset-hds: var(--hds-accordion-item-focus-ring-inset-hds),
+      $pseudo-element-inset-hds: var(--hds-accordion-item-button-focus-ring-inset-hds),
       $pseudo-element-inset-cds: 0
     );
   }
@@ -193,18 +204,39 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
 // only chevron button area is interactive
 .hds-accordion-item__button--parent-contains-interactive {
-  @include hds-button();
-  @include hds-button-color-secondary();
+  position: relative;
+  color: var(--token-button-foreground-color-secondary-default);
+  background-color: var(--token-button-surface-color-secondary-default);
+  border-color: var(--token-button-border-color-secondary-default);
+  box-shadow: var(--token-elevation-low-box-shadow);
 
-  // we want the outline to appear outside of the button (for `cds` only) so we need to
-  // override the button's focus `inset` value assigned by the mixins above
+  &:hover,
+  &.mock-hover {
+    color: var(--token-button-foreground-color-secondary-hover);
+    background-color: var(--token-button-surface-color-secondary-hover);
+    border-color: var(--token-button-border-color-secondary-hover);
+    cursor: pointer;
+  }
+
   &:focus-visible,
   &.mock-focus {
-    &::before {
-      @include hds-apply-only-if-carbon() {
-        inset: -2px;
-      }
-    }
+    @include hds-focus-ring-advanced(
+      // the `position` is already set above
+      $element-position: false,
+      $pseudo-element-z-index: 0,
+      // focus is the same between the two `type` variants (card/flush)
+      $pseudo-element-inset-hds: -1px,
+      // we want the outline to appear outside of the button (for `cds` only)
+      $pseudo-element-inset-cds: -1px
+    );
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-button-foreground-color-secondary-active);
+    background-color: var(--token-button-surface-color-secondary-active);
+    border-color: var(--token-button-border-color-secondary-active);
+    box-shadow: none;
   }
 }
 
