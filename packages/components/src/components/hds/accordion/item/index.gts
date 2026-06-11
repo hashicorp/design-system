@@ -14,8 +14,10 @@ import {
   HdsAccordionItemTitleTagValues,
   HdsAccordionForceStateValues,
 } from '../types.ts';
+import type { HdsIconSignature } from '../../icon/index.gts';
 import HdsAccordionItemButton from './button.gts';
 import HdsTextBody from '../../text/body.gts';
+import HdsIcon from '../../icon/index.gts';
 import HdsDisclosurePrimitive from '../../disclosure-primitive/index.gts';
 
 import type {
@@ -49,6 +51,8 @@ export interface HdsAccordionItemSignature {
     size?: HdsAccordionSizes;
     titleTag?: HdsAccordionItemTitleTags;
     type?: HdsAccordionTypes;
+    favorite?: boolean;
+    favoriteIcon?: string;
   };
   Blocks: {
     toggle?: [];
@@ -64,6 +68,7 @@ export interface HdsAccordionItemSignature {
 
 export default class HdsAccordionItem extends Component<HdsAccordionItemSignature> {
   private _titleId = 'title-' + guidFor(this);
+  private _iconName = 'star';
 
   get ariaLabelledBy(): string | undefined {
     if (!this.args.ariaLabel) {
@@ -122,6 +127,15 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
   }
 
+  get favoriteIcon(): HdsIconSignature['Args']['name'] {
+    const defaultIcon = 'starred';
+    if (this.args.favoriteIcon && this.args.favoriteIcon !== defaultIcon) {
+      console.log(this.args.favoriteIcon);
+      return this.args.favoriteIcon;
+    }
+    return defaultIcon;
+  }
+
   get classNames() {
     const classes = ['hds-accordion-item'];
 
@@ -148,6 +162,10 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
       // Only chevron is interactive:
       classes.push('hds-accordion-item--does-not-contain-interactive');
     }
+
+    // if (this.args.favorite) {
+    //   classes.push('hds-accordion-item-favorite-icon');
+    // }
 
     return classes.join(' ');
   }
@@ -181,6 +199,16 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
           >
             {{yield to="toggle"}}
           </HdsTextBody>
+
+          {{#if @favorite}}
+            <HdsIcon
+              @name={{this.favoriteIcon}}
+              aria-label="Favorite"
+              @size="16"
+              class="hds-accordion-item-favorite-icon hds-accordion-item-icon"
+            />
+            <span class="hds-typography-body-200">Favorite</span>
+          {{/if}}
         </div>
       </:toggle>
 
