@@ -179,7 +179,7 @@ const AccordionCarbonizationIndex: TemplateOnlyComponent = <template>
       >
         <:theming>
           <HdsAccordion @type={{type}} as |A|>
-            <A.Item @isOpen={{true}}>
+            <A.Item @isOpen={{true}} @containsInteractive={{true}}>
               <:toggle>
                 <HdsLayoutFlex @align="center" @gap="8" as |LF|>
                   <LF.Item @grow={{true}} @shrink={{false}}>
