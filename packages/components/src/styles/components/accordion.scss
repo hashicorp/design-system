@@ -64,9 +64,11 @@ $hds-accordion-sizes: ("small", "medium", "large");
 // ACCORDION ITEM > TYPE: CARD
 
 .hds-accordion-item--type-card {
+  background-color: var(--token-color-surface-primary);
   border-radius: var(--token-border-radius-medium);
 
   @include hds-apply-only-if-carbon() {
+    background-color: transparent;
     border-bottom: 1px solid var(--token-accordion-item-border-color);
 
     &:first-child {
@@ -84,19 +86,18 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
     // we need to use this selector to make sure we're impacting only the direct children (there could be nested accordions)
     > .hds-disclosure-primitive__toggle {
-      background-color: var(--token-accordion-item-card-surface-color-default);
-      border-radius: inherit;
-
       &:hover,
       &.mock-hover {
-        background-color: var(--token-accordion-item-card-surface-color-hover);
+        @include hds-apply-only-if-carbon() {
+          background-color: var(--token-color-surface-interactive-hover);
+          border-radius: inherit;
+        }
       }
     }
   }
 
   &.hds-accordion-item--contains-interactive,
   &.hds-accordion-item--is-static {
-    background-color: var(--token-accordion-item-card-surface-color-default);
     box-shadow: var(--token-surface-base-box-shadow);
   }
 }
@@ -115,11 +116,9 @@ $hds-accordion-sizes: ("small", "medium", "large");
   &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
     // we need to use this selector to make sure we're impacting only the direct children (there could be nested accordions)
     > .hds-disclosure-primitive__toggle {
-      background-color: var(--token-accordion-item-flush-surface-color-default);
-
       &:hover,
       &.mock-hover {
-        background-color: var(--token-accordion-item-flush-surface-color-hover);
+        background-color: var(--token-color-surface-interactive-hover);
       }
     }
   }
