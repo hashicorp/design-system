@@ -1,4 +1,7 @@
-/** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
 
 import { writeFileSync } from 'node:fs';
 
@@ -18,17 +21,12 @@ export function printSuccess(outputFilePath) {
   );
 }
 
-export function printMissingTypesSample(missingTypesModules) {
+export function printMissingTypesSummary(missingTypesModules) {
   if (missingTypesModules.length === 0) {
     return;
   }
 
-  // cap console output so large missing lists do not bury parse stats
-  const sample = missingTypesModules.slice(0, 10);
-
-  console.log('  Sample exports without a matching types file:');
-
-  sample.forEach((modulePath) => {
-    console.log(`    - ${modulePath}`);
-  });
+  console.warn(
+    `⚠️  ${missingTypesModules.length} exports were skipped because no matching types file was found.`
+  );
 }

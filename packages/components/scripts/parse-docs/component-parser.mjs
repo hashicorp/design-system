@@ -1,4 +1,7 @@
-/** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
 
 import {
   PROP_ARGS,
@@ -18,7 +21,6 @@ export function parseComponentsFromEntry({
   sourceFileResolver,
   typeResolver,
   extractDocData,
-  stats,
   onMissingTypesModule,
 }) {
   function getYieldedComponentSourcePath(yieldDeclaration) {
@@ -54,8 +56,6 @@ export function parseComponentsFromEntry({
       const declaration = prop.getValueDeclaration();
 
       if (!declaration) {
-        stats.skippedMissingArgDeclaration += 1;
-
         return;
       }
 
@@ -103,7 +103,7 @@ export function parseComponentsFromEntry({
             : { description: '' };
 
           if (!yieldDecl) {
-            stats.skippedMissingYieldDeclaration += 1;
+            // continue with unknown type when no declaration is available
           }
 
           yields.push({
@@ -146,8 +146,6 @@ export function parseComponentsFromEntry({
       const declaration = prop.getValueDeclaration();
 
       if (!declaration) {
-        stats.skippedMissingBlockDeclaration += 1;
-
         return;
       }
 
@@ -186,13 +184,9 @@ export function parseComponentsFromEntry({
   const exportDeclarations = entryFile.getExportDeclarations();
 
   for (const exportDecl of exportDeclarations) {
-    stats.exportsVisited += 1;
-
     const moduleSpecifier = exportDecl.getModuleSpecifierValue();
 
     if (!moduleSpecifier) {
-      stats.skippedWithoutModuleSpecifier += 1;
-
       continue;
     }
 
@@ -200,8 +194,6 @@ export function parseComponentsFromEntry({
       sourceFileResolver.resolveTypesSourceFile(moduleSpecifier);
 
     if (!targetFile) {
-      stats.skippedMissingTypesFile += 1;
-
       onMissingTypesModule(moduleSpecifier);
 
       continue;
@@ -216,11 +208,8 @@ export function parseComponentsFromEntry({
       const componentName = interfaceName.replace(SIGNATURE_SUFFIX, '');
 
       if (allDocPayloads[componentName]) {
-        stats.skippedDuplicateComponent += 1;
         return;
       }
-
-      console.log(`📦 Generating docs for: ${componentName}`);
 
       const componentDocs = {
         name: componentName,
@@ -245,8 +234,6 @@ export function parseComponentsFromEntry({
       componentDocs.blocks.sort((a, b) => a.name.localeCompare(b.name));
 
       allDocPayloads[componentName] = componentDocs;
-
-      stats.componentsGenerated += 1;
     });
   }
 

@@ -1,4 +1,7 @@
-/** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
 
 /**
  * Parse component docs metadata from signature types.
@@ -16,15 +19,13 @@ import {
   ENTRY_FILE_PATH,
   OUTPUT_FILE_PATH,
   TSCONFIG_PATH,
-  TYPE_TRACE_LIMITS,
 } from './parse-docs/config.mjs';
-import { createStats, printStatsSummary } from './parse-docs/stats.mjs';
 import { createSourceFileResolver } from './parse-docs/source-files.mjs';
 import { createTypeResolver } from './parse-docs/type-resolver.mjs';
 import { extractDocData } from './parse-docs/doc-text.mjs';
 import { parseComponentsFromEntry } from './parse-docs/component-parser.mjs';
 import {
-  printMissingTypesSample,
+  printMissingTypesSummary,
   printSuccess,
   sortDocPayloads,
   writeManifest,
@@ -44,15 +45,10 @@ if (!existsSync(outputDir)) {
 
 const project = new Project({ tsConfigFilePath: TSCONFIG_PATH });
 const entryFile = project.addSourceFileAtPath(ENTRY_FILE_PATH);
-const stats = createStats();
 const missingTypesModules = [];
 
 const sourceFileResolver = createSourceFileResolver({ project, entryFile });
-const typeResolver = createTypeResolver({
-  limits: TYPE_TRACE_LIMITS,
-  stats,
-  resolveImportSourceFile: sourceFileResolver.resolveImportSourceFile,
-});
+const typeResolver = createTypeResolver();
 
 // walk only from the central components entrypoint so output order and coverage stay deterministic
 console.log(`🔍 Crawling entry point via AST: ${ENTRY_FILE_PATH}\n`);
@@ -62,7 +58,6 @@ const allDocPayloads = parseComponentsFromEntry({
   sourceFileResolver,
   typeResolver,
   extractDocData,
-  stats,
   onMissingTypesModule: (moduleSpecifier) => {
     missingTypesModules.push(moduleSpecifier);
   },
@@ -73,5 +68,4 @@ const sortedDocPayloads = sortDocPayloads(allDocPayloads);
 writeManifest(OUTPUT_FILE_PATH, sortedDocPayloads);
 
 printSuccess(OUTPUT_FILE_PATH);
-printStatsSummary(stats);
-printMissingTypesSample(missingTypesModules);
+printMissingTypesSummary(missingTypesModules);
