@@ -230,7 +230,8 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       {{#each STATES as |state|}}
         <SF.Item @label={{state}}>
           <div
-            class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+            class="hds-accordion-item--type-card hds-accordion-item--size-{{size}}
+              shw-component-accordion-standalone-button"
           >
             <HdsAccordionItemButton
               @parentContainsInteractive={{true}}
@@ -245,7 +246,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
       <SF.Item @label="isOpen=true">
         <div
-          class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+          class="hds-accordion-item--type-card shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
         >
           <HdsAccordionItemButton
             @parentContainsInteractive={{true}}
@@ -262,7 +263,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         {{style width="calc(20% - 2rem)" position="relative"}}
       >
         <div
-          class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+          class="hds-accordion-item--type-card shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
         >
           <HdsAccordionItemButton
             @parentContainsInteractive={{true}}
