@@ -123,6 +123,8 @@ $hds-link-standalone-size-props: (
 
   &:hover,
   &.mock-hover {
+    color: var(--token-color-foreground-strong);
+
     .hds-link-standalone__text {
       text-decoration-color: #4d4d4f; // custom color by design
     }
