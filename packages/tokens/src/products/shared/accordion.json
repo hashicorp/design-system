@@ -327,6 +327,46 @@
                 "cds-g100": "16"
               }
             }
+          },
+          "transform": {
+            "rotate": {
+              "$value": "-180deg",
+              "$modes": {
+                "default": "-180deg",
+                "cds-g0": "180deg",
+                "cds-g10": "180deg",
+                "cds-g90": "180deg",
+                "cds-g100": "180deg"
+              }
+            }
+          },
+          "transition": {
+            "timing-function": {
+              "$type": "cubicBezier",
+              "$value": [ 0.25, 0.1, 0.25, 1 ],
+              "$modes": {
+                "default": [ 0.25, 0.1, 0.25, 1 ],
+                "cds-g0": [ 0.2, 0, 0.38, 0.9 ],
+                "cds-g10": [ 0.2, 0, 0.38, 0.9 ],
+                "cds-g90": [ 0.2, 0, 0.38, 0.9 ],
+                "cds-g100": [ 0.2, 0, 0.38, 0.9 ]
+              },
+              "comments": {
+                "hds": "the values correspond to the `ease` timing function, the browser's default"
+              }
+            },
+            "duration": {
+              "$type": "duration",
+              "$value": "0.3",
+              "unit": "s",
+              "$modes": {
+                "default": "0.3",
+                "cds-g0": "0.11",
+                "cds-g10": "0.11",
+                "cds-g90": "0.11",
+                "cds-g100": "0.11"
+              }
+            }
           }
         }
       },
