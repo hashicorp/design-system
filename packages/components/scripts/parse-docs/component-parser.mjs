@@ -204,10 +204,10 @@ export function parseComponentsFromEntry({
       continue;
     }
 
-    const familyTypesFiles =
-      sourceFileResolver.resolveFamilyTypesSourceFiles(moduleSpecifier);
+    const familyTypesFile =
+      sourceFileResolver.resolveFamilyTypesSourceFile(moduleSpecifier);
 
-    if (familyTypesFiles.length === 0) {
+    if (!familyTypesFile) {
       componentNames.forEach((componentName) => {
         onMissingFamilyTypes(moduleSpecifier, componentName);
       });
@@ -221,9 +221,7 @@ export function parseComponentsFromEntry({
       }
 
       const signatureName = `${componentName}${SIGNATURE_SUFFIX}`;
-      const signatureInterface = familyTypesFiles
-        .map((sourceFile) => sourceFile.getInterface(signatureName))
-        .find(Boolean);
+      const signatureInterface = familyTypesFile.getInterface(signatureName);
 
       if (!signatureInterface) {
         onMissingSignature(moduleSpecifier, componentName, signatureName);

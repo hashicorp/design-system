@@ -6,20 +6,31 @@
 import { dirname, resolve } from 'node:path';
 
 export function createSourceFileResolver({ project, entryFile }) {
-  const componentsDirectoryPath = resolve(entryFile.getDirectoryPath(), 'components');
+  const componentsDirectoryPath = resolve(
+    entryFile.getDirectoryPath(),
+    'components'
+  );
 
   function resolveComponentSourceFile(moduleSpecifier) {
-    return resolveImportSourceFile(entryFile, moduleSpecifier);
+    if (!moduleSpecifier.endsWith('.gts')) {
+      return null;
+    }
+
+    const componentFilePath = resolve(
+      entryFile.getDirectoryPath(),
+      moduleSpecifier
+    );
+
+    return project.addSourceFileAtPathIfExists(componentFilePath);
   }
 
-  function resolveFamilyTypesSourceFiles(moduleSpecifier) {
+  function resolveFamilyTypesSourceFile(moduleSpecifier) {
     const componentSourceFile = resolveComponentSourceFile(moduleSpecifier);
 
     if (!componentSourceFile) {
-      return [];
+      return null;
     }
 
-    const familyTypesFiles = [];
     let currentDirectory = dirname(componentSourceFile.getFilePath());
 
     while (currentDirectory.startsWith(componentsDirectoryPath)) {
@@ -27,7 +38,7 @@ export function createSourceFileResolver({ project, entryFile }) {
       const typesFile = project.addSourceFileAtPathIfExists(typesFilePath);
 
       if (typesFile) {
-        familyTypesFiles.push(typesFile);
+        return typesFile;
       }
 
       if (currentDirectory === componentsDirectoryPath) {
@@ -37,7 +48,7 @@ export function createSourceFileResolver({ project, entryFile }) {
       currentDirectory = dirname(currentDirectory);
     }
 
-    return familyTypesFiles;
+    return null;
   }
 
   function resolveImportSourceFile(fromSourceFile, moduleSpecifier) {
@@ -52,37 +63,12 @@ export function createSourceFileResolver({ project, entryFile }) {
       return resolvedByTs;
     }
 
-    if (!moduleSpecifier.startsWith('.')) {
-      // non-relative imports are intentionally skipped to avoid crawling external packages
-      return null;
-    }
-
-    const fromDir = dirname(fromSourceFile.getFilePath());
-    const basePath = resolve(fromDir, moduleSpecifier);
-    const candidates = [
-      basePath,
-      `${basePath}.ts`,
-      `${basePath}.gts`,
-      `${basePath}.d.ts`,
-      resolve(basePath, 'index.ts'),
-      resolve(basePath, 'index.gts'),
-      resolve(basePath, 'index.d.ts'),
-    ];
-
-    for (const candidatePath of candidates) {
-      const sourceFile = project.addSourceFileAtPathIfExists(candidatePath);
-
-      if (sourceFile) {
-        return sourceFile;
-      }
-    }
-
     return null;
   }
 
   return {
     resolveComponentSourceFile,
-    resolveFamilyTypesSourceFiles,
+    resolveFamilyTypesSourceFile,
     resolveImportSourceFile,
   };
 }
