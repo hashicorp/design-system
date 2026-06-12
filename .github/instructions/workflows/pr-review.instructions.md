@@ -51,7 +51,7 @@ Ignore reviewing the following files unless explicitly told to do so:
 ## Review process
 1. **Understand scope**
   - Read the PR title, PR description, linked issues, and related discussions to understand the intent and scope of the changes.
-  - **Important** In the PR description, read the "Copilot review instructions" section and follow any specific instructions provided by the author. These instructions take precedence over any others.
+  - **Important** In the PR description, read the "Copilot instructions" section and follow any specific instructions provided by the author. These instructions take precedence over any others.
 2. **Read through changed files**
   - Read through the changed files in the PR
   - Determine the areas of the codebase affected by the changes and read relevant instructions around those directories in the `.github/instructions/directories` folder.
