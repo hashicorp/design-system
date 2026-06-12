@@ -3,6 +3,10 @@
 ## Project context
 The Helios Design System (HDS) provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.
 
+### Workflows
+- `changeset.instructions.md` instructions for creating changesets when making changes to packages
+- `pr-review.instructions.md` instructions for reviewing pull requests, use this workflow when reviewing every PR
+
 ## Repository structure
 
 ### Key directories
