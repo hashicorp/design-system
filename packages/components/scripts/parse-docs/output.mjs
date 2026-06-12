@@ -21,20 +21,6 @@ export function printSuccess(outputFilePath) {
   );
 }
 
-function printSampleList(prefixLabel, values) {
-  if (values.length === 0) {
-    return;
-  }
-
-  const sample = values.slice(0, 10);
-
-  console.log(prefixLabel);
-
-  sample.forEach((value) => {
-    console.log(`    - ${value}`);
-  });
-}
-
 export function printSkippedComponentsSummary({
   missingFamilyTypes,
   missingSignatures,
@@ -46,20 +32,4 @@ export function printSkippedComponentsSummary({
   }
 
   console.log(`\n⚠️  Skipped ${totalSkipped} component docs entries.`);
-
-  printSampleList(
-    '  Missing family types.ts file (sample):',
-    missingFamilyTypes.map(
-      ({ moduleSpecifier, componentName }) =>
-        `${componentName} from ${moduleSpecifier}`
-    )
-  );
-
-  printSampleList(
-    '  Missing signature in family types.ts (sample):',
-    missingSignatures.map(
-      ({ signatureName, moduleSpecifier }) =>
-        `${signatureName} (export: ${moduleSpecifier})`
-    )
-  );
 }

@@ -27,7 +27,10 @@ export function parseComponentsFromEntry({
   function getExportedComponentNames(exportDeclaration) {
     return exportDeclaration
       .getNamedExports()
-      .map((specifier) => specifier.getAliasNode()?.getText() || specifier.getName())
+      .map(
+        (specifier) =>
+          specifier.getAliasNode()?.getText() || specifier.getName()
+      )
       .filter((name) => name !== 'default');
   }
 
