@@ -40,9 +40,26 @@ export type HdsAccordionItemTitleTags = `${HdsAccordionItemTitleTagValues}`;
 
 export interface HdsAccordionSignature {
   Args: {
+    /**
+     * @defaultValue 'medium'
+     */
     size?: HdsAccordionSizes;
+
+    /**
+     * @defaultValue 'card'
+     */
     type?: HdsAccordionTypes;
+
+    /**
+     * Controls the state of all items within a group. Can be used to expand or collapse all items at once.
+     * @defaultValue 'close'
+     */
     forceState?: HdsAccordionForceStates;
+
+    /**
+     * The HTML tag that wraps the content of each Accordion Item "toggle" block.
+     * @defaultValue 'div'
+     */
     titleTag?: HdsAccordionItemTitleTags;
   };
   Blocks: {
