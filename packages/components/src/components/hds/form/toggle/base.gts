@@ -3,7 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
+import { modifier } from 'ember-modifier';
 
 export interface HdsFormToggleBaseSignature {
   Args: {
@@ -12,7 +13,37 @@ export interface HdsFormToggleBaseSignature {
   Element: HTMLInputElement;
 }
 
-const HdsFormToggleBase: TemplateOnlyComponent<HdsFormToggleBaseSignature> =
+export default class HdsFormToggleBase extends Component<HdsFormToggleBaseSignature> {
+  private _syncAriaChecked = modifier((element: HTMLInputElement) => {
+    const syncAriaChecked = () => {
+      const checkedValue = element.getAttribute('checked');
+      let ariaCheckedValue: 'true' | 'false';
+
+      if (checkedValue === 'mixed') {
+        ariaCheckedValue = 'false';
+      } else {
+        ariaCheckedValue = element.checked ? 'true' : 'false';
+      }
+
+      element.setAttribute('aria-checked', ariaCheckedValue);
+    };
+
+    syncAriaChecked();
+
+    const observer = new MutationObserver(syncAriaChecked);
+    observer.observe(element, {
+      attributes: true,
+      attributeFilter: ['checked'],
+    });
+
+    element.addEventListener('change', syncAriaChecked);
+
+    return () => {
+      observer.disconnect();
+      element.removeEventListener('change', syncAriaChecked);
+    };
+  });
+
   <template>
     <div class="hds-form-toggle">
       <input
@@ -21,9 +52,9 @@ const HdsFormToggleBase: TemplateOnlyComponent<HdsFormToggleBaseSignature> =
         ...attributes
         value={{@value}}
         role="switch"
+        {{this._syncAriaChecked}}
       />
       <div class="hds-form-toggle__facade"></div>
     </div>
-  </template>;
-
-export default HdsFormToggleBase;
+  </template>
+}
