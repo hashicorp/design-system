@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { capitalize } from '@ember/string';
+import '@carbon/web-components/es/components/icon/index.js';
+import Add16 from '@carbon/icons/es/add/16.js';
+import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
@@ -20,6 +22,8 @@ import {
   CDS_BADGE_TYPE_OPTIONS,
 } from '@hashicorp/design-system-components/components/hds/cds-badge/index';
 
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
 const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwTextH2>Size</ShwTextH2>
 
@@ -27,7 +31,9 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
     {{#each CDS_BADGE_SIZE_OPTIONS as |size|}}
       <SF.Item @label={{capitalize size}}>
         <HdsCdsBadge size={{size}}>
-          <HdsIcon @name="activity" @isInline={{true}} slot="icon" />
+          <cds-icon slot="icon" {{setCdsIcon Add16}}></cds-icon>
+          {{!-- <cds-icon slot="icon" .icon="{{Add16}}"></cds-icon> --}}
+          {{!-- <HdsIcon @name="activity" @isInline={{true}} slot="icon" /> --}}
           Lorem ipsum
         </HdsCdsBadge>
       </SF.Item>

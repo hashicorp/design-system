@@ -514,6 +514,9 @@ importers:
       '@carbon/grid':
         specifier: ^11.49.0
         version: 11.53.0
+      '@carbon/icons':
+        specifier: ^11.82.0
+        version: 11.82.0
       '@carbon/layout':
         specifier: ^11.47.0
         version: 11.51.0
@@ -745,6 +748,9 @@ importers:
       globals:
         specifier: ^16.1.0
         version: 16.3.0
+      lit:
+        specifier: ^3.3.3
+        version: 3.3.3
       loader.js:
         specifier: ^4.7.0
         version: 4.7.0
@@ -1987,6 +1993,9 @@ packages:
 
   '@carbon/icons@11.79.0':
     resolution: {integrity: sha512-VNYZQkf2z53R0IRotCAq0n+GrSw59el/Ts/uabg4LUt4akFpbS+EBblsHQmT/LuBDoaTsRq2d06AidTz2iv4uA==}
+
+  '@carbon/icons@11.82.0':
+    resolution: {integrity: sha512-XMJiHEUKd9/4kJKLbzbHX2KizUVb6mrzJbJg9gb03jYVq+tFjxUO8WmT6czmHls0mj3mv0Y2rMeMtl7/v+aQjw==}
 
   '@carbon/layout@11.43.0':
     resolution: {integrity: sha512-aOUNqVv/5TGhNTn1HV+620ZlqhE7+Chs0TJoxwe/CCsLOdziCX9st3c5inyINPZDyvDK46mas1RmqvZwNYe/mA==}
@@ -8916,6 +8925,9 @@ packages:
   lit@3.3.2:
     resolution: {integrity: sha512-NF9zbsP79l4ao2SNrH3NkfmFgN/hBYSQo90saIVI1o5GpjAdCPVstVzO1MrLOakHoEhYkrtRjPK6Ob521aoYWQ==}
 
+  lit@3.3.3:
+    resolution: {integrity: sha512-fycuvZg/hkpozL00lm1pEJH5nN/lr9ZXd6mJI2HSN4+Bzc+LDNdEApJ6HFbPkdFNHLvOplIIuJvxkS4XUxqirw==}
+
   livereload-js@3.4.1:
     resolution: {integrity: sha512-5MP0uUeVCec89ZbNOT/i97Mc+q3SxXmiUGhRFOTmhrGPn//uWVQdCvcLJDy64MSBR5MidFdOR7B9viumoavy6g==}
 
@@ -13366,6 +13378,10 @@ snapshots:
       '@ibm/telemetry-js': 1.10.1
 
   '@carbon/icons@11.79.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.11.0
+
+  '@carbon/icons@11.82.0':
     dependencies:
       '@ibm/telemetry-js': 1.11.0
 
@@ -23468,6 +23484,12 @@ snapshots:
       '@types/trusted-types': 2.0.7
 
   lit@3.3.2:
+    dependencies:
+      '@lit/reactive-element': 2.1.2
+      lit-element: 4.2.2
+      lit-html: 3.3.2
+
+  lit@3.3.3:
     dependencies:
       '@lit/reactive-element': 2.1.2
       lit-element: 4.2.2
