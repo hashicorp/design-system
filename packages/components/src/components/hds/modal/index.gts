@@ -65,6 +65,8 @@ export default class HdsModal extends Component<HdsModalSignature> {
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
   private _clickOutsideToDismissHandler!: (event: MouseEvent) => void;
+  private _mousedownOutsideModalHandler!: (event: MouseEvent) => void;
+  private _mousedownWasOutsideModal = false;
 
   get isDismissDisabled(): boolean {
     return this.args.isDismissDisabled ?? false;
@@ -183,9 +185,22 @@ export default class HdsModal extends Component<HdsModalSignature> {
     }
 
     // Note: because the Modal has the `@isDismissedDisabled` argument, we need to add our own click outside to dismiss logic. This is because `ember-focus-trap` treats the `focusTrapOptions` as static, so we can't update it dynamically if `@isDismissDisabled` changes.
+
+    // Track whether the mousedown that initiated the click started outside the modal.
+    // This prevents a drag that begins inside the modal but ends outside from closing it.
+    this._mousedownOutsideModalHandler = (event: MouseEvent) => {
+      this._mousedownWasOutsideModal = !this._element.contains(
+        event.target as Node
+      );
+    };
+
     this._clickOutsideToDismissHandler = (event: MouseEvent) => {
-      // check if the click is outside the modal and the modal is open
-      if (!this._element.contains(event.target as Node) && this._isOpen) {
+      // Only dismiss if both the mousedown and the click (mouseup) occurred outside the modal
+      if (
+        !this._element.contains(event.target as Node) &&
+        this._mousedownWasOutsideModal &&
+        this._isOpen
+      ) {
         if (!this.isDismissDisabled) {
           //  here we use `void` because `onDismiss` is an async function, but in reality we don't need to handle the result or wait for its completion
           void this.onDismiss();
@@ -193,6 +208,10 @@ export default class HdsModal extends Component<HdsModalSignature> {
       }
     };
 
+    document.addEventListener('mousedown', this._mousedownOutsideModalHandler, {
+      capture: true,
+      passive: true,
+    });
     document.addEventListener('click', this._clickOutsideToDismissHandler, {
       capture: true,
       passive: false,
@@ -211,6 +230,11 @@ export default class HdsModal extends Component<HdsModalSignature> {
         true
       );
 
+      document.removeEventListener(
+        'mousedown',
+        this._mousedownOutsideModalHandler,
+        true
+      );
       document.removeEventListener(
         'click',
         this._clickOutsideToDismissHandler,
