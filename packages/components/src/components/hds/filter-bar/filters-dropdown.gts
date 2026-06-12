@@ -20,7 +20,7 @@ import HdsButtonSet from '../button-set/index.gts';
 import HdsButton from '../button/index.gts';
 
 import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
-import type { HdsDropdownSignature } from '../dropdown/index.gts';
+import type { HdsDropdownSignature } from '../dropdown/index.types.ts';
 
 export const DEFAULT_DROPDOWN_HEIGHT = '600px';
 

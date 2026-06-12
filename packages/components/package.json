@@ -17,7 +17,7 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "rollup --config",
+    "build": "rollup --config && node scripts/parse-docs.mjs",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
@@ -107,6 +107,7 @@
     "postcss": "^8.5.10",
     "prettier": "^3.5.3",
     "prettier-plugin-ember-template-tag": "^2.0.5",
+    "prettier-plugin-jsdoc": "^1.8.1",
     "rollup": "^4.59.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-scss": "^4.0.1",
@@ -114,6 +115,7 @@
     "stylelint": "^16.17.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^14.0.0",
+    "ts-morph": "^28.0.0",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.29.0",
     "webpack": "^5.104.1"

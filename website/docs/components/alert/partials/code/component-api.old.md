@@ -2,7 +2,38 @@
 
 ### Alert
 
-<Doc::ComponentApi @component="alert" @section="api" />
+<Doc::ComponentApi as |C|>
+  <C.Property @name="<[A].Title>" @type="yielded component">
+    `Alert::Title` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].Description>" @type="yielded component">
+    `Alert::Description` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].Button>" @type="yielded component">
+    `Button` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].LinkStandalone>" @type="yielded component">
+    `Link::Standalone` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].Generic>" @type="yielded component">
+    A generic container yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="type" @required={{true}} @type="enum" @values={{array "page" "inline" "compact"}}>
+    Sets the type of alert.
+  </C.Property>
+  <C.Property @name="color" @type="enum" @values={{array "neutral" "highlight" "success" "warning" "critical"}} @default="neutral">
+    Sets the color scheme for `background`, `border`, `title`, and `description`, which **cannot** be overridden.<br/><br/>`color` results in a default `icon`, which **can** be overridden.<br/><br/>For the “success”, “warning”, and “critical” colors, either `role="alert"` or `role="alertdialog"` and `aria-live="polite"` will be included by default which can be overridden if necessary.<br/><br/>The “neutral” and “highlight” colors do not include a role attribute or `aria-live="polite"` by default.
+  </C.Property>
+  <C.Property @name="icon" @type="string | false">
+    Override the default `icon` name, which is determined by the `color` argument.<br/><br/>accepts any [icon](/icons/library) name, or `false`, for no icon.
+  </C.Property>
+  <C.Property @name="onDismiss" @type="function">
+    The alert can be dismissed by the user. When a function is passed, the "dismiss" button is displayed.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
 
 ### Contextual components
 
