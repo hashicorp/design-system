@@ -6,29 +6,38 @@
 import { dirname, resolve } from 'node:path';
 
 export function createSourceFileResolver({ project, entryFile }) {
-  function resolveTypesSourceFile(moduleSpecifier) {
-    const candidates = [];
+  const componentsDirectoryPath = resolve(entryFile.getDirectoryPath(), 'components');
 
-    if (moduleSpecifier.endsWith('.types.ts')) {
-      candidates.push(moduleSpecifier);
-    } else if (moduleSpecifier.endsWith('.gts')) {
-      candidates.push(`${moduleSpecifier.slice(0, -4)}.types.ts`);
-    } else if (moduleSpecifier.endsWith('.ts')) {
-      candidates.push(`${moduleSpecifier.slice(0, -3)}.types.ts`);
+  function resolveComponentSourceFile(moduleSpecifier) {
+    return resolveImportSourceFile(entryFile, moduleSpecifier);
+  }
+
+  function resolveFamilyTypesSourceFiles(moduleSpecifier) {
+    const componentSourceFile = resolveComponentSourceFile(moduleSpecifier);
+
+    if (!componentSourceFile) {
+      return [];
     }
 
-    const dedupedCandidates = [...new Set(candidates)];
+    const familyTypesFiles = [];
+    let currentDirectory = dirname(componentSourceFile.getFilePath());
 
-    for (const candidate of dedupedCandidates) {
-      const candidatePath = resolve(entryFile.getDirectoryPath(), candidate);
-      const candidateFile = project.addSourceFileAtPathIfExists(candidatePath);
+    while (currentDirectory.startsWith(componentsDirectoryPath)) {
+      const typesFilePath = resolve(currentDirectory, 'types.ts');
+      const typesFile = project.addSourceFileAtPathIfExists(typesFilePath);
 
-      if (candidateFile) {
-        return candidateFile;
+      if (typesFile) {
+        familyTypesFiles.push(typesFile);
       }
+
+      if (currentDirectory === componentsDirectoryPath) {
+        break;
+      }
+
+      currentDirectory = dirname(currentDirectory);
     }
 
-    return null;
+    return familyTypesFiles;
   }
 
   function resolveImportSourceFile(fromSourceFile, moduleSpecifier) {
@@ -72,7 +81,8 @@ export function createSourceFileResolver({ project, entryFile }) {
   }
 
   return {
-    resolveTypesSourceFile,
+    resolveComponentSourceFile,
+    resolveFamilyTypesSourceFiles,
     resolveImportSourceFile,
   };
 }

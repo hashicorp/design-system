@@ -21,8 +21,16 @@ export function parseComponentsFromEntry({
   sourceFileResolver,
   typeResolver,
   extractDocData,
-  onMissingTypesModule,
+  onMissingFamilyTypes,
+  onMissingSignature,
 }) {
+  function getExportedComponentNames(exportDeclaration) {
+    return exportDeclaration
+      .getNamedExports()
+      .map((specifier) => specifier.getAliasNode()?.getText() || specifier.getName())
+      .filter((name) => name !== 'default');
+  }
+
   function getYieldedComponentSourcePath(yieldDeclaration) {
     const typeNode = yieldDeclaration.getTypeNode?.();
     const typeQueryNode = getContextualComponentTypeQuery(typeNode);
@@ -190,26 +198,40 @@ export function parseComponentsFromEntry({
       continue;
     }
 
-    const targetFile =
-      sourceFileResolver.resolveTypesSourceFile(moduleSpecifier);
+    const componentNames = getExportedComponentNames(exportDecl);
 
-    if (!targetFile) {
-      onMissingTypesModule(moduleSpecifier);
+    if (componentNames.length === 0) {
+      continue;
+    }
+
+    const familyTypesFiles =
+      sourceFileResolver.resolveFamilyTypesSourceFiles(moduleSpecifier);
+
+    if (familyTypesFiles.length === 0) {
+      componentNames.forEach((componentName) => {
+        onMissingFamilyTypes(moduleSpecifier, componentName);
+      });
 
       continue;
     }
 
-    const signatures = targetFile
-      .getInterfaces()
-      .filter((i) => i.getName().endsWith(SIGNATURE_SUFFIX));
-
-    signatures.forEach((signatureInterface) => {
-      const interfaceName = signatureInterface.getName();
-      const componentName = interfaceName.replace(SIGNATURE_SUFFIX, '');
-
+    componentNames.forEach((componentName) => {
       if (allDocPayloads[componentName]) {
         return;
       }
+
+      const signatureName = `${componentName}${SIGNATURE_SUFFIX}`;
+      const signatureInterface = familyTypesFiles
+        .map((sourceFile) => sourceFile.getInterface(signatureName))
+        .find(Boolean);
+
+      if (!signatureInterface) {
+        onMissingSignature(moduleSpecifier, componentName, signatureName);
+
+        return;
+      }
+
+      console.log(`📦 Generating docs for: ${componentName}`);
 
       const componentDocs = {
         name: componentName,

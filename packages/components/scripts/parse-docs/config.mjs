@@ -13,3 +13,13 @@ export const OUTPUT_FILE_PATH = resolve(
   '../../dist/manifest/components.json'
 );
 export const TSCONFIG_PATH = resolve(SCRIPT_DIR, '../../tsconfig.json');
+
+/**
+ * Keep tracing bounded so a single highly-expanded type from local or external
+ * declarations cannot explode parse time or output size.
+ */
+export const TYPE_TRACE_LIMITS = {
+  maxDepth: 24,
+  maxUnionMembers: 80,
+  maxTemplateExpansions: 120,
+};

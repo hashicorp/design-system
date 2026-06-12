@@ -19,13 +19,14 @@ import {
   ENTRY_FILE_PATH,
   OUTPUT_FILE_PATH,
   TSCONFIG_PATH,
+  TYPE_TRACE_LIMITS,
 } from './parse-docs/config.mjs';
 import { createSourceFileResolver } from './parse-docs/source-files.mjs';
 import { createTypeResolver } from './parse-docs/type-resolver.mjs';
 import { extractDocData } from './parse-docs/doc-text.mjs';
 import { parseComponentsFromEntry } from './parse-docs/component-parser.mjs';
 import {
-  printMissingTypesSummary,
+  printSkippedComponentsSummary,
   printSuccess,
   sortDocPayloads,
   writeManifest,
@@ -45,10 +46,14 @@ if (!existsSync(outputDir)) {
 
 const project = new Project({ tsConfigFilePath: TSCONFIG_PATH });
 const entryFile = project.addSourceFileAtPath(ENTRY_FILE_PATH);
-const missingTypesModules = [];
+const missingFamilyTypes = [];
+const missingSignatures = [];
 
 const sourceFileResolver = createSourceFileResolver({ project, entryFile });
-const typeResolver = createTypeResolver();
+const typeResolver = createTypeResolver({
+  limits: TYPE_TRACE_LIMITS,
+  resolveImportSourceFile: sourceFileResolver.resolveImportSourceFile,
+});
 
 // walk only from the central components entrypoint so output order and coverage stay deterministic
 console.log(`🔍 Crawling entry point via AST: ${ENTRY_FILE_PATH}\n`);
@@ -58,8 +63,11 @@ const allDocPayloads = parseComponentsFromEntry({
   sourceFileResolver,
   typeResolver,
   extractDocData,
-  onMissingTypesModule: (moduleSpecifier) => {
-    missingTypesModules.push(moduleSpecifier);
+  onMissingFamilyTypes: (moduleSpecifier, componentName) => {
+    missingFamilyTypes.push({ moduleSpecifier, componentName });
+  },
+  onMissingSignature: (moduleSpecifier, componentName, signatureName) => {
+    missingSignatures.push({ moduleSpecifier, componentName, signatureName });
   },
 });
 
@@ -68,4 +76,7 @@ const sortedDocPayloads = sortDocPayloads(allDocPayloads);
 writeManifest(OUTPUT_FILE_PATH, sortedDocPayloads);
 
 printSuccess(OUTPUT_FILE_PATH);
-printMissingTypesSummary(missingTypesModules);
+printSkippedComponentsSummary({
+  missingFamilyTypes,
+  missingSignatures,
+});

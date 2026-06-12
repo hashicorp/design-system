@@ -3,6 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import HdsAccordionItem from './item/index.gts';
+
+import type { WithBoundArgs } from '@glint/template';
+
 export enum HdsAccordionTypeValues {
   Card = 'card',
   Flush = 'flush',
@@ -33,3 +37,23 @@ export enum HdsAccordionItemTitleTagValues {
 }
 
 export type HdsAccordionItemTitleTags = `${HdsAccordionItemTitleTagValues}`;
+
+export interface HdsAccordionSignature {
+  Args: {
+    size?: HdsAccordionSizes;
+    type?: HdsAccordionTypes;
+    forceState?: HdsAccordionForceStates;
+    titleTag?: HdsAccordionItemTitleTags;
+  };
+  Blocks: {
+    default: [
+      {
+        Item?: WithBoundArgs<
+          typeof HdsAccordionItem,
+          'titleTag' | 'size' | 'type' | 'forceState'
+        >;
+      },
+    ];
+  };
+  Element: HTMLDivElement;
+}

@@ -21,12 +21,45 @@ export function printSuccess(outputFilePath) {
   );
 }
 
-export function printMissingTypesSummary(missingTypesModules) {
-  if (missingTypesModules.length === 0) {
+function printSampleList(prefixLabel, values) {
+  if (values.length === 0) {
     return;
   }
 
-  console.warn(
-    `⚠️  ${missingTypesModules.length} exports were skipped because no matching types file was found.`
+  const sample = values.slice(0, 10);
+
+  console.log(prefixLabel);
+
+  sample.forEach((value) => {
+    console.log(`    - ${value}`);
+  });
+}
+
+export function printSkippedComponentsSummary({
+  missingFamilyTypes,
+  missingSignatures,
+}) {
+  const totalSkipped = missingFamilyTypes.length + missingSignatures.length;
+
+  if (totalSkipped === 0) {
+    return;
+  }
+
+  console.log(`\n⚠️  Skipped ${totalSkipped} component docs entries.`);
+
+  printSampleList(
+    '  Missing family types.ts file (sample):',
+    missingFamilyTypes.map(
+      ({ moduleSpecifier, componentName }) =>
+        `${componentName} from ${moduleSpecifier}`
+    )
+  );
+
+  printSampleList(
+    '  Missing signature in family types.ts (sample):',
+    missingSignatures.map(
+      ({ signatureName, moduleSpecifier }) =>
+        `${signatureName} (export: ${moduleSpecifier})`
+    )
   );
 }
