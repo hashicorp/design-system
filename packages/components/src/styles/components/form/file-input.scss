@@ -8,6 +8,7 @@
 //
 
 @use "../../mixins/button" as *;
+@use "../../mixins/focus-ring" as *;
 
 .hds-form-file-input {
   width: 100%; // we want to prevent the input from overflowing its container
@@ -37,8 +38,8 @@
   background-repeat: no-repeat;
   background-position: 15px 50%;
   background-size: var(--token-form-text-input-background-image-size);
-  border: $hds-button-border-width solid var(--token-color-border-strong);
-  border-radius: $hds-button-border-radius;
+  border: var(--token-button-border-width) solid var(--token-color-border-strong);
+  border-radius: var(--token-button-border-radius);
   box-shadow: var(--token-elevation-low-box-shadow);
   cursor: pointer;
 }
@@ -53,10 +54,10 @@
 
 .hds-form-file-input:focus-within::file-selector-button,
 .hds-form-file-input.mock-focus::file-selector-button {
+  @include hds-focus-ring-basic();
   color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-faint);
   border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
 }
 
 // Fix issue with button focus style which was displaying after button was activated

@@ -32,6 +32,15 @@ const SubSectionLinkColors: TemplateOnlyComponent = <template>
               <HdsTag
                 @color={{color}}
                 @text="My link tag"
+                @route="page-components.tag"
+                mock-state-value={{state}}
+                mock-state-selector="a"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsTag
+                @color={{color}}
+                @text="My link tag"
                 @onDismiss={{NOOP}}
                 @route="page-components.tag"
                 mock-state-value={{state}}
@@ -43,15 +52,6 @@ const SubSectionLinkColors: TemplateOnlyComponent = <template>
                 @color={{color}}
                 @text="My link tag"
                 @onDismiss={{NOOP}}
-                @route="page-components.tag"
-                mock-state-value={{state}}
-                mock-state-selector="a"
-              />
-            </SF.Item>
-            <SF.Item>
-              <HdsTag
-                @color={{color}}
-                @text="My link tag"
                 @route="page-components.tag"
                 mock-state-value={{state}}
                 mock-state-selector="a"

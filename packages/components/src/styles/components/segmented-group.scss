@@ -50,7 +50,7 @@
       }
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus,
     .hds-dropdown-toggle-button:focus {
       z-index: 1;

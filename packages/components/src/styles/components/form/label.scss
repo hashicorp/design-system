@@ -11,7 +11,11 @@
   display: block;
   width: max-content; // to avoid it extends the full width of the parent container, leading to invisible interactive area
   max-width: 100%;
-  color: var(--token-form-label-color);
+  color: var(--token-form-label-foreground-color);
+  font-weight: var(--token-form-label-typography-font-weight);
+  font-size: var(--token-form-label-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-label-typography-line-height);
 
   // if a "badge" element (included the 'required' indicator) is child of the label
   // we need to make sure that it correctly aligns with the label text because the
