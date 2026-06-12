@@ -1,54 +1,54 @@
 # @hashicorp/design-system-components
 
+## 6.2.2
+
+### Patch Changes
+
+<!-- START components/stepper/list -->
+
+`StepperList` - Fixed description and content contextual blocks to be hidden if conditionally empty
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3899](https://github.com/hashicorp/design-system/pull/3899)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.2.1
 
 [6.2.1 documentation](https://hds-website-6-2-1.vercel.app/)
 
 ### Patch Changes
 
-
 `Dropdown` - Fixed vertical alignment between text and `Badge` in `DropdownListItemInteractive`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3889](https://github.com/hashicorp/design-system/pull/3889)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CodeBlock` - Translated strings for height toggle button text
-
 
 <small class="doc-whats-new-changelog-metadata">[#3895](https://github.com/hashicorp/design-system/pull/3895)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CopySnippet` - Fixed a11y issue by adding `@ariaMessageText` argument to an aria-live region to announce to screen readers when content has been copied. Added handling for copy to clipboard error state in `ariaMessageText`
 
-
-
 `CopyButton` - Added handling for copy to clipboard error state in `ariaMessageText`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3890](https://github.com/hashicorp/design-system/pull/3890)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Stepper::Nav` - Refactored classes for step to removed unneeded interactive classes
-
 
 <small class="doc-whats-new-changelog-metadata">[#3885](https://github.com/hashicorp/design-system/pull/3885)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `HdsAppFooter` - Switched usage of inline styles with `ember-style-modifier`.
 
-
-
 `HdsBreadcrumbItem` - Switched usage of inline styles with `ember-style-modifier`.
-
 
 `HdsClipboard` Modifier - Switched usage of `setAttribute` for `setProperty` when updating a `style` value.
 
