@@ -25,7 +25,7 @@ The Advanced Table component itself is where most of the options will be applied
       <C.Property @name="[B].sortOrder" @type="string">
         The value of the internal `sortOrder` tracked variable.
       </C.Property>
-      <C.Property @name="[B].isExpanded" @type="boolean">
+      <C.Property @name="[B].isOpen" @type="boolean">
         Returns the value of the internal `isExpanded` tracked variable from the row if it has nested rows; otherwise returns `undefined`.
       </C.Property>
     </Doc::ComponentApi>
