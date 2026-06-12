@@ -12,16 +12,17 @@ import { eq, notEq, and } from 'ember-truth-helpers';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwBody from 'showcase/components/shw/text/body';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
-import CodeFragmentWithCharacterCount from 'showcase/components/page-components/form/text-input/code-fragments/with-character-count';
+// import CodeFragmentWithCharacterCount from 'showcase/components/page-components/form/text-input/code-fragments/with-character-count';
 
 import {
   HdsFormTextInputBase,
-  HdsFormTextInputField,
-  HdsLinkInline,
+  // HdsFormTextInputField,
+  // HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
 import { TYPES } from '@hashicorp/design-system-components/components/hds/form/text-input/base';
 
@@ -33,7 +34,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
   <ShwTextH1>TextInput - Carbonization</ShwTextH1>
 
   <section>
-
     <ShwTextH2>"Base" control</ShwTextH2>
 
     <ShwTextH3>Interaction status</ShwTextH3>
@@ -130,6 +130,10 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     <ShwTextH3>States</ShwTextH3>
+
+    <ShwBody>
+      Note: Carbon doesn’t include hover states.
+    </ShwBody>
 
     {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
       {{#each variants as |variant|}}
@@ -274,7 +278,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
                       <cds-text-input
                         type="date"
                         size="md"
-                        inline="true"
                         value="Lorem ipsum dolor"
                         disabled={{if (eq variant "disabled") "disabled"}}
                         readonly={{if (eq variant "readonly") "readonly"}}
@@ -286,7 +289,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
                       <cds-text-input
                         type="time"
                         size="md"
-                        inline="true"
                         value="Lorem ipsum dolor"
                         disabled={{if (eq variant "disabled") "disabled"}}
                         readonly={{if (eq variant "readonly") "readonly"}}
@@ -303,9 +305,11 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
       {{/each}}
     {{/let}}
 
+    {{!-- Q: Not sure if the Field examples is useful to include here as there are examples in the Form/Base element Carbonization showcase
+
     <ShwDivider />
 
-    <ShwTextH2>"Field" control</ShwTextH2>
+    <ShwTextH2>“Field” control</ShwTextH2>
 
     <ShwTextH3>Content</ShwTextH3>
 
@@ -566,7 +570,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
         ></cds-text-input>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-
+    --}}
   </section>
 </template>;
 
