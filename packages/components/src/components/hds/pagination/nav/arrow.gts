@@ -6,6 +6,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { service } from '@ember/service';
+import { modifier } from 'ember-modifier';
 
 import type HdsIntlService from '../../../../services/hds-intl';
 
@@ -33,6 +34,8 @@ interface HdsPaginationControlArrowArgs {
   disabled?: boolean;
   showLabel?: boolean;
   onClick?: (direction: HdsPaginationDirections) => void;
+  isFocused?: boolean;
+  onFocusHandled?: () => void;
 }
 
 export interface HdsPaginationControlArrowSignature {
@@ -47,6 +50,28 @@ export const DIRECTIONS: HdsPaginationDirections[] = [
 
 export default class HdsPaginationControlArrow extends Component<HdsPaginationControlArrowSignature> {
   @service declare readonly hdsIntl: HdsIntlService;
+
+  focusWhen = modifier<{
+    Args: {
+      Positional: [boolean | undefined, (() => void) | undefined];
+    };
+    Element: HTMLElement;
+  }>((element, [isFocused, onFocusHandled]) => {
+    if (isFocused) {
+      element.focus();
+
+      if (typeof onFocusHandled === 'function') {
+        const onFocusHandledFrame = requestAnimationFrame(() => {
+          onFocusHandled();
+        });
+
+        return () => {
+          cancelAnimationFrame(onFocusHandledFrame);
+        };
+      }
+    }
+  });
+
   get content(): HdsPaginationControlArrowContent {
     const { direction } = this.args;
 
@@ -142,6 +167,7 @@ export default class HdsPaginationControlArrow extends Component<HdsPaginationCo
         @models={{@models}}
         @replace={{@replace}}
         {{on "click" this.onClick}}
+        {{this.focusWhen @isFocused @onFocusHandled}}
         aria-label={{this.content.ariaLabel}}
         ...attributes
       >
