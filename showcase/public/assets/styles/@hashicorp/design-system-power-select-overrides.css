@@ -18,7 +18,7 @@
 .hds-power-select .ember-power-select-trigger {
   max-width: 100%;
   min-height: 36px;
-  padding: calc(var(--token-form-control-padding) + 1px);
+  padding: calc(var(--token-form-control-padding) + 1px) calc(var(--token-form-control-padding) + 1px);
   padding-right: calc(var(--token-form-control-padding) + 24px);
   color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
@@ -105,7 +105,7 @@
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
-.hds-power-select .ember-power-select-search .ember-power-select-search-input ::placeholder {
+.hds-power-select .ember-power-select-search .ember-power-select-search-input::placeholder {
   color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input:hover, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-hover {

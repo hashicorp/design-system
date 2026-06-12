@@ -556,7 +556,7 @@
   --token-form-control-disabled-foreground-color: #8c909c;
   --token-form-control-disabled-surface-color: #fafafa;
   --token-form-control-disabled-border-color: #656a7633;
-  --token-form-control-padding: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma. */
+  --token-form-control-padding: 7px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
   --token-form-control-border-radius: 5px;
   --token-form-control-border-width: 1px;
   --token-form-radio-size: 16px;

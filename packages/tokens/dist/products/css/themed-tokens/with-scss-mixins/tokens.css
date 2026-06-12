@@ -689,6 +689,31 @@
     --token-form-character-count-typography-line-height: var(
       --token-typography-body-100-line-height
     ); /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-control-base-border-color-default: var(
+      --token-color-palette-neutral-400
+    );
+    --token-form-control-base-placeholder-foreground-color: var(
+      --token-color-foreground-faint
+    );
+    --token-form-control-disabled-border-color: var(
+      --token-color-border-primary
+    );
+    --token-form-control-disabled-foreground-color: var(
+      --token-color-foreground-disabled
+    );
+    --token-form-control-disabled-surface-color: var(
+      --token-color-surface-interactive-disabled
+    );
+    --token-form-control-invalid-border-color-default: var(
+      --token-color-palette-red-300
+    );
+    --token-form-control-invalid-border-color-hover: var(
+      --token-color-palette-red-400
+    );
+    --token-form-control-padding: 7px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
+    --token-form-control-readonly-surface-color: var(
+      --token-color-surface-strong
+    );
     --token-form-error-foreground-color: var(--token-color-palette-red-300);
     --token-form-error-typography-font-size: var(
       --token-typography-body-100-font-size
@@ -1380,6 +1405,20 @@
     --token-form-character-count-foreground-color: #6f6f6f;
     --token-form-character-count-typography-font-size: 0.75rem;
     --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-control-base-border-color-default: #8d8d8d;
+    --token-form-control-base-placeholder-foreground-color: rgba(
+      22,
+      22,
+      22,
+      0.4
+    );
+    --token-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --token-form-control-disabled-foreground-color: rgba(22, 22, 22, 0.25);
+    --token-form-control-disabled-surface-color: #f4f4f4;
+    --token-form-control-invalid-border-color-default: #da1e28;
+    --token-form-control-invalid-border-color-hover: #da1e28;
+    --token-form-control-padding: 16px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
+    --token-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
     --token-form-error-foreground-color: #da1e28;
     --token-form-error-typography-font-size: 0.75rem;
     --token-form-error-typography-line-height: 1.33333;
@@ -1950,6 +1989,20 @@
     --token-form-character-count-foreground-color: #a8a8a8;
     --token-form-character-count-typography-font-size: 0.75rem;
     --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-control-base-border-color-default: #6f6f6f;
+    --token-form-control-base-placeholder-foreground-color: rgba(
+      244,
+      244,
+      244,
+      0.4
+    );
+    --token-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --token-form-control-disabled-foreground-color: rgba(244, 244, 244, 0.25);
+    --token-form-control-disabled-surface-color: #262626;
+    --token-form-control-invalid-border-color-default: #fa4d56;
+    --token-form-control-invalid-border-color-hover: #fa4d56;
+    --token-form-control-padding: 16px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
+    --token-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
     --token-form-error-foreground-color: #ff8389;
     --token-form-error-typography-font-size: 0.75rem;
     --token-form-error-typography-line-height: 1.33333;
@@ -2520,6 +2573,20 @@
     --token-form-character-count-foreground-color: #6f6f6f;
     --token-form-character-count-typography-font-size: 0.75rem;
     --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-control-base-border-color-default: #8d8d8d;
+    --token-form-control-base-placeholder-foreground-color: rgba(
+      22,
+      22,
+      22,
+      0.4
+    );
+    --token-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --token-form-control-disabled-foreground-color: rgba(22, 22, 22, 0.25);
+    --token-form-control-disabled-surface-color: #f4f4f4;
+    --token-form-control-invalid-border-color-default: #da1e28;
+    --token-form-control-invalid-border-color-hover: #da1e28;
+    --token-form-control-padding: 16px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
+    --token-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
     --token-form-error-foreground-color: #da1e28;
     --token-form-error-typography-font-size: 0.75rem;
     --token-form-error-typography-line-height: 1.33333;
@@ -3090,6 +3157,20 @@
     --token-form-character-count-foreground-color: #6f6f6f;
     --token-form-character-count-typography-font-size: 0.75rem;
     --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-control-base-border-color-default: #8d8d8d;
+    --token-form-control-base-placeholder-foreground-color: rgba(
+      22,
+      22,
+      22,
+      0.4
+    );
+    --token-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --token-form-control-disabled-foreground-color: rgba(22, 22, 22, 0.25);
+    --token-form-control-disabled-surface-color: #ffffff;
+    --token-form-control-invalid-border-color-default: #da1e28;
+    --token-form-control-invalid-border-color-hover: #da1e28;
+    --token-form-control-padding: 16px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
+    --token-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
     --token-form-error-foreground-color: #da1e28;
     --token-form-error-typography-font-size: 0.75rem;
     --token-form-error-typography-line-height: 1.33333;
@@ -3660,6 +3741,20 @@
     --token-form-character-count-foreground-color: #c6c6c6;
     --token-form-character-count-typography-font-size: 0.75rem;
     --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-control-base-border-color-default: #8d8d8d;
+    --token-form-control-base-placeholder-foreground-color: rgba(
+      244,
+      244,
+      244,
+      0.4
+    );
+    --token-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --token-form-control-disabled-foreground-color: rgba(244, 244, 244, 0.25);
+    --token-form-control-disabled-surface-color: #393939;
+    --token-form-control-invalid-border-color-default: #ff8389;
+    --token-form-control-invalid-border-color-hover: #ff8389;
+    --token-form-control-padding: 16px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
+    --token-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
     --token-form-error-foreground-color: #ffb3b8;
     --token-form-error-typography-font-size: 0.75rem;
     --token-form-error-typography-line-height: 1.33333;
@@ -4230,6 +4325,20 @@
     --token-form-character-count-foreground-color: #a8a8a8;
     --token-form-character-count-typography-font-size: 0.75rem;
     --token-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --token-form-control-base-border-color-default: #6f6f6f;
+    --token-form-control-base-placeholder-foreground-color: rgba(
+      244,
+      244,
+      244,
+      0.4
+    );
+    --token-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --token-form-control-disabled-foreground-color: rgba(244, 244, 244, 0.25);
+    --token-form-control-disabled-surface-color: #262626;
+    --token-form-control-invalid-border-color-default: #fa4d56;
+    --token-form-control-invalid-border-color-hover: #fa4d56;
+    --token-form-control-padding: 16px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
+    --token-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
     --token-form-error-foreground-color: #ff8389;
     --token-form-error-typography-font-size: 0.75rem;
     --token-form-error-typography-line-height: 1.33333;
@@ -4593,17 +4702,11 @@
     --token-form-checkbox-border-radius: var(--token-border-radius-x-small);
     --token-form-checkbox-border-width: 1px;
     --token-form-checkbox-size: 16px;
-    --token-form-control-base-border-color-default: var(
-      --token-color-palette-neutral-400
-    );
     --token-form-control-base-border-color-hover: var(
       --token-color-palette-neutral-500
     );
     --token-form-control-base-foreground-color: var(
       --token-color-foreground-strong
-    );
-    --token-form-control-base-placeholder-foreground-color: var(
-      --token-color-foreground-faint
     );
     --token-form-control-base-surface-color-default: var(
       --token-color-surface-interactive
@@ -4628,28 +4731,9 @@
     --token-form-control-checked-surface-color-hover: var(
       --token-color-palette-blue-300
     );
-    --token-form-control-disabled-border-color: var(
-      --token-color-border-primary
-    );
-    --token-form-control-disabled-foreground-color: var(
-      --token-color-foreground-disabled
-    );
-    --token-form-control-disabled-surface-color: var(
-      --token-color-surface-interactive-disabled
-    );
-    --token-form-control-invalid-border-color-default: var(
-      --token-color-palette-red-300
-    );
-    --token-form-control-invalid-border-color-hover: var(
-      --token-color-palette-red-400
-    );
-    --token-form-control-padding: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma. */
     --token-form-control-readonly-border-color: var(--token-color-border-faint);
     --token-form-control-readonly-foreground-color: var(
       --token-color-foreground-primary
-    );
-    --token-form-control-readonly-surface-color: var(
-      --token-color-surface-strong
     );
     --token-form-error-icon-size: 14px;
     --token-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */

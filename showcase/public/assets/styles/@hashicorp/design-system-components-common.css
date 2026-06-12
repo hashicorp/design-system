@@ -6793,6 +6793,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-text-input {
   width: 100%;
   max-width: 100%;
@@ -6803,7 +6807,15 @@ button.hds-button[href]::after {
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
-.hds-form-text-input ::placeholder {
+.hds-theme-light .hds-form-text-input,
+.hds-theme-dark .hds-form-text-input,
+.hds-theme-system .hds-form-text-input {
+  min-height: 40px;
+  padding: 0 var(--token-form-control-padding);
+  border-width: 0 0 var(--token-form-control-border-width) 0;
+}
+
+.hds-form-text-input::placeholder {
   color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-form-text-input:hover, .hds-form-text-input.mock-hover {
@@ -6839,6 +6851,13 @@ button.hds-button[href]::after {
 .hds-form-text-input.hds-form-text-input--is-invalid {
   border-color: var(--token-form-control-invalid-border-color-default);
 }
+.hds-theme-light .hds-form-text-input.hds-form-text-input--is-invalid,
+.hds-theme-dark .hds-form-text-input.hds-form-text-input--is-invalid,
+.hds-theme-system .hds-form-text-input.hds-form-text-input--is-invalid {
+  outline: 2px solid var(--token-form-control-invalid-border-color-default);
+  outline-offset: -2px;
+}
+
 .hds-form-text-input.hds-form-text-input--is-invalid:hover, .hds-form-text-input.hds-form-text-input--is-invalid.mock-hover {
   border-color: var(--token-form-control-invalid-border-color-hover);
 }
@@ -6865,6 +6884,12 @@ button.hds-button[href]::after {
 .hds-form-text-input[type=date], .hds-form-text-input[type=time], .hds-form-text-input[type=datetime-local], .hds-form-text-input[type=month], .hds-form-text-input[type=week] {
   width: initial;
 }
+.hds-theme-light .hds-form-text-input[type=date], .hds-theme-light .hds-form-text-input[type=time], .hds-theme-light .hds-form-text-input[type=datetime-local], .hds-theme-light .hds-form-text-input[type=month], .hds-theme-light .hds-form-text-input[type=week],
+.hds-theme-dark .hds-form-text-input[type=date], .hds-theme-dark .hds-form-text-input[type=time], .hds-theme-dark .hds-form-text-input[type=datetime-local], .hds-theme-dark .hds-form-text-input[type=month], .hds-theme-dark .hds-form-text-input[type=week],
+.hds-theme-system .hds-form-text-input[type=date], .hds-theme-system .hds-form-text-input[type=time], .hds-theme-system .hds-form-text-input[type=datetime-local], .hds-theme-system .hds-form-text-input[type=month], .hds-theme-system .hds-form-text-input[type=week] {
+  width: 100%;
+}
+
 .hds-form-text-input[type=date]:disabled::-webkit-calendar-picker-indicator, .hds-form-text-input[type=time]:disabled::-webkit-calendar-picker-indicator, .hds-form-text-input[type=datetime-local]:disabled::-webkit-calendar-picker-indicator, .hds-form-text-input[type=month]:disabled::-webkit-calendar-picker-indicator, .hds-form-text-input[type=week]:disabled::-webkit-calendar-picker-indicator {
   visibility: visible;
   opacity: 0.5;
@@ -6872,16 +6897,38 @@ button.hds-button[href]::after {
 .hds-form-text-input[type=date][readonly]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=time][readonly]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=datetime-local][readonly]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=month][readonly]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=week][readonly]::-webkit-calendar-picker-indicator {
   visibility: visible;
 }
+.hds-theme-light .hds-form-text-input[type=date][readonly]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=time][readonly]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=datetime-local][readonly]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=month][readonly]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=week][readonly]::-webkit-calendar-picker-indicator,
+.hds-theme-dark .hds-form-text-input[type=date][readonly]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=time][readonly]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=datetime-local][readonly]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=month][readonly]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=week][readonly]::-webkit-calendar-picker-indicator,
+.hds-theme-system .hds-form-text-input[type=date][readonly]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=time][readonly]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=datetime-local][readonly]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=month][readonly]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=week][readonly]::-webkit-calendar-picker-indicator {
+  visibility: hidden;
+}
+
 .hds-form-text-input[type=date]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=datetime-local]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=month]::-webkit-calendar-picker-indicator, .hds-form-text-input[type=week]::-webkit-calendar-picker-indicator {
   background-image: var(--token-form-text-input-background-image-data-url-date);
   background-position: center center;
   background-size: var(--token-form-text-input-background-image-size);
 }
+.hds-theme-light .hds-form-text-input[type=date]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=datetime-local]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=month]::-webkit-calendar-picker-indicator, .hds-theme-light .hds-form-text-input[type=week]::-webkit-calendar-picker-indicator,
+.hds-theme-dark .hds-form-text-input[type=date]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=datetime-local]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=month]::-webkit-calendar-picker-indicator, .hds-theme-dark .hds-form-text-input[type=week]::-webkit-calendar-picker-indicator,
+.hds-theme-system .hds-form-text-input[type=date]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=datetime-local]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=month]::-webkit-calendar-picker-indicator, .hds-theme-system .hds-form-text-input[type=week]::-webkit-calendar-picker-indicator {
+  background-image: revert;
+  background-position: revert;
+  background-size: revert;
+}
+
 .hds-form-text-input[type=time]::-webkit-calendar-picker-indicator {
   background-image: var(--token-form-text-input-background-image-data-url-time);
   background-position: center center;
   background-size: var(--token-form-text-input-background-image-size);
 }
+.hds-theme-light .hds-form-text-input[type=time]::-webkit-calendar-picker-indicator,
+.hds-theme-dark .hds-form-text-input[type=time]::-webkit-calendar-picker-indicator,
+.hds-theme-system .hds-form-text-input[type=time]::-webkit-calendar-picker-indicator {
+  background-image: revert;
+  background-position: revert;
+  background-size: revert;
+}
+
 .hds-form-text-input[type=search] {
   padding-left: calc(var(--token-form-control-padding) + 24px);
   background-image: var(--token-form-text-input-background-image-data-url-search);
@@ -6889,6 +6936,15 @@ button.hds-button[href]::after {
   background-position: var(--token-form-text-input-background-image-position-x) 50%;
   background-size: var(--token-form-text-input-background-image-size);
 }
+.hds-theme-light .hds-form-text-input[type=search],
+.hds-theme-dark .hds-form-text-input[type=search],
+.hds-theme-system .hds-form-text-input[type=search] {
+  padding-left: var(--token-form-control-padding);
+  background-image: revert;
+  background-position: revert;
+  background-size: revert;
+}
+
 .hds-form-text-input[type=search]::-webkit-search-cancel-button {
   width: var(--token-form-text-input-background-image-size);
   height: var(--token-form-text-input-background-image-size);
@@ -6897,8 +6953,21 @@ button.hds-button[href]::after {
   background-size: var(--token-form-text-input-background-image-size);
   -webkit-appearance: none;
 }
+.hds-theme-light .hds-form-text-input[type=search]::-webkit-search-cancel-button,
+.hds-theme-dark .hds-form-text-input[type=search]::-webkit-search-cancel-button,
+.hds-theme-system .hds-form-text-input[type=search]::-webkit-search-cancel-button {
+  background-image: revert;
+  background-position: revert;
+  background-size: revert;
+}
+
 .hds-form-text-input[type=search].hds-form-text-input--is-loading {
   background-image: var(--token-form-text-input-background-image-data-url-search-loading);
+}
+.hds-theme-light .hds-form-text-input[type=search].hds-form-text-input--is-loading,
+.hds-theme-dark .hds-form-text-input[type=search].hds-form-text-input--is-loading,
+.hds-theme-system .hds-form-text-input[type=search].hds-form-text-input--is-loading {
+  background-image: none;
 }
 
 /**
@@ -6913,7 +6982,7 @@ button.hds-button[href]::after {
   width: 100%;
   max-width: 100%;
   min-height: 36px;
-  padding: var(--token-form-control-padding);
+  padding: var(--token-form-control-padding) var(--token-form-control-padding);
   color: var(--token-form-control-base-foreground-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
@@ -6921,7 +6990,7 @@ button.hds-button[href]::after {
   box-shadow: var(--token-elevation-inset-box-shadow);
   resize: vertical;
 }
-.hds-form-textarea ::placeholder {
+.hds-form-textarea::placeholder {
   color: var(--token-form-control-base-placeholder-foreground-color);
 }
 .hds-form-textarea:hover, .hds-form-textarea.mock-hover {

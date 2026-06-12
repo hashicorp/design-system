@@ -28,7 +28,14 @@
             "default": {
               "$type": "color",
               "$value": "{color.palette.neutral-400}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.neutral-400}",
+                "cds-g0": "{carbon.themes.white.borderStrong01}",
+                "cds-g10": "{carbon.themes.g10.borderStrong01}",
+                "cds-g90": "{carbon.themes.g90.borderStrong01}",
+                "cds-g100": "{carbon.themes.g100.borderStrong01}"
+              }
             },
             "hover": {
               "$type": "color",
@@ -42,7 +49,14 @@
             "color": {
               "$type": "color",
               "$value": "{color.foreground.faint}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.foreground.faint}",
+                "cds-g0": "{carbon.themes.white.textPlaceholder}",
+                "cds-g10": "{carbon.themes.g10.textPlaceholder}",
+                "cds-g90": "{carbon.themes.g90.textPlaceholder}",
+                "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+              }
             }
           }
         }
@@ -90,12 +104,27 @@
             "default": {
               "$type": "color",
               "$value": "{color.palette.red-300}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.red-300}",
+                "cds-g0": "{carbon.themes.white.supportError}",
+                "cds-g10": "{carbon.themes.g10.supportError}",
+                "cds-g90": "{carbon.themes.g90.supportError}",
+                "cds-g100": "{carbon.themes.g100.supportError}",
+                "comment": "Carbon uses outline instead of a border color change"
+              }
             },
             "hover": {
               "$type": "color",
               "$value": "{color.palette.red-400}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.red-400}",
+                "cds-g0": "{carbon.themes.white.supportError}",
+                "cds-g10": "{carbon.themes.g10.supportError}",
+                "cds-g90": "{carbon.themes.g90.supportError}",
+                "cds-g100": "{carbon.themes.g100.supportError}"
+              }
             }
           }
         }
@@ -112,7 +141,14 @@
           "color": {
             "$type": "color",
             "$value": "{color.surface.strong}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{color.surface.strong}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
           }
         },
         "border": {
@@ -128,21 +164,42 @@
           "color": {
             "$type": "color",
             "$value": "{color.foreground.disabled}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{color.foreground.disabled}",
+              "cds-g0": "{carbon.themes.white.textDisabled}",
+              "cds-g10": "{carbon.themes.g10.textDisabled}",
+              "cds-g90": "{carbon.themes.g90.textDisabled}",
+              "cds-g100": "{carbon.themes.g100.textDisabled}"
+            }
           }
         },
         "surface": {
           "color": {
             "$type": "color",
             "$value": "{color.surface.interactive-disabled}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{color.surface.interactive-disabled}",
+              "cds-g0": "{carbon.themes.white.field01}",
+              "cds-g10": "{carbon.themes.g10.field01}",
+              "cds-g90": "{carbon.themes.g90.field01}",
+              "cds-g100": "{carbon.themes.g100.field01}"
+            }
           }
         },
         "border": {
           "color": {
             "$type": "color",
             "$value": "{color.border.primary}",
-            "group": "components"
+            "group": "components",
+            "$modes": {
+              "default": "{color.border.primary}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
           }
         }
       }

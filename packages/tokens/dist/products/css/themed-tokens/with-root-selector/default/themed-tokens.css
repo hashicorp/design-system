@@ -373,6 +373,15 @@
   --token-form-character-count-foreground-color: #656a76;
   --token-form-character-count-typography-font-size: var(--token-typography-body-100-font-size);
   --token-form-character-count-typography-line-height: var(--token-typography-body-100-line-height); /** The character-count line-height is the same as the helper-text as per design */
+  --token-form-control-base-border-color-default: var(--token-color-palette-neutral-400);
+  --token-form-control-base-placeholder-foreground-color: var(--token-color-foreground-faint);
+  --token-form-control-disabled-border-color: var(--token-color-border-primary);
+  --token-form-control-disabled-foreground-color: var(--token-color-foreground-disabled);
+  --token-form-control-disabled-surface-color: var(--token-color-surface-interactive-disabled);
+  --token-form-control-invalid-border-color-default: var(--token-color-palette-red-300);
+  --token-form-control-invalid-border-color-hover: var(--token-color-palette-red-400);
+  --token-form-control-padding: 7px; /** Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding */
+  --token-form-control-readonly-surface-color: var(--token-color-surface-strong);
   --token-form-error-foreground-color: var(--token-color-palette-red-300);
   --token-form-error-typography-font-size: var(--token-typography-body-100-font-size);
   --token-form-error-typography-line-height: var(--token-typography-body-100-line-height);
