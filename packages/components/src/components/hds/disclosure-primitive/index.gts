@@ -9,7 +9,7 @@ import { schedule } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import { didUpdate } from '@ember/render-modifiers';
 
 export interface HdsDisclosurePrimitiveSignature {
   Args: {
