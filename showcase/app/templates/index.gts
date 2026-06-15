@@ -385,6 +385,20 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
+
+      <ShwTextH2>AI Testing</ShwTextH2>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-ai-testing.carbon-demo-app">
+            CarbonDemo
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-ai-testing.helios-demo-app">
+            HeliosDemo
+          </LinkTo>
+        </li>
+      </ol>
     </div>
   </div>
 </template>;
