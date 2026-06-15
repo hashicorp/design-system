@@ -75,6 +75,32 @@
   &.hds-form-text-input--is-invalid {
     border-color: var(--hds-form-control-invalid-border-color-default);
 
+    // Note: The element wrapper parent element is used to position the invalid icon for Carbon themes over the text input
+    @at-root .hds-form-text-input__element-wrapper:has(#{&}) {
+      @include hds-apply-only-if-carbon() {
+        position: relative;
+
+        &::before {
+          position: absolute;
+          display: block;
+          width: 16px;
+          height: 16px;
+          background-color: var(--token-form-control-invalid-border-color-default);
+          transform: translateY(-50%);
+          content: "";
+          mask-image: url("data:image/svg+xml,%3Csvg focusable='false' preserveAspectRatio='xMidYMid meet' xmlns='http://www.w3.org/2000/svg' fill='var(--token-form-control-invalid-border-color-default)' class='cds--text-input__invalid-icon' width='16' height='16' viewBox='0 0 16 16' aria-hidden='true'%3E%3Cpath d='M8,1C4.2,1,1,4.2,1,8s3.2,7,7,7s7-3.1,7-7S11.9,1,8,1z M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2	c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z'%3E%3C/path%3E%3Cpath d='M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8	c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z' data-icon-path='inner-path' opacity='0'%3E%3C/path%3E%3C/svg%3E");
+          mask-size: cover;
+          inset-block-start: 50%;
+          inset-inline-end: 1rem;
+        }
+
+        // Add space for invalid icon
+        .hds-form-text-input--is-invalid {
+          padding-inline-end: 2.5rem;
+        }
+      }
+    }
+
     @include hds-apply-only-if-carbon() {
       outline: 2px solid var(--hds-form-control-invalid-border-color-default);
       outline-offset: -2px;
