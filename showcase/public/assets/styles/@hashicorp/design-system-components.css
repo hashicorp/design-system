@@ -5114,6 +5114,13 @@ button.hds-button[href]::after {
   right: 0;
   margin: 0;
 }
+.hds-theme-light .hds-dialog-primitive__dismiss:focus-visible, .hds-theme-light .hds-dialog-primitive__dismiss.mock-focus,
+.hds-theme-dark .hds-dialog-primitive__dismiss:focus-visible,
+.hds-theme-dark .hds-dialog-primitive__dismiss.mock-focus,
+.hds-theme-system .hds-dialog-primitive__dismiss:focus-visible,
+.hds-theme-system .hds-dialog-primitive__dismiss.mock-focus {
+  position: absolute;
+}
 
 .hds-dialog-primitive__description {
   padding: 0 var(--token-dialog-primitive-padding-horizontal) var(--token-dialog-primitive-padding-vertical);
