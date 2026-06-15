@@ -131,6 +131,12 @@
     top: 0;
     right: 0;
     margin: 0;
+
+    // the focus selector for the `.hds-dismiss-button` has a `position: relative` with similar specificity so we need to explicitly override it
+    &:focus-visible,
+    &.mock-focus {
+      position: absolute;
+    }
   }
 }
 
