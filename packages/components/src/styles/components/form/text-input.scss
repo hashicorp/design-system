@@ -33,7 +33,7 @@
   // PLACEHOLDER
 
   &::placeholder {
-    color: var(--token-form-control-base-placeholder-foreground-color);
+    color: var(--token-form-control-base-placeholder-foreground-color-default);
   }
 
   // STATUS
@@ -68,6 +68,10 @@
     border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
     cursor: not-allowed;
+
+    &::placeholder {
+      color: var(--token-form-control-base-placeholder-foreground-color-disabled);
+    }
   }
 
   // INVALID

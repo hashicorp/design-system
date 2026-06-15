@@ -47,15 +47,29 @@
         "placeholder": {
           "foreground": {
             "color": {
-              "$type": "color",
-              "$value": "{color.foreground.faint}",
-              "group": "components",
-              "$modes": {
-                "default": "{color.foreground.faint}",
-                "cds-g0": "{carbon.themes.white.textPlaceholder}",
-                "cds-g10": "{carbon.themes.g10.textPlaceholder}",
-                "cds-g90": "{carbon.themes.g90.textPlaceholder}",
-                "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+              "default": {
+                "$type": "color",
+                "$value": "{color.foreground.faint}",
+                "group": "components",
+                "$modes": {
+                  "default": "{color.foreground.faint}",
+                  "cds-g0": "{carbon.themes.white.textPlaceholder}",
+                  "cds-g10": "{carbon.themes.g10.textPlaceholder}",
+                  "cds-g90": "{carbon.themes.g90.textPlaceholder}",
+                  "cds-g100": "{carbon.themes.g100.textPlaceholder}"
+                }
+              },
+              "disabled": {
+                "$type": "color",
+                "$value": "{color.foreground.faint}",
+                "group": "components",
+                "$modes": {
+                  "default": "{color.foreground.faint}",
+                  "cds-g0": "{carbon.themes.white.textDisabled}",
+                  "cds-g10": "{carbon.themes.g10.textDisabled}",
+                  "cds-g90": "{carbon.themes.g90.textDisabled}",
+                  "cds-g100": "{carbon.themes.g100.textDisabled}"
+                }
               }
             }
           }
