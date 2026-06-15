@@ -247,9 +247,9 @@
   --token-card-surface-color-secondary: #525252;
   --token-code-block-border-color-primary: #6f6f6f;
   --token-code-block-border-color-strong: rgba(0, 0, 0, 0);
-  --token-code-block-button-surface-color-active: #6f6f6f;
-  --token-code-block-button-surface-color-default: #474747;
-  --token-code-block-button-surface-color-hover: #6f6f6f;
+  --token-code-block-button-surface-color-active: var(--token-button-surface-color-secondary-muted-active);
+  --token-code-block-button-surface-color-default: var(--token-button-surface-color-secondary-muted-default);
+  --token-code-block-button-surface-color-hover: var(--token-button-surface-color-secondary-muted-hover);
   --token-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #78a9ff;

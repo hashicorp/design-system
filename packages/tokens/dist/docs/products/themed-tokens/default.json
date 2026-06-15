@@ -16426,20 +16426,20 @@
     "$value": "#15181e",
     "$modes": {
       "default": "#15181e",
-      "cds-g0": "#e8e8e8",
-      "cds-g10": "#e8e8e8",
-      "cds-g90": "#474747",
-      "cds-g100": "#333333"
+      "cds-g0": "#fafafa",
+      "cds-g10": "#fafafa",
+      "cds-g90": "#fafafa",
+      "cds-g100": "#fafafa"
     },
     "original": {
       "$type": "color",
       "$value": "{code-block.surface.color.faint}",
       "$modes": {
         "default": "{code-block.surface.color.faint}",
-        "cds-g0": "{carbon.themes.white.layerHover01}",
-        "cds-g10": "{carbon.themes.g10.layerHover01}",
-        "cds-g90": "{carbon.themes.g90.layerHover01}",
-        "cds-g100": "{carbon.themes.g100.layerHover01}"
+        "cds-g0": "{button.surface.color.secondary-muted.default}",
+        "cds-g10": "{button.surface.color.secondary-muted.default}",
+        "cds-g90": "{button.surface.color.secondary-muted.default}",
+        "cds-g100": "{button.surface.color.secondary-muted.default}"
       },
       "key": "{code-block.button.surface.color.default}"
     },
@@ -16461,20 +16461,20 @@
     "$value": "#0d0e12",
     "$modes": {
       "default": "#0d0e12",
-      "cds-g0": "#c6c6c6",
-      "cds-g10": "#c6c6c6",
-      "cds-g90": "#6f6f6f",
-      "cds-g100": "#525252"
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
     },
     "original": {
       "$type": "color",
       "$value": "{code-block.surface.color.primary}",
       "$modes": {
         "default": "{code-block.surface.color.primary}",
-        "cds-g0": "{carbon.themes.white.layerActive01}",
-        "cds-g10": "{carbon.themes.g10.layerActive01}",
-        "cds-g90": "{carbon.themes.g90.layerActive01}",
-        "cds-g100": "{carbon.themes.g100.layerActive01}"
+        "cds-g0": "{button.surface.color.secondary-muted.hover}",
+        "cds-g10": "{button.surface.color.secondary-muted.hover}",
+        "cds-g90": "{button.surface.color.secondary-muted.hover}",
+        "cds-g100": "{button.surface.color.secondary-muted.hover}"
       },
       "key": "{code-block.button.surface.color.hover}"
     },
@@ -16496,20 +16496,20 @@
     "$value": "#2b303c",
     "$modes": {
       "default": "#2b303c",
-      "cds-g0": "#c6c6c6",
-      "cds-g10": "#c6c6c6",
-      "cds-g90": "#6f6f6f",
-      "cds-g100": "#525252"
+      "cds-g0": "#dedfe3",
+      "cds-g10": "#dedfe3",
+      "cds-g90": "#dedfe3",
+      "cds-g100": "#dedfe3"
     },
     "original": {
       "$type": "color",
       "$value": "#2b303c",
       "$modes": {
         "default": "#2b303c",
-        "cds-g0": "{carbon.themes.white.layerActive01}",
-        "cds-g10": "{carbon.themes.g10.layerActive01}",
-        "cds-g90": "{carbon.themes.g90.layerActive01}",
-        "cds-g100": "{carbon.themes.g100.layerActive01}"
+        "cds-g0": "{button.surface.color.secondary-muted.active}",
+        "cds-g10": "{button.surface.color.secondary-muted.active}",
+        "cds-g90": "{button.surface.color.secondary-muted.active}",
+        "cds-g100": "{button.surface.color.secondary-muted.active}"
       },
       "key": "{code-block.button.surface.color.active}"
     },
