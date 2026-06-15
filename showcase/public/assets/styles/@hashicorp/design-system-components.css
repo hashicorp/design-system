@@ -8734,6 +8734,9 @@ button.hds-button[href]::after {
 .hds-link-standalone--color-secondary {
   color: var(--token-color-foreground-strong);
 }
+.hds-link-standalone--color-secondary:hover, .hds-link-standalone--color-secondary.mock-hover {
+  color: var(--token-color-foreground-strong);
+}
 .hds-link-standalone--color-secondary:hover .hds-link-standalone__text, .hds-link-standalone--color-secondary.mock-hover .hds-link-standalone__text {
   text-decoration-color: var(--token-color-foreground-strong);
 }
@@ -9591,9 +9594,15 @@ button.hds-button[href]::after {
 .hds-stepper-list__step-description {
   margin-top: 4px;
 }
+.hds-stepper-list__step-description:empty {
+  display: none;
+}
 
 .hds-stepper-list__step-content {
   margin-top: 8px;
+}
+.hds-stepper-list__step-content:empty {
+  display: none;
 }
 
 .hds-stepper-list__step:not(:last-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
