@@ -76,7 +76,7 @@ $hds-super-select-item-height: 36px;
     }
 
     .ember-power-select-placeholder {
-      color: var(--hds-form-control-base-placeholder-foreground-color);
+      color: var(--hds-form-control-base-placeholder-foreground-color-default);
       font-size: var(--hds-typography-body-200-font-size);
       font-family: var(--hds-typography-body-200-font-family);
       line-height: var(--hds-typography-body-200-line-height);
@@ -258,7 +258,7 @@ $hds-super-select-item-height: 36px;
 
     // placeholder
     &::placeholder {
-      color: var(--hds-form-control-base-placeholder-foreground-color);
+      color: var(--hds-form-control-base-placeholder-foreground-color-default);
     }
 
     // status
