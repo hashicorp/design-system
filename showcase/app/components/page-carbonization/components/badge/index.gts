@@ -6,6 +6,7 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { array } from '@ember/helper';
+import Activity16 from '@carbon/icons/es/activity/16';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -13,10 +14,8 @@ import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
-import {
-  HdsBadge,
-  HdsIcon,
-} from '@hashicorp/design-system-components/components';
+import { HdsBadge } from '@hashicorp/design-system-components/components';
+import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 import {
   SIZES,
   TYPES,
@@ -44,7 +43,8 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
         <HdsBadge @icon="activity" @text="Lorem ipsum" />
       </:theming>
       <:reference>
-        <cds-tag>Lorem ipsum <HdsIcon @name="activity" slot="icon" /></cds-tag>
+        <cds-tag>Lorem ipsum
+          <cds-icon slot="icon" {{setCdsIcon Activity16}} /></cds-tag>
       </:reference>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid>
@@ -52,7 +52,7 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
         <HdsBadge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
       </:theming>
       <:reference>
-        <cds-tag><HdsIcon @name="activity" slot="icon" /></cds-tag>
+        <cds-tag><cds-icon slot="icon" {{setCdsIcon Activity16}} /></cds-tag>
       </:reference>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid>
@@ -63,7 +63,7 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
         />
       </:theming>
       <:reference>
-        <cds-tag><HdsIcon @name="activity" slot="icon" />
+        <cds-tag><cds-icon slot="icon" {{setCdsIcon Activity16}} />
           This is a very long text that should go on multiple lines</cds-tag>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -93,13 +93,13 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
           {{#let (array "sm" "md" "lg") as |SIZES|}}
             {{#each SIZES as |size|}}
               <SF.Item>
-                <cds-tag size={{size}}><HdsIcon
-                    @name="activity"
+                <cds-tag size={{size}}><cds-icon
                     slot="icon"
+                    {{setCdsIcon Activity16}}
                   /></cds-tag>
-                <cds-tag size={{size}}><HdsIcon
-                    @name="activity"
+                <cds-tag size={{size}}><cds-icon
                     slot="icon"
+                    {{setCdsIcon Activity16}}
                   />Lorem ipsum</cds-tag>
               </SF.Item>
             {{/each}}
@@ -133,11 +133,14 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
           {{#let (array "gray" "high-contrast" "outline") as |TYPES|}}
             {{#each TYPES as |type|}}
               <SF.Item>
-                <cds-tag type={{type}}><HdsIcon
-                    @name="activity"
+                <cds-tag type={{type}}><cds-icon
                     slot="icon"
+                    {{setCdsIcon Activity16}}
                   /></cds-tag>
-                <cds-tag type={{type}}><HdsIcon @name="activity" slot="icon" />
+                <cds-tag type={{type}}><cds-icon
+                    slot="icon"
+                    {{setCdsIcon Activity16}}
+                  />
                   Lorem ipsum</cds-tag>
               </SF.Item>
             {{/each}}
@@ -175,19 +178,25 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           <SF.Item>
-            <cds-tag type="gray"><HdsIcon
-                @name="activity"
+            <cds-tag type="gray"><cds-icon
                 slot="icon"
+                {{setCdsIcon Activity16}}
               /></cds-tag>
-            <cds-tag type="gray"><HdsIcon @name="activity" slot="icon" />
+            <cds-tag type="gray"><cds-icon
+                slot="icon"
+                {{setCdsIcon Activity16}}
+              />
               Lorem ipsum</cds-tag>
           </SF.Item>
           <SF.Item>
-            <cds-tag type="outline"><HdsIcon
-                @name="activity"
+            <cds-tag type="outline"><cds-icon
                 slot="icon"
+                {{setCdsIcon Activity16}}
               /></cds-tag>
-            <cds-tag type="outline"><HdsIcon @name="activity" slot="icon" />
+            <cds-tag type="outline"><cds-icon
+                slot="icon"
+                {{setCdsIcon Activity16}}
+              />
               Lorem ipsum</cds-tag>
           </SF.Item>
         </ShwFlex>
@@ -223,11 +232,14 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference>
         <div class="shw-component-badge-sample-color--neutral-dark-mode">
-          <cds-tag type="high-contrast"><HdsIcon
-              @name="activity"
+          <cds-tag type="high-contrast"><cds-icon
               slot="icon"
+              {{setCdsIcon Activity16}}
             /></cds-tag>
-          <cds-tag type="high-contrast"><HdsIcon @name="activity" slot="icon" />
+          <cds-tag type="high-contrast"><cds-icon
+              slot="icon"
+              {{setCdsIcon Activity16}}
+            />
             Lorem ipsum</cds-tag>
         </div>
       </:reference>
@@ -256,11 +268,14 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <cds-tag type="purple"><HdsIcon
-            @name="activity"
+        <cds-tag type="purple"><cds-icon
             slot="icon"
+            {{setCdsIcon Activity16}}
           /></cds-tag>
-        <cds-tag type="purple"><HdsIcon @name="activity" slot="icon" />
+        <cds-tag type="purple"><cds-icon
+            slot="icon"
+            {{setCdsIcon Activity16}}
+          />
           Lorem ipsum</cds-tag>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -288,8 +303,11 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <cds-tag type="green"><HdsIcon @name="activity" slot="icon" /></cds-tag>
-        <cds-tag type="green"><HdsIcon @name="activity" slot="icon" />
+        <cds-tag type="green"><cds-icon
+            slot="icon"
+            {{setCdsIcon Activity16}}
+          /></cds-tag>
+        <cds-tag type="green"><cds-icon slot="icon" {{setCdsIcon Activity16}} />
           Lorem ipsum</cds-tag>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -344,8 +362,11 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <cds-tag type="red"><HdsIcon @name="activity" slot="icon" /></cds-tag>
-        <cds-tag type="red"><HdsIcon @name="activity" slot="icon" />
+        <cds-tag type="red"><cds-icon
+            slot="icon"
+            {{setCdsIcon Activity16}}
+          /></cds-tag>
+        <cds-tag type="red"><cds-icon slot="icon" {{setCdsIcon Activity16}} />
           Lorem ipsum</cds-tag>
       </:reference>
     </ShwCarbonizationComparisonGrid>

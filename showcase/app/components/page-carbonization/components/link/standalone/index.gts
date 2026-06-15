@@ -8,6 +8,7 @@ import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { helper } from '@ember/component/helper';
 import { eq } from 'ember-truth-helpers';
+import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -17,10 +18,10 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
 import {
-  HdsIcon,
   HdsLayoutFlex,
   HdsLinkStandalone,
 } from '@hashicorp/design-system-components/components';
+import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 import {
   COLORS,
   SIZES,
@@ -67,10 +68,10 @@ const BadgeLinkStandaloneIndex: TemplateOnlyComponent = <template>
       <:reference>
         <HdsLayoutFlex @direction="column">
           <cds-link href="#" size="md">Lorem ipsum
-            <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
+            <cds-icon slot="icon" {{setCdsIcon ArrowRight16}} /></cds-link>
           <cds-link href="#" size="md">Very long text that should wrap for
             multiple lines
-            <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
+            <cds-icon slot="icon" {{setCdsIcon ArrowRight16}} /></cds-link>
         </HdsLayoutFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -95,7 +96,7 @@ const BadgeLinkStandaloneIndex: TemplateOnlyComponent = <template>
         <HdsLayoutFlex @direction="column">
           {{#each SIZES as |size|}}
             <cds-link href="#" size={{mapHdsSizeToCdsSize size}}>Lorem ipsum
-              <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
+              <cds-icon slot="icon" {{setCdsIcon ArrowRight16}} /></cds-link>
           {{/each}}
         </HdsLayoutFlex>
       </:reference>
@@ -127,7 +128,7 @@ const BadgeLinkStandaloneIndex: TemplateOnlyComponent = <template>
               <R.NoEquivalent @isCompact={{true}} />
             {{else if (eq state "default")}}
               <cds-link href="#" size="md">Lorem ipsum
-                <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
+                <cds-icon slot="icon" {{setCdsIcon ArrowRight16}} /></cds-link>
             {{else}}
               <pre>TODO: static image here</pre>
             {{/if}}
