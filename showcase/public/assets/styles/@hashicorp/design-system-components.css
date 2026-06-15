@@ -5114,6 +5114,13 @@ button.hds-button[href]::after {
   right: 0;
   margin: 0;
 }
+.hds-theme-light .hds-dialog-primitive__dismiss:focus-visible, .hds-theme-light .hds-dialog-primitive__dismiss.mock-focus,
+.hds-theme-dark .hds-dialog-primitive__dismiss:focus-visible,
+.hds-theme-dark .hds-dialog-primitive__dismiss.mock-focus,
+.hds-theme-system .hds-dialog-primitive__dismiss:focus-visible,
+.hds-theme-system .hds-dialog-primitive__dismiss.mock-focus {
+  position: absolute;
+}
 
 .hds-dialog-primitive__description {
   padding: 0 var(--token-dialog-primitive-padding-horizontal) var(--token-dialog-primitive-padding-vertical);
@@ -8732,6 +8739,9 @@ button.hds-button[href]::after {
 }
 
 .hds-link-standalone--color-secondary {
+  color: var(--token-color-foreground-strong);
+}
+.hds-link-standalone--color-secondary:hover, .hds-link-standalone--color-secondary.mock-hover {
   color: var(--token-color-foreground-strong);
 }
 .hds-link-standalone--color-secondary:hover .hds-link-standalone__text, .hds-link-standalone--color-secondary.mock-hover .hds-link-standalone__text {
