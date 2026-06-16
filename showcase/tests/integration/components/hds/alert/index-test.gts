@@ -200,6 +200,43 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
   });
 
+  test('it should render the "generic" content after the actions by default (@genericLayoutBottom defaults to true)', async function (assert) {
+    await render(
+      <template>
+        <HdsAlert @type="inline" id="test-alert" as |A|>
+          <A.Button @text="Action" @color="secondary" />
+          <A.Generic><div
+              id="test-generic-layout-bottom-true"
+            >generic</div></A.Generic>
+        </HdsAlert>
+      </template>,
+    );
+    assert
+      .dom('.hds-alert__actions + #test-generic-layout-bottom-true')
+      .exists();
+  });
+
+  test('it should render the "generic" content before the actions when @genericLayoutBottom is false', async function (assert) {
+    await render(
+      <template>
+        <HdsAlert
+          @type="inline"
+          @genericLayoutBottom={{false}}
+          id="test-alert"
+          as |A|
+        >
+          <A.Button @text="Action" @color="secondary" />
+          <A.Generic><div
+              id="test-generic-layout-bottom-false"
+            >generic</div></A.Generic>
+        </HdsAlert>
+      </template>,
+    );
+    assert
+      .dom('#test-generic-layout-bottom-false + .hds-alert__actions')
+      .exists();
+  });
+
   // DISMISS
 
   test('it should not render the "dismiss" button by default', async function (assert) {

@@ -49,6 +49,7 @@ export interface HdsAlertSignature {
     type: HdsAlertTypes;
     color?: HdsAlertColors;
     icon?: HdsIconSignature['Args']['name'] | false;
+    genericLayoutBottom?: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
@@ -139,6 +140,10 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     }
   }
 
+  get genericLayoutBottom(): boolean {
+    return this.args.genericLayoutBottom ?? true;
+  }
+
   get classNames(): string {
     const classes = ['hds-alert'];
 
@@ -212,7 +217,9 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
           {{yield (hash Description=HdsAlertDescription)}}
         </div>
 
-        {{yield (hash Generic=HdsYield)}}
+        {{#unless this.genericLayoutBottom}}
+          {{yield (hash Generic=HdsYield)}}
+        {{/unless}}
 
         <div class="hds-alert__actions">
           {{yield
@@ -222,6 +229,10 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
             )
           }}
         </div>
+
+        {{#if this.genericLayoutBottom}}
+          {{yield (hash Generic=HdsYield)}}
+        {{/if}}
       </div>
 
       {{#if this.onDismiss}}
