@@ -1,6 +1,6 @@
 # design-system-mcp
 
-A MCP server for the Helios Design System.
+An MCP server for the Helios Design System.
 
 ## Scripts
 
