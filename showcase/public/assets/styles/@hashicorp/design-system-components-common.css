@@ -3168,13 +3168,30 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-secondary-muted-hover);
   cursor: pointer;
 }
-.hds-button--color-secondary-muted:focus, .hds-button--color-secondary-muted.mock-focus {
+.hds-button--color-secondary-muted:focus-visible, .hds-button--color-secondary-muted.mock-focus {
+  outline: none;
+}
+.hds-button--color-secondary-muted:focus-visible::before, .hds-button--color-secondary-muted.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-button--color-secondary-muted:focus-visible::before, .hds-theme-light .hds-button--color-secondary-muted.mock-focus::before,
+.hds-theme-dark .hds-button--color-secondary-muted:focus-visible::before, .hds-theme-dark .hds-button--color-secondary-muted.mock-focus::before,
+.hds-theme-system .hds-button--color-secondary-muted:focus-visible::before, .hds-theme-system .hds-button--color-secondary-muted.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-button--color-secondary-muted:focus-visible, .hds-button--color-secondary-muted.mock-focus {
   color: var(--token-button-foreground-color-secondary-muted-focus);
   background-color: var(--token-button-surface-color-secondary-muted-focus);
-  border-color: var(--token-button-border-color-secondary-muted-focus-internal);
-}
-.hds-button--color-secondary-muted:focus::before, .hds-button--color-secondary-muted.mock-focus::before {
-  border-color: var(--token-button-border-color-secondary-muted-focus-external);
 }
 .hds-button--color-secondary-muted:active, .hds-button--color-secondary-muted.mock-active {
   color: var(--token-button-foreground-color-secondary-muted-active);
@@ -4677,15 +4694,20 @@ button.hds-button[href]::after {
 }
 .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
 .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count, .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
-.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count,
+.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count, .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__badge,
+.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__count,
 .hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
 .hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count,
 .hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
 .hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count,
+.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__badge,
+.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__count,
 .hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
 .hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count,
 .hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
-.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count {
+.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count,
+.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__badge,
+.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__count {
   color: #161616;
   background-color: #e0e0e0;
   border-color: transparent;
@@ -4864,13 +4886,30 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-secondary-muted-hover);
   cursor: pointer;
 }
-.hds-dropdown-toggle-button--color-secondary-muted:focus, .hds-dropdown-toggle-button--color-secondary-muted.mock-focus {
+.hds-dropdown-toggle-button--color-secondary-muted:focus-visible, .hds-dropdown-toggle-button--color-secondary-muted.mock-focus {
+  outline: none;
+}
+.hds-dropdown-toggle-button--color-secondary-muted:focus-visible::before, .hds-dropdown-toggle-button--color-secondary-muted.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border: var(--token-focus-ring-width-internal) solid var(--token-color-focus-action-internal);
+  border-radius: inherit;
+  outline: var(--token-focus-ring-width-external) solid var(--token-color-focus-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-dropdown-toggle-button--color-secondary-muted:focus-visible::before, .hds-theme-light .hds-dropdown-toggle-button--color-secondary-muted.mock-focus::before,
+.hds-theme-dark .hds-dropdown-toggle-button--color-secondary-muted:focus-visible::before, .hds-theme-dark .hds-dropdown-toggle-button--color-secondary-muted.mock-focus::before,
+.hds-theme-system .hds-dropdown-toggle-button--color-secondary-muted:focus-visible::before, .hds-theme-system .hds-dropdown-toggle-button--color-secondary-muted.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-dropdown-toggle-button--color-secondary-muted:focus-visible, .hds-dropdown-toggle-button--color-secondary-muted.mock-focus {
   color: var(--token-button-foreground-color-secondary-muted-focus);
   background-color: var(--token-button-surface-color-secondary-muted-focus);
-  border-color: var(--token-button-border-color-secondary-muted-focus-internal);
-}
-.hds-dropdown-toggle-button--color-secondary-muted:focus::before, .hds-dropdown-toggle-button--color-secondary-muted.mock-focus::before {
-  border-color: var(--token-button-border-color-secondary-muted-focus-external);
 }
 .hds-dropdown-toggle-button--color-secondary-muted:active, .hds-dropdown-toggle-button--color-secondary-muted.mock-active {
   color: var(--token-button-foreground-color-secondary-muted-active);

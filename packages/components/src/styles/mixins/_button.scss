@@ -131,15 +131,16 @@ $hds-button-sizes: ("small", "medium", "large");
     cursor: pointer;
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
+    @include hds-focus-ring-advanced(
+      // the element has already a `position: relative` with `isolation: isolate`
+      $element-position: false,
+      // we want to see the white/black inner border for cds
+      $internal-border-width-cds: 1px
+    );
     color: var(--token-button-foreground-color-secondary-muted-focus);
     background-color: var(--token-button-surface-color-secondary-muted-focus);
-    border-color: var(--token-button-border-color-secondary-muted-focus-internal);
-
-    &::before {
-      border-color: var(--token-button-border-color-secondary-muted-focus-external);
-    }
   }
 
   &:active,
