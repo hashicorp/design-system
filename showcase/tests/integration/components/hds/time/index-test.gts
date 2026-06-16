@@ -335,7 +335,18 @@ module('Integration | Component | hds/time/index', function (hooks) {
         <HdsTime @date={{twoDaysFromNow}} @display="relative" />
       </template>,
     );
-    assert.dom('.hds-time').hasText('in 2 days');
+
+    const renderedText = document
+      .querySelector('.hds-time')
+      ?.textContent?.trim();
+
+    // This can render as 2 or 3 days because hds-time updates "now"
+    // during insertion and the relative value is truncated. This happens more
+    // in Ember 5.12 because of test timing compared to other versions.
+    assert.true(
+      renderedText === 'in 2 days' || renderedText === 'in 3 days',
+      `Element .hds-time has text "${renderedText}"`,
+    );
   });
 
   test('it should render the correct string for a date that is one week from now', async function (assert) {
