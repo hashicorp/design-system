@@ -8,6 +8,10 @@ This should be a short TL;DR that includes the purpose of the PR.
 
 <!-- If more details are appropriate, add them here. What code changed, and why? -->
 
+### :copilot: Copilot instructions
+
+<!-- Specific instructions for Copilot when reviewing the PR -->
+
 ### :camera_flash: Screenshots
 
 <!-- Screenshots always help, especially if this PR will change what renders to the browser -->

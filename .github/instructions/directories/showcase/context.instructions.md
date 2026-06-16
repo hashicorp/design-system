@@ -21,6 +21,10 @@ The `showcase` app is an Ember application used to develop, test, and visually v
 - `pnpm lint:fix` - Runs ESLint and Stylelint with auto-fix enabled to fix any fixable issues
 - `pnpm format` - Runs Prettier to format code according to the project's code style rules
 
+## Requirements
+- All showcase pages must be implemented using single-file components with a `.gts` extension
+- Changes to the showcase app do not require a changeset entry
+
 ## Related instructions
 
 - `components-pages.instructions.md`

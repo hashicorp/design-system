@@ -56,6 +56,7 @@ export default PageComponentsAccordion;
 
 - Use arrow functions instead of `@action` for event handlers
 - Document all interactive states for hover, focus, active, and disabled
+- For loops over component arguments, import the list of values from the component file to ensure all values are included and stay up to date with any changes to the component's arguments
 
 ```javascript
 // Good: Arrow function
