@@ -40,7 +40,7 @@
     "@babel/eslint-parser": "^7.27.1",
     "@babel/plugin-proposal-decorators": "^7.27.1",
     "@carbon/grid": "^11.53.0",
-    "@carbon/icons": "11.76.0",
+    "@carbon/icons": "^11.76.0",
     "@carbon/layout": "^11.51.0",
     "@carbon/styles": "^1.104.0",
     "@carbon/themes": "^11.71.0",
