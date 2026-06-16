@@ -11,6 +11,7 @@ import {
   resetOnerror,
   settled,
   setupOnerror,
+  triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
 import { on } from '@ember/modifier';
@@ -209,6 +210,19 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('#test-modal').isVisible();
     await click('.hds-modal__overlay');
     assert.dom('#test-modal').isNotVisible();
+  });
+
+  test('it should not close the modal when a click starts inside the modal but ends outside on the overlay', async function (assert) {
+    await render(
+      <template>
+        <HdsModal id="test-modal" as |M|><M.Header>Title</M.Header></HdsModal>
+      </template>,
+    );
+    assert.dom('#test-modal').isVisible();
+    // Simulate a drag: mousedown originates inside the modal, click ends on the overlay
+    await triggerEvent('#test-modal', 'mousedown');
+    await triggerEvent('.hds-modal__overlay', 'click');
+    assert.dom('#test-modal').isVisible();
   });
 
   test('it should not close the modal when `@isDismissDisabled` is `true`', async function (assert) {
