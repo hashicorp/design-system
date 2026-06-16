@@ -660,16 +660,6 @@
               "cds-g100": "transparent"
             }
           },
-          "focus": {
-            "internal": {
-              "$type": "color",
-              "$value": "{color.focus.action.internal}"
-            },
-            "external": {
-              "$type": "color",
-              "$value": "{color.focus.action.external}"
-            }
-          },
           "active": {
             "$type": "color",
             "$value": "{color.palette.blue-400}",
@@ -705,16 +695,6 @@
               "cds-g100": "transparent"
             }
           },
-          "focus": {
-            "internal": {
-              "$type": "color",
-              "$value": "{color.focus.action.internal}"
-            },
-            "external": {
-              "$type": "color",
-              "$value": "{color.focus.action.external}"
-            }
-          },
           "active": {
             "$type": "color",
             "$value": "{color.border.strong}",
@@ -748,16 +728,6 @@
               "cds-g10": "transparent",
               "cds-g90": "transparent",
               "cds-g100": "transparent"
-            }
-          },
-          "focus": {
-            "internal": {
-              "$type": "color",
-              "$value": "{color.focus.action.internal}"
-            },
-            "external": {
-              "$type": "color",
-              "$value": "{color.focus.action.external}"
             }
           },
           "active": {
@@ -807,16 +777,6 @@
               "cds-g10": "transparent",
               "cds-g90": "transparent",
               "cds-g100": "transparent"
-            }
-          },
-          "focus": {
-            "internal": {
-              "$type": "color",
-              "$value": "{color.focus.critical.internal}"
-            },
-            "external": {
-              "$type": "color",
-              "$value": "{color.focus.critical.external}"
             }
           },
           "active": {
