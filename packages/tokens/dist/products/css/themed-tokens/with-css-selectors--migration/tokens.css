@@ -3633,12 +3633,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-button-border-color-secondary-focus-internal: var(
     --token-color-focus-action-internal
   );
-  --token-button-border-color-secondary-muted-focus-external: var(
-    --token-color-focus-action-external
-  );
-  --token-button-border-color-secondary-muted-focus-internal: var(
-    --token-color-focus-action-internal
-  );
   --token-button-border-color-tertiary-focus-external: var(
     --token-color-focus-action-external
   );

@@ -822,16 +822,6 @@
               "cds-g100": "transparent"
             }
           },
-          "focus": {
-            "internal": {
-              "$type": "color",
-              "$value": "{color.focus.action.internal}"
-            },
-            "external": {
-              "$type": "color",
-              "$value": "{color.focus.action.external}"
-            }
-          },
           "active": {
             "$type": "color",
             "$value": "{color.border.strong}",
