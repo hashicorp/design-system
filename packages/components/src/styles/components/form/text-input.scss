@@ -158,6 +158,10 @@
     &:disabled::-webkit-calendar-picker-indicator {
       visibility: visible;
       opacity: 0.5;
+
+      @include hds-apply-only-if-carbon() {
+        visibility: hidden;
+      }
     }
 
     // show the icon if readonly
