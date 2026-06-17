@@ -3,6 +3,9 @@
  */
 
 :root {
+  --token-accordion-item-content-padding-right-large: 16px;
+  --token-accordion-item-toggle-icon-size-small: 16px;
+  --token-accordion-item-toggle-padding-right-large: 16px;
   --token-alert-page-padding-horizontal: 48px;
   --token-alert-surface-color-neutral: var(--token-color-surface-faint);
   --token-alert-title-foreground-color-neutral: var(--token-color-foreground-primary);
