@@ -9,6 +9,7 @@ import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
+import HexagonSolid24 from '@carbon/icons/es/hexagon--solid/24.js';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -21,10 +22,10 @@ import {
   HdsBadge,
   HdsFormRadioCard,
   HdsFormRadioCardGroup,
-  HdsIcon,
   HdsTextBody,
   HdsTextDisplay,
 } from '@hashicorp/design-system-components/components';
+import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 
 import {
   CONTROL_POSITIONS,
@@ -56,7 +57,7 @@ const CdsRadioTileContent: TemplateOnlyComponent<CdsRadioTileContentSignature> =
         }}"
     >
       {{#if @showIcon}}
-        <HdsIcon @name="hexagon" @size="24" />
+        <cds-icon {{setCdsIcon HexagonSolid24}} />
       {{/if}}
       <HdsTextDisplay @tag="span" @size="300" @weight="bold">{{if
           @label

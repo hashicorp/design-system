@@ -7,6 +7,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
+import Enterprise16 from '@carbon/icons/es/enterprise/16.js';
+import Folder16 from '@carbon/icons/es/folder/16.js';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -17,8 +19,8 @@ import {
   HdsBreadcrumb,
   HdsBreadcrumbItem,
   HdsBreadcrumbTruncation,
-  HdsIcon,
 } from '@hashicorp/design-system-components/components';
+import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 
@@ -74,13 +76,13 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-breadcrumb>
           <cds-breadcrumb-item>
             <cds-breadcrumb-link href="#">
-              <HdsIcon @name="org" slot="icon" />
+              <cds-icon slot="icon" {{setCdsIcon Enterprise16}} />
               Level one
             </cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
             <cds-breadcrumb-link href="#">
-              <HdsIcon @name="folder" slot="icon" />
+              <cds-icon slot="icon" {{setCdsIcon Folder16}} />
               Level two
             </cds-breadcrumb-link>
           </cds-breadcrumb-item>
@@ -116,13 +118,13 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-breadcrumb>
           <cds-breadcrumb-item>
             <cds-breadcrumb-link href="#">
-              <HdsIcon @name="org" slot="icon" />
+              <cds-icon slot="icon" {{setCdsIcon Enterprise16}} />
               Level one
             </cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
             <cds-breadcrumb-link href="#">
-              <HdsIcon @name="folder" slot="icon" />
+              <cds-icon slot="icon" {{setCdsIcon Folder16}} />
               Level two
             </cds-breadcrumb-link>
           </cds-breadcrumb-item>
