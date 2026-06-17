@@ -174,7 +174,7 @@ export default class SubSectionHeliosDemoApp extends Component {
         </Frame.Sidebar>
 
         <Frame.Main>
-          <div {{style padding="24px"}}>
+          <div {{style padding="24px 64px"}}>
             <HdsPageHeader as |PH|>
               <PH.Title>Page title</PH.Title>
               <PH.Description>
