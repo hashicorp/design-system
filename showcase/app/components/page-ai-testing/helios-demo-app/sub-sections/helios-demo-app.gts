@@ -175,12 +175,14 @@ export default class SubSectionHeliosDemoApp extends Component {
 
         <Frame.Main>
           <div {{style padding="24px"}}>
-            <h3 {{style marginTop="0"}}>User Information Form</h3>
-            <p>
-              Fill out the form below to submit your information. This
-              demonstrates the HDS Form component with text input fields and
-              validation.
-            </p>
+            <HdsPageHeader as |PH|>
+              <PH.Title>Page title</PH.Title>
+              <PH.Description>
+                Fill out the form below to submit your information. This
+                demonstrates the HDS Form component with text input fields and
+                validation.
+              </PH.Description>
+            </HdsPageHeader>
 
             {{! Accordion Section }}
             <div {{style marginTop="24px"}}>
