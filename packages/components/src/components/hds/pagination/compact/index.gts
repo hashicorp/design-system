@@ -100,6 +100,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   // has with the component (the state is controlled externally, eg. via query parameters)
   @tracked private _currentPageSize;
   @tracked private _isControlled;
+  @tracked private _lastActivatedDirection?: HdsPaginationDirections;
 
   showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
   showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
@@ -224,8 +225,30 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
     return routing;
   }
 
+  get shouldFocusPrevArrow() {
+    return (
+      this._lastActivatedDirection === HdsPaginationDirectionValues.Next &&
+      this.args.isDisabledNext === true &&
+      this.args.isDisabledPrev !== true
+    );
+  }
+
+  get shouldFocusNextArrow() {
+    return (
+      this._lastActivatedDirection === HdsPaginationDirectionValues.Prev &&
+      this.args.isDisabledPrev === true &&
+      this.args.isDisabledNext !== true
+    );
+  }
+
+  onFocusHandled = (): void => {
+    this._lastActivatedDirection = undefined;
+  };
+
   onPageChange = (newPage: HdsPaginationDirections): void => {
     const { onPageChange } = this.args;
+
+    this._lastActivatedDirection = newPage;
 
     if (typeof onPageChange === 'function') {
       onPageChange(newPage);
@@ -233,6 +256,8 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   };
 
   onPageSizeChange = (newPageSize: number): void => {
+    this._lastActivatedDirection = undefined;
+
     const { onPageSizeChange } = this.args;
 
     // invoke the callback function
@@ -254,6 +279,8 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
           @replace={{this.routing.replace}}
           @onClick={{this.onPageChange}}
           @disabled={{@isDisabledPrev}}
+          @isFocused={{this.shouldFocusPrevArrow}}
+          @onFocusHandled={{this.onFocusHandled}}
         />
         <HdsPaginationNavArrow
           @direction="next"
@@ -265,6 +292,8 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
           @replace={{this.routing.replace}}
           @onClick={{this.onPageChange}}
           @disabled={{@isDisabledNext}}
+          @isFocused={{this.shouldFocusNextArrow}}
+          @onFocusHandled={{this.onFocusHandled}}
         />
       </nav>
 

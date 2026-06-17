@@ -22,6 +22,7 @@ import HdsPaginationSizeSelector from '../size-selector/index.gts';
 import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 import type {
+  HdsPaginationDirections,
   HdsPaginationPage,
   HdsPaginationRoutingProps,
   HdsPaginationElliptizedPageArray,
@@ -187,6 +188,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   @tracked private _currentPage;
   @tracked private _currentPageSize;
   @tracked private _isControlled;
+  @tracked private _lastActivatedDirection?: HdsPaginationDirections;
 
   showInfo = this.args.showInfo ?? true; // if the "info" block is visible
   showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
@@ -404,7 +406,29 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     return this.currentPage === this.totalPages;
   }
 
+  get shouldFocusPrevArrow() {
+    return (
+      this._lastActivatedDirection === HdsPaginationDirectionValues.Next &&
+      this.isDisabledNext &&
+      !this.isDisabledPrev
+    );
+  }
+
+  get shouldFocusNextArrow() {
+    return (
+      this._lastActivatedDirection === HdsPaginationDirectionValues.Prev &&
+      this.isDisabledPrev &&
+      !this.isDisabledNext
+    );
+  }
+
+  onFocusHandled = (): void => {
+    this._lastActivatedDirection = undefined;
+  };
+
   onPageChange = (page: HdsPaginationPage) => {
+    this._lastActivatedDirection = undefined;
+
     let gotoPageNumber;
     if (page === HdsPaginationDirectionValues.Prev && this.currentPage > 1) {
       gotoPageNumber = this.currentPage - 1;
@@ -427,10 +451,19 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       if (typeof onPageChange === 'function') {
         onPageChange(this.currentPage, this.currentPageSize);
       }
+
+      if (
+        page === HdsPaginationDirectionValues.Prev ||
+        page === HdsPaginationDirectionValues.Next
+      ) {
+        this._lastActivatedDirection = page;
+      }
     }
   };
 
   onPageSizeChange = (newPageSize: number) => {
+    this._lastActivatedDirection = undefined;
+
     const { onPageSizeChange } = this.args;
 
     if (!this._isControlled) {
@@ -481,6 +514,8 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
           @replace={{this.routing.replace}}
           @onClick={{this.onPageChange}}
           @disabled={{this.isDisabledPrev}}
+          @isFocused={{this.shouldFocusPrevArrow}}
+          @onFocusHandled={{this.onFocusHandled}}
         />
         {{#if this.showPageNumbers}}
           <ul class="hds-pagination-nav__page-list">
@@ -514,6 +549,8 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
           @replace={{this.routing.replace}}
           @onClick={{this.onPageChange}}
           @disabled={{this.isDisabledNext}}
+          @isFocused={{this.shouldFocusNextArrow}}
+          @onFocusHandled={{this.onFocusHandled}}
         />
       </nav>
 

@@ -4,7 +4,15 @@
  */
 
 import { module, test } from 'qunit';
-import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import {
+  click,
+  focus,
+  select,
+  render,
+  resetOnerror,
+  setupOnerror,
+} from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsPaginationCompact } from '@hashicorp/design-system-components/components';
 import type { HdsPaginationDirections } from '@hashicorp/design-system-components/components/hds/pagination/types';
@@ -144,6 +152,130 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
     assert
       .dom('.hds-pagination-nav__arrow--direction-next')
       .hasAttribute('disabled');
+  });
+
+  test('it moves focus to the opposite arrow when an activated arrow becomes disabled', async function (assert) {
+    const context = new TrackedObject({
+      isDisabledPrev: false,
+      isDisabledNext: false,
+    });
+
+    const onPageChange = (direction: HdsPaginationDirections) => {
+      if (direction === 'prev') {
+        context.isDisabledPrev = true;
+        context.isDisabledNext = false;
+      } else {
+        context.isDisabledPrev = false;
+        context.isDisabledNext = true;
+      }
+    };
+
+    await render(
+      <template>
+        <HdsPaginationCompact
+          @isDisabledPrev={{context.isDisabledPrev}}
+          @isDisabledNext={{context.isDisabledNext}}
+          @onPageChange={{onPageChange}}
+        />
+      </template>,
+    );
+
+    await focus('.hds-pagination-nav__arrow--direction-prev');
+    await click('.hds-pagination-nav__arrow--direction-prev');
+
+    // Wait one animation frame so RAF-scheduled focus updates complete before assertions.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve()),
+    );
+
+    assert.dom('.hds-pagination-nav__arrow--direction-prev').isDisabled();
+    assert.dom('.hds-pagination-nav__arrow--direction-next').isFocused();
+
+    const context2 = new TrackedObject({
+      isDisabledPrev: false,
+      isDisabledNext: false,
+    });
+
+    const onPageChange2 = (direction: HdsPaginationDirections) => {
+      if (direction === 'prev') {
+        context2.isDisabledPrev = true;
+        context2.isDisabledNext = false;
+      } else {
+        context2.isDisabledPrev = false;
+        context2.isDisabledNext = true;
+      }
+    };
+
+    await render(
+      <template>
+        <HdsPaginationCompact
+          @isDisabledPrev={{context2.isDisabledPrev}}
+          @isDisabledNext={{context2.isDisabledNext}}
+          @onPageChange={{onPageChange2}}
+        />
+      </template>,
+    );
+
+    await focus('.hds-pagination-nav__arrow--direction-next');
+    await click('.hds-pagination-nav__arrow--direction-next');
+
+    // Wait one animation frame so RAF-scheduled focus updates complete before assertions.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve()),
+    );
+
+    assert.dom('.hds-pagination-nav__arrow--direction-next').isDisabled();
+    assert.dom('.hds-pagination-nav__arrow--direction-prev').isFocused();
+  });
+
+  test('changing page size clears arrow focus intent and does not move focus to the opposite arrow', async function (assert) {
+    const context = new TrackedObject({
+      isDisabledPrev: false,
+      isDisabledNext: false,
+      currentPageSize: 10,
+    });
+
+    const onPageChange = (direction: HdsPaginationDirections) => {
+      if (direction === 'prev') {
+        context.isDisabledPrev = true;
+        context.isDisabledNext = false;
+      } else {
+        context.isDisabledPrev = false;
+        context.isDisabledNext = true;
+      }
+    };
+
+    const onPageSizeChange = (pageSize: number) => {
+      context.currentPageSize = pageSize;
+      context.isDisabledPrev = true;
+      context.isDisabledNext = false;
+    };
+
+    await render(
+      <template>
+        <HdsPaginationCompact
+          @showSizeSelector={{true}}
+          @isDisabledPrev={{context.isDisabledPrev}}
+          @isDisabledNext={{context.isDisabledNext}}
+          @currentPageSize={{context.currentPageSize}}
+          @onPageChange={{onPageChange}}
+          @onPageSizeChange={{onPageSizeChange}}
+        />
+      </template>,
+    );
+
+    await click('.hds-pagination-nav__arrow--direction-prev');
+    await focus('.hds-pagination-size-selector select');
+    await select('.hds-pagination-size-selector select', '30');
+
+    // Wait one animation frame so RAF-scheduled focus updates complete before assertions.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve()),
+    );
+
+    assert.dom('.hds-pagination-nav__arrow--direction-prev').isDisabled();
+    assert.dom('.hds-pagination-nav__arrow--direction-next').isNotFocused();
+    assert.dom('.hds-pagination-size-selector select').isFocused();
   });
 
   // EVENTS
