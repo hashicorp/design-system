@@ -4,7 +4,9 @@ import { HdsLinkInline } from '@hashicorp/design-system-components/components';
 
 const LocalComponent: TemplateOnlyComponent = <template>
   Lorem
-  <HdsLinkInline @href="https://helios.hashicorp.design/">ipsum dolor</HdsLinkInline>
+  <HdsLinkInline @href="https://helios.hashicorp.design/">ipsum dolor<span
+      class="sr-only"
+    >(opens in a new window)</span></HdsLinkInline>
   sit amet consectetur adipiscing elit.
 </template>;
 

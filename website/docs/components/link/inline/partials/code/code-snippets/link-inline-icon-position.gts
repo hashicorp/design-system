@@ -8,7 +8,7 @@ const LocalComponent: TemplateOnlyComponent = <template>
     @icon="external-link"
     @iconPosition="leading"
     @href="https://helios.hashicorp.design/"
-  >ipsum dolor</HdsLinkInline>
+  >ipsum dolor<span class="sr-only">(opens in a new window)</span></HdsLinkInline>
   sit amet consectetur adipiscing elit.
 </template>;
 

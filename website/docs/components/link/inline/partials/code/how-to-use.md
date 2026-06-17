@@ -39,6 +39,13 @@ Inline Links use the generic `Hds::Interactive` component. Learn more about [how
 
 #### With `@href`
 
+!!! Warning 
+
+**Accessibility alert**
+
+For external links, we strongly recommend adding visually hidden text to indicate that the link opens in a new page or website. Use Helios's sr-only class to provide this context to screen reader users without changing the visible link text.
+!!!
+
 To generate an `<a>` link, pass an `@href` argument with a URL as the value.
 
 By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
