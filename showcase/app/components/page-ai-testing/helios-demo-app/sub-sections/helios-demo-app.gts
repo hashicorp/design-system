@@ -191,6 +191,7 @@ export default class SubSectionHeliosDemoApp extends Component {
                 <A.Item @isOpen={{true}}>
                   <:toggle>How to fill out this form</:toggle>
                   <:content>
+                 <HdsTextBody>
                     <p>
                       This form collects basic user information. Please ensure
                       all required fields are completed before submitting.
@@ -205,6 +206,7 @@ export default class SubSectionHeliosDemoApp extends Component {
                         Provide a valid email address for contact purposes
                       </li>
                     </ul>
+                  </HdsTextBody>
                   </:content>
                 </A.Item>
                 <A.Item>
