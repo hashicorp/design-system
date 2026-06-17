@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carbon Design System Demo</title>
+
+    <!-- IBM Carbon Web Components - Import via CDN -->
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/ui-shell.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/button.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/text-input.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/accordion.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/modal.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/form.min.js"></script>
+
+    <!-- Carbon Design System theme styles -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css" />
+
+    <style type="text/css">
+      /* Reset body margins for iframe */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      }
+
+      /* Suppress custom element until styles are loaded */
+      cds-header:not(:defined),
+      cds-header-name:not(:defined),
+      cds-header-nav:not(:defined),
+      cds-header-nav-item:not(:defined),
+      cds-header-menu-button:not(:defined),
+      cds-side-nav:not(:defined),
+      cds-side-nav-items:not(:defined),
+      cds-side-nav-link:not(:defined),
+      cds-side-nav-menu:not(:defined),
+      cds-side-nav-menu-item:not(:defined),
+      cds-button:not(:defined),
+      cds-text-input:not(:defined),
+      cds-accordion:not(:defined),
+      cds-accordion-item:not(:defined),
+      cds-modal:not(:defined),
+      cds-modal-body:not(:defined),
+      cds-modal-footer:not(:defined),
+      cds-modal-header:not(:defined),
+      cds-modal-heading:not(:defined),
+      cds-form:not(:defined) {
+        visibility: hidden;
+      }
+
+      /* Main content styling */
+      .carbon-demo-main-content {
+        margin-top: 48px; /* Height of cds-header */
+        margin-left: 256px; /* Width of expanded cds-side-nav */
+        padding: 24px;
+        min-height: calc(100vh - 48px);
+      }
+
+      .carbon-demo-section {
+        margin-bottom: 32px;
+      }
+
+      .carbon-demo-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .carbon-demo-section-title {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .carbon-demo-section-description {
+        margin-top: 0;
+        margin-bottom: 16px;
+        color: #525252;
+      }
+
+      .carbon-demo-form-field {
+        margin-bottom: 16px;
+      }
+
+      .carbon-demo-form-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 24px;
+      }
+
+      .carbon-demo-accordion-list {
+        margin: 8px 0;
+        padding-left: 20px;
+      }
+
+      .carbon-demo-accordion-list li {
+        margin-bottom: 4px;
+      }
+
+      .carbon-demo-accordion-paragraph {
+        margin-top: 12px;
+      }
+
+      .carbon-demo-modal-description {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+
+      .carbon-demo-modal-preview {
+        padding: 16px;
+        background-color: #f4f4f4;
+        border-radius: 4px;
+        margin-bottom: 16px;
+      }
+
+      .carbon-demo-modal-preview-item {
+        margin: 8px 0;
+      }
+
+      .carbon-demo-modal-preview-item:first-child {
+        margin-top: 0;
+      }
+
+      .carbon-demo-modal-preview-item:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body class="cds-theme-zone-white">
+    <!-- Carbon UI Shell - Header -->
+    <cds-header aria-label="Carbon Demo App">
+      <cds-header-name href="#" prefix="IBM">Carbon Demo</cds-header-name>
+
+      <cds-header-nav>
+        <cds-header-nav-item href="#">Dashboard</cds-header-nav-item>
+        <cds-header-nav-item href="#">Services</cds-header-nav-item>
+        <cds-header-nav-item href="#">Organization</cds-header-nav-item>
+      </cds-header-nav>
+
+      <cds-header-menu-button button-label-active="Close menu" button-label-inactive="Open menu">
+      </cds-header-menu-button>
+    </cds-header>
+
+    <!-- Carbon Side Navigation -->
+    <cds-side-nav aria-label="Side navigation" collapse-mode="rail">
+      <cds-side-nav-items>
+        <cds-side-nav-link href="#">Dashboard</cds-side-nav-link>
+        <cds-side-nav-link href="#">Services</cds-side-nav-link>
+        <cds-side-nav-menu title="Organization">
+          <cds-side-nav-menu-item href="#">Settings</cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="#">Members</cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="#">Billing</cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+      </cds-side-nav-items>
+    </cds-side-nav>
+
+    <!-- Main Content Area -->
+    <div class="carbon-demo-main-content">
+      <!-- User Information Form -->
+      <div class="carbon-demo-section">
+        <h3 class="carbon-demo-section-title">User Information Form</h3>
+        <p class="carbon-demo-section-description">Please fill out your information below.</p>
+
+        <cds-form>
+          <!-- Full Name Input -->
+          <div class="carbon-demo-form-field">
+            <cds-text-input
+              label="Full Name"
+              placeholder="Enter your full name"
+              helper-text="Your first and last name"
+              id="name-input"
+            >
+            </cds-text-input>
+          </div>
+
+          <!-- Email Input -->
+          <div class="carbon-demo-form-field">
+            <cds-text-input
+              label="Email Address"
+              placeholder="your.email@example.com"
+              helper-text="We'll never share your email"
+              id="email-input"
+            >
+            </cds-text-input>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="carbon-demo-form-actions">
+            <cds-button id="preview-btn">
+              Preview & Submit
+            </cds-button>
+            <cds-button kind="secondary" id="cancel-btn">
+              Cancel
+            </cds-button>
+          </div>
+        </cds-form>
+      </div>
+
+      <!-- Help Documentation Accordion -->
+      <div class="carbon-demo-section">
+        <h3 class="carbon-demo-section-title">Help & Documentation</h3>
+
+        <cds-accordion>
+          <cds-accordion-item title="How to fill out this form" open>
+            <p>This form collects basic user information. Please ensure all required fields are completed before submitting.</p>
+            <ul class="carbon-demo-accordion-list">
+              <li>Full Name: Enter your complete legal name</li>
+              <li>Email: Provide a valid email address for communication</li>
+            </ul>
+          </cds-accordion-item>
+
+          <cds-accordion-item title="Privacy & Data Usage">
+            <p>Your information is protected and will only be used for the purposes stated in our privacy policy.</p>
+            <p class="carbon-demo-accordion-paragraph">We implement industry-standard security measures to protect your data.</p>
+          </cds-accordion-item>
+
+          <cds-accordion-item title="Frequently Asked Questions">
+            <p><strong>Q: How long does processing take?</strong></p>
+            <p>A: Typically 1-2 business days.</p>
+            <p class="carbon-demo-accordion-paragraph"><strong>Q: Can I edit my information later?</strong></p>
+            <p>A: Yes, you can update your profile at any time.</p>
+          </cds-accordion-item>
+        </cds-accordion>
+      </div>
+    </div>
+
+    <!-- Modal for Form Preview -->
+    <cds-modal id="preview-modal" size="sm">
+      <cds-modal-header>
+        <cds-modal-heading>Review Your Information</cds-modal-heading>
+      </cds-modal-header>
+      <cds-modal-body>
+        <p class="carbon-demo-modal-description">Please review your information before submitting:</p>
+        <div class="carbon-demo-modal-preview">
+          <p class="carbon-demo-modal-preview-item"><strong>Full Name:</strong> <span id="modal-name"></span></p>
+          <p class="carbon-demo-modal-preview-item"><strong>Email:</strong> <span id="modal-email"></span></p>
+        </div>
+      </cds-modal-body>
+      <cds-modal-footer>
+        <cds-button kind="secondary" id="modal-back-btn">
+          Go Back
+        </cds-button>
+        <cds-button id="modal-confirm-btn">
+          Confirm & Submit
+        </cds-button>
+      </cds-modal-footer>
+    </cds-modal>
+
+    <script>
+      // Simple form interaction logic
+      document.addEventListener('DOMContentLoaded', function() {
+        const nameInput = document.getElementById('name-input');
+        const emailInput = document.getElementById('email-input');
+        const previewBtn = document.getElementById('preview-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const modal = document.getElementById('preview-modal');
+        const modalBackBtn = document.getElementById('modal-back-btn');
+        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
+
+        // Preview button click
+        previewBtn.addEventListener('click', function() {
+          const nameValue = nameInput.value || '';
+          const emailValue = emailInput.value || '';
+
+          if (!nameValue || !emailValue) {
+            alert('Please fill out all required fields.');
+            return;
+          }
+
+          // Update modal content
+          document.getElementById('modal-name').textContent = nameValue;
+          document.getElementById('modal-email').textContent = emailValue;
+
+          // Open modal
+          modal.setAttribute('open', '');
+        });
+
+        // Cancel button click
+        cancelBtn.addEventListener('click', function() {
+          if (confirm('Are you sure you want to cancel? All data will be lost.')) {
+            nameInput.value = '';
+            emailInput.value = '';
+          }
+        });
+
+        // Modal back button
+        modalBackBtn.addEventListener('click', function() {
+          modal.removeAttribute('open');
+        });
+
+        // Modal confirm button
+        modalConfirmBtn.addEventListener('click', function() {
+          const nameValue = nameInput.value;
+          const emailValue = emailInput.value;
+
+          alert(`Form submitted!\nName: ${nameValue}\nEmail: ${emailValue}`);
+
+          // Reset form and close modal
+          nameInput.value = '';
+          emailInput.value = '';
+          modal.removeAttribute('open');
+        });
+
+        // Close modal on backdrop click
+        modal.addEventListener('cds-modal-closed', function() {
+          modal.removeAttribute('open');
+        });
+      });
+    </script>
+  </body>
+</html>
