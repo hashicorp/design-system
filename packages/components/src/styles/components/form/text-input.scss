@@ -22,7 +22,6 @@
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 
-  // TODO: Add token(s) instead?
   @include hds-apply-only-if-carbon() {
     min-height: 40px;
     padding: 0 var(--hds-form-control-padding);
@@ -152,13 +151,8 @@
   &[type="datetime-local"],
   &[type="month"],
   &[type="week"] {
-    // browsers set a specific width for these controls, we want to keep it
-    width: initial;
-
-    // TODO: Create design token?
-    @include hds-apply-only-if-carbon() {
-      width: 100%;
-    }
+    // browsers set a specific width for these controls, we want to keep it in the HDS theme
+    width: var(--hds-form-text-input-date-time-width);
 
     // show the native icon dimmed if disabled (hidden in Chrome)
     &:disabled::-webkit-calendar-picker-indicator {
@@ -218,8 +212,8 @@
     background-position: var(--hds-form-text-input-background-image-position-x) 50%;
     background-size: var(--hds-form-text-input-background-image-size);
 
+    // Note: carbon themes use the native search input icon so we revert the custom icon-related styles
     @include hds-apply-only-if-carbon() {
-      // TODO: Use token for padding-left instead?
       padding-left: var(--hds-form-control-padding);
       background-image: revert;
       background-position: revert;
