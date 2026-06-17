@@ -138,8 +138,10 @@
 
 .hds-form-text-input__visibility-toggle {
   position: absolute;
-  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  top: 0;
   right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  bottom: 0;
+  margin: auto 0;
 }
 
 .hds-form-text-input {
