@@ -5,6 +5,9 @@ import { capitalize } from '@ember/string';
 import { array } from '@ember/helper';
 import style from 'ember-style-modifier';
 import { eq } from 'ember-truth-helpers';
+import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
+import Add16 from '@carbon/icons/es/add/16.js';
+import InProgress16 from '@carbon/icons/es/in-progress/16.js';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -14,10 +17,8 @@ import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
-import {
-  HdsButton,
-  HdsIcon,
-} from '@hashicorp/design-system-components/components';
+import { HdsButton } from '@hashicorp/design-system-components/components';
+import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 import {
   COLORS,
   SIZES,
@@ -74,9 +75,9 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
         />
       </:theming>
       <:reference>
-        <cds-button size="md" kind="primary"><HdsIcon
-            @name="arrow-right"
+        <cds-button size="md" kind="primary"><cds-icon
             slot="icon"
+            {{setCdsIcon ArrowRight16}}
           />Lorem ipsum</cds-button>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -92,7 +93,7 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
           tooltip-text="cds-button description (via attribute)"
           tooltip-position="top"
         >
-          <HdsIcon @name="plus" slot="icon" />
+          <cds-icon slot="icon" {{setCdsIcon Add16}} />
         </cds-button>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -107,9 +108,9 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference>
         <div {{style width="200px" overflow="scroll"}}>
-          <cds-button size="md" kind="primary"><HdsIcon
-              @name="plus"
+          <cds-button size="md" kind="primary"><cds-icon
               slot="icon"
+              {{setCdsIcon Add16}}
             />This is a very long text that should go on multiple lines</cds-button>
         </div>
       </:reference>
@@ -122,9 +123,9 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference>
         <div {{style width="150px"}}>
-          <cds-button size="md" kind="primary"><HdsIcon
-              @name="loading"
+          <cds-button size="md" kind="primary"><cds-icon
               slot="icon"
+              {{setCdsIcon InProgress16}}
             />Loading</cds-button>
         </div>
       </:reference>
@@ -155,9 +156,9 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
           {{#let (array "sm" "md" "lg") as |SIZES|}}
             {{#each SIZES as |size|}}
               <SF.Item>
-                <cds-button size={{size}}><HdsIcon
-                    @name="plus"
+                <cds-button size={{size}}><cds-icon
                     slot="icon"
+                    {{setCdsIcon Add16}}
                   />Lorem ipsum</cds-button>
               </SF.Item>
             {{/each}}
@@ -181,9 +182,9 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
           />
         </:theming>
         <:reference>
-          <cds-button size="md" kind={{mapHdsColorToCdsKind color}}><HdsIcon
-              @name="plus"
+          <cds-button size="md" kind={{mapHdsColorToCdsKind color}}><cds-icon
               slot="icon"
+              {{setCdsIcon Add16}}
             />Lorem ipsum</cds-button>
         </:reference>
       </ShwCarbonizationComparisonGrid>
@@ -234,7 +235,7 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
                       <cds-button
                         size={{size}}
                         kind={{mapHdsColorToCdsKind color}}
-                      ><HdsIcon @name="plus" slot="icon" />Lorem ipsum</cds-button>
+                      ><cds-icon slot="icon" {{setCdsIcon Add16}} />Lorem ipsum</cds-button>
                     </SF.Item>
                   {{/each}}
                 {{/let}}
@@ -248,7 +249,7 @@ const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
                         size={{size}}
                         kind={{mapHdsColorToCdsKind color}}
                         disabled
-                      ><HdsIcon @name="plus" slot="icon" />Lorem ipsum</cds-button>
+                      ><cds-icon slot="icon" {{setCdsIcon Add16}} />Lorem ipsum</cds-button>
                     </SF.Item>
                   {{/each}}
                 {{/let}}

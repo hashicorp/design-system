@@ -555,6 +555,9 @@ importers:
       '@carbon/grid':
         specifier: ^11.53.0
         version: 11.53.0
+      '@carbon/icons':
+        specifier: ^11.76.0
+        version: 11.76.0
       '@carbon/layout':
         specifier: ^11.51.0
         version: 11.51.0

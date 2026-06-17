@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
+import ArrowRight16 from '@carbon/icons/es/arrow--right/16.js';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -16,10 +17,10 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
 import {
-  HdsIcon,
   HdsLayoutFlex,
   HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
+import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 import { COLORS } from '@hashicorp/design-system-components/components/hds/link/inline';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
@@ -58,11 +59,7 @@ const BadgeLinkInlineIndex: TemplateOnlyComponent = <template>
         <HdsLayoutFlex @direction="column">
           <cds-link href="#" inline size="lg">Lorem ipsum dolor</cds-link>
           <cds-link href="#" inline size="lg">Lorem ipsum dolor
-            <HdsIcon
-              @name="arrow-right-circle"
-              @isInline={{true}}
-              slot="icon"
-            /></cds-link>
+            <cds-icon slot="icon" {{setCdsIcon ArrowRight16}} /></cds-link>
         </HdsLayoutFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>

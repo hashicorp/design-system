@@ -7,6 +7,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { hash } from '@ember/helper';
 import { eq, or } from 'ember-truth-helpers';
+import Information16 from '@carbon/icons/es/information/16.js';
+import Activity16 from '@carbon/icons/es/activity/16.js';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -23,6 +25,7 @@ import {
   HdsTooltipButton,
 } from '@hashicorp/design-system-components/components';
 import { PLACEMENTS } from '@hashicorp/design-system-components/components/hds/tooltip-button/index';
+import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 
 const STATES = ['default', 'hover', 'focus'];
 
@@ -81,7 +84,10 @@ const TooltipCarbonizationIndex: TemplateOnlyComponent = <template>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
             <cds-tooltip open>
-              <HdsIcon @name="info" class="sb-tooltip-trigger" />
+              <cds-icon
+                class="sb-tooltip-trigger"
+                {{setCdsIcon Information16}}
+              />
               <cds-tooltip-content id="content-1">Here is more information</cds-tooltip-content>
             </cds-tooltip>
           </SF.Item>
@@ -101,7 +107,7 @@ const TooltipCarbonizationIndex: TemplateOnlyComponent = <template>
           <SF.Item>
             <cds-tooltip>
               <cds-tag class="sb-tooltip-trigger">Lorem ipsum
-                <HdsIcon @name="activity" slot="icon" /></cds-tag>
+                <cds-icon slot="icon" {{setCdsIcon Activity16}} /></cds-tag>
               <cds-tooltip-content id="content-3">Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -116,7 +122,7 @@ const TooltipCarbonizationIndex: TemplateOnlyComponent = <template>
           <SF.Item>
             <cds-tooltip>
               <cds-tag class="sb-tooltip-trigger">Lorem ipsum
-                <HdsIcon @name="activity" slot="icon" /></cds-tag>
+                <cds-icon slot="icon" {{setCdsIcon Activity16}} /></cds-tag>
               <cds-tooltip-content
                 id="content-4"
               >Loremipsumdolorsitametconsecteturadipiscingelitseddoeiusmodtempor!</cds-tooltip-content>
@@ -152,7 +158,7 @@ const TooltipCarbonizationIndex: TemplateOnlyComponent = <template>
         <p>
           <span class="hds-typography-display-300">Lorem ipsum dolor</span>
           <cds-tooltip>
-            <HdsIcon @name="info" class="sb-tooltip-trigger" />
+            <cds-icon class="sb-tooltip-trigger" {{setCdsIcon Information16}} />
             <cds-tooltip-content id="content-inline-1">Here is more infor</cds-tooltip-content>
           </cds-tooltip>
         </p>
@@ -160,7 +166,7 @@ const TooltipCarbonizationIndex: TemplateOnlyComponent = <template>
         <p class="hds-typography-body-300">
           Lorem ipsum dolor sit amet
           <cds-tooltip>
-            <HdsIcon @name="info" class="sb-tooltip-trigger" />
+            <cds-icon class="sb-tooltip-trigger" {{setCdsIcon Information16}} />
             <cds-tooltip-content id="content-inline-2">Here is more info</cds-tooltip-content>
           </cds-tooltip>
           consectetur adipisicing elit.
@@ -217,7 +223,10 @@ const TooltipCarbonizationIndex: TemplateOnlyComponent = <template>
             <ShwFlex @gap="4rem" @direction="column" as |SF|>
               <SF.Item>
                 <cds-tooltip>
-                  <HdsIcon @name="info" class="sb-tooltip-trigger" />
+                  <cds-icon
+                    class="sb-tooltip-trigger"
+                    {{setCdsIcon Information16}}
+                  />
                   <cds-tooltip-content id="content-{{state}}-1">More info</cds-tooltip-content>
                 </cds-tooltip>
               </SF.Item>
