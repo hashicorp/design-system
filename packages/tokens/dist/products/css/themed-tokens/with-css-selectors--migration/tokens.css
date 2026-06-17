@@ -584,6 +584,7 @@
   --token-copy-button-surface-color-hover: var(
     --token-button-surface-color-secondary-hover
   );
+  --token-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
   --token-dialog-primitive-header-tagline-typography-font-size: var(
     --token-typography-body-100-font-size
@@ -1305,6 +1306,7 @@
     --token-copy-button-surface-color-active: #c6c6c6;
     --token-copy-button-surface-color-default: #f4f4f4;
     --token-copy-button-surface-color-hover: #e8e8e8;
+    --token-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
     --token-dialog-primitive-border-color: #c6c6c6;
     --token-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
     --token-dialog-primitive-header-tagline-typography-line-height: 1.33333;
@@ -1875,6 +1877,7 @@
     --token-copy-button-surface-color-active: #525252;
     --token-copy-button-surface-color-default: #262626;
     --token-copy-button-surface-color-hover: #333333;
+    --token-css-color-transform-direction: -1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
     --token-dialog-primitive-border-color: #525252;
     --token-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
     --token-dialog-primitive-header-tagline-typography-line-height: 1.33333;
@@ -2443,6 +2446,7 @@
   --token-copy-button-surface-color-active: #c6c6c6;
   --token-copy-button-surface-color-default: #f4f4f4;
   --token-copy-button-surface-color-hover: #e8e8e8;
+  --token-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --token-dialog-primitive-border-color: #c6c6c6;
   --token-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
   --token-dialog-primitive-header-tagline-typography-line-height: 1.33333;
@@ -3006,6 +3010,7 @@
   --token-copy-button-surface-color-active: #525252;
   --token-copy-button-surface-color-default: #262626;
   --token-copy-button-surface-color-hover: #333333;
+  --token-css-color-transform-direction: -1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --token-dialog-primitive-border-color: #525252;
   --token-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
   --token-dialog-primitive-header-tagline-typography-line-height: 1.33333;
