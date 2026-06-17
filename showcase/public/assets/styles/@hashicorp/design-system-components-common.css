@@ -4694,20 +4694,15 @@ button.hds-button[href]::after {
 }
 .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
 .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count, .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
-.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count, .hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__badge,
-.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__count,
+.hds-theme-light .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count,
 .hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
 .hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count,
 .hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
 .hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count,
-.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__badge,
-.hds-theme-dark .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__count,
 .hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__badge,
 .hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-primary .hds-dropdown-toggle-button__count,
 .hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__badge,
-.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count,
-.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__badge,
-.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary-muted .hds-dropdown-toggle-button__count {
+.hds-theme-system .hds-dropdown-toggle-button:not(:disabled, .mock-disabled).hds-dropdown-toggle-button--color-secondary .hds-dropdown-toggle-button__count {
   color: #161616;
   background-color: #e0e0e0;
   border-color: transparent;
