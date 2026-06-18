@@ -361,42 +361,46 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH3>Toggle states</ShwTextH3>
 
     <ShwTextH4>Text Toggle states</ShwTextH4>
-
-    {{#each TOGGLE_STATES as |state|}}
-      <ShwCarbonizationComparisonGrid
-        @label="{{capitalize state}}"
-        @hideThemeLabels={{true}}
-        @hideCarbonLabels={{true}}
-      >
-        <:theming>
-          <ShwFlex as |SF|>
-            <SF.Item>
-              {{#if (eq state "disabled")}}
-                <HdsDropdownToggleButton
-                  @text="Tgl"
-                  @icon="hexagon"
-                  @count="1"
-                  @badge="Bdg"
-                  @badgeIcon="hexagon"
-                  disabled
-                />
-              {{else}}
-                <HdsDropdownToggleButton
-                  @text="Tgl"
-                  @icon="hexagon"
-                  @count="1"
-                  @badge="Bdg"
-                  @badgeIcon="hexagon"
-                  mock-state-value={{state}}
-                />
-              {{/if}}
-            </SF.Item>
-          </ShwFlex>
-        </:theming>
-        <:reference>
-          <pre>TODO: static image here</pre>
-        </:reference>
-      </ShwCarbonizationComparisonGrid>
+    {{#each COLORS as |color|}}
+      <ShwTextBody>{{capitalize color}}</ShwTextBody>
+      {{#each TOGGLE_STATES as |state|}}
+        <ShwCarbonizationComparisonGrid
+          @label="{{capitalize state}} "
+          @hideThemeLabels={{true}}
+          @hideCarbonLabels={{true}}
+        >
+          <:theming>
+            <ShwFlex as |SF|>
+              <SF.Item>
+                {{#if (eq state "disabled")}}
+                  <HdsDropdownToggleButton
+                    @text="Tgl"
+                    @icon="hexagon"
+                    @count="1"
+                    @badge="Bdg"
+                    @badgeIcon="hexagon"
+                    @color={{color}}
+                    disabled
+                  />
+                {{else}}
+                  <HdsDropdownToggleButton
+                    @text="Tgl"
+                    @icon="hexagon"
+                    @count="1"
+                    @badge="Bdg"
+                    @badgeIcon="hexagon"
+                    @color={{color}}
+                    mock-state-value={{state}}
+                  />
+                {{/if}}
+              </SF.Item>
+            </ShwFlex>
+          </:theming>
+          <:reference>
+            <pre>TODO: static image here</pre>
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+      {{/each}}
     {{/each}}
 
     <ShwTextH4>Icon/Image Toggle states</ShwTextH4>
