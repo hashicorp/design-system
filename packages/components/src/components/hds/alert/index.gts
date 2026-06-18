@@ -237,7 +237,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
           {{yield (hash Description=HdsAlertDescription)}}
         </div>
 
-        {{yield (hash Generic=HdsAlertGenericDeprecated)}}
         {{yield (hash GenericAbove=HdsYield)}}
 
         <div class="hds-alert__actions">
@@ -249,6 +248,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
           }}
         </div>
 
+        {{yield (hash Generic=HdsAlertGenericDeprecated)}}
         {{yield (hash GenericBelow=HdsYield)}}
       </div>
 
