@@ -201,9 +201,6 @@
   --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-default: #0f62fe;
   --token-button-border-color-tertiary-disabled: #c6c6c6;
@@ -823,9 +820,6 @@
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-tertiary-default: #0f62fe;
     --token-button-border-color-tertiary-disabled: #c6c6c6;
@@ -1450,9 +1444,6 @@
     --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
-    --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
     --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --token-button-border-color-tertiary-default: #ffffff;
     --token-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3);
@@ -2075,9 +2066,6 @@
   --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-default: #0f62fe;
   --token-button-border-color-tertiary-disabled: #c6c6c6;
@@ -2695,9 +2683,6 @@
   --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-active: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-default: rgba(0, 0, 0, 0);
-  --token-button-border-color-secondary-muted-hover: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-tertiary-default: #ffffff;
   --token-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3);
@@ -3203,6 +3188,15 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --token-color-foreground-primary
   );
   --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-active: var(
+    --token-button-border-color-secondary-active
+  );
+  --token-button-border-color-secondary-muted-default: var(
+    --token-button-border-color-secondary-default
+  );
+  --token-button-border-color-secondary-muted-hover: var(
+    --token-button-border-color-secondary-hover
+  );
   --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
   --token-button-foreground-color-tertiary-disabled: var(

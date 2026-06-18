@@ -318,9 +318,9 @@
         "secondary-muted": {
           "default": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{button.foreground.color.secondary.default}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{button.foreground.color.secondary.default}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -329,9 +329,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{button.foreground.color.secondary.hover}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{button.foreground.color.secondary.hover}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -340,9 +340,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{button.foreground.color.secondary.focus}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{button.foreground.color.secondary.focus}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -351,9 +351,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{button.foreground.color.secondary.active}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{button.foreground.color.secondary.active}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -573,9 +573,9 @@
         "secondary-muted": {
           "default": {
             "$type": "color",
-            "$value": "{color.surface.faint}",
+            "$value": "{button.surface.color.secondary.default}",
             "$modes": {
-              "default": "{color.surface.faint}",
+              "default": "{button.surface.color.secondary.default}",
               "cds-g0": "{carbon.themes.white.layerAccent01}",
               "cds-g10": "{carbon.themes.g10.layerAccent01}",
               "cds-g90": "{carbon.themes.g90.layerAccent01}",
@@ -584,9 +584,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.surface.primary}",
+            "$value": "{button.surface.color.secondary.hover}",
             "$modes": {
-              "default": "{color.surface.primary}",
+              "default": "{button.surface.color.secondary.hover}",
               "cds-g0": "{carbon.themes.white.layerAccentHover01}",
               "cds-g10": "{carbon.themes.g10.layerAccentHover01}",
               "cds-g90": "{carbon.themes.g90.layerAccentHover01}",
@@ -595,9 +595,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.surface.faint}",
+            "$value": "{button.surface.color.secondary.focus}",
             "$modes": {
-              "default": "{color.surface.faint}",
+              "default": "{button.surface.color.secondary.focus}",
               "cds-g0": "{carbon.themes.white.layerAccent01}",
               "cds-g10": "{carbon.themes.g10.layerAccent01}",
               "cds-g90": "{carbon.themes.g90.layerAccent01}",
@@ -606,9 +606,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.surface.interactive-active}",
+            "$value": "{button.surface.color.secondary.active}",
             "$modes": {
-              "default": "{color.surface.interactive-active}",
+              "default": "{button.surface.color.secondary.active}",
               "cds-g0": "{carbon.themes.white.layerAccentActive01}",
               "cds-g10": "{carbon.themes.g10.layerAccentActive01}",
               "cds-g90": "{carbon.themes.g90.layerAccentActive01}",
@@ -802,36 +802,15 @@
         "secondary-muted": {
           "default": {
             "$type": "color",
-            "$value": "{color.border.strong}",
-            "$modes": {
-              "default": "{color.border.strong}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
+            "$value": "{button.border.color.secondary.default}"
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.border.strong}",
-            "$modes": {
-              "default": "{color.border.strong}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
+            "$value": "{button.border.color.secondary.hover}"
           },
           "active": {
             "$type": "color",
-            "$value": "{color.border.strong}",
-            "$modes": {
-              "default": "{color.border.strong}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
+            "$value": "{button.border.color.secondary.active}"
           }
         },
         "tertiary": {
