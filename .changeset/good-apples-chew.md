@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/alert -->
-`Alert` - Added `genericLayoutBottom` option with a default value of `true`. When set to `false`, it changes the position of generic yielded content within the `Alert` to display above the actions instead of after them at the bottom of the `Alert`
+`Alert` - Deprecated the `Generic` yielded block which renders below actions and added `GenericAbove` and `GenericBelow` yielded blocks for including custom content either above or below `Alert` actions.
 <!-- END -->

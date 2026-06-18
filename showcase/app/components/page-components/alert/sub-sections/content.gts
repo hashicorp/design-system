@@ -92,11 +92,23 @@ const SubSectionContent: TemplateOnlyComponent = <template>
             <A.Title>An alert with extra/custom content</A.Title>
             <A.Description>In special cases, you can pass extra content to the
               alert using the
-              <code>A.Generic</code>
-              contextual component.</A.Description>
-            <A.Generic>
-              <ShwPlaceholder @text="some generic content" @height="50" />
-            </A.Generic>
+              <code>A.GenericAbove</code>
+              &
+              <code>A.GenericBelow</code>
+              contextual components.</A.Description>
+            <A.GenericAbove>
+              <ShwPlaceholder
+                @text="generic content above actions"
+                @height="50"
+              />
+            </A.GenericAbove>
+            <A.Button @text="Action" @color="secondary" />
+            <A.GenericBelow>
+              <ShwPlaceholder
+                @text="generic content below actions"
+                @height="50"
+              />
+            </A.GenericBelow>
           </HdsAlert>
         </SF.Item>
       </ShwFlex>

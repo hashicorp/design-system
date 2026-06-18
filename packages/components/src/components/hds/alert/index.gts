@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
+import { assert, deprecate } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { eq } from 'ember-truth-helpers';
@@ -28,6 +28,26 @@ import HdsYield from '../yield/index.gts';
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
 import type { HdsIconSignature } from '../icon/index.gts';
 
+class HdsAlertGenericDeprecated extends Component<{ Blocks: { default: [] } }> {
+  constructor(owner: Owner, args: Record<string, never>) {
+    super(owner, args);
+    deprecate(
+      'The "Generic" contextual component yielded by "Hds::Alert" is deprecated. Use "GenericAbove" or "GenericBelow" instead.',
+      false,
+      {
+        id: 'hds.alert.use-generic-above-or-generic-below',
+        until: '7.0.0',
+        for: '@hashicorp/design-system-components',
+        since: { available: '6.2.1' },
+      }
+    );
+  }
+  <template>
+    {{! template-lint-disable no-yield-only }}
+    {{yield}}
+  </template>
+}
+
 export const TYPES: HdsAlertTypes[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR: HdsAlertColors = HdsAlertColorValues.Neutral;
 export const COLORS: HdsAlertColors[] = Object.values(HdsAlertColorValues);
@@ -49,7 +69,6 @@ export interface HdsAlertSignature {
     type: HdsAlertTypes;
     color?: HdsAlertColors;
     icon?: HdsIconSignature['Args']['name'] | false;
-    genericLayoutBottom?: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
@@ -58,7 +77,12 @@ export interface HdsAlertSignature {
       {
         Title?: typeof HdsAlertTitle;
         Description?: typeof HdsAlertDescription;
-        Generic?: typeof HdsYield;
+        /**
+         * @deprecated Use "GenericAbove" or "GenericBelow" instead.
+         */
+        Generic?: typeof HdsAlertGenericDeprecated;
+        GenericAbove?: typeof HdsYield;
+        GenericBelow?: typeof HdsYield;
         LinkStandalone?: WithBoundArgs<typeof HdsLinkStandalone, 'size'>;
         Button?: WithBoundArgs<typeof HdsButton, 'size'>;
       },
@@ -140,10 +164,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     }
   }
 
-  get genericLayoutBottom(): boolean {
-    return this.args.genericLayoutBottom ?? true;
-  }
-
   get classNames(): string {
     const classes = ['hds-alert'];
 
@@ -217,9 +237,8 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
           {{yield (hash Description=HdsAlertDescription)}}
         </div>
 
-        {{#unless this.genericLayoutBottom}}
-          {{yield (hash Generic=HdsYield)}}
-        {{/unless}}
+        {{yield (hash Generic=HdsAlertGenericDeprecated)}}
+        {{yield (hash GenericAbove=HdsYield)}}
 
         <div class="hds-alert__actions">
           {{yield
@@ -230,9 +249,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
           }}
         </div>
 
-        {{#if this.genericLayoutBottom}}
-          {{yield (hash Generic=HdsYield)}}
-        {{/if}}
+        {{yield (hash GenericBelow=HdsYield)}}
       </div>
 
       {{#if this.onDismiss}}

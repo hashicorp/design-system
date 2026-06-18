@@ -50,12 +50,14 @@ const SubSectionActions: TemplateOnlyComponent = <template>
 
         <SG.Item>
           <HdsAlert @type={{type}} @color="warning" as |A|>
-            <A.Title>With actions and custom content
-              <em>below</em>
-              the actions</A.Title>
+            <A.Title>With actions and custom content</A.Title>
             <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
               aliqua.</A.Description>
+            <A.GenericAbove>
+              <div class="shw-component-alert-sample-custom-content">This, for
+                example, could be extra text above the actions.</div>
+            </A.GenericAbove>
             <A.Button @text="Action" @color="secondary" />
             <A.LinkStandalone
               @icon="plus"
@@ -63,43 +65,10 @@ const SubSectionActions: TemplateOnlyComponent = <template>
               @href="#"
               @color="secondary"
             />
-            <A.Generic>
-              <div
-                class="shw-component-alert-sample-custom-content-after-actions"
-              >This, for example, could be extra text
-                <strong>below the actions</strong>
-                for a special use case.</div>
-            </A.Generic>
-          </HdsAlert>
-        </SG.Item>
-
-        <SG.Item>
-          <HdsAlert
-            @type={{type}}
-            @genericLayoutBottom={{false}}
-            @color="warning"
-            as |A|
-          >
-            <A.Title>With actions and custom content
-              <em>above</em>
-              the actions</A.Title>
-            <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.</A.Description>
-            <A.Button @text="Action" @color="secondary" />
-            <A.LinkStandalone
-              @icon="plus"
-              @text="Action"
-              @href="#"
-              @color="secondary"
-            />
-            <A.Generic>
-              <div
-                class="shw-component-alert-sample-custom-content-after-actions"
-              >This, for example, could be extra text
-                <strong>above the actions</strong>
-                for a special use case.</div>
-            </A.Generic>
+            <A.GenericBelow>
+              <div class="shw-component-alert-sample-custom-content">This, for
+                example, could be extra text below the actions.</div>
+            </A.GenericBelow>
           </HdsAlert>
         </SG.Item>
       </ShwGrid>
