@@ -22,8 +22,143 @@
     <!-- Carbon Design System theme styles -->
     <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css" />
 
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="/assets/carbon-demo.css" />
+    <style type="text/css">
+      /* Reset body margins for iframe */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Fix Carbon header to span full width */
+      cds-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 8000;
+      }
+
+      /* Fix Carbon side nav positioning */
+      cds-side-nav {
+        position: fixed;
+        top: 48px; /* Height of header */
+        left: 0;
+        bottom: 0;
+        z-index: 6000;
+      }
+
+      /* Suppress custom element until styles are loaded */
+      cds-header:not(:defined),
+      cds-header-name:not(:defined),
+      cds-header-nav:not(:defined),
+      cds-header-nav-item:not(:defined),
+      cds-header-menu-button:not(:defined),
+      cds-side-nav:not(:defined),
+      cds-side-nav-items:not(:defined),
+      cds-side-nav-link:not(:defined),
+      cds-side-nav-menu:not(:defined),
+      cds-side-nav-menu-item:not(:defined),
+      cds-button:not(:defined),
+      cds-text-input:not(:defined),
+      cds-accordion:not(:defined),
+      cds-accordion-item:not(:defined),
+      cds-modal:not(:defined),
+      cds-modal-body:not(:defined),
+      cds-modal-footer:not(:defined),
+      cds-modal-header:not(:defined),
+      cds-modal-heading:not(:defined),
+      cds-form:not(:defined) {
+        visibility: hidden;
+      }
+
+      /* Main content styling */
+      .carbon-demo-main-content {
+        position: relative;
+        margin-top: 48px; /* Height of cds-header */
+        margin-left: 256px; /* Width of expanded cds-side-nav */
+        padding: 24px 64px;
+        min-height: calc(100vh - 48px);
+        width: calc(100% - 256px);
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+
+      .carbon-demo-section {
+        margin-bottom: 32px;
+      }
+
+      .carbon-demo-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .carbon-demo-section-title {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .carbon-demo-section-description {
+        margin-top: 0;
+        margin-bottom: 16px;
+        color: #525252;
+      }
+
+      .carbon-demo-form-field {
+        margin-bottom: 16px;
+        max-width: 100%;
+      }
+
+      .carbon-demo-form-field cds-text-input {
+        max-width: 100%;
+      }
+
+      .carbon-demo-form-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 24px;
+      }
+
+      .carbon-demo-accordion-list {
+        margin: 8px 0;
+        padding-left: 20px;
+      }
+
+      .carbon-demo-accordion-list li {
+        margin-bottom: 4px;
+      }
+
+      .carbon-demo-accordion-paragraph {
+        margin-top: 12px;
+      }
+
+      .carbon-demo-modal-description {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+
+      .carbon-demo-modal-preview {
+        padding: 16px;
+        background-color: #f4f4f4;
+        border-radius: 4px;
+        margin-bottom: 16px;
+      }
+
+      .carbon-demo-modal-preview-item {
+        margin: 8px 0;
+      }
+
+      .carbon-demo-modal-preview-item:first-child {
+        margin-top: 0;
+      }
+
+      .carbon-demo-modal-preview-item:last-child {
+        margin-bottom: 0;
+      }
+    </style>
   </head>
   <body class="cds-theme-zone-white">
     <!-- Carbon UI Shell - Header -->
@@ -145,7 +280,78 @@
       </cds-modal-footer>
     </cds-modal>
 
-    <!-- Custom JavaScript -->
-    <script src="/assets/carbon-demo.js"></script>
+    <script>
+      // Simple form interaction logic
+      document.addEventListener('DOMContentLoaded', function() {
+        const nameInput = document.getElementById('name-input');
+        const emailInput = document.getElementById('email-input');
+        const previewBtn = document.getElementById('preview-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const modal = document.getElementById('preview-modal');
+        const modalBackBtn = document.getElementById('modal-back-btn');
+        const modalConfirmBtn = document.getElementById('modal-confirm-btn');
+        const sideNav = document.querySelector('cds-side-nav');
+
+        // Expand side nav by default after component loads
+        if (sideNav) {
+          // Wait for the component to be fully defined
+          customElements.whenDefined('cds-side-nav').then(() => {
+            // Small delay to ensure component is ready
+            setTimeout(() => {
+              sideNav.expanded = true;
+            }, 100);
+          });
+        }
+
+        // Preview button click
+        previewBtn.addEventListener('click', function() {
+          const nameValue = nameInput.value || '';
+          const emailValue = emailInput.value || '';
+
+          if (!nameValue || !emailValue) {
+            alert('Please fill out all required fields.');
+            return;
+          }
+
+          // Update modal content
+          document.getElementById('modal-name').textContent = nameValue;
+          document.getElementById('modal-email').textContent = emailValue;
+
+          // Open modal
+          modal.setAttribute('open', '');
+        });
+
+        // Cancel button click
+        cancelBtn.addEventListener('click', function() {
+          if (confirm('Are you sure you want to cancel? All data will be lost.')) {
+            nameInput.value = '';
+            emailInput.value = '';
+          }
+        });
+
+        // Modal back button
+        modalBackBtn.addEventListener('click', function() {
+          modal.removeAttribute('open');
+        });
+
+        // Modal confirm button
+        modalConfirmBtn.addEventListener('click', function() {
+          const nameValue = nameInput.value;
+          const emailValue = emailInput.value;
+
+          alert(`Form submitted!\nName: ${nameValue}\nEmail: ${emailValue}`);
+
+          // Reset form and close modal
+          nameInput.value = '';
+          emailInput.value = '';
+          modal.removeAttribute('open');
+        });
+
+        // Close modal on backdrop click
+        modal.addEventListener('cds-modal-closed', function() {
+          modal.removeAttribute('open');
+        });
+      });
+    </script>
   </body>
 </html>
