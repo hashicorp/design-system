@@ -7,7 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
-import { eq, notEq, and } from 'ember-truth-helpers';
+import { eq, notEq, and, or } from 'ember-truth-helpers';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -87,11 +87,34 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Types (native)</ShwTextH3>
 
+    <ShwBody>
+      Note: Carbon doesn’t have exact equivalents for all of these types such as
+      “time”, "date-time", "month", "week", or "date".
+    </ShwBody>
+
     {{#each TYPES as |type|}}
       <ShwCarbonizationComparisonGrid
         @label={{capitalize type}}
-        @hideThemeLabels={{(if (notEq type "text") true)}}
-        @hideCarbonLabels={{(if (notEq type "text") true)}}
+        @hideThemeLabels={{(if
+          (and
+            (notEq type "text")
+            (notEq type "date")
+            (notEq type "datetime-local")
+            (notEq type "month")
+            (notEq type "week")
+            (notEq type "search")
+          )
+          true
+        )}}
+        @layout={{if
+          (or
+            (eq type "date")
+            (eq type "datetime-local")
+            (eq type "month")
+            (eq type "week")
+          )
+          "side-by-side"
+        }}
       >
         <:theming>
           <HdsFormTextInputBase
@@ -100,12 +123,38 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
             aria-label="text input example for {{type}}"
           />
         </:theming>
-        <:reference>
-          <cds-text-input
-            type={{type}}
-            size="md"
-            value={{type}}
-          ></cds-text-input>
+        <:reference as |R|>
+          {{#if
+            (and
+              (notEq type "date")
+              (notEq type "datetime-local")
+              (notEq type "month")
+              (notEq type "week")
+              (notEq type "search")
+            )
+          }}
+            <cds-text-input
+              type={{type}}
+              size="md"
+              value={{type}}
+            ></cds-text-input>
+          {{else if (eq type "date")}}
+            <cds-date-picker-input
+              kind="single"
+              placeholder="mm/dd/yyyy"
+              size="md"
+            ></cds-date-picker-input>
+          {{else if (eq type "search")}}
+            <cds-search
+              label-text="Search"
+              placeholder="search"
+              size="md"
+            ></cds-search>
+          {{else if
+            (or (eq type "datetime-local") (eq type "month") (eq type "week"))
+          }}
+            <R.NoEquivalent @isCompact={{true}} @entity="variant" />
+          {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
@@ -123,7 +172,11 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
         />
       </:theming>
       <:reference>
-        <cds-text-input type="search" size="md" value="search"></cds-text-input>
+        <cds-search
+          label-text="Search"
+          placeholder="search"
+          size="md"
+        ></cds-search>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -264,26 +317,28 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
                       ></cds-text-input>
                     </SF.Item>
                     <SF.Item>
-                      <cds-text-input
-                        type="search"
+                      <cds-search
+                        label-text="Search"
+                        placeholder="search"
                         size="md"
                         value="Lorem ipsum dolor"
-                        disabled={{if (eq variant "disabled") "disabled"}}
-                        readonly={{if (eq variant "readonly") "readonly"}}
+                        disabled={{if (eq variant "disabled") "true"}}
+                        readonly={{if (eq variant "readonly") "true"}}
                         invalid={{if (eq variant "invalid") true}}
                         invalid-text="Error message goes here"
-                      ></cds-text-input>
+                      ></cds-search>
                     </SF.Item>
                     <SF.Item>
-                      <cds-text-input
-                        type="date"
+                      <cds-date-picker-input
+                        kind="single"
+                        placeholder="mm/dd/yyyy"
                         size="md"
                         value="Lorem ipsum dolor"
                         disabled={{if (eq variant "disabled") "disabled"}}
                         readonly={{if (eq variant "readonly") "readonly"}}
                         invalid={{if (eq variant "invalid") true}}
                         invalid-text="Error message goes here"
-                      ></cds-text-input>
+                      ></cds-date-picker-input>
                     </SF.Item>
                     <SF.Item>
                       <cds-text-input
@@ -311,6 +366,11 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Types (native)</ShwTextH3>
 
+    <ShwBody>
+      Note: Carbon doesn’t have exact equivalents for all of these types such as
+      “time”, "date-time", "month", "week", or "date".
+    </ShwBody>
+
     <ShwCarbonizationComparisonGrid @layout="column">
       <:theming>
         <ShwGrid @columns={{4}} as |SG|>
@@ -333,26 +393,40 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
           </SG.Item>
         </ShwGrid>
       </:theming>
-      <:reference>
-        {{! <cds-text-input
-          type="text"
-          size="md"
-          label="This is the label text"
-          helper-text="This is the helper text (not visible)"
-          value="Lorem ipsum dolor"
-          invalid="true"
-          invalid-text="This is the error text"
-        ></cds-text-input> }}
-
+      <:reference as |R|>
         <ShwGrid @columns={{4}} as |SG|>
           {{#each TYPES as |type|}}
             <SG.Item @label={{capitalize type}}>
-              <cds-text-input
-                type={{type}}
-                label="This is the label text"
-                size="md"
-                value={{type}}
-              ></cds-text-input>
+              {{#if
+                (and
+                  (notEq type "date")
+                  (notEq type "datetime-local")
+                  (notEq type "month")
+                  (notEq type "week")
+                )
+              }}
+                <cds-text-input
+                  type={{type}}
+                  label="This is the label text"
+                  size="md"
+                  value={{type}}
+                ></cds-text-input>
+              {{else if (eq type "date")}}
+                <cds-date-picker-input
+                  kind="single"
+                  placeholder="mm/dd/yyyy"
+                  size="md"
+                  type={{type}}
+                  label="This is the label text"
+                  value={{type}}
+                ></cds-date-picker-input>
+              {{else if
+                (or
+                  (eq type "datetime-local") (eq type "month") (eq type "week")
+                )
+              }}
+                <R.NoEquivalent @isCompact={{true}} @entity="variant" />
+              {{/if}}
             </SG.Item>
           {{/each}}
         </ShwGrid>
