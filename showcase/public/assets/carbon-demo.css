@@ -1,0 +1,142 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+/* Reset body margins for iframe */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Fix Carbon header to span full width */
+cds-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 8000;
+  width: 100%;
+}
+
+/* Fix Carbon side nav positioning */
+cds-side-nav {
+  position: fixed;
+  top: 48px; /* Height of header */
+  bottom: 0;
+  left: 0;
+  z-index: 6000;
+}
+
+/* Suppress custom element until styles are loaded */
+cds-header:not(:defined),
+cds-header-name:not(:defined),
+cds-header-nav:not(:defined),
+cds-header-nav-item:not(:defined),
+cds-header-menu-button:not(:defined),
+cds-side-nav:not(:defined),
+cds-side-nav-items:not(:defined),
+cds-side-nav-link:not(:defined),
+cds-side-nav-menu:not(:defined),
+cds-side-nav-menu-item:not(:defined),
+cds-button:not(:defined),
+cds-text-input:not(:defined),
+cds-accordion:not(:defined),
+cds-accordion-item:not(:defined),
+cds-modal:not(:defined),
+cds-modal-body:not(:defined),
+cds-modal-footer:not(:defined),
+cds-modal-header:not(:defined),
+cds-modal-heading:not(:defined),
+cds-form:not(:defined) {
+  visibility: hidden;
+}
+
+/* Main content styling */
+.carbon-demo-main-content {
+  position: relative;
+  box-sizing: border-box;
+  width: calc(100% - 256px);
+  min-height: calc(100vh - 48px);
+  margin-top: 48px; /* Height of cds-header */
+  margin-left: 256px; /* Width of expanded cds-side-nav */
+  padding: 24px 64px;
+  overflow-x: hidden;
+}
+
+.carbon-demo-section {
+  margin-bottom: 32px;
+}
+
+.carbon-demo-section:last-child {
+  margin-bottom: 0;
+}
+
+.carbon-demo-section-title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.carbon-demo-section-description {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #525252;
+}
+
+.carbon-demo-form-field {
+  max-width: 100%;
+  margin-bottom: 16px;
+}
+
+.carbon-demo-form-field cds-text-input {
+  max-width: 100%;
+}
+
+.carbon-demo-form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.carbon-demo-accordion-list {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.carbon-demo-accordion-list li {
+  margin-bottom: 4px;
+}
+
+.carbon-demo-accordion-paragraph {
+  margin-top: 12px;
+}
+
+.carbon-demo-modal-description {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.carbon-demo-modal-preview {
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+
+.carbon-demo-modal-preview-item {
+  margin: 8px 0;
+}
+
+.carbon-demo-modal-preview-item:first-child {
+  margin-top: 0;
+}
+
+.carbon-demo-modal-preview-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Made with Bob */

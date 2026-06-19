@@ -4,9 +4,7 @@
  */
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { on } from '@ember/modifier';
-import style from 'ember-style-modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextBody from 'showcase/components/shw/text/body';
@@ -19,14 +17,16 @@ import {
   HdsAppHeaderHomeLink,
   HdsAppSideNav,
   HdsAppSideNavList,
-  HdsAppFooter,
   HdsDropdown,
   HdsButton,
+  HdsButtonSet,
   HdsForm,
   HdsFormTextInputField,
   HdsAlert,
   HdsAccordion,
   HdsModal,
+  HdsPageHeader,
+  HdsTextBody,
 } from '@hashicorp/design-system-components/components';
 
 export default class SubSectionHeliosDemoApp extends Component {
@@ -35,18 +35,15 @@ export default class SubSectionHeliosDemoApp extends Component {
   @tracked showFormErrors = false;
   @tracked isModalOpen = false;
 
-  @action
-  updateName(event: Event) {
+  updateName = (event: Event) => {
     this.nameValue = (event.target as HTMLInputElement).value;
-  }
+  };
 
-  @action
-  updateEmail(event: Event) {
+  updateEmail = (event: Event) => {
     this.emailValue = (event.target as HTMLInputElement).value;
-  }
+  };
 
-  @action
-  openPreviewModal(event: Event) {
+  openPreviewModal = (event: Event) => {
     event.preventDefault();
     // Validate before showing preview
     if (!this.nameValue || !this.emailValue) {
@@ -55,28 +52,25 @@ export default class SubSectionHeliosDemoApp extends Component {
       this.showFormErrors = false;
       this.isModalOpen = true;
     }
-  }
+  };
 
-  @action
-  closeModal() {
+  closeModal = () => {
     this.isModalOpen = false;
-  }
+  };
 
-  @action
-  confirmSubmit() {
+  confirmSubmit = () => {
     this.isModalOpen = false;
     alert(`Form submitted successfully!\nName: ${this.nameValue}\nEmail: ${this.emailValue}`);
     // Reset form
     this.nameValue = '';
     this.emailValue = '';
-  }
+  };
 
-  @action
-  cancelForm() {
+  cancelForm = () => {
     this.nameValue = '';
     this.emailValue = '';
     this.showFormErrors = false;
-  }
+  };
 
   get isNameEmpty() {
     return this.showFormErrors && !this.nameValue;
@@ -91,14 +85,13 @@ export default class SubSectionHeliosDemoApp extends Component {
 
     <ShwTextBody>
       A full application layout using Helios Design System components including
-      AppFrame, AppHeader, AppSideNav, AppFooter, and Form with Text Inputs.
+      AppFrame, AppHeader, AppSideNav, and Form with Text Inputs.
     </ShwTextBody>
 
-    <div {{style marginTop="24px" minHeight="600px"}}>
+    <div class="helios-demo-app-container">
       <HdsAppFrame
         @hasHeader={{true}}
         @hasSidebar={{true}}
-        @hasFooter={{true}}
         as |Frame|
       >
         <Frame.Header>
@@ -174,7 +167,7 @@ export default class SubSectionHeliosDemoApp extends Component {
         </Frame.Sidebar>
 
         <Frame.Main>
-          <div {{style padding="24px 64px"}}>
+          <div class="helios-demo-app-main-content">
             <HdsPageHeader as |PH|>
               <PH.Title>Page title</PH.Title>
               <PH.Description>
@@ -185,7 +178,7 @@ export default class SubSectionHeliosDemoApp extends Component {
             </HdsPageHeader>
 
             {{! Accordion Section }}
-            <div {{style marginTop="24px"}}>
+            <div class="helios-demo-app-accordion-section">
               <h4>Form Help & Information</h4>
               <HdsAccordion as |A|>
                 <A.Item @isOpen={{true}}>
@@ -206,44 +199,48 @@ export default class SubSectionHeliosDemoApp extends Component {
                         Provide a valid email address for contact purposes
                       </li>
                     </ul>
-                  </HdsTextBody>
+                    </HdsTextBody>
                   </:content>
                 </A.Item>
                 <A.Item>
                   <:toggle>Privacy & Data Usage</:toggle>
                   <:content>
-                    <p>
-                      Your information is secure and will only be used for the
-                      purposes stated in our privacy policy.
-                    </p>
-                    <ul>
-                      <li>We never share your email with third parties</li>
-                      <li>Your data is encrypted and stored securely</li>
-                      <li>You can request data deletion at any time</li>
-                    </ul>
+                    <HdsTextBody>
+                      <p>
+                        Your information is secure and will only be used for the
+                        purposes stated in our privacy policy.
+                      </p>
+                      <ul>
+                        <li>We never share your email with third parties</li>
+                        <li>Your data is encrypted and stored securely</li>
+                        <li>You can request data deletion at any time</li>
+                      </ul>
+                    </HdsTextBody>
                   </:content>
                 </A.Item>
                 <A.Item>
                   <:toggle>Frequently Asked Questions</:toggle>
                   <:content>
-                    <p>
-                      <strong>Q: Is this form required?</strong>
-                      <br />
-                      A: Yes, all fields marked as required must be completed.
-                    </p>
-                    <p>
-                      <strong>Q: Can I edit my information later?</strong>
-                      <br />
-                      A: Yes, you can update your information at any time
-                      through your account settings.
-                    </p>
+                    <HdsTextBody>
+                      <p>
+                        <strong>Q: Is this form required?</strong>
+                        <br />
+                        A: Yes, all fields marked as required must be completed.
+                      </p>
+                      <p>
+                        <strong>Q: Can I edit my information later?</strong>
+                        <br />
+                        A: Yes, you can update your information at any time
+                        through your account settings.
+                      </p>
+                    </HdsTextBody>
                   </:content>
                 </A.Item>
               </HdsAccordion>
             </div>
 
             {{! Form Section }}
-            <div {{style marginTop="32px"}}>
+            <div class="helios-demo-app-form-section">
               <HdsForm as |F|>
                 {{! Form-level alert }}
                 {{#if this.showFormErrors}}
@@ -315,18 +312,11 @@ export default class SubSectionHeliosDemoApp extends Component {
               </HdsForm>
             </div>
 
-            <div
-              {{style
-                marginTop="32px"
-                padding="16px"
-                backgroundColor="#f5f5f5"
-                borderRadius="4px"
-              }}
-            >
-              <p {{style marginTop="0"}}>
+            <div class="helios-demo-app-info-box">
+              <p>
                 <strong>Components Demonstrated:</strong>
               </p>
-              <ul {{style marginBottom="0"}}>
+              <ul>
                 <li><strong>Accordion:</strong> Collapsible help sections</li>
                 <li><strong>Form:</strong> Text inputs with validation</li>
                 <li>
@@ -337,57 +327,55 @@ export default class SubSectionHeliosDemoApp extends Component {
             </div>
           </div>
         </Frame.Main>
-
-        {{! Modal for form preview }}
-        {{#if this.isModalOpen}}
-          <HdsModal @onClose={{this.closeModal}} as |M|>
-            <M.Header>
-              Confirm Your Information
-            </M.Header>
-            <M.Body>
-              <p>Please review your information before submitting:</p>
-              <div {{style marginTop="16px"}}>
-                <p>
-                  <strong>Full Name:</strong>
-                  {{this.nameValue}}
-                </p>
-                <p>
-                  <strong>Email Address:</strong>
-                  {{this.emailValue}}
-                </p>
-              </div>
-              <p {{style marginTop="16px" fontStyle="italic"}}>
-                Click "Confirm & Submit" to complete your submission, or "Go
-                Back" to make changes.
-              </p>
-            </M.Body>
-            <M.Footer>
-              <HdsButton
-                @text="Confirm & Submit"
-                {{on "click" this.confirmSubmit}}
-              />
-              <HdsButton
-                @text="Go Back"
-                @color="secondary"
-                {{on "click" this.closeModal}}
-              />
-            </M.Footer>
-          </HdsModal>
-        {{/if}}
-
-        <Frame.Footer>
-          <HdsAppFooter as |AF|>
-            <AF.StatusLink @status="operational" />
-            <AF.Link
-              @href="https://cloud.hashicorp.com/docs/changelog"
-              @icon="logs"
-              @iconPosition="leading"
-            >Changelog</AF.Link>
-            <AF.LegalLinks />
-          </HdsAppFooter>
-        </Frame.Footer>
       </HdsAppFrame>
     </div>
+
+    {{! Modal for form preview - rendered at root level per documentation }}
+    {{#if this.isModalOpen}}
+      <HdsModal
+        id="helios-demo-preview-modal"
+        @onClose={{this.closeModal}}
+        as |M|
+      >
+        <M.Header>
+          Confirm Your Information
+        </M.Header>
+        <M.Body>
+          <HdsTextBody>
+            <p>Please review your information before submitting:</p>
+            <div class="helios-demo-app-modal-content">
+              <p>
+                <strong>Full Name:</strong>
+                {{this.nameValue}}
+              </p>
+              <p>
+                <strong>Email Address:</strong>
+                {{this.emailValue}}
+              </p>
+            </div>
+            <p class="helios-demo-app-modal-footer-text">
+              Click "Confirm & Submit" to complete your submission, or "Go
+              Back" to make changes.
+            </p>
+          </HdsTextBody>
+        </M.Body>
+        <M.Footer as |MF|>
+          <HdsButtonSet>
+            <HdsButton
+              @text="Confirm & Submit"
+              type="button"
+              {{on "click" this.confirmSubmit}}
+            />
+            <HdsButton
+              @text="Go Back"
+              @color="secondary"
+              type="button"
+              {{on "click" MF.close}}
+            />
+          </HdsButtonSet>
+        </M.Footer>
+      </HdsModal>
+    {{/if}}
 
     <ShwDivider />
   </template>
