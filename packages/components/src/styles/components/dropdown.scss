@@ -34,6 +34,18 @@
 
 // TOGGLE/ICON
 
+// Customize Badge and BadgeCount colors for primary and secondary toggle buttons to ensure sufficient contrast for Carbon themes
+@mixin hds-dropdown-carbon-toggle-badge-colors() {
+  @include hds-apply-only-if-carbon() {
+    .hds-dropdown-toggle-button__badge,
+    .hds-dropdown-toggle-button__count {
+      color: #161616;
+      background-color: #e0e0e0;
+      border-color: transparent;
+    }
+  }
+}
+
 .hds-dropdown-toggle-icon {
   position: relative;
   display: flex;
@@ -144,19 +156,6 @@
       background-color: var(--token-color-surface-strong);
     }
   }
-
-  // Customize Badge and BadgeCount colors for primary and secondary toggle buttons to ensure sufficient contrast for Carbon themes
-  @include hds-apply-only-if-carbon() {
-    &.hds-dropdown-toggle-button--color-primary:not(:disabled, .mock-disabled),
-    &.hds-dropdown-toggle-button--color-secondary:not(:disabled, .mock-disabled) {
-      .hds-dropdown-toggle-button__badge,
-      .hds-dropdown-toggle-button__count {
-        color: #161616;
-        background-color: #e0e0e0;
-        border-color: transparent;
-      }
-    }
-  }
 }
 
 @include hds-button-size-classes("hds-dropdown-toggle-button");
@@ -177,10 +176,18 @@
 
 .hds-dropdown-toggle-button--color-primary {
   @include hds-button-color-primary();
+
+  &:not(:disabled, .mock-disabled) {
+    @include hds-dropdown-carbon-toggle-badge-colors();
+  }
 }
 
 .hds-dropdown-toggle-button--color-secondary {
   @include hds-button-color-secondary();
+
+  &:not(:disabled, .mock-disabled) {
+    @include hds-dropdown-carbon-toggle-badge-colors();
+  }
 }
 
 .hds-dropdown-toggle-button--color-secondary-muted {
