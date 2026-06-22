@@ -253,6 +253,77 @@ function findImportForLocalName(sourceFile, localName) {
   return null;
 }
 
+function getContextualComponentTypeQuery(typeNode) {
+  if (!typeNode) {
+    return null;
+  }
+
+  if (Node.isTypeQuery(typeNode)) {
+    return typeNode;
+  }
+
+  if (
+    Node.isTypeReference(typeNode) &&
+    typeNode.getTypeName().getText() === 'WithBoundArgs'
+  ) {
+    const firstTypeArg = typeNode.getTypeArguments()[0];
+
+    if (firstTypeArg && Node.isTypeQuery(firstTypeArg)) {
+      return firstTypeArg;
+    }
+  }
+
+  return null;
+}
+
+function parseBoundArgNamesFromTypeNode(typeNode) {
+  if (!typeNode || !Node.isTypeReference(typeNode)) {
+    return undefined;
+  }
+
+  if (typeNode.getTypeName().getText() !== 'WithBoundArgs') {
+    return undefined;
+  }
+
+  const secondTypeArg = typeNode.getTypeArguments()[1];
+
+  if (!secondTypeArg || secondTypeArg.getText() === 'never') {
+    return undefined;
+  }
+
+  if (Node.isLiteralTypeNode(secondTypeArg)) {
+    const literalNode = secondTypeArg.getLiteral();
+
+    if (!Node.isStringLiteral(literalNode)) {
+      return undefined;
+    }
+
+    return [literalNode.getLiteralText()];
+  }
+
+  if (!Node.isUnionTypeNode(secondTypeArg)) {
+    return undefined;
+  }
+
+  const boundArgs = [];
+
+  for (const unionTypeNode of secondTypeArg.getTypeNodes()) {
+    if (!Node.isLiteralTypeNode(unionTypeNode)) {
+      return undefined;
+    }
+
+    const literalNode = unionTypeNode.getLiteral();
+
+    if (!Node.isStringLiteral(literalNode)) {
+      return undefined;
+    }
+
+    boundArgs.push(literalNode.getLiteralText());
+  }
+
+  return boundArgs.length > 0 ? boundArgs : undefined;
+}
+
 function createSourceFileResolver(project) {
   function resolveRelativeSourceFile(fromSourceFile, moduleSpecifier) {
     const resolvedByTs = fromSourceFile
@@ -786,6 +857,156 @@ function parseArgs(signatureInterface, resolveRelativeSourceFile) {
   return args;
 }
 
+function resolveTupleFirstElementTypeNode(
+  typeNode,
+  sourceFile,
+  resolveRelativeSourceFile,
+  seen = new Set()
+) {
+  if (!typeNode) {
+    return null;
+  }
+
+  const visitKey = createNodeVisitKey(sourceFile, typeNode);
+
+  if (seen.has(visitKey)) {
+    return null;
+  }
+
+  seen.add(visitKey);
+
+  if (Node.isParenthesizedTypeNode(typeNode)) {
+    return resolveTupleFirstElementTypeNode(
+      typeNode.getTypeNode(),
+      sourceFile,
+      resolveRelativeSourceFile,
+      seen
+    );
+  }
+
+  if (Node.isTupleTypeNode(typeNode)) {
+    const tupleElements = typeNode.getElements();
+
+    return tupleElements[0] ?? null;
+  }
+
+  if (Node.isTypeReference(typeNode)) {
+    const typeName = typeNode.getTypeName().getText();
+
+    if (typeName.includes('.')) {
+      return null;
+    }
+
+    const declaration = resolveNamedTypeDeclaration(
+      sourceFile,
+      typeName,
+      resolveRelativeSourceFile
+    );
+
+    if (!declaration || !Node.isTypeAliasDeclaration(declaration)) {
+      return null;
+    }
+
+    return resolveTupleFirstElementTypeNode(
+      declaration.getTypeNode(),
+      declaration.getSourceFile(),
+      resolveRelativeSourceFile,
+      seen
+    );
+  }
+
+  return null;
+}
+
+function parseBlockYieldsFromPropertySignature(
+  blockPropertySignature,
+  resolveRelativeSourceFile
+) {
+  const tupleFirstElementTypeNode = resolveTupleFirstElementTypeNode(
+    blockPropertySignature.getTypeNode(),
+    blockPropertySignature.getSourceFile(),
+    resolveRelativeSourceFile
+  );
+
+  if (!tupleFirstElementTypeNode) {
+    return [];
+  }
+
+  const yieldPropertySignatures = collectPropertySignaturesFromTypeNode(
+    tupleFirstElementTypeNode,
+    blockPropertySignature.getSourceFile(),
+    resolveRelativeSourceFile
+  );
+
+  if (yieldPropertySignatures.length === 0) {
+    return [];
+  }
+
+  const dedupedYieldMap = new Map();
+
+  yieldPropertySignatures.forEach((yieldPropertySignature) => {
+    dedupedYieldMap.set(yieldPropertySignature.getName(), yieldPropertySignature);
+  });
+
+  const yields = [...dedupedYieldMap.values()].map((yieldPropertySignature) => {
+    const typeNode = yieldPropertySignature.getTypeNode();
+    const expandedTypeText = typeNode
+      ? expandTypeText(
+          typeNode,
+          yieldPropertySignature.getSourceFile(),
+          resolveRelativeSourceFile
+        )
+      : null;
+    const contextualTypeQuery = typeNode
+      ? getContextualComponentTypeQuery(typeNode)
+      : null;
+
+    const parsedYield = {
+      name: yieldPropertySignature.getName(),
+      type: normalizeTypeText(
+        expandedTypeText ||
+          (typeNode
+            ? typeNode.getText()
+            : yieldPropertySignature
+                .getType()
+                .getText(yieldPropertySignature, TYPE_FORMAT_FLAGS))
+      ),
+    };
+
+    if (contextualTypeQuery) {
+      const componentName = contextualTypeQuery.getExprName().getText();
+      const importMatch = findImportForLocalName(
+        yieldPropertySignature.getSourceFile(),
+        componentName
+      );
+      const boundArgs = typeNode
+        ? parseBoundArgNamesFromTypeNode(typeNode)
+        : undefined;
+
+      parsedYield.kind = 'component';
+      parsedYield.componentName = componentName;
+
+      if (importMatch?.moduleSpecifier) {
+        parsedYield.sourcePath = importMatch.moduleSpecifier;
+      }
+
+      if (boundArgs && boundArgs.length > 0) {
+        parsedYield.boundArgs = boundArgs;
+      }
+    } else if (parsedYield.type.includes('=>')) {
+      parsedYield.kind = 'function';
+    } else {
+      parsedYield.kind = 'value';
+    }
+
+    return parsedYield;
+  });
+
+  yields.sort((a, b) => a.name.localeCompare(b.name));
+
+  return yields;
+}
+
 function parseBlocks(signatureInterface, resolveRelativeSourceFile) {
   const blocksProperty = signatureInterface.getProperty('Blocks');
 
@@ -801,9 +1022,23 @@ function parseBlocks(signatureInterface, resolveRelativeSourceFile) {
   );
 
   if (astPropertySignatures.length > 0) {
-    const blocks = astPropertySignatures.map((propertySignature) => ({
-      name: propertySignature.getName(),
-    }));
+    const blocks = astPropertySignatures.map((propertySignature) => {
+      const yields = parseBlockYieldsFromPropertySignature(
+        propertySignature,
+        resolveRelativeSourceFile
+      );
+
+      if (yields.length > 0) {
+        return {
+          name: propertySignature.getName(),
+          yields,
+        };
+      }
+
+      return {
+        name: propertySignature.getName(),
+      };
+    });
 
     blocks.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -814,6 +1049,25 @@ function parseBlocks(signatureInterface, resolveRelativeSourceFile) {
   const blocks = [];
 
   for (const propertySymbol of blocksType.getProperties()) {
+    const declaration =
+      propertySymbol.getValueDeclaration() || propertySymbol.getDeclarations()[0];
+
+    if (declaration && Node.isPropertySignature(declaration)) {
+      const yields = parseBlockYieldsFromPropertySignature(
+        declaration,
+        resolveRelativeSourceFile
+      );
+
+      if (yields.length > 0) {
+        blocks.push({
+          name: propertySymbol.getName(),
+          yields,
+        });
+
+        continue;
+      }
+    }
+
     blocks.push({ name: propertySymbol.getName() });
   }
 
@@ -993,6 +1247,7 @@ function main() {
 
     const component = {
       name: exportedComponent.name,
+      sourcePath: exportedComponent.moduleSpecifier,
       summary: SUMMARY_PLACEHOLDER,
     };
 

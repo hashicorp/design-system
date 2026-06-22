@@ -13,9 +13,20 @@ const catalogArgSchema = z.object({
   default: z.string().optional(),
 });
 
+const catalogBlockYieldSchema = z.object({
+  name: z.string().min(1),
+  type: z.string().min(1),
+  kind: z.enum(["component", "function", "value"]).optional(),
+  componentName: z.string().min(1).optional(),
+  sourcePath: z.string().min(1).optional(),
+  boundArgs: z.array(z.string().min(1)).optional(),
+  description: z.string().optional(),
+});
+
 const catalogBlockSchema = z.object({
   name: z.string().min(1),
   description: z.string().optional(),
+  yields: z.array(catalogBlockYieldSchema).optional(),
 });
 
 const catalogDesignSchema = z.object({
@@ -26,6 +37,7 @@ const catalogDesignSchema = z.object({
 
 const catalogComponentSchema = z.object({
   name: z.string().min(1),
+  sourcePath: z.string().min(1),
   summary: z.string().min(1),
   design: catalogDesignSchema.optional(),
   args: z.array(catalogArgSchema).optional(),
