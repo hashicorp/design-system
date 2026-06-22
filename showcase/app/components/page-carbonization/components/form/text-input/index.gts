@@ -147,7 +147,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
           {{else if (eq type "search")}}
             <cds-search
               label-text="Search"
-              placeholder="search"
+              value="search"
               size="md"
             ></cds-search>
           {{else if
@@ -171,12 +171,8 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
           aria-label="example of textinput with search/loading state"
         />
       </:theming>
-      <:reference>
-        <cds-search
-          label-text="Search"
-          placeholder="search"
-          size="md"
-        ></cds-search>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} @entity="variant" />
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
