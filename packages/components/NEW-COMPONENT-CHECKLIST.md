@@ -6,8 +6,8 @@ This is the checklist the HDS team uses for any new component project. All new c
 
 The following should be available as resources for the Project Kickoff.
 
-- [Component Audit](https://www.figma.com/file/wPDhYo23Rk5WDZ5lHC04W3/Component-Audits-FY24?type=design&t=yWY94cHxIGiat5L7-6)
-- [Component Requirement Document (CRD)](https://docs.google.com/document/d/1kGcdfnb_z5tVUUvkSJGQPOssNd1yl2SVyd7bqk1KXII/): This file should be started before the kickoff and include an early estimate of scope and any open questions that need to be answered during the kickoff.
+- [Component Audit](https://www.figma.com/files/902667414815738345/project/212365804)
+- [Project Plan](https://ibm.sharepoint.com/:w:/r/sites/DEPT-helios-design-system/Shared%20Documents/Templates/HDS%20Project%20Plan%20%5BTemplate%5D.dotx?d=waadcf6b743e5423c8ca1641420eec104&csf=1&web=1&e=HKDM5C): This file should be started before the kickoff and include an early estimate of scope and any open questions that need to be answered during the kickoff.
 
 ## Project Kickoff
 
@@ -26,14 +26,13 @@ The design process is largely cyclical, so some steps may be repeated until fina
 
 ### Component Design
 
-- [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
+- [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [HDS Components v2.0 UI Kit](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=bvxo8w9gLZN1UWPO-6)
 - [ ] add a new page for the component, as needed
-- [ ] copy & paste the [new component template](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=46856-287&mode=design&t=V4zCk5Jv07PcHYzZ-4) to the new page
+- [ ] copy & paste the [stickersheet template](https://www.figma.com/design/vqhh0wWZ8PwnRkvh1jk7jB/Utilities-UI-Kit?node-id=2149-1300&t=5arRjDafSGBNZ3yw-4) to the new page
   - [ ] set the position of this frame to 0, 0
   - [ ] update the status badge in the banner to "In progress"
-  - [ ] change "{Component name}" to the name of the component
-  - [ ] delete the figma tips frame, if not needed
-- [ ] design and build the component, taking into account existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
+  - [ ] change "{Component}" to the name of the component
+- [ ] design and build the component, taking into account existing HDS [Foundations](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&t=bvxo8w9gLZN1UWPO-6) and [Patterns](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&t=bvxo8w9gLZN1UWPO-6), as well as the findings from the audit and requirements from the Project Plan
   - artifacts should include:
     - component explorations
     - examples in context
@@ -44,19 +43,17 @@ The design process is largely cyclical, so some steps may be repeated until fina
     - engineering partner(s)
     - a11y SME
     - other external stakeholders as defined during the kickoff
-    - consider also including any key stakeholders
   - reviews should include checks for:
-    - alignment to Helios design vision
+    - alignment to Helios Foundations
     - ux solution
-    - fulfillment of requirements from the audit and CRD
+    - fulfillment of requirements from the audit and Project Plan
     - a11y conformance
     - alignment to code API
     - consistent naming conventions
     - token usage
-- [ ] have HDS designers test the component and iterate, as necessary
+- [ ] have HDS designers test the component and iterate, until approval is granted in the [Component Testing Criteria](https://www.figma.com/design/vqhh0wWZ8PwnRkvh1jk7jB/Utilities-UI-Kit?node-id=4-1355&t=5arRjDafSGBNZ3yw-4)
 - [ ] add a variety of examples to the stickersheet
   - make sure the component instances can be easily selected and other layers are locked
-- [ ] add any necessary figma tips
 - [ ] request a final branch review from HDS designers
 - [ ] sync with your engineering partner
   - let them know it's been approved and answer any remaining questions
@@ -68,9 +65,7 @@ The design process is largely cyclical, so some steps may be repeated until fina
   - [ ] change the badge in the banner to "Experimental"
   - [ ] merge the branch
   - [ ] publish the component
-    - Important: do not communicate this release to consumers yet (this will be done later in the process)
-  - [ ] add a new page to the [playground](https://www.figma.com/file/JnkAC69NeUX83Pug32o7Mr/%F0%9F%AA%81-Playground-FY24?type=design&node-id=302-10&mode=design&t=Ov4rEelxWK7rxLdI-0) file and prepare a frame for each stakeholder
-    - provide a variety (basic to complex) of screenshots to recreate based on real world examples from the audit
+    - Important: do not communicate this release broadly to consumers yet (this will be done later in the process)
 - [ ] ask key stakeholders to test the component
   - depending on the complexity, we usually give them 3-4 days to complete the testing
 - [ ] if iterations are needed, work through the process until approved (don't forget to branch!)
@@ -89,7 +84,7 @@ Once key stakeholders have tested the component and iterations are approved, pre
 
 - [ ] add a changelog entry to [CHANGELOG-FIGMA-COMPONENTS.md](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-COMPONENTS.md)
 - [ ] if changes were made, publish the component
-- [ ] once the code has been released, communicate the release in the slack channel [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS)
+- [ ] once the code has been released, communicate the release in the slack channel [#team-design-systems](https://ibm.enterprise.slack.com/archives/C09L2MVUL5S)
 
 ## Engineering Checklist
 
