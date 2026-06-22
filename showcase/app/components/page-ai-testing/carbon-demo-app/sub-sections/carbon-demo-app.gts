@@ -18,18 +18,11 @@ const SubSectionCarbonDemoApp: TemplateOnlyComponent = <template>
     This demo is displayed in an iframe to properly contain Carbon's fixed-position UI Shell components.
   </ShwTextBody>
 
-  <iframe
-    src="/carbon-demo-standalone.html"
-    title="Carbon Design System Demo"
-    {{style
-      width="100%"
-      height="600px"
-      marginTop="24px"
-      border="1px solid #e0e0e0"
-      borderRadius="4px"
-      boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
-    }}
-  ></iframe>
+  <ShwFrame
+    @src="/carbon-demo-standalone.html"
+    @label="Carbon Design System Demo"
+    @height="780"
+  />
 
   <ShwDivider />
 </template>;
