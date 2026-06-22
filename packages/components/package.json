@@ -18,6 +18,9 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
     "build": "rollup --config && node scripts/parse-docs.mjs",
+    "catalog:build": "node scripts/build-component-catalog.mjs",
+    "catalog:enrich": "node scripts/enrich-component-catalog-from-docs.mjs",
+    "catalog:generate": "node scripts/generate-component-catalog.mjs",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
