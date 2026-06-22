@@ -83,7 +83,7 @@
       @include hds-apply-only-if-carbon() {
         position: relative;
 
-        &::before {
+        &::after {
           // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
           position: absolute;
           display: block;
@@ -167,13 +167,12 @@
       }
     }
 
-    // TODO: Update token and token usage for width
     @include hds-apply-only-if-carbon() {
       &[type="date"],
       &[type="datetime-local"],
       &[type="month"],
       &[type="week"] {
-        width: 18rem;
+        max-width: 18rem;
       }
     }
 
@@ -226,9 +225,6 @@
       background-size: var(--hds-form-text-input-background-image-size);
 
       @include hds-apply-only-if-carbon() {
-        // TODO: Add new token?
-        --hds-form-text-input-background-image-size: 15px;
-
         // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
         width: var(--hds-form-text-input-background-image-size);
         height: var(--hds-form-text-input-background-image-size);
@@ -254,7 +250,6 @@
     }
 
     // Note: The element wrapper parent element is used to position the search icon over the text input
-    // TODO: Simplify selector
     @at-root .hds-form-text-input__element-wrapper:has(:not(.hds-form-text-input--is-loading)#{&}) {
       @include hds-apply-only-if-carbon() {
         position: relative;
