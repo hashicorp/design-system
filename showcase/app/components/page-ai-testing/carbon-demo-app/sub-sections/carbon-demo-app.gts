@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import style from 'ember-style-modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwFrame from 'showcase/components/shw/frame'; // import the showframe component
 
 const SubSectionCarbonDemoApp: TemplateOnlyComponent = <template>
 
