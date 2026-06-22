@@ -39,7 +39,9 @@
   @include hds-apply-only-if-carbon() {
     .hds-dropdown-toggle-button__badge,
     .hds-dropdown-toggle-button__count {
+      // corresponds to `gray-100` in Carbon
       color: #161616;
+      // corresponds to `gray-20` in Carbon
       background-color: #e0e0e0;
       border-color: transparent;
     }
