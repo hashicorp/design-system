@@ -78,8 +78,9 @@
   &.hds-form-text-input--is-invalid {
     border-color: var(--token-form-control-invalid-border-color-default);
 
-    // Note: The element wrapper parent element is used to position the invalid icon for Carbon themes over the text input
+    // Note: The element-wrapper parent is used to position the Carbon themes invalid icon over the text input
     @at-root .hds-form-text-input__element-wrapper:has(#{&}) {
+      // Carbon themes invalid icon
       @include hds-apply-only-if-carbon() {
         position: relative;
 
@@ -236,55 +237,66 @@
       }
     }
   }
+}
 
-  // SEARCH
-  &[type="search"] {
-    padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-    background-image: var(--token-form-text-input-background-image-data-url-search);
-    background-repeat: no-repeat;
-    background-position: var(--token-form-text-input-background-image-position-x) 50%;
+// SEARCH
+.hds-form-text-input[type="search"] {
+  padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+  background-image: var(--token-form-text-input-background-image-data-url-search);
+  background-repeat: no-repeat;
+  background-position: var(--token-form-text-input-background-image-position-x) 50%;
+  background-size: var(--token-form-text-input-background-image-size);
+
+  @include hds-apply-only-if-carbon() {
+    background-image: none;
+  }
+
+  &::-webkit-search-cancel-button {
+    width: var(--token-form-text-input-background-image-size);
+    height: var(--token-form-text-input-background-image-size);
+    background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+    background-position: center center;
     background-size: var(--token-form-text-input-background-image-size);
+    // stylelint-disable-next-line property-no-vendor-prefix
+    -webkit-appearance: none;
+  }
 
+  // IS LOADING
+  &.hds-form-text-input--is-loading {
+    background-image: var(--token-form-text-input-background-image-data-url-search-loading);
+  }
+}
+
+// Note: The element-wrapper parent is used to position the search icon over the text input
+.hds-form-text-input__element-wrapper {
+  &:has(.hds-form-text-input[type="search"]:not(.hds-form-text-input--is-loading)) {
     @include hds-apply-only-if-carbon() {
+      position: relative;
       background-image: none;
-    }
 
-    // Note: The element wrapper parent element is used to position the search icon over the text input
-    @at-root .hds-form-text-input__element-wrapper:has(:not(.hds-form-text-input--is-loading)#{&}) {
-      @include hds-apply-only-if-carbon() {
-        position: relative;
-        background-image: none;
-
-        // A pseudo element is used for the icon so that masking can be applied to change the color as needed
-        &::before {
-          // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
-          position: absolute;
-          width: var(--token-form-text-input-background-image-size);
-          height: var(--token-form-text-input-background-image-size);
-          margin: auto 0;
-          margin-left: var(--token-form-text-input-background-image-position-x);
-          background-color: var(--token-form-control-base-foreground-color);
-          content: "";
-          inset: 0;
-          mask-image: var(--token-form-text-input-background-image-data-url-search);
-          mask-size: cover;
-        }
+      // A pseudo element is used for the icon so that masking can be applied
+      &::before {
+        // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
+        position: absolute;
+        width: var(--token-form-text-input-background-image-size);
+        height: var(--token-form-text-input-background-image-size);
+        margin: auto 0;
+        margin-left: var(--token-form-text-input-background-image-position-x);
+        background-color: var(--token-form-control-base-foreground-color);
+        content: "";
+        inset: 0;
+        mask-image: var(--token-form-text-input-background-image-data-url-search);
+        mask-size: cover;
       }
     }
+  }
 
-    &::-webkit-search-cancel-button {
-      width: var(--token-form-text-input-background-image-size);
-      height: var(--token-form-text-input-background-image-size);
-      background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
-      background-position: center center;
-      background-size: var(--token-form-text-input-background-image-size);
-      // stylelint-disable-next-line property-no-vendor-prefix
-      -webkit-appearance: none;
-    }
-
-    // IS LOADING
-    &.hds-form-text-input--is-loading {
-      background-image: var(--token-form-text-input-background-image-data-url-search-loading);
+  &:has(.hds-form-text-input[type="search"]:disabled) {
+    @include hds-apply-only-if-carbon() {
+      &::before {
+        // This sets the color of the disabled search icon
+        background-color: var(--token-color-foreground-disabled);
+      }
     }
   }
 }
