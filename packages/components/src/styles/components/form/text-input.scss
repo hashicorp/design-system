@@ -250,8 +250,31 @@
     background-size: var(--hds-form-text-input-background-image-size);
 
     @include hds-apply-only-if-carbon() {
-      // padding-left: var(--hds-form-control-padding);
-      outline: 3px dotted hotpink; // To make it easy to spot the WIP search input
+      background-image: none;
+    }
+
+    // Note: The element wrapper parent element is used to position the search icon over the text input
+    // TODO: Simplify selector
+    @at-root .hds-form-text-input__element-wrapper:has(:not(.hds-form-text-input--is-loading)#{&}) {
+      @include hds-apply-only-if-carbon() {
+        position: relative;
+        background-image: none;
+
+        // A pseudo element is used for the icon so that masking can be applied to change the color as needed
+        &::before {
+          // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
+          position: absolute;
+          width: var(--hds-form-text-input-background-image-size);
+          height: var(--hds-form-text-input-background-image-size);
+          margin: auto 0;
+          margin-left: var(--hds-form-text-input-background-image-position-x);
+          background-color: var(--hds-form-control-base-foreground-color);
+          content: "";
+          inset: 0;
+          mask-image: var(--hds-form-text-input-background-image-data-url-search);
+          mask-size: cover;
+        }
+      }
     }
 
     &::-webkit-search-cancel-button {
@@ -262,19 +285,6 @@
       background-size: var(--hds-form-text-input-background-image-size);
       // stylelint-disable-next-line property-no-vendor-prefix
       -webkit-appearance: none;
-
-      @include hds-apply-only-if-carbon() {
-        // TODO: A psudo element will be needed to add the icon in this case. Use .hds-form-text-input__element-wrapper container.
-
-        // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
-        // width: var(--hds-form-text-input-background-image-size);
-        // height: var(--hds-form-text-input-background-image-size);
-        // padding: 0; // remove padding to prevent stretching the image
-        // background-color: var(--hds-form-control-base-foreground-color);
-        // background-image: none;
-        // mask-image: var(--hds-form-text-input-background-image-data-url-search-cancel);
-        // mask-size: cover;
-      }
     }
 
     // IS LOADING
