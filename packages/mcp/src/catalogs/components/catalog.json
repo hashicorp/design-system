@@ -1,0 +1,7277 @@
+{
+  "updatedAt": "2026-06-22T17:35:25.463Z",
+  "components": [
+    {
+      "name": "HdsAccordion",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "forceState",
+          "type": "'open' | 'close'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'card' | 'flush'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAccordionItem",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "containsInteractive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "forceState",
+          "type": "'open' | 'close'",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStatic",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClickToggle",
+          "type": "(event: MouseEvent, ...args: any[]) => void",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'card' | 'flush'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "content"
+        },
+        {
+          "name": "toggle"
+        }
+      ]
+    },
+    {
+      "name": "HdsAdvancedTable",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'center' | 'left' | 'right'",
+          "required": false
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "childrenKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "columnOrder",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "type": "HdsAdvancedTableColumn[]",
+          "required": true
+        },
+        {
+          "name": "density",
+          "type": "'default' | 'medium' | 'short' | 'tall'",
+          "required": false
+        },
+        {
+          "name": "hasReorderableColumns",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasResizableColumns",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasStickyFirstColumn",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasStickyHeader",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "identityKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isSelectable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStriped",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "maxHeight",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "T[]",
+          "required": true
+        },
+        {
+          "name": "onColumnReorder",
+          "type": "HdsAdvancedTableColumnReorderCallback",
+          "required": false
+        },
+        {
+          "name": "onColumnResize",
+          "type": "(columnKey: string, newWidth?: string) => void",
+          "required": false
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "( selection: HdsAdvancedTableOnSelectionChangeSignature ) => void",
+          "required": false
+        },
+        {
+          "name": "onSort",
+          "type": "(sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void",
+          "required": false
+        },
+        {
+          "name": "reorderedMessageText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectableColumnKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionAriaLabelSuffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sortBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sortedMessageText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        },
+        {
+          "name": "valign",
+          "type": "'baseline' | 'middle' | 'top'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "actions"
+        },
+        {
+          "name": "body"
+        },
+        {
+          "name": "emptyState"
+        }
+      ]
+    },
+    {
+      "name": "HdsAdvancedTableTd",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'center' | 'left' | 'right'",
+          "required": false
+        },
+        {
+          "name": "colspan",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "compositeItem",
+          "type": "HdsCompositeSignature['Blocks']['default'][0]['item']",
+          "required": false
+        },
+        {
+          "name": "isCompositeItemDisabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "rowspan",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAdvancedTableTh",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'center' | 'left' | 'right'",
+          "required": false
+        },
+        {
+          "name": "colspan",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "column",
+          "type": "HdsAdvancedTableNormalizedColumn",
+          "required": false
+        },
+        {
+          "name": "compositeItem",
+          "type": "HdsCompositeSignature['Blocks']['default'][0]['item']",
+          "required": false
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "didInsertExpandButton",
+          "type": "(button: HTMLButtonElement) => void",
+          "required": false
+        },
+        {
+          "name": "draggedColumnKey",
+          "type": "HdsAdvancedTableNormalizedColumn['key'] | null",
+          "required": false
+        },
+        {
+          "name": "draggedColumnSiblingColumnKeys",
+          "type": "{ previous?: HdsAdvancedTableNormalizedColumn['key']; next?: HdsAdvancedTableNormalizedColumn['key']; }",
+          "required": false
+        },
+        {
+          "name": "firstColumnKey",
+          "type": "HdsAdvancedTableNormalizedColumn['key']",
+          "required": false
+        },
+        {
+          "name": "firstNonStickyColumnKey",
+          "type": "HdsAdvancedTableNormalizedColumn['key']",
+          "required": false
+        },
+        {
+          "name": "hasExpandAllButton",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasReorderableColumns",
+          "type": "HdsAdvancedTableSignature['Args']['hasReorderableColumns']",
+          "required": false
+        },
+        {
+          "name": "hasResizableColumns",
+          "type": "HdsAdvancedTableSignature['Args']['hasResizableColumns']",
+          "required": false
+        },
+        {
+          "name": "hasSelectableRows",
+          "type": "HdsAdvancedTableSignature['Args']['isSelectable']",
+          "required": false
+        },
+        {
+          "name": "hasStickyFirstColumn",
+          "type": "HdsAdvancedTableSignature['Args']['hasStickyFirstColumn']",
+          "required": false
+        },
+        {
+          "name": "isCompositeItemDisabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isExpandable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isExpanded",
+          "type": "HdsAdvancedTableExpandState",
+          "required": false
+        },
+        {
+          "name": "isStickyColumn",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStickyColumnPinned",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "lastColumnKey",
+          "type": "HdsAdvancedTableNormalizedColumn['key']",
+          "required": false
+        },
+        {
+          "name": "newLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onApplyTransientWidth",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'] ) => void",
+          "required": false
+        },
+        {
+          "name": "onClickSort",
+          "type": "HdsAdvancedTableThButtonSortSignature['Args']['onClick']",
+          "required": false
+        },
+        {
+          "name": "onClickToggle",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onColumnResize",
+          "type": "HdsAdvancedTableSignature['Args']['onColumnResize']",
+          "required": false
+        },
+        {
+          "name": "onGetAppliedWidth",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'] ) => HdsAdvancedTableNormalizedColumn['width']",
+          "required": false
+        },
+        {
+          "name": "onGetColumnByKey",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'] ) => HdsAdvancedTableNormalizedColumn | undefined",
+          "required": false
+        },
+        {
+          "name": "onMoveColumnToTerminalPosition",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'], position: 'start' | 'end' ) => void",
+          "required": false
+        },
+        {
+          "name": "onPinFirstColumn",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onReorderDrop",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'], side: HdsAdvancedTableColumnReorderSide ) => void",
+          "required": false
+        },
+        {
+          "name": "onResetTransientColumnWidths",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onRestoreColumnWidth",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'] ) => void",
+          "required": false
+        },
+        {
+          "name": "onSetDraggedColumnKey",
+          "type": "( key: HdsAdvancedTableNormalizedColumn['key'] | null ) => void",
+          "required": false
+        },
+        {
+          "name": "onSetReorderHoveredColumnKey",
+          "type": "( key: HdsAdvancedTableNormalizedColumn['key'] | null ) => void",
+          "required": false
+        },
+        {
+          "name": "onSetTransientColumnWidth",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'], width: `${number}px` ) => void",
+          "required": false
+        },
+        {
+          "name": "onSetTransientColumnWidths",
+          "type": "(options: { roundValues?: boolean }) => void",
+          "required": false
+        },
+        {
+          "name": "onStepColumn",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'], step: number ) => void",
+          "required": false
+        },
+        {
+          "name": "onUpdateResizeDebt",
+          "type": "( columnKey: HdsAdvancedTableNormalizedColumn['key'], delta: number ) => void",
+          "required": false
+        },
+        {
+          "name": "parentId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "reorderHoveredColumnKey",
+          "type": "HdsAdvancedTableNormalizedColumn['key'] | null",
+          "required": false
+        },
+        {
+          "name": "rowspan",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "scope",
+          "type": "'col' | 'row'",
+          "required": false
+        },
+        {
+          "name": "siblingColumnKeys",
+          "type": "{ previous?: HdsAdvancedTableNormalizedColumn['key']; next?: HdsAdvancedTableNormalizedColumn['key']; }",
+          "required": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        },
+        {
+          "name": "tableHeight",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "willDestroyExpandButton",
+          "type": "(button: HTMLButtonElement) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAdvancedTableThButtonExpand",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isExpandAll",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isExpanded",
+          "type": "HdsAdvancedTableExpandState",
+          "required": false
+        },
+        {
+          "name": "labelId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onToggle",
+          "type": "() => void",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsAdvancedTableThButtonSort",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "labelId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsAdvancedTableThButtonTooltip",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "labelId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsAdvancedTableThSelectable",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "compositeItem",
+          "type": "HdsCompositeSignature['Blocks']['default'][0]['item']",
+          "required": false
+        },
+        {
+          "name": "didInsert",
+          "type": "( checkbox: HdsFormCheckboxBaseSignature['Element'], selectionKey?: string ) => void",
+          "required": false
+        },
+        {
+          "name": "isCompositeItemDisabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStickyColumn",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStickyColumnPinned",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClickSortBySelected",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "( target: HdsFormCheckboxBaseSignature['Element'], selectionKey: string | undefined ) => void",
+          "required": false
+        },
+        {
+          "name": "selectionAriaLabelSuffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionScope",
+          "type": "'col' | 'row'",
+          "required": false
+        },
+        {
+          "name": "sortBySelectedOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        },
+        {
+          "name": "willDestroy",
+          "type": "(selectionKey?: string) => void",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsAdvancedTableTr",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "columnOrder",
+          "type": "HdsAdvancedTableSignature['Args']['columnOrder']",
+          "required": false
+        },
+        {
+          "name": "compositeGroup",
+          "type": "HdsCompositeDefaultBlock['group']",
+          "required": false
+        },
+        {
+          "name": "compositeItem",
+          "type": "HdsCompositeDefaultBlock['item']",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "T",
+          "required": false
+        },
+        {
+          "name": "depth",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "didInsert",
+          "type": "( checkbox: HdsFormCheckboxBaseSignature['Element'], selectionKey?: string ) => void",
+          "required": false
+        },
+        {
+          "name": "displayRow",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasReorderableColumns",
+          "type": "HdsAdvancedTableSignature['Args']['hasReorderableColumns']",
+          "required": false
+        },
+        {
+          "name": "hasStickyColumn",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isCompositeItemDisabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isLastRow",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isParentRow",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isSelectable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStickyColumnPinned",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClickSortBySelected",
+          "type": "HdsAdvancedTableThSelectableSignature['Args']['onClickSortBySelected']",
+          "required": false
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "( checkbox?: HdsFormCheckboxBaseSignature['Element'], selectionKey?: string ) => void",
+          "required": false
+        },
+        {
+          "name": "selectableColumnKey",
+          "type": "HdsAdvancedTableSignature['Args']['selectableColumnKey']",
+          "required": false
+        },
+        {
+          "name": "selectionAriaLabelSuffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionScope",
+          "type": "'col' | 'row'",
+          "required": false
+        },
+        {
+          "name": "sortBySelectedOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        },
+        {
+          "name": "willDestroy",
+          "type": "() => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAlert",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "color",
+          "type": "'neutral' | 'highlight' | 'success' | 'warning' | 'critical'",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name'] | false",
+          "required": false
+        },
+        {
+          "name": "onDismiss",
+          "type": "(event: MouseEvent, ...args: unknown[]) => void",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'page' | 'inline' | 'compact'",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAlertDescription",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAlertTitle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "tag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFooter",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "copyrightYear",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "'light' | 'dark'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFooterCopyright",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "year",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFooterItem",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFooterLegalLinks",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hrefForAccessibility",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hrefForPrivacy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hrefForSecurity",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hrefForSupport",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hrefForTerms",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFooterLink",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'secondary'",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "iconPosition",
+          "type": "'leading' | 'trailing'",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFooterStatusLink",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "itemStyle",
+          "type": "SafeString",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "'operational' | 'degraded' | 'maintenance' | 'outage'",
+          "required": false
+        },
+        {
+          "name": "statusIcon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "statusIconColor",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFrame",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "hasFooter",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasHeader",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasMain",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasModals",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasSidebar",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFrameFooter",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFrameHeader",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFrameMain",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFrameModals",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppFrameSidebar",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppHeader",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "a11yRefocusExcludeAllQueryParams",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "a11yRefocusNavigationText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "a11yRefocusRouteChangeValidator",
+          "type": "NavigationNarratorSignature['Args']['routeChangeValidator']",
+          "required": false
+        },
+        {
+          "name": "a11yRefocusSkipText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "a11yRefocusSkipTo",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "breakpoint",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hasA11yRefocus",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "globalActions"
+        },
+        {
+          "name": "logo"
+        },
+        {
+          "name": "utilityActions"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppHeaderHomeLink",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": true
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isIconOnly",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsAppHeaderMenuButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "menuContentId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onClickToggle",
+          "type": "() => void",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsApplicationState",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'left' | 'center'",
+          "required": false
+        },
+        {
+          "name": "isAutoCentered",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsApplicationStateBody",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsApplicationStateFooter",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "hasDivider",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsApplicationStateHeader",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "errorCode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsApplicationStateMedia",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNav",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "breakpoint",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isCollapsible",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isMinimized",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isResponsive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onDesktopViewportChange",
+          "type": "(arg: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onToggleMinimizedStatus",
+          "type": "(arg: boolean) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNavList",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNavListBackLink",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNavListItem",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNavListLink",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hasSubItems",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNavListTitle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsertTitle",
+          "type": "(titleId: string) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNavPortal",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "targetName",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNavPortalTarget",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "targetName",
+          "type": "HdsAppSideNavPortalSignature['Args']['targetName']",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsAppSideNavToggleButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsBadge",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "color",
+          "type": "'neutral' | 'neutral-dark-mode' | 'highlight' | 'success' | 'warning' | 'critical'",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "isIconOnly",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string | number",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "'filled' | 'inverted' | 'outlined'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsBadgeCount",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "color",
+          "type": "'neutral' | 'neutral-dark-mode'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string | number",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "'filled' | 'inverted' | 'outlined'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsBreadcrumb",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "didInsert",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "itemsCanWrap",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsBreadcrumbItem",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "current",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "string | number",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "Array<string | number>",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, string>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsBreadcrumbTruncation",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'secondary' | 'tertiary' | 'critical'",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "iconPosition",
+          "type": "'leading' | 'trailing'",
+          "required": false
+        },
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isIconOnly",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isInline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsButtonSet",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCardContainer",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "background",
+          "type": "'neutral-primary' | 'neutral-secondary'",
+          "required": false
+        },
+        {
+          "name": "hasBorder",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "level",
+          "type": "'base' | 'mid' | 'high'",
+          "required": false
+        },
+        {
+          "name": "levelActive",
+          "type": "'base' | 'mid' | 'high'",
+          "required": false
+        },
+        {
+          "name": "levelHover",
+          "type": "'base' | 'mid' | 'high'",
+          "required": false
+        },
+        {
+          "name": "overflow",
+          "type": "'hidden' | 'visible'",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "'div' | 'li'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCodeBlock",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ariaLabelledBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "copyButtonText",
+          "type": "HdsCopyButtonSignature['Args']['text']",
+          "required": false
+        },
+        {
+          "name": "copySuccessMessageText",
+          "type": "HdsCopyButtonSignature['Args']['ariaMessageText']",
+          "required": false
+        },
+        {
+          "name": "hasCopyButton",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasLineNumbers",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasLineWrapping",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "highlightLines",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isStandalone",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "language",
+          "type": "'bash' | 'go' | 'hcl' | 'json' | 'log' | 'ruby' | 'shell-session' | 'yaml'",
+          "required": false
+        },
+        {
+          "name": "lineNumberStart",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "maxHeight",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onCopy",
+          "type": "HdsCopyButtonSignature['Args']['onSuccess']",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCodeBlockCopyButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "copySuccessMessageText",
+          "type": "HdsCopyButtonSignature['Args']['ariaMessageText']",
+          "required": false
+        },
+        {
+          "name": "onCopy",
+          "type": "HdsCopyButtonSignature['Args']['onSuccess']",
+          "required": false
+        },
+        {
+          "name": "targetToCopy",
+          "type": "HdsCopyButtonSignature['Args']['targetToCopy']",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "HdsCopyButtonSignature['Args']['text']",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCodeBlockDescription",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsertNode",
+          "type": "(element: HdsCodeBlockDescriptionElement) => void",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCodeBlockTitle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsertNode",
+          "type": "(element: HdsCodeBlockTitleElement) => void",
+          "required": true
+        },
+        {
+          "name": "tag",
+          "type": "'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCodeEditor",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ariaLabelledBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "copyButtonText",
+          "type": "HdsCopyButtonSignature['Args']['text']",
+          "required": false
+        },
+        {
+          "name": "cspNonce",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "customExtensions",
+          "type": "Extension[]",
+          "required": false
+        },
+        {
+          "name": "extraKeys",
+          "type": "HdsCodeEditorExtraKeys",
+          "required": false
+        },
+        {
+          "name": "hasCopyButton",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasFullScreenButton",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hasLineWrapping",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isLintingEnabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStandalone",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "language",
+          "type": "'rego' | 'ruby' | 'shell' | 'go' | 'hcl' | 'javascript' | 'json' | 'markdown' | 'sentinel' | 'sql' | 'yaml'",
+          "required": false
+        },
+        {
+          "name": "onBlur",
+          "type": "HdsCodeEditorBlurHandler",
+          "required": false
+        },
+        {
+          "name": "onInput",
+          "type": "(newValue: string, editor: EditorViewType) => void",
+          "required": false
+        },
+        {
+          "name": "onLint",
+          "type": "( diagnostics: DiagnosticType[], newValue: string, editor: EditorViewType ) => void",
+          "required": false
+        },
+        {
+          "name": "onSetup",
+          "type": "(editor: EditorViewType) => unknown",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCodeEditorDescription",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "editorId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onInsert",
+          "type": "(element: HdsCodeEditorDescriptionElement) => void",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCodeEditorFullScreenButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isFullScreen",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "onToggleFullScreen",
+          "type": "() => void",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsCodeEditorTitle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "editorId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onInsert",
+          "type": "(element: HdsCodeEditorTitleElement) => void",
+          "required": true
+        },
+        {
+          "name": "tag",
+          "type": "HdsTextBodySignature['Args']['tag']",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsComposite",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "defaultCurrentId",
+          "type": "string | null",
+          "required": false
+        },
+        {
+          "name": "loop",
+          "type": "boolean | HdsCompositeOrientations",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "'horizontal' | 'vertical'",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "boolean | HdsCompositeOrientations",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsCopyButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "ariaMessageText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'secondary' | 'tertiary' | 'critical'",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "iconPosition",
+          "type": "'leading' | 'trailing'",
+          "required": false
+        },
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isIconOnly",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isInline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "onError",
+          "type": "HdsClipboardModifierSignature['Args']['Named']['onError']",
+          "required": false
+        },
+        {
+          "name": "onSuccess",
+          "type": "HdsClipboardModifierSignature['Args']['Named']['onSuccess']",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium'",
+          "required": false
+        },
+        {
+          "name": "targetToCopy",
+          "type": "HdsClipboardModifierSignature['Args']['Named']['target']",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "textToCopy",
+          "type": "HdsClipboardModifierSignature['Args']['Named']['text']",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsCopySnippet",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaMessageText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'secondary'",
+          "required": false
+        },
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isTruncated",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onError",
+          "type": "HdsClipboardModifierSignature['Args']['Named']['onError']",
+          "required": false
+        },
+        {
+          "name": "onSuccess",
+          "type": "HdsClipboardModifierSignature['Args']['Named']['onSuccess']",
+          "required": false
+        },
+        {
+          "name": "textToCopy",
+          "type": "HdsClipboardModifierSignature['Args']['Named']['text']",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsDialogPrimitiveBody",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDialogPrimitiveDescription",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDialogPrimitiveFooter",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onDismiss",
+          "type": "(event: MouseEvent, ...args: any[]) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDialogPrimitiveHeader",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClassPrefix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onDismiss",
+          "type": "(event: MouseEvent, ...args: any[]) => void",
+          "required": false
+        },
+        {
+          "name": "tagline",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDialogPrimitiveOverlay",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsDialogPrimitiveWrapper",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "body"
+        },
+        {
+          "name": "footer"
+        },
+        {
+          "name": "header"
+        }
+      ]
+    },
+    {
+      "name": "HdsDisclosurePrimitive",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClickToggle",
+          "type": "(...args: any[]) => void",
+          "required": false
+        },
+        {
+          "name": "onClose",
+          "type": "(...args: any[]) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "content"
+        },
+        {
+          "name": "toggle"
+        }
+      ]
+    },
+    {
+      "name": "HdsDismissButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdown",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "boundary",
+          "type": "HdsAnchoredPositionOptions['boundary']",
+          "required": false
+        },
+        {
+          "name": "enableCollisionDetection",
+          "type": "HdsAnchoredPositionOptions['enableCollisionDetection']",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "HdsPopoverPrimitiveSignature['Args']['isOpen']",
+          "required": false
+        },
+        {
+          "name": "listPosition",
+          "type": "'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'",
+          "required": false
+        },
+        {
+          "name": "matchToggleWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClose",
+          "type": "HdsPopoverPrimitiveSignature['Args']['onClose']",
+          "required": false
+        },
+        {
+          "name": "onFocusOut",
+          "type": "HdsPopoverPrimitiveSignature['Args']['onFocusOut']",
+          "required": false
+        },
+        {
+          "name": "preserveContentInDom",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownFooter",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "hasDivider",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownHeader",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "hasDivider",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownListItemCheckbox",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "count",
+          "type": "string | number",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownListItemCheckmark",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "string | number",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownListItemCopyItem",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "copyItemTitle",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isTruncated",
+          "type": "HdsCopySnippetSignature['Args']['isTruncated']",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "HdsCopySnippetSignature['Args']['textToCopy']",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownListItemDescription",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownListItemGeneric",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownListItemInteractive",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'action' | 'critical'",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isLoading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "trailingIcon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownListItemRadio",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "count",
+          "type": "string | number",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownListItemSeparator",
+      "summary": "TODO"
+    },
+    {
+      "name": "HdsDropdownListItemTitle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownToggleButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "badge",
+          "type": "HdsBadgeSignature['Args']['text']",
+          "required": false
+        },
+        {
+          "name": "badgeIcon",
+          "type": "HdsBadgeSignature['Args']['icon']",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'secondary'",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "HdsBadgeCountSignature['Args']['text']",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "setupPrimitiveToggle",
+          "type": "ModifierLike<SetupPrimitiveToggleModifier>",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium'",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsDropdownToggleIcon",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "hasChevron",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "imageSrc",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "setupPrimitiveToggle",
+          "type": "ModifierLike<SetupPrimitiveToggleModifier>",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium'",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBar",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "filters",
+          "type": "HdsFilterBarFilters",
+          "required": true
+        },
+        {
+          "name": "hasSearch",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isLiveFilter",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onFilter",
+          "type": "(filters: HdsFilterBarFilters) => void",
+          "required": false
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarActionsDropdown",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "toggleButtonIcon",
+          "type": "HdsDropdownToggleButtonSignature['Args']['icon']",
+          "required": false
+        },
+        {
+          "name": "toggleButtonText",
+          "type": "HdsDropdownToggleButtonSignature['Args']['text']",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarAppliedFilters",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "filters",
+          "type": "HdsFilterBarFilters",
+          "required": true
+        },
+        {
+          "name": "onFilterDismiss",
+          "type": "(key: string, filterValue?: unknown) => void",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarFilterGroup",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "filters",
+          "type": "HdsFilterBarFilters",
+          "required": true
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onChange",
+          "type": "(key: string, keyFilter?: HdsFilterBarFilter) => void",
+          "required": true
+        },
+        {
+          "name": "onClear",
+          "type": "(key: string) => void",
+          "required": false
+        },
+        {
+          "name": "panel",
+          "type": "WithBoundArgs<typeof HdsFilterBarTabsPanel, never>",
+          "required": false
+        },
+        {
+          "name": "searchEnabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "tab",
+          "type": "WithBoundArgs<typeof HdsFilterBarTabsTab, never>",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "'multi-select' | 'single-select' | 'numerical' | 'date' | 'time' | 'datetime' | 'generic' | 'search'",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarFilterGroupCheckbox",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "keyFilter",
+          "type": "HdsFilterBarFilter",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onChange",
+          "type": "(event: Event, label?: string) => void",
+          "required": false
+        },
+        {
+          "name": "searchValue",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarFilterGroupClearButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarFilterGroupDate",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "key",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "keyFilter",
+          "type": "HdsFilterBarFilter",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(filter: HdsFilterBarFilter) => void",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'date' | 'time' | 'datetime'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarFilterGroupGeneric",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "onChange",
+          "type": "(filter: HdsFilterBarFilter) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarFilterGroupNumerical",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "key",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "keyFilter",
+          "type": "HdsFilterBarFilter",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(filter: HdsFilterBarFilter) => void",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarFilterGroupRadio",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "keyFilter",
+          "type": "HdsFilterBarFilter",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onChange",
+          "type": "(event: Event, label?: string) => void",
+          "required": false
+        },
+        {
+          "name": "searchValue",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarFiltersDropdown",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "filters",
+          "type": "HdsFilterBarFilters",
+          "required": true
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isLiveFilter",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onFilter",
+          "type": "(filters: HdsFilterBarFilters) => void",
+          "required": false
+        },
+        {
+          "name": "onFocusOut",
+          "type": "HdsDropdownSignature['Args']['onFocusOut']",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarTabs",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "selectedTabIndex",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarTabsPanel",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsertNode",
+          "type": "(element: HTMLElement, panelId: string) => void",
+          "required": false
+        },
+        {
+          "name": "panelIds",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "selectedTabIndex",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "tabIds",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "willDestroyNode",
+          "type": "(element: HTMLElement) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFilterBarTabsTab",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsertNode",
+          "type": "(element: HTMLElement, tabId: string) => void",
+          "required": false
+        },
+        {
+          "name": "numFilters",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent, nodeIndex: number) => void",
+          "required": false
+        },
+        {
+          "name": "onKeydown",
+          "type": "(event: KeyboardEvent, nodeIndex: number) => void",
+          "required": false
+        },
+        {
+          "name": "panelIds",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "selectedTabIndex",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "tabIds",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "willDestroyNode",
+          "type": "(element: HTMLButtonElement) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFlyout",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "onClose",
+          "type": "(event: Event) => void",
+          "required": false
+        },
+        {
+          "name": "onOpen",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "returnFocusTo",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'medium' | 'large'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsForm",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "sectionMaxWidth",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "'form' | 'div'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormCharacterCount",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "controlId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "maxLength",
+          "type": "number | string",
+          "required": false
+        },
+        {
+          "name": "minLength",
+          "type": "number | string",
+          "required": false
+        },
+        {
+          "name": "onInsert",
+          "type": "(element: HTMLElement, ...args: any[]) => void",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormCheckboxBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormCheckboxField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormCheckboxGroup",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'vertical' | 'horizontal'",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormError",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "controlId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onInsert",
+          "type": "(element: HTMLElement, ...args: any[]) => void",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "type": "(element: HTMLElement, ...args: any[]) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormErrorMessage",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'vertical' | 'flag'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormFieldset",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'vertical' | 'horizontal'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormFileInputBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormFileInputField",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormFooter",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormHeader",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormHeaderDescription",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormHeaderTitle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "size",
+          "type": "HdsTextDisplaySignature['Args']['size']",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormHelperText",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "controlId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onInsert",
+          "type": "(element: HTMLElement, ...args: any[]) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormIndicator",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormKeyValueInputs",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "data",
+          "type": "Array<T>",
+          "required": true
+        },
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "footer"
+        },
+        {
+          "name": "header"
+        },
+        {
+          "name": "row"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormKeyValueInputsAddRowButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "HdsButtonSignature['Args']['text']",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormKeyValueInputsDeleteRowButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "onClick",
+          "type": "(rowData: unknown, rowIndex: number) => void",
+          "required": false
+        },
+        {
+          "name": "onInsert",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "returnFocusTo",
+          "type": "HTMLFieldSetElement",
+          "required": false
+        },
+        {
+          "name": "rowData",
+          "type": "unknown",
+          "required": true
+        },
+        {
+          "name": "rowIndex",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "text",
+          "type": "HdsButtonSignature['Args']['text']",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormKeyValueInputsField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onInsert",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "rowIndex",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormKeyValueInputsGeneric",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "onInsert",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "type": "() => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormLabel",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "controlId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hiddenText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "HdsFormIndicatorSignature['Args']['isOptional']",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "HdsFormIndicatorSignature['Args']['isRequired']",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormLegend",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "HdsFormIndicatorSignature['Args']['isOptional']",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "HdsFormIndicatorSignature['Args']['isRequired']",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormMaskedInputBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "copyButtonText",
+          "type": "HdsCopyButtonSignature['Args']['text']",
+          "required": false
+        },
+        {
+          "name": "hasCopyButton",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isContentMasked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isMultiline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "visibilityToggleAriaLabel",
+          "type": "HdsFormVisibilityToggleSignature['Args']['ariaLabel']",
+          "required": false
+        },
+        {
+          "name": "visibilityToggleAriaMessageText",
+          "type": "HdsFormVisibilityToggleSignature['Args']['ariaMessageText']",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormMaskedInputField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "copyButtonText",
+          "type": "HdsCopyButtonSignature['Args']['text']",
+          "required": false
+        },
+        {
+          "name": "hasCopyButton",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isContentMasked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isMultiline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "visibilityToggleAriaLabel",
+          "type": "HdsFormVisibilityToggleSignature['Args']['ariaLabel']",
+          "required": false
+        },
+        {
+          "name": "visibilityToggleAriaMessageText",
+          "type": "HdsFormVisibilityToggleSignature['Args']['ariaMessageText']",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormRadioBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormRadioCard",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "alignment",
+          "type": "'left' | 'center'",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "controlPosition",
+          "type": "'bottom' | 'left'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormRadioCardDescription",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormRadioCardGroup",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "alignment",
+          "type": "'left' | 'center'",
+          "required": false
+        },
+        {
+          "name": "controlPosition",
+          "type": "'bottom' | 'left'",
+          "required": false
+        },
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'vertical' | 'horizontal'",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormRadioCardLabel",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormRadioField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormRadioGroup",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'vertical' | 'horizontal'",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSection",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSectionHeader",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSectionMultiFieldGroup",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSectionMultiFieldGroupItem",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSelectBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSelectField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSeparator",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSuperSelectAfterOptions",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "clearSelected",
+          "type": "() => void",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "resultCountMessage",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectedCount",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "showAll",
+          "type": "() => void",
+          "required": true
+        },
+        {
+          "name": "showNoSelectedMessage",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "showOnlySelected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "showSelected",
+          "type": "() => void",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSuperSelectMultipleBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "afterOptionsContent",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownMaxWidth",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "matchTriggerWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "resultCountMessage",
+          "type": "| string | PowerSelectSignature['Args']['resultCountMessage']",
+          "required": false
+        },
+        {
+          "name": "showAfterOptions",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSuperSelectMultipleField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "afterOptionsContent",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownMaxWidth",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'vertical' | 'flag'",
+          "required": false
+        },
+        {
+          "name": "matchTriggerWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "resultCountMessage",
+          "type": "| string | PowerSelectSignature['Args']['resultCountMessage']",
+          "required": false
+        },
+        {
+          "name": "showAfterOptions",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSuperSelectOptionGroup",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "group",
+          "type": "{ groupName?: string; }",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSuperSelectPlaceholder",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSuperSelectSingleBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "afterOptionsContent",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownMaxWidth",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "matchTriggerWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "resultCountMessage",
+          "type": "| string | PowerSelectSignature['Args']['resultCountMessage']",
+          "required": false
+        },
+        {
+          "name": "showAfterOptions",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormSuperSelectSingleField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "afterOptionsContent",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "contextualClass",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownMaxWidth",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'vertical' | 'flag'",
+          "required": false
+        },
+        {
+          "name": "matchTriggerWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "resultCountMessage",
+          "type": "| string | PowerSelectSignature['Args']['resultCountMessage']",
+          "required": false
+        },
+        {
+          "name": "showAfterOptions",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormTextareaBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormTextareaField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormTextInputBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hasVisibilityToggle",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isLoading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'text' | 'email' | 'password' | 'url' | 'date' | 'time' | 'datetime-local' | 'search' | 'month' | 'week' | 'tel'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormTextInputField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hasVisibilityToggle",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isInvalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isLoading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'text' | 'email' | 'password' | 'url' | 'date' | 'time' | 'datetime-local' | 'search' | 'month' | 'week' | 'tel'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "visibilityToggleAriaLabel",
+          "type": "HdsFormVisibilityToggleSignature['Args']['ariaLabel']",
+          "required": false
+        },
+        {
+          "name": "visibilityToggleAriaMessageText",
+          "type": "HdsFormVisibilityToggleSignature['Args']['ariaMessageText']",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormToggleBase",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsFormToggleField",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormToggleGroup",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "extraAriaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOptional",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'vertical' | 'horizontal'",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsFormVisibilityToggle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ariaMessageText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isVisible",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsIcon",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "color",
+          "type": "HdsIconColors | string | undefined",
+          "required": false
+        },
+        {
+          "name": "isInline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "IconName",
+          "required": true
+        },
+        {
+          "name": "size",
+          "type": "'16' | '24'",
+          "required": false
+        },
+        {
+          "name": "stretched",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsIconTile",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "color",
+          "type": "HdsIconTileColors",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "iconSecondary",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "logo",
+          "type": "'boundary' | 'consul' | 'hcp' | 'nomad' | 'packer' | 'terraform' | 'vagrant' | 'vault' | 'vault-secrets' | 'vault-radar' | 'waypoint'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsInteractive",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsLayoutFlex",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end' | 'stretch'",
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "'row' | 'column'",
+          "required": false
+        },
+        {
+          "name": "gap",
+          "type": "HdsLayoutFlexGaps | [HdsLayoutFlexGaps, HdsLayoutFlexGaps]",
+          "required": false
+        },
+        {
+          "name": "isInline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly'",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "AvailableTagNames",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsLayoutFlexItem",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "basis",
+          "type": "string | 0",
+          "required": false
+        },
+        {
+          "name": "enableCollapseBelowContentSize",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "grow",
+          "type": "boolean | number | string",
+          "required": false
+        },
+        {
+          "name": "shrink",
+          "type": "boolean | number | string",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "AvailableTagNames",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsLayoutGrid",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end' | 'stretch'",
+          "required": false
+        },
+        {
+          "name": "columnMinWidth",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "columnWidth",
+          "type": "string | ResponsiveColumnWidths",
+          "required": false
+        },
+        {
+          "name": "gap",
+          "type": "HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps]",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "AvailableTagNames",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsLayoutGridItem",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "colspan",
+          "type": "number | ResponsiveSpan",
+          "required": false
+        },
+        {
+          "name": "rowspan",
+          "type": "number | ResponsiveSpan",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "AvailableTagNames",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsLinkInline",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'secondary'",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "iconPosition",
+          "type": "'leading' | 'trailing'",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsLinkStandalone",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'secondary'",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": true
+        },
+        {
+          "name": "iconPosition",
+          "type": "'leading' | 'trailing'",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsModal",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "color",
+          "type": "'neutral' | 'warning' | 'critical'",
+          "required": false
+        },
+        {
+          "name": "isDismissDisabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClose",
+          "type": "(event: Event) => void",
+          "required": false
+        },
+        {
+          "name": "onOpen",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "returnFocusTo",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsPageHeader",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsPageHeaderActions",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsPageHeaderBadges",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsPageHeaderDescription",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string | HdsTextColors",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "HdsTextBodySizes",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "HdsTextTags",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "HdsTextBodyWeight",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsPageHeaderSubtitle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string | HdsTextColors",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "HdsTextBodySizes",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "HdsTextTags",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "HdsTextBodyWeight",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsPageHeaderTitle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string | HdsTextColors",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "HdsTextSizes",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "HdsTextTags",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "HdsTextDisplayWeight",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsPaginationCompact",
+      "summary": "TODO"
+    },
+    {
+      "name": "HdsPaginationInfo",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "itemsRangeEnd",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "itemsRangeStart",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "showTotalItems",
+          "type": "HdsPaginationNumberedSignature['Args']['showTotalItems']",
+          "required": false
+        },
+        {
+          "name": "totalItems",
+          "type": "HdsPaginationNumberedSignature['Args']['totalItems']",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsPaginationNavArrow",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "'next' | 'prev'",
+          "required": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "(direction: HdsPaginationDirections) => void",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "showLabel",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsPaginationNavEllipsis",
+      "summary": "TODO"
+    },
+    {
+      "name": "HdsPaginationNavNumber",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "(page: number) => void",
+          "required": true
+        },
+        {
+          "name": "page",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsPaginationNumbered",
+      "summary": "TODO"
+    },
+    {
+      "name": "HdsPaginationSizeSelector",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(size: number) => void",
+          "required": false
+        },
+        {
+          "name": "pageSizes",
+          "type": "number[]",
+          "required": true
+        },
+        {
+          "name": "selectedSize",
+          "type": "number",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsPopoverPrimitive",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "boundary",
+          "type": "HdsAnchoredPositionOptions['boundary']",
+          "required": false
+        },
+        {
+          "name": "enableClickEvents",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "enableSoftEvents",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClose",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onFocusOut",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onOpen",
+          "type": "() => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsReveal",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaDescribedBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "HdsRevealToggleButtonSignature['Args']['isOpen']",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "HdsRevealToggleButtonSignature['Args']['text']",
+          "required": true
+        },
+        {
+          "name": "textWhenOpen",
+          "type": "HdsRevealToggleButtonSignature['Args']['text']",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsRevealToggleButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsRichTooltip",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsRichTooltipBubble",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "arrowId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "boundary",
+          "type": "HdsAnchoredPositionOptions['boundary']",
+          "required": false
+        },
+        {
+          "name": "enableCollisionDetection",
+          "type": "HdsAnchoredPositionOptions['enableCollisionDetection']",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "HdsAnchoredPositionOptions['offsetOptions']",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "HdsAnchoredPositionOptions['placement']",
+          "required": false
+        },
+        {
+          "name": "popoverId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "setupPrimitivePopover",
+          "type": "ModifierLike<SetupPrimitivePopoverModifier>",
+          "required": true
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsRichTooltipToggle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "icon",
+          "type": "HdsIconSignature['Args']['name']",
+          "required": false
+        },
+        {
+          "name": "iconPosition",
+          "type": "'leading' | 'trailing'",
+          "required": false
+        },
+        {
+          "name": "isInline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "popoverId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "setupPrimitiveToggle",
+          "type": "ModifierLike<SetupPrimitiveToggleModifier>",
+          "required": true
+        },
+        {
+          "name": "size",
+          "type": "undefined | HdsRichTooltipToggleSizes",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsSegmentedGroup",
+      "summary": "TODO",
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsSeparator",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "spacing",
+          "type": "'0' | '24'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsStepperList",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsStepperListStep",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsertNode",
+          "type": "(element: HTMLElement) => void",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "'incomplete' | 'progress' | 'processing' | 'complete'",
+          "required": false
+        },
+        {
+          "name": "stepIds",
+          "type": "HdsStepperListStepIds",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        },
+        {
+          "name": "willDestroyNode",
+          "type": "(element: HTMLElement) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "content"
+        },
+        {
+          "name": "description"
+        },
+        {
+          "name": "title"
+        }
+      ]
+    },
+    {
+      "name": "HdsStepperNav",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "currentStep",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "isInteractive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onStepChange",
+          "type": "(event: MouseEvent, stepNumber: number) => void",
+          "required": false
+        },
+        {
+          "name": "steps",
+          "type": "HdsStepperNavStepType[]",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "body"
+        },
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsStepperNavPanel",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "currentStep",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "didInsertNode",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "isNavInteractive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "panelIds",
+          "type": "HdsStepperNavPanelIds",
+          "required": false
+        },
+        {
+          "name": "stepIds",
+          "type": "HdsStepperNavStepIds",
+          "required": false
+        },
+        {
+          "name": "willDestroyNode",
+          "type": "(element: HTMLElement) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsStepperNavStep",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "currentStep",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "didInsertNode",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "isNavInteractive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onKeyUp",
+          "type": "(nodeIndex: number, event: KeyboardEvent) => void",
+          "required": false
+        },
+        {
+          "name": "onStepChange",
+          "type": "(event: MouseEvent, nodeIndex: number) => void",
+          "required": false
+        },
+        {
+          "name": "panelIds",
+          "type": "HdsStepperNavPanelIds",
+          "required": false
+        },
+        {
+          "name": "stepIds",
+          "type": "HdsStepperNavStepIds",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        },
+        {
+          "name": "willDestroyNode",
+          "type": "(element: HTMLButtonElement) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "description"
+        },
+        {
+          "name": "title"
+        }
+      ]
+    },
+    {
+      "name": "HdsStepperStepIndicator",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isInteractive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "'incomplete' | 'progress' | 'processing' | 'complete'",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsStepperTaskIndicator",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isInteractive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "'incomplete' | 'progress' | 'processing' | 'complete'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsTable",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'center' | 'left' | 'right'",
+          "required": false
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "type": "HdsTableColumn[]",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "'default' | 'medium' | 'short' | 'tall'",
+          "required": false
+        },
+        {
+          "name": "identityKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isFixedLayout",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isSelectable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStriped",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "T[]",
+          "required": false
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "(selection: HdsTableOnSelectionChangeSignature) => void",
+          "required": false
+        },
+        {
+          "name": "onSort",
+          "type": "(sortBy: string, sortOrder: HdsTableThSortOrder) => void",
+          "required": false
+        },
+        {
+          "name": "selectableColumnKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionAriaLabelSuffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sortBy",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sortedMessageText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        },
+        {
+          "name": "valign",
+          "type": "'baseline' | 'middle' | 'top'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "body"
+        },
+        {
+          "name": "head"
+        }
+      ]
+    },
+    {
+      "name": "HdsTableTd",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'center' | 'left' | 'right'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTableTh",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'center' | 'left' | 'right'",
+          "required": false
+        },
+        {
+          "name": "isVisuallyHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "scope",
+          "type": "'col' | 'row'",
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTableThButtonSort",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "labelId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsTableThButtonTooltip",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "labelId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsTableThSelectable",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsert",
+          "type": "( checkbox: HdsFormCheckboxBaseSignature['Element'], selectionKey?: string ) => void",
+          "required": false
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClickSortBySelected",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "( target: HdsFormCheckboxBaseSignature['Element'], selectionKey: string | undefined ) => void",
+          "required": false
+        },
+        {
+          "name": "selectionAriaLabelSuffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionScope",
+          "type": "'col' | 'row'",
+          "required": false
+        },
+        {
+          "name": "sortBySelectedOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        },
+        {
+          "name": "willDestroy",
+          "type": "(selectionKey?: string) => void",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsTableThSort",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'center' | 'left' | 'right'",
+          "required": false
+        },
+        {
+          "name": "onClickSort",
+          "type": "HdsTableThButtonSortSignature['Args']['onClick']",
+          "required": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTableTr",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsert",
+          "type": "( checkbox: HdsFormCheckboxBaseSignature['Element'], selectionKey?: string ) => void",
+          "required": false
+        },
+        {
+          "name": "isSelectable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClickSortBySelected",
+          "type": "HdsTableThSelectableSignature['Args']['onClickSortBySelected']",
+          "required": false
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "( checkbox?: HdsFormCheckboxBaseSignature['Element'], selectionKey?: string ) => void",
+          "required": false
+        },
+        {
+          "name": "selectableColumnKey",
+          "type": "HdsTableSignature['Args']['selectableColumnKey']",
+          "required": false
+        },
+        {
+          "name": "selectionAriaLabelSuffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectionScope",
+          "type": "'col' | 'row'",
+          "required": false
+        },
+        {
+          "name": "sortBySelectedOrder",
+          "type": "'asc' | 'desc'",
+          "required": false
+        },
+        {
+          "name": "willDestroy",
+          "type": "() => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTabs",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "isParentVisible",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClickTab",
+          "type": "(event: MouseEvent, tabIndex: number) => void",
+          "required": false
+        },
+        {
+          "name": "selectedTabIndex",
+          "type": "HdsTabsTabSignature['Args']['selectedTabIndex']",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'medium' | 'large'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTabsPanel",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "didInsertNode",
+          "type": "(element: HTMLElement, elementId: string) => void",
+          "required": false
+        },
+        {
+          "name": "panelIds",
+          "type": "HdsTabsPanelIds",
+          "required": false
+        },
+        {
+          "name": "selectedTabIndex",
+          "type": "HdsTabsTabSignature['Args']['selectedTabIndex']",
+          "required": false
+        },
+        {
+          "name": "tabIds",
+          "type": "HdsTabsTabIds",
+          "required": false
+        },
+        {
+          "name": "willDestroyNode",
+          "type": "(element: HTMLElement) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTabsTab",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "count",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "didInsertNode",
+          "type": "(element: HTMLButtonElement, isSelected?: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "didUpdateNode",
+          "type": "(nodeIndex: number, isSelected?: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": false
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent, tabIndex: number) => void",
+          "required": false
+        },
+        {
+          "name": "onKeyUp",
+          "type": "(nodeIndex: number, event: KeyboardEvent) => void",
+          "required": false
+        },
+        {
+          "name": "panelIds",
+          "type": "HdsTabsPanelIds",
+          "required": false
+        },
+        {
+          "name": "selectedTabIndex",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "tabIds",
+          "type": "HdsTabsTabIds",
+          "required": false
+        },
+        {
+          "name": "willDestroyNode",
+          "type": "(element: HTMLButtonElement) => void",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTag",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "'current-when'",
+          "type": "string | boolean",
+          "required": false
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "'primary' | 'secondary'",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "isHrefExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isRouteExternal",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "models",
+          "type": "unknown[]",
+          "required": false
+        },
+        {
+          "name": "onDismiss",
+          "type": "(event: MouseEvent, ...args: any[]) => void",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "Record<string, unknown>",
+          "required": false
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "route",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "tooltipPlacement",
+          "type": "'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end'",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsText",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "HdsTextColors | string | undefined",
+          "required": false
+        },
+        {
+          "name": "group",
+          "type": "'code' | 'display' | 'body'",
+          "required": true
+        },
+        {
+          "name": "size",
+          "type": "HdsTextSizes",
+          "required": true
+        },
+        {
+          "name": "tag",
+          "type": "HdsTextTags",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "'regular' | 'medium' | 'semibold' | 'bold'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTextBody",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string | HdsTextColors",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "HdsTextBodySizes",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "HdsTextTags",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "HdsTextBodyWeight",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTextCode",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string | HdsTextColors",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "HdsTextCodeSizes",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "HdsTextTags",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "HdsTextCodeWeight",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTextDisplay",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string | HdsTextColors",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "HdsTextSizes",
+          "required": false
+        },
+        {
+          "name": "tag",
+          "type": "HdsTextTags",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "HdsTextDisplayWeight",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "name": "HdsTime",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "date",
+          "type": "Date | string",
+          "required": false
+        },
+        {
+          "name": "display",
+          "type": "'utc' | 'relative' | 'friendly-only' | 'friendly-local' | 'friendly-relative'",
+          "required": false
+        },
+        {
+          "name": "endDate",
+          "type": "Date | string",
+          "required": false
+        },
+        {
+          "name": "hasTooltip",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isoUtcString",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "startDate",
+          "type": "Date | string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsTimeRange",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "endDate",
+          "type": "Date",
+          "required": false
+        },
+        {
+          "name": "startDate",
+          "type": "Date",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "HdsTimeSingle",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "date",
+          "type": "Date",
+          "required": false
+        },
+        {
+          "name": "display",
+          "type": "DisplayType",
+          "required": true
+        },
+        {
+          "name": "isoUtcString",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "register",
+          "type": "() => void",
+          "required": true
+        },
+        {
+          "name": "unregister",
+          "type": "() => void",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "HdsToast",
+      "summary": "TODO"
+    },
+    {
+      "name": "HdsTooltipButton",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "extraTippyOptions",
+          "type": "Partial<Omit<TippyProps, 'placement' | 'offset'>>",
+          "required": false
+        },
+        {
+          "name": "isInline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "[number, number]",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end'",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default"
+        }
+      ]
+    }
+  ]
+}
