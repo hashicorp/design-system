@@ -511,8 +511,8 @@ importers:
         specifier: ^3.4.2
         version: 3.6.2
       style-dictionary:
-        specifier: ^5.3.0
-        version: 5.3.0
+        specifier: ^5.5.0
+        version: 5.5.0
       tinycolor2:
         specifier: ^1.6.0
         version: 1.6.0
@@ -1994,11 +1994,11 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@bundled-es-modules/deepmerge@4.3.1':
-    resolution: {integrity: sha512-Rk453EklPUPC3NRWc3VUNI/SSUjdBaFoaQvFRmNBNtMHVtOFD5AntiWg5kEE1hqcPqedYFDzxE3ZcMYPcA195w==}
+  '@bundled-es-modules/deepmerge@4.3.2':
+    resolution: {integrity: sha512-q8doe7ndrY2IolUOFIn0A0++JBX38pMhN7kFhTF4cnjIcILf6X6H2yWczInyv8ZFdR0lrE8088X8XS5efxXz8A==}
 
-  '@bundled-es-modules/glob@13.0.1':
-    resolution: {integrity: sha512-4YwdXZ7ME9OetSAczXC9khFET03n50xQuIDd6og95UgeByhZRi8drP5Q8DHG2XIT6oo6RvrshSG+DnVolO1d1Q==}
+  '@bundled-es-modules/glob@13.0.6':
+    resolution: {integrity: sha512-x9nR2e1pt8LF0yLPC6yz/aUoiN7qJJwZ1znLxIXCxGyH+8BI+yO/sklBdn1+QbUyWXQBM+CjfZz3IhqtgIoDVg==}
 
   '@bundled-es-modules/memfs@4.17.0':
     resolution: {integrity: sha512-ykdrkEmQr9BV804yd37ikXfNnvxrwYfY9Z2/EtMHFEFadEjsQXJ1zL9bVZrKNLDtm91UdUOEHso6Aweg93K6xQ==}
@@ -7616,6 +7616,10 @@ packages:
     resolution: {integrity: sha512-/g3B0mC+4x724v1TgtBlBtt2hPi/EWptsIAmXUx9Z2rvBYleQcsrmaOzd5LyL50jf/Soi83ZDJmw2+XqvH/EeA==}
     engines: {node: 20 || >=22}
 
+  glob@13.0.6:
+    resolution: {integrity: sha512-Wjlyrolmm8uDpm/ogGyXZXb1Z+Ca2B8NbJwqBVg0axK9GbBeoS7yGV6vjXnYdGm6X53iehEuxxbyiKp8QmN4Vw==}
+    engines: {node: 18 || 20 || >=22}
+
   glob@5.0.15:
     resolution: {integrity: sha512-c9IPMazfRITpmAAKi22dK1VKxGDX9ehhqfABDriL/lzO92xcUKEJPQHrVA/2YHSNFB4iFlykVmWvwo48nr3OxA==}
     deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
@@ -9312,6 +9316,10 @@ packages:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  minipass@7.1.3:
+    resolution: {integrity: sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==}
+    engines: {node: '>=16 || 14 >=14.17'}
+
   mixin-deep@1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}
     engines: {node: '>=0.10.0'}
@@ -9791,6 +9799,10 @@ packages:
   path-scurry@2.0.0:
     resolution: {integrity: sha512-ypGJsmGtdXUOeM5u93TyeIEfEhM6s+ljAhrk5vAvSx8uyY/02OvrZnA0YNGUrPXfpJMgI1ODd3nwz8Npx4O4cg==}
     engines: {node: 20 || >=22}
+
+  path-scurry@2.0.2:
+    resolution: {integrity: sha512-3O/iVVsJAPsOnpwWIeD+d6z/7PmqApyQePUtCndjatj/9I5LylHvt5qluFaBT3I5h3r1ejfR056c+FCv+NnNXg==}
+    engines: {node: 18 || 20 || >=22}
 
   path-to-regexp@0.1.13:
     resolution: {integrity: sha512-A/AGNMFN3c8bOlvV9RreMdrv7jsmF9XIfDeCd87+I8RNg6s78BhJxMu69NEMHBSJFxKidViTEdruRwEk/WIKqA==}
@@ -11066,8 +11078,8 @@ packages:
   strip-test-selectors@0.1.0:
     resolution: {integrity: sha512-wkVYph30L7wYkMf5EypfTqhY4qZwmQ0hpFOTksaXne49YbUr2jenJl5w5yj9IWx3ojtoH9BGAQ7cShnYEzbs5g==}
 
-  style-dictionary@5.3.0:
-    resolution: {integrity: sha512-nl2HzXL2tqFIFRL+CAVKPu/erQ9N6m7yNYcYF1K3BywTYa38ZuKLYa1Wy2O++Pojo8XOaFD6t8wq5Y0au81vIg==}
+  style-dictionary@5.5.0:
+    resolution: {integrity: sha512-AGkOZtAc3OTz99wlzstrmj5OM5BWOW2IbmXD74sf0MXFPi271TGBdywokgd7bS3L0tKOk9M0FR+R9gnbXRSSfg==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -13223,15 +13235,15 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@bundled-es-modules/deepmerge@4.3.1':
+  '@bundled-es-modules/deepmerge@4.3.2':
     dependencies:
       deepmerge: 4.3.1
 
-  '@bundled-es-modules/glob@13.0.1':
+  '@bundled-es-modules/glob@13.0.6':
     dependencies:
       buffer: 6.0.3
       events: 3.3.0
-      glob: 13.0.3
+      glob: 13.0.6
       path: 0.12.7
       stream: 0.0.3
       string_decoder: 1.3.0
@@ -21534,6 +21546,12 @@ snapshots:
       minipass: 7.1.2
       path-scurry: 2.0.0
 
+  glob@13.0.6:
+    dependencies:
+      minimatch: 10.2.3
+      minipass: 7.1.3
+      path-scurry: 2.0.2
+
   glob@5.0.15:
     dependencies:
       inflight: 1.0.6
@@ -23743,6 +23761,8 @@ snapshots:
 
   minipass@7.1.2: {}
 
+  minipass@7.1.3: {}
+
   mixin-deep@1.3.2:
     dependencies:
       for-in: 1.0.2
@@ -24223,6 +24243,11 @@ snapshots:
     dependencies:
       lru-cache: 11.1.0
       minipass: 7.1.2
+
+  path-scurry@2.0.2:
+    dependencies:
+      lru-cache: 11.1.0
+      minipass: 7.1.3
 
   path-to-regexp@0.1.13: {}
 
@@ -25731,10 +25756,10 @@ snapshots:
 
   strip-test-selectors@0.1.0: {}
 
-  style-dictionary@5.3.0:
+  style-dictionary@5.5.0:
     dependencies:
-      '@bundled-es-modules/deepmerge': 4.3.1
-      '@bundled-es-modules/glob': 13.0.1
+      '@bundled-es-modules/deepmerge': 4.3.2
+      '@bundled-es-modules/glob': 13.0.6
       '@bundled-es-modules/memfs': 4.17.0
       '@zip.js/zip.js': 2.7.54
       chalk: 5.4.1
