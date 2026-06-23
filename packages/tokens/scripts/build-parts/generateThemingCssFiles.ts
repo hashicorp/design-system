@@ -32,6 +32,17 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
     // CSS file for combined `system/light/dark` themes in the same file (using `.class` selectors)
     if (method.startsWith('css-selectors')) {
 
+      // emit the `color-scheme` declarations up-front, so native UI (scrollbars, form controls, etc.) matches the active theme/mode
+      // note: the `--advanced` format also exposes the explicit `.hds-mode-cds-*` selectors, so we declare their scheme too
+      const colorSchemeSelectors = [':root', '.hds-theme-system', '.hds-theme-light', '.hds-theme-dark'];
+      if (method === 'css-selectors--advanced') {
+        colorSchemeSelectors.push('.hds-mode-cds-g0', '.hds-mode-cds-g10', '.hds-mode-cds-g90', '.hds-mode-cds-g100');
+      }
+      outputContent += getColorSchemeDeclarations(colorSchemeSelectors);
+
+      // add an intro comment for the tokens that acts as a separator
+      outputContent += getDesignTokensIntroComment();
+
       // this is the `:root`-only fallback if no theme is applied at all (we use the light/`cds-g0` mode)
       if (method === 'css-selectors') {
         outputContent += `${cds0ThemedSource}\n\n`;
@@ -74,13 +85,14 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
     // SCSS file for mixins
     if (method === 'scss-mixins') {
       // these are the mixins that can be used to include the "themed" tokens
+      // note: each themed mixin also injects a matching `color-scheme` (so native UI follows the theme/mode), while the `default` mixin is left as-is
       outputContent += `@mixin hds-theme-default() { ${defaultThemedSource} }\n\n`;
-      outputContent += `@mixin hds-theme-light() { ${cds0ThemedSource} }\n\n`;
-      outputContent += `@mixin hds-theme-dark() { ${cds100ThemedSource} }\n\n`;
-      outputContent += `@mixin hds-mode-cds0() { ${cds0ThemedSource} }\n\n`;
-      outputContent += `@mixin hds-mode-cds10() { ${cds10ThemedSource} }\n\n`;
-      outputContent += `@mixin hds-mode-cds90() { ${cds90ThemedSource} }\n\n`;
-      outputContent += `@mixin hds-mode-cds100() { ${cds100ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-light() { ${withColorScheme(cds0ThemedSource, 'light')} }\n\n`;
+      outputContent += `@mixin hds-theme-dark() { ${withColorScheme(cds100ThemedSource, 'dark')} }\n\n`;
+      outputContent += `@mixin hds-mode-cds0() { ${withColorScheme(cds0ThemedSource, 'light')} }\n\n`;
+      outputContent += `@mixin hds-mode-cds10() { ${withColorScheme(cds10ThemedSource, 'light')} }\n\n`;
+      outputContent += `@mixin hds-mode-cds90() { ${withColorScheme(cds90ThemedSource, 'dark')} }\n\n`;
+      outputContent += `@mixin hds-mode-cds100() { ${withColorScheme(cds100ThemedSource, 'dark')} }\n\n`;
 
       // this is the mixin that needs to be used to include the common tokens, shared across themes
       outputContent += `@mixin hds-theme-common() { ${commonSource} }\n\n`;
@@ -92,6 +104,60 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
     await fs.ensureDir(outputFolder);
     await fs.writeFile(`${outputFolder}tokens.css`, outputTokensCss);
   }
+}
+
+// injects a `color-scheme` declaration as the first property inside the leading `:root` block of a source (used by the SCSS "mixins" format)
+function withColorScheme(source: string, value: string): string {
+  return source.replace(/^:root\s*{/, `:root {\n  color-scheme: ${value};\n`);
+}
+
+// the `color-scheme` value to use for each theme/mode selector
+const COLOR_SCHEME_BY_SELECTOR: Record<string, string> = {
+  // support both schemes, so the document-level scrollbar and any unthemed surface follow the OS preference by default
+  ':root': 'light dark',
+  // declare support for both schemes, so native controls resolve via the OS `prefers-color-scheme` setting automatically
+  '.hds-theme-system': 'light dark',
+  // force light/dark-rendered native controls, so they match the explicitly chosen theme
+  '.hds-theme-light': 'light',
+  '.hds-theme-dark': 'dark',
+  // align each Carbon mode with its lightness
+  '.hds-mode-cds-g0': 'light',
+  '.hds-mode-cds-g10': 'light',
+  '.hds-mode-cds-g90': 'dark',
+  '.hds-mode-cds-g100': 'dark',
+};
+
+// builds a block of standalone `color-scheme` rules for the given selectors
+function getColorSchemeDeclarations(selectors: string[]): string {
+  let comment = '';
+  comment += '\n/*\n\n';
+  comment += 'COLOR SCHEMES\n';
+  comment += '\n';
+  comment += 'These `color-scheme` declarations make native UI (scrollbars, form controls, etc.) adapt to the active theme/mode.\n';
+  comment += '\n';
+  comment += 'Known platform limitations: some OS-drawn widgets (eg. the native `<select>` popup on macOS) always follow the OS appearance, regardless of `color-scheme`.\n';
+  comment += 'With `.hds-theme-system` this matches (it defers to the OS anyway), but `.hds-theme-light`/`.hds-theme-dark` color schemes are ignored for these widgets.\n';
+  comment += 'This is by "CSS Color Adjustment Module Level 1" specs (the scheme is "negotiated" with the OS) and cannot be controlled via CSS; everything else adapts correctly.\n';
+  comment += '\n*/\n';
+
+  let code = '';
+  for (const selector of selectors) {
+    code += `${selector} { color-scheme: ${COLOR_SCHEME_BY_SELECTOR[selector]}; }\n`;
+  }
+
+  return `${comment}\n${code}\n`;
+}
+
+function getDesignTokensIntroComment(): string {
+  let comment = '';
+  comment += '\n/*\n\n';
+  comment += 'DESIGN TOKENS (CSS VARIABLES) FOR THE DIFFERENT THEMES/MODES\n';
+  comment += '\n';
+  comment += 'The declarations below define the value of each design token (CSS variable) for every theme/mode,\n';
+  comment += 'scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.\n';
+  comment += '\n*/\n';
+
+  return `${comment}\n`;
 }
 
 function getCssVariablesStalenessComment(): string {
