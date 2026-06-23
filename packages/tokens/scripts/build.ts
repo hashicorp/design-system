@@ -8,6 +8,7 @@ import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
 import chalk from 'chalk';
+import { isEqual } from 'lodash-es';
 
 import fs from 'fs-extra';
 import path from 'path';
@@ -47,8 +48,10 @@ for (const mode of modes) {
         if (slice.$modes) {
           if (mode in slice.$modes) {
             // extra validation to catch instances where the `default` mode value is different from the `$value`
-            if (mode === 'default' && slice.$modes[mode] !== slice.$value) {
-              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${tokenPath.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
+            // note: we use `isEqual` for a deep/structural comparison so that object values (eg. the new DTCG `dimension` format `{ value, unit }`)
+            // and array values (eg. the `cubicBezier` timing functions) don't trigger false positives when they are structurally equal
+            if (mode === 'default' && !isEqual(slice.$modes[mode], slice.$value)) {
+              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${tokenPath.join('.')}}' with value different than '$value' (\`${JSON.stringify(slice.$modes[mode])}\` instead of the expected \`${JSON.stringify(slice.$value)}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
             }
             // if the $mode entry value is an object, loop over its entries and override their counterparts in the the main token object
             if (typeof slice.$modes[mode] === 'object') {
