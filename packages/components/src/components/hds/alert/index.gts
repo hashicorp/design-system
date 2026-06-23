@@ -32,7 +32,7 @@ class HdsAlertGenericDeprecated extends Component<{ Blocks: { default: [] } }> {
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
     deprecate(
-      'The "Generic" contextual component yielded by "Hds::Alert" is deprecated. Use "GenericAbove" or "GenericBelow" instead.',
+      'The "Generic" contextual component yielded by "Hds::Alert" is deprecated. Use "GenericContent" or "GenericFooter" instead.',
       false,
       {
         id: 'hds.alert.use-generic-above-or-generic-below',
@@ -78,11 +78,11 @@ export interface HdsAlertSignature {
         Title?: typeof HdsAlertTitle;
         Description?: typeof HdsAlertDescription;
         /**
-         * @deprecated Use "GenericAbove" or "GenericBelow" instead.
+         * @deprecated Use "GenericContent" or "GenericFooter" instead.
          */
         Generic?: typeof HdsAlertGenericDeprecated;
-        GenericAbove?: typeof HdsYield;
-        GenericBelow?: typeof HdsYield;
+        GenericContent?: typeof HdsYield;
+        GenericFooter?: typeof HdsYield;
         LinkStandalone?: WithBoundArgs<typeof HdsLinkStandalone, 'size'>;
         Button?: WithBoundArgs<typeof HdsButton, 'size'>;
       },
@@ -237,7 +237,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
           {{yield (hash Description=HdsAlertDescription)}}
         </div>
 
-        {{yield (hash GenericAbove=HdsYield)}}
+        {{yield (hash GenericContent=HdsYield)}}
 
         <div class="hds-alert__actions">
           {{yield
@@ -249,7 +249,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
         </div>
 
         {{yield (hash Generic=HdsAlertGenericDeprecated)}}
-        {{yield (hash GenericBelow=HdsYield)}}
+        {{yield (hash GenericFooter=HdsYield)}}
       </div>
 
       {{#if this.onDismiss}}

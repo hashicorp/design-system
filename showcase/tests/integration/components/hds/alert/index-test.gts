@@ -191,7 +191,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // GENERIC
 
-  // Note: The "Generic" yielded block is deprecated and will be removed in favor of "GenericAbove" and "GenericBelow"
+  // Note: The "Generic" yielded block is deprecated and will be removed in favor of "GenericContent" and "GenericFooter"
   test('it should render any content passed to the "generic" contextual component', async function (assert) {
     await render(
       <template>
@@ -205,8 +205,8 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render any content passed to the "genericAbove" contextual component', async function (assert) {
     await render(
       <template>
-        <HdsAlert @type="inline" id="test-alert" as |A|><A.GenericAbove><pre
-            >test</pre></A.GenericAbove></HdsAlert>
+        <HdsAlert @type="inline" id="test-alert" as |A|><A.GenericContent><pre
+            >test</pre></A.GenericContent></HdsAlert>
       </template>,
     );
     assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
@@ -215,8 +215,8 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render any content passed to the "genericBelow" contextual component', async function (assert) {
     await render(
       <template>
-        <HdsAlert @type="inline" id="test-alert" as |A|><A.GenericBelow><pre
-            >test</pre></A.GenericBelow></HdsAlert>
+        <HdsAlert @type="inline" id="test-alert" as |A|><A.GenericFooter><pre
+            >test</pre></A.GenericFooter></HdsAlert>
       </template>,
     );
     assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
