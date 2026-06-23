@@ -2,6 +2,55 @@
  * Do not edit directly, this file was auto-generated.
  */
 
+/*
+
+COLOR SCHEMES
+
+These `color-scheme` declarations make native UI (scrollbars, form controls, etc.) adapt to the active theme/mode.
+
+Known platform limitations: some OS-drawn widgets (eg. the native `<select>` popup on macOS) always follow the OS appearance, regardless of `color-scheme`.
+With `.hds-theme-system` this matches (it defers to the OS anyway), but `.hds-theme-light`/`.hds-theme-dark` color schemes are ignored for these widgets.
+This is by "CSS Color Adjustment Module Level 1" specs (the scheme is "negotiated" with the OS) and cannot be controlled via CSS; everything else adapts correctly.
+
+*/
+
+:root {
+  color-scheme: light;
+}
+.hds-theme-system {
+  color-scheme: light dark;
+}
+.hds-theme-light {
+  color-scheme: light;
+}
+.hds-theme-dark {
+  color-scheme: dark;
+}
+.hds-theme-default {
+  color-scheme: light;
+}
+.hds-mode-cds-g0 {
+  color-scheme: light;
+}
+.hds-mode-cds-g10 {
+  color-scheme: light;
+}
+.hds-mode-cds-g90 {
+  color-scheme: dark;
+}
+.hds-mode-cds-g100 {
+  color-scheme: dark;
+}
+
+/*
+
+DESIGN TOKENS (CSS VARIABLES) FOR THE DIFFERENT THEMES/MODES
+
+The declarations below define the value of each design token (CSS variable) for every theme/mode,
+scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
+
+*/
+
 :root,
 .hds-theme-default {
   --token-accordion-card-gap-large: 12px;

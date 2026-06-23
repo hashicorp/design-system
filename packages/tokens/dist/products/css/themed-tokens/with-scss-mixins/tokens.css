@@ -1049,6 +1049,8 @@
 
 @mixin hds-theme-light() {
   :root {
+    color-scheme: light;
+
     --token-accordion-card-gap-large: 0px;
     --token-accordion-card-gap-medium: 0px;
     --token-accordion-card-gap-small: 0px;
@@ -1673,6 +1675,8 @@
 
 @mixin hds-theme-dark() {
   :root {
+    color-scheme: dark;
+
     --token-accordion-card-gap-large: 0px;
     --token-accordion-card-gap-medium: 0px;
     --token-accordion-card-gap-small: 0px;
@@ -2297,6 +2301,8 @@
 
 @mixin hds-mode-cds0() {
   :root {
+    color-scheme: light;
+
     --token-accordion-card-gap-large: 0px;
     --token-accordion-card-gap-medium: 0px;
     --token-accordion-card-gap-small: 0px;
@@ -2921,6 +2927,8 @@
 
 @mixin hds-mode-cds10() {
   :root {
+    color-scheme: light;
+
     --token-accordion-card-gap-large: 0px;
     --token-accordion-card-gap-medium: 0px;
     --token-accordion-card-gap-small: 0px;
@@ -3545,6 +3553,8 @@
 
 @mixin hds-mode-cds90() {
   :root {
+    color-scheme: dark;
+
     --token-accordion-card-gap-large: 0px;
     --token-accordion-card-gap-medium: 0px;
     --token-accordion-card-gap-small: 0px;
@@ -4169,6 +4179,8 @@
 
 @mixin hds-mode-cds100() {
   :root {
+    color-scheme: dark;
+
     --token-accordion-card-gap-large: 0px;
     --token-accordion-card-gap-medium: 0px;
     --token-accordion-card-gap-small: 0px;
