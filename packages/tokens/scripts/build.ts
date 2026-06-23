@@ -197,11 +197,17 @@ StyleDictionary.registerTransform({
     return token.$type === 'dimension';
   },
   transform: function (token: DesignToken) {
-    const val = parseFloat(token.$value);
+    // the `dimension` token type can come in two formats:
+    // - the standard format, where `$value` is a string/number and the `unit` is a sibling property of the token
+    // - the new DTCG format, where `$value` is an object with the `{ value, unit }` shape (eg. `{ "value": 4, "unit": "px" }`)
+    const isDtcgObjectDimensionValue = typeof token.$value === 'object' && token.$value !== null && 'value' in token.$value && 'unit' in token.$value;
+    const rawValue = isDtcgObjectDimensionValue ? token.$value.value : token.$value;
+    const unit = isDtcgObjectDimensionValue ? token.$value.unit : token.unit;
+    const val = parseFloat(rawValue);
     if (isNaN(val)) {
-      console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot use it as dimension/unit.\n`);
+      console.error(`🚨 Invalid Number: '${token.name}: ${JSON.stringify(token.$value)}' is not a valid number, cannot use it as dimension/unit.\n`);
     }
-    return `${token.$value}${token.unit}`;
+    return `${rawValue}${unit}`;
   }
 });
 
