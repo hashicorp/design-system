@@ -3,10 +3,21 @@
 module.exports = {
   plugins: ['prettier-plugin-ember-template-tag'],
   trailingComma: 'es5',
+
+  jsdocPrintWidth: 80,
+
   overrides: [
     {
-      files: '*.{js,gjs,ts,gts,mjs,mts,cjs,cts}',
+      files: '*.{ts,mts,cts,js,cjs,mjs}',
       options: {
+        singleQuote: true,
+        plugins: ['prettier-plugin-jsdoc'],
+      },
+    },
+    {
+      files: '*.{gjs,gts}',
+      options: {
+        plugins: ['prettier-plugin-ember-template-tag'],
         singleQuote: true,
         templateSingleQuote: false,
       },

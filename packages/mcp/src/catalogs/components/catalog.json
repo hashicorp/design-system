@@ -1,0 +1,119 @@
+{
+  "updatedAt": "2026-06-22T19:11:01.006Z",
+  "components": [
+    {
+      "name": "HdsAccordion",
+      "sourcePath": "./components/hds/accordion/index.gts",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "forceState",
+          "type": "'open' | 'close'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'card' | 'flush'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default",
+          "yields": [
+            {
+              "name": "Item",
+              "type": "WithBoundArgs< typeof HdsAccordionItem, 'titleTag' | 'size' | 'type' | 'forceState' >",
+              "kind": "component",
+              "componentName": "HdsAccordionItem",
+              "sourcePath": "./item/index.gts",
+              "boundArgs": [
+                "titleTag",
+                "size",
+                "type",
+                "forceState"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HdsAccordionItem",
+      "sourcePath": "./components/hds/accordion/item/index.gts",
+      "summary": "TODO",
+      "args": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "containsInteractive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "forceState",
+          "type": "'open' | 'close'",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "isStatic",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onClickToggle",
+          "type": "(event: MouseEvent, ...args: any[]) => void",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large'",
+          "required": false
+        },
+        {
+          "name": "titleTag",
+          "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'card' | 'flush'",
+          "required": false
+        }
+      ],
+      "blocks": [
+        {
+          "name": "content",
+          "yields": [
+            {
+              "name": "close",
+              "type": "(...args: any[]) => void",
+              "kind": "function"
+            }
+          ]
+        },
+        {
+          "name": "toggle"
+        }
+      ]
+    }
+  ]
+}

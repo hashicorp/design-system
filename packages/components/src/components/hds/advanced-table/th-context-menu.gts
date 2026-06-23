@@ -15,7 +15,7 @@ import { on } from '@ember/modifier';
 import HdsDropdown from '../dropdown/index.gts';
 import hdsT from '../../../helpers/hds-t.ts';
 
-import type { HdsDropdownSignature } from '../dropdown/index.gts';
+import type { HdsDropdownSignature } from '../dropdown/index.types.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.gts';
 import type { HdsAdvancedTableSignature } from './index.gts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.gts';

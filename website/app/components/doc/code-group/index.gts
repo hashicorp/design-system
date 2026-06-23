@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2026
+ * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
@@ -312,12 +312,16 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
           {{if this.hasFooter 'doc-code-group__code-snippet--has-footer' ''}}"
         {{this.setCodeElementTabIndex}}
       >
-        <CodeBlock
-          @code={{this.currentSnippet.snippet}}
-          @language={{this.currentSnippet.language}}
-          @theme="github-dark"
-          @showCopyButton={{false}}
-        />
+        {{#if this.fastboot.isFastBoot}}
+          <pre><code>{{this.currentSnippet.snippet}}</code></pre>
+        {{else}}
+          <CodeBlock
+            @code={{this.currentSnippet.snippet}}
+            @language={{this.currentSnippet.language}}
+            @theme="github-dark"
+            @showCopyButton={{false}}
+          />
+        {{/if}}
         {{#if this.hasFooter}}
           <div class="doc-code-group__code-snippet-footer">
             <DocCodeGroupExpandButton

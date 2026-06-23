@@ -8,7 +8,7 @@ import { service } from '@ember/service';
 
 import HdsDropdown from '../dropdown/index.gts';
 
-import type { HdsDropdownSignature } from '../dropdown/index.gts';
+import type { HdsDropdownSignature } from '../dropdown/index.types.ts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.gts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 

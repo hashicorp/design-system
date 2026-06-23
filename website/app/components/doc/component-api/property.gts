@@ -1,14 +1,16 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/template';
 import { or, eq } from 'ember-truth-helpers';
 import type { WithBoundArgs } from '@glint/template';
 import { hash } from '@ember/helper';
 
 import DocBadge from 'website/components/doc/badge';
 import DocBanner from 'website/components/doc/banner';
+import type { DocComponentApiProperty as DocComponentApiPropertyShape } from 'website/shared/component-api-manifest';
 
 export interface DocComponentApiPropertySignature {
   Args: {
@@ -17,8 +19,11 @@ export interface DocComponentApiPropertySignature {
     required?: boolean;
     deprecated?: boolean;
     values?: string[];
-    default?: string;
+    default?: string | number | boolean;
     valueNote?: string;
+    description?: string;
+    remarks?: string;
+    links?: DocComponentApiPropertyShape['links'];
   };
   Blocks: {
     default: [
@@ -30,7 +35,105 @@ export interface DocComponentApiPropertySignature {
   Element: HTMLDivElement;
 }
 
-const DocComponentApiProperty: TemplateOnlyComponent<DocComponentApiPropertySignature> =
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function markdownToInlineHtml(markdown: string): string {
+  const codeSnippets: string[] = [];
+
+  const withCodePlaceholders = markdown.replace(
+    /`([^`]+)`/gu,
+    (_match, code) => {
+      const placeholder = `@@HDS_CODE_SNIPPET_${codeSnippets.length}@@`;
+      codeSnippets.push(`<code>${code}</code>`);
+      return placeholder;
+    },
+  );
+
+  const withLinks = withCodePlaceholders.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/gu,
+    '<a href="$2">$1</a>',
+  );
+
+  const withEmphasis = withLinks
+    .replace(
+      /(^|[\s([{"'])_(\S(?:.*?\S)?)_(?=$|[\s)\]}"'.,!?;:])/gu,
+      '$1<em>$2</em>',
+    )
+    .replace(
+      /(^|[\s([{"'])\*(\S(?:.*?\S)?)\*(?=$|[\s)\]}"'.,!?;:])/gu,
+      '$1<em>$2</em>',
+    );
+
+  const withLineBreaks = withEmphasis.replace(/\n/gu, '<br />');
+
+  return withLineBreaks.replace(
+    /@@HDS_CODE_SNIPPET_(\d+)@@/gu,
+    (_match, index) => {
+      const snippet = codeSnippets[Number(index)];
+      return snippet ?? '';
+    },
+  );
+}
+
+export default class DocComponentApiProperty extends Component<DocComponentApiPropertySignature> {
+  get descriptionHtml() {
+    if (
+      this.args.description === undefined ||
+      this.args.description.length === 0
+    ) {
+      return undefined;
+    }
+
+    return htmlSafe(markdownToInlineHtml(this.args.description));
+  }
+
+  get remarksHtml() {
+    if (this.args.remarks === undefined || this.args.remarks.length === 0) {
+      return undefined;
+    }
+
+    return htmlSafe(markdownToInlineHtml(this.args.remarks));
+  }
+
+  get linksHtml() {
+    const links = this.args.links;
+
+    if (Array.isArray(links) === false || links.length === 0) {
+      return undefined;
+    }
+
+    const renderedLinks = links
+      .map((link) => {
+        const href = link.href?.trim();
+
+        if (href === undefined || href.length === 0) {
+          return undefined;
+        }
+
+        const label = link.label?.trim();
+
+        if (label !== undefined && label.length > 0) {
+          return `<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`;
+        }
+
+        return `<a href="${escapeHtml(href)}">${escapeHtml(href)}</a>`;
+      })
+      .filter((link): link is string => link !== undefined);
+
+    if (renderedLinks.length === 0) {
+      return undefined;
+    }
+
+    return htmlSafe(`See also: ${renderedLinks.join(', ')}.`);
+  }
+
   <template>
     <div class="doc-component-api__property">
       {{#if @name}}
@@ -47,6 +150,7 @@ const DocComponentApiProperty: TemplateOnlyComponent<DocComponentApiPropertySign
           {{/if}}
         </div>
       {{/if}}
+
       {{#if (or @values @valueNote)}}
         {{#if @values}}
           <ul class="doc-component-api__property-values" role="list">
@@ -78,12 +182,36 @@ const DocComponentApiProperty: TemplateOnlyComponent<DocComponentApiPropertySign
           </li>
         </ul>
       {{/if}}
-      {{#if (has-block)}}
+
+      {{#if
+        (or this.descriptionHtml this.remarksHtml this.linksHtml (has-block))
+      }}
         <div class="doc-component-api__property-description">
+          {{#if this.descriptionHtml}}
+            {{this.descriptionHtml}}
+          {{/if}}
+
+          {{#if this.remarksHtml}}
+            {{#if this.descriptionHtml}}
+              <br />
+              <br />
+            {{/if}}
+
+            {{this.remarksHtml}}
+          {{/if}}
+
+          {{#if this.linksHtml}}
+            {{#if (or this.descriptionHtml this.remarksHtml)}}
+              <br />
+              <br />
+            {{/if}}
+
+            {{this.linksHtml}}
+          {{/if}}
+
           {{yield (hash Banner=(component DocBanner type="warning"))}}
         </div>
       {{/if}}
     </div>
-  </template>;
-
-export default DocComponentApiProperty;
+  </template>
+}
