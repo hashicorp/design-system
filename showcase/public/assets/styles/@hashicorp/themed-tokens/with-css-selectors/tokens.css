@@ -26,10 +26,10 @@
   --token-accordion-item-toggle-icon-transform-rotate: 180deg;
   --token-accordion-item-toggle-icon-transition-duration: 0.11s;
   --token-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(
-    0.25,
-    0.1,
-    0.25,
-    1
+    0.2,
+    0,
+    0.38,
+    0.9
   );
   --token-accordion-item-toggle-padding-bottom-large: 14px;
   --token-accordion-item-toggle-padding-bottom-medium: 10px;
@@ -644,10 +644,10 @@
     --token-accordion-item-toggle-icon-transform-rotate: 180deg;
     --token-accordion-item-toggle-icon-transition-duration: 0.11s;
     --token-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(
-      0.25,
-      0.1,
-      0.25,
-      1
+      0.2,
+      0,
+      0.38,
+      0.9
     );
     --token-accordion-item-toggle-padding-bottom-large: 14px;
     --token-accordion-item-toggle-padding-bottom-medium: 10px;
@@ -1268,10 +1268,10 @@
     --token-accordion-item-toggle-icon-transform-rotate: 180deg;
     --token-accordion-item-toggle-icon-transition-duration: 0.11s;
     --token-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(
-      0.25,
-      0.1,
-      0.25,
-      1
+      0.2,
+      0,
+      0.38,
+      0.9
     );
     --token-accordion-item-toggle-padding-bottom-large: 14px;
     --token-accordion-item-toggle-padding-bottom-medium: 10px;
@@ -1891,10 +1891,10 @@
   --token-accordion-item-toggle-icon-transform-rotate: 180deg;
   --token-accordion-item-toggle-icon-transition-duration: 0.11s;
   --token-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(
-    0.25,
-    0.1,
-    0.25,
-    1
+    0.2,
+    0,
+    0.38,
+    0.9
   );
   --token-accordion-item-toggle-padding-bottom-large: 14px;
   --token-accordion-item-toggle-padding-bottom-medium: 10px;
@@ -2508,10 +2508,10 @@
   --token-accordion-item-toggle-icon-transform-rotate: 180deg;
   --token-accordion-item-toggle-icon-transition-duration: 0.11s;
   --token-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(
-    0.25,
-    0.1,
-    0.25,
-    1
+    0.2,
+    0,
+    0.38,
+    0.9
   );
   --token-accordion-item-toggle-padding-bottom-large: 14px;
   --token-accordion-item-toggle-padding-bottom-medium: 10px;

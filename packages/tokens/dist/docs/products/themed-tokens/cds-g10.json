@@ -6789,13 +6789,9 @@
     ]
   },
   {
-    "0": 0.2,
-    "1": 0,
-    "2": 0.38,
-    "3": 0.9,
     "key": "{accordion.item.toggle.icon.transition.timing-function}",
     "$type": "cubicBezier",
-    "$value": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+    "$value": "cubic-bezier(0.2, 0, 0.38, 0.9)",
     "$modes": {
       "default": [
         0.25,
@@ -6832,16 +6828,12 @@
       "hds": "the values correspond to the `ease` timing function, the browser's default"
     },
     "original": {
-      "0": 0.2,
-      "1": 0,
-      "2": 0.38,
-      "3": 0.9,
       "$type": "cubicBezier",
       "$value": [
-        0.25,
-        0.1,
-        0.25,
-        1
+        0.2,
+        0,
+        0.38,
+        0.9
       ],
       "$modes": {
         "default": [
