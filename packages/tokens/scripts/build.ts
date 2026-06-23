@@ -53,19 +53,27 @@ for (const mode of modes) {
             if (mode === 'default' && !isEqual(slice.$modes[mode], slice.$value)) {
               console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${tokenPath.join('.')}}' with value different than '$value' (\`${JSON.stringify(slice.$modes[mode])}\` instead of the expected \`${JSON.stringify(slice.$value)}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
             }
-            // if the $mode entry value is an object, loop over its entries and override their counterparts in the the main token object
-            if (typeof slice.$modes[mode] === 'object') {
-              Object.keys(slice.$modes[mode]).forEach((key: string) => {
-                // we use a `null` value when need to "remove" entries from the main token object instead of just overriding them (eg. for comments)
-                if (slice.$modes[mode][key] === null) {
+            // note: a `$modes` entry resolves to one of two shapes, distinguished by whether it carries its own `$value`:
+            // 1) a "standard" value:
+            //      - a primitive value (eg. a number, a string, an alias, etc)
+            //      - an array (eg. the `cubicBezier` timing function like in `accordion.item.toggle.icon.transition.timing-function`)
+            //      - a DTCG object value (eg. the new `dimension` `{ value, unit }` shape) — which replaces `$value` directly.
+            // 2) a "property-override" object:
+            //      - by convention always an object that carries its own `$value`, optionally with sibling props (eg. `unit`/`alpha`, like in `color.palette.alpha-300`).
+            //        its keys override the token's own props, and a `null` value removes that prop from the token (eg. `{ "$value": "{…}", "alpha": null }` drops the alpha).
+            const modeValue = slice.$modes[mode];
+            const isPropertyOverrideObject = typeof modeValue === 'object' && modeValue !== null && !Array.isArray(modeValue) && '$value' in modeValue;
+            if (isPropertyOverrideObject) {
+              // we spread the override object's keys/values over the token's base keys/values
+              Object.keys(modeValue).forEach((key: string) => {
+                if (modeValue[key] === null) {
                   delete slice[key];
                 } else {
-                  slice[key] = slice.$modes[mode][key];
+                  slice[key] = modeValue[key];
                 }
               });
             } else {
-              // otherwise, just replace the `$value` with the `$modes` value
-              slice.$value = slice.$modes[mode];
+              slice.$value = modeValue;
             }
           } else {
             // we want to interrupt the execution of the script if one of the expected modes is missing
