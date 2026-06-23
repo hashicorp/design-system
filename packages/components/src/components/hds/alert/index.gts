@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
+import { assert, deprecate } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { eq } from 'ember-truth-helpers';
@@ -27,6 +27,26 @@ import HdsYield from '../yield/index.gts';
 
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
 import type { HdsIconSignature } from '../icon/index.gts';
+
+class HdsAlertGenericDeprecated extends Component<{ Blocks: { default: [] } }> {
+  constructor(owner: Owner, args: Record<string, never>) {
+    super(owner, args);
+    deprecate(
+      'The "Generic" contextual component yielded by "Hds::Alert" is deprecated. Use "GenericContent" or "GenericFooter" instead.',
+      false,
+      {
+        id: 'hds.alert.use-generic-above-or-generic-below',
+        until: '7.0.0',
+        for: '@hashicorp/design-system-components',
+        since: { available: '6.2.1' },
+      }
+    );
+  }
+  <template>
+    {{! template-lint-disable no-yield-only }}
+    {{yield}}
+  </template>
+}
 
 export const TYPES: HdsAlertTypes[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR: HdsAlertColors = HdsAlertColorValues.Neutral;
@@ -57,7 +77,12 @@ export interface HdsAlertSignature {
       {
         Title?: typeof HdsAlertTitle;
         Description?: typeof HdsAlertDescription;
-        Generic?: typeof HdsYield;
+        /**
+         * @deprecated Use "GenericContent" or "GenericFooter" instead.
+         */
+        Generic?: typeof HdsAlertGenericDeprecated;
+        GenericContent?: typeof HdsYield;
+        GenericFooter?: typeof HdsYield;
         LinkStandalone?: WithBoundArgs<typeof HdsLinkStandalone, 'size'>;
         Button?: WithBoundArgs<typeof HdsButton, 'size'>;
       },
@@ -212,6 +237,8 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
           {{yield (hash Description=HdsAlertDescription)}}
         </div>
 
+        {{yield (hash GenericContent=HdsYield)}}
+
         <div class="hds-alert__actions">
           {{yield
             (hash
@@ -220,7 +247,9 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
             )
           }}
         </div>
-        {{yield (hash Generic=HdsYield)}}
+
+        {{yield (hash Generic=HdsAlertGenericDeprecated)}}
+        {{yield (hash GenericFooter=HdsYield)}}
       </div>
 
       {{#if this.onDismiss}}

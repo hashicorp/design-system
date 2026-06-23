@@ -54,6 +54,10 @@ const SubSectionActions: TemplateOnlyComponent = <template>
             <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
               aliqua.</A.Description>
+            <A.GenericContent>
+              <div class="shw-component-alert-sample-custom-content">This, for
+                example, could be extra text above the actions.</div>
+            </A.GenericContent>
             <A.Button @text="Action" @color="secondary" />
             <A.LinkStandalone
               @icon="plus"
@@ -61,12 +65,10 @@ const SubSectionActions: TemplateOnlyComponent = <template>
               @href="#"
               @color="secondary"
             />
-            <A.Generic>
-              <div
-                class="shw-component-alert-sample-custom-content-after-actions"
-              >This for example could be extra text, specific for a special use
-                case.</div>
-            </A.Generic>
+            <A.GenericFooter>
+              <div class="shw-component-alert-sample-custom-content">This, for
+                example, could be extra text below the actions.</div>
+            </A.GenericFooter>
           </HdsAlert>
         </SG.Item>
       </ShwGrid>

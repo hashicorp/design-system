@@ -5,6 +5,7 @@
 
 import { module, test } from 'qunit';
 import { render, resetOnerror, setupOnerror, find } from '@ember/test-helpers';
+import { registerDeprecationHandler } from '@ember/debug';
 
 import { HdsAlert } from '@hashicorp/design-system-components/components';
 
@@ -190,11 +191,32 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // GENERIC
 
+  // Note: The "Generic" yielded block is deprecated and will be removed in favor of "GenericContent" and "GenericFooter"
   test('it should render any content passed to the "generic" contextual component', async function (assert) {
     await render(
       <template>
         <HdsAlert @type="inline" id="test-alert" as |A|><A.Generic><pre
             >test</pre></A.Generic></HdsAlert>
+      </template>,
+    );
+    assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
+  });
+
+  test('it should render any content passed to the "genericAbove" contextual component', async function (assert) {
+    await render(
+      <template>
+        <HdsAlert @type="inline" id="test-alert" as |A|><A.GenericContent><pre
+            >test</pre></A.GenericContent></HdsAlert>
+      </template>,
+    );
+    assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
+  });
+
+  test('it should render any content passed to the "genericBelow" contextual component', async function (assert) {
+    await render(
+      <template>
+        <HdsAlert @type="inline" id="test-alert" as |A|><A.GenericFooter><pre
+            >test</pre></A.GenericFooter></HdsAlert>
       </template>,
     );
     assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
@@ -384,6 +406,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+
   test('it should throw an assertion if a "compact" alerts is rendered with @icon equal to false', async function (assert) {
     const errorMessage =
       '@icon for "Hds::Alert" with @type "compact" is required';
@@ -398,6 +421,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+
   test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
     const errorMessage =
       '@color for "Hds::Alert" must be one of the following: neutral, highlight, success, warning, critical; received: foo';
@@ -414,5 +438,25 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.throws(function () {
       throw new Error(errorMessage);
     });
+  });
+
+  // DEPRECATION
+
+  test('it should trigger a deprecation warning when the "generic" contextual component is used', async function (assert) {
+    const deprecations: string[] = [];
+    registerDeprecationHandler((message, options, next) => {
+      deprecations.push(options?.id ?? '');
+      next(message, options);
+    });
+    await render(
+      <template>
+        <HdsAlert @type="inline" as |A|><A.Generic><pre
+            >test</pre></A.Generic></HdsAlert>
+      </template>,
+    );
+    assert.ok(
+      deprecations.includes('hds.alert.use-generic-above-or-generic-below'),
+      'deprecation warning is triggered when the "generic" block is used',
+    );
   });
 });
