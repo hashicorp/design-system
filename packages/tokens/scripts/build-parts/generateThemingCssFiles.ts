@@ -33,8 +33,12 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
     if (method.startsWith('css-selectors')) {
 
       // emit the `color-scheme` declarations up-front, so native UI (scrollbars, form controls, etc.) matches the active theme/mode
+      // note: the `--migration`/`--advanced` formats also output the `.hds-theme-default` tokens, so we declare its scheme too
       // note: the `--advanced` format also exposes the explicit `.hds-mode-cds-*` selectors, so we declare their scheme too
       const colorSchemeSelectors = [':root', '.hds-theme-system', '.hds-theme-light', '.hds-theme-dark'];
+      if (method === 'css-selectors--migration' || method === 'css-selectors--advanced') {
+        colorSchemeSelectors.push('.hds-theme-default');
+      }
       if (method === 'css-selectors--advanced') {
         colorSchemeSelectors.push('.hds-mode-cds-g0', '.hds-mode-cds-g10', '.hds-mode-cds-g90', '.hds-mode-cds-g100');
       }
@@ -113,8 +117,10 @@ function withColorScheme(source: string, value: string): string {
 
 // the `color-scheme` value to use for each theme/mode selector
 const COLOR_SCHEME_BY_SELECTOR: Record<string, string> = {
-  // support both schemes, so the document-level scrollbar and any unthemed surface follow the OS preference by default
-  ':root': 'light dark',
+  // the `:root` fallback tokens are always light (`cds-g0`/HDS default), so force `light` to keep native controls in sync
+  ':root': 'light',
+  // the `default` theme uses the (light) standard HDS tokens, so force `light` to match
+  '.hds-theme-default': 'light',
   // declare support for both schemes, so native controls resolve via the OS `prefers-color-scheme` setting automatically
   '.hds-theme-system': 'light dark',
   // force light/dark-rendered native controls, so they match the explicitly chosen theme
