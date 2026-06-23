@@ -25,9 +25,9 @@ import {
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
-const STATES = ['default', 'active', 'hover', 'focus'] as const;
+export const STATES = ['default', 'hover', 'active', 'focus'] as const;
 
-function getMockStateSelector(
+export function getMockStateSelector(
   type: (typeof TYPES)[number],
   state: (typeof STATES)[number],
   containsInteractive: boolean,
@@ -219,66 +219,63 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextH3>AccordionItemButton</ShwTextH3>
 
-  <ShwTextH4>States</ShwTextH4>
+  <ShwTextH4>States (only with parentContainsInteractive=true)</ShwTextH4>
   {{#each SIZES as |size|}}
-    {{#let (array false true) as |booleans|}}
-      {{#each booleans as |bool|}}
-        <ShwFlex
-          @label="size={{size}}, parentContainsInteractive={{bool}}"
-          @gap="2rem"
-          {{style justifyContent="space-between"}}
-          as |SF|
-        >
-          {{#each STATES as |state|}}
-            <SF.Item @label={{state}}>
-              <div
-                class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
-              >
-                <HdsAccordionItemButton
-                  @parentContainsInteractive={{bool}}
-                  @onClickToggle={{NOOP}}
-                  @size={{size}}
-                  mock-state-value={{state}}
-                  aria-label={{state}}
-                />
-              </div>
-            </SF.Item>
-          {{/each}}
-
-          <SF.Item @label="isOpen=true">
-            <div
-              class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
-            >
-              <HdsAccordionItemButton
-                @parentContainsInteractive={{bool}}
-                @isOpen={{true}}
-                @onClickToggle={{NOOP}}
-                @size={{size}}
-                aria-label="open is true"
-              />
-            </div>
-          </SF.Item>
-
-          <SF.Item
-            @label="focus & isOpen=true"
-            {{style width="calc(20% - 2rem)" position="relative"}}
+    <ShwFlex
+      @label="size={{size}}"
+      @gap="2rem"
+      {{style justifyContent="space-between"}}
+      as |SF|
+    >
+      {{#each STATES as |state|}}
+        <SF.Item @label={{state}}>
+          <div
+            class="hds-accordion-item--type-card hds-accordion-item--size-{{size}}
+              shw-component-accordion-standalone-button"
           >
-            <div
-              class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
-            >
-              <HdsAccordionItemButton
-                @parentContainsInteractive={{bool}}
-                @isOpen={{true}}
-                @onClickToggle={{NOOP}}
-                @size={{size}}
-                mock-state-value="focus"
-                aria-label="focused and is open"
-              />
-            </div>
-          </SF.Item>
-        </ShwFlex>
+            <HdsAccordionItemButton
+              @parentContainsInteractive={{true}}
+              @onClickToggle={{NOOP}}
+              @size={{size}}
+              mock-state-value={{state}}
+              aria-label={{state}}
+            />
+          </div>
+        </SF.Item>
       {{/each}}
-    {{/let}}
+
+      <SF.Item @label="isOpen=true">
+        <div
+          class="hds-accordion-item--type-card shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+        >
+          <HdsAccordionItemButton
+            @parentContainsInteractive={{true}}
+            @isOpen={{true}}
+            @onClickToggle={{NOOP}}
+            @size={{size}}
+            aria-label="open is true"
+          />
+        </div>
+      </SF.Item>
+
+      <SF.Item
+        @label="focus & isOpen=true"
+        {{style width="calc(20% - 2rem)" position="relative"}}
+      >
+        <div
+          class="hds-accordion-item--type-card shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+        >
+          <HdsAccordionItemButton
+            @parentContainsInteractive={{true}}
+            @isOpen={{true}}
+            @onClickToggle={{NOOP}}
+            @size={{size}}
+            mock-state-value="focus"
+            aria-label="focused and is open"
+          />
+        </div>
+      </SF.Item>
+    </ShwFlex>
   {{/each}}
 </template>;
 
