@@ -53,7 +53,7 @@ export const contentBlocks = function () {
 
       // NOTE: this regex must match the output created in markdown-process-demos.js
       const demoRegex = new RegExp(
-        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" js="(.*?)" gts="(.*?)" compactGts="(.*?)" custom="(.*?)" customLang="(.*?)" hidePreview="(.*?)" expanded="(.*?)" \?>\n?/,
+        /<\?php start="demo-block" filename="(.*?)"(?: gtsFilename="(.*?)")? hbs="(.*?)" js="(.*?)" gts="(.*?)" compactGts="(.*?)" custom="(.*?)" customLang="(.*?)" hidePreview="(.*?)" expanded="(.*?)" \?>\n?/,
         'g',
       );
 
@@ -62,6 +62,7 @@ export const contentBlocks = function () {
         function (
           _match,
           filename,
+          gtsFilename,
           hbs,
           js,
           gts,
@@ -71,7 +72,7 @@ export const contentBlocks = function () {
           hidePreview,
           expanded,
         ) {
-          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @jsSnippet="${js}" @gtsSnippet="${gts}" @compactGtsSnippet="${compactGts}" @customSnippet="${custom}" @customLang="${customLang}" @hidePreview="${hidePreview}" @isExpanded="${expanded}">\n`;
+          return `<Doc::CodeGroup @filename="${filename}" @gtsFilename="${gtsFilename || ''}" @hbsSnippet="${hbs}" @jsSnippet="${js}" @gtsSnippet="${gts}" @compactGtsSnippet="${compactGts}" @customSnippet="${custom}" @customLang="${customLang}" @hidePreview="${hidePreview}" @isExpanded="${expanded}">\n`;
         },
       );
 

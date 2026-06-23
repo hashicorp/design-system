@@ -29,7 +29,7 @@ module.exports = {
   treeForApp() {
     let backingClasses = new Funnel('docs', {
       destDir: 'components',
-      include: ['**/*.js'],
+      include: ['**/*.js', '**/code-snippets/**/*.gts'],
     });
     return new MergeTrees([backingClasses]);
   },

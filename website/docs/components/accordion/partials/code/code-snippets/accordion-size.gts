@@ -5,7 +5,7 @@ import { HdsAccordion } from '@hashicorp/design-system-components/components';
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsAccordion @size="large" as |A|>
     <A.Item>
-      <:toggle>Item one</:toggle>
+      <:toggle>DIFFERENT COMPONENT</:toggle>
       <:content>
         Additional content for item one
       </:content>

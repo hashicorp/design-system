@@ -23,6 +23,7 @@ import DynamicTemplate from 'website/components/dynamic-template';
 interface DocCodeGroupSignature {
   Args: {
     filename?: string;
+    gtsFilename?: string;
     hbsSnippet?: string;
     jsSnippet?: string;
     gtsSnippet?: string;
@@ -121,8 +122,13 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   // NOTE: the dynamic template requires a component to render a preview. If there is not a component (ex. only a sass/yaml/bash snippet), we hide the preview by default.
   get hidePreview() {
-    // TODO: refactor dynamic template to support gts components: https://hashicorp.atlassian.net/browse/HDS-5833
-    return this.args.hbsSnippet === '' || this.args.hidePreview === 'true';
+    const hasRenderablePreview =
+      (this.args.hbsSnippet && this.args.hbsSnippet !== '') ||
+      (this.args.gtsSnippet &&
+        this.args.gtsSnippet !== '' &&
+        this.args.filename);
+
+    return !hasRenderablePreview || this.args.hidePreview === 'true';
   }
 
   get hbsSnippet() {
@@ -148,6 +154,38 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   get customSnippet() {
     const { customSnippet } = this.args;
     return customSnippet ? unescapeCode(customSnippet) : '';
+  }
+
+  get previewTemplateString() {
+    // For .gts view, the preview comes from a real component module (via
+    // `@componentId`), so we intentionally skip passing a runtime template.
+    if (this.currentView === 'gts' && this.args.gtsSnippet !== '') {
+      return undefined;
+    }
+
+    return this.hbsSnippet === '' ? undefined : this.hbsSnippet;
+  }
+
+  get previewComponentId() {
+    const { filename, gtsFilename } = this.args;
+
+    if (!filename) {
+      return undefined;
+    }
+
+    if (this.currentView === 'gts' && this.args.gtsSnippet !== '') {
+      if (gtsFilename && gtsFilename !== '') {
+        // .gts demos can live under a different component file than the .hbs
+        // classic demo, so prefer an explicit gts filename when provided.
+        return gtsFilename;
+      }
+
+      // Fallback: map `foo.classic` docs entries to the colocated modern
+      // component id (`foo`) used by the .gts demo implementation.
+      return filename.replace(/\.classic$/, '');
+    }
+
+    return filename;
   }
 
   get currentSnippet() {
@@ -282,8 +320,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       {{#if (notEq this.hidePreview true)}}
         <div class="doc-code-group__preview">
           <DynamicTemplate
-            @templateString={{this.hbsSnippet}}
-            @componentId={{@filename}}
+            @templateString={{this.previewTemplateString}}
+            @componentId={{this.previewComponentId}}
           />
         </div>
       {{/if}}

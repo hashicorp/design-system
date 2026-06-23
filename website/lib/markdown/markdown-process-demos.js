@@ -156,6 +156,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           };
 
           let fileNameToForward = '';
+          let gtsFileNameToForward = '';
 
           SUPPORTED_FILE_EXTENSIONS.forEach((ext) => {
             const fileToCheck = `${fileName.trim()}${ext}`;
@@ -181,6 +182,13 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 codeSnippets.compactGts = escapeCode(
                   stripAllIgnores(getCompactGtsSnippet(code)),
                 );
+
+                gtsFileNameToForward = filePath.match(fileNameRegex)?.[1] || '';
+
+                // if there is no classic snippet, forward the gts component path for rendering preview
+                if (!fileNameToForward) {
+                  fileNameToForward = gtsFileNameToForward;
+                }
               }
 
               if (
@@ -197,7 +205,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           });
 
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" custom="${codeSnippets.custom}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" filename="${fileNameToForward}" gtsFilename="${gtsFileNameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" custom="${codeSnippets.custom}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 

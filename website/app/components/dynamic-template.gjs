@@ -19,58 +19,78 @@ export default class DynamicTemplate extends Component {
     let owner = getOwner(this);
     let templateMap = templateOwnerMap.get(owner);
     if (templateMap === undefined) {
-      templateMap = templateOwnerMap.set(owner, new Map());
+      templateMap = new Map();
+      templateOwnerMap.set(owner, templateMap);
     }
     this.templateMap = templateMap;
   }
 
-  get component() {
+  get resolvedComponent() {
     let owner = getOwner(this);
 
-    let { templateString } = this.args;
-    if (!templateString) {
-      return null;
+    let factory = owner.factoryFor(`component:${this.args.componentId}`);
+    if (factory?.class && typeof factory.class === 'function') {
+      return class extends factory.class {};
     }
 
-    let component = this.templateMap.get(templateString);
-    if (component === undefined) {
-      let compiledTemplate;
+    // if component couldn't be found the old way try importing it directly
+    let module;
+    try {
+      module = importSync(`./${this.args.componentId}.gts`);
+    } catch {
       try {
-        compiledTemplate = compileTemplate(templateString);
-      } catch (err) {
-        console.error(err);
-        console.error(templateString);
-        compiledTemplate = compileTemplate(`<DynamicTemplateError />`);
+        module = importSync(`./${this.args.componentId}.js`);
+      } catch {
+        // backing class doesn't exist so just ignore the error
       }
+    }
 
-      component = owner.factoryFor(`component:${this.args.componentId}`);
+    let defaultExport = module?.default;
+    if (typeof defaultExport === 'function') {
+      return defaultExport;
+    }
 
-      if (component) {
-        component = class extends component.class {};
-      } else {
-        // if component couldn't be found the old way try importing it directly
-        let module;
+    return null;
+  }
+
+  get component() {
+    let { componentId } = this.args;
+    let { templateString } = this.args;
+    let cacheKey = `${componentId || ''}::${templateString || ''}`;
+
+    let component = this.templateMap.get(cacheKey);
+    if (component === undefined) {
+      if (templateString) {
+        // .hbs examples are provided as raw template strings, so we compile
+        // them at runtime and attach them to a backing class (if one exists).
+        component = this.resolvedComponent;
+
+        let compiledTemplate;
         try {
-          module = importSync(`./docs/${this.args.componentId}.js`);
-        } catch {
-          // backing class doesn't exist so just ignore the error
+          compiledTemplate = compileTemplate(templateString);
+        } catch (err) {
+          console.error(err);
+          console.error(templateString);
+          compiledTemplate = compileTemplate(`<DynamicTemplateError />`);
         }
 
-        component = module?.default;
-      }
+        if (!component) {
+          component = class extends Component {};
+        }
 
-      if (!component) {
-        component = class extends Component {};
+        setComponentTemplate(compiledTemplate, component);
+      } else {
+        // .gts examples are precompiled modules with their own template + class,
+        // so we render the component by id instead of compiling a template string.
+        component = componentId || null;
       }
-
-      setComponentTemplate(compiledTemplate, component);
 
       // eslint-disable-next-line ember/no-side-effects
-      this.templateMap.set(templateString, component);
+      this.templateMap.set(cacheKey, component);
     }
 
     return component;
   }
 
-  <template>{{component (ensureSafeComponent this.component)}}</template>
+  <template>{{component (ensureSafeComponent this.component this)}}</template>
 }
