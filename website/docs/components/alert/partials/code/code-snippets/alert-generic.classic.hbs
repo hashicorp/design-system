@@ -1,7 +1,12 @@
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Title here</A.Title>
   <A.Description>Description here</A.Description>
-  <A.Generic>
-    [your content here]
-  </A.Generic>
+  <A.GenericContent>
+    [your custom content here]
+  </A.GenericContent>
+  <A.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
+  <A.LinkStandalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
+  <A.GenericFooter>
+    [your custom footer here]
+  </A.GenericFooter>
 </Hds::Alert>
