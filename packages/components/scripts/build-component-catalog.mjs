@@ -90,6 +90,10 @@ function main() {
   }
 
   if (options.component) {
+    generateArgs.push(`--component=${options.component}`);
+  }
+
+  if (options.component) {
     enrichArgs.push(`--component=${options.component}`);
   }
 

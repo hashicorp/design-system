@@ -1,11 +1,16 @@
 /** Copyright IBM Corp. 2021, 2026 SPDX-License-Identifier: MPL-2.0 */
 
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createInterface } from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
+import chalk from 'chalk';
+import ora from 'ora';
+import Table from 'cli-table3';
+import boxen from 'boxen';
+import logSymbols from 'log-symbols';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const COMPONENTS_ROOT = resolve(SCRIPT_DIR, '..');
@@ -14,12 +19,18 @@ const CATALOG_PATH = resolve(
   REPO_ROOT,
   'packages/mcp/src/catalogs/components/catalog.json'
 );
+const DOCS_COMPONENTS_ROOT = resolve(REPO_ROOT, 'website/docs/components');
 const MODEL_PRICING_USD_PER_MILLION_TOKENS = {
+  'openai/gpt-4.1': {
+    input: 2,
+    output: 8,
+  },
   'openai/gpt-4.1-mini': {
     input: 0.4,
     output: 1.6,
   },
 };
+const REVIEW_DOCS_CHAR_LIMIT = 16000;
 
 function toRepoRelativePath(filePath) {
   return filePath.replace(`${REPO_ROOT}/`, '');
@@ -27,6 +38,277 @@ function toRepoRelativePath(filePath) {
 
 function formatUsd(value) {
   return `$${value.toFixed(6)}`;
+}
+
+function normalizeInlineText(text, maxLength = 120) {
+  const normalized = `${text || ''}`.replace(/\s+/gu, ' ').trim();
+
+  if (normalized.length <= maxLength) {
+    return normalized;
+  }
+
+  return `${normalized.slice(0, maxLength - 1)}...`;
+}
+
+function markdownCell(text, maxLength = 120) {
+  return normalizeInlineText(text, maxLength).replace(/\|/gu, '\\|');
+}
+
+function printPanel(title, lines, color = 'cyan') {
+  const panelText = [chalk.bold(title), ...lines].join('\n');
+
+  console.log(
+    boxen(panelText, {
+      padding: 1,
+      margin: { top: 1, bottom: 0 },
+      borderStyle: 'round',
+      borderColor: color,
+    })
+  );
+}
+
+function printTable(headers, rows) {
+  if (!Array.isArray(headers) || headers.length === 0 || !Array.isArray(rows)) {
+    return;
+  }
+
+  const table = new Table({
+    head: headers.map((header) => chalk.bold(header)),
+    style: {
+      head: [],
+      border: [],
+    },
+    wordWrap: true,
+  });
+
+  for (const row of rows) {
+    table.push(row);
+  }
+
+  console.log(table.toString());
+}
+
+function extractYieldNamesFromText(text) {
+  if (typeof text !== 'string' || text.length === 0) {
+    return [];
+  }
+
+  const names = new Set();
+  const scopedRegex = /\[[A-Z]\]\.([A-Za-z_][A-Za-z0-9_]*)/gu;
+  const codeRegex = /`([A-Za-z_][A-Za-z0-9_]*)`/gu;
+  let match;
+
+  while ((match = scopedRegex.exec(text)) !== null) {
+    names.add(match[1]);
+  }
+
+  while ((match = codeRegex.exec(text)) !== null) {
+    names.add(match[1]);
+  }
+
+  return [...names];
+}
+
+function classifyReviewIssues(componentAfter, review) {
+  const groups = {
+    mismatches: [],
+    docsInconsistencies: [],
+    uncertain: [],
+  };
+
+  if (!review || !Array.isArray(review.issues)) {
+    return groups;
+  }
+
+  const blockYieldMap = new Map();
+
+  function isNoIssueText(value) {
+    if (typeof value !== 'string') {
+      return false;
+    }
+
+    return /\b(matches docs|matches the markdown|no issue)\b/iu.test(value);
+  }
+
+  function isLikelyDocsInconsistency(issue) {
+    const joined = `${issue.reason || ''} ${issue.expected || ''} ${issue.actual || ''}`;
+
+    return (
+      /\bdocs?\b/iu.test(joined) &&
+      (/not documented/iu.test(joined) ||
+        /possible omission in docs/iu.test(joined) ||
+        /docs yield/iu.test(joined) ||
+        /omits?/iu.test(joined))
+    );
+  }
+
+  for (const block of componentAfter.blocks || []) {
+    blockYieldMap.set(
+      block.name,
+      new Set((block.yields || []).map((yieldEntry) => yieldEntry.name))
+    );
+  }
+
+  for (const issue of review.issues) {
+    if (
+      isNoIssueText(issue.reason) &&
+      (!issue.expected || issue.expected === '-') &&
+      (!issue.actual || issue.actual === '-')
+    ) {
+      continue;
+    }
+
+    if (issue.kind === 'docs_inconsistency') {
+      groups.docsInconsistencies.push(issue);
+      continue;
+    }
+
+    if (issue.kind === 'uncertain') {
+      groups.uncertain.push(issue);
+      continue;
+    }
+
+    const blockYieldPathMatch = issue.path.match(/^changedBlocks\.([^.]+)\.yields/u);
+
+    if (blockYieldPathMatch) {
+      const blockName = blockYieldPathMatch[1];
+      const yieldedNames = blockYieldMap.get(blockName) || new Set();
+      const mentionedNames = extractYieldNamesFromText(
+        `${issue.expected || ''} ${issue.reason || ''}`
+      );
+      const referencesMissingYields =
+        /missing yields?/iu.test(issue.actual || '') || /not present/iu.test(issue.reason || '');
+
+      if (
+        referencesMissingYields &&
+        mentionedNames.length > 0 &&
+        mentionedNames.every((name) => !yieldedNames.has(name))
+      ) {
+        groups.docsInconsistencies.push({
+          ...issue,
+          kind: 'docs_inconsistency',
+          severity: issue.severity || 'warning',
+          reason: `${issue.reason} (classified as docs/code inconsistency because these yields are not in component signature output)`,
+        });
+        continue;
+      }
+
+      if (isLikelyDocsInconsistency(issue)) {
+        groups.docsInconsistencies.push({
+          ...issue,
+          kind: 'docs_inconsistency',
+          severity: issue.severity || 'warning',
+        });
+        continue;
+      }
+    }
+
+    groups.mismatches.push(issue);
+  }
+
+  return groups;
+}
+
+function printReviewReport(componentName, review, classifiedIssues, usage, cost) {
+  const passed = classifiedIssues.mismatches.length === 0;
+  const statusLabel = passed
+    ? `${logSymbols.success} ${chalk.bold.green('PASS')}`
+    : `${logSymbols.warning} ${chalk.bold.yellow('NEEDS ATTENTION')}`;
+  const confidenceText =
+    typeof review?.confidence === 'number' ? review.confidence.toFixed(2) : 'n/a';
+
+  printPanel(
+    `Review Report: ${componentName}`,
+    [
+      `Status: ${statusLabel}`,
+      `Confidence: ${chalk.bold(confidenceText)}`,
+    ],
+    passed ? 'green' : 'yellow'
+  );
+
+  console.log(chalk.bold.cyan('Usage and Cost'));
+  printTable(
+    ['Metric', 'Value'],
+    [
+      ['Prompt tokens', `${usage.promptTokens}`],
+      ['Completion tokens', `${usage.completionTokens}`],
+      ['Total tokens', `${usage.totalTokens}`],
+      ['Estimated input cost', formatUsd(cost.inputCost)],
+      ['Estimated output cost', formatUsd(cost.outputCost)],
+      ['Estimated total cost', formatUsd(cost.totalCost)],
+    ]
+  );
+
+  if (classifiedIssues.mismatches.length > 0) {
+    console.log(chalk.bold.magenta('Issues'));
+    printTable(
+      ['Path', 'Reason', 'Expected', 'Actual'],
+      classifiedIssues.mismatches.map((issue) => [
+        chalk.cyan(markdownCell(issue.path, 60)),
+        markdownCell(issue.reason, 120),
+        markdownCell(issue.expected || '-', 90),
+        markdownCell(issue.actual || '-', 90),
+      ])
+    );
+  } else {
+    console.log(`${logSymbols.success} ${chalk.green('Issues: none')}`);
+  }
+
+  if (classifiedIssues.docsInconsistencies.length > 0) {
+    console.log(chalk.bold.yellow('Docs Inconsistencies (non-blocking)'));
+    printTable(
+      ['Path', 'Reason', 'Expected', 'Actual'],
+      classifiedIssues.docsInconsistencies.map((issue) => [
+        chalk.yellow(markdownCell(issue.path, 60)),
+        markdownCell(issue.reason, 120),
+        markdownCell(issue.expected || '-', 90),
+        markdownCell(issue.actual || '-', 90),
+      ])
+    );
+  }
+
+  if (classifiedIssues.uncertain.length > 0) {
+    console.log(chalk.bold.blue('Uncertain (needs human check)'));
+    printTable(
+      ['Path', 'Reason', 'Expected', 'Actual'],
+      classifiedIssues.uncertain.map((issue) => [
+        chalk.blue(markdownCell(issue.path, 60)),
+        markdownCell(issue.reason, 120),
+        markdownCell(issue.expected || '-', 90),
+        markdownCell(issue.actual || '-', 90),
+      ])
+    );
+  }
+
+  if (Array.isArray(review?.notes) && review.notes.length > 0) {
+    console.log(chalk.bold.yellow('Notes'));
+
+    for (const note of review.notes) {
+      console.log(`${chalk.yellow('•')} ${normalizeInlineText(note, 220)}`);
+    }
+  }
+}
+
+function startTaskSpinner(text) {
+  if (!process.stdout.isTTY) {
+    console.log(`${logSymbols.info} ${text}`);
+
+    return {
+      stopAndPersist(options = {}) {
+        const symbol = options.symbol || logSymbols.info;
+        const message = options.text || text;
+        console.log(`${symbol} ${message}`);
+      },
+      set text(nextText) {
+        console.log(`${logSymbols.info} ${nextText}`);
+      },
+    };
+  }
+
+  return ora({
+    text,
+    color: 'cyan',
+  }).start();
 }
 
 function normalizeGroupSlug(groupName) {
@@ -133,10 +415,55 @@ function getComponentDocSlug(component) {
   return fallback;
 }
 
+let cachedComponentApiDocPaths = null;
+
+function collectComponentApiDocPaths(rootDir) {
+  if (!existsSync(rootDir)) {
+    return [];
+  }
+
+  const foundPaths = [];
+  const queue = [rootDir];
+
+  while (queue.length > 0) {
+    const currentDir = queue.pop();
+    const entries = readdirSync(currentDir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const entryPath = resolve(currentDir, entry.name);
+
+      if (entry.isDirectory()) {
+        queue.push(entryPath);
+        continue;
+      }
+
+      if (
+        entry.isFile() &&
+        (entry.name === 'component-api.md' || entry.name === 'component-api.mdx')
+      ) {
+        foundPaths.push(entryPath);
+      }
+    }
+  }
+
+  return foundPaths;
+}
+
+function getAllComponentApiDocPaths() {
+  if (!cachedComponentApiDocPaths) {
+    cachedComponentApiDocPaths = collectComponentApiDocPaths(DOCS_COMPONENTS_ROOT);
+  }
+
+  return cachedComponentApiDocPaths;
+}
+
 function getDocsFileCandidates(component) {
   const slug = getComponentDocSlug(component);
+  const discoveredPaths = getAllComponentApiDocPaths().filter((path) =>
+    path.includes(`/${slug}/`)
+  );
 
-  return [
+  const candidates = [
     resolve(
       REPO_ROOT,
       `website/docs/components/${slug}/partials/code/component-api.md`
@@ -146,6 +473,12 @@ function getDocsFileCandidates(component) {
       `website/docs/components/${slug}/partials/code/component-api.mdx`
     ),
   ];
+
+  for (const discoveredPath of discoveredPaths) {
+    candidates.push(discoveredPath);
+  }
+
+  return [...new Set(candidates)];
 }
 
 function componentDisplayName(component) {
@@ -628,6 +961,19 @@ function sanitizeReviewPayload(payload) {
           }
 
           const nextIssue = { path, reason };
+          const kind = sanitizeString(issue.kind);
+          const severity = sanitizeString(issue.severity);
+
+          if (
+            kind &&
+            ['mismatch', 'docs_inconsistency', 'uncertain'].includes(kind)
+          ) {
+            nextIssue.kind = kind;
+          }
+
+          if (severity && ['error', 'warning', 'info'].includes(severity)) {
+            nextIssue.severity = severity;
+          }
 
           if (expected) {
             nextIssue.expected = expected;
@@ -651,6 +997,175 @@ function sanitizeReviewPayload(payload) {
     issues,
     notes,
   };
+}
+
+function createCompactReviewSnapshot(componentBefore, componentAfter) {
+  const argBeforeMap = new Map((componentBefore.args || []).map((arg) => [arg.name, arg]));
+  const blockBeforeMap = new Map((componentBefore.blocks || []).map((block) => [block.name, block]));
+  const changedArgs = [];
+  const changedBlocks = [];
+
+  for (const argAfter of componentAfter.args || []) {
+    const argBefore = argBeforeMap.get(argAfter.name) || {};
+    const hasSummaryChange = (argAfter.summary || null) !== (argBefore.summary || null);
+    const hasDefaultChange = (argAfter.default || null) !== (argBefore.default || null);
+
+    if (!hasSummaryChange && !hasDefaultChange) {
+      continue;
+    }
+
+    const entry = {
+      name: argAfter.name,
+    };
+
+    if (hasSummaryChange) {
+      entry.summary = argAfter.summary || null;
+    }
+
+    if (hasDefaultChange) {
+      entry.default = argAfter.default || null;
+    }
+
+    changedArgs.push(entry);
+  }
+
+  for (const blockAfter of componentAfter.blocks || []) {
+    const blockBefore = blockBeforeMap.get(blockAfter.name) || {};
+    const changedBlock = {
+      name: blockAfter.name,
+    };
+    let hasChanges = false;
+
+    if ((blockAfter.summary || null) !== (blockBefore.summary || null)) {
+      changedBlock.summary = blockAfter.summary || null;
+      hasChanges = true;
+    }
+
+    const yieldBeforeMap = new Map(
+      (blockBefore.yields || []).map((yieldEntry) => [yieldEntry.name, yieldEntry])
+    );
+    const changedYields = [];
+
+    for (const yieldAfter of blockAfter.yields || []) {
+      const yieldBefore = yieldBeforeMap.get(yieldAfter.name) || {};
+
+      if ((yieldAfter.summary || null) === (yieldBefore.summary || null)) {
+        continue;
+      }
+
+      changedYields.push({
+        name: yieldAfter.name,
+        summary: yieldAfter.summary || null,
+      });
+    }
+
+    if (changedYields.length > 0) {
+      changedBlock.yields = changedYields;
+      hasChanges = true;
+    }
+
+    if (hasChanges) {
+      changedBlocks.push(changedBlock);
+    }
+  }
+
+  return {
+    componentName: componentAfter.name,
+    summaryBefore: componentBefore.summary || null,
+    summaryAfter: componentAfter.summary || null,
+    changedArgs,
+    changedBlocks,
+  };
+}
+
+function extractRelevantDocsSections(docsText, componentAfter) {
+  if (typeof docsText !== 'string' || docsText.length === 0) {
+    return '';
+  }
+
+  const lines = docsText.split(/\r?\n/u);
+  const wantedArgNames = new Set((componentAfter.args || []).map((arg) => arg.name));
+  const wantedBlockNames = new Set((componentAfter.blocks || []).map((block) => block.name));
+  const wantedYieldNames = new Set();
+
+  for (const block of componentAfter.blocks || []) {
+    for (const yieldEntry of block.yields || []) {
+      wantedYieldNames.add(yieldEntry.name);
+    }
+  }
+
+  const selected = [];
+  let section = null;
+  let sectionHasUsefulContent = false;
+
+  function flushSection() {
+    if (!section) {
+      return;
+    }
+
+    if (section.level <= 3 || sectionHasUsefulContent) {
+      selected.push(...section.lines);
+    }
+
+    section = null;
+    sectionHasUsefulContent = false;
+  }
+
+  for (const line of lines) {
+    const headingMatch = line.match(/^(#{1,6})\s+/u);
+
+    if (headingMatch) {
+      const level = headingMatch[1].length;
+
+      if (section && level <= section.level) {
+        flushSection();
+      }
+
+      if (!section) {
+        section = {
+          level,
+          lines: [line],
+        };
+        continue;
+      }
+    }
+
+    if (!section) {
+      continue;
+    }
+
+    section.lines.push(line);
+
+    if (line.includes('## Component API')) {
+      sectionHasUsefulContent = true;
+    }
+
+    const nameMatch = line.match(/@name="([^"]+)"/u);
+
+    if (nameMatch?.[1]) {
+      const name = nameMatch[1].trim();
+
+      if (wantedArgNames.has(name) || wantedBlockNames.has(name) || wantedYieldNames.has(name)) {
+        sectionHasUsefulContent = true;
+      }
+    }
+
+    const contextualHeadingMatch = line.match(/^####\s+\[A\]\.([A-Za-z0-9_]+)\s*$/u);
+
+    if (contextualHeadingMatch?.[1] && wantedYieldNames.has(contextualHeadingMatch[1])) {
+      sectionHasUsefulContent = true;
+    }
+  }
+
+  flushSection();
+
+  const reduced = selected.join('\n').trim();
+
+  if (reduced.length <= REVIEW_DOCS_CHAR_LIMIT) {
+    return reduced;
+  }
+
+  return `${reduced.slice(0, REVIEW_DOCS_CHAR_LIMIT)}\n\n[truncated for review token budget]`;
 }
 
 function extractContextualYieldSummaries(docsText) {
@@ -789,9 +1304,7 @@ function backfillContextualYieldSummaries(component, enrichment, docsText) {
   };
 }
 
-async function enrichWithCopilot({ component, docsText, docPath, token }) {
-
-  const model = process.env.COPILOT_MODEL || 'openai/gpt-4.1-mini';
+async function enrichWithCopilot({ component, docsText, docPath, token, model }) {
 
   const systemPrompt = [
     'You extract structured component API docs from markdown.',
@@ -800,6 +1313,14 @@ async function enrichWithCopilot({ component, docsText, docPath, token }) {
     'Do not invent args, blocks, or yields.',
     'Important: contextual components in docs can appear under headings like "#### [A].Item".',
     'If present, map that narrative description to the root component yield named "Item".',
+    'Do not shorten to first sentence only. Capture complete behavior from the property prose.',
+    'For each summary, include all materially relevant details present in the docs, including:',
+    '- defaults and fallback behavior (for example, what happens when an arg is omitted)',
+    '- conditional behavior and cross-argument dependencies',
+    '- constraints or unsupported combinations',
+    '- callback argument details when documented',
+    'Prefer 1-3 sentences copied/normalized from docs over paraphrased shorthand.',
+    'If prose references a related arg (example: caption and sortedMessageText), include that relationship.',
     'If a field is not documented, omit it.',
     'Output shape:',
     '{ "summary"?: string, "args"?: [{"name": string, "summary"?: string, "default"?: string}], "blocks"?: [{"name": string, "summary"?: string, "yields"?: [{"name": string, "summary": string}]}] }',
@@ -808,6 +1329,11 @@ async function enrichWithCopilot({ component, docsText, docPath, token }) {
   const userPrompt = [
     `Component name: ${component.name}`,
     `Doc path: ${docPath}`,
+    'Extraction quality requirements:',
+    '- Keep summaries complete, not sentence-truncated.',
+    '- Include important qualifiers (if/when/unless) and interactions with related properties.',
+    '- For callback args, include the documented callback parameter details in summary when present.',
+    '- Prefer faithful wording from docs; do not collapse to generic descriptions.',
     'Current component object (only these names are valid):',
     JSON.stringify(component, null, 2),
     'Markdown to interpret:',
@@ -833,25 +1359,27 @@ async function reviewEnrichmentWithCopilot({
   docsText,
   docPath,
   token,
+  model,
 }) {
-  const model = process.env.COPILOT_MODEL || 'openai/gpt-4.1-mini';
+  const compactSnapshot = createCompactReviewSnapshot(componentBefore, componentAfter);
+  const relevantDocs = extractRelevantDocsSections(docsText, componentAfter);
   const systemPrompt = [
     'You review whether enriched component JSON matches prose in component API docs.',
     'Return JSON only.',
     'Focus on summary/default fields and yielded contextual component descriptions.',
     'Flag mismatches, omissions, or clearly incorrect values.',
+    'If docs claim yields that are not present in component signature output, mark them as docs inconsistencies rather than enrichment mismatches.',
+    'Use issue kind and severity fields to classify outcomes.',
     'Output shape:',
-    '{"status":"pass"|"needs_attention","confidence":number,"issues":[{"path":string,"expected"?:string,"actual"?:string,"reason":string}],"notes"?:string[]}',
+    '{"status":"pass"|"needs_attention","confidence":number,"issues":[{"path":string,"reason":string,"expected"?:string,"actual"?:string,"kind"?:"mismatch"|"docs_inconsistency"|"uncertain","severity"?:"error"|"warning"|"info"}],"notes"?:string[]}',
   ].join('\n');
 
   const userPrompt = [
     `Doc path: ${docPath}`,
-    'Component before enrichment:',
-    JSON.stringify(componentBefore, null, 2),
-    'Component after enrichment:',
-    JSON.stringify(componentAfter, null, 2),
-    'Markdown prose source:',
-    docsText,
+    'Compact changed-fields snapshot to validate:',
+    JSON.stringify(compactSnapshot, null, 2),
+    'Relevant markdown sections to validate against:',
+    relevantDocs || '[no relevant sections extracted]',
   ].join('\n\n');
 
   const result = await callCopilotJson({
@@ -934,8 +1462,6 @@ function applyInlineEnrichment(component, enrichment, docPath) {
   }
 
   if (updated) {
-    component.docSourcePath = docPath.replace(`${REPO_ROOT}/`, '');
-    component.docEnrichedAt = new Date().toISOString();
   }
 
   return updated;
@@ -948,8 +1474,11 @@ async function main() {
   const targets = catalog.components.filter((component) =>
     componentMatchesFilters(component, options)
   );
-  const model = process.env.COPILOT_MODEL || 'openai/gpt-4.1-mini';
-  const pricing = getPricing(model);
+  const enrichmentModel = process.env.COPILOT_MODEL || 'openai/gpt-4.1-mini';
+  const reviewModel =
+    process.env.COPILOT_REVIEW_MODEL || 'openai/gpt-4.1';
+  const enrichmentPricing = getPricing(enrichmentModel);
+  const reviewPricing = getPricing(reviewModel);
   const copilotAuth = resolveCopilotToken();
 
   let enrichedCount = 0;
@@ -964,12 +1493,20 @@ async function main() {
 
   console.log(`Catalog path: ${toRepoRelativePath(CATALOG_PATH)}`);
   console.log(
-    `Targets: ${targets.length} component(s) | model=${model} | pricing=${pricing.source} input=${pricing.input}/1M output=${pricing.output}/1M`
+    `Targets: ${targets.length} component(s)`
+  );
+  console.log(
+    `Enrichment model=${enrichmentModel} | pricing=${enrichmentPricing.source} input=${enrichmentPricing.input}/1M output=${enrichmentPricing.output}/1M`
+  );
+  console.log(
+    `Review model=${reviewModel} | pricing=${reviewPricing.source} input=${reviewPricing.input}/1M output=${reviewPricing.output}/1M`
   );
   console.log(`Auth token source: ${copilotAuth.source}`);
 
   for (const component of targets) {
-    console.log(`\n[${component.name}] Looking for component-api docs`);
+    const componentSpinner = startTaskSpinner(
+      `${component.name}: searching for component-api docs`
+    );
     const docsSelection = selectDocsFile(component);
 
     for (const candidate of docsSelection.candidates) {
@@ -989,6 +1526,10 @@ async function main() {
 
     if (!selectedCandidate) {
       skippedCount += 1;
+      componentSpinner.stopAndPersist({
+        symbol: logSymbols.warning,
+        text: `${component.name}: no component-api docs found`,
+      });
       console.warn(`Skipping ${component.name}: no component-api markdown found.`);
       continue;
     }
@@ -1000,6 +1541,10 @@ async function main() {
 
     if (!selectedCandidate.hasComponentApiHeading) {
       skippedCount += 1;
+      componentSpinner.stopAndPersist({
+        symbol: logSymbols.warning,
+        text: `${component.name}: candidate missing Component API heading`,
+      });
       console.warn(
         `Skipping ${component.name}: docs file does not look like component-api markdown.`
       );
@@ -1010,9 +1555,15 @@ async function main() {
 
     if (!confirmed) {
       skippedCount += 1;
+      componentSpinner.stopAndPersist({
+        symbol: logSymbols.warning,
+        text: `${component.name}: docs path not confirmed`,
+      });
       console.warn(`Skipping ${component.name}: docs path not confirmed.`);
       continue;
     }
+
+    componentSpinner.text = `${component.name}: enriching from docs`;
 
     let enrichmentResult = null;
     const componentBefore = JSON.parse(JSON.stringify(component));
@@ -1023,16 +1574,21 @@ async function main() {
         docsText,
         docPath,
         token: copilotAuth.token,
+        model: enrichmentModel,
       });
     } catch (error) {
       errorCount += 1;
       skippedCount += 1;
+      componentSpinner.stopAndPersist({
+        symbol: logSymbols.error,
+        text: `${component.name}: enrichment failed`,
+      });
       console.warn(`Skipping ${component.name}: ${error.message}`);
       continue;
     }
 
     const usage = enrichmentResult.usage;
-    const cost = estimateCostUsd(usage, pricing);
+    const cost = estimateCostUsd(usage, enrichmentPricing);
 
     totalPromptTokens += usage.promptTokens;
     totalCompletionTokens += usage.completionTokens;
@@ -1064,13 +1620,17 @@ async function main() {
 
     if (!enrichment) {
       skippedCount += 1;
+      componentSpinner.stopAndPersist({
+        symbol: logSymbols.warning,
+        text: `${component.name}: no usable enrichment returned`,
+      });
       console.warn(`Skipping ${component.name}: no usable enrichment returned.`);
       continue;
     }
 
     if (applyInlineEnrichment(component, enrichment, docPath)) {
       enrichedCount += 1;
-      console.log(`Enriched ${component.name}`);
+      componentSpinner.text = `${component.name}: running review pass`;
 
       let reviewResult = null;
 
@@ -1081,65 +1641,72 @@ async function main() {
           docsText,
           docPath,
           token: copilotAuth.token,
+          model: reviewModel,
         });
       } catch (error) {
         errorCount += 1;
         reviewNeedsAttentionCount += 1;
+        componentSpinner.stopAndPersist({
+          symbol: logSymbols.error,
+          text: `${component.name}: review failed`,
+        });
         console.warn(`- review error: ${error.message}`);
         continue;
       }
 
       const reviewUsage = reviewResult.usage;
-      const reviewCost = estimateCostUsd(reviewUsage, pricing);
+      const reviewCost = estimateCostUsd(reviewUsage, reviewPricing);
 
       totalPromptTokens += reviewUsage.promptTokens;
       totalCompletionTokens += reviewUsage.completionTokens;
       totalTokens += reviewUsage.totalTokens;
       totalCostUsd += reviewCost.totalCost;
 
-      console.log(
-        `- review usage: prompt=${reviewUsage.promptTokens} completion=${reviewUsage.completionTokens} total=${reviewUsage.totalTokens}`
-      );
-      console.log(
-        `- review estimated cost: ${formatUsd(reviewCost.totalCost)} (input ${formatUsd(
-          reviewCost.inputCost
-        )} + output ${formatUsd(reviewCost.outputCost)})`
-      );
-
       const review = reviewResult.review;
 
       if (!review) {
         reviewNeedsAttentionCount += 1;
-        console.warn('- review: needs_attention (no structured review payload)');
+        console.warn(
+          `${logSymbols.warning} ${chalk.yellow(
+            'review: needs_attention (no structured review payload)'
+          )}`
+        );
         continue;
       }
 
-      const confidenceText =
-        typeof review.confidence === 'number'
-          ? ` confidence=${review.confidence.toFixed(2)}`
-          : '';
+      const classifiedIssues = classifyReviewIssues(component, review);
 
-      if (review.status === 'pass') {
+      if (classifiedIssues.mismatches.length === 0) {
         reviewPassCount += 1;
-        console.log(`- review: pass${confidenceText}`);
       } else {
         reviewNeedsAttentionCount += 1;
-        console.warn(`- review: needs_attention${confidenceText}`);
-
-        for (const issue of review.issues) {
-          console.warn(
-            `  - ${issue.path}: ${issue.reason}${
-              issue.expected ? ` | expected=${issue.expected}` : ''
-            }${issue.actual ? ` | actual=${issue.actual}` : ''}`
-          );
-        }
       }
 
-      for (const note of review.notes || []) {
-        console.log(`  - note: ${note}`);
+      if (classifiedIssues.mismatches.length === 0) {
+        componentSpinner.stopAndPersist({
+          symbol: logSymbols.success,
+          text: `${component.name}: enrichment + review passed (blocking mismatches: 0)`,
+        });
+      } else {
+        componentSpinner.stopAndPersist({
+          symbol: logSymbols.warning,
+          text: `${component.name}: enrichment complete, review needs attention (${classifiedIssues.mismatches.length} blocking mismatch(es))`,
+        });
       }
+
+      printReviewReport(
+        component.name,
+        review,
+        classifiedIssues,
+        reviewUsage,
+        reviewCost
+      );
     } else {
       skippedCount += 1;
+      componentSpinner.stopAndPersist({
+        symbol: logSymbols.warning,
+        text: `${component.name}: no matching fields to update`,
+      });
       console.warn(`Skipping ${component.name}: no matching fields to update.`);
     }
   }
@@ -1149,18 +1716,28 @@ async function main() {
 
   const elapsedMs = Date.now() - startedAt;
 
-  console.log('\nRun summary');
-  console.log(
-    `Done. Enriched ${enrichedCount} component(s), skipped ${skippedCount} component(s), errors ${errorCount}.`
+  printPanel(
+    'Run Summary',
+    [
+      `${logSymbols.success} ${chalk.bold('Done.')} Enriched ${enrichedCount} component(s), skipped ${skippedCount} component(s), errors ${errorCount}.`,
+      `Review outcomes: ${chalk.green(`pass=${reviewPassCount}`)}  ${chalk.yellow(
+        `needs_attention=${reviewNeedsAttentionCount}`
+      )}`,
+    ],
+    'cyan'
   );
-  console.log(
-    `Review results: pass=${reviewPassCount} needs_attention=${reviewNeedsAttentionCount}`
+  printTable(
+    ['Metric', 'Value'],
+    [
+      ['Review pass', `${reviewPassCount}`],
+      ['Review needs attention', `${reviewNeedsAttentionCount}`],
+      ['Prompt tokens', `${totalPromptTokens}`],
+      ['Completion tokens', `${totalCompletionTokens}`],
+      ['Total tokens', `${totalTokens}`],
+      ['Estimated cost', `${formatUsd(totalCostUsd)} USD`],
+      ['Elapsed', `${(elapsedMs / 1000).toFixed(2)}s`],
+    ]
   );
-  console.log(
-    `Total usage: prompt=${totalPromptTokens} completion=${totalCompletionTokens} total=${totalTokens}`
-  );
-  console.log(`Estimated cost: ${formatUsd(totalCostUsd)} USD`);
-  console.log(`Elapsed: ${(elapsedMs / 1000).toFixed(2)}s`);
 }
 
 main().catch((error) => {

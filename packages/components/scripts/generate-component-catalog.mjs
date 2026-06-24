@@ -41,6 +41,7 @@ function normalizeGroupSlug(groupName) {
 
 function parseCliOptions(argv) {
   let group = null;
+  let component = null;
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -56,6 +57,17 @@ function parseCliOptions(argv) {
       continue;
     }
 
+    if (arg.startsWith('--component=')) {
+      component = arg.slice('--component='.length).trim();
+      continue;
+    }
+
+    if (arg === '--component') {
+      component = `${argv[index + 1] || ''}`.trim();
+      index += 1;
+      continue;
+    }
+
     throw new Error(`Unknown argument: ${arg}`);
   }
 
@@ -63,8 +75,13 @@ function parseCliOptions(argv) {
     throw new Error('The --group option requires a non-empty value.');
   }
 
+  if (component === '') {
+    throw new Error('The --component option requires a non-empty value.');
+  }
+
   return {
     group,
+    component,
   };
 }
 
@@ -1094,8 +1111,9 @@ function isComponentGroupComment(commentText) {
   return true;
 }
 
-function collectBarrelExports(entryFile, { group = null } = {}) {
+function collectBarrelExports(entryFile, { group = null, component = null } = {}) {
   const normalizedGroupFilter = group ? normalizeGroupSlug(group) : null;
+  const normalizedComponentFilter = component ? `${component}`.trim() : null;
   const commentRegex = /^\s*\/\/\s*(.+?)\s*$/;
   const exportRegex =
     /^\s*export\s+\{\s*default\s+as\s+([A-Za-z0-9_]+)\s*\}\s+from\s+['"]([^'"]+)['"];\s*$/;
@@ -1126,6 +1144,10 @@ function collectBarrelExports(entryFile, { group = null } = {}) {
     const moduleSpecifier = exportMatch[2];
 
     if (!exportedName.startsWith('Hds') || !moduleSpecifier.endsWith('.gts')) {
+      continue;
+    }
+
+    if (normalizedComponentFilter && exportedName !== normalizedComponentFilter) {
       continue;
     }
 
@@ -1266,7 +1288,7 @@ function main() {
 
   let finalComponents = components;
 
-  if (options.group) {
+  if (options.group || options.component) {
     const existingCatalog = readExistingCatalog(OUTPUT_FILE_PATH);
 
     if (existingCatalog) {
@@ -1284,6 +1306,10 @@ function main() {
 
   if (options.group) {
     console.log(`Applied group filter: ${options.group}`);
+  }
+
+  if (options.component) {
+    console.log(`Applied component filter: ${options.component}`);
   }
 
   console.log(
