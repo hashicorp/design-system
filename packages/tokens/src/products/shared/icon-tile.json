@@ -1,0 +1,24 @@
+{
+  "icon-tile": {
+    "border": {
+      "color": {
+        "overlay": {
+          "$type": "color",
+          "$value": "{color.border.primary}"
+        },
+        "logo": {
+          "$type": "color",
+          "$value": "{color.border.primary}"
+        }
+      }
+    },
+    "surface": {
+      "color": {
+        "overlay": {
+          "$type": "color",
+          "$value": "{color.surface.primary}"
+        }
+      }
+    }
+  }
+}
