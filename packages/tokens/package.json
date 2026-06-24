@@ -21,7 +21,8 @@
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet .",
     "extract-carbon-tokens": "tsx ./scripts/extract-carbon-tokens",
-    "build": "tsx ./scripts/build"
+    "build": "tsx ./scripts/build",
+    "start": "watch \"pnpm build\" src"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
@@ -31,6 +32,7 @@
     "@carbon/motion": "^11.34.0",
     "@carbon/themes": "^11.59.0",
     "@carbon/type": "^11.46.0",
+    "@cnakazawa/watch": "^1.0.4",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.10.2",
