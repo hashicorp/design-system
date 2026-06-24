@@ -140,7 +140,7 @@ module(
         .dom('#test-toggle-button')
         .hasClass('hds-dropdown-toggle-button--color-primary');
     });
-    test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
+    test('it should render the correct CSS color class if the @color prop is set to secondary', async function (assert) {
       await render(
         <template>
           <HdsDropdownToggleButton
@@ -153,6 +153,20 @@ module(
       assert
         .dom('#test-toggle-button')
         .hasClass('hds-dropdown-toggle-button--color-secondary');
+    });
+    test('it should render the correct CSS color class if the @color prop is set to secondary-muted', async function (assert) {
+      await render(
+        <template>
+          <HdsDropdownToggleButton
+            @text="text toggle"
+            @color="secondary-muted"
+            id="test-toggle-button"
+          />
+        </template>,
+      );
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--color-secondary-muted');
     });
 
     // SIZE
@@ -220,7 +234,7 @@ module(
     });
     test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
       const errorMessage =
-        '@color for "Hds::Dropdown::Toggle::Button" must be one of the following: primary, secondary; received: foo';
+        '@color for "Hds::Dropdown::Toggle::Button" must be one of the following: primary, secondary, secondary-muted; received: foo';
       assert.expect(2);
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

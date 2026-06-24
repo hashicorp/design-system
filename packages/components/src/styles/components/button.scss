@@ -82,6 +82,10 @@
   @include hds-button-color-secondary();
 }
 
+.hds-button--color-secondary-muted {
+  @include hds-button-color-secondary-muted();
+}
+
 .hds-button--color-tertiary {
   @include hds-button-color-tertiary();
 }

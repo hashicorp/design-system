@@ -30,6 +30,7 @@ const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
 const MAPPING_HDS_COLOR_TO_CDS_KIND = {
   primary: 'primary',
   secondary: 'secondary',
+  'secondary-muted': 'secondary',
   tertiary: 'tertiary',
   critical: 'danger',
 } as const;

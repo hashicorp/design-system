@@ -122,7 +122,7 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
       as |D|
     >
       <D.ToggleButton
-        @color="secondary"
+        @color="secondary-muted"
         @size={{this.toggleSize}}
         @isFullWidth={{this.toggleIsFullWidth}}
         @text={{this.toggleContent.label}}

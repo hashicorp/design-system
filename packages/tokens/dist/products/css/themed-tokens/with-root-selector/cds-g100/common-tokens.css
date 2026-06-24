@@ -41,6 +41,9 @@
   --token-border-radius-rounded: 1000000000px;
   --token-breadcrumb-link-foreground-color-active: var(--token-color-foreground-primary);
   --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-muted-active: var(--token-button-border-color-secondary-active);
+  --token-button-border-color-secondary-muted-default: var(--token-button-border-color-secondary-default);
+  --token-button-border-color-secondary-muted-hover: var(--token-button-border-color-secondary-hover);
   --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
   --token-button-foreground-color-tertiary-disabled: var(--token-color-foreground-disabled);

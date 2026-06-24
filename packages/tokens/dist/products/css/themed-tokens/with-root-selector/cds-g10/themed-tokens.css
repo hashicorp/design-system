@@ -193,6 +193,10 @@
   --token-button-foreground-color-secondary-default: #ffffff;
   --token-button-foreground-color-secondary-focus: #ffffff;
   --token-button-foreground-color-secondary-hover: #ffffff;
+  --token-button-foreground-color-secondary-muted-active: #161616;
+  --token-button-foreground-color-secondary-muted-default: #161616;
+  --token-button-foreground-color-secondary-muted-focus: #161616;
+  --token-button-foreground-color-secondary-muted-hover: #161616;
   --token-button-foreground-color-tertiary-active: #ffffff;
   --token-button-foreground-color-tertiary-default: #0f62fe;
   --token-button-foreground-color-tertiary-focus: #ffffff;
@@ -223,6 +227,10 @@
   --token-button-surface-color-secondary-default: #393939;
   --token-button-surface-color-secondary-focus: #393939;
   --token-button-surface-color-secondary-hover: #474747;
+  --token-button-surface-color-secondary-muted-active: #a8a8a8;
+  --token-button-surface-color-secondary-muted-default: #e0e0e0;
+  --token-button-surface-color-secondary-muted-focus: #e0e0e0;
+  --token-button-surface-color-secondary-muted-hover: #d1d1d1;
   --token-button-surface-color-tertiary-active: #002d9c;
   --token-button-surface-color-tertiary-focus: #0050e6;
   --token-button-surface-color-tertiary-hover: #0050e6;
@@ -236,9 +244,9 @@
   --token-card-surface-color-secondary: #f4f4f4;
   --token-code-block-border-color-primary: #e0e0e0;
   --token-code-block-border-color-strong: rgba(0, 0, 0, 0);
-  --token-code-block-button-surface-color-active: #c6c6c6;
-  --token-code-block-button-surface-color-default: #e8e8e8;
-  --token-code-block-button-surface-color-hover: #c6c6c6;
+  --token-code-block-button-surface-color-active: var(--token-button-surface-color-secondary-muted-active);
+  --token-code-block-button-surface-color-default: var(--token-button-surface-color-secondary-muted-default);
+  --token-code-block-button-surface-color-hover: var(--token-button-surface-color-secondary-muted-hover);
   --token-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
   --token-code-block-foreground-color-action: #0f62fe;
