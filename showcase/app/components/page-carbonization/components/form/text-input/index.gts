@@ -181,7 +181,8 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH3>States</ShwTextH3>
 
     <ShwBody>
-      Note: Carbon doesn’t include hover states.
+      Note: Carbon doesn’t include hover states except for the search cancel
+      button.
     </ShwBody>
 
     {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
@@ -313,28 +314,42 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
                       ></cds-text-input>
                     </SF.Item>
                     <SF.Item>
-                      <cds-search
-                        label-text="Search"
-                        placeholder="search"
-                        size="md"
-                        value="Lorem ipsum dolor"
-                        disabled={{if (eq variant "disabled") "true"}}
-                        readonly={{if (eq variant "readonly") "true"}}
-                        invalid={{if (eq variant "invalid") true}}
-                        invalid-text="Error message goes here"
-                      ></cds-search>
+                      {{#if
+                        (or
+                          (eq variant "invalid")
+                          (eq variant "loading")
+                          (eq variant "readonly")
+                        )
+                      }}
+                        <pre>TODO: static image here</pre>
+                      {{else}}
+                        <cds-search
+                          label-text="Search"
+                          placeholder="search"
+                          size="md"
+                          value="Search component"
+                          disabled={{if (eq variant "disabled") "true"}}
+                          readonly={{if (eq variant "readonly") "true"}}
+                          invalid={{if (eq variant "invalid") true}}
+                          invalid-text="Error message goes here"
+                        ></cds-search>
+                      {{/if}}
                     </SF.Item>
                     <SF.Item>
-                      <cds-date-picker-input
-                        kind="single"
-                        placeholder="mm/dd/yyyy"
-                        size="md"
-                        value="Lorem ipsum dolor"
-                        disabled={{if (eq variant "disabled") "disabled"}}
-                        readonly={{if (eq variant "readonly") "readonly"}}
-                        invalid={{if (eq variant "invalid") true}}
-                        invalid-text="Error message goes here"
-                      ></cds-date-picker-input>
+                      {{#if (eq variant "invalid")}}
+                        <pre>TODO: static image here</pre>
+                      {{else}}
+                        <cds-date-picker-input
+                          kind="single"
+                          placeholder="mm/dd/yyyy"
+                          size="md"
+                          value="Lorem ipsum dolor"
+                          disabled={{if (eq variant "disabled") "disabled"}}
+                          readonly={{if (eq variant "readonly") "readonly"}}
+                          invalid={{if (eq variant "invalid") true}}
+                          invalid-text="Error message goes here"
+                        ></cds-date-picker-input>
+                      {{/if}}
                     </SF.Item>
                     <SF.Item>
                       <cds-text-input
