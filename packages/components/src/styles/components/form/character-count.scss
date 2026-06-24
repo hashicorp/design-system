@@ -8,5 +8,8 @@
 //
 
 .hds-form-character-count {
-  color: var(--token-form-helper-text-color);
+  color: var(--token-form-character-count-foreground-color);
+  font-size: var(--token-form-character-count-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-character-count-typography-line-height);
 }

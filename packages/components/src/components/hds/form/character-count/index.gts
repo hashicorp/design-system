@@ -7,8 +7,6 @@ import { hash } from '@ember/helper';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
-import HdsTextBody from '../../text/body.gts';
-
 import type { HdsTextBodySignature } from '../../text/body.gts';
 
 const ID_PREFIX = 'character-count-';
@@ -134,9 +132,7 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
   }
 
   <template>
-    <HdsTextBody
-      @tag="div"
-      @size="100"
+    <div
       class={{this.classNames}}
       id={{this.id}}
       {{didInsert this.onInsert}}
@@ -156,6 +152,6 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
       {{else}}
         {{this.message}}
       {{/if}}
-    </HdsTextBody>
+    </div>
   </template>
 }

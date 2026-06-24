@@ -26,9 +26,6 @@ export default class HdsFormLegend extends Component<HdsFormLegendSignature> {
   get classNames(): string {
     const classes = ['hds-form-legend'];
 
-    // add typographic classes
-    classes.push('hds-typography-body-200', 'hds-font-weight-semibold');
-
     // add a class based on the @contextualClass argument
     // notice: this will *not* be documented for public use
     // the reason for this is that the contextual component declarations don't pass attributes to the component
