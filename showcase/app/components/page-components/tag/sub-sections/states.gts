@@ -28,7 +28,7 @@ const SubSectionStates: TemplateOnlyComponent = <template>
             <HdsTag
               @text="My link tag"
               @href="#"
-              mock-state-value="focus"
+              mock-state-value={{state}}
               mock-state-selector="a"
             />
           </SF.Item>
@@ -37,7 +37,7 @@ const SubSectionStates: TemplateOnlyComponent = <template>
               @href="#"
               @text="My link tag"
               @onDismiss={{NOOP}}
-              mock-state-value="focus"
+              mock-state-value={{state}}
               mock-state-selector="button"
             />
           </SF.Item>
@@ -46,7 +46,7 @@ const SubSectionStates: TemplateOnlyComponent = <template>
               @href="#"
               @text="My link tag"
               @onDismiss={{NOOP}}
-              mock-state-value="focus"
+              mock-state-value={{state}}
               mock-state-selector="a"
             />
           </SF.Item>
@@ -55,7 +55,7 @@ const SubSectionStates: TemplateOnlyComponent = <template>
               @href="#"
               @text="My link tag"
               @onDismiss={{NOOP}}
-              mock-state-value="focus"
+              mock-state-value={{state}}
               mock-state-selector="a, button"
             />
           </SF.Item>
@@ -63,7 +63,7 @@ const SubSectionStates: TemplateOnlyComponent = <template>
             <HdsTag
               @text="This is a very long text that should go on multiple lines"
               @tooltipPlacement="bottom"
-              mock-state-value="focus"
+              mock-state-value={{state}}
               mock-state-selector="button"
               mock-state-delay="200"
             />
@@ -73,7 +73,7 @@ const SubSectionStates: TemplateOnlyComponent = <template>
               @text="This is a very long text that should go on multiple lines"
               @tooltipPlacement="bottom"
               @onDismiss={{NOOP}}
-              mock-state-value="focus"
+              mock-state-value={{state}}
               mock-state-selector=".hds-tooltip-button"
               mock-state-delay="200"
             />
@@ -83,7 +83,7 @@ const SubSectionStates: TemplateOnlyComponent = <template>
               @text="This is a very long text that should go on multiple lines"
               @tooltipPlacement="bottom"
               @onDismiss={{NOOP}}
-              mock-state-value="focus"
+              mock-state-value={{state}}
               mock-state-selector=".hds-tag__dismiss, .hds-tooltip-button"
               mock-state-delay="200"
             />
