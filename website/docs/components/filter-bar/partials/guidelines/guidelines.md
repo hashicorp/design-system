@@ -17,7 +17,7 @@ If specific functionality or filtering methods don't meet your needs, please [co
 ### When not to use
 
 - For complex query builder features.
-- For a search feature that doesn't require filters. Use the [Text Input: Search](/components/form/text-input#search) instead.
+- For a search feature that doesn't require filters. Use the [Search Input](/components/form/text-input#search) instead.
 
 ## Type
 
