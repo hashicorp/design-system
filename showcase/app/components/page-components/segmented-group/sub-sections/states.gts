@@ -133,6 +133,20 @@ const SubSectionStates: TemplateOnlyComponent = <template>
         </SGR.Select>
       </HdsSegmentedGroup>
     </SG.Item>
+    <SG.Item @label="Icon Dropdown focused">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleIcon
+            @icon="user"
+            @text="user menu"
+            mock-state-value="focus"
+          />
+          <D.Title @text="Signed In" />
+          <D.Description @text="email@domain.com" />
+        </SGR.Dropdown>
+      </HdsSegmentedGroup>
+    </SG.Item>
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
@@ -254,6 +268,20 @@ const SubSectionStates: TemplateOnlyComponent = <template>
           <D.ToggleButton @color="secondary" @text="Dropdown" />
           <D.Interactive @href="#">Dropdown Item</D.Interactive>
         </SGR.Dropdown>
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Icon Dropdown focused">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleIcon
+            @icon="user"
+            @text="user menu"
+            mock-state-value="focus"
+          />
+          <D.Title @text="Signed In" />
+          <D.Description @text="email@domain.com" />
+        </SGR.Dropdown>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-leading" />
       </HdsSegmentedGroup>
     </SG.Item>
   </ShwGrid>
