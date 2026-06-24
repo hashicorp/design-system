@@ -1,0 +1,37 @@
+{
+  "name": "@hashicorp/design-system-mcp",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Helios Design System MCP server",
+  "keywords": [
+    "hashicorp",
+    "helios",
+    "design-system",
+    "mcp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashicorp/design-system.git",
+    "directory": "packages/mcp"
+  },
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "type": "module",
+  "scripts": {
+    "typecheck": "pnpm tsc --noEmit",
+    "lint": "pnpm eslint --quiet .",
+    "build": "pnpm tsc -p tsconfig.json",
+    "start": "node ./dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.27.0",
+    "globals": "^16.1.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1"
+  }
+}
