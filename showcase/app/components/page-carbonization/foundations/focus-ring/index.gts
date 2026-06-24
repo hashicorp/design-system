@@ -959,8 +959,6 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
                 @renderInPlace={{true}}
                 {{! special case, we apply directly the mock classname }}
                 class="mock-focus"
-                mock-state-value="focus"
-                mock-state-target=".hds-power-select .ember-power-select-trigger"
                 as |option|
               >
                 {{option}}
