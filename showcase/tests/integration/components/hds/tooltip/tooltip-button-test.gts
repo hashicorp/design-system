@@ -66,7 +66,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
   // A11Y
 
   test('it displays the tooltip when focused and dismisses it if Escape key is triggered', async function (assert) {
-    // To avoid inconsistancies with the tippyJS animation for the removal of the tooltip, we set duration and delay to 0.
+    // To avoid inconsistencies with the tippyJS animation for the removal of the tooltip, we set duration and delay to 0.
     await render(
       <template>
         <HdsTooltipButton

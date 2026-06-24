@@ -20,7 +20,7 @@ import {
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
-  <ShwTextH2>BaseElements</ShwTextH2>
+  <ShwTextH2>Base elements</ShwTextH2>
 
   <ShwTextH3>CodeEditorTitle</ShwTextH3>
 
