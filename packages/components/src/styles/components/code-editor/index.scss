@@ -99,8 +99,10 @@
     background-color: var(--hds-code-editor-color-surface-faint);
     border: 1px solid var(--hds-code-editor-color-border-strong);
 
+    &:hover,
+    &.mock-hover,
     &:focus,
-    &:hover {
+    &.mock-focus {
       background-color: var(--hds-code-editor-color-surface-primary);
       border-color: var(--hds-code-editor-color-focus-action-internal);
 
@@ -113,11 +115,14 @@
       }
     }
 
-    &:active {
+    &:active,
+    &.mock-active {
+      color: var(--hds-code-editor-color-foreground-primary);
       background-color: var(--hds-code-editor-color-surface-interactive-active);
     }
 
-    .hds-button__icon {
+    // we need to artificially increase the specificity here
+    .hds-button__icon .hds-icon {
       color: var(--hds-code-editor-color-foreground-primary);
     }
   }
