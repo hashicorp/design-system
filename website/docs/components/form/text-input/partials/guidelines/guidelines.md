@@ -29,6 +29,10 @@ The `TextInput` component has a visibility toggle feature for password fields. B
 
 ### Search
 
+Use a standalone search input when users are querying a broad dataset without immediate filtering needs, e.g., in the App Header.
+
+Alternatively, if users need to search within a filterable dataset, embed search directly into the [Filter Bar](/components/filter-bar) or follow the [Filter Patterns](/patterns/filter-patterns) guidelines.
+
 #### Default state
 
 <Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" as |F|>
