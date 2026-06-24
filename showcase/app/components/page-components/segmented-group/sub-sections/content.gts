@@ -92,6 +92,26 @@ const SubSectionContent: TemplateOnlyComponent = <template>
         <SGR.TextInput aria-label="segmented-text-input-dropdown-leading" />
       </HdsSegmentedGroup>
     </SG.Item>
+    <SG.Item @label="Icon Dropdown trailing">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleIcon @icon="user" @text="user menu" />
+          <D.Title @text="Signed In" />
+          <D.Description @text="email@domain.com" />
+        </SGR.Dropdown>
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Icon Dropdown leading">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleIcon @icon="user" @text="user menu" />
+          <D.Title @text="Signed In" />
+          <D.Description @text="email@domain.com" />
+        </SGR.Dropdown>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-leading" />
+      </HdsSegmentedGroup>
+    </SG.Item>
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
@@ -249,6 +269,17 @@ const SubSectionContent: TemplateOnlyComponent = <template>
             </HdsButtonSet>
           </D.Footer>
         </SGR.Dropdown>
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input, Icon Dropdown, Button">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-dropdown-button" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleIcon @icon="user" @text="user menu" />
+          <D.Title @text="Signed In" />
+          <D.Description @text="email@domain.com" />
+        </SGR.Dropdown>
+        <SGR.Button @color="secondary" @text="Button" />
       </HdsSegmentedGroup>
     </SG.Item>
   </ShwGrid>
