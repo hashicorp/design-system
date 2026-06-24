@@ -470,7 +470,7 @@ importers:
         specifier: ^16.1.0
         version: 16.3.0
       typescript:
-        specifier: ^5.7.2
+        specifier: ^5.8.3
         version: 5.9.2
       typescript-eslint:
         specifier: ^8.32.1
