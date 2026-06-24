@@ -78,6 +78,7 @@
   &.hds-form-text-input--is-invalid {
     border-color: var(--hds-form-control-invalid-border-color-default);
 
+    // TODO: This needs to be simplified! May be better just to hard code all the SVG icon colors vs. using masking...
     // Note: The element-wrapper parent is used to position the Carbon themes invalid icon over the text input
     @at-root .hds-form-text-input__element-wrapper:has(#{&}) {
       // Carbon themes invalid icon
@@ -87,21 +88,27 @@
         &::after {
           // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
           position: absolute;
+          top: 0;
+          right: 1rem;
+          bottom: 0;
           display: block;
           width: 16px;
           height: 16px;
+          margin: auto 0;
           background-color: var(--hds-form-control-invalid-border-color-default);
-          transform: translateY(-50%);
           content: "";
           mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 16 16' %3E%3Cpath d='M8,1C4.2,1,1,4.2,1,8s3.2,7,7,7s7-3.1,7-7S11.9,1,8,1z M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2	c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z'%3E%3C/path%3E%3Cpath d='M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8	c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z' data-icon-path='inner-path' opacity='0'%3E%3C/path%3E%3C/svg%3E");
           mask-size: cover;
-          inset-block-start: 50%;
-          inset-inline-end: 1rem;
         }
 
         // Add space for invalid icon
         .hds-form-text-input--is-invalid {
           padding-right: 2.5rem;
+
+          // make space for invalid icon + search cancel button
+          &[type="search"] {
+            padding-right: calc(2.5rem + 40px);
+          }
         }
       }
     }
@@ -247,12 +254,19 @@
   background-position: var(--hds-form-text-input-background-image-position-x) 50%;
   background-size: var(--hds-form-text-input-background-image-size);
 
+  // make space for invalid icon + search cancel button
+  &.hds-form-text-input--is-invalid {
+    @include hds-apply-only-if-carbon() {
+      padding-right: calc(2.5rem + 40px);
+    }
+  }
+
   @include hds-apply-only-if-carbon() {
     // make space for search cancel button
     // TODO:
-    // * value needs to be checked & simplified (not sure these are the right values)
-    // * BUG: being overridden in the invalid state (& the invalid icon is overlapping the search cancel button)
-    padding-right: calc(var(--hds-form-control-padding) + var(--hds-form-text-input-background-image-size) + 24px);
+    // * Create a new token for the search cancel button width and use it here
+    // * BUG: padding being overridden in the invalid state (& the invalid icon is overlapping the search cancel button)
+    padding-right: 40px;
     // This is needed so that a pseudo element can be used for the icon so that masking can be applied
     background-image: none;
   }
