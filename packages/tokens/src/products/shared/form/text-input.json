@@ -84,14 +84,7 @@
       },
       "date-time": {
         "width": {
-          "$value": "initial",
-          "$modes": {
-            "default": "initial",
-            "cds-g0": "100%",
-            "cds-g10": "100%",
-            "cds-g90": "100%",
-            "cds-g100": "100%"
-          }
+          "$value": "initial"
         }
       }
     }

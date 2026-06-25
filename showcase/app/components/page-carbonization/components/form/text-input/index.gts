@@ -401,7 +401,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="Label + Helper text + Error"
-      @hideThemeLabels={{true}}
       @hideCarbonLabels={{true}}
     >
       <:theming>
@@ -434,7 +433,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="Label + Helper text + Character count"
-      @hideThemeLabels={{true}}
       @hideCarbonLabels={{true}}
     >
       <:theming>
