@@ -20,7 +20,7 @@
   .ember-power-select-trigger {
     max-width: 100%;
     min-height: 36px;
-    padding: calc(var(--hds-form-control-padding) + 1px) calc(var(--hds-form-control-padding) + 1px);
+    padding: calc(var(--hds-form-control-padding) + 1px);
     padding-right: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
     color: var(--hds-form-control-base-foreground-color);
     background-color: var(--hds-form-control-base-surface-color-default);
