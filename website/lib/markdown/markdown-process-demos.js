@@ -200,15 +200,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             }
           });
 
-          // Keep both forwarded ids explicit:
-          // - `filename` keeps classic preview lookup behavior (`*.classic`).
-          // - `gtsFilename` points to the modern component module (`*.gts`).
-          // If only a modern snippet exists, `filename` falls back to the gts id.
-          const filenameToForward =
-            classicFilenameToForward || gtsFilenameToForward;
-
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" filename="${filenameToForward}" gtsFilename="${gtsFilenameToForward}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" gtsFilename="${gtsFilenameToForward}" classicFilename="${classicFilenameToForward}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 

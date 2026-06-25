@@ -22,8 +22,8 @@ import DynamicTemplate from 'website/components/dynamic-template';
 
 interface DocCodeGroupSignature {
   Args: {
-    filename?: string;
     gtsFilename?: string;
+    classicFilename?: string;
     hbsSnippet?: string;
     jsSnippet?: string;
     gtsSnippet?: string;
@@ -138,7 +138,9 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   get classicPreviewComponentId() {
-    return this.hasSnippet(this.args.filename) ? this.args.filename : undefined;
+    return this.hasSnippet(this.args.classicFilename)
+      ? this.args.classicFilename
+      : undefined;
   }
 
   get gtsPreviewComponentId() {
