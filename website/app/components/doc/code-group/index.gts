@@ -120,15 +120,50 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
   }
 
-  // NOTE: the dynamic template requires a component to render a preview. If there is not a component (ex. only a sass/yaml/bash snippet), we hide the preview by default.
+  // NOTE: the dynamic template requires an Ember component to render a preview. If there is not a component (ex. only a sass/yaml/bash snippet), we hide the preview by default.
   get hidePreview() {
-    const hasRenderablePreview =
-      (this.args.hbsSnippet && this.args.hbsSnippet !== '') ||
-      (this.args.gtsSnippet &&
-        this.args.gtsSnippet !== '' &&
-        this.args.filename);
+    if (this.args.hidePreview === 'true') {
+      return true;
+    }
 
-    return !hasRenderablePreview || this.args.hidePreview === 'true';
+    const hasHbsPreview = this.hasSnippet(this.args.hbsSnippet);
+    const hasGtsPreview =
+      this.hasSnippet(this.args.gtsSnippet) && !!this.gtsPreviewComponentId;
+
+    return !(hasHbsPreview || hasGtsPreview);
+  }
+
+  private hasSnippet(snippet?: string) {
+    return !!snippet && snippet !== '';
+  }
+
+  get classicPreviewComponentId() {
+    return this.hasSnippet(this.args.filename) ? this.args.filename : undefined;
+  }
+
+  get gtsPreviewComponentId() {
+    return this.hasSnippet(this.args.gtsFilename)
+      ? this.args.gtsFilename
+      : undefined;
+  }
+
+  get previewMode() {
+    if (
+      this.currentView === 'gts' &&
+      this.hasSnippet(this.args.gtsSnippet) &&
+      this.gtsPreviewComponentId
+    ) {
+      return 'component-module';
+    }
+
+    if (
+      (this.currentView === 'hbs' || this.currentView === 'js') &&
+      this.hasSnippet(this.args.hbsSnippet)
+    ) {
+      return 'runtime-template';
+    }
+
+    return null;
   }
 
   get hbsSnippet() {
@@ -157,35 +192,21 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   get previewTemplateString() {
-    // For .gts view, the preview comes from a real component module (via
-    // `@componentId`), so we intentionally skip passing a runtime template.
-    if (this.currentView === 'gts' && this.args.gtsSnippet !== '') {
-      return undefined;
-    }
-
-    return this.hbsSnippet === '' ? undefined : this.hbsSnippet;
+    return this.previewMode === 'runtime-template'
+      ? this.hbsSnippet
+      : undefined;
   }
 
   get previewComponentId() {
-    const { filename, gtsFilename } = this.args;
-
-    if (!filename) {
-      return undefined;
+    if (this.previewMode === 'component-module') {
+      return this.gtsPreviewComponentId;
     }
 
-    if (this.currentView === 'gts' && this.args.gtsSnippet !== '') {
-      if (gtsFilename && gtsFilename !== '') {
-        // .gts demos can live under a different component file than the .hbs
-        // classic demo, so prefer an explicit gts filename when provided.
-        return gtsFilename;
-      }
-
-      // Fallback: map `foo.classic` docs entries to the colocated modern
-      // component id (`foo`) used by the .gts demo implementation.
-      return filename.replace(/\.classic$/, '');
+    if (this.previewMode === 'runtime-template') {
+      return this.classicPreviewComponentId;
     }
 
-    return filename;
+    return undefined;
   }
 
   get currentSnippet() {
@@ -230,25 +251,28 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   };
 
   get shouldSyncLanguageSelection() {
-    return this.args.hbsSnippet !== '' && this.args.gtsSnippet !== '';
+    return (
+      this.hasSnippet(this.args.hbsSnippet) &&
+      this.hasSnippet(this.args.gtsSnippet)
+    );
   }
 
   get languageOptions() {
     const options: Array<LanguageOption> = [];
 
-    if (this.args.hbsSnippet !== '') {
+    if (this.hasSnippet(this.args.hbsSnippet)) {
       options.push({ label: '.hbs', value: 'hbs' });
     }
 
-    if (this.args.jsSnippet !== '') {
+    if (this.hasSnippet(this.args.jsSnippet)) {
       options.push({ label: '.js', value: 'js' });
     }
 
-    if (this.args.gtsSnippet !== '') {
+    if (this.hasSnippet(this.args.gtsSnippet)) {
       options.push({ label: '.gts', value: 'gts' });
     }
 
-    if (this.args.customLang && this.args.customSnippet !== '') {
+    if (this.args.customLang && this.hasSnippet(this.args.customSnippet)) {
       options.push({ label: `.${this.args.customLang}`, value: 'custom' });
     }
 
