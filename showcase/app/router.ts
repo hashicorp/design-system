@@ -192,6 +192,7 @@ Router.map(function () {
       this.route('flyout');
       this.route('form', function (): void {
         this.route('base-elements');
+        this.route('file-input');
         this.route('text-input');
         this.route('radio-card');
       });
