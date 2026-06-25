@@ -124,6 +124,10 @@ function getCompactGtsSnippet(code) {
   return dedentedLines.join('\n');
 }
 
+function getComponentIdFromPath(filePath) {
+  return filePath.match(fileNameRegex)?.[1] || '';
+}
+
 class MarkdownReplaceDemoBlocks extends Multifilter {
   build() {
     const inputFolder = this.inputPaths[0];
@@ -155,8 +159,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             customLang: '',
           };
 
-          let fileNameToForward = '';
-          let gtsFileNameToForward = '';
+          let classicFilenameToForward = '';
+          let gtsFilenameToForward = '';
 
           SUPPORTED_FILE_EXTENSIONS.forEach((ext) => {
             const fileToCheck = `${fileName.trim()}${ext}`;
@@ -168,9 +172,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
 
               if (ext === '.classic.hbs') {
                 codeSnippets.hbs = escapeCode(stripAllIgnores(code));
-
-                // need to use the classic.hbs file path for forwarding because the DynamicTemplate relies on the hbs/js files to render the preview - so the fileName must include the .classic extension
-                fileNameToForward = filePath.match(fileNameRegex)?.[1];
+                classicFilenameToForward = getComponentIdFromPath(filePath);
               }
 
               if (ext === '.classic.js' || ext === '.js') {
@@ -182,13 +184,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 codeSnippets.compactGts = escapeCode(
                   stripAllIgnores(getCompactGtsSnippet(code)),
                 );
-
-                gtsFileNameToForward = filePath.match(fileNameRegex)?.[1] || '';
-
-                // if there is no classic snippet, forward the gts component path for rendering preview
-                if (!fileNameToForward) {
-                  fileNameToForward = gtsFileNameToForward;
-                }
+                gtsFilenameToForward = getComponentIdFromPath(filePath);
               }
 
               if (
@@ -204,8 +200,14 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             }
           });
 
+          // Keep both forwarded ids explicit:
+          // - `filename` keeps classic preview lookup behavior (`*.classic`).
+          // - `gtsFilename` points to the modern component module (`*.gts`).
+          // If only a modern snippet exists, `filename` falls back to the gts id.
+          const filenameToForward = classicFilenameToForward || gtsFilenameToForward;
+
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" filename="${fileNameToForward}" gtsFilename="${gtsFileNameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" custom="${codeSnippets.custom}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" filename="${filenameToForward}" gtsFilename="${gtsFilenameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" custom="${codeSnippets.custom}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
