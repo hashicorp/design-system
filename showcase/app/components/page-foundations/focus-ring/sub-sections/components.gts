@@ -135,12 +135,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
     <ShwFlex @label={{type}} @direction="column" @gap="2rem" as |SF|>
       <SF.Item>
         {{#let (array false true) as |booleans|}}
-          <ShwGrid
-            {{!-- @label={{type}} --}}
-            @columns={{4}}
-            @gap="2rem"
-            as |SG|
-          >
+          <ShwGrid @columns={{4}} @gap="2rem" as |SG|>
             {{#each booleans as |containsInteractive|}}
               {{#each booleans as |isOpen|}}
                 <SG.Item>
@@ -1299,7 +1294,6 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
 
   <ShwTextBody>ThContextMenu</ShwTextBody>
   <HdsAdvancedTableThContextMenu
-    {{! @glint-ignore }}
     @column={{(hash key="lorem" label="Lorem")}}
     @isFirstColumn={{false}}
     @isFirstNonStickyColumn={{true}}
