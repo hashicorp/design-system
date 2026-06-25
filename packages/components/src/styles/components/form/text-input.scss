@@ -23,7 +23,7 @@
   box-shadow: var(--token-elevation-inset-box-shadow);
 
   @include hds-apply-only-if-carbon() {
-    min-height: 40px;
+    min-height: 40px; // 2.5rem // TODO: create a token for this value
     padding: 0 var(--token-form-control-padding);
     // Carbon's text input has only a bottom border
     border-width: 0 0 var(--token-form-control-border-width) 0;
@@ -40,6 +40,10 @@
   &:hover,
   &.mock-hover {
     border-color: var(--token-form-control-base-border-color-hover);
+
+    @include hds-apply-only-if-carbon() {
+      border-color: var(--token-form-control-base-border-color-default);
+    }
   }
 
   // focus (same for all the states)
@@ -48,6 +52,10 @@
   &.mock-focus {
     @include hds-focus-ring-basic();
     border-color: var(--token-color-focus-action-internal);
+
+    @include hds-apply-only-if-carbon() {
+      outline-offset: -2px;
+    }
   }
 
   // READONLY
@@ -205,9 +213,8 @@
     // make space for search cancel button
     // TODO:
     // * Create a new token for the search cancel button width and use it here,
-    // * Add extra padding to space out the input text from the button
     // * BUG: padding being overridden in the invalid state (& the invalid icon is overlapping the search cancel button)
-    padding-right: 40px;
+    padding-right: calc(40px + var(--token-form-control-padding));
 
     &:disabled {
       background-image: var(--token-form-text-input-background-image-data-url-search-disabled);
@@ -246,11 +253,11 @@
       // Display native search cancel button in carbonized non-disabled, non-readonly search input
       &::-webkit-search-cancel-button {
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 40px;
-        height: 100%;
+        top: 1px;
+        right: 1px;
+        bottom: 1px;
+        width: 40px; // TODO: Add token
+        height: auto;
         margin: 0;
         opacity: 1;
 

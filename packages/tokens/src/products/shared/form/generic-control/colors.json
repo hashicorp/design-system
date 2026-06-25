@@ -19,7 +19,14 @@
             "hover": {
               "$type": "color",
               "$value": "{color.surface.interactive-hover}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.surface.interactive-hover}",
+                "cds-g0": "#f4f4f4",
+                "cds-g10": "#ffffff",
+                "cds-g90": "#393939",
+                "cds-g100": "#262626"
+              }
             }
           }
         },
@@ -40,7 +47,14 @@
             "hover": {
               "$type": "color",
               "$value": "{color.palette.neutral-500}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.neutral-500}",
+                "cds-g0": "{carbon.themes.white.borderStrong01}",
+                "cds-g10": "{carbon.themes.g10.borderStrong01}",
+                "cds-g90": "{carbon.themes.g90.borderStrong01}",
+                "cds-g100": "{carbon.themes.g100.borderStrong01}"
+              }
             }
           }
         },
