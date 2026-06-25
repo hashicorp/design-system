@@ -70,16 +70,14 @@ export default class HdsFormTextInputBase extends Component<HdsFormTextInputBase
   }
 
   <template>
-    <span class="hds-form-text-input__element-wrapper">
-      <input
-        class={{this.classNames}}
-        {{style width=@width}}
-        id={{@id}}
-        aria-describedby={{@ariaDescribedBy}}
-        ...attributes
-        value={{@value}}
-        type={{this.type}}
-      />
-    </span>
+    <input
+      class={{this.classNames}}
+      {{style width=@width}}
+      id={{@id}}
+      aria-describedby={{@ariaDescribedBy}}
+      ...attributes
+      value={{@value}}
+      type={{this.type}}
+    />
   </template>
 }

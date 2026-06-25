@@ -12,7 +12,10 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "comment": "Notice: For HDS, we have to take in account the border, so it's 1px less than in Figma. For Carbon, we set only horizontal padding"
+        "comments": {
+          "hds": "Notice: we have to take in account the border, so it's 1px less than in Figma",
+          "cds": "Notice: we set only horizontal padding"
+        }
       },
       "border": {
         "radius": {

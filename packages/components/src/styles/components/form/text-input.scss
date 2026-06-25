@@ -78,41 +78,6 @@
   &.hds-form-text-input--is-invalid {
     border-color: var(--token-form-control-invalid-border-color-default);
 
-    // TODO: This needs to be simplified! May be better just to hard code all the SVG icon colors vs. using masking...
-    // Note: The element-wrapper parent is used to position the Carbon themes invalid icon over the text input
-    @at-root .hds-form-text-input__element-wrapper:has(#{&}) {
-      // Carbon themes invalid icon
-      @include hds-apply-only-if-carbon() {
-        position: relative;
-
-        &::after {
-          // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
-          position: absolute;
-          top: 0;
-          right: 1rem;
-          bottom: 0;
-          display: block;
-          width: 16px;
-          height: 16px;
-          margin: auto 0;
-          background-color: var(--token-form-control-invalid-border-color-default);
-          content: "";
-          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 16 16' %3E%3Cpath d='M8,1C4.2,1,1,4.2,1,8s3.2,7,7,7s7-3.1,7-7S11.9,1,8,1z M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2	c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z'%3E%3C/path%3E%3Cpath d='M7.5,4h1v5h-1C7.5,9,7.5,4,7.5,4z M8,12.2c-0.4,0-0.8-0.4-0.8-0.8s0.3-0.8,0.8-0.8	c0.4,0,0.8,0.4,0.8,0.8S8.4,12.2,8,12.2z' data-icon-path='inner-path' opacity='0'%3E%3C/path%3E%3C/svg%3E");
-          mask-size: cover;
-        }
-
-        // Add space for invalid icon
-        .hds-form-text-input--is-invalid {
-          padding-right: 2.5rem;
-
-          // make space for invalid icon + search cancel button
-          &[type="search"] {
-            padding-right: calc(2.5rem + 40px);
-          }
-        }
-      }
-    }
-
     @include hds-apply-only-if-carbon() {
       outline: 2px solid var(--token-form-control-invalid-border-color-default);
       outline-offset: -2px;
@@ -169,18 +134,8 @@
       opacity: 0.5;
 
       @include hds-apply-only-if-carbon() {
-        // This sets the color of the icon for masked icons
-        background-color: var(--token-color-foreground-disabled);
-        opacity: 1;
-      }
-    }
-
-    @include hds-apply-only-if-carbon() {
-      &[type="date"],
-      &[type="datetime-local"],
-      &[type="month"],
-      &[type="week"] {
-        max-width: 18rem;
+        // hide the icon in disabled state for Carbon themes
+        opacity: 0;
       }
     }
 
@@ -190,13 +145,6 @@
       visibility: visible;
 
       @include hds-apply-only-if-carbon() {
-        /*
-          Note: Carbon is actually using this color:
-            var(--cds-icon-disabled, hsla(0, 0%, 9%, .25))
-            --cds-icon-disabled = rgba(22, 22, 22, 0.25)
-        */
-        // This sets the color of the icon
-        background-color: var(--token-color-foreground-faint);
         opacity: 1;
       }
     }
@@ -209,21 +157,15 @@
   &[type="month"],
   &[type="week"] {
     &::-webkit-calendar-picker-indicator {
-      background-image: var(--token-form-text-input-background-image-data-url-date);
+      background-image: var(--token-form-text-input-background-image-data-url-date-default);
       background-position: center center;
       background-size: var(--token-form-text-input-background-image-size);
 
-      // TODO: Using masking allows us to easily change the color of the icon for use in disabled and readonly states, etc. but results in more complex css code
-      // It may be better to add additional tokens instead for the disabled and readonly state icons, etc. instead
       @include hds-apply-only-if-carbon() {
-        // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
-        width: var(--token-form-text-input-background-image-size);
-        height: var(--token-form-text-input-background-image-size);
-        padding: 0; // remove padding to prevent stretching the image
-        background-color: var(--token-form-control-base-foreground-color);
-        background-image: none;
-        mask-image: var(--token-form-text-input-background-image-data-url-date);
-        mask-size: cover;
+        // We use the native browser default icon
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
       }
     }
   }
@@ -235,14 +177,10 @@
       background-size: var(--token-form-text-input-background-image-size);
 
       @include hds-apply-only-if-carbon() {
-        // Note: We use a mask with a background color instead of a background image so that the color of the icon can be changed as needed
-        width: var(--token-form-text-input-background-image-size);
-        height: var(--token-form-text-input-background-image-size);
-        padding: 0; // remove padding to prevent stretching the image
-        background-color: var(--token-form-control-base-foreground-color);
-        background-image: none;
-        mask-image: var(--token-form-text-input-background-image-data-url-time);
-        mask-size: cover;
+        // We use the native browser default icon
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
       }
     }
   }
@@ -266,7 +204,8 @@
   @include hds-apply-only-if-carbon() {
     // make space for search cancel button
     // TODO:
-    // * Create a new token for the search cancel button width and use it here
+    // * Create a new token for the search cancel button width and use it here,
+    // * Add extra padding to space out the input text from the button
     // * BUG: padding being overridden in the invalid state (& the invalid icon is overlapping the search cancel button)
     padding-right: 40px;
 
@@ -305,7 +244,6 @@
       }
 
       // Display native search cancel button in carbonized non-disabled, non-readonly search input
-      // Note: masking won't work on the native search cancel button together with the hover background color
       &::-webkit-search-cancel-button {
         position: absolute;
         top: 0;
