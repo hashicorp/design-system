@@ -8,7 +8,6 @@ import { ensureSafeComponent } from '@embroider/util';
 import { setComponentTemplate } from '@ember/component';
 import { getOwner } from '@ember/owner';
 import { compileTemplate } from '@ember/template-compilation';
-import { importSync } from '@embroider/macros';
 
 let templateOwnerMap = new Map();
 
@@ -25,45 +24,26 @@ export default class DynamicTemplate extends Component {
     this.templateMap = templateMap;
   }
 
-  get resolvedComponent() {
+  get backingComponentClass() {
     let owner = getOwner(this);
-
     let factory = owner.factoryFor(`component:${this.args.componentId}`);
+
     if (factory?.class && typeof factory.class === 'function') {
       return class extends factory.class {};
-    }
-
-    // if component couldn't be found the old way try importing it directly
-    let module;
-    try {
-      module = importSync(`./${this.args.componentId}.gts`);
-    } catch {
-      try {
-        module = importSync(`./${this.args.componentId}.js`);
-      } catch {
-        // backing class doesn't exist so just ignore the error
-      }
-    }
-
-    let defaultExport = module?.default;
-    if (typeof defaultExport === 'function') {
-      return defaultExport;
     }
 
     return null;
   }
 
   get component() {
-    let { componentId } = this.args;
-    let { templateString } = this.args;
-    let cacheKey = `${componentId || ''}::${templateString || ''}`;
+    const { componentId, templateString } = this.args;
+    const cacheKey = `${componentId || ''}::${templateString || ''}`;
 
     let component = this.templateMap.get(cacheKey);
     if (component === undefined) {
       if (templateString) {
-        // .hbs examples are provided as raw template strings, so we compile
-        // them at runtime and attach them to a backing class (if one exists).
-        component = this.resolvedComponent;
+        // Runtime template mode (classic Ember component): compile provided template text and attach it to a backing class when one exists for the provided component id.
+        component = this.backingComponentClass;
 
         let compiledTemplate;
         try {
@@ -80,8 +60,7 @@ export default class DynamicTemplate extends Component {
 
         setComponentTemplate(compiledTemplate, component);
       } else {
-        // .gts examples are precompiled modules with their own template + class,
-        // so we render the component by id instead of compiling a template string.
+        // Component module mode (single file component): render a precompiled component by id.
         component = componentId || null;
       }
 
