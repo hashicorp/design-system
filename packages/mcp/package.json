@@ -21,13 +21,21 @@
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet .",
     "build": "pnpm tsc -p tsconfig.json",
-    "start": "node ./dist/index.js"
+    "build:watch": "pnpm tsc -p tsconfig.json --watch --preserveWatchOutput",
+    "serve": "node ./dist/index.js",
+    "serve:watch": "node --watch --watch-path=./dist ./dist/index.js",
+    "start": "pnpm build && pnpm concurrently --kill-others-on-fail --names build,server \"pnpm build:watch\" \"pnpm serve:watch\"",
+    "start:dev": "pnpm concurrently --kill-others-on-fail --names server,inspector \"pnpm start\" \"npx @modelcontextprotocol/inspector node ./dist/index.js\""
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0"
+    "@hashicorp/flight-icons": "workspace:^5.0.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "@eslint/js": "^9.27.0",
+    "@modelcontextprotocol/inspector": "^0.22.0",
     "@types/node": "^22.10.2",
     "eslint": "^9.27.0",
     "globals": "^16.1.0",
