@@ -63,16 +63,16 @@ export const contentBlocks = function () {
           _match,
           filename,
           gtsFilename,
-          hbs,
-          js,
-          gts,
-          compactGts,
-          custom,
+          hbsSnippet,
+          jsSnippet,
+          gtsSnippet,
+          compactGtsSnippet,
+          customSnippet,
           customLang,
           hidePreview,
           expanded,
         ) {
-          return `<Doc::CodeGroup @filename="${filename}" @gtsFilename="${gtsFilename || ''}" @hbsSnippet="${hbs}" @jsSnippet="${js}" @gtsSnippet="${gts}" @compactGtsSnippet="${compactGts}" @customSnippet="${custom}" @customLang="${customLang}" @hidePreview="${hidePreview}" @isExpanded="${expanded}">\n`;
+          return `<Doc::CodeGroup @filename="${filename}" @gtsFilename="${gtsFilename || ''}" @hbsSnippet="${hbsSnippet}" @jsSnippet="${jsSnippet}" @gtsSnippet="${gtsSnippet}" @compactGtsSnippet="${compactGtsSnippet}" @customSnippet="${customSnippet}" @customLang="${customLang}" @hidePreview="${hidePreview}" @isExpanded="${expanded}">\n`;
         },
       );
 

@@ -151,11 +151,11 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
 
           const codeSnippets = {
-            hbs: '',
-            js: '',
-            gts: '',
-            compactGts: '',
-            custom: '',
+            hbsSnippet: '',
+            jsSnippet: '',
+            gtsSnippet: '',
+            compactGtsSnippet: '',
+            customSnippet: '',
             customLang: '',
           };
 
@@ -171,17 +171,17 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
               dependencies.push(filePath);
 
               if (ext === '.classic.hbs') {
-                codeSnippets.hbs = escapeCode(stripAllIgnores(code));
+                codeSnippets.hbsSnippet = escapeCode(stripAllIgnores(code));
                 classicFilenameToForward = getComponentIdFromPath(filePath);
               }
 
               if (ext === '.classic.js' || ext === '.js') {
-                codeSnippets.js = escapeCode(stripAllIgnores(code));
+                codeSnippets.jsSnippet = escapeCode(stripAllIgnores(code));
               }
 
               if (ext === '.gts') {
-                codeSnippets.gts = escapeCode(stripAllIgnores(code));
-                codeSnippets.compactGts = escapeCode(
+                codeSnippets.gtsSnippet = escapeCode(stripAllIgnores(code));
+                codeSnippets.compactGtsSnippet = escapeCode(
                   stripAllIgnores(getCompactGtsSnippet(code)),
                 );
                 gtsFilenameToForward = getComponentIdFromPath(filePath);
@@ -194,7 +194,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 ext === '.html' ||
                 ext === '.jsx'
               ) {
-                codeSnippets.custom = escapeCode(code);
+                codeSnippets.customSnippet = escapeCode(code);
                 codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
               }
             }
@@ -204,10 +204,11 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           // - `filename` keeps classic preview lookup behavior (`*.classic`).
           // - `gtsFilename` points to the modern component module (`*.gts`).
           // If only a modern snippet exists, `filename` falls back to the gts id.
-          const filenameToForward = classicFilenameToForward || gtsFilenameToForward;
+          const filenameToForward =
+            classicFilenameToForward || gtsFilenameToForward;
 
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" filename="${filenameToForward}" gtsFilename="${gtsFilenameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" custom="${codeSnippets.custom}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" filename="${filenameToForward}" gtsFilename="${gtsFilenameToForward}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
