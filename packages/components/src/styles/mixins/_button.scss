@@ -3,6 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+//
+// BUTTON MIXIN
+//
+
 @use "sass:map";
 @use "../mixins/focus-ring" as *;
 @use "../mixins/carbonization" as *;
@@ -38,6 +42,12 @@ $hds-button-sizes: ("small", "medium", "large");
   cursor: not-allowed;
 }
 
+// COLORS (Primary, Secondary, Secondary Muted, Tertiary, Critical)
+
+// TODO: try making a mixin for hover styles for all button types, so we can use it in the file input component as well
+
+// Primary
+
 @mixin hds-button-color-primary() {
   color: var(--hds-button-foreground-color-primary-default);
   background-color: var(--hds-button-surface-color-primary-default);
@@ -46,10 +56,7 @@ $hds-button-sizes: ("small", "medium", "large");
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-button-foreground-color-primary-hover);
-    background-color: var(--hds-button-surface-color-primary-hover);
-    border-color: var(--hds-button-border-color-primary-hover);
-    cursor: pointer;
+    @include hds-button-color-primary-state-hover();
   }
 
   &:focus-visible,
@@ -61,22 +68,40 @@ $hds-button-sizes: ("small", "medium", "large");
       $external-outline-offset-hds: 2px,
       $internal-border-width-cds: 1px
     );
-    color: var(--hds-button-foreground-color-primary-focus);
-    background-color: var(--hds-button-surface-color-primary-focus);
+    @include hds-button-color-primary-state-focus();
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-button-foreground-color-primary-active);
-    background-color: var(--hds-button-surface-color-primary-active);
-    border-color: var(--hds-button-border-color-primary-active);
-    box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
+    @include hds-button-color-primary-state-active();
   }
 }
+
+// Primary States
+@mixin hds-button-color-primary-state-hover() {
+  color: var(--hds-button-foreground-color-primary-hover);
+  background-color: var(--hds-button-surface-color-primary-hover);
+  border-color: var(--hds-button-border-color-primary-hover);
+  cursor: pointer;
+}
+
+@mixin hds-button-color-primary-state-focus() {
+  color: var(--hds-button-foreground-color-primary-focus);
+  background-color: var(--hds-button-surface-color-primary-focus);
+}
+
+@mixin hds-button-color-primary-state-active() {
+  color: var(--hds-button-foreground-color-primary-active);
+  background-color: var(--hds-button-surface-color-primary-active);
+  border-color: var(--hds-button-border-color-primary-active);
+  box-shadow: none;
+
+  &::before {
+    border-color: transparent;
+  }
+}
+
+// Secondary
 
 @mixin hds-button-color-secondary() {
   color: var(--hds-button-foreground-color-secondary-default);
@@ -86,10 +111,7 @@ $hds-button-sizes: ("small", "medium", "large");
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-button-foreground-color-secondary-hover);
-    background-color: var(--hds-button-surface-color-secondary-hover);
-    border-color: var(--hds-button-border-color-secondary-hover);
-    cursor: pointer;
+    @include hds-button-color-secondary-state-hover();
   }
 
   &:focus-visible,
@@ -100,22 +122,40 @@ $hds-button-sizes: ("small", "medium", "large");
       // we want to see the white/black inner border for cds
       $internal-border-width-cds: 1px
     );
-    color: var(--hds-button-foreground-color-secondary-focus);
-    background-color: var(--hds-button-surface-color-secondary-focus);
+    @include hds-button-color-secondary-state-focus();
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-button-foreground-color-secondary-active);
-    background-color: var(--hds-button-surface-color-secondary-active);
-    border-color: var(--hds-button-border-color-secondary-active);
-    box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
+    @include hds-button-color-secondary-state-active();
   }
 }
+
+// Secondary States
+@mixin hds-button-color-secondary-state-hover() {
+  color: var(--hds-button-foreground-color-secondary-hover);
+  background-color: var(--hds-button-surface-color-secondary-hover);
+  border-color: var(--hds-button-border-color-secondary-hover);
+  cursor: pointer;
+}
+
+@mixin hds-button-color-secondary-state-focus() {
+  color: var(--hds-button-foreground-color-secondary-focus);
+  background-color: var(--hds-button-surface-color-secondary-focus);
+}
+
+@mixin hds-button-color-secondary-state-active() {
+  color: var(--hds-button-foreground-color-secondary-active);
+  background-color: var(--hds-button-surface-color-secondary-active);
+  border-color: var(--hds-button-border-color-secondary-active);
+  box-shadow: none;
+
+  &::before {
+    border-color: transparent;
+  }
+}
+
+// Secondary Muted
 
 @mixin hds-button-color-secondary-muted() {
   color: var(--hds-button-foreground-color-secondary-muted-default);
@@ -125,10 +165,7 @@ $hds-button-sizes: ("small", "medium", "large");
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-button-foreground-color-secondary-muted-hover);
-    background-color: var(--hds-button-surface-color-secondary-muted-hover);
-    border-color: var(--hds-button-border-color-secondary-muted-hover);
-    cursor: pointer;
+    @include hds-button-color-secondary-muted-state-hover();
   }
 
   &:focus-visible,
@@ -139,22 +176,40 @@ $hds-button-sizes: ("small", "medium", "large");
       // we want to see the white/black inner border for cds
       $internal-border-width-cds: 1px
     );
-    color: var(--hds-button-foreground-color-secondary-muted-focus);
-    background-color: var(--hds-button-surface-color-secondary-muted-focus);
+    @include hds-button-color-secondary-muted-state-focus();
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-button-foreground-color-secondary-muted-active);
-    background-color: var(--hds-button-surface-color-secondary-muted-active);
-    border-color: var(--hds-button-border-color-secondary-muted-active);
-    box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
+    @include hds-button-color-secondary-muted-state-active();
   }
 }
+
+// Secondary Muted States
+@mixin hds-button-color-secondary-muted-state-hover() {
+  color: var(--hds-button-foreground-color-secondary-muted-hover);
+  background-color: var(--hds-button-surface-color-secondary-muted-hover);
+  border-color: var(--hds-button-border-color-secondary-muted-hover);
+  cursor: pointer;
+}
+
+@mixin hds-button-color-secondary-muted-state-focus() {
+  color: var(--hds-button-foreground-color-secondary-muted-focus);
+  background-color: var(--hds-button-surface-color-secondary-muted-focus);
+}
+
+@mixin hds-button-color-secondary-muted-state-active() {
+  color: var(--hds-button-foreground-color-secondary-muted-active);
+  background-color: var(--hds-button-surface-color-secondary-muted-active);
+  border-color: var(--hds-button-border-color-secondary-muted-active);
+  box-shadow: none;
+
+  &::before {
+    border-color: transparent;
+  }
+}
+
+// Tertiary
 
 @mixin hds-button-color-tertiary() {
   color: var(--hds-button-foreground-color-tertiary-default);
@@ -163,10 +218,7 @@ $hds-button-sizes: ("small", "medium", "large");
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-button-foreground-color-tertiary-hover);
-    background-color: var(--hds-button-surface-color-tertiary-hover);
-    border-color: var(--hds-button-border-color-tertiary-hover);
-    cursor: pointer;
+    @include hds-button-color-tertiary-state-hover();
   }
 
   &:focus-visible,
@@ -177,20 +229,12 @@ $hds-button-sizes: ("small", "medium", "large");
       // we want to see the white/black inner border for cds
       $internal-border-width-cds: 1px
     );
-    color: var(--hds-button-foreground-color-tertiary-focus);
-    background-color: var(--hds-button-surface-color-tertiary-focus);
+    @include hds-button-color-tertiary-state-focus();
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-button-foreground-color-tertiary-active);
-    background-color: var(--hds-button-surface-color-tertiary-active);
-    border-color: var(--hds-button-border-color-tertiary-active);
-    box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
+    @include hds-button-color-tertiary-state-active();
   }
 
   //
@@ -217,6 +261,32 @@ $hds-button-sizes: ("small", "medium", "large");
   }
 }
 
+// Tertiary States
+@mixin hds-button-color-tertiary-state-hover() {
+  color: var(--hds-button-foreground-color-tertiary-hover);
+  background-color: var(--hds-button-surface-color-tertiary-hover);
+  border-color: var(--hds-button-border-color-tertiary-hover);
+  cursor: pointer;
+}
+
+@mixin hds-button-color-tertiary-state-focus() {
+  color: var(--hds-button-foreground-color-tertiary-focus);
+  background-color: var(--hds-button-surface-color-tertiary-focus);
+}
+
+@mixin hds-button-color-tertiary-state-active() {
+  color: var(--hds-button-foreground-color-tertiary-active);
+  background-color: var(--hds-button-surface-color-tertiary-active);
+  border-color: var(--hds-button-border-color-tertiary-active);
+  box-shadow: none;
+
+  &::before {
+    border-color: transparent;
+  }
+}
+
+// Critical
+
 @mixin hds-button-color-critical() {
   color: var(--hds-button-foreground-color-critical-default);
   background-color: var(--hds-button-surface-color-critical-default);
@@ -225,10 +295,7 @@ $hds-button-sizes: ("small", "medium", "large");
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-button-foreground-color-critical-hover);
-    background-color: var(--hds-button-surface-color-critical-hover);
-    border-color: var(--hds-button-border-color-critical-hover);
-    cursor: pointer;
+    @include hds-button-color-critical-state-hover();
   }
 
   // This is a special focus ring, that has:
@@ -259,16 +326,30 @@ $hds-button-sizes: ("small", "medium", "large");
 
   &:active,
   &.mock-active {
-    color: var(--hds-button-foreground-color-critical-active);
-    background-color: var(--hds-button-surface-color-critical-active);
-    border-color: var(--hds-button-border-color-critical-active);
-    box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
+    @include hds-button-color-critical-state-active();
   }
 }
+
+// Critical States
+@mixin hds-button-color-critical-state-hover() {
+  color: var(--hds-button-foreground-color-critical-hover);
+  background-color: var(--hds-button-surface-color-critical-hover);
+  border-color: var(--hds-button-border-color-critical-hover);
+  cursor: pointer;
+}
+
+@mixin hds-button-color-critical-state-active() {
+  color: var(--hds-button-foreground-color-critical-active);
+  background-color: var(--hds-button-surface-color-critical-active);
+  border-color: var(--hds-button-border-color-critical-active);
+  box-shadow: none;
+
+  &::before {
+    border-color: transparent;
+  }
+}
+
+// BUTTON SIZES
 
 @mixin hds-button-size-classes($blockName) {
   @each $size in $hds-button-sizes {

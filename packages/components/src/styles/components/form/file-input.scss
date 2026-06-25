@@ -9,6 +9,7 @@
 
 @use "../../mixins/button" as *;
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 .hds-form-file-input {
   width: 100%; // we want to prevent the input from overflowing its container
@@ -27,55 +28,78 @@
 
 // Button
 .hds-form-file-input::file-selector-button {
+  @include hds-button();
+  @include hds-button-color-secondary();
+
+  $hds-form-file-input-background-position-x: 15px;
+
+  display: inline-flex; // override display: flex in hds-button() mixin
   min-height: 36px;
   margin-right: 16px;
-  padding: 7px 16px 7px 37px; // padding in code altered to match Figma visual design
-  color: var(--hds-foreground-color-primary);
-  font: inherit;
-  background-color: var(--hds-surface-color-faint);
-  // upload icon
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%233b3d45'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
+  padding: 7px 16px 7px; // padding in code altered to match Figma visual design
+  padding-left: calc(
+    #{$hds-form-file-input-background-position-x} + var(--hds-form-text-input-background-image-size) +
+      var(--hds-button-gap)
+  );
+
+  background-image: var(--hds-form-file-input-background-image-data-url-file-selector-button-default);
   background-repeat: no-repeat;
-  background-position: 15px 50%;
+  background-position: $hds-form-file-input-background-position-x 50%;
   background-size: var(--hds-form-text-input-background-image-size);
-  border: var(--hds-button-border-width) solid var(--hds-border-color-strong);
-  border-radius: var(--hds-button-border-radius);
-  box-shadow: var(--hds-elevation-low-box-shadow);
-  cursor: pointer;
+
+  @include hds-apply-only-if-carbon() {
+    @include hds-button-color-primary();
+    min-height: 40px; // 2.5rem // TODO: create a token for this value
+  }
 }
 
 // Button states
+
+// hover
 .hds-form-file-input::file-selector-button:hover,
 .hds-form-file-input.mock-hover::file-selector-button {
-  color: var(--hds-foreground-color-primary);
-  background-color: var(--hds-surface-color-primary);
-  border-color: var(--hds-border-color-strong);
+  @include hds-button-color-secondary-state-hover();
+
+  @include hds-apply-only-if-carbon() {
+    @include hds-button-color-primary-state-hover();
+  }
 }
 
+// focus
 .hds-form-file-input:focus-within::file-selector-button,
 .hds-form-file-input.mock-focus::file-selector-button {
   @include hds-focus-ring-basic();
-  color: var(--hds-foreground-color-primary);
-  background-color: var(--hds-surface-color-faint);
+  @include hds-button-color-secondary-state-focus();
   border-color: var(--hds-focus-color-action-internal);
+
+  @include hds-apply-only-if-carbon() {
+    @include hds-button-color-primary-state-focus();
+  }
 }
 
 // Fix issue with button focus style which was displaying after button was activated
 .hds-form-file-input:not(:focus, .mock-focus) {
   &::file-selector-button {
-    border-color: var(--hds-border-color-strong);
+    border-color: var(--hds-button-border-color-secondary-default);
     outline: 0;
+
+    @include hds-apply-only-if-carbon() {
+      border-color: var(--hds-button-border-color-primary-default);
+    }
   }
 }
 
+// active
 .hds-form-file-input::file-selector-button:active,
 .hds-form-file-input.mock-active::file-selector-button {
-  color: var(--hds-foreground-color-primary);
-  background-color: var(--hds-surface-color-interactive-active);
-  border-color: var(--hds-border-color-strong);
-  box-shadow: none;
+  @include hds-button-color-secondary-state-active();
+
+  @include hds-apply-only-if-carbon() {
+    @include hds-button-color-primary-state-active();
+  }
 }
 
+// disabled
 .hds-form-file-input {
   &:disabled,
   &[disabled],
@@ -90,7 +114,7 @@
 
     &::file-selector-button {
       @include hds-button-state-disabled();
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%238c909c'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
+      background-image: var(--hds-form-file-input-background-image-data-url-file-selector-button-disabled);
     }
   }
 }
