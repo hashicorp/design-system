@@ -18,6 +18,7 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "type": "module",
   "scripts": {
+    "test": "pnpm build && node --test \"dist/**/tests.js\"",
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet .",
     "build": "pnpm tsc -p tsconfig.json",
