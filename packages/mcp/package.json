@@ -21,7 +21,10 @@
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet .",
     "build": "pnpm tsc -p tsconfig.json",
-    "start": "node ./dist/index.js"
+    "build:watch": "pnpm build --watch --preserveWatchOutput",
+    "serve": "node ./dist/index.js",
+    "serve:watch": "node --watch --watch-path=./dist --watch-preserve-output ./dist/index.js",
+    "start": "pnpm tsc-watch -p tsconfig.json --preserveWatchOutput --onSuccess \"pnpm serve\""
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"
@@ -29,8 +32,10 @@
   "devDependencies": {
     "@eslint/js": "^9.27.0",
     "@types/node": "^22.10.2",
+    "concurrently": "^9.2.1",
     "eslint": "^9.27.0",
     "globals": "^16.1.0",
+    "tsc-watch": "^7.2.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1"
   }
