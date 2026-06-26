@@ -29,18 +29,12 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
   <section>
     <ShwTextH2>“Base” control</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid @layout="column">
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
       <:theming>
         <HdsFormFileInputBase aria-label="default file input" />
       </:theming>
       <:reference>
-        <cds-file-uploader
-          label-title="Upload files"
-          label-description="Max file size is 500kb. Only .jpg files are supported."
-          input-state="uploading"
-          icon-description="Delete file"
-          input-name=""
-        >
+        <cds-file-uploader>
           <cds-file-uploader-button
             accept="image/jpeg"
             name="default-file-uploader-button"
@@ -69,7 +63,20 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
           />
         </:theming>
         <:reference>
-          <pre>TODO: static image here</pre>
+          {{#if (eq state "default")}}
+            <cds-file-uploader>
+              <cds-file-uploader-button
+                accept="image/jpeg"
+                name="default-file-uploader-button"
+                button-kind="primary"
+                size="md"
+              >
+                Add file
+              </cds-file-uploader-button>
+            </cds-file-uploader>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
@@ -78,7 +85,16 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
         <HdsFormFileInputBase disabled aria-label="disabled file input" />
       </:theming>
       <:reference>
-        <pre>TODO: static image here</pre>
+        <cds-file-uploader icon-description="Delete file" disabled>
+          <cds-file-uploader-button
+            accept="image/jpeg"
+            name="default-file-uploader-button"
+            button-kind="primary"
+            size="md"
+          >
+            Add file
+          </cds-file-uploader-button>
+        </cds-file-uploader>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -98,7 +114,19 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsFormFileInputField>
       </:theming>
       <:reference>
-        TODO: Add Carbon component reference
+        <cds-file-uploader
+          label-title="This is the label text"
+          icon-description="Delete file"
+        >
+          <cds-file-uploader-button
+            accept="image/jpeg"
+            name="default-file-uploader-button"
+            button-kind="primary"
+            size="md"
+          >
+            Add file
+          </cds-file-uploader-button>
+        </cds-file-uploader>
       </:reference>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid
@@ -112,7 +140,20 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsFormFileInputField>
       </:theming>
       <:reference>
-        TODO: Add Carbon component reference
+        <cds-file-uploader
+          label-title="This is the label text"
+          label-description="This is the helper text"
+          icon-description="Delete file"
+        >
+          <cds-file-uploader-button
+            accept="image/jpeg"
+            name="default-file-uploader-button"
+            button-kind="primary"
+            size="md"
+          >
+            Add file
+          </cds-file-uploader-button>
+        </cds-file-uploader>
       </:reference>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid
@@ -125,6 +166,9 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
           <F.Error>This is the error</F.Error>
         </HdsFormFileInputField>
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} @entity="variant" />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid
       @label="Label + Helper text + Error"
@@ -137,8 +181,8 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
           <F.Error>This is the error</F.Error>
         </HdsFormFileInputField>
       </:theming>
-      <:reference>
-        TODO: Add Carbon component reference
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} @entity="variant" />
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -160,7 +204,20 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
           </HdsFormFileInputField>
         </:theming>
         <:reference>
-          TODO: Add Carbon component reference
+          <cds-file-uploader
+            label-title="This is the label text"
+            label-description="This is the helper text"
+            icon-description="Delete file"
+          >
+            <cds-file-uploader-button
+              accept="image/jpeg"
+              name="default-file-uploader-button"
+              button-kind="primary"
+              size="md"
+            >
+              Add file
+            </cds-file-uploader-button>
+          </cds-file-uploader>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
@@ -172,7 +229,21 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsFormFileInputField>
       </:theming>
       <:reference>
-        TODO: Add Carbon component reference
+        <cds-file-uploader
+          label-title="This is the label text"
+          label-description="This is the helper text"
+          icon-description="Delete file"
+          disabled
+        >
+          <cds-file-uploader-button
+            accept="image/jpeg"
+            name="default-file-uploader-button"
+            button-kind="primary"
+            size="md"
+          >
+            Add file
+          </cds-file-uploader-button>
+        </cds-file-uploader>
       </:reference>
     </ShwCarbonizationComparisonGrid>
   </section>
