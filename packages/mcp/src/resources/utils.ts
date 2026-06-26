@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { serializeCaughtError } from "../utils.js";
+
 import type { JsonObject } from "../types.js";
 
 type ResourceResponse = {
@@ -44,7 +46,7 @@ export const withSafeResourceHandler = <TArgs extends unknown[]>(
 
       return toJsonResourceResponse(uri, {
         ok: false,
-        error,
+        error: serializeCaughtError(error),
       });
     }
   };
