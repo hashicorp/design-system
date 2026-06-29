@@ -24,7 +24,9 @@
     "build:watch": "pnpm build --watch --preserveWatchOutput",
     "serve": "node ./dist/index.js",
     "serve:watch": "node --watch --watch-path=./dist --watch-preserve-output ./dist/index.js",
-    "start": "pnpm concurrently --kill-others-on-fail --names build,server \"pnpm build:watch\" \"pnpm serve:watch\""
+    "start": "pnpm concurrently --kill-others-on-fail --names build,server \"pnpm build:watch\" \"pnpm serve:watch\"",
+    "inspect": "npx @modelcontextprotocol/inspector node --watch --watch-path=./dist ./dist/index.js",
+    "start:dev": "pnpm concurrently --kill-others-on-fail --names mcp,inspector \"pnpm start\" \"pnpm inspect\""
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"
