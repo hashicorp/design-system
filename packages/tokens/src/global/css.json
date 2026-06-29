@@ -1,0 +1,18 @@
+{
+  "css": {
+    "color-transform": {
+      "direction": {
+        "$type": "number",
+        "$value": 1,
+        "$modes": {
+          "default": 1,
+          "cds-g0": 1,
+          "cds-g10": 1,
+          "cds-g90": -1,
+          "cds-g100": -1
+        },
+        "comment": "this is used in the CSS `color-transform` to control the direction of the lightness transformations"
+      }
+    }
+  }
+}

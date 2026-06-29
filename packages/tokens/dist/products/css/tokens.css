@@ -181,6 +181,7 @@
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
   --token-color-waypoint-gradient-faint-start: #f6feff; /** this is the 'waypoint-50' value at 25% opacity on white */
   --token-color-waypoint-gradient-faint-stop: #e0fcff;
+  --token-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
   --token-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
   --token-elevation-mid-box-shadow: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
@@ -223,11 +224,88 @@
   --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
   --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
   --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
-  --token-form-label-color: #0c0c0e;
-  --token-form-legend-color: #0c0c0e;
-  --token-form-helper-text-color: #656a76;
-  --token-form-indicator-optional-color: #656a76;
-  --token-form-error-color: #c00005;
+  --token-badge-count-padding-horizontal-small: 8px;
+  --token-badge-count-padding-horizontal-medium: 12px;
+  --token-badge-count-padding-horizontal-large: 14px;
+  --token-badge-height-small: 20px;
+  --token-badge-height-medium: 24px;
+  --token-badge-height-large: 32px;
+  --token-badge-padding-horizontal-small: 6px;
+  --token-badge-padding-horizontal-medium: 8px;
+  --token-badge-padding-horizontal-large: 8px;
+  --token-badge-padding-vertical-small: 2px;
+  --token-badge-padding-vertical-medium: 4px;
+  --token-badge-padding-vertical-large: 4px;
+  --token-badge-gap-small: 4px;
+  --token-badge-gap-medium: 4px;
+  --token-badge-gap-large: 6px;
+  --token-badge-typography-font-size-small: 0.8125rem;
+  --token-badge-typography-font-size-medium: 0.8125rem;
+  --token-badge-typography-font-size-large: 1rem;
+  --token-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
+  --token-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
+  --token-badge-typography-line-height-large: 1.5; /** 24px = 1.5 */
+  --token-badge-foreground-color-neutral-filled: #3b3d45;
+  --token-badge-foreground-color-neutral-inverted: #ffffff;
+  --token-badge-foreground-color-neutral-outlined: #3b3d45;
+  --token-badge-foreground-color-neutral-dark-mode-filled: #ffffff;
+  --token-badge-foreground-color-neutral-dark-mode-inverted: #3b3d45;
+  --token-badge-foreground-color-neutral-dark-mode-outlined: #ffffff;
+  --token-badge-foreground-color-highlight-filled: #7b00db; /** we don't use `highlight-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-highlight-inverted: #ffffff;
+  --token-badge-foreground-color-highlight-outlined: #a737ff;
+  --token-badge-foreground-color-success-filled: #006619; /** we don't use `success-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-success-inverted: #ffffff;
+  --token-badge-foreground-color-success-outlined: #008a22;
+  --token-badge-foreground-color-warning-filled: #803d00; /** we don't use `warning-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-warning-inverted: #ffffff;
+  --token-badge-foreground-color-warning-outlined: #bb5a00;
+  --token-badge-foreground-color-critical-filled: #940004; /** we don't use `critical-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-critical-inverted: #ffffff;
+  --token-badge-foreground-color-critical-outlined: #e52228;
+  --token-badge-surface-color-neutral-filled: #dedfe3;
+  --token-badge-surface-color-neutral-inverted: #656a76;
+  --token-badge-surface-color-neutral-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-neutral-dark-mode-filled: #656a76;
+  --token-badge-surface-color-neutral-dark-mode-inverted: #fafafa;
+  --token-badge-surface-color-neutral-dark-mode-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-highlight-filled: #ead2fe; /** we don't use `surface-highlight` for accessibility (better contrast) */
+  --token-badge-surface-color-highlight-inverted: #a737ff;
+  --token-badge-surface-color-success-filled: #cceeda; /** we don't use `surface-success` for accessibility (better contrast) */
+  --token-badge-surface-color-success-inverted: #008a22;
+  --token-badge-surface-color-warning-filled: #fbeabf; /** we don't use `surface-warning` for accessibility (better contrast) */
+  --token-badge-surface-color-warning-inverted: #bb5a00;
+  --token-badge-surface-color-critical-filled: #fbd4d4; /** we don't use `surface-critical` for accessibility (better contrast) */
+  --token-badge-surface-color-critical-inverted: #e52228;
+  --token-badge-border-radius: 5px;
+  --token-badge-icon-size-small: 12px;
+  --token-badge-icon-size-medium: 16px;
+  --token-badge-icon-size-large: 16px;
+  --token-form-character-count-foreground-color: #656a76;
+  --token-form-character-count-typography-font-size: 0.8125rem;
+  --token-form-character-count-typography-line-height: 1.3846; /** The character-count line-height is the same as the helper-text as per design */
+  --token-form-label-color: #0c0c0e; /** deprecated: use `token-form-label-foreground-color` instead */
+  --token-form-label-foreground-color: #0c0c0e;
+  --token-form-label-typography-font-size: 0.875rem;
+  --token-form-label-typography-font-weight: 600;
+  --token-form-label-typography-line-height: 1.4286;
+  --token-form-legend-color: #0c0c0e; /** deprecated: use `token-form-legend-foreground-color` instead */
+  --token-form-legend-foreground-color: #0c0c0e;
+  --token-form-legend-typography-font-size: 0.875rem;
+  --token-form-legend-typography-font-weight: 600;
+  --token-form-legend-typography-line-height: 1.4286;
+  --token-form-helper-text-color: #656a76; /** deprecated: use `token-form-helper-text-foreground-color` instead */
+  --token-form-helper-text-foreground-color: #656a76;
+  --token-form-helper-text-typography-font-size: 0.8125rem;
+  --token-form-helper-text-typography-line-height: 1.3846;
+  --token-form-indicator-optional-color: #656a76; /** deprecated: use `token-form-indicator-optional-foreground-color` instead */
+  --token-form-indicator-optional-foreground-color: #656a76;
+  --token-form-indicator-optional-typography-font-size: 0.8125rem;
+  --token-form-indicator-optional-typography-line-height: 1.3846;
+  --token-form-error-color: #c00005; /** deprecated: use `token-form-error-foreground-color` instead */
+  --token-form-error-foreground-color: #c00005;
+  --token-form-error-typography-font-size: 0.8125rem;
+  --token-form-error-typography-line-height: 1.3846;
   --token-form-error-icon-size: 14px;
   --token-form-checkbox-size: 16px;
   --token-form-checkbox-border-radius: 3px;
@@ -294,6 +372,9 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
+  --token-icon-tile-border-color-overlay: #656a7633;
+  --token-icon-tile-border-color-logo: #656a7633;
+  --token-icon-tile-surface-color-overlay: #ffffff;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;

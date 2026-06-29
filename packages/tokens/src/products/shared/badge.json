@@ -1,0 +1,304 @@
+{
+  "badge": {
+    "height": {
+      "small": {
+        "$type": "dimension",
+        "$value": "20",
+        "unit": "px"
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px"
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": "32",
+        "unit": "px"
+      }
+    },
+    "padding": {
+      "horizontal": {
+        "small": {
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px"
+        }
+      },
+      "vertical": {
+        "small": {
+          "$type": "dimension",
+          "$value": "2",
+          "unit": "px"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px"
+        }
+      }
+    },
+    "gap": {
+      "small": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px"
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px"
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px"
+      }
+    },
+    "typography": {
+      "font-size": {
+        "small": {
+          "$type": "font-size",
+          "$value": "13",
+          "unit": "px"
+        },
+        "medium": {
+          "$type": "font-size",
+          "$value": "13",
+          "unit": "px"
+        },
+        "large": {
+          "$type": "font-size",
+          "$value": "16",
+          "unit": "px"
+        }
+      },
+      "line-height": {
+        "small": {
+          "$type": "number",
+          "$value": 1.2308,
+          "comment": "16px = 1.2308"
+        },
+        "medium": {
+          "$type": "number",
+          "$value": 1.2308,
+          "comment": "16px = 1.2308"
+        },
+        "large": {
+          "$type": "number",
+          "$value": 1.5,
+          "comment": "24px = 1.5"
+        }
+      }
+    },
+    "foreground": {
+      "color": {
+        "neutral": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}"
+          }
+        },
+        "neutral-dark-mode": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}"
+          }
+        },
+        "highlight": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.purple-400}",
+            "comment": "we don't use `highlight-on-surface` for accessibility (better contrast)"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.highlight}"
+          }
+        },
+        "success": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.green-400}",
+            "comment": "we don't use `success-on-surface` for accessibility (better contrast)"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.success}"
+          }
+        },
+        "warning": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.amber-400}",
+            "comment": "we don't use `warning-on-surface` for accessibility (better contrast)"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.warning}"
+          }
+        },
+        "critical": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.red-400}",
+            "comment": "we don't use `critical-on-surface` for accessibility (better contrast)"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.foreground.high-contrast}"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "{color.foreground.critical}"
+          }
+        }
+      }
+    },
+    "surface": {
+      "color": {
+        "neutral": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-200}"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-500}"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "transparent"
+          }
+        },
+        "neutral-dark-mode": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-500}"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.surface.faint}"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "transparent"
+          }
+        },
+        "highlight": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.purple-100}",
+            "comment": "we don't use `surface-highlight` for accessibility (better contrast)"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.purple-200}"
+          }
+        },
+        "success": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.green-100}",
+            "comment": "we don't use `surface-success` for accessibility (better contrast)"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.green-200}"
+          }
+        },
+        "warning": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.amber-100}",
+            "comment": "we don't use `surface-warning` for accessibility (better contrast)"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.amber-200}"
+          }
+        },
+        "critical": {
+          "filled": {
+            "$type": "color",
+            "$value": "{color.palette.red-100}",
+            "comment": "we don't use `surface-critical` for accessibility (better contrast)"
+          },
+          "inverted": {
+            "$type": "color",
+            "$value": "{color.palette.red-200}"
+          }
+        }
+      }
+    },
+    "border": {
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.small}",
+        "unit": "px"
+      }
+    },
+    "icon": {
+      "size": {
+        "small": {
+          "$type": "dimension",
+          "$value": "12",
+          "unit": "px"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "16",
+          "unit": "px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "16",
+          "unit": "px"
+        }
+      }
+    }
+  }
+}
