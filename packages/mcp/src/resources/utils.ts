@@ -54,11 +54,5 @@ export const withSafeResourceHandler = <TArgs extends unknown[]>(
         error: serializedError,
       });
     }
-
-      return toJsonResourceResponse(uri, {
-        ok: false,
-        error: serializeCaughtError(error),
-      });
-    }
   };
 };
