@@ -81,6 +81,46 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   }
 }
 
+.doc-code-group__theme-picker-container {
+display:flex;
+flex-direction: row;
+padding: 6px;
+border-right: 1px solid var(--doc-color-gray-400);
+}
+
+.doc-code-group__theme-picker-label {
+  @include doc-font-style-body-small();
+  padding: 3.5px 6px;
+}
+
+.doc-code-group__theme-picker {
+  @include doc-font-style-body-small();
+  margin: 0;
+  padding: 4px 8px;
+  padding-right: 32px; // space for the caret icon
+  font-weight: bold;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%23656A76'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+  border: none;
+  border-radius: 4px;
+  appearance: none;
+
+  &:hover {
+    background-color: var(--doc-color-gray-600);
+  }
+
+  &:active {
+    background-color: var(--doc-color-gray-500);
+  }
+
+  &:focus-within {
+    outline: none;
+    box-shadow:0 0 0 2px #2264D6;
+  }
+}
+
 .doc-code-group__secondary-actions {
   display: flex;
   flex-direction: row;
@@ -108,6 +148,18 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   @include breakpoint.large () {
     padding: 32px;
   }
+}
+
+.doc-code-group__preview.hds-theme-dark {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 50%), rgba(0, 0, 0, 50%)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'%3E%3Cpath d='M1 2V0h1v1H0v1z' fill-opacity='.05'/%3E%3C/svg%3E");
+  background-repeat:
+    no-repeat,
+    repeat;
+  background-size:
+    auto,
+    16px 16px;
 }
 
 // Optional separator for rendered code examples

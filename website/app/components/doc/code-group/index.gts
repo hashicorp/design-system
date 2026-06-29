@@ -17,6 +17,7 @@ import type FastbootService from 'ember-cli-fastboot/services/fastboot';
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
 import DocCodeGroupLanguagePicker from 'website/components/doc/code-group/language-picker';
+import DocCodeGroupThemePicker from 'website/components/doc/code-group/theme-picker';
 import DocCopyButton from 'website/components/doc/copy-button';
 import DynamicTemplate from 'website/components/dynamic-template';
 
@@ -39,6 +40,8 @@ interface DocCodeGroupSignature {
 
 type LanguageOption = { label: string; value: string };
 
+type Themes = 'hds-default' | 'carbon-light' | 'carbon-dark';
+
 const CODE_GROUP_LANGUAGE_STORAGE_KEY = 'hds-doc-code-group-language';
 const CODE_GROUP_LANGUAGE_CHANGE_EVENT = 'hds-doc-code-group-language-change';
 
@@ -53,6 +56,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
+  @tracked currentTheme: Themes = 'hds-default';
 
   private readonly handleRouteDidChange = () => {
     if (this.shouldSyncLanguageSelection) {
@@ -178,6 +182,18 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return this.currentView === 'gts';
   }
 
+  get previewThemeClass() {
+    if (this.currentTheme === 'carbon-light') {
+      return 'hds-theme-light hds-mode-cds-g0';
+    }
+
+    if (this.currentTheme === 'carbon-dark') {
+      return 'hds-theme-dark hds-mode-cds-g100';
+    }
+
+    return '';
+  }
+
   get normalizedCurrentRouteName() {
     const path = this.router.currentURL?.split('?')[0] ?? '';
     return path.replace(/^\/+/, '').replace(/\/+$/, '');
@@ -190,6 +206,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   getCodeLanguageEventName = (value: string) => {
     return `Code Demo Language Tab Selected - ${this.normalizedCurrentRouteName} - ${value}`;
   };
+
+  get themeEventName() {
+    return `Code Demo Theme Selected - ${this.normalizedCurrentRouteName} - ${this.currentTheme}`;
+  }
 
   get shouldSyncLanguageSelection() {
     return this.args.hbsSnippet !== '' && this.args.gtsSnippet !== '';
@@ -215,6 +235,14 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
 
     return options;
+  }
+
+  get themeOptions() {
+    return [
+      { label: 'HDS Default', value: 'hds-default' },
+      { label: 'Carbon Light', value: 'carbon-light' },
+      { label: 'Carbon Dark', value: 'carbon-dark' },
+    ];
   }
 
   private getStoredLanguage() {
@@ -272,6 +300,15 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     this.isExpanded = !this.isExpanded;
   };
 
+  handleThemeChange = (event: Event) => {
+    const input = event.target as HTMLSelectElement;
+    const selectedOption = input.selectedOptions[0]?.value;
+
+    if (selectedOption) {
+      this.currentTheme = selectedOption as Themes;
+    }
+  };
+
   // NOTE: we don't have access to the code element inside the CodeBlock component, so we need to set the tabindex using query selectors (need to set tabindex because the code element can be scrollable and it needs to be focusable for keyboard users)
   setCodeElementTabIndex = modifier((element: HTMLDivElement) => {
     element.querySelector('code')?.setAttribute('tabindex', '0');
@@ -279,8 +316,18 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   <template>
     <div class="doc-code-group">
+      <DocCodeGroupActionBar>
+        <:primary>
+          <DocCodeGroupThemePicker
+            @themeOptions={{this.themeOptions}}
+            @currentTheme={{this.currentTheme}}
+            @eventName={{this.themeEventName}}
+            @onThemeChange={{this.handleThemeChange}}
+          />
+        </:primary>
+      </DocCodeGroupActionBar>
       {{#if (notEq this.hidePreview true)}}
-        <div class="doc-code-group__preview">
+        <div class="doc-code-group__preview {{this.previewThemeClass}}">
           <DynamicTemplate
             @templateString={{this.hbsSnippet}}
             @componentId={{@filename}}
