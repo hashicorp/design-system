@@ -36,6 +36,8 @@ Default mode: `safe-only`.
 
 ## Sub-Agent Roles
 
+> **Implementation Note:** Component Analyzer and Component Implementer roles are implemented by the `helios-to-carbon-evaluator-swapper` subskill. See `.ai/skills/helios-to-carbon-evaluator-swapper.md` for detailed execution phases, output schemas, and integration contracts.
+
 ### A) Component Analyzer
 
 Goal: identify Helios migration candidates and produce a plan.
@@ -67,6 +69,16 @@ Must:
 
 Goal: run lint/build checks and correlate failures to migration records.
 
+## Artifact Locations
+
+The orchestrator uses the following artifacts:
+
+- **Mapping table:** `.ai/migration/helios-to-carbon-component-map.json`
+- **Candidate schema:** `.ai/migration/schemas/migration-candidate.schema.json`
+- **Migration plan:** `migration-plan.json` (generated in workspace root)
+- **Migration report:** `migration-report.md` (generated in workspace root)
+- **Report template:** `.ai/templates/migration-report-template.md`
+
 ## Execution Flow
 
 ### Phase 0: Scope and Mode
@@ -79,50 +91,183 @@ Goal: run lint/build checks and correlate failures to migration records.
 
 ### Phase 1: Analyze Components
 
-1. Delegate to Component Analyzer for the selected scope.
-2. Validate JSON schema shape.
-3. Partition by confidence:
-   - High: `>= 0.90`
-   - Medium: `0.60-0.89`
-   - Low: `< 0.60`
+**Delegate to:** `helios-to-carbon-evaluator-swapper` subskill, Phase 1 (Candidate Evaluation)
 
-If mode is `dry-run`, stop after generating reports.
+**Inputs to subskill:**
+- `scopePaths`: Resolved target scope (array of file paths or globs)
+- `mappingTablePath`: `.ai/migration/helios-to-carbon-component-map.json`
+- `allowedOperations`: All transformation types from mapping
+- `prohibitedOperations`: `["createWrapper", "createShim", "modifyTests"]`
+- `outputSchemaPath`: `.ai/migration/schemas/migration-candidate.schema.json`
+- `stopConditions`: Missing mapping, malformed data, schema validation failure
+
+**Expected output:**
+- JSON array of candidate records validated against schema
+- Each candidate includes: `id`, `filePath`, `line`, `heliosComponent`, `proposedCwcComponent`, `transformOperations`, `confidence`, `riskFlags`, `status`, `rationale`, `manualNotes`
+
+**Orchestrator actions:**
+1. Receive candidate array from subskill.
+2. Validate JSON schema shape against `.ai/migration/schemas/migration-candidate.schema.json`.
+3. Partition by confidence:
+   - High: `>= 0.90` (status: `planned`)
+   - Medium: `0.60-0.89` (status: `manual`)
+   - Low: `< 0.60` (status: `skipped`)
+4. Write `migration-plan.json` with all candidates.
+5. Generate initial `migration-report.md` from template.
+
+**If mode is `dry-run`:** Stop after generating reports. Do not proceed to Phase 2.
 
 ### Phase 2: Apply Component Migrations
 
-1. Build allowed set:
-   - `safe-only`: high only
-   - `full`: high + approved medium
-2. Delegate to Component Implementer with explicit candidate IDs.
-3. Capture changed file list and skips.
+**Delegate to:** `helios-to-carbon-evaluator-swapper` subskill, Phase 2 (Approved Swap Application)
+
+**Inputs to subskill:**
+- `approvedCandidateIds`: Array of candidate IDs to migrate
+  - `safe-only` mode: IDs where `confidence >= 0.90` and `status === "planned"`
+  - `full` mode: High-confidence IDs + explicitly approved medium-confidence IDs
+- `mappingTablePath`: `.ai/migration/helios-to-carbon-component-map.json`
+- `candidates`: Full candidate array from Phase 1 (for context)
+
+**Expected output:**
+- Execution summary with:
+  - `changedFiles`: Array of modified file paths
+  - `appliedCandidates`: Array of successfully migrated candidate IDs
+  - `skippedCandidates`: Array of objects with `id` and `reason`
+  - `blockers`: Array of blocker records (type, component, filePath, line)
+
+**Orchestrator actions:**
+1. Build allowed candidate ID set based on mode.
+2. Send approved IDs to subskill Phase 2.
+3. Receive execution summary.
+4. Capture changed file list for verification.
+5. Update `migration-report.md` with applied/skipped counts.
 
 ### Phase 3: Verify
 
 Run project verification commands appropriate to the repo:
-- lint
-- build
+- `pnpm lint` (if files in `packages/` changed)
+- `pnpm build` (if component source changed)
 
-If component source changed, include required lint commands for that package.
+**Verification scope:**
+- If `changedFiles` includes `packages/components/`, run component package lint
+- If `changedFiles` includes `showcase/`, run showcase lint
+- Always run build to ensure no breaking changes
+
+**On verification failure:**
+- Correlate failures to changed files
+- Add failures to `migration-report.md` blockers section
+- Do not claim success
 
 ### Phase 4: Report
 
-Produce `migration-report.md` including:
-- scope and mode
-- candidate counts by confidence
-- code migrations applied/skipped
-- verification results
-- top unresolved blockers and suggested next actions
+Generate final `migration-report.md` using `.ai/templates/migration-report-template.md`:
+
+**Required sections:**
+- **Summary:** Scope, mode, total candidates
+- **Candidate Breakdown:** Counts by confidence level (high/medium/low)
+- **Migrations Applied:** Count and list of applied candidate IDs
+- **Migrations Skipped:** Count and reasons
+- **Verification Results:** Lint/build status
+- **Blockers:** Top unresolved issues with file paths and lines
+- **Manual Follow-ups:** List of manual-status candidates with rationale
+- **Next Actions:** Suggested next steps
+
+**Artifact paths:**
+- Migration plan: `migration-plan.json`
+- Migration report: `migration-report.md`
 
 ## Delegation Contracts
 
-When dispatching each sub-agent, include:
+### Subskill Invocation Contract
 
-- The exact scope path(s)
-- The migration mapping table in force
-- Allowed operation list
-- Prohibited operations list
-- Required output schema
-- Stop conditions
+When invoking `helios-to-carbon-evaluator-swapper`:
+
+**Phase 1 (Evaluation):**
+```
+Input:
+  scopePaths: [array of paths]
+  mappingTablePath: ".ai/migration/helios-to-carbon-component-map.json"
+  allowedOperations: [all transform types]
+  prohibitedOperations: ["createWrapper", "createShim", "modifyTests"]
+  outputSchemaPath: ".ai/migration/schemas/migration-candidate.schema.json"
+  stopConditions: [missing-mapping, malformed-data, schema-failure]
+
+Output:
+  [array of candidate records matching schema]
+```
+
+**Phase 2 (Application):**
+```
+Input:
+  approvedCandidateIds: [array of IDs to migrate]
+  mappingTablePath: ".ai/migration/helios-to-carbon-component-map.json"
+  candidates: [full candidate array from Phase 1]
+
+Output:
+  {
+    changedFiles: [array of paths],
+    appliedCandidates: [array of IDs],
+    skippedCandidates: [{id, reason}],
+    blockers: [{type, component, filePath, line}]
+  }
+```
+
+### Handoff Format
+
+**Orchestrator → Subskill Phase 1:**
+- Provides scope and artifact paths
+- Expects validated candidate array
+
+**Subskill Phase 1 → Orchestrator:**
+- Returns candidate array (JSON)
+- Orchestrator partitions by confidence
+- Orchestrator writes `migration-plan.json`
+
+**Orchestrator → Subskill Phase 2:**
+- Provides approved candidate IDs (filtered by mode)
+- Provides full candidate context
+
+**Subskill Phase 2 → Orchestrator:**
+- Returns execution summary
+- Orchestrator runs verification
+- Orchestrator updates report
+
+## Operator Checklist
+
+### Dry-Run Mode
+- [ ] Resolve target scope
+- [ ] Invoke subskill Phase 1 (evaluation)
+- [ ] Validate candidate output against schema
+- [ ] Partition candidates by confidence
+- [ ] Write `migration-plan.json`
+- [ ] Generate `migration-report.md` from template
+- [ ] Review report for blockers and manual cases
+- [ ] **Stop here - no file modifications**
+
+### Safe-Only Mode
+- [ ] Complete dry-run steps
+- [ ] Filter candidates: `confidence >= 0.90` and `status === "planned"`
+- [ ] Invoke subskill Phase 2 with approved IDs
+- [ ] Capture changed files from execution summary
+- [ ] Run verification (lint + build)
+- [ ] Update `migration-report.md` with results
+- [ ] Review verification output
+- [ ] Confirm no systemic failures
+- [ ] Report paths to artifacts
+
+### Full Mode
+- [ ] Complete dry-run steps
+- [ ] Filter high-confidence candidates (`>= 0.90`)
+- [ ] Review medium-confidence candidates (`0.60-0.89`)
+- [ ] Get explicit approval for medium-confidence IDs
+- [ ] Combine high + approved medium IDs
+- [ ] Invoke subskill Phase 2 with approved IDs
+- [ ] Capture changed files from execution summary
+- [ ] Run verification (lint + build)
+- [ ] Update `migration-report.md` with results
+- [ ] Review verification output
+- [ ] Confirm no systemic failures
+- [ ] Report paths to artifacts
 
 ## Stop Conditions
 
