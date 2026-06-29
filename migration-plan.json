@@ -1,0 +1,140 @@
+{
+  "scope": "showcase/app/components/page-ai-testing/helios-demo-app/sub-sections/helios-demo-app.gts",
+  "mode": "dry-run",
+  "timestamp": "2026-06-25T00:03:00Z",
+  "mappingTableVersion": "1.0.0",
+  "totalCandidates": 6,
+  "highConfidence": 5,
+  "mediumConfidence": 1,
+  "lowConfidence": 0,
+  "missingMappings": 12,
+  "candidates": [
+    {
+      "id": "btn-001",
+      "filePath": "showcase/app/components/page-ai-testing/helios-demo-app/sub-sections/helios-demo-app.gts",
+      "line": 118,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag",      "from": "HdsButton",    "to": "cds-button" },
+        { "type": "moveToSlot",      "from": "@text",         "to": "default" },
+        { "type": "moveToSlot",      "from": "@icon",         "to": "slot:icon" },
+        { "type": "renameAttribute", "from": "@isIconOnly",   "to": "icon-only" }
+      ],
+      "confidence": 0.95,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct 1:1 mapping. Icon-only search button.",
+      "manualNotes": []
+    },
+    {
+      "id": "btn-002",
+      "filePath": "showcase/app/components/page-ai-testing/helios-demo-app/sub-sections/helios-demo-app.gts",
+      "line": 300,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot", "from": "@text",      "to": "default" }
+      ],
+      "confidence": 0.95,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct 1:1 mapping. Primary submit button.",
+      "manualNotes": []
+    },
+    {
+      "id": "btn-003",
+      "filePath": "showcase/app/components/page-ai-testing/helios-demo-app/sub-sections/helios-demo-app.gts",
+      "line": 305,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag",      "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot",      "from": "@text",      "to": "default" },
+        { "type": "renameAttribute", "from": "@color",     "to": "kind", "valueMap": { "secondary": "secondary" } }
+      ],
+      "confidence": 0.95,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct 1:1 mapping. Secondary cancel button.",
+      "manualNotes": []
+    },
+    {
+      "id": "btn-004",
+      "filePath": "showcase/app/components/page-ai-testing/helios-demo-app/sub-sections/helios-demo-app.gts",
+      "line": 364,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot", "from": "@text",      "to": "default" }
+      ],
+      "confidence": 0.95,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct 1:1 mapping. Modal confirm button.",
+      "manualNotes": []
+    },
+    {
+      "id": "btn-005",
+      "filePath": "showcase/app/components/page-ai-testing/helios-demo-app/sub-sections/helios-demo-app.gts",
+      "line": 369,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag",      "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot",      "from": "@text",      "to": "default" },
+        { "type": "renameAttribute", "from": "@color",     "to": "kind", "valueMap": { "secondary": "secondary" } }
+      ],
+      "confidence": 0.95,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct 1:1 mapping. Modal secondary go-back button.",
+      "manualNotes": []
+    },
+    {
+      "id": "alert-001",
+      "filePath": "showcase/app/components/page-ai-testing/helios-demo-app/sub-sections/helios-demo-app.gts",
+      "line": 248,
+      "heliosComponent": "Hds::Alert",
+      "proposedCwcComponent": "cds-inline-notification",
+      "transformOperations": [
+        { "type": "replaceTag",      "from": "HdsAlert", "to": "cds-inline-notification" },
+        { "type": "renameAttribute", "from": "@color",   "to": "kind", "valueMap": { "critical": "error" } },
+        { "type": "manual",          "notes": "@type='inline' has no direct equivalent — review kind attribute" }
+      ],
+      "confidence": 0.75,
+      "riskFlags": ["dismissal-pattern-change", "slot-to-attribute"],
+      "status": "manual",
+      "rationale": "Medium confidence. A.Title and A.Description slots need to move to attributes. @type='inline' requires manual handling.",
+      "manualNotes": [
+        "Review A.Title and A.Description slot usage — move to title/subtitle attributes",
+        "@type='inline' attribute may need manual handling",
+        "Verify dismissal behavior"
+      ]
+    }
+  ],
+  "missingMappingComponents": [
+    { "component": "HdsAppFrame",          "instances": 1, "lines": [92] },
+    { "component": "HdsAppHeader",         "instances": 1, "lines": [98] },
+    { "component": "HdsAppHeaderHomeLink", "instances": 1, "lines": [100] },
+    { "component": "HdsAppSideNav",        "instances": 1, "lines": [138] },
+    { "component": "HdsAppSideNavList",    "instances": 3, "lines": [139, 146, 160] },
+    { "component": "HdsDropdown",          "instances": 3, "lines": [109, 119, 127] },
+    { "component": "HdsButtonSet",         "instances": 2, "lines": [299, 363] },
+    { "component": "HdsForm",              "instances": 1, "lines": [244] },
+    { "component": "HdsFormTextInputField","instances": 2, "lines": [265, 281] },
+    { "component": "HdsAccordion",         "instances": 1, "lines": [183] },
+    { "component": "HdsModal",             "instances": 1, "lines": [335] },
+    { "component": "HdsPageHeader",        "instances": 1, "lines": [171] },
+    { "component": "HdsTextBody",          "instances": 4, "lines": [187, 208, 224, 344], "note": "No CWC equivalent" }
+  ],
+  "blockers": [
+    { "type": "missing-mapping", "component": "HdsAppFrame",           "line": 92,  "severity": "high" },
+    { "type": "missing-mapping", "component": "HdsAppHeader",          "line": 98,  "severity": "high" },
+    { "type": "missing-mapping", "component": "HdsAppSideNav",         "line": 138, "severity": "high" },
+    { "type": "missing-mapping", "component": "HdsForm",               "line": 244, "severity": "high" },
+    { "type": "missing-mapping", "component": "HdsFormTextInputField", "line": 265, "severity": "high" }
+  ]
+}

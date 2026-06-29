@@ -1,0 +1,217 @@
+{
+  "$schema": "./schemas/component-mapping.schema.json",
+  "version": "1.0.0",
+  "mappings": {
+    "Hds::Button": {
+      "cwcComponent": "cds-button",
+      "description": "Primary button component with various styles and sizes",
+      "attributes": {
+        "@text": {
+          "target": "slot:default",
+          "transform": "moveToSlot",
+          "notes": "Text content moves from @text attribute to default slot"
+        },
+        "@color": {
+          "target": "kind",
+          "transform": "rename",
+          "valueMap": {
+            "primary": "primary",
+            "secondary": "secondary",
+            "tertiary": "tertiary",
+            "critical": "danger"
+          }
+        },
+        "@size": {
+          "target": "size",
+          "transform": "direct",
+          "valueMap": {
+            "small": "sm",
+            "medium": "md",
+            "large": "lg"
+          }
+        },
+        "@isFullWidth": {
+          "target": "block",
+          "transform": "rename"
+        },
+        "@isDisabled": {
+          "target": "disabled",
+          "transform": "rename"
+        },
+        "@icon": {
+          "target": "slot:icon",
+          "transform": "moveToSlot",
+          "notes": "Icon moves to named slot"
+        },
+        "@iconPosition": {
+          "target": "icon-position",
+          "transform": "rename"
+        }
+      },
+      "events": {
+        "@onClick": {
+          "target": "@click",
+          "transform": "rename"
+        }
+      },
+      "slots": {
+        "default": {
+          "target": "default",
+          "transform": "direct"
+        }
+      },
+      "confidence": 0.95,
+      "riskFlags": [],
+      "notes": "High confidence - direct 1:1 mapping with complete attribute coverage"
+    },
+    "Hds::Link::Standalone": {
+      "cwcComponent": "cds-link",
+      "description": "Standalone link component",
+      "attributes": {
+        "@text": {
+          "target": "slot:default",
+          "transform": "moveToSlot"
+        },
+        "@href": {
+          "target": "href",
+          "transform": "direct"
+        },
+        "@icon": {
+          "target": "slot:icon",
+          "transform": "moveToSlot"
+        },
+        "@iconPosition": {
+          "target": "icon-position",
+          "transform": "rename"
+        },
+        "@isExternal": {
+          "target": "target",
+          "transform": "conditional",
+          "valueMap": {
+            "true": "_blank",
+            "false": null
+          }
+        }
+      },
+      "events": {},
+      "slots": {
+        "default": {
+          "target": "default",
+          "transform": "direct"
+        }
+      },
+      "confidence": 0.92,
+      "riskFlags": [],
+      "notes": "High confidence - straightforward mapping with minor attribute transformations"
+    },
+    "Hds::Badge": {
+      "cwcComponent": "cds-tag",
+      "description": "Badge/tag component for labels and status indicators",
+      "attributes": {
+        "@text": {
+          "target": "slot:default",
+          "transform": "moveToSlot"
+        },
+        "@type": {
+          "target": "type",
+          "transform": "rename",
+          "valueMap": {
+            "filled": "filled",
+            "inverted": "outlined",
+            "outlined": "outlined"
+          }
+        },
+        "@color": {
+          "target": "type",
+          "transform": "mapToType",
+          "valueMap": {
+            "neutral": "gray",
+            "highlight": "blue",
+            "success": "green",
+            "warning": "yellow",
+            "critical": "red"
+          },
+          "notes": "Color maps to type attribute in Carbon"
+        },
+        "@size": {
+          "target": "size",
+          "transform": "rename",
+          "valueMap": {
+            "small": "sm",
+            "medium": "md",
+            "large": "lg"
+          }
+        }
+      },
+      "events": {},
+      "slots": {
+        "default": {
+          "target": "default",
+          "transform": "direct"
+        }
+      },
+      "confidence": 0.88,
+      "riskFlags": [
+        "semantic-difference"
+      ],
+      "notes": "Medium-high confidence - Badge maps to Tag with some semantic differences in color handling"
+    },
+    "Hds::Alert": {
+      "cwcComponent": "cds-inline-notification",
+      "description": "Alert/notification component for user feedback",
+      "attributes": {
+        "@type": {
+          "target": "kind",
+          "transform": "rename",
+          "valueMap": {
+            "neutral": "info",
+            "info": "info",
+            "success": "success",
+            "warning": "warning",
+            "critical": "error"
+          }
+        },
+        "@title": {
+          "target": "title",
+          "transform": "direct"
+        },
+        "@description": {
+          "target": "subtitle",
+          "transform": "rename"
+        },
+        "@onDismiss": {
+          "target": null,
+          "transform": "manual",
+          "notes": "Dismissal requires manual implementation with close button"
+        }
+      },
+      "events": {},
+      "slots": {
+        "default": {
+          "target": "subtitle",
+          "transform": "moveToAttribute",
+          "notes": "Content may need to move to subtitle attribute"
+        }
+      },
+      "confidence": 0.75,
+      "riskFlags": [
+        "dismissal-pattern-change",
+        "slot-to-attribute"
+      ],
+      "notes": "Medium confidence - dismissal pattern differs, requires manual review"
+    },
+    "Hds::Text": {
+      "cwcComponent": null,
+      "description": "Text component - no direct Carbon equivalent",
+      "attributes": {},
+      "events": {},
+      "slots": {},
+      "confidence": 0.0,
+      "riskFlags": [
+        "no-equivalent",
+        "manual-migration-required"
+      ],
+      "notes": "No direct Carbon equivalent - requires manual migration to native HTML elements or Carbon typography utilities"
+    }
+  }
+}
