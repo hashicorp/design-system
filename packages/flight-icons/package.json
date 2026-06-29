@@ -46,7 +46,7 @@
     "dotenv": "^16.4.7",
     "eslint": "^9.27.0",
     "globals": "^16.1.0",
-    "figma-api": "^2.2.0-beta",
+    "figma-api": "^2.2.1-beta",
     "fs-extra": "^11.2.0",
     "lodash": "^4.18.1",
     "mini-svg-data-uri": "^1.4.4",
