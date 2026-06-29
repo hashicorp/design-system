@@ -398,6 +398,11 @@ const Index: TemplateOnlyComponent = <template>
             HeliosDemo
           </LinkTo>
         </li>
+        <li>
+          <LinkTo @route="page-ai-testing.component-sandbox">
+            ComponentSandbox
+          </LinkTo>
+        </li>
       </ol>
     </div>
   </div>

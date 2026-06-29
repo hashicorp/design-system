@@ -1,0 +1,162 @@
+# Helios → Carbon Web Components Migration Report
+
+**Generated:** 2026-06-25T00:03:00Z  
+**Mode:** dry-run  
+**Scope:** showcase/app/components/page-ai-testing/helios-demo-app/sub-sections/helios-demo-app.gts
+
+---
+
+## Summary
+
+- **Total candidates identified:** 6
+- **High-confidence (≥ 0.90):** 5 ✅
+- **Medium-confidence (0.60-0.89):** 1 ⚠️
+- **Low-confidence (< 0.60):** 0
+- **Migrations applied:** 0 (dry-run mode)
+- **Migrations skipped:** 0
+- **Manual review required:** 1
+- **Missing mappings:** 12 🔴
+- **No CWC equivalent:** 4 (HdsTextBody)
+
+---
+
+## Candidate Breakdown by Confidence
+
+### High Confidence (≥ 0.90) — 5 candidates
+
+| ID | Component | Line | Target | Status |
+|----|-----------|------|--------|--------|
+| btn-001 | HdsButton | 118 | cds-button | planned |
+| btn-002 | HdsButton | 300 | cds-button | planned |
+| btn-003 | HdsButton | 305 | cds-button | planned |
+| btn-004 | HdsButton | 364 | cds-button | planned |
+| btn-005 | HdsButton | 369 | cds-button | planned |
+
+**Status:** ✅ Safe for auto-apply in `safe-only` mode.
+
+| btn | Usage | Key transforms |
+|---|---|---|
+| btn-001 | Icon-only search button | `@icon` → `slot:icon`, `@isIconOnly` → `icon-only`, `@text` → slot |
+| btn-002 | Primary submit button | `@text` → slot |
+| btn-003 | Secondary cancel button | `@text` → slot, `@color="secondary"` → `kind="secondary"` |
+| btn-004 | Modal confirm button | `@text` → slot |
+| btn-005 | Modal go-back button | `@text` → slot, `@color="secondary"` → `kind="secondary"` |
+
+### Medium Confidence (0.60-0.89) — 1 candidate
+
+| ID | Component | Line | Target | Status |
+|----|-----------|------|--------|--------|
+| alert-001 | HdsAlert | 248 | cds-inline-notification | manual |
+
+**Status:** ⚠️ Requires explicit approval in `full` mode.
+
+**Risk flags:** `dismissal-pattern-change`, `slot-to-attribute`
+
+**Manual notes:**
+- `A.Title` and `A.Description` slots need to move to `title`/`subtitle` attributes
+- `@type="inline"` has no direct Carbon equivalent — review `kind` attribute
+- Verify dismissal behaviour
+
+### No CWC Equivalent — 4 instances
+
+| Component | Lines | Action |
+|---|---|---|
+| HdsTextBody | 187, 208, 224, 344 | Replace with native `<p>` / `<div>` elements manually |
+
+---
+
+## Migrations Applied
+
+**Count:** 0 (dry-run — no files modified)
+
+**Would be applied in `safe-only` mode:**
+- btn-001, btn-002, btn-003, btn-004, btn-005 → `cds-button`
+
+---
+
+## Migrations Skipped
+
+**Count:** 0
+
+---
+
+## Verification Results
+
+**Status:** ⏭️ Skipped (dry-run mode)
+
+---
+
+## Blockers
+
+### 🔴 Missing Mappings (12 components)
+
+| Component | Instances | Lines | Priority |
+|---|---|---|---|
+| HdsAppFrame | 1 | 92 | 🔴 High |
+| HdsAppHeader | 1 | 98 | 🔴 High |
+| HdsAppHeaderHomeLink | 1 | 100 | 🔴 High |
+| HdsAppSideNav | 1 | 138 | 🔴 High |
+| HdsAppSideNavList | 3 | 139, 146, 160 | 🔴 High |
+| HdsForm | 1 | 244 | 🔴 High |
+| HdsFormTextInputField | 2 | 265, 281 | 🔴 High |
+| HdsDropdown | 3 | 109, 119, 127 | 🟡 Medium |
+| HdsButtonSet | 2 | 299, 363 | 🟡 Medium |
+| HdsAccordion | 1 | 183 | 🟡 Medium |
+| HdsModal | 1 | 335 | 🟡 Medium |
+| HdsPageHeader | 1 | 171 | 🟡 Medium |
+
+**Impact:** These 12 components cannot be migrated until entries are added to `.ai/migration/helios-to-carbon-component-map.json`.
+
+---
+
+## Manual Follow-ups
+
+### HdsAlert — line 248
+- Move `A.Title` slot content → `title` attribute on `cds-inline-notification`
+- Move `A.Description` slot content → `subtitle` attribute
+- Handle `@type="inline"` manually
+- Confidence 0.75 — approve explicitly in `full` mode
+
+### HdsTextBody — lines 187, 208, 224, 344
+- No Carbon equivalent exists
+- Replace with native `<p>` or `<div>` elements
+- Preserve any inner content and semantic structure
+
+---
+
+## Component Migration Summary
+
+| Helios Component | Carbon Component | Candidates | Planned | Manual | Skipped |
+|---|---|---|---|---|---|
+| HdsButton | cds-button | 5 | 5 | 0 | 0 |
+| HdsAlert | cds-inline-notification | 1 | 0 | 1 | 0 |
+| HdsTextBody | (none) | 4 | 0 | 0 | 4 |
+| Missing mappings | — | 12 | 0 | 0 | 12 |
+
+---
+
+## Next Actions
+
+### Immediate
+1. **Run `safe-only`** to apply the 5 HdsButton → cds-button swaps (zero blockers, zero risk)
+2. **Add mappings** for high-priority components: HdsAppFrame, HdsAppHeader, HdsAppSideNav, HdsForm, HdsFormTextInputField
+
+### Follow-up
+3. Re-run dry-run after mappings are added
+4. Review HdsAlert manually and approve in `full` mode if acceptable
+5. Manually replace HdsTextBody instances with native elements
+
+---
+
+## Artifacts
+
+- **Migration plan:** `migration-plan.json` ✅ Generated
+- **Migration report:** `migration-report.md` ✅ This file
+- **Mapping table:** `.ai/migration/helios-to-carbon-component-map.json`
+- **Candidate schema:** `.ai/migration/schemas/migration-candidate.schema.json`
+
+---
+
+**Report generated by:** `helios-to-carbon-orchestrator` skill  
+**Subskill used:** `helios-to-carbon-evaluator-swapper` (Phase 1: Candidate Evaluation)  
+**Mode:** dry-run (analysis only, no file modifications)
