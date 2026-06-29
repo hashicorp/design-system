@@ -33,7 +33,7 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
         <HdsPaginationCompact id="test-pagination-compact" />
       </template>,
     );
-    assert.dom('#test-pagination-compact').hasClass('hds-pagination');
+    assert.dom('#test-pagination-compact').hasClass('hds-pagination--compact');
   });
 
   // CONTENT
