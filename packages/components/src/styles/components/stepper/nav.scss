@@ -147,13 +147,16 @@ $progress-bar-animation-duration: 0.25s;
         color: var(--token-color-foreground-action);
       }
 
-      @include hds-focus-ring-with-pseudo-element(
-        $top: -3px,
-        $right: -1px,
-        $bottom: -1px,
-        $left: -1px,
-        $radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium)
-      );
+      &:focus-visible,
+      &.mock-focus {
+        @include hds-focus-ring-advanced(
+          $pseudo-element-inset-hds: -3px -1px -1px -1px,
+          // TODO for now we use the `hds` values but when will be carbonized these values will need to be updated
+          $pseudo-element-inset-cds: -3px -1px -1px -1px,
+          // TODO understand if these values are still OK for the carbonized `cds` version
+          $pseudo-element-border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium)
+        );
+      }
     }
   }
 
@@ -177,13 +180,16 @@ $progress-bar-animation-duration: 0.25s;
         }
       }
 
-      @include hds-focus-ring-with-pseudo-element(
-        $top: -3px,
-        $right: -1px,
-        $bottom: -1px,
-        $left: -1px,
-        $radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium)
-      );
+      &:focus-visible,
+      &.mock-focus {
+        @include hds-focus-ring-advanced(
+          $pseudo-element-inset-hds: -3px -1px -1px -1px,
+          // TODO for now we use the `hds` values but when will be carbonized these values will need to be updated
+          $pseudo-element-inset-cds: -3px -1px -1px -1px,
+          // TODO understand if these values are still OK for the carbonized `cds` version
+          $pseudo-element-border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium)
+        );
+      }
 
       &:active,
       &.mock-active {
@@ -325,7 +331,16 @@ $progress-bar-animation-duration: 0.25s;
 
   .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button,
   .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button {
-    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 0);
+    &:focus-visible,
+    &.mock-focus {
+      @include hds-focus-ring-advanced(
+        $pseudo-element-inset-hds: -1px,
+        // TODO for now we use the `hds` values but when will be carbonized these values will need to be updated
+        $pseudo-element-inset-cds: -1px,
+        // TODO understand if these values are still OK for the carbonized `cds` version
+        $pseudo-element-border-radius: 0
+      );
+    }
   }
 
   .hds-stepper-nav__step--active {

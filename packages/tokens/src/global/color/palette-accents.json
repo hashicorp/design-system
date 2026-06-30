@@ -4,152 +4,362 @@
       "blue-500": {
         "$type": "color",
         "$value": "#1c345f",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#1c345f",
+          "cds-g0": "{carbon.color.blue.100}",
+          "cds-g10": "{carbon.color.blue.100}",
+          "cds-g90": "{carbon.color.blue.100}",
+          "cds-g100": "{carbon.color.blue.100}"
+        }
       },
       "blue-400": {
         "$type": "color",
         "$value": "#0046d1",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#0046d1",
+          "cds-g0": "{carbon.color.blue.80}",
+          "cds-g10": "{carbon.color.blue.80}",
+          "cds-g90": "{carbon.color.blue.80}",
+          "cds-g100": "{carbon.color.blue.80}"
+        }
       },
       "blue-300": {
         "$type": "color",
         "$value": "#0c56e9",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#0c56e9",
+          "cds-g0": "{carbon.color.blue.70}",
+          "cds-g10": "{carbon.color.blue.70}",
+          "cds-g90": "{carbon.color.blue.70}",
+          "cds-g100": "{carbon.color.blue.70}"
+        }
       },
       "blue-200": {
         "$type": "color",
         "$value": "#1060ff",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#1060ff",
+          "cds-g0": "{carbon.color.blue.60}",
+          "cds-g10": "{carbon.color.blue.60}",
+          "cds-g90": "{carbon.color.blue.60}",
+          "cds-g100": "{carbon.color.blue.60}"
+        }
       },
       "blue-100": {
         "$type": "color",
         "$value": "#cce3fe",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#cce3fe",
+          "cds-g0": "{carbon.color.blue.20}",
+          "cds-g10": "{carbon.color.blue.20}",
+          "cds-g90": "{carbon.color.blue.20}",
+          "cds-g100": "{carbon.color.blue.20}"
+        }
       },
       "blue-50": {
         "$type": "color",
         "$value": "#f2f8ff",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#f2f8ff",
+          "cds-g0": "{carbon.color.blue.10}",
+          "cds-g10": "{carbon.color.blue.10}",
+          "cds-g90": "{carbon.color.blue.10}",
+          "cds-g100": "{carbon.color.blue.10}"
+        }
       },
       "purple-500": {
         "$type": "color",
         "$value": "#42215b",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#42215b",
+          "cds-g0": "{carbon.color.purple.90}",
+          "cds-g10": "{carbon.color.purple.90}",
+          "cds-g90": "{carbon.color.purple.90}",
+          "cds-g100": "{carbon.color.purple.90}"
+        }
       },
       "purple-400": {
         "$type": "color",
         "$value": "#7b00db",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#7b00db",
+          "cds-g0": "{carbon.color.purple.70}",
+          "cds-g10": "{carbon.color.purple.70}",
+          "cds-g90": "{carbon.color.purple.70}",
+          "cds-g100": "{carbon.color.purple.70}"
+        }
       },
       "purple-300": {
         "$type": "color",
         "$value": "#911ced",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#911ced",
+          "cds-g0": "{carbon.color.purple.60}",
+          "cds-g10": "{carbon.color.purple.60}",
+          "cds-g90": "{carbon.color.purple.60}",
+          "cds-g100": "{carbon.color.purple.60}"
+        }
       },
       "purple-200": {
         "$type": "color",
         "$value": "#a737ff",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#a737ff",
+          "cds-g0": "{carbon.color.purple.50}",
+          "cds-g10": "{carbon.color.purple.50}",
+          "cds-g90": "{carbon.color.purple.50}",
+          "cds-g100": "{carbon.color.purple.50}"
+        }
       },
       "purple-100": {
         "$type": "color",
         "$value": "#ead2fe",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#ead2fe",
+          "cds-g0": "{carbon.color.purple.20}",
+          "cds-g10": "{carbon.color.purple.20}",
+          "cds-g90": "{carbon.color.purple.20}",
+          "cds-g100": "{carbon.color.purple.20}"
+        }
       },
       "purple-50": {
         "$type": "color",
         "$value": "#f9f2ff",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#f9f2ff",
+          "cds-g0": "{carbon.color.purple.10}",
+          "cds-g10": "{carbon.color.purple.10}",
+          "cds-g90": "{carbon.color.purple.10}",
+          "cds-g100": "{carbon.color.purple.10}"
+        }
       },
       "green-500": {
         "$type": "color",
         "$value": "#054220",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#054220",
+          "cds-g0": "{carbon.color.green.80}",
+          "cds-g10": "{carbon.color.green.80}",
+          "cds-g90": "{carbon.color.green.80}",
+          "cds-g100": "{carbon.color.green.80}"
+        }
       },
       "green-400": {
         "$type": "color",
         "$value": "#006619",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#006619",
+          "cds-g0": "{carbon.color.green.70}",
+          "cds-g10": "{carbon.color.green.70}",
+          "cds-g90": "{carbon.color.green.70}",
+          "cds-g100": "{carbon.color.green.70}"
+        }
       },
       "green-300": {
         "$type": "color",
         "$value": "#00781e",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#00781e",
+          "cds-g0": "{carbon.color.green.60}",
+          "cds-g10": "{carbon.color.green.60}",
+          "cds-g90": "{carbon.color.green.60}",
+          "cds-g100": "{carbon.color.green.60}"
+        }
       },
       "green-200": {
         "$type": "color",
         "$value": "#008a22",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#008a22",
+          "cds-g0": "{carbon.color.green.50}",
+          "cds-g10": "{carbon.color.green.50}",
+          "cds-g90": "{carbon.color.green.50}",
+          "cds-g100": "{carbon.color.green.50}"
+        }
       },
       "green-100": {
         "$type": "color",
         "$value": "#cceeda",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#cceeda",
+          "cds-g0": "{carbon.color.green.20}",
+          "cds-g10": "{carbon.color.green.20}",
+          "cds-g90": "{carbon.color.green.20}",
+          "cds-g100": "{carbon.color.green.20}"
+        }
       },
       "green-50": {
         "$type": "color",
         "$value": "#f2fbf6",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#f2fbf6",
+          "cds-g0": "{carbon.color.green.10}",
+          "cds-g10": "{carbon.color.green.10}",
+          "cds-g90": "{carbon.color.green.10}",
+          "cds-g100": "{carbon.color.green.10}"
+        }
       },
       "amber-500": {
         "$type": "color",
         "$value": "#542800",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#542800",
+          "cds-g0": "{carbon.color.orange.90}",
+          "cds-g10": "{carbon.color.orange.90}",
+          "cds-g90": "{carbon.color.orange.90}",
+          "cds-g100": "{carbon.color.orange.90}"
+        }
       },
       "amber-400": {
         "$type": "color",
         "$value": "#803d00",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#803d00",
+          "cds-g0": "{carbon.color.orange.80}",
+          "cds-g10": "{carbon.color.orange.80}",
+          "cds-g90": "{carbon.color.orange.80}",
+          "cds-g100": "{carbon.color.orange.80}"
+        }
       },
       "amber-300": {
         "$type": "color",
         "$value": "#9e4b00",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#9e4b00",
+          "cds-g0": "{carbon.color.orange.70}",
+          "cds-g10": "{carbon.color.orange.70}",
+          "cds-g90": "{carbon.color.orange.70}",
+          "cds-g100": "{carbon.color.orange.70}"
+        }
       },
       "amber-200": {
         "$type": "color",
         "$value": "#bb5a00",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#bb5a00",
+          "cds-g0": "{carbon.color.orange.60}",
+          "cds-g10": "{carbon.color.orange.60}",
+          "cds-g90": "{carbon.color.orange.60}",
+          "cds-g100": "{carbon.color.orange.60}"
+        }
       },
       "amber-100": {
         "$type": "color",
         "$value": "#fbeabf",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#fbeabf",
+          "cds-g0": "{carbon.color.orange.20}",
+          "cds-g10": "{carbon.color.orange.20}",
+          "cds-g90": "{carbon.color.orange.20}",
+          "cds-g100": "{carbon.color.orange.20}"
+        }
       },
       "amber-50": {
         "$type": "color",
         "$value": "#fff9e8",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#fff9e8",
+          "cds-g0": "{carbon.color.orange.10}",
+          "cds-g10": "{carbon.color.orange.10}",
+          "cds-g90": "{carbon.color.orange.10}",
+          "cds-g100": "{carbon.color.orange.10}"
+        }
       },
       "red-500": {
         "$type": "color",
         "$value": "#51130a",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#51130a",
+          "cds-g0": "{carbon.color.red.90}",
+          "cds-g10": "{carbon.color.red.90}",
+          "cds-g90": "{carbon.color.red.90}",
+          "cds-g100": "{carbon.color.red.90}"
+        }
       },
       "red-400": {
         "$type": "color",
         "$value": "#940004",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#940004",
+          "cds-g0": "{carbon.color.red.80}",
+          "cds-g10": "{carbon.color.red.80}",
+          "cds-g90": "{carbon.color.red.80}",
+          "cds-g100": "{carbon.color.red.80}"
+        }
       },
       "red-300": {
         "$type": "color",
         "$value": "#c00005",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#c00005",
+          "cds-g0": "{carbon.color.red.70}",
+          "cds-g10": "{carbon.color.red.70}",
+          "cds-g90": "{carbon.color.red.70}",
+          "cds-g100": "{carbon.color.red.70}"
+        }
       },
       "red-200": {
         "$type": "color",
         "$value": "#e52228",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#e52228",
+          "cds-g0": "{carbon.color.red.60}",
+          "cds-g10": "{carbon.color.red.60}",
+          "cds-g90": "{carbon.color.red.60}",
+          "cds-g100": "{carbon.color.red.60}"
+        }
       },
       "red-100": {
         "$type": "color",
         "$value": "#fbd4d4",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#fbd4d4",
+          "cds-g0": "{carbon.color.red.20}",
+          "cds-g10": "{carbon.color.red.20}",
+          "cds-g90": "{carbon.color.red.20}",
+          "cds-g100": "{carbon.color.red.20}"
+        }
       },
       "red-50": {
         "$type": "color",
         "$value": "#fff5f5",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#fff5f5",
+          "cds-g0": "{carbon.color.red.10}",
+          "cds-g10": "{carbon.color.red.10}",
+          "cds-g90": "{carbon.color.red.10}",
+          "cds-g100": "{carbon.color.red.10}"
+        }
       }
     }
   }

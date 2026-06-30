@@ -5,7 +5,14 @@
         "$type": "color",
         "$value": "#000000",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#000000",
+          "cds-g0": "#000000",
+          "cds-g10": "#000000",
+          "cds-g90": "#FFFFFF",
+          "cds-g100": "#FFFFFF"
+        }
       },
       "boundary-brand": {
         "$type": "color",
@@ -107,7 +114,14 @@
         "$type": "color",
         "$value": "#000000",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#000000",
+          "cds-g0": "#000000",
+          "cds-g10": "#000000",
+          "cds-g90": "#FFFFFF",
+          "cds-g100": "#FFFFFF"
+        }
       },
       "nomad-brand": {
         "$type": "color",
