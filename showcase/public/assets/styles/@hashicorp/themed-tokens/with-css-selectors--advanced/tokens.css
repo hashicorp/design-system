@@ -147,7 +147,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-typography-body-200-line-height
   );
   --hds-app-footer-link-focus-outline-color: var(
-    --token-color-focus-action-internal
+    --hds-color-focus-action-internal
   );
   --hds-app-footer-link-focus-outline-width: 2px;
   --hds-app-header-actions-gap: 12px;
@@ -818,7 +818,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-typography-body-100-font-size
   );
   --hds-pagination-nav-control-typography-font-weight-active: var(
-    --token-typography-font-weight-medium
+    --hds-typography-font-weight-medium
   );
   --hds-pagination-nav-indicator-height: 2px;
   --hds-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
