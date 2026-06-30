@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 
-import HdsTextBody from '../../text/body.gts';
 import HdsBadge from '../../badge/index.gts';
 import hdsT from '../../../../helpers/hds-t.ts';
 
@@ -34,17 +33,12 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
 
   <template>
     {{#if @isOptional}}
-      <HdsTextBody
-        class={{this.classNames}}
-        @tag="span"
-        @size="100"
-        @weight="regular"
-      >
+      <span class={{this.classNames}}>
         ({{hdsT
           "hds.components.form.common.optional_field_indicator"
           default="Optional"
         }})
-      </HdsTextBody>
+      </span>
     {{/if}}
     {{#if @isRequired}}
       &nbsp;<HdsBadge

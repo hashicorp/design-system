@@ -98,13 +98,15 @@ $hds-tag-border-radius: 50px;
   cursor: text;
   user-select: text;
 
+  @include hds-focus-ring-basic();
+
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-basic();
     z-index: 1; // ensures focus is not obscured by adjacent elements
   }
 
-  &:focus-visible::before {
+  &:focus::before,
+  &.mock-focus::before {
     box-shadow: none; // override default tooltip button focus styles
   }
 }

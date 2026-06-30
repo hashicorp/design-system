@@ -34,7 +34,9 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
         />
       </template>,
     );
-    assert.dom('#test-pagination-numbered').hasClass('hds-pagination');
+    assert
+      .dom('#test-pagination-numbered')
+      .hasClass('hds-pagination--numbered');
   });
 
   // CONTENT (AND ARGUMENTS DRILLING)

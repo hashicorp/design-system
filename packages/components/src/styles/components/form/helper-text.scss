@@ -9,5 +9,9 @@
 
 .hds-form-helper-text {
   display: block;
-  color: var(--token-form-helper-text-color);
+  color: var(--token-form-helper-text-foreground-color);
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-form-helper-text-typography-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-form-helper-text-typography-line-height);
 }
