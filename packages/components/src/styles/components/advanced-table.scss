@@ -294,7 +294,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
       + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
       // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
-      left: var(--hds-advanced-table-sticky-column-offset, 0);
+      left: var(--hds-var-advanced-table-sticky-column-offset, 0);
       border-left-width: $hds-advanced-table-border-width;
     }
 
@@ -629,7 +629,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       // Specific override for the column following a selectable checkbox
       > .hds-advanced-table__th--is-selectable + * {
-        left: var(--hds-advanced-table-sticky-column-offset, 0);
+        left: var(--hds-var-advanced-table-sticky-column-offset, 0);
         border-left-width: $hds-advanced-table-border-width;
       }
     }

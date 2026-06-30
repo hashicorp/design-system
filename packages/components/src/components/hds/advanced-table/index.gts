@@ -1004,7 +1004,7 @@ export default class HdsAdvancedTable<
               aria-describedby={{this._captionId}}
               {{style
                 grid-template-columns=CM.gridTemplateColumns
-                --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
+                --hds-var-advanced-table-sticky-column-offset=this.stickyColumnOffset
                 max-height=@maxHeight
               }}
               {{this._setUpScrollWrapper}}

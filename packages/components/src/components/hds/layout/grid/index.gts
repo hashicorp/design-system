@@ -99,32 +99,32 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     LOGIC:
 
      Default layout behavior:
-     --hds-layout-grid-column-fill-type is set to auto-fit (fluid layout)
+     --hds-var-layout-grid-column-fill-type is set to auto-fit (fluid layout)
 
     If neither columnMinWidth nor columnWidth are passed in:
-    - We do not set --hds-layout-grid-column-min-width (defaults to 0px)
+    - We do not set --hds-var-layout-grid-column-min-width (defaults to 0px)
     
     If columnMinWidth is passed in:
-    - We set --hds-layout-grid-column-min-width to the passed in value
+    - We set --hds-var-layout-grid-column-min-width to the passed in value
 
     If a columnWidth value is passed in:
-    1) we set --hds-layout-grid-column-min-width to the passed in value for the view
-    2) In the CSS, we use "auto-fill" for --hds-layout-grid-column-fill-type for the view (fixed layout)
+    1) we set --hds-var-layout-grid-column-min-width to the passed in value for the view
+    2) In the CSS, we use "auto-fill" for --hds-var-layout-grid-column-fill-type for the view (fixed layout)
 
     If both columnMinWidth & columnWidth are passed in:
     - We throw an error, as it doesn't make sense in the context of a CSS grid layout (too complex to determine which to use & desired behavior)
   */
   get inlineStyles(): Record<string, unknown> {
     const inlineStyles: {
-      '--hds-layout-grid-column-min-width'?: string;
-      '--hds-layout-grid-column-fill-type'?: string;
+      '--hds-var-layout-grid-column-min-width'?: string;
+      '--hds-var-layout-grid-column-fill-type'?: string;
 
       // responsive
-      '--hds-layout-grid-column-width-sm'?: string;
-      '--hds-layout-grid-column-width-md'?: string;
-      '--hds-layout-grid-column-width-lg'?: string;
-      '--hds-layout-grid-column-width-xl'?: string;
-      '--hds-layout-grid-column-width-xxl'?: string;
+      '--hds-var-layout-grid-column-width-sm'?: string;
+      '--hds-var-layout-grid-column-width-md'?: string;
+      '--hds-var-layout-grid-column-width-lg'?: string;
+      '--hds-var-layout-grid-column-width-xl'?: string;
+      '--hds-var-layout-grid-column-width-xxl'?: string;
     } = {};
 
     // if both columnMinWidth and columnWidth are passed in, we throw an error
@@ -134,32 +134,32 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     );
 
     if (this.args.columnMinWidth) {
-      inlineStyles['--hds-layout-grid-column-min-width'] =
+      inlineStyles['--hds-var-layout-grid-column-min-width'] =
         this.args.columnMinWidth;
     } else if (this.args.columnWidth) {
       if (typeof this.args.columnWidth === 'string') {
-        inlineStyles['--hds-layout-grid-column-min-width'] =
+        inlineStyles['--hds-var-layout-grid-column-min-width'] =
           this.args.columnWidth;
       } else if (typeof this.args.columnWidth === 'object') {
         // Responsive column widths
         if (this.args.columnWidth.sm) {
-          inlineStyles['--hds-layout-grid-column-width-sm'] =
+          inlineStyles['--hds-var-layout-grid-column-width-sm'] =
             this.args.columnWidth.sm;
         }
         if (this.args.columnWidth.md) {
-          inlineStyles['--hds-layout-grid-column-width-md'] =
+          inlineStyles['--hds-var-layout-grid-column-width-md'] =
             this.args.columnWidth.md;
         }
         if (this.args.columnWidth.lg) {
-          inlineStyles['--hds-layout-grid-column-width-lg'] =
+          inlineStyles['--hds-var-layout-grid-column-width-lg'] =
             this.args.columnWidth.lg;
         }
         if (this.args.columnWidth.xl) {
-          inlineStyles['--hds-layout-grid-column-width-xl'] =
+          inlineStyles['--hds-var-layout-grid-column-width-xl'] =
             this.args.columnWidth.xl;
         }
         if (this.args.columnWidth.xxl) {
-          inlineStyles['--hds-layout-grid-column-width-xxl'] =
+          inlineStyles['--hds-var-layout-grid-column-width-xxl'] =
             this.args.columnWidth.xxl;
         }
       }

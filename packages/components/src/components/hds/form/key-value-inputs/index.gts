@@ -170,7 +170,7 @@ export default class HdsFormKeyValueInputs<T = unknown> extends Component<
 
         // Set grid-column so generic content appears in the correct column when grid-row is set; otherwise, browsers default it to the first column.
         columnElement.style.setProperty(
-          '--hds-key-value-inputs-column-index',
+          '--hds-var-key-value-inputs-column-index',
           `${index + 1}`
         );
       }
@@ -184,7 +184,7 @@ export default class HdsFormKeyValueInputs<T = unknown> extends Component<
       ) {
         // Set grid-column so generic content appears in the correct column when grid-row is set; otherwise, browsers default it to the first column.
         columnElement.style.setProperty(
-          '--hds-key-value-inputs-column-index',
+          '--hds-var-key-value-inputs-column-index',
           `${index + 1}`
         );
       }
@@ -201,7 +201,7 @@ export default class HdsFormKeyValueInputs<T = unknown> extends Component<
     <fieldset
       class="hds-form-key-value-inputs"
       ...attributes
-      {{style --hds-key-value-inputs-columns=this._gridTemplateColumns}}
+      {{style --hds-var-key-value-inputs-columns=this._gridTemplateColumns}}
       {{! need to set aria-labelledby because the legend is not a direct descendant of the fieldset }}
       aria-labelledby="legend-{{this.glueId}}"
       {{! @glint-expect-error }}

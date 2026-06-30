@@ -115,10 +115,10 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
 
   get inlineStyles(): Record<string, unknown> {
     const inlineStyles: {
-      '--hds-stepper-nav-progress-bar-width'?: string;
+      '--hds-var-stepper-nav-progress-bar-width'?: string;
     } = {};
 
-    inlineStyles['--hds-stepper-nav-progress-bar-width'] =
+    inlineStyles['--hds-var-stepper-nav-progress-bar-width'] =
       this.progressBarWidthStyle;
 
     return inlineStyles;
