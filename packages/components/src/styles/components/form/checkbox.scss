@@ -16,6 +16,7 @@
   height: var(--hds-form-checkbox-size);
   margin: 0;
   padding: 0;
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: var(--hds-form-checkbox-background-image-size) var(--hds-form-checkbox-background-image-size);
   border-style: solid;
@@ -71,25 +72,25 @@
   // DISABLED
 
   &:disabled:not(:checked, :indeterminate) {
-    background-color: var(--hds-form-control-disabled-surface-color);
-    border-color: var(--hds-form-control-disabled-border-color);
+    background-color: var(--hds-form-checkbox-surface-color-disabled);
+    border-color: var(--hds-form-checkbox-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
 
   &:disabled:checked {
-    background-color: var(--hds-form-control-disabled-surface-color);
+    background-color: var(--hds-form-checkbox-surface-color-checked-disabled);
     background-image: var(--hds-form-checkbox-background-image-data-url-disabled);
-    border-color: var(--hds-form-control-disabled-border-color);
+    border-color: var(--hds-form-checkbox-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
 
   &:disabled:indeterminate {
-    background-color: var(--hds-form-control-disabled-surface-color);
+    background-color: var(--hds-form-checkbox-surface-color-checked-disabled);
     background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate-disabled);
     background-repeat: no-repeat;
-    border-color: var(--hds-form-control-disabled-border-color);
+    border-color: var(--hds-form-checkbox-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
