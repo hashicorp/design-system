@@ -8831,9 +8831,9 @@
   {
     "key": "{app-footer.link.focus.outline.color}",
     "$type": "color",
-    "$value": "var(--token-color-focus-action-internal)",
+    "$value": "#0c56e9",
     "$modes": {
-      "default": "var(--token-color-focus-action-internal)",
+      "default": "#0c56e9",
       "cds-g0": "#0f62fe",
       "cds-g10": "#0f62fe",
       "cds-g90": "#ffffff",
@@ -8841,9 +8841,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "var(--token-color-focus-action-internal)",
+      "$value": "{color.focus.action.internal}",
       "$modes": {
-        "default": "var(--token-color-focus-action-internal)",
+        "default": "{color.focus.action.internal}",
         "cds-g0": "{carbon.themes.white.focus}",
         "cds-g10": "{carbon.themes.g10.focus}",
         "cds-g90": "{carbon.themes.g90.focus}",
@@ -21583,9 +21583,9 @@
   {
     "key": "{pagination.nav.control.typography.font-weight.active}",
     "$type": "font-weight",
-    "$value": "var(--token-typography-font-weight-medium)",
+    "$value": "500",
     "$modes": {
-      "default": "var(--token-typography-font-weight-medium)",
+      "default": "500",
       "cds-g0": 600,
       "cds-g10": 600,
       "cds-g90": 600,
@@ -21593,9 +21593,9 @@
     },
     "original": {
       "$type": "font-weight",
-      "$value": "var(--token-typography-font-weight-medium)",
+      "$value": "{typography.font-weight.medium}",
       "$modes": {
-        "default": "var(--token-typography-font-weight-medium)",
+        "default": "{typography.font-weight.medium}",
         "cds-g0": "{carbon.typography.font-weight.semibold}",
         "cds-g10": "{carbon.typography.font-weight.semibold}",
         "cds-g90": "{carbon.typography.font-weight.semibold}",

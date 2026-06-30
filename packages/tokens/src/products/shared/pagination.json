@@ -94,9 +94,9 @@
           "font-weight": {
             "active": {
               "$type": "font-weight",
-              "$value": "var(--token-typography-font-weight-medium)",
+              "$value": "{typography.font-weight.medium}",
               "$modes": {
-                "default": "var(--token-typography-font-weight-medium)",
+                "default": "{typography.font-weight.medium}",
                 "cds-g0": "{carbon.typography.font-weight.semibold}",
                 "cds-g10": "{carbon.typography.font-weight.semibold}",
                 "cds-g90": "{carbon.typography.font-weight.semibold}",
