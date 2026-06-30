@@ -8,7 +8,9 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { dirname, resolve } from "node:path";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+
 import { registerResources } from "./resources/index.js";
+import { registerTools } from "./tools/index.js";
 
 const currentFilePath = fileURLToPath(import.meta.url);
 const currentDirectoryPath = dirname(currentFilePath);
@@ -39,6 +41,7 @@ const buildServer = (): McpServer => {
   });
 
   registerResources(server);
+  registerTools(server);
 
   return server;
 };
