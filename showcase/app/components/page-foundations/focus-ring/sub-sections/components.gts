@@ -290,7 +290,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
   <ShwDivider @level={{2}} />
 
   <ShwTextH4 @tag="h3">Button</ShwTextH4>
-  <ShwGrid @columns={{4}} @gap="1rem" as |SG|>
+  <ShwGrid @columns={{5}} @gap="1rem" as |SG|>
     {{#each BUTTON_COLORS as |color|}}
       <SG.Item @label={{capitalize color}}>
         <ShwFlex @direction="column" @gap="1rem" as |SF|>

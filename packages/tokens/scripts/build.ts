@@ -7,21 +7,92 @@ import StyleDictionary from 'style-dictionary';
 import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
+import chalk from 'chalk';
+import { isEqual } from 'lodash-es';
 
 import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-import { targets, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
+import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
+import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
 import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
+import { validateThemingCssFiles } from './build-parts/validateThemingCssFiles.ts';
+import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
+import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
 
 // SCRIPT CONFIG
 
 const __filename = fileURLToPath(import.meta.url); // Get the file path of the current module
 const __dirname = dirname(__filename); // Get the directory name of the current module
 const distFolder = path.resolve(__dirname, '../dist');
+
+
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+
+// CUSTOM PREPROCESSORS
+
+for (const mode of modes) {
+  StyleDictionary.registerPreprocessor({
+    name: `replace-value-for-mode-${mode}`,
+    preprocessor: (dictionary, options) => {
+      // we get the `buildPath` from the `PlatformConfig` option
+      const buildPath = (options as any).buildPath;
+      // recursively traverse token objects and replace the `$value` with the corresponding colocated `$modes` theme value
+      // note: the `slice` is always an object (a token or a parent group)
+      function replaceModes(slice: DesignToken, tokenPath: string[]) {
+        if (slice.$modes) {
+          if (mode in slice.$modes) {
+            // extra validation to catch instances where the `default` mode value is different from the `$value`
+            // note: we use `isEqual` for a deep/structural comparison so that object values (eg. the new DTCG `dimension` format `{ value, unit }`)
+            // and array values (eg. the `cubicBezier` timing functions) don't trigger false positives when they are structurally equal
+            if (mode === 'default' && !isEqual(slice.$modes[mode], slice.$value)) {
+              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${tokenPath.join('.')}}' with value different than '$value' (\`${JSON.stringify(slice.$modes[mode])}\` instead of the expected \`${JSON.stringify(slice.$value)}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
+            }
+            // note: a `$modes` entry resolves to one of two shapes, distinguished by whether it carries its own `$value`:
+            // 1) a "standard" value:
+            //      - a primitive value (eg. a number, a string, an alias, etc)
+            //      - an array (eg. the `cubicBezier` timing function like in `accordion.item.toggle.icon.transition.timing-function`)
+            //      - a DTCG object value (eg. the new `dimension` `{ value, unit }` shape) — which replaces `$value` directly.
+            // 2) a "property-override" object:
+            //      - by convention always an object that carries its own `$value`, optionally with sibling props (eg. `unit`/`alpha`, like in `color.palette.alpha-300`).
+            //        its keys override the token's own props, and a `null` value removes that prop from the token (eg. `{ "$value": "{…}", "alpha": null }` drops the alpha).
+            const modeValue = slice.$modes[mode];
+            const isPropertyOverrideObject = typeof modeValue === 'object' && modeValue !== null && !Array.isArray(modeValue) && '$value' in modeValue;
+            if (isPropertyOverrideObject) {
+              // we spread the override object's keys/values over the token's base keys/values
+              Object.keys(modeValue).forEach((key: string) => {
+                if (modeValue[key] === null) {
+                  delete slice[key];
+                } else {
+                  slice[key] = modeValue[key];
+                }
+              });
+            } else {
+              slice.$value = modeValue;
+            }
+          } else {
+            // we want to interrupt the execution of the script if one of the expected modes is missing
+            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${tokenPath.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${tokenPath.join('.')} - ${JSON.stringify(slice, null, 2)}`);
+          }
+        } else {
+            Object.entries(slice).forEach(([key, value]) => {
+              if (typeof value === 'object') {
+                replaceModes(value, [...tokenPath, key]);
+              }
+            });
+        }
+        return slice;
+      }
+      return replaceModes(dictionary, []);
+    },
+  });
+}
+
 
 // CUSTOM TRANSFORMS
 
@@ -134,11 +205,17 @@ StyleDictionary.registerTransform({
     return token.$type === 'dimension';
   },
   transform: function (token: DesignToken) {
-    const val = parseFloat(token.$value);
+    // the `dimension` token type can come in two formats:
+    // - the standard format, where `$value` is a string/number and the `unit` is a sibling property of the token
+    // - the new DTCG format, where `$value` is an object with the `{ value, unit }` shape (eg. `{ "value": 4, "unit": "px" }`)
+    const isDtcgObjectDimensionValue = typeof token.$value === 'object' && token.$value !== null && 'value' in token.$value && 'unit' in token.$value;
+    const rawValue = isDtcgObjectDimensionValue ? token.$value.value : token.$value;
+    const unit = isDtcgObjectDimensionValue ? token.$value.unit : token.unit;
+    const val = parseFloat(rawValue);
     if (isNaN(val)) {
-      console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot use it as dimension/unit.\n`);
+      console.error(`🚨 Invalid Number: '${token.name}: ${JSON.stringify(token.$value)}' is not a valid number, cannot use it as dimension/unit.\n`);
     }
-    return `${token.$value}${token.unit}`;
+    return `${rawValue}${unit}`;
   }
 });
 
@@ -188,10 +265,27 @@ StyleDictionary.registerTransformGroup({
 });
 
 StyleDictionary.registerTransformGroup({
+  name: 'products/web/themed',
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+});
+
+StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
   transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
+
+
+// CUSTOM FORMATS
+
+for (const target of ['common', 'themed']) {
+  // note: customFormatCssThemedTokensFunction is a higher-order function, that takes `target` as argument and returns a "format" function
+  const customFormatCssThemedTokensFunction = await customFormatCssThemedTokensFunctionForTarget(target);
+  StyleDictionary.registerFormat({
+    name: `css/themed-tokens/with-root-selector/${target}`,
+    format: customFormatCssThemedTokensFunction,
+  });
+}
 
 StyleDictionary.registerFormat({
   name: 'docs/json',
@@ -207,6 +301,28 @@ StyleDictionary.registerAction({
   undo: () => {}
 });
 
+StyleDictionary.registerAction({
+    name: 'generate-theming-css-files',
+    do: generateThemingCssFiles,
+    undo: () => {}
+});
+
+StyleDictionary.registerAction({
+    name: 'validate-theming-css-files',
+    do: validateThemingCssFiles,
+    undo: () => {}
+});
+
+StyleDictionary.registerAction({
+    name: 'generate-theming-docs-files',
+    do: generateThemingDocsFiles,
+    undo: () => {}
+});
+
+
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
 
 // PROCESS THE DESIGN TOKENS
 
@@ -217,6 +333,16 @@ console.log('\n==============================================');
 console.log(`\nCleaning up dist folder`);
 fs.emptyDirSync(distFolder);
 
+// generate themed tokens
+for (const mode of modes) {
+  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'products', mode }));
+  console.log(`\n---\n\nProcessing mode "${mode}"...`);
+  await StyleDictionaryInstance.hasInitialized;
+  await StyleDictionaryInstance.buildAllPlatforms()
+  console.log('\nEnd processing');
+}
+
+// generate standard tokens
 for (const target of targets) {
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
   console.log(`\n---\n\nProcessing target "${target}"...`);

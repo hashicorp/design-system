@@ -24,10 +24,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextH3>CodeEditorTitle</ShwTextH3>
 
-  <div
-    class="hds-code-editor hds-code-editor--theme-dark"
-    {{style padding="16px"}}
-  >
+  <div class="hds-code-editor" {{style padding="16px"}}>
     <HdsCodeEditorTitle @editorId="example-editor" @onInsert={{NOOP}}>
       Code editor with title
     </HdsCodeEditorTitle>
@@ -35,10 +32,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextH3>CodeEditorDescription</ShwTextH3>
 
-  <div
-    class="hds-code-editor hds-code-editor--theme-dark"
-    {{style padding="16px"}}
-  >
+  <div class="hds-code-editor" {{style padding="16px"}}>
     <HdsCodeEditorDescription @editorId="example-editor" @onInsert={{NOOP}}>
       This is a code editor with a description
     </HdsCodeEditorDescription>
@@ -49,10 +43,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     {{#each STATES as |state|}}
       <SF.Item @label={{state}}>
-        <div
-          class="hds-code-editor hds-code-editor--theme-dark"
-          {{style padding="16px"}}
-        >
+        <div class="hds-code-editor" {{style padding="16px"}}>
           <ShwFlex class="hds-code-editor__header-actions" as |SFI|>
             <SFI.Item>
               <HdsCopyButton
