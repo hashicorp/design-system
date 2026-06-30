@@ -150,7 +150,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     ) {
       return {
         componentId: this.args.classicFilename,
-        templateString: this.args.hbsSnippet,
+        templateString: unescapeCode(this.args.hbsSnippet),
       };
     }
   }
