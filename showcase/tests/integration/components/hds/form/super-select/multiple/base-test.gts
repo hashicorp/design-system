@@ -50,7 +50,7 @@ module(
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.ember-power-select-options').exists();
-      assert.dom('.ember-power-select-option').hasText('Option 1');
+      assert.dom('.hds-form-super-select__option-text').hasText('Option 1');
     });
 
     // AFTER OPTIONS
@@ -279,7 +279,7 @@ module(
         .hasClass('hds-form-super-select--dropdown-content-auto-width')
         .hasAttribute(
           'style',
-          "--hds-form-super-select-dropdown-max-width: 40em; --hds-form-super-select-selected-text-display: none; --hds-form-super-select-selected-text: '0 selected';",
+          "--hds-var-form-super-select-dropdown-max-width: 40em; --hds-var-form-super-select-selected-text-display: none; --hds-var-form-super-select-selected-text: '0 selected';",
         );
     });
 

@@ -13,15 +13,40 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-import { targets, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
+import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
+import { preprocessorReplaceValueForMode } from './build-parts/preprocessorReplaceValueForMode.ts';
+import { preprocessorResolveCommentsForMode } from './build-parts/preprocessorResolveComments.ts';
+import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
 import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
+import { validateThemingCssFiles } from './build-parts/validateThemingCssFiles.ts';
+import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
+import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
 
 // SCRIPT CONFIG
 
 const __filename = fileURLToPath(import.meta.url); // Get the file path of the current module
 const __dirname = dirname(__filename); // Get the directory name of the current module
 const distFolder = path.resolve(__dirname, '../dist');
+
+
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+
+// CUSTOM PREPROCESSORS
+
+for (const mode of modes) {
+  StyleDictionary.registerPreprocessor({
+    name: `replace-value-for-mode-${mode}`,
+    preprocessor: preprocessorReplaceValueForMode(mode),
+  });
+  StyleDictionary.registerPreprocessor({
+    name: `resolve-comments-for-mode-${mode}`,
+    preprocessor: preprocessorResolveCommentsForMode(mode),
+  });
+}
+
 
 // CUSTOM TRANSFORMS
 
@@ -134,11 +159,17 @@ StyleDictionary.registerTransform({
     return token.$type === 'dimension';
   },
   transform: function (token: DesignToken) {
-    const val = parseFloat(token.$value);
+    // the `dimension` token type can come in two formats:
+    // - the standard format, where `$value` is a string/number and the `unit` is a sibling property of the token
+    // - the new DTCG format, where `$value` is an object with the `{ value, unit }` shape (eg. `{ "value": 4, "unit": "px" }`)
+    const isDtcgObjectDimensionValue = typeof token.$value === 'object' && token.$value !== null && 'value' in token.$value && 'unit' in token.$value;
+    const rawValue = isDtcgObjectDimensionValue ? token.$value.value : token.$value;
+    const unit = isDtcgObjectDimensionValue ? token.$value.unit : token.unit;
+    const val = parseFloat(rawValue);
     if (isNaN(val)) {
-      console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot use it as dimension/unit.\n`);
+      console.error(`🚨 Invalid Number: '${token.name}: ${JSON.stringify(token.$value)}' is not a valid number, cannot use it as dimension/unit.\n`);
     }
-    return `${token.$value}${token.unit}`;
+    return `${rawValue}${unit}`;
   }
 });
 
@@ -158,7 +189,7 @@ StyleDictionary.registerTransform({
       console.error(`🚨 Invalid Color: '${token.name}: ${token.$value}' is not a valid color.\n`);
     }
     const alpha = parseFloat(token.alpha);
-    if (!(alpha > 0 && alpha < 1)) {
+    if (!(alpha >= 0 && alpha <= 1)) {
       console.error(`🚨 Invalid Alpha: '${token.name}: ${token.$value}' is not a valid alpha value (should be in the format 0.x).\n`);
     }
     // https://caniuse.com/mdn-css_types_color_alpha_hexadecimal_notation
@@ -188,10 +219,27 @@ StyleDictionary.registerTransformGroup({
 });
 
 StyleDictionary.registerTransformGroup({
+  name: 'products/web/themed',
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+});
+
+StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
   transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
+
+
+// CUSTOM FORMATS
+
+for (const target of ['common', 'themed']) {
+  // note: customFormatCssThemedTokensFunction is a higher-order function, that takes `target` as argument and returns a "format" function
+  const customFormatCssThemedTokensFunction = await customFormatCssThemedTokensFunctionForTarget(target);
+  StyleDictionary.registerFormat({
+    name: `css/themed-tokens/with-root-selector/${target}`,
+    format: customFormatCssThemedTokensFunction,
+  });
+}
 
 StyleDictionary.registerFormat({
   name: 'docs/json',
@@ -207,6 +255,28 @@ StyleDictionary.registerAction({
   undo: () => {}
 });
 
+StyleDictionary.registerAction({
+    name: 'generate-theming-css-files',
+    do: generateThemingCssFiles,
+    undo: () => {}
+});
+
+StyleDictionary.registerAction({
+    name: 'validate-theming-css-files',
+    do: validateThemingCssFiles,
+    undo: () => {}
+});
+
+StyleDictionary.registerAction({
+    name: 'generate-theming-docs-files',
+    do: generateThemingDocsFiles,
+    undo: () => {}
+});
+
+
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
 
 // PROCESS THE DESIGN TOKENS
 
@@ -217,6 +287,16 @@ console.log('\n==============================================');
 console.log(`\nCleaning up dist folder`);
 fs.emptyDirSync(distFolder);
 
+// generate themed tokens
+for (const mode of modes) {
+  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'products', mode }));
+  console.log(`\n---\n\nProcessing mode "${mode}"...`);
+  await StyleDictionaryInstance.hasInitialized;
+  await StyleDictionaryInstance.buildAllPlatforms()
+  console.log('\nEnd processing');
+}
+
+// generate standard tokens
 for (const target of targets) {
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
   console.log(`\n---\n\nProcessing target "${target}"...`);

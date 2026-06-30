@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > APP-HEADER
+
+// ----
+
+body.page-carbonization-components-app-header {
+  cds-header {
+    position: relative;
+  }
+}
