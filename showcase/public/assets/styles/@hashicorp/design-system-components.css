@@ -278,7 +278,7 @@
   --token-alert-inline-border-left-color-warning: #fbeabf;
   --token-alert-inline-border-left-color-critical: #fbd4d4;
   --token-app-footer-link-focus-outline-width: 2px;
-  --token-app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
+  --token-app-footer-link-focus-outline-color: #0c56e9;
   --token-app-header-padding-top: 12px;
   --token-app-header-padding-bottom: 11px;
   --token-app-header-padding-left: 16px;
@@ -680,7 +680,7 @@
   --token-pagination-nav-control-foreground-color-active: #0046d1;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-control-typography-font-size: 0.8125rem;
-  --token-pagination-nav-control-typography-font-weight-active: var(--token-typography-font-weight-medium);
+  --token-pagination-nav-control-typography-font-weight-active: 500;
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);

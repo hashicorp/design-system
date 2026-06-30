@@ -8837,7 +8837,7 @@
     "$type": "color",
     "$value": "#0f62fe",
     "$modes": {
-      "default": "var(--token-color-focus-action-internal)",
+      "default": "#ffffff",
       "cds-g0": "#0f62fe",
       "cds-g10": "#0f62fe",
       "cds-g90": "#ffffff",
@@ -8847,7 +8847,7 @@
       "$type": "color",
       "$value": "{carbon.themes.g10.focus}",
       "$modes": {
-        "default": "var(--token-color-focus-action-internal)",
+        "default": "{color.focus.action.internal}",
         "cds-g0": "{carbon.themes.white.focus}",
         "cds-g10": "{carbon.themes.g10.focus}",
         "cds-g90": "{carbon.themes.g90.focus}",
@@ -21591,7 +21591,7 @@
     "$type": "font-weight",
     "$value": 600,
     "$modes": {
-      "default": "var(--token-typography-font-weight-medium)",
+      "default": 400,
       "cds-g0": 600,
       "cds-g10": 600,
       "cds-g90": 600,
@@ -21601,7 +21601,7 @@
       "$type": "font-weight",
       "$value": "{carbon.typography.font-weight.semibold}",
       "$modes": {
-        "default": "var(--token-typography-font-weight-medium)",
+        "default": "{typography.font-weight.medium}",
         "cds-g0": "{carbon.typography.font-weight.semibold}",
         "cds-g10": "{carbon.typography.font-weight.semibold}",
         "cds-g90": "{carbon.typography.font-weight.semibold}",
