@@ -31,6 +31,27 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/foundations/focus-ring');
     await percySnapshot('FocusRing');
 
+    await visit('/foundations/theming');
+    await percySnapshot('Theming - Standard');
+    await fillIn(
+      '.shw-theme-switcher__control-select',
+      'css-selectors--migration|default',
+    );
+    await percySnapshot('Theming - HDS Default');
+    await fillIn(
+      '.shw-theme-switcher__control-select',
+      'css-selectors--migration|light',
+    );
+    await percySnapshot('Theming - CDS Light');
+    await fillIn(
+      '.shw-theme-switcher__control-select',
+      'css-selectors--migration|dark',
+    );
+    await percySnapshot('Theming - CDS Dark');
+
+    // IMPORTANT: this is necessary, to reset the theme to its "standard"
+    await fillIn('.shw-theme-switcher__control-select', 'standard|');
+
     // Take snapshots for English, Spanish, and None (Fallback) translations
     await visit('/internationalization/translation');
     await percySnapshot('Translation - English');

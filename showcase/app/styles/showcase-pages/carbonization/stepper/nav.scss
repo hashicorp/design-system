@@ -1,0 +1,13 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > STEPPER NAV
+
+body.page-carbonization-components-stepper-nav {
+  // Hides the progress bar from being shown as progress bar is from parent Stepper::Nav
+  .shw-component-stepper-nav-step-mock-incomplete .hds-stepper-nav__progress-bar::after {
+    content: none;
+  }
+}

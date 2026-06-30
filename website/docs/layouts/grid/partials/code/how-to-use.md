@@ -77,7 +77,7 @@ If you need to provide custom spacing values, see below how you can use a specia
 
 #### Non-standard gap values
 
-If you absolutely have to use non-standard spacing value(s) for the grid `gap`, you can use the internal `--hds-layout-grid-row-gap` and `--hds-layout-grid-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style).
+If you absolutely have to use non-standard spacing value(s) for the grid `gap`, you can use the internal `--hds-var-layout-grid-row-gap` and `--hds-var-layout-grid-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style).
 
 [[code-snippets/grid-spacing-custom execute=false]]
 
@@ -223,7 +223,7 @@ Responsive layout options are supported by the [`Grid` `columnWidth`](/layouts/g
 
 **Important**
 
-The examples below are meant to show how one _could_ use the `Layout::Grid` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code. 
+The examples below are meant to show how one _could_ use the `Layout::Grid` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code.
 
 !!!
 

@@ -9,15 +9,10 @@
 //
 
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
-$hds-table-border-radius: var(--token-border-radius-medium);
-$hds-table-border-width: 1px;
-$hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - #{$hds-table-border-width});
-$hds-table-border-color: var(--token-color-border-primary);
-$hds-table-header-height: 48px;
-$hds-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
-$hds-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
-$hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
+$hds-table-border-radius: var(--hds-border-radius-medium);
+$hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-table-row-border-width));
 
 // TABLE
 
@@ -38,7 +33,25 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 .hds-table,
 .hds-table__th,
 .hds-table__td {
-  border: calc(#{$hds-table-border-width} / 2) solid $hds-table-border-color;
+  border: var(--hds-table-cell-border-width) solid var(--hds-table-cell-border-color);
+}
+
+// density
+
+$hds-table-densities: ("short", "medium", "tall");
+
+@each $density in $hds-table-densities {
+  .hds-table--density-#{$density} {
+    --hds-var-table-cell-height: var(--hds-table-cell-height-#{$density});
+    --hds-var-table-cell-padding-top: var(--hds-table-cell-padding-vertical-#{$density});
+    --hds-var-table-cell-padding-bottom: calc(var(--hds-table-cell-padding-vertical-#{$density}) - 1px);
+  }
+}
+
+.hds-table__th,
+.hds-table__td {
+  // CSS doesn't allow minimum height set on table cells, need to set height instead
+  height: var(--hds-var-table-cell-height);
 }
 
 // ----------------------------------------------------------------
@@ -46,12 +59,15 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 // TABLE HEADER
 
 .hds-table__thead {
+  background-color: var(--hds-table-header-surface-color);
+
   .hds-table__tr {
-    color: var(--token-color-foreground-strong);
-    background-color: var(--token-color-surface-strong);
+    color: var(--hds-foreground-color-strong);
+    background-color: var(--hds-surface-color-strong);
 
     .hds-table__th {
-      padding: $hds-table-cell-padding-medium;
+      padding: var(--hds-table-header-cell-padding-vertical) var(--hds-table-cell-padding-horizontal)
+        calc(var(--hds-table-header-cell-padding-vertical) - var(--hds-table-header-cell-border-offset));
       text-align: left;
     }
 
@@ -111,42 +127,45 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   height: 24px;
   margin: -2px 0; // this is necessary to compensate for the height of the button being 24px while the line height of the text is 20px (the overall height of the cell shoud be 48px and we want to keep the cell's padding as is for consistency with Figma)
   padding: 0;
-  color: var(--token-color-foreground-faint);
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--token-border-radius-x-small);
+  color: var(--hds-table-header-button-foreground-color-default);
+  background-color: var(--hds-table-header-button-surface-color-default);
+  border: 1px solid var(--hds-table-header-button-border-color-default);
+  border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive);
-    border-color: var(--token-color-border-strong);
-    box-shadow: var(--token-elevation-low-box-shadow);
+    color: var(--hds-table-header-button-foreground-color-hover);
+    background-color: var(--hds-table-header-button-surface-color-hover);
+    border-color: var(--hds-table-header-button-border-color-hover);
+    box-shadow: var(--hds-elevation-low-box-shadow);
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced($pseudo-element-inset-hds: 0, $pseudo-element-inset-cds: 0);
+  }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
+    color: var(--hds-table-header-button-foreground-color-active);
+    background-color: var(--hds-table-header-button-surface-color-active);
+    border-color: var(--hds-table-header-button-border-color-active);
     box-shadow: none;
   }
 }
 
 .hds-table__th-button--is-sorted {
-  color: var(--token-color-foreground-action);
+  color: var(--hds-table-header-button-foreground-color-sorted-default);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--hds-table-header-button-foreground-color-sorted-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--hds-table-header-button-foreground-color-sorted-active);
   }
 }
 
@@ -159,14 +178,76 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 // TABLE BODY
 
 .hds-table__tbody {
+  background-color: var(--hds-table-body-surface-color);
+
   .hds-table__tr {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-primary);
+    color: var(--hds-table-cell-foreground-color-default);
+    background-color: var(--hds-surface-color-primary);
+
+    .hds-table__th,
+    .hds-table__td {
+      line-height: var(--hds-table-cell-line-height);
+      border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-default);
+    }
+
+    &:hover,
+    &.mock-hover {
+      color: var(--hds-table-cell-foreground-color-hover);
+      background-color: var(--hds-table-cell-surface-color-hover);
+
+      .hds-table__th,
+      .hds-table__td {
+        border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-hover);
+      }
+    }
 
     // striped rows
 
+    .hds-table--striped & {
+      .hds-table__th,
+      .hds-table__td {
+        border-bottom-color: var(--hds-table-row-border-color-striped-default);
+      }
+
+      &:hover,
+      &.mock-hover {
+        background-color: var(--hds-table-cell-surface-color-striped-hover);
+      }
+    }
+
     .hds-table--striped &:nth-child(even) {
-      background-color: var(--token-color-surface-faint);
+      background-color: var(--hds-table-cell-surface-color-striped-default);
+
+      &:hover,
+      &.mock-hover {
+        background-color: var(--hds-table-cell-surface-color-striped-hover);
+      }
+    }
+
+    // selected rows
+
+    &.hds-table__tr--is-selected {
+      color: var(--hds-table-cell-foreground-color-selected);
+
+      // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
+      @include hds-apply-only-if-carbon() {
+        background-color: var(--hds-table-cell-surface-color-selected-default);
+
+        .hds-table__th,
+        .hds-table__td {
+          border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-default);
+        }
+
+        &:hover,
+        &.mock-hover {
+          background-color: var(--hds-table-cell-surface-color-selected-hover);
+
+          .hds-table__th,
+          .hds-table__td {
+            border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-hover);
+          }
+        }
+      }
     }
 
     // border radius: target first th (scope of row) and td, and last td elements in the last row
@@ -186,21 +267,9 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
   .hds-table__th,
   .hds-table__td {
+    padding: var(--hds-var-table-cell-padding-top) var(--hds-table-cell-padding-horizontal)
+      var(--hds-var-table-cell-padding-bottom);
     text-align: left;
-
-    // density
-
-    .hds-table--density-short & {
-      padding: $hds-table-cell-padding-short;
-    }
-
-    .hds-table--density-medium & {
-      padding: $hds-table-cell-padding-medium;
-    }
-
-    .hds-table--density-tall & {
-      padding: $hds-table-cell-padding-tall;
-    }
   }
   // horizontal alignment
 
