@@ -44,8 +44,8 @@ const CODE_GROUP_LANGUAGE_STORAGE_KEY = 'hds-doc-code-group-language';
 const CODE_GROUP_LANGUAGE_CHANGE_EVENT = 'hds-doc-code-group-language-change';
 
 // Helper to undo code escaping for display
-const unescapeCode = (code: string) => {
-  return code.replace(/\\n/g, '\n');
+const unescapeCode = (code?: string) => {
+  return code ? code.replace(/\\n/g, '\n') : '';
 };
 
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
@@ -126,41 +126,35 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       return true;
     }
 
-    const hasHbsPreview = this.hasSnippet(this.args.hbsSnippet);
+    const hasHbsPreview = !!this.args.hbsSnippet;
     const hasGtsPreview =
-      this.hasSnippet(this.args.gtsSnippet) && !!this.gtsPreviewComponentId;
+      !!this.args.gtsSnippet && !!this.gtsPreviewComponentId;
 
     return !(hasHbsPreview || hasGtsPreview);
   }
 
-  private hasSnippet(snippet?: string) {
-    return !!snippet && snippet !== '';
-  }
-
   get classicPreviewComponentId() {
-    return this.hasSnippet(this.args.classicFilename)
+    return this.args.classicFilename !== ''
       ? this.args.classicFilename
       : undefined;
   }
 
   get gtsPreviewComponentId() {
-    return this.hasSnippet(this.args.gtsFilename)
-      ? this.args.gtsFilename
-      : undefined;
+    return this.args.gtsFilename ? this.args.gtsFilename : undefined;
   }
 
   get previewMode() {
     if (
       this.currentView === 'gts' &&
-      this.hasSnippet(this.args.gtsSnippet) &&
-      this.gtsPreviewComponentId
+      !!this.args.gtsSnippet &&
+      !!this.gtsPreviewComponentId
     ) {
       return 'component-module';
     }
 
     if (
       (this.currentView === 'hbs' || this.currentView === 'js') &&
-      this.hasSnippet(this.args.hbsSnippet)
+      !!this.args.hbsSnippet
     ) {
       return 'runtime-template';
     }
@@ -168,34 +162,9 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return null;
   }
 
-  get hbsSnippet() {
-    const { hbsSnippet } = this.args;
-    return hbsSnippet ? unescapeCode(hbsSnippet) : '';
-  }
-
-  get gtsSnippet() {
-    const { gtsSnippet } = this.args;
-    return gtsSnippet ? unescapeCode(gtsSnippet) : '';
-  }
-
-  get jsSnippet() {
-    const { jsSnippet } = this.args;
-    return jsSnippet ? unescapeCode(jsSnippet) : '';
-  }
-
-  get compactGtsSnippet() {
-    const { compactGtsSnippet } = this.args;
-    return compactGtsSnippet ? unescapeCode(compactGtsSnippet) : '';
-  }
-
-  get customSnippet() {
-    const { customSnippet } = this.args;
-    return customSnippet ? unescapeCode(customSnippet) : '';
-  }
-
   get previewTemplateString() {
     return this.previewMode === 'runtime-template'
-      ? this.hbsSnippet
+      ? unescapeCode(this.args.hbsSnippet)
       : undefined;
   }
 
@@ -212,27 +181,42 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   get currentSnippet() {
+    const {
+      jsSnippet,
+      gtsSnippet,
+      hbsSnippet,
+      customSnippet,
+      customLang,
+      compactGtsSnippet,
+    } = this.args;
+
     if (this.currentView === 'js') {
-      return { snippet: this.jsSnippet, language: 'js' };
+      return { snippet: unescapeCode(jsSnippet), language: 'js' };
     }
 
     if (this.currentView === 'gts') {
       if (this.isExpanded) {
-        return { snippet: this.gtsSnippet, language: 'gts' };
+        return {
+          snippet: unescapeCode(gtsSnippet),
+          language: 'gts',
+        };
       }
 
-      // to display the compact gts snippet correctly, need to use hbs syntax highlighting instead of gts
-      return { snippet: this.compactGtsSnippet, language: 'hbs' };
+      return {
+        snippet: unescapeCode(compactGtsSnippet),
+        // to display the compact gts snippet correctly, need to use hbs syntax highlighting instead of gts
+        language: 'hbs',
+      };
     }
 
     if (this.currentView === 'custom') {
       return {
-        snippet: this.customSnippet,
-        language: this.args.customLang || 'text',
+        snippet: unescapeCode(customSnippet),
+        language: customLang || 'text',
       };
     }
 
-    return { snippet: this.hbsSnippet, language: 'hbs' };
+    return { snippet: unescapeCode(hbsSnippet), language: 'hbs' };
   }
 
   get hasFooter() {
@@ -253,28 +237,25 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   };
 
   get shouldSyncLanguageSelection() {
-    return (
-      this.hasSnippet(this.args.hbsSnippet) &&
-      this.hasSnippet(this.args.gtsSnippet)
-    );
+    return !!this.args.hbsSnippet && !!this.args.gtsSnippet;
   }
 
   get languageOptions() {
     const options: Array<LanguageOption> = [];
 
-    if (this.hasSnippet(this.args.hbsSnippet)) {
+    if (this.args.hbsSnippet) {
       options.push({ label: '.hbs', value: 'hbs' });
     }
 
-    if (this.hasSnippet(this.args.jsSnippet)) {
+    if (this.args.jsSnippet) {
       options.push({ label: '.js', value: 'js' });
     }
 
-    if (this.hasSnippet(this.args.gtsSnippet)) {
+    if (this.args.gtsSnippet) {
       options.push({ label: '.gts', value: 'gts' });
     }
 
-    if (this.args.customLang && this.hasSnippet(this.args.customSnippet)) {
+    if (this.args.customLang && !!this.args.customSnippet) {
       options.push({ label: `.${this.args.customLang}`, value: 'custom' });
     }
 
