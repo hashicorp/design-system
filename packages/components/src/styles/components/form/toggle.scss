@@ -7,7 +7,11 @@
 // FORM > TOGGLE
 //
 
+@use "../../mixins/carbonization" as *;
+
 // "BASE" CONTROL
+
+@use "../../mixins/focus-ring" as *;
 
 .hds-form-toggle {
   position: relative;
@@ -46,58 +50,61 @@
 .hds-form-toggle__facade {
   position: relative;
   display: block;
-  width: var(--token-form-toggle-width);
-  height: var(--token-form-toggle-height);
-  background-image: var(--token-form-toggle-background-image-data-url);
+  width: var(--hds-form-toggle-width);
+  height: var(--hds-form-toggle-height);
+  background-image: var(--hds-form-toggle-background-image-data-url);
   background-repeat: no-repeat;
-  background-position: var(--token-form-toggle-background-image-position-x) 50%;
-  background-size: var(--token-form-toggle-background-image-size) var(--token-form-toggle-background-image-size);
+  background-position: var(--hds-form-toggle-background-image-position-x) 50%;
+  background-size: var(--hds-form-toggle-background-image-size) var(--hds-form-toggle-background-image-size);
   // notice: we want to share the border color between the "thumb" and the "track" so we use a local CSS prop for this
-  border: var(--token-form-radio-border-width) solid var(--border-color);
-  border-radius: calc(var(--token-form-toggle-height) / 2);
+  border: var(--hds-form-toggle-border-width) solid var(--border-color);
+  border-radius: calc(var(--hds-form-toggle-height) / 2);
 
   @media (prefers-reduced-motion: no-preference) {
-    transition-timing-function: var(--token-form-toggle-transition-timing-function);
-    transition-duration: var(--token-form-toggle-transition-duration);
+    transition-timing-function: var(--hds-form-toggle-transition-timing-function);
+    transition-duration: var(--hds-form-toggle-transition-duration);
     transition-property: all;
   }
 
-  // used for the "thumb"
+  @include hds-apply-only-if-carbon() {
+    background-image: none;
+    border-color: transparent;
+  }
 
+  // the "thumb" button / handle
   &::after {
     position: absolute;
-    top: calc(var(--token-form-radio-border-width) * -1);
-    left: calc(var(--token-form-radio-border-width) * -1);
-    width: var(--token-form-toggle-thumb-size);
-    height: var(--token-form-toggle-thumb-size);
-    background-color: var(--token-form-control-base-surface-color-default);
-    border: var(--token-form-radio-border-width) solid var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: calc(var(--hds-form-toggle-border-width) * -1);
+    width: var(--hds-form-toggle-thumb-size);
+    height: var(--hds-form-toggle-thumb-size);
+    margin: auto 0;
+    background-color: var(--hds-form-toggle-handle-surface-color-default);
+    border: var(--hds-form-toggle-border-width) solid var(--border-color);
     border-radius: 50%;
     transform: translate3d(0, 0, 0);
     content: "";
 
     @media (prefers-reduced-motion: no-preference) {
-      transition-timing-function: var(--token-form-toggle-transition-timing-function);
-      transition-duration: var(--token-form-toggle-transition-duration);
+      transition-timing-function: var(--hds-form-toggle-transition-timing-function);
+      transition-duration: var(--hds-form-toggle-transition-duration);
       transition-property: all;
+    }
+
+    @include hds-apply-only-if-carbon() {
+      margin: auto 3px; // offset from edge
+      border-color: transparent;
     }
   }
 
   // used for the focus
 
   &::before {
-    // notice: to avoid too many nested calc() operation, we have decided to compute directly the values in Sass
-    $hds-outline-width: 3px;
-    $hds-outline-offset: 1px;
-    $hds-shift: $hds-outline-width + $hds-outline-offset + 1px; // here 1px refers to "--token-form-radio-border-width"
     position: absolute;
-    top: -$hds-shift;
-    right: -$hds-shift;
-    bottom: -$hds-shift;
-    left: -$hds-shift;
-    margin: auto;
-    border-width: $hds-outline-width;
-    border-radius: calc(var(--token-form-toggle-height) / 2 + $hds-outline-width + $hds-outline-offset);
+    // the parent has a border
+    inset: calc(-1 * var(--hds-form-toggle-border-width));
+    border-radius: inherit;
     content: "";
   }
 
@@ -105,43 +112,71 @@
 
   // base (default)
 
+  // unchecked
+
   :not(:checked) + & {
-    --border-color: var(--token-form-control-base-border-color-default);
+    --border-color: var(--hds-form-control-base-border-color-default);
     background-color: var(
-      --token-form-toggle-base-surface-color-default
+      --hds-form-toggle-base-surface-color-default
     ); // this is specific for "toggle", is not like the other controls!
   }
 
+  // checked
+
   :checked + & {
-    --border-color: var(--token-form-control-checked-border-color-default);
-    background-color: var(--token-form-control-checked-surface-color-default);
+    --border-color: var(--hds-form-control-checked-border-color-default);
+    background-color: var(--hds-form-toggle-base-surface-color-checked-default);
+
+    @include hds-apply-only-if-carbon() {
+      background-image: none;
+    }
 
     &::after {
-      $hds-translation: calc(var(--token-form-toggle-width) - var(--token-form-toggle-thumb-size));
+      $hds-translation: calc(var(--hds-form-toggle-width) - var(--hds-form-toggle-thumb-size));
       transform: translate3d($hds-translation, 0, 0);
+
+      @include hds-apply-only-if-carbon() {
+        // checkmark image
+        background-image: var(--hds-form-toggle-background-image-data-url);
+        background-repeat: no-repeat;
+        background-position: center center;
+        // TODO: work on better way to handle offset and positioning for the transform of the thumb when checked and/or add tokens
+        // 6px = 3px offset * 2
+        transform: translate3d(
+          calc(var(--hds-form-toggle-width) - calc(var(--hds-form-toggle-thumb-size) + 6px)),
+          0,
+          0
+        );
+      }
     }
   }
 
   // hover
 
+  // unchecked
+  // (note: only border-color changes on hover, not background-color)
+
   :hover:not(:checked) + &,
   .mock-hover:not(:checked) + & {
-    --border-color: var(--token-form-control-base-border-color-hover);
+    --border-color: var(--hds-form-control-base-border-color-hover);
   }
+
+  // checked
+  // (note: both background-color and border-color change on hover)
 
   :hover:checked + &,
   .mock-hover:checked + & {
-    --border-color: var(--token-form-control-checked-border-color-hover);
-    background-color: var(--token-form-control-checked-border-color-default);
+    --border-color: var(--hds-form-control-checked-border-color-hover);
+    background-color: var(--hds-form-toggle-base-surface-color-checked-hover);
   }
 
   // focus (same for all the states)
 
+  // note: the focus is received by the input but the focus outline is applied to the facade
   :focus + &,
   .mock-focus + & {
     &::before {
-      border-color: var(--token-color-focus-action-external);
-      border-style: solid;
+      @include hds-focus-ring-basic($external-outline-offset-hds: 1px, $has-internal-border: false);
     }
   }
 
@@ -149,8 +184,26 @@
 
   :disabled:not(:checked) + &,
   :disabled:checked + & {
-    --border-color: var(--token-form-control-disabled-border-color);
-    background-color: var(--token-form-control-disabled-surface-color);
-    background-image: var(--token-form-toggle-background-image-data-url-disabled);
+    --border-color: var(--hds-form-control-disabled-border-color);
+    background-color: var(--hds-form-toggle-base-surface-color-disabled);
+    background-image: var(--hds-form-toggle-background-image-data-url-disabled);
+
+    @include hds-apply-only-if-carbon() {
+      background-image: none;
+    }
+
+    &::after {
+      background-color: var(--hds-form-toggle-handle-surface-color-disabled);
+    }
+  }
+
+  // checked
+
+  :disabled:checked + & {
+    &::after {
+      @include hds-apply-only-if-carbon() {
+        background-image: var(--hds-form-toggle-background-image-data-url-disabled);
+      }
+    }
   }
 }

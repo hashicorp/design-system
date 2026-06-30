@@ -8,15 +8,26 @@
 //
 
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 .hds-filter-bar {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 8px;
-  background-color: var(--token-color-surface-faint);
-  border: 1px solid var(--token-color-border-primary);
-  border-radius: var(--token-border-radius-medium);
+  background-color: var(--hds-surface-color-faint);
+  border: 1px solid var(--hds-border-color-primary);
+  border-radius: var(--hds-border-radius-medium);
+
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
+
+  .hds-separator {
+    @include hds-apply-only-if-carbon() {
+      display: none;
+    }
+  }
 }
 
 .hds-filter-bar__applied-filters-list,
@@ -36,9 +47,10 @@
 }
 
 .hds-filter-bar__search.hds-form-text-input {
-  --token-form-control-padding: 3px;
+  --hds-form-control-padding-horizontal: 3px;
+  --hds-form-control-padding-vertical: 3px;
   max-width: 320px;
-  font-size: var(--token-typography-body-100-font-size);
+  font-size: var(--hds-typography-body-100-font-size);
 }
 
 // FILTER BAR > FILTERS DROPDOWN
@@ -61,15 +73,16 @@
 .hds-filter-bar__tabs__list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--hds-filter-bar-tabs-list-gap);
   width: 50%;
   max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
-  padding: 8px;
+  margin: 0;
+  padding: var(--hds-filter-bar-tabs-list-padding);
   overflow-y: auto;
   list-style: none;
-  background-color: var(--token-color-surface-faint);
-  border-right: 1px solid var(--token-color-border-primary);
-  border-top-left-radius: var(--token-border-radius-medium);
+  background-color: var(--hds-surface-color-faint);
+  border-right: 1px solid var(--hds-border-color-primary);
+  border-top-left-radius: var(--hds-border-radius-medium);
 }
 
 .hds-filter-bar__tabs__tab {
@@ -77,28 +90,31 @@
 }
 
 .hds-filter-bar__tabs__tab__button {
-  @include hds-focus-ring-basic();
-
   display: flex;
   gap: 16px;
   align-items: center;
   width: 100%;
   padding: 8px 16px;
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-filter-bar-tabs-tab-foreground-color-unselected);
   text-align: left;
   background-color: transparent;
   border: none;
-  border-radius: var(--token-border-radius-x-small);
+  border-radius: var(--hds-border-radius-x-small);
 
-  &.mock-hover,
-  &:hover {
-    background-color: var(--token-color-surface-interactive-hover);
+  &:hover,
+  &.mock-hover {
+    background-color: var(--hds-surface-color-interactive-hover);
     cursor: pointer;
   }
 
-  &.mock-active,
-  &:active {
-    background-color: var(--token-color-surface-interactive-active);
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced();
+  }
+
+  &:active,
+  &.mock-active {
+    background-color: var(--hds-surface-color-interactive-active);
   }
 }
 
@@ -112,37 +128,42 @@
 
 .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button {
   position: relative;
-  color: var(--token-color-foreground-action);
-  background-color: var(--token-color-surface-strong);
+  color: var(--hds-filter-bar-tabs-tab-foreground-color-selected-default);
+  background-color: var(--hds-filter-bar-tabs-tab-surface-color-selected-default);
 
-  &::before {
+  // we use `:after` to avoid conflicts with the `:before` used for the focus ring
+  &::after {
     position: absolute;
     top: 6px;
     left: 4px;
     width: 2px;
     height: calc(100% - 12px);
-    background-color: var(--token-color-foreground-action);
+    background-color: var(--hds-foreground-color-action);
     border-radius: 1px;
     content: "";
-  }
 
-  &.mock-hover,
-  &:hover {
-    color: var(--token-color-palette-blue-400);
-    background-color: var(--token-color-palette-neutral-200);
-
-    &::before {
-      background-color: var(--token-color-palette-blue-400);
+    @include hds-apply-only-if-carbon() {
+      content: none;
     }
   }
 
-  &.mock-active,
-  &:active {
-    color: var(--token-color-palette-blue-500);
-    background-color: var(--token-color-palette-neutral-300);
+  &:hover,
+  &.mock-hover {
+    color: var(--hds-filter-bar-tabs-tab-foreground-color-selected-hover);
+    background-color: var(--hds-filter-bar-tabs-tab-surface-color-selected-hover);
 
-    &::before {
-      background-color: var(--token-color-palette-blue-500);
+    &::after {
+      background-color: var(--hds-core-color-blue-400);
+    }
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--hds-filter-bar-tabs-tab-foreground-color-selected-active);
+    background-color: var(--hds-filter-bar-tabs-tab-surface-color-selected-active);
+
+    &::after {
+      background-color: var(--hds-core-color-blue-500);
     }
   }
 }
@@ -155,8 +176,8 @@
   max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
   padding: 16px 0;
   overflow-y: auto;
-  background-color: var(--token-color-surface-primary);
-  border-top-right-radius: var(--token-border-radius-medium);
+  background-color: var(--hds-surface-color-primary);
+  border-top-right-radius: var(--hds-border-radius-medium);
 }
 
 // FILTER BAR > FILTER GROUP
@@ -167,13 +188,13 @@
 
 .hds-filter-bar__filter-group__search {
   padding: 0 16px 16px 16px;
-  border-bottom: 1px solid var(--token-color-border-primary);
+  border-bottom: 1px solid var(--hds-border-color-primary);
 }
 
 .hds-filter-bar__filter-group__list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--hds-filter-bar-filter-group-values-list-gap);
   margin: 0;
   padding: 0;
   overflow-y: auto;
@@ -206,8 +227,8 @@
 .hds-filter-bar__filter-group__selection-option {
   display: flex;
   align-items: self-start;
-  padding: 8px 16px;
-  color: var(--token-color-foreground-primary);
+  padding: var(--hds-filter-bar-filter-group-values-list-selection-option-padding-vertical) 16px;
+  color: var(--hds-foreground-color-primary);
 
   &.hds-filter-bar__filter-group__selection-option--hidden {
     display: none;
@@ -226,7 +247,7 @@
 
 // Note: Specific margin adjustments for Clear Button with single-select and multi-select types
 .hds-filter-bar__filter-group__values-list .hds-filter-bar__filter-group__clear-button {
-  margin: 0 0 4px 4px;
+  margin: 0 0 4px var(--hds-filter-bar-filter-group-values-list-clear-button-margin-left);
 }
 
 // Note: Specific margin adjustments for Clear Button with date, number, and generic types

@@ -9,16 +9,19 @@
 
 // "BASE" CONTROL
 
+@use "../../mixins/focus-ring" as *;
+
 .hds-form-checkbox {
-  width: var(--token-form-checkbox-size);
-  height: var(--token-form-checkbox-size);
+  width: var(--hds-form-checkbox-size);
+  height: var(--hds-form-checkbox-size);
   margin: 0;
   padding: 0;
+  background-repeat: no-repeat;
   background-position: center center;
-  background-size: var(--token-form-checkbox-background-image-size) var(--token-form-checkbox-background-image-size);
+  background-size: var(--hds-form-checkbox-background-image-size) var(--hds-form-checkbox-background-image-size);
   border-style: solid;
-  border-width: var(--token-form-checkbox-border-width);
-  border-radius: var(--token-form-checkbox-border-radius);
+  border-width: var(--hds-form-checkbox-border-width);
+  border-radius: var(--hds-form-checkbox-border-radius);
   cursor: pointer;
   appearance: none;
 
@@ -27,70 +30,79 @@
   // base (default)
 
   &:not(:checked, :indeterminate) {
-    background-color: var(--token-form-control-base-surface-color-default);
-    border-color: var(--token-form-control-base-border-color-default);
-    box-shadow: var(--token-elevation-inset-box-shadow);
+    background-color: var(--hds-form-control-unchecked-surface-color-default);
+    border-color: var(--hds-form-control-unchecked-border-color-default);
+    box-shadow: var(--hds-elevation-inset-box-shadow);
+  }
+
+  &:checked,
+  &:indeterminate {
+    background-color: var(--hds-form-control-checked-surface-color-default);
   }
 
   &:checked {
-    background-color: var(--token-form-control-checked-surface-color-default);
-    background-image: var(--token-form-checkbox-background-image-data-url);
-    border-color: var(--token-form-control-checked-border-color-default);
+    background-image: var(--hds-form-checkbox-background-image-data-url);
+    border-color: var(--hds-form-control-checked-border-color-default);
   }
 
   &:indeterminate {
-    background-color: var(--token-form-control-checked-surface-color-default);
-    background-image: var(--token-form-checkbox-background-image-data-url-indeterminate);
-    border-color: var(--token-form-control-checked-border-color-default);
+    background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate);
+    border-color: var(--hds-form-control-checked-border-color-default);
   }
 
   // hover
 
   &:hover:not(:checked, :indeterminate),
   &.mock-hover:not(:checked, :indeterminate) {
-    background-color: var(--token-form-control-base-surface-color-hover);
-    border-color: var(--token-form-control-base-border-color-hover);
+    background-color: var(--hds-form-control-unchecked-surface-color-hover);
+    border-color: var(--hds-form-control-unchecked-border-color-hover);
   }
 
   &:hover:checked,
   &.mock-hover:checked,
   &:hover:indeterminate,
   &.mock-hover:indeterminate {
-    background-color: var(--token-form-control-checked-border-color-default);
-    border-color: var(--token-form-control-checked-border-color-hover);
+    background-color: var(--hds-form-control-checked-surface-color-hover);
+    border-color: var(--hds-form-control-checked-border-color-hover);
   }
 
   // focus (same for all the states)
-
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 1px;
+    @include hds-focus-ring-basic($external-outline-offset-hds: 1px, $has-internal-border: false);
   }
 
   // DISABLED
 
   &:disabled:not(:checked, :indeterminate) {
-    background-color: var(--token-form-control-disabled-surface-color);
-    border-color: var(--token-form-control-disabled-border-color);
+    background-color: var(--hds-form-control-unchecked-surface-color-disabled);
+    border-color: var(--hds-form-control-unchecked-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
 
   &:disabled:checked {
-    background-color: var(--token-form-control-disabled-surface-color);
-    background-image: var(--token-form-checkbox-background-image-data-url-disabled);
-    border-color: var(--token-form-control-disabled-border-color);
+    background-color: var(--hds-form-control-checked-surface-color-disabled);
+    background-image: var(--hds-form-checkbox-background-image-data-url-disabled);
+    border-color: var(--hds-form-control-checked-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
 
   &:disabled:indeterminate {
-    background-color: var(--token-form-control-disabled-surface-color);
-    background-image: var(--token-form-checkbox-background-image-data-url-indeterminate-disabled);
+    background-color: var(--hds-form-control-checked-surface-color-disabled);
+    background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate-disabled);
     background-repeat: no-repeat;
-    border-color: var(--token-form-control-disabled-border-color);
+    border-color: var(--hds-form-control-checked-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
+  }
+}
+
+// FIELD CONTROL
+
+.hds-form-field--checkbox {
+  .hds-form-field__label {
+    font-size: var(--hds-form-label-inline-typography-font-size);
   }
 }

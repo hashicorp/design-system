@@ -115,6 +115,38 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     assert.dom('.hds-icon.hds-icon-chevron-down').doesNotExist();
   });
 
+  // COLOR
+
+  test('it should render the secondary-color as the default if no color is declared', async function (assert) {
+    await render(
+      <template>
+        <HdsDropdownToggleIcon
+          @icon="user"
+          @text="user menu"
+          id="test-toggle-icon"
+        />
+      </template>,
+    );
+    assert
+      .dom('#test-toggle-icon')
+      .hasClass('hds-dropdown-toggle-icon--color-secondary');
+  });
+  test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
+    await render(
+      <template>
+        <HdsDropdownToggleIcon
+          @icon="user"
+          @text="user menu"
+          @color="secondary-muted"
+          id="test-toggle-icon"
+        />
+      </template>,
+    );
+    assert
+      .dom('#test-toggle-icon')
+      .hasClass('hds-dropdown-toggle-icon--color-secondary-muted');
+  });
+
   // SIZE
 
   test('it should render the medium size as the default if no size is declared', async function (assert) {
@@ -206,6 +238,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+
   test('it should throw an assertion if both @icon and @imageSrc are not defined', async function (assert) {
     const errorMessage =
       '@icon or @imageSrc must be defined for "Hds::Dropdown::Toggle::Icon"';
@@ -220,6 +253,25 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+
+  test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
+    const errorMessage =
+      '@color for "Hds::Dropdown::Toggle::Icon" must be one of the following: secondary, secondary-muted; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      <template>
+        {{! @glint-expect-error - assertion testing invalid value }}
+        <HdsDropdownToggleIcon @icon="user" @text="user menu" @color="foo" />
+      </template>,
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
   test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
     const errorMessage =
       '@size for "Hds::Dropdown::Toggle::Icon" must be one of the following: small, medium; received: foo';
@@ -237,6 +289,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+
   test('it should throw an assertion if an incorrect value for @icon is provided while @hasChevron is false', async function (assert) {
     const errorMessage =
       '@hasChevron for "Hds::Dropdown::Toggle::Icon" must be true unless the icon is one of the following: more-horizontal, more-vertical; received: apple';

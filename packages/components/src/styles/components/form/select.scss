@@ -7,47 +7,64 @@
 // FORM > SELECT
 //
 
+@use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
+@use "../../mixins/form-control" as *;
+
 // "BASE" CONTROL
 
 .hds-form-select {
+  @include hds-form-control-border();
   max-width: 100%;
-  padding: var(--token-form-control-padding);
-  padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-  color: var(--token-form-control-base-foreground-value-color);
-  background-color: var(--token-form-control-base-surface-color-default);
-  background-image: var(--token-form-select-background-image-data-url);
+  min-height: var(--hds-form-control-height);
+  padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
+  color: var(--hds-form-control-base-foreground-color);
+  background-color: var(--hds-form-control-base-surface-color-default);
+  background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
-  background-position: right var(--token-form-select-background-image-position-right-x) top
-    var(--token-form-select-background-image-position-top-y); // we have to take into account the border
-  background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
-  border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
-  border-radius: var(--token-form-control-border-radius);
-  box-shadow: var(--token-elevation-low-box-shadow);
+  background-position: right var(--hds-form-select-background-image-position-right-x) center;
+  background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
+  border-radius: var(--hds-form-control-border-radius);
+  box-shadow: var(--hds-elevation-low-box-shadow);
   appearance: none;
+
+  &:not([multiple], [size]) {
+    // extra space for the icon (not needed for multiple/size variants which do not have arrow icon)
+    padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px);
+
+    @include hds-apply-only-if-carbon() {
+      padding-right: 48px; // matches the right padding in the Carbon Select
+    }
+  }
 
   // STATUS
 
   &:hover,
   &.mock-hover {
-    border-color: var(--token-form-control-base-border-color-hover);
+    &:not(:disabled, .mock-disabled, [readonly]) {
+      @include hds-form-control-border(var(--hds-form-control-base-border-color-hover));
+
+      @include hds-apply-only-if-carbon() {
+        background-color: var(--hds-form-select-surface-color-hover);
+      }
+    }
   }
 
   // focus (same for all the states)
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    border-color: var(--token-color-focus-action-internal);
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 0;
+    @include hds-form-control-border(var(--hds-focus-color-action-internal));
+    @include hds-focus-ring-basic($external-outline-offset-cds: -2px);
   }
 
   // DISABLED
 
   &:disabled {
-    color: var(--token-form-control-disabled-foreground-color);
-    background-color: var(--token-form-control-disabled-surface-color);
-    background-image: var(--token-form-select-background-image-data-url-disabled);
-    border-color: var(--token-form-control-disabled-border-color);
+    @include hds-form-control-border(var(--hds-form-control-disabled-border-color));
+    color: var(--hds-form-control-disabled-foreground-color);
+    background-color: var(--hds-form-control-disabled-surface-color);
+    background-image: var(--hds-form-select-background-image-data-url-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
@@ -55,17 +72,22 @@
   // INVALID
 
   &.hds-form-select--is-invalid {
-    border-color: var(--token-form-control-invalid-border-color-default);
+    @include hds-form-control-border(var(--hds-form-control-invalid-border-color-default));
+
+    @include hds-apply-only-if-carbon() {
+      outline: 2px solid var(--hds-form-control-invalid-border-color-default);
+      outline-offset: -2px;
+    }
 
     &:hover,
     &.mock-hover {
-      border-color: var(--token-form-control-invalid-border-color-hover);
+      @include hds-form-control-border(var(--hds-form-control-invalid-border-color-hover));
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
-      border-color: var(--token-color-focus-critical-internal);
-      outline-color: var(--token-color-focus-critical-external);
+      @include hds-form-control-border(var(--hds-focus-color-critical-internal));
+      outline-color: var(--hds-focus-color-critical-external);
     }
   }
 }
@@ -76,28 +98,31 @@
   &[multiple],
   &[size] {
     background: none;
+    // Note: Select multiple/size has borders on all sides unlike the single select
+    border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+
+    &:hover,
+    &.mock-hover {
+      border-color: var(--hds-form-control-base-border-color-hover);
+    }
+
+    &:disabled {
+      border-color: var(--hds-form-control-disabled-border-color);
+    }
 
     option {
       margin: 2px auto;
-      border-radius: var(--token-border-radius-x-small);
-
-      &:hover {
-        color: var(--token-color-foreground-action);
-      }
-
-      &:disabled {
-        color: var(--token-color-foreground-disabled);
-      }
+      border-radius: var(--hds-border-radius-x-small);
 
       &:checked {
-        color: var(--token-color-foreground-high-contrast);
-        background: var(--token-color-palette-blue-200);
+        color: var(--hds-form-select-multiple-option-color-checked);
+        background: var(--hds-core-color-blue-200);
       }
     }
 
     optgroup {
-      color: var(--token-color-foreground-strong);
-      font-weight: var(--token-typography-font-weight-semibold);
+      color: var(--hds-foreground-color-strong);
+      font-weight: var(--hds-typography-font-weight-semibold);
       font-style: normal; // reset Firefox default
     }
   }

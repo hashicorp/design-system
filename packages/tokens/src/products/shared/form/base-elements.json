@@ -64,6 +64,24 @@
         }
       }
     },
+    "group": {
+      "control-field": {
+        "margin": {
+          "top": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px",
+            "$modes": {
+              "default": "12",
+              "cds-g0": "8",
+              "cds-g10": "8",
+              "cds-g90": "8",
+              "cds-g100": "8"
+            }
+          }
+        }
+      }
+    },
     "label": {
       "color": {
         "$type": "color",
@@ -112,6 +130,22 @@
             "cds-g10": "{carbon.typography.label01.line-height}",
             "cds-g90": "{carbon.typography.label01.line-height}",
             "cds-g100": "{carbon.typography.label01.line-height}"
+          }
+        }
+      },
+      "inline": {
+        "typography": {
+          "font-size": {
+            "$type": "font-size",
+            "$value": "{typography.body-200.font-size}",
+            "unit": "px",
+            "$modes": {
+              "default": "{typography.body-200.font-size}",
+              "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+            }
           }
         }
       }
@@ -306,10 +340,38 @@
           }
         }
       },
-      "icon-size": {
+      "icon": {
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.red-300}",
+          "group": "components",
+          "$modes": {
+            "default": "{core.color.red-300}",
+            "cds-g0": "{carbon.themes.white.supportError}",
+            "cds-g10": "{carbon.themes.g10.supportError}",
+            "cds-g90": "{carbon.themes.g90.supportError}",
+            "cds-g100": "{carbon.themes.g100.supportError}"
+          }
+        },
+        "size": {
+          "$type": "dimension",
+          "$value": "14",
+          "unit": "px"
+        }
+      }
+    },
+    "visibility-toggle": {
+      "button-size": {
         "$type": "dimension",
-        "$value": "14",
-        "unit": "px"
+        "$value": "24",
+        "unit": "px",
+        "$modes": {
+          "default": "24",
+          "cds-g0": "40",
+          "cds-g10": "40",
+          "cds-g90": "40",
+          "cds-g100": "40"
+        }
       }
     }
   }
