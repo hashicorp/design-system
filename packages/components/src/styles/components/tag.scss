@@ -86,8 +86,8 @@
       $pseudo-element-inset-hds: 0,
       // we need to use local variables to handle the asymmetric nature of the focus ring
       // when there are side-by-side elements (due to the visual offset applied when `cds`)
-      $pseudo-element-inset-cds: 1px var(--hds-tag-focus-ring-inset-right-cds, 1px) 1px
-        var(--hds-tag-focus-ring-inset-left-cds, 1px),
+      $pseudo-element-inset-cds: 1px var(--hds-var-tag-focus-ring-inset-right-cds, 1px) 1px
+        var(--hds-var-tag-focus-ring-inset-left-cds, 1px),
       // per design specs, to match how it's applied in Carbon tags
       $external-outline-offset-cds: 3px
     );
@@ -108,7 +108,7 @@
       @include hds-apply-only-if-carbon() {
         // we need to use local variables to handle the asymmetric nature of the focus ring
         // when there are side-by-side elements (due to the visual offset applied when `cds`)
-        inset: -2px -2px -2px var(--hds-tag-focus-ring-inset-left-cds, -2px);
+        inset: -2px -2px -2px var(--hds-var-tag-focus-ring-inset-left-cds, -2px);
       }
     }
   }
@@ -116,11 +116,11 @@
 
 // handle the asymmetric nature of the focus rings for when there are two side-by-side elements (see above)
 .hds-tag__dismiss {
-  --hds-tag-focus-ring-inset-right-cds: 3px;
+  --hds-var-tag-focus-ring-inset-right-cds: 3px;
 
   & + .hds-tag__link,
   & + .hds-tooltip-button.hds-tag__text {
-    --hds-tag-focus-ring-inset-left-cds: 0;
+    --hds-var-tag-focus-ring-inset-left-cds: 0;
   }
 }
 

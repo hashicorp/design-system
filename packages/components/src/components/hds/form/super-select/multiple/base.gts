@@ -145,17 +145,17 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     const styles: { [key: string]: string } = {};
 
     if (this.args.dropdownMaxWidth) {
-      styles['--hds-form-super-select-dropdown-max-width'] =
+      styles['--hds-var-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
     }
 
     if (this.selectedCount === '0') {
-      styles['--hds-form-super-select-selected-text-display'] = 'none';
+      styles['--hds-var-form-super-select-selected-text-display'] = 'none';
     } else {
-      styles['--hds-form-super-select-selected-text-display'] = 'flex';
+      styles['--hds-var-form-super-select-selected-text-display'] = 'flex';
     }
 
-    styles['--hds-form-super-select-selected-text'] =
+    styles['--hds-var-form-super-select-selected-text'] =
       `'${this.selectedCount} selected'`;
 
     return styles;

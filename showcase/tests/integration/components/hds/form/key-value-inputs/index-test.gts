@@ -223,12 +223,12 @@ module(
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__generic-container',
         )
-        .hasStyle({ '--hds-key-value-inputs-column-index': '2' });
+        .hasStyle({ '--hds-var-key-value-inputs-column-index': '2' });
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__delete-row-button-container',
         )
-        .hasStyle({ '--hds-key-value-inputs-column-index': '3' });
+        .hasStyle({ '--hds-var-key-value-inputs-column-index': '3' });
     });
 
     test('it should set the appropriate column indexes for some row children (generic + button) when there is complex row content and data', async function (assert) {
@@ -266,31 +266,31 @@ module(
       );
       assert
         .dom('#test-form-key-value-inputs [data-test-generic-1]')
-        .hasStyle({ '--hds-key-value-inputs-column-index': '2' });
+        .hasStyle({ '--hds-var-key-value-inputs-column-index': '2' });
 
       assert
         .dom('#test-form-key-value-inputs [data-test-generic-2]')
-        .hasStyle({ '--hds-key-value-inputs-column-index': '4' });
+        .hasStyle({ '--hds-var-key-value-inputs-column-index': '4' });
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__delete-row-button-container',
         )
-        .hasStyle({ '--hds-key-value-inputs-column-index': '5' });
+        .hasStyle({ '--hds-var-key-value-inputs-column-index': '5' });
     });
 
     // CUSTOM WIDTHS
 
-    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows without custom widths', async function (assert) {
+    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-var-key-value-inputs-columns` for the rows without custom widths', async function (assert) {
       await createKeyValueInputs({
         data: [{ value: 'Test value' }, { value: 'Another value' }],
       });
 
       assert
         .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-inputs-columns': '1fr auto 2.25rem' });
+        .hasStyle({ '--hds-var-key-value-inputs-columns': '1fr auto 2.25rem' });
     });
 
-    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows with complex structure', async function (assert) {
+    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-var-key-value-inputs-columns` for the rows with complex structure', async function (assert) {
       const data = [
         { key: 'Test key', value: 'Test value' },
         { key: 'Another key', value: 'Another value' },
@@ -309,11 +309,11 @@ module(
         </template>,
       );
       assert.dom('#test-form-key-value-inputs').hasStyle({
-        '--hds-key-value-inputs-columns': '1fr auto 1fr auto 2.25rem',
+        '--hds-var-key-value-inputs-columns': '1fr auto 1fr auto 2.25rem',
       });
     });
 
-    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the row when there is no data and no yielded delete button', async function (assert) {
+    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-var-key-value-inputs-columns` for the row when there is no data and no yielded delete button', async function (assert) {
       const data: never[] = [];
 
       await render(
@@ -329,10 +329,10 @@ module(
       assert
         .dom('#test-form-key-value-inputs')
         // per design specs, the last column is always set to provide space for the delete button, even if the button is not rendered, to avoid layout shifts
-        .hasStyle({ '--hds-key-value-inputs-columns': '1fr auto 2.25rem' });
+        .hasStyle({ '--hds-var-key-value-inputs-columns': '1fr auto 2.25rem' });
     });
 
-    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows with custom widths', async function (assert) {
+    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-var-key-value-inputs-columns` for the rows with custom widths', async function (assert) {
       const data = [{ value: 'Test value' }, { value: 'Another value' }];
       await render(
         <template>
@@ -351,7 +351,7 @@ module(
         .hasAttribute('data-width', '200px');
 
       assert.dom('#test-form-key-value-inputs').hasStyle({
-        '--hds-key-value-inputs-columns': '200px auto 2.25rem',
+        '--hds-var-key-value-inputs-columns': '200px auto 2.25rem',
       });
     });
 

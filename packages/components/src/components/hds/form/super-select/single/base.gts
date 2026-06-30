@@ -117,7 +117,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
   get dropdownMaxWidthStyle(): Record<string, string> {
     const maxWidthStyle: { [key: string]: string } = {};
     if (this.args.dropdownMaxWidth) {
-      maxWidthStyle['--hds-form-super-select-dropdown-max-width'] =
+      maxWidthStyle['--hds-var-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
     }
     return maxWidthStyle;
