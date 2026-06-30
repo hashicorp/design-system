@@ -5,6 +5,8 @@
 
 // SUPER-SELECT
 
+@use "../../mixins/focus-ring" as *;
+
 // Copied from components/src/styles/components/tag.scss styles
 // we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
 $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
@@ -29,7 +31,7 @@ $hds-super-select-item-height: 36px;
     padding-right: calc(var(--token-form-control-padding) + 21px); // extra space for the icon
     padding-bottom: 4px;
     padding-left: 11px;
-    color: var(--token-form-control-base-foreground-value-color);
+    color: var(--token-form-control-base-foreground-color);
     line-height: var(--token-typography-body-200-line-height);
     background-color: var(--token-form-control-base-surface-color-default);
     background-image: var(--token-form-select-background-image-data-url);
@@ -48,11 +50,10 @@ $hds-super-select-item-height: 36px;
       border-color: var(--token-form-control-base-border-color-hover);
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
+      @include hds-focus-ring-basic();
       border-color: var(--token-color-focus-action-internal);
-      outline: 3px solid var(--token-color-focus-action-external);
-      outline-offset: 0;
     }
 
     &[aria-expanded="true"] {
@@ -75,7 +76,7 @@ $hds-super-select-item-height: 36px;
     }
 
     .ember-power-select-placeholder {
-      color: var(--token-form-control-base-foreground-placeholder-color);
+      color: var(--token-form-control-base-placeholder-foreground-color);
       font-size: var(--token-typography-body-200-font-size);
       font-family: var(--token-typography-body-200-font-family);
       line-height: var(--token-typography-body-200-line-height);
@@ -165,7 +166,7 @@ $hds-super-select-item-height: 36px;
 
     // states
     &[aria-current="true"] {
-      color: var(--token-form-control-base-foreground-value-color);
+      color: var(--token-form-control-base-foreground-color);
       background-color: var(--token-form-control-base-surface-color-default);
     }
 
@@ -246,7 +247,7 @@ $hds-super-select-item-height: 36px;
     width: 100%;
     min-height: $hds-super-select-item-height;
     padding: var(--token-form-control-padding);
-    color: var(--token-form-control-base-foreground-value-color);
+    color: var(--token-form-control-base-foreground-color);
     font-size: var(--token-typography-body-200-font-size);
     font-family: var(--token-typography-body-200-font-family);
     line-height: 1rem;
@@ -257,7 +258,7 @@ $hds-super-select-item-height: 36px;
 
     // placeholder
     &::placeholder {
-      color: var(--token-form-control-base-foreground-placeholder-color);
+      color: var(--token-form-control-base-placeholder-foreground-color);
     }
 
     // status
@@ -267,11 +268,10 @@ $hds-super-select-item-height: 36px;
     }
 
     // focus (same for all the states)
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
+      @include hds-focus-ring-basic();
       border-color: var(--token-color-focus-action-internal);
-      outline: 3px solid var(--token-color-focus-action-external);
-      outline-offset: 0;
     }
 
     &[type="search"] {
@@ -327,7 +327,7 @@ $hds-super-select-item-height: 36px;
 
   // Cancel button
   .ember-power-select-trigger-multiple-input {
-    color: var(--token-form-control-base-foreground-value-color);
+    color: var(--token-form-control-base-foreground-color);
     font-size: var(--token-typography-body-200-font-size);
     font-family: var(--token-typography-body-200-font-family);
 
@@ -355,7 +355,7 @@ $hds-super-select-item-height: 36px;
       border-color: var(--token-form-control-invalid-border-color-hover);
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
       border-color: var(--token-color-focus-critical-internal);
       outline-color: var(--token-color-focus-critical-external);

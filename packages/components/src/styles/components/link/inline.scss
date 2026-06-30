@@ -6,19 +6,28 @@
 //
 // LINK > INLINE COMPONENT
 //
-// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
-// see https://github.com/hashicorp/design-system-components/issues/132
-//
+
+@use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 .hds-link-inline {
-  border-radius: 2px; // this is used by the outline too
+  border-radius: var(--token-border-radius-x-small); // this is used by the outline too
 
   &:focus,
-  &.mock-focus,
-  &:focus-visible {
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-basic(
+      $external-outline-width: var(--token-link-inline-outline-width),
+      $external-outline-color: var(--token-link-inline-outline-color),
+      // we want the focus ring to extend a bit around the content
+      $external-outline-offset: 1px,
+      $has-internal-border: false
+    );
     text-decoration: none;
-    outline: 2px solid var(--token-color-focus-action-internal);
-    outline-offset: 1px;
+  }
+
+  @include hds-apply-only-if-carbon() {
+    text-decoration: underline;
   }
 }
 
@@ -29,11 +38,11 @@
   vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
 
   .hds-link-inline--icon-leading > & {
-    margin-right: 0.25em;
+    margin-right: var(--token-link-inline-icon-margin-horizontal);
   }
 
   .hds-link-inline--icon-trailing > & {
-    margin-left: 0.25em;
+    margin-left: var(--token-link-inline-icon-margin-horizontal);
   }
 }
 

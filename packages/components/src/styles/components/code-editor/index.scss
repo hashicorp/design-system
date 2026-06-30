@@ -6,15 +6,14 @@
 //
 // CODE-EDITOR
 //
-
-@use "theme";
+@use "../../mixins/carbonization" as *;
 
 .hds-code-editor {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--hds-code-editor-color-surface-primary);
-  border: 1px solid var(--hds-code-editor-color-border-strong);
+  background-color: var(--token-code-block-surface-color-primary);
+  border: 1px solid var(--token-code-block-border-color-strong);
 
   &.hds-code-editor--is-standalone {
     border-radius: var(--token-border-radius-medium);
@@ -34,8 +33,18 @@
 
   // Ovverride default font-styles & match CodeBlock component font styles
   .cm-editor .cm-scroller {
-    font-size: 0.8125rem;
+    font-size: var(--token-code-block-typography-font-size);
     font-family: var(--token-typography-code-200-font-family);
+  }
+
+  @include hds-apply-only-if-carbon() {
+    .cm-panel.cm-panel-lint ul li.cm-diagnostic {
+      margin-bottom: 0;
+    }
+
+    .cm-panels-bottom .cm-panel.cm-panel-lint {
+      border-top: 3px solid var(--token-code-block-border-color-primary);
+    }
   }
 
   .hds-code-editor__header {
@@ -43,8 +52,8 @@
     gap: 12px;
     align-items: start;
     padding: 16px;
-    background-color: var(--hds-code-editor-color-surface-faint);
-    border-bottom: 1px solid var(--hds-code-editor-color-border-primary);
+    background-color: var(--token-code-block-surface-color-faint);
+    border-bottom: 1px solid var(--token-code-block-border-color-primary);
   }
 
   .hds-code-editor__header-content {
@@ -54,7 +63,7 @@
   }
 
   .hds-code-editor__title {
-    color: var(--hds-code-editor-color-foreground-primary);
+    color: var(--token-code-block-foreground-color-primary);
 
     + .hds-code-editor__description {
       margin-top: 4px;
@@ -62,7 +71,7 @@
   }
 
   .hds-code-editor__description {
-    color: var(--hds-code-editor-color-foreground-faint);
+    color: var(--token-code-block-foreground-color-faint);
   }
 
   .hds-code-editor__title + .hds-code-editor__header-generic,
@@ -74,10 +83,6 @@
     display: flex;
     gap: 8px;
     align-items: center;
-
-    .hds-button {
-      outline-offset: 0;
-    }
   }
 
   .hds-code-editor__editor {
@@ -90,40 +95,47 @@
     align-items: center;
     justify-content: center;
     height: 164px;
-    color: var(--hds-code-editor-color-foreground-primary);
-    background-color: var(--hds-code-editor-color-surface-primary);
+    color: var(--token-code-block-foreground-color-primary);
+    background-color: var(--token-code-block-button-surface-color-default);
   }
 
   .hds-button {
-    color: var(--hds-code-editor-color-foreground-primary);
-    background-color: var(--hds-code-editor-color-surface-faint);
-    border: 1px solid var(--hds-code-editor-color-border-strong);
+    color: var(--token-code-block-foreground-color-primary);
+    background-color: var(--token-code-block-button-surface-color-default);
+    border: 1px solid var(--token-code-block-border-color-strong);
+
+    @include hds-apply-only-if-carbon() {
+      border: none;
+    }
 
     &:hover,
-    &.mock-hover,
-    &:focus,
+    &.mock-hover {
+      color: var(--token-code-block-foreground-color-primary);
+      background-color: var(--token-code-block-button-surface-color-hover);
+      border-color: var(--token-code-block-focus-ring-color-action-internal);
+    }
+
+    &:focus-visible,
     &.mock-focus {
-      background-color: var(--hds-code-editor-color-surface-primary);
-      border-color: var(--hds-code-editor-color-focus-action-internal);
+      background-color: var(--token-code-block-button-surface-color-default);
 
       &::before {
-        border-color: var(--hds-code-editor-color-focus-action-external);
-      }
-
-      .hds-button__icon {
-        color: var(--hds-code-editor-color-foreground-primary);
+        border-color: var(--token-code-block-focus-ring-color-action-internal);
+        outline-color: var(--token-code-block-focus-ring-color-action-external);
+        // override the focus ring external offset in case primary buttons are used, eg. in the custom content of the header
+        outline-offset: 0;
       }
     }
 
     &:active,
     &.mock-active {
-      color: var(--hds-code-editor-color-foreground-primary);
-      background-color: var(--hds-code-editor-color-surface-interactive-active);
+      color: var(--token-code-block-foreground-color-primary);
+      background-color: var(--token-code-block-button-surface-color-active);
     }
 
     // we need to artificially increase the specificity here
     .hds-button__icon .hds-icon {
-      color: var(--hds-code-editor-color-foreground-primary);
+      color: var(--token-code-block-foreground-color-primary);
     }
   }
 }

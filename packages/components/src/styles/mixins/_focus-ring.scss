@@ -7,122 +7,83 @@
 // - https://github.com/hashicorp/design-system-components/issues/161
 // - https://www.tpgi.com/focus-visible-and-backwards-compatibility/
 
-@mixin hds-focus-ring-basic($color: action) {
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent;
+@use "../mixins/carbonization" as *;
 
-  // default focus for browsers that still rely on ":focus"
-  &:focus,
-  &.mock-focus {
-    box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-  }
-  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-  // set focus for browsers that support ":focus-visible"
-  &:focus-visible {
-    box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-  }
-  // remove the focus ring on "active + focused" state (by design)
-  &:focus:active,
-  &.mock-focus.mock-active {
-    box-shadow: none;
-  }
-}
-
-@mixin hds-focus-ring-with-pseudo-element(
-  $top: 0,
-  $right: 0,
-  $bottom: 0,
-  $left: 0,
-  $radius: 5px,
-  $color: action,
-  $position: relative
+@mixin hds-focus-ring-basic(
+  $external-outline-width: var(--token-focus-ring-width-external),
+  $external-outline-color: var(--token-color-focus-action-external),
+  $external-outline-offset: 0,
+  $has-internal-border: true,
+  $internal-border-color-hds: var(--token-color-focus-action-internal),
+  $internal-border-color-cds: transparent
 ) {
-  position: $position;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent;
-  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+  outline: $external-outline-width solid $external-outline-color;
+  outline-offset: $external-outline-offset;
 
-  &::before {
-    position: absolute;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-    z-index: -1;
-    border-radius: $radius;
-    content: "";
+  @if $has-internal-border and $internal-border-color-hds != false {
+    border-color: $internal-border-color-hds;
   }
 
-  // default focus for browsers that still rely on ":focus"
-  &:focus,
-  &.mock-focus {
-    &::before {
-      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-    }
-  }
-  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-  &:focus:not(:focus-visible) {
-    &::before {
-      box-shadow: none;
-    }
-  }
-  // set focus for browsers that support ":focus-visible"
-  &:focus-visible {
-    &::before {
-      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-    }
-  }
-  // remove the focus ring on "active + focused" state (by design)
-  &:focus:active,
-  &.mock-focus.mock-active {
-    &::before {
-      box-shadow: none;
+  @if $has-internal-border and $internal-border-color-cds != false {
+    @include hds-apply-only-if-carbon() {
+      border-color: $internal-border-color-cds;
     }
   }
 }
 
-// This mixin is used for the _rare_ cases where we want the focus ring to be visible when the user clicks the element (not just if they focus it with a keyboard).
-@mixin hds-focus-ring-with-pseudo-element-focus-always-visible(
-  $top: 0,
-  $right: 0,
-  $bottom: 0,
-  $left: 0,
-  $radius: 5px,
-  $color: action,
-  $position: relative
+@mixin hds-focus-ring-advanced(
+  // pass false if you want to avoid (re)setting the element position
+  $element-position: relative,
+  $pseudo-element-z-index: -1,
+  // we assume a 1px border
+  $pseudo-element-inset-hds: -1px,
+  // we assume a 1px border and 2px external ring to offset
+  $pseudo-element-inset-cds: 1px,
+  $pseudo-element-border-radius: inherit,
+  // provide `none` if you want to make the pseudo-element pass-through the pointer events
+  $pseudo-element-pointer-events: auto,
+  $external-outline-width-hds: var(--token-focus-ring-width-external),
+  $external-outline-width-cds: var(--token-focus-ring-width-external),
+  $external-outline-color: var(--token-color-focus-action-external),
+  $external-outline-offset-hds: 0,
+  $external-outline-offset-cds: 0,
+  $internal-border-width-hds: var(--token-focus-ring-width-internal),
+  $internal-border-width-cds: var(--token-focus-ring-width-internal),
+  $internal-border-color: var(--token-color-focus-action-internal)
 ) {
-  position: $position;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent;
-  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+  @if $element-position != false {
+    position: $element-position;
+    isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+  }
+  outline: none;
 
   &::before {
     position: absolute;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-    z-index: -1;
-    border-radius: $radius;
+    inset: $pseudo-element-inset-hds;
+    z-index: $pseudo-element-z-index;
+    border: $internal-border-width-hds solid $internal-border-color;
+    border-radius: $pseudo-element-border-radius;
+    outline: $external-outline-width-hds solid $external-outline-color;
+    outline-offset: $external-outline-offset-hds;
     content: "";
-  }
+    pointer-events: $pseudo-element-pointer-events;
 
-  // default focus for browsers that still rely on ":focus"
-  &:focus,
-  &.mock-focus {
-    &::before {
-      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-    }
-  }
+    @include hds-apply-only-if-carbon() {
+      @if $pseudo-element-inset-cds != $pseudo-element-inset-hds {
+        inset: $pseudo-element-inset-cds;
+      }
 
-  // remove the focus ring on "active + focused" state (by design)
-  &:focus:active,
-  &.mock-focus.mock-active {
-    &::before {
-      box-shadow: none;
+      @if $external-outline-width-cds != $external-outline-width-hds {
+        outline-width: $external-outline-width-cds;
+      }
+
+      @if $external-outline-offset-cds != $external-outline-offset-hds {
+        outline-offset: $external-outline-offset-cds;
+      }
+
+      @if $internal-border-width-cds != $internal-border-width-hds {
+        border-width: $internal-border-width-cds;
+      }
     }
   }
 }

@@ -7,6 +7,8 @@
 // FORM > RADIO-CARD
 //
 
+@use "../../mixins/focus-ring" as *;
+
 // RadioCard Group
 
 .hds-form-group--radio-cards {
@@ -55,10 +57,12 @@
     transition: var(--token-form-radiocard-transition-duration);
   }
 
+  // this is an exception, we use `focus-within` instead of `focus-visible`
+  // because the element receiving the actual focus is the `hds-form-radio-card__control`
+  // but the focus ring is applied to the parent `hds-form-radio-card`
   &:focus-within,
   &.mock-focus {
-    border-color: var(--token-color-focus-action-internal);
-    box-shadow: 0 0 0 3px var(--token-color-focus-action-external);
+    @include hds-focus-ring-basic();
   }
 
   &.hds-form-radio-card--checked {
@@ -149,7 +153,7 @@
 .hds-form-radio-card__label {
   display: block;
   margin: 8px 0;
-  color: var(--token-form-label-color);
+  color: var(--token-form-label-foreground-color);
   overflow-wrap: break-word;
 
   &:first-child {

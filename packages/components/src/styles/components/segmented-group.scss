@@ -56,7 +56,7 @@
       }
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus,
     .hds-dropdown-toggle-button:focus,
     .hds-dropdown-toggle-icon:focus {

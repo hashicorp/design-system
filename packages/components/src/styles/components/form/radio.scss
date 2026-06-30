@@ -9,6 +9,8 @@
 
 // "BASE" CONTROL
 
+@use "../../mixins/focus-ring" as *;
+
 .hds-form-radio {
   width: var(--token-form-radio-size);
   height: var(--token-form-radio-size);
@@ -54,10 +56,9 @@
 
   // focus (same for all the states)
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 1px;
+    @include hds-focus-ring-basic($external-outline-offset: 1px, $has-internal-border: false);
   }
 
   // DISABLED

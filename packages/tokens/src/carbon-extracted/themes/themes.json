@@ -537,6 +537,13 @@
           "private": true,
           "cds-original-value": "#ffffff"
         },
+        "chatBubbleAgentText": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
         "chatBubbleBorder": {
           "$type": "color",
           "$value": "#e0e0e0",
@@ -550,6 +557,13 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#e0e0e0"
+        },
+        "chatBubbleUserText": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
         },
         "chatButton": {
           "$type": "color",
@@ -600,6 +614,13 @@
           "private": true,
           "cds-original-value": "#ffffff"
         },
+        "chatHeaderText": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
         "chatPromptBackground": {
           "$type": "color",
           "$value": "#ffffff",
@@ -620,6 +641,13 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#f4f4f4"
+        },
+        "chatPromptText": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
         },
         "chatShellBackground": {
           "$type": "color",
@@ -2398,10 +2426,10 @@
         },
         "overlay": {
           "$type": "color",
-          "$value": "rgba(22, 22, 22, 0.5)",
+          "$value": "rgba(0, 0, 0, 0.6)",
           "group": "cds-themes",
           "private": true,
-          "cds-original-value": "rgba(22, 22, 22, 0.5)"
+          "cds-original-value": "rgba(0, 0, 0, 0.6)"
         },
         "productiveHeading01": {
           "fontSize": {
@@ -3140,6 +3168,608 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#f1c21b"
+        },
+        "syntaxAngleBracket": {
+          "$type": "color",
+          "$value": "#697077",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#697077"
+        },
+        "syntaxAnnotation": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxArithmeticOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxAtom": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxAttribute": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxAttributeName": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxAttributeValue": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxBitwiseOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxBlockComment": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxBool": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxBrace": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxBracket": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxCharacter": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxClassName": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxColor": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxComment": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxCompareOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxConstant": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxContent": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxContentSeparator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxControlKeyword": {
+          "$type": "color",
+          "$value": "#6929c4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6929c4"
+        },
+        "syntaxControlOperator": {
+          "$type": "color",
+          "$value": "#6929c4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6929c4"
+        },
+        "syntaxDefinition": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxDefinitionKeyword": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxDefinitionOperator": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxDerefOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxDocComment": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxDocString": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxDocumentMeta": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxEmphasis": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxEscape": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxFloat": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxFunction": {
+          "$type": "color",
+          "$value": "#8e6a00",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#8e6a00"
+        },
+        "syntaxHeading": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading1": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading2": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading3": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading4": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading5": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading6": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxInteger": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxInvalid": {
+          "$type": "color",
+          "$value": "#da1e28",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#da1e28"
+        },
+        "syntaxKeyword": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxLabelName": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxLineComment": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxLink": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxList": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxLiteral": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxLocal": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxLogicOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxMacroName": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxMeta": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxModifier": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxModuleKeyword": {
+          "$type": "color",
+          "$value": "#6929c4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6929c4"
+        },
+        "syntaxMonospace": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxName": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxNamespace": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxNull": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxNumber": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxOperatorKeyword": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxParen": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxProcessingInstruction": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxPropertyName": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxPunctuation": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxQuote": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxRegexp": {
+          "$type": "color",
+          "$value": "#6929c4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6929c4"
+        },
+        "syntaxSelf": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxSeparator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxSpecial": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxSpecialString": {
+          "$type": "color",
+          "$value": "#8a3ffc",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#8a3ffc"
+        },
+        "syntaxSquareBracket": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxStandard": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxStrikethrough": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxString": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxStrong": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxTag": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxTagName": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxType": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxTypeName": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxTypeOperator": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxUnit": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxUpdateOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxUrl": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxVariable": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxVariableName": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
         },
         "textDisabled": {
           "$type": "color",
@@ -3748,6 +4378,13 @@
           "private": true,
           "cds-original-value": "#ffffff"
         },
+        "chatBubbleAgentText": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
         "chatBubbleBorder": {
           "$type": "color",
           "$value": "#e0e0e0",
@@ -3761,6 +4398,13 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#e0e0e0"
+        },
+        "chatBubbleUserText": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
         },
         "chatButton": {
           "$type": "color",
@@ -3811,6 +4455,13 @@
           "private": true,
           "cds-original-value": "#ffffff"
         },
+        "chatHeaderText": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
         "chatPromptBackground": {
           "$type": "color",
           "$value": "#ffffff",
@@ -3831,6 +4482,13 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#f4f4f4"
+        },
+        "chatPromptText": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
         },
         "chatShellBackground": {
           "$type": "color",
@@ -5609,10 +6267,10 @@
         },
         "overlay": {
           "$type": "color",
-          "$value": "rgba(22, 22, 22, 0.5)",
+          "$value": "rgba(0, 0, 0, 0.6)",
           "group": "cds-themes",
           "private": true,
-          "cds-original-value": "rgba(22, 22, 22, 0.5)"
+          "cds-original-value": "rgba(0, 0, 0, 0.6)"
         },
         "productiveHeading01": {
           "fontSize": {
@@ -6352,6 +7010,608 @@
           "private": true,
           "cds-original-value": "#f1c21b"
         },
+        "syntaxAngleBracket": {
+          "$type": "color",
+          "$value": "#697077",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#697077"
+        },
+        "syntaxAnnotation": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxArithmeticOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxAtom": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxAttribute": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxAttributeName": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxAttributeValue": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxBitwiseOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxBlockComment": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxBool": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxBrace": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxBracket": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxCharacter": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxClassName": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxColor": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxComment": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxCompareOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxConstant": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxContent": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxContentSeparator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxControlKeyword": {
+          "$type": "color",
+          "$value": "#6929c4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6929c4"
+        },
+        "syntaxControlOperator": {
+          "$type": "color",
+          "$value": "#6929c4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6929c4"
+        },
+        "syntaxDefinition": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxDefinitionKeyword": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxDefinitionOperator": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxDerefOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxDocComment": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxDocString": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxDocumentMeta": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxEmphasis": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxEscape": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxFloat": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxFunction": {
+          "$type": "color",
+          "$value": "#8e6a00",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#8e6a00"
+        },
+        "syntaxHeading": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading1": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading2": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading3": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading4": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading5": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxHeading6": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxInteger": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxInvalid": {
+          "$type": "color",
+          "$value": "#da1e28",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#da1e28"
+        },
+        "syntaxKeyword": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxLabelName": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxLineComment": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxLink": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxList": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxLiteral": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxLocal": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxLogicOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxMacroName": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxMeta": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxModifier": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxModuleKeyword": {
+          "$type": "color",
+          "$value": "#6929c4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6929c4"
+        },
+        "syntaxMonospace": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxName": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxNamespace": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxNull": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxNumber": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxOperatorKeyword": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxParen": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxProcessingInstruction": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxPropertyName": {
+          "$type": "color",
+          "$value": "#00539a",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#00539a"
+        },
+        "syntaxPunctuation": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxQuote": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxRegexp": {
+          "$type": "color",
+          "$value": "#6929c4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6929c4"
+        },
+        "syntaxSelf": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxSeparator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxSpecial": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxSpecialString": {
+          "$type": "color",
+          "$value": "#8a3ffc",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#8a3ffc"
+        },
+        "syntaxSquareBracket": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxStandard": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxStrikethrough": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxString": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxStrong": {
+          "$type": "color",
+          "$value": "#161616",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#161616"
+        },
+        "syntaxTag": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxTagName": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxType": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxTypeName": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxTypeOperator": {
+          "$type": "color",
+          "$value": "#007d79",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#007d79"
+        },
+        "syntaxUnit": {
+          "$type": "color",
+          "$value": "#198038",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#198038"
+        },
+        "syntaxUpdateOperator": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxUrl": {
+          "$type": "color",
+          "$value": "#343a3f",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#343a3f"
+        },
+        "syntaxVariable": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
+        "syntaxVariableName": {
+          "$type": "color",
+          "$value": "#0f62fe",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#0f62fe"
+        },
         "textDisabled": {
           "$type": "color",
           "$value": "rgba(22, 22, 22, 0.25)",
@@ -6959,6 +8219,13 @@
           "private": true,
           "cds-original-value": "#262626"
         },
+        "chatBubbleAgentText": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
         "chatBubbleBorder": {
           "$type": "color",
           "$value": "#525252",
@@ -6972,6 +8239,13 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#393939"
+        },
+        "chatBubbleUserText": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
         },
         "chatButton": {
           "$type": "color",
@@ -7022,6 +8296,13 @@
           "private": true,
           "cds-original-value": "#262626"
         },
+        "chatHeaderText": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
         "chatPromptBackground": {
           "$type": "color",
           "$value": "#161616",
@@ -7042,6 +8323,13 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#262626"
+        },
+        "chatPromptText": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
         },
         "chatShellBackground": {
           "$type": "color",
@@ -8820,10 +10108,10 @@
         },
         "overlay": {
           "$type": "color",
-          "$value": "rgba(0, 0, 0, 0.65)",
+          "$value": "rgba(0, 0, 0, 0.6)",
           "group": "cds-themes",
           "private": true,
-          "cds-original-value": "rgba(0, 0, 0, 0.65)"
+          "cds-original-value": "rgba(0, 0, 0, 0.6)"
         },
         "productiveHeading01": {
           "fontSize": {
@@ -9563,6 +10851,608 @@
           "private": true,
           "cds-original-value": "#f1c21b"
         },
+        "syntaxAngleBracket": {
+          "$type": "color",
+          "$value": "#8d8d8d",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#8d8d8d"
+        },
+        "syntaxAnnotation": {
+          "$type": "color",
+          "$value": "#08bdba",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#08bdba"
+        },
+        "syntaxArithmeticOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxAtom": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxAttribute": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxAttributeName": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxAttributeValue": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxBitwiseOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxBlockComment": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxBool": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxBrace": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxBracket": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxCharacter": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxClassName": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxColor": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxComment": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxCompareOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxConstant": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxContent": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxContentSeparator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxControlKeyword": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxControlOperator": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxDefinition": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxDefinitionKeyword": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxDefinitionOperator": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxDerefOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxDocComment": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxDocString": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxDocumentMeta": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxEmphasis": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxEscape": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxFloat": {
+          "$type": "color",
+          "$value": "#6fdc8c",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6fdc8c"
+        },
+        "syntaxFunction": {
+          "$type": "color",
+          "$value": "#f1c21b",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f1c21b"
+        },
+        "syntaxHeading": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading1": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading2": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading3": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading4": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading5": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading6": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxInteger": {
+          "$type": "color",
+          "$value": "#6fdc8c",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6fdc8c"
+        },
+        "syntaxInvalid": {
+          "$type": "color",
+          "$value": "#fa4d56",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#fa4d56"
+        },
+        "syntaxKeyword": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxLabelName": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
+        "syntaxLineComment": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxLink": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxList": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxLiteral": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxLocal": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
+        "syntaxLogicOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxMacroName": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxMeta": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxModifier": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxModuleKeyword": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxMonospace": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxName": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
+        "syntaxNamespace": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxNull": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxNumber": {
+          "$type": "color",
+          "$value": "#6fdc8c",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6fdc8c"
+        },
+        "syntaxOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxOperatorKeyword": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxParen": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxProcessingInstruction": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxPropertyName": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxPunctuation": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxQuote": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxRegexp": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxSelf": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxSeparator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxSpecial": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxSpecialString": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxSquareBracket": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxStandard": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxStrikethrough": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxString": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxStrong": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxTag": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxTagName": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxType": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxTypeName": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxTypeOperator": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxUnit": {
+          "$type": "color",
+          "$value": "#6fdc8c",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6fdc8c"
+        },
+        "syntaxUpdateOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxUrl": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxVariable": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
+        "syntaxVariableName": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
         "textDisabled": {
           "$type": "color",
           "$value": "rgba(244, 244, 244, 0.25)",
@@ -10170,6 +12060,13 @@
           "private": true,
           "cds-original-value": "#262626"
         },
+        "chatBubbleAgentText": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
         "chatBubbleBorder": {
           "$type": "color",
           "$value": "#525252",
@@ -10183,6 +12080,13 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#393939"
+        },
+        "chatBubbleUserText": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
         },
         "chatButton": {
           "$type": "color",
@@ -10233,6 +12137,13 @@
           "private": true,
           "cds-original-value": "#262626"
         },
+        "chatHeaderText": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
         "chatPromptBackground": {
           "$type": "color",
           "$value": "#161616",
@@ -10253,6 +12164,13 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#262626"
+        },
+        "chatPromptText": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
         },
         "chatShellBackground": {
           "$type": "color",
@@ -12031,10 +13949,10 @@
         },
         "overlay": {
           "$type": "color",
-          "$value": "rgba(0, 0, 0, 0.65)",
+          "$value": "rgba(0, 0, 0, 0.6)",
           "group": "cds-themes",
           "private": true,
-          "cds-original-value": "rgba(0, 0, 0, 0.65)"
+          "cds-original-value": "rgba(0, 0, 0, 0.6)"
         },
         "productiveHeading01": {
           "fontSize": {
@@ -12773,6 +14691,608 @@
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "#f1c21b"
+        },
+        "syntaxAngleBracket": {
+          "$type": "color",
+          "$value": "#8d8d8d",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#8d8d8d"
+        },
+        "syntaxAnnotation": {
+          "$type": "color",
+          "$value": "#08bdba",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#08bdba"
+        },
+        "syntaxArithmeticOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxAtom": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxAttribute": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxAttributeName": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxAttributeValue": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxBitwiseOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxBlockComment": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxBool": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxBrace": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxBracket": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxCharacter": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxClassName": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxColor": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxComment": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxCompareOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxConstant": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxContent": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxContentSeparator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxControlKeyword": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxControlOperator": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxDefinition": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxDefinitionKeyword": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxDefinitionOperator": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxDerefOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxDocComment": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxDocString": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxDocumentMeta": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxEmphasis": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxEscape": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxFloat": {
+          "$type": "color",
+          "$value": "#6fdc8c",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6fdc8c"
+        },
+        "syntaxFunction": {
+          "$type": "color",
+          "$value": "#f1c21b",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f1c21b"
+        },
+        "syntaxHeading": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading1": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading2": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading3": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading4": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading5": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxHeading6": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxInteger": {
+          "$type": "color",
+          "$value": "#6fdc8c",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6fdc8c"
+        },
+        "syntaxInvalid": {
+          "$type": "color",
+          "$value": "#fa4d56",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#fa4d56"
+        },
+        "syntaxKeyword": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxLabelName": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
+        "syntaxLineComment": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxLink": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxList": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxLiteral": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxLocal": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
+        "syntaxLogicOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxMacroName": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxMeta": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxModifier": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxModuleKeyword": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxMonospace": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxName": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
+        "syntaxNamespace": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxNull": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxNumber": {
+          "$type": "color",
+          "$value": "#6fdc8c",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6fdc8c"
+        },
+        "syntaxOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxOperatorKeyword": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxParen": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxProcessingInstruction": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxPropertyName": {
+          "$type": "color",
+          "$value": "#33b1ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#33b1ff"
+        },
+        "syntaxPunctuation": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxQuote": {
+          "$type": "color",
+          "$value": "#42be65",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#42be65"
+        },
+        "syntaxRegexp": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxSelf": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxSeparator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxSpecial": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxSpecialString": {
+          "$type": "color",
+          "$value": "#be95ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#be95ff"
+        },
+        "syntaxSquareBracket": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxStandard": {
+          "$type": "color",
+          "$value": "#4589ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#4589ff"
+        },
+        "syntaxStrikethrough": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxString": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxStrong": {
+          "$type": "color",
+          "$value": "#f4f4f4",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#f4f4f4"
+        },
+        "syntaxTag": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxTagName": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxType": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxTypeName": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxTypeOperator": {
+          "$type": "color",
+          "$value": "#3ddbd9",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#3ddbd9"
+        },
+        "syntaxUnit": {
+          "$type": "color",
+          "$value": "#6fdc8c",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#6fdc8c"
+        },
+        "syntaxUpdateOperator": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxUrl": {
+          "$type": "color",
+          "$value": "#e0e0e0",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#e0e0e0"
+        },
+        "syntaxVariable": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
+        },
+        "syntaxVariableName": {
+          "$type": "color",
+          "$value": "#a6c8ff",
+          "group": "cds-themes",
+          "private": true,
+          "cds-original-value": "#a6c8ff"
         },
         "textDisabled": {
           "$type": "color",
