@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carbon Design System Demo</title>
+
+    <!-- IBM Carbon Web Components - Import via CDN -->
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/ui-shell.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/button.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/text-input.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/accordion.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/modal.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/form.min.js"></script>
+
+    <!-- Carbon Design System theme styles -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/assets/carbon-demo.css" />
+  </head>
+  <body class="cds-theme-zone-white">
+    <!-- Carbon UI Shell - Header -->
+    <cds-header aria-label="Carbon Demo App">
+      <cds-header-name href="#" prefix="IBM">Carbon Demo</cds-header-name>
+
+      <cds-header-nav>
+        <cds-header-nav-item href="#">Dashboard</cds-header-nav-item>
+        <cds-header-nav-item href="#">Services</cds-header-nav-item>
+        <cds-header-nav-item href="#">Organization</cds-header-nav-item>
+      </cds-header-nav>
+
+      <cds-header-menu-button button-label-active="Close menu" button-label-inactive="Open menu">
+      </cds-header-menu-button>
+    </cds-header>
+
+    <!-- Carbon Side Navigation -->
+    <cds-side-nav aria-label="Side navigation" collapse-mode="rail">
+      <cds-side-nav-items>
+        <cds-side-nav-link href="#">Dashboard</cds-side-nav-link>
+        <cds-side-nav-link href="#">Services</cds-side-nav-link>
+        <cds-side-nav-menu title="Organization">
+          <cds-side-nav-menu-item href="#">Settings</cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="#">Members</cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="#">Billing</cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+      </cds-side-nav-items>
+    </cds-side-nav>
+
+    <!-- Main Content Area -->
+    <div class="carbon-demo-main-content">
+      <!-- User Information Form -->
+      <div class="carbon-demo-section">
+        <h3 class="carbon-demo-section-title">User Information Form</h3>
+        <p class="carbon-demo-section-description">Please fill out your information below.</p>
+
+        <cds-form>
+          <!-- Full Name Input -->
+          <div class="carbon-demo-form-field">
+            <cds-text-input
+              label="Full Name"
+              placeholder="Enter your full name"
+              helper-text="Your first and last name"
+              id="name-input"
+            >
+            </cds-text-input>
+          </div>
+
+          <!-- Email Input -->
+          <div class="carbon-demo-form-field">
+            <cds-text-input
+              label="Email Address"
+              placeholder="your.email@example.com"
+              helper-text="We'll never share your email"
+              id="email-input"
+            >
+            </cds-text-input>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="carbon-demo-form-actions">
+            <cds-button id="preview-btn">
+              Preview & Submit
+            </cds-button>
+            <cds-button kind="secondary" id="cancel-btn">
+              Cancel
+            </cds-button>
+          </div>
+        </cds-form>
+      </div>
+
+      <!-- Help Documentation Accordion -->
+      <div class="carbon-demo-section">
+        <h3 class="carbon-demo-section-title">Help & Documentation</h3>
+
+        <cds-accordion>
+          <cds-accordion-item title="How to fill out this form" open>
+            <p>This form collects basic user information. Please ensure all required fields are completed before submitting.</p>
+            <ul class="carbon-demo-accordion-list">
+              <li>Full Name: Enter your complete legal name</li>
+              <li>Email: Provide a valid email address for communication</li>
+            </ul>
+          </cds-accordion-item>
+
+          <cds-accordion-item title="Privacy & Data Usage">
+            <p>Your information is protected and will only be used for the purposes stated in our privacy policy.</p>
+            <p class="carbon-demo-accordion-paragraph">We implement industry-standard security measures to protect your data.</p>
+          </cds-accordion-item>
+
+          <cds-accordion-item title="Frequently Asked Questions">
+            <p><strong>Q: How long does processing take?</strong></p>
+            <p>A: Typically 1-2 business days.</p>
+            <p class="carbon-demo-accordion-paragraph"><strong>Q: Can I edit my information later?</strong></p>
+            <p>A: Yes, you can update your profile at any time.</p>
+          </cds-accordion-item>
+        </cds-accordion>
+      </div>
+    </div>
+
+    <!-- Modal for Form Preview -->
+    <cds-modal id="preview-modal" size="sm">
+      <cds-modal-header>
+        <cds-modal-heading>Review Your Information</cds-modal-heading>
+      </cds-modal-header>
+      <cds-modal-body>
+        <p class="carbon-demo-modal-description">Please review your information before submitting:</p>
+        <div class="carbon-demo-modal-preview">
+          <p class="carbon-demo-modal-preview-item"><strong>Full Name:</strong> <span id="modal-name"></span></p>
+          <p class="carbon-demo-modal-preview-item"><strong>Email:</strong> <span id="modal-email"></span></p>
+        </div>
+      </cds-modal-body>
+      <cds-modal-footer>
+        <cds-button kind="secondary" id="modal-back-btn">
+          Go Back
+        </cds-button>
+        <cds-button id="modal-confirm-btn">
+          Confirm & Submit
+        </cds-button>
+      </cds-modal-footer>
+    </cds-modal>
+
+    <!-- Custom JavaScript -->
+    <script src="/assets/carbon-demo.js"></script>
+  </body>
+</html>
