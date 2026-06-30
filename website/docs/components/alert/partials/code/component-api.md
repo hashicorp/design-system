@@ -15,6 +15,9 @@
   <C.Property @name="<[A].LinkStandalone>" @type="yielded component">
     `Link::Standalone` yielded as contextual component (see below).
   </C.Property>
+  <C.Property @name="<[A].Generic>" @type="yielded component" @deprecated={{true}}>
+    A generic container yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="<[A].GenericContent>" @type="yielded component">
     A generic container yielded as contextual component (see below).
   </C.Property>
