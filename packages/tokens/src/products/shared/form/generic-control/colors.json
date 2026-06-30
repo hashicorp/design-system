@@ -102,7 +102,14 @@
             "default": {
               "$type": "color",
               "$value": "{color.palette.blue-200}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.blue-200}",
+                "cds-g0": "{carbon.color.gray.100}",
+                "cds-g10": "{carbon.color.gray.100}",
+                "cds-g90": "{carbon.color.gray.10}",
+                "cds-g100": "{carbon.color.gray.10}"
+              }
             },
             "hover": {
               "$type": "color",
@@ -116,12 +123,26 @@
             "default": {
               "$type": "color",
               "$value": "{color.palette.blue-300}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.blue-200}",
+                "cds-g0": "{carbon.color.gray.100}",
+                "cds-g10": "{carbon.color.gray.100}",
+                "cds-g90": "{carbon.color.gray.10}",
+                "cds-g100": "{carbon.color.gray.10}"
+              }
             },
             "hover": {
               "$type": "color",
               "$value": "{color.palette.blue-400}",
-              "group": "components"
+              "group": "components",
+              "$modes": {
+                "default": "{color.palette.blue-200}",
+                "cds-g0": "{carbon.color.gray.100}",
+                "cds-g10": "{carbon.color.gray.100}",
+                "cds-g90": "{carbon.color.gray.10}",
+                "cds-g100": "{carbon.color.gray.10}"
+              }
             }
           }
         }
