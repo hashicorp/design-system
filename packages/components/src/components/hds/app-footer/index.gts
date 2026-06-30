@@ -16,7 +16,12 @@ import HdsAppFooterItem from './item.gts';
 
 import type HdsIntlService from '../../../services/hds-intl.ts';
 
+import { HdsAppFooterThemeValues } from './types.ts';
 import type { HdsAppFooterThemeTypes } from './types.ts';
+
+export const THEMES: HdsAppFooterThemeTypes[] = Object.values(
+  HdsAppFooterThemeValues
+);
 
 export interface HdsAppFooterSignature {
   Args: {

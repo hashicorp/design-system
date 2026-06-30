@@ -27,20 +27,33 @@ export default class Application extends Component {
     return this.router?.currentURL?.includes('frameless') ?? false;
   }
 
+  applyMockStatesToElement = (element: Element) => {
+    const mockStateSelector = element.getAttribute('mock-state-selector');
+    const targets = mockStateSelector
+      ? Array.from(element.querySelectorAll(mockStateSelector))
+      : [element];
+
+    const states = element.getAttribute('mock-state-value')!.split('+');
+    const classes = states.map((state) => `mock-${state.trim()}`);
+    targets.forEach((target) => {
+      target.classList.add(...classes);
+    });
+  };
+
   addMockStateClasses = () => {
     document.querySelectorAll('[mock-state-value]').forEach((element) => {
-      let targets;
-      const mockStateSelector = element.getAttribute('mock-state-selector');
-      if (mockStateSelector) {
-        targets = element.querySelectorAll(mockStateSelector);
+      const mockStateDelay = Number(
+        element.getAttribute('mock-state-delay') || 0,
+      );
+
+      if (mockStateDelay === 0) {
+        this.applyMockStatesToElement(element);
       } else {
-        targets = [element];
+        setTimeout(
+          () => this.applyMockStatesToElement(element),
+          mockStateDelay,
+        );
       }
-      const states = element.getAttribute('mock-state-value')!.split('+');
-      const classes = states.map((state) => `mock-${state.trim()}`);
-      targets.forEach((target) => {
-        target.classList.add(...classes);
-      });
     });
   };
 
@@ -49,7 +62,7 @@ export default class Application extends Component {
     scheduleOnce('afterRender', this, this.addMockStateClasses.bind(this));
   };
 
-  handleInitialStateClasses = modifier(() => {
+  initializePage = modifier(() => {
     this.addMockStateClasses();
   });
 
@@ -57,7 +70,7 @@ export default class Application extends Component {
     {{pageTitle "HDS Showcase"}}
 
     {{#if this.isFrameless}}
-      <main {{this.handleInitialStateClasses}}>
+      <main {{this.initializePage}}>
         {{outlet}}
       </main>
     {{else}}
@@ -79,7 +92,7 @@ export default class Application extends Component {
         </LinkTo>
       </aside>
 
-      <main id="main" class="shw-page-main" {{this.handleInitialStateClasses}}>
+      <main id="main" class="shw-page-main" {{this.initializePage}}>
         {{outlet}}
       </main>
     {{/if}}
