@@ -9,6 +9,8 @@ import { dirname, resolve } from "node:path";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
+import { registerTools } from "./tools/index.js";
+
 const currentFilePath = fileURLToPath(import.meta.url);
 const currentDirectoryPath = dirname(currentFilePath);
 const packageJsonPath = resolve(currentDirectoryPath, "../package.json");
@@ -37,11 +39,8 @@ const buildServer = (): McpServer => {
     version: getServerVersion(),
   });
 
-<<<<<<< HEAD
-=======
-  registerResources(server);
+  registerTools(server);
 
->>>>>>> 4ef2feb899 (finished adding infrastructure)
   return server;
 };
 
