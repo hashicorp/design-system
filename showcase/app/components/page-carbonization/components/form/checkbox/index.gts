@@ -119,79 +119,6 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
-    <ShwCarbonizationComparisonGrid @label="Invalid">
-      <:theming>
-        <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item>
-            <HdsFormCheckboxBase aria-label="Invalid checkbox" />
-          </SF.Item>
-          <SF.Item>
-            <HdsFormCheckboxBase
-              checked="checked"
-              aria-label="Checked, invalid checkbox"
-            />
-          </SF.Item>
-          <SF.Item>
-            <HdsFormCheckboxBase
-              indeterminate={{true}}
-              aria-label="Indeterminate, invalid checkbox"
-            />
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference>
-        <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item>
-            <cds-checkbox></cds-checkbox>
-          </SF.Item>
-          <SF.Item>
-            <cds-checkbox checked></cds-checkbox>
-          </SF.Item>
-          <SF.Item>
-            <cds-checkbox indeterminate></cds-checkbox>
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Readonly">
-      <:theming>
-        <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item>
-            <HdsFormCheckboxBase
-              disabled="disabled"
-              aria-label="Readonly checkbox"
-            />
-          </SF.Item>
-          <SF.Item>
-            <HdsFormCheckboxBase
-              checked="checked"
-              disabled="disabled"
-              aria-label="Checked, readonly checkbox"
-            />
-          </SF.Item>
-          <SF.Item>
-            <HdsFormCheckboxBase
-              indeterminate={{true}}
-              disabled="disabled"
-              aria-label="Indeterminate, readonly checkbox"
-            />
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference>
-        <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item>
-            <cds-checkbox readonly></cds-checkbox>
-          </SF.Item>
-          <SF.Item>
-            <cds-checkbox checked readonly></cds-checkbox>
-          </SF.Item>
-          <SF.Item>
-            <cds-checkbox indeterminate readonly></cds-checkbox>
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid @label="Disabled">
       <:theming>
         <ShwFlex @gap="1rem" as |SF|>
@@ -236,24 +163,6 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>“Field” control</ShwTextH2>
 
-    <ShwTextH3>Content</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid @label="Label + Helper text">
-      <:theming>
-        <HdsFormCheckboxField checked="checked" as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-        </HdsFormCheckboxField>
-      </:theming>
-      <:reference>
-        <cds-checkbox-group orientation="vertical">
-          <cds-checkbox helper-text="This is the helper text">This is the label</cds-checkbox>
-        </cds-checkbox-group>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwDivider @level={{2}} />
-
     <ShwTextH3>States</ShwTextH3>
 
     {{#each STATES as |state|}}
@@ -263,55 +172,88 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
         mock-state-selector="input"
       >
         <:theming>
-          <HdsFormCheckboxField checked="checked" as |F|>
-            <F.Label>This is the label text</F.Label>
-            <F.HelperText>This is the helper text</F.HelperText>
-            <F.Error>This is the error</F.Error>
-          </HdsFormCheckboxField>
+          <HdsFormCheckboxGroup @name="group-vertical-01" as |G|>
+            <G.CheckboxField checked="checked" as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+            </G.CheckboxField>
+            <G.CheckboxField as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </G.CheckboxField>
+          </HdsFormCheckboxGroup>
         </:theming>
         <:reference>
-          <cds-checkbox-group
-            legend-text="Group label"
-            helper-text="This is the group helper text"
-            invalid-text="Invalid message goes here"
-            orientation="vertical"
-            warn-text="Warn message goes here"
-          >
-            <cds-checkbox helper-text="This is the helper text">Checkbox label</cds-checkbox>
+          <cds-checkbox-group>
+            <cds-checkbox helper-text="This is the helper text" checked>This is
+              the label</cds-checkbox>
+            <cds-checkbox
+              helper-text="This is the helper text"
+              invalid-text="This is the error"
+              invalid
+            >This is the label</cds-checkbox>
           </cds-checkbox-group>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
     <ShwCarbonizationComparisonGrid @label="Disabled">
       <:theming>
-        <HdsFormCheckboxField disabled as |F|>
-          <F.Label>This is the label text</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.Error>This is the error</F.Error>
-        </HdsFormCheckboxField>
+        <HdsFormCheckboxGroup @name="group-vertical-01" as |G|>
+          <G.CheckboxField disabled as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+          </G.CheckboxField>
+          <G.CheckboxField disabled as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Error>This is the error</F.Error>
+          </G.CheckboxField>
+        </HdsFormCheckboxGroup>
       </:theming>
       <:reference>
-        <cds-checkbox-group
-          legend-text="Group label"
-          helper-text="This is the group helper text"
-          invalid-text="Invalid message goes here"
-          orientation="vertical"
-          warn-text="Warn message goes here"
-        >
-          <cds-checkbox helper-text="This is the helper text" disabled>Checkbox
-            label</cds-checkbox>
+        <cds-checkbox-group>
+          <cds-checkbox helper-text="This is the helper text" disabled>This is
+            the label</cds-checkbox>
+          <cds-checkbox
+            helper-text="This is the helper text"
+            invalid-text="This is the error"
+            invalid
+            disabled
+          >This is the label</cds-checkbox>
         </cds-checkbox-group>
       </:reference>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid @label="Disabled / Checked">
       <:theming>
-        <HdsFormCheckboxField disabled checked="checked" as |F|>
-          <F.Label>This is the label text</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.Error>This is the error</F.Error>
-        </HdsFormCheckboxField>
+        <HdsFormCheckboxGroup @name="group-vertical-01" as |G|>
+          <G.CheckboxField disabled checked as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+          </G.CheckboxField>
+          <G.CheckboxField disabled checked as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Error>This is the error</F.Error>
+          </G.CheckboxField>
+        </HdsFormCheckboxGroup>
       </:theming>
-      <:reference></:reference>
+      <:reference>
+        <cds-checkbox-group>
+          <cds-checkbox
+            helper-text="This is the helper text"
+            disabled
+            checked
+          >This is the label</cds-checkbox>
+          <cds-checkbox
+            helper-text="This is the helper text"
+            invalid-text="This is the error"
+            invalid
+            disabled
+            checked
+          >This is the label</cds-checkbox>
+        </cds-checkbox-group>
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider />
@@ -336,13 +278,7 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsFormCheckboxGroup>
       </:theming>
       <:reference>
-        <cds-checkbox-group
-          legend-text="Group label"
-          helper-text="This is the group helper text"
-          invalid-text="Invalid message goes here"
-          orientation="vertical"
-          warn-text="Warn message goes here"
-        >
+        <cds-checkbox-group legend-text="Legend of the group">
           <cds-checkbox>Label of control #1</cds-checkbox>
           <cds-checkbox checked>Label of control #2</cds-checkbox>
           <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
@@ -367,13 +303,12 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference>
         <cds-checkbox-group
-          legend-text="Group label"
+          legend-text="Legend of the group"
           helper-text="Helper text for the entire group"
-          invalid-text="Invalid message goes here"
-          orientation="vertical"
-          warn-text="Warn message goes here"
         >
-          <cds-checkbox disabled>Checkbox label</cds-checkbox>
+          <cds-checkbox>Label of control #1</cds-checkbox>
+          <cds-checkbox checked>Label of control #2</cds-checkbox>
+          <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
         </cds-checkbox-group>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -393,7 +328,18 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
           <G.Error>Error for the entire group</G.Error>
         </HdsFormCheckboxGroup>
       </:theming>
-      <:reference></:reference>
+      <:reference>
+        <cds-checkbox-group
+          legend-text="Legend of the group"
+          helper-text="Helper text for the entire group"
+          invalid-text="Error for the entire group"
+          invalid
+        >
+          <cds-checkbox>Label of control #1</cds-checkbox>
+          <cds-checkbox checked>Label of control #2</cds-checkbox>
+          <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
+        </cds-checkbox-group>
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
@@ -419,7 +365,16 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
           </G.CheckboxField>
         </HdsFormCheckboxGroup>
       </:theming>
-      <:reference></:reference>
+      <:reference>
+        <cds-checkbox-group
+          legend-text="Legend of the group"
+          orientation="horizontal"
+        >
+          <cds-checkbox>Label of control #1</cds-checkbox>
+          <cds-checkbox checked>Label of control #2</cds-checkbox>
+          <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
+        </cds-checkbox-group>
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
@@ -467,7 +422,24 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
         </ShwFlex>
       </:theming>
-      <:reference></:reference>
+      <:reference>
+        <ShwFlex as |SF|>
+          <SF.Item @label="With legend + Required">
+            <cds-checkbox-group legend-text="Legend of the group (required)">
+              <cds-checkbox>Label of control #1</cds-checkbox>
+              <cds-checkbox checked>Label of control #2</cds-checkbox>
+              <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
+            </cds-checkbox-group>
+          </SF.Item>
+          <SF.Item @label="With legend + Optional">
+            <cds-checkbox-group legend-text="Legend of the group (optional)">
+              <cds-checkbox>Label of control #1</cds-checkbox>
+              <cds-checkbox checked>Label of control #2</cds-checkbox>
+              <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
+            </cds-checkbox-group>
+          </SF.Item>
+        </ShwFlex>
+      </:reference>
     </ShwCarbonizationComparisonGrid>
   </section>
 </template>;
