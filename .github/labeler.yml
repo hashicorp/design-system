@@ -14,6 +14,10 @@ packages/tokens:
   - changed-files:
     - any-glob-to-any-file:
       - packages/tokens/**/*
+packages/mcp:
+  - changed-files:
+    - any-glob-to-any-file:
+      - packages/mcp/**/*
 showcase:
   - changed-files:
     - any-glob-to-any-file:
