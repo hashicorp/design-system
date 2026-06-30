@@ -61,6 +61,7 @@ export default class HdsAccordionItemButton extends Component<HdsAccordionItemBu
   }
 
   <template>
+    <pre>TEST</pre>
     <button
       class={{this.classNames}}
       type="button"
