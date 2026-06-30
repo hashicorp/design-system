@@ -13,7 +13,7 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
 
   <ShwFlex as |SF|>
     <SF.Item @label="action">
-      <div class="hds-focus-ring-action-box-shadow">
+      <div class="hds-focus-ring-box-shadow-action">
         <ShwPlaceholder
           @text="with border radius"
           @width="100"
@@ -23,7 +23,7 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
       </div>
     </SF.Item>
     <SF.Item @label="critical">
-      <div class="hds-focus-ring-critical-box-shadow">
+      <div class="hds-focus-ring-box-shadow-critical">
         <ShwPlaceholder
           @text="with border radius"
           @width="100"

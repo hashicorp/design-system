@@ -19,15 +19,23 @@ import HdsDropdownToggleChevron from './chevron.gts';
 import {
   HdsDropdownToggleIconSizeValues,
   HdsDropdownToggleIconAllowedIconValues,
+  HdsDropdownToggleIconColorValues,
 } from './types.ts';
 
 import type { HdsIconSignature } from '../../icon/index.gts';
-import type { HdsDropdownToggleIconSizes } from './types.ts';
+import type {
+  HdsDropdownToggleIconSizes,
+  HdsDropdownToggleIconColors,
+} from './types.ts';
 import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.gts';
 
 export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
+export const DEFAULT_COLOR = HdsDropdownToggleIconColorValues.Secondary;
 export const SIZES: HdsDropdownToggleIconSizes[] = Object.values(
   HdsDropdownToggleIconSizeValues
+);
+export const COLORS: HdsDropdownToggleIconColors[] = Object.values(
+  HdsDropdownToggleIconColorValues
 );
 
 export const ALLOWED_ICON_LIST: HdsIconSignature['Args']['name'][] =
@@ -39,6 +47,7 @@ export interface HdsDropdownToggleIconSignature {
     icon?: HdsIconSignature['Args']['name'];
     imageSrc?: string;
     isOpen?: boolean;
+    color?: HdsDropdownToggleIconColors;
     size?: HdsDropdownToggleIconSizes;
     text: string;
     setupPrimitiveToggle?: ModifierLike<SetupPrimitiveToggleModifier>;
@@ -77,6 +86,19 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     );
 
     return text;
+  }
+
+  get color(): HdsDropdownToggleIconColors {
+    const { color = DEFAULT_COLOR } = this.args;
+
+    assert(
+      `@color for "Hds::Dropdown::Toggle::Icon" must be one of the following: ${COLORS.join(
+        ', '
+      )}; received: ${color}`,
+      COLORS.includes(color)
+    );
+
+    return color;
   }
 
   get size(): HdsDropdownToggleIconSizes {
@@ -123,6 +145,9 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
 
     // add a class based on the @size argument
     classes.push(`hds-dropdown-toggle-icon--size-${this.size}`);
+
+    // add a class based on the @color argument
+    classes.push(`hds-dropdown-toggle-icon--color-${this.color}`);
 
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {

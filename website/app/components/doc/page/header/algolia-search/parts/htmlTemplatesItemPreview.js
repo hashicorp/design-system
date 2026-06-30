@@ -12,7 +12,7 @@ const htmlPreviewIcon = ({ html, iconName }) => html`
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <use href="#flight-${iconName}-24"></use>
+      <use href="#hds-icon-flight-${iconName}-24"></use>
     </svg>
   </div>
 `;
@@ -20,9 +20,9 @@ const htmlPreviewIcon = ({ html, iconName }) => html`
 const htmlPreviewToken = ({ html, tokenName, tokenValue, tokenType }) => {
   let style = '';
   let content = '';
-  if (tokenName.match(/^token-typography/)) {
+  if (tokenName.match(/^hds-typography/)) {
     content = 'Aa';
-  } else if (tokenType === 'color' || tokenName.match(/^token-color/)) {
+  } else if (tokenType === 'color' || tokenName.match(/^hds-color/)) {
     style = `background-color: ${tokenValue}`;
   } else {
     content = 'T';

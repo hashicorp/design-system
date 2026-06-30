@@ -3745,9 +3745,15 @@
       "args": [
         {
           "name": "color",
-          "type": "\"primary\" | \"secondary\" | \"critical\" | \"tertiary\"",
+          "type": "\"primary\" | \"secondary\" | \"secondary-muted\" | \"critical\" | \"tertiary\"",
           "required": false,
-          "values": ["primary", "secondary", "tertiary", "critical"]
+          "values": [
+            "primary",
+            "secondary",
+            "secondary-muted",
+            "tertiary",
+            "critical"
+          ]
         },
         {
           "name": "current-when",
@@ -4374,9 +4380,15 @@
         },
         {
           "name": "color",
-          "type": "\"primary\" | \"secondary\" | \"critical\" | \"tertiary\"",
+          "type": "\"primary\" | \"secondary\" | \"secondary-muted\" | \"critical\" | \"tertiary\"",
           "required": false,
-          "values": ["primary", "secondary", "tertiary", "critical"],
+          "values": [
+            "primary",
+            "secondary",
+            "secondary-muted",
+            "tertiary",
+            "critical"
+          ],
           "inheritedFrom": "hds/button"
         },
         {
@@ -5267,9 +5279,9 @@
         },
         {
           "name": "color",
-          "type": "\"primary\" | \"secondary\"",
+          "type": "\"primary\" | \"secondary\" | \"secondary-muted\"",
           "required": false,
-          "values": ["primary", "secondary"]
+          "values": ["primary", "secondary", "secondary-muted"]
         },
         {
           "name": "count",
@@ -5325,6 +5337,12 @@
       "docsPath": "components/dropdown",
       "element": "HTMLButtonElement",
       "args": [
+        {
+          "name": "color",
+          "type": "\"secondary\" | \"secondary-muted\"",
+          "required": false,
+          "values": ["secondary", "secondary-muted"]
+        },
         {
           "name": "hasChevron",
           "type": "boolean",
@@ -12896,6 +12914,34 @@
           "type": "HdsTextDisplayWeight",
           "required": false,
           "values": ["medium", "semibold", "bold"]
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default",
+          "yields": []
+        }
+      ]
+    },
+    {
+      "name": "Hds::ThemeContext",
+      "modulePath": "hds/theme-context",
+      "element": "HTMLElement",
+      "args": [
+        {
+          "name": "context",
+          "type": "HdsThemeContexts",
+          "required": true,
+          "values": [
+            "default",
+            "system",
+            "light",
+            "dark",
+            "cds-g0",
+            "cds-g10",
+            "cds-g90",
+            "cds-g100"
+          ]
         }
       ],
       "blocks": [
