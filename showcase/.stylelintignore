@@ -3,3 +3,6 @@
 
 # compiled output
 /dist/
+
+# generated CSS files for HDS theming
+/public/assets/styles/@hashicorp/

@@ -6,19 +6,28 @@
 //
 // LINK > INLINE COMPONENT
 //
-// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
-// see https://github.com/hashicorp/design-system-components/issues/132
-//
+
+@use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 .hds-link-inline {
-  border-radius: 2px; // this is used by the outline too
+  border-radius: var(--hds-border-radius-x-small); // this is used by the outline too
 
   &:focus,
-  &.mock-focus,
-  &:focus-visible {
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-basic(
+      $external-outline-width: var(--hds-link-inline-outline-width),
+      $external-outline-color: var(--hds-link-inline-outline-color),
+      // we want the focus ring to extend a bit around the content
+      $external-outline-offset: 1px,
+      $has-internal-border: false
+    );
     text-decoration: none;
-    outline: 2px solid var(--token-color-focus-action-internal);
-    outline-offset: 1px;
+  }
+
+  @include hds-apply-only-if-carbon() {
+    text-decoration: underline;
   }
 }
 
@@ -29,40 +38,40 @@
   vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
 
   .hds-link-inline--icon-leading > & {
-    margin-right: 0.25em;
+    margin-right: var(--hds-link-inline-icon-margin-horizontal);
   }
 
   .hds-link-inline--icon-trailing > & {
-    margin-left: 0.25em;
+    margin-left: var(--hds-link-inline-icon-margin-horizontal);
   }
 }
 
 // COLORS & STATES
 
 .hds-link-inline--color-primary {
-  color: var(--token-color-foreground-action);
+  color: var(--hds-foreground-color-action);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--hds-foreground-color-action-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--hds-foreground-color-action-active);
   }
 }
 
 .hds-link-inline--color-secondary {
-  color: var(--token-color-foreground-strong);
+  color: var(--hds-foreground-color-strong);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-primary);
+    color: var(--hds-foreground-color-primary);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-faint);
+    color: var(--hds-foreground-color-faint);
   }
 }

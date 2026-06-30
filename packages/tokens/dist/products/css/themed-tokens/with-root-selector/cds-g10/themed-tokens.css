@@ -1,0 +1,676 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --hds-accordion-card-gap-large: 0px;
+  --hds-accordion-card-gap-medium: 0px;
+  --hds-accordion-card-gap-small: 0px;
+  --hds-accordion-item-border-color: #c6c6c6;
+  --hds-accordion-item-content-padding-bottom-large: 24px;
+  --hds-accordion-item-content-padding-bottom-medium: 24px;
+  --hds-accordion-item-content-padding-bottom-small: 24px;
+  --hds-accordion-item-content-padding-left-large: 48px;
+  --hds-accordion-item-content-padding-left-medium: 48px;
+  --hds-accordion-item-content-padding-left-small: 48px;
+  --hds-accordion-item-content-padding-right-medium: 16px;
+  --hds-accordion-item-content-padding-right-small: 16px;
+  --hds-accordion-item-content-padding-top-large: 8px;
+  --hds-accordion-item-content-padding-top-medium: 8px;
+  --hds-accordion-item-content-padding-top-small: 8px;
+  --hds-accordion-item-toggle-gap-large: 16px;
+  --hds-accordion-item-toggle-gap-medium: 16px;
+  --hds-accordion-item-toggle-gap-small: 16px;
+  --hds-accordion-item-toggle-icon-size-large: 16px;
+  --hds-accordion-item-toggle-icon-size-medium: 16px;
+  --hds-accordion-item-toggle-icon-transform-rotate: 180deg;
+  --hds-accordion-item-toggle-icon-transition-duration: 0.11s;
+  --hds-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
+  --hds-accordion-item-toggle-padding-bottom-large: 14px;
+  --hds-accordion-item-toggle-padding-bottom-medium: 10px;
+  --hds-accordion-item-toggle-padding-bottom-small: 6px;
+  --hds-accordion-item-toggle-padding-left-large: 16px;
+  --hds-accordion-item-toggle-padding-left-medium: 16px;
+  --hds-accordion-item-toggle-padding-left-small: 16px;
+  --hds-accordion-item-toggle-padding-right-medium: 16px;
+  --hds-accordion-item-toggle-padding-right-small: 16px;
+  --hds-accordion-item-toggle-padding-top-large: 14px;
+  --hds-accordion-item-toggle-padding-top-medium: 10px;
+  --hds-accordion-item-toggle-padding-top-small: 6px;
+  --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
+  --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
+  --hds-advanced-table-cell-surface-color-hover: #f1f1f1; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
+  --hds-advanced-table-cell-surface-color-nested-hover: rgba(141, 141, 141, 0.12);
+  --hds-advanced-table-cell-surface-color-parent-hover: rgba(141, 141, 141, 0.12);
+  --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
+  --hds-advanced-table-drop-preview-surface-color: var(--hds-focus-color-action-external);
+  --hds-advanced-table-empty-state-border-width: 0px;
+  --hds-advanced-table-header-border-width-pinned: 0px;
+  --hds-advanced-table-resize-handle-surface-color-active: var(--hds-focus-color-action-external);
+  --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-focus-color-action-external);
+  --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
+  --hds-alert-actions-margin-top: 15px;
+  --hds-alert-border-color-critical: #da1e2866;
+  --hds-alert-border-color-highlight: #0043ce66;
+  --hds-alert-border-color-neutral: #8d8d8d66;
+  --hds-alert-border-color-success: #24a14866;
+  --hds-alert-border-color-warning: #f1c21b66;
+  --hds-alert-content-gap: 0px;
+  --hds-alert-dismiss-margin-left: 14px;
+  --hds-alert-icon-color-critical: #da1e28;
+  --hds-alert-icon-color-highlight: #0043ce;
+  --hds-alert-icon-color-neutral: #6f6f6f;
+  --hds-alert-icon-color-success: #24a148;
+  --hds-alert-icon-color-warning: #f1c21b;
+  --hds-alert-icon-margin-right: 16px;
+  --hds-alert-inline-border-left-color-critical: #da1e28;
+  --hds-alert-inline-border-left-color-highlight: #0043ce;
+  --hds-alert-inline-border-left-color-neutral: #6f6f6f;
+  --hds-alert-inline-border-left-color-success: #24a148;
+  --hds-alert-inline-border-left-color-warning: #f1c21b;
+  --hds-alert-inline-border-left-width: 3px;
+  --hds-alert-inline-padding-horizontal: 13px;
+  --hds-alert-inline-padding-vertical: 15px;
+  --hds-alert-page-padding-vertical: 15px;
+  --hds-alert-surface-color-critical: #fff1f1;
+  --hds-alert-surface-color-highlight: #edf5ff;
+  --hds-alert-surface-color-success: #defbe6;
+  --hds-alert-surface-color-warning: #fcf4d6;
+  --hds-alert-title-foreground-color-critical: #161616;
+  --hds-alert-title-foreground-color-highlight: #161616;
+  --hds-alert-title-foreground-color-success: #161616;
+  --hds-alert-title-foreground-color-warning: #161616;
+  --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-link-focus-outline-color: #0f62fe;
+  --hds-app-footer-link-focus-outline-width: 1px;
+  --hds-app-header-actions-gap: 0px;
+  --hds-app-header-border-color: #c6c6c6;
+  --hds-app-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-app-header-button-border-color-default: rgba(0, 0, 0, 0);
+  --hds-app-header-button-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+  --hds-app-header-button-focus-ring-color-action-internal: rgba(0, 0, 0, 0); /** TODO: Remove once global tokens for dark themes are implemented */
+  --hds-app-header-button-foreground-color-default: #525252;
+  --hds-app-header-button-foreground-color-hover: #161616;
+  --hds-app-header-button-surface-color-active: rgba(141, 141, 141, 0.5);
+  --hds-app-header-button-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-app-header-button-surface-color-disabled: #c6c6c6;
+  --hds-app-header-button-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-app-header-foreground-color: #161616;
+  --hds-app-header-height: 48px;
+  --hds-app-header-home-link-foreground-color: #161616;
+  --hds-app-header-home-link-padding: 10px;
+  --hds-app-header-padding-bottom: 0px;
+  --hds-app-header-padding-left: 0px;
+  --hds-app-header-padding-right: 0px;
+  --hds-app-header-padding-top: 0px;
+  --hds-app-header-surface-color: var(--hds-page-color-primary);
+  --hds-app-side-nav-body-list-item-foreground-color-default: #525252;
+  --hds-app-side-nav-body-list-item-foreground-color-hover: #525252;
+  --hds-app-side-nav-body-list-item-foreground-color-selected: #525252;
+  --hds-app-side-nav-body-list-item-height: 32px;
+  --hds-app-side-nav-body-list-item-indicator-border-radius: 0px;
+  --hds-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
+  --hds-app-side-nav-body-list-item-margin-top: 0px;
+  --hds-app-side-nav-body-list-item-padding-horizontal: 16px;
+  --hds-app-side-nav-body-list-item-padding-vertical: 7px;
+  --hds-app-side-nav-body-list-item-surface-color-active: rgba(141, 141, 141, 0.5);
+  --hds-app-side-nav-body-list-item-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-app-side-nav-body-list-item-surface-color-selected: rgba(141, 141, 141, 0.2);
+  --hds-app-side-nav-body-list-item-typography-font-weight: 600;
+  --hds-app-side-nav-body-list-title-foreground-color: #161616;
+  --hds-app-side-nav-body-list-title-padding-vertical: 7px;
+  --hds-app-side-nav-wrapper-padding-horizontal: 0px;
+  --hds-app-side-nav-wrapper-surface-color: #f4f4f4;
+  --hds-badge-border-radius: var(--hds-border-radius-rounded);
+  --hds-badge-count-padding-horizontal-large: 12px;
+  --hds-badge-count-padding-horizontal-medium: 8px;
+  --hds-badge-count-padding-horizontal-small: 8px;
+  --hds-badge-foreground-color-critical-filled: #a2191f; /** we don't use `critical-on-surface` for accessibility (better contrast) */
+  --hds-badge-foreground-color-critical-outlined: #a2191f;
+  --hds-badge-foreground-color-highlight-filled: #6929c4; /** we don't use `highlight-on-surface` for accessibility (better contrast) */
+  --hds-badge-foreground-color-highlight-outlined: #6929c4;
+  --hds-badge-foreground-color-neutral-dark-mode-inverted: #161616;
+  --hds-badge-foreground-color-neutral-filled: #161616;
+  --hds-badge-foreground-color-neutral-inverted: #e0e0e0;
+  --hds-badge-foreground-color-neutral-outlined: #161616;
+  --hds-badge-foreground-color-success-filled: #0e6027; /** we don't use `success-on-surface` for accessibility (better contrast) */
+  --hds-badge-foreground-color-success-outlined: #0e6027;
+  --hds-badge-foreground-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-foreground-color-warning-outlined: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-gap-large: 4px;
+  --hds-badge-gap-medium: 4px;
+  --hds-badge-gap-small: 4px;
+  --hds-badge-height-small: 18px;
+  --hds-badge-padding-horizontal-large: 12px;
+  --hds-badge-padding-horizontal-medium: 8px;
+  --hds-badge-padding-horizontal-small: 8px;
+  --hds-badge-padding-vertical-small: 1px;
+  --hds-badge-surface-color-critical-filled: #ffd7d9; /** we don't use `surface-critical` for accessibility (better contrast) */
+  --hds-badge-surface-color-critical-inverted: #a2191f;
+  --hds-badge-surface-color-highlight-filled: #e8daff; /** we don't use `surface-highlight` for accessibility (better contrast) */
+  --hds-badge-surface-color-highlight-inverted: #6929c4;
+  --hds-badge-surface-color-neutral-dark-mode-filled: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
+  --hds-badge-surface-color-neutral-dark-mode-inverted: #e0e0e0;
+  --hds-badge-surface-color-neutral-filled: #e0e0e0;
+  --hds-badge-surface-color-neutral-inverted: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-surface-color-success-filled: #a7f0ba; /** we don't use `surface-success` for accessibility (better contrast) */
+  --hds-badge-surface-color-success-inverted: #0e6027;
+  --hds-badge-surface-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-surface-color-warning-inverted: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-typography-font-size-large: 0.75rem;
+  --hds-badge-typography-font-size-medium: 0.75rem;
+  --hds-badge-typography-font-size-small: 0.75rem;
+  --hds-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+  --hds-border-color-action: #0f62fe;
+  --hds-border-color-critical: #ff8389;
+  --hds-border-color-faint: #c6c6c6;
+  --hds-border-color-highlight: #be95ff;
+  --hds-border-color-primary: #e0e0e0;
+  --hds-border-color-strong: #8d8d8d;
+  --hds-border-color-success: #42be65;
+  --hds-border-color-warning: #d2a106;
+  --hds-border-radius-large: 0px;
+  --hds-border-radius-medium: 0px;
+  --hds-border-radius-small: 0px;
+  --hds-border-radius-x-small: 0px;
+  --hds-breadcrumb-divider-color: #161616;
+  --hds-breadcrumb-link-foreground-color-default: #0f62fe;
+  --hds-breadcrumb-link-foreground-color-hover: #0043ce;
+  --hds-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --hds-breadcrumb-truncation-toggle-border-color-active: rgba(0, 0, 0, 0);
+  --hds-breadcrumb-truncation-toggle-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-breadcrumb-truncation-toggle-foreground-color-active: #161616;
+  --hds-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
+  --hds-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
+  --hds-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
+  --hds-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-breadcrumb-typography-font-size: 0.875rem;
+  --hds-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
+  --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
+  --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
+  --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+  --hds-button-border-color-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
+  --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
+  --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
+  --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
+  --hds-button-border-color-secondary-active: rgba(0, 0, 0, 0);
+  --hds-button-border-color-secondary-default: rgba(0, 0, 0, 0);
+  --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+  --hds-button-border-color-tertiary-default: #0f62fe;
+  --hds-button-border-color-tertiary-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
+  --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
+  --hds-button-foreground-color-critical-active: #ffffff;
+  --hds-button-foreground-color-critical-default: #ffffff;
+  --hds-button-foreground-color-critical-focus: #ffffff;
+  --hds-button-foreground-color-critical-hover: #ffffff;
+  --hds-button-foreground-color-disabled: #8d8d8d; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
+  --hds-button-foreground-color-primary-active: #ffffff;
+  --hds-button-foreground-color-primary-default: #ffffff;
+  --hds-button-foreground-color-primary-focus: #ffffff;
+  --hds-button-foreground-color-primary-hover: #ffffff;
+  --hds-button-foreground-color-secondary-active: #ffffff;
+  --hds-button-foreground-color-secondary-default: #ffffff;
+  --hds-button-foreground-color-secondary-focus: #ffffff;
+  --hds-button-foreground-color-secondary-hover: #ffffff;
+  --hds-button-foreground-color-secondary-muted-active: #161616;
+  --hds-button-foreground-color-secondary-muted-default: #161616;
+  --hds-button-foreground-color-secondary-muted-focus: #161616;
+  --hds-button-foreground-color-secondary-muted-hover: #161616;
+  --hds-button-foreground-color-tertiary-active: #ffffff;
+  --hds-button-foreground-color-tertiary-default: #0f62fe;
+  --hds-button-foreground-color-tertiary-focus: #ffffff;
+  --hds-button-foreground-color-tertiary-hover: #ffffff;
+  --hds-button-gap: 32px;
+  --hds-button-height-large: 48px;
+  --hds-button-height-medium: 40px;
+  --hds-button-height-small: 32px;
+  --hds-button-icon-size-large: 16px;
+  --hds-button-icon-size-medium: 16px;
+  --hds-button-icon-size-small: 16px;
+  --hds-button-padding-horizontal-large: 15px; /** here we're taking into account the 1px border */
+  --hds-button-padding-horizontal-medium: 15px; /** here we're taking into account the 1px border */
+  --hds-button-padding-horizontal-small: 15px; /** here we're taking into account the 1px border */
+  --hds-button-padding-vertical-large: 14px; /** here we're taking into account the 1px border */
+  --hds-button-padding-vertical-medium: 10px; /** here we're taking into account the 1px border */
+  --hds-button-padding-vertical-small: 6px; /** here we're taking into account the 1px border */
+  --hds-button-surface-color-critical-active: #750e13;
+  --hds-button-surface-color-critical-default: #da1e28;
+  --hds-button-surface-color-critical-focus: #da1e28;
+  --hds-button-surface-color-critical-hover: #b81921;
+  --hds-button-surface-color-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
+  --hds-button-surface-color-primary-active: #002d9c;
+  --hds-button-surface-color-primary-default: #0f62fe;
+  --hds-button-surface-color-primary-focus: #0f62fe;
+  --hds-button-surface-color-primary-hover: #0050e6;
+  --hds-button-surface-color-secondary-active: #6f6f6f;
+  --hds-button-surface-color-secondary-default: #393939;
+  --hds-button-surface-color-secondary-focus: #393939;
+  --hds-button-surface-color-secondary-hover: #474747;
+  --hds-button-surface-color-secondary-muted-active: #a8a8a8;
+  --hds-button-surface-color-secondary-muted-default: #e0e0e0;
+  --hds-button-surface-color-secondary-muted-focus: #e0e0e0;
+  --hds-button-surface-color-secondary-muted-hover: #d1d1d1;
+  --hds-button-surface-color-tertiary-active: #002d9c;
+  --hds-button-surface-color-tertiary-focus: #0050e6;
+  --hds-button-surface-color-tertiary-hover: #0050e6;
+  --hds-button-typography-font-size-large: 0.875rem;
+  --hds-button-typography-font-size-medium: 0.875rem;
+  --hds-button-typography-font-size-small: 0.875rem;
+  --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+  --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+  --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
+  --hds-card-surface-color-primary: #ffffff;
+  --hds-card-surface-color-secondary: #f4f4f4;
+  --hds-code-block-border-color-primary: #e0e0e0;
+  --hds-code-block-border-color-strong: rgba(0, 0, 0, 0);
+  --hds-code-block-button-surface-color-active: var(--hds-button-surface-color-secondary-muted-active);
+  --hds-code-block-button-surface-color-default: var(--hds-button-surface-color-secondary-muted-default);
+  --hds-code-block-button-surface-color-hover: var(--hds-button-surface-color-secondary-muted-hover);
+  --hds-code-block-focus-ring-color-action-external: #0f62fe; /** TODO: Remove once global tokens for dark themes are implemented */
+  --hds-code-block-focus-ring-color-action-internal: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --hds-code-block-foreground-color-action: #0f62fe;
+  --hds-code-block-foreground-color-faint: #525252;
+  --hds-code-block-foreground-color-primary: #161616;
+  --hds-code-block-line-highlight-border-color: #0f62fe;
+  --hds-code-block-line-highlight-surface-color: rgba(15, 98, 254, 0.1);
+  --hds-code-block-surface-color-faint: #ffffff;
+  --hds-code-block-surface-color-primary-with-alpha: #ffffff40;
+  --hds-code-block-surface-color-primary: #ffffff;
+  --hds-code-block-syntax-highlight-color-blue: #0043ce;
+  --hds-code-block-syntax-highlight-color-cyan: #00539a;
+  --hds-code-block-syntax-highlight-color-green: #0e6027;
+  --hds-code-block-syntax-highlight-color-orange: #8a3800;
+  --hds-code-block-syntax-highlight-color-purple: #6929c4;
+  --hds-code-block-syntax-highlight-color-red: #9f1853;
+  --hds-code-block-syntax-highlight-color-white: #525252;
+  --hds-code-block-syntax-highlight-color-yellow: #684e00;
+  --hds-code-block-typography-font-size: 0.75rem;
+  --hds-copy-button-foreground-color: #161616;
+  --hds-copy-button-icon-color-active: #161616;
+  --hds-copy-button-icon-color-default: #161616;
+  --hds-copy-button-icon-color-focus: #161616;
+  --hds-copy-button-icon-color-hover: #161616;
+  --hds-copy-button-surface-color-active: #c6c6c6;
+  --hds-copy-button-surface-color-default: #ffffff;
+  --hds-copy-button-surface-color-hover: #e8e8e8;
+  --hds-core-color-alpha-100: #c6c6c6;
+  --hds-core-color-alpha-200: #e0e0e0;
+  --hds-core-color-alpha-300: #8d8d8d;
+  --hds-core-color-amber-100: #ffd9be;
+  --hds-core-color-amber-200: #ba4e00;
+  --hds-core-color-amber-300: #8a3800;
+  --hds-core-color-amber-400: #5e2900;
+  --hds-core-color-amber-500: #3e1a00;
+  --hds-core-color-amber-50: #fff2e8;
+  --hds-core-color-blue-100: #d0e2ff;
+  --hds-core-color-blue-200: #0f62fe;
+  --hds-core-color-blue-300: #0043ce;
+  --hds-core-color-blue-400: #002d9c;
+  --hds-core-color-blue-500: #001141;
+  --hds-core-color-blue-50: #edf5ff;
+  --hds-core-color-green-100: #a7f0ba;
+  --hds-core-color-green-200: #24a148;
+  --hds-core-color-green-300: #198038;
+  --hds-core-color-green-400: #0e6027;
+  --hds-core-color-green-500: #044317;
+  --hds-core-color-green-50: #defbe6;
+  --hds-core-color-neutral-0: #ffffff;
+  --hds-core-color-neutral-100: #e0e0e0;
+  --hds-core-color-neutral-200: #c6c6c6;
+  --hds-core-color-neutral-300: #a8a8a8;
+  --hds-core-color-neutral-400: #8d8d8d;
+  --hds-core-color-neutral-500: #525252;
+  --hds-core-color-neutral-50: #f4f4f4;
+  --hds-core-color-neutral-600: #393939;
+  --hds-core-color-neutral-700: #161616;
+  --hds-core-color-purple-100: #e8daff;
+  --hds-core-color-purple-200: #a56eff;
+  --hds-core-color-purple-300: #8a3ffc;
+  --hds-core-color-purple-400: #6929c4;
+  --hds-core-color-purple-500: #31135e;
+  --hds-core-color-purple-50: #f6f2ff;
+  --hds-core-color-red-100: #ffd7d9;
+  --hds-core-color-red-200: #da1e28;
+  --hds-core-color-red-300: #a2191f;
+  --hds-core-color-red-400: #750e13;
+  --hds-core-color-red-500: #520408;
+  --hds-core-color-red-50: #fff1f1;
+  --hds-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
+  --hds-dialog-primitive-border-color: #e0e0e0;
+  --hds-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
+  --hds-dialog-primitive-header-tagline-typography-line-height: 1.33333;
+  --hds-dialog-primitive-header-title-typography-font-weight: 400;
+  --hds-dialog-primitive-padding-horizontal: 16px;
+  --hds-dialog-primitive-padding-vertical: 16px;
+  --hds-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-dismiss-button-foreground-color-active: #161616;
+  --hds-dismiss-button-foreground-color-default: #161616;
+  --hds-dismiss-button-icon-size: 20px;
+  --hds-dismiss-button-size: 48px;
+  --hds-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
+  --hds-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-dropdown-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --hds-dropdown-list-item-foreground-color-action-active: #525252;
+  --hds-dropdown-list-item-foreground-color-action-default: #525252;
+  --hds-dropdown-list-item-foreground-color-action-focus: #525252;
+  --hds-dropdown-list-item-foreground-color-action-hover: #161616;
+  --hds-dropdown-list-item-foreground-color-critical-active: #ffffff;
+  --hds-dropdown-list-item-foreground-color-critical-default: #525252;
+  --hds-dropdown-list-item-foreground-color-critical-focus: #ffffff;
+  --hds-dropdown-list-item-foreground-color-critical-hover: #ffffff;
+  --hds-dropdown-list-item-surface-color-action-active: #ffffff;
+  --hds-dropdown-list-item-surface-color-action-default: #ffffff;
+  --hds-dropdown-list-item-surface-color-action-focus: #ffffff;
+  --hds-dropdown-list-item-surface-color-action-hover: #e8e8e8;
+  --hds-dropdown-list-item-surface-color-critical-active: #da1e28;
+  --hds-dropdown-list-item-surface-color-critical-default: #ffffff;
+  --hds-dropdown-list-item-surface-color-critical-focus: #da1e28;
+  --hds-dropdown-list-item-surface-color-critical-hover: #da1e28;
+  --hds-dropdown-separator-border-color: #c6c6c6;
+  --hds-dropdown-toggle-button-padding-right-medium: 12px;
+  --hds-dropdown-toggle-button-padding-right-small: 12px;
+  --hds-dropdown-toggle-icon-gap: 4px;
+  --hds-dropdown-toggle-icon-padding: 3px;
+  --hds-elevation-high-box-shadow: none;
+  --hds-elevation-higher-box-shadow: none;
+  --hds-elevation-inset-box-shadow: none;
+  --hds-elevation-low-box-shadow: none;
+  --hds-elevation-mid-box-shadow: none;
+  --hds-elevation-overlay-box-shadow: none;
+  --hds-focus-color-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-action-internal: #ffffff;
+  --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-critical-internal: #ffffff;
+  --hds-focus-ring-box-shadow-action: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+  --hds-focus-ring-box-shadow-critical: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+  --hds-focus-ring-width-external: 2px;
+  --hds-focus-ring-width-internal: 0px;
+  --hds-foreground-color-action-active: #0f62fe;
+  --hds-foreground-color-action-hover: #0043ce;
+  --hds-foreground-color-action: #0f62fe;
+  --hds-foreground-color-critical-high-contrast: #750e13;
+  --hds-foreground-color-critical-on-surface: #a2191f;
+  --hds-foreground-color-critical: #da1e28;
+  --hds-foreground-color-disabled: rgba(22, 22, 22, 0.25);
+  --hds-foreground-color-faint: #525252;
+  --hds-foreground-color-high-contrast: #ffffff;
+  --hds-foreground-color-highlight-high-contrast: #491d8b;
+  --hds-foreground-color-highlight-on-surface: #6929c4;
+  --hds-foreground-color-highlight: #8a3ffc;
+  --hds-foreground-color-primary: #161616;
+  --hds-foreground-color-strong: #161616;
+  --hds-foreground-color-success-high-contrast: #044317;
+  --hds-foreground-color-success-on-surface: #0e6027;
+  --hds-foreground-color-success: #198038;
+  --hds-foreground-color-warning-high-contrast: #483700;
+  --hds-foreground-color-warning-on-surface: #684e00;
+  --hds-foreground-color-warning: #8e6a00;
+  --hds-form-character-count-foreground-color: #6f6f6f;
+  --hds-form-character-count-typography-font-size: 0.75rem;
+  --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-error-foreground-color: #da1e28;
+  --hds-form-error-typography-font-size: 0.75rem;
+  --hds-form-error-typography-line-height: 1.33333;
+  --hds-form-helper-text-foreground-color: #6f6f6f;
+  --hds-form-helper-text-typography-font-size: 0.75rem;
+  --hds-form-helper-text-typography-line-height: 1.33333;
+  --hds-form-indicator-optional-foreground-color: var(--hds-form-label-foreground-color);
+  --hds-form-indicator-optional-typography-font-size: 0.75rem;
+  --hds-form-indicator-optional-typography-line-height: 1.33333;
+  --hds-form-label-foreground-color: #525252;
+  --hds-form-label-typography-font-size: 0.75rem;
+  --hds-form-label-typography-font-weight: 400;
+  --hds-form-label-typography-line-height: 1.33333;
+  --hds-form-legend-foreground-color: #525252;
+  --hds-form-legend-typography-font-size: 0.75rem;
+  --hds-form-legend-typography-font-weight: 400;
+  --hds-form-legend-typography-line-height: 1.33333;
+  --hds-form-radiocard-border-color-default-checked: #ffc0cb;
+  --hds-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radiocard-border-color-focus: #ffc0cb;
+  --hds-icon-tile-border-color-logo: #e0e0e0;
+  --hds-icon-tile-border-color-overlay: #c6c6c6;
+  --hds-icon-tile-surface-color-overlay: #f4f4f4;
+  --hds-link-inline-icon-margin-horizontal: 0.5em;
+  --hds-link-inline-outline-color: #0f62fe;
+  --hds-link-inline-outline-width: 1px;
+  --hds-link-standalone-gap: 0.5rem;
+  --hds-link-standalone-icon-size-large: 1.25rem;
+  --hds-link-standalone-icon-size-small: 1rem;
+  --hds-link-standalone-padding-vertical: 0px;
+  --hds-link-standalone-typography-font-size-small: 0.75rem;
+  --hds-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+  --hds-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+  --hds-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+  --hds-modal-header-border-color-critical: rgba(0, 0, 0, 0);
+  --hds-modal-header-border-color-warning: rgba(0, 0, 0, 0);
+  --hds-modal-header-foreground-color-critical: #161616;
+  --hds-modal-header-foreground-color-warning: #161616;
+  --hds-modal-header-surface-color-critical: var(--hds-surface-color-faint);
+  --hds-modal-header-surface-color-warning: var(--hds-surface-color-faint);
+  --hds-modal-header-tagline-color-critical: #525252;
+  --hds-modal-header-tagline-color-warning: #525252;
+  --hds-page-color-faint: #f4f4f4;
+  --hds-page-color-primary: #f4f4f4;
+  --hds-pagination-bar-border-color: #e0e0e0;
+  --hds-pagination-info-typography-font-size: 0.875rem;
+  --hds-pagination-nav-control-foreground-color-active: #161616;
+  --hds-pagination-nav-control-foreground-color-default: #161616;
+  --hds-pagination-nav-control-foreground-color-hover: #161616;
+  --hds-pagination-nav-control-height: 40px;
+  --hds-pagination-nav-control-typography-font-size: 0.875rem;
+  --hds-pagination-nav-control-typography-font-weight-active: 600;
+  --hds-pagination-nav-indicator-height: 4px;
+  --hds-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-pagination-size-selector-typography-font-size: 0.875rem;
+  --hds-product-hashicorp-brand-color: #000000;
+  --hds-product-hcp-brand-color: #000000;
+  --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --hds-reveal-foreground-color-active: #0043ce;
+  --hds-reveal-foreground-color-default: #0f62fe;
+  --hds-reveal-foreground-color-hover: #0043ce;
+  --hds-reveal-surface-color-active: rgba(141, 141, 141, 0.5);
+  --hds-reveal-surface-color-focus: rgba(0, 0, 0, 0);
+  --hds-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-rich-tooltip-bubble-arrow-size: 12px;
+  --hds-rich-tooltip-bubble-border-color: var(--hds-core-color-alpha-200);
+  --hds-rich-tooltip-bubble-border-radius: 2px;
+  --hds-rich-tooltip-bubble-max-width: 288px;
+  --hds-rich-tooltip-toggle-foreground-color-default: #525252;
+  --hds-rich-tooltip-toggle-gap-horizontal: 8px;
+  --hds-rich-tooltip-toggle-icon-size: 14px;
+  --hds-stepper-list-progress-bar-border-color-complete: var(--hds-core-color-neutral-700);
+  --hds-stepper-list-progress-bar-border-color-incomplete: #c6c6c6;
+  --hds-stepper-list-progress-bar-left: 0px;
+  --hds-stepper-list-progress-bar-top: 0px;
+  --hds-stepper-list-step-description-foreground-color: #525252;
+  --hds-stepper-list-step-description-margin-top: 0px;
+  --hds-stepper-list-step-description-typography-font-size: 0.75rem;
+  --hds-stepper-list-step-title-typography-font-weight: 400;
+  --hds-stepper-nav-progress-bar-border-color-complete-default: var(--hds-core-color-neutral-700);
+  --hds-stepper-nav-progress-bar-border-color-complete-interactive: #0f62fe;
+  --hds-stepper-nav-progress-bar-border-color-incomplete: #c6c6c6;
+  --hds-stepper-nav-progress-bar-border-width: 2px;
+  --hds-stepper-nav-progress-bar-top: 0px;
+  --hds-stepper-nav-step-description-foreground-color-active: #525252;
+  --hds-stepper-nav-step-description-foreground-color-complete: #525252;
+  --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
+  --hds-stepper-nav-step-description-margin-top: 0px;
+  --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
+  --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(0, 0, 0, 0);
+  --hds-stepper-nav-step-surface-color-complete-interactive-hover: rgba(0, 0, 0, 0);
+  --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
+  --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
+  --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
+  --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
+  --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
+  --hds-stepper-nav-step-title-typography-font-weight: 400;
+  --hds-stepper-step-indicator-foreground-color-complete-default: #161616;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-active: #0f62fe;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-default: #0f62fe;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-hover: #0f62fe;
+  --hds-stepper-step-indicator-foreground-color-incomplete-default: #161616;
+  --hds-stepper-step-indicator-foreground-color-incomplete-interactive: #161616;
+  --hds-stepper-step-indicator-foreground-color-processing-default: #161616;
+  --hds-stepper-step-indicator-foreground-color-processing-interactive: #0f62fe;
+  --hds-stepper-step-indicator-foreground-color-progress-default: #161616;
+  --hds-stepper-step-indicator-foreground-color-progress-interactive: #0f62fe;
+  --hds-stepper-step-indicator-icon-size: 16px;
+  --hds-stepper-step-indicator-size: 16px;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-active: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-default: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-hover: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-active: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-default: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-active: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-default: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-hover: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-active: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-default: #0f62fe;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-hover: #0f62fe;
+  --hds-surface-base-box-shadow: none;
+  --hds-surface-color-action: #d0e2ff;
+  --hds-surface-color-critical: #ffd7d9;
+  --hds-surface-color-faint: #ffffff;
+  --hds-surface-color-high-contrast: #393939;
+  --hds-surface-color-highlight: #e8daff;
+  --hds-surface-color-interactive-active: #c6c6c6;
+  --hds-surface-color-interactive-disabled: #c6c6c6;
+  --hds-surface-color-interactive-hover: #e8e8e8;
+  --hds-surface-color-interactive: #ffffff;
+  --hds-surface-color-primary: #ffffff;
+  --hds-surface-color-strong: #e0e0e0;
+  --hds-surface-color-success: #a7f0ba;
+  --hds-surface-color-warning: #fcf4d6;
+  --hds-surface-high-box-shadow: none;
+  --hds-surface-higher-box-shadow: none;
+  --hds-surface-inset-box-shadow: none;
+  --hds-surface-low-box-shadow: none;
+  --hds-surface-mid-box-shadow: none;
+  --hds-surface-overlay-box-shadow: none;
+  --hds-table-body-surface-color: #ffffff;
+  --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+  --hds-table-cell-border-width: 0px;
+  --hds-table-cell-foreground-color-default: #525252;
+  --hds-table-cell-height-medium: 2.5rem;
+  --hds-table-cell-height-short: 2rem;
+  --hds-table-cell-height-tall: 3rem;
+  --hds-table-cell-line-height: 1.28572;
+  --hds-table-cell-padding-vertical-medium: 7px;
+  --hds-table-cell-padding-vertical-short: 7px;
+  --hds-table-cell-padding-vertical-tall: 7px;
+  --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-table-cell-surface-color-selected-default: #e0e0e0;
+  --hds-table-cell-surface-color-selected-hover: #d1d1d1;
+  --hds-table-cell-surface-color-striped-default: #e0e0e0;
+  --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.12);
+  --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-default: #161616;
+  --hds-table-header-button-foreground-color-sorted-active: #161616;
+  --hds-table-header-button-foreground-color-sorted-default: #161616;
+  --hds-table-header-button-foreground-color-sorted-hover: #161616;
+  --hds-table-header-button-surface-color-active: #a8a8a8;
+  --hds-table-header-button-surface-color-hover: #d1d1d1;
+  --hds-table-header-cell-border-offset: 0px;
+  --hds-table-header-cell-padding-vertical: 7px;
+  --hds-table-header-surface-color: #e0e0e0;
+  --hds-table-row-border-color-default: #c6c6c6;
+  --hds-table-row-border-color-hover: #e8e8e8;
+  --hds-table-row-border-color-selected-default: #c6c6c6;
+  --hds-table-row-border-color-selected-hover: #d1d1d1;
+  --hds-table-row-border-width: 1px;
+  --hds-tabs-indicator-height: 2px;
+  --hds-tabs-tab-border-color-default: #c6c6c6;
+  --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
+  --hds-tabs-tab-foreground-color-default: #525252;
+  --hds-tabs-tab-foreground-color-hover: #161616;
+  --hds-tabs-tab-height-large: 48px;
+  --hds-tabs-tab-height-medium: 40px;
+  --hds-tabs-tab-padding-horizontal-large: 16px;
+  --hds-tabs-tab-padding-horizontal-medium: 16px;
+  --hds-tabs-tab-selected-border-color-default: #0f62fe;
+  --hds-tabs-tab-selected-border-color-hover: #0f62fe;
+  --hds-tabs-tab-selected-foreground-color-default: #161616;
+  --hds-tabs-tab-selected-foreground-color-hover: #161616;
+  --hds-tag-border-radius: 16px;
+  --hds-tag-dismissible-max-width: 204px;
+  --hds-tag-dismissible-padding-left: 4px;
+  --hds-tag-link-border-color-primary: #78a9ff;
+  --hds-tag-link-border-color-secondary: #a8a8a8;
+  --hds-tag-link-foreground-color-primary-active: #0043ce;
+  --hds-tag-link-foreground-color-primary-default: #0043ce;
+  --hds-tag-link-foreground-color-primary-hover: #0043ce;
+  --hds-tag-link-foreground-color-secondary-default: #161616;
+  --hds-tag-link-icon-color-primary: #0043ce;
+  --hds-tag-link-icon-color-secondary: #161616;
+  --hds-tag-link-surface-color-primary-active: #b8d3ff;
+  --hds-tag-link-surface-color-primary-default: #d0e2ff;
+  --hds-tag-link-surface-color-primary-hover: #b8d3ff;
+  --hds-tag-link-surface-color-secondary-active: #d1d1d1;
+  --hds-tag-link-surface-color-secondary-default: #e0e0e0;
+  --hds-tag-link-surface-color-secondary-hover: #d1d1d1;
+  --hds-tag-max-width: 208px;
+  --hds-tag-padding-bottom: 3px;
+  --hds-tag-padding-left: 8px;
+  --hds-tag-padding-right: 8px;
+  --hds-tag-static-border-color: rgba(0, 0, 0, 0);
+  --hds-tag-static-foreground-color-default: #161616;
+  --hds-tag-static-icon-color: #161616;
+  --hds-tag-static-surface-color-active: #d1d1d1;
+  --hds-tag-static-surface-color-default: #e0e0e0;
+  --hds-tag-static-surface-color-hover: #d1d1d1;
+  --hds-tag-typography-font-size: 0.75rem;
+  --hds-tag-typography-font-weight: 400;
+  --hds-tag-typography-line-height: 1.33333;
+  --hds-tooltip-border-radius: 2px;
+  --hds-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  --hds-tooltip-caret-height: 6px;
+  --hds-tooltip-caret-width: 12px;
+  --hds-tooltip-max-width: 288px;
+  --hds-tooltip-padding-horizontal: 16px;
+  --hds-tooltip-padding-vertical: 16px;
+  --hds-typography-body-100-line-height: 1.28572; /** 18px */
+  --hds-typography-body-200-font-size: 0.875rem; /** 14px/0.875rem */
+  --hds-typography-body-200-line-height: 1.42857; /** 20px */
+  --hds-typography-body-300-font-size: 1rem; /** 16px/1rem */
+  --hds-typography-body-300-line-height: 1.5; /** 24px */
+  --hds-typography-code-100-font-size: 0.875rem; /** 13px/0.8125rem */
+  --hds-typography-code-100-line-height: 1.33333; /** 16px */
+  --hds-typography-code-200-font-size: 0.875rem; /** 14px/0.875rem */
+  --hds-typography-code-200-line-height: 1.42857; /** 18px */
+  --hds-typography-code-300-font-size: 0.875rem; /** 16px/1rem */
+  --hds-typography-code-300-line-height: 1.42857; /** 20px */
+  --hds-typography-display-100-font-size: 0.875rem; /** 13px/0.8125rem */
+  --hds-typography-display-100-letter-spacing: 0.16px;
+  --hds-typography-display-100-line-height: 1.42857; /** 18px */
+  --hds-typography-display-200-font-size: 1rem; /** 16px/1rem */
+  --hds-typography-display-200-letter-spacing: 0px;
+  --hds-typography-display-200-line-height: 1.5; /** 24px */
+  --hds-typography-display-300-font-size: 1.25rem; /** 18px/1.125rem */
+  --hds-typography-display-300-letter-spacing: 0px;
+  --hds-typography-display-300-line-height: 1.4; /** 24px */
+  --hds-typography-display-400-font-size: 1.75rem; /** 24px/1.5rem */
+  --hds-typography-display-400-letter-spacing: 0px;
+  --hds-typography-display-400-line-height: 1.28572; /** 32px */
+  --hds-typography-display-500-font-size: 2rem; /** 30px/1.875rem */
+  --hds-typography-display-500-letter-spacing: 0px;
+  --hds-typography-display-500-line-height: 1.25; /** 38px */
+  --hds-typography-font-stack-code: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  --hds-typography-font-stack-display: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --hds-typography-font-stack-text: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --hds-typography-font-weight-bold: 600;
+  --hds-typography-font-weight-medium: 400;
+  --hds-typography-font-weight-regular: 400;
+  --hds-typography-font-weight-semibold: 600;
+}

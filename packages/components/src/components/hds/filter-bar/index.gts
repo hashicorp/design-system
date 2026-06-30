@@ -364,7 +364,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
             "hds.components.filter-bar.applied-filters.toggle-button"
             default="View applied filters"
           }}
-          @color="secondary"
+          @color="secondary-muted"
           @size="small"
           @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
           @isIconOnly={{true}}
