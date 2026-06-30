@@ -127,57 +127,32 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
 
     const hasHbsPreview = !!this.args.hbsSnippet;
-    const hasGtsPreview =
-      !!this.args.gtsSnippet && !!this.gtsPreviewComponentId;
+    const hasGtsPreview = !!this.args.gtsSnippet && !!this.args.gtsFilename;
 
     return !(hasHbsPreview || hasGtsPreview);
   }
 
-  get classicPreviewComponentId() {
-    return this.args.classicFilename !== ''
-      ? this.args.classicFilename
-      : undefined;
-  }
-
-  get gtsPreviewComponentId() {
-    return this.args.gtsFilename ? this.args.gtsFilename : undefined;
-  }
-
-  get previewMode() {
+  get preview() {
     if (
       this.currentView === 'gts' &&
-      !!this.args.gtsSnippet &&
-      !!this.gtsPreviewComponentId
+      this.args.gtsSnippet &&
+      this.args.gtsFilename
     ) {
-      return 'component-module';
+      return {
+        componentId: this.args.gtsFilename,
+        templateString: undefined,
+      };
     }
 
     if (
       (this.currentView === 'hbs' || this.currentView === 'js') &&
-      !!this.args.hbsSnippet
+      this.args.hbsSnippet
     ) {
-      return 'runtime-template';
+      return {
+        componentId: this.args.classicFilename,
+        templateString: this.args.hbsSnippet,
+      };
     }
-
-    return null;
-  }
-
-  get previewTemplateString() {
-    return this.previewMode === 'runtime-template'
-      ? unescapeCode(this.args.hbsSnippet)
-      : undefined;
-  }
-
-  get previewComponentId() {
-    if (this.previewMode === 'component-module') {
-      return this.gtsPreviewComponentId;
-    }
-
-    if (this.previewMode === 'runtime-template') {
-      return this.classicPreviewComponentId;
-    }
-
-    return undefined;
   }
 
   get currentSnippet() {
@@ -327,8 +302,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       {{#if (notEq this.hidePreview true)}}
         <div class="doc-code-group__preview">
           <DynamicTemplate
-            @templateString={{this.previewTemplateString}}
-            @componentId={{this.previewComponentId}}
+            @templateString={{this.preview.templateString}}
+            @componentId={{this.preview.componentId}}
           />
         </div>
       {{/if}}
