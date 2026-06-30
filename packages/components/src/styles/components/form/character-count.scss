@@ -7,6 +7,8 @@
 // FORM > CHARACTER-COUNT
 //
 
+@use "../../mixins/carbonization" as *;
+
 .hds-form-character-count {
   color: var(--token-form-character-count-foreground-color);
   font-size: var(--token-form-character-count-typography-font-size);

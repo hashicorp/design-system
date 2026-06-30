@@ -1,29 +1,59 @@
 {
   "focus-ring": {
+    "width": {
+      "external": {
+        "$type": "dimension",
+        "$value": "3",
+        "unit": "px",
+        "$modes": {
+          "default": "3",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        }
+      },
+      "internal": {
+        "$type": "dimension",
+        "$value": "1",
+        "unit": "px",
+        "$modes": {
+          "default": "1",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      }
+    },
     "action": {
-      "internal-box-shadow": {
-        "$value": "inset 0 0 0 1px {color.focus.action.internal}",
-        "private": true
-      },
-      "external-box-shadow": {
-        "$value": "0 0 0 3px {color.focus.action.external}",
-        "private": true
-      },
       "box-shadow": {
-        "$value": "{focus-ring.action.internal-box-shadow}, {focus-ring.action.external-box-shadow}"
+        "$value": "inset 0 0 0 {focus-ring.width.internal} {color.focus.action.internal}, 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+        "$modes": {
+          "default": "inset 0 0 0 {focus-ring.width.internal} {color.focus.action.internal}, 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+          "cds-g0": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+          "cds-g10": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+          "cds-g90": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+          "cds-g100": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}"
+        },
+        "comments": {
+          "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
+        }
       }
     },
     "critical": {
-      "internal-box-shadow": {
-        "$value": "inset 0 0 0 1px {color.focus.critical.internal}",
-        "private": true
-      },
-      "external-box-shadow": {
-        "$value": "0 0 0 3px {color.focus.critical.external}",
-        "private": true
-      },
       "box-shadow": {
-        "$value": "{focus-ring.critical.internal-box-shadow}, {focus-ring.critical.external-box-shadow}"
+        "$value": "inset 0 0 0 {focus-ring.width.internal} {color.focus.critical.internal}, 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+        "$modes": {
+          "default": "inset 0 0 0 {focus-ring.width.internal} {color.focus.critical.internal}, 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+          "cds-g0": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+          "cds-g10": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+          "cds-g90": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+          "cds-g100": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}"
+        }
+      },
+      "comments": {
+        "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
       }
     }
   }

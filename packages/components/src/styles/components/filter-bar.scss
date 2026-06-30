@@ -64,6 +64,7 @@
   gap: 4px;
   width: 50%;
   max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
+  margin: 0;
   padding: 8px;
   overflow-y: auto;
   list-style: none;
@@ -77,8 +78,6 @@
 }
 
 .hds-filter-bar__tabs__tab__button {
-  @include hds-focus-ring-basic();
-
   display: flex;
   gap: 16px;
   align-items: center;
@@ -90,14 +89,19 @@
   border: none;
   border-radius: var(--token-border-radius-x-small);
 
-  &.mock-hover,
-  &:hover {
+  &:hover,
+  &.mock-hover {
     background-color: var(--token-color-surface-interactive-hover);
     cursor: pointer;
   }
 
-  &.mock-active,
-  &:active {
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced();
+  }
+
+  &:active,
+  &.mock-active {
     background-color: var(--token-color-surface-interactive-active);
   }
 }
@@ -115,7 +119,8 @@
   color: var(--token-color-foreground-action);
   background-color: var(--token-color-surface-strong);
 
-  &::before {
+  // we use `:after` to avoid conflicts with the `:before` used for the focus ring
+  &::after {
     position: absolute;
     top: 6px;
     left: 4px;
@@ -126,22 +131,22 @@
     content: "";
   }
 
-  &.mock-hover,
-  &:hover {
+  &:hover,
+  &.mock-hover {
     color: var(--token-color-palette-blue-400);
     background-color: var(--token-color-palette-neutral-200);
 
-    &::before {
+    &::after {
       background-color: var(--token-color-palette-blue-400);
     }
   }
 
-  &.mock-active,
-  &:active {
+  &:active,
+  &.mock-active {
     color: var(--token-color-palette-blue-500);
     background-color: var(--token-color-palette-neutral-300);
 
-    &::before {
+    &::after {
       background-color: var(--token-color-palette-blue-500);
     }
   }

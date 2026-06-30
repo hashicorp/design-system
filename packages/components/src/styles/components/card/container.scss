@@ -7,14 +7,15 @@
 // CARD COMPONENT > CONTAINER
 //
 
+@use "../../mixins/carbonization" as *;
+
 $hds-card-container-style: ("surface", "elevation");
 $hds-card-container-levels: ("base", "mid", "high");
-$hds-card-container-border-radius: var(--token-border-radius-medium);
 
 .hds-card__container {
   position: relative;
-  background-color: #fff;
-  border-radius: $hds-card-container-border-radius;
+  background-color: var(--token-card-surface-color-primary);
+  border-radius: var(--token-border-radius-medium);
 }
 
 // LEVEL (elevation style as "drop" + "border" shadow effects)
@@ -33,6 +34,10 @@ $hds-card-container-border-radius: var(--token-border-radius-medium);
     .hds-card__container--hover-level-#{$style}-#{$level}:hover,
     .hds-card__container--hover-level-#{$style}-#{$level}.mock-hover {
       box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
+
+      @include hds-apply-only-if-carbon() {
+        background-color: var(--token-color-surface-interactive-hover);
+      }
     }
   }
 
@@ -47,11 +52,11 @@ $hds-card-container-border-radius: var(--token-border-radius-medium);
 // BACKGROUND
 
 .hds-card__container--background-neutral-primary {
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-card-surface-color-primary);
 }
 
 .hds-card__container--background-neutral-secondary {
-  background-color: var(--token-color-surface-faint);
+  background-color: var(--token-card-surface-color-secondary);
 }
 
 // OVERFLOW

@@ -7,6 +7,8 @@
 // app-footer
 //
 
+@use "../mixins/focus-ring" as *;
+
 $hds-app-footer-gap: 24px;
 $hds-app-footer-icon-text-gap: 6px;
 
@@ -81,24 +83,29 @@ $hds-app-footer-icon-text-gap: 6px;
 .hds-app-footer__link.hds-link-inline--color-secondary,
 .hds-app-footer__status-link {
   // Overriding default colors
-  color: var(--app-footer-link-default-color);
+  color: var(--app-footer-link-foreground-color-default);
   text-align: right;
 
   &:hover,
   &.mock-hover {
-    color: var(--app-footer-link-hover-color);
+    color: var(--app-footer-link-foreground-color-hover);
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-basic(
+      $external-outline-width: var(--token-app-footer-link-focus-outline-width),
+      $external-outline-color: var(--app-footer-link-outline-color),
+      // we want the focus ring to extend a bit around the content
+      $external-outline-offset: 1px,
+      $has-internal-border: false
+    );
+    color: var(--app-footer-link-foreground-color-focus);
   }
 
   &:active,
   &.mock-active {
-    color: var(--app-footer-link-active-color);
-  }
-
-  &:focus,
-  &.mock-focus,
-  &:focus-visible {
-    color: var(--app-footer-link-focus-color);
-    outline-color: var(--app-footer-link-focus-outline-color);
+    color: var(--app-footer-link-foreground-color-active);
   }
 }
 
@@ -123,20 +130,22 @@ $hds-app-footer-icon-text-gap: 6px;
 
 // THEMING
 
+// Note: Custom property values for each theme are defined here vs. in a JSON file as tokens so do not follow --token naming
+
 // Light
 .hds-app-footer--theme-light {
   --app-footer-foreground-color: var(--token-color-foreground-primary);
   --app-footer-border-top-color: var(--token-color-border-primary);
 
   // Overriding default Secondary Link colors
-  --app-footer-link-default-color: var(--token-color-foreground-faint);
-  --app-footer-link-hover-color: var(--token-color-palette-neutral-600);
-  --app-footer-link-active-color: var(--token-color-palette-neutral-700);
-  --app-footer-link-focus-color: var(--token-color-foreground-faint);
-  --app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
+  --app-footer-link-foreground-color-default: var(--token-color-foreground-faint);
+  --app-footer-link-foreground-color-hover: var(--token-color-foreground-primary);
+  --app-footer-link-foreground-color-active: var(--token-color-foreground-strong);
+  --app-footer-link-foreground-color-focus: var(--token-color-foreground-faint);
+  --app-footer-link-outline-color: var(--token-app-footer-link-focus-outline-color);
 
   // Copyright
-  --app-footer-copyright-text-color: var(--token-color-foreground-primary);
+  --app-footer-copyright-text-color: var(--token-color-foreground-faint);
   --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
 
   // StatusLink icon colors
@@ -152,11 +161,11 @@ $hds-app-footer-icon-text-gap: 6px;
   --app-footer-border-top-color: #b2b6bd66; // rgba(#b2b6bd, 0.4) - Sass color functions don't work with CSS variables
 
   // Overriding default Secondary Link colors
-  --app-footer-link-default-color: #b2b6bd;
-  --app-footer-link-hover-color: #d5d7db;
-  --app-footer-link-active-color: #efeff1;
-  --app-footer-link-focus-color: #b2b6bd;
-  --app-footer-link-focus-outline-color: #389aff;
+  --app-footer-link-foreground-color-default: #b2b6bd;
+  --app-footer-link-foreground-color-hover: #d5d7db;
+  --app-footer-link-foreground-color-active: #efeff1;
+  --app-footer-link-foreground-color-focus: #b2b6bd;
+  --app-footer-link-outline-color: #389aff;
 
   // Copyright
   --app-footer-copyright-text-color: #b2b6bd;
