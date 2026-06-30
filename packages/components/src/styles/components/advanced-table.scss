@@ -10,20 +10,12 @@
 
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
-$hds-advanced-table-border-radius: var(--token-border-radius-medium);
-$hds-advanced-table-border-width: 1px;
+$hds-advanced-table-border-radius: var(--hds-border-radius-medium);
 $hds-advanced-table-inner-border-radius: calc(
-  #{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width}
+  #{$hds-advanced-table-border-radius} - var(--hds-advanced-table-row-border-width)
 );
-$hds-advanced-table-border-color: var(--token-color-border-primary);
-$hds-advanced-table-border-resize-handle-hover-color: #b1b1b5;
-$hds-advanced-table-header-height: 48px;
-$hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
-$hds-advanced-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
-$hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
-$hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown triggers in the header cell
-$hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
 // ADVANCED TABLE
 
@@ -57,12 +49,12 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 // table border
 .hds-advanced-table__th,
 .hds-advanced-table__td {
-  border: calc(#{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
+  border: var(--hds-advanced-table-cell-border-width-default) solid var(--hds-advanced-table-cell-border-color-default);
 }
 
 .hds-advanced-table__thead,
 .hds-advanced-table__tbody {
-  border: calc(#{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
+  border: var(--hds-advanced-table-cell-border-width-default) solid var(--hds-advanced-table-cell-border-color-default);
 }
 
 .hds-advanced-table__thead {
@@ -77,6 +69,25 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   border-bottom-left-radius: inherit;
 }
 
+// density
+
+$hds-advanced-table-densities: ("short", "medium", "tall");
+
+@each $density in $hds-advanced-table-densities {
+  .hds-advanced-table--density-#{$density} {
+    --hds-var-advanced-table-cell-height: var(--hds-advanced-table-cell-height-#{$density});
+    --hds-var-advanced-table-cell-padding-top: var(--hds-advanced-table-cell-padding-vertical-#{$density});
+    --hds-var-advanced-table-cell-padding-bottom: calc(
+      var(--hds-advanced-table-cell-padding-vertical-#{$density}) - 1px
+    );
+  }
+}
+
+.hds-advanced-table__th,
+.hds-advanced-table__td {
+  min-height: var(--hds-var-advanced-table-cell-height);
+}
+
 // ----------------------------------------------------------------
 
 // TABLE HEADER
@@ -85,6 +96,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
+  background-color: var(--hds-advanced-table-header-surface-color);
 
   .hds-advanced-table__tr {
     display: contents;
@@ -93,25 +105,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       position: relative;
       align-content: center;
       height: 100%;
-      padding: $hds-advanced-table-cell-padding-medium;
-      color: var(--token-color-foreground-strong);
-      text-align: left;
-      background-color: var(--token-color-surface-strong);
-
-      &:focus,
-      &.mock-focus {
-        // the box shadow is 3px wide, so offsetting by 3px so the focus ring doesn't go outside the cell
-        @include hds-focus-ring-with-pseudo-element(
-          $top: 3px,
-          $right: 3px,
-          $bottom: 3px,
-          $left: 3px,
-          $radius: inherit,
-          $position: sticky
+      padding: var(--hds-advanced-table-header-cell-padding-vertical)
+        var(--hds-advanced-table-header-cell-padding-horizontal)
+        calc(
+          var(--hds-advanced-table-header-cell-padding-vertical) - var(--hds-advanced-table-header-cell-border-offset)
         );
-        z-index: 1;
-        isolation: isolate;
-      }
+      color: var(--hds-foreground-color-strong);
+      text-align: left;
+      background-color: var(--hds-surface-color-strong);
 
       // The reorder should be visible on hover or focus of the header cell, but not on hover or focus of the resize handle
       &:hover,
@@ -122,6 +123,18 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
           visibility: visible;
           opacity: 1;
         }
+      }
+
+      &:focus-visible,
+      &.mock-focus {
+        @include hds-focus-ring-advanced(
+          // we want the focus ring to fill the `th` element
+          $element-position: sticky,
+          // we inset the box shadow by the same width as the external outline, so the focus ring doesn't go outside the cell
+          $pseudo-element-inset-hds: var(--hds-focus-ring-width-external),
+          $pseudo-element-inset-cds: var(--hds-focus-ring-width-external)
+        );
+        z-index: 1;
       }
 
       &.hds-advanced-table__th--is-being-dragged .hds-advanced-table__th-reorder-handle {
@@ -148,7 +161,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
     // is being dragged
     .hds-advanced-table__th-reorder-drop-target--is-being-dragged {
-      background-color: var(--token-color-surface-primary);
+      background-color: var(--hds-surface-color-primary);
       opacity: 0.5;
     }
 
@@ -165,7 +178,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         top: 0;
         bottom: 0;
         width: 4px;
-        background-color: var(--token-color-palette-blue-300);
+        background-color: var(--hds-advanced-table-drop-preview-surface-color);
         content: "";
         pointer-events: none;
       }
@@ -195,13 +208,15 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       transform: translateX(0);
     }
 
-    .hds-advanced-table__th-resize-handle {
-      @include hds-focus-ring-with-pseudo-element($position: absolute);
+    $hds-resize-handle-z-index: 2;
 
+    .hds-advanced-table__th-resize-handle {
+      // this is needed independently from the focus ring (don't remove!)
+      position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
-      z-index: 2;
+      z-index: $hds-resize-handle-z-index;
       width: 24px;
       scroll-margin-right: 24px;
       scroll-margin-left: 24px;
@@ -217,6 +232,19 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         content: "";
       }
 
+      &:focus-visible,
+      &.mock-focus {
+        @include hds-focus-ring-advanced(
+          // the `position` is already set above
+          $element-position: false,
+          $pseudo-element-inset-hds: 3px 0 3px 0,
+          $pseudo-element-inset-cds: 2px 0 2px 0,
+          $pseudo-element-z-index: $hds-resize-handle-z-index + 1,
+          // the parent doesn't have a meaningful "visual" border radius, is hust the handle, so we apply the border radius directly to the focus ring
+          $pseudo-element-border-radius: var(--hds-border-radius-medium)
+        );
+      }
+
       &:focus::after,
       &.mock-focus::after,
       &:hover::after,
@@ -229,14 +257,19 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       &:hover::after,
       &.mock-hover::after {
-        background-color: $hds-advanced-table-border-resize-handle-hover-color;
+        background-color: var(--hds-advanced-table-resize-handle-surface-color-hover);
+      }
+
+      &:active::after,
+      &.mock-active::after {
+        background-color: var(--hds-advanced-table-resize-handle-surface-color-active);
       }
 
       &:focus::after,
       &.mock-focus::after,
       &.hds-advanced-table__th-resize-handle--resizing::after,
       &.mock-active::after {
-        background-color: var(--token-color-palette-blue-300);
+        background-color: var(--hds-advanced-table-resize-handle-surface-color-focus);
       }
     }
 
@@ -270,22 +303,28 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
     .hds-advanced-table__th--is-sticky-column-pinned {
       &:first-of-type {
-        left: -1px;
+        left: var(--hds-advanced-table-cell-pinned-left);
         // add extra left border to offset -1px and the 0.5px border from the table container being gone
-        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
+        border-left: calc(var(--hds-advanced-table-cell-border-width-default) + 1px) solid
+          var(--hds-advanced-table-cell-border-color-default);
+
+        @include hds-apply-only-if-carbon() {
+          border-left: none;
+        }
       }
     }
 
     // Only apply the thick border to the last sticky column
     .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
-      border-right: 3px solid $hds-advanced-table-border-color;
+      border-right: var(--hds-advanced-table-cell-border-width-pinned) solid
+        var(--hds-advanced-table-cell-border-color-pinned);
     }
 
     .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
       + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
       // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
-      left: var(--hds-advanced-table-sticky-column-offset, 0);
-      border-left-width: $hds-advanced-table-border-width;
+      left: var(--hds-var-advanced-table-sticky-column-offset, 0);
+      border-left-width: var(--hds-advanced-table-row-border-width);
     }
 
     // border radius: target first and last th elements in the row
@@ -304,8 +343,11 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     top: 0;
     width: 100%;
     height: 8px;
-    // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-    background: linear-gradient(to top, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+    background: linear-gradient(
+      to top,
+      var(--hds-advanced-table-scroll-indicator-gradient-color-start) 0%,
+      var(--hds-advanced-table-scroll-indicator-gradient-color-stop) 100%
+    );
   }
 
   // Resizable columns
@@ -324,21 +366,27 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     position: sticky;
     top: -1px;
     z-index: 5;
-    background-color: var(--token-color-surface-strong);
+    // need to set a background color here that doesn't have opacity to prevent content visible behind sticky header
+    background-color: var(--hds-surface-color-strong);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
-    border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
+    border-bottom: calc(
+        var(--hds-advanced-table-cell-border-width-pinned) - var(--hds-advanced-table-row-border-width) / 2
+      )
+      solid var(--hds-advanced-table-cell-border-color-pinned);
 
     .hds-advanced-table__scroll-indicator-top {
       top: unset;
-      bottom: -11px;
+      bottom: var(--hds-advanced-table-scroll-indicator-top-offset-bottom);
     }
   }
 
   &.hds-advanced-table__thead--is-pinned {
-    background-color: var(--token-color-surface-strong);
-    // need to add 1px to offset `top: -1px`
-    border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid $hds-advanced-table-border-color;
-    border-bottom: 3px solid $hds-advanced-table-border-color;
+    // need to set a background color here that doesn't have opacity to prevent content visible behind sticky header
+    background-color: var(--hds-surface-color-strong);
+    border-top: var(--hds-advanced-table-header-border-width-pinned) solid
+      var(--hds-advanced-table-cell-border-color-default);
+    border-bottom: var(--hds-advanced-table-cell-border-width-pinned) solid
+      var(--hds-advanced-table-cell-border-color-pinned);
 
     .hds-advanced-table__tr {
       &:first-of-type {
@@ -386,11 +434,12 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     justify-content: center;
     width: 24px;
     height: 16px;
-    color: var(--token-color-foreground-faint);
-    background-color: var(--token-color-surface-interactive);
-    border: 1px solid var(--token-color-border-primary);
-    border-radius: var(--token-border-radius-small);
-    box-shadow: var(--token-elevation-low-box-shadow);
+    color: var(--hds-advanced-table-header-button-foreground-color-default);
+    // We don't use the existing `hds-advanced-table-header-button-foreground-color-default` token here because it is transparent. since the reorder handle sits halfway between the header and body, transparent background makes the button look split
+    background-color: var(--hds-surface-color-interactive);
+    border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
+    border-radius: var(--hds-border-radius-small);
+    box-shadow: var(--hds-elevation-low-box-shadow);
   }
 
   .hds-icon {
@@ -400,62 +449,66 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   &:hover,
   &.mock-hover {
+    border-color: var(--hds-advanced-table-header-button-border-color-hover);
     cursor: grab;
 
     .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--token-color-surface-interactive-hover);
-    }
-  }
-
-  &:active,
-  &.mock-active {
-    cursor: grabbing;
-
-    .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--token-color-surface-interactive-hover);
+      color: var(--hds-advanced-table-header-button-foreground-color-hover);
+      background-color: var(--hds-advanced-table-header-button-surface-color-hover);
     }
   }
 
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute, $top: 3px, $bottom: 3px);
+    @include hds-focus-ring-advanced(
+      $element-position: absolute,
+      $pseudo-element-z-index: 1,
+      $pseudo-element-inset-hds: 3px 0 3px 0,
+      $pseudo-element-inset-cds: 4px 0 4px 0,
+      // same as the "inner" element
+      $pseudo-element-border-radius: var(--hds-border-radius-small)
+    );
 
     .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--token-color-surface-interactive);
+      background-color: var(--hds-surface-color-interactive);
+    }
+  }
+
+  &:active,
+  &.mock-active {
+    border-color: var(--hds-advanced-table-header-button-border-color-active);
+    cursor: grabbing;
+
+    .hds-advanced-table__th-reorder-handle__inner {
+      color: var(--hds-advanced-table-header-button-foreground-color-active);
+      background-color: var(--hds-advanced-table-header-button-surface-color-active);
     }
   }
 }
 
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon {
-  width: $hds-advanced-table-button-size;
-  height: $hds-advanced-table-button-size;
+  width: var(--hds-advanced-table-header-button-size);
+  height: var(--hds-advanced-table-header-button-size);
   margin: -2px 0;
   padding: 0;
-  color: var(--token-color-foreground-faint);
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--token-border-radius-x-small);
+  color: var(--hds-advanced-table-header-button-foreground-color-default);
+  background-color: var(--hds-advanced-table-header-button-surface-color-default);
+  border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
+  border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive);
-    border-color: var(--token-color-border-strong);
-    box-shadow: var(--token-elevation-low-box-shadow);
+    box-shadow: var(--hds-elevation-low-box-shadow);
   }
 
-  &:focus,
-  &.mock-focus,
-  .hds-dropdown-toggle-icon--is-open {
-    &::before {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      border: none;
-      border-radius: var(--token-border-radius-x-small);
-      box-shadow: var(--token-focus-ring-action-box-shadow);
-    }
+  // needed to increase the specificity because the dropdown styles were being overriden in Carbon themes
+  &:focus-visible.hds-dropdown-toggle-icon,
+  &.mock-focus.hds-dropdown-toggle-icon {
+    // matching the same focus ring as th-button so the context menu + th buttons are the same size when focused. if use the default dropdown toggle icon focus state it ends up being a pixel too big.
+    @include hds-focus-ring-advanced($pseudo-element-inset-hds: 0, $pseudo-element-inset-cds: 0);
+    // setting it to the default color to match the th-button styles. when focused, th-buttons do not have a color or background color set so they default to the default state. however, dropdown toggle icon does have these styles set on focus, so using the default tokens here.
+    color: var(--hds-advanced-table-header-button-foreground-color-default);
+    background-color: var(--hds-advanced-table-header-button-surface-color-default);
   }
 }
 
@@ -464,46 +517,49 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   flex: none;
   align-items: center;
   justify-content: center;
-  width: $hds-advanced-table-button-size;
-  height: $hds-advanced-table-button-size;
+  width: var(--hds-advanced-table-header-button-size);
+  height: var(--hds-advanced-table-header-button-size);
   margin: -2px 0; // this is necessary to compensate for the height of the button being 24px while the line height of the text is 20px (the overall height of the cell shoud be 48px and we want to keep the cell's padding as is for consistency with Figma)
   padding: 0;
-  color: var(--token-color-foreground-faint);
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 3px;
+  color: var(--hds-advanced-table-header-button-foreground-color-default);
+  background-color: var(--hds-advanced-table-header-button-surface-color-default);
+  border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
+  border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive);
-    border-color: var(--token-color-border-strong);
-    box-shadow: var(--token-elevation-low-box-shadow);
+    color: var(--hds-advanced-table-header-button-foreground-color-hover);
+    background-color: var(--hds-advanced-table-header-button-surface-color-hover);
+    border-color: var(--hds-advanced-table-header-button-border-color-hover);
+    box-shadow: var(--hds-elevation-low-box-shadow);
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced($pseudo-element-inset-hds: 0, $pseudo-element-inset-cds: 0);
+  }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
+    color: var(--hds-advanced-table-header-button-foreground-color-active);
+    background-color: var(--hds-advanced-table-header-button-surface-color-active);
+    border-color: var(--hds-advanced-table-header-button-border-color-active);
     box-shadow: none;
   }
 }
 
 .hds-advanced-table__th-button--is-sorted {
-  color: var(--token-color-foreground-action);
+  color: var(--hds-advanced-table-header-button-foreground-color-sorted-default);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--hds-advanced-table-header-button-foreground-color-sorted-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--hds-advanced-table-header-button-foreground-color-sorted-active);
   }
 }
 
@@ -524,17 +580,85 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
   align-items: center;
+  background-color: var(--hds-advanced-table-body-surface-color);
 
   .hds-advanced-table__tr {
     display: contents;
-    color: var(--token-color-foreground-primary);
+    color: var(--hds-advanced-table-cell-foreground-color-default);
+
+    .hds-advanced-table__th,
+    .hds-advanced-table__td {
+      border-bottom: var(--hds-advanced-table-row-border-width) solid var(--hds-advanced-table-row-border-color-default);
+    }
+
+    &:hover,
+    &.mock-hover {
+      color: var(--hds-advanced-table-cell-foreground-color-hover);
+
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        background-color: var(--hds-advanced-table-cell-surface-color-hover);
+        border-bottom-color: var(--hds-advanced-table-row-border-color-hover);
+      }
+    }
 
     // striped rows
+
+    .hds-advanced-table--striped & {
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        border-bottom-color: var(--hds-advanced-table-row-border-color-striped-default);
+      }
+
+      &:hover,
+      &.mock-hover {
+        .hds-advanced-table__th,
+        .hds-advanced-table__td {
+          background-color: var(--hds-advanced-table-cell-surface-color-striped-hover);
+        }
+      }
+    }
 
     .hds-advanced-table--striped &:nth-child(even) {
       .hds-advanced-table__th,
       .hds-advanced-table__td {
-        background-color: var(--token-color-surface-faint);
+        background-color: var(--hds-advanced-table-cell-surface-color-striped-default);
+      }
+
+      &:hover,
+      &.mock-hover {
+        .hds-advanced-table__th,
+        .hds-advanced-table__td {
+          background-color: var(--hds-advanced-table-cell-surface-color-striped-hover);
+        }
+      }
+    }
+
+    // selected rows
+
+    &.hds-advanced-table__tr--is-selected {
+      color: var(--hds-advanced-table-cell-foreground-color-selected);
+
+      // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
+      @include hds-apply-only-if-carbon() {
+        .hds-advanced-table__th,
+        .hds-advanced-table__td {
+          background-color: var(--hds-advanced-table-cell-surface-color-selected-default);
+          border-bottom: var(--hds-advanced-table-row-border-width) solid
+            var(--hds-advanced-table-row-border-color-selected-default);
+        }
+
+        &:hover,
+        &.mock-hover {
+          background-color: var(--hds-advanced-table-cell-surface-color-selected-hover);
+
+          .hds-advanced-table__th,
+          .hds-advanced-table__td {
+            background-color: var(--hds-advanced-table-cell-surface-color-selected-hover);
+            border-bottom: var(--hds-advanced-table-row-border-width) solid
+              var(--hds-advanced-table-row-border-color-selected-hover);
+          }
+        }
       }
     }
   }
@@ -563,40 +687,29 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   .hds-advanced-table__th,
   .hds-advanced-table__td {
     height: 100%;
-    font-weight: var(--token-typography-font-weight-regular);
-    font-size: var(--token-typography-body-200-font-size);
-    font-family: var(--token-typography-body-200-font-family);
-    line-height: var(--token-typography-body-200-line-height);
+    padding: var(--hds-var-advanced-table-cell-padding-top) var(--hds-advanced-table-cell-padding-horizontal)
+      var(--hds-var-advanced-table-cell-padding-bottom);
+    font-weight: var(--hds-typography-font-weight-regular);
+    font-size: var(--hds-typography-body-200-font-size);
+    font-family: var(--hds-typography-body-200-font-family);
+    line-height: var(--hds-advanced-table-cell-line-height);
     text-align: left;
-    background-color: var(--token-color-surface-primary);
+    background-color: var(--hds-advanced-table-cell-surface-color-default);
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
-      // the box shadow is 3px wide, so offsetting by 3px so the focus ring doesn't go outside the cell
-      @include hds-focus-ring-with-pseudo-element(
-        $top: 3px,
-        $right: 3px,
-        $bottom: 3px,
-        $left: 3px,
-        $radius: inherit,
-        $position: sticky
+      @include hds-focus-ring-advanced(
+        // we want the focus ring to fill the `th/td` elements
+        $element-position: sticky,
+        // the box shadow is 3px/2px wide, so offsetting by 3px/2px so the focus ring doesn't go outside the cell
+        $pseudo-element-inset-hds: 3px,
+        $pseudo-element-inset-cds: 2px
       );
       z-index: 1;
-      isolation: isolate;
-    }
 
-    // density
-
-    .hds-advanced-table--density-short & {
-      padding: $hds-advanced-table-cell-padding-short;
-    }
-
-    .hds-advanced-table--density-medium & {
-      padding: $hds-advanced-table-cell-padding-medium;
-    }
-
-    .hds-advanced-table--density-tall & {
-      padding: $hds-advanced-table-cell-padding-tall;
+      .hds-advanced-table__th-reorder-handle__inner {
+        background-color: var(--hds-surface-color-interactive);
+      }
     }
   }
 
@@ -610,7 +723,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
         // Apply the thick right border to whichever one is acting as the "visual" first column
         &:not(.hds-advanced-table__th--is-selectable) {
-          border-right: 3px solid $hds-advanced-table-border-color;
+          border-right: var(--hds-advanced-table-cell-border-width-pinned) solid
+            var(--hds-advanced-table-cell-border-color-pinned);
         }
       }
     }
@@ -619,14 +733,19 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   .hds-advanced-table--sticky-first-column-pinned & {
     .hds-advanced-table__tr {
       > :first-child {
-        left: -1px;
-        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
+        left: var(--hds-advanced-table-cell-pinned-left);
+        border-left: calc(var(--hds-advanced-table-cell-border-width-default) + 1px) solid
+          var(--hds-advanced-table-cell-border-color-default);
+
+        @include hds-apply-only-if-carbon() {
+          border-left: none;
+        }
       }
 
       // Specific override for the column following a selectable checkbox
       > .hds-advanced-table__th--is-selectable + * {
-        left: var(--hds-advanced-table-sticky-column-offset, 0);
-        border-left-width: $hds-advanced-table-border-width;
+        left: var(--hds-var-advanced-table-sticky-column-offset, 0);
+        border-left-width: var(--hds-advanced-table-row-border-width);
       }
     }
   }
@@ -672,11 +791,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     }
 
     .hds-advanced-table--valign-baseline & {
-      /**
-        setting to center because in FlexBox, when you set align-items: baseline, it also aligns content to the top - unlike display: table-cell which aligns the content to the center
-      
-        we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
-      */
+      // setting to center because in FlexBox, when you set align-items: baseline, it also aligns content to the top - unlike display: table-cell which aligns the content to the center
+      // we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
       align-items: center;
     }
   }
@@ -704,14 +820,30 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   .hds-advanced-table__tr {
     .hds-advanced-table__th,
     .hds-advanced-table__td {
-      background-color: var(--token-color-surface-faint);
+      background-color: var(--hds-advanced-table-cell-surface-color-nested-default);
+    }
+
+    &:hover,
+    &.mock-hover {
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        background-color: var(--hds-advanced-table-cell-surface-color-nested-hover);
+      }
     }
   }
 
   .hds-advanced-table__tr.hds-advanced-table__tr--parent-row {
     .hds-advanced-table__th,
     .hds-advanced-table__td {
-      background-color: var(--token-color-surface-primary);
+      background-color: var(--hds-surface-color-primary);
+    }
+
+    &:hover,
+    &.mock-hover {
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        background-color: var(--hds-advanced-table-cell-surface-color-parent-hover);
+      }
     }
   }
 }
@@ -736,29 +868,38 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 }
 
 .hds-advanced-table__scroll-indicator-left {
-  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-  background: linear-gradient(to left, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+  background: linear-gradient(
+    to left,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-start) 0%,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-stop) 100%
+  );
 }
 
 .hds-advanced-table__scroll-indicator-right {
-  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-  background: linear-gradient(to right, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+  background: linear-gradient(
+    to right,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-start) 0%,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-stop) 100%
+  );
 }
 
 .hds-advanced-table__scroll-indicator-bottom {
   height: 8px;
-  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-  background: linear-gradient(to bottom, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+  background: linear-gradient(
+    to bottom,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-start) 0%,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-stop) 100%
+  );
 }
 
 .hds-advanced-table__th-reorder-drag-preview {
   position: absolute;
   top: -9999px;
   left: -9999px;
-  background-color: $hds-advanced-table-drag-preview-background-color;
-  border: 5px solid var(--token-color-focus-action-external);
-  border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-elevation-mid-box-shadow);
+  background-color: var(--hds-advanced-table-drag-preview-surface-color);
+  border: 5px solid var(--hds-focus-color-action-external);
+  border-radius: var(--hds-border-radius-medium);
+  box-shadow: var(--hds-elevation-mid-box-shadow);
 }
 
 // ----------------------------------------------------------------
@@ -804,8 +945,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   justify-content: center;
   min-height: 400px;
   padding: 16px;
-  background-color: var(--token-color-surface-primary);
-  border: 1px solid var(--token-color-border-primary);
+  background-color: var(--hds-surface-color-primary);
+  border: var(--hds-advanced-table-empty-state-border-width) solid var(--hds-border-color-primary);
   border-bottom-right-radius: $hds-advanced-table-border-radius;
   border-bottom-left-radius: $hds-advanced-table-border-radius;
 }
