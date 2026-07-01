@@ -588,11 +588,6 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-carbonization.components.form.text-input">
-            Form::TextInput
-          </LinkTo>
-        </li>
-        <li>
           <LinkTo @route="page-carbonization.components.form.file-input">
             Form::FileInput
           </LinkTo>
@@ -600,6 +595,16 @@ const Index: TemplateOnlyComponent = <template>
         <li>
           <LinkTo @route="page-carbonization.components.form.radio-card">
             Form::RadioCard
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.form.select">
+            Form::Select
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.form.text-input">
+            Form::TextInput
           </LinkTo>
         </li>
       </ol>

@@ -17,7 +17,6 @@ import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonizatio
 
 import {
   HdsFormCheckboxBase,
-  HdsFormCheckboxField,
   HdsFormCheckboxGroup,
 } from '@hashicorp/design-system-components/components';
 

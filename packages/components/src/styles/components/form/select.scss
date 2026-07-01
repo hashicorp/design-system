@@ -8,6 +8,7 @@
 //
 
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 // "BASE" CONTROL
 
@@ -27,11 +28,28 @@
   box-shadow: var(--token-elevation-low-box-shadow);
   appearance: none;
 
+  @include hds-apply-only-if-carbon() {
+    min-height: 40px; // 2.5rem // TODO: create a token for this value
+    padding: 0 var(--token-form-control-padding);
+    padding-right: 48px; // TODO: Create token? (This matches the right padding in the Carbon Select)
+
+    // Carbon's select has only a bottom border
+    &:not([multiple]) {
+      border-width: 0 0 var(--token-form-control-border-width) 0;
+    }
+  }
+
   // STATUS
 
   &:hover,
   &.mock-hover {
     border-color: var(--token-form-control-base-border-color-hover);
+
+    @include hds-apply-only-if-carbon() {
+      &:not(:disabled, .mock-disabled, [readonly]) {
+        background-color: var(--token-form-select-surface-color-hover);
+      }
+    }
   }
 
   // focus (same for all the states)
@@ -57,6 +75,11 @@
 
   &.hds-form-select--is-invalid {
     border-color: var(--token-form-control-invalid-border-color-default);
+
+    @include hds-apply-only-if-carbon() {
+      outline: 2px solid var(--token-form-control-invalid-border-color-default);
+      outline-offset: -2px;
+    }
 
     &:hover,
     &.mock-hover {
@@ -93,6 +116,10 @@
       &:checked {
         color: var(--token-color-foreground-high-contrast);
         background: var(--token-color-palette-blue-200);
+
+        @include hds-apply-only-if-carbon() {
+          color: #fff; // TODO: Create token for this value
+        }
       }
     }
 
