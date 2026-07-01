@@ -8,13 +8,13 @@ export enum HdsFormTextInputTypeValues {
   Email = 'email',
   Password = 'password',
   Url = 'url',
-  Tel = 'tel',
-  Time = 'time',
   Date = 'date',
+  Time = 'time',
   DateTimeLocal = 'datetime-local',
+  Search = 'search',
   Month = 'month',
   Week = 'week',
-  Search = 'search',
+  Tel = 'tel',
 }
 
 export type HdsFormTextInputTypes = `${HdsFormTextInputTypeValues}`;
