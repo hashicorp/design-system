@@ -10,8 +10,7 @@ import { registerDestructor } from '@ember/destroyable';
 import { hash } from '@ember/helper';
 import { and, not } from 'ember-truth-helpers';
 import { NavigationNarrator } from 'ember-a11y-refocus';
-// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
-import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { focusTrap } from 'ember-focus-trap';
 
 import type Owner from '@ember/owner';
 import type { NavigationNarratorSignature } from 'ember-a11y-refocus/components/navigation-narrator';
