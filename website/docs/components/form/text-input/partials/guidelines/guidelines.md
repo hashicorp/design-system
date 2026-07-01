@@ -29,17 +29,37 @@ The `TextInput` component has a visibility toggle feature for password fields. B
 
 ### Search
 
-#### Default state
+Text Input accepts the type of `search` which users can enter search queries into.
+
+#### States
+
+##### Default state
 
 <Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" as |F|>
   <F.Label>Search</F.Label>
 </Hds::Form::TextInput::Field>
 
-#### Loading state
+##### Loading state
 
 <Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" @isLoading="true" as |F|>
   <F.Label>Search</F.Label>
 </Hds::Form::TextInput::Field>
+
+#### Search placement
+
+!!! Do
+
+Use a standalone search input when users are querying a broad dataset without the need for additional filtering controls, e.g., in the App Header or simple tables.
+
+![An example of the term "error" searched for across a simple dataset in a table](/assets/components/form/text-input/filter-search-only.png)
+!!!
+
+!!! Dont
+
+Don't use a search input within a [Filter Bar](/components/filter-bar) if no additional filters are present.
+
+![An example of the term "errored" searched for across a dataset in a table without additional filters](/assets/components/filter-bar/filter-bar-search-no-filters.png)
+!!!
 
 ### Date and time
 

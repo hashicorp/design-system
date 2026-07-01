@@ -17,6 +17,7 @@ If specific functionality or filtering methods don't meet your needs, please [co
 ### When not to use
 
 - For complex query builder features.
+- For a search feature that doesn't require filters. Use the [Search Input](/components/form/text-input#search) instead.
 
 ## Type
 
@@ -98,11 +99,25 @@ When multiple filter values are selected for a single parameter or input fields 
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-clear-filter-input.png)
 
-## Search
+## Integrating search
 
-Use the search input to apply a broad text filter across the entire data set.
+Search is an important part of a filtering workflow. When search is included in the Filter Bar, it narrows the dataset alongside any active filters, rather than overriding them.
+
+!!! Do
+
+Implement search alongside filters.
 
 ![An example of the term "errored" searched for across the entire data set](/assets/components/filter-bar/filter-bar-search-filled.png)
+
+!!!
+
+!!! Dont
+
+Don't implement search inside a Filter Bar without filters.
+
+![An example of a search input used without any filters inside of the Filter Bar](/assets/components/filter-bar/filter-bar-search-no-filters.png)
+
+!!!
 
 ## Bulk actions
 
