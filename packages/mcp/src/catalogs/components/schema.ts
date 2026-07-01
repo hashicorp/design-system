@@ -9,7 +9,6 @@ const catalogArgSchema = z.object({
   name: z.string().min(1),
   type: z.string().min(1),
   required: z.boolean().optional(),
-  summary: z.string().optional(),
   description: z.string().optional(),
   default: z.string().optional(),
 });
@@ -19,16 +18,12 @@ const catalogBlockYieldSchema = z.object({
   type: z.string().min(1),
   kind: z.enum(["component", "function", "value"]).optional(),
   componentName: z.string().min(1).optional(),
-  sourcePath: z.string().min(1).optional(),
   boundArgs: z.array(z.string().min(1)).optional(),
-  summary: z.string().optional(),
   description: z.string().optional(),
 });
 
 const catalogBlockSchema = z.object({
   name: z.string().min(1),
-  summary: z.string().optional(),
-  description: z.string().optional(),
   yields: z.array(catalogBlockYieldSchema).optional(),
 });
 
@@ -40,18 +35,14 @@ const catalogDesignSchema = z.object({
 
 const catalogComponentSchema = z.object({
   name: z.string().min(1),
-  sourcePath: z.string().min(1),
-  summary: z.string().min(1),
-  docSourcePath: z.string().min(1).optional(),
-  docEnrichedAt: z.string().datetime().optional(),
+  description: z.string().min(1),
   design: catalogDesignSchema.optional(),
   args: z.array(catalogArgSchema).optional(),
   blocks: z.array(catalogBlockSchema).optional(),
-  examples: z.array(z.string()).optional(),
 });
 
 export const componentCatalogSchema = z.object({
-  updatedAt: z.string().datetime().optional(),
+  updatedAt: z.string().datetime(),
   components: z.array(catalogComponentSchema),
 });
 
