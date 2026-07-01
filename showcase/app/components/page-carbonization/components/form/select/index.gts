@@ -196,23 +196,6 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Content</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="Only label">
-      <:theming>
-        <HdsFormSelectField as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.Options>
-            <option selected>Lorem ipsum dolor</option>
-            <option>Sine qua non est</option>
-          </F.Options>
-        </HdsFormSelectField>
-      </:theming>
-      <:reference>
-        <cds-select label-text="This is the label" value="lorem">
-          <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>
-          <cds-select-item value="sine">Sine qua non est</cds-select-item>
-        </cds-select>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid @label="Label + Helper text">
       <:theming>
         <HdsFormSelectField as |F|>
@@ -228,29 +211,6 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-select
           label-text="This is the label"
           helper-text="This is the helper text"
-          value="lorem"
-        >
-          <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>
-          <cds-select-item value="sine">Sine qua non est</cds-select-item>
-        </cds-select>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Label + Error">
-      <:theming>
-        <HdsFormSelectField @isInvalid={{true}} as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.Options>
-            <option selected>Lorem ipsum dolor</option>
-            <option>Sine qua non est</option>
-          </F.Options>
-          <F.Error>This is the error</F.Error>
-        </HdsFormSelectField>
-      </:theming>
-      <:reference>
-        <cds-select
-          label-text="This is the label"
-          invalid
-          invalid-text="This is the error"
           value="lorem"
         >
           <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>

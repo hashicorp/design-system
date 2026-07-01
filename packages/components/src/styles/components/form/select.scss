@@ -58,6 +58,10 @@
   &.mock-focus {
     @include hds-focus-ring-basic();
     border-color: var(--token-color-focus-action-internal);
+
+    @include hds-apply-only-if-carbon() {
+      outline-offset: -2px;
+    }
   }
 
   // DISABLED
