@@ -1,5 +1,19 @@
 # @hashicorp/design-system-tokens
 
+## 5.1.0
+
+### Minor Changes
+
+Added design token for `color-transform.direction` for CSS lightness transformation.
+
+- Added more specialized component tokens for `Form/Primitives` base elements (color and typography)
+- Added component tokens for `Badge` and `BadgeCount` components
+- Added component tokens for `IconTile` component
+
+<small class="doc-whats-new-changelog-metadata">[#3948](https://github.com/hashicorp/design-system/pull/3948)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.0.0
 
 ### Major Changes
