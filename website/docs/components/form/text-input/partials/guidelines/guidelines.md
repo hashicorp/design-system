@@ -29,9 +29,26 @@ The `TextInput` component has a visibility toggle feature for password fields. B
 
 ### Search
 
-Use a standalone search input when users are querying a broad dataset without immediate filtering needs, e.g., in the App Header.
+!!! Do
 
-Alternatively, if users need to search within a filterable dataset, embed search directly into the [Filter Bar](/components/filter-bar) or follow the [Filter Patterns](/patterns/filter-patterns) guidelines.
+If users need to search within a filterable dataset, embed search directly into the [Filter Bar](/components/filter-bar) or follow the [Filter Patterns](/patterns/filter-patterns) guidelines.
+
+![An example of the term "errored" searched for across an entire filterable dataset in a table](/assets/components/filter-bar/filter-bar-search-filled.png)
+!!!
+
+!!! Do
+
+Use a standalone search input when users are querying a broad dataset without the need for additional filtering controls, e.g., in the App Header or simple tables.
+
+![An example of the term "error" searched for across a simple dataset in a table](/assets/components/form/text-input/filter-search-only.png)
+!!!
+
+!!! Dont
+
+Don't use a standalone search input within a [Filter Bar](/components/filter-bar) if no additional filters are present.
+
+![An example of the term "errored" searched for across a dataset in a table without additional filters](/assets/components/filter-bar/filter-bar-search-no-filters.png)
+!!!
 
 #### Default state
 
