@@ -56,7 +56,7 @@ Use a standalone search input when users are querying a broad dataset without th
 
 !!! Dont
 
-Don't use a standalone search input within a [Filter Bar](/components/filter-bar) if no additional filters are present.
+Don't use a search input within a [Filter Bar](/components/filter-bar) if no additional filters are present.
 
 ![An example of the term "errored" searched for across a dataset in a table without additional filters](/assets/components/filter-bar/filter-bar-search-no-filters.png)
 !!!
