@@ -17,12 +17,38 @@
           "unit": "px"
         },
         "data-url": {
-          "$value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%23656A76'/%3E%3C/svg%3E\")",
-          "comment": "notice: the 'caret' color is hardcoded here!"
+          "$value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23656A76' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+          "comment": "notice: the 'caret' color is hardcoded here!",
+          "$modes": {
+            "default": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23656A76' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+            "cds-g0": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+            "cds-g10": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+            "cds-g90": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+            "cds-g100": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")"
+          }
         },
         "data-url-disabled": {
-          "$value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%238C909C'/%3E%3C/svg%3E\")",
-          "comment": "notice: the 'caret' color is hardcoded here!"
+          "$value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%238C909C' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+          "comment": "notice: the 'caret' color is hardcoded here!",
+          "$modes": {
+            "default": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%238C909C' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+            "cds-g0": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+            "cds-g10": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+            "cds-g90": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
+            "cds-g100": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")"
+          }
+        }
+      },
+      "surface-color": {
+        "hover": {
+          "$value": "{form.control.base.surface.color.default}",
+          "$modes": {
+            "default": "{form.control.base.surface.color.default}",
+            "cds-g0": "{carbon.themes.white.layerHover01}",
+            "cds-g10": "{carbon.themes.g10.layerHover01}",
+            "cds-g90": "{carbon.themes.g90.layerHover01}",
+            "cds-g100": "{carbon.themes.g100.layerHover01}"
+          }
         }
       }
     }

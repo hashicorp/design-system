@@ -10,16 +10,16 @@
         "color": {
           "disabled": {
             "$type": "color",
-            "$value": "{color.border.primary}",
+            "$value": "{border.color.primary}",
             "group": "components",
             "$modes": {
-              "default": "{color.border.primary}",
+              "default": "{border.color.primary}",
               "cds-g0": "rgba(22, 22, 22, 0.25))",
               "cds-g10": "rgba(22, 22, 22, 0.25)",
               "cds-g90": "rgba(244, 244, 244, 0.25)",
               "cds-g100": "rgba(244, 244, 244, 0.25)"
             }
-          },
+          }
         },
         "radius": {
           "$type": "dimension",
@@ -101,10 +101,10 @@
         "color": {
           "disabled": {
             "$type": "color",
-            "$value": "{color.surface.interactive-disabled}",
+            "$value": "{surface.color.interactive-disabled}",
             "group": "components",
             "$modes": {
-              "default": "{color.surface.interactive-disabled}",
+              "default": "{surface.color.interactive-disabled}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -113,10 +113,10 @@
           },
           "checked-disabled": {
             "$type": "color",
-            "$value": "{color.surface.interactive-disabled}",
+            "$value": "{surface.color.interactive-disabled}",
             "group": "components",
             "$modes": {
-              "default": "{color.surface.interactive-disabled}",
+              "default": "{surface.color.interactive-disabled}",
               "cds-g0": "rgba(22, 22, 22, 0.25)",
               "cds-g10": "rgba(22, 22, 22, 0.25)",
               "cds-g90": "rgba(244, 244, 244, 0.25)",
