@@ -1,3 +1,8 @@
+## 6.3.0
+
+Fixed description and content contextual blocks to be hidden if conditionally empty
+
+
 ## 6.1.1
 
 Translated strings for `Step` status value types

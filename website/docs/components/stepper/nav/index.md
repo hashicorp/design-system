@@ -22,8 +22,6 @@ navigation:
     - tracker
     - list
     - indicator
-status:
-  updated: 6.2.1
 ---
 
 <section data-tab="Guidelines">

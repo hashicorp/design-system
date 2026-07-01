@@ -12,55 +12,147 @@
   </a>
 </p>
 
+## 6.3.0
+
+[6.3.0 documentation](https://hds-website-6-3-0.vercel.app/)
+
+**Minor changes**
+
+
+`AppFooter` - Exported `THEMES` constant.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3946](https://github.com/hashicorp/design-system/pull/3946)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Alert` - Deprecated the `Generic` yielded block which renders below actions and added `GenericContent` and `GenericFooter` yielded blocks for including custom content either above or below `Alert` actions.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3932](https://github.com/hashicorp/design-system/pull/3932)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+
+`StepperList` - Fixed description and content contextual blocks to be hidden if conditionally empty
+
+
+<small class="doc-whats-new-changelog-metadata">[#3899](https://github.com/hashicorp/design-system/pull/3899)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Toggle` - Added the `aria-checked` attribute to the input for accessibility. It is synced with the `checked` attribute.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3918](https://github.com/hashicorp/design-system/pull/3918)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Pagination` - Added keyboard focus management at the beginning and end of pagination. When an arrow button becomes disabled after clicking because a boundary has been reached, focus moves to the opposite arrow button.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3917](https://github.com/hashicorp/design-system/pull/3917)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Modal` - Fixed issue causing `Modal` to close unexpectedly by checking that a click on the `Overlay` both starts and ends within the `Overlay` before closing
+
+
+<small class="doc-whats-new-changelog-metadata">[#3923](https://github.com/hashicorp/design-system/pull/3923)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SegmentedGroup` - Fixed border radius styling issue of icon-only Dropdowns when used within `SegmentedGroup`
+
+<small class="doc-whats-new-changelog-metadata">[#3945](https://github.com/hashicorp/design-system/pull/3945)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Flyout` - Replaced custom box shadow with standard `elevation-overlay-box-shadow` token.
+
+
+
+`Form Primitives` - Replaced rendering of text via HDS `Text` component and used standard HTML tags, then updated CSS styles to use newly added component-level design tokens.
+
+Components updated:
+
+- `FormCharacterCount`
+- `FormError`
+- `FormHelperText`
+- `FormIndicator`
+- `FormLabel`
+- `FormLegend`
+
+
+`IconTile` - Replaced `[product]-colored` icon with standard `[product]` icon in `@logo="[product]"` variant.
+
+
+
+`LinkStandalone` - Set explicit secondary hover state color to avoid possible overrides.
+
+
+
+`Pagination` - Multiple changes:
+
+- Added extra modifier classes `hds-pagination--numbered`/`hds-pagination—compact` to variants.
+- Removed extra whitespace in label for `PaginationSizeSelector`.
+
+
+`Tag` - Multiple changes:
+
+- Added extra modifier classes `hds-tag--is-interactive`/`hds-tag--is-static` to variants.
+- Fixed classes selectors for `focus` state (no visible changes).
+
+<small class="doc-whats-new-changelog-metadata">[#3947](https://github.com/hashicorp/design-system/pull/3947)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@5.1.0
+
 ## 6.2.1
 
 [6.2.1 documentation](https://hds-website-6-2-1.vercel.app/)
 
 **Patch changes**
 
-
 `Dropdown` - Fixed vertical alignment between text and `Badge` in `DropdownListItemInteractive`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3889](https://github.com/hashicorp/design-system/pull/3889)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CodeBlock` - Translated strings for height toggle button text
-
 
 <small class="doc-whats-new-changelog-metadata">[#3895](https://github.com/hashicorp/design-system/pull/3895)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CopySnippet` - Fixed a11y issue by adding `@ariaMessageText` argument to an aria-live region to announce to screen readers when content has been copied. Added handling for copy to clipboard error state in `ariaMessageText`
 
-
-
 `CopyButton` - Added handling for copy to clipboard error state in `ariaMessageText`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3890](https://github.com/hashicorp/design-system/pull/3890)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Stepper::Nav` - Refactored classes for step to removed unneeded interactive classes
-
 
 <small class="doc-whats-new-changelog-metadata">[#3885](https://github.com/hashicorp/design-system/pull/3885)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `HdsAppFooter` - Switched usage of inline styles with `ember-style-modifier`.
 
-
-
 `HdsBreadcrumbItem` - Switched usage of inline styles with `ember-style-modifier`.
-
 
 `HdsClipboard` Modifier - Switched usage of `setAttribute` for `setProperty` when updating a `style` value.
 
@@ -1640,84 +1732,6 @@ Introduce the `hds-resolve-link-to-component` utility to correctly resolve the L
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@3.11.0
-
-## 4.19.0
-
-**Minor changes**
-
-[4.19.0 documentation](https://hds-website-4-19-0.vercel.app/)
-
-Use luxon 3.x
-
-<small class="doc-whats-new-changelog-metadata">[#2839](https://github.com/hashicorp/design-system/pull/2839) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
-
-`CodeEditor` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
-
-`SideNav` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
-
-<small class="doc-whats-new-changelog-metadata">[#2819](https://github.com/hashicorp/design-system/pull/2819)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Update ember-stargate to 0.5.0
-
-<small class="doc-whats-new-changelog-metadata">[#2840](https://github.com/hashicorp/design-system/pull/2840) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SideNav` - Deprecated the `SideNav` component. Use the `AppSideNav` component in combination with the `AppHeader` component as a replacement.
-
-<small class="doc-whats-new-changelog-metadata">[#2837](https://github.com/hashicorp/design-system/pull/2837)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AppHeader` - Formally published the `AppHeader` component.
-
-<small class="doc-whats-new-changelog-metadata">[#2837](https://github.com/hashicorp/design-system/pull/2837)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AppSideNav` - Formally published the `AppSideNav` component.
-
-<small class="doc-whats-new-changelog-metadata">[#2837](https://github.com/hashicorp/design-system/pull/2837)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SuperSelect` - Updated the design to improve the experience when many items are selected.
-
-<small class="doc-whats-new-changelog-metadata">[#2824](https://github.com/hashicorp/design-system/pull/2824)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Tag` - Updated structure to prevent inheritance overrides for font styles
-
-<small class="doc-whats-new-changelog-metadata">[#2835](https://github.com/hashicorp/design-system/pull/2835)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Modal` - Fixed issue where conditionally disabling ability to dismiss the `Modal` breaks click outside to dismiss.
-
-<small class="doc-whats-new-changelog-metadata">[#2846](https://github.com/hashicorp/design-system/pull/2846)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown` - Updated Radio and Checkbox list items font weight to match other list items.
-
-<small class="doc-whats-new-changelog-metadata">[#2854](https://github.com/hashicorp/design-system/pull/2854)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Modal` - Fixed issue with focus trap when modal is displayed inline.
-
-<small class="doc-whats-new-changelog-metadata">[#2834](https://github.com/hashicorp/design-system/pull/2834)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---

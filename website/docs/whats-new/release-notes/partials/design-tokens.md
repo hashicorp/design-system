@@ -12,6 +12,20 @@
   </a>
 </p>
 
+## 5.1.0
+
+**Minor changes**
+
+Added design token for `color-transform.direction` for CSS lightness transformation.
+
+- Added more specialized component tokens for `Form/Primitives` base elements (color and typography)
+- Added component tokens for `Badge` and `BadgeCount` components
+- Added component tokens for `IconTile` component
+
+<small class="doc-whats-new-changelog-metadata">[#3948](https://github.com/hashicorp/design-system/pull/3948)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.0.0
 
 **Major changes**
@@ -210,15 +224,6 @@ Added design token for loading state icon on search input
 Added design tokens for `SideNav` component
 
 <small class="doc-whats-new-changelog-metadata">[#1313](https://github.com/hashicorp/design-system/pull/1313)</small>
-
-## 1.4.1
-
-**Patch changes**
-
-- Scoped group layout styles to nested child components.
-- Fixed bug with `--token-pagination-child-spacing-vertical` value so that it adds "px" unit.
-
-<small class="doc-whats-new-changelog-metadata">[#1204](https://github.com/hashicorp/design-system/pull/1204)</small>
 
 
 ---

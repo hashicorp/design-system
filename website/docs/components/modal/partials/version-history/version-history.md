@@ -1,3 +1,8 @@
+## 6.3.0
+
+Fixed issue causing `Modal` to close unexpectedly by checking that a click on the `Overlay` both starts and ends within the `Overlay` before closing
+
+
 ## 6.1.0
 
 Converted the component to gts format.

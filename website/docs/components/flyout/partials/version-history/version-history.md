@@ -1,3 +1,8 @@
+## 6.3.0
+
+Replaced custom box shadow with standard `elevation-overlay-box-shadow` token.
+
+
 ## 6.1.0
 
 Converted component to gts format.
