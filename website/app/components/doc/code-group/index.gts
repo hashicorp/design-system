@@ -6,7 +6,6 @@ import Component from '@glimmer/component';
 import { registerDestructor } from '@ember/destroyable';
 import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
-import { notEq } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
 import { service } from '@ember/service';
 
@@ -22,8 +21,8 @@ import DynamicTemplate from 'website/components/dynamic-template';
 
 interface DocCodeGroupSignature {
   Args: {
-    gtsFilename?: string;
-    classicFilename?: string;
+    gtsComponentId?: string;
+    classicComponentId?: string;
     hbsSnippet?: string;
     jsSnippet?: string;
     gtsSnippet?: string;
@@ -121,35 +120,37 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   // NOTE: the dynamic template requires an Ember component to render a preview. If there is not a component (ex. only a sass/yaml/bash snippet), we hide the preview by default.
-  get hidePreview() {
+  get showPreview() {
     if (this.args.hidePreview === 'true') {
-      return true;
+      return false;
     }
 
-    const hasHbsPreview = !!this.args.hbsSnippet;
-    const hasGtsPreview = !!this.args.gtsSnippet && !!this.args.gtsFilename;
+    const hasHbsPreview =
+      !!this.args.hbsSnippet && !!this.args.classicComponentId;
+    const hasGtsPreview = !!this.args.gtsSnippet && !!this.args.gtsComponentId;
 
-    return !(hasHbsPreview || hasGtsPreview);
+    return hasHbsPreview || hasGtsPreview;
   }
 
   get preview() {
     if (
       this.currentView === 'gts' &&
       this.args.gtsSnippet &&
-      this.args.gtsFilename
+      this.args.gtsComponentId
     ) {
       return {
-        componentId: this.args.gtsFilename,
+        componentId: this.args.gtsComponentId,
         templateString: undefined,
       };
     }
 
     if (
       (this.currentView === 'hbs' || this.currentView === 'js') &&
-      this.args.hbsSnippet
+      this.args.hbsSnippet &&
+      this.args.classicComponentId
     ) {
       return {
-        componentId: this.args.classicFilename,
+        componentId: this.args.classicComponentId,
         templateString: unescapeCode(this.args.hbsSnippet),
       };
     }
@@ -157,12 +158,12 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   get currentSnippet() {
     const {
+      hbsSnippet,
       jsSnippet,
       gtsSnippet,
-      hbsSnippet,
+      compactGtsSnippet,
       customSnippet,
       customLang,
-      compactGtsSnippet,
     } = this.args;
 
     if (this.currentView === 'js') {
@@ -299,7 +300,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   <template>
     <div class="doc-code-group">
-      {{#if (notEq this.hidePreview true)}}
+      {{#if this.showPreview}}
         <div class="doc-code-group__preview">
           <DynamicTemplate
             @templateString={{this.preview.templateString}}

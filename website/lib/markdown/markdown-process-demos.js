@@ -20,7 +20,7 @@ const demoBlockRegex =
  * Example input path: "var/folders/68/g3fv_h7538xcqf6nd48jm8m40000gn/T/broccoli-59163KsQiVU7Es4GZ/out-158-funnel/components/accordion/partials/code/code-snippets/accordion-expand-all.classic"
  */
 const fileNameRegex =
-  /((?:getting-started|foundations|components|layouts|utilities|overrides|patterns|testing).*?)\.(?:hbs|js|gts)/;
+  /((?:getting-started|foundations|components|layouts|utilities|overrides|patterns|testing).*?)(?:\.hbs|\.gts)$/;
 
 const SUPPORTED_FILE_EXTENSIONS = [
   '.classic.hbs',
@@ -159,8 +159,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             customLang: '',
           };
 
-          let classicFilenameToForward = '';
-          let gtsFilenameToForward = '';
+          let classicComponentIdToForward = '';
+          let gtsComponentIdToForward = '';
 
           SUPPORTED_FILE_EXTENSIONS.forEach((ext) => {
             const fileToCheck = `${fileName.trim()}${ext}`;
@@ -172,7 +172,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
 
               if (ext === '.classic.hbs') {
                 codeSnippets.hbsSnippet = escapeCode(stripAllIgnores(code));
-                classicFilenameToForward = getComponentIdFromPath(filePath);
+                classicComponentIdToForward = getComponentIdFromPath(filePath);
               }
 
               if (ext === '.classic.js' || ext === '.js') {
@@ -184,7 +184,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 codeSnippets.compactGtsSnippet = escapeCode(
                   stripAllIgnores(getCompactGtsSnippet(code)),
                 );
-                gtsFilenameToForward = getComponentIdFromPath(filePath);
+                gtsComponentIdToForward = getComponentIdFromPath(filePath);
               }
 
               if (
@@ -201,7 +201,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           });
 
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" gtsFilename="${gtsFilenameToForward}" classicFilename="${classicFilenameToForward}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" classicComponentId="${classicComponentIdToForward}" gtsComponentId="${gtsComponentIdToForward}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 

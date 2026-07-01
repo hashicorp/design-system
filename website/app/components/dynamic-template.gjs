@@ -61,7 +61,9 @@ export default class DynamicTemplate extends Component {
         setComponentTemplate(compiledTemplate, component);
       } else {
         // Component module mode (single file component): render a precompiled component by id.
-        component = componentId || null;
+        component = componentId
+          ? getOwner(this).factoryFor(`component:${componentId}`)?.class || null
+          : null;
       }
 
       // eslint-disable-next-line ember/no-side-effects
