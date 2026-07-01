@@ -1,3 +1,8 @@
+## 6.3.0
+
+Exported `THEMES` constant.
+
+
 ## 6.2.1
 
 Switched usage of inline styles with `ember-style-modifier`.

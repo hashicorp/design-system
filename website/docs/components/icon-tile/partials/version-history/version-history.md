@@ -1,3 +1,8 @@
+## 6.3.0
+
+Replaced `[product]-colored` icon with standard `[product]` icon in `@logo="[product]"` variant.
+
+
 ## 6.1.0
 
 Converted component to gts format.

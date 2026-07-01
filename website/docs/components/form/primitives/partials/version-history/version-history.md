@@ -1,3 +1,17 @@
+## 6.3.0
+
+
+`Form Primitives` - Replaced rendering of text via HDS `Text` component and used standard HTML tags, then updated CSS styles to use newly added component-level design tokens.
+
+Components updated:
+
+- `FormCharacterCount`
+- `FormError`
+- `FormHelperText`
+- `FormIndicator`
+- `FormLabel`
+- `FormLegend`
+
 ## 6.2.0
 
 `Form::Indicator` - Fixed invocation of `HdsTextBody` to use named arguments, which prevented incorrect argument forwarding.

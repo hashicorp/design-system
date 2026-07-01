@@ -15,8 +15,6 @@ navigation:
     - grid
     - table
     - list
-status:
-  added: 6.2.0
 ---
 
 <section data-tab="Code">

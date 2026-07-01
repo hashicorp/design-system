@@ -19,8 +19,6 @@ navigation:
     - menu
     - action menu
     - list
-status:
-  updated: 6.2.1
 ---
 
 <section data-tab="Guidelines">

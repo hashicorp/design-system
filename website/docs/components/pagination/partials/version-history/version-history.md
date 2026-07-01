@@ -1,3 +1,13 @@
+## 6.3.0
+
+Added keyboard focus management at the beginning and end of pagination. When an arrow button becomes disabled after clicking because a boundary has been reached, focus moves to the opposite arrow button.
+
+
+Multiple changes:
+
+- Added extra modifier classes `hds-pagination--numbered`/`hds-pagination—compact` to variants.
+- Removed extra whitespace in label for `PaginationSizeSelector`.
+
 ## 6.1.1
 
 Translated strings for `PaginationCompact` and `PaginationNumbered` ariaLabels. Translated strings for `PaginationNavArrow` ariaLabels and button text.

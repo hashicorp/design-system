@@ -1,3 +1,10 @@
+## 6.3.0
+
+Multiple changes:
+
+- Added extra modifier classes `hds-tag--is-interactive`/`hds-tag--is-static` to variants.
+- Fixed classes selectors for `focus` state (no visible changes).
+
 ## 6.2.0
 
 Fixed a runtime error when `ResizeObserver` is undefined (e.g. SSR).

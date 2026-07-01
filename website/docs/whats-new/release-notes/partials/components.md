@@ -18,21 +18,17 @@
 
 **Minor changes**
 
-<!-- START components/app-footer -->
 
 `AppFooter` - Exported `THEMES` constant.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3946](https://github.com/hashicorp/design-system/pull/3946)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/alert -->
 
 `Alert` - Deprecated the `Generic` yielded block which renders below actions and added `GenericContent` and `GenericFooter` yielded blocks for including custom content either above or below `Alert` actions.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3932](https://github.com/hashicorp/design-system/pull/3932)</small>
 
@@ -40,41 +36,33 @@
 
 **Patch changes**
 
-<!-- START components/stepper/list -->
 
 `StepperList` - Fixed description and content contextual blocks to be hidden if conditionally empty
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3899](https://github.com/hashicorp/design-system/pull/3899)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/toggle -->
 
 `Toggle` - Added the `aria-checked` attribute to the input for accessibility. It is synced with the `checked` attribute.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3918](https://github.com/hashicorp/design-system/pull/3918)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/pagination -->
 
 `Pagination` - Added keyboard focus management at the beginning and end of pagination. When an arrow button becomes disabled after clicking because a boundary has been reached, focus moves to the opposite arrow button.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3917](https://github.com/hashicorp/design-system/pull/3917)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START {components/modal} -->
 
 `Modal` - Fixed issue causing `Modal` to close unexpectedly by checking that a click on the `Overlay` both starts and ends within the `Overlay` before closing
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3923](https://github.com/hashicorp/design-system/pull/3923)</small>
 
@@ -86,13 +74,10 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/flyout -->
 
 `Flyout` - Replaced custom box shadow with standard `elevation-overlay-box-shadow` token.
 
-<!-- END -->
 
-<!-- START components/form/primitives -->
 
 `Form Primitives` - Replaced rendering of text via HDS `Text` component and used standard HTML tags, then updated CSS styles to use newly added component-level design tokens.
 
@@ -104,35 +89,26 @@ Components updated:
 - `FormIndicator`
 - `FormLabel`
 - `FormLegend`
-<!-- END -->
 
-<!-- START components/icon-tile -->
 
 `IconTile` - Replaced `[product]-colored` icon with standard `[product]` icon in `@logo="[product]"` variant.
 
-<!-- END -->
 
-<!-- START components/link/standalone -->
 
 `LinkStandalone` - Set explicit secondary hover state color to avoid possible overrides.
 
-<!-- END -->
 
-<!-- START components/pagination -->
 
 `Pagination` - Multiple changes:
 
 - Added extra modifier classes `hds-pagination--numbered`/`hds-pagination—compact` to variants.
 - Removed extra whitespace in label for `PaginationSizeSelector`.
-<!-- END -->
 
-<!-- START components/tag -->
 
 `Tag` - Multiple changes:
 
 - Added extra modifier classes `hds-tag--is-interactive`/`hds-tag--is-static` to variants.
 - Fixed classes selectors for `focus` state (no visible changes).
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3947](https://github.com/hashicorp/design-system/pull/3947)</small>
 
