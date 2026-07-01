@@ -9,7 +9,7 @@ import { hash } from '@ember/helper';
 import { or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import { didInsert } from '@ember/render-modifiers';
 
 import type { WithBoundArgs } from '@glint/template';
 
