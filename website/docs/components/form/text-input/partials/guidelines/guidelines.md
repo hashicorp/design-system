@@ -29,12 +29,23 @@ The `TextInput` component has a visibility toggle feature for password fields. B
 
 ### Search
 
-!!! Do
+Text Input accepts the type of `search` which users can enter search queries into.
 
-If users need to search within a filterable dataset, embed search directly into the [Filter Bar](/components/filter-bar) or follow the [Filter Patterns](/patterns/filter-patterns) guidelines.
+#### States
 
-![An example of the term "errored" searched for across an entire filterable dataset in a table](/assets/components/filter-bar/filter-bar-search-filled.png)
-!!!
+##### Default state
+
+<Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" as |F|>
+  <F.Label>Search</F.Label>
+</Hds::Form::TextInput::Field>
+
+##### Loading state
+
+<Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" @isLoading="true" as |F|>
+  <F.Label>Search</F.Label>
+</Hds::Form::TextInput::Field>
+
+#### Search placement
 
 !!! Do
 
@@ -49,18 +60,6 @@ Don't use a standalone search input within a [Filter Bar](/components/filter-bar
 
 ![An example of the term "errored" searched for across a dataset in a table without additional filters](/assets/components/filter-bar/filter-bar-search-no-filters.png)
 !!!
-
-#### Default state
-
-<Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" as |F|>
-  <F.Label>Search</F.Label>
-</Hds::Form::TextInput::Field>
-
-#### Loading state
-
-<Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" @isLoading="true" as |F|>
-  <F.Label>Search</F.Label>
-</Hds::Form::TextInput::Field>
 
 ### Date and time
 
