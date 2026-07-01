@@ -78,6 +78,6 @@ You can pass more than one `D.Description` contextual component to have multiple
 
 ### Generic content
 
-Use the `Generic` contextual component to insert custom content. Generic content will appear after the title, description, and actions. Application teams will need to implement spacing, layout, and styling for generic content.
+Use the `GenericContent` and `GenericFooter` contextual components to insert custom content. Generic Content will appear after the Title and Description and above the Actions while the Generic Footer will appear at the bottom of the Alert content below the actions. Application teams will need to implement spacing, layout, and styling for generic content.
 
 [[code-snippets/alert-generic]]

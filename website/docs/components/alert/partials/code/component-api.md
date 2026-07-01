@@ -15,7 +15,13 @@
   <C.Property @name="<[A].LinkStandalone>" @type="yielded component">
     `Link::Standalone` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[A].Generic>" @type="yielded component">
+  <C.Property @name="<[A].Generic>" @type="yielded component" @deprecated={{true}}>
+    A generic container yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].GenericContent>" @type="yielded component">
+    A generic container yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].GenericFooter>" @type="yielded component">
     A generic container yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="type" @required={{true}} @type="enum" @values={{array "page" "inline" "compact"}}>
@@ -88,9 +94,20 @@ The `Link::Standalone` component, yielded as contextual component inside the `"a
   </C.Property>
 </Doc::ComponentApi>
 
-#### [A].Generic
+#### [A].GenericContent
 
-A generic container, yielded as contextual component.
+A generic container, yielded as contextual component which renders below the Title and Description and above any Actions.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements passed as children are yielded after all the other elements.
+    <br/>The content is unstyled by default, so consumers will need to take care of layout and style of the content.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [A].GenericFooter
+
+A generic container, yielded as contextual component which at the bottom of Alert content and below any Actions.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
