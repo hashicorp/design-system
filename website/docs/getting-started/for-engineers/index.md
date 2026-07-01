@@ -68,11 +68,11 @@ Import the CSS by adding this configuration in `ember-cli-build.js`.
 
 If you are are using single file components (i.e., `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path. To use a component's signature, you must import it from the definition file.
 
-[[code-snippets/sample-component expanded=true]]
+[[code-snippets/sample-component execute=false expanded=true]]
 
 In the rare cases where you need to use an HDS modifier, they are only exported from their definition file
 
-[[code-snippets/sample-imports expanded=true]]
+[[code-snippets/sample-imports execute=false expanded=true]]
 
 For more information on single file components, see the Ember docs:
 * [Intro to components](https://guides.emberjs.com/release/components/introducing-components/)

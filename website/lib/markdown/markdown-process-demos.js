@@ -20,7 +20,7 @@ const demoBlockRegex =
  * Example input path: "var/folders/68/g3fv_h7538xcqf6nd48jm8m40000gn/T/broccoli-59163KsQiVU7Es4GZ/out-158-funnel/components/accordion/partials/code/code-snippets/accordion-expand-all.classic"
  */
 const fileNameRegex =
-  /((?:getting-started|foundations|components|layouts|utilities|overrides|patterns|testing).*?)\.(?:hbs|js|gts)/;
+  /((?:getting-started|foundations|components|layouts|utilities|overrides|patterns|testing).*?)(?:\.hbs|\.gts)$/;
 
 const SUPPORTED_FILE_EXTENSIONS = [
   '.classic.hbs',
@@ -124,6 +124,10 @@ function getCompactGtsSnippet(code) {
   return dedentedLines.join('\n');
 }
 
+function getComponentIdFromPath(filePath) {
+  return filePath.match(fileNameRegex)?.[1] || '';
+}
+
 class MarkdownReplaceDemoBlocks extends Multifilter {
   build() {
     const inputFolder = this.inputPaths[0];
@@ -147,15 +151,16 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
 
           const codeSnippets = {
-            hbs: '',
-            js: '',
-            gts: '',
-            compactGts: '',
-            custom: '',
+            hbsSnippet: '',
+            jsSnippet: '',
+            gtsSnippet: '',
+            compactGtsSnippet: '',
+            customSnippet: '',
             customLang: '',
           };
 
-          let fileNameToForward = '';
+          let classicComponentIdToForward = '';
+          let gtsComponentIdToForward = '';
 
           SUPPORTED_FILE_EXTENSIONS.forEach((ext) => {
             const fileToCheck = `${fileName.trim()}${ext}`;
@@ -166,21 +171,20 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
               dependencies.push(filePath);
 
               if (ext === '.classic.hbs') {
-                codeSnippets.hbs = escapeCode(stripAllIgnores(code));
-
-                // need to use the classic.hbs file path for forwarding because the DynamicTemplate relies on the hbs/js files to render the preview - so the fileName must include the .classic extension
-                fileNameToForward = filePath.match(fileNameRegex)?.[1];
+                codeSnippets.hbsSnippet = escapeCode(stripAllIgnores(code));
+                classicComponentIdToForward = getComponentIdFromPath(filePath);
               }
 
               if (ext === '.classic.js' || ext === '.js') {
-                codeSnippets.js = escapeCode(stripAllIgnores(code));
+                codeSnippets.jsSnippet = escapeCode(stripAllIgnores(code));
               }
 
               if (ext === '.gts') {
-                codeSnippets.gts = escapeCode(stripAllIgnores(code));
-                codeSnippets.compactGts = escapeCode(
+                codeSnippets.gtsSnippet = escapeCode(stripAllIgnores(code));
+                codeSnippets.compactGtsSnippet = escapeCode(
                   stripAllIgnores(getCompactGtsSnippet(code)),
                 );
+                gtsComponentIdToForward = getComponentIdFromPath(filePath);
               }
 
               if (
@@ -190,14 +194,14 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 ext === '.html' ||
                 ext === '.jsx'
               ) {
-                codeSnippets.custom = escapeCode(code);
+                codeSnippets.customSnippet = escapeCode(code);
                 codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
               }
             }
           });
 
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" custom="${codeSnippets.custom}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" classicComponentId="${classicComponentIdToForward}" gtsComponentId="${gtsComponentIdToForward}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 

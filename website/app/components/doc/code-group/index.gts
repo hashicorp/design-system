@@ -6,7 +6,6 @@ import Component from '@glimmer/component';
 import { registerDestructor } from '@ember/destroyable';
 import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
-import { notEq } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
 import { service } from '@ember/service';
 
@@ -22,7 +21,8 @@ import DynamicTemplate from 'website/components/dynamic-template';
 
 interface DocCodeGroupSignature {
   Args: {
-    filename?: string;
+    gtsComponentId?: string;
+    classicComponentId?: string;
     hbsSnippet?: string;
     jsSnippet?: string;
     gtsSnippet?: string;
@@ -43,8 +43,8 @@ const CODE_GROUP_LANGUAGE_STORAGE_KEY = 'hds-doc-code-group-language';
 const CODE_GROUP_LANGUAGE_CHANGE_EVENT = 'hds-doc-code-group-language-change';
 
 // Helper to undo code escaping for display
-const unescapeCode = (code: string) => {
-  return code.replace(/\\n/g, '\n');
+const unescapeCode = (code?: string) => {
+  return code ? code.replace(/\\n/g, '\n') : '';
 };
 
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
@@ -119,59 +119,80 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
   }
 
-  // NOTE: the dynamic template requires a component to render a preview. If there is not a component (ex. only a sass/yaml/bash snippet), we hide the preview by default.
-  get hidePreview() {
-    // TODO: refactor dynamic template to support gts components: https://hashicorp.atlassian.net/browse/HDS-5833
-    return this.args.hbsSnippet === '' || this.args.hidePreview === 'true';
+  // NOTE: the dynamic template requires an Ember component to render a preview. If there is not a component (ex. only a sass/yaml/bash snippet), we hide the preview by default.
+  get showPreview() {
+    if (this.args.hidePreview === 'true') {
+      return false;
+    }
+
+    const hasHbsPreview =
+      !!this.args.hbsSnippet && !!this.args.classicComponentId;
+    const hasGtsPreview = !!this.args.gtsSnippet && !!this.args.gtsComponentId;
+
+    return hasHbsPreview || hasGtsPreview;
   }
 
-  get hbsSnippet() {
-    const { hbsSnippet } = this.args;
-    return hbsSnippet ? unescapeCode(hbsSnippet) : '';
-  }
+  get preview() {
+    if (
+      this.currentView === 'gts' &&
+      this.args.gtsSnippet &&
+      this.args.gtsComponentId
+    ) {
+      return {
+        componentId: this.args.gtsComponentId,
+        templateString: undefined,
+      };
+    }
 
-  get gtsSnippet() {
-    const { gtsSnippet } = this.args;
-    return gtsSnippet ? unescapeCode(gtsSnippet) : '';
-  }
-
-  get jsSnippet() {
-    const { jsSnippet } = this.args;
-    return jsSnippet ? unescapeCode(jsSnippet) : '';
-  }
-
-  get compactGtsSnippet() {
-    const { compactGtsSnippet } = this.args;
-    return compactGtsSnippet ? unescapeCode(compactGtsSnippet) : '';
-  }
-
-  get customSnippet() {
-    const { customSnippet } = this.args;
-    return customSnippet ? unescapeCode(customSnippet) : '';
+    if (
+      (this.currentView === 'hbs' || this.currentView === 'js') &&
+      this.args.hbsSnippet &&
+      this.args.classicComponentId
+    ) {
+      return {
+        componentId: this.args.classicComponentId,
+        templateString: unescapeCode(this.args.hbsSnippet),
+      };
+    }
   }
 
   get currentSnippet() {
+    const {
+      hbsSnippet,
+      jsSnippet,
+      gtsSnippet,
+      compactGtsSnippet,
+      customSnippet,
+      customLang,
+    } = this.args;
+
     if (this.currentView === 'js') {
-      return { snippet: this.jsSnippet, language: 'js' };
+      return { snippet: unescapeCode(jsSnippet), language: 'js' };
     }
 
     if (this.currentView === 'gts') {
       if (this.isExpanded) {
-        return { snippet: this.gtsSnippet, language: 'gts' };
+        return {
+          snippet: unescapeCode(gtsSnippet),
+          language: 'gts',
+        };
       }
 
-      // to display the compact gts snippet correctly, need to use hbs syntax highlighting instead of gts
-      return { snippet: this.compactGtsSnippet, language: 'hbs' };
+      return {
+        snippet: unescapeCode(compactGtsSnippet),
+        // to display the compact gts snippet correctly, need to use hbs syntax highlighting instead of gts
+        language: 'hbs',
+      };
     }
 
     if (this.currentView === 'custom') {
       return {
-        snippet: this.customSnippet,
-        language: this.args.customLang || 'text',
+        snippet: unescapeCode(customSnippet),
+        language: customLang || 'text',
       };
     }
 
-    return { snippet: this.hbsSnippet, language: 'hbs' };
+    return { snippet: unescapeCode(hbsSnippet), language: 'hbs' };
   }
 
   get hasFooter() {
@@ -192,25 +213,25 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   };
 
   get shouldSyncLanguageSelection() {
-    return this.args.hbsSnippet !== '' && this.args.gtsSnippet !== '';
+    return !!this.args.hbsSnippet && !!this.args.gtsSnippet;
   }
 
   get languageOptions() {
     const options: Array<LanguageOption> = [];
 
-    if (this.args.hbsSnippet !== '') {
+    if (this.args.hbsSnippet) {
       options.push({ label: '.hbs', value: 'hbs' });
     }
 
-    if (this.args.jsSnippet !== '') {
+    if (this.args.jsSnippet) {
       options.push({ label: '.js', value: 'js' });
     }
 
-    if (this.args.gtsSnippet !== '') {
+    if (this.args.gtsSnippet) {
       options.push({ label: '.gts', value: 'gts' });
     }
 
-    if (this.args.customLang && this.args.customSnippet !== '') {
+    if (this.args.customLang && !!this.args.customSnippet) {
       options.push({ label: `.${this.args.customLang}`, value: 'custom' });
     }
 
@@ -279,11 +300,11 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   <template>
     <div class="doc-code-group">
-      {{#if (notEq this.hidePreview true)}}
+      {{#if this.showPreview}}
         <div class="doc-code-group__preview">
           <DynamicTemplate
-            @templateString={{this.hbsSnippet}}
-            @componentId={{@filename}}
+            @templateString={{this.preview.templateString}}
+            @componentId={{this.preview.componentId}}
           />
         </div>
       {{/if}}
