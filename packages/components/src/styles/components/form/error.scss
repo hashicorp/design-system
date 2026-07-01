@@ -7,6 +7,8 @@
 // FORM > ERROR
 //
 
+@use "../../mixins/carbonization" as *;
+
 .hds-form-error {
   display: flex;
   gap: 8px;
@@ -23,6 +25,10 @@
   width: var(--token-form-error-icon-size);
   height: var(--token-form-error-icon-size);
   margin: 2px 0 2px 0;
+
+  @include hds-apply-only-if-carbon() {
+    margin: 1px 0 1px 0;
+  }
 }
 
 .hds-form-error__content {

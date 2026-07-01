@@ -10,7 +10,8 @@
 // and are meant to provide overrides through specificity
 //
 
-/* stylelint-disable selector-class-pattern */
+@use "../mixins/focus-ring" as *;
+
 .hds-power-select {
   font-size: 0.875rem; // 14px
   font-family: var(--token-typography-font-stack-text);
@@ -21,7 +22,7 @@
     min-height: 36px;
     padding: calc(var(--token-form-control-padding) + 1px);
     padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-    color: var(--token-form-control-base-foreground-value-color);
+    color: var(--token-form-control-base-foreground-color);
     background-color: var(--token-form-control-base-surface-color-default);
     background-image: var(--token-form-select-background-image-data-url);
     background-repeat: no-repeat;
@@ -38,11 +39,10 @@
       border-color: var(--token-form-control-base-border-color-hover);
     }
 
-    &:focus,
+    &:focus-visible,
     &.mock-focus {
+      @include hds-focus-ring-basic();
       border-color: var(--token-color-focus-action-internal);
-      outline: 3px solid var(--token-color-focus-action-external);
-      outline-offset: 0;
     }
 
     &[aria-expanded="true"] {
@@ -97,7 +97,7 @@
       width: 100%;
       max-width: 100%;
       padding: var(--token-form-control-padding);
-      color: var(--token-form-control-base-foreground-value-color);
+      color: var(--token-form-control-base-foreground-color);
       line-height: 1rem;
       background-color: var(--token-form-control-base-surface-color-default);
       border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
@@ -107,7 +107,7 @@
       // PLACEHOLDER
 
       ::placeholder {
-        color: var(--token-form-control-base-foreground-placeholder-color);
+        color: var(--token-form-control-base-placeholder-foreground-color);
       }
 
       // STATUS
@@ -119,11 +119,10 @@
 
       // focus (same for all the states)
 
-      &:focus,
+      &:focus-visible,
       &.mock-focus {
+        @include hds-focus-ring-basic();
         border-color: var(--token-color-focus-action-internal);
-        outline: 3px solid var(--token-color-focus-action-external);
-        outline-offset: 0;
       }
 
       &[type="search"] {

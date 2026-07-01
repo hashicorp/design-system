@@ -9,6 +9,11 @@
 
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
+
+// ACCORDION
+
+$hds-accordion-sizes: ("small", "medium", "large");
 
 .hds-accordion {
   display: flex;
@@ -17,57 +22,49 @@
 
 .hds-accordion--type-card {
   &.hds-accordion--size-small {
-    gap: 4px;
+    gap: var(--token-accordion-card-gap-small);
   }
 
   &.hds-accordion--size-medium {
-    gap: 8px;
+    gap: var(--token-accordion-card-gap-medium);
   }
 
   &.hds-accordion--size-large {
-    gap: 12px;
+    gap: var(--token-accordion-card-gap-large);
   }
 }
 
-// ACCORDION ITEM COMPONENT (nested child)
+// ACCORDION ITEM > VARIANTS MAPPINGS
 
-.hds-accordion-item--size-small {
-  --hds-accordion-item-toggle-padding: 8px;
-  --hds-accordion-item-toggle-padding-left: 8px;
-  --hds-accordion-item-content-padding-top: 4px;
-  --hds-accordion-item-content-padding-right: 8px;
-  --hds-accordion-item-content-padding-bottom: 8px;
-  --hds-accordion-item-content-padding-left: 12px;
-  --hds-accordion-item-gap: 8px;
-  --hds-accordion-item-icon-size: 16px;
+@each $size in $hds-accordion-sizes {
+  .hds-accordion-item--size-#{$size} {
+    --hds-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-#{$size});
+    --hds-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-#{$size});
+    --hds-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-#{$size});
+    --hds-accordion-item-content-padding-top: var(--token-accordion-item-content-padding-top-#{$size});
+    --hds-accordion-item-content-padding-right: var(--token-accordion-item-content-padding-right-#{$size});
+    --hds-accordion-item-content-padding-bottom: var(--token-accordion-item-content-padding-bottom-#{$size});
+    --hds-accordion-item-content-padding-left: var(--token-accordion-item-content-padding-left-#{$size});
+  }
 }
 
-.hds-accordion-item--size-medium {
-  --hds-accordion-item-toggle-padding: 12px;
-  --hds-accordion-item-toggle-padding-left: 8px;
-  --hds-accordion-item-content-padding-top: 4px;
-  --hds-accordion-item-content-padding-right: 12px;
-  --hds-accordion-item-content-padding-bottom: 12px;
-  --hds-accordion-item-content-padding-left: 12px;
-  --hds-accordion-item-gap: 12px;
-  --hds-accordion-item-icon-size: 20px;
-}
-
-.hds-accordion-item--size-large {
-  --hds-accordion-item-toggle-padding: 16px;
-  --hds-accordion-item-toggle-padding-left: 12px;
-  --hds-accordion-item-content-padding-top: 4px;
-  --hds-accordion-item-content-padding-right: 16px;
-  --hds-accordion-item-content-padding-bottom: 16px;
-  --hds-accordion-item-content-padding-left: 16px;
-  --hds-accordion-item-gap: 12px;
-  --hds-accordion-item-icon-size: 24px;
-}
+// ACCORDION ITEM > TYPE: CARD
 
 .hds-accordion-item--type-card {
-  --hds-accordion-item-focus-ring-offset: 0;
-  background: var(--token-color-surface-primary);
+  background-color: var(--token-color-surface-primary);
   border-radius: var(--token-border-radius-medium);
+
+  @include hds-apply-only-if-carbon() {
+    background-color: transparent;
+    border-bottom: 1px solid var(--token-accordion-item-border-color);
+
+    &:first-child {
+      border-top: 1px solid var(--token-accordion-item-border-color);
+    }
+  }
 
   &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
     box-shadow: var(--token-surface-mid-box-shadow);
@@ -75,6 +72,17 @@
     &:hover,
     &.mock-hover {
       box-shadow: var(--token-surface-high-box-shadow);
+    }
+
+    // we need to use this selector to make sure we're impacting only the direct children (there could be nested accordions)
+    > .hds-disclosure-primitive__toggle {
+      &:hover,
+      &.mock-hover {
+        @include hds-apply-only-if-carbon() {
+          background-color: var(--token-color-surface-interactive-hover);
+          border-radius: inherit;
+        }
+      }
     }
   }
 
@@ -84,23 +92,32 @@
   }
 }
 
+// ACCORDION ITEM > TYPE: FLUSH
+
 .hds-accordion-item--type-flush {
-  --hds-accordion-item-focus-ring-offset: 3px;
-  border-bottom: 1px solid var(--token-color-border-primary);
+  border-bottom: 1px solid var(--token-accordion-item-border-color);
 
-  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static)
-    > .hds-disclosure-primitive__toggle {
-    &:hover,
-    &.mock-hover {
-      .hds-accordion-item__toggle {
-        background: var(--token-color-surface-interactive-hover);
-      }
+  @include hds-apply-only-if-carbon() {
+    &:first-child {
+      border-top: 1px solid var(--token-accordion-item-border-color);
     }
+  }
 
-    &:active,
-    &.mock-active {
-      .hds-accordion-item__toggle {
-        background: var(--token-color-surface-interactive-active);
+  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
+    // we need to use this selector to make sure we're impacting only the direct children (there could be nested accordions)
+    > .hds-disclosure-primitive__toggle {
+      &:hover,
+      &.mock-hover {
+        background-color: var(--token-color-surface-interactive-hover);
+      }
+
+      &:active,
+      &.mock-active {
+        background-color: var(--token-color-surface-interactive-active);
+
+        @include hds-apply-only-if-carbon() {
+          background-color: transparent;
+        }
       }
     }
   }
@@ -111,22 +128,34 @@
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
-  gap: var(--hds-accordion-item-gap);
+  gap: var(--hds-accordion-item-toggle-gap);
   align-items: center;
-  padding: var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding)
-    var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding-left);
+  padding: var(--hds-accordion-item-toggle-padding-top) var(--hds-accordion-item-toggle-padding-right)
+    var(--hds-accordion-item-toggle-padding-bottom) var(--hds-accordion-item-toggle-padding-left);
 }
 
 .hds-accordion-item__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hds-accordion-item-toggle-icon-size);
+  height: var(--hds-accordion-item-toggle-icon-size);
   padding: 0;
+  border: var(--token-button-border-width) solid transparent;
+  border-radius: var(--token-border-radius-small);
+  cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
+  // animate `chevron-down` icon
+  &.hds-accordion-item__button--is-open {
+    .hds-icon {
+      transform: rotate(var(--token-accordion-item-toggle-icon-transform-rotate));
+    }
   }
 
-  .hds-icon {
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 0.3s;
+  @media (prefers-reduced-motion: no-preference) {
+    .hds-icon {
+      transition: transform var(--token-accordion-item-toggle-icon-transition-duration)
+        var(--token-accordion-item-toggle-icon-transition-timing-function);
     }
   }
 
@@ -136,53 +165,92 @@
   }
 }
 
-// entire toggle area is interactive
 .hds-accordion-item__button--parent-does-not-contain-interactive {
-  @include hds-focus-ring-with-pseudo-element(
-    $top: var(--hds-accordion-item-focus-ring-offset),
-    $right: var(--hds-accordion-item-focus-ring-offset),
-    $bottom: var(--hds-accordion-item-focus-ring-offset),
-    $left: var(--hds-accordion-item-focus-ring-offset)
-  );
-
   position: static;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: -1px 0;
   color: var(--token-color-foreground-primary);
-  background: transparent;
-  border: 0;
+  background-color: transparent;
+
+  // we want to make the entire toggle area interactive (even when not focused)
+  &::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+  }
+
+  // focus is slightly different between the two `type` variants (card/flush)
+
+  .hds-accordion-item--type-card & {
+    --hds-accordion-item-button-focus-ring-inset-hds: 0;
+  }
+
+  .hds-accordion-item--type-flush & {
+    // for the `hds` flush we want the focus ring to appear
+    // inside the toggle (to avoid extending outside its bounding box)
+    --hds-accordion-item-button-focus-ring-inset-hds: 3px;
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced(
+      // the `position` is already set above
+      $element-position: false,
+      $pseudo-element-z-index: 1,
+      $pseudo-element-inset-hds: var(--hds-accordion-item-button-focus-ring-inset-hds),
+      $pseudo-element-inset-cds: 0
+    );
+  }
 }
 
 // only chevron button area is interactive
 .hds-accordion-item__button--parent-contains-interactive {
-  @include hds-button();
+  position: relative;
+  color: var(--token-button-foreground-color-secondary-default);
+  background-color: var(--token-button-surface-color-secondary-default);
+  border-color: var(--token-button-border-color-secondary-default);
+  box-shadow: var(--token-elevation-low-box-shadow);
 
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
+  &:hover,
+  &.mock-hover {
+    color: var(--token-button-foreground-color-secondary-hover);
+    background-color: var(--token-button-surface-color-secondary-hover);
+    border-color: var(--token-button-border-color-secondary-hover);
+    cursor: pointer;
   }
 
-  // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
-  @include hds-button-color-secondary();
-}
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced(
+      // the `position` is already set above
+      $element-position: false,
+      $pseudo-element-z-index: 0,
+      // focus is the same between the two `type` variants (card/flush)
+      $pseudo-element-inset-hds: -1px,
+      // we want the outline to appear outside of the button (for `cds` only)
+      $pseudo-element-inset-cds: -1px
+    );
+  }
 
-.hds-accordion-item__button {
-  width: var(--hds-accordion-item-icon-size);
-  height: var(--hds-accordion-item-icon-size);
-}
-
-// animate chevron icon
-.hds-accordion-item__button--is-open {
-  .hds-icon-chevron-down {
-    transform: rotate(-180deg);
+  &:active,
+  &.mock-active {
+    color: var(--token-button-foreground-color-secondary-active);
+    background-color: var(--token-button-surface-color-secondary-active);
+    border-color: var(--token-button-border-color-secondary-active);
+    box-shadow: none;
   }
 }
 
 // Consumer added content that appears next to the chevron button:
 .hds-accordion-item__toggle-content {
   flex: 1;
+  border-radius: inherit;
+
+  // we need to override the font styles for the `cds` variants
+  // (it's easier to do it here that via design tokens)
+  @include hds-apply-only-if-carbon() {
+    font-weight: var(--token-typography-font-weight-regular);
+    font-size: var(--token-typography-body-200-font-size);
+  }
 }
 
 // CONTENT BLOCK
@@ -194,15 +262,34 @@
   }
 }
 
-// Adjust content padding and border for nested flush accordions
+// NESTED ACCORDIONS
+// We need to adjust content padding and border for nested  accordions
 
 .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) {
   padding: 0 var(--hds-accordion-item-content-padding-right) 0 var(--hds-accordion-item-content-padding-left);
-  border-top: 1px solid var(--token-color-border-primary);
+  border-top: 1px solid var(--token-accordion-item-border-color);
 
-  .hds-accordion-item--type-flush {
+  @include hds-apply-only-if-carbon() {
+    padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right)
+      var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
+
+    .hds-accordion-item--type-flush {
+      &:first-child {
+        border-top: none;
+      }
+    }
+
     &:last-child {
       border-bottom: none;
+    }
+  }
+}
+
+// special styles for `cds` modes
+.hds-accordion-item .hds-accordion-item__content:has(> .hds-accordion) {
+  .hds-accordion {
+    @include hds-apply-only-if-carbon() {
+      margin-left: 32px;
     }
   }
 }

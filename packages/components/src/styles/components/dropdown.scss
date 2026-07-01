@@ -6,15 +6,22 @@
 //
 // DROPDOWN COMPONENT
 //
-// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
-//
 
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
-
-$hds-dropdown-toggle-border-radius: $hds-button-border-radius;
+@use "../mixins/carbonization" as *;
 
 // DROPDOWN
+
+.hds-dropdown {
+  .hds-dropdown__content {
+    display: none;
+
+    &[popover]:popover-open {
+      display: flex;
+    }
+  }
+}
 
 .hds-dropdown--is-inline {
   display: inline-block;
@@ -27,47 +34,62 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 // TOGGLE/ICON
 
+// Customize Badge and BadgeCount colors for primary and secondary toggle buttons to ensure sufficient contrast for Carbon themes
+@mixin hds-dropdown-carbon-toggle-badge-colors() {
+  @include hds-apply-only-if-carbon() {
+    .hds-dropdown-toggle-button__badge,
+    .hds-dropdown-toggle-button__count {
+      // corresponds to `gray-100` in Carbon
+      color: #161616;
+      // corresponds to `gray-20` in Carbon
+      background-color: #e0e0e0;
+      border-color: transparent;
+    }
+  }
+}
+
 .hds-dropdown-toggle-icon {
   position: relative;
   display: flex;
-  gap: 2px;
+  gap: var(--token-dropdown-toggle-icon-gap);
   align-items: center;
   justify-content: center;
-  padding: 1px;
+  padding: var(--token-dropdown-toggle-icon-padding);
   // this variant mimics the secondary button, but not entirely (eg. it doesn't have an elevation shadow)
   // so we need to provide the same color values but without using the `hds-button-color-secondary()` mixin
-  color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-faint);
-  border: 1px solid var(--token-color-border-strong);
-  border-radius: $hds-dropdown-toggle-border-radius;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent; // We need this to be transparent for a11y
+  color: var(--token-button-foreground-color-secondary-default);
+  background-color: var(--token-button-surface-color-secondary-default);
+  border: 1px solid var(--token-button-border-color-secondary-default);
+  border-radius: var(--token-button-border-radius);
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
   &:hover,
   &.mock-hover {
-    background-color: var(--token-color-surface-interactive);
+    color: var(--token-button-foreground-color-secondary-hover);
+    background-color: var(--token-button-surface-color-secondary-hover);
+    border-color: var(--token-button-border-color-secondary-hover);
     cursor: pointer;
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
-    @include hds-button-state-focus();
-    border-color: var(--token-color-focus-action-internal);
-
-    &::before {
-      border-color: var(--token-color-focus-action-external);
-    }
+    @include hds-focus-ring-advanced(
+      // the element has already a `position: relative` with `isolation: isolate`
+      $element-position: false,
+      // needs to overlay the avatar image
+      $pseudo-element-z-index: 1,
+      // we want to see the white/black inner border for cds
+      $internal-border-width-cds: 1px
+    );
+    color: var(--token-button-foreground-color-secondary-focus);
+    background-color: var(--token-button-surface-color-secondary-focus);
   }
 
   &:active,
   &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
-
-    &::before {
-      border-color: transparent;
-    }
+    color: var(--token-button-foreground-color-secondary-active);
+    background-color: var(--token-button-surface-color-secondary-active);
+    border-color: var(--token-button-border-color-secondary-active);
   }
 
   &:disabled,
@@ -81,8 +103,8 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   align-items: center;
   justify-content: center;
   border-radius: calc(
-    #{$hds-dropdown-toggle-border-radius} - 2px
-  ); // $hds-dropdown-toggle-border-radius - (1px padding + 1px border) (= 3px)
+    var(--token-button-border-radius) - 2px
+  ); // var(--token-button-border-radius) - (1px padding + 1px border) (= 3px)
 
   img {
     width: 100%;
@@ -120,18 +142,14 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 .hds-dropdown-toggle-button {
   @include hds-button();
-
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
-  }
+  gap: var(--token-dropdown-toggle-button-gap);
 
   &:disabled,
   &.mock-disabled,
-  &:disabled:focus,
-  &.mock-disabled:focus,
   &:disabled:hover,
-  &.mock-disabled:hover {
+  &.mock-disabled:hover,
+  &:disabled:focus,
+  &.mock-disabled:focus {
     @include hds-button-state-disabled();
 
     .hds-dropdown-toggle-button__badge,
@@ -145,7 +163,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 @include hds-button-size-classes("hds-dropdown-toggle-button");
 
 .hds-dropdown-toggle-button--size-small {
-  padding-right: 0.375rem;
+  padding-right: var(--token-dropdown-toggle-button-padding-right-small);
 
   // For small variant with chevron, force the icon size to custom (even if the SGV size is `16px`)
   .hds-dropdown-toggle-chevron .hds-icon {
@@ -155,15 +173,27 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 }
 
 .hds-dropdown-toggle-button--size-medium {
-  padding-right: 0.5625rem;
+  padding-right: var(--token-dropdown-toggle-button-padding-right-medium);
 }
 
 .hds-dropdown-toggle-button--color-primary {
   @include hds-button-color-primary();
+
+  &:not(:disabled, .mock-disabled) {
+    @include hds-dropdown-carbon-toggle-badge-colors();
+  }
 }
 
 .hds-dropdown-toggle-button--color-secondary {
   @include hds-button-color-secondary();
+
+  &:not(:disabled, .mock-disabled) {
+    @include hds-dropdown-carbon-toggle-badge-colors();
+  }
+}
+
+.hds-dropdown-toggle-button--color-secondary-muted {
+  @include hds-button-color-secondary-muted();
 }
 
 .hds-dropdown-toggle-button--width-full {
@@ -191,6 +221,13 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   margin-left: auto;
   padding-left: 2px;
 
+  // We add extra spacing only when used within a toggle button vs. in a toggle icon
+  .hds-dropdown-toggle-button & {
+    @include hds-apply-only-if-carbon() {
+      padding-left: calc(32px - var(--token-dropdown-toggle-button-gap));
+    }
+  }
+
   .hds-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 0.3s;
@@ -205,20 +242,18 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   }
 }
 
-// LIST
-// UL ELEMENT
-// GOES INSIDE HDS::PopoverPrimitive's popover element
+// CONTENT
 
 .hds-dropdown__content {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: max-content; // notice: this is important because being in a position absolute means the layout algorithm assigns a width of 0 and this impacts on the flex algorithm of the children (in some cases they don't use the full width)
+  width: max-content; // Important: in position absolute the layout algorithm assigns a width of 0 which impacts the flex algorithm of the children (in some cases they don't use the full width)
   min-width: 200px;
   max-width: 400px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-surface-high-box-shadow);
+  box-shadow: var(--token-dropdown-box-shadow);
 
   // the "popover" attributes comes with pre-defined styling so we need to override it
   :where(&[popover]) {
@@ -234,20 +269,14 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   }
 }
 
-.hds-dropdown {
-  .hds-dropdown__content {
-    display: none;
-
-    &[popover]:popover-open {
-      display: flex;
-    }
-  }
-}
-
 .hds-dropdown__content--fixed-width {
   min-width: initial;
   max-width: initial;
 }
+
+// LIST
+// UL ELEMENT
+// GOES INSIDE CONTENT & HDS::PopoverPrimitive's popover element
 
 .hds-dropdown__list {
   flex: 1 1 auto;
@@ -257,6 +286,8 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   list-style: none;
   overscroll-behavior: contain;
 }
+
+// HEADER & FOOTER
 
 .hds-dropdown__header,
 .hds-dropdown__footer {
@@ -307,6 +338,17 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 .hds-dropdown-list-item--variant-copy-item {
   width: 100%;
   padding: 10px 16px 12px;
+
+  @include hds-apply-only-if-carbon() {
+    // We add an outline to make the hover state visible for Carbon themes
+    // (outline is used vs. border to avoid increasing height)
+    .hds-copy-snippet--color-secondary {
+      &:hover,
+      &.mock-hover {
+        outline: 1px solid var(--token-color-border-strong);
+      }
+    }
+  }
 }
 
 // HDS::DROPDOWN::LIST-ITEM::DESCRIPTION
@@ -321,6 +363,47 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 .hds-dropdown-list-item--variant-generic {
   padding-right: 16px;
   padding-left: 16px;
+}
+
+// Shared interactive state styles
+.hds-dropdown-list-item--variant-interactive,
+.hds-dropdown-list-item--variant-checkmark,
+.hds-dropdown-list-item--variant-checkbox,
+.hds-dropdown-list-item--variant-radio {
+  a,
+  button,
+  .hds-dropdown-list-item__label {
+    // Notice: to avoid too much duplication we define two local CSS variables
+    // and define their values in the color variants below
+
+    &:hover,
+    &.mock-hover {
+      color: var(--current-color-hover);
+
+      &::before {
+        background-color: currentColor;
+      }
+    }
+
+    &:focus-visible,
+    &.mock-focus {
+      color: var(--current-color-focus);
+
+      &::after {
+        left: 4px;
+        box-shadow: var(--current-focus-ring-box-shadow);
+      }
+    }
+
+    &:active,
+    &.mock-active {
+      color: var(--current-color-active);
+
+      &::before {
+        background-color: currentColor;
+      }
+    }
+  }
 }
 
 // HDS::DROPDOWN::LIST-ITEM::INTERACTIVE & HDS::DROPDOWN::LIST-ITEM::CHECKMARK
@@ -348,8 +431,10 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     padding: 7px 9px 7px 15px; // notice: we're subtracting 1px because of the transparent border
     text-decoration: none;
     border: 1px solid transparent; // because a border for the button is needed for a11y, we apply it to both the button and the link so they have the same height
-    outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-    outline-color: transparent;
+
+    @include hds-apply-only-if-carbon() {
+      padding: 11px 16px;
+    }
 
     // this is used for the left "hover" indicator
     &::before {
@@ -367,71 +452,24 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     // and also has a background color, so we can't use the existing focus-ring mixins
     &::after {
       position: absolute;
-      top: 0;
-      right: 4px;
-      bottom: 0;
-      left: 10px;
+      inset: 0 4px 0 10px;
       z-index: -1;
       border-radius: var(--token-border-radius-small);
       content: "";
+
+      @include hds-apply-only-if-carbon() {
+        inset: 0;
+      }
     }
+  }
 
-    // Notice: to avoid too much duplication we define two local CSS variables
-    // and define their values in the color variants below
-
-    &:hover,
-    &.mock-hover {
-      color: var(--current-color-hover);
-
+  @include hds-apply-only-if-carbon() {
+    button,
+    a,
+    .hds-dropdown-list-item__label {
+      // Hide the side highlight border for interactive children
       &::before {
-        background-color: currentColor;
-      }
-    }
-
-    // default focus for browsers that still rely on ":focus"
-    &:focus,
-    &.mock-focus {
-      color: var(--current-color-focus);
-
-      &::after {
-        left: 4px;
-        box-shadow: var(--current-focus-ring-box-shadow);
-      }
-    }
-    // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-    &:focus:not(:focus-visible) {
-      &::after {
-        background-color: transparent;
-        box-shadow: none;
-      }
-    }
-    // set focus for browsers that support ":focus-visible"
-    &:focus-visible {
-      color: var(--current-color-focus);
-
-      &::after {
-        left: 4px;
-        box-shadow: var(--current-focus-ring-box-shadow);
-      }
-    }
-
-    // remove the focus ring on "active + focused" state (by design)
-    &:focus:active,
-    &:focus-visible:active,
-    &.mock-focus.mock-active {
-      &::after {
-        left: 10px;
-        background-color: var(--current-background-color);
-        box-shadow: none;
-      }
-    }
-
-    &:active,
-    &.mock-active {
-      color: var(--current-color-active);
-
-      &::before {
-        background-color: currentColor;
+        display: none;
       }
     }
   }
@@ -460,36 +498,54 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   }
 }
 
+// Interactive List Item color variants
+
+// Action color (default)
 .hds-dropdown-list-item--color-action {
   a,
-  button {
-    color: var(--token-color-foreground-primary);
+  button,
+  .hds-dropdown-list-item__label {
+    color: var(--token-dropdown-list-item-foreground-color-action-default);
 
     // assign the values to the local CSS variables used above
-    --current-color-hover: var(--token-color-foreground-action-hover);
-    --current-color-focus: var(--token-color-foreground-action-active);
-    --current-color-active: var(--token-color-foreground-action-active);
+    --current-color-hover: var(--token-dropdown-list-item-foreground-color-action-hover);
+    --current-color-focus: var(--token-dropdown-list-item-foreground-color-action-focus);
+    --current-color-active: var(--token-dropdown-list-item-foreground-color-action-active);
 
     &::after {
       --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
     }
   }
+
+  // Selects item containing an interactive child which is hovered
+  &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
+    background-color: var(--token-dropdown-list-item-surface-color-action-hover);
+  }
 }
 
+// Critical color
 .hds-dropdown-list-item--color-critical {
   a,
   button {
-    color: var(--token-color-foreground-critical);
+    color: var(--token-dropdown-list-item-foreground-color-critical-default);
 
     // assign the values to the local CSS variables used above
-    --current-color-hover: var(--token-color-palette-red-300);
-    --current-color-focus: var(--token-color-palette-red-400);
-    --current-color-active: var(--token-color-palette-red-400);
+    --current-color-hover: var(--token-dropdown-list-item-foreground-color-critical-hover);
+    --current-color-focus: var(--token-dropdown-list-item-foreground-color-critical-focus);
+    --current-color-active: var(--token-dropdown-list-item-foreground-color-critical-active);
 
     &::after {
       --current-background-color: var(--token-color-surface-critical);
       --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
     }
+  }
+
+  // Selects item containing an interactive child which has a particular state
+  // focus, active & focus use the same colors
+  &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover),
+  &:has(button:focus, button.mock-focus, a:focus, a.mock-focus, input:focus, input.mock-focus),
+  &:has(button:active, button.mock-active, a:active, a.mock-active, input:active, input.mock-active) {
+    background-color: var(--token-dropdown-list-item-surface-color-critical-hover);
   }
 }
 
@@ -497,6 +553,10 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   display: flex;
   align-items: center;
   padding: 8px 10px 8px 16px;
+
+  @include hds-apply-only-if-carbon() {
+    padding: 11px 16px;
+  }
 
   .hds-dropdown-list-item__interactive-text {
     color: var(--token-color-foreground-faint);
@@ -514,12 +574,18 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   width: 100%;
   height: 4px;
 
+  // Remove extra spacing around separator
+  @include hds-apply-only-if-carbon() {
+    height: 1px;
+    margin: 4px 0;
+  }
+
   &::before {
     position: absolute;
     right: 6px;
     bottom: 0;
     left: 6px;
-    border-bottom: 1px solid var(--token-color-border-primary);
+    border-bottom: 1px solid var(--token-dropdown-separator-border-color);
     content: "";
   }
 }
@@ -562,7 +628,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 .hds-dropdown-list-item--variant-radio {
   display: flex;
   align-items: self-start;
-  padding: 8px 16px;
 
   .hds-dropdown-list-item__control {
     flex-shrink: 0;
@@ -580,7 +645,16 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     display: flex;
     flex-grow: 1;
     align-items: flex-start;
+    padding: 8px 16px;
     color: var(--token-color-foreground-primary);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include hds-apply-only-if-carbon() {
+      padding: 11px 16px;
+    }
   }
 
   .hds-dropdown-list-item__icon {
