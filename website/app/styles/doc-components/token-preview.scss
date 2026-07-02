@@ -46,7 +46,7 @@
 
 .doc-token-preview--size {
   --color: #ff9a8b;
-  --height: var(--token-value-height); // this is set via JavaScript
+  --height: var(--hds-value-height); // this is set via JavaScript
 
   .doc-token-preview__value {
     @include doc-font-family("mono");
@@ -84,7 +84,7 @@
 }
 
 .doc-token-preview--boxshadow {
-  --box-shadow: var(--token-value-box-shadow); // this is set via JavaScript
+  --box-shadow: var(--hds-value-box-shadow); // this is set via JavaScript
   box-shadow: var(--box-shadow);
 }
 
