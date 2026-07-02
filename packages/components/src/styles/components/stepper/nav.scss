@@ -36,7 +36,7 @@ $progress-bar-animation-duration: 0.25s;
   }
 
   &::after {
-    width: var(--hds-stepper-nav-progress-bar-width, 0);
+    width: var(--hds-var-stepper-nav-progress-bar-width, 0);
     background-color: var(--token-color-palette-neutral-700);
     border-radius: 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small) 0;
 

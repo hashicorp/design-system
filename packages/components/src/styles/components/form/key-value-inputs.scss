@@ -41,7 +41,7 @@
     display: grid;
     flex-grow: 1;
     // `var(--token-button-height-medium)` is the width/height of the icon-only button
-    grid-template-columns: var(--hds-key-value-inputs-columns, 1fr 1fr var(--token-button-height-medium));
+    grid-template-columns: var(--hds-var-key-value-inputs-columns, 1fr 1fr var(--token-button-height-medium));
     align-items: flex-end;
     column-gap: 8px;
     row-gap: 0;
@@ -51,7 +51,7 @@
       .hds-form-key-value-inputs__generic-container {
         grid-row: 2;
         // need to set the `grid-column` because the `grid-row` is set, otherwise it defaults to the first column
-        grid-column: var(--hds-key-value-inputs-column-index);
+        grid-column: var(--hds-var-key-value-inputs-column-index);
       }
     }
 
