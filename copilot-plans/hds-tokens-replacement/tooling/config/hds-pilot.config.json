@@ -1,0 +1,21 @@
+{
+  "$comment": "REPO-SPECIFIC config for the HDS monorepo pilot. Copy this file per repo and edit only these values; never edit replace-token-prefix.mjs. See ../../generated-plan.md §3.2.",
+  "roots": [ "packages/components/src", "showcase/app", "showcase/tests", "website/app", "website/docs" ],
+  "extensions": [ "scss", "css", "gts", "hbs", "ts", "js" ],
+  "excludeGlobs": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/*.map",
+    "**/*.md",
+    "showcase/public/assets/**"
+  ],
+  "matchPrefix": "--token-",
+  "replacePrefix": "--hds-",
+  "couplingPatterns": [
+    "replace\\(/\\^token-",
+    "match\\(/\\^token-",
+    "startsWith\\('token-",
+    "startsWith\\(\"token-"
+  ]
+}
