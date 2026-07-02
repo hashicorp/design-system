@@ -67,14 +67,10 @@ module(
         'between',
       );
       assert
-        .dom(
-          '.hds-filter-bar__filter-group__date .hds-filter-bar__filter-group__field--between:nth-of-type(1)',
-        )
+        .dom('[name="test-key-between-start"]')
         .hasAttribute('name', 'test-key-between-start');
       assert
-        .dom(
-          '.hds-filter-bar__filter-group__date .hds-filter-bar__filter-group__field--between:nth-of-type(2)',
-        )
+        .dom('[name="test-key-between-end"]')
         .hasAttribute('name', 'test-key-between-end');
     });
 
@@ -103,16 +99,14 @@ module(
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .dom('[name="test-key-between-start"]')
         .hasAttribute('type', 'date');
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .dom('[name="test-key-between-start"]')
         .hasAria('label', 'date start value');
+      assert.dom('[name="test-key-between-end"]').hasAttribute('type', 'date');
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
-        .hasAttribute('type', 'date');
-      assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .dom('[name="test-key-between-end"]')
         .hasAria('label', 'date end value');
     });
 
@@ -141,16 +135,14 @@ module(
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .dom('[name="test-key-between-start"]')
         .hasAttribute('type', 'time');
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .dom('[name="test-key-between-start"]')
         .hasAria('label', 'time start value');
+      assert.dom('[name="test-key-between-end"]').hasAttribute('type', 'time');
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
-        .hasAttribute('type', 'time');
-      assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .dom('[name="test-key-between-end"]')
         .hasAria('label', 'time end value');
     });
 
@@ -179,16 +171,16 @@ module(
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .dom('[name="test-key-between-start"]')
         .hasAttribute('type', 'datetime-local');
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
+        .dom('[name="test-key-between-start"]')
         .hasAria('label', 'datetime start value');
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .dom('[name="test-key-between-end"]')
         .hasAttribute('type', 'datetime-local');
       assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
+        .dom('[name="test-key-between-end"]')
         .hasAria('label', 'datetime end value');
     });
 
@@ -239,12 +231,8 @@ module(
       assert
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
-      assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(1)')
-        .hasValue('2024-11-04');
-      assert
-        .dom('.hds-filter-bar__filter-group__field--between:nth-of-type(2)')
-        .hasValue('2025-11-04');
+      assert.dom('[name="test-key-between-start"]').hasValue('2024-11-04');
+      assert.dom('[name="test-key-between-end"]').hasValue('2025-11-04');
     });
 
     // CALLBACKS: ONCHANGE
@@ -338,14 +326,8 @@ module(
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
 
-      await fillIn(
-        '.hds-filter-bar__filter-group__field--between:nth-of-type(1)',
-        '2024-11-04',
-      );
-      await fillIn(
-        '.hds-filter-bar__filter-group__field--between:nth-of-type(2)',
-        '2025-11-04',
-      );
+      await fillIn('[name="test-key-between-start"]', '2024-11-04');
+      await fillIn('[name="test-key-between-end"]', '2025-11-04');
       assert.ok(context.isChanged);
       assert.equal(context.selector, 'between');
       assert.equal(context.valueStart, '2024-11-04');

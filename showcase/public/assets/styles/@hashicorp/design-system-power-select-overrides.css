@@ -105,8 +105,8 @@
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
-.hds-power-select .ember-power-select-search .ember-power-select-search-input ::placeholder {
-  color: var(--token-form-control-base-placeholder-foreground-color);
+.hds-power-select .ember-power-select-search .ember-power-select-search-input::placeholder {
+  color: var(--token-form-control-base-placeholder-foreground-color-default);
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input:hover, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-hover {
   border-color: var(--token-form-control-base-border-color-hover);
@@ -127,7 +127,7 @@
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input[type=search] {
   padding-left: calc(var(--token-form-control-padding) + 24px);
-  background-image: var(--token-form-text-input-background-image-data-url-search);
+  background-image: var(--token-form-text-input-background-image-data-url-search-default);
   background-repeat: no-repeat;
   background-position: var(--token-form-text-input-background-image-position-x) 50%;
   background-size: var(--token-form-text-input-background-image-size);

@@ -25,8 +25,8 @@
 
   // PLACEHOLDER
 
-  ::placeholder {
-    color: var(--token-form-control-base-placeholder-foreground-color);
+  &::placeholder {
+    color: var(--token-form-control-base-placeholder-foreground-color-default);
   }
 
   // STATUS

@@ -8,6 +8,7 @@
 //
 
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 // "BASE" CONTROL
 
@@ -21,10 +22,17 @@
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-inset-box-shadow);
 
+  @include hds-apply-only-if-carbon() {
+    min-height: 40px; // 2.5rem // TODO: create a token for this value
+    padding: 0 var(--token-form-control-padding);
+    // Carbon's text input has only a bottom border
+    border-width: 0 0 var(--token-form-control-border-width) 0;
+  }
+
   // PLACEHOLDER
 
-  ::placeholder {
-    color: var(--token-form-control-base-placeholder-foreground-color);
+  &::placeholder {
+    color: var(--token-form-control-base-placeholder-foreground-color-default);
   }
 
   // STATUS
@@ -32,6 +40,10 @@
   &:hover,
   &.mock-hover {
     border-color: var(--token-form-control-base-border-color-hover);
+
+    @include hds-apply-only-if-carbon() {
+      border-color: var(--token-form-control-base-border-color-default);
+    }
   }
 
   // focus (same for all the states)
@@ -40,6 +52,10 @@
   &.mock-focus {
     @include hds-focus-ring-basic();
     border-color: var(--token-color-focus-action-internal);
+
+    @include hds-apply-only-if-carbon() {
+      outline-offset: -2px;
+    }
   }
 
   // READONLY
@@ -59,12 +75,21 @@
     border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
     cursor: not-allowed;
+
+    &::placeholder {
+      color: var(--token-form-control-base-placeholder-foreground-color-disabled);
+    }
   }
 
   // INVALID
 
   &.hds-form-text-input--is-invalid {
     border-color: var(--token-form-control-invalid-border-color-default);
+
+    @include hds-apply-only-if-carbon() {
+      outline: 2px solid var(--token-form-control-invalid-border-color-default);
+      outline-offset: -2px;
+    }
 
     &:hover,
     &.mock-hover {
@@ -94,8 +119,10 @@
 
 .hds-form-text-input__visibility-toggle {
   position: absolute;
-  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  top: 0;
   right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  bottom: 0;
+  margin: auto 0;
 }
 
 .hds-form-text-input {
@@ -106,19 +133,28 @@
   &[type="datetime-local"],
   &[type="month"],
   &[type="week"] {
-    // browsers set a specific width for these controls, we want to keep it
-    width: initial;
+    // browsers set a specific width for these controls, we want to keep it in the HDS theme
+    width: var(--token-form-text-input-date-time-width);
 
     // show the native icon dimmed if disabled (hidden in Chrome)
     &:disabled::-webkit-calendar-picker-indicator {
       visibility: visible;
       opacity: 0.5;
+
+      @include hds-apply-only-if-carbon() {
+        // hide the icon in disabled state for Carbon themes
+        opacity: 0;
+      }
     }
 
     // show the icon if readonly
     // notice: don't change the "[readonly]" selector to ":readonly" because it's needed to overwrite the specificity in Chrome
     &[readonly]::-webkit-calendar-picker-indicator {
       visibility: visible;
+
+      @include hds-apply-only-if-carbon() {
+        opacity: 1;
+      }
     }
   }
 
@@ -129,9 +165,16 @@
   &[type="month"],
   &[type="week"] {
     &::-webkit-calendar-picker-indicator {
-      background-image: var(--token-form-text-input-background-image-data-url-date);
+      background-image: var(--token-form-text-input-background-image-data-url-date-default);
       background-position: center center;
       background-size: var(--token-form-text-input-background-image-size);
+
+      @include hds-apply-only-if-carbon() {
+        // We use the native browser default icon
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+      }
     }
   }
 
@@ -140,30 +183,93 @@
       background-image: var(--token-form-text-input-background-image-data-url-time);
       background-position: center center;
       background-size: var(--token-form-text-input-background-image-size);
+
+      @include hds-apply-only-if-carbon() {
+        // We use the native browser default icon
+        background-image: revert;
+        background-position: revert;
+        background-size: revert;
+      }
+    }
+  }
+}
+
+// SEARCH
+.hds-form-text-input[type="search"] {
+  padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+  background-image: var(--token-form-text-input-background-image-data-url-search-default);
+  background-repeat: no-repeat;
+  background-position: var(--token-form-text-input-background-image-position-x) 50%;
+  background-size: var(--token-form-text-input-background-image-size);
+
+  // make space for invalid icon + search cancel button
+  &.hds-form-text-input--is-invalid {
+    @include hds-apply-only-if-carbon() {
+      padding-right: calc(2.5rem + 40px);
     }
   }
 
-  // SEARCH
-  &[type="search"] {
-    padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-    background-image: var(--token-form-text-input-background-image-data-url-search);
+  @include hds-apply-only-if-carbon() {
+    // make space for search cancel button
+    // TODO:
+    // * Create a new token for the search cancel button width and use it here,
+    // * BUG: padding being overridden in the invalid state (& the invalid icon is overlapping the search cancel button)
+    padding-right: calc(40px + var(--token-form-control-padding));
+
+    &:disabled {
+      background-image: var(--token-form-text-input-background-image-data-url-search-disabled);
+    }
+  }
+
+  // SEARCH CANCEL BUTTON
+  &::-webkit-search-cancel-button {
+    width: var(--token-form-text-input-background-image-size);
+    height: var(--token-form-text-input-background-image-size);
+    background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
     background-repeat: no-repeat;
-    background-position: var(--token-form-text-input-background-image-position-x) 50%;
+    background-position: center center;
     background-size: var(--token-form-text-input-background-image-size);
+    // stylelint-disable-next-line property-no-vendor-prefix
+    -webkit-appearance: none;
+  }
 
-    &::-webkit-search-cancel-button {
-      width: var(--token-form-text-input-background-image-size);
-      height: var(--token-form-text-input-background-image-size);
-      background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
-      background-position: center center;
-      background-size: var(--token-form-text-input-background-image-size);
-      // stylelint-disable-next-line property-no-vendor-prefix
-      -webkit-appearance: none;
+  &:not(:disabled, [readonly]) {
+    // Display native search cancel button for hover examples in Showcase
+    &:hover,
+    &.mock-hover {
+      &::-webkit-search-cancel-button {
+        opacity: 1;
+      }
     }
 
-    // IS LOADING
-    &.hds-form-text-input--is-loading {
-      background-image: var(--token-form-text-input-background-image-data-url-search-loading);
+    @include hds-apply-only-if-carbon() {
+      // For Showcase examples we are setting the mock hover state on the parent input
+      &.mock-hover {
+        &::-webkit-search-cancel-button {
+          background-color: var(--token-color-surface-interactive-hover);
+        }
+      }
+
+      // Display native search cancel button in carbonized non-disabled, non-readonly search input
+      &::-webkit-search-cancel-button {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        bottom: 1px;
+        width: 40px; // TODO: Add token
+        height: auto;
+        margin: 0;
+        opacity: 1;
+
+        &:hover {
+          background-color: var(--token-color-surface-interactive-hover);
+        }
+      }
     }
+  }
+
+  // IS LOADING
+  &.hds-form-text-input--is-loading {
+    background-image: var(--token-form-text-input-background-image-data-url-search-loading);
   }
 }
