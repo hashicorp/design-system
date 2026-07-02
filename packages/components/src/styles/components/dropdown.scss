@@ -300,10 +300,16 @@
     margin: 4px 0;
     padding: 7px 8px; // 7px=8px-1px(accounting for the transparent border)
 
-    // keep focus ring in sync with the padding
-    &::before {
-      top: 0;
-      bottom: 0;
+    &:focus-visible,
+    &.mock-focus {
+      &::before {
+        inset: 0 -4px 0 -4px;
+
+        @include hds-apply-only-if-carbon() {
+          inset: -2px -6px -2px -6px;
+          outline-width: 2px;
+        }
+      }
     }
   }
 
@@ -388,6 +394,7 @@
     &:focus-visible,
     &.mock-focus {
       color: var(--current-color-focus);
+      outline: none;
 
       &::after {
         left: 4px;
