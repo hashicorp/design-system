@@ -38,16 +38,16 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
 @each $size in $hds-accordion-sizes {
   .hds-accordion-item--size-#{$size} {
-    --hds-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-#{$size});
-    --hds-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-top-#{$size});
-    --hds-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-top-#{$size});
-    --hds-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-#{$size});
-    --hds-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-#{$size});
-    --hds-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-#{$size});
-    --hds-accordion-item-content-padding-top: var(--token-accordion-item-content-padding-top-#{$size});
-    --hds-accordion-item-content-padding-right: var(--token-accordion-item-content-padding-right-#{$size});
-    --hds-accordion-item-content-padding-bottom: var(--token-accordion-item-content-padding-bottom-#{$size});
-    --hds-accordion-item-content-padding-left: var(--token-accordion-item-content-padding-left-#{$size});
+    --hds-var-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-var-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-var-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-top-#{$size});
+    --hds-var-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-#{$size});
+    --hds-var-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-#{$size});
+    --hds-var-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-#{$size});
+    --hds-var-accordion-item-content-padding-top: var(--token-accordion-item-content-padding-top-#{$size});
+    --hds-var-accordion-item-content-padding-right: var(--token-accordion-item-content-padding-right-#{$size});
+    --hds-var-accordion-item-content-padding-bottom: var(--token-accordion-item-content-padding-bottom-#{$size});
+    --hds-var-accordion-item-content-padding-left: var(--token-accordion-item-content-padding-left-#{$size});
   }
 }
 
@@ -128,18 +128,18 @@ $hds-accordion-sizes: ("small", "medium", "large");
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
-  gap: var(--hds-accordion-item-toggle-gap);
+  gap: var(--hds-var-accordion-item-toggle-gap);
   align-items: center;
-  padding: var(--hds-accordion-item-toggle-padding-top) var(--hds-accordion-item-toggle-padding-right)
-    var(--hds-accordion-item-toggle-padding-bottom) var(--hds-accordion-item-toggle-padding-left);
+  padding: var(--hds-var-accordion-item-toggle-padding-top) var(--hds-var-accordion-item-toggle-padding-right)
+    var(--hds-var-accordion-item-toggle-padding-bottom) var(--hds-var-accordion-item-toggle-padding-left);
 }
 
 .hds-accordion-item__button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--hds-accordion-item-toggle-icon-size);
-  height: var(--hds-accordion-item-toggle-icon-size);
+  width: var(--hds-var-accordion-item-toggle-icon-size);
+  height: var(--hds-var-accordion-item-toggle-icon-size);
   padding: 0;
   border: var(--token-button-border-width) solid transparent;
   border-radius: var(--token-border-radius-small);
@@ -181,13 +181,13 @@ $hds-accordion-sizes: ("small", "medium", "large");
   // focus is slightly different between the two `type` variants (card/flush)
 
   .hds-accordion-item--type-card & {
-    --hds-accordion-item-button-focus-ring-inset-hds: 0;
+    --hds-var-accordion-item-button-focus-ring-inset-hds: 0;
   }
 
   .hds-accordion-item--type-flush & {
     // for the `hds` flush we want the focus ring to appear
     // inside the toggle (to avoid extending outside its bounding box)
-    --hds-accordion-item-button-focus-ring-inset-hds: 3px;
+    --hds-var-accordion-item-button-focus-ring-inset-hds: 3px;
   }
 
   &:focus-visible,
@@ -196,7 +196,7 @@ $hds-accordion-sizes: ("small", "medium", "large");
       // the `position` is already set above
       $element-position: false,
       $pseudo-element-z-index: 1,
-      $pseudo-element-inset-hds: var(--hds-accordion-item-button-focus-ring-inset-hds),
+      $pseudo-element-inset-hds: var(--hds-var-accordion-item-button-focus-ring-inset-hds),
       $pseudo-element-inset-cds: 0
     );
   }
@@ -257,8 +257,8 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
 .hds-accordion-item__content {
   .hds-accordion-item & {
-    padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right)
-      var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
+    padding: var(--hds-var-accordion-item-content-padding-top) var(--hds-var-accordion-item-content-padding-right)
+      var(--hds-var-accordion-item-content-padding-bottom) var(--hds-var-accordion-item-content-padding-left);
   }
 }
 
@@ -266,12 +266,12 @@ $hds-accordion-sizes: ("small", "medium", "large");
 // We need to adjust content padding and border for nested  accordions
 
 .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) {
-  padding: 0 var(--hds-accordion-item-content-padding-right) 0 var(--hds-accordion-item-content-padding-left);
+  padding: 0 var(--hds-var-accordion-item-content-padding-right) 0 var(--hds-var-accordion-item-content-padding-left);
   border-top: 1px solid var(--token-accordion-item-border-color);
 
   @include hds-apply-only-if-carbon() {
-    padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right)
-      var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
+    padding: var(--hds-var-accordion-item-content-padding-top) var(--hds-var-accordion-item-content-padding-right)
+      var(--hds-var-accordion-item-content-padding-bottom) var(--hds-var-accordion-item-content-padding-left);
 
     .hds-accordion-item--type-flush {
       &:first-child {

@@ -96,7 +96,7 @@ module(
       );
       assert.dom('.hds-app-footer__status-link').hasText('Waypoint');
       assert.dom('.hds-app-footer__status-link .hds-icon').exists();
-      // .hasStyle({'--hds-app-footer-status-icon-color': 'var(--token-color-waypoint-brand)'})
+      // .hasStyle({'--hds-var-app-footer-status-icon-color': 'var(--token-color-waypoint-brand)'})
     });
 
     // href
