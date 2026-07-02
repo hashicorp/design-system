@@ -5821,15 +5821,13 @@ button.hds-button[href]::after {
 .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-dropdown__header > .hds-link-standalone.mock-focus::before,
 .hds-dropdown__footer > .hds-link-standalone:focus-visible::before,
 .hds-dropdown__footer > .hds-link-standalone.mock-focus::before {
-  inset: 0px -4px 0px -4px;
-  outline: none;
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-  border: none;
+  inset: 0 -4px 0 -4px;
 }
 .hds-theme-light .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-light .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-light .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-light .hds-dropdown__footer > .hds-link-standalone.mock-focus::before,
 .hds-theme-dark .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-dark .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-dark .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-dark .hds-dropdown__footer > .hds-link-standalone.mock-focus::before,
 .hds-theme-system .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-system .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-system .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-system .hds-dropdown__footer > .hds-link-standalone.mock-focus::before {
-  inset: -4px -8px -4px -8px;
+  inset: -2px -6px -2px -6px;
+  outline-width: 2px;
 }
 
 .hds-dropdown__header > .hds-button,
