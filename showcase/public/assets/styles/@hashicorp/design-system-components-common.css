@@ -5008,11 +5008,20 @@ button.hds-button[href]::after {
   margin: 4px 0;
   padding: 7px 8px;
 }
-.hds-dropdown__header > .hds-link-standalone::before,
-.hds-dropdown__footer > .hds-link-standalone::before {
-  top: 0;
-  bottom: 0;
+.hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-dropdown__header > .hds-link-standalone.mock-focus::before,
+.hds-dropdown__footer > .hds-link-standalone:focus-visible::before,
+.hds-dropdown__footer > .hds-link-standalone.mock-focus::before {
+  inset: 0px -4px 0px -4px;
+  outline: none;
+  box-shadow: var(--token-focus-ring-action-box-shadow);
+  border: none;
 }
+.hds-theme-light .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-light .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-light .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-light .hds-dropdown__footer > .hds-link-standalone.mock-focus::before,
+.hds-theme-dark .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-dark .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-dark .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-dark .hds-dropdown__footer > .hds-link-standalone.mock-focus::before,
+.hds-theme-system .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-system .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-system .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-system .hds-dropdown__footer > .hds-link-standalone.mock-focus::before {
+  inset: -4px -8px -4px -8px;
+}
+
 .hds-dropdown__header > .hds-button,
 .hds-dropdown__header > .hds-form-text-input,
 .hds-dropdown__footer > .hds-button,
@@ -5134,6 +5143,7 @@ button.hds-button[href]::after {
 .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible,
 .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-focus {
   color: var(--current-color-focus);
+  outline: none;
 }
 .hds-dropdown-list-item--variant-interactive a:focus-visible::after, .hds-dropdown-list-item--variant-interactive a.mock-focus::after,
 .hds-dropdown-list-item--variant-interactive button:focus-visible::after,
