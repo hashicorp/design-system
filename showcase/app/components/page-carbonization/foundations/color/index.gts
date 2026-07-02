@@ -12,6 +12,7 @@ import type { DesignToken } from '../../../../../types/design-token';
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
 const tokenShortName = helper(function ([token]: [DesignToken]) {
+  // 🚧 TODO [HDS-TOKEN-RENAMING]: verify manually — token-name prefix coupling
   return token.name?.replace(/^token-/, '');
 });
 

@@ -159,7 +159,7 @@ const SubSectionBaseElements: TemplateOnlyComponent<SubSectionBaseElementsSignat
         <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <HdsAppFooterStatusLink
             @statusIcon="waypoint"
-            @statusIconColor="var(--token-color-waypoint-brand)"
+            @statusIconColor="var(--hds-color-waypoint-brand)"
             @href="https://www.hashicorp.com/products/waypoint"
             @text="Waypoint"
           />

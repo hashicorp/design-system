@@ -56,14 +56,14 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
         <HdsAppHeaderHomeLink
           @icon="boundary"
           @text="Boundary"
-          @color="var(--token-color-boundary-brand)"
+          @color="var(--hds-color-boundary-brand)"
           @href="#"
         />
       </template>,
     );
     assert
       .dom('.hds-icon-boundary')
-      .hasAttribute('fill', 'var(--token-color-boundary-brand)');
+      .hasAttribute('fill', 'var(--hds-color-boundary-brand)');
   });
 
   test('it renders the logo with text when @isIconOnly is false', async function (assert) {
