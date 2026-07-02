@@ -5818,11 +5818,18 @@ button.hds-button[href]::after {
   margin: 4px 0;
   padding: 7px 8px;
 }
-.hds-dropdown__header > .hds-link-standalone::before,
-.hds-dropdown__footer > .hds-link-standalone::before {
-  top: 0;
-  bottom: 0;
+.hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-dropdown__header > .hds-link-standalone.mock-focus::before,
+.hds-dropdown__footer > .hds-link-standalone:focus-visible::before,
+.hds-dropdown__footer > .hds-link-standalone.mock-focus::before {
+  inset: 0 -4px 0 -4px;
 }
+.hds-theme-light .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-light .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-light .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-light .hds-dropdown__footer > .hds-link-standalone.mock-focus::before,
+.hds-theme-dark .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-dark .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-dark .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-dark .hds-dropdown__footer > .hds-link-standalone.mock-focus::before,
+.hds-theme-system .hds-dropdown__header > .hds-link-standalone:focus-visible::before, .hds-theme-system .hds-dropdown__header > .hds-link-standalone.mock-focus::before, .hds-theme-system .hds-dropdown__footer > .hds-link-standalone:focus-visible::before, .hds-theme-system .hds-dropdown__footer > .hds-link-standalone.mock-focus::before {
+  inset: -2px -6px -2px -6px;
+  outline-width: 2px;
+}
+
 .hds-dropdown__header > .hds-button,
 .hds-dropdown__header > .hds-form-text-input,
 .hds-dropdown__footer > .hds-button,
@@ -5944,6 +5951,7 @@ button.hds-button[href]::after {
 .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label:focus-visible,
 .hds-dropdown-list-item--variant-radio .hds-dropdown-list-item__label.mock-focus {
   color: var(--current-color-focus);
+  outline: none;
 }
 .hds-dropdown-list-item--variant-interactive a:focus-visible::after, .hds-dropdown-list-item--variant-interactive a.mock-focus::after,
 .hds-dropdown-list-item--variant-interactive button:focus-visible::after,
