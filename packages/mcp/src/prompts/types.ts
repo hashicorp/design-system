@@ -1,27 +1,12 @@
-import type { ZodRawShapeCompat } from "./args.ts";
+import type { PromptCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
+import type { ZodRawShapeCompat } from "@modelcontextprotocol/sdk/server/zod-compat.js";
 
-export type PromptTextMessage = {
-  role: "user" | "assistant";
-  content: {
-    type: "text";
-    text: string;
-  };
-};
-
-export type PromptResourceLinkMessage = {
-  role: "user" | "assistant";
-  content: {
-    type: "resource_link";
-    uri: string;
-    name: string;
-    description?: string;
-    mimeType?: string;
-  };
-};
-
-export interface McpPrompt<Args extends PromptArgsRawShape> {
-  id: string;
+export interface McpPrompt<Args extends ZodRawShapeCompat = ZodRawShapeCompat> {
   name: string;
-  description?: string;
-  messages: PromptMessage[];
+  config: {
+    title?: string;
+    description?: string;
+    argsSchema: Args;
+  };
+  callback: PromptCallback<Args>;
 }

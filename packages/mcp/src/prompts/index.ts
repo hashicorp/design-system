@@ -10,8 +10,13 @@ const PROMPTS: McpPrompt[] = [];
 
 export function registerPrompts(server: McpServer) {
   for (const prompt of PROMPTS) {
+<<<<<<< Updated upstream
     server.registerPrompt(prompt);
   }
 
   // registerComponentUsagePrompt(server, store);
+=======
+    server.registerPrompt(prompt.name, prompt.config, prompt.callback);
+  }
+>>>>>>> Stashed changes
 }
