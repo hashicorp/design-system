@@ -21,8 +21,8 @@ import DynamicTemplate from 'website/components/dynamic-template';
 
 interface DocCodeGroupSignature {
   Args: {
-    gtsComponentId?: string;
     classicComponentId?: string;
+    gtsComponentId?: string;
     hbsSnippet?: string;
     jsSnippet?: string;
     gtsSnippet?: string;

@@ -159,8 +159,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             customLang: '',
           };
 
-          let classicComponentIdToForward = '';
-          let gtsComponentIdToForward = '';
+          let classicComponentId = '';
+          let gtsComponentId = '';
 
           SUPPORTED_FILE_EXTENSIONS.forEach((ext) => {
             const fileToCheck = `${fileName.trim()}${ext}`;
@@ -172,7 +172,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
 
               if (ext === '.classic.hbs') {
                 codeSnippets.hbsSnippet = escapeCode(stripAllIgnores(code));
-                classicComponentIdToForward = getComponentIdFromPath(filePath);
+                classicComponentId = getComponentIdFromPath(filePath);
               }
 
               if (ext === '.classic.js' || ext === '.js') {
@@ -184,7 +184,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 codeSnippets.compactGtsSnippet = escapeCode(
                   stripAllIgnores(getCompactGtsSnippet(code)),
                 );
-                gtsComponentIdToForward = getComponentIdFromPath(filePath);
+                gtsComponentId = getComponentIdFromPath(filePath);
               }
 
               if (
@@ -201,7 +201,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
           });
 
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" classicComponentId="${classicComponentIdToForward}" gtsComponentId="${gtsComponentIdToForward}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" classicComponentId="${classicComponentId}" gtsComponentId="${gtsComponentId}" hbs="${codeSnippets.hbsSnippet}" js="${codeSnippets.jsSnippet}" gts="${codeSnippets.gtsSnippet}" compactGts="${codeSnippets.compactGtsSnippet}" custom="${codeSnippets.customSnippet}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
