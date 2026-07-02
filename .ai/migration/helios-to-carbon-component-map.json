@@ -41,19 +41,19 @@
         "@icon": {
           "target": "slot:icon",
           "transform": "moveToSlot",
-          "notes": "Icon moves to named slot"
+          "notes": "Icon moves to named slot — must be substituted with the correct Carbon SVG, no string name mapping exists"
         },
         "@iconPosition": {
           "target": "icon-position",
           "transform": "rename"
+        },
+        "@isIconOnly": {
+          "target": null,
+          "transform": "remove",
+          "notes": "No Carbon equivalent — icon-only button is implied by placing only an SVG in slot:icon with no text content. Remove this attribute after verifying only a slot:icon is present."
         }
       },
-      "events": {
-        "@onClick": {
-          "target": "@click",
-          "transform": "rename"
-        }
-      },
+      "events": {},
       "slots": {
         "default": {
           "target": "default",
@@ -161,6 +161,11 @@
       "description": "Alert/notification component for user feedback",
       "attributes": {
         "@type": {
+          "target": null,
+          "transform": "remove",
+          "notes": "@type is the Helios display VARIANT ('page', 'inline', 'compact') — not the severity. Choose the correct CWC tag based on this value: 'inline' → cds-inline-notification, 'page' → cds-actionable-notification. Do NOT map @type to kind."
+        },
+        "@color": {
           "target": "kind",
           "transform": "rename",
           "valueMap": {
@@ -169,7 +174,8 @@
             "success": "success",
             "warning": "warning",
             "critical": "error"
-          }
+          },
+          "notes": "@color is the Helios severity — this maps to kind on cds-inline-notification"
         },
         "@title": {
           "target": "title",
@@ -199,6 +205,333 @@
         "slot-to-attribute"
       ],
       "notes": "Medium confidence - dismissal pattern differs, requires manual review"
+    },
+    "Hds::AppFrame": {
+      "cwcComponent": null,
+      "description": "Application layout frame — no single Carbon equivalent, replaced by composing UI Shell elements",
+      "attributes": {
+        "@hasHeader": { "target": null, "transform": "remove", "notes": "Presence of cds-header in the DOM is the Carbon equivalent — no boolean gate needed" },
+        "@hasSidebar": { "target": null, "transform": "remove", "notes": "Presence of cds-side-nav in the DOM is the Carbon equivalent — no boolean gate needed" }
+      },
+      "events": {},
+      "slots": {
+        "Header": { "target": "cds-header", "transform": "manual", "notes": "Frame.Header slot content becomes the contents of <cds-header> placed at the root of the page" },
+        "Sidebar": { "target": "cds-side-nav", "transform": "manual", "notes": "Frame.Sidebar slot content becomes the contents of <cds-side-nav> placed at the root of the page" },
+        "Main": { "target": "main", "transform": "manual", "notes": "Frame.Main slot content moves into a plain <main> or <div> element — Carbon UI Shell positions it via CSS" },
+        "Footer": { "target": null, "transform": "manual", "notes": "No Carbon footer shell component — use a plain <footer> element if needed" },
+        "Modals": { "target": null, "transform": "manual", "notes": "No Carbon modals container — modals render at root level directly" }
+      },
+      "confidence": 0.50,
+      "riskFlags": ["complex-transformation", "behavioral-difference", "no-equivalent"],
+      "notes": "Low-medium confidence. HdsAppFrame is a layout orchestrator with named slots. Carbon has no equivalent wrapper — the UI Shell components (cds-header, cds-side-nav) are placed directly in the document and positioned via CSS. Remove HdsAppFrame entirely and place cds-header, cds-side-nav, and a <main> element as siblings at the root level."
+    },
+    "Hds::AppHeader": {
+      "cwcComponent": "cds-header",
+      "description": "Global application top navigation bar",
+      "attributes": {
+        "@hasA11yRefocus": { "target": null, "transform": "remove", "notes": "Helios-specific a11y refocus — no Carbon equivalent, remove" },
+        "@breakpoint": { "target": null, "transform": "remove", "notes": "Carbon UI Shell handles its own responsive breakpoints internally" }
+      },
+      "events": {},
+      "slots": {
+        "logo": { "target": "cds-header-name", "transform": "manual", "notes": "<:logo> named block containing HdsAppHeaderHomeLink becomes <cds-header-name> inside cds-header" },
+        "globalActions": { "target": "cds-header-nav", "transform": "manual", "notes": "<:globalActions> content (org switcher etc.) moves into <cds-header-nav> or header action area" },
+        "utilityActions": { "target": "cds-header-menu-button / header actions", "transform": "manual", "notes": "<:utilityActions> content (search, help, user menus) moves into header action slots. Icon-only buttons map to cds-header-menu-button or custom icon buttons in the header." }
+      },
+      "confidence": 0.60,
+      "riskFlags": ["complex-transformation", "slot-to-attribute", "behavioral-difference"],
+      "notes": "Medium confidence. HdsAppHeader named slots (:logo, :globalActions, :utilityActions) map to Carbon header child elements. The responsive mobile menu behavior is built into cds-header automatically via cds-header-menu-button — no manual toggle logic needed."
+    },
+    "Hds::AppHeader::HomeLink": {
+      "cwcComponent": "cds-header-name",
+      "description": "Application logo/home link in the header",
+      "attributes": {
+        "@href": { "target": "href", "transform": "direct" },
+        "@text": { "target": "slot:default", "transform": "moveToSlot", "notes": "@text becomes the text content of cds-header-name" },
+        "@icon": { "target": null, "transform": "manual", "notes": "Helios icon name has no Carbon equivalent — remove or replace with an inline SVG before cds-header-name" }
+      },
+      "events": {},
+      "slots": {},
+      "confidence": 0.75,
+      "riskFlags": ["behavioral-difference"],
+      "notes": "Medium confidence. cds-header-name accepts href and text content directly. The @icon (e.g. 'hashicorp') has no Carbon equivalent — Carbon header name supports an optional prefix attribute (e.g. prefix='IBM') and text label. Example: <cds-header-name href='#' prefix='IBM'>HashiCorp</cds-header-name>"
+    },
+    "Hds::AppSideNav": {
+      "cwcComponent": "cds-side-nav",
+      "description": "Application side navigation component",
+      "attributes": {
+        "@isResponsive": { "target": null, "transform": "remove", "notes": "cds-side-nav is responsive by default — no attribute needed" },
+        "@isCollapsible": { "target": "collapse-mode", "transform": "manual", "notes": "@isCollapsible={{true}} maps to collapse-mode='rail' on cds-side-nav (rail mode allows icon-only collapsed state)" },
+        "@isMinimized": { "target": null, "transform": "manual", "notes": "No direct equivalent — cds-side-nav manages its own collapsed state" }
+      },
+      "events": {},
+      "slots": {
+        "default": { "target": "cds-side-nav-items", "transform": "manual", "notes": "Children of HdsAppSideNav become children of <cds-side-nav-items> inside cds-side-nav" }
+      },
+      "confidence": 0.70,
+      "riskFlags": ["complex-transformation", "behavioral-difference"],
+      "notes": "Medium confidence. HdsAppSideNav maps to cds-side-nav with collapse-mode='rail'. Children (HdsAppSideNavList instances) must be wrapped in <cds-side-nav-items>. Responsive collapse behavior is handled automatically by Carbon."
+    },
+    "Hds::AppSideNavList": {
+      "cwcComponent": "cds-side-nav-items",
+      "description": "Side navigation list group with title and links",
+      "attributes": {},
+      "events": {},
+      "slots": {
+        "Title": { "target": null, "transform": "manual", "notes": "SNL.Title has no direct Carbon equivalent inside cds-side-nav-items — Carbon uses cds-side-nav-menu as a collapsible group with a title attribute instead" },
+        "Link": { "target": "cds-side-nav-link", "transform": "manual", "notes": "SNL.Link maps to <cds-side-nav-link href='...'>text</cds-side-nav-link>. @isActive maps to the active attribute. @icon has no Carbon equivalent — remove." },
+        "BackLink": { "target": null, "transform": "manual", "notes": "SNL.BackLink has no Carbon equivalent" }
+      },
+      "confidence": 0.65,
+      "riskFlags": ["complex-transformation", "incomplete-mapping"],
+      "notes": "Medium confidence. HdsAppSideNavList wraps multiple SNL.Link items and an optional SNL.Title. In Carbon, a flat list of cds-side-nav-link elements goes inside cds-side-nav-items directly. Grouped sections with a title use cds-side-nav-menu with a title attribute wrapping cds-side-nav-menu-item elements. @badge on SNL.Link has no Carbon equivalent."
+    },
+    "Hds::Dropdown": {
+      "cwcComponent": "cds-overflow-menu",
+      "description": "Dropdown menu component with toggle trigger and contextual menu items",
+      "attributes": {
+        "@enableCollisionDetection": {
+          "target": "autoalign",
+          "transform": "rename",
+          "notes": "Helios collision detection maps roughly to Carbon autoalign experimental property"
+        }
+      },
+      "events": {},
+      "slots": {
+        "ToggleButton": {
+          "target": "cds-menu-button",
+          "transform": "manual",
+          "notes": "dd.ToggleButton (labeled button trigger) → use cds-menu-button instead of cds-overflow-menu. Set label attribute to @text value."
+        },
+        "ToggleIcon": {
+          "target": "slot:icon",
+          "transform": "manual",
+          "notes": "dd.ToggleIcon (icon-only trigger) → use cds-overflow-menu with SVG in slot='icon'. No direct @icon name mapping — must use Carbon SVG icon."
+        },
+        "Interactive": {
+          "target": "cds-overflow-menu-item",
+          "transform": "manual",
+          "notes": "dd.Interactive @href links → cds-overflow-menu-item with href attribute"
+        },
+        "Separator": {
+          "target": "divider",
+          "transform": "manual",
+          "notes": "dd.Separator → add divider attribute to the following cds-overflow-menu-item"
+        },
+        "Title": {
+          "target": null,
+          "transform": "manual",
+          "notes": "dd.Title has no Carbon equivalent — remove or replace with a disabled cds-overflow-menu-item as a visual label"
+        },
+        "Description": {
+          "target": null,
+          "transform": "manual",
+          "notes": "dd.Description has no Carbon equivalent — remove or incorporate into surrounding layout"
+        },
+        "Checkmark": {
+          "target": null,
+          "transform": "manual",
+          "notes": "dd.Checkmark (selectable item) has no direct Carbon equivalent — requires custom implementation"
+        }
+      },
+      "confidence": 0.55,
+      "riskFlags": [
+        "complex-transformation",
+        "behavioral-difference",
+        "incomplete-mapping"
+      ],
+      "notes": "Low-medium confidence. HdsDropdown is richer than any single Carbon component. Icon-trigger dropdowns map to cds-overflow-menu; labeled-button triggers map to cds-menu-button. dd.Title, dd.Description, dd.Checkmark have no Carbon equivalents. Each dropdown instance must be evaluated individually. Requires manual migration."
+    },
+    "Hds::Form::TextInput::Field": {
+      "cwcComponent": "cds-text-input",
+      "description": "Text input field with label, helper text, and error message",
+      "attributes": {
+        "@value": {
+          "target": "value",
+          "transform": "direct"
+        },
+        "@type": {
+          "target": "type",
+          "transform": "direct"
+        },
+        "@isRequired": {
+          "target": "required",
+          "transform": "rename"
+        },
+        "@isInvalid": {
+          "target": "invalid",
+          "transform": "rename",
+          "notes": "Direct @isInvalid attr swap. If the invalid state is driven by a conditional block ({{#if}}<Field.Error>) rather than a @isInvalid attr, set invalid={{condition}} directly on cds-text-input instead — see Error slot notes."
+        }
+      },
+      "events": {},
+      "slots": {
+        "Label": {
+          "target": "label",
+          "transform": "namedBlockToAttribute",
+          "notes": "<Field.Label>text</Field.Label> becomes label=\"text\" attribute on cds-text-input"
+        },
+        "HelperText": {
+          "target": "helper-text",
+          "transform": "namedBlockToAttribute",
+          "notes": "<Field.HelperText>text</Field.HelperText> becomes helper-text=\"text\" attribute"
+        },
+        "Error": {
+          "target": "invalid-text",
+          "transform": "namedBlockToAttribute",
+          "notes": "<Field.Error>text</Field.Error> becomes invalid-text=\"text\" attribute. The {{#if}} condition controlling it becomes the invalid boolean attribute on cds-text-input"
+        }
+      },
+      "confidence": 0.88,
+      "riskFlags": [
+        "slot-to-attribute"
+      ],
+      "notes": "Medium-high confidence. HdsFormTextInputField is a compound component (input + label + helper + error) — cds-text-input does the same job with flat attributes instead of contextual blocks. Field.Label → label attr, Field.HelperText → helper-text attr, Field.Error → invalid-text attr with invalid boolean. Component becomes self-closing with no children."
+    },
+    "Hds::PageHeader": {
+      "cwcComponent": null,
+      "description": "Page-level title and description header — no Carbon equivalent",
+      "attributes": {},
+      "events": {},
+      "slots": {
+        "Title": {
+          "target": "h1",
+          "transform": "manual",
+          "notes": "PH.Title becomes a native <h1> element"
+        },
+        "Description": {
+          "target": "p",
+          "transform": "manual",
+          "notes": "PH.Description becomes a native <p> element"
+        }
+      },
+      "confidence": 0.95,
+      "riskFlags": ["no-equivalent"],
+      "notes": "No Carbon equivalent. HdsPageHeader is a semantic <header> wrapper with title/description/subtitle/actions slots. Replace with native HTML: <header> containing <h1> for PH.Title and <p> for PH.Description. Any unused slots (Subtitle, Badges, Actions, IconTile, Breadcrumb) can be dropped if not in use."
+    },
+    "Hds::ButtonSet": {
+      "cwcComponent": null,
+      "description": "Button grouping layout wrapper — no Carbon equivalent needed",
+      "attributes": {},
+      "events": {},
+      "slots": {
+        "default": {
+          "target": "default",
+          "transform": "direct",
+          "notes": "All children (buttons) pass through unchanged"
+        }
+      },
+      "confidence": 0.95,
+      "riskFlags": [],
+      "notes": "No Carbon equivalent. HdsButtonSet is a plain <div class='hds-button-set'> with flex layout. Replace with a plain <div> and apply display:flex + gap styling manually, or remove the wrapper entirely if buttons are inside a container that already handles spacing (e.g. cds-modal-footer uses cds-modal-footer-button directly with no wrapper needed)."
+    },
+    "Hds::Form": {
+      "cwcComponent": "cds-form",
+      "description": "Form layout component with sections, header, separator and footer",
+      "attributes": {
+        "@tag": {
+          "target": null,
+          "transform": "remove",
+          "notes": "cds-form always renders as a form element — @tag arg is not needed"
+        },
+        "@sectionMaxWidth": {
+          "target": null,
+          "transform": "manual",
+          "notes": "No equivalent in cds-form — apply max-width via CSS on the form or a wrapper div"
+        }
+      },
+      "events": {},
+      "slots": {
+        "Section": {
+          "target": "div",
+          "transform": "manual",
+          "notes": "F.Section is a plain <div class='hds-form__section'> — replace with a plain <div> and remove the F. prefix"
+        },
+        "Footer": {
+          "target": "div",
+          "transform": "manual",
+          "notes": "F.Footer is a plain <div class='hds-form__footer'> — replace with a plain <div> containing the buttons directly"
+        }
+      },
+      "confidence": 0.85,
+      "riskFlags": [
+        "complex-transformation"
+      ],
+      "notes": "Medium-high confidence. The outer HdsForm → cds-form swap is direct. F.Section and F.Footer contextual components are just layout divs with no Carbon equivalent — flatten them to plain <div> elements. cds-form-group is NOT the equivalent here — that is for grouping related fields like radio buttons under a fieldset."
+    },
+    "Hds::Accordion": {
+      "cwcComponent": "cds-accordion",
+      "description": "Accordion component for collapsible content sections",
+      "attributes": {},
+      "events": {},
+      "slots": {
+        "Item": {
+          "target": "cds-accordion-item",
+          "transform": "manual",
+          "notes": "A.Item contextual component becomes <cds-accordion-item>. @isOpen={{true}} becomes the open boolean attribute."
+        },
+        "toggle": {
+          "target": "title",
+          "transform": "namedBlockToAttribute",
+          "notes": "<:toggle>text</:toggle> named block becomes title=\"text\" attribute on cds-accordion-item"
+        },
+        "content": {
+          "target": "default",
+          "transform": "namedBlockToChildren",
+          "notes": "<:content>...</:content> named block becomes direct children of cds-accordion-item"
+        }
+      },
+      "confidence": 0.82,
+      "riskFlags": [
+        "complex-transformation"
+      ],
+      "notes": "Medium-high confidence - same concept, clean transforms. Named blocks (:toggle, :content) restructure to title attribute + direct children. Contextual A.Item becomes cds-accordion-item tag directly."
+    },
+    "Hds::Modal": {
+      "cwcComponent": "cds-modal",
+      "description": "Modal dialog component",
+      "attributes": {
+        "@onClose": {
+          "target": "@cds-modal-closed",
+          "transform": "rename",
+          "notes": "Helios uses an @onClose arg; Carbon fires a cds-modal-closed DOM event — wire via {{on 'cds-modal-closed' this.closeModal}} instead"
+        }
+      },
+      "events": {
+        "cds-modal-closed": {
+          "target": "cds-modal-closed",
+          "transform": "direct"
+        }
+      },
+      "slots": {
+        "Header": {
+          "target": "cds-modal-header > cds-modal-heading",
+          "transform": "manual",
+          "notes": "M.Header contextual component becomes <cds-modal-header><cds-modal-heading>text</cds-modal-heading></cds-modal-header>"
+        },
+        "Body": {
+          "target": "cds-modal-body > cds-modal-body-content",
+          "transform": "manual",
+          "notes": "M.Body becomes <cds-modal-body><cds-modal-body-content>...</cds-modal-body-content></cds-modal-body>"
+        },
+        "Footer": {
+          "target": "cds-modal-footer",
+          "transform": "manual",
+          "notes": "M.Footer yields MF.close — replace {{on 'click' MF.close}} with data-modal-close attribute on the button instead"
+        }
+      },
+      "openPattern": {
+        "helios": "{{#if isModalOpen}}<HdsModal>",
+        "carbon": "<cds-modal open={{isModalOpen}}>",
+        "notes": "Remove the {{#if}} block — use the open attribute directly on cds-modal instead"
+      },
+      "confidence": 0.70,
+      "riskFlags": [
+        "complex-transformation",
+        "slot-to-attribute",
+        "behavioral-difference"
+      ],
+      "notes": "Medium confidence - same concept but structural mismatch. Contextual slots (M.Header/Body/Footer) become explicit child elements. open/close pattern differs: Helios uses {{#if}} + @onClose arg; Carbon uses open attribute + cds-modal-closed event + data-modal-close on buttons."
     },
     "Hds::Text": {
       "cwcComponent": null,
