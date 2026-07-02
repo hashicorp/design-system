@@ -77,8 +77,7 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
         fontWeight: undefined,
       };
     } else if (
-      // 🚧 TODO [HDS-TOKEN-RENAMING]: verify manually — token-name prefix coupling
-      this.token.name.startsWith('token-typography') &&
+      this.token.name.startsWith('hds-typography') &&
       (this.token.name.includes('font-stack') ||
         this.token.name.includes('font-family'))
     ) {
@@ -87,8 +86,7 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
         fontSize: undefined,
         fontWeight: undefined,
       };
-      // 🚧 TODO [HDS-TOKEN-RENAMING]: verify manually — token-name prefix coupling
-    } else if (this.token.name.startsWith('token-typography-font-weight')) {
+    } else if (this.token.name.startsWith('hds-typography-font-weight')) {
       return {
         fontWeight: `var(--${this.token.name})`,
         fontSize: undefined,
