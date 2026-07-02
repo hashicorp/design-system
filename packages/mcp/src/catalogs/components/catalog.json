@@ -9,28 +9,26 @@
           "name": "forceState",
           "type": "'open' | 'close'",
           "required": false,
-          "description": "Controls the state of all items within the accordion group, allowing all items to be expanded or collapsed simultaneously."
-        },
+          "description": "Controls the state of all items within a group. Can be used to expand or collapse all items at once."
+        }
         {
           "name": "size",
           "type": "'small' | 'medium' | 'large'",
           "required": false,
-          "default": "medium",
-          "description": "Specifies the size of the accordion."
+          "default": "medium"
         },
         {
           "name": "titleTag",
           "type": "'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
           "required": false,
           "default": "div",
-          "description": "Specifies the HTML tag used to wrap the content of each Accordion Item's toggle block."
+          "description": "The HTML tag that wraps the content of each Accordion Item \"toggle\" block."
         },
         {
           "name": "type",
           "type": "'card' | 'flush'",
           "required": false,
-          "default": "card",
-          "description": "Determines the style of the accordion."
+          "default": "card"
         }
       ],
       "blocks": [
@@ -48,7 +46,7 @@
                 "type",
                 "forceState"
               ],
-              "description": "The `Accordion::Item` component, yielded as contextual component."
+              "description": "`Accordion::Item` yielded as contextual component."
             }
           ]
         }
