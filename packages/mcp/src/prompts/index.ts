@@ -1,0 +1,17 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import type { McpPrompt } from "./types.ts";
+
+const PROMPTS: McpPrompt[] = [];
+
+export function registerPrompts(server: McpServer) {
+  for (const prompt of PROMPTS) {
+    server.registerPrompt(prompt);
+  }
+
+  // registerComponentUsagePrompt(server, store);
+}
