@@ -46,10 +46,12 @@ import {
   HdsDropdown,
   HdsDropdownToggleButton,
   HdsDropdownToggleIcon,
+  HdsDropdownHeader,
   HdsDropdownListItemInteractive,
   HdsDropdownListItemCheckmark,
   HdsDropdownListItemCheckbox,
   HdsDropdownListItemRadio,
+  HdsDropdownFooter,
   HdsFilterBarTabs,
   HdsFormCheckboxBase,
   HdsFormFileInputBase,
@@ -682,6 +684,138 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
                   Lorem ipsum
                 </HdsDropdownListItemRadio>
               </ul>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Header/Footer">
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <div class="hds-dropdown__content">
+              <HdsDropdownHeader
+                @hasDivider={{true}}
+                mock-state-value="focus"
+                mock-state-selector="button"
+              >
+                <HdsButton
+                  @text="Apply filters"
+                  @isFullWidth={{true}}
+                  @size="small"
+                />
+              </HdsDropdownHeader>
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive
+                >Lorem</HdsDropdownListItemInteractive>
+                <HdsDropdownListItemInteractive
+                >Ipsum</HdsDropdownListItemInteractive>
+              </ul>
+              <HdsDropdownFooter
+                @hasDivider={{true}}
+                mock-state-value="focus"
+                mock-state-selector="button"
+              >
+                <HdsButton
+                  @text="Apply filters"
+                  @isFullWidth={{true}}
+                  @size="small"
+                />
+              </HdsDropdownFooter>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @hideThemeLabels={{true}}>
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <div class="hds-dropdown__content">
+              <HdsDropdownHeader
+                @hasDivider={{true}}
+                mock-state-value="focus"
+                mock-state-selector="button"
+              >
+                <HdsButtonSet>
+                  <HdsButton
+                    @text="Apply"
+                    @isFullWidth={{true}}
+                    @size="small"
+                  />
+                  <HdsButton
+                    @text="Cancel"
+                    @color="secondary"
+                    @isFullWidth={{true}}
+                    @size="small"
+                  />
+                </HdsButtonSet>
+              </HdsDropdownHeader>
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive
+                >Lorem</HdsDropdownListItemInteractive>
+                <HdsDropdownListItemInteractive
+                >Ipsum</HdsDropdownListItemInteractive>
+              </ul>
+              <HdsDropdownFooter
+                @hasDivider={{true}}
+                mock-state-value="focus"
+                mock-state-selector="button"
+              >
+                <HdsButtonSet>
+                  <HdsButton
+                    @text="Apply"
+                    @isFullWidth={{true}}
+                    @size="small"
+                  />
+                  <HdsButton
+                    @text="Cancel"
+                    @color="secondary"
+                    @isFullWidth={{true}}
+                    @size="small"
+                  />
+                </HdsButtonSet>
+              </HdsDropdownFooter>
+            </div>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+    </ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @hideThemeLabels={{true}}>
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <div class="hds-dropdown__content">
+              <HdsDropdownHeader
+                @hasDivider={{true}}
+                mock-state-value="focus"
+                mock-state-selector="a"
+              >
+                <HdsLinkStandalone
+                  @icon="list"
+                  @text="Organizations"
+                  @color="secondary"
+                  @href="#"
+                />
+              </HdsDropdownHeader>
+              <ul class="hds-dropdown__list">
+                <HdsDropdownListItemInteractive
+                >Lorem</HdsDropdownListItemInteractive>
+                <HdsDropdownListItemInteractive
+                >Ipsum</HdsDropdownListItemInteractive>
+              </ul>
+              <HdsDropdownFooter
+                @hasDivider={{true}}
+                mock-state-value="focus"
+                mock-state-selector="a"
+              >
+                <HdsLinkStandalone
+                  @icon="list"
+                  @text="Organizations"
+                  @color="secondary"
+                  @href="#"
+                />
+              </HdsDropdownFooter>
             </div>
           </SF.Item>
         </ShwFlex>
