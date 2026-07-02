@@ -12,9 +12,21 @@ node …/replace-token-prefix.mjs --audit-coupling --annotate
 
 ## Candidates (annotated)
 
+Run result: **5 candidate lines across 3 files, all newly annotated** (scanned 2161
+code files). All are JS-logic regions → `//` marker. Re-run reports `0 newly
+annotated` (idempotent).
+
 | File | Line | Coupling snippet | Verdict (true coupling / false positive) | Resolved? |
 |---|---|---|---|---|
-| `<file>` | `<n>` | `<snippet>` | `<...>` | `[ ]` |
+| `showcase/app/components/page-carbonization/foundations/color/index.gts` | 15 | `token.name?.replace(/^token-/, '')` | true coupling — fix | `[ ]` |
+| `website/app/components/doc/token-preview/index.gts` | 80 | `this.token.name.startsWith('token-typography')` | true coupling — fix | `[ ]` |
+| `website/app/components/doc/token-preview/index.gts` | 89 | `this.token.name.startsWith('token-typography-font-weight')` | true coupling — fix | `[ ]` |
+| `website/app/components/doc/page/header/algolia-search/parts/htmlTemplatesItemPreview.js` | 23 | `tokenName.match(/^token-typography/)` | true coupling — fix | `[ ]` |
+| `website/app/components/doc/page/header/algolia-search/parts/htmlTemplatesItemPreview.js` | 25 | `tokenName.match(/^token-color/)` | true coupling — fix | `[ ]` |
+
+> Line numbers are the pre-annotation candidate lines from the audit report; after
+> annotation + `lint:fix` the marker sits on the line above each. No false
+> positives were annotated (the anchored patterns matched only true couplings).
 
 <!-- BEGIN REPO-SPECIFIC (hds-pilot) -->
 Confirmed pilot candidates (all JS-logic regions → `//` marker):

@@ -11,30 +11,36 @@ logic changed — only the leading `--token-` segment.
 
 ## Scope
 
-- Roots: `<from config>`
-- Extensions: `<from config>`
-- Exclusions: `dist/**`, compiled `public/assets/**`, `*.map`, `*.md`, `node_modules`
+- Roots: `packages/components/src`, `showcase/app`, `showcase/tests`, `website/app`,
+  `website/docs`
+- Extensions: `scss`, `css`, `gts`, `hbs`, `ts`, `js`
+- Exclusions: `dist/**`, compiled `showcase/public/assets/**`, `*.map`, `*.md`,
+  `node_modules`
 
 ## Before / after counts
 
 | Metric | Before | After |
 |---|---|---|
-| `--token-*` occurrences in source | `<baseline>` | `0` |
+| `--token-*` occurrences in source | 1646 | 0 |
+| source files changed by swap | — | 114 |
 
 ## Validation
 
-- `--check` = 0 residuals: `[ ]`
-- Build/lint pass: `[ ]`
-- Tests run by user, reported passing: `[ ]`
+- `--check` = 0 residuals: `[x]`
+- Build/lint pass: `[x]` (tokens + components build; components/showcase/website
+  lint after `lint:fix`)
+- Tests run by user, reported passing: `[x]` (showcase + website)
 
 ## Indirect coupling
 
-- `<n>` candidates annotated with `🚧 TODO [HDS-TOKEN-RENAMING]` for manual review
-  (see `indirect-coupling.md`). These are follow-ups, not part of the mechanical
-  swap.
+- 5 candidates across 3 files annotated with `🚧 TODO [HDS-TOKEN-RENAMING]` for manual
+  review (see `indirect-coupling.md`). These are follow-ups, not part of the
+  mechanical swap.
 
 ## Notes
 
 - No changeset / consumer migration guide required for this step (technically
   non-breaking; token names preserved).
+- 3 generated `.css` assets under `showcase/public/assets/**` changed via the tokens
+  `postbuild` step (regenerated output, not hand edits).
 - Suggested title: `chore: swap --token-* CSS custom property usages to --hds-*`
