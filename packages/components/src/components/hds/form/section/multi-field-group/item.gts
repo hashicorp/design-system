@@ -21,7 +21,7 @@ export default class HdsFormSectionMultiFieldGroupItem extends Component<HdsForm
     const widthStyle: { [key: string]: string } = {};
 
     if (this.args.width) {
-      widthStyle['--hds-form-section-multi-field-group-item-width'] =
+      widthStyle['--hds-var-form-section-multi-field-group-item-width'] =
         this.args.width;
     }
     return widthStyle;
