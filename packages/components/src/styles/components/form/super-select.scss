@@ -276,7 +276,7 @@ $hds-super-select-item-height: 36px;
 
     &[type="search"] {
       padding-left: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
-      background-image: var(--hds-form-text-input-background-image-data-url-search);
+      background-image: var(--hds-form-text-input-background-image-data-url-search-default);
       background-repeat: no-repeat;
       background-position: var(--hds-form-text-input-background-image-position-x) 50%;
       background-size: var(--hds-form-text-input-background-image-size);
