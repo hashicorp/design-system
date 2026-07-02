@@ -13,17 +13,17 @@
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  color: var(--token-form-error-foreground-color);
-  font-weight: var(--token-typography-font-weight-medium);
-  font-size: var(--token-form-error-typography-font-size);
-  font-family: var(--token-typography-font-stack-text);
-  line-height: var(--token-form-error-typography-line-height);
+  color: var(--hds-form-error-foreground-color);
+  font-weight: var(--hds-typography-font-weight-medium);
+  font-size: var(--hds-form-error-typography-font-size);
+  font-family: var(--hds-typography-font-stack-text);
+  line-height: var(--hds-form-error-typography-line-height);
 }
 
 .hds-form-error__icon {
   flex: none;
-  width: var(--token-form-error-icon-size);
-  height: var(--token-form-error-icon-size);
+  width: var(--hds-form-error-icon-size);
+  height: var(--hds-form-error-icon-size);
   margin: 2px 0 2px 0;
 
   @include hds-apply-only-if-carbon() {

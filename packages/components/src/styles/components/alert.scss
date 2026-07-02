@@ -20,7 +20,7 @@
   flex: none;
   width: 20px;
   height: 20px;
-  margin-right: var(--token-alert-icon-margin-right);
+  margin-right: var(--hds-alert-icon-margin-right);
 
   .hds-alert--type-compact & {
     width: 14px;
@@ -39,13 +39,13 @@
 .hds-alert__text {
   display: flex;
   flex-direction: column;
-  gap: var(--token-alert-content-gap);
+  gap: var(--hds-alert-content-gap);
   justify-content: center;
 }
 
 .hds-alert__title,
 .hds-alert__description {
-  line-height: var(--token-alert-typography-line-height);
+  line-height: var(--hds-alert-typography-line-height);
 }
 
 .hds-alert__description {
@@ -54,7 +54,7 @@
   // we add very basic styling for elements that may be injected via the "description" string
 
   strong {
-    font-weight: var(--token-typography-font-weight-semibold);
+    font-weight: var(--hds-typography-font-weight-semibold);
   }
 
   code,
@@ -62,30 +62,30 @@
     display: inline;
     padding: 1px 5px;
     font-size: 0.9em; // as discussed with designers, we reduce the size for optical/visual balance
-    font-family: var(--token-typography-code-100-font-family);
+    font-family: var(--hds-typography-code-100-font-family);
     line-height: 1em;
-    background-color: var(--token-color-surface-primary);
-    border: 1px solid var(--token-color-palette-neutral-200);
-    border-radius: var(--token-border-radius-small);
+    background-color: var(--hds-color-surface-primary);
+    border: 1px solid var(--hds-color-palette-neutral-200);
+    border-radius: var(--hds-border-radius-small);
   }
 
   // Default styling for bare HTML links not using HDS::Link components
   a:not([class*="hds-"]) {
-    color: var(--token-color-foreground-strong);
+    color: var(--hds-color-foreground-strong);
 
     &:focus,
     &:focus-visible {
       text-decoration: none;
-      outline: 2px solid var(--token-color-focus-action-internal);
+      outline: 2px solid var(--hds-color-focus-action-internal);
       outline-offset: 1px;
     }
 
     &:hover {
-      color: var(--token-color-foreground-primary);
+      color: var(--hds-color-foreground-primary);
     }
 
     &:active {
-      color: var(--token-color-foreground-faint);
+      color: var(--hds-color-foreground-faint);
     }
   }
 }
@@ -98,7 +98,7 @@
   align-items: center;
 
   > * {
-    margin-top: var(--token-alert-actions-margin-top);
+    margin-top: var(--hds-alert-actions-margin-top);
   }
 }
 
@@ -106,7 +106,7 @@
 
 .hds-alert__dismiss {
   // for visual alignment with the main icon and text
-  margin: -2px -4px -4px var(--token-alert-dismiss-margin-left);
+  margin: -2px -4px -4px var(--hds-alert-dismiss-margin-left);
 
   .hds-alert--type-compact & {
     margin-top: -3px;
@@ -122,27 +122,27 @@
 
 // TYPES
 .hds-alert--type-page {
-  padding: var(--token-alert-page-padding-vertical) var(--token-alert-page-padding-horizontal);
+  padding: var(--hds-alert-page-padding-vertical) var(--hds-alert-page-padding-horizontal);
   border-width: 1px;
   border-bottom-style: solid;
 
   @include hds-apply-only-if-carbon() {
     .hds-alert__dismiss {
-      margin: calc(-1 * var(--token-alert-page-padding-vertical)) calc(-1 * var(--token-alert-page-padding-horizontal))
-        0 var(--token-alert-dismiss-margin-left);
+      margin: calc(-1 * var(--hds-alert-page-padding-vertical)) calc(-1 * var(--hds-alert-page-padding-horizontal)) 0
+        var(--hds-alert-dismiss-margin-left);
     }
   }
 }
 
 .hds-alert--type-inline {
-  padding: var(--token-alert-inline-padding-vertical) var(--token-alert-inline-padding-horizontal);
+  padding: var(--hds-alert-inline-padding-vertical) var(--hds-alert-inline-padding-horizontal);
   border-style: solid;
   border-width: 1px;
-  border-radius: var(--token-border-radius-medium);
+  border-radius: var(--hds-border-radius-medium);
 
   @include hds-apply-only-if-carbon() {
     position: relative;
-    padding-left: calc(var(--token-alert-inline-padding-horizontal) + var(--token-alert-inline-border-left-width));
+    padding-left: calc(var(--hds-alert-inline-padding-horizontal) + var(--hds-alert-inline-border-left-width));
     border-left-width: 0;
 
     // For Carbon theme the left border is placed on top of the alert container using a pseudo element, so that it can have a different color than the main border color
@@ -151,14 +151,14 @@
       position: absolute;
       top: -1px; // Compensate the 1px border-width of the top border
       left: 0;
-      width: var(--token-alert-inline-border-left-width);
+      width: var(--hds-alert-inline-border-left-width);
       height: calc(100% + 2px); // Compensate the 1px border-width of both top and bottom borders
       content: "";
     }
 
     .hds-alert__dismiss {
-      margin-top: calc(-1 * var(--token-alert-page-padding-vertical));
-      margin-right: calc(-1 * var(--token-alert-inline-padding-horizontal));
+      margin-top: calc(-1 * var(--hds-alert-page-padding-vertical));
+      margin-right: calc(-1 * var(--hds-alert-inline-padding-horizontal));
     }
   }
 }
@@ -186,22 +186,22 @@ $hds-alert-colors: ("neutral", "highlight", "success", "warning", "critical");
   .hds-alert--color-#{$color} {
     &.hds-alert--type-page,
     &.hds-alert--type-inline {
-      background-color: var(--token-alert-surface-color-#{$color});
-      border-color: var(--token-alert-border-color-#{$color});
+      background-color: var(--hds-alert-surface-color-#{$color});
+      border-color: var(--hds-alert-border-color-#{$color});
     }
 
     @include hds-apply-only-if-carbon() {
       &.hds-alert--type-inline::before {
-        background-color: var(--token-alert-inline-border-left-color-#{$color});
+        background-color: var(--hds-alert-inline-border-left-color-#{$color});
       }
     }
 
     .hds-alert__icon {
-      color: var(--token-alert-icon-color-#{$color});
+      color: var(--hds-alert-icon-color-#{$color});
     }
 
     .hds-alert__title {
-      color: var(--token-alert-title-foreground-color-#{$color});
+      color: var(--hds-alert-title-foreground-color-#{$color});
     }
   }
 }

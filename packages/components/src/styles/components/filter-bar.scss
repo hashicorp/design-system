@@ -14,9 +14,9 @@
   flex-direction: column;
   gap: 8px;
   padding: 8px;
-  background-color: var(--token-color-surface-faint);
-  border: 1px solid var(--token-color-border-primary);
-  border-radius: var(--token-border-radius-medium);
+  background-color: var(--hds-color-surface-faint);
+  border: 1px solid var(--hds-color-border-primary);
+  border-radius: var(--hds-border-radius-medium);
 }
 
 .hds-filter-bar__applied-filters-list,
@@ -36,9 +36,9 @@
 }
 
 .hds-filter-bar__search.hds-form-text-input {
-  --token-form-control-padding: 3px;
+  --hds-form-control-padding: 3px;
   max-width: 320px;
-  font-size: var(--token-typography-body-100-font-size);
+  font-size: var(--hds-typography-body-100-font-size);
 }
 
 // FILTER BAR > FILTERS DROPDOWN
@@ -68,9 +68,9 @@
   padding: 8px;
   overflow-y: auto;
   list-style: none;
-  background-color: var(--token-color-surface-faint);
-  border-right: 1px solid var(--token-color-border-primary);
-  border-top-left-radius: var(--token-border-radius-medium);
+  background-color: var(--hds-color-surface-faint);
+  border-right: 1px solid var(--hds-color-border-primary);
+  border-top-left-radius: var(--hds-border-radius-medium);
 }
 
 .hds-filter-bar__tabs__tab {
@@ -83,15 +83,15 @@
   align-items: center;
   width: 100%;
   padding: 8px 16px;
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-color-foreground-primary);
   text-align: left;
   background-color: transparent;
   border: none;
-  border-radius: var(--token-border-radius-x-small);
+  border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
-    background-color: var(--token-color-surface-interactive-hover);
+    background-color: var(--hds-color-surface-interactive-hover);
     cursor: pointer;
   }
 
@@ -102,7 +102,7 @@
 
   &:active,
   &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
+    background-color: var(--hds-color-surface-interactive-active);
   }
 }
 
@@ -116,8 +116,8 @@
 
 .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button {
   position: relative;
-  color: var(--token-color-foreground-action);
-  background-color: var(--token-color-surface-strong);
+  color: var(--hds-color-foreground-action);
+  background-color: var(--hds-color-surface-strong);
 
   // we use `:after` to avoid conflicts with the `:before` used for the focus ring
   &::after {
@@ -126,28 +126,28 @@
     left: 4px;
     width: 2px;
     height: calc(100% - 12px);
-    background-color: var(--token-color-foreground-action);
+    background-color: var(--hds-color-foreground-action);
     border-radius: 1px;
     content: "";
   }
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-palette-blue-400);
-    background-color: var(--token-color-palette-neutral-200);
+    color: var(--hds-color-palette-blue-400);
+    background-color: var(--hds-color-palette-neutral-200);
 
     &::after {
-      background-color: var(--token-color-palette-blue-400);
+      background-color: var(--hds-color-palette-blue-400);
     }
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-palette-blue-500);
-    background-color: var(--token-color-palette-neutral-300);
+    color: var(--hds-color-palette-blue-500);
+    background-color: var(--hds-color-palette-neutral-300);
 
     &::after {
-      background-color: var(--token-color-palette-blue-500);
+      background-color: var(--hds-color-palette-blue-500);
     }
   }
 }
@@ -160,8 +160,8 @@
   max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
   padding: 16px 0;
   overflow-y: auto;
-  background-color: var(--token-color-surface-primary);
-  border-top-right-radius: var(--token-border-radius-medium);
+  background-color: var(--hds-color-surface-primary);
+  border-top-right-radius: var(--hds-border-radius-medium);
 }
 
 // FILTER BAR > FILTER GROUP
@@ -172,7 +172,7 @@
 
 .hds-filter-bar__filter-group__search {
   padding: 0 16px 16px 16px;
-  border-bottom: 1px solid var(--token-color-border-primary);
+  border-bottom: 1px solid var(--hds-color-border-primary);
 }
 
 .hds-filter-bar__filter-group__list {
@@ -212,7 +212,7 @@
   display: flex;
   align-items: self-start;
   padding: 8px 16px;
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-color-foreground-primary);
 
   &.hds-filter-bar__filter-group__selection-option--hidden {
     display: none;

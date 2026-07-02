@@ -15,16 +15,16 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
 
 .hds-link-standalone {
   display: flex;
-  gap: var(--token-link-standalone-gap);
+  gap: var(--hds-link-standalone-gap);
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: var(--token-link-standalone-padding-vertical) 0;
-  font-weight: var(--token-typography-font-weight-regular);
-  font-family: var(--token-typography-font-stack-text);
+  padding: var(--hds-link-standalone-padding-vertical) 0;
+  font-weight: var(--hds-typography-font-weight-regular);
+  font-family: var(--hds-typography-font-stack-text);
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
-  border-radius: var(--token-border-radius-small);
+  border-radius: var(--hds-border-radius-small);
 
   &:focus-visible,
   &.mock-focus {
@@ -59,13 +59,13 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
 @each $size in $hds-link-standalone-sizes {
   .hds-link-standalone--size-#{$size} {
     .hds-link-standalone__icon {
-      width: var(--token-link-standalone-icon-size-#{$size});
-      height: var(--token-link-standalone-icon-size-#{$size});
+      width: var(--hds-link-standalone-icon-size-#{$size});
+      height: var(--hds-link-standalone-icon-size-#{$size});
     }
 
     .hds-link-standalone__text {
-      font-size: var(--token-link-standalone-typography-font-size-#{$size});
-      line-height: var(--token-link-standalone-typography-line-height-#{$size});
+      font-size: var(--hds-link-standalone-typography-font-size-#{$size});
+      line-height: var(--hds-link-standalone-typography-line-height-#{$size});
     }
   }
 }
@@ -74,45 +74,45 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
 // The "primary" and "secondary" variants share a lot of styles for the interactive states
 
 .hds-link-standalone--color-primary {
-  color: var(--token-color-foreground-action);
+  color: var(--hds-color-foreground-action);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--hds-color-foreground-action-hover);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--token-color-foreground-action-hover);
+      text-decoration-color: var(--hds-color-foreground-action-hover);
     }
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--hds-color-foreground-action-active);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--token-color-foreground-action-active);
+      text-decoration-color: var(--hds-color-foreground-action-active);
     }
   }
 }
 
 .hds-link-standalone--color-secondary {
-  color: var(--token-color-foreground-strong);
+  color: var(--hds-color-foreground-strong);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-strong);
+    color: var(--hds-color-foreground-strong);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--token-color-foreground-strong);
+      text-decoration-color: var(--hds-color-foreground-strong);
     }
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-primary);
+    color: var(--hds-color-foreground-primary);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--token-color-foreground-primary);
+      text-decoration-color: var(--hds-color-foreground-primary);
     }
   }
 }

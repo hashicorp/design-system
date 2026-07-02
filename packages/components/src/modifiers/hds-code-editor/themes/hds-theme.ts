@@ -11,28 +11,28 @@ const PANEL_DIAGNOSTIC_ITEM_SELECTOR =
 
 const hdsTheme = EditorView.theme({
   '&': {
-    color: 'var(--token-code-block-foreground-color-primary)',
-    backgroundColor: 'var(--token-code-block-surface-color-primary)',
+    color: 'var(--hds-code-block-foreground-color-primary)',
+    backgroundColor: 'var(--hds-code-block-surface-color-primary)',
     height: '100%',
   },
   '.cm-content': {
-    borderLeft: '1px solid var(--token-code-block-border-color-primary)',
+    borderLeft: '1px solid var(--hds-code-block-border-color-primary)',
     height: '100%',
     padding: '16px 0',
   },
   '.cm-content ::selection': {
-    backgroundColor: 'var(--token-code-block-syntax-highlight-color-green)',
-    color: 'var(--token-code-block-surface-color-primary)',
+    backgroundColor: 'var(--hds-code-block-syntax-highlight-color-green)',
+    color: 'var(--hds-code-block-surface-color-primary)',
   },
   '.cm-gutters': {
-    backgroundColor: 'var(--token-code-block-surface-color-primary)',
+    backgroundColor: 'var(--hds-code-block-surface-color-primary)',
     border: 'none',
   },
   '.cm-gutter:first-of-type .cm-gutterElement': {
     borderLeft: '4px solid transparent',
   },
   '.cm-lineNumbers': {
-    color: 'var(--token-code-block-foreground-color-primary)',
+    color: 'var(--hds-code-block-foreground-color-primary)',
   },
   '.cm-lineNumbers .cm-gutterElement': {
     display: 'flex',
@@ -41,26 +41,26 @@ const hdsTheme = EditorView.theme({
     padding: '0px 16px',
   },
   '.cm-gutterElement.cm-activeLineGutter': {
-    backgroundColor: 'var(--token-code-block-surface-color-primary)',
+    backgroundColor: 'var(--hds-code-block-surface-color-primary)',
   },
   '&:not(.cm-hasSelection).cm-focused .cm-gutterElement.cm-activeLineGutter': {
-    borderColor: 'var(--token-code-block-line-highlight-border-color)',
-    backgroundColor: 'var(--token-code-block-line-highlight-surface-color)',
-    color: 'var(--token-code-block-foreground-color-primary)',
-    outline: '1px solid var(--token-code-block-line-highlight-border-color)',
+    borderColor: 'var(--hds-code-block-line-highlight-border-color)',
+    backgroundColor: 'var(--hds-code-block-line-highlight-surface-color)',
+    color: 'var(--hds-code-block-foreground-color-primary)',
+    outline: '1px solid var(--hds-code-block-line-highlight-border-color)',
   },
   '.cm-line': {
     padding: '4px 16px',
   },
   '.cm-activeLine': {
-    backgroundColor: 'var(--token-code-block-surface-color-primary)',
+    backgroundColor: 'var(--hds-code-block-surface-color-primary)',
   },
   '&:not(.cm-hasSelection).cm-focused .cm-activeLine': {
-    backgroundColor: 'var(--token-code-block-line-highlight-surface-color)',
-    outline: '1px solid var(--token-code-block-line-highlight-border-color)',
+    backgroundColor: 'var(--hds-code-block-line-highlight-surface-color)',
+    outline: '1px solid var(--hds-code-block-line-highlight-border-color)',
   },
   '.cm-matchingBracket': {
-    outline: '1px solid var(--token-code-block-foreground-color-primary)',
+    outline: '1px solid var(--hds-code-block-foreground-color-primary)',
   },
 
   // set a minimum height on the editor content when linting is enabled
@@ -92,14 +92,14 @@ const hdsTheme = EditorView.theme({
 
   // linter diagnostics panel
   '.cm-panel.cm-panel-lint ul': {
-    backgroundColor: 'var(--token-color-palette-neutral-500)',
+    backgroundColor: 'var(--hds-color-palette-neutral-500)',
     maxHeight: '85px',
   },
   [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
-    backgroundColor: 'var(--token-code-block-surface-color-primary)',
+    backgroundColor: 'var(--hds-code-block-surface-color-primary)',
     border: '4px solid transparent',
-    color: 'var(--token-code-block-foreground-color-primary)',
-    fontFamily: 'var(--token-typography-body-100-font-family)',
+    color: 'var(--hds-code-block-foreground-color-primary)',
+    fontFamily: 'var(--hds-typography-body-100-font-family)',
     fontSize: '13px',
     marginBottom: '1px',
     padding: '16px 12px',
@@ -108,22 +108,21 @@ const hdsTheme = EditorView.theme({
     marginBottom: '0',
   },
   [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}:hover`]: {
-    backgroundColor: 'var(--token-code-block-surface-color-faint)',
+    backgroundColor: 'var(--hds-code-block-surface-color-faint)',
   },
   '.cm-panel.cm-panel-lint ul:focus li.cm-diagnostic[aria-selected]': {
     background: 'none',
-    backgroundColor: 'var(--token-code-block-surface-color-primary)',
-    border:
-      '4px solid var(--token-code-block-focus-ring-color-action-external)',
+    backgroundColor: 'var(--hds-code-block-surface-color-primary)',
+    border: '4px solid var(--hds-code-block-focus-ring-color-action-external)',
     boxShadow:
-      'inset 0 0 0 1px var(--token-code-block-focus-ring-color-action-internal)',
-    color: 'var(--token-code-block-foreground-color-primary)',
+      'inset 0 0 0 1px var(--hds-code-block-focus-ring-color-action-internal)',
+    color: 'var(--hds-code-block-foreground-color-primary)',
   },
   '.cm-panels-bottom': {
     borderTop: 'none',
   },
   '.cm-panels-bottom .cm-panel.cm-panel-lint': {
-    borderTop: `3px solid var(--token-color-palette-neutral-500)`,
+    borderTop: `3px solid var(--hds-color-palette-neutral-500)`,
   },
   '.cm-diagnostic': {
     borderLeft: 'none',
@@ -141,11 +140,11 @@ const hdsTheme = EditorView.theme({
   // linter diagnostics panel close button
   [`${CLOSE_BUTTON_SELECTOR}`]: {
     alignItems: 'center',
-    borderRadius: 'var(--token-border-radius-small)',
-    color: 'var(--token-code-block-foreground-color-faint)',
+    borderRadius: 'var(--hds-border-radius-small)',
+    color: 'var(--hds-code-block-foreground-color-faint)',
     cursor: 'pointer',
     display: 'flex',
-    fontFamily: 'var(--token-typography-body-100-font-family)',
+    fontFamily: 'var(--hds-typography-body-100-font-family)',
     fontSize: '20px',
     height: '20px',
     lineHeight: '20px',
@@ -157,22 +156,21 @@ const hdsTheme = EditorView.theme({
   },
   [`${CLOSE_BUTTON_SELECTOR}:hover, ${CLOSE_BUTTON_SELECTOR}:active, ${CLOSE_BUTTON_SELECTOR}:focus`]:
     {
-      backgroundColor: 'var(--token-code-block-button-surface-color-active)',
+      backgroundColor: 'var(--hds-code-block-button-surface-color-active)',
       border: '1px solid transparent',
-      color: 'var(--token-code-block-foreground-color-primary)',
+      color: 'var(--hds-code-block-foreground-color-primary)',
     },
   [`${CLOSE_BUTTON_SELECTOR}:focus`]: {
-    borderColor: 'var(--token-code-block-focus-ring-color-action-internal)',
-    outline:
-      '3px solid var(--token-code-block-focus-ring-color-action-external)',
+    borderColor: 'var(--hds-code-block-focus-ring-color-action-internal)',
+    outline: '3px solid var(--hds-code-block-focus-ring-color-action-external)',
   },
 
   // tooltips
   '.cm-tooltip': {
-    backgroundColor: 'var(--token-code-block-surface-color-faint)',
-    borderRadius: 'var(--token-border-radius-small)',
-    color: 'var(--token-code-block-foreground-color-primary)',
-    fontFamily: 'var(--token-typography-body-100-font-family)',
+    backgroundColor: 'var(--hds-code-block-surface-color-faint)',
+    borderRadius: 'var(--hds-border-radius-small)',
+    color: 'var(--hds-code-block-foreground-color-primary)',
+    fontFamily: 'var(--hds-typography-body-100-font-family)',
     fontSize: '13px',
     padding: '8px 12px',
   },
@@ -192,11 +190,11 @@ const hdsTheme = EditorView.theme({
     transform: 'translateX(-50%)',
   },
   '.cm-tooltip-above::before': {
-    borderTop: '8px solid var(--token-code-block-surface-color-faint)',
+    borderTop: '8px solid var(--hds-code-block-surface-color-faint)',
     bottom: '-8px',
   },
   '.cm-tooltip-below::before': {
-    borderBottom: '8px solid var(--token-code-block-surface-color-faint)',
+    borderBottom: '8px solid var(--hds-code-block-surface-color-faint)',
     top: '-8px',
   },
   // only show the marker within the diagnostics panel

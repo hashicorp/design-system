@@ -28,16 +28,16 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  color: var(--token-color-foreground-primary);
-  background: var(--token-color-surface-primary);
-  border: 1px solid var(--token-dialog-primitive-border-color);
+  color: var(--hds-color-foreground-primary);
+  background: var(--hds-color-surface-primary);
+  border: 1px solid var(--hds-dialog-primitive-border-color);
 }
 
 // Note: this wraps both .hds-dialog-primitive__header & .hds-dialog-primitive__description
 .hds-dialog-primitive__wrapper-header {
   flex: none;
-  background: var(--token-color-surface-faint);
-  border-bottom: 1px solid var(--token-color-border-primary);
+  background: var(--hds-color-surface-faint);
+  border-bottom: 1px solid var(--hds-color-border-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
@@ -62,7 +62,7 @@
 
 .hds-dialog-primitive__wrapper-footer {
   flex: none;
-  border-top: 1px solid var(--token-color-border-primary);
+  border-top: 1px solid var(--hds-color-border-primary);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
@@ -82,15 +82,15 @@
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  padding: var(--token-dialog-primitive-padding-vertical) var(--token-dialog-primitive-padding-horizontal);
-  color: var(--token-color-foreground-strong); // applied to both the title and the icon
+  padding: var(--hds-dialog-primitive-padding-vertical) var(--hds-dialog-primitive-padding-horizontal);
+  color: var(--hds-color-foreground-strong); // applied to both the title and the icon
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
   @include hds-apply-only-if-carbon() {
     position: relative;
     // we increase the right padding to avoid that the content ends up below the dismiss button (which is absolutely positioned)
-    padding-right: calc(var(--token-dialog-primitive-padding-horizontal) + 32px);
+    padding-right: calc(var(--hds-dialog-primitive-padding-horizontal) + 32px);
   }
 }
 
@@ -103,22 +103,22 @@
   flex-grow: 1;
   margin: 0;
   // we need a mix of component-level and semantic tokens, to account for the difference in font-weight between HDS and CDS for the title
-  font-weight: var(--token-dialog-primitive-header-title-typography-font-weight);
-  font-size: var(--token-typography-display-300-font-size);
-  font-family: var(--token-typography-display-300-font-family);
-  line-height: var(--token-typography-display-300-line-height);
+  font-weight: var(--hds-dialog-primitive-header-title-typography-font-weight);
+  font-size: var(--hds-typography-display-300-font-size);
+  font-family: var(--hds-typography-display-300-font-family);
+  line-height: var(--hds-typography-display-300-line-height);
 }
 
 .hds-dialog-primitive__tagline {
   margin-bottom: 4px;
   // note: in Carbon's Modal the color of the tagline is "textSecondary", but in the SidePanel it's "textPrimary";
   // to keep things simple and consistent and avoid extra tokens, we've decided to use this semantic color
-  color: var(--token-color-foreground-faint);
+  color: var(--hds-color-foreground-faint);
   // we need a mix of component-level and semantic tokens, to account for the difference in font-size/line-height between HDS and CDS for the title
-  font-weight: var(--token-typography-font-weight-regular);
-  font-size: var(--token-dialog-primitive-header-tagline-typography-font-size);
-  font-family: var(--token-typography-font-stack-text);
-  line-height: var(--token-dialog-primitive-header-tagline-typography-line-height);
+  font-weight: var(--hds-typography-font-weight-regular);
+  font-size: var(--hds-dialog-primitive-header-tagline-typography-font-size);
+  font-family: var(--hds-typography-font-stack-text);
+  line-height: var(--hds-dialog-primitive-header-tagline-typography-line-height);
 }
 
 .hds-dialog-primitive__dismiss {
@@ -144,14 +144,14 @@
 // (currently used only in Flyout, not in Modal)
 
 .hds-dialog-primitive__description {
-  padding: 0 var(--token-dialog-primitive-padding-horizontal) var(--token-dialog-primitive-padding-vertical);
+  padding: 0 var(--hds-dialog-primitive-padding-horizontal) var(--hds-dialog-primitive-padding-vertical);
 }
 
 // BODY
 
 .hds-dialog-primitive__body {
   // by design, the vertical padding for the "body" element is the same value as the horizontal one
-  padding: var(--token-dialog-primitive-padding-horizontal);
+  padding: var(--hds-dialog-primitive-padding-horizontal);
 
   @include hds-apply-only-if-carbon() {
     padding-top: 0;
@@ -161,8 +161,8 @@
 // FOOTER
 
 .hds-dialog-primitive__footer {
-  padding: var(--token-dialog-primitive-padding-vertical) var(--token-dialog-primitive-padding-horizontal);
-  background: var(--token-color-surface-faint);
+  padding: var(--hds-dialog-primitive-padding-vertical) var(--hds-dialog-primitive-padding-horizontal);
+  background: var(--hds-color-surface-faint);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
@@ -180,6 +180,6 @@
   position: fixed;
   inset: 0;
   z-index: 49;
-  background: var(--token-color-palette-neutral-700);
+  background: var(--hds-color-palette-neutral-700);
   opacity: 0.6;
 }

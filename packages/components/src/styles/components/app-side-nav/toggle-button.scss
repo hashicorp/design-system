@@ -12,8 +12,8 @@
 
 .hds-app-side-nav__toggle-button {
   position: absolute;
-  top: var(--token-app-side-nav-wrapper-padding-vertical); // visually align with :header content
-  left: calc(var(--token-app-side-nav-wrapper-border-width) * -1);
+  top: var(--hds-app-side-nav-wrapper-padding-vertical); // visually align with :header content
+  left: calc(var(--hds-app-side-nav-wrapper-border-width) * -1);
   z-index: 1;
   display: flex;
   flex-direction: row-reverse;
@@ -21,13 +21,13 @@
   width: var(--hds-var-app-side-nav-toggle-button-width);
   height: 36px;
   padding: 0 4px;
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-color-foreground-primary);
   background: none;
-  background-color: var(--token-app-side-nav-wrapper-surface-color);
-  border: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
+  background-color: var(--hds-app-side-nav-wrapper-surface-color);
+  border: var(--hds-app-side-nav-wrapper-border-width) solid var(--hds-app-side-nav-wrapper-border-color);
   border-left-color: transparent;
-  border-top-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
-  border-bottom-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
+  border-top-right-radius: var(--hds-app-side-nav-toggle-button-border-radius);
+  border-bottom-right-radius: var(--hds-app-side-nav-toggle-button-border-radius);
   transform: translateX(var(--hds-var-app-side-nav-width-expanded));
   cursor: pointer;
   transition:
@@ -36,16 +36,15 @@
 
   &::before {
     position: absolute;
-    top: calc(var(--token-app-side-nav-toggle-button-border-radius) * -2);
-    left: calc(var(--token-app-side-nav-wrapper-border-width) * -1);
+    top: calc(var(--hds-app-side-nav-toggle-button-border-radius) * -2);
+    left: calc(var(--hds-app-side-nav-wrapper-border-width) * -1);
     box-sizing: border-box;
-    width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
-    height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
-    border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
-    border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
-    border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
-      var(--token-app-side-nav-wrapper-surface-color);
+    width: calc(var(--hds-app-side-nav-toggle-button-border-radius) * 2);
+    height: calc(var(--hds-app-side-nav-toggle-button-border-radius) * 2);
+    border-bottom: var(--hds-app-side-nav-wrapper-border-width) solid var(--hds-app-side-nav-wrapper-border-color);
+    border-left: var(--hds-app-side-nav-wrapper-border-width) solid var(--hds-app-side-nav-wrapper-border-color);
+    border-bottom-left-radius: var(--hds-app-side-nav-toggle-button-border-radius);
+    box-shadow: 0 var(--hds-app-side-nav-toggle-button-border-radius) 0 var(--hds-app-side-nav-wrapper-surface-color);
     content: "";
 
     @include hds-apply-only-if-carbon() {
@@ -55,16 +54,15 @@
 
   &::after {
     position: absolute;
-    bottom: calc(var(--token-app-side-nav-toggle-button-border-radius) * -2);
-    left: calc(var(--token-app-side-nav-wrapper-border-width) * -1);
+    bottom: calc(var(--hds-app-side-nav-toggle-button-border-radius) * -2);
+    left: calc(var(--hds-app-side-nav-wrapper-border-width) * -1);
     box-sizing: border-box;
-    width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
-    height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
-    border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
-    border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
-    border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
-      var(--token-app-side-nav-wrapper-surface-color);
+    width: calc(var(--hds-app-side-nav-toggle-button-border-radius) * 2);
+    height: calc(var(--hds-app-side-nav-toggle-button-border-radius) * 2);
+    border-bottom: var(--hds-app-side-nav-wrapper-border-width) solid var(--hds-app-side-nav-wrapper-border-color);
+    border-left: var(--hds-app-side-nav-wrapper-border-width) solid var(--hds-app-side-nav-wrapper-border-color);
+    border-bottom-left-radius: var(--hds-app-side-nav-toggle-button-border-radius);
+    box-shadow: 0 var(--hds-app-side-nav-toggle-button-border-radius) 0 var(--hds-app-side-nav-wrapper-surface-color);
     transform: scaleY(-1); // rotate so same clip path can be used
     content: "";
 
@@ -76,11 +74,11 @@
   &:hover,
   &.mock-hover {
     width: 30px;
-    background-color: var(--token-color-surface-interactive-hover);
+    background-color: var(--hds-color-surface-interactive-hover);
 
     &::before,
     &::after {
-      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-surface-interactive-hover);
+      box-shadow: 0 var(--hds-app-side-nav-toggle-button-border-radius) 0 var(--hds-color-surface-interactive-hover);
     }
   }
 
@@ -97,11 +95,11 @@
 
   &:active,
   &.mock-active {
-    background-color: var(--token-color-palette-neutral-300);
+    background-color: var(--hds-color-palette-neutral-300);
 
     &::before,
     &::after {
-      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-color-palette-neutral-300);
+      box-shadow: 0 var(--hds-app-side-nav-toggle-button-border-radius) 0 var(--hds-color-palette-neutral-300);
     }
   }
 

@@ -31,14 +31,14 @@ $progress-bar-animation-duration: 0.25s;
   &::before {
     width: 100%;
     background:
-      linear-gradient(0deg, var(--token-color-palette-alpha-200) 0%, var(--token-color-palette-alpha-200) 100%),
-      var(--token-color-palette-neutral-100);
+      linear-gradient(0deg, var(--hds-color-palette-alpha-200) 0%, var(--hds-color-palette-alpha-200) 100%),
+      var(--hds-color-palette-neutral-100);
   }
 
   &::after {
     width: var(--hds-var-stepper-nav-progress-bar-width, 0);
-    background-color: var(--token-color-palette-neutral-700);
-    border-radius: 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small) 0;
+    background-color: var(--hds-color-palette-neutral-700);
+    border-radius: 0 var(--hds-border-radius-x-small) var(--hds-border-radius-x-small) 0;
 
     @media (prefers-reduced-motion: no-preference) {
       transition: width $progress-bar-animation-duration ease-in-out;
@@ -65,7 +65,7 @@ $progress-bar-animation-duration: 0.25s;
 }
 
 .hds-stepper-nav__step-button {
-  border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium);
+  border-radius: 0 0 var(--hds-border-radius-medium) var(--hds-border-radius-medium);
 }
 
 .hds-stepper-nav__step-content {
@@ -98,13 +98,13 @@ $progress-bar-animation-duration: 0.25s;
 }
 
 .hds-stepper-nav__step-title {
-  color: var(--token-color-foreground-faint);
+  color: var(--hds-color-foreground-faint);
   text-decoration: none;
 }
 
 .hds-stepper-nav__step-description {
   margin-top: 4px;
-  color: var(--token-color-foreground-faint);
+  color: var(--hds-color-foreground-faint);
 }
 
 // STATUSES
@@ -114,11 +114,11 @@ $progress-bar-animation-duration: 0.25s;
 .hds-stepper-nav__step--complete,
 .hds-stepper-nav__step--active {
   .hds-stepper-nav__step-title {
-    color: var(--token-color-foreground-strong);
+    color: var(--hds-color-foreground-strong);
   }
 
   .hds-stepper-nav__step-description {
-    color: var(--token-color-foreground-primary);
+    color: var(--hds-color-foreground-primary);
   }
 }
 
@@ -138,13 +138,13 @@ $progress-bar-animation-duration: 0.25s;
 
 .hds-stepper-nav--interactive {
   .hds-stepper-nav__progress-bar::after {
-    background-color: var(--token-color-palette-blue-200);
+    background-color: var(--hds-color-palette-blue-200);
   }
 
   .hds-stepper-nav__step--active {
     .hds-stepper-nav__step-button {
       .hds-stepper-nav__step-title {
-        color: var(--token-color-foreground-action);
+        color: var(--hds-color-foreground-action);
       }
 
       &:focus-visible,
@@ -154,7 +154,7 @@ $progress-bar-animation-duration: 0.25s;
           // TODO for now we use the `hds` values but when will be carbonized these values will need to be updated
           $pseudo-element-inset-cds: -3px -1px -1px -1px,
           // TODO understand if these values are still OK for the carbonized `cds` version
-          $pseudo-element-border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium)
+          $pseudo-element-border-radius: 0 0 var(--hds-border-radius-medium) var(--hds-border-radius-medium)
         );
       }
     }
@@ -165,7 +165,7 @@ $progress-bar-animation-duration: 0.25s;
       cursor: pointer;
 
       .hds-stepper-nav__step-title {
-        color: var(--token-color-foreground-action);
+        color: var(--hds-color-foreground-action);
         text-decoration: underline;
         text-decoration-skip-ink: none;
         text-underline-position: from-font;
@@ -173,10 +173,10 @@ $progress-bar-animation-duration: 0.25s;
 
       &:hover,
       &.mock-hover {
-        background-color: var(--token-color-surface-interactive-hover);
+        background-color: var(--hds-color-surface-interactive-hover);
 
         .hds-stepper-nav__step-title {
-          color: var(--token-color-foreground-action-hover);
+          color: var(--hds-color-foreground-action-hover);
         }
       }
 
@@ -187,16 +187,16 @@ $progress-bar-animation-duration: 0.25s;
           // TODO for now we use the `hds` values but when will be carbonized these values will need to be updated
           $pseudo-element-inset-cds: -3px -1px -1px -1px,
           // TODO understand if these values are still OK for the carbonized `cds` version
-          $pseudo-element-border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium)
+          $pseudo-element-border-radius: 0 0 var(--hds-border-radius-medium) var(--hds-border-radius-medium)
         );
       }
 
       &:active,
       &.mock-active {
-        background-color: var(--token-color-surface-interactive-active);
+        background-color: var(--hds-color-surface-interactive-active);
 
         .hds-stepper-nav__step-title {
-          color: var(--token-color-foreground-action-active);
+          color: var(--hds-color-foreground-action-active);
         }
       }
     }

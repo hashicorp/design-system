@@ -15,24 +15,24 @@ $hds-stepper-indicator-task-size: 16px;
 // Determine states and corresponding styles
 $hds-stepper-indicator-task-status-props: (
   "incomplete": (
-    "color-default": var(--token-color-palette-neutral-300),
-    "color-hover": var(--token-color-foreground-action-hover),
-    "color-active": var(--token-color-foreground-action-active),
+    "color-default": var(--hds-color-palette-neutral-300),
+    "color-hover": var(--hds-color-foreground-action-hover),
+    "color-active": var(--hds-color-foreground-action-active),
   ),
   "progress": (
-    "color-default": var(--token-color-foreground-action),
-    "color-hover": var(--token-color-foreground-action-hover),
-    "color-active": var(--token-color-foreground-action-active),
+    "color-default": var(--hds-color-foreground-action),
+    "color-hover": var(--hds-color-foreground-action-hover),
+    "color-active": var(--hds-color-foreground-action-active),
   ),
   "processing": (
-    "color-default": var(--token-color-foreground-action),
-    "color-hover": var(--token-color-foreground-action-hover),
-    "color-active": var(--token-color-foreground-action-active),
+    "color-default": var(--hds-color-foreground-action),
+    "color-hover": var(--hds-color-foreground-action-hover),
+    "color-active": var(--hds-color-foreground-action-active),
   ),
   "complete": (
-    "color-default": var(--token-color-foreground-success),
-    "color-hover": var(--token-color-palette-green-300),
-    "color-active": var(--token-color-palette-green-400),
+    "color-default": var(--hds-color-foreground-success),
+    "color-hover": var(--hds-color-palette-green-300),
+    "color-active": var(--hds-color-palette-green-400),
   ),
 );
 
@@ -44,7 +44,7 @@ $hds-stepper-indicator-task-status-props: (
   justify-content: center;
   width: $hds-stepper-indicator-task-size;
   height: $hds-stepper-indicator-task-size;
-  color: var(--token-color-foreground-strong);
+  color: var(--hds-color-foreground-strong);
 }
 
 .hds-stepper-indicator-task__icon {
