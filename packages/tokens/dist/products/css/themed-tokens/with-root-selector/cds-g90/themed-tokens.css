@@ -123,8 +123,8 @@
   --hds-badge-foreground-color-neutral-outlined: #f4f4f4;
   --hds-badge-foreground-color-success-filled: #a7f0ba; /** we don't use `success-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-success-outlined: #a7f0ba;
-  --hds-badge-foreground-color-warning-filled: #ffd9be;
-  --hds-badge-foreground-color-warning-outlined: #ffd9be;
+  --hds-badge-foreground-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-foreground-color-warning-outlined: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
   --hds-badge-gap-large: 4px;
   --hds-badge-gap-medium: 4px;
   --hds-badge-gap-small: 4px;
@@ -143,8 +143,8 @@
   --hds-badge-surface-color-neutral-inverted: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
   --hds-badge-surface-color-success-filled: #0e6027; /** we don't use `surface-success` for accessibility (better contrast) */
   --hds-badge-surface-color-success-inverted: #a7f0ba;
-  --hds-badge-surface-color-warning-filled: #8a3800; /** we don't use `surface-warning` for accessibility (better contrast) */
-  --hds-badge-surface-color-warning-inverted: #ffd9be;
+  --hds-badge-surface-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-surface-color-warning-inverted: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
   --hds-badge-typography-font-size-large: 0.75rem;
   --hds-badge-typography-font-size-medium: 0.75rem;
   --hds-badge-typography-font-size-small: 0.75rem;
@@ -169,7 +169,7 @@
   --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
   --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
   --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
-  --hds-button-border-color-disabled: rgba(141, 141, 141, 0.3);
+  --hds-button-border-color-disabled: rgba(141, 141, 141, 0.3); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
   --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
   --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
   --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
@@ -178,13 +178,13 @@
   --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
   --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
   --hds-button-border-color-tertiary-default: #ffffff;
-  --hds-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3);
+  --hds-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
   --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
   --hds-button-foreground-color-critical-active: #ffffff;
   --hds-button-foreground-color-critical-default: #ffffff;
   --hds-button-foreground-color-critical-focus: #ffffff;
   --hds-button-foreground-color-critical-hover: #ffffff;
-  --hds-button-foreground-color-disabled: rgba(255, 255, 255, 0.25);
+  --hds-button-foreground-color-disabled: rgba(255, 255, 255, 0.25); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
   --hds-button-foreground-color-primary-active: #ffffff;
   --hds-button-foreground-color-primary-default: #ffffff;
   --hds-button-foreground-color-primary-focus: #ffffff;
@@ -218,7 +218,7 @@
   --hds-button-surface-color-critical-default: #da1e28;
   --hds-button-surface-color-critical-focus: #da1e28;
   --hds-button-surface-color-critical-hover: #b81921;
-  --hds-button-surface-color-disabled: rgba(141, 141, 141, 0.3);
+  --hds-button-surface-color-disabled: rgba(141, 141, 141, 0.3); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
   --hds-button-surface-color-primary-active: #002d9c;
   --hds-button-surface-color-primary-default: #0f62fe;
   --hds-button-surface-color-primary-focus: #0f62fe;
@@ -237,9 +237,9 @@
   --hds-button-typography-font-size-large: 0.875rem;
   --hds-button-typography-font-size-medium: 0.875rem;
   --hds-button-typography-font-size-small: 0.875rem;
-  --hds-button-typography-line-height-large: 1.2858;
-  --hds-button-typography-line-height-medium: 1.2858;
-  --hds-button-typography-line-height-small: 1.2858;
+  --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+  --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+  --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
   --hds-card-surface-color-primary: #393939;
   --hds-card-surface-color-secondary: #525252;
   --hds-code-block-border-color-primary: #6f6f6f;
@@ -409,8 +409,8 @@
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
-  --hds-focus-ring-action-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-color-focus-action-external);
-  --hds-focus-ring-critical-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-color-focus-critical-external);
+  --hds-focus-ring-action-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+  --hds-focus-ring-critical-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-width-external: 2px;
   --hds-focus-ring-width-internal: 0px;
   --hds-form-character-count-foreground-color: #c6c6c6;
