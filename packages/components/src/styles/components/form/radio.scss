@@ -10,6 +10,7 @@
 // "BASE" CONTROL
 
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 .hds-form-radio {
   width: var(--hds-form-radio-size);
@@ -29,8 +30,8 @@
   // base (default)
 
   &:not(:checked) {
-    background-color: var(--hds-form-control-base-surface-color-default);
-    border-color: var(--hds-form-control-base-border-color-default);
+    background-color: var(--hds-form-control-unchecked-surface-color-default);
+    border-color: var(--hds-form-control-unchecked-border-color-default);
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
 
@@ -38,19 +39,24 @@
     background-color: var(--hds-form-control-checked-surface-color-default);
     background-image: var(--hds-form-radio-background-image-data-url);
     border-color: var(--hds-form-control-checked-border-color-default);
+
+    // TODO: Update related token
+    @include hds-apply-only-if-carbon() {
+      background-color: pink; // TEMP: for testing
+    }
   }
 
   // hover
 
   &:hover:not(:checked),
   &.mock-hover:not(:checked) {
-    background-color: var(--hds-form-control-base-surface-color-hover);
-    border-color: var(--hds-form-control-base-border-color-hover);
+    background-color: var(--hds-form-control-unchecked-surface-color-hover);
+    border-color: var(--hds-form-control-unchecked-border-color-hover);
   }
 
   &:hover:checked,
   &.mock-hover:checked {
-    background-color: var(--hds-form-control-checked-border-color-default);
+    background-color: var(--hds-form-control-checked-surface-color-hover);
     border-color: var(--hds-form-control-checked-border-color-hover);
   }
 
@@ -64,17 +70,22 @@
   // DISABLED
 
   &:disabled:not(:checked) {
-    background-color: var(--hds-form-control-disabled-surface-color);
-    border-color: var(--hds-form-control-disabled-border-color);
+    background-color: var(--hds-form-control-unchecked-surface-color-disabled);
+    border-color: var(--hds-form-control-unchecked-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
 
   &:disabled:checked {
-    background-color: var(--hds-form-control-disabled-surface-color);
+    background-color: var(--hds-form-control-checked-surface-color-disabled);
     background-image: var(--hds-form-radio-background-image-data-url-disabled);
-    border-color: var(--hds-form-control-disabled-border-color);
+    border-color: var(--hds-form-control-checked-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
+
+    // TODO: Update related token
+    @include hds-apply-only-if-carbon() {
+      background-color: pink; // TEMP: for testing
+    }
   }
 }

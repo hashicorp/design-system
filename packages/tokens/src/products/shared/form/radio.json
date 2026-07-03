@@ -4,7 +4,14 @@
       "size": {
         "$type": "dimension",
         "$value": "16",
-        "unit": "px"
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "18",
+          "cds-g10": "18",
+          "cds-g90": "18",
+          "cds-g100": "18"
+        }
       },
       "border": {
         "width": {
@@ -17,15 +24,36 @@
         "size": {
           "$type": "dimension",
           "$value": "12",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "12",
+            "cds-g0": "16",
+            "cds-g10": "16",
+            "cds-g90": "16",
+            "cds-g100": "16"
+          }
         },
         "data-url": {
-          "$value": "url(\"data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e\")",
-          "comment": "notice: the 'dot' color is hardcoded here!"
+          "$value": "url(\"data:image/svg+xml,%3csvg fill='%23ffffff' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+          "comment": "notice: the 'dot' color is hardcoded here!",
+          "$modes": {
+            "default": "url(\"data:image/svg+xml,%3csvg fill='%23ffffff' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+            "cds-g0": "url(\"data:image/svg+xml,%3csvg fill='%23161616' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+            "cds-g10": "url(\"data:image/svg+xml,%3csvg fill='%23161616' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+            "cds-g90": "url(\"data:image/svg+xml,%3csvg fill='%23ffffff' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+            "cds-g100": "url(\"data:image/svg+xml,%3csvg fill='%23ffffff' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")"
+          }
         },
         "data-url-disabled": {
-          "$value": "url(\"data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e\")",
-          "comment": "notice: the 'dot' color is hardcoded here!"
+          "$value": "url(\"data:image/svg+xml,%3csvg fill='%238C909C' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+          "comment": "notice: the 'dot' color is hardcoded here!",
+          "$modes": {
+            "default": "url(\"data:image/svg+xml,%3csvg fill='%238C909C' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+            "cds-g0": "url(\"data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+            "cds-g10": "url(\"data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+            "cds-g90": "url(\"data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")",
+            "cds-g100": "url(\"data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' /%3e%3c/svg%3e\")"
+          }
         }
       }
     }
