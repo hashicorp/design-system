@@ -15,6 +15,7 @@ import { dirname } from 'path';
 
 import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
 import { preprocessorReplaceValueForMode } from './build-parts/preprocessorReplaceValueForMode.ts';
+import { preprocessorResolveCommentsForMode } from './build-parts/preprocessorResolveComments.ts';
 import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
 import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
@@ -39,6 +40,10 @@ for (const mode of modes) {
   StyleDictionary.registerPreprocessor({
     name: `replace-value-for-mode-${mode}`,
     preprocessor: preprocessorReplaceValueForMode(mode),
+  });
+  StyleDictionary.registerPreprocessor({
+    name: `resolve-comments-for-mode-${mode}`,
+    preprocessor: preprocessorResolveCommentsForMode(mode),
   });
 }
 
