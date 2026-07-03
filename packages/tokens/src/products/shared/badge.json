@@ -489,7 +489,6 @@
           "filled": {
             "$type": "color",
             "$value": "{color.palette.amber-100}",
-            "comment": "we don't use `surface-warning` for accessibility (better contrast)",
             "$modes": {
               "default": "{color.palette.amber-100}",
               "cds-g0": "{carbon.color.orange.20}",
@@ -498,6 +497,7 @@
               "cds-g100": "{carbon.color.orange.70}"
             },
             "comments": {
+              "hds": "we don't use `surface-warning` for accessibility (better contrast)",
               "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
             }
           },
