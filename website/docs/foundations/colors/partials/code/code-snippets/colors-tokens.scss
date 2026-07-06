@@ -4,12 +4,12 @@
  */
 
 .your-selector {
-  color: var(--token-color-foreground-primary);
-  background: var(--token-color-surface-faint);
-  border: (--token-color-border-strong);
+  color: var(--hds-color-foreground-primary);
+  background: var(--hds-color-surface-faint);
+  border: 1px solid var(--hds-color-border-strong);
 
   & :hover {
-    color: var(--token-color-foreground-high-contrast);
-    background: var(--token-color-foreground-action-active);
+    color: var(--hds-color-foreground-high-contrast);
+    background: var(--hds-color-foreground-action-active);
   }
 }

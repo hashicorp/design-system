@@ -3,7 +3,7 @@
 
 We recommend applying the “focus-ring” style to an element using the **design token** provided as a custom CSS property.
 
-!!! Warning 
+!!! Warning
 
 **Consumer responsibility**
 
@@ -12,7 +12,7 @@ Note that `border-radius` is not included with this token and needs to be set ac
 
 ### Design tokens (recommended)
 
-Use the `--token-focus-ring-action-box-shadow` [design token](./tokens) directly in your CSS definitions. Note that it can only be used with the `box-shadow` property.
+Use the `--hds-focus-ring-action-box-shadow` [design token](./tokens) directly in your CSS definitions. Note that it can only be used with the `box-shadow` property.
 
 [[code-snippets/focus-ring-token-usage]]
 

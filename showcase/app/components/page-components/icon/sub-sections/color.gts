@@ -56,10 +56,10 @@ const SubSectionColor: TemplateOnlyComponent = <template>
       <HdsIcon @name="plus-circle-fill" @color="#e91e63" @size="24" />
     </SF.Item>
     <SF.Item as |SGI|>
-      <SGI.Label><code>--token-color-palette-purple-400</code></SGI.Label>
+      <SGI.Label><code>--hds-color-palette-purple-400</code></SGI.Label>
       <HdsIcon
         @name="plus-circle-fill"
-        @color="var(--token-color-palette-purple-400)"
+        @color="var(--hds-color-palette-purple-400)"
         @size="24"
       />
     </SF.Item>

@@ -45,7 +45,7 @@
   position: fixed;
   z-index: -1;
   inset: 0;
-  background-color: var(--token-color-palette-neutral-700);
+  background-color: var(--hds-color-palette-neutral-700);
   opacity: 0.2;
   transition: opacity var(--hds-var-app-side-nav-animation-duration) var(--hds-var-app-side-nav-animation-easing)
     var(--hds-var-app-side-nav-animation-delay);
@@ -70,10 +70,10 @@
   flex-direction: column;
   height: 100%;
   color: var(
-    --token-color-foreground-primary
+    --hds-color-foreground-primary
   ); // we set a default color (in case generic content is added to the body of the appsidenav)
-  background: var(--token-app-side-nav-wrapper-surface-color);
-  border-right: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
+  background: var(--hds-app-side-nav-wrapper-surface-color);
+  border-right: var(--hds-app-side-nav-wrapper-border-width) solid var(--hds-app-side-nav-wrapper-border-color);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
@@ -94,7 +94,7 @@
 
 .hds-app-side-nav__wrapper-body {
   flex: 1;
-  padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
+  padding: var(--hds-app-side-nav-wrapper-padding-vertical) var(--hds-app-side-nav-wrapper-padding-horizontal);
   // this is necessary, otherwise when the sidenav is minimized an horizontal scrollbar may appear
   // (if there are words longer than the width of the available space for the list "item" content)
   overflow-x: hidden;

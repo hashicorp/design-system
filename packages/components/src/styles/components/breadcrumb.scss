@@ -22,11 +22,11 @@
     inset: $pseudo-element-inset;
     z-index: -1;
     border-radius: inherit;
-    box-shadow: var(--token-focus-ring-action-box-shadow);
+    box-shadow: var(--hds-focus-ring-action-box-shadow);
     content: "";
 
     @include hds-apply-only-if-carbon() {
-      box-shadow: 0 0 0 1px var(--token-color-focus-action-external);
+      box-shadow: 0 0 0 1px var(--hds-color-focus-action-external);
     }
   }
 }
@@ -70,14 +70,14 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   .hds-breadcrumb__list > & {
     &:not(:last-child)::after {
       padding: 0 8px;
-      color: var(--token-breadcrumb-divider-color);
+      color: var(--hds-breadcrumb-divider-color);
       content: "/";
     }
 
     @include hds-apply-only-if-carbon() {
       &:last-child::after {
         padding: 0 8px;
-        color: var(--token-breadcrumb-divider-color);
+        color: var(--hds-breadcrumb-divider-color);
         content: "/";
       }
     }
@@ -101,18 +101,18 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   min-width: 0;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
-  color: var(--token-breadcrumb-link-foreground-color-default);
+  color: var(--hds-breadcrumb-link-foreground-color-default);
   text-align: left;
   background: none;
   border: none;
-  border-radius: var(--token-border-radius-small);
+  border-radius: var(--hds-border-radius-small);
   cursor: pointer;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
 
   &:hover,
   &.mock-hover {
-    color: var(--token-breadcrumb-link-foreground-color-hover);
+    color: var(--hds-breadcrumb-link-foreground-color-hover);
 
     > .hds-breadcrumb__text {
       text-decoration-color: currentColor;
@@ -130,7 +130,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:active,
   &.mock-active {
-    color: var(--token-breadcrumb-link-foreground-color-active);
+    color: var(--hds-breadcrumb-link-foreground-color-active);
 
     > .hds-breadcrumb__text {
       text-decoration-color: currentColor;
@@ -147,7 +147,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   min-width: 0;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
-  color: var(--token-color-foreground-strong);
+  color: var(--hds-color-foreground-strong);
 }
 
 // SUB-ELEMENTS
@@ -163,9 +163,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
   padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0; // line height = 16px / 1rem
   overflow: hidden;
-  font-size: var(--token-breadcrumb-typography-font-size);
-  font-family: var(--token-typography-font-stack-text);
-  line-height: var(--token-breadcrumb-typography-line-height);
+  font-size: var(--hds-breadcrumb-typography-font-size);
+  font-family: var(--hds-typography-font-stack-text);
+  line-height: var(--hds-breadcrumb-typography-line-height);
   white-space: nowrap;
   text-decoration: underline;
   text-overflow: ellipsis;
@@ -191,10 +191,10 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   height: $hds-breadcrumb-item-height;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
   padding: 0;
-  color: var(--token-breadcrumb-truncation-toggle-foreground-color-default);
-  background-color: var(--token-breadcrumb-truncation-toggle-surface-color-default);
+  color: var(--hds-breadcrumb-truncation-toggle-foreground-color-default);
+  background-color: var(--hds-breadcrumb-truncation-toggle-surface-color-default);
   border: 1px solid transparent; // We need this to be transparent for a11y
-  border-radius: var(--token-border-radius-small);
+  border-radius: var(--hds-border-radius-small);
   outline: none;
   cursor: pointer;
 
@@ -206,9 +206,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:hover,
   &.mock-hover {
-    color: var(--token-breadcrumb-truncation-toggle-foreground-color-hover);
-    background-color: var(--token-breadcrumb-truncation-toggle-surface-color-hover);
-    border-color: var(--token-breadcrumb-truncation-toggle-border-color-hover);
+    color: var(--hds-breadcrumb-truncation-toggle-foreground-color-hover);
+    background-color: var(--hds-breadcrumb-truncation-toggle-surface-color-hover);
+    border-color: var(--hds-breadcrumb-truncation-toggle-border-color-hover);
   }
 
   &:focus-visible,
@@ -222,9 +222,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:active,
   &.mock-active {
-    color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
-    background-color: var(--token-breadcrumb-truncation-toggle-surface-color-active);
-    border-color: var(--token-breadcrumb-truncation-toggle-border-color-active);
+    color: var(--hds-breadcrumb-truncation-toggle-foreground-color-active);
+    background-color: var(--hds-breadcrumb-truncation-toggle-surface-color-active);
+    border-color: var(--hds-breadcrumb-truncation-toggle-border-color-active);
   }
 
   // fake underline
@@ -241,17 +241,17 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
     &:hover::after,
     &.mock-hover::after {
-      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-hover);
+      background-color: var(--hds-breadcrumb-truncation-toggle-foreground-color-hover);
     }
 
     &:focus::after,
     &.mock-focus::after {
-      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-default);
+      background-color: var(--hds-breadcrumb-truncation-toggle-foreground-color-default);
     }
 
     &:active::after,
     &.mock-active::after {
-      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
+      background-color: var(--hds-breadcrumb-truncation-toggle-foreground-color-active);
     }
   }
 }
@@ -261,9 +261,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   width: max-content;
   max-width: 200px; // by design
   padding: 6px 12px;
-  background-color: var(--token-color-surface-primary);
-  border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-breadcrumb-truncation-content-box-shadow);
+  background-color: var(--hds-color-surface-primary);
+  border-radius: var(--hds-border-radius-medium);
+  box-shadow: var(--hds-breadcrumb-truncation-content-box-shadow);
 
   @include hds-apply-only-if-carbon() {
     padding: 0;
@@ -288,22 +288,22 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   .hds-breadcrumb__link {
     width: 100%;
-    color: var(--token-color-foreground-faint);
+    color: var(--hds-color-foreground-faint);
 
     &:hover,
     &.mock-hover {
-      color: var(--token-color-foreground-primary);
+      color: var(--hds-color-foreground-primary);
     }
 
     @include hds-apply-only-if-carbon() {
       margin: 0;
       padding: 11px 16px;
       text-decoration: none;
-      background-color: var(--token-color-surface-interactive);
+      background-color: var(--hds-color-surface-interactive);
 
       &:hover,
       &.mock-hover {
-        background-color: var(--token-color-surface-interactive-hover);
+        background-color: var(--hds-color-surface-interactive-hover);
       }
 
       .hds-breadcrumb__text {

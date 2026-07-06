@@ -14,48 +14,48 @@
 
 .hds-power-select {
   font-size: 0.875rem; // 14px
-  font-family: var(--token-typography-font-stack-text);
+  font-family: var(--hds-typography-font-stack-text);
 
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     max-width: 100%;
     min-height: 36px;
-    padding: calc(var(--token-form-control-padding) + 1px);
-    padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-    color: var(--token-form-control-base-foreground-color);
-    background-color: var(--token-form-control-base-surface-color-default);
-    background-image: var(--token-form-select-background-image-data-url);
+    padding: calc(var(--hds-form-control-padding) + 1px);
+    padding-right: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
+    color: var(--hds-form-control-base-foreground-color);
+    background-color: var(--hds-form-control-base-surface-color-default);
+    background-image: var(--hds-form-select-background-image-data-url);
     background-repeat: no-repeat;
     background-position:
-      right var(--token-form-select-background-image-position-right-x) center,
+      right var(--hds-form-select-background-image-position-right-x) center,
       top 8px left 20px;
-    background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
-    border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
-    border-radius: var(--token-form-control-border-radius);
-    box-shadow: var(--token-elevation-low-box-shadow);
+    background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
+    border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+    border-radius: var(--hds-form-control-border-radius);
+    box-shadow: var(--hds-elevation-low-box-shadow);
 
     &:hover,
     &.mock-hover {
-      border-color: var(--token-form-control-base-border-color-hover);
+      border-color: var(--hds-form-control-base-border-color-hover);
     }
 
     &:focus-visible,
     &.mock-focus {
       @include hds-focus-ring-basic();
-      border-color: var(--token-color-focus-action-internal);
+      border-color: var(--hds-color-focus-action-internal);
     }
 
     &[aria-expanded="true"] {
       &.ember-basic-dropdown-trigger--in-place {
-        border-radius: var(--token-form-control-border-radius);
+        border-radius: var(--hds-form-control-border-radius);
       }
     }
 
     &[aria-disabled="true"] {
-      color: var(--token-form-control-disabled-foreground-color);
-      background-color: var(--token-form-control-disabled-surface-color);
-      background-image: var(--token-form-select-background-image-data-url-disabled);
-      border-color: var(--token-form-control-disabled-border-color);
+      color: var(--hds-form-control-disabled-foreground-color);
+      background-color: var(--hds-form-control-disabled-surface-color);
+      background-image: var(--hds-form-select-background-image-data-url-disabled);
+      border-color: var(--hds-form-control-disabled-border-color);
       box-shadow: none;
       cursor: not-allowed;
       opacity: 0.7;
@@ -76,16 +76,16 @@
     &.ember-basic-dropdown-content--below,
     &.ember-basic-dropdown-content--in-place {
       margin-top: -3px;
-      border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
-      border-bottom-right-radius: var(--token-border-radius-medium);
-      border-bottom-left-radius: var(--token-border-radius-medium);
-      box-shadow: var(--token-elevation-high-box-shadow), var(--token-elevation-high-box-shadow);
+      border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+      border-bottom-right-radius: var(--hds-border-radius-medium);
+      border-bottom-left-radius: var(--hds-border-radius-medium);
+      box-shadow: var(--hds-elevation-high-box-shadow), var(--hds-elevation-high-box-shadow);
     }
 
     &.ember-basic-dropdown-content--above {
       margin-top: 3px;
-      border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
-      border-radius: var(--token-border-radius-medium) var(--token-border-radius-medium) 0 0;
+      border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+      border-radius: var(--hds-border-radius-medium) var(--hds-border-radius-medium) 0 0;
       box-shadow: none;
     }
   }
@@ -96,25 +96,25 @@
     .ember-power-select-search-input {
       width: 100%;
       max-width: 100%;
-      padding: var(--token-form-control-padding);
-      color: var(--token-form-control-base-foreground-color);
+      padding: var(--hds-form-control-padding);
+      color: var(--hds-form-control-base-foreground-color);
       line-height: 1rem;
-      background-color: var(--token-form-control-base-surface-color-default);
-      border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
-      border-radius: var(--token-form-control-border-radius);
-      box-shadow: var(--token-elevation-inset-box-shadow);
+      background-color: var(--hds-form-control-base-surface-color-default);
+      border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+      border-radius: var(--hds-form-control-border-radius);
+      box-shadow: var(--hds-elevation-inset-box-shadow);
 
       // PLACEHOLDER
 
       ::placeholder {
-        color: var(--token-form-control-base-placeholder-foreground-color);
+        color: var(--hds-form-control-base-placeholder-foreground-color);
       }
 
       // STATUS
 
       &:hover,
       &.mock-hover {
-        border-color: var(--token-form-control-base-border-color-hover);
+        border-color: var(--hds-form-control-base-border-color-hover);
       }
 
       // focus (same for all the states)
@@ -122,22 +122,22 @@
       &:focus-visible,
       &.mock-focus {
         @include hds-focus-ring-basic();
-        border-color: var(--token-color-focus-action-internal);
+        border-color: var(--hds-color-focus-action-internal);
       }
 
       &[type="search"] {
-        padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-        background-image: var(--token-form-text-input-background-image-data-url-search);
+        padding-left: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
+        background-image: var(--hds-form-text-input-background-image-data-url-search);
         background-repeat: no-repeat;
-        background-position: var(--token-form-text-input-background-image-position-x) 50%;
-        background-size: var(--token-form-text-input-background-image-size);
+        background-position: var(--hds-form-text-input-background-image-position-x) 50%;
+        background-size: var(--hds-form-text-input-background-image-size);
 
         &::-webkit-search-cancel-button {
-          width: var(--token-form-text-input-background-image-size);
-          height: var(--token-form-text-input-background-image-size);
-          background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+          width: var(--hds-form-text-input-background-image-size);
+          height: var(--hds-form-text-input-background-image-size);
+          background-image: var(--hds-form-text-input-background-image-data-url-search-cancel);
           background-position: center center;
-          background-size: var(--token-form-text-input-background-image-size);
+          background-size: var(--hds-form-text-input-background-image-size);
           appearance: none;
         }
       }
@@ -146,23 +146,23 @@
 
   .ember-power-select-group-name {
     padding: 8px 16px;
-    color: var(--token-color-foreground-faint);
-    font-weight: var(--token-typography-font-weight-medium);
-    font-size: var(--token-typography-body-300-font-size);
-    font-family: var(--token-typography-body-300-font-family);
+    color: var(--hds-color-foreground-faint);
+    font-weight: var(--hds-typography-font-weight-medium);
+    font-size: var(--hds-typography-body-300-font-size);
+    font-family: var(--hds-typography-body-300-font-family);
   }
 
   .ember-power-select-selected-item {
     display: block;
     margin-left: 0;
     padding-left: 37px;
-    color: var(--token-color-foreground-strong);
+    color: var(--hds-color-foreground-strong);
     line-height: normal;
     background-color: inherit;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: top 0 left 13px;
-    background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+    background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
   }
 
   .ember-power-select-options {
@@ -181,23 +181,23 @@
     padding: 8px 8px 8px 32px;
     line-height: normal;
     background: none;
-    border: var(--token-form-control-border-width) solid transparent;
-    border-radius: var(--token-form-control-border-radius);
+    border: var(--hds-form-control-border-width) solid transparent;
+    border-radius: var(--hds-form-control-border-radius);
 
     &[aria-selected="true"] {
-      color: var(--token-color-foreground-strong);
+      color: var(--hds-color-foreground-strong);
       background-color: inherit;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: top 8px left 8px;
-      background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+      background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
     }
 
     &[aria-current="true"],
     &:hover {
       color: inherit;
-      background-color: var(--token-color-surface-action);
-      border: var(--token-form-control-border-width) solid var(--token-color-palette-blue-300);
+      background-color: var(--hds-color-surface-action);
+      border: var(--hds-form-control-border-width) solid var(--hds-color-palette-blue-300);
     }
   }
 
@@ -213,10 +213,10 @@
   }
 
   .ember-power-select-multiple-trigger {
-    padding-top: calc(var(--token-form-control-padding) - 3px);
-    padding-bottom: calc(var(--token-form-control-padding) - 3px);
+    padding-top: calc(var(--hds-form-control-padding) - 3px);
+    padding-bottom: calc(var(--hds-form-control-padding) - 3px);
     padding-left: 20px;
-    background-image: var(--token-form-select-background-image-data-url);
+    background-image: var(--hds-form-select-background-image-data-url);
   }
 
   .ember-power-select-multiple-option {
@@ -224,14 +224,14 @@
     align-items: stretch;
     margin: 4px 4px 4px 0;
     padding: 3px 10px 5px 10px;
-    color: var(--token-color-foreground-primary);
-    font-weight: var(--token-typography-font-weight-medium);
+    color: var(--hds-color-foreground-primary);
+    font-weight: var(--hds-typography-font-weight-medium);
     font-size: 0.8125rem; // 13px
-    font-family: var(--token-typography-font-stack-text);
+    font-family: var(--hds-typography-font-stack-text);
     line-height: 1rem; // 16px
     vertical-align: middle;
     background-color: inherit;
-    border: 1px solid var(--token-color-border-strong);
+    border: 1px solid var(--hds-color-border-strong);
     border-radius: 50px;
   }
 
@@ -258,11 +258,11 @@
     }
 
     &::-webkit-search-cancel-button {
-      width: var(--token-form-text-input-background-image-size);
-      height: var(--token-form-text-input-background-image-size);
-      background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+      width: var(--hds-form-text-input-background-image-size);
+      height: var(--hds-form-text-input-background-image-size);
+      background-image: var(--hds-form-text-input-background-image-data-url-search-cancel);
       background-position: center center;
-      background-size: var(--token-form-text-input-background-image-size);
+      background-size: var(--hds-form-text-input-background-image-size);
       cursor: pointer;
       // stylelint-disable-next-line property-no-vendor-prefix
       -webkit-appearance: none;
@@ -271,9 +271,9 @@
 
   .hds-power-select__after-options {
     padding: 8px;
-    color: var(--token-color-foreground-primary);
+    color: var(--hds-color-foreground-primary);
     font-size: 0.8125rem; // 13px
-    background-color: var(--token-color-surface-faint);
-    border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    background-color: var(--hds-color-surface-faint);
+    border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
   }
 }

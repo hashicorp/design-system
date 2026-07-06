@@ -14,8 +14,8 @@ $hds-card-container-levels: ("base", "mid", "high");
 
 .hds-card__container {
   position: relative;
-  background-color: var(--token-card-surface-color-primary);
-  border-radius: var(--token-border-radius-medium);
+  background-color: var(--hds-card-surface-color-primary);
+  border-radius: var(--hds-border-radius-medium);
 }
 
 // LEVEL (elevation style as "drop" + "border" shadow effects)
@@ -26,17 +26,17 @@ $hds-card-container-levels: ("base", "mid", "high");
   // so the order of the declaration matters, they need to be one group after another group
   @each $level in $hds-card-container-levels {
     .hds-card__container--level-#{$style}-#{$level} {
-      box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
+      box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
     }
   }
 
   @each $level in $hds-card-container-levels {
     .hds-card__container--hover-level-#{$style}-#{$level}:hover,
     .hds-card__container--hover-level-#{$style}-#{$level}.mock-hover {
-      box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
+      box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
 
       @include hds-apply-only-if-carbon() {
-        background-color: var(--token-color-surface-interactive-hover);
+        background-color: var(--hds-color-surface-interactive-hover);
       }
     }
   }
@@ -44,7 +44,7 @@ $hds-card-container-levels: ("base", "mid", "high");
   @each $level in $hds-card-container-levels {
     .hds-card__container--active-level-#{$style}-#{$level}:active,
     .hds-card__container--active-level-#{$style}-#{$level}.mock-active {
-      box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
+      box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
     }
   }
 }
@@ -52,11 +52,11 @@ $hds-card-container-levels: ("base", "mid", "high");
 // BACKGROUND
 
 .hds-card__container--background-neutral-primary {
-  background-color: var(--token-card-surface-color-primary);
+  background-color: var(--hds-card-surface-color-primary);
 }
 
 .hds-card__container--background-neutral-secondary {
-  background-color: var(--token-card-surface-color-secondary);
+  background-color: var(--hds-card-surface-color-secondary);
 }
 
 // OVERFLOW

@@ -107,44 +107,44 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
               <SF.Item>
                 <h2
                   {{style
-                    font-family="var(--token-typography-display-200-font-family)"
-                    font-size="var(--token-typography-display-200-font-size)"
-                    line-height="var(--token-typography-display-200-line-height)"
-                    color="var(--token-color-foreground-strong)"
+                    font-family="var(--hds-typography-display-200-font-family)"
+                    font-size="var(--hds-typography-display-200-font-size)"
+                    line-height="var(--hds-typography-display-200-line-height)"
+                    color="var(--hds-color-foreground-strong)"
                     margin="0"
                   }}
-                >Heading with --token-typography-display-200-font-family /
-                  --token-typography-display-200-font-size /
-                  --token-typography-display-200-line-height /
-                  --token-color-foreground-strong</h2>
+                >Heading with --hds-typography-display-200-font-family /
+                  --hds-typography-display-200-font-size /
+                  --hds-typography-display-200-line-height /
+                  --hds-color-foreground-strong</h2>
               </SF.Item>
               <SF.Item>
                 <p
                   {{style
-                    font-family="var(--token-typography-body-300-font-family)"
-                    font-size="var(--token-typography-body-300-font-size)"
-                    line-height="var(--token-typography-body-300-line-height)"
-                    color="var(--token-color-foreground-primary)"
+                    font-family="var(--hds-typography-body-300-font-family)"
+                    font-size="var(--hds-typography-body-300-font-size)"
+                    line-height="var(--hds-typography-body-300-line-height)"
+                    color="var(--hds-color-foreground-primary)"
                     margin="0"
                   }}
-                >Paragraph with --token-typography-body-300-font-family /
-                  --token-typography-body-300-font-size /
-                  --token-typography-body-300-line-height /
-                  --token-color-foreground-primary</p>
+                >Paragraph with --hds-typography-body-300-font-family /
+                  --hds-typography-body-300-font-size /
+                  --hds-typography-body-300-line-height /
+                  --hds-color-foreground-primary</p>
               </SF.Item>
               <SF.Item>
                 <code
                   {{style
-                    font-family="var(--token-typography-code-300-font-family)"
-                    font-size="var(--token-typography-code-300-font-size)"
-                    line-height="var(--token-typography-code-300-line-height)"
-                    color="var(--token-color-foreground-success)"
+                    font-family="var(--hds-typography-code-300-font-family)"
+                    font-size="var(--hds-typography-code-300-font-size)"
+                    line-height="var(--hds-typography-code-300-line-height)"
+                    color="var(--hds-color-foreground-success)"
                     margin="0"
                   }}
-                >Code with --token-typography-code-300-font-family /
-                  --token-typography-code-300-font-size /
-                  --token-typography-code-300-line-height /
-                  --token-color-foreground-success</code>
+                >Code with --hds-typography-code-300-font-family /
+                  --hds-typography-code-300-font-size /
+                  --hds-typography-code-300-line-height /
+                  --hds-color-foreground-success</code>
               </SF.Item>
             </ShwFlex>
           </T.Panel>
