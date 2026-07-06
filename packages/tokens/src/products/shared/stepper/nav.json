@@ -1,0 +1,240 @@
+{
+  "stepper-nav": {
+    "step": {
+      "title": {
+        "typography": {
+          "font-weight": {
+            "$type": "font-weight",
+            "$value": "{typography.font-weight.semibold}",
+            "$modes": {
+              "default": "{typography.font-weight.semibold}",
+              "cds-g0": "{carbon.typography.bodyCompact01.font-weight}",
+              "cds-g10": "{carbon.typography.bodyCompact01.font-weight}",
+              "cds-g90": "{carbon.typography.bodyCompact01.font-weight}",
+              "cds-g100": "{carbon.typography.bodyCompact01.font-weight}"
+            }
+          }
+        }
+      },
+      "complete": {
+        "title": {
+          "foreground": {
+            "color": {
+              "default": {
+                "$type": "color",
+                "$value": "{color.foreground.strong}",
+                "$modes": {
+                  "default": "{color.foreground.strong}",
+                  "cds-g0": "{carbon.themes.white.textPrimary}",
+                  "cds-g10": "{carbon.themes.g10.textPrimary}",
+                  "cds-g90": "{carbon.themes.g90.textPrimary}",
+                  "cds-g100": "{carbon.themes.g100.textPrimary}"
+                }
+              },
+              "interactive": {
+                "$type": "color",
+                "$value": "{color.foreground.action}",
+                "$modes": {
+                  "default": "{color.foreground.action}",
+                  "cds-g0": "{carbon.themes.white.textPrimary}",
+                  "cds-g10": "{carbon.themes.g10.textPrimary}",
+                  "cds-g90": "{carbon.themes.g90.textPrimary}",
+                  "cds-g100": "{carbon.themes.g100.textPrimary}"
+                }
+              }
+            }
+          }
+        },
+        "description": {
+          "foreground": {
+            "color": {
+              "$type": "color",
+              "$value": "{color.foreground.primary}",
+              "$modes": {
+                "default": "{color.foreground.primary}",
+                "cds-g0": "{carbon.themes.white.textSecondary}",
+                "cds-g10": "{carbon.themes.g10.textSecondary}",
+                "cds-g90": "{carbon.themes.g90.textSecondary}",
+                "cds-g100": "{carbon.themes.g100.textSecondary}"
+              }
+            }
+          }
+        },
+        "surface": {
+          "color": {
+            "interactive": {
+              "hover": {
+                "$type": "color",
+                "$value": "{color.surface.interactive-hover}",
+                "$modes": {
+                  "default": "{color.surface.interactive-hover}",
+                  "cds-g0": "transparent",
+                  "cds-g10": "transparent",
+                  "cds-g90": "transparent",
+                  "cds-g100": "transparent"
+                }
+              },
+              "active": {
+                "$type": "color",
+                "$value": "{color.surface.interactive-active}",
+                "$modes": {
+                  "default": "{color.surface.interactive-active}",
+                  "cds-g0": "transparent",
+                  "cds-g10": "transparent",
+                  "cds-g90": "transparent",
+                  "cds-g100": "transparent"
+                }
+              },
+            }
+          }
+        }
+      },
+      "active": {
+        "title": {
+          "foreground": {
+            "color": {
+              "default": {
+                "$type": "color",
+                "$value": "{color.foreground.strong}",
+                "$modes": {
+                  "default": "{color.foreground.strong}",
+                  "cds-g0": "{carbon.themes.white.textPrimary}",
+                  "cds-g10": "{carbon.themes.g10.textPrimary}",
+                  "cds-g90": "{carbon.themes.g90.textPrimary}",
+                  "cds-g100": "{carbon.themes.g100.textPrimary}"
+                }
+              },
+              "interactive": {
+                "$type": "color",
+                "$value": "{color.foreground.action}",
+                "$modes": {
+                  "default": "{color.foreground.action}",
+                  "cds-g0": "{carbon.themes.white.textPrimary}",
+                  "cds-g10": "{carbon.themes.g10.textPrimary}",
+                  "cds-g90": "{carbon.themes.g90.textPrimary}",
+                  "cds-g100": "{carbon.themes.g100.textPrimary}"
+                }
+              }
+            }
+          }
+        },
+        "description": {
+          "foreground": {
+            "color": {
+              "$type": "color",
+              "$value": "{color.foreground.primary}",
+              "$modes": {
+                "default": "{color.foreground.primary}",
+                "cds-g0": "{carbon.themes.white.textSecondary}",
+                "cds-g10": "{carbon.themes.g10.textSecondary}",
+                "cds-g90": "{carbon.themes.g90.textSecondary}",
+                "cds-g100": "{carbon.themes.g100.textSecondary}"
+              }
+            }
+          }
+        }
+      },
+      "incomplete": {
+        "title": {
+          "foreground": {
+            "color": {
+              "$type": "color",
+              "$value": "{color.foreground.faint}",
+              "$modes": {
+                "default": "{color.foreground.faint}",
+                "cds-g0": "{carbon.themes.white.textPrimary}",
+                "cds-g10": "{carbon.themes.g10.textPrimary}",
+                "cds-g90": "{carbon.themes.g90.textPrimary}",
+                "cds-g100": "{carbon.themes.g100.textPrimary}"
+              }
+            }
+          }
+        },
+        "description": {
+          "foreground": {
+            "color": {
+              "$type": "color",
+              "$value": "{color.foreground.faint}",
+              "$modes": {
+                "default": "{color.foreground.faint}",
+                "cds-g0": "{carbon.themes.white.textSecondary}",
+                "cds-g10": "{carbon.themes.g10.textSecondary}",
+                "cds-g90": "{carbon.themes.g90.textSecondary}",
+                "cds-g100": "{carbon.themes.g100.textSecondary}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "progress-bar": {
+      "height": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        }
+      },
+      "top": {
+        "$type": "dimension",
+        "$value": "-4",
+        "unit": "px",
+        "$modes": {
+          "default": "-4",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      },
+      "incomplete": {
+        "surface": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-100}",
+            "$modes": {
+              "default": "{color.palette.neutral-100}",
+              "cds-g0": "{carbon.themes.white.borderSubtle00}",
+              "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+              "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+              "cds-g100": "{carbon.themes.g100.borderSubtle00}"
+            }
+          }
+        }
+      },
+      "complete": {
+        "surface": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.palette.neutral-700}",
+              "$modes": {
+                "default": "{color.palette.neutral-700}",
+                "cds-g0": "{color.palette.neutral-700}",
+                "cds-g10": "{color.palette.neutral-700}",
+                "cds-g90": "{color.palette.neutral-100}",
+                "cds-g100": "{color.palette.neutral-100}"
+              }
+            },
+            "interactive": {
+              "$type": "color",
+              "$value": "{color.palette.blue-200}",
+              "$modes": {
+                "default": "{color.palette.blue-200}",
+                "cds-g0": "{carbon.themes.white.interactive}",
+                "cds-g10": "{carbon.themes.g10.interactive}",
+                "cds-g90": "{carbon.themes.g90.interactive}",
+                "cds-g100": "{carbon.themes.g100.interactive}"
+              }
+            },
+          }
+        }
+      }
+    }
+  }
+}

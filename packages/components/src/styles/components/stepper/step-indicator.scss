@@ -11,13 +11,12 @@
 @use "../../mixins/carbonization" as *;
 
 $hds-stepper-indicator-step-statuses: ("incomplete", "progress", "processing", "complete");
-$hds-stepper-indicator-step-size: 24px;
 
 // Base stepper indicator styling
 .hds-stepper-indicator-step {
   position: relative;
-  width: $hds-stepper-indicator-step-size;
-  height: $hds-stepper-indicator-step-size;
+  width: var(--token-step-indicator-width);
+  height: var(--token-step-indicator-height);
 }
 
 .hds-stepper-indicator-step__svg-hexagon {

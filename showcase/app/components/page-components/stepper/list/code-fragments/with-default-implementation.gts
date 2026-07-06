@@ -125,7 +125,7 @@ export default class CodeFragmentWithDefaultImplementationComponents extends Com
       {{#each this.steps as |step|}}
         <S.Step @status={{step.status}}>
           <:title>{{step.title}}</:title>
-          <:description>{{step.description}}</:description>
+          <:description></:description>
           <:content>
             {{~#unless (eq step.title "Step 2")}}
               <ShwPlaceholder @text="Generic content" @height="20" />

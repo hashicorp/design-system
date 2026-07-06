@@ -559,6 +559,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.stepper.nav">
+            Stepper::Nav
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.tabs">
             Tabs
           </LinkTo>

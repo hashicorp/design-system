@@ -225,7 +225,6 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
               class="hds-stepper-nav__step-title"
               @tag={{this.titleTag}}
               @size="200"
-              @weight="semibold"
             >
               {{yield to="title"}}
               <span class="sr-only">{{this.statusSrOnlyText}}</span>
