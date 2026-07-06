@@ -22440,7 +22440,7 @@
       },
       "key": "{stepper-nav.step.title.typography.font-weight}"
     },
-    "name": "token-stepper-nav-step-title-typography-font-weight",
+    "name": "hds-stepper-nav-step-title-typography-font-weight",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22475,7 +22475,7 @@
       },
       "key": "{stepper-nav.step.complete.title.foreground.color.default}"
     },
-    "name": "token-stepper-nav-step-complete-title-foreground-color-default",
+    "name": "hds-stepper-nav-step-complete-title-foreground-color-default",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22512,7 +22512,7 @@
       },
       "key": "{stepper-nav.step.complete.title.foreground.color.interactive}"
     },
-    "name": "token-stepper-nav-step-complete-title-foreground-color-interactive",
+    "name": "hds-stepper-nav-step-complete-title-foreground-color-interactive",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22549,7 +22549,7 @@
       },
       "key": "{stepper-nav.step.complete.description.foreground.color}"
     },
-    "name": "token-stepper-nav-step-complete-description-foreground-color",
+    "name": "hds-stepper-nav-step-complete-description-foreground-color",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22585,7 +22585,7 @@
       },
       "key": "{stepper-nav.step.complete.surface.color.interactive.hover}"
     },
-    "name": "token-stepper-nav-step-complete-surface-color-interactive-hover",
+    "name": "hds-stepper-nav-step-complete-surface-color-interactive-hover",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22622,7 +22622,7 @@
       },
       "key": "{stepper-nav.step.complete.surface.color.interactive.active}"
     },
-    "name": "token-stepper-nav-step-complete-surface-color-interactive-active",
+    "name": "hds-stepper-nav-step-complete-surface-color-interactive-active",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22659,7 +22659,7 @@
       },
       "key": "{stepper-nav.step.active.title.foreground.color.default}"
     },
-    "name": "token-stepper-nav-step-active-title-foreground-color-default",
+    "name": "hds-stepper-nav-step-active-title-foreground-color-default",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22696,7 +22696,7 @@
       },
       "key": "{stepper-nav.step.active.title.foreground.color.interactive}"
     },
-    "name": "token-stepper-nav-step-active-title-foreground-color-interactive",
+    "name": "hds-stepper-nav-step-active-title-foreground-color-interactive",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22733,7 +22733,7 @@
       },
       "key": "{stepper-nav.step.active.description.foreground.color}"
     },
-    "name": "token-stepper-nav-step-active-description-foreground-color",
+    "name": "hds-stepper-nav-step-active-description-foreground-color",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22769,7 +22769,7 @@
       },
       "key": "{stepper-nav.step.incomplete.title.foreground.color}"
     },
-    "name": "token-stepper-nav-step-incomplete-title-foreground-color",
+    "name": "hds-stepper-nav-step-incomplete-title-foreground-color",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22805,7 +22805,7 @@
       },
       "key": "{stepper-nav.step.incomplete.description.foreground.color}"
     },
-    "name": "token-stepper-nav-step-incomplete-description-foreground-color",
+    "name": "hds-stepper-nav-step-incomplete-description-foreground-color",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22843,7 +22843,7 @@
       },
       "key": "{stepper-nav.progress-bar.height}"
     },
-    "name": "token-stepper-nav-progress-bar-height",
+    "name": "hds-stepper-nav-progress-bar-height",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22878,7 +22878,7 @@
       },
       "key": "{stepper-nav.progress-bar.top}"
     },
-    "name": "token-stepper-nav-progress-bar-top",
+    "name": "hds-stepper-nav-progress-bar-top",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22911,7 +22911,7 @@
       },
       "key": "{stepper-nav.progress-bar.incomplete.surface.color}"
     },
-    "name": "token-stepper-nav-progress-bar-incomplete-surface-color",
+    "name": "hds-stepper-nav-progress-bar-incomplete-surface-color",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22946,7 +22946,7 @@
       },
       "key": "{stepper-nav.progress-bar.complete.surface.color.default}"
     },
-    "name": "token-stepper-nav-progress-bar-complete-surface-color-default",
+    "name": "hds-stepper-nav-progress-bar-complete-surface-color-default",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -22982,7 +22982,7 @@
       },
       "key": "{stepper-nav.progress-bar.complete.surface.color.interactive}"
     },
-    "name": "token-stepper-nav-progress-bar-complete-surface-color-interactive",
+    "name": "hds-stepper-nav-progress-bar-complete-surface-color-interactive",
     "attributes": {
       "category": "stepper-nav"
     },
@@ -23020,7 +23020,7 @@
       },
       "key": "{step-indicator.height}"
     },
-    "name": "token-step-indicator-height",
+    "name": "hds-step-indicator-height",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23054,7 +23054,7 @@
       },
       "key": "{step-indicator.width}"
     },
-    "name": "token-step-indicator-width",
+    "name": "hds-step-indicator-width",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23086,7 +23086,7 @@
       },
       "key": "{step-indicator.foreground.color.incomplete}"
     },
-    "name": "token-step-indicator-foreground-color-incomplete",
+    "name": "hds-step-indicator-foreground-color-incomplete",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23120,7 +23120,7 @@
       },
       "key": "{step-indicator.foreground.color.progress}"
     },
-    "name": "token-step-indicator-foreground-color-progress",
+    "name": "hds-step-indicator-foreground-color-progress",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23154,7 +23154,7 @@
       },
       "key": "{step-indicator.foreground.color.processing}"
     },
-    "name": "token-step-indicator-foreground-color-processing",
+    "name": "hds-step-indicator-foreground-color-processing",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23188,7 +23188,7 @@
       },
       "key": "{step-indicator.foreground.color.complete}"
     },
-    "name": "token-step-indicator-foreground-color-complete",
+    "name": "hds-step-indicator-foreground-color-complete",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23224,7 +23224,7 @@
       },
       "key": "{step-indicator.icon.height}"
     },
-    "name": "token-step-indicator-icon-height",
+    "name": "hds-step-indicator-icon-height",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23259,7 +23259,7 @@
       },
       "key": "{step-indicator.icon.width}"
     },
-    "name": "token-step-indicator-icon-width",
+    "name": "hds-step-indicator-icon-width",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23292,7 +23292,7 @@
       },
       "key": "{step-indicator.interactive.foreground.color.incomplete}"
     },
-    "name": "token-step-indicator-interactive-foreground-color-incomplete",
+    "name": "hds-step-indicator-interactive-foreground-color-incomplete",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23327,7 +23327,7 @@
       },
       "key": "{step-indicator.interactive.foreground.color.progress}"
     },
-    "name": "token-step-indicator-interactive-foreground-color-progress",
+    "name": "hds-step-indicator-interactive-foreground-color-progress",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23362,7 +23362,7 @@
       },
       "key": "{step-indicator.interactive.foreground.color.processing}"
     },
-    "name": "token-step-indicator-interactive-foreground-color-processing",
+    "name": "hds-step-indicator-interactive-foreground-color-processing",
     "attributes": {
       "category": "step-indicator"
     },
@@ -23397,7 +23397,7 @@
       },
       "key": "{step-indicator.interactive.foreground.color.complete}"
     },
-    "name": "token-step-indicator-interactive-foreground-color-complete",
+    "name": "hds-step-indicator-interactive-foreground-color-complete",
     "attributes": {
       "category": "step-indicator"
     },
