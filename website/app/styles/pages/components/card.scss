@@ -25,13 +25,13 @@
       a {
         display: block;
         padding: 16px;
-        color: var(--token-color-foreground-primary);
+        color: var(--hds-color-foreground-primary);
         text-decoration: none;
         border-radius: inherit;
 
         &:focus {
           outline: none;
-          box-shadow: var(--token-focus-ring-action-box-shadow);
+          box-shadow: var(--hds-focus-ring-action-box-shadow);
         }
       }
     }

@@ -46,7 +46,7 @@ export default class HdsApplicationStateHeader extends Component<HdsApplicationS
       {{#if @icon}}
         <div class="hds-application-state__icon">
           <HdsIcon
-            @color="var(--token-color-foreground-strong)"
+            @color="var(--hds-color-foreground-strong)"
             @name={{@icon}}
             @size="24"
             @isInline={{true}}

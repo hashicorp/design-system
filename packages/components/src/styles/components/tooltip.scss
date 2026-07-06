@@ -19,7 +19,7 @@
       $pseudo-element-inset-cds: -2px,
       // we can't rely on the parent's border radius here and inherit it
       // so we assign a generic border radius that works for most of the cases
-      $pseudo-element-border-radius: var(--token-border-radius-medium)
+      $pseudo-element-border-radius: var(--hds-border-radius-medium)
     );
   }
 }
@@ -55,16 +55,16 @@
 // https://atomiks.github.io/tippyjs/
 
 .tippy-box[data-theme~="hds"] {
-  padding: var(--token-tooltip-padding-vertical) var(--token-tooltip-padding-horizontal);
-  color: var(--token-color-foreground-high-contrast);
-  font-weight: var(--token-typography-font-weight-regular);
-  font-size: var(--token-typography-body-200-font-size);
-  font-family: var(--token-typography-body-200-font-family);
-  line-height: var(--token-typography-body-200-line-height);
+  padding: var(--hds-tooltip-padding-vertical) var(--hds-tooltip-padding-horizontal);
+  color: var(--hds-color-foreground-high-contrast);
+  font-weight: var(--hds-typography-font-weight-regular);
+  font-size: var(--hds-typography-body-200-font-size);
+  font-family: var(--hds-typography-body-200-font-family);
+  line-height: var(--hds-typography-body-200-line-height);
   overflow-wrap: break-word;
-  background-color: var(--token-color-surface-high-contrast);
-  border-radius: var(--token-tooltip-border-radius);
-  box-shadow: var(--token-elevation-higher-box-shadow);
+  background-color: var(--hds-color-surface-high-contrast);
+  border-radius: var(--hds-tooltip-border-radius);
+  box-shadow: var(--hds-elevation-higher-box-shadow);
   transition-property: transform, visibility, opacity;
 
   @include hds-apply-only-if-carbon() {
@@ -76,7 +76,7 @@
   }
 
   &[data-inertia][data-state="visible"] {
-    transition-timing-function: var(--token-tooltip-transition-timing-function);
+    transition-timing-function: var(--hds-tooltip-transition-timing-function);
   }
 
   .tippy-content {
@@ -84,7 +84,7 @@
     z-index: 1;
     // This needs to go here because Tippy generates a javascript
     // max-width on .tippy-box.
-    max-width: calc(var(--token-tooltip-max-width) - 2 * var(--token-tooltip-padding-horizontal));
+    max-width: calc(var(--hds-tooltip-max-width) - 2 * var(--hds-tooltip-padding-horizontal));
     // prevent this container from potentially inheriting other values
     // such as `white-space: nowrap` that would cause content overflow
     white-space: normal;
@@ -95,40 +95,40 @@
   // works with Tippy's custom SVG arrow variation:
   .tippy-arrow {
     position: relative;
-    width: var(--token-tooltip-caret-width);
-    height: var(--token-tooltip-caret-height);
+    width: var(--hds-tooltip-caret-width);
+    height: var(--hds-tooltip-caret-height);
     text-align: initial;
 
     &::before {
       position: absolute;
-      width: var(--token-tooltip-caret-width);
-      height: var(--token-tooltip-caret-height);
-      background-color: var(--token-color-surface-high-contrast);
+      width: var(--hds-tooltip-caret-width);
+      height: var(--hds-tooltip-caret-height);
+      background-color: var(--hds-color-surface-high-contrast);
       content: "";
-      clip-path: var(--token-tooltip-caret-clip-path);
+      clip-path: var(--hds-tooltip-caret-clip-path);
     }
   }
 
   // Arrow positioning styles taken from tippy.js (tippy.js/dist/svg-arrow.css)
   &[data-placement^="left"] > .tippy-arrow,
   &[data-placement^="right"] > .tippy-arrow {
-    width: var(--token-tooltip-caret-height);
-    height: var(--token-tooltip-caret-width);
+    width: var(--hds-tooltip-caret-height);
+    height: var(--hds-tooltip-caret-width);
   }
 
   &[data-placement^="left"] > .tippy-arrow::before,
   &[data-placement^="right"] > .tippy-arrow::before {
-    transform-origin: calc(var(--token-tooltip-caret-width) / 2) calc(var(--token-tooltip-caret-width) / 2);
+    transform-origin: calc(var(--hds-tooltip-caret-width) / 2) calc(var(--hds-tooltip-caret-width) / 2);
   }
 
   &[data-placement="left-start"] > .tippy-arrow::before,
   &[data-placement="right-start"] > .tippy-arrow::before {
-    top: calc(var(--token-tooltip-caret-height) / 2);
+    top: calc(var(--hds-tooltip-caret-height) / 2);
   }
 
   &[data-placement="left-end"] > .tippy-arrow::before,
   &[data-placement="right-end"] > .tippy-arrow::before {
-    top: calc(-1 * var(--token-tooltip-caret-height) / 2);
+    top: calc(-1 * var(--hds-tooltip-caret-height) / 2);
   }
 
   &[data-placement^="top"] > .tippy-arrow::before,
@@ -141,7 +141,7 @@
   }
 
   &[data-placement^="top"] > .tippy-arrow::before {
-    bottom: calc(-1 * var(--token-tooltip-caret-height));
+    bottom: calc(-1 * var(--hds-tooltip-caret-height));
     transform: rotate(180deg);
   }
 
@@ -150,7 +150,7 @@
   }
 
   &[data-placement^="bottom"] > .tippy-arrow::before {
-    top: calc(-1 * var(--token-tooltip-caret-height));
+    top: calc(-1 * var(--hds-tooltip-caret-height));
   }
 
   &[data-placement^="left"] > .tippy-arrow {
@@ -158,7 +158,7 @@
   }
 
   &[data-placement^="left"] > .tippy-arrow::before {
-    right: calc(-1 * var(--token-tooltip-caret-height));
+    right: calc(-1 * var(--hds-tooltip-caret-height));
     transform: rotate(90deg);
   }
 
@@ -167,7 +167,7 @@
   }
 
   &[data-placement^="right"] > .tippy-arrow::before {
-    left: calc(-1 * var(--token-tooltip-caret-height));
+    left: calc(-1 * var(--hds-tooltip-caret-height));
     transform: rotate(-90deg);
   }
 }

@@ -77,7 +77,7 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
         fontWeight: undefined,
       };
     } else if (
-      this.token.name.startsWith('token-typography') &&
+      this.token.name.startsWith('hds-typography') &&
       (this.token.name.includes('font-stack') ||
         this.token.name.includes('font-family'))
     ) {
@@ -86,7 +86,7 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
         fontSize: undefined,
         fontWeight: undefined,
       };
-    } else if (this.token.name.startsWith('token-typography-font-weight')) {
+    } else if (this.token.name.startsWith('hds-typography-font-weight')) {
       return {
         fontWeight: `var(--${this.token.name})`,
         fontSize: undefined,
@@ -146,14 +146,14 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
     {{else if this.sizePreviewStyle}}
       <div
         class="doc-token-preview doc-token-preview--size"
-        {{style --token-value-height=this.sizePreviewStyle}}
+        {{style --hds-value-height=this.sizePreviewStyle}}
       >
         <span class="doc-token-preview__value">{{this.token.$value}}</span>
       </div>
     {{else if this.boxShadowPreviewStyle}}
       <div
         class="doc-token-preview doc-token-preview--boxshadow"
-        {{style --token-value-box-shadow=this.boxShadowPreviewStyle}}
+        {{style --hds-value-box-shadow=this.boxShadowPreviewStyle}}
       />
     {{else}}
       <div class="doc-token-preview doc-token-preview--unknown" />

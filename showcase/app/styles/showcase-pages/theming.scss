@@ -25,12 +25,12 @@ body.page-foundations-theming {
     width: fit-content;
     min-width: 120px;
     min-height: 120px;
-    color: var(--token-color-foreground-strong);
+    color: var(--hds-color-foreground-strong);
     font-weight: bold;
     font-size: 16px;
-    font-family: var(--token-typography-font-stack-text);
+    font-family: var(--hds-typography-font-stack-text);
     line-height: 1.2;
-    background-color: var(--token-color-surface-strong);
+    background-color: var(--hds-color-surface-strong);
     box-shadow: 0 0 0 1px #8989891a;
 
     &:has(.shw-foundation-theming-basic-container) {

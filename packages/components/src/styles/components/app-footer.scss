@@ -94,7 +94,7 @@ $hds-app-footer-icon-text-gap: 6px;
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-basic(
-      $external-outline-width: var(--token-app-footer-link-focus-outline-width),
+      $external-outline-width: var(--hds-app-footer-link-focus-outline-width),
       $external-outline-color: var(--app-footer-link-outline-color),
       // we want the focus ring to extend a bit around the content
       $external-outline-offset: 1px,
@@ -130,29 +130,29 @@ $hds-app-footer-icon-text-gap: 6px;
 
 // THEMING
 
-// Note: Custom property values for each theme are defined here vs. in a JSON file as tokens so do not follow --token naming
+// Note: Custom property values for each theme are defined here vs. in a JSON file as tokens so do not follow --hds naming
 
 // Light
 .hds-app-footer--theme-light {
-  --app-footer-foreground-color: var(--token-color-foreground-primary);
-  --app-footer-border-top-color: var(--token-color-border-primary);
+  --app-footer-foreground-color: var(--hds-color-foreground-primary);
+  --app-footer-border-top-color: var(--hds-color-border-primary);
 
   // Overriding default Secondary Link colors
-  --app-footer-link-foreground-color-default: var(--token-color-foreground-faint);
-  --app-footer-link-foreground-color-hover: var(--token-color-foreground-primary);
-  --app-footer-link-foreground-color-active: var(--token-color-foreground-strong);
-  --app-footer-link-foreground-color-focus: var(--token-color-foreground-faint);
-  --app-footer-link-outline-color: var(--token-app-footer-link-focus-outline-color);
+  --app-footer-link-foreground-color-default: var(--hds-color-foreground-faint);
+  --app-footer-link-foreground-color-hover: var(--hds-color-foreground-primary);
+  --app-footer-link-foreground-color-active: var(--hds-color-foreground-strong);
+  --app-footer-link-foreground-color-focus: var(--hds-color-foreground-faint);
+  --app-footer-link-outline-color: var(--hds-app-footer-link-focus-outline-color);
 
   // Copyright
-  --app-footer-copyright-text-color: var(--token-color-foreground-faint);
-  --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
+  --app-footer-copyright-text-color: var(--hds-color-foreground-faint);
+  --app-footer-copyright-icon-color: var(--hds-color-hashicorp-brand);
 
   // StatusLink icon colors
-  --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
-  --app-footer-status-link-icon-degraded-color: var(--token-color-foreground-warning);
-  --app-footer-status-link-icon-maintenance-color: var(--token-color-foreground-warning);
-  --app-footer-status-link-icon-outage-color: var(--token-color-foreground-critical);
+  --app-footer-status-link-icon-operational-color: var(--hds-color-foreground-success);
+  --app-footer-status-link-icon-degraded-color: var(--hds-color-foreground-warning);
+  --app-footer-status-link-icon-maintenance-color: var(--hds-color-foreground-warning);
+  --app-footer-status-link-icon-outage-color: var(--hds-color-foreground-critical);
 }
 
 // Dark

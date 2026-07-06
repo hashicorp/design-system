@@ -64,17 +64,17 @@ In most cases, use the horizontal layout to maximize the real estate available. 
 <Hds::Form::RadioCard::Group @name="radio-card-horizontal-layout" as |G|>
   <G.Legend>Allow this source connect to the destination</G.Legend>
   <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
-    <R.Icon @name="arrow-right" @color="var(--token-color-foreground-success)" />
+    <R.Icon @name="arrow-right" @color="var(--hds-color-foreground-success)" />
     <R.Label>Allow</R.Label>
     <R.Description>The source service will be allowed to connect to the destination.</R.Description>
   </G.RadioCard>
   <G.RadioCard {{on "change" this.onChange}} as |R|>
-    <R.Icon @name="skip" @color="var(--token-color-foreground-critical)" />
+    <R.Icon @name="skip" @color="var(--hds-color-foreground-critical)" />
     <R.Label>Deny</R.Label>
     <R.Description>The source service will not be allowed to connect to the destination.</R.Description>
   </G.RadioCard>
   <G.RadioCard {{on "change" this.onChange}} as |R|>
-    <R.Icon @name="layers" @color="var(--token-color-foreground-primary)" />
+    <R.Icon @name="layers" @color="var(--hds-color-foreground-primary)" />
     <R.Label>Application aware</R.Label>
     <R.Description>The source may or may not connect to the destination service via unique permissions based on Layer 7 criteria: path, header, or method.</R.Description>
   </G.RadioCard>

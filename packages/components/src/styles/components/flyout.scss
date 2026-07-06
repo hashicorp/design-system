@@ -25,7 +25,7 @@ $hds-flyout-max-width: calc(100vw - var(--hds-var-app-side-nav-width-minimized) 
   height: 100vh;
   max-height: 100vh;
   border: none;
-  box-shadow: var(--token-elevation-overlay-box-shadow);
+  box-shadow: var(--hds-elevation-overlay-box-shadow);
 
   // the `<dialog>` element uses a special "open" attribute to determine its visibility status
   &:not([open]) {

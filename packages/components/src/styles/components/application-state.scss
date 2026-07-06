@@ -50,7 +50,7 @@ $hds-application-state-content-max-width: 480px;
   align-items: center;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
-  color: var(--token-color-foreground-strong);
+  color: var(--hds-color-foreground-strong);
 }
 
 .hds-application-state__error-code {
@@ -67,7 +67,7 @@ $hds-application-state-content-max-width: 480px;
 
 .hds-application-state__title {
   grid-row: 2;
-  font-weight: var(--token-typography-font-weight-semibold);
+  font-weight: var(--hds-typography-font-weight-semibold);
 
   &:not(.hds-application-state__icon + &) {
     grid-column: icon / title;
@@ -78,7 +78,7 @@ $hds-application-state-content-max-width: 480px;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
   margin: 12px 0 0;
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-color-foreground-primary);
 }
 
 .hds-application-state__footer {

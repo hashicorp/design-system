@@ -13,25 +13,25 @@
 
 .hds-form-select {
   max-width: 100%;
-  padding: var(--token-form-control-padding);
-  padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-  color: var(--token-form-control-base-foreground-color);
-  background-color: var(--token-form-control-base-surface-color-default);
-  background-image: var(--token-form-select-background-image-data-url);
+  padding: var(--hds-form-control-padding);
+  padding-right: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
+  color: var(--hds-form-control-base-foreground-color);
+  background-color: var(--hds-form-control-base-surface-color-default);
+  background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
-  background-position: right var(--token-form-select-background-image-position-right-x) top
-    var(--token-form-select-background-image-position-top-y); // we have to take into account the border
-  background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
-  border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
-  border-radius: var(--token-form-control-border-radius);
-  box-shadow: var(--token-elevation-low-box-shadow);
+  background-position: right var(--hds-form-select-background-image-position-right-x) top
+    var(--hds-form-select-background-image-position-top-y); // we have to take into account the border
+  background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
+  border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
+  border-radius: var(--hds-form-control-border-radius);
+  box-shadow: var(--hds-elevation-low-box-shadow);
   appearance: none;
 
   // STATUS
 
   &:hover,
   &.mock-hover {
-    border-color: var(--token-form-control-base-border-color-hover);
+    border-color: var(--hds-form-control-base-border-color-hover);
   }
 
   // focus (same for all the states)
@@ -39,16 +39,16 @@
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-basic();
-    border-color: var(--token-color-focus-action-internal);
+    border-color: var(--hds-color-focus-action-internal);
   }
 
   // DISABLED
 
   &:disabled {
-    color: var(--token-form-control-disabled-foreground-color);
-    background-color: var(--token-form-control-disabled-surface-color);
-    background-image: var(--token-form-select-background-image-data-url-disabled);
-    border-color: var(--token-form-control-disabled-border-color);
+    color: var(--hds-form-control-disabled-foreground-color);
+    background-color: var(--hds-form-control-disabled-surface-color);
+    background-image: var(--hds-form-select-background-image-data-url-disabled);
+    border-color: var(--hds-form-control-disabled-border-color);
     box-shadow: none;
     cursor: not-allowed;
   }
@@ -56,17 +56,17 @@
   // INVALID
 
   &.hds-form-select--is-invalid {
-    border-color: var(--token-form-control-invalid-border-color-default);
+    border-color: var(--hds-form-control-invalid-border-color-default);
 
     &:hover,
     &.mock-hover {
-      border-color: var(--token-form-control-invalid-border-color-hover);
+      border-color: var(--hds-form-control-invalid-border-color-hover);
     }
 
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--token-color-focus-critical-internal);
-      outline-color: var(--token-color-focus-critical-external);
+      border-color: var(--hds-color-focus-critical-internal);
+      outline-color: var(--hds-color-focus-critical-external);
     }
   }
 }
@@ -80,25 +80,25 @@
 
     option {
       margin: 2px auto;
-      border-radius: var(--token-border-radius-x-small);
+      border-radius: var(--hds-border-radius-x-small);
 
       &:hover {
-        color: var(--token-color-foreground-action);
+        color: var(--hds-color-foreground-action);
       }
 
       &:disabled {
-        color: var(--token-color-foreground-disabled);
+        color: var(--hds-color-foreground-disabled);
       }
 
       &:checked {
-        color: var(--token-color-foreground-high-contrast);
-        background: var(--token-color-palette-blue-200);
+        color: var(--hds-color-foreground-high-contrast);
+        background: var(--hds-color-palette-blue-200);
       }
     }
 
     optgroup {
-      color: var(--token-color-foreground-strong);
-      font-weight: var(--token-typography-font-weight-semibold);
+      color: var(--hds-color-foreground-strong);
+      font-weight: var(--hds-typography-font-weight-semibold);
       font-style: normal; // reset Firefox default
     }
   }

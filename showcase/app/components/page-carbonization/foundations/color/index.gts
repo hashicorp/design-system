@@ -12,7 +12,7 @@ import type { DesignToken } from '../../../../../types/design-token';
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
 const tokenShortName = helper(function ([token]: [DesignToken]) {
-  return token.name?.replace(/^token-/, '');
+  return token.name?.replace(/^hds-/, '');
 });
 
 const ColorCarbonizationIndex: TemplateOnlyComponent = <template>

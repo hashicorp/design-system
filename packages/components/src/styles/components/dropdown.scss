@@ -51,23 +51,23 @@
 .hds-dropdown-toggle-icon {
   position: relative;
   display: flex;
-  gap: var(--token-dropdown-toggle-icon-gap);
+  gap: var(--hds-dropdown-toggle-icon-gap);
   align-items: center;
   justify-content: center;
-  padding: var(--token-dropdown-toggle-icon-padding);
+  padding: var(--hds-dropdown-toggle-icon-padding);
   // this variant mimics the secondary button, but not entirely (eg. it doesn't have an elevation shadow)
   // so we need to provide the same color values but without using the `hds-button-color-secondary()` mixin
-  color: var(--token-button-foreground-color-secondary-default);
-  background-color: var(--token-button-surface-color-secondary-default);
-  border: 1px solid var(--token-button-border-color-secondary-default);
-  border-radius: var(--token-button-border-radius);
+  color: var(--hds-button-foreground-color-secondary-default);
+  background-color: var(--hds-button-surface-color-secondary-default);
+  border: 1px solid var(--hds-button-border-color-secondary-default);
+  border-radius: var(--hds-button-border-radius);
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
   &:hover,
   &.mock-hover {
-    color: var(--token-button-foreground-color-secondary-hover);
-    background-color: var(--token-button-surface-color-secondary-hover);
-    border-color: var(--token-button-border-color-secondary-hover);
+    color: var(--hds-button-foreground-color-secondary-hover);
+    background-color: var(--hds-button-surface-color-secondary-hover);
+    border-color: var(--hds-button-border-color-secondary-hover);
     cursor: pointer;
   }
 
@@ -81,15 +81,15 @@
       // we want to see the white/black inner border for cds
       $internal-border-width-cds: 1px
     );
-    color: var(--token-button-foreground-color-secondary-focus);
-    background-color: var(--token-button-surface-color-secondary-focus);
+    color: var(--hds-button-foreground-color-secondary-focus);
+    background-color: var(--hds-button-surface-color-secondary-focus);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-button-foreground-color-secondary-active);
-    background-color: var(--token-button-surface-color-secondary-active);
-    border-color: var(--token-button-border-color-secondary-active);
+    color: var(--hds-button-foreground-color-secondary-active);
+    background-color: var(--hds-button-surface-color-secondary-active);
+    border-color: var(--hds-button-border-color-secondary-active);
   }
 
   &:disabled,
@@ -103,8 +103,8 @@
   align-items: center;
   justify-content: center;
   border-radius: calc(
-    var(--token-button-border-radius) - 2px
-  ); // var(--token-button-border-radius) - (1px padding + 1px border) (= 3px)
+    var(--hds-button-border-radius) - 2px
+  ); // var(--hds-button-border-radius) - (1px padding + 1px border) (= 3px)
 
   img {
     width: 100%;
@@ -142,7 +142,7 @@
 
 .hds-dropdown-toggle-button {
   @include hds-button();
-  gap: var(--token-dropdown-toggle-button-gap);
+  gap: var(--hds-dropdown-toggle-button-gap);
 
   &:disabled,
   &.mock-disabled,
@@ -154,8 +154,8 @@
 
     .hds-dropdown-toggle-button__badge,
     .hds-dropdown-toggle-button__count {
-      color: var(--token-color-foreground-primary);
-      background-color: var(--token-color-surface-strong);
+      color: var(--hds-color-foreground-primary);
+      background-color: var(--hds-color-surface-strong);
     }
   }
 }
@@ -163,7 +163,7 @@
 @include hds-button-size-classes("hds-dropdown-toggle-button");
 
 .hds-dropdown-toggle-button--size-small {
-  padding-right: var(--token-dropdown-toggle-button-padding-right-small);
+  padding-right: var(--hds-dropdown-toggle-button-padding-right-small);
 
   // For small variant with chevron, force the icon size to custom (even if the SGV size is `16px`)
   .hds-dropdown-toggle-chevron .hds-icon {
@@ -173,7 +173,7 @@
 }
 
 .hds-dropdown-toggle-button--size-medium {
-  padding-right: var(--token-dropdown-toggle-button-padding-right-medium);
+  padding-right: var(--hds-dropdown-toggle-button-padding-right-medium);
 }
 
 .hds-dropdown-toggle-button--color-primary {
@@ -224,7 +224,7 @@
   // We add extra spacing only when used within a toggle button vs. in a toggle icon
   .hds-dropdown-toggle-button & {
     @include hds-apply-only-if-carbon() {
-      padding-left: calc(32px - var(--token-dropdown-toggle-button-gap));
+      padding-left: calc(32px - var(--hds-dropdown-toggle-button-gap));
     }
   }
 
@@ -251,9 +251,9 @@
   width: max-content; // Important: in position absolute the layout algorithm assigns a width of 0 which impacts the flex algorithm of the children (in some cases they don't use the full width)
   min-width: 200px;
   max-width: 400px;
-  background-color: var(--token-color-surface-primary);
-  border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-dropdown-box-shadow);
+  background-color: var(--hds-color-surface-primary);
+  border-radius: var(--hds-border-radius-medium);
+  box-shadow: var(--hds-dropdown-box-shadow);
 
   // the "popover" attributes comes with pre-defined styling so we need to override it
   :where(&[popover]) {
@@ -325,11 +325,11 @@
 }
 
 .hds-dropdown__header--with-divider {
-  border-bottom: 1px solid var(--token-color-border-primary);
+  border-bottom: 1px solid var(--hds-color-border-primary);
 }
 
 .hds-dropdown__footer--with-divider {
-  border-top: 1px solid var(--token-color-border-primary);
+  border-top: 1px solid var(--hds-color-border-primary);
 }
 
 // LIST > LIST-ITEM
@@ -338,7 +338,7 @@
 // HDS::DROPDOWN::LIST-ITEM::COPY-ITEM
 .hds-dropdown-list-item__copy-item-title {
   padding: 2px 0 4px;
-  color: var(--token-color-foreground-faint);
+  color: var(--hds-color-foreground-faint);
 }
 
 .hds-dropdown-list-item--variant-copy-item {
@@ -351,7 +351,7 @@
     .hds-copy-snippet--color-secondary {
       &:hover,
       &.mock-hover {
-        outline: 1px solid var(--token-color-border-strong);
+        outline: 1px solid var(--hds-color-border-strong);
       }
     }
   }
@@ -361,7 +361,7 @@
 
 .hds-dropdown-list-item--variant-description {
   padding: 2px 16px 4px;
-  color: var(--token-color-foreground-faint);
+  color: var(--hds-color-foreground-faint);
 }
 
 // HDS::DROPDOWN::LIST-ITEM::GENERIC
@@ -461,7 +461,7 @@
       position: absolute;
       inset: 0 4px 0 10px;
       z-index: -1;
-      border-radius: var(--token-border-radius-small);
+      border-radius: var(--hds-border-radius-small);
       content: "";
 
       @include hds-apply-only-if-carbon() {
@@ -512,21 +512,21 @@
   a,
   button,
   .hds-dropdown-list-item__label {
-    color: var(--token-dropdown-list-item-foreground-color-action-default);
+    color: var(--hds-dropdown-list-item-foreground-color-action-default);
 
     // assign the values to the local CSS variables used above
-    --current-color-hover: var(--token-dropdown-list-item-foreground-color-action-hover);
-    --current-color-focus: var(--token-dropdown-list-item-foreground-color-action-focus);
-    --current-color-active: var(--token-dropdown-list-item-foreground-color-action-active);
+    --current-color-hover: var(--hds-dropdown-list-item-foreground-color-action-hover);
+    --current-color-focus: var(--hds-dropdown-list-item-foreground-color-action-focus);
+    --current-color-active: var(--hds-dropdown-list-item-foreground-color-action-active);
 
     &::after {
-      --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
+      --current-focus-ring-box-shadow: var(--hds-focus-ring-action-box-shadow);
     }
   }
 
   // Selects item containing an interactive child which is hovered
   &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
-    background-color: var(--token-dropdown-list-item-surface-color-action-hover);
+    background-color: var(--hds-dropdown-list-item-surface-color-action-hover);
   }
 }
 
@@ -534,16 +534,16 @@
 .hds-dropdown-list-item--color-critical {
   a,
   button {
-    color: var(--token-dropdown-list-item-foreground-color-critical-default);
+    color: var(--hds-dropdown-list-item-foreground-color-critical-default);
 
     // assign the values to the local CSS variables used above
-    --current-color-hover: var(--token-dropdown-list-item-foreground-color-critical-hover);
-    --current-color-focus: var(--token-dropdown-list-item-foreground-color-critical-focus);
-    --current-color-active: var(--token-dropdown-list-item-foreground-color-critical-active);
+    --current-color-hover: var(--hds-dropdown-list-item-foreground-color-critical-hover);
+    --current-color-focus: var(--hds-dropdown-list-item-foreground-color-critical-focus);
+    --current-color-active: var(--hds-dropdown-list-item-foreground-color-critical-active);
 
     &::after {
-      --current-background-color: var(--token-color-surface-critical);
-      --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
+      --current-background-color: var(--hds-color-surface-critical);
+      --current-focus-ring-box-shadow: var(--hds-focus-ring-critical-box-shadow);
     }
   }
 
@@ -552,7 +552,7 @@
   &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover),
   &:has(button:focus, button.mock-focus, a:focus, a.mock-focus, input:focus, input.mock-focus),
   &:has(button:active, button.mock-active, a:active, a.mock-active, input:active, input.mock-active) {
-    background-color: var(--token-dropdown-list-item-surface-color-critical-hover);
+    background-color: var(--hds-dropdown-list-item-surface-color-critical-hover);
   }
 }
 
@@ -566,11 +566,11 @@
   }
 
   .hds-dropdown-list-item__interactive-text {
-    color: var(--token-color-foreground-faint);
+    color: var(--hds-color-foreground-faint);
   }
 
   .hds-dropdown-list-item__interactive-icon {
-    color: var(--token-color-foreground-primary);
+    color: var(--hds-color-foreground-primary);
   }
 }
 
@@ -592,7 +592,7 @@
     right: 6px;
     bottom: 0;
     left: 6px;
-    border-bottom: 1px solid var(--token-dropdown-separator-border-color);
+    border-bottom: 1px solid var(--hds-dropdown-separator-border-color);
     content: "";
   }
 }
@@ -601,14 +601,14 @@
 
 .hds-dropdown-list-item--variant-title {
   padding: 10px 16px 4px;
-  color: var(--token-color-foreground-strong);
+  color: var(--hds-color-foreground-strong);
 }
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKMARK
 
 .hds-dropdown-list-item--variant-checkmark-selected {
   .hds-dropdown-list-item__checkmark {
-    color: var(--token-color-foreground-action);
+    color: var(--hds-color-foreground-action);
   }
 }
 
@@ -625,7 +625,7 @@
 
 .hds-dropdown-list-item__interactive[disabled],
 .hds-dropdown-list-item__interactive[disabled]:hover {
-  color: var(--token-color-foreground-disabled);
+  color: var(--hds-color-foreground-disabled);
   cursor: not-allowed;
 }
 
@@ -644,7 +644,7 @@
     &[disabled] ~ .hds-dropdown-list-item__icon,
     &[disabled] ~ .hds-dropdown-list-item__count,
     &[disabled] ~ .hds-dropdown-list-item__text-content {
-      color: var(--token-color-foreground-disabled);
+      color: var(--hds-color-foreground-disabled);
     }
   }
 
@@ -653,7 +653,7 @@
     flex-grow: 1;
     align-items: flex-start;
     padding: 8px 16px;
-    color: var(--token-color-foreground-primary);
+    color: var(--hds-color-foreground-primary);
 
     &:hover {
       cursor: pointer;
@@ -674,7 +674,7 @@
 .hds-dropdown-list-item__count {
   margin-left: auto;
   padding-left: 8px;
-  color: var(--token-color-foreground-faint);
+  color: var(--hds-color-foreground-faint);
   line-height: 20px; // replicating the resulted height of the list item
 }
 

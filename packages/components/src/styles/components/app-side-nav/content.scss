@@ -15,7 +15,7 @@
 .hds-app-side-nav__content {
   // we use this trick (increasing the container size here, and reducing it at single panel level)
   // to have the panels width match the sidebar extended width (it's used in the animated sliding of the panels)
-  margin: 0 calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
+  margin: 0 calc(var(--hds-app-side-nav-wrapper-padding-horizontal) * -1);
 
   // we hide the content when the AppSideNav is collapsed to prevent the vertical scrollbar from being visible
   // when the scrollbar is set to be always visible or a mouse or trackpad force it to be always visible.
@@ -34,7 +34,7 @@
 }
 
 .hds-app-side-nav__content-panel {
-  padding: 0 var(--token-app-side-nav-wrapper-padding-horizontal);
+  padding: 0 var(--hds-app-side-nav-wrapper-padding-horizontal);
 
   &[aria-hidden="true"] {
     max-height: 0; // prevents hidden panels from causing scrolling
@@ -47,11 +47,11 @@
 // (LIST) TITLE
 
 .hds-app-side-nav__list-title {
-  min-height: var(--token-app-side-nav-body-list-item-height);
-  margin-top: var(--token-app-side-nav-body-list-margin-vertical);
-  padding: var(--token-app-side-nav-body-list-title-padding-vertical)
-    var(--token-app-side-nav-body-list-title-padding-horizontal);
-  color: var(--token-app-side-nav-body-list-title-foreground-color);
+  min-height: var(--hds-app-side-nav-body-list-item-height);
+  margin-top: var(--hds-app-side-nav-body-list-margin-vertical);
+  padding: var(--hds-app-side-nav-body-list-title-padding-vertical)
+    var(--hds-app-side-nav-body-list-title-padding-horizontal);
+  color: var(--hds-app-side-nav-body-list-title-foreground-color);
   overflow-wrap: break-word;
 
   // Remove margin from title at top of all list-items & lists
@@ -77,48 +77,48 @@
   list-style-type: none;
 
   & + & {
-    margin-top: var(--token-app-side-nav-body-list-item-margin-top);
+    margin-top: var(--hds-app-side-nav-body-list-item-margin-top);
   }
 }
 
 // <a>/<button> element (via Hds::Interactive)
 .hds-app-side-nav__list-item-link {
   display: flex;
-  gap: var(--token-app-side-nav-body-list-item-content-gap);
+  gap: var(--hds-app-side-nav-body-list-item-content-gap);
   align-items: center;
   width: 100%;
-  min-height: var(--token-app-side-nav-body-list-item-height);
-  padding: var(--token-app-side-nav-body-list-item-padding-vertical)
-    var(--token-app-side-nav-body-list-item-padding-horizontal);
-  color: var(--token-app-side-nav-body-list-item-foreground-color-default);
+  min-height: var(--hds-app-side-nav-body-list-item-height);
+  padding: var(--hds-app-side-nav-body-list-item-padding-vertical)
+    var(--hds-app-side-nav-body-list-item-padding-horizontal);
+  color: var(--hds-app-side-nav-body-list-item-foreground-color-default);
   text-decoration: none;
   // "Link" could render as an HTML button element so these override the default background and border styles in that case
   background: transparent;
   border-color: transparent;
   border-width: 0;
-  border-radius: var(--token-app-side-nav-body-list-item-border-radius);
+  border-radius: var(--hds-app-side-nav-body-list-item-border-radius);
 
   &:focus-visible,
   &.mock-focus {
     outline: none;
-    box-shadow: var(--token-focus-ring-action-box-shadow);
+    box-shadow: var(--hds-focus-ring-action-box-shadow);
   }
 
   &:hover,
   &.mock-hover {
-    background: var(--token-app-side-nav-body-list-item-surface-color-hover);
+    background: var(--hds-app-side-nav-body-list-item-surface-color-hover);
     border-color: transparent;
 
     .hds-app-side-nav__list-item-text,
     .hds-app-side-nav__list-item-icon-leading,
     .hds-app-side-nav__list-item-icon-trailing {
-      color: var(--token-app-side-nav-body-list-item-foreground-color-hover);
+      color: var(--hds-app-side-nav-body-list-item-foreground-color-hover);
     }
   }
 
   &:active,
   &.mock-active {
-    background: var(--token-app-side-nav-body-list-item-surface-color-active);
+    background: var(--hds-app-side-nav-body-list-item-surface-color-active);
   }
 
   // ".Active" (current page) link
@@ -132,25 +132,25 @@
   &.active,
   &.active:hover:focus {
     position: relative; // for the "active" indicator bar to be correctly positioned
-    background: var(--token-app-side-nav-body-list-item-surface-color-selected);
+    background: var(--hds-app-side-nav-body-list-item-surface-color-selected);
 
     // indicator bar
     &::after {
       position: absolute;
       top: 0;
       bottom: 0;
-      left: calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
+      left: calc(var(--hds-app-side-nav-wrapper-padding-horizontal) * -1);
       width: 4px;
-      background: var(--token-app-side-nav-body-list-item-indicator-surface-color);
-      border-radius: 0 var(--token-app-side-nav-body-list-item-indicator-border-radius)
-        var(--token-app-side-nav-body-list-item-indicator-border-radius) 0;
+      background: var(--hds-app-side-nav-body-list-item-indicator-surface-color);
+      border-radius: 0 var(--hds-app-side-nav-body-list-item-indicator-border-radius)
+        var(--hds-app-side-nav-body-list-item-indicator-border-radius) 0;
       content: "";
     }
 
     .hds-app-side-nav__list-item-text,
     .hds-app-side-nav__list-item-icon-leading,
     .hds-app-side-nav__list-item-icon-trailing {
-      color: var(--token-app-side-nav-body-list-item-foreground-color-selected);
+      color: var(--hds-app-side-nav-body-list-item-foreground-color-selected);
     }
   }
 }
@@ -159,12 +159,12 @@
 .hds-app-side-nav__list-item-link--back-link {
   &:active,
   &.mock-active {
-    background: var(--token-color-surface-faint);
+    background: var(--hds-color-surface-faint);
 
     .hds-app-side-nav__list-item-text,
     .hds-app-side-nav__list-item-icon-leading,
     .hds-app-side-nav__list-item-icon-trailing {
-      color: var(--token-color-foreground-primary);
+      color: var(--hds-color-foreground-primary);
     }
   }
 }
@@ -174,8 +174,8 @@
 .hds-app-side-nav__list-item-text {
   min-width: 0;
   max-width: 100%;
-  color: var(--token-app-side-nav-body-list-item-foreground-color-default);
-  font-weight: var(--token-app-side-nav-body-list-item-typography-font-weight);
+  color: var(--hds-app-side-nav-body-list-item-foreground-color-default);
+  font-weight: var(--hds-app-side-nav-body-list-item-typography-font-weight);
   text-align: left;
   overflow-wrap: break-word;
 }
