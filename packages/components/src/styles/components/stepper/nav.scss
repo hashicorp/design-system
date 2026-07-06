@@ -37,7 +37,7 @@ $progress-bar-animation-duration: 0.25s;
   }
 
   &::after {
-    width: var(--hds-stepper-nav-progress-bar-width, 0);
+    width: var(--hds-var-stepper-nav-progress-bar-width, 0);
     background-color: var(--hds-stepper-nav-progress-bar-complete-surface-color-default);
     border-radius: 0 var(--hds-border-radius-x-small) var(--hds-border-radius-x-small) 0;
 
@@ -82,8 +82,8 @@ $progress-bar-animation-duration: 0.25s;
 
   @include hds-apply-only-if-carbon() {
     flex-direction: row;
-    align-items: start;
     gap: 8px;
+    align-items: start;
     padding: 10px 16px 0 0;
   }
 }
@@ -175,7 +175,7 @@ $progress-bar-animation-duration: 0.25s;
   .hds-stepper-nav__step--active {
     .hds-stepper-nav__step-button {
       .hds-stepper-nav__step-title {
-        color:var(--hds-stepper-nav-step-active-title-foreground-color-interactive);
+        color: var(--hds-stepper-nav-step-active-title-foreground-color-interactive);
       }
 
       &:focus-visible,
@@ -394,6 +394,12 @@ $progress-bar-animation-duration: 0.25s;
     align-items: start;
     padding: 8px;
     border-radius: 0;
+
+    @include hds-apply-only-if-carbon() {
+      flex-direction: column;
+      gap: 0;
+      padding: 8px;
+    }
   }
 
   .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step-content {

@@ -15,8 +15,8 @@ $hds-stepper-indicator-step-statuses: ("incomplete", "progress", "processing", "
 // Base stepper indicator styling
 .hds-stepper-indicator-step {
   position: relative;
-  width: var(--token-step-indicator-width);
-  height: var(--token-step-indicator-height);
+  width: var(--hds-step-indicator-width);
+  height: var(--hds-step-indicator-height);
 }
 
 .hds-stepper-indicator-step__svg-hexagon {
@@ -41,8 +41,8 @@ $hds-stepper-indicator-step-statuses: ("incomplete", "progress", "processing", "
 }
 
 .hds-stepper-indicator-step__icon {
-  width: var(--token-step-indicator-icon-width);
-  height: var(--token-step-indicator-icon-height);
+  width: var(--hds-step-indicator-icon-width);
+  height: var(--hds-step-indicator-icon-height);
 }
 
 .hds-stepper-indicator-step__text {
