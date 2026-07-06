@@ -31,7 +31,6 @@
     "start:dev": "pnpm build && concurrently --kill-others-on-fail --names build,inspector \"pnpm build:watch\" \"pnpm inspect\""
   },
   "dependencies": {
-    "@hashicorp/flight-icons": "workspace:^5.0.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "zod": "^4.4.3"
   },
