@@ -65,8 +65,8 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 format: 'css/themed-tokens/with-root-selector/themed',
               }
             ],
-            // this has been registered in the `build` file
-            preprocessors: [`replace-value-for-mode-${mode}`],
+            // these have been registered in the `build` file
+            preprocessors: [`replace-value-for-mode-${mode}`, `resolve-comments-for-mode-${mode}`],
           },
           [`docs/themed-json--mode-${mode}`]: {
             buildPath: 'dist/docs/products/',
@@ -80,8 +80,8 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 filter: excludePrivateTokens,
               }
             ],
-            // this has been registered in the `build` file
-            preprocessors: [`replace-value-for-mode-${mode}`],
+            // these have been registered in the `build` file
+            preprocessors: [`replace-value-for-mode-${mode}`, `resolve-comments-for-mode-${mode}`],
           }
         }
       };
@@ -105,6 +105,8 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             transformGroup: 'products/web',
             prefix: 'hds',
             basePxFontSize: 16,
+            // this has been registered in the `build` file (the standard tokens use the `default`/`hds` comments)
+            preprocessors: ['resolve-comments-for-mode-default'],
             files: [
               {
                 destination: 'tokens.css',
@@ -119,6 +121,8 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             transformGroup: 'products/web',
             prefix: 'hds',
             basePxFontSize: 16,
+            // this has been registered in the `build` file (the standard tokens use the `default`/`hds` comments)
+            preprocessors: ['resolve-comments-for-mode-default'],
             files: [
               {
                 destination: 'tokens.json',
@@ -153,6 +157,8 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
           buildPath: `dist/cloud-email/`,
           'transformGroup': 'products/email',
           prefix: 'hds',
+          // this has been registered in the `build` file (the standard tokens use the `default`/`hds` comments)
+          preprocessors: ['resolve-comments-for-mode-default'],
           files: [
             {
               destination: 'tokens.scss',
