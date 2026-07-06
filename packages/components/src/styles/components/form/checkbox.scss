@@ -35,16 +35,18 @@
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
 
-  &:checked {
+  &:checked,
+  &:indeterminate {
     background-color: var(--hds-form-control-checked-surface-color-default);
+  }
+
+  &:checked {
     background-image: var(--hds-form-checkbox-background-image-data-url);
     border-color: var(--hds-form-control-checked-border-color-default);
   }
 
   &:indeterminate {
-    background-color: var(--hds-form-control-checked-surface-color-default);
     background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate);
-    border-color: var(--hds-form-control-checked-border-color-default);
   }
 
   // hover
@@ -59,7 +61,7 @@
   &.mock-hover:checked,
   &:hover:indeterminate,
   &.mock-hover:indeterminate {
-    background-color: var(--hds-form-control-checked-border-color-default);
+    background-color: var(--hds-form-control-checked-surface-color-hover);
     border-color: var(--hds-form-control-checked-border-color-hover);
   }
 

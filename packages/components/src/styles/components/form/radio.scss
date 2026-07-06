@@ -36,14 +36,9 @@
   }
 
   &:checked {
-    background-color: var(--hds-form-control-checked-surface-color-default);
+    background-color: var(--hds-form-radio-surface-color-checked);
     background-image: var(--hds-form-radio-background-image-data-url);
     border-color: var(--hds-form-control-checked-border-color-default);
-
-    // TODO: Update related token
-    @include hds-apply-only-if-carbon() {
-      background-color: pink; // TEMP: for testing
-    }
   }
 
   // hover
@@ -56,7 +51,7 @@
 
   &:hover:checked,
   &.mock-hover:checked {
-    background-color: var(--hds-form-control-checked-surface-color-hover);
+    background-color: var(--hds-form-radio-surface-color-checked-hover);
     border-color: var(--hds-form-control-checked-border-color-hover);
   }
 
@@ -77,15 +72,10 @@
   }
 
   &:disabled:checked {
-    background-color: var(--hds-form-control-checked-surface-color-disabled);
+    background-color: var(--hds-form-radio-surface-color-checked-disabled);
     background-image: var(--hds-form-radio-background-image-data-url-disabled);
     border-color: var(--hds-form-control-checked-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
-
-    // TODO: Update related token
-    @include hds-apply-only-if-carbon() {
-      background-color: pink; // TEMP: for testing
-    }
   }
 }
