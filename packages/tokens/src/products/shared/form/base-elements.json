@@ -69,7 +69,7 @@
         "$type": "color",
         "$value": "{color.foreground.strong}",
         "group": "components",
-        "comment": "deprecated: use `token-form-label-foreground-color` instead",
+        "comment": "deprecated: use `hds-form-label-foreground-color` instead",
         "deprecated": true
       },
       "foreground": {
@@ -121,7 +121,7 @@
         "$type": "color",
         "$value": "{form.label.color}",
         "group": "components",
-        "comment": "deprecated: use `token-form-legend-foreground-color` instead",
+        "comment": "deprecated: use `hds-form-legend-foreground-color` instead",
         "deprecated": true
       },
       "foreground": {
@@ -173,7 +173,7 @@
         "$type": "color",
         "$value": "{color.foreground.faint}",
         "group": "components",
-        "comment": "deprecated: use `token-form-helper-text-foreground-color` instead",
+        "comment": "deprecated: use `hds-form-helper-text-foreground-color` instead",
         "deprecated": true
       },
       "foreground": {
@@ -215,7 +215,7 @@
           "$type": "color",
           "$value": "{color.foreground.faint}",
           "group": "components",
-          "comment": "deprecated: use `token-form-indicator-optional-foreground-color` instead",
+          "comment": "deprecated: use `hds-form-indicator-optional-foreground-color` instead",
           "deprecated": true
         },
         "foreground": {
@@ -264,7 +264,7 @@
         "$type": "color",
         "$value": "{color.palette.red-300}",
         "group": "components",
-        "comment": "deprecated: use `token-form-error-foreground-color` instead",
+        "comment": "deprecated: use `hds-form-error-foreground-color` instead",
         "deprecated": true
       },
       "foreground": {

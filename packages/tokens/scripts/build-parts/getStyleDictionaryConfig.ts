@@ -51,7 +51,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
           [`web/themed-css-variables--mode-${mode}`]: {
             buildPath: 'dist/products/css/',
             transformGroup: 'products/web/themed',
-            prefix: 'token',
+            prefix: 'hds',
             basePxFontSize: 16,
             files: [
               {
@@ -71,7 +71,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
           [`docs/themed-json--mode-${mode}`]: {
             buildPath: 'dist/docs/products/',
             transformGroup: 'products/web',
-            prefix: 'token',
+            prefix: 'hds',
             basePxFontSize: 16,
             files: [
               {
@@ -103,7 +103,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
           'web/css-variables': {
             buildPath: 'dist/products/css/',
             transformGroup: 'products/web',
-            prefix: 'token',
+            prefix: 'hds',
             basePxFontSize: 16,
             files: [
               {
@@ -117,7 +117,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
           'docs/json': {
             buildPath: 'dist/docs/products/',
             transformGroup: 'products/web',
-            prefix: 'token',
+            prefix: 'hds',
             basePxFontSize: 16,
             files: [
               {
@@ -152,7 +152,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
         'email/sass-variables': {
           buildPath: `dist/cloud-email/`,
           'transformGroup': 'products/email',
-          prefix: 'token',
+          prefix: 'hds',
           files: [
             {
               destination: 'tokens.scss',
