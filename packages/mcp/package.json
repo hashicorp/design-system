@@ -21,7 +21,7 @@
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet .",
     "build": "pnpm tsc -p tsconfig.json",
-    "build:watch": "pnpm build --watch --preserveWatchOutput",
+    "build:watch": "pnpm tsc -p tsconfig.json --watch --preserveWatchOutput",
     "serve": "node ./dist/index.js",
     "serve:watch": "node --watch --watch-path=./dist --watch-preserve-output ./dist/index.js",
     "start": "pnpm concurrently --kill-others-on-fail --names build,server \"pnpm build:watch\" \"pnpm serve:watch\"",
