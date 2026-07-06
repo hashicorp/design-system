@@ -74,7 +74,7 @@
     "broccoli-plugin": "^4.0.7",
     "broccoli-stew": "^3.0.0",
     "chalk": "^5.4.0",
-    "concurrently": "^9.1.2",
+    "concurrently": "^9.2.3",
     "cspell": "^8.17.1",
     "dotenv": "^16.4.7",
     "ember-a11y-refocus": "^5.1.0",

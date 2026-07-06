@@ -92,7 +92,7 @@
     "@types/luxon": "^3.4.2",
     "@types/prismjs": "^1.26.5",
     "babel-plugin-ember-template-compilation": "^2.4.1",
-    "concurrently": "^9.1.2",
+    "concurrently": "^9.2.3",
     "ember-basic-dropdown": "^8.8.0",
     "ember-intl": "^8.0.0",
     "ember-source": "^6.4.0",
