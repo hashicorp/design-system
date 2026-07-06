@@ -31,7 +31,7 @@
       0.1,
       0.25,
       1
-    );
+    ); /** the values correspond to the `ease` timing function, the browser's default */
     --hds-accordion-item-toggle-padding-bottom-large: 16px;
     --hds-accordion-item-toggle-padding-bottom-medium: 12px;
     --hds-accordion-item-toggle-padding-bottom-small: 8px;
@@ -219,7 +219,7 @@
     );
     --hds-badge-foreground-color-warning-filled: var(
       --hds-color-palette-amber-400
-    );
+    ); /** we don't use `warning-on-surface` for accessibility (better contrast) */
     --hds-badge-foreground-color-warning-outlined: var(
       --hds-color-foreground-warning
     );
@@ -455,9 +455,9 @@
     --hds-button-typography-font-size-large: 1rem;
     --hds-button-typography-font-size-medium: 0.875rem;
     --hds-button-typography-font-size-small: 0.8125rem;
-    --hds-button-typography-line-height-large: 1.5;
-    --hds-button-typography-line-height-medium: 1.1429;
-    --hds-button-typography-line-height-small: 0.9286;
+    --hds-button-typography-line-height-large: 1.5; /** 24px/16px = 1.5 */
+    --hds-button-typography-line-height-medium: 1.1429; /** 16px/14px ~ 1.1429 */
+    --hds-button-typography-line-height-small: 0.9286; /** 14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
     --hds-card-surface-color-primary: var(--hds-color-surface-primary);
     --hds-card-surface-color-secondary: var(--hds-color-surface-faint);
     --hds-code-block-border-color-primary: rgba(178, 182, 189, 0.2);
@@ -627,13 +627,13 @@
     --hds-dialog-primitive-border-color: rgba(0, 0, 0, 0);
     --hds-dialog-primitive-header-tagline-typography-font-size: var(
       --hds-typography-body-100-font-size
-    );
+    ); /** we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline */
     --hds-dialog-primitive-header-tagline-typography-line-height: var(
       --hds-typography-body-100-line-height
-    );
+    ); /** we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline */
     --hds-dialog-primitive-header-title-typography-font-weight: var(
       --hds-typography-font-weight-semibold
-    );
+    ); /** we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title */
     --hds-dialog-primitive-padding-horizontal: 24px;
     --hds-dialog-primitive-padding-vertical: 16px;
     --hds-dismiss-button-border-color-active: var(--hds-color-border-strong);
@@ -1145,8 +1145,8 @@
     --hds-badge-foreground-color-neutral-outlined: #161616;
     --hds-badge-foreground-color-success-filled: #0e6027; /** we don't use `success-on-surface` for accessibility (better contrast) */
     --hds-badge-foreground-color-success-outlined: #0e6027;
-    --hds-badge-foreground-color-warning-filled: #8a3800;
-    --hds-badge-foreground-color-warning-outlined: #8a3800;
+    --hds-badge-foreground-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-foreground-color-warning-outlined: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-gap-large: 4px;
     --hds-badge-gap-medium: 4px;
     --hds-badge-gap-small: 4px;
@@ -1165,8 +1165,8 @@
     --hds-badge-surface-color-neutral-inverted: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-surface-color-success-filled: #a7f0ba; /** we don't use `surface-success` for accessibility (better contrast) */
     --hds-badge-surface-color-success-inverted: #0e6027;
-    --hds-badge-surface-color-warning-filled: #ffd9be; /** we don't use `surface-warning` for accessibility (better contrast) */
-    --hds-badge-surface-color-warning-inverted: #8a3800;
+    --hds-badge-surface-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-surface-color-warning-inverted: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-typography-font-size-large: 0.75rem;
     --hds-badge-typography-font-size-medium: 0.75rem;
     --hds-badge-typography-font-size-small: 0.75rem;
@@ -1191,7 +1191,7 @@
     --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
-    --hds-button-border-color-disabled: #c6c6c6;
+    --hds-button-border-color-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
@@ -1200,13 +1200,13 @@
     --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-default: #0f62fe;
-    --hds-button-border-color-tertiary-disabled: #c6c6c6;
+    --hds-button-border-color-tertiary-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --hds-button-foreground-color-critical-active: #ffffff;
     --hds-button-foreground-color-critical-default: #ffffff;
     --hds-button-foreground-color-critical-focus: #ffffff;
     --hds-button-foreground-color-critical-hover: #ffffff;
-    --hds-button-foreground-color-disabled: #8d8d8d;
+    --hds-button-foreground-color-disabled: #8d8d8d; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-foreground-color-primary-active: #ffffff;
     --hds-button-foreground-color-primary-default: #ffffff;
     --hds-button-foreground-color-primary-focus: #ffffff;
@@ -1240,7 +1240,7 @@
     --hds-button-surface-color-critical-default: #da1e28;
     --hds-button-surface-color-critical-focus: #da1e28;
     --hds-button-surface-color-critical-hover: #b81921;
-    --hds-button-surface-color-disabled: #c6c6c6;
+    --hds-button-surface-color-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-surface-color-primary-active: #002d9c;
     --hds-button-surface-color-primary-default: #0f62fe;
     --hds-button-surface-color-primary-focus: #0f62fe;
@@ -1259,9 +1259,9 @@
     --hds-button-typography-font-size-large: 0.875rem;
     --hds-button-typography-font-size-medium: 0.875rem;
     --hds-button-typography-font-size-small: 0.875rem;
-    --hds-button-typography-line-height-large: 1.2858;
-    --hds-button-typography-line-height-medium: 1.2858;
-    --hds-button-typography-line-height-small: 1.2858;
+    --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
     --hds-card-surface-color-primary: #f4f4f4;
     --hds-card-surface-color-secondary: #ffffff;
     --hds-code-block-border-color-primary: #c6c6c6;
@@ -1439,10 +1439,10 @@
     --hds-elevation-overlay-box-shadow: none;
     --hds-focus-ring-action-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-action-external);
+      var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-critical-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-critical-external);
+      var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
     --hds-focus-ring-width-internal: 0px;
     --hds-form-character-count-foreground-color: #6f6f6f;
@@ -1764,8 +1764,8 @@
     --hds-badge-foreground-color-neutral-outlined: #f4f4f4;
     --hds-badge-foreground-color-success-filled: #a7f0ba; /** we don't use `success-on-surface` for accessibility (better contrast) */
     --hds-badge-foreground-color-success-outlined: #a7f0ba;
-    --hds-badge-foreground-color-warning-filled: #ffd9be;
-    --hds-badge-foreground-color-warning-outlined: #ffd9be;
+    --hds-badge-foreground-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-foreground-color-warning-outlined: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-gap-large: 4px;
     --hds-badge-gap-medium: 4px;
     --hds-badge-gap-small: 4px;
@@ -1784,8 +1784,8 @@
     --hds-badge-surface-color-neutral-inverted: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-surface-color-success-filled: #0e6027; /** we don't use `surface-success` for accessibility (better contrast) */
     --hds-badge-surface-color-success-inverted: #a7f0ba;
-    --hds-badge-surface-color-warning-filled: #8a3800; /** we don't use `surface-warning` for accessibility (better contrast) */
-    --hds-badge-surface-color-warning-inverted: #ffd9be;
+    --hds-badge-surface-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-surface-color-warning-inverted: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-typography-font-size-large: 0.75rem;
     --hds-badge-typography-font-size-medium: 0.75rem;
     --hds-badge-typography-font-size-small: 0.75rem;
@@ -1810,7 +1810,12 @@
     --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
-    --hds-button-border-color-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-border-color-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
@@ -1819,13 +1824,23 @@
     --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-default: #ffffff;
-    --hds-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-border-color-tertiary-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --hds-button-foreground-color-critical-active: #ffffff;
     --hds-button-foreground-color-critical-default: #ffffff;
     --hds-button-foreground-color-critical-focus: #ffffff;
     --hds-button-foreground-color-critical-hover: #ffffff;
-    --hds-button-foreground-color-disabled: rgba(255, 255, 255, 0.25);
+    --hds-button-foreground-color-disabled: rgba(
+      255,
+      255,
+      255,
+      0.25
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-foreground-color-primary-active: #ffffff;
     --hds-button-foreground-color-primary-default: #ffffff;
     --hds-button-foreground-color-primary-focus: #ffffff;
@@ -1859,7 +1874,12 @@
     --hds-button-surface-color-critical-default: #da1e28;
     --hds-button-surface-color-critical-focus: #da1e28;
     --hds-button-surface-color-critical-hover: #b81921;
-    --hds-button-surface-color-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-surface-color-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-surface-color-primary-active: #002d9c;
     --hds-button-surface-color-primary-default: #0f62fe;
     --hds-button-surface-color-primary-focus: #0f62fe;
@@ -1878,9 +1898,9 @@
     --hds-button-typography-font-size-large: 0.875rem;
     --hds-button-typography-font-size-medium: 0.875rem;
     --hds-button-typography-font-size-small: 0.875rem;
-    --hds-button-typography-line-height-large: 1.2858;
-    --hds-button-typography-line-height-medium: 1.2858;
-    --hds-button-typography-line-height-small: 1.2858;
+    --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
     --hds-card-surface-color-primary: #262626;
     --hds-card-surface-color-secondary: #393939;
     --hds-code-block-border-color-primary: #525252;
@@ -2058,10 +2078,10 @@
     --hds-elevation-overlay-box-shadow: none;
     --hds-focus-ring-action-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-action-external);
+      var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-critical-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-critical-external);
+      var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
     --hds-focus-ring-width-internal: 0px;
     --hds-form-character-count-foreground-color: #a8a8a8;
@@ -2383,8 +2403,8 @@
     --hds-badge-foreground-color-neutral-outlined: #161616;
     --hds-badge-foreground-color-success-filled: #0e6027; /** we don't use `success-on-surface` for accessibility (better contrast) */
     --hds-badge-foreground-color-success-outlined: #0e6027;
-    --hds-badge-foreground-color-warning-filled: #8a3800;
-    --hds-badge-foreground-color-warning-outlined: #8a3800;
+    --hds-badge-foreground-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-foreground-color-warning-outlined: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-gap-large: 4px;
     --hds-badge-gap-medium: 4px;
     --hds-badge-gap-small: 4px;
@@ -2403,8 +2423,8 @@
     --hds-badge-surface-color-neutral-inverted: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-surface-color-success-filled: #a7f0ba; /** we don't use `surface-success` for accessibility (better contrast) */
     --hds-badge-surface-color-success-inverted: #0e6027;
-    --hds-badge-surface-color-warning-filled: #ffd9be; /** we don't use `surface-warning` for accessibility (better contrast) */
-    --hds-badge-surface-color-warning-inverted: #8a3800;
+    --hds-badge-surface-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-surface-color-warning-inverted: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-typography-font-size-large: 0.75rem;
     --hds-badge-typography-font-size-medium: 0.75rem;
     --hds-badge-typography-font-size-small: 0.75rem;
@@ -2429,7 +2449,7 @@
     --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
-    --hds-button-border-color-disabled: #c6c6c6;
+    --hds-button-border-color-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
@@ -2438,13 +2458,13 @@
     --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-default: #0f62fe;
-    --hds-button-border-color-tertiary-disabled: #c6c6c6;
+    --hds-button-border-color-tertiary-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --hds-button-foreground-color-critical-active: #ffffff;
     --hds-button-foreground-color-critical-default: #ffffff;
     --hds-button-foreground-color-critical-focus: #ffffff;
     --hds-button-foreground-color-critical-hover: #ffffff;
-    --hds-button-foreground-color-disabled: #8d8d8d;
+    --hds-button-foreground-color-disabled: #8d8d8d; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-foreground-color-primary-active: #ffffff;
     --hds-button-foreground-color-primary-default: #ffffff;
     --hds-button-foreground-color-primary-focus: #ffffff;
@@ -2478,7 +2498,7 @@
     --hds-button-surface-color-critical-default: #da1e28;
     --hds-button-surface-color-critical-focus: #da1e28;
     --hds-button-surface-color-critical-hover: #b81921;
-    --hds-button-surface-color-disabled: #c6c6c6;
+    --hds-button-surface-color-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-surface-color-primary-active: #002d9c;
     --hds-button-surface-color-primary-default: #0f62fe;
     --hds-button-surface-color-primary-focus: #0f62fe;
@@ -2497,9 +2517,9 @@
     --hds-button-typography-font-size-large: 0.875rem;
     --hds-button-typography-font-size-medium: 0.875rem;
     --hds-button-typography-font-size-small: 0.875rem;
-    --hds-button-typography-line-height-large: 1.2858;
-    --hds-button-typography-line-height-medium: 1.2858;
-    --hds-button-typography-line-height-small: 1.2858;
+    --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
     --hds-card-surface-color-primary: #f4f4f4;
     --hds-card-surface-color-secondary: #ffffff;
     --hds-code-block-border-color-primary: #c6c6c6;
@@ -2677,10 +2697,10 @@
     --hds-elevation-overlay-box-shadow: none;
     --hds-focus-ring-action-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-action-external);
+      var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-critical-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-critical-external);
+      var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
     --hds-focus-ring-width-internal: 0px;
     --hds-form-character-count-foreground-color: #6f6f6f;
@@ -3002,8 +3022,8 @@
     --hds-badge-foreground-color-neutral-outlined: #161616;
     --hds-badge-foreground-color-success-filled: #0e6027; /** we don't use `success-on-surface` for accessibility (better contrast) */
     --hds-badge-foreground-color-success-outlined: #0e6027;
-    --hds-badge-foreground-color-warning-filled: #8a3800;
-    --hds-badge-foreground-color-warning-outlined: #8a3800;
+    --hds-badge-foreground-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-foreground-color-warning-outlined: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-gap-large: 4px;
     --hds-badge-gap-medium: 4px;
     --hds-badge-gap-small: 4px;
@@ -3022,8 +3042,8 @@
     --hds-badge-surface-color-neutral-inverted: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-surface-color-success-filled: #a7f0ba; /** we don't use `surface-success` for accessibility (better contrast) */
     --hds-badge-surface-color-success-inverted: #0e6027;
-    --hds-badge-surface-color-warning-filled: #ffd9be; /** we don't use `surface-warning` for accessibility (better contrast) */
-    --hds-badge-surface-color-warning-inverted: #8a3800;
+    --hds-badge-surface-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-surface-color-warning-inverted: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-typography-font-size-large: 0.75rem;
     --hds-badge-typography-font-size-medium: 0.75rem;
     --hds-badge-typography-font-size-small: 0.75rem;
@@ -3048,7 +3068,7 @@
     --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
-    --hds-button-border-color-disabled: #c6c6c6;
+    --hds-button-border-color-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
@@ -3057,13 +3077,13 @@
     --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-default: #0f62fe;
-    --hds-button-border-color-tertiary-disabled: #c6c6c6;
+    --hds-button-border-color-tertiary-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --hds-button-foreground-color-critical-active: #ffffff;
     --hds-button-foreground-color-critical-default: #ffffff;
     --hds-button-foreground-color-critical-focus: #ffffff;
     --hds-button-foreground-color-critical-hover: #ffffff;
-    --hds-button-foreground-color-disabled: #8d8d8d;
+    --hds-button-foreground-color-disabled: #8d8d8d; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-foreground-color-primary-active: #ffffff;
     --hds-button-foreground-color-primary-default: #ffffff;
     --hds-button-foreground-color-primary-focus: #ffffff;
@@ -3097,7 +3117,7 @@
     --hds-button-surface-color-critical-default: #da1e28;
     --hds-button-surface-color-critical-focus: #da1e28;
     --hds-button-surface-color-critical-hover: #b81921;
-    --hds-button-surface-color-disabled: #c6c6c6;
+    --hds-button-surface-color-disabled: #c6c6c6; /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-surface-color-primary-active: #002d9c;
     --hds-button-surface-color-primary-default: #0f62fe;
     --hds-button-surface-color-primary-focus: #0f62fe;
@@ -3116,9 +3136,9 @@
     --hds-button-typography-font-size-large: 0.875rem;
     --hds-button-typography-font-size-medium: 0.875rem;
     --hds-button-typography-font-size-small: 0.875rem;
-    --hds-button-typography-line-height-large: 1.2858;
-    --hds-button-typography-line-height-medium: 1.2858;
-    --hds-button-typography-line-height-small: 1.2858;
+    --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
     --hds-card-surface-color-primary: #ffffff;
     --hds-card-surface-color-secondary: #f4f4f4;
     --hds-code-block-border-color-primary: #e0e0e0;
@@ -3296,10 +3316,10 @@
     --hds-elevation-overlay-box-shadow: none;
     --hds-focus-ring-action-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-action-external);
+      var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-critical-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-critical-external);
+      var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
     --hds-focus-ring-width-internal: 0px;
     --hds-form-character-count-foreground-color: #6f6f6f;
@@ -3621,8 +3641,8 @@
     --hds-badge-foreground-color-neutral-outlined: #f4f4f4;
     --hds-badge-foreground-color-success-filled: #a7f0ba; /** we don't use `success-on-surface` for accessibility (better contrast) */
     --hds-badge-foreground-color-success-outlined: #a7f0ba;
-    --hds-badge-foreground-color-warning-filled: #ffd9be;
-    --hds-badge-foreground-color-warning-outlined: #ffd9be;
+    --hds-badge-foreground-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-foreground-color-warning-outlined: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-gap-large: 4px;
     --hds-badge-gap-medium: 4px;
     --hds-badge-gap-small: 4px;
@@ -3641,8 +3661,8 @@
     --hds-badge-surface-color-neutral-inverted: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-surface-color-success-filled: #0e6027; /** we don't use `surface-success` for accessibility (better contrast) */
     --hds-badge-surface-color-success-inverted: #a7f0ba;
-    --hds-badge-surface-color-warning-filled: #8a3800; /** we don't use `surface-warning` for accessibility (better contrast) */
-    --hds-badge-surface-color-warning-inverted: #ffd9be;
+    --hds-badge-surface-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-surface-color-warning-inverted: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-typography-font-size-large: 0.75rem;
     --hds-badge-typography-font-size-medium: 0.75rem;
     --hds-badge-typography-font-size-small: 0.75rem;
@@ -3667,7 +3687,12 @@
     --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
-    --hds-button-border-color-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-border-color-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
@@ -3676,13 +3701,23 @@
     --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-default: #ffffff;
-    --hds-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-border-color-tertiary-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --hds-button-foreground-color-critical-active: #ffffff;
     --hds-button-foreground-color-critical-default: #ffffff;
     --hds-button-foreground-color-critical-focus: #ffffff;
     --hds-button-foreground-color-critical-hover: #ffffff;
-    --hds-button-foreground-color-disabled: rgba(255, 255, 255, 0.25);
+    --hds-button-foreground-color-disabled: rgba(
+      255,
+      255,
+      255,
+      0.25
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-foreground-color-primary-active: #ffffff;
     --hds-button-foreground-color-primary-default: #ffffff;
     --hds-button-foreground-color-primary-focus: #ffffff;
@@ -3716,7 +3751,12 @@
     --hds-button-surface-color-critical-default: #da1e28;
     --hds-button-surface-color-critical-focus: #da1e28;
     --hds-button-surface-color-critical-hover: #b81921;
-    --hds-button-surface-color-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-surface-color-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-surface-color-primary-active: #002d9c;
     --hds-button-surface-color-primary-default: #0f62fe;
     --hds-button-surface-color-primary-focus: #0f62fe;
@@ -3735,9 +3775,9 @@
     --hds-button-typography-font-size-large: 0.875rem;
     --hds-button-typography-font-size-medium: 0.875rem;
     --hds-button-typography-font-size-small: 0.875rem;
-    --hds-button-typography-line-height-large: 1.2858;
-    --hds-button-typography-line-height-medium: 1.2858;
-    --hds-button-typography-line-height-small: 1.2858;
+    --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
     --hds-card-surface-color-primary: #393939;
     --hds-card-surface-color-secondary: #525252;
     --hds-code-block-border-color-primary: #6f6f6f;
@@ -3915,10 +3955,10 @@
     --hds-elevation-overlay-box-shadow: none;
     --hds-focus-ring-action-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-action-external);
+      var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-critical-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-critical-external);
+      var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
     --hds-focus-ring-width-internal: 0px;
     --hds-form-character-count-foreground-color: #c6c6c6;
@@ -4240,8 +4280,8 @@
     --hds-badge-foreground-color-neutral-outlined: #f4f4f4;
     --hds-badge-foreground-color-success-filled: #a7f0ba; /** we don't use `success-on-surface` for accessibility (better contrast) */
     --hds-badge-foreground-color-success-outlined: #a7f0ba;
-    --hds-badge-foreground-color-warning-filled: #ffd9be;
-    --hds-badge-foreground-color-warning-outlined: #ffd9be;
+    --hds-badge-foreground-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-foreground-color-warning-outlined: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-gap-large: 4px;
     --hds-badge-gap-medium: 4px;
     --hds-badge-gap-small: 4px;
@@ -4260,8 +4300,8 @@
     --hds-badge-surface-color-neutral-inverted: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-surface-color-success-filled: #0e6027; /** we don't use `surface-success` for accessibility (better contrast) */
     --hds-badge-surface-color-success-inverted: #a7f0ba;
-    --hds-badge-surface-color-warning-filled: #8a3800; /** we don't use `surface-warning` for accessibility (better contrast) */
-    --hds-badge-surface-color-warning-inverted: #ffd9be;
+    --hds-badge-surface-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+    --hds-badge-surface-color-warning-inverted: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
     --hds-badge-typography-font-size-large: 0.75rem;
     --hds-badge-typography-font-size-medium: 0.75rem;
     --hds-badge-typography-font-size-small: 0.75rem;
@@ -4286,7 +4326,12 @@
     --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
-    --hds-button-border-color-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-border-color-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
     --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
@@ -4295,13 +4340,23 @@
     --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
     --hds-button-border-color-tertiary-default: #ffffff;
-    --hds-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-border-color-tertiary-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
     --hds-button-foreground-color-critical-active: #ffffff;
     --hds-button-foreground-color-critical-default: #ffffff;
     --hds-button-foreground-color-critical-focus: #ffffff;
     --hds-button-foreground-color-critical-hover: #ffffff;
-    --hds-button-foreground-color-disabled: rgba(255, 255, 255, 0.25);
+    --hds-button-foreground-color-disabled: rgba(
+      255,
+      255,
+      255,
+      0.25
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-foreground-color-primary-active: #ffffff;
     --hds-button-foreground-color-primary-default: #ffffff;
     --hds-button-foreground-color-primary-focus: #ffffff;
@@ -4335,7 +4390,12 @@
     --hds-button-surface-color-critical-default: #da1e28;
     --hds-button-surface-color-critical-focus: #da1e28;
     --hds-button-surface-color-critical-hover: #b81921;
-    --hds-button-surface-color-disabled: rgba(141, 141, 141, 0.3);
+    --hds-button-surface-color-disabled: rgba(
+      141,
+      141,
+      141,
+      0.3
+    ); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
     --hds-button-surface-color-primary-active: #002d9c;
     --hds-button-surface-color-primary-default: #0f62fe;
     --hds-button-surface-color-primary-focus: #0f62fe;
@@ -4354,9 +4414,9 @@
     --hds-button-typography-font-size-large: 0.875rem;
     --hds-button-typography-font-size-medium: 0.875rem;
     --hds-button-typography-font-size-small: 0.875rem;
-    --hds-button-typography-line-height-large: 1.2858;
-    --hds-button-typography-line-height-medium: 1.2858;
-    --hds-button-typography-line-height-small: 1.2858;
+    --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+    --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
     --hds-card-surface-color-primary: #262626;
     --hds-card-surface-color-secondary: #393939;
     --hds-code-block-border-color-primary: #525252;
@@ -4534,10 +4594,10 @@
     --hds-elevation-overlay-box-shadow: none;
     --hds-focus-ring-action-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-action-external);
+      var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-critical-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-critical-external);
+      var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
     --hds-focus-ring-width-internal: 0px;
     --hds-form-character-count-foreground-color: #a8a8a8;

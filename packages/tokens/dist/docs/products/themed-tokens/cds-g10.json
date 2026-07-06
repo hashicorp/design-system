@@ -5901,9 +5901,7 @@
       "cds-g90": "inset 0 0 0 2px #0f62fe",
       "cds-g100": "inset 0 0 0 2px #0f62fe"
     },
-    "comments": {
-      "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
-    },
+    "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
     "original": {
       "$value": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
       "$modes": {
@@ -5916,6 +5914,7 @@
       "comments": {
         "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
       },
+      "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
       "key": "{focus-ring.action.box-shadow}"
     },
     "name": "hds-focus-ring-action-box-shadow",
@@ -5938,6 +5937,7 @@
       "cds-g90": "inset 0 0 0 2px #0f62fe",
       "cds-g100": "inset 0 0 0 2px #0f62fe"
     },
+    "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
     "original": {
       "$value": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
       "$modes": {
@@ -5947,6 +5947,10 @@
         "cds-g90": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
         "cds-g100": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}"
       },
+      "comments": {
+        "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
+      },
+      "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
       "key": "{focus-ring.critical.box-shadow}"
     },
     "name": "hds-focus-ring-critical-box-shadow",
@@ -6823,9 +6827,6 @@
         0.38,
         0.9
       ]
-    },
-    "comments": {
-      "hds": "the values correspond to the `ease` timing function, the browser's default"
     },
     "original": {
       "$type": "cubicBezier",
@@ -11303,9 +11304,6 @@
     "key": "{badge.foreground.color.neutral-dark-mode.outlined}",
     "$type": "color",
     "$value": "#ffffff",
-    "comments": {
-      "cds": "In Figma the `cds` value uses a token `Tag/HighContrast/TagColor` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
-    },
     "original": {
       "$type": "color",
       "$value": "{color.foreground.high-contrast}",
@@ -11523,10 +11521,7 @@
       "cds-g90": "#ffd9be",
       "cds-g100": "#ffd9be"
     },
-    "comments": {
-      "hds": "we don't use `warning-on-surface` for accessibility (better contrast)",
-      "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
-    },
+    "comment": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead",
     "original": {
       "$type": "color",
       "$value": "{carbon.color.orange.70}",
@@ -11541,6 +11536,7 @@
         "hds": "we don't use `warning-on-surface` for accessibility (better contrast)",
         "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
       },
+      "comment": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead",
       "key": "{badge.foreground.color.warning.filled}"
     },
     "name": "hds-badge-foreground-color-warning-filled",
@@ -11587,9 +11583,7 @@
       "cds-g90": "#ffd9be",
       "cds-g100": "#ffd9be"
     },
-    "comments": {
-      "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
-    },
+    "comment": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead",
     "original": {
       "$type": "color",
       "$value": "{carbon.color.orange.70}",
@@ -11603,6 +11597,7 @@
       "comments": {
         "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
       },
+      "comment": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead",
       "key": "{badge.foreground.color.warning.outlined}"
     },
     "name": "hds-badge-foreground-color-warning-outlined",
@@ -12044,7 +12039,6 @@
     "key": "{badge.surface.color.warning.filled}",
     "$type": "color",
     "$value": "#ffd9be",
-    "comment": "we don't use `surface-warning` for accessibility (better contrast)",
     "$modes": {
       "default": "#ffd9be",
       "cds-g0": "#ffd9be",
@@ -12052,13 +12046,10 @@
       "cds-g90": "#8a3800",
       "cds-g100": "#8a3800"
     },
-    "comments": {
-      "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
-    },
+    "comment": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead",
     "original": {
       "$type": "color",
       "$value": "{carbon.color.orange.20}",
-      "comment": "we don't use `surface-warning` for accessibility (better contrast)",
       "$modes": {
         "default": "{color.palette.amber-100}",
         "cds-g0": "{carbon.color.orange.20}",
@@ -12067,8 +12058,10 @@
         "cds-g100": "{carbon.color.orange.70}"
       },
       "comments": {
+        "hds": "we don't use `surface-warning` for accessibility (better contrast)",
         "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
       },
+      "comment": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead",
       "key": "{badge.surface.color.warning.filled}"
     },
     "name": "hds-badge-surface-color-warning-filled",
@@ -12094,9 +12087,7 @@
       "cds-g90": "#ffd9be",
       "cds-g100": "#ffd9be"
     },
-    "comments": {
-      "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
-    },
+    "comment": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead",
     "original": {
       "$type": "color",
       "$value": "{carbon.color.orange.70}",
@@ -12110,6 +12101,7 @@
       "comments": {
         "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
       },
+      "comment": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead",
       "key": "{badge.surface.color.warning.inverted}"
     },
     "name": "hds-badge-surface-color-warning-inverted",
@@ -13281,10 +13273,7 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
-    "comments": {
-      "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
-      "cds": "18px/14px ~ 1.2858"
-    },
+    "comment": "18px/14px ~ 1.2858",
     "original": {
       "$type": "number",
       "$value": 1.2858,
@@ -13299,6 +13288,7 @@
         "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "cds": "18px/14px ~ 1.2858"
       },
+      "comment": "18px/14px ~ 1.2858",
       "key": "{button.typography.line-height.small}"
     },
     "name": "hds-button-typography-line-height-small",
@@ -13323,10 +13313,7 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
-    "comments": {
-      "hds": "16px/14px ~ 1.1429",
-      "cds": "18px/14px ~ 1.2858"
-    },
+    "comment": "18px/14px ~ 1.2858",
     "original": {
       "$type": "number",
       "$value": 1.2858,
@@ -13341,6 +13328,7 @@
         "hds": "16px/14px ~ 1.1429",
         "cds": "18px/14px ~ 1.2858"
       },
+      "comment": "18px/14px ~ 1.2858",
       "key": "{button.typography.line-height.medium}"
     },
     "name": "hds-button-typography-line-height-medium",
@@ -13365,10 +13353,7 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
-    "comments": {
-      "hds": "24px/16px = 1.5",
-      "cds": "18px/14px ~ 1.2858"
-    },
+    "comment": "18px/14px ~ 1.2858",
     "original": {
       "$type": "number",
       "$value": 1.2858,
@@ -13383,6 +13368,7 @@
         "hds": "24px/16px = 1.5",
         "cds": "18px/14px ~ 1.2858"
       },
+      "comment": "18px/14px ~ 1.2858",
       "key": "{button.typography.line-height.large}"
     },
     "name": "hds-button-typography-line-height-large",
@@ -13960,9 +13946,6 @@
     "key": "{button.foreground.color.tertiary.disabled}",
     "$type": "color",
     "$value": "rgba(22, 22, 22, 0.25)",
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
     "original": {
       "$type": "color",
       "$value": "{color.foreground.disabled}",
@@ -14134,9 +14117,7 @@
       "cds-g90": "rgba(255, 255, 255, 0.25)",
       "cds-g100": "rgba(255, 255, 255, 0.25)"
     },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
+    "comment": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products",
     "original": {
       "$type": "color",
       "$value": "{carbon.themes.g10.textOnColorDisabled}",
@@ -14150,6 +14131,7 @@
       "comments": {
         "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
+      "comment": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products",
       "key": "{button.foreground.color.disabled}"
     },
     "name": "hds-button-foreground-color-disabled",
@@ -14860,9 +14842,7 @@
       "cds-g90": "rgba(141, 141, 141, 0.3)",
       "cds-g100": "rgba(141, 141, 141, 0.3)"
     },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
+    "comment": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products",
     "original": {
       "$type": "color",
       "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
@@ -14876,6 +14856,7 @@
       "comments": {
         "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
+      "comment": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products",
       "key": "{button.surface.color.disabled}"
     },
     "name": "hds-button-surface-color-disabled",
@@ -15320,9 +15301,7 @@
       "cds-g90": "rgba(141, 141, 141, 0.3)",
       "cds-g100": "rgba(141, 141, 141, 0.3)"
     },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
+    "comment": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products",
     "original": {
       "$type": "color",
       "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
@@ -15336,6 +15315,7 @@
       "comments": {
         "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
+      "comment": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products",
       "key": "{button.border.color.tertiary.disabled}"
     },
     "name": "hds-button-border-color-tertiary-disabled",
@@ -15466,9 +15446,7 @@
       "cds-g90": "rgba(141, 141, 141, 0.3)",
       "cds-g100": "rgba(141, 141, 141, 0.3)"
     },
-    "comments": {
-      "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
-    },
+    "comment": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products",
     "original": {
       "$type": "color",
       "$value": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
@@ -15482,6 +15460,7 @@
       "comments": {
         "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
       },
+      "comment": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products",
       "key": "{button.border.color.disabled}"
     },
     "name": "hds-button-border-color-disabled",
@@ -16920,9 +16899,6 @@
         "$type": "font-size"
       }
     },
-    "comments": {
-      "hds": "we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline"
-    },
     "unit": "rem",
     "original": {
       "$type": "font-size",
@@ -16987,9 +16963,6 @@
       "cds-g90": 1.33333,
       "cds-g100": 1.33333
     },
-    "comments": {
-      "hds": "we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline"
-    },
     "original": {
       "$type": "number",
       "$value": "{carbon.typography.label01.line-height}",
@@ -17027,9 +17000,6 @@
       "cds-g10": 400,
       "cds-g90": 400,
       "cds-g100": 400
-    },
-    "comments": {
-      "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
     },
     "original": {
       "$type": "font-weight",
