@@ -39,14 +39,14 @@ export async function validateThemingCssFiles(_dictionary: Dictionary, config: P
     const allUsages = new Set([...commonUsages, ...themedUsages]);
     const undefinedVariables = [...allUsages].filter(usage => !allDefinitions.has(usage));
     if (undefinedVariables.length > 0) {
-      throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common/themed" token files for mode '${mode}' contain CSS variables that are not defined in any of the generated files: ${undefinedVariables.map((variable: string) => `\`--token-${variable}\``).join(', ')}`);
+      throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common/themed" token files for mode '${mode}' contain CSS variables that are not defined in any of the generated files: ${undefinedVariables.map((variable: string) => `\`--hds-${variable}\``).join(', ')}`);
     }
   }
 }
 
-// regex for variable definition (`--token-***: ***`) and usage: (`var(--token-***)`)
-const varDefRegex = /--token-([a-zA-Z0-9-_]+)\s*:/g;
-const varUsageRegex = /var\(\s*--token-([a-zA-Z0-9-_]+)\s*\)/g;
+// regex for variable definition (`--hds-***: ***`) and usage: (`var(--hds-***)`)
+const varDefRegex = /--hds-([a-zA-Z0-9-_]+)\s*:/g;
+const varUsageRegex = /var\(\s*--hds-([a-zA-Z0-9-_]+)\s*\)/g;
 
 function extractAllCssVariables(source: string) {
   const cleanSource = stripCssComments(source);
