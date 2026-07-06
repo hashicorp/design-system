@@ -29,6 +29,8 @@ The `packages/components` library is the core reusable Ember component library f
 
 ## Related instructions
 
+- `changeset.instructions.md`
+  Instructions for creating changesets when making changes to packages.
 - `components.instructions.md`
   Guidelines on component development including file structure, code formatting, styling.
 - `exports.instructions.md`

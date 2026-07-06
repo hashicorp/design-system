@@ -133,7 +133,6 @@ When working with this codebase:
 For detailed language-specific patterns, see:
 - **Sass / CSS**: `.github/instructions/languages/scss.instructions.md` - Sass and CSS patterns and best practices
 
-## Workflows overview
+## Skills
 
-For detailed instructions on specific workflows see:
-- **Adding changesets**: `.github/instructions/workflows/changeset.instructions.md` - Details on adding a changeset entry for user-facing changes to packages
+Read `.github/skills` for avaialble skills

@@ -3,9 +3,11 @@
 ## Project context
 The Helios Design System (HDS) provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.
 
-### Workflows
-- `changeset.instructions.md` instructions for creating changesets when making changes to packages
-- `pr-review.instructions.md` instructions for reviewing pull requests, use this workflow when reviewing every PR
+### Skills
+Under `.github/skills` are specific skill instructions for common workflows.
+
+- `add-changeset/SKILL.md` use this skill for creating changesets when making changes to packages
+- `review-pr/SKILL.md` for reviewing pull requests, use this workflow when reviewing every PR
 
 ## Repository structure
 
@@ -31,7 +33,6 @@ This repository uses split instruction files under `.github/instructions/`:
 
 - `languages/` contains language-specific guidance
 - `directories/` contains package or app-specific context and implementation guidance
-- `workflows/` contains end-to-end workflow instructions
 
 ### Directories model
 

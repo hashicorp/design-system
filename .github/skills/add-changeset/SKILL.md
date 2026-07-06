@@ -1,5 +1,5 @@
 ---
-applyTo: ".changeset/**"
+name: add-changeset
 description: "Instructions for how to write changelog entries"
 ---
 
@@ -8,16 +8,48 @@ All changelog entries are created using changesets. Upcoming changeset files are
 
 ## Adding a changeset entry
 
-1. Run `pnpm changeset` in the terminal.
-2. Follow the prompts to select the packages affected by the change, the type of change (patch, minor, major), and a summary of the change.
-3. After the changeset file is generated, open it and edit the content to follow the template and requirements outlined below.
+### Parameters
 
-## Template format
-Each changeset entry should follow this template:
+For a given changeset the following parameters are required:
+- **Package**: The package(s) affected by the change.
+- **Type of change**: The type of change being made (patch, minor, major).
+- **Summary**: A short description of the change, including relevant details.
+
+### Generating a changeset file
+
+1. Run `pnpm changeset` in the terminal.
+2. Follow the prompts provided by the cli to select the package(s) affected, the type of change, and provide a summary of the change based on the parameters above. The CLI will generate a changeset file in the `.changeset` folder with a unique name based on the current date and time.
+3. If the changesset file relates to the `@hashicorp/design-system-components` package, follow the below formatting rules for the changeset file generated.
+
+## Components package changeset formatting
+Each changeset entry related to the `@hashicorp/design-system-components` package should follow this template:
 
 ```
 <!-- START {components/path} -->
 `ComponentName` - Fixed {...additional details}.
+<!-- END -->
+```
+
+### Other formatting scenarios
+
+Multiple changes to the same component in a single changeset entry:
+```
+<!-- START {components/path} -->
+`ComponentName` - Brief description of the change.
+
+- {...additional details #1}.
+- {...additional details #2}.
+<!-- END -->
+```
+
+Changes to multiple components in a single changeset entry:
+```
+<!-- START {components/path1} -->
+`ComponentName1` - Fixed {...additional details}.
+<!-- END -->
+
+<!-- START {components/path2} -->
+`ComponentName2` - Fixed {...additional details}.
 <!-- END -->
 ```
 
