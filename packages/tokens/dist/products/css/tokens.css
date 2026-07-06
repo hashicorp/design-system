@@ -224,7 +224,7 @@
   --hds-accordion-item-toggle-icon-size-medium: 20px;
   --hds-accordion-item-toggle-icon-size-large: 24px;
   --hds-accordion-item-toggle-icon-transform-rotate: -180deg;
-  --hds-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --hds-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); /** the values correspond to the `ease` timing function, the browser's default */
   --hds-accordion-item-toggle-icon-transition-duration: 0.3s;
   --hds-accordion-item-content-padding-top-small: 4px;
   --hds-accordion-item-content-padding-top-medium: 4px;
@@ -358,7 +358,7 @@
   --hds-badge-foreground-color-success-filled: #006619; /** we don't use `success-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-success-inverted: #ffffff;
   --hds-badge-foreground-color-success-outlined: #008a22;
-  --hds-badge-foreground-color-warning-filled: #803d00;
+  --hds-badge-foreground-color-warning-filled: #803d00; /** we don't use `warning-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-warning-inverted: #ffffff;
   --hds-badge-foreground-color-warning-outlined: #bb5a00;
   --hds-badge-foreground-color-critical-filled: #940004; /** we don't use `critical-on-surface` for accessibility (better contrast) */
@@ -410,9 +410,9 @@
   --hds-button-typography-font-size-small: 0.8125rem;
   --hds-button-typography-font-size-medium: 0.875rem;
   --hds-button-typography-font-size-large: 1rem;
-  --hds-button-typography-line-height-small: 0.9286;
-  --hds-button-typography-line-height-medium: 1.1429;
-  --hds-button-typography-line-height-large: 1.5;
+  --hds-button-typography-line-height-small: 0.9286; /** 14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --hds-button-typography-line-height-medium: 1.1429; /** 16px/14px ~ 1.1429 */
+  --hds-button-typography-line-height-large: 1.5; /** 24px/16px = 1.5 */
   --hds-button-foreground-color-primary-default: #ffffff;
   --hds-button-foreground-color-primary-hover: #ffffff;
   --hds-button-foreground-color-primary-focus: #ffffff;
@@ -516,9 +516,9 @@
   --hds-dialog-primitive-padding-horizontal: 24px;
   --hds-dialog-primitive-padding-vertical: 16px;
   --hds-dialog-primitive-border-color: rgba(0, 0, 0, 0);
-  --hds-dialog-primitive-header-tagline-typography-font-size: 0.8125rem;
-  --hds-dialog-primitive-header-tagline-typography-line-height: 1.3846;
-  --hds-dialog-primitive-header-title-typography-font-weight: 600;
+  --hds-dialog-primitive-header-tagline-typography-font-size: 0.8125rem; /** we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline */
+  --hds-dialog-primitive-header-tagline-typography-line-height: 1.3846; /** we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline */
+  --hds-dialog-primitive-header-title-typography-font-weight: 600; /** we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title */
   --hds-dismiss-button-size: 24px;
   --hds-dismiss-button-foreground-color-default: #656a76;
   --hds-dismiss-button-foreground-color-active: #0c0c0e;
