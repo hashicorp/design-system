@@ -24,7 +24,7 @@
     "build:watch": "pnpm tsc -p tsconfig.json --watch --preserveWatchOutput",
     "serve": "node ./dist/index.js",
     "serve:watch": "node --watch --watch-path=./dist --watch-preserve-output ./dist/index.js",
-    "start": "pnpm build && pnpm concurrently --kill-others-on-fail --names build,server \"pnpm build:watch\" \"pnpm serve:watch\"",
+    "start": "pnpm build && concurrently --kill-others-on-fail --names build,server \"pnpm build:watch\" \"pnpm serve:watch\"",
     "inspect": "npx -y @modelcontextprotocol/inspector node --watch --watch-path=./dist --watch-preserve-output ./dist/index.js",
     "start:dev": "pnpm build && pnpm concurrently --kill-others-on-fail --names build,inspector \"pnpm build:watch\" \"pnpm inspect\""
   },
