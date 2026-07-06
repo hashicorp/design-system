@@ -11,14 +11,14 @@
 @use "../../mixins/carbonization" as *;
 
 .hds-link-inline {
-  border-radius: var(--token-border-radius-x-small); // this is used by the outline too
+  border-radius: var(--hds-border-radius-x-small); // this is used by the outline too
 
   &:focus,
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-basic(
-      $external-outline-width: var(--token-link-inline-outline-width),
-      $external-outline-color: var(--token-link-inline-outline-color),
+      $external-outline-width: var(--hds-link-inline-outline-width),
+      $external-outline-color: var(--hds-link-inline-outline-color),
       // we want the focus ring to extend a bit around the content
       $external-outline-offset: 1px,
       $has-internal-border: false
@@ -38,40 +38,40 @@
   vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
 
   .hds-link-inline--icon-leading > & {
-    margin-right: var(--token-link-inline-icon-margin-horizontal);
+    margin-right: var(--hds-link-inline-icon-margin-horizontal);
   }
 
   .hds-link-inline--icon-trailing > & {
-    margin-left: var(--token-link-inline-icon-margin-horizontal);
+    margin-left: var(--hds-link-inline-icon-margin-horizontal);
   }
 }
 
 // COLORS & STATES
 
 .hds-link-inline--color-primary {
-  color: var(--token-color-foreground-action);
+  color: var(--hds-color-foreground-action);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--hds-color-foreground-action-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--hds-color-foreground-action-active);
   }
 }
 
 .hds-link-inline--color-secondary {
-  color: var(--token-color-foreground-strong);
+  color: var(--hds-color-foreground-strong);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-primary);
+    color: var(--hds-color-foreground-primary);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-faint);
+    color: var(--hds-color-foreground-faint);
   }
 }

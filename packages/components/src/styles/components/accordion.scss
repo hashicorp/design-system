@@ -22,15 +22,15 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
 .hds-accordion--type-card {
   &.hds-accordion--size-small {
-    gap: var(--token-accordion-card-gap-small);
+    gap: var(--hds-accordion-card-gap-small);
   }
 
   &.hds-accordion--size-medium {
-    gap: var(--token-accordion-card-gap-medium);
+    gap: var(--hds-accordion-card-gap-medium);
   }
 
   &.hds-accordion--size-large {
-    gap: var(--token-accordion-card-gap-large);
+    gap: var(--hds-accordion-card-gap-large);
   }
 }
 
@@ -38,40 +38,40 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
 @each $size in $hds-accordion-sizes {
   .hds-accordion-item--size-#{$size} {
-    --hds-var-accordion-item-toggle-padding-top: var(--token-accordion-item-toggle-padding-top-#{$size});
-    --hds-var-accordion-item-toggle-padding-right: var(--token-accordion-item-toggle-padding-top-#{$size});
-    --hds-var-accordion-item-toggle-padding-bottom: var(--token-accordion-item-toggle-padding-top-#{$size});
-    --hds-var-accordion-item-toggle-padding-left: var(--token-accordion-item-toggle-padding-left-#{$size});
-    --hds-var-accordion-item-toggle-gap: var(--token-accordion-item-toggle-gap-#{$size});
-    --hds-var-accordion-item-toggle-icon-size: var(--token-accordion-item-toggle-icon-size-#{$size});
-    --hds-var-accordion-item-content-padding-top: var(--token-accordion-item-content-padding-top-#{$size});
-    --hds-var-accordion-item-content-padding-right: var(--token-accordion-item-content-padding-right-#{$size});
-    --hds-var-accordion-item-content-padding-bottom: var(--token-accordion-item-content-padding-bottom-#{$size});
-    --hds-var-accordion-item-content-padding-left: var(--token-accordion-item-content-padding-left-#{$size});
+    --hds-var-accordion-item-toggle-padding-top: var(--hds-accordion-item-toggle-padding-top-#{$size});
+    --hds-var-accordion-item-toggle-padding-right: var(--hds-accordion-item-toggle-padding-top-#{$size});
+    --hds-var-accordion-item-toggle-padding-bottom: var(--hds-accordion-item-toggle-padding-top-#{$size});
+    --hds-var-accordion-item-toggle-padding-left: var(--hds-accordion-item-toggle-padding-left-#{$size});
+    --hds-var-accordion-item-toggle-gap: var(--hds-accordion-item-toggle-gap-#{$size});
+    --hds-var-accordion-item-toggle-icon-size: var(--hds-accordion-item-toggle-icon-size-#{$size});
+    --hds-var-accordion-item-content-padding-top: var(--hds-accordion-item-content-padding-top-#{$size});
+    --hds-var-accordion-item-content-padding-right: var(--hds-accordion-item-content-padding-right-#{$size});
+    --hds-var-accordion-item-content-padding-bottom: var(--hds-accordion-item-content-padding-bottom-#{$size});
+    --hds-var-accordion-item-content-padding-left: var(--hds-accordion-item-content-padding-left-#{$size});
   }
 }
 
 // ACCORDION ITEM > TYPE: CARD
 
 .hds-accordion-item--type-card {
-  background-color: var(--token-color-surface-primary);
-  border-radius: var(--token-border-radius-medium);
+  background-color: var(--hds-color-surface-primary);
+  border-radius: var(--hds-border-radius-medium);
 
   @include hds-apply-only-if-carbon() {
     background-color: transparent;
-    border-bottom: 1px solid var(--token-accordion-item-border-color);
+    border-bottom: 1px solid var(--hds-accordion-item-border-color);
 
     &:first-child {
-      border-top: 1px solid var(--token-accordion-item-border-color);
+      border-top: 1px solid var(--hds-accordion-item-border-color);
     }
   }
 
   &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
-    box-shadow: var(--token-surface-mid-box-shadow);
+    box-shadow: var(--hds-surface-mid-box-shadow);
 
     &:hover,
     &.mock-hover {
-      box-shadow: var(--token-surface-high-box-shadow);
+      box-shadow: var(--hds-surface-high-box-shadow);
     }
 
     // we need to use this selector to make sure we're impacting only the direct children (there could be nested accordions)
@@ -79,7 +79,7 @@ $hds-accordion-sizes: ("small", "medium", "large");
       &:hover,
       &.mock-hover {
         @include hds-apply-only-if-carbon() {
-          background-color: var(--token-color-surface-interactive-hover);
+          background-color: var(--hds-color-surface-interactive-hover);
           border-radius: inherit;
         }
       }
@@ -88,18 +88,18 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
   &.hds-accordion-item--contains-interactive,
   &.hds-accordion-item--is-static {
-    box-shadow: var(--token-surface-base-box-shadow);
+    box-shadow: var(--hds-surface-base-box-shadow);
   }
 }
 
 // ACCORDION ITEM > TYPE: FLUSH
 
 .hds-accordion-item--type-flush {
-  border-bottom: 1px solid var(--token-accordion-item-border-color);
+  border-bottom: 1px solid var(--hds-accordion-item-border-color);
 
   @include hds-apply-only-if-carbon() {
     &:first-child {
-      border-top: 1px solid var(--token-accordion-item-border-color);
+      border-top: 1px solid var(--hds-accordion-item-border-color);
     }
   }
 
@@ -108,12 +108,12 @@ $hds-accordion-sizes: ("small", "medium", "large");
     > .hds-disclosure-primitive__toggle {
       &:hover,
       &.mock-hover {
-        background-color: var(--token-color-surface-interactive-hover);
+        background-color: var(--hds-color-surface-interactive-hover);
       }
 
       &:active,
       &.mock-active {
-        background-color: var(--token-color-surface-interactive-active);
+        background-color: var(--hds-color-surface-interactive-active);
 
         @include hds-apply-only-if-carbon() {
           background-color: transparent;
@@ -141,21 +141,21 @@ $hds-accordion-sizes: ("small", "medium", "large");
   width: var(--hds-var-accordion-item-toggle-icon-size);
   height: var(--hds-var-accordion-item-toggle-icon-size);
   padding: 0;
-  border: var(--token-button-border-width) solid transparent;
-  border-radius: var(--token-border-radius-small);
+  border: var(--hds-button-border-width) solid transparent;
+  border-radius: var(--hds-border-radius-small);
   cursor: pointer;
 
   // animate `chevron-down` icon
   &.hds-accordion-item__button--is-open {
     .hds-icon {
-      transform: rotate(var(--token-accordion-item-toggle-icon-transform-rotate));
+      transform: rotate(var(--hds-accordion-item-toggle-icon-transform-rotate));
     }
   }
 
   @media (prefers-reduced-motion: no-preference) {
     .hds-icon {
-      transition: transform var(--token-accordion-item-toggle-icon-transition-duration)
-        var(--token-accordion-item-toggle-icon-transition-timing-function);
+      transition: transform var(--hds-accordion-item-toggle-icon-transition-duration)
+        var(--hds-accordion-item-toggle-icon-transition-timing-function);
     }
   }
 
@@ -168,7 +168,7 @@ $hds-accordion-sizes: ("small", "medium", "large");
 .hds-accordion-item__button--parent-does-not-contain-interactive {
   position: static;
   margin: -1px 0;
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-color-foreground-primary);
   background-color: transparent;
 
   // we want to make the entire toggle area interactive (even when not focused)
@@ -205,16 +205,16 @@ $hds-accordion-sizes: ("small", "medium", "large");
 // only chevron button area is interactive
 .hds-accordion-item__button--parent-contains-interactive {
   position: relative;
-  color: var(--token-button-foreground-color-secondary-default);
-  background-color: var(--token-button-surface-color-secondary-default);
-  border-color: var(--token-button-border-color-secondary-default);
-  box-shadow: var(--token-elevation-low-box-shadow);
+  color: var(--hds-button-foreground-color-secondary-default);
+  background-color: var(--hds-button-surface-color-secondary-default);
+  border-color: var(--hds-button-border-color-secondary-default);
+  box-shadow: var(--hds-elevation-low-box-shadow);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-button-foreground-color-secondary-hover);
-    background-color: var(--token-button-surface-color-secondary-hover);
-    border-color: var(--token-button-border-color-secondary-hover);
+    color: var(--hds-button-foreground-color-secondary-hover);
+    background-color: var(--hds-button-surface-color-secondary-hover);
+    border-color: var(--hds-button-border-color-secondary-hover);
     cursor: pointer;
   }
 
@@ -233,9 +233,9 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
   &:active,
   &.mock-active {
-    color: var(--token-button-foreground-color-secondary-active);
-    background-color: var(--token-button-surface-color-secondary-active);
-    border-color: var(--token-button-border-color-secondary-active);
+    color: var(--hds-button-foreground-color-secondary-active);
+    background-color: var(--hds-button-surface-color-secondary-active);
+    border-color: var(--hds-button-border-color-secondary-active);
     box-shadow: none;
   }
 }
@@ -248,8 +248,8 @@ $hds-accordion-sizes: ("small", "medium", "large");
   // we need to override the font styles for the `cds` variants
   // (it's easier to do it here that via design tokens)
   @include hds-apply-only-if-carbon() {
-    font-weight: var(--token-typography-font-weight-regular);
-    font-size: var(--token-typography-body-200-font-size);
+    font-weight: var(--hds-typography-font-weight-regular);
+    font-size: var(--hds-typography-body-200-font-size);
   }
 }
 
@@ -267,7 +267,7 @@ $hds-accordion-sizes: ("small", "medium", "large");
 
 .hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) {
   padding: 0 var(--hds-var-accordion-item-content-padding-right) 0 var(--hds-var-accordion-item-content-padding-left);
-  border-top: 1px solid var(--token-accordion-item-border-color);
+  border-top: 1px solid var(--hds-accordion-item-border-color);
 
   @include hds-apply-only-if-carbon() {
     padding: var(--hds-var-accordion-item-content-padding-top) var(--hds-var-accordion-item-content-padding-right)

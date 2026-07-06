@@ -14,8 +14,8 @@
   max-height: 95vh;
   inset: 0;
   margin: auto; // needed to center the modal dialog on the viewport
-  border-radius: var(--token-border-radius-large);
-  box-shadow: var(--token-surface-overlay-box-shadow);
+  border-radius: var(--hds-border-radius-large);
+  box-shadow: var(--hds-surface-overlay-box-shadow);
 
   // the `<dialog>` element uses a special "open" attribute to determine its visibility status
   &:not([open]) {
@@ -47,30 +47,30 @@
 
 .hds-modal--color-warning {
   .hds-dialog-primitive__wrapper-header {
-    background: var(--token-modal-header-surface-color-warning);
-    border-bottom-color: var(--token-modal-header-border-color-critical);
+    background: var(--hds-modal-header-surface-color-warning);
+    border-bottom-color: var(--hds-modal-header-border-color-critical);
   }
 
   .hds-dialog-primitive__header {
-    color: var(--token-modal-header-foreground-color-warning);
+    color: var(--hds-modal-header-foreground-color-warning);
   }
 
   .hds-dialog-primitive__tagline {
-    color: var(--token-modal-header-tagline-warning);
+    color: var(--hds-modal-header-tagline-warning);
   }
 }
 
 .hds-modal--color-critical {
   .hds-dialog-primitive__wrapper-header {
-    background: var(--token-modal-header-surface-color-critical);
-    border-bottom-color: var(--token-modal-header-border-color-critical);
+    background: var(--hds-modal-header-surface-color-critical);
+    border-bottom-color: var(--hds-modal-header-border-color-critical);
   }
 
   .hds-dialog-primitive__header {
-    color: var(--token-modal-header-foreground-color-critical);
+    color: var(--hds-modal-header-foreground-color-critical);
   }
 
   .hds-dialog-primitive__tagline {
-    color: var(--token-modal-header-tagline-critical);
+    color: var(--hds-modal-header-tagline-critical);
   }
 }

@@ -12,11 +12,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--token-code-block-surface-color-primary);
-  border: 1px solid var(--token-code-block-border-color-strong);
+  background-color: var(--hds-code-block-surface-color-primary);
+  border: 1px solid var(--hds-code-block-border-color-strong);
 
   &.hds-code-editor--is-standalone {
-    border-radius: var(--token-border-radius-medium);
+    border-radius: var(--hds-border-radius-medium);
   }
 
   &.hds-code-editor--is-full-screen {
@@ -33,8 +33,8 @@
 
   // Ovverride default font-styles & match CodeBlock component font styles
   .cm-editor .cm-scroller {
-    font-size: var(--token-code-block-typography-font-size);
-    font-family: var(--token-typography-code-200-font-family);
+    font-size: var(--hds-code-block-typography-font-size);
+    font-family: var(--hds-typography-code-200-font-family);
   }
 
   @include hds-apply-only-if-carbon() {
@@ -43,7 +43,7 @@
     }
 
     .cm-panels-bottom .cm-panel.cm-panel-lint {
-      border-top: 3px solid var(--token-code-block-border-color-primary);
+      border-top: 3px solid var(--hds-code-block-border-color-primary);
     }
   }
 
@@ -52,8 +52,8 @@
     gap: 12px;
     align-items: start;
     padding: 16px;
-    background-color: var(--token-code-block-surface-color-faint);
-    border-bottom: 1px solid var(--token-code-block-border-color-primary);
+    background-color: var(--hds-code-block-surface-color-faint);
+    border-bottom: 1px solid var(--hds-code-block-border-color-primary);
   }
 
   .hds-code-editor__header-content {
@@ -63,7 +63,7 @@
   }
 
   .hds-code-editor__title {
-    color: var(--token-code-block-foreground-color-primary);
+    color: var(--hds-code-block-foreground-color-primary);
 
     + .hds-code-editor__description {
       margin-top: 4px;
@@ -71,7 +71,7 @@
   }
 
   .hds-code-editor__description {
-    color: var(--token-code-block-foreground-color-faint);
+    color: var(--hds-code-block-foreground-color-faint);
   }
 
   .hds-code-editor__title + .hds-code-editor__header-generic,
@@ -95,14 +95,14 @@
     align-items: center;
     justify-content: center;
     height: 164px;
-    color: var(--token-code-block-foreground-color-primary);
-    background-color: var(--token-code-block-button-surface-color-default);
+    color: var(--hds-code-block-foreground-color-primary);
+    background-color: var(--hds-code-block-button-surface-color-default);
   }
 
   .hds-button {
-    color: var(--token-code-block-foreground-color-primary);
-    background-color: var(--token-code-block-button-surface-color-default);
-    border: 1px solid var(--token-code-block-border-color-strong);
+    color: var(--hds-code-block-foreground-color-primary);
+    background-color: var(--hds-code-block-button-surface-color-default);
+    border: 1px solid var(--hds-code-block-border-color-strong);
 
     @include hds-apply-only-if-carbon() {
       border: none;
@@ -110,18 +110,18 @@
 
     &:hover,
     &.mock-hover {
-      color: var(--token-code-block-foreground-color-primary);
-      background-color: var(--token-code-block-button-surface-color-hover);
-      border-color: var(--token-code-block-focus-ring-color-action-internal);
+      color: var(--hds-code-block-foreground-color-primary);
+      background-color: var(--hds-code-block-button-surface-color-hover);
+      border-color: var(--hds-code-block-focus-ring-color-action-internal);
     }
 
     &:focus-visible,
     &.mock-focus {
-      background-color: var(--token-code-block-button-surface-color-default);
+      background-color: var(--hds-code-block-button-surface-color-default);
 
       &::before {
-        border-color: var(--token-code-block-focus-ring-color-action-internal);
-        outline-color: var(--token-code-block-focus-ring-color-action-external);
+        border-color: var(--hds-code-block-focus-ring-color-action-internal);
+        outline-color: var(--hds-code-block-focus-ring-color-action-external);
         // override the focus ring external offset in case primary buttons are used, eg. in the custom content of the header
         outline-offset: 0;
       }
@@ -129,13 +129,13 @@
 
     &:active,
     &.mock-active {
-      color: var(--token-code-block-foreground-color-primary);
-      background-color: var(--token-code-block-button-surface-color-active);
+      color: var(--hds-code-block-foreground-color-primary);
+      background-color: var(--hds-code-block-button-surface-color-active);
     }
 
     // we need to artificially increase the specificity here
     .hds-button__icon .hds-icon {
-      color: var(--token-code-block-foreground-color-primary);
+      color: var(--hds-code-block-foreground-color-primary);
     }
   }
 }

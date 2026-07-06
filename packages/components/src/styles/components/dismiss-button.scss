@@ -14,23 +14,23 @@
   flex: none;
   align-items: center;
   justify-content: center;
-  width: var(--token-dismiss-button-size);
-  height: var(--token-dismiss-button-size);
+  width: var(--hds-dismiss-button-size);
+  height: var(--hds-dismiss-button-size);
   padding: 0;
-  color: var(--token-dismiss-button-foreground-color-default);
+  color: var(--hds-dismiss-button-foreground-color-default);
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: var(--token-border-radius-medium);
+  border-radius: var(--hds-border-radius-medium);
   cursor: pointer;
 
   .hds-icon {
-    width: var(--token-dismiss-button-icon-size);
-    height: var(--token-dismiss-button-icon-size);
+    width: var(--hds-dismiss-button-icon-size);
+    height: var(--hds-dismiss-button-icon-size);
   }
 
   &:hover,
   &.mock-hover {
-    background-color: var(--token-dismiss-button-surface-color-hover);
+    background-color: var(--hds-dismiss-button-surface-color-hover);
   }
 
   &:focus-visible,
@@ -40,8 +40,8 @@
 
   &:active,
   &.mock-active {
-    color: var(--token-dismiss-button-foreground-color-active);
-    background-color: var(--token-dismiss-button-surface-color-active);
-    border-color: var(--token-dismiss-button-border-color-active);
+    color: var(--hds-dismiss-button-foreground-color-active);
+    background-color: var(--hds-dismiss-button-surface-color-active);
+    border-color: var(--hds-dismiss-button-border-color-active);
   }
 }

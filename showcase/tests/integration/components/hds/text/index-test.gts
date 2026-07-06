@@ -158,14 +158,14 @@ module('Integration | Component | hds/text/index', function (hooks) {
           @group="body"
           @size="200"
           @tag="p"
-          @color="var(--token-color-foreground-action)"
+          @color="var(--hds-color-foreground-action)"
           id="test-text"
         >This is the text</HdsText>
       </template>,
     );
     assert
       .dom('#test-text')
-      .hasAttribute('style', 'color: var(--token-color-foreground-action);');
+      .hasAttribute('style', 'color: var(--hds-color-foreground-action);');
   });
   test('it should render the correct style if the @color prop is declared as custom HEX color', async function (assert) {
     await render(

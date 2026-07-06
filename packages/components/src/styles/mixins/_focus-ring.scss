@@ -10,11 +10,11 @@
 @use "../mixins/carbonization" as *;
 
 @mixin hds-focus-ring-basic(
-  $external-outline-width: var(--token-focus-ring-width-external),
-  $external-outline-color: var(--token-color-focus-action-external),
+  $external-outline-width: var(--hds-focus-ring-width-external),
+  $external-outline-color: var(--hds-color-focus-action-external),
   $external-outline-offset: 0,
   $has-internal-border: true,
-  $internal-border-color-hds: var(--token-color-focus-action-internal),
+  $internal-border-color-hds: var(--hds-color-focus-action-internal),
   $internal-border-color-cds: transparent
 ) {
   outline: $external-outline-width solid $external-outline-color;
@@ -42,14 +42,14 @@
   $pseudo-element-border-radius: inherit,
   // provide `none` if you want to make the pseudo-element pass-through the pointer events
   $pseudo-element-pointer-events: auto,
-  $external-outline-width-hds: var(--token-focus-ring-width-external),
-  $external-outline-width-cds: var(--token-focus-ring-width-external),
-  $external-outline-color: var(--token-color-focus-action-external),
+  $external-outline-width-hds: var(--hds-focus-ring-width-external),
+  $external-outline-width-cds: var(--hds-focus-ring-width-external),
+  $external-outline-color: var(--hds-color-focus-action-external),
   $external-outline-offset-hds: 0,
   $external-outline-offset-cds: 0,
-  $internal-border-width-hds: var(--token-focus-ring-width-internal),
-  $internal-border-width-cds: var(--token-focus-ring-width-internal),
-  $internal-border-color: var(--token-color-focus-action-internal)
+  $internal-border-width-hds: var(--hds-focus-ring-width-internal),
+  $internal-border-width-cds: var(--hds-focus-ring-width-internal),
+  $internal-border-color: var(--hds-color-focus-action-internal)
 ) {
   @if $element-position != false {
     position: $element-position;

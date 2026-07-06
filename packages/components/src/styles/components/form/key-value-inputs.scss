@@ -40,8 +40,8 @@
   @include hds-breakpoint-above("md") {
     display: grid;
     flex-grow: 1;
-    // `var(--token-button-height-medium)` is the width/height of the icon-only button
-    grid-template-columns: var(--hds-var-key-value-inputs-columns, 1fr 1fr var(--token-button-height-medium));
+    // `var(--hds-button-height-medium)` is the width/height of the icon-only button
+    grid-template-columns: var(--hds-var-key-value-inputs-columns, 1fr 1fr var(--hds-button-height-medium));
     align-items: flex-end;
     column-gap: 8px;
     row-gap: 0;

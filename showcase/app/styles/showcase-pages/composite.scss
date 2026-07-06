@@ -18,11 +18,11 @@ body.page-utilities-composite {
       height: 100px;
       padding: 8px;
       font-family: inherit;
-      background-color: var(--token-color-palette-neutral-100);
-      border-radius: var(--token-border-radius-medium);
+      background-color: var(--hds-color-palette-neutral-100);
+      border-radius: var(--hds-border-radius-medium);
 
       &.shw-utility-composite-with-grid__cell--disabled .shw-text {
-        color: var(--token-color-palette-neutral-400);
+        color: var(--hds-color-palette-neutral-400);
       }
     }
   }
