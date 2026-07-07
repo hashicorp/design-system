@@ -16,7 +16,7 @@
   --hds-app-side-nav-body-list-margin-vertical: 16px;
   --hds-app-side-nav-body-list-title-padding-horizontal: var(--hds-app-side-nav-body-list-item-padding-horizontal);
   --hds-app-side-nav-toggle-button-border-radius: var(--hds-border-radius-small);
-  --hds-app-side-nav-wrapper-border-color: var(--hds-color-palette-neutral-200);
+  --hds-app-side-nav-wrapper-border-color: var(--hds-core-color-neutral-200);
   --hds-app-side-nav-wrapper-border-width: 1px;
   --hds-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
   --hds-app-side-nav-wrapper-padding-vertical-minimized: 22px;
@@ -140,29 +140,29 @@
   --hds-form-checkbox-border-radius: var(--hds-border-radius-x-small);
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-size: 16px;
-  --hds-form-control-base-border-color-default: var(--hds-color-palette-neutral-400);
-  --hds-form-control-base-border-color-hover: var(--hds-color-palette-neutral-500);
+  --hds-form-control-base-border-color-default: var(--hds-core-color-neutral-400);
+  --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-base-foreground-color: var(--hds-color-foreground-strong);
   --hds-form-control-base-placeholder-foreground-color: var(--hds-color-foreground-faint);
   --hds-form-control-base-surface-color-default: var(--hds-color-surface-interactive);
   --hds-form-control-base-surface-color-hover: var(--hds-color-surface-interactive-hover);
   --hds-form-control-border-radius: var(--hds-border-radius-small);
   --hds-form-control-border-width: 1px;
-  --hds-form-control-checked-border-color-default: var(--hds-color-palette-blue-300);
-  --hds-form-control-checked-border-color-hover: var(--hds-color-palette-blue-400);
+  --hds-form-control-checked-border-color-default: var(--hds-core-color-blue-300);
+  --hds-form-control-checked-border-color-hover: var(--hds-core-color-blue-400);
   --hds-form-control-checked-foreground-color: var(--hds-color-foreground-high-contrast);
-  --hds-form-control-checked-surface-color-default: var(--hds-color-palette-blue-200);
-  --hds-form-control-checked-surface-color-hover: var(--hds-color-palette-blue-300);
+  --hds-form-control-checked-surface-color-default: var(--hds-core-color-blue-200);
+  --hds-form-control-checked-surface-color-hover: var(--hds-core-color-blue-300);
   --hds-form-control-disabled-border-color: var(--hds-color-border-primary);
   --hds-form-control-disabled-foreground-color: var(--hds-color-foreground-disabled);
   --hds-form-control-disabled-surface-color: var(--hds-color-surface-interactive-disabled);
-  --hds-form-control-invalid-border-color-default: var(--hds-color-palette-red-300);
-  --hds-form-control-invalid-border-color-hover: var(--hds-color-palette-red-400);
+  --hds-form-control-invalid-border-color-default: var(--hds-core-color-red-300);
+  --hds-form-control-invalid-border-color-hover: var(--hds-core-color-red-400);
   --hds-form-control-padding: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma. */
   --hds-form-control-readonly-border-color: var(--hds-color-border-faint);
   --hds-form-control-readonly-foreground-color: var(--hds-color-foreground-primary);
   --hds-form-control-readonly-surface-color: var(--hds-color-surface-strong);
-  --hds-form-error-color: var(--hds-color-palette-red-300); /** deprecated: use `hds-form-error-foreground-color` instead */
+  --hds-form-error-color: var(--hds-core-color-red-300); /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-icon-size: 14px;
   --hds-form-helper-text-color: var(--hds-color-foreground-faint); /** deprecated: use `hds-form-helper-text-foreground-color` instead */
   --hds-form-indicator-optional-color: var(--hds-color-foreground-faint); /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
