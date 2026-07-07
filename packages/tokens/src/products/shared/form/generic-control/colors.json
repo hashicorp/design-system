@@ -5,7 +5,7 @@
         "foreground": {
           "color": {
             "$type": "color",
-            "$value": "{color.foreground.strong}",
+            "$value": "{foreground.color.strong}",
             "group": "components"
           }
         },
@@ -13,12 +13,12 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.surface.interactive}",
+              "$value": "{surface.color.interactive}",
               "group": "components"
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.surface.interactive-hover}",
+              "$value": "{surface.color.interactive-hover}",
               "group": "components"
             }
           }
@@ -41,7 +41,7 @@
           "foreground": {
             "color": {
               "$type": "color",
-              "$value": "{color.foreground.faint}",
+              "$value": "{foreground.color.faint}",
               "group": "components"
             }
           }
@@ -51,7 +51,7 @@
         "foreground": {
           "color": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "group": "components"
           }
         },
@@ -104,21 +104,21 @@
         "foreground": {
           "color": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "group": "components"
           }
         },
         "surface": {
           "color": {
             "$type": "color",
-            "$value": "{color.surface.strong}",
+            "$value": "{surface.color.strong}",
             "group": "components"
           }
         },
         "border": {
           "color": {
             "$type": "color",
-            "$value": "{color.border.faint}",
+            "$value": "{border.color.faint}",
             "group": "components"
           }
         }
@@ -127,21 +127,21 @@
         "foreground": {
           "color": {
             "$type": "color",
-            "$value": "{color.foreground.disabled}",
+            "$value": "{foreground.color.disabled}",
             "group": "components"
           }
         },
         "surface": {
           "color": {
             "$type": "color",
-            "$value": "{color.surface.interactive-disabled}",
+            "$value": "{surface.color.interactive-disabled}",
             "group": "components"
           }
         },
         "border": {
           "color": {
             "$type": "color",
-            "$value": "{color.border.primary}",
+            "$value": "{border.color.primary}",
             "group": "components"
           }
         }

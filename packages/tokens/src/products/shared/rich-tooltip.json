@@ -70,9 +70,9 @@
       "foreground": {
         "color": {
           "default": {
-            "$value": "{color.foreground.strong}",
+            "$value": "{foreground.color.strong}",
             "$modes": {
-              "default": "{color.foreground.strong}",
+              "default": "{foreground.color.strong}",
               "cds-g0": "{carbon.themes.white.textSecondary}",
               "cds-g10": "{carbon.themes.g10.textSecondary}",
               "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -80,10 +80,10 @@
             }
           },
           "hover": {
-            "$value": "{color.foreground.primary}"
+            "$value": "{foreground.color.primary}"
           },
           "active": {
-            "$value": "{color.foreground.faint}"
+            "$value": "{foreground.color.faint}"
           }
         }
       },

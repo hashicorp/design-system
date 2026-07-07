@@ -16,9 +16,9 @@
       "color": {
         "default": {
           "$type": "color",
-          "$value": "{color.foreground.faint}",
+          "$value": "{foreground.color.faint}",
           "$modes": {
-            "default": "{color.foreground.faint}",
+            "default": "{foreground.color.faint}",
             "cds-g0": "{carbon.themes.white.iconPrimary}",
             "cds-g10": "{carbon.themes.g10.iconPrimary}",
             "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -27,9 +27,9 @@
         },
         "active": {
           "$type": "color",
-          "$value": "{color.foreground.strong}",
+          "$value": "{foreground.color.strong}",
           "$modes": {
-            "default": "{color.foreground.strong}",
+            "default": "{foreground.color.strong}",
             "cds-g0": "{carbon.themes.white.iconPrimary}",
             "cds-g10": "{carbon.themes.g10.iconPrimary}",
             "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -68,9 +68,9 @@
       "color": {
         "active": {
           "$type": "color",
-          "$value": "{color.border.strong}",
+          "$value": "{border.color.strong}",
           "$modes": {
-            "default": "{color.border.strong}",
+            "default": "{border.color.strong}",
             "cds-g0": "transparent",
             "cds-g10": "transparent",
             "cds-g90": "transparent",

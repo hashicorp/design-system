@@ -4,9 +4,9 @@
       "color": {
         "faint": {
           "$type": "color",
-          "$value": "{color.foreground.faint}",
+          "$value": "{foreground.color.faint}",
           "$modes": {
-            "default": "{color.foreground.faint}",
+            "default": "{foreground.color.faint}",
             "cds-g0": "{carbon.themes.white.textHelper}",
             "cds-g10": "{carbon.themes.g10.textHelper}",
             "cds-g90": "{carbon.themes.g90.textHelper}",
@@ -16,10 +16,10 @@
         },
         "strong": {
           "$type": "color",
-          "$value": "{color.foreground.strong}",
+          "$value": "{foreground.color.strong}",
           "group": "components",
           "$modes": {
-            "default": "{color.foreground.strong}",
+            "default": "{foreground.color.strong}",
             "cds-g0": "{carbon.themes.white.textSecondary}",
             "cds-g10": "{carbon.themes.g10.textSecondary}",
             "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -67,7 +67,7 @@
     "label": {
       "color": {
         "$type": "color",
-        "$value": "{color.foreground.strong}",
+        "$value": "{foreground.color.strong}",
         "group": "components",
         "comment": "deprecated: use `hds-form-label-foreground-color` instead",
         "deprecated": true
@@ -171,7 +171,7 @@
     "helper-text": {
       "color": {
         "$type": "color",
-        "$value": "{color.foreground.faint}",
+        "$value": "{foreground.color.faint}",
         "group": "components",
         "comment": "deprecated: use `hds-form-helper-text-foreground-color` instead",
         "deprecated": true
@@ -213,7 +213,7 @@
       "optional": {
         "color": {
           "$type": "color",
-          "$value": "{color.foreground.faint}",
+          "$value": "{foreground.color.faint}",
           "group": "components",
           "comment": "deprecated: use `hds-form-indicator-optional-foreground-color` instead",
           "deprecated": true
