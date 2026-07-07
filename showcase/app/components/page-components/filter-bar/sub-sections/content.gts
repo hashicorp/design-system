@@ -31,6 +31,13 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       />
     </SF.Item>
     <SF.Item as |SFI|>
+      <SFI.Label>With search, custom aria-label</SFI.Label>
+      <CodeFragmentWithGenericContent
+        @hasSearch={{true}}
+        @searchAriaLabel="Search by deployment name"
+      />
+    </SF.Item>
+    <SF.Item as |SFI|>
       <SFI.Label>With ActionsDropdown</SFI.Label>
       <CodeFragmentWithGenericContent @hasActionsDropdown={{true}} />
     </SF.Item>

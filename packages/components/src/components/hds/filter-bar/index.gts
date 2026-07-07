@@ -42,6 +42,7 @@ export interface HdsFilterBarSignature {
     isLiveFilter?: boolean;
     hasSearch?: boolean;
     searchPlaceholder?: string;
+    searchAriaLabel?: string;
     onFilter?: (filters: HdsFilterBarFilters) => void;
   };
   Blocks: {
@@ -92,6 +93,15 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     return (
       this.args.searchPlaceholder ||
       this.hdsIntl.t('hds.components.filter-bar.search.placeholder', {
+        default: 'Search',
+      })
+    );
+  }
+
+  get searchAriaLabel(): string {
+    return (
+      this.args.searchAriaLabel ||
+      this.hdsIntl.t('hds.components.filter-bar.search.aria-label', {
         default: 'Search',
       })
     );
@@ -380,10 +390,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
             @value={{this.searchValue}}
             class="hds-filter-bar__search"
             placeholder={{this.searchPlaceholder}}
-            aria-label={{hdsT
-              "hds.components.filter-bar.search.aria-label"
-              default="Search"
-            }}
+            aria-label={{this.searchAriaLabel}}
             name="search"
             {{on "change" this.onSearch}}
           />

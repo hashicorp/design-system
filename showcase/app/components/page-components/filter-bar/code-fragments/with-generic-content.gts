@@ -44,6 +44,7 @@ export interface CodeFragmentWithGenericContentSignature {
   Args: {
     hasSearch?: boolean;
     searchPlaceholder?: string;
+    searchAriaLabel?: string;
     hasActionsDropdown?: boolean;
     hasActionsGeneric?: boolean;
     hasFilters?: boolean;
@@ -68,6 +69,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
       @filters={{this.filters}}
       @hasSearch={{@hasSearch}}
       @searchPlaceholder={{@searchPlaceholder}}
+      @searchAriaLabel={{@searchAriaLabel}}
       as |F|
     >
       {{#if @hasActionsGeneric}}

@@ -235,6 +235,7 @@ const FILTERS: Record<string, HdsFilterBarFilters> = {
 const createBasicFilterBar = async (options: {
   hasSearch?: boolean;
   searchPlaceholder?: string;
+  searchAriaLabel?: string;
   isLiveFilter?: boolean;
   appliedFiltersType?: string;
   onFilter?: (filters: HdsFilterBarFilters) => void;
@@ -250,6 +251,7 @@ const createBasicFilterBar = async (options: {
         @filters={{filters}}
         @hasSearch={{options.hasSearch}}
         @searchPlaceholder={{options.searchPlaceholder}}
+        @searchAriaLabel={{options.searchAriaLabel}}
         @isLiveFilter={{options.isLiveFilter}}
         @onFilter={{options.onFilter}}
         as |F|
@@ -334,6 +336,23 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert
       .dom('.hds-filter-bar__search')
       .hasAttribute('placeholder', 'Search custom placeholder');
+  });
+
+  // SEARCH ARIA-LABEL
+
+  test('it should render the default search input aria-label text if no @searchAriaLabel argument is provided', async function (assert) {
+    await createBasicFilterBar({ hasSearch: true });
+    assert.dom('.hds-filter-bar__search').hasAttribute('aria-label', 'Search');
+  });
+
+  test('it should render the search input aria-label text from the @searchAriaLabel argument', async function (assert) {
+    await createBasicFilterBar({
+      hasSearch: true,
+      searchAriaLabel: 'Search by deployment name',
+    });
+    assert
+      .dom('.hds-filter-bar__search')
+      .hasAttribute('aria-label', 'Search by deployment name');
   });
 
   // CALLBACK - ONFILTER
