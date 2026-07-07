@@ -10,7 +10,9 @@ export interface McpTool<
     | ZodRawShapeCompat
     | AnySchema
     | undefined,
-  OutputArgs extends ZodRawShapeCompat | AnySchema = ZodRawShapeCompat | AnySchema,
+  OutputArgs extends ZodRawShapeCompat | AnySchema =
+    | ZodRawShapeCompat
+    | AnySchema,
 > {
   name: string;
   config: {
