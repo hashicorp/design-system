@@ -40,10 +40,6 @@
   &:hover,
   &.mock-hover {
     border-color: var(--hds-form-control-base-border-color-hover);
-
-    @include hds-apply-only-if-carbon() {
-      border-color: var(--hds-form-control-base-border-color-default);
-    }
   }
 
   // focus (same for all the states)

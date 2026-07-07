@@ -8,6 +8,7 @@
 //
 
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 // "BASE" CONTROL
 
@@ -22,6 +23,14 @@
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
   resize: vertical;
+
+  @include hds-apply-only-if-carbon() {
+    min-height: 40px; // 2.5rem // TODO: create a token for this value
+    // TODO: Create tokens for vertical vs. horizontal padding
+    padding: 11px var(--hds-form-control-padding);
+    // Carbon's text input has only a bottom border
+    border-width: 0 0 var(--hds-form-control-border-width) 0;
+  }
 
   // PLACEHOLDER
 
@@ -42,6 +51,10 @@
   &.mock-focus {
     @include hds-focus-ring-basic();
     border-color: var(--hds-focus-color-action-internal);
+
+    @include hds-apply-only-if-carbon() {
+      outline-offset: -2px;
+    }
   }
 
   // READONLY
@@ -67,6 +80,11 @@
 
   &.hds-form-textarea--is-invalid {
     border-color: var(--hds-form-control-invalid-border-color-default);
+
+    @include hds-apply-only-if-carbon() {
+      outline: 2px solid var(--hds-form-control-invalid-border-color-default);
+      outline-offset: -2px;
+    }
 
     &:hover,
     &.mock-hover {

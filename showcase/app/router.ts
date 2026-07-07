@@ -197,6 +197,7 @@ Router.map(function () {
         this.route('file-input');
         this.route('radio');
         this.route('text-input');
+        this.route('textarea');
         this.route('radio-card');
         this.route('select');
       });

@@ -637,6 +637,11 @@ const Index: TemplateOnlyComponent = <template>
             Form::TextInput
           </LinkTo>
         </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.form.textarea">
+            Form::Textarea
+          </LinkTo>
+        </li>
       </ol>
 
       <ShwTextH4 @tag="h3">Utilities</ShwTextH4>
