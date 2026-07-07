@@ -9,7 +9,7 @@ import { dirname, resolve } from "node:path";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { registerPrompts } from "./prompts/index.js";
-
+import { registerResources } from "./resources/index.js";
 import { registerTools } from "./tools/index.js";
 
 const currentFilePath = fileURLToPath(import.meta.url);
@@ -117,6 +117,8 @@ const main = async (): Promise<void> => {
     shutdown = installLifecycleHandlers(server).shutdown;
 
     registerPrompts(server);
+    registerResources(server);
+    registerTools(server);
 
     const transport = new StdioServerTransport();
 
