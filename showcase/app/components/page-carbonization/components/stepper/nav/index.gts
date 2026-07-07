@@ -95,10 +95,7 @@ const StepperNavCarbonizationIndex: TemplateOnlyComponent<StepperNavCarbonizatio
 
       <ShwTextH3>Non-interactive</ShwTextH3>
 
-      <ShwCarbonizationComparisonGrid
-        @label="Non-inteteractive"
-        @layout="column"
-      >
+      <ShwCarbonizationComparisonGrid @label="Non-interactive" @layout="column">
         <:theming>
           <HdsStepperNav
             @currentStep={{1}}

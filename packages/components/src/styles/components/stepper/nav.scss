@@ -137,7 +137,7 @@ $progress-bar-animation-duration: 0.25s;
   }
 
   .hds-stepper-nav__step-description {
-    color: var(--hds-stepper-nav-step-complete-description-foreground-color-default);
+    color: var(--hds-stepper-nav-step-complete-description-foreground-color);
   }
 }
 
@@ -149,7 +149,7 @@ $progress-bar-animation-duration: 0.25s;
   }
 
   .hds-stepper-nav__step-description {
-    color: var(--hds-stepper-nav-step-active-description-foreground-color-default);
+    color: var(--hds-stepper-nav-step-active-description-foreground-color);
   }
 
   .hds-stepper-indicator-step__svg-hexagon path,
