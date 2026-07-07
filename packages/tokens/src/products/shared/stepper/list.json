@@ -58,6 +58,30 @@
       }
     },
     "progress-bar": {
+      "top": {
+        "$type": "dimension",
+        "$value": "1",
+        "unit": "px",
+        "$modes": {
+          "default": "1",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      },
+      "left": {
+        "$type": "dimension",
+        "$value": "11",
+        "unit": "px",
+        "$modes": {
+          "default": "11",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      },
       "offset": {
         "$type": "dimension",
         "$value": "4",
@@ -68,6 +92,32 @@
           "cds-g10": "0",
           "cds-g90": "0",
           "cds-g100": "0"
+        }
+      },
+      "surface": {
+        "color": {
+          "incomplete": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-100}",
+            "$modes": {
+              "default": "{color.palette.neutral-100}",
+              "cds-g0": "{carbon.themes.white.borderSubtle00}",
+              "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+              "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+              "cds-g100": "{carbon.themes.g100.borderSubtle00}"
+            }
+          },
+          "complete": {
+            "$type": "color",
+            "$value": "{color.palette.neutral-700}",
+            "$modes": {
+              "default": "{color.palette.neutral-700}",
+              "cds-g0": "{color.palette.neutral-700}",
+              "cds-g10": "{color.palette.neutral-700}",
+              "cds-g90": "{color.palette.neutral-100}",
+              "cds-g100": "{color.palette.neutral-100}"
+            }
+          }
         }
       }
     }

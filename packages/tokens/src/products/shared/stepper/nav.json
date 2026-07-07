@@ -231,7 +231,7 @@
                 "cds-g90": "{carbon.themes.g90.interactive}",
                 "cds-g100": "{carbon.themes.g100.interactive}"
               }
-            },
+            }
           }
         }
       }

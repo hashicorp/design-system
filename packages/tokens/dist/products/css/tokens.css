@@ -702,7 +702,11 @@
   --hds-stepper-list-step-title-typography-font-weight: 600;
   --hds-stepper-list-step-description-typography-font-size: 0.8125rem;
   --hds-stepper-list-step-description-foreground-color: #3b3d45;
+  --hds-stepper-list-progress-bar-top: 1px;
+  --hds-stepper-list-progress-bar-left: 11px;
   --hds-stepper-list-progress-bar-offset: 4px;
+  --hds-stepper-list-progress-bar-surface-color-incomplete: #f1f2f3;
+  --hds-stepper-list-progress-bar-surface-color-complete: #0c0c0e;
   --hds-stepper-nav-step-title-typography-font-weight: 600;
   --hds-stepper-nav-step-complete-title-foreground-color-default: #0c0c0e;
   --hds-stepper-nav-step-complete-title-foreground-color-interactive: #1060ff;

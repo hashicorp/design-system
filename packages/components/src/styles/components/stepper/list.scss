@@ -35,16 +35,11 @@ $hds-stepper-list-gap-spacing: 16px;
     &::before,
     &::after {
       position: absolute;
-      top: 1px;
-      left: 11px;
+      top: var(--hds-stepper-list-progress-bar-top);
+      left: var(--hds-stepper-list-progress-bar-left);
       z-index: -1;
       width: 2px;
       content: "";
-
-      @include hds-apply-only-if-carbon() {
-        top: 0;
-        left: 0;
-      }
     }
 
     // Progress Bar - background line
@@ -52,12 +47,12 @@ $hds-stepper-list-gap-spacing: 16px;
       height: calc(100% + $hds-stepper-list-gap-spacing);
       background:
         linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%),
-        var(--hds-core-color-neutral-100);
+        var(--hds-stepper-list-progress-bar-surface-color-incomplete);
     }
 
     // Progress bar - completed line
     &::after {
-      background-color: var(--hds-core-color-neutral-700);
+      background-color: var(--hds-stepper-list-progress-bar-surface-color-complete);
     }
   }
 
@@ -133,7 +128,6 @@ $hds-stepper-list-gap-spacing: 16px;
     z-index: -1;
     width: 2px;
     height: 6px;
-    background-color: var(--hds-core-color-neutral-700);
     content: "";
 
     @include hds-apply-only-if-carbon() {
@@ -158,7 +152,6 @@ $hds-stepper-list-gap-spacing: 16px;
     .hds-stepper-list__step-progress::after {
       @include hds-apply-only-if-carbon() {
         height: calc(100% + $hds-stepper-list-gap-spacing);
-        background-color: var(--hds-color-palette-neutral-700);
       }
     }
   }
