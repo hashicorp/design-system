@@ -21,7 +21,7 @@
   width: var(--hds-var-app-side-nav-toggle-button-width);
   height: 36px;
   padding: 0 4px;
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
   background: none;
   background-color: var(--hds-app-side-nav-wrapper-surface-color);
   border: var(--hds-app-side-nav-wrapper-border-width) solid var(--hds-app-side-nav-wrapper-border-color);
@@ -74,11 +74,11 @@
   &:hover,
   &.mock-hover {
     width: 30px;
-    background-color: var(--hds-color-surface-interactive-hover);
+    background-color: var(--hds-surface-color-interactive-hover);
 
     &::before,
     &::after {
-      box-shadow: 0 var(--hds-app-side-nav-toggle-button-border-radius) 0 var(--hds-color-surface-interactive-hover);
+      box-shadow: 0 var(--hds-app-side-nav-toggle-button-border-radius) 0 var(--hds-surface-color-interactive-hover);
     }
   }
 

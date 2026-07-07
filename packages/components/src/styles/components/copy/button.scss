@@ -46,13 +46,13 @@
 
   &.hds-copy-button--status-success {
     .hds-button__icon {
-      color: var(--hds-color-foreground-success);
+      color: var(--hds-foreground-color-success);
     }
   }
 
   &.hds-copy-button--status-error {
     .hds-button__icon {
-      color: var(--hds-color-foreground-critical);
+      color: var(--hds-foreground-color-critical);
     }
   }
 }

@@ -28,16 +28,16 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  color: var(--hds-color-foreground-primary);
-  background: var(--hds-color-surface-primary);
+  color: var(--hds-foreground-color-primary);
+  background: var(--hds-surface-color-primary);
   border: 1px solid var(--hds-dialog-primitive-border-color);
 }
 
 // Note: this wraps both .hds-dialog-primitive__header & .hds-dialog-primitive__description
 .hds-dialog-primitive__wrapper-header {
   flex: none;
-  background: var(--hds-color-surface-faint);
-  border-bottom: 1px solid var(--hds-color-border-primary);
+  background: var(--hds-surface-color-faint);
+  border-bottom: 1px solid var(--hds-border-color-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
@@ -62,7 +62,7 @@
 
 .hds-dialog-primitive__wrapper-footer {
   flex: none;
-  border-top: 1px solid var(--hds-color-border-primary);
+  border-top: 1px solid var(--hds-border-color-primary);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
@@ -83,7 +83,7 @@
   gap: 16px;
   align-items: flex-start;
   padding: var(--hds-dialog-primitive-padding-vertical) var(--hds-dialog-primitive-padding-horizontal);
-  color: var(--hds-color-foreground-strong); // applied to both the title and the icon
+  color: var(--hds-foreground-color-strong); // applied to both the title and the icon
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
@@ -113,7 +113,7 @@
   margin-bottom: 4px;
   // note: in Carbon's Modal the color of the tagline is "textSecondary", but in the SidePanel it's "textPrimary";
   // to keep things simple and consistent and avoid extra tokens, we've decided to use this semantic color
-  color: var(--hds-color-foreground-faint);
+  color: var(--hds-foreground-color-faint);
   // we need a mix of component-level and semantic tokens, to account for the difference in font-size/line-height between HDS and CDS for the title
   font-weight: var(--hds-typography-font-weight-regular);
   font-size: var(--hds-dialog-primitive-header-tagline-typography-font-size);
@@ -162,7 +162,7 @@
 
 .hds-dialog-primitive__footer {
   padding: var(--hds-dialog-primitive-padding-vertical) var(--hds-dialog-primitive-padding-horizontal);
-  background: var(--hds-color-surface-faint);
+  background: var(--hds-surface-color-faint);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 

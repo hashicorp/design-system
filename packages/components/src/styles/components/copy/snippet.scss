@@ -11,18 +11,18 @@
 
 @mixin hds-copy-snippet-success-error() {
   &.hds-copy-snippet--status-success {
-    background-color: var(--hds-color-surface-interactive);
+    background-color: var(--hds-surface-color-interactive);
 
     .hds-copy-snippet__icon {
-      color: var(--hds-color-foreground-success);
+      color: var(--hds-foreground-color-success);
     }
   }
 
   &.hds-copy-snippet--status-error {
-    background-color: var(--hds-color-surface-interactive);
+    background-color: var(--hds-surface-color-interactive);
 
     .hds-copy-snippet__icon {
-      color: var(--hds-color-foreground-critical);
+      color: var(--hds-foreground-color-critical);
     }
   }
 }
@@ -49,25 +49,25 @@
 }
 
 .hds-copy-snippet--color-primary {
-  color: var(--hds-color-foreground-action);
+  color: var(--hds-foreground-color-action);
   background-color: transparent;
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-color-foreground-action-hover);
-    background-color: var(--hds-color-surface-interactive);
-    border-color: var(--hds-color-border-strong);
+    color: var(--hds-foreground-color-action-hover);
+    background-color: var(--hds-surface-color-interactive);
+    border-color: var(--hds-border-color-strong);
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-color-foreground-action-active);
-    background-color: var(--hds-color-surface-interactive-active);
-    border-color: var(--hds-color-border-strong);
+    color: var(--hds-foreground-color-action-active);
+    background-color: var(--hds-surface-color-interactive-active);
+    border-color: var(--hds-border-color-strong);
 
     // For Carbon themes there is a color contrast issue with foreground-action-active so foreground-primary is used instead
     @include hds-apply-only-if-carbon() {
-      color: var(--hds-color-foreground-primary);
+      color: var(--hds-foreground-color-primary);
     }
   }
 
@@ -75,37 +75,37 @@
 }
 
 .hds-copy-snippet--color-secondary {
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
   background-color: transparent;
 
   // For Carbon themes the color should always be foreground-primary except for the success or error status
   @include hds-apply-only-if-carbon() {
     &:not(.hds-copy-snippet--status-success, .hds-copy-snippet--status-error) .hds-copy-snippet__icon {
-      color: var(--hds-color-foreground-primary);
+      color: var(--hds-foreground-color-primary);
     }
   }
 
   .hds-copy-snippet__icon {
-    color: var(--hds-color-foreground-action);
+    color: var(--hds-foreground-color-action);
   }
 
   &:hover,
   &.mock-hover {
-    background-color: var(--hds-color-surface-interactive);
-    border-color: var(--hds-color-border-strong);
+    background-color: var(--hds-surface-color-interactive);
+    border-color: var(--hds-border-color-strong);
 
     .hds-copy-snippet__icon {
-      color: var(--hds-color-foreground-action-hover);
+      color: var(--hds-foreground-color-action-hover);
     }
   }
 
   &:active,
   &.mock-active {
-    background-color: var(--hds-color-surface-interactive-active);
-    border-color: var(--hds-color-border-strong);
+    background-color: var(--hds-surface-color-interactive-active);
+    border-color: var(--hds-border-color-strong);
 
     .hds-copy-snippet__icon {
-      color: var(--hds-color-foreground-action-active);
+      color: var(--hds-foreground-color-action-active);
     }
   }
 
@@ -113,18 +113,18 @@
 }
 
 .hds-copy-snippet--status-success {
-  background-color: var(--hds-color-surface-interactive);
+  background-color: var(--hds-surface-color-interactive);
 
   .hds-copy-snippet__icon {
-    color: var(--hds-color-foreground-success);
+    color: var(--hds-foreground-color-success);
   }
 }
 
 .hds-copy-snippet--status-error {
-  background-color: var(--hds-color-surface-interactive);
+  background-color: var(--hds-surface-color-interactive);
 
   .hds-copy-snippet__icon {
-    color: var(--hds-color-foreground-critical);
+    color: var(--hds-foreground-color-critical);
   }
 }
 

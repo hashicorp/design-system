@@ -50,7 +50,7 @@ $hds-application-state-content-max-width: 480px;
   align-items: center;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
-  color: var(--hds-color-foreground-strong);
+  color: var(--hds-foreground-color-strong);
 }
 
 .hds-application-state__error-code {
@@ -78,7 +78,7 @@ $hds-application-state-content-max-width: 480px;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
   margin: 12px 0 0;
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
 }
 
 .hds-application-state__footer {

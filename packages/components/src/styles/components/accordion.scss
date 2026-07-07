@@ -54,7 +54,7 @@ $hds-accordion-sizes: ("small", "medium", "large");
 // ACCORDION ITEM > TYPE: CARD
 
 .hds-accordion-item--type-card {
-  background-color: var(--hds-color-surface-primary);
+  background-color: var(--hds-surface-color-primary);
   border-radius: var(--hds-border-radius-medium);
 
   @include hds-apply-only-if-carbon() {
@@ -79,7 +79,7 @@ $hds-accordion-sizes: ("small", "medium", "large");
       &:hover,
       &.mock-hover {
         @include hds-apply-only-if-carbon() {
-          background-color: var(--hds-color-surface-interactive-hover);
+          background-color: var(--hds-surface-color-interactive-hover);
           border-radius: inherit;
         }
       }
@@ -108,12 +108,12 @@ $hds-accordion-sizes: ("small", "medium", "large");
     > .hds-disclosure-primitive__toggle {
       &:hover,
       &.mock-hover {
-        background-color: var(--hds-color-surface-interactive-hover);
+        background-color: var(--hds-surface-color-interactive-hover);
       }
 
       &:active,
       &.mock-active {
-        background-color: var(--hds-color-surface-interactive-active);
+        background-color: var(--hds-surface-color-interactive-active);
 
         @include hds-apply-only-if-carbon() {
           background-color: transparent;
@@ -168,7 +168,7 @@ $hds-accordion-sizes: ("small", "medium", "large");
 .hds-accordion-item__button--parent-does-not-contain-interactive {
   position: static;
   margin: -1px 0;
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
   background-color: transparent;
 
   // we want to make the entire toggle area interactive (even when not focused)

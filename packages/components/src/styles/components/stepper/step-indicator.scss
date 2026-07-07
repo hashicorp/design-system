@@ -56,24 +56,24 @@ $hds-stepper-indicator-step-size: 24px;
 // Non-interactive props that correspond with status
 $hds-stepper-indicator-step-non-interactive-props: (
   "incomplete": (
-    "text-color": var(--hds-color-foreground-primary),
-    "fill-color": var(--hds-color-surface-primary),
-    "stroke-color": var(--hds-color-border-strong),
+    "text-color": var(--hds-foreground-color-primary),
+    "fill-color": var(--hds-surface-color-primary),
+    "stroke-color": var(--hds-border-color-strong),
   ),
   "progress": (
-    "text-color": var(--hds-color-foreground-high-contrast),
-    "fill-color": var(--hds-color-foreground-strong),
-    "stroke-color": var(--hds-color-foreground-strong),
+    "text-color": var(--hds-foreground-color-high-contrast),
+    "fill-color": var(--hds-foreground-color-strong),
+    "stroke-color": var(--hds-foreground-color-strong),
   ),
   "processing": (
-    "text-color": var(--hds-color-foreground-high-contrast),
-    "fill-color": var(--hds-color-foreground-strong),
-    "stroke-color": var(--hds-color-foreground-strong),
+    "text-color": var(--hds-foreground-color-high-contrast),
+    "fill-color": var(--hds-foreground-color-strong),
+    "stroke-color": var(--hds-foreground-color-strong),
   ),
   "complete": (
-    "text-color": var(--hds-color-foreground-high-contrast),
-    "fill-color": var(--hds-color-foreground-strong),
-    "stroke-color": var(--hds-color-foreground-strong),
+    "text-color": var(--hds-foreground-color-high-contrast),
+    "fill-color": var(--hds-foreground-color-strong),
+    "stroke-color": var(--hds-foreground-color-strong),
   ),
 );
 
@@ -96,14 +96,14 @@ $hds-stepper-indicator-step-non-interactive-props: (
 // Determine states/status and corresponding styles
 $hds-stepper-indicator-step-status-props: (
   "incomplete": (
-    "text-color-default": var(--hds-color-foreground-primary),
-    "fill-color-default": var(--hds-color-surface-interactive),
-    "stroke-color-default": var(--hds-color-border-strong),
-    "fill-color-hover": var(--hds-color-surface-interactive-hover),
-    "fill-color-active": var(--hds-color-surface-interactive-active),
+    "text-color-default": var(--hds-foreground-color-primary),
+    "fill-color-default": var(--hds-surface-color-interactive),
+    "stroke-color-default": var(--hds-border-color-strong),
+    "fill-color-hover": var(--hds-surface-color-interactive-hover),
+    "fill-color-active": var(--hds-surface-color-interactive-active),
   ),
   "progress": (
-    "text-color-default": var(--hds-color-foreground-high-contrast),
+    "text-color-default": var(--hds-foreground-color-high-contrast),
     "fill-color-default": var(--hds-core-color-blue-200),
     "stroke-color-default": var(--hds-core-color-blue-300),
     "fill-color-hover": var(--hds-core-color-blue-300),
@@ -112,7 +112,7 @@ $hds-stepper-indicator-step-status-props: (
     "stroke-color-active": var(--hds-core-color-blue-400),
   ),
   "processing": (
-    "text-color-default": var(--hds-color-foreground-high-contrast),
+    "text-color-default": var(--hds-foreground-color-high-contrast),
     "fill-color-default": var(--hds-core-color-blue-200),
     "stroke-color-default": var(--hds-core-color-blue-300),
     "fill-color-hover": var(--hds-core-color-blue-300),
@@ -122,7 +122,7 @@ $hds-stepper-indicator-step-status-props: (
   ),
   "complete": (
     "text-color-default": var(--hds-core-color-blue-200),
-    "fill-color-default": var(--hds-color-surface-action),
+    "fill-color-default": var(--hds-surface-color-action),
     "stroke-color-default": var(--hds-core-color-blue-300),
     "text-color-hover": var(--hds-core-color-blue-300),
     "fill-color-hover": var(--hds-core-color-blue-100),

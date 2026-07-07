@@ -36,7 +36,7 @@ $hds-card-container-levels: ("base", "mid", "high");
       box-shadow: var(--hds-#{$style}-#{$level}-box-shadow);
 
       @include hds-apply-only-if-carbon() {
-        background-color: var(--hds-color-surface-interactive-hover);
+        background-color: var(--hds-surface-color-interactive-hover);
       }
     }
   }

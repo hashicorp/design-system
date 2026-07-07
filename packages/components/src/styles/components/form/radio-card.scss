@@ -38,8 +38,8 @@
 .hds-form-radio-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--hds-color-surface-primary);
-  border: var(--hds-form-radiocard-border-width) solid var(--hds-color-border-primary);
+  background-color: var(--hds-surface-color-primary);
+  border: var(--hds-form-radiocard-border-width) solid var(--hds-border-color-primary);
   border-radius: var(--hds-form-radiocard-border-radius);
   box-shadow: var(--hds-elevation-mid-box-shadow);
   cursor: pointer;
@@ -69,8 +69,8 @@
     border-color: var(--hds-core-color-blue-300);
 
     .hds-form-radio-card__control-wrapper {
-      background-color: var(--hds-color-surface-action);
-      border-color: var(--hds-color-border-action);
+      background-color: var(--hds-surface-color-action);
+      border-color: var(--hds-border-color-action);
     }
 
     &:hover,
@@ -81,14 +81,14 @@
 
   // note: using full class name so it overrides the :hover styles
   &.hds-form-radio-card--disabled {
-    background-color: var(--hds-color-surface-interactive-disabled);
-    border-color: var(--hds-color-border-primary);
+    background-color: var(--hds-surface-color-interactive-disabled);
+    border-color: var(--hds-border-color-primary);
     box-shadow: none;
     cursor: not-allowed;
 
     .hds-form-radio-card__control-wrapper {
-      background-color: var(--hds-color-surface-interactive-disabled);
-      border-color: var(--hds-color-border-primary);
+      background-color: var(--hds-surface-color-interactive-disabled);
+      border-color: var(--hds-border-color-primary);
     }
 
     .hds-form-radio-card__content {
@@ -97,7 +97,7 @@
 
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-color-border-primary);
+      border-color: var(--hds-border-color-primary);
     }
   }
 }
@@ -163,13 +163,13 @@
 
 .hds-form-radio-card__description {
   display: block;
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
 }
 
 .hds-form-radio-card__control-wrapper {
   padding: var(--hds-form-radiocard-control-padding);
-  background-color: var(--hds-color-surface-faint);
-  border-color: var(--hds-color-border-primary);
+  background-color: var(--hds-surface-color-faint);
+  border-color: var(--hds-border-color-primary);
 }
 
 .hds-form-radio-card__control {

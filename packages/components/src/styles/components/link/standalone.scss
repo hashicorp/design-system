@@ -74,45 +74,45 @@ $hds-link-standalone-sizes: ("small", "medium", "large");
 // The "primary" and "secondary" variants share a lot of styles for the interactive states
 
 .hds-link-standalone--color-primary {
-  color: var(--hds-color-foreground-action);
+  color: var(--hds-foreground-color-action);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-color-foreground-action-hover);
+    color: var(--hds-foreground-color-action-hover);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--hds-color-foreground-action-hover);
+      text-decoration-color: var(--hds-foreground-color-action-hover);
     }
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-color-foreground-action-active);
+    color: var(--hds-foreground-color-action-active);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--hds-color-foreground-action-active);
+      text-decoration-color: var(--hds-foreground-color-action-active);
     }
   }
 }
 
 .hds-link-standalone--color-secondary {
-  color: var(--hds-color-foreground-strong);
+  color: var(--hds-foreground-color-strong);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-color-foreground-strong);
+    color: var(--hds-foreground-color-strong);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--hds-color-foreground-strong);
+      text-decoration-color: var(--hds-foreground-color-strong);
     }
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-color-foreground-primary);
+    color: var(--hds-foreground-color-primary);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--hds-color-foreground-primary);
+      text-decoration-color: var(--hds-foreground-color-primary);
     }
   }
 }

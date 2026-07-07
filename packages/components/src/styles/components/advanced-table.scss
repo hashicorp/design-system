@@ -16,7 +16,7 @@ $hds-advanced-table-border-width: 1px;
 $hds-advanced-table-inner-border-radius: calc(
   #{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width}
 );
-$hds-advanced-table-border-color: var(--hds-color-border-primary);
+$hds-advanced-table-border-color: var(--hds-border-color-primary);
 $hds-advanced-table-border-resize-handle-hover-color: #b1b1b5;
 $hds-advanced-table-header-height: 48px;
 $hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
@@ -94,9 +94,9 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       align-content: center;
       height: 100%;
       padding: $hds-advanced-table-cell-padding-medium;
-      color: var(--hds-color-foreground-strong);
+      color: var(--hds-foreground-color-strong);
       text-align: left;
-      background-color: var(--hds-color-surface-strong);
+      background-color: var(--hds-surface-color-strong);
 
       &:hover,
       &.mock-hover,
@@ -143,7 +143,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
     // is being dragged
     .hds-advanced-table__th-reorder-drop-target--is-being-dragged {
-      background-color: var(--hds-color-surface-primary);
+      background-color: var(--hds-surface-color-primary);
       opacity: 0.5;
     }
 
@@ -334,7 +334,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     position: sticky;
     top: -1px;
     z-index: 5;
-    background-color: var(--hds-color-surface-strong);
+    background-color: var(--hds-surface-color-strong);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
     border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
 
@@ -345,7 +345,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   }
 
   &.hds-advanced-table__thead--is-pinned {
-    background-color: var(--hds-color-surface-strong);
+    background-color: var(--hds-surface-color-strong);
     // need to add 1px to offset `top: -1px`
     border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid $hds-advanced-table-border-color;
     border-bottom: 3px solid $hds-advanced-table-border-color;
@@ -396,9 +396,9 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     justify-content: center;
     width: 24px;
     height: 16px;
-    color: var(--hds-color-foreground-faint);
-    background-color: var(--hds-color-surface-interactive);
-    border: 1px solid var(--hds-color-border-primary);
+    color: var(--hds-foreground-color-faint);
+    background-color: var(--hds-surface-color-interactive);
+    border: 1px solid var(--hds-border-color-primary);
     border-radius: var(--hds-border-radius-small);
     box-shadow: var(--hds-elevation-low-box-shadow);
   }
@@ -413,7 +413,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     cursor: grab;
 
     .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--hds-color-surface-interactive-hover);
+      background-color: var(--hds-surface-color-interactive-hover);
     }
   }
 
@@ -429,7 +429,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     );
 
     .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--hds-color-surface-interactive);
+      background-color: var(--hds-surface-color-interactive);
     }
   }
 
@@ -438,7 +438,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     cursor: grabbing;
 
     .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--hds-color-surface-interactive-hover);
+      background-color: var(--hds-surface-color-interactive-hover);
     }
   }
 }
@@ -448,7 +448,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   height: $hds-advanced-table-button-size;
   margin: -2px 0;
   padding: 0;
-  color: var(--hds-color-foreground-faint);
+  color: var(--hds-foreground-color-faint);
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: var(--hds-border-radius-x-small);
@@ -468,16 +468,16 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   height: $hds-advanced-table-button-size;
   margin: -2px 0; // this is necessary to compensate for the height of the button being 24px while the line height of the text is 20px (the overall height of the cell shoud be 48px and we want to keep the cell's padding as is for consistency with Figma)
   padding: 0;
-  color: var(--hds-color-foreground-faint);
+  color: var(--hds-foreground-color-faint);
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-color-foreground-primary);
-    background-color: var(--hds-color-surface-interactive);
-    border-color: var(--hds-color-border-strong);
+    color: var(--hds-foreground-color-primary);
+    background-color: var(--hds-surface-color-interactive);
+    border-color: var(--hds-border-color-strong);
     box-shadow: var(--hds-elevation-low-box-shadow);
     cursor: pointer;
   }
@@ -489,24 +489,24 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   &:active,
   &.mock-active {
-    color: var(--hds-color-foreground-primary);
-    background-color: var(--hds-color-surface-interactive-active);
-    border-color: var(--hds-color-border-strong);
+    color: var(--hds-foreground-color-primary);
+    background-color: var(--hds-surface-color-interactive-active);
+    border-color: var(--hds-border-color-strong);
     box-shadow: none;
   }
 }
 
 .hds-advanced-table__th-button--is-sorted {
-  color: var(--hds-color-foreground-action);
+  color: var(--hds-foreground-color-action);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-color-foreground-action-hover);
+    color: var(--hds-foreground-color-action-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-color-foreground-action-active);
+    color: var(--hds-foreground-color-action-active);
   }
 }
 
@@ -530,14 +530,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   .hds-advanced-table__tr {
     display: contents;
-    color: var(--hds-color-foreground-primary);
+    color: var(--hds-foreground-color-primary);
 
     // striped rows
 
     .hds-advanced-table--striped &:nth-child(even) {
       .hds-advanced-table__th,
       .hds-advanced-table__td {
-        background-color: var(--hds-color-surface-faint);
+        background-color: var(--hds-surface-color-faint);
       }
     }
   }
@@ -571,7 +571,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     font-family: var(--hds-typography-body-200-font-family);
     line-height: var(--hds-typography-body-200-line-height);
     text-align: left;
-    background-color: var(--hds-color-surface-primary);
+    background-color: var(--hds-surface-color-primary);
 
     &:focus-visible,
     &.mock-focus {
@@ -585,7 +585,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       z-index: 1;
 
       .hds-advanced-table__th-reorder-handle__inner {
-        background-color: var(--hds-color-surface-interactive);
+        background-color: var(--hds-surface-color-interactive);
       }
     }
 
@@ -705,14 +705,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   .hds-advanced-table__tr {
     .hds-advanced-table__th,
     .hds-advanced-table__td {
-      background-color: var(--hds-color-surface-faint);
+      background-color: var(--hds-surface-color-faint);
     }
   }
 
   .hds-advanced-table__tr.hds-advanced-table__tr--parent-row {
     .hds-advanced-table__th,
     .hds-advanced-table__td {
-      background-color: var(--hds-color-surface-primary);
+      background-color: var(--hds-surface-color-primary);
     }
   }
 }
@@ -757,7 +757,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   top: -9999px;
   left: -9999px;
   background-color: $hds-advanced-table-drag-preview-background-color;
-  border: 5px solid var(--hds-color-focus-action-external);
+  border: 5px solid var(--hds-focus-color-action-external);
   border-radius: var(--hds-border-radius-medium);
   box-shadow: var(--hds-elevation-mid-box-shadow);
 }
@@ -804,8 +804,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   justify-content: center;
   min-height: 400px;
   padding: 16px;
-  background-color: var(--hds-color-surface-primary);
-  border: 1px solid var(--hds-color-border-primary);
+  background-color: var(--hds-surface-color-primary);
+  border: 1px solid var(--hds-border-color-primary);
   border-bottom-right-radius: $hds-advanced-table-border-radius;
   border-bottom-left-radius: $hds-advanced-table-border-radius;
 }

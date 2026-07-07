@@ -39,7 +39,7 @@
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-basic();
-    border-color: var(--hds-color-focus-action-internal);
+    border-color: var(--hds-focus-color-action-internal);
   }
 
   // DISABLED
@@ -65,8 +65,8 @@
 
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--hds-color-focus-critical-internal);
-      outline-color: var(--hds-color-focus-critical-external);
+      border-color: var(--hds-focus-color-critical-internal);
+      outline-color: var(--hds-focus-color-critical-external);
     }
   }
 }
@@ -83,21 +83,21 @@
       border-radius: var(--hds-border-radius-x-small);
 
       &:hover {
-        color: var(--hds-color-foreground-action);
+        color: var(--hds-foreground-color-action);
       }
 
       &:disabled {
-        color: var(--hds-color-foreground-disabled);
+        color: var(--hds-foreground-color-disabled);
       }
 
       &:checked {
-        color: var(--hds-color-foreground-high-contrast);
+        color: var(--hds-foreground-color-high-contrast);
         background: var(--hds-core-color-blue-200);
       }
     }
 
     optgroup {
-      color: var(--hds-color-foreground-strong);
+      color: var(--hds-foreground-color-strong);
       font-weight: var(--hds-typography-font-weight-semibold);
       font-style: normal; // reset Firefox default
     }

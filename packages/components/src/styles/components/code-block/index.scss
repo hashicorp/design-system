@@ -113,16 +113,16 @@ $hds-code-block-code-footer-height: 48px;
     &:focus,
     &:focus-visible {
       text-decoration: none;
-      outline: 2px solid var(--hds-color-focus-action-internal);
+      outline: 2px solid var(--hds-focus-color-action-internal);
       outline-offset: 1px;
     }
 
     &:hover {
-      color: var(--hds-color-foreground-action-hover);
+      color: var(--hds-foreground-color-action-hover);
     }
 
     &:active {
-      color: var(--hds-color-foreground-action-active);
+      color: var(--hds-foreground-color-action-active);
     }
   }
 }
@@ -214,13 +214,13 @@ $hds-code-block-code-footer-height: 48px;
 
   &.hds-copy-button--status-success {
     .hds-icon {
-      color: var(--hds-color-foreground-success);
+      color: var(--hds-foreground-color-success);
     }
   }
 
   &.hds-copy-button--status-error {
     .hds-icon {
-      color: var(--hds-color-foreground-critical);
+      color: var(--hds-foreground-color-critical);
     }
   }
 }

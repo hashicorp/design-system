@@ -53,7 +53,7 @@ $hds-super-select-item-height: 36px;
     &:focus-visible,
     &.mock-focus {
       @include hds-focus-ring-basic();
-      border-color: var(--hds-color-focus-action-internal);
+      border-color: var(--hds-focus-color-action-internal);
     }
 
     &[aria-expanded="true"] {
@@ -103,11 +103,11 @@ $hds-super-select-item-height: 36px;
       align-items: center;
       align-self: stretch;
       padding-left: 8px;
-      color: var(--hds-color-foreground-faint);
+      color: var(--hds-foreground-color-faint);
       font-size: var(--hds-typography-body-100-font-size);
       font-family: var(--hds-typography-body-100-font-family);
       line-height: var(--hds-typography-body-100-line-height);
-      border-left: 1px solid var(--hds-color-border-strong);
+      border-left: 1px solid var(--hds-border-color-strong);
       content: var(--hds-var-form-super-select-selected-text);
     }
   }
@@ -153,7 +153,7 @@ $hds-super-select-item-height: 36px;
     position: relative;
     min-height: $hds-super-select-item-height;
     padding: 7px 7px 7px 39px;
-    color: var(--hds-color-foreground-primary);
+    color: var(--hds-foreground-color-primary);
     font-size: var(--hds-typography-body-200-font-size);
     font-family: var(--hds-typography-body-200-font-family);
     line-height: var(--hds-typography-body-200-line-height);
@@ -186,7 +186,7 @@ $hds-super-select-item-height: 36px;
         bottom: 6px;
         left: 3px;
         width: 2px;
-        background-color: var(--hds-color-foreground-action-hover);
+        background-color: var(--hds-foreground-color-action-hover);
         border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
         content: "";
       }
@@ -196,7 +196,7 @@ $hds-super-select-item-height: 36px;
     &.mock-active {
       // left border
       &::after {
-        background-color: var(--hds-color-foreground-action-active);
+        background-color: var(--hds-foreground-color-action-active);
       }
     }
 
@@ -217,7 +217,7 @@ $hds-super-select-item-height: 36px;
       display: block;
       height: 5px;
       margin: 7px 5px 9px 5px;
-      border-bottom: 1px solid var(--hds-color-border-primary);
+      border-bottom: 1px solid var(--hds-border-color-primary);
       content: "";
     }
 
@@ -271,7 +271,7 @@ $hds-super-select-item-height: 36px;
     &:focus-visible,
     &.mock-focus {
       @include hds-focus-ring-basic();
-      border-color: var(--hds-color-focus-action-internal);
+      border-color: var(--hds-focus-color-action-internal);
     }
 
     &[type="search"] {
@@ -315,8 +315,8 @@ $hds-super-select-item-height: 36px;
     line-height: 1rem; // 16px - override line height in `.ember-power-select-multiple-option`
     vertical-align: middle;
     overflow-wrap: break-word;
-    background-color: var(--hds-color-surface-interactive);
-    border: 1px solid var(--hds-color-border-strong);
+    background-color: var(--hds-surface-color-interactive);
+    border: 1px solid var(--hds-border-color-strong);
     border-radius: $hds-tag-border-radius;
   }
 
@@ -357,8 +357,8 @@ $hds-super-select-item-height: 36px;
 
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--hds-color-focus-critical-internal);
-      outline-color: var(--hds-color-focus-critical-external);
+      border-color: var(--hds-focus-color-critical-internal);
+      outline-color: var(--hds-focus-color-critical-external);
     }
   }
 }
@@ -407,24 +407,24 @@ $hds-super-select-item-height: 36px;
 
       &:hover,
       &.mock-hover {
-        color: var(--hds-color-foreground-action-hover);
+        color: var(--hds-foreground-color-action-hover);
       }
 
       &:active,
       &.mock-active {
-        color: var(--hds-color-foreground-action-active);
+        color: var(--hds-foreground-color-action-active);
       }
     }
 
     &[aria-current="true"],
     &:hover,
     &.mock-hover {
-      color: var(--hds-color-foreground-action-hover);
+      color: var(--hds-foreground-color-action-hover);
     }
 
     &:active,
     &.mock-active {
-      color: var(--hds-color-foreground-action-active);
+      color: var(--hds-foreground-color-action-active);
     }
 
     // checked, disabled:
@@ -546,7 +546,7 @@ $hds-super-select-item-height: 36px;
   gap: 8px;
   align-items: center;
   padding: 8px 12px;
-  background-color: var(--hds-color-surface-strong);
+  background-color: var(--hds-surface-color-strong);
   border-top: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
 }
 
