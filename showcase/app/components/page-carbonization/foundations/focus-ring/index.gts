@@ -143,7 +143,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
             <div
-              class="hds-focus-ring-action-box-shadow shw-component-focus-ring-box-corners"
+              class="hds-focus-ring-box-shadow-action shw-component-focus-ring-box-corners"
             >
               <ShwPlaceholder
                 @width="100"
@@ -154,7 +154,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
           <SF.Item>
             <div
-              class="hds-focus-ring-action-box-shadow"
+              class="hds-focus-ring-box-shadow-action"
               {{style width="fit-content" border-radius="5px"}}
             >
               <ShwPlaceholder
@@ -166,7 +166,7 @@ const FocusRingCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
           <SF.Item>
             <div
-              class="hds-focus-ring-critical-box-shadow"
+              class="hds-focus-ring-box-shadow-critical"
               {{style width="fit-content" border-radius="5px"}}
             >
               <ShwPlaceholder
