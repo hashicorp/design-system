@@ -4,8 +4,7 @@
  */
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import type { McpPrompt } from "./types.ts";
-
+import type { McpPrompt } from "./types.js";
 const PROMPTS: McpPrompt[] = [];
 
 export function registerPrompts(server: McpServer) {
