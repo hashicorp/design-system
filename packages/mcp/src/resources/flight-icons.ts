@@ -5,7 +5,7 @@
 
 import { ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { loadIconCatalog } from "../stores/flight-icons/store.js";
-import { toJsonResourceResponse, withSafeResourceHandler } from "./utils.js";
+import { toJsonResourceResponse } from "./utils.js";
 
 import type { JsonObject } from "../types.js";
 import type { IconCatalogStore } from "../stores/flight-icons/types.js";
@@ -15,7 +15,17 @@ import type { McpResource } from "./types.js";
 export const ICONS_URI = "hds://icons";
 
 const ICON_URI_TEMPLATE = `${ICONS_URI}/{iconName}`;
-const iconStore = loadIconCatalog();
+
+let iconStore: IconCatalogStore | null = null;
+
+// lazy-load so catalog errors are handled by withSafeResourceHandler
+const getOrLoadIconStore = (): IconCatalogStore => {
+  if (iconStore === null) {
+    iconStore = loadIconCatalog();
+  }
+
+  return iconStore;
+};
 
 const toSerializableIcon = (icon: IconRecord): JsonObject => {
   return {
@@ -86,13 +96,9 @@ const getIconsResource: McpResource = {
     description: "Canonical list of Flight icons with summary metadata",
     mimeType: "application/json",
   },
-  readCallback: withSafeResourceHandler(
-    "hds_icons",
-    async () => {
-      return readIconsResource(iconStore);
-    },
-    ICONS_URI,
-  ),
+  readCallback: async () => {
+    return readIconsResource(getOrLoadIconStore());
+  },
 };
 
 const getIconResource: McpResource = {
@@ -105,22 +111,18 @@ const getIconResource: McpResource = {
     description: "Detailed Flight icon record for a specific icon name",
     mimeType: "application/json",
   },
-  readCallback: withSafeResourceHandler(
-    "hds_icon",
-    async (uri: URL, variables: Record<string, string | string[]>) => {
-      const iconName = variables.iconName;
+  readCallback: async (uri: URL, variables: Record<string, string | string[]>) => {
+    const iconName = variables.iconName;
 
-      if (typeof iconName !== "string" || iconName.trim().length === 0) {
-        return toJsonResourceResponse(uri.toString(), {
-          found: false,
-          message: "Missing iconName variable.",
-        });
-      }
+    if (typeof iconName !== "string" || iconName.trim().length === 0) {
+      return toJsonResourceResponse(uri.toString(), {
+        found: false,
+        message: "Missing iconName variable.",
+      });
+    }
 
-      return readIconResource(iconStore, iconName);
-    },
-    ICONS_URI,
-  ),
+    return readIconResource(getOrLoadIconStore(), iconName);
+  },
 };
 
 const FLIGHT_ICONS_RESOURCES: McpResource[] = [
