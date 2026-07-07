@@ -1,63 +1,73 @@
 {
-  "color": {
+  "product": {
     "vault-radar": {
       "brand": {
-        "$type": "color",
-        "$value": "{core.color.vault-radar-brand}",
-        "group": "branding"
-      },
-      "brand-alt": {
-        "$type": "color",
-        "$value": "#000",
-        "group": "branding",
-        "$modes": {
-          "default": "#000",
-          "cds-g0": "#000",
-          "cds-g10": "#000",
-          "cds-g90": "#FFF",
-          "cds-g100": "#FFF"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.vault-radar-brand}",
+          "group": "branding"
         },
-        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work"
+        "color-alt": {
+          "$type": "color",
+          "$value": "#000",
+          "group": "branding",
+          "$modes": {
+            "default": "#000",
+            "cds-g0": "#000",
+            "cds-g10": "#000",
+            "cds-g90": "#FFF",
+            "cds-g100": "#FFF"
+          },
+          "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work"
+        }
       },
       "foreground": {
-        "$type": "color",
-        "$value": "{core.color.vault-radar-500}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.vault-radar-500}",
+          "group": "branding"
+        }
       },
       "surface": {
-        "$type": "color",
-        "$value": "{core.color.vault-radar-50}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.vault-radar-50}",
+          "group": "branding"
+        }
       },
       "border": {
-        "$type": "color",
-        "$value": "{core.color.vault-radar-100}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.vault-radar-100}",
+          "group": "branding"
+        }
       },
       "gradient": {
-        "primary": {
-          "start": {
-            "$type": "color",
-            "$value": "{core.color.vault-radar-100}",
-            "group": "branding"
+        "color": {
+          "primary": {
+            "start": {
+              "$type": "color",
+              "$value": "{core.color.vault-radar-100}",
+              "group": "branding"
+            },
+            "stop": {
+              "$type": "color",
+              "$value": "{core.color.vault-radar-200}",
+              "group": "branding"
+            }
           },
-          "stop": {
-            "$type": "color",
-            "$value": "{core.color.vault-radar-200}",
-            "group": "branding"
-          }
-        },
-        "faint": {
-          "start": {
-            "$type": "color",
-            "$value": "#fffdf2",
-            "group": "branding",
-            "comment": "this is the 'vault-radar-50' value at 25% opacity on white"
-          },
-          "stop": {
-            "$type": "color",
-            "$value": "{core.color.vault-radar-50}",
-            "group": "branding"
+          "faint": {
+            "start": {
+              "$type": "color",
+              "$value": "#fffdf2",
+              "group": "branding",
+              "comment": "this is the 'vault-radar-50' value at 25% opacity on white"
+            },
+            "stop": {
+              "$type": "color",
+              "$value": "{core.color.vault-radar-50}",
+              "group": "branding"
+            }
           }
         }
       }

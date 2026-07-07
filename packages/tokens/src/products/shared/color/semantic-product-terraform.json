@@ -1,56 +1,66 @@
 {
-  "color": {
+  "product": {
     "terraform": {
       "brand": {
-        "$type": "color",
-        "$value": "{core.color.terraform-brand}",
-        "group": "branding"
-      },
-      "brand-on-dark": {
-        "$type": "color",
-        "$value": "#a067da",
-        "group": "branding",
-        "comment": "this is an alternative brand color meant to be used on dark backgrounds"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.terraform-brand}",
+          "group": "branding"
+        },
+        "color-on-dark": {
+          "$type": "color",
+          "$value": "#a067da",
+          "group": "branding",
+          "comment": "this is an alternative brand color meant to be used on dark backgrounds"
+        }
       },
       "foreground": {
-        "$type": "color",
-        "$value": "{core.color.terraform-500}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.terraform-500}",
+          "group": "branding"
+        }
       },
       "surface": {
-        "$type": "color",
-        "$value": "{core.color.terraform-50}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.terraform-50}",
+          "group": "branding"
+        }
       },
       "border": {
-        "$type": "color",
-        "$value": "{core.color.terraform-100}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.terraform-100}",
+          "group": "branding"
+        }
       },
       "gradient": {
-        "primary": {
-          "start": {
-            "$type": "color",
-            "$value": "{core.color.terraform-300}",
-            "group": "branding"
+        "color": {
+          "primary": {
+            "start": {
+              "$type": "color",
+              "$value": "{core.color.terraform-300}",
+              "group": "branding"
+            },
+            "stop": {
+              "$type": "color",
+              "$value": "{core.color.terraform-400}",
+              "group": "branding"
+            }
           },
-          "stop": {
-            "$type": "color",
-            "$value": "{core.color.terraform-400}",
-            "group": "branding"
-          }
-        },
-        "faint": {
-          "start": {
-            "$type": "color",
-            "$value": "#fcfaff",
-            "group": "branding",
-            "comment": "this is the 'terraform-50' value at 25% opacity on white"
-          },
-          "stop": {
-            "$type": "color",
-            "$value": "{core.color.terraform-50}",
-            "group": "branding"
+          "faint": {
+            "start": {
+              "$type": "color",
+              "$value": "#fcfaff",
+              "group": "branding",
+              "comment": "this is the 'terraform-50' value at 25% opacity on white"
+            },
+            "stop": {
+              "$type": "color",
+              "$value": "{core.color.terraform-50}",
+              "group": "branding"
+            }
           }
         }
       }
