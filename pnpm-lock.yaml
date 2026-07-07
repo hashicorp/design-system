@@ -456,6 +456,9 @@ importers:
 
   packages/mcp:
     dependencies:
+      '@hashicorp/flight-icons':
+        specifier: workspace:^5.0.0
+        version: link:../flight-icons
       '@modelcontextprotocol/sdk':
         specifier: ^1.29.0
         version: 1.29.0(zod@4.4.3)
