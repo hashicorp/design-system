@@ -40,11 +40,6 @@ const buildServer = (): McpServer => {
     version: getServerVersion(),
   });
 
-<<<<<<< HEAD
-=======
-  registerResources(server);
-
->>>>>>> 365ddfc6df (finished adding infrastructure)
   return server;
 };
 
