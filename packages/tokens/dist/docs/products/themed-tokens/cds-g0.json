@@ -3428,1962 +3428,6 @@
     ]
   },
   {
-    "key": "{color.hashicorp.brand}",
-    "$type": "color",
-    "$value": "#000000",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.hashicorp-brand}",
-      "group": "branding",
-      "key": "{color.hashicorp.brand}"
-    },
-    "name": "hds-color-hashicorp-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "hashicorp",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.boundary.brand}",
-    "$type": "color",
-    "$value": "#f24c53",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.boundary-brand}",
-      "group": "branding",
-      "key": "{color.boundary.brand}"
-    },
-    "name": "hds-color-boundary-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "boundary",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.boundary.foreground}",
-    "$type": "color",
-    "$value": "#cf2d32",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.boundary-500}",
-      "group": "branding",
-      "key": "{color.boundary.foreground}"
-    },
-    "name": "hds-color-boundary-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "boundary",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.boundary.surface}",
-    "$type": "color",
-    "$value": "#ffecec",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.boundary-50}",
-      "group": "branding",
-      "key": "{color.boundary.surface}"
-    },
-    "name": "hds-color-boundary-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "boundary",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.boundary.border}",
-    "$type": "color",
-    "$value": "#fbd7d8",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.boundary-100}",
-      "group": "branding",
-      "key": "{color.boundary.border}"
-    },
-    "name": "hds-color-boundary-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "boundary",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.boundary.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#f97076",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.boundary-300}",
-      "group": "branding",
-      "key": "{color.boundary.gradient.primary.start}"
-    },
-    "name": "hds-color-boundary-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "boundary",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.boundary.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#db363b",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.boundary-400}",
-      "group": "branding",
-      "key": "{color.boundary.gradient.primary.stop}"
-    },
-    "name": "hds-color-boundary-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "boundary",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.boundary.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#fffafa",
-    "group": "branding",
-    "comment": "this is the 'boundary-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#fffafa",
-      "group": "branding",
-      "comment": "this is the 'boundary-50' value at 25% opacity on white",
-      "key": "{color.boundary.gradient.faint.start}"
-    },
-    "name": "hds-color-boundary-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "boundary",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.boundary.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#ffecec",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.boundary-50}",
-      "group": "branding",
-      "key": "{color.boundary.gradient.faint.stop}"
-    },
-    "name": "hds-color-boundary-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "boundary",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.consul.brand}",
-    "$type": "color",
-    "$value": "#e03875",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.consul-brand}",
-      "group": "branding",
-      "key": "{color.consul.brand}"
-    },
-    "name": "hds-color-consul-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "consul",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.consul.foreground}",
-    "$type": "color",
-    "$value": "#d01c5b",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.consul-500}",
-      "group": "branding",
-      "key": "{color.consul.foreground}"
-    },
-    "name": "hds-color-consul-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "consul",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.consul.surface}",
-    "$type": "color",
-    "$value": "#ffe9f1",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.consul-50}",
-      "group": "branding",
-      "key": "{color.consul.surface}"
-    },
-    "name": "hds-color-consul-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "consul",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.consul.border}",
-    "$type": "color",
-    "$value": "#ffcede",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.consul-100}",
-      "group": "branding",
-      "key": "{color.consul.border}"
-    },
-    "name": "hds-color-consul-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "consul",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.consul.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#ff99be",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.consul-300}",
-      "group": "branding",
-      "key": "{color.consul.gradient.primary.start}"
-    },
-    "name": "hds-color-consul-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "consul",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.consul.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#da306e",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.consul-400}",
-      "group": "branding",
-      "key": "{color.consul.gradient.primary.stop}"
-    },
-    "name": "hds-color-consul-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "consul",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.consul.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#fff9fb",
-    "group": "branding",
-    "comment": "this is the 'consul-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#fff9fb",
-      "group": "branding",
-      "comment": "this is the 'consul-50' value at 25% opacity on white",
-      "key": "{color.consul.gradient.faint.start}"
-    },
-    "name": "hds-color-consul-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "consul",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.consul.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#ffe9f1",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.consul-50}",
-      "group": "branding",
-      "key": "{color.consul.gradient.faint.stop}"
-    },
-    "name": "hds-color-consul-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "consul",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.hcp.brand}",
-    "$type": "color",
-    "$value": "#000000",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.hcp-brand}",
-      "group": "branding",
-      "key": "{color.hcp.brand}"
-    },
-    "name": "hds-color-hcp-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "hcp",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.nomad.brand}",
-    "$type": "color",
-    "$value": "#06d092",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.nomad-brand}",
-      "group": "branding",
-      "key": "{color.nomad.brand}"
-    },
-    "name": "hds-color-nomad-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "nomad",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.nomad.foreground}",
-    "$type": "color",
-    "$value": "#008661",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.nomad-500}",
-      "group": "branding",
-      "key": "{color.nomad.foreground}"
-    },
-    "name": "hds-color-nomad-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "nomad",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.nomad.surface}",
-    "$type": "color",
-    "$value": "#d3fdeb",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.nomad-50}",
-      "group": "branding",
-      "key": "{color.nomad.surface}"
-    },
-    "name": "hds-color-nomad-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "nomad",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.nomad.border}",
-    "$type": "color",
-    "$value": "#bff3dd",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.nomad-100}",
-      "group": "branding",
-      "key": "{color.nomad.border}"
-    },
-    "name": "hds-color-nomad-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "nomad",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.nomad.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#bff3dd",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.nomad-100}",
-      "group": "branding",
-      "key": "{color.nomad.gradient.primary.start}"
-    },
-    "name": "hds-color-nomad-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "nomad",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.nomad.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#60dea9",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.nomad-200}",
-      "group": "branding",
-      "key": "{color.nomad.gradient.primary.stop}"
-    },
-    "name": "hds-color-nomad-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "nomad",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.nomad.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#f3fff9",
-    "group": "branding",
-    "comment": "this is the 'nomad-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#f3fff9",
-      "group": "branding",
-      "comment": "this is the 'nomad-50' value at 25% opacity on white",
-      "key": "{color.nomad.gradient.faint.start}"
-    },
-    "name": "hds-color-nomad-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "nomad",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.nomad.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#d3fdeb",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.nomad-50}",
-      "group": "branding",
-      "key": "{color.nomad.gradient.faint.stop}"
-    },
-    "name": "hds-color-nomad-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "nomad",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.packer.brand}",
-    "$type": "color",
-    "$value": "#02a8ef",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.packer-brand}",
-      "group": "branding",
-      "key": "{color.packer.brand}"
-    },
-    "name": "hds-color-packer-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "packer",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.packer.foreground}",
-    "$type": "color",
-    "$value": "#007eb4",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.packer-500}",
-      "group": "branding",
-      "key": "{color.packer.foreground}"
-    },
-    "name": "hds-color-packer-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "packer",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.packer.surface}",
-    "$type": "color",
-    "$value": "#d4f2ff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.packer-50}",
-      "group": "branding",
-      "key": "{color.packer.surface}"
-    },
-    "name": "hds-color-packer-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "packer",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.packer.border}",
-    "$type": "color",
-    "$value": "#b4e4ff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.packer-100}",
-      "group": "branding",
-      "key": "{color.packer.border}"
-    },
-    "name": "hds-color-packer-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "packer",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.packer.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#b4e4ff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.packer-100}",
-      "group": "branding",
-      "key": "{color.packer.gradient.primary.start}"
-    },
-    "name": "hds-color-packer-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "packer",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.packer.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#63d0ff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.packer-200}",
-      "group": "branding",
-      "key": "{color.packer.gradient.primary.stop}"
-    },
-    "name": "hds-color-packer-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "packer",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.packer.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#f3fcff",
-    "group": "branding",
-    "comment": "this is the 'packer-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#F3FCFF",
-      "group": "branding",
-      "comment": "this is the 'packer-50' value at 25% opacity on white",
-      "key": "{color.packer.gradient.faint.start}"
-    },
-    "name": "hds-color-packer-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "packer",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.packer.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#d4f2ff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.packer-50}",
-      "group": "branding",
-      "key": "{color.packer.gradient.faint.stop}"
-    },
-    "name": "hds-color-packer-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "packer",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.terraform.brand}",
-    "$type": "color",
-    "$value": "#7b42bc",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.terraform-brand}",
-      "group": "branding",
-      "key": "{color.terraform.brand}"
-    },
-    "name": "hds-color-terraform-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.terraform.brand-on-dark}",
-    "$type": "color",
-    "$value": "#a067da",
-    "group": "branding",
-    "comment": "this is an alternative brand color meant to be used on dark backgrounds",
-    "original": {
-      "$type": "color",
-      "$value": "#a067da",
-      "group": "branding",
-      "comment": "this is an alternative brand color meant to be used on dark backgrounds",
-      "key": "{color.terraform.brand-on-dark}"
-    },
-    "name": "hds-color-terraform-brand-on-dark",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "brand-on-dark"
-    ]
-  },
-  {
-    "key": "{color.terraform.foreground}",
-    "$type": "color",
-    "$value": "#773cb4",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.terraform-500}",
-      "group": "branding",
-      "key": "{color.terraform.foreground}"
-    },
-    "name": "hds-color-terraform-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.terraform.surface}",
-    "$type": "color",
-    "$value": "#f4ecff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.terraform-50}",
-      "group": "branding",
-      "key": "{color.terraform.surface}"
-    },
-    "name": "hds-color-terraform-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.terraform.border}",
-    "$type": "color",
-    "$value": "#ebdbfc",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.terraform-100}",
-      "group": "branding",
-      "key": "{color.terraform.border}"
-    },
-    "name": "hds-color-terraform-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.terraform.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#bb8deb",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.terraform-300}",
-      "group": "branding",
-      "key": "{color.terraform.gradient.primary.start}"
-    },
-    "name": "hds-color-terraform-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.terraform.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#844fba",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.terraform-400}",
-      "group": "branding",
-      "key": "{color.terraform.gradient.primary.stop}"
-    },
-    "name": "hds-color-terraform-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.terraform.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#fcfaff",
-    "group": "branding",
-    "comment": "this is the 'terraform-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#fcfaff",
-      "group": "branding",
-      "comment": "this is the 'terraform-50' value at 25% opacity on white",
-      "key": "{color.terraform.gradient.faint.start}"
-    },
-    "name": "hds-color-terraform-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.terraform.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#f4ecff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.terraform-50}",
-      "group": "branding",
-      "key": "{color.terraform.gradient.faint.stop}"
-    },
-    "name": "hds-color-terraform-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "terraform",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.vagrant.brand}",
-    "$type": "color",
-    "$value": "#1868f2",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vagrant-brand}",
-      "group": "branding",
-      "key": "{color.vagrant.brand}"
-    },
-    "name": "hds-color-vagrant-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vagrant",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.vagrant.foreground}",
-    "$type": "color",
-    "$value": "#1c61d8",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vagrant-500}",
-      "group": "branding",
-      "key": "{color.vagrant.foreground}"
-    },
-    "name": "hds-color-vagrant-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vagrant",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.vagrant.surface}",
-    "$type": "color",
-    "$value": "#d6ebff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vagrant-50}",
-      "group": "branding",
-      "key": "{color.vagrant.surface}"
-    },
-    "name": "hds-color-vagrant-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vagrant",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.vagrant.border}",
-    "$type": "color",
-    "$value": "#c7dbfc",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vagrant-100}",
-      "group": "branding",
-      "key": "{color.vagrant.border}"
-    },
-    "name": "hds-color-vagrant-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vagrant",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.vagrant.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#639cff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vagrant-300}",
-      "group": "branding",
-      "key": "{color.vagrant.gradient.primary.start}"
-    },
-    "name": "hds-color-vagrant-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vagrant",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.vagrant.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#2e71e5",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vagrant-400}",
-      "group": "branding",
-      "key": "{color.vagrant.gradient.primary.stop}"
-    },
-    "name": "hds-color-vagrant-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vagrant",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.vagrant.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#f4faff",
-    "group": "branding",
-    "comment": "this is the 'vagrant-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#f4faff",
-      "group": "branding",
-      "comment": "this is the 'vagrant-50' value at 25% opacity on white",
-      "key": "{color.vagrant.gradient.faint.start}"
-    },
-    "name": "hds-color-vagrant-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vagrant",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.vagrant.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#d6ebff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vagrant-50}",
-      "group": "branding",
-      "key": "{color.vagrant.gradient.faint.stop}"
-    },
-    "name": "hds-color-vagrant-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vagrant",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.brand}",
-    "$type": "color",
-    "$value": "#ffcf25",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-radar-brand}",
-      "group": "branding",
-      "key": "{color.vault-radar.brand}"
-    },
-    "name": "hds-color-vault-radar-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.brand-alt}",
-    "$type": "color",
-    "$value": "#000000",
-    "group": "branding",
-    "$modes": {
-      "default": "#000",
-      "cds-g0": "#000",
-      "cds-g10": "#000",
-      "cds-g90": "#FFF",
-      "cds-g100": "#FFF"
-    },
-    "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
-    "original": {
-      "$type": "color",
-      "$value": "#000",
-      "group": "branding",
-      "$modes": {
-        "default": "#000",
-        "cds-g0": "#000",
-        "cds-g10": "#000",
-        "cds-g90": "#FFF",
-        "cds-g100": "#FFF"
-      },
-      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
-      "key": "{color.vault-radar.brand-alt}"
-    },
-    "name": "hds-color-vault-radar-brand-alt",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "brand-alt"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.foreground}",
-    "$type": "color",
-    "$value": "#9a6f00",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-radar-500}",
-      "group": "branding",
-      "key": "{color.vault-radar.foreground}"
-    },
-    "name": "hds-color-vault-radar-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.surface}",
-    "$type": "color",
-    "$value": "#fff9cf",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-radar-50}",
-      "group": "branding",
-      "key": "{color.vault-radar.surface}"
-    },
-    "name": "hds-color-vault-radar-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.border}",
-    "$type": "color",
-    "$value": "#feec7b",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-radar-100}",
-      "group": "branding",
-      "key": "{color.vault-radar.border}"
-    },
-    "name": "hds-color-vault-radar-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#feec7b",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-radar-100}",
-      "group": "branding",
-      "key": "{color.vault-radar.gradient.primary.start}"
-    },
-    "name": "hds-color-vault-radar-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#ffe543",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-radar-200}",
-      "group": "branding",
-      "key": "{color.vault-radar.gradient.primary.stop}"
-    },
-    "name": "hds-color-vault-radar-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#fffdf2",
-    "group": "branding",
-    "comment": "this is the 'vault-radar-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#fffdf2",
-      "group": "branding",
-      "comment": "this is the 'vault-radar-50' value at 25% opacity on white",
-      "key": "{color.vault-radar.gradient.faint.start}"
-    },
-    "name": "hds-color-vault-radar-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.vault-radar.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#fff9cf",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-radar-50}",
-      "group": "branding",
-      "key": "{color.vault-radar.gradient.faint.stop}"
-    },
-    "name": "hds-color-vault-radar-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-radar",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.brand}",
-    "$type": "color",
-    "$value": "#ffcf25",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-secrets-brand}",
-      "group": "branding",
-      "key": "{color.vault-secrets.brand}"
-    },
-    "name": "hds-color-vault-secrets-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.brand-alt}",
-    "group": "branding",
-    "$type": "color",
-    "$value": "#000000",
-    "$modes": {
-      "default": "#000",
-      "cds-g0": "#000",
-      "cds-g10": "#000",
-      "cds-g90": "#FFF",
-      "cds-g100": "#FFF"
-    },
-    "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
-    "original": {
-      "group": "branding",
-      "$type": "color",
-      "$value": "#000",
-      "$modes": {
-        "default": "#000",
-        "cds-g0": "#000",
-        "cds-g10": "#000",
-        "cds-g90": "#FFF",
-        "cds-g100": "#FFF"
-      },
-      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
-      "key": "{color.vault-secrets.brand-alt}"
-    },
-    "name": "hds-color-vault-secrets-brand-alt",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "brand-alt"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.foreground}",
-    "$type": "color",
-    "$value": "#9a6f00",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-secrets-500}",
-      "group": "branding",
-      "key": "{color.vault-secrets.foreground}"
-    },
-    "name": "hds-color-vault-secrets-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.surface}",
-    "$type": "color",
-    "$value": "#fff9cf",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-secrets-50}",
-      "group": "branding",
-      "key": "{color.vault-secrets.surface}"
-    },
-    "name": "hds-color-vault-secrets-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.border}",
-    "$type": "color",
-    "$value": "#feec7b",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-secrets-100}",
-      "group": "branding",
-      "key": "{color.vault-secrets.border}"
-    },
-    "name": "hds-color-vault-secrets-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#feec7b",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-secrets-100}",
-      "group": "branding",
-      "key": "{color.vault-secrets.gradient.primary.start}"
-    },
-    "name": "hds-color-vault-secrets-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#ffe543",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-secrets-200}",
-      "group": "branding",
-      "key": "{color.vault-secrets.gradient.primary.stop}"
-    },
-    "name": "hds-color-vault-secrets-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#fffdf2",
-    "group": "branding",
-    "comment": "this is the 'vault-secrets-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#fffdf2",
-      "group": "branding",
-      "comment": "this is the 'vault-secrets-50' value at 25% opacity on white",
-      "key": "{color.vault-secrets.gradient.faint.start}"
-    },
-    "name": "hds-color-vault-secrets-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.vault-secrets.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#fff9cf",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-secrets-50}",
-      "group": "branding",
-      "key": "{color.vault-secrets.gradient.faint.stop}"
-    },
-    "name": "hds-color-vault-secrets-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault-secrets",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.vault.brand}",
-    "$type": "color",
-    "$value": "#ffcf25",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-brand}",
-      "group": "branding",
-      "key": "{color.vault.brand}"
-    },
-    "name": "hds-color-vault-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.vault.brand-alt}",
-    "$type": "color",
-    "$value": "#000000",
-    "group": "branding",
-    "$modes": {
-      "default": "#000",
-      "cds-g0": "#000",
-      "cds-g10": "#000",
-      "cds-g90": "#FFF",
-      "cds-g100": "#FFF"
-    },
-    "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
-    "original": {
-      "$type": "color",
-      "$value": "#000",
-      "group": "branding",
-      "$modes": {
-        "default": "#000",
-        "cds-g0": "#000",
-        "cds-g10": "#000",
-        "cds-g90": "#FFF",
-        "cds-g100": "#FFF"
-      },
-      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
-      "key": "{color.vault.brand-alt}"
-    },
-    "name": "hds-color-vault-brand-alt",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "brand-alt"
-    ]
-  },
-  {
-    "key": "{color.vault.foreground}",
-    "$type": "color",
-    "$value": "#9a6f00",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-500}",
-      "group": "branding",
-      "key": "{color.vault.foreground}"
-    },
-    "name": "hds-color-vault-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.vault.surface}",
-    "$type": "color",
-    "$value": "#fff9cf",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-50}",
-      "group": "branding",
-      "key": "{color.vault.surface}"
-    },
-    "name": "hds-color-vault-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.vault.border}",
-    "$type": "color",
-    "$value": "#feec7b",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-100}",
-      "group": "branding",
-      "key": "{color.vault.border}"
-    },
-    "name": "hds-color-vault-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.vault.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#feec7b",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-100}",
-      "group": "branding",
-      "key": "{color.vault.gradient.primary.start}"
-    },
-    "name": "hds-color-vault-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.vault.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#ffe543",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-200}",
-      "group": "branding",
-      "key": "{color.vault.gradient.primary.stop}"
-    },
-    "name": "hds-color-vault-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.vault.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#fffdf2",
-    "group": "branding",
-    "comment": "this is the 'vault-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#fffdf2",
-      "group": "branding",
-      "comment": "this is the 'vault-50' value at 25% opacity on white",
-      "key": "{color.vault.gradient.faint.start}"
-    },
-    "name": "hds-color-vault-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.vault.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#fff9cf",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.vault-50}",
-      "group": "branding",
-      "key": "{color.vault.gradient.faint.stop}"
-    },
-    "name": "hds-color-vault-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "vault",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.waypoint.brand}",
-    "$type": "color",
-    "$value": "#14c6cb",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.waypoint-brand}",
-      "group": "branding",
-      "key": "{color.waypoint.brand}"
-    },
-    "name": "hds-color-waypoint-brand",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "waypoint",
-      "brand"
-    ]
-  },
-  {
-    "key": "{color.waypoint.foreground}",
-    "$type": "color",
-    "$value": "#008196",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.waypoint-500}",
-      "group": "branding",
-      "key": "{color.waypoint.foreground}"
-    },
-    "name": "hds-color-waypoint-foreground",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "waypoint",
-      "foreground"
-    ]
-  },
-  {
-    "key": "{color.waypoint.surface}",
-    "$type": "color",
-    "$value": "#e0fcff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.waypoint-50}",
-      "group": "branding",
-      "key": "{color.waypoint.surface}"
-    },
-    "name": "hds-color-waypoint-surface",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "waypoint",
-      "surface"
-    ]
-  },
-  {
-    "key": "{color.waypoint.border}",
-    "$type": "color",
-    "$value": "#cbf1f3",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.waypoint-100}",
-      "group": "branding",
-      "key": "{color.waypoint.border}"
-    },
-    "name": "hds-color-waypoint-border",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "waypoint",
-      "border"
-    ]
-  },
-  {
-    "key": "{color.waypoint.gradient.primary.start}",
-    "$type": "color",
-    "$value": "#cbf1f3",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.waypoint-100}",
-      "group": "branding",
-      "key": "{color.waypoint.gradient.primary.start}"
-    },
-    "name": "hds-color-waypoint-gradient-primary-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "waypoint",
-      "gradient",
-      "primary",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.waypoint.gradient.primary.stop}",
-    "$type": "color",
-    "$value": "#62d4dc",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.waypoint-200}",
-      "group": "branding",
-      "key": "{color.waypoint.gradient.primary.stop}"
-    },
-    "name": "hds-color-waypoint-gradient-primary-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "waypoint",
-      "gradient",
-      "primary",
-      "stop"
-    ]
-  },
-  {
-    "key": "{color.waypoint.gradient.faint.start}",
-    "$type": "color",
-    "$value": "#f6feff",
-    "group": "branding",
-    "comment": "this is the 'waypoint-50' value at 25% opacity on white",
-    "original": {
-      "$type": "color",
-      "$value": "#f6feff",
-      "group": "branding",
-      "comment": "this is the 'waypoint-50' value at 25% opacity on white",
-      "key": "{color.waypoint.gradient.faint.start}"
-    },
-    "name": "hds-color-waypoint-gradient-faint-start",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "waypoint",
-      "gradient",
-      "faint",
-      "start"
-    ]
-  },
-  {
-    "key": "{color.waypoint.gradient.faint.stop}",
-    "$type": "color",
-    "$value": "#e0fcff",
-    "group": "branding",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.waypoint-50}",
-      "group": "branding",
-      "key": "{color.waypoint.gradient.faint.stop}"
-    },
-    "name": "hds-color-waypoint-gradient-faint-stop",
-    "attributes": {
-      "category": "color"
-    },
-    "path": [
-      "color",
-      "waypoint",
-      "gradient",
-      "faint",
-      "stop"
-    ]
-  },
-  {
     "key": "{css.color-transform.direction}",
     "$type": "number",
     "$value": 1,
@@ -16480,6 +14524,2048 @@
       "line-highlight",
       "border",
       "color"
+    ]
+  },
+  {
+    "key": "{product.hashicorp.brand.color}",
+    "$type": "color",
+    "$value": "#000000",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.hashicorp-brand}",
+      "group": "branding",
+      "key": "{product.hashicorp.brand.color}"
+    },
+    "name": "hds-product-hashicorp-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "hashicorp",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.boundary.brand.color}",
+    "$type": "color",
+    "$value": "#f24c53",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.boundary-brand}",
+      "group": "branding",
+      "key": "{product.boundary.brand.color}"
+    },
+    "name": "hds-product-boundary-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "boundary",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.boundary.foreground.color}",
+    "$type": "color",
+    "$value": "#cf2d32",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.boundary-500}",
+      "group": "branding",
+      "key": "{product.boundary.foreground.color}"
+    },
+    "name": "hds-product-boundary-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "boundary",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.boundary.surface.color}",
+    "$type": "color",
+    "$value": "#ffecec",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.boundary-50}",
+      "group": "branding",
+      "key": "{product.boundary.surface.color}"
+    },
+    "name": "hds-product-boundary-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "boundary",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.boundary.border.color}",
+    "$type": "color",
+    "$value": "#fbd7d8",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.boundary-100}",
+      "group": "branding",
+      "key": "{product.boundary.border.color}"
+    },
+    "name": "hds-product-boundary-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "boundary",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.boundary.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#f97076",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.boundary-300}",
+      "group": "branding",
+      "key": "{product.boundary.gradient.color.primary.start}"
+    },
+    "name": "hds-product-boundary-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "boundary",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.boundary.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#db363b",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.boundary-400}",
+      "group": "branding",
+      "key": "{product.boundary.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-boundary-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "boundary",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.boundary.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#fffafa",
+    "group": "branding",
+    "comment": "this is the 'boundary-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#fffafa",
+      "group": "branding",
+      "comment": "this is the 'boundary-50' value at 25% opacity on white",
+      "key": "{product.boundary.gradient.color.faint.start}"
+    },
+    "name": "hds-product-boundary-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "boundary",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.boundary.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#ffecec",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.boundary-50}",
+      "group": "branding",
+      "key": "{product.boundary.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-boundary-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "boundary",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.consul.brand.color}",
+    "$type": "color",
+    "$value": "#e03875",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.consul-brand}",
+      "group": "branding",
+      "key": "{product.consul.brand.color}"
+    },
+    "name": "hds-product-consul-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "consul",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.consul.foreground.color}",
+    "$type": "color",
+    "$value": "#d01c5b",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.consul-500}",
+      "group": "branding",
+      "key": "{product.consul.foreground.color}"
+    },
+    "name": "hds-product-consul-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "consul",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.consul.surface.color}",
+    "$type": "color",
+    "$value": "#ffe9f1",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.consul-50}",
+      "group": "branding",
+      "key": "{product.consul.surface.color}"
+    },
+    "name": "hds-product-consul-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "consul",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.consul.border.color}",
+    "$type": "color",
+    "$value": "#ffcede",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.consul-100}",
+      "group": "branding",
+      "key": "{product.consul.border.color}"
+    },
+    "name": "hds-product-consul-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "consul",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.consul.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#ff99be",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.consul-300}",
+      "group": "branding",
+      "key": "{product.consul.gradient.color.primary.start}"
+    },
+    "name": "hds-product-consul-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "consul",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.consul.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#da306e",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.consul-400}",
+      "group": "branding",
+      "key": "{product.consul.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-consul-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "consul",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.consul.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#fff9fb",
+    "group": "branding",
+    "comment": "this is the 'consul-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#fff9fb",
+      "group": "branding",
+      "comment": "this is the 'consul-50' value at 25% opacity on white",
+      "key": "{product.consul.gradient.color.faint.start}"
+    },
+    "name": "hds-product-consul-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "consul",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.consul.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#ffe9f1",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.consul-50}",
+      "group": "branding",
+      "key": "{product.consul.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-consul-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "consul",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.hcp.brand.color}",
+    "$type": "color",
+    "$value": "#000000",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.hcp-brand}",
+      "group": "branding",
+      "key": "{product.hcp.brand.color}"
+    },
+    "name": "hds-product-hcp-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "hcp",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.nomad.brand.color}",
+    "$type": "color",
+    "$value": "#06d092",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.nomad-brand}",
+      "group": "branding",
+      "key": "{product.nomad.brand.color}"
+    },
+    "name": "hds-product-nomad-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "nomad",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.nomad.foreground.color}",
+    "$type": "color",
+    "$value": "#008661",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.nomad-500}",
+      "group": "branding",
+      "key": "{product.nomad.foreground.color}"
+    },
+    "name": "hds-product-nomad-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "nomad",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.nomad.surface.color}",
+    "$type": "color",
+    "$value": "#d3fdeb",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.nomad-50}",
+      "group": "branding",
+      "key": "{product.nomad.surface.color}"
+    },
+    "name": "hds-product-nomad-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "nomad",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.nomad.border.color}",
+    "$type": "color",
+    "$value": "#bff3dd",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.nomad-100}",
+      "group": "branding",
+      "key": "{product.nomad.border.color}"
+    },
+    "name": "hds-product-nomad-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "nomad",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.nomad.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#bff3dd",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.nomad-100}",
+      "group": "branding",
+      "key": "{product.nomad.gradient.color.primary.start}"
+    },
+    "name": "hds-product-nomad-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "nomad",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.nomad.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#60dea9",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.nomad-200}",
+      "group": "branding",
+      "key": "{product.nomad.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-nomad-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "nomad",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.nomad.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#f3fff9",
+    "group": "branding",
+    "comment": "this is the 'nomad-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#f3fff9",
+      "group": "branding",
+      "comment": "this is the 'nomad-50' value at 25% opacity on white",
+      "key": "{product.nomad.gradient.color.faint.start}"
+    },
+    "name": "hds-product-nomad-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "nomad",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.nomad.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#d3fdeb",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.nomad-50}",
+      "group": "branding",
+      "key": "{product.nomad.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-nomad-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "nomad",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.packer.brand.color}",
+    "$type": "color",
+    "$value": "#02a8ef",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.packer-brand}",
+      "group": "branding",
+      "key": "{product.packer.brand.color}"
+    },
+    "name": "hds-product-packer-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "packer",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.packer.foreground.color}",
+    "$type": "color",
+    "$value": "#007eb4",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.packer-500}",
+      "group": "branding",
+      "key": "{product.packer.foreground.color}"
+    },
+    "name": "hds-product-packer-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "packer",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.packer.surface.color}",
+    "$type": "color",
+    "$value": "#d4f2ff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.packer-50}",
+      "group": "branding",
+      "key": "{product.packer.surface.color}"
+    },
+    "name": "hds-product-packer-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "packer",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.packer.border.color}",
+    "$type": "color",
+    "$value": "#b4e4ff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.packer-100}",
+      "group": "branding",
+      "key": "{product.packer.border.color}"
+    },
+    "name": "hds-product-packer-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "packer",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.packer.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#b4e4ff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.packer-100}",
+      "group": "branding",
+      "key": "{product.packer.gradient.color.primary.start}"
+    },
+    "name": "hds-product-packer-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "packer",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.packer.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#63d0ff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.packer-200}",
+      "group": "branding",
+      "key": "{product.packer.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-packer-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "packer",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.packer.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#f3fcff",
+    "group": "branding",
+    "comment": "this is the 'packer-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#F3FCFF",
+      "group": "branding",
+      "comment": "this is the 'packer-50' value at 25% opacity on white",
+      "key": "{product.packer.gradient.color.faint.start}"
+    },
+    "name": "hds-product-packer-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "packer",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.packer.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#d4f2ff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.packer-50}",
+      "group": "branding",
+      "key": "{product.packer.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-packer-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "packer",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.terraform.brand.color}",
+    "$type": "color",
+    "$value": "#7b42bc",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.terraform-brand}",
+      "group": "branding",
+      "key": "{product.terraform.brand.color}"
+    },
+    "name": "hds-product-terraform-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.terraform.brand.color-on-dark}",
+    "$type": "color",
+    "$value": "#a067da",
+    "group": "branding",
+    "comment": "this is an alternative brand color meant to be used on dark backgrounds",
+    "original": {
+      "$type": "color",
+      "$value": "#a067da",
+      "group": "branding",
+      "comment": "this is an alternative brand color meant to be used on dark backgrounds",
+      "key": "{product.terraform.brand.color-on-dark}"
+    },
+    "name": "hds-product-terraform-brand-color-on-dark",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "brand",
+      "color-on-dark"
+    ]
+  },
+  {
+    "key": "{product.terraform.foreground.color}",
+    "$type": "color",
+    "$value": "#773cb4",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.terraform-500}",
+      "group": "branding",
+      "key": "{product.terraform.foreground.color}"
+    },
+    "name": "hds-product-terraform-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.terraform.surface.color}",
+    "$type": "color",
+    "$value": "#f4ecff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.terraform-50}",
+      "group": "branding",
+      "key": "{product.terraform.surface.color}"
+    },
+    "name": "hds-product-terraform-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.terraform.border.color}",
+    "$type": "color",
+    "$value": "#ebdbfc",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.terraform-100}",
+      "group": "branding",
+      "key": "{product.terraform.border.color}"
+    },
+    "name": "hds-product-terraform-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.terraform.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#bb8deb",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.terraform-300}",
+      "group": "branding",
+      "key": "{product.terraform.gradient.color.primary.start}"
+    },
+    "name": "hds-product-terraform-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.terraform.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#844fba",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.terraform-400}",
+      "group": "branding",
+      "key": "{product.terraform.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-terraform-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.terraform.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#fcfaff",
+    "group": "branding",
+    "comment": "this is the 'terraform-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#fcfaff",
+      "group": "branding",
+      "comment": "this is the 'terraform-50' value at 25% opacity on white",
+      "key": "{product.terraform.gradient.color.faint.start}"
+    },
+    "name": "hds-product-terraform-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.terraform.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#f4ecff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.terraform-50}",
+      "group": "branding",
+      "key": "{product.terraform.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-terraform-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "terraform",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.vagrant.brand.color}",
+    "$type": "color",
+    "$value": "#1868f2",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vagrant-brand}",
+      "group": "branding",
+      "key": "{product.vagrant.brand.color}"
+    },
+    "name": "hds-product-vagrant-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vagrant",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vagrant.foreground.color}",
+    "$type": "color",
+    "$value": "#1c61d8",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vagrant-500}",
+      "group": "branding",
+      "key": "{product.vagrant.foreground.color}"
+    },
+    "name": "hds-product-vagrant-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vagrant",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vagrant.surface.color}",
+    "$type": "color",
+    "$value": "#d6ebff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vagrant-50}",
+      "group": "branding",
+      "key": "{product.vagrant.surface.color}"
+    },
+    "name": "hds-product-vagrant-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vagrant",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vagrant.border.color}",
+    "$type": "color",
+    "$value": "#c7dbfc",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vagrant-100}",
+      "group": "branding",
+      "key": "{product.vagrant.border.color}"
+    },
+    "name": "hds-product-vagrant-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vagrant",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vagrant.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#639cff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vagrant-300}",
+      "group": "branding",
+      "key": "{product.vagrant.gradient.color.primary.start}"
+    },
+    "name": "hds-product-vagrant-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vagrant",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.vagrant.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#2e71e5",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vagrant-400}",
+      "group": "branding",
+      "key": "{product.vagrant.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-vagrant-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vagrant",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.vagrant.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#f4faff",
+    "group": "branding",
+    "comment": "this is the 'vagrant-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#f4faff",
+      "group": "branding",
+      "comment": "this is the 'vagrant-50' value at 25% opacity on white",
+      "key": "{product.vagrant.gradient.color.faint.start}"
+    },
+    "name": "hds-product-vagrant-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vagrant",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.vagrant.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#d6ebff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vagrant-50}",
+      "group": "branding",
+      "key": "{product.vagrant.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-vagrant-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vagrant",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.brand.color}",
+    "$type": "color",
+    "$value": "#ffcf25",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-radar-brand}",
+      "group": "branding",
+      "key": "{product.vault-radar.brand.color}"
+    },
+    "name": "hds-product-vault-radar-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.brand.color-alt}",
+    "$type": "color",
+    "$value": "#000000",
+    "group": "branding",
+    "$modes": {
+      "default": "#000",
+      "cds-g0": "#000",
+      "cds-g10": "#000",
+      "cds-g90": "#FFF",
+      "cds-g100": "#FFF"
+    },
+    "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
+    "original": {
+      "$type": "color",
+      "$value": "#000",
+      "group": "branding",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
+      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
+      "key": "{product.vault-radar.brand.color-alt}"
+    },
+    "name": "hds-product-vault-radar-brand-color-alt",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "brand",
+      "color-alt"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.foreground.color}",
+    "$type": "color",
+    "$value": "#9a6f00",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-radar-500}",
+      "group": "branding",
+      "key": "{product.vault-radar.foreground.color}"
+    },
+    "name": "hds-product-vault-radar-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.surface.color}",
+    "$type": "color",
+    "$value": "#fff9cf",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-radar-50}",
+      "group": "branding",
+      "key": "{product.vault-radar.surface.color}"
+    },
+    "name": "hds-product-vault-radar-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.border.color}",
+    "$type": "color",
+    "$value": "#feec7b",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-radar-100}",
+      "group": "branding",
+      "key": "{product.vault-radar.border.color}"
+    },
+    "name": "hds-product-vault-radar-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#feec7b",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-radar-100}",
+      "group": "branding",
+      "key": "{product.vault-radar.gradient.color.primary.start}"
+    },
+    "name": "hds-product-vault-radar-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#ffe543",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-radar-200}",
+      "group": "branding",
+      "key": "{product.vault-radar.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-vault-radar-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#fffdf2",
+    "group": "branding",
+    "comment": "this is the 'vault-radar-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#fffdf2",
+      "group": "branding",
+      "comment": "this is the 'vault-radar-50' value at 25% opacity on white",
+      "key": "{product.vault-radar.gradient.color.faint.start}"
+    },
+    "name": "hds-product-vault-radar-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.vault-radar.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#fff9cf",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-radar-50}",
+      "group": "branding",
+      "key": "{product.vault-radar.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-vault-radar-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-radar",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.brand.color}",
+    "$type": "color",
+    "$value": "#ffcf25",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-secrets-brand}",
+      "group": "branding",
+      "key": "{product.vault-secrets.brand.color}"
+    },
+    "name": "hds-product-vault-secrets-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.brand.color-alt}",
+    "group": "branding",
+    "$type": "color",
+    "$value": "#000000",
+    "$modes": {
+      "default": "#000",
+      "cds-g0": "#000",
+      "cds-g10": "#000",
+      "cds-g90": "#FFF",
+      "cds-g100": "#FFF"
+    },
+    "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
+    "original": {
+      "group": "branding",
+      "$type": "color",
+      "$value": "#000",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
+      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
+      "key": "{product.vault-secrets.brand.color-alt}"
+    },
+    "name": "hds-product-vault-secrets-brand-color-alt",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "brand",
+      "color-alt"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.foreground.color}",
+    "$type": "color",
+    "$value": "#9a6f00",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-secrets-500}",
+      "group": "branding",
+      "key": "{product.vault-secrets.foreground.color}"
+    },
+    "name": "hds-product-vault-secrets-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.surface.color}",
+    "$type": "color",
+    "$value": "#fff9cf",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-secrets-50}",
+      "group": "branding",
+      "key": "{product.vault-secrets.surface.color}"
+    },
+    "name": "hds-product-vault-secrets-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.border.color}",
+    "$type": "color",
+    "$value": "#feec7b",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-secrets-100}",
+      "group": "branding",
+      "key": "{product.vault-secrets.border.color}"
+    },
+    "name": "hds-product-vault-secrets-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#feec7b",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-secrets-100}",
+      "group": "branding",
+      "key": "{product.vault-secrets.gradient.color.primary.start}"
+    },
+    "name": "hds-product-vault-secrets-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#ffe543",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-secrets-200}",
+      "group": "branding",
+      "key": "{product.vault-secrets.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-vault-secrets-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#fffdf2",
+    "group": "branding",
+    "comment": "this is the 'vault-secrets-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#fffdf2",
+      "group": "branding",
+      "comment": "this is the 'vault-secrets-50' value at 25% opacity on white",
+      "key": "{product.vault-secrets.gradient.color.faint.start}"
+    },
+    "name": "hds-product-vault-secrets-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.vault-secrets.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#fff9cf",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-secrets-50}",
+      "group": "branding",
+      "key": "{product.vault-secrets.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-vault-secrets-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault-secrets",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.vault.brand.color}",
+    "$type": "color",
+    "$value": "#ffcf25",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-brand}",
+      "group": "branding",
+      "key": "{product.vault.brand.color}"
+    },
+    "name": "hds-product-vault-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault.brand.color-alt}",
+    "$type": "color",
+    "$value": "#000000",
+    "group": "branding",
+    "$modes": {
+      "default": "#000",
+      "cds-g0": "#000",
+      "cds-g10": "#000",
+      "cds-g90": "#FFF",
+      "cds-g100": "#FFF"
+    },
+    "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
+    "original": {
+      "$type": "color",
+      "$value": "#000",
+      "group": "branding",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
+      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
+      "key": "{product.vault.brand.color-alt}"
+    },
+    "name": "hds-product-vault-brand-color-alt",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "brand",
+      "color-alt"
+    ]
+  },
+  {
+    "key": "{product.vault.foreground.color}",
+    "$type": "color",
+    "$value": "#9a6f00",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-500}",
+      "group": "branding",
+      "key": "{product.vault.foreground.color}"
+    },
+    "name": "hds-product-vault-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault.surface.color}",
+    "$type": "color",
+    "$value": "#fff9cf",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-50}",
+      "group": "branding",
+      "key": "{product.vault.surface.color}"
+    },
+    "name": "hds-product-vault-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault.border.color}",
+    "$type": "color",
+    "$value": "#feec7b",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-100}",
+      "group": "branding",
+      "key": "{product.vault.border.color}"
+    },
+    "name": "hds-product-vault-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.vault.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#feec7b",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-100}",
+      "group": "branding",
+      "key": "{product.vault.gradient.color.primary.start}"
+    },
+    "name": "hds-product-vault-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.vault.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#ffe543",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-200}",
+      "group": "branding",
+      "key": "{product.vault.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-vault-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.vault.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#fffdf2",
+    "group": "branding",
+    "comment": "this is the 'vault-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#fffdf2",
+      "group": "branding",
+      "comment": "this is the 'vault-50' value at 25% opacity on white",
+      "key": "{product.vault.gradient.color.faint.start}"
+    },
+    "name": "hds-product-vault-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.vault.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#fff9cf",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.vault-50}",
+      "group": "branding",
+      "key": "{product.vault.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-vault-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "vault",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.waypoint.brand.color}",
+    "$type": "color",
+    "$value": "#14c6cb",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.waypoint-brand}",
+      "group": "branding",
+      "key": "{product.waypoint.brand.color}"
+    },
+    "name": "hds-product-waypoint-brand-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "waypoint",
+      "brand",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.waypoint.foreground.color}",
+    "$type": "color",
+    "$value": "#008196",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.waypoint-500}",
+      "group": "branding",
+      "key": "{product.waypoint.foreground.color}"
+    },
+    "name": "hds-product-waypoint-foreground-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "waypoint",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.waypoint.surface.color}",
+    "$type": "color",
+    "$value": "#e0fcff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.waypoint-50}",
+      "group": "branding",
+      "key": "{product.waypoint.surface.color}"
+    },
+    "name": "hds-product-waypoint-surface-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "waypoint",
+      "surface",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.waypoint.border.color}",
+    "$type": "color",
+    "$value": "#cbf1f3",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.waypoint-100}",
+      "group": "branding",
+      "key": "{product.waypoint.border.color}"
+    },
+    "name": "hds-product-waypoint-border-color",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "waypoint",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{product.waypoint.gradient.color.primary.start}",
+    "$type": "color",
+    "$value": "#cbf1f3",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.waypoint-100}",
+      "group": "branding",
+      "key": "{product.waypoint.gradient.color.primary.start}"
+    },
+    "name": "hds-product-waypoint-gradient-color-primary-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "waypoint",
+      "gradient",
+      "color",
+      "primary",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.waypoint.gradient.color.primary.stop}",
+    "$type": "color",
+    "$value": "#62d4dc",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.waypoint-200}",
+      "group": "branding",
+      "key": "{product.waypoint.gradient.color.primary.stop}"
+    },
+    "name": "hds-product-waypoint-gradient-color-primary-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "waypoint",
+      "gradient",
+      "color",
+      "primary",
+      "stop"
+    ]
+  },
+  {
+    "key": "{product.waypoint.gradient.color.faint.start}",
+    "$type": "color",
+    "$value": "#f6feff",
+    "group": "branding",
+    "comment": "this is the 'waypoint-50' value at 25% opacity on white",
+    "original": {
+      "$type": "color",
+      "$value": "#f6feff",
+      "group": "branding",
+      "comment": "this is the 'waypoint-50' value at 25% opacity on white",
+      "key": "{product.waypoint.gradient.color.faint.start}"
+    },
+    "name": "hds-product-waypoint-gradient-color-faint-start",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "waypoint",
+      "gradient",
+      "color",
+      "faint",
+      "start"
+    ]
+  },
+  {
+    "key": "{product.waypoint.gradient.color.faint.stop}",
+    "$type": "color",
+    "$value": "#e0fcff",
+    "group": "branding",
+    "original": {
+      "$type": "color",
+      "$value": "{core.color.waypoint-50}",
+      "group": "branding",
+      "key": "{product.waypoint.gradient.color.faint.stop}"
+    },
+    "name": "hds-product-waypoint-gradient-color-faint-stop",
+    "attributes": {
+      "category": "product"
+    },
+    "path": [
+      "product",
+      "waypoint",
+      "gradient",
+      "color",
+      "faint",
+      "stop"
     ]
   },
   {
