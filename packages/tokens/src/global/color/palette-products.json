@@ -1,6 +1,6 @@
 {
-  "color": {
-    "palette": {
+  "core": {
+    "color": {
       "hashicorp-brand": {
         "$type": "color",
         "$value": "#000000",

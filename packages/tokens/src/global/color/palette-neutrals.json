@@ -1,6 +1,6 @@
 {
-  "color": {
-    "palette": {
+  "core": {
+    "color": {
       "neutral-700": {
         "$type": "color",
         "$value": "#0c0c0e",

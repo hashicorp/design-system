@@ -1,6 +1,6 @@
 {
-  "color": {
-    "palette": {
+  "core": {
+    "color": {
       "blue-500": {
         "$type": "color",
         "$value": "#1c345f",
