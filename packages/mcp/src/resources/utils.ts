@@ -42,7 +42,7 @@ export const withSafeResourceHandler = <TArgs extends unknown[]>(
       const uri =
         typeof args[0] === "string" ? args[0] : (fallbackUri ?? "hds://error");
 
-      const errorPayload =
+      const errorPayload: JsonObject =
         error instanceof Error
           ? { name: error.name, message: error.message }
           : { message: String(error) };
