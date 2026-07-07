@@ -1,6 +1,6 @@
 {
-  "color": {
-    "focus": {
+  "focus": {
+    "color": {
       "action": {
         "internal": {
           "$type": "color",
