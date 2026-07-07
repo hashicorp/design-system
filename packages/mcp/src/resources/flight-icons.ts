@@ -63,7 +63,7 @@ export const readIconResource = (store: IconCatalogStore, iconName: string) => {
       {
         found: false,
         requestedIconName: iconName,
-        message: "Icon not found for provided iconName.",
+        message: "Icon not found for provided iconName or fileName.",
       },
     );
   }
