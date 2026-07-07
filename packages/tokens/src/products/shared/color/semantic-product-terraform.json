@@ -3,7 +3,7 @@
     "terraform": {
       "brand": {
         "$type": "color",
-        "$value": "{color.palette.terraform-brand}",
+        "$value": "{core.color.terraform-brand}",
         "group": "branding"
       },
       "brand-on-dark": {
@@ -14,29 +14,29 @@
       },
       "foreground": {
         "$type": "color",
-        "$value": "{color.palette.terraform-500}",
+        "$value": "{core.color.terraform-500}",
         "group": "branding"
       },
       "surface": {
         "$type": "color",
-        "$value": "{color.palette.terraform-50}",
+        "$value": "{core.color.terraform-50}",
         "group": "branding"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.palette.terraform-100}",
+        "$value": "{core.color.terraform-100}",
         "group": "branding"
       },
       "gradient": {
         "primary": {
           "start": {
             "$type": "color",
-            "$value": "{color.palette.terraform-300}",
+            "$value": "{core.color.terraform-300}",
             "group": "branding"
           },
           "stop": {
             "$type": "color",
-            "$value": "{color.palette.terraform-400}",
+            "$value": "{core.color.terraform-400}",
             "group": "branding"
           }
         },
@@ -49,7 +49,7 @@
           },
           "stop": {
             "$type": "color",
-            "$value": "{color.palette.terraform-50}",
+            "$value": "{core.color.terraform-50}",
             "group": "branding"
           }
         }

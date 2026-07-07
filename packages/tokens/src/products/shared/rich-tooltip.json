@@ -18,10 +18,10 @@
           "$value": "{elevation.higher.border.color}",
           "$modes": {
             "default": "{elevation.higher.border.color}",
-            "cds-g0": "{color.palette.alpha-200}",
-            "cds-g10": "{color.palette.alpha-200}",
-            "cds-g90": "{color.palette.alpha-200}",
-            "cds-g100": "{color.palette.alpha-200}"
+            "cds-g0": "{core.color.alpha-200}",
+            "cds-g10": "{core.color.alpha-200}",
+            "cds-g90": "{core.color.alpha-200}",
+            "cds-g100": "{core.color.alpha-200}"
           }
         },
         "radius": {

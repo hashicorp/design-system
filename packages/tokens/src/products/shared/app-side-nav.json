@@ -22,7 +22,7 @@
         },
         "color": {
           "$type": "color",
-          "$value": "{color.palette.neutral-200}",
+          "$value": "{core.color.neutral-200}",
           "group": "components"
         }
       },

@@ -3,10 +3,10 @@
     "border": {
       "primary": {
         "$type": "color",
-        "$value": "{color.palette.alpha-200}",
+        "$value": "{core.color.alpha-200}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.alpha-200}",
+          "default": "{core.color.alpha-200}",
           "cds-g0": "{carbon.themes.white.borderSubtle03}",
           "cds-g10": "{carbon.themes.g10.borderSubtle03}",
           "cds-g90": "{carbon.themes.g90.borderSubtle03}",
@@ -15,10 +15,10 @@
       },
       "faint": {
         "$type": "color",
-        "$value": "{color.palette.alpha-100}",
+        "$value": "{core.color.alpha-100}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.alpha-100}",
+          "default": "{core.color.alpha-100}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
           "cds-g10": "{carbon.themes.g10.borderSubtle00}",
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
@@ -27,10 +27,10 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.palette.alpha-300}",
+        "$value": "{core.color.alpha-300}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.alpha-300}",
+          "default": "{core.color.alpha-300}",
           "cds-g0": "{carbon.themes.white.borderStrong01}",
           "cds-g10": "{carbon.themes.g10.borderStrong01}",
           "cds-g90": "{carbon.themes.g90.borderStrong01}",
@@ -39,10 +39,10 @@
       },
       "action": {
         "$type": "color",
-        "$value": "{color.palette.blue-100}",
+        "$value": "{core.color.blue-100}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.blue-100}",
+          "default": "{core.color.blue-100}",
           "cds-g0": "{carbon.themes.white.borderInteractive}",
           "cds-g10": "{carbon.themes.g10.borderInteractive}",
           "cds-g90": "{carbon.themes.g90.borderInteractive}",
@@ -51,10 +51,10 @@
       },
       "highlight": {
         "$type": "color",
-        "$value": "{color.palette.purple-100}",
+        "$value": "{core.color.purple-100}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.purple-100}",
+          "default": "{core.color.purple-100}",
           "cds-g0": "{carbon.color.purple.40}",
           "cds-g10": "{carbon.color.purple.40}",
           "cds-g90": "{carbon.color.purple.50}",
@@ -63,10 +63,10 @@
       },
       "success": {
         "$type": "color",
-        "$value": "{color.palette.green-100}",
+        "$value": "{core.color.green-100}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.green-100}",
+          "default": "{core.color.green-100}",
           "cds-g0": "{carbon.color.green.40}",
           "cds-g10": "{carbon.color.green.40}",
           "cds-g90": "{carbon.color.green.50}",
@@ -75,10 +75,10 @@
       },
       "warning": {
         "$type": "color",
-        "$value": "{color.palette.amber-100}",
+        "$value": "{core.color.amber-100}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.amber-100}",
+          "default": "{core.color.amber-100}",
           "cds-g0": "{carbon.color.yellow.40}",
           "cds-g10": "{carbon.color.yellow.40}",
           "cds-g90": "{carbon.color.yellow.50}",
@@ -87,10 +87,10 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{color.palette.red-100}",
+        "$value": "{core.color.red-100}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.red-100}",
+          "default": "{core.color.red-100}",
           "cds-g0": "{carbon.color.red.40}",
           "cds-g10": "{carbon.color.red.40}",
           "cds-g90": "{carbon.color.red.50}",

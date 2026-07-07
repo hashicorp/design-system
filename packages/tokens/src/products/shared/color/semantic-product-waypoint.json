@@ -3,34 +3,34 @@
     "waypoint": {
       "brand": {
         "$type": "color",
-        "$value": "{color.palette.waypoint-brand}",
+        "$value": "{core.color.waypoint-brand}",
         "group": "branding"
       },
       "foreground": {
         "$type": "color",
-        "$value": "{color.palette.waypoint-500}",
+        "$value": "{core.color.waypoint-500}",
         "group": "branding"
       },
       "surface": {
         "$type": "color",
-        "$value": "{color.palette.waypoint-50}",
+        "$value": "{core.color.waypoint-50}",
         "group": "branding"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.palette.waypoint-100}",
+        "$value": "{core.color.waypoint-100}",
         "group": "branding"
       },
       "gradient": {
         "primary": {
           "start": {
             "$type": "color",
-            "$value": "{color.palette.waypoint-100}",
+            "$value": "{core.color.waypoint-100}",
             "group": "branding"
           },
           "stop": {
             "$type": "color",
-            "$value": "{color.palette.waypoint-200}",
+            "$value": "{core.color.waypoint-200}",
             "group": "branding"
           }
         },
@@ -43,7 +43,7 @@
           },
           "stop": {
             "$type": "color",
-            "$value": "{color.palette.waypoint-50}",
+            "$value": "{core.color.waypoint-50}",
             "group": "branding"
           }
         }
