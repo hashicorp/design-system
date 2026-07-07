@@ -36,15 +36,21 @@ export const withSafeResourceHandler = <TArgs extends unknown[]>(
   return async (...args: TArgs): Promise<ResourceResponse> => {
     try {
       return await handler(...args);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(`Resource handler failed (${resourceName}):`, error);
 
       const uri =
         typeof args[0] === "string" ? args[0] : (fallbackUri ?? "hds://error");
 
+      const errorPayload =
+        error instanceof Error
+          ? { name: error.name, message: error.message }
+          : { message: String(error) };
+
       return toJsonResourceResponse(uri, {
         ok: false,
-        error,
+        resource: resourceName,
+        error: errorPayload,
       });
     }
   };
