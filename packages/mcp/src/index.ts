@@ -72,25 +72,29 @@ const installLifecycleHandlers = (
   };
 
   const onSigint = (): void => {
-    void shutdown("SIGINT");
+    void shutdown("SIGINT").finally(() => process.exit(process.exitCode ?? 0));
   };
 
   const onSigterm = (): void => {
-    void shutdown("SIGTERM");
+    void shutdown("SIGTERM").finally(() => process.exit(process.exitCode ?? 0));
   };
 
   const onUnhandledRejection = (reason: unknown): void => {
-    void shutdown("unhandledRejection", reason);
+    void shutdown("unhandledRejection", reason).finally(() =>
+      process.exit(process.exitCode ?? 1),
+    );
   };
 
   const onUncaughtException = (error: Error): void => {
-    void shutdown("uncaughtException", error);
+    void shutdown("uncaughtException", error).finally(() =>
+      process.exit(process.exitCode ?? 1),
+    );
   };
 
-  process.on("SIGINT", onSigint);
-  process.on("SIGTERM", onSigterm);
-  process.on("unhandledRejection", onUnhandledRejection);
-  process.on("uncaughtException", onUncaughtException);
+  process.once("SIGINT", onSigint);
+  process.once("SIGTERM", onSigterm);
+  process.once("unhandledRejection", onUnhandledRejection);
+  process.once("uncaughtException", onUncaughtException);
 
   return {
     shutdown,
