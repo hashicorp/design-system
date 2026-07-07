@@ -60,10 +60,13 @@ export const loadIconCatalog = (): IconCatalogStore => {
 
   for (const asset of catalog.assets) {
     const normalizedName = normalizeLookupValue(asset.iconName);
-    const existingAssets = assetsByIconName.get(normalizedName) ?? [];
+    const existingAssets = assetsByIconName.get(normalizedName);
 
-    assetsByIconName.set(normalizedName, [...existingAssets, asset]);
-  }
+    if (existingAssets) {
+      existingAssets.push(asset);
+    } else {
+      assetsByIconName.set(normalizedName, [asset]);
+    }
 
   const icons = [...assetsByIconName.values()].map((assets) =>
     toIconRecord(assets),
