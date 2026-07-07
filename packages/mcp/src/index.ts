@@ -110,9 +110,9 @@ const main = async (): Promise<void> => {
   try {
     const server = buildServer();
 
-    registerPrompts(server);
-
     shutdown = installLifecycleHandlers(server).shutdown;
+
+    registerPrompts(server);
 
     const transport = new StdioServerTransport();
 
