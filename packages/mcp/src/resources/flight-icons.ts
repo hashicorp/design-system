@@ -8,7 +8,7 @@ import { loadIconCatalog } from "../stores/flight-icons/store.js";
 import { toJsonResourceResponse, withSafeResourceHandler } from "./utils.js";
 
 import type { JsonObject } from "../types.js";
-import type { IconCatalogStore } from "../stores/flight-icons/store.js";
+import type { IconCatalogStore } from "../stores/flight-icons/types.js";
 import type { IconRecord } from "../stores/flight-icons/types.js";
 import type { McpResource } from "./types.js";
 
