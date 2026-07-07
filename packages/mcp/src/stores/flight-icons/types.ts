@@ -20,3 +20,22 @@ export interface IconRecord {
   hasMapping: boolean;
   variants: IconVariant[];
 }
+
+export interface SearchIconsInput {
+  query: string;
+  limit: number;
+  category?: string;
+  size?: string;
+  hasMapping?: boolean;
+}
+
+export interface IconCatalogStore {
+  getMeta: () => {
+    totalIconCount: number;
+    totalAssetCount: number;
+    categories: string[];
+  };
+  listIcons: () => IconRecord[];
+  getIconByName: (nameOrFileName: string) => IconRecord | null;
+  searchIcons: (input: SearchIconsInput) => IconRecord[];
+}

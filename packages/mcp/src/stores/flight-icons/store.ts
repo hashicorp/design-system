@@ -12,26 +12,11 @@ import {
 } from "./lookup.js";
 import { iconCatalogSchema } from "./schema.js";
 
-import type { IconRecord } from "./lookup.js";
-
-interface SearchIconsInput {
-  query: string;
-  limit: number;
-  category?: string;
-  size?: string;
-  hasMapping?: boolean;
-}
-
-export type IconCatalogStore = {
-  getMeta: () => {
-    totalIconCount: number;
-    totalAssetCount: number;
-    categories: string[];
-  };
-  listIcons: () => IconRecord[];
-  getIconByName: (nameOrFileName: string) => IconRecord | null;
-  searchIcons: (input: SearchIconsInput) => IconRecord[];
-};
+import type {
+  IconRecord,
+  IconCatalogStore,
+  SearchIconsInput,
+} from "./types.js";
 
 const require = createRequire(import.meta.url);
 
@@ -67,6 +52,7 @@ export const loadIconCatalog = (): IconCatalogStore => {
     } else {
       assetsByIconName.set(normalizedName, [asset]);
     }
+  }
 
   const icons = [...assetsByIconName.values()].map((assets) =>
     toIconRecord(assets),
