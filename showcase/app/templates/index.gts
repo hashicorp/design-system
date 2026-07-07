@@ -618,6 +618,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.form.masked-input">
+            Form::MaskedInput
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.form.radio">
             Form::Radio
           </LinkTo>

@@ -30,7 +30,8 @@
 
   @include hds-apply-only-if-carbon() {
     min-height: 40px; // 2.5rem // TODO: create a token for this value
-    padding: 0 var(--hds-form-control-padding);
+    // padding: 0 var(--hds-form-control-padding);
+    padding: 8px var(--hds-form-control-padding); // TODO: 8px seems to work better, can be used for positioning icons/etc. (Test to confirm)
     padding-right: 48px; // TODO: Create token? (This matches the right padding in the Carbon Select)
 
     // Carbon's select has only a bottom border

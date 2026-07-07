@@ -7,12 +7,18 @@
 // VISIBILITY-TOGGLE
 //
 
+@use "../../mixins/carbonization" as *;
+
 // notice: by design, for this button we don't apply a custom style for the focused state
 // but we rely on the standard outlined styling provided by the browser
 
 $hds-form-visibility-toggle-button-size: 24px;
 
 .hds-form-visibility-toggle {
+  // ensure icon is centered in button
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: $hds-form-visibility-toggle-button-size;
   height: $hds-form-visibility-toggle-button-size;
   padding: 2px;
@@ -20,4 +26,10 @@ $hds-form-visibility-toggle-button-size: 24px;
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
+
+  @include hds-apply-only-if-carbon() {
+    // TODO: Create new tokens?
+    width: 40px;
+    height: 40px;
+  }
 }

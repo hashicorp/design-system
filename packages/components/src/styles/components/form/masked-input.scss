@@ -7,6 +7,8 @@
 // MASKED-INPUT
 //
 
+@use "../../mixins/carbonization" as *;
+
 $hds-form-masked-input-button-size: 24px;
 
 .hds-form-masked-input {
@@ -20,6 +22,10 @@ $hds-form-masked-input-button-size: 24px;
     grid-area: input;
     padding-right: calc(var(--hds-form-control-padding) + $hds-form-masked-input-button-size);
     scrollbar-width: thin;
+
+    @include hds-apply-only-if-carbon() {
+      padding-right: 40px; // TODO: Create token?
+    }
   }
 }
 
@@ -40,6 +46,12 @@ $hds-form-masked-input-button-size: 24px;
   top: calc(var(--hds-form-control-padding) - var(--hds-form-control-border-width));
   right: calc(var(--hds-form-control-padding) - var(--hds-form-control-border-width));
   grid-area: input;
+
+  @include hds-apply-only-if-carbon() {
+    // TODO: Create new tokens?
+    top: 0;
+    right: 0;
+  }
 }
 
 .hds-form-masked-input__copy-button {
