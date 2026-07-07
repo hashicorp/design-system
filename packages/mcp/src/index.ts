@@ -112,6 +112,8 @@ const main = async (): Promise<void> => {
   try {
     const server = buildServer();
 
+    registerResources(server);
+
     shutdown = installLifecycleHandlers(server).shutdown;
 
     registerPrompts(server);
