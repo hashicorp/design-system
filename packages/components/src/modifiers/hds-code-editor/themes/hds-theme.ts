@@ -92,7 +92,7 @@ const hdsTheme = EditorView.theme({
 
   // linter diagnostics panel
   '.cm-panel.cm-panel-lint ul': {
-    backgroundColor: 'var(--hds-color-palette-neutral-500)',
+    backgroundColor: 'var(--hds-core-color-neutral-500)',
     maxHeight: '85px',
   },
   [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
@@ -122,7 +122,7 @@ const hdsTheme = EditorView.theme({
     borderTop: 'none',
   },
   '.cm-panels-bottom .cm-panel.cm-panel-lint': {
-    borderTop: `3px solid var(--hds-color-palette-neutral-500)`,
+    borderTop: `3px solid var(--hds-core-color-neutral-500)`,
   },
   '.cm-diagnostic': {
     borderLeft: 'none',

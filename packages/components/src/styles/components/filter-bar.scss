@@ -133,21 +133,21 @@
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-color-palette-blue-400);
-    background-color: var(--hds-color-palette-neutral-200);
+    color: var(--hds-core-color-blue-400);
+    background-color: var(--hds-core-color-neutral-200);
 
     &::after {
-      background-color: var(--hds-color-palette-blue-400);
+      background-color: var(--hds-core-color-blue-400);
     }
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-color-palette-blue-500);
-    background-color: var(--hds-color-palette-neutral-300);
+    color: var(--hds-core-color-blue-500);
+    background-color: var(--hds-core-color-neutral-300);
 
     &::after {
-      background-color: var(--hds-color-palette-blue-500);
+      background-color: var(--hds-core-color-blue-500);
     }
   }
 }

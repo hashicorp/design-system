@@ -31,13 +31,13 @@ $progress-bar-animation-duration: 0.25s;
   &::before {
     width: 100%;
     background:
-      linear-gradient(0deg, var(--hds-color-palette-alpha-200) 0%, var(--hds-color-palette-alpha-200) 100%),
-      var(--hds-color-palette-neutral-100);
+      linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%),
+      var(--hds-core-color-neutral-100);
   }
 
   &::after {
     width: var(--hds-var-stepper-nav-progress-bar-width, 0);
-    background-color: var(--hds-color-palette-neutral-700);
+    background-color: var(--hds-core-color-neutral-700);
     border-radius: 0 var(--hds-border-radius-x-small) var(--hds-border-radius-x-small) 0;
 
     @media (prefers-reduced-motion: no-preference) {
@@ -138,7 +138,7 @@ $progress-bar-animation-duration: 0.25s;
 
 .hds-stepper-nav--interactive {
   .hds-stepper-nav__progress-bar::after {
-    background-color: var(--hds-color-palette-blue-200);
+    background-color: var(--hds-core-color-blue-200);
   }
 
   .hds-stepper-nav__step--active {
