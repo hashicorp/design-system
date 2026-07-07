@@ -3,12 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
-import { on } from '@ember/modifier';
-import { array, fn } from '@ember/helper';
+import { array } from '@ember/helper';
 import { eq, or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
+import NOOP from 'showcase/utils/noop';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -16,11 +16,8 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwFlex from 'showcase/components/shw/flex';
-import ShwGrid from 'showcase/components/shw/grid';
 import ShwDivider from 'showcase/components/shw/divider';
-import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
-import CodeFragmentWithContextualComponents from 'showcase/components/page-components/stepper/nav/code-fragments/with-contextual-components';
 
 import { HdsStepperNav } from '@hashicorp/design-system-components/components';
 
@@ -30,11 +27,7 @@ export interface StepperNavCarbonizationIndexSignature {
   Element: HTMLElement;
 }
 
-export default class StepperNavCarbonizationIndex extends Component<StepperNavCarbonizationIndexSignature> {
-  onChange = (event: Event): void => {
-    console.log("step changed");
-  };
-
+const StepperNavCarbonizationIndex: TemplateOnlyComponent<StepperNavCarbonizationIndexSignature> =
   <template>
     {{pageTitle "Stepper::Nav - Carbonization"}}
 
@@ -47,16 +40,37 @@ export default class StepperNavCarbonizationIndex extends Component<StepperNavCa
 
       <ShwCarbonizationComparisonGrid @layout="column">
         <:theming>
-          <div {{style paddingTop="1rem"}}>
-            <CodeFragmentWithContextualComponents @currentStep={{1}} />
-          </div>
+          <HdsStepperNav
+            @currentStep={{1}}
+            @ariaLabel="Label"
+            @isInteractive={{true}}
+            as |S|
+          >
+            <S.Step>
+              <:title>Title</:title>
+              <:description>Description</:description>
+            </S.Step>
+            <S.Step>
+              <:title>Title</:title>
+              <:description>Description</:description>
+            </S.Step>
+            <S.Step>
+              <:title>Title</:title>
+              <:description>Description</:description>
+            </S.Step>
+            <S.Panel />
+            <S.Panel />
+            <S.Panel />
+          </HdsStepperNav>
         </:theming>
         <:reference>
           <div {{style paddingBottom="1rem"}}>
             <cds-progress-indicator
               space-equally
               current-index="1"
-              onChange={{(fn this.onChange)}}
+              {{! @glint-expect-error - onChange HTML attribute is needed for interactive progress indicator }}
+              onChange={{NOOP}}
+              class="cds-progress-indicator--interactive"
             >
               <cds-progress-step
                 label="Title"
@@ -81,18 +95,37 @@ export default class StepperNavCarbonizationIndex extends Component<StepperNavCa
 
       <ShwTextH3>Non-interactive</ShwTextH3>
 
-      <ShwCarbonizationComparisonGrid @label="Non-inteteractive" @layout="column">
+      <ShwCarbonizationComparisonGrid
+        @label="Non-inteteractive"
+        @layout="column"
+      >
         <:theming>
-          <div {{style paddingTop="1rem"}}>
-            <CodeFragmentWithContextualComponents @currentStep={{1}} @isInteractive={{false}} />
-          </div>
+          <HdsStepperNav
+            @currentStep={{1}}
+            @ariaLabel="Label"
+            @isInteractive={{false}}
+            as |S|
+          >
+            <S.Step>
+              <:title>Title</:title>
+              <:description>Description</:description>
+            </S.Step>
+            <S.Step>
+              <:title>Title</:title>
+              <:description>Description</:description>
+            </S.Step>
+            <S.Step>
+              <:title>Title</:title>
+              <:description>Description</:description>
+            </S.Step>
+            <S.Panel />
+            <S.Panel />
+            <S.Panel />
+          </HdsStepperNav>
         </:theming>
         <:reference>
           <div {{style paddingBottom="1rem"}}>
-            <cds-progress-indicator
-              space-equally
-              current-index="1"
-            >
+            <cds-progress-indicator space-equally current-index="1">
               <cds-progress-step
                 label="Title"
                 secondary-label="Description"
@@ -119,7 +152,9 @@ export default class StepperNavCarbonizationIndex extends Component<StepperNavCa
       {{#let (array "non-interactive" "interactive") as |variants|}}
         {{#each variants as |variant|}}
 
-          <ShwTextH4>{{#if (eq variant "non-interactive")}}Non-interactive{{else}}Interactive{{/if}}</ShwTextH4>
+          <ShwTextH4>{{#if
+              (eq variant "non-interactive")
+            }}Non-interactive{{else}}Interactive{{/if}}</ShwTextH4>
 
           <ShwCarbonizationComparisonGrid @layout="side-by-side">
             <:theming>
@@ -180,7 +215,6 @@ export default class StepperNavCarbonizationIndex extends Component<StepperNavCa
         {{/each}}
       {{/let}}
 
-
       <ShwTextH4>Interactive States</ShwTextH4>
 
       <ShwTextBody>Complete</ShwTextBody>
@@ -209,7 +243,10 @@ export default class StepperNavCarbonizationIndex extends Component<StepperNavCa
           <ShwCarbonizationComparisonGrid @label="{{state}}">
             <:theming>
               <HdsStepperNav @currentStep={{0}} @ariaLabel="Label" as |S|>
-                <S.Step mock-state-value="{{state}}" mock-state-selector="button">
+                <S.Step
+                  mock-state-value="{{state}}"
+                  mock-state-selector="button"
+                >
                   <:title>Title</:title>
                   <:description>Description</:description>
                 </S.Step>
@@ -223,5 +260,6 @@ export default class StepperNavCarbonizationIndex extends Component<StepperNavCa
         {{/if}}
       {{/each}}
     </section>
-  </template>
-}
+  </template>;
+
+export default StepperNavCarbonizationIndex;

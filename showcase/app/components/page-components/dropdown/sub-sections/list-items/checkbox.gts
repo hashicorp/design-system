@@ -27,7 +27,7 @@ const SubSectionListItemsCheckbox: TemplateOnlyComponent = <template>
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each STATES as |state|}}
-            <HdsDropdownListItemCheckbox mock-state-value={{state}} >
+            <HdsDropdownListItemCheckbox mock-state-value={{state}}>
               {{state}}
             </HdsDropdownListItemCheckbox>
           {{/each}}
