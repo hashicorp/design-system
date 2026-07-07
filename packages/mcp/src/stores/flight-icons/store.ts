@@ -123,7 +123,7 @@ export const loadIconCatalog = (): IconCatalogStore => {
 
           return toSearchBlob(icon).includes(normalizedQuery);
         })
-        .slice(0, limit);
+        .slice(0, Math.max(0, Math.trunc(limit)));
     },
   };
 };
