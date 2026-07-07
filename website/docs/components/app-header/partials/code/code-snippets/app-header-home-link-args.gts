@@ -15,7 +15,7 @@ probably need to be set to true (or omitted to rely on defaults) }}
       <HdsAppHeaderHomeLink
         @icon="terraform"
         @text="Terraform home menu"
-        @color="var(--hds-color-terraform-brand)"
+        @color="var(--hds-product-terraform-brand-color)"
         @href="/"
       />
     </:logo>
