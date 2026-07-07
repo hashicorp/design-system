@@ -315,13 +315,13 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-components.form.text-input">
-            Form::TextInput
+          <LinkTo @route="page-components.form.textarea">
+            Form::Textarea
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-components.form.textarea">
-            Form::Textarea
+          <LinkTo @route="page-components.form.text-input">
+            Form::TextInput
           </LinkTo>
         </li>
         <li>
@@ -633,13 +633,13 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-carbonization.components.form.text-input">
-            Form::TextInput
+          <LinkTo @route="page-carbonization.components.form.textarea">
+            Form::Textarea
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-carbonization.components.form.textarea">
-            Form::Textarea
+          <LinkTo @route="page-carbonization.components.form.text-input">
+            Form::TextInput
           </LinkTo>
         </li>
       </ol>
