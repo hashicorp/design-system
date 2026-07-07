@@ -4,7 +4,6 @@
  */
 
 import type { JsonObject } from "../types.js";
-<<<<<<< HEAD
 import type {
   ReadResourceCallback,
   ReadResourceTemplateCallback,
@@ -14,25 +13,11 @@ import type { ReadResourceResult } from "@modelcontextprotocol/sdk/types.js";
 type SupportedReadHandlerArgs =
   | Parameters<ReadResourceCallback>
   | Parameters<ReadResourceTemplateCallback>;
-=======
-
-type ResourceResponse = {
-  contents: {
-    uri: string;
-    mimeType: string;
-    text: string;
-  }[];
-};
->>>>>>> fcd3ba4718 (finished adding infrastructure)
 
 export const toJsonResourceResponse: (
   uri: string,
   payload: JsonObject,
-<<<<<<< HEAD
 ) => ReadResourceResult = (uri: string, payload: JsonObject) => {
-=======
-) => ResourceResponse = (uri: string, payload: JsonObject) => {
->>>>>>> fcd3ba4718 (finished adding infrastructure)
   return {
     contents: [
       {
