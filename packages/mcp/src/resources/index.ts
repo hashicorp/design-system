@@ -1,9 +1,12 @@
-import FLIGHT_ICONS_RESOURCES from "./flight-icons/index.js";
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { McpResource } from "./types.js";
 
-const RESOURCES: McpResource[] = [...FLIGHT_ICONS_RESOURCES];
+const RESOURCES: McpResource[] = [];
 
 export function registerResources(server: McpServer) {
   for (const resource of RESOURCES) {
