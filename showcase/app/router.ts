@@ -209,6 +209,7 @@ Router.map(function () {
       this.route('separator');
       this.route('stepper', function () {
         this.route('indicator');
+        this.route('list');
         this.route('nav');
       });
       this.route('tabs');

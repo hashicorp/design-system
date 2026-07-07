@@ -699,6 +699,10 @@
   --hds-rich-tooltip-toggle-foreground-color-hover: #3b3d45;
   --hds-rich-tooltip-toggle-foreground-color-active: #656a76;
   --hds-rich-tooltip-toggle-icon-size: 1em;
+  --hds-stepper-list-step-title-typography-font-weight: 600;
+  --hds-stepper-list-step-description-typography-font-size: 0.8125rem;
+  --hds-stepper-list-step-description-foreground-color: #3b3d45;
+  --hds-stepper-list-progress-bar-offset: 4px;
   --hds-stepper-nav-step-title-typography-font-weight: 600;
   --hds-stepper-nav-step-complete-title-foreground-color-default: #0c0c0e;
   --hds-stepper-nav-step-complete-title-foreground-color-interactive: #1060ff;

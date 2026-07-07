@@ -1,0 +1,75 @@
+{
+  "stepper-list": {
+    "step": {
+      "title": {
+        "typography": {
+          "font-weight": {
+            "$type": "font-weight",
+            "$value": "{typography.font-weight.semibold}",
+            "$modes": {
+              "default": "{typography.font-weight.semibold}",
+              "cds-g0": "{carbon.typography.bodyCompact01.font-weight}",
+              "cds-g10": "{carbon.typography.bodyCompact01.font-weight}",
+              "cds-g90": "{carbon.typography.bodyCompact01.font-weight}",
+              "cds-g100": "{carbon.typography.bodyCompact01.font-weight}"
+            }
+          }
+        }
+      },
+      "description": {
+        "typography": {
+          "font-size": {
+            "$type": "font-size",
+            "$value": "{typography.body-100.font-size}",
+            "$modes": {
+              "default": "{typography.body-100.font-size}",
+              "cds-g0": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g10": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g90": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g100": {
+                "$value": "0.75",
+                "unit": "rem"
+              }
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "$type": "color",
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.white.textSecondary}",
+              "cds-g10": "{carbon.themes.g10.textSecondary}",
+              "cds-g90": "{carbon.themes.g90.textSecondary}",
+              "cds-g100": "{carbon.themes.g100.textSecondary}"
+            }
+          }
+        }
+      }
+    },
+    "progress-bar": {
+      "offset": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      }
+    }
+  }
+}
