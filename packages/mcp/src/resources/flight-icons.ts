@@ -9,7 +9,7 @@ import { toJsonResourceResponse, withSafeResourceHandler } from "./utils.js";
 
 import type { JsonObject } from "../types.js";
 import type { IconCatalogStore } from "../stores/flight-icons/store.js";
-import type { IconRecord } from "../stores/flight-icons/lookup.js";
+import type { IconRecord } from "../stores/flight-icons/types.js";
 import type { McpResource } from "./types.js";
 
 export const ICONS_URI = "hds://icons";
@@ -58,11 +58,14 @@ export const readIconResource = (store: IconCatalogStore, iconName: string) => {
   const icon = store.getIconByName(iconName);
 
   if (icon === null) {
-    return toJsonResourceResponse(`${ICONS_URI}/${encodeURIComponent(iconName)}`, {
-      found: false,
-      requestedIconName: iconName,
-      message: "Icon not found for provided iconName.",
-    });
+    return toJsonResourceResponse(
+      `${ICONS_URI}/${encodeURIComponent(iconName)}`,
+      {
+        found: false,
+        requestedIconName: iconName,
+        message: "Icon not found for provided iconName.",
+      },
+    );
   }
 
   return toJsonResourceResponse(
@@ -83,9 +86,13 @@ const getIconsResource: McpResource = {
     description: "Canonical list of Flight icons with summary metadata",
     mimeType: "application/json",
   },
-  readCallback: withSafeResourceHandler("hds_icons", async () => {
-    return readIconsResource(iconStore);
-  }, ICONS_URI),
+  readCallback: withSafeResourceHandler(
+    "hds_icons",
+    async () => {
+      return readIconsResource(iconStore);
+    },
+    ICONS_URI,
+  ),
 };
 
 const getIconResource: McpResource = {
@@ -116,6 +123,9 @@ const getIconResource: McpResource = {
   ),
 };
 
-const FLIGHT_ICONS_RESOURCES: McpResource[] = [getIconsResource, getIconResource];
+const FLIGHT_ICONS_RESOURCES: McpResource[] = [
+  getIconsResource,
+  getIconResource,
+];
 
 export default FLIGHT_ICONS_RESOURCES;

@@ -4,24 +4,7 @@
  */
 
 import type { IconAsset } from "./schema.js";
-
-export interface IconVariant {
-  id: string;
-  fileName: string;
-  size: string;
-  width: number;
-  height: number;
-  mapping?: string;
-}
-
-export interface IconRecord {
-  iconName: string;
-  description: string;
-  category: string;
-  sizes: string[];
-  hasMapping: boolean;
-  variants: IconVariant[];
-}
+import type { IconRecord, IconVariant } from "./types.js";
 
 export const normalizeLookupValue = (value: string): string => {
   return value.trim().toLowerCase();
