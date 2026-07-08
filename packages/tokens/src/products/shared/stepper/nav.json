@@ -192,9 +192,9 @@
           "cds-g100": "0"
         }
       },
-      "incomplete": {
-        "surface": {
-          "color": {
+      "surface": {
+        "color": {
+          "incomplete": {
             "$type": "color",
             "$value": "{color.palette.neutral-100}",
             "$modes": {
@@ -204,12 +204,8 @@
               "cds-g90": "{carbon.themes.g90.borderSubtle00}",
               "cds-g100": "{carbon.themes.g100.borderSubtle00}"
             }
-          }
-        }
-      },
-      "complete": {
-        "surface": {
-          "color": {
+          },
+          "complete": {
             "default": {
               "$type": "color",
               "$value": "{color.palette.neutral-700}",
