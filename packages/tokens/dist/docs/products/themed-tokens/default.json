@@ -22571,9 +22571,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.primary}",
+      "$value": "{foreground.color.primary}",
       "$modes": {
-        "default": "{color.foreground.primary}",
+        "default": "{foreground.color.primary}",
         "cds-g0": "{carbon.themes.white.textSecondary}",
         "cds-g10": "{carbon.themes.g10.textSecondary}",
         "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -22664,41 +22664,6 @@
     ]
   },
   {
-    "key": "{stepper-list.progress-bar.offset}",
-    "$type": "dimension",
-    "$value": "4px",
-    "unit": "px",
-    "$modes": {
-      "default": "4",
-      "cds-g0": "0",
-      "cds-g10": "0",
-      "cds-g90": "0",
-      "cds-g100": "0"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "4",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
-      "key": "{stepper-list.progress-bar.offset}"
-    },
-    "name": "hds-stepper-list-progress-bar-offset",
-    "attributes": {
-      "category": "stepper-list"
-    },
-    "path": [
-      "stepper-list",
-      "progress-bar",
-      "offset"
-    ]
-  },
-  {
     "key": "{stepper-list.progress-bar.surface.color.incomplete}",
     "$type": "color",
     "$value": "#f1f2f3",
@@ -22711,9 +22676,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-100}",
+      "$value": "{core.color.neutral-100}",
       "$modes": {
-        "default": "{color.palette.neutral-100}",
+        "default": "{core.color.neutral-100}",
         "cds-g0": "{carbon.themes.white.borderSubtle00}",
         "cds-g10": "{carbon.themes.g10.borderSubtle00}",
         "cds-g90": "{carbon.themes.g90.borderSubtle00}",
@@ -22746,13 +22711,13 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-700}",
+      "$value": "{core.color.neutral-700}",
       "$modes": {
-        "default": "{color.palette.neutral-700}",
-        "cds-g0": "{color.palette.neutral-700}",
-        "cds-g10": "{color.palette.neutral-700}",
-        "cds-g90": "{color.palette.neutral-100}",
-        "cds-g100": "{color.palette.neutral-100}"
+        "default": "{core.color.neutral-700}",
+        "cds-g0": "{core.color.neutral-700}",
+        "cds-g10": "{core.color.neutral-700}",
+        "cds-g90": "{core.color.neutral-100}",
+        "cds-g100": "{core.color.neutral-100}"
       },
       "key": "{stepper-list.progress-bar.surface.color.complete}"
     },
@@ -22936,9 +22901,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.strong}",
+      "$value": "{foreground.color.strong}",
       "$modes": {
-        "default": "{color.foreground.strong}",
+        "default": "{foreground.color.strong}",
         "cds-g0": "{carbon.themes.white.textPrimary}",
         "cds-g10": "{carbon.themes.g10.textPrimary}",
         "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -22973,9 +22938,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.action}",
+      "$value": "{foreground.color.action}",
       "$modes": {
-        "default": "{color.foreground.action}",
+        "default": "{foreground.color.action}",
         "cds-g0": "{carbon.themes.white.textPrimary}",
         "cds-g10": "{carbon.themes.g10.textPrimary}",
         "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -23010,9 +22975,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.primary}",
+      "$value": "{foreground.color.primary}",
       "$modes": {
-        "default": "{color.foreground.primary}",
+        "default": "{foreground.color.primary}",
         "cds-g0": "{carbon.themes.white.textSecondary}",
         "cds-g10": "{carbon.themes.g10.textSecondary}",
         "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -23046,9 +23011,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.surface.interactive-hover}",
+      "$value": "{surface.color.interactive-hover}",
       "$modes": {
-        "default": "{color.surface.interactive-hover}",
+        "default": "{surface.color.interactive-hover}",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -23083,9 +23048,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.surface.interactive-active}",
+      "$value": "{surface.color.interactive-active}",
       "$modes": {
-        "default": "{color.surface.interactive-active}",
+        "default": "{surface.color.interactive-active}",
         "cds-g0": "transparent",
         "cds-g10": "transparent",
         "cds-g90": "transparent",
@@ -23120,9 +23085,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.strong}",
+      "$value": "{foreground.color.strong}",
       "$modes": {
-        "default": "{color.foreground.strong}",
+        "default": "{foreground.color.strong}",
         "cds-g0": "{carbon.themes.white.textPrimary}",
         "cds-g10": "{carbon.themes.g10.textPrimary}",
         "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -23157,9 +23122,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.action}",
+      "$value": "{foreground.color.action}",
       "$modes": {
-        "default": "{color.foreground.action}",
+        "default": "{foreground.color.action}",
         "cds-g0": "{carbon.themes.white.textPrimary}",
         "cds-g10": "{carbon.themes.g10.textPrimary}",
         "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -23194,9 +23159,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.primary}",
+      "$value": "{foreground.color.primary}",
       "$modes": {
-        "default": "{color.foreground.primary}",
+        "default": "{foreground.color.primary}",
         "cds-g0": "{carbon.themes.white.textSecondary}",
         "cds-g10": "{carbon.themes.g10.textSecondary}",
         "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -23230,9 +23195,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.faint}",
+      "$value": "{foreground.color.faint}",
       "$modes": {
-        "default": "{color.foreground.faint}",
+        "default": "{foreground.color.faint}",
         "cds-g0": "{carbon.themes.white.textPrimary}",
         "cds-g10": "{carbon.themes.g10.textPrimary}",
         "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -23266,9 +23231,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.faint}",
+      "$value": "{foreground.color.faint}",
       "$modes": {
-        "default": "{color.foreground.faint}",
+        "default": "{foreground.color.faint}",
         "cds-g0": "{carbon.themes.white.textSecondary}",
         "cds-g10": "{carbon.themes.g10.textSecondary}",
         "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -23360,7 +23325,7 @@
     ]
   },
   {
-    "key": "{stepper-nav.progress-bar.incomplete.surface.color}",
+    "key": "{stepper-nav.progress-bar.surface.color.incomplete}",
     "$type": "color",
     "$value": "#f1f2f3",
     "$modes": {
@@ -23372,30 +23337,30 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-100}",
+      "$value": "{core.color.neutral-100}",
       "$modes": {
-        "default": "{color.palette.neutral-100}",
+        "default": "{core.color.neutral-100}",
         "cds-g0": "{carbon.themes.white.borderSubtle00}",
         "cds-g10": "{carbon.themes.g10.borderSubtle00}",
         "cds-g90": "{carbon.themes.g90.borderSubtle00}",
         "cds-g100": "{carbon.themes.g100.borderSubtle00}"
       },
-      "key": "{stepper-nav.progress-bar.incomplete.surface.color}"
+      "key": "{stepper-nav.progress-bar.surface.color.incomplete}"
     },
-    "name": "hds-stepper-nav-progress-bar-incomplete-surface-color",
+    "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
     "attributes": {
       "category": "stepper-nav"
     },
     "path": [
       "stepper-nav",
       "progress-bar",
-      "incomplete",
       "surface",
-      "color"
+      "color",
+      "incomplete"
     ]
   },
   {
-    "key": "{stepper-nav.progress-bar.complete.surface.color.default}",
+    "key": "{stepper-nav.progress-bar.surface.color.complete.default}",
     "$type": "color",
     "$value": "#0c0c0e",
     "$modes": {
@@ -23407,31 +23372,31 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-700}",
+      "$value": "{core.color.neutral-700}",
       "$modes": {
-        "default": "{color.palette.neutral-700}",
-        "cds-g0": "{color.palette.neutral-700}",
-        "cds-g10": "{color.palette.neutral-700}",
-        "cds-g90": "{color.palette.neutral-100}",
-        "cds-g100": "{color.palette.neutral-100}"
+        "default": "{core.color.neutral-700}",
+        "cds-g0": "{core.color.neutral-700}",
+        "cds-g10": "{core.color.neutral-700}",
+        "cds-g90": "{core.color.neutral-100}",
+        "cds-g100": "{core.color.neutral-100}"
       },
-      "key": "{stepper-nav.progress-bar.complete.surface.color.default}"
+      "key": "{stepper-nav.progress-bar.surface.color.complete.default}"
     },
-    "name": "hds-stepper-nav-progress-bar-complete-surface-color-default",
+    "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
     "attributes": {
       "category": "stepper-nav"
     },
     "path": [
       "stepper-nav",
       "progress-bar",
-      "complete",
       "surface",
       "color",
+      "complete",
       "default"
     ]
   },
   {
-    "key": "{stepper-nav.progress-bar.complete.surface.color.interactive}",
+    "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}",
     "$type": "color",
     "$value": "#1060ff",
     "$modes": {
@@ -23443,26 +23408,26 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.blue-200}",
+      "$value": "{core.color.blue-200}",
       "$modes": {
-        "default": "{color.palette.blue-200}",
+        "default": "{core.color.blue-200}",
         "cds-g0": "{carbon.themes.white.interactive}",
         "cds-g10": "{carbon.themes.g10.interactive}",
         "cds-g90": "{carbon.themes.g90.interactive}",
         "cds-g100": "{carbon.themes.g100.interactive}"
       },
-      "key": "{stepper-nav.progress-bar.complete.surface.color.interactive}"
+      "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}"
     },
-    "name": "hds-stepper-nav-progress-bar-complete-surface-color-interactive",
+    "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
     "attributes": {
       "category": "stepper-nav"
     },
     "path": [
       "stepper-nav",
       "progress-bar",
-      "complete",
       "surface",
       "color",
+      "complete",
       "interactive"
     ]
   },
@@ -23547,9 +23512,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.primary}",
+      "$value": "{foreground.color.primary}",
       "$modes": {
-        "default": "{color.foreground.primary}",
+        "default": "{foreground.color.primary}",
         "cds-g0": "{carbon.themes.white.iconPrimary}",
         "cds-g10": "{carbon.themes.g10.iconPrimary}",
         "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -23581,9 +23546,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.high-contrast}",
+      "$value": "{foreground.color.high-contrast}",
       "$modes": {
-        "default": "{color.foreground.high-contrast}",
+        "default": "{foreground.color.high-contrast}",
         "cds-g0": "{carbon.themes.white.iconPrimary}",
         "cds-g10": "{carbon.themes.g10.iconPrimary}",
         "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -23615,9 +23580,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.high-contrast}",
+      "$value": "{foreground.color.high-contrast}",
       "$modes": {
-        "default": "{color.foreground.high-contrast}",
+        "default": "{foreground.color.high-contrast}",
         "cds-g0": "{carbon.themes.white.iconPrimary}",
         "cds-g10": "{carbon.themes.g10.iconPrimary}",
         "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -23649,9 +23614,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.high-contrast}",
+      "$value": "{foreground.color.high-contrast}",
       "$modes": {
-        "default": "{color.foreground.high-contrast}",
+        "default": "{foreground.color.high-contrast}",
         "cds-g0": "{carbon.themes.white.iconPrimary}",
         "cds-g10": "{carbon.themes.g10.iconPrimary}",
         "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -23753,9 +23718,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.primary}",
+      "$value": "{foreground.color.primary}",
       "$modes": {
-        "default": "{color.foreground.primary}",
+        "default": "{foreground.color.primary}",
         "cds-g0": "{carbon.themes.white.iconPrimary}",
         "cds-g10": "{carbon.themes.g10.iconPrimary}",
         "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -23788,9 +23753,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.high-contrast}",
+      "$value": "{foreground.color.high-contrast}",
       "$modes": {
-        "default": "{color.foreground.high-contrast}",
+        "default": "{foreground.color.high-contrast}",
         "cds-g0": "{carbon.themes.white.interactive}",
         "cds-g10": "{carbon.themes.g10.interactive}",
         "cds-g90": "{carbon.themes.g90.interactive}",
@@ -23823,9 +23788,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.foreground.high-contrast}",
+      "$value": "{foreground.color.high-contrast}",
       "$modes": {
-        "default": "{color.foreground.high-contrast}",
+        "default": "{foreground.color.high-contrast}",
         "cds-g0": "{carbon.themes.white.interactive}",
         "cds-g10": "{carbon.themes.g10.interactive}",
         "cds-g90": "{carbon.themes.g90.interactive}",
@@ -23858,9 +23823,9 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.blue-200}",
+      "$value": "{core.color.blue-200}",
       "$modes": {
-        "default": "{color.palette.blue-200}",
+        "default": "{core.color.blue-200}",
         "cds-g0": "{carbon.themes.white.interactive}",
         "cds-g10": "{carbon.themes.g10.interactive}",
         "cds-g90": "{carbon.themes.g90.interactive}",
