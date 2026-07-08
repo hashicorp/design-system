@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "ember": {
+      "command": "npx",
+      "args": ["-y", "ember-mcp@0.1.0"]
+    }
+  }
+}

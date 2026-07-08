@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "ember": {
+      "type": "local",
+      "command": ["npx", "-y", "ember-mcp@0.1.0"],
+      "enabled": true
+    }
+  }
+}
