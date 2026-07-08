@@ -212,6 +212,7 @@ Router.map(function () {
         this.route('list');
         this.route('nav');
       });
+      this.route('table');
       this.route('tabs');
       this.route('tag');
       this.route('toast');
