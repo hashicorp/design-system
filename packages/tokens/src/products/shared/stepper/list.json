@@ -82,18 +82,6 @@
           "cds-g100": "0"
         }
       },
-      "offset": {
-        "$type": "dimension",
-        "$value": "4",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        }
-      },
       "surface": {
         "color": {
           "incomplete": {
