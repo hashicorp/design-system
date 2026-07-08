@@ -27,7 +27,7 @@
     Placeholder text for the search input when `@hasSearch` is `true`.
   </C.Property>
   <C.Property @name="searchAriaLabel" @type="string" @default="&quot;Search&quot;">
-    Aria-label text for the search input.
+    The `aria-label` text for the search input.
   </C.Property>
   <C.Property @name="onFilter" @type="function">
     Callback invoked when filters are applied, changed, or cleared. Receives a single argument: the updated `HdsFilterBarFilters` object.
