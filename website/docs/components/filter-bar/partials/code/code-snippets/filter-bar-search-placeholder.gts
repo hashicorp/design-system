@@ -19,6 +19,7 @@ export default class LocalComponent extends Component {
       @onFilter={{this.demoUpdateEmptyFilters}}
       @hasSearch={{true}}
       @searchPlaceholder="Search projects"
+      @searchAriaLabel="Search by project name"
       as |F|
     >
       <F.FiltersDropdown as |D|>

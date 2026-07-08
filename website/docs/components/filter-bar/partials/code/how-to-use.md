@@ -119,7 +119,7 @@ When the search input's `input` event is triggered, a filter of type `search` wi
 
 [[code-snippets/filter-bar-search-data execute=false]]
 
-The search input's placeholder text is "Search" by default, but can be customized with the `@searchPlaceholder` argument.
+The search input’s aria-label and placeholder text values are both “Search” by default, but they can be customized with the `@searchAriaLabel` and `@searchPlaceholder` arguments respectively.
 
 [[code-snippets/filter-bar-search-placeholder]]
 
