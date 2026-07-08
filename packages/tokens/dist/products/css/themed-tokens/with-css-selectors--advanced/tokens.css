@@ -865,6 +865,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-list-step-description-foreground-color: var(
     --hds-color-foreground-primary
   );
+  --hds-stepper-list-step-description-margin-top: 4px;
   --hds-stepper-list-step-description-typography-font-size: var(
     --hds-typography-body-100-font-size
   );
@@ -905,6 +906,10 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-stepper-nav-step-complete-title-foreground-color-interactive: var(
     --hds-color-foreground-action
+  );
+  --hds-stepper-nav-step-description-margin-top: 4px;
+  --hds-stepper-nav-step-description-typography-font-size: var(
+    --hds-typography-body-100-font-size
   );
   --hds-stepper-nav-step-incomplete-description-foreground-color: var(
     --hds-color-foreground-faint
@@ -1594,6 +1599,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-stepper-list-progress-bar-surface-color-incomplete: #e0e0e0;
     --hds-stepper-list-progress-bar-top: 0px;
     --hds-stepper-list-step-description-foreground-color: #525252;
+    --hds-stepper-list-step-description-margin-top: 0px;
     --hds-stepper-list-step-description-typography-font-size: 0.75rem;
     --hds-stepper-list-step-title-typography-font-weight: 400;
     --hds-stepper-nav-progress-bar-complete-surface-color-default: var(
@@ -1621,6 +1627,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     );
     --hds-stepper-nav-step-complete-title-foreground-color-default: #161616;
     --hds-stepper-nav-step-complete-title-foreground-color-interactive: #161616;
+    --hds-stepper-nav-step-description-margin-top: 0px;
+    --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
     --hds-stepper-nav-step-incomplete-description-foreground-color: #525252;
     --hds-stepper-nav-step-incomplete-title-foreground-color: #161616;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -2281,6 +2289,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-stepper-list-progress-bar-surface-color-incomplete: #393939;
     --hds-stepper-list-progress-bar-top: 0px;
     --hds-stepper-list-step-description-foreground-color: #c6c6c6;
+    --hds-stepper-list-step-description-margin-top: 0px;
     --hds-stepper-list-step-description-typography-font-size: 0.75rem;
     --hds-stepper-list-step-title-typography-font-weight: 400;
     --hds-stepper-nav-progress-bar-complete-surface-color-default: var(
@@ -2308,6 +2317,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     );
     --hds-stepper-nav-step-complete-title-foreground-color-default: #f4f4f4;
     --hds-stepper-nav-step-complete-title-foreground-color-interactive: #f4f4f4;
+    --hds-stepper-nav-step-description-margin-top: 0px;
+    --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
     --hds-stepper-nav-step-incomplete-description-foreground-color: #c6c6c6;
     --hds-stepper-nav-step-incomplete-title-foreground-color: #f4f4f4;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -2947,6 +2958,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-list-progress-bar-surface-color-incomplete: #e0e0e0;
   --hds-stepper-list-progress-bar-top: 0px;
   --hds-stepper-list-step-description-foreground-color: #525252;
+  --hds-stepper-list-step-description-margin-top: 0px;
   --hds-stepper-list-step-description-typography-font-size: 0.75rem;
   --hds-stepper-list-step-title-typography-font-weight: 400;
   --hds-stepper-nav-progress-bar-complete-surface-color-default: var(
@@ -2974,6 +2986,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-stepper-nav-step-complete-title-foreground-color-default: #161616;
   --hds-stepper-nav-step-complete-title-foreground-color-interactive: #161616;
+  --hds-stepper-nav-step-description-margin-top: 0px;
+  --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-incomplete-description-foreground-color: #525252;
   --hds-stepper-nav-step-incomplete-title-foreground-color: #161616;
   --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -3632,6 +3646,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-list-progress-bar-surface-color-incomplete: #393939;
   --hds-stepper-list-progress-bar-top: 0px;
   --hds-stepper-list-step-description-foreground-color: #c6c6c6;
+  --hds-stepper-list-step-description-margin-top: 0px;
   --hds-stepper-list-step-description-typography-font-size: 0.75rem;
   --hds-stepper-list-step-title-typography-font-weight: 400;
   --hds-stepper-nav-progress-bar-complete-surface-color-default: var(
@@ -3659,6 +3674,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-stepper-nav-step-complete-title-foreground-color-default: #f4f4f4;
   --hds-stepper-nav-step-complete-title-foreground-color-interactive: #f4f4f4;
+  --hds-stepper-nav-step-description-margin-top: 0px;
+  --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-incomplete-description-foreground-color: #c6c6c6;
   --hds-stepper-nav-step-incomplete-title-foreground-color: #f4f4f4;
   --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -4296,6 +4313,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-list-progress-bar-surface-color-incomplete: #c6c6c6;
   --hds-stepper-list-progress-bar-top: 0px;
   --hds-stepper-list-step-description-foreground-color: #525252;
+  --hds-stepper-list-step-description-margin-top: 0px;
   --hds-stepper-list-step-description-typography-font-size: 0.75rem;
   --hds-stepper-list-step-title-typography-font-weight: 400;
   --hds-stepper-nav-progress-bar-complete-surface-color-default: var(
@@ -4323,6 +4341,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-stepper-nav-step-complete-title-foreground-color-default: #161616;
   --hds-stepper-nav-step-complete-title-foreground-color-interactive: #161616;
+  --hds-stepper-nav-step-description-margin-top: 0px;
+  --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-incomplete-description-foreground-color: #525252;
   --hds-stepper-nav-step-incomplete-title-foreground-color: #161616;
   --hds-stepper-nav-step-title-typography-font-weight: 400;
@@ -4980,6 +5000,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-stepper-list-progress-bar-surface-color-incomplete: #525252;
   --hds-stepper-list-progress-bar-top: 0px;
   --hds-stepper-list-step-description-foreground-color: #c6c6c6;
+  --hds-stepper-list-step-description-margin-top: 0px;
   --hds-stepper-list-step-description-typography-font-size: 0.75rem;
   --hds-stepper-list-step-title-typography-font-weight: 400;
   --hds-stepper-nav-progress-bar-complete-surface-color-default: var(
@@ -5007,6 +5028,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-stepper-nav-step-complete-title-foreground-color-default: #f4f4f4;
   --hds-stepper-nav-step-complete-title-foreground-color-interactive: #f4f4f4;
+  --hds-stepper-nav-step-description-margin-top: 0px;
+  --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-incomplete-description-foreground-color: #c6c6c6;
   --hds-stepper-nav-step-incomplete-title-foreground-color: #f4f4f4;
   --hds-stepper-nav-step-title-typography-font-weight: 400;

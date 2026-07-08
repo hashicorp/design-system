@@ -487,6 +487,7 @@
   --hds-stepper-list-progress-bar-surface-color-incomplete: #c6c6c6;
   --hds-stepper-list-progress-bar-top: 0px;
   --hds-stepper-list-step-description-foreground-color: #525252;
+  --hds-stepper-list-step-description-margin-top: 0px;
   --hds-stepper-list-step-description-typography-font-size: 0.75rem;
   --hds-stepper-list-step-title-typography-font-weight: 400;
   --hds-stepper-nav-progress-bar-complete-surface-color-default: var(--hds-color-palette-neutral-700);
@@ -502,6 +503,8 @@
   --hds-stepper-nav-step-complete-surface-color-interactive-hover: rgba(0, 0, 0, 0);
   --hds-stepper-nav-step-complete-title-foreground-color-default: #161616;
   --hds-stepper-nav-step-complete-title-foreground-color-interactive: #161616;
+  --hds-stepper-nav-step-description-margin-top: 0px;
+  --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
   --hds-stepper-nav-step-incomplete-description-foreground-color: #525252;
   --hds-stepper-nav-step-incomplete-title-foreground-color: #161616;
   --hds-stepper-nav-step-title-typography-font-weight: 400;

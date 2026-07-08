@@ -64,13 +64,13 @@ $hds-stepper-list-gap-spacing: 16px;
   }
 
   &:last-of-type {
-    .hds-stepper-list__step-progress {
+    .hds-stepper-list__step-progress:not(.hds-stepper-list__step--complete) {
       &::before,
       &::after {
-        display: none;
+        content: none;
 
         @include hds-apply-only-if-carbon() {
-          display: block;
+          content: "";
         }
       }
     }
@@ -97,7 +97,7 @@ $hds-stepper-list-gap-spacing: 16px;
 }
 
 .hds-stepper-list__step-description {
-  margin-top: 4px;
+  margin-top: var(--hds-stepper-list-step-description-margin-top);
   color: var(--hds-stepper-list-step-description-foreground-color);
   font-size: var(--hds-stepper-list-step-description-typography-font-size);
 

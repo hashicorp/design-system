@@ -16,6 +16,47 @@
           }
         }
       },
+      "description": {
+        "margin": {
+          "top": {
+            "$type": "dimension",
+            "$value": "4",
+            "unit": "px",
+            "$modes": {
+              "default": "4",
+              "cds-g0": "0",
+              "cds-g10": "0",
+              "cds-g90": "0",
+              "cds-g100": "0"
+            }
+          }
+        },
+        "typography": {
+          "font-size": {
+            "$type": "font-size",
+            "$value": "{typography.body-100.font-size}",
+            "$modes": {
+              "default": "{typography.body-100.font-size}",
+              "cds-g0": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g10": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g90": {
+                "$value": "0.75",
+                "unit": "rem"
+              },
+              "cds-g100": {
+                "$value": "0.75",
+                "unit": "rem"
+              }
+            }
+          }
+        },
+      },
       "complete": {
         "title": {
           "foreground": {

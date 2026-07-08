@@ -130,8 +130,9 @@ $progress-bar-animation-duration: 0.25s;
 }
 
 .hds-stepper-nav__step-description {
-  margin-top: 4px;
+  margin-top: var(--hds-stepper-nav-step-description-margin-top);
   color: var(--hds-stepper-nav-step-incomplete-description-foreground-color);
+  font-size: var(--hds-stepper-nav-step-description-typography-font-size);
 }
 
 // STATUSES
