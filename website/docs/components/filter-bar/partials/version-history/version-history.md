@@ -1,3 +1,8 @@
+## 6.4.0
+
+Added a `searchAriaLabel` feature to expose the value of the search input aria-label, allowing the value to be customized
+
+
 ## 6.1.0
 
 Added support for an array of values for the `generic` filter type data

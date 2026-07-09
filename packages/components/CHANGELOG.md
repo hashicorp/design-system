@@ -6,11 +6,9 @@
 
 ### Minor Changes
 
-<!-- START components/filter-bar -->
 
 `FilterBar` - Added a `searchAriaLabel` feature to expose the value of the search input aria-label, allowing the value to be customized
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3980](https://github.com/hashicorp/design-system/pull/3980)</small>
 

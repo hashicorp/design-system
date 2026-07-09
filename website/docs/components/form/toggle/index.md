@@ -20,8 +20,6 @@ navigation:
     - toggle button
     - switch
     - light switch
-status:
-  updated: 6.3.0
 ---
 
 <section data-tab="Guidelines">
