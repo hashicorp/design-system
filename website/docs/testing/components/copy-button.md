@@ -17,6 +17,6 @@ title: Doc::CopyButton
 
 | Variant      | Code                                                                                                                                                             |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Basic        | <Doc::CopyButton @textToCopy="--hds-color-blue-palette-200" @type="code" />                                                                                    |
-| Custom text  | <Doc::CopyButton @textToCopy="With this we can show different text from what is actually copied ;)" @textToShow="--hds-color-blue-palette-200" @type="code" /> |
+| Basic        | <Doc::CopyButton @textToCopy="--my-design-token" @type="code" />                                                                                    |
+| Custom text  | <Doc::CopyButton @textToCopy="With this we can show different text from what is actually copied ;)" @textToShow="--my-design-token" @type="code" /> |
 | Encoded text | <Doc::CopyButton @textToCopy="%3CHds::Button%20@text=%22Button%22%20%7B%7Bon%20%22click%22%20this.action%7D%7D%20/%3E" @type="code" @encoded={{true}} />         |

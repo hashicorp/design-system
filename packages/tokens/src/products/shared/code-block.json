@@ -78,6 +78,17 @@
             "cds-g90": "{carbon.color.yellow.30}",
             "cds-g100": "{carbon.color.yellow.30}"
           }
+        },
+        "white": {
+          "$type": "color",
+          "$value": "#efeff1",
+          "$modes": {
+            "default": "#efeff1",
+            "cds-g0": "{carbon.color.gray.70}",
+            "cds-g10": "{carbon.color.gray.70}",
+            "cds-g90": "{carbon.color.white.0}",
+            "cds-g100": "{carbon.color.white.0}"
+          }
         }
       }
     },
