@@ -90,13 +90,18 @@ module(
           <ul><HdsAppFooterStatusLink
               @text="Waypoint"
               @statusIcon="waypoint"
-              @statusIconColor="var(--hds-color-waypoint-brand)"
+              @statusIconColor="var(--custom-color)"
             /></ul>
         </template>,
       );
-      assert.dom('.hds-app-footer__status-link').hasText('Waypoint');
+      assert
+        .dom('.hds-app-footer__status-link')
+        .hasText('Waypoint')
+        .hasAttribute(
+          'style',
+          '--hds-var-app-footer-status-icon-color: var(--custom-color);',
+        );
       assert.dom('.hds-app-footer__status-link .hds-icon').exists();
-      // .hasStyle({'--hds-var-app-footer-status-icon-color': 'var(--hds-color-waypoint-brand)'})
     });
 
     // href

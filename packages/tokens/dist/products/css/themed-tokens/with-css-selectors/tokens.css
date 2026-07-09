@@ -336,6 +336,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-code-block-syntax-highlight-color-orange: #8a3800;
   --hds-code-block-syntax-highlight-color-purple: #8a3ffc;
   --hds-code-block-syntax-highlight-color-red: #9f1853;
+  --hds-code-block-syntax-highlight-color-white: #525252;
   --hds-code-block-syntax-highlight-color-yellow: #684e00;
   --hds-code-block-typography-font-size: 0.75rem;
   --hds-copy-button-foreground-color: #161616;
@@ -951,6 +952,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-code-block-syntax-highlight-color-orange: #8a3800;
     --hds-code-block-syntax-highlight-color-purple: #8a3ffc;
     --hds-code-block-syntax-highlight-color-red: #9f1853;
+    --hds-code-block-syntax-highlight-color-white: #525252;
     --hds-code-block-syntax-highlight-color-yellow: #684e00;
     --hds-code-block-typography-font-size: 0.75rem;
     --hds-copy-button-foreground-color: #161616;
@@ -1588,6 +1590,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-code-block-syntax-highlight-color-orange: #ff832b;
     --hds-code-block-syntax-highlight-color-purple: #d4bbff;
     --hds-code-block-syntax-highlight-color-red: #ffafd2;
+    --hds-code-block-syntax-highlight-color-white: #ffffff;
     --hds-code-block-syntax-highlight-color-yellow: #f1c21b;
     --hds-code-block-typography-font-size: 0.75rem;
     --hds-copy-button-foreground-color: #f4f4f4;
@@ -2204,6 +2207,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-code-block-syntax-highlight-color-orange: #8a3800;
   --hds-code-block-syntax-highlight-color-purple: #8a3ffc;
   --hds-code-block-syntax-highlight-color-red: #9f1853;
+  --hds-code-block-syntax-highlight-color-white: #525252;
   --hds-code-block-syntax-highlight-color-yellow: #684e00;
   --hds-code-block-typography-font-size: 0.75rem;
   --hds-copy-button-foreground-color: #161616;
@@ -2838,6 +2842,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-code-block-syntax-highlight-color-orange: #ff832b;
   --hds-code-block-syntax-highlight-color-purple: #d4bbff;
   --hds-code-block-syntax-highlight-color-red: #ffafd2;
+  --hds-code-block-syntax-highlight-color-white: #ffffff;
   --hds-code-block-syntax-highlight-color-yellow: #f1c21b;
   --hds-code-block-typography-font-size: 0.75rem;
   --hds-copy-button-foreground-color: #f4f4f4;

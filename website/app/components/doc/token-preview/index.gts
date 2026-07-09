@@ -146,14 +146,14 @@ export default class DocTokenPreview extends Component<DocTokenPreviewSignature>
     {{else if this.sizePreviewStyle}}
       <div
         class="doc-token-preview doc-token-preview--size"
-        {{style --hds-value-height=this.sizePreviewStyle}}
+        {{style --doc-token-preview-size=this.sizePreviewStyle}}
       >
         <span class="doc-token-preview__value">{{this.token.$value}}</span>
       </div>
     {{else if this.boxShadowPreviewStyle}}
       <div
         class="doc-token-preview doc-token-preview--boxshadow"
-        {{style --hds-value-box-shadow=this.boxShadowPreviewStyle}}
+        {{style --doc-token-preview-box-shadow=this.boxShadowPreviewStyle}}
       />
     {{else}}
       <div class="doc-token-preview doc-token-preview--unknown" />

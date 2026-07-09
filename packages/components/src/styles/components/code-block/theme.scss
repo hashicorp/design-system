@@ -11,8 +11,8 @@
   --hds-var-code-block-color-token: var(--hds-code-block-foreground-color-primary);
   // specific ----
   --hds-var-code-block-color-atrule: var(--hds-code-block-syntax-highlight-color-blue);
-  --hds-var-code-block-color-code-block-attr-name: var(--hds-code-block-syntax-highlight-color-blue);
-  --hds-var-code-block-color-attr-value: var(--hds-code-block-syntax-highlight-color-blue);
+  --hds-var-code-block-color-attr-name: var(--hds-code-block-syntax-highlight-color-blue);
+  --hds-var-code-block-color-attr-value: var(--hds-code-block-syntax-highlight-color-cyan);
   --hds-var-code-block-color-boolean: var(--hds-code-block-syntax-highlight-color-purple);
   --hds-var-code-block-color-builtin: var(--hds-code-block-syntax-highlight-color-orange);
   --hds-var-code-block-color-char: var(--hds-code-block-syntax-highlight-color-orange);
@@ -207,7 +207,7 @@
     }
 
     .token.punctuation {
-      color: var(--hds-var-code-block-color-lang-css-punctuatione);
+      color: var(--hds-var-code-block-color-lang-css-punctuation);
     }
 
     .token.selector {
