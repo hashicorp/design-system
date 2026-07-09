@@ -16,7 +16,7 @@ export function generateColorHelpers(tokens: TransformedToken[], outputCssVars: 
   tokens.forEach(token => {
 
     // note: as things stand now, we assume the name structure is always `[semantic]-color-[variant]`
-    // if in the future this will change, we will have to update the logic below accordingly
+    // if this changes in the future, we will have to update the logic below accordingly
 
     // ignore tokens that are not semantic and color-related
     if (!(token.group === 'semantic' && token.path[1] === 'color')) return;
