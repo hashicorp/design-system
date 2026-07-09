@@ -46,11 +46,7 @@ $hds-stepper-list-gap-spacing: 16px;
     &::before {
       height: calc(100% + $hds-stepper-list-gap-spacing);
       background-color: var(--hds-stepper-list-progress-bar-surface-color-incomplete);
-      background-image: linear-gradient(
-        0deg,
-        var(--hds-core-color-alpha-200) 0%,
-        var(--hds-core-color-alpha-200) 100%
-      );
+      background-image: linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%);
 
       @include hds-apply-only-if-carbon() {
         background-image: none;

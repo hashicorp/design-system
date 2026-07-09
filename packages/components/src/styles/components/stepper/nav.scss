@@ -32,11 +32,7 @@ $progress-bar-animation-duration: 0.25s;
   &::before {
     width: 100%;
     background-color: var(--hds-stepper-nav-progress-bar-surface-color-incomplete);
-    background-image: linear-gradient(
-      0deg,
-      var(--hds-core-color-alpha-200) 0%,
-      var(--hds-core-color-alpha-200) 100%
-    );
+    background-image: linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%);
 
     @include hds-apply-only-if-carbon() {
       background-image: none;
