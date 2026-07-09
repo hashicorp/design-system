@@ -19,7 +19,7 @@ For a given changeset the following parameters are required:
 
 1. Run `pnpm changeset` in the terminal.
 2. Follow the prompts provided by the cli to select the package(s) affected, the type of change, and provide a summary of the change based on the parameters above. The CLI will generate a changeset file in the `.changeset` folder with a unique name based on the current date and time.
-3. If the changesset file relates to the `@hashicorp/design-system-components` package, follow the below formatting rules for the changeset file generated.
+3. If the changeset file is for changes to the `@hashicorp/design-system-components` package, follow the below formatting rules for the changeset file generated.
 
 ## Components package changeset formatting
 Each changeset entry related to the `@hashicorp/design-system-components` package should follow this template:
