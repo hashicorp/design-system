@@ -187,7 +187,7 @@
 .hds-power-select .ember-power-select-option[aria-current=true], .hds-power-select .ember-power-select-option:hover {
   color: inherit;
   background-color: var(--hds-color-surface-action);
-  border: var(--hds-form-control-border-width) solid var(--hds-color-palette-blue-300);
+  border: var(--hds-form-control-border-width) solid var(--hds-core-color-blue-300);
 }
 .hds-power-select .ember-power-select-option--no-matches-message {
   padding: 8px;

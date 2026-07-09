@@ -481,9 +481,9 @@
         "primary": {
           "default": {
             "$type": "color",
-            "$value": "{color.palette.blue-200}",
+            "$value": "{core.color.blue-200}",
             "$modes": {
-              "default": "{color.palette.blue-200}",
+              "default": "{core.color.blue-200}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonPrimary.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonPrimary.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonPrimary.g90}",
@@ -492,9 +492,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.palette.blue-300}",
+            "$value": "{core.color.blue-300}",
             "$modes": {
-              "default": "{color.palette.blue-300}",
+              "default": "{core.color.blue-300}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonPrimaryHover.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonPrimaryHover.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonPrimaryHover.g90}",
@@ -503,9 +503,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.palette.blue-200}",
+            "$value": "{core.color.blue-200}",
             "$modes": {
-              "default": "{color.palette.blue-200}",
+              "default": "{core.color.blue-200}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonPrimary.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonPrimary.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonPrimary.g90}",
@@ -514,9 +514,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.palette.blue-400}",
+            "$value": "{core.color.blue-400}",
             "$modes": {
-              "default": "{color.palette.blue-400}",
+              "default": "{core.color.blue-400}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonPrimaryActive.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonPrimaryActive.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonPrimaryActive.g90}",
@@ -669,9 +669,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.palette.red-300}",
+            "$value": "{core.color.red-300}",
             "$modes": {
-              "default": "{color.palette.red-300}",
+              "default": "{core.color.red-300}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonDangerHover.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonDangerHover.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonDangerHover.g90}",
@@ -691,9 +691,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.palette.red-400}",
+            "$value": "{core.color.red-400}",
             "$modes": {
-              "default": "{color.palette.red-400}",
+              "default": "{core.color.red-400}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonDangerActive.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonDangerActive.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonDangerActive.g90}",
@@ -732,9 +732,9 @@
         "primary": {
           "default": {
             "$type": "color",
-            "$value": "{color.palette.blue-300}",
+            "$value": "{core.color.blue-300}",
             "$modes": {
-              "default": "{color.palette.blue-300}",
+              "default": "{core.color.blue-300}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -743,9 +743,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.palette.blue-400}",
+            "$value": "{core.color.blue-400}",
             "$modes": {
-              "default": "{color.palette.blue-400}",
+              "default": "{core.color.blue-400}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -754,9 +754,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.palette.blue-400}",
+            "$value": "{core.color.blue-400}",
             "$modes": {
-              "default": "{color.palette.blue-400}",
+              "default": "{core.color.blue-400}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -865,9 +865,9 @@
         "critical": {
           "default": {
             "$type": "color",
-            "$value": "{color.palette.red-300}",
+            "$value": "{core.color.red-300}",
             "$modes": {
-              "default": "{color.palette.red-300}",
+              "default": "{core.color.red-300}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -876,9 +876,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.palette.red-400}",
+            "$value": "{core.color.red-400}",
             "$modes": {
-              "default": "{color.palette.red-400}",
+              "default": "{core.color.red-400}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -887,9 +887,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.palette.red-400}",
+            "$value": "{core.color.red-400}",
             "$modes": {
-              "default": "{color.palette.red-400}",
+              "default": "{core.color.red-400}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",

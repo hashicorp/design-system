@@ -45,13 +45,13 @@ $hds-stepper-list-gap-spacing: 16px;
       &::before {
         height: calc(100% + $hds-stepper-list-gap-spacing);
         background:
-          linear-gradient(0deg, var(--hds-color-palette-alpha-200) 0%, var(--hds-color-palette-alpha-200) 100%),
-          var(--hds-color-palette-neutral-100);
+          linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%),
+          var(--hds-core-color-neutral-100);
       }
 
       // Progress bar - completed line
       &::after {
-        background-color: var(--hds-color-palette-neutral-700);
+        background-color: var(--hds-core-color-neutral-700);
       }
     }
   }
@@ -103,7 +103,7 @@ $hds-stepper-list-gap-spacing: 16px;
     z-index: -1;
     width: 2px;
     height: 6px;
-    background-color: var(--hds-color-palette-neutral-700);
+    background-color: var(--hds-core-color-neutral-700);
     content: "";
   }
 

@@ -18,7 +18,7 @@ export default class Index extends Component {
     return {
       test: [
         {
-          name: 'hds-color-palette-blue-500',
+          name: 'hds-core-color-blue-500',
           value: '#1c345f',
           type: 'color',
           original: {

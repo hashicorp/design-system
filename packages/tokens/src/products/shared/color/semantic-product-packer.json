@@ -3,34 +3,34 @@
     "packer": {
       "brand": {
         "$type": "color",
-        "$value": "{color.palette.packer-brand}",
+        "$value": "{core.color.packer-brand}",
         "group": "branding"
       },
       "foreground": {
         "$type": "color",
-        "$value": "{color.palette.packer-500}",
+        "$value": "{core.color.packer-500}",
         "group": "branding"
       },
       "surface": {
         "$type": "color",
-        "$value": "{color.palette.packer-50}",
+        "$value": "{core.color.packer-50}",
         "group": "branding"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.palette.packer-100}",
+        "$value": "{core.color.packer-100}",
         "group": "branding"
       },
       "gradient": {
         "primary": {
           "start": {
             "$type": "color",
-            "$value": "{color.palette.packer-100}",
+            "$value": "{core.color.packer-100}",
             "group": "branding"
           },
           "stop": {
             "$type": "color",
-            "$value": "{color.palette.packer-200}",
+            "$value": "{core.color.packer-200}",
             "group": "branding"
           }
         },
@@ -43,7 +43,7 @@
           },
           "stop": {
             "$type": "color",
-            "$value": "{color.palette.packer-50}",
+            "$value": "{core.color.packer-50}",
             "group": "branding"
           }
         }

@@ -3,7 +3,7 @@
     "hashicorp": {
       "brand": {
         "$type": "color",
-        "$value": "{color.palette.hashicorp-brand}",
+        "$value": "{core.color.hashicorp-brand}",
         "group": "branding"
       }
     }

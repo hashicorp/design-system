@@ -140,7 +140,7 @@ $hds-code-block-code-footer-height: 48px;
   padding: $hds-code-block-code-padding 0 $hds-code-block-code-padding $hds-code-block-code-padding;
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--hds-color-palette-neutral-400) var(--hds-color-palette-neutral-500);
+  scrollbar-color: var(--hds-core-color-neutral-400) var(--hds-core-color-neutral-500);
   border-radius: inherit;
 
   &:focus-visible,
