@@ -29,7 +29,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
   <ShwTextH1>MaskedInput - Carbonization</ShwTextH1>
 
   <section>
-    <ShwTextH2>"Base" control</ShwTextH2>
+    <ShwTextH2>“Base” control</ShwTextH2>
 
     <ShwTextH3>Interaction status</ShwTextH3>
 
@@ -286,7 +286,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider />
 
-    <ShwTextH2>"Field" control</ShwTextH2>
+    <ShwTextH2>“Field” control</ShwTextH2>
 
     <ShwTextH3>Content</ShwTextH3>
 

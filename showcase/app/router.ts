@@ -201,6 +201,7 @@ Router.map(function () {
         this.route('textarea');
         this.route('radio-card');
         this.route('select');
+        this.route('toggle');
       });
       this.route('icon-tile');
       this.route('link', function (): void {
