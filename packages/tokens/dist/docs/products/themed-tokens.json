@@ -3942,8 +3942,8 @@
         "internal"
       ]
     },
-    "hds-focus-ring-action-box-shadow": {
-      "key": "{focus-ring.action.box-shadow}",
+    "hds-focus-ring-box-shadow-action": {
+      "key": "{focus-ring.box-shadow.action}",
       "$value": "inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff",
       "$modes": {
         "default": "inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff",
@@ -3964,20 +3964,20 @@
         "comments": {
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
-        "key": "{focus-ring.action.box-shadow}"
+        "key": "{focus-ring.box-shadow.action}"
       },
-      "name": "hds-focus-ring-action-box-shadow",
+      "name": "hds-focus-ring-box-shadow-action",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "action",
-        "box-shadow"
+        "box-shadow",
+        "action"
       ]
     },
-    "hds-focus-ring-critical-box-shadow": {
-      "key": "{focus-ring.critical.box-shadow}",
+    "hds-focus-ring-box-shadow-critical": {
+      "key": "{focus-ring.box-shadow.critical}",
       "$value": "inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578",
       "$modes": {
         "default": "inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578",
@@ -3998,16 +3998,16 @@
         "comments": {
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
-        "key": "{focus-ring.critical.box-shadow}"
+        "key": "{focus-ring.box-shadow.critical}"
       },
-      "name": "hds-focus-ring-critical-box-shadow",
+      "name": "hds-focus-ring-box-shadow-critical",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "critical",
-        "box-shadow"
+        "box-shadow",
+        "critical"
       ]
     },
     "hds-accordion-card-gap-small": {
@@ -29694,8 +29694,8 @@
         "internal"
       ]
     },
-    "hds-focus-ring-action-box-shadow": {
-      "key": "{focus-ring.action.box-shadow}",
+    "hds-focus-ring-box-shadow-action": {
+      "key": "{focus-ring.box-shadow.action}",
       "$value": "inset 0 0 0 2px #0f62fe",
       "$modes": {
         "default": "inset 0 0 0 0px #ffffff, 0 0 0 2px #0f62fe",
@@ -29718,20 +29718,20 @@
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
         "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
-        "key": "{focus-ring.action.box-shadow}"
+        "key": "{focus-ring.box-shadow.action}"
       },
-      "name": "hds-focus-ring-action-box-shadow",
+      "name": "hds-focus-ring-box-shadow-action",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "action",
-        "box-shadow"
+        "box-shadow",
+        "action"
       ]
     },
-    "hds-focus-ring-critical-box-shadow": {
-      "key": "{focus-ring.critical.box-shadow}",
+    "hds-focus-ring-box-shadow-critical": {
+      "key": "{focus-ring.box-shadow.critical}",
       "$value": "inset 0 0 0 2px #0f62fe",
       "$modes": {
         "default": "inset 0 0 0 0px #ffffff, 0 0 0 2px #0f62fe",
@@ -29754,16 +29754,16 @@
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
         "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
-        "key": "{focus-ring.critical.box-shadow}"
+        "key": "{focus-ring.box-shadow.critical}"
       },
-      "name": "hds-focus-ring-critical-box-shadow",
+      "name": "hds-focus-ring-box-shadow-critical",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "critical",
-        "box-shadow"
+        "box-shadow",
+        "critical"
       ]
     },
     "hds-accordion-card-gap-small": {
@@ -55466,8 +55466,8 @@
         "internal"
       ]
     },
-    "hds-focus-ring-action-box-shadow": {
-      "key": "{focus-ring.action.box-shadow}",
+    "hds-focus-ring-box-shadow-action": {
+      "key": "{focus-ring.box-shadow.action}",
       "$value": "inset 0 0 0 2px #0f62fe",
       "$modes": {
         "default": "inset 0 0 0 0px #ffffff, 0 0 0 2px #0f62fe",
@@ -55490,20 +55490,20 @@
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
         "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
-        "key": "{focus-ring.action.box-shadow}"
+        "key": "{focus-ring.box-shadow.action}"
       },
-      "name": "hds-focus-ring-action-box-shadow",
+      "name": "hds-focus-ring-box-shadow-action",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "action",
-        "box-shadow"
+        "box-shadow",
+        "action"
       ]
     },
-    "hds-focus-ring-critical-box-shadow": {
-      "key": "{focus-ring.critical.box-shadow}",
+    "hds-focus-ring-box-shadow-critical": {
+      "key": "{focus-ring.box-shadow.critical}",
       "$value": "inset 0 0 0 2px #0f62fe",
       "$modes": {
         "default": "inset 0 0 0 0px #ffffff, 0 0 0 2px #0f62fe",
@@ -55526,16 +55526,16 @@
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
         "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
-        "key": "{focus-ring.critical.box-shadow}"
+        "key": "{focus-ring.box-shadow.critical}"
       },
-      "name": "hds-focus-ring-critical-box-shadow",
+      "name": "hds-focus-ring-box-shadow-critical",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "critical",
-        "box-shadow"
+        "box-shadow",
+        "critical"
       ]
     },
     "hds-accordion-card-gap-small": {
@@ -81238,8 +81238,8 @@
         "internal"
       ]
     },
-    "hds-focus-ring-action-box-shadow": {
-      "key": "{focus-ring.action.box-shadow}",
+    "hds-focus-ring-box-shadow-action": {
+      "key": "{focus-ring.box-shadow.action}",
       "$value": "inset 0 0 0 2px #ffffff",
       "$modes": {
         "default": "inset 0 0 0 0px #161616, 0 0 0 2px #ffffff",
@@ -81262,20 +81262,20 @@
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
         "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
-        "key": "{focus-ring.action.box-shadow}"
+        "key": "{focus-ring.box-shadow.action}"
       },
-      "name": "hds-focus-ring-action-box-shadow",
+      "name": "hds-focus-ring-box-shadow-action",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "action",
-        "box-shadow"
+        "box-shadow",
+        "action"
       ]
     },
-    "hds-focus-ring-critical-box-shadow": {
-      "key": "{focus-ring.critical.box-shadow}",
+    "hds-focus-ring-box-shadow-critical": {
+      "key": "{focus-ring.box-shadow.critical}",
       "$value": "inset 0 0 0 2px #ffffff",
       "$modes": {
         "default": "inset 0 0 0 0px #161616, 0 0 0 2px #ffffff",
@@ -81298,16 +81298,16 @@
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
         "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
-        "key": "{focus-ring.critical.box-shadow}"
+        "key": "{focus-ring.box-shadow.critical}"
       },
-      "name": "hds-focus-ring-critical-box-shadow",
+      "name": "hds-focus-ring-box-shadow-critical",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "critical",
-        "box-shadow"
+        "box-shadow",
+        "critical"
       ]
     },
     "hds-accordion-card-gap-small": {
@@ -107010,8 +107010,8 @@
         "internal"
       ]
     },
-    "hds-focus-ring-action-box-shadow": {
-      "key": "{focus-ring.action.box-shadow}",
+    "hds-focus-ring-box-shadow-action": {
+      "key": "{focus-ring.box-shadow.action}",
       "$value": "inset 0 0 0 2px #ffffff",
       "$modes": {
         "default": "inset 0 0 0 0px #161616, 0 0 0 2px #ffffff",
@@ -107034,20 +107034,20 @@
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
         "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
-        "key": "{focus-ring.action.box-shadow}"
+        "key": "{focus-ring.box-shadow.action}"
       },
-      "name": "hds-focus-ring-action-box-shadow",
+      "name": "hds-focus-ring-box-shadow-action",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "action",
-        "box-shadow"
+        "box-shadow",
+        "action"
       ]
     },
-    "hds-focus-ring-critical-box-shadow": {
-      "key": "{focus-ring.critical.box-shadow}",
+    "hds-focus-ring-box-shadow-critical": {
+      "key": "{focus-ring.box-shadow.critical}",
       "$value": "inset 0 0 0 2px #ffffff",
       "$modes": {
         "default": "inset 0 0 0 0px #161616, 0 0 0 2px #ffffff",
@@ -107070,16 +107070,16 @@
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
         },
         "comment": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation",
-        "key": "{focus-ring.critical.box-shadow}"
+        "key": "{focus-ring.box-shadow.critical}"
       },
-      "name": "hds-focus-ring-critical-box-shadow",
+      "name": "hds-focus-ring-box-shadow-critical",
       "attributes": {
         "category": "focus-ring"
       },
       "path": [
         "focus-ring",
-        "critical",
-        "box-shadow"
+        "box-shadow",
+        "critical"
       ]
     },
     "hds-accordion-card-gap-small": {

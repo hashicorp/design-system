@@ -434,9 +434,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-focus-color-action-internal: #ffffff;
   --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-critical-internal: #ffffff;
-  --hds-focus-ring-action-box-shadow: inset 0 0 0
+  --hds-focus-ring-box-shadow-action: inset 0 0 0
     var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
-  --hds-focus-ring-critical-box-shadow: inset 0 0 0
+  --hds-focus-ring-box-shadow-critical: inset 0 0 0
     var(--hds-focus-ring-width-external)
     var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-width-external: 2px;
@@ -1049,10 +1049,10 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-focus-color-action-internal: #ffffff;
     --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --hds-focus-color-critical-internal: #ffffff;
-    --hds-focus-ring-action-box-shadow: inset 0 0 0
+    --hds-focus-ring-box-shadow-action: inset 0 0 0
       var(--hds-focus-ring-width-external)
       var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
-    --hds-focus-ring-critical-box-shadow: inset 0 0 0
+    --hds-focus-ring-box-shadow-critical: inset 0 0 0
       var(--hds-focus-ring-width-external)
       var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
@@ -1686,10 +1686,10 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-focus-color-action-internal: #161616;
     --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --hds-focus-color-critical-internal: #161616;
-    --hds-focus-ring-action-box-shadow: inset 0 0 0
+    --hds-focus-ring-box-shadow-action: inset 0 0 0
       var(--hds-focus-ring-width-external)
       var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
-    --hds-focus-ring-critical-box-shadow: inset 0 0 0
+    --hds-focus-ring-box-shadow-critical: inset 0 0 0
       var(--hds-focus-ring-width-external)
       var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
@@ -2302,9 +2302,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-focus-color-action-internal: #ffffff;
   --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-critical-internal: #ffffff;
-  --hds-focus-ring-action-box-shadow: inset 0 0 0
+  --hds-focus-ring-box-shadow-action: inset 0 0 0
     var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
-  --hds-focus-ring-critical-box-shadow: inset 0 0 0
+  --hds-focus-ring-box-shadow-critical: inset 0 0 0
     var(--hds-focus-ring-width-external)
     var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-width-external: 2px;
@@ -2936,9 +2936,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-focus-color-action-internal: #161616;
   --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-critical-internal: #161616;
-  --hds-focus-ring-action-box-shadow: inset 0 0 0
+  --hds-focus-ring-box-shadow-action: inset 0 0 0
     var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
-  --hds-focus-ring-critical-box-shadow: inset 0 0 0
+  --hds-focus-ring-box-shadow-critical: inset 0 0 0
     var(--hds-focus-ring-width-external)
     var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-width-external: 2px;

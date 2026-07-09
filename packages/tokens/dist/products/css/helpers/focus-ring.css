@@ -2,5 +2,5 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-.hds-focus-ring-action-box-shadow { box-shadow: var(--hds-focus-ring-action-box-shadow); }
-.hds-focus-ring-critical-box-shadow { box-shadow: var(--hds-focus-ring-critical-box-shadow); }
+.hds-focus-ring-box-shadow-action { box-shadow: var(--hds-focus-ring-box-shadow-action); }
+.hds-focus-ring-box-shadow-critical { box-shadow: var(--hds-focus-ring-box-shadow-critical); }

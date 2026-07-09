@@ -9,18 +9,17 @@ import { PREFIX } from './generateCssHelpers.ts';
 
 type Helpers = string[];
 
-export function generateFocusRingHelpers(tokens: TransformedTokens, outputCssVars: boolean): Helpers {
+export function generateFocusRingHelpers(tokensFocusRing: TransformedTokens, outputCssVars: boolean): Helpers {
 
   const helpersFocusRing: Helpers = [];
 
-  Object.keys(tokens).forEach((key: string) => {
-    const color = key;
-    if (tokens && tokens[color] && Object.prototype.hasOwnProperty.call(tokens[color], 'box-shadow')) {
-      const selector = `.${PREFIX}-focus-ring-${color}-box-shadow`;
-      const value = outputCssVars ? `var(--hds-focus-ring-${color}-box-shadow)` : tokens[color]['box-shadow'].$value;
+  if (tokensFocusRing && tokensFocusRing['box-shadow']) {
+    Object.keys(tokensFocusRing['box-shadow']).forEach((variant: string) => {
+      const selector = `.${PREFIX}-focus-ring-box-shadow-${variant}`;
+      const value = outputCssVars ? `var(--hds-focus-ring-box-shadow-${variant})` : tokensFocusRing['box-shadow'][variant].$value;
       helpersFocusRing.push(`${selector} { box-shadow: ${value}; }`);
-    }
-  });
+    });
+  }
 
   return [...helpersFocusRing];
 }
