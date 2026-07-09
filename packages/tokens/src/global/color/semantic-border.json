@@ -1,6 +1,6 @@
 {
-  "color": {
-    "border": {
+  "border": {
+    "color": {
       "primary": {
         "$type": "color",
         "$value": "{core.color.alpha-200}",

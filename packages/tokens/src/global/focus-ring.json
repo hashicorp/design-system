@@ -28,13 +28,13 @@
     },
     "action": {
       "box-shadow": {
-        "$value": "inset 0 0 0 {focus-ring.width.internal} {color.focus.action.internal}, 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
+        "$value": "inset 0 0 0 {focus-ring.width.internal} {focus.color.action.internal}, 0 0 0 {focus-ring.width.external} {focus.color.action.external}",
         "$modes": {
-          "default": "inset 0 0 0 {focus-ring.width.internal} {color.focus.action.internal}, 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
-          "cds-g0": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
-          "cds-g10": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
-          "cds-g90": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}",
-          "cds-g100": "inset 0 0 0 {focus-ring.width.external} {color.focus.action.external}"
+          "default": "inset 0 0 0 {focus-ring.width.internal} {focus.color.action.internal}, 0 0 0 {focus-ring.width.external} {focus.color.action.external}",
+          "cds-g0": "inset 0 0 0 {focus-ring.width.external} {focus.color.action.external}",
+          "cds-g10": "inset 0 0 0 {focus-ring.width.external} {focus.color.action.external}",
+          "cds-g90": "inset 0 0 0 {focus-ring.width.external} {focus.color.action.external}",
+          "cds-g100": "inset 0 0 0 {focus-ring.width.external} {focus.color.action.external}"
         },
         "comments": {
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"
@@ -43,13 +43,13 @@
     },
     "critical": {
       "box-shadow": {
-        "$value": "inset 0 0 0 {focus-ring.width.internal} {color.focus.critical.internal}, 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
+        "$value": "inset 0 0 0 {focus-ring.width.internal} {focus.color.critical.internal}, 0 0 0 {focus-ring.width.external} {focus.color.critical.external}",
         "$modes": {
-          "default": "inset 0 0 0 {focus-ring.width.internal} {color.focus.critical.internal}, 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
-          "cds-g0": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
-          "cds-g10": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
-          "cds-g90": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}",
-          "cds-g100": "inset 0 0 0 {focus-ring.width.external} {color.focus.critical.external}"
+          "default": "inset 0 0 0 {focus-ring.width.internal} {focus.color.critical.internal}, 0 0 0 {focus-ring.width.external} {focus.color.critical.external}",
+          "cds-g0": "inset 0 0 0 {focus-ring.width.external} {focus.color.critical.external}",
+          "cds-g10": "inset 0 0 0 {focus-ring.width.external} {focus.color.critical.external}",
+          "cds-g90": "inset 0 0 0 {focus-ring.width.external} {focus.color.critical.external}",
+          "cds-g100": "inset 0 0 0 {focus-ring.width.external} {focus.color.critical.external}"
         },
         "comments": {
           "cds": "this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation"

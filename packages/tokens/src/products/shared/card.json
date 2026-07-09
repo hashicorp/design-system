@@ -4,9 +4,9 @@
       "color": {
         "primary": {
           "$type": "color",
-          "$value": "{color.surface.primary}",
+          "$value": "{surface.color.primary}",
           "$modes": {
-            "default": "{color.surface.primary}",
+            "default": "{surface.color.primary}",
             "cds-g0": "{carbon.color.gray.10}",
             "cds-g10": "{carbon.color.white.0}",
             "cds-g90": "{carbon.color.gray.80}",
@@ -15,9 +15,9 @@
         },
         "secondary": {
           "$type": "color",
-          "$value": "{color.surface.faint}",
+          "$value": "{surface.color.faint}",
           "$modes": {
-            "default": "{color.surface.faint}",
+            "default": "{surface.color.faint}",
             "cds-g0": "{carbon.color.white.0}",
             "cds-g10": "{carbon.color.gray.10}",
             "cds-g90": "{carbon.color.gray.70}",

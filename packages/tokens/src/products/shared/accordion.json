@@ -44,9 +44,9 @@
       "border": {
         "color": {
           "$type": "color",
-          "$value": "{color.border.primary}",
+          "$value": "{border.color.primary}",
           "$modes": {
-            "default": "{color.border.primary}",
+            "default": "{border.color.primary}",
             "cds-g0": "{carbon.themes.white.borderSubtle00}",
             "cds-g10": "{carbon.themes.g10.borderSubtle00}",
             "cds-g90": "{carbon.themes.g90.borderSubtle00}",

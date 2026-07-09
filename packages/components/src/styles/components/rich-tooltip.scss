@@ -150,7 +150,7 @@
   height: fit-content;
   max-height: none;
   padding: 16px;
-  background-color: var(--hds-color-surface-primary);
+  background-color: var(--hds-surface-color-primary);
   border-radius: var(--hds-rich-tooltip-bubble-border-radius);
   box-shadow: var(--hds-surface-higher-box-shadow);
 
@@ -206,7 +206,7 @@
     &::after {
       position: absolute;
       inset: 0;
-      background-color: var(--hds-color-surface-primary);
+      background-color: var(--hds-surface-color-primary);
       transform: translateY(1px);
       content: "";
       clip-path: polygon(0 12px, 6px 6px, 12px 12px);
@@ -243,7 +243,7 @@
   // see: https://hashicorp.slack.com/archives/C025N5V4PFZ/p1715247858351399
   display: contents;
   box-sizing: border-box;
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
 
   *,
   *::before,

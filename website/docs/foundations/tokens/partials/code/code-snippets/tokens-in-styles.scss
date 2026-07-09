@@ -4,10 +4,10 @@
  */
 
 .your-selector {
-  color: var(--hds-color-foreground-highlight);
-  font-size: var(--hds-typography-body-base-font-size);
-  font-family: var(--hds-typography-body-base-font-family);
-  line-height: var(--hds-typography-body-base-line-height);
-  background: var(--hds-color-background-highlight);
-  border: 1px solid var(--hds-color-border-highlight);
+  color: var(--hds-foreground-color-highlight);
+  font-size: var(--hds-typography-body-300-font-size);
+  font-family: var(--hds-typography-body-300-font-family);
+  line-height: var(--hds-typography-body-300-line-height);
+  background: var(--hds-surface-color-highlight);
+  border: 1px solid var(--hds-border-color-highlight);
 }
