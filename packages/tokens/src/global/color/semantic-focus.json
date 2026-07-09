@@ -4,10 +4,10 @@
       "action": {
         "internal": {
           "$type": "color",
-          "$value": "{color.palette.blue-300}",
+          "$value": "{core.color.blue-300}",
           "group": "semantic",
           "$modes": {
-            "default": "{color.palette.blue-300}",
+            "default": "{core.color.blue-300}",
             "cds-g0": "{carbon.themes.white.focusInset}",
             "cds-g10": "{carbon.themes.g10.focusInset}",
             "cds-g90": "{carbon.themes.g90.focusInset}",
@@ -31,10 +31,10 @@
       "critical": {
         "internal": {
           "$type": "color",
-          "$value": "{color.palette.red-300}",
+          "$value": "{core.color.red-300}",
           "group": "semantic",
           "$modes": {
-            "default": "{color.palette.red-300}",
+            "default": "{core.color.red-300}",
             "cds-g0": "{carbon.themes.white.focusInset}",
             "cds-g10": "{carbon.themes.g10.focusInset}",
             "cds-g90": "{carbon.themes.g90.focusInset}",

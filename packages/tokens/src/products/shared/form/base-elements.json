@@ -262,7 +262,7 @@
     "error": {
       "color": {
         "$type": "color",
-        "$value": "{color.palette.red-300}",
+        "$value": "{core.color.red-300}",
         "group": "components",
         "comment": "deprecated: use `hds-form-error-foreground-color` instead",
         "deprecated": true
@@ -270,10 +270,10 @@
       "foreground": {
         "color": {
           "$type": "color",
-          "$value": "{color.palette.red-300}",
+          "$value": "{core.color.red-300}",
           "group": "components",
           "$modes": {
-            "default": "{color.palette.red-300}",
+            "default": "{core.color.red-300}",
             "cds-g0": "{carbon.themes.white.textError}",
             "cds-g10": "{carbon.themes.g10.textError}",
             "cds-g90": "{carbon.themes.g90.textError}",

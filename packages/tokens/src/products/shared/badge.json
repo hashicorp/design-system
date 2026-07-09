@@ -254,10 +254,10 @@
         "highlight": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.purple-400}",
+            "$value": "{core.color.purple-400}",
             "comment": "we don't use `highlight-on-surface` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.palette.purple-400}",
+              "default": "{core.color.purple-400}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorPurple.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorPurple.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorPurple.g90}",
@@ -283,10 +283,10 @@
         "success": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.green-400}",
+            "$value": "{core.color.green-400}",
             "comment": "we don't use `success-on-surface` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.palette.green-400}",
+              "default": "{core.color.green-400}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorGreen.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorGreen.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorGreen.g90}",
@@ -312,9 +312,9 @@
         "warning": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.amber-400}",
+            "$value": "{core.color.amber-400}",
             "$modes": {
-              "default": "{color.palette.amber-400}",
+              "default": "{core.color.amber-400}",
               "cds-g0": "{carbon.color.orange.70}",
               "cds-g10": "{carbon.color.orange.70}",
               "cds-g90": "{carbon.color.orange.20}",
@@ -347,10 +347,10 @@
         "critical": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.red-400}",
+            "$value": "{core.color.red-400}",
             "comment": "we don't use `critical-on-surface` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.palette.red-400}",
+              "default": "{core.color.red-400}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorRed.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorRed.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorRed.g90}",
@@ -380,9 +380,9 @@
         "neutral": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.neutral-200}",
+            "$value": "{core.color.neutral-200}",
             "$modes": {
-              "default": "{color.palette.neutral-200}",
+              "default": "{core.color.neutral-200}",
               "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
@@ -391,9 +391,9 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.palette.neutral-500}",
+            "$value": "{core.color.neutral-500}",
             "$modes": {
-              "default": "{color.palette.neutral-500}",
+              "default": "{core.color.neutral-500}",
               "cds-g0": "{carbon.themes.white.backgroundInverse}",
               "cds-g10": "{carbon.themes.g10.backgroundInverse}",
               "cds-g90": "{carbon.themes.g90.backgroundInverse}",
@@ -409,9 +409,9 @@
         "neutral-dark-mode": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.neutral-500}",
+            "$value": "{core.color.neutral-500}",
             "$modes": {
-              "default": "{color.palette.neutral-500}",
+              "default": "{core.color.neutral-500}",
               "cds-g0": "{carbon.themes.white.backgroundInverse}",
               "cds-g10": "{carbon.themes.g10.backgroundInverse}",
               "cds-g90": "{carbon.themes.g90.backgroundInverse}",
@@ -438,10 +438,10 @@
         "highlight": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.purple-100}",
+            "$value": "{core.color.purple-100}",
             "comment": "we don't use `surface-highlight` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.palette.purple-100}",
+              "default": "{core.color.purple-100}",
               "cds-g0": "{carbon.themes.tagTokens.tagBackgroundPurple.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagBackgroundPurple.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundPurple.g90}",
@@ -450,9 +450,9 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.palette.purple-200}",
+            "$value": "{core.color.purple-200}",
             "$modes": {
-              "default": "{color.palette.purple-200}",
+              "default": "{core.color.purple-200}",
               "cds-g0": "{carbon.color.purple.70}",
               "cds-g10": "{carbon.color.purple.70}",
               "cds-g90": "{carbon.color.purple.40}",
@@ -463,10 +463,10 @@
         "success": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.green-100}",
+            "$value": "{core.color.green-100}",
             "comment": "we don't use `surface-success` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.palette.green-100}",
+              "default": "{core.color.green-100}",
               "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGreen.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGreen.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGreen.g90}",
@@ -475,9 +475,9 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.palette.green-200}",
+            "$value": "{core.color.green-200}",
             "$modes": {
-              "default": "{color.palette.green-200}",
+              "default": "{core.color.green-200}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorGreen.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorGreen.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorGreen.g90}",
@@ -488,9 +488,9 @@
         "warning": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.amber-100}",
+            "$value": "{core.color.amber-100}",
             "$modes": {
-              "default": "{color.palette.amber-100}",
+              "default": "{core.color.amber-100}",
               "cds-g0": "{carbon.color.orange.20}",
               "cds-g10": "{carbon.color.orange.20}",
               "cds-g90": "{carbon.color.orange.70}",
@@ -503,9 +503,9 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.palette.amber-200}",
+            "$value": "{core.color.amber-200}",
             "$modes": {
-              "default": "{color.palette.amber-200}",
+              "default": "{core.color.amber-200}",
               "cds-g0": "{carbon.color.orange.70}",
               "cds-g10": "{carbon.color.orange.70}",
               "cds-g90": "{carbon.color.orange.20}",
@@ -519,10 +519,10 @@
         "critical": {
           "filled": {
             "$type": "color",
-            "$value": "{color.palette.red-100}",
+            "$value": "{core.color.red-100}",
             "comment": "we don't use `surface-critical` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.palette.red-100}",
+              "default": "{core.color.red-100}",
               "cds-g0": "{carbon.themes.tagTokens.tagBackgroundRed.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagBackgroundRed.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundRed.g90}",
@@ -531,9 +531,9 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.palette.red-200}",
+            "$value": "{core.color.red-200}",
             "$modes": {
-              "default": "{color.palette.red-200}",
+              "default": "{core.color.red-200}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorRed.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorRed.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorRed.g90}",

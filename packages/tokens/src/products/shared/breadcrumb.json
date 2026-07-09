@@ -28,9 +28,9 @@
     "divider": {
       "color": {
         "$type": "color",
-        "$value": "{color.palette.neutral-300}",
+        "$value": "{core.color.neutral-300}",
         "$modes": {
-          "default": "{color.palette.neutral-300}",
+          "default": "{core.color.neutral-300}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",

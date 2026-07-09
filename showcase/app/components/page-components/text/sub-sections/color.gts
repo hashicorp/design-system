@@ -58,11 +58,11 @@ const SubSectionColor: TemplateOnlyComponent = <template>
     <SF.Item @label="text with #e91e63 color">
       <HdsTextBody @size="300" @tag="p" @color="#e91e63">Lorem ipsum dolor</HdsTextBody>
     </SF.Item>
-    <SF.Item @label="text with '--hds-color-palette-purple-400' color">
+    <SF.Item @label="text with '--hds-core-color-purple-400' color">
       <HdsTextBody
         @size="300"
         @tag="p"
-        @color="var(--hds-color-palette-purple-400)"
+        @color="var(--hds-core-color-purple-400)"
       >Lorem ipsum dolor</HdsTextBody>
     </SF.Item>
   </ShwFlex>

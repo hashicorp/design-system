@@ -160,7 +160,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         top: 0;
         bottom: 0;
         width: 4px;
-        background-color: var(--hds-color-palette-blue-300);
+        background-color: var(--hds-core-color-blue-300);
         content: "";
         pointer-events: none;
       }
@@ -246,7 +246,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       &.mock-focus::after,
       &.hds-advanced-table__th-resize-handle--resizing::after,
       &.mock-active::after {
-        background-color: var(--hds-color-palette-blue-300);
+        background-color: var(--hds-core-color-blue-300);
       }
     }
 

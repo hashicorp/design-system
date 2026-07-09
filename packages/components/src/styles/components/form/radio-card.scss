@@ -66,7 +66,7 @@
   }
 
   &.hds-form-radio-card--checked {
-    border-color: var(--hds-color-palette-blue-300);
+    border-color: var(--hds-core-color-blue-300);
 
     .hds-form-radio-card__control-wrapper {
       background-color: var(--hds-color-surface-action);
@@ -75,7 +75,7 @@
 
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-color-palette-blue-400);
+      border-color: var(--hds-core-color-blue-400);
     }
   }
 

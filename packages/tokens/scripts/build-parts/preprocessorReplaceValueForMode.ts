@@ -32,7 +32,7 @@ export function preprocessorReplaceValueForMode(mode: Mode): Preprocessor['prepr
           //      - an array (eg. the `cubicBezier` timing function like in `accordion.item.toggle.icon.transition.timing-function`)
           //      - a DTCG object value (eg. the new `dimension` `{ value, unit }` shape) — which replaces `$value` directly.
           // 2) a "property-override" object:
-          //      - by convention always an object that carries its own `$value`, optionally with sibling props (eg. `unit`/`alpha`, like in `color.palette.alpha-300`).
+          //      - by convention always an object that carries its own `$value`, optionally with sibling props (eg. `unit`/`alpha`, like in `core.color.alpha-300`).
           //        its keys override the token's own props, and a `null` value removes that prop from the token (eg. `{ "$value": "{…}", "alpha": null }` drops the alpha).
           const modeValue = slice.$modes[mode];
           const isPropertyOverrideObject = typeof modeValue === 'object' && modeValue !== null && !Array.isArray(modeValue) && '$value' in modeValue;

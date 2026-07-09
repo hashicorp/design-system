@@ -95,11 +95,11 @@
 
   &:active,
   &.mock-active {
-    background-color: var(--hds-color-palette-neutral-300);
+    background-color: var(--hds-core-color-neutral-300);
 
     &::before,
     &::after {
-      box-shadow: 0 var(--hds-app-side-nav-toggle-button-border-radius) 0 var(--hds-color-palette-neutral-300);
+      box-shadow: 0 var(--hds-app-side-nav-toggle-button-border-radius) 0 var(--hds-core-color-neutral-300);
     }
   }
 

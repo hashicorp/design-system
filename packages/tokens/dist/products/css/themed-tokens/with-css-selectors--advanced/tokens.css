@@ -151,12 +151,12 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-app-footer-link-focus-outline-width: 2px;
   --hds-app-header-actions-gap: 12px;
-  --hds-app-header-border-color: var(--hds-color-palette-neutral-500);
+  --hds-app-header-border-color: var(--hds-core-color-neutral-500);
   --hds-app-header-button-border-color-active: var(
-    --hds-color-palette-neutral-400
+    --hds-core-color-neutral-400
   );
   --hds-app-header-button-border-color-default: var(
-    --hds-color-palette-neutral-500
+    --hds-core-color-neutral-500
   );
   --hds-app-header-button-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --hds-app-header-button-focus-ring-color-action-internal: #bcc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
@@ -167,16 +167,16 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-foreground-high-contrast
   );
   --hds-app-header-button-surface-color-active: var(
-    --hds-color-palette-neutral-500
+    --hds-core-color-neutral-500
   );
   --hds-app-header-button-surface-color-default: var(
-    --hds-color-palette-neutral-700
+    --hds-core-color-neutral-700
   );
   --hds-app-header-button-surface-color-disabled: var(
-    --hds-color-palette-neutral-600
+    --hds-core-color-neutral-600
   );
   --hds-app-header-button-surface-color-hover: var(
-    --hds-color-palette-neutral-600
+    --hds-core-color-neutral-600
   );
   --hds-app-header-foreground-color: var(--hds-color-foreground-high-contrast);
   --hds-app-header-height: 60px;
@@ -188,7 +188,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-app-header-padding-left: 16px;
   --hds-app-header-padding-right: 16px;
   --hds-app-header-padding-top: 12px;
-  --hds-app-header-surface-color: var(--hds-color-palette-neutral-700);
+  --hds-app-header-surface-color: var(--hds-core-color-neutral-700);
   --hds-app-side-nav-body-list-item-foreground-color-default: var(
     --hds-color-foreground-strong
   );
@@ -229,13 +229,13 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-badge-count-padding-horizontal-medium: 12px;
   --hds-badge-count-padding-horizontal-small: 8px;
   --hds-badge-foreground-color-critical-filled: var(
-    --hds-color-palette-red-400
+    --hds-core-color-red-400
   ); /** we don't use `critical-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-critical-outlined: var(
     --hds-color-foreground-critical
   );
   --hds-badge-foreground-color-highlight-filled: var(
-    --hds-color-palette-purple-400
+    --hds-core-color-purple-400
   ); /** we don't use `highlight-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-highlight-outlined: var(
     --hds-color-foreground-highlight
@@ -253,13 +253,13 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-foreground-primary
   );
   --hds-badge-foreground-color-success-filled: var(
-    --hds-color-palette-green-400
+    --hds-core-color-green-400
   ); /** we don't use `success-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-success-outlined: var(
     --hds-color-foreground-success
   );
   --hds-badge-foreground-color-warning-filled: var(
-    --hds-color-palette-amber-400
+    --hds-core-color-amber-400
   ); /** we don't use `warning-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-warning-outlined: var(
     --hds-color-foreground-warning
@@ -273,39 +273,33 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-badge-padding-horizontal-small: 6px;
   --hds-badge-padding-vertical-small: 2px;
   --hds-badge-surface-color-critical-filled: var(
-    --hds-color-palette-red-100
+    --hds-core-color-red-100
   ); /** we don't use `surface-critical` for accessibility (better contrast) */
-  --hds-badge-surface-color-critical-inverted: var(--hds-color-palette-red-200);
+  --hds-badge-surface-color-critical-inverted: var(--hds-core-color-red-200);
   --hds-badge-surface-color-highlight-filled: var(
-    --hds-color-palette-purple-100
+    --hds-core-color-purple-100
   ); /** we don't use `surface-highlight` for accessibility (better contrast) */
   --hds-badge-surface-color-highlight-inverted: var(
-    --hds-color-palette-purple-200
+    --hds-core-color-purple-200
   );
   --hds-badge-surface-color-neutral-dark-mode-filled: var(
-    --hds-color-palette-neutral-500
+    --hds-core-color-neutral-500
   ); /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
   --hds-badge-surface-color-neutral-dark-mode-inverted: var(
     --hds-color-surface-faint
   );
-  --hds-badge-surface-color-neutral-filled: var(
-    --hds-color-palette-neutral-200
-  );
+  --hds-badge-surface-color-neutral-filled: var(--hds-core-color-neutral-200);
   --hds-badge-surface-color-neutral-inverted: var(
-    --hds-color-palette-neutral-500
+    --hds-core-color-neutral-500
   ); /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
   --hds-badge-surface-color-success-filled: var(
-    --hds-color-palette-green-100
+    --hds-core-color-green-100
   ); /** we don't use `surface-success` for accessibility (better contrast) */
-  --hds-badge-surface-color-success-inverted: var(
-    --hds-color-palette-green-200
-  );
+  --hds-badge-surface-color-success-inverted: var(--hds-core-color-green-200);
   --hds-badge-surface-color-warning-filled: var(
-    --hds-color-palette-amber-100
+    --hds-core-color-amber-100
   ); /** we don't use `surface-warning` for accessibility (better contrast) */
-  --hds-badge-surface-color-warning-inverted: var(
-    --hds-color-palette-amber-200
-  );
+  --hds-badge-surface-color-warning-inverted: var(--hds-core-color-amber-200);
   --hds-badge-typography-font-size-large: 1rem;
   --hds-badge-typography-font-size-medium: 0.8125rem;
   --hds-badge-typography-font-size-small: 0.8125rem;
@@ -314,7 +308,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-border-radius-medium: 6px;
   --hds-border-radius-small: 5px;
   --hds-border-radius-x-small: 3px;
-  --hds-breadcrumb-divider-color: var(--hds-color-palette-neutral-300);
+  --hds-breadcrumb-divider-color: var(--hds-core-color-neutral-300);
   --hds-breadcrumb-link-foreground-color-default: var(
     --hds-color-foreground-faint
   );
@@ -349,13 +343,13 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-typography-body-100-font-size
   );
   --hds-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
-  --hds-button-border-color-critical-active: var(--hds-color-palette-red-400);
-  --hds-button-border-color-critical-default: var(--hds-color-palette-red-300);
-  --hds-button-border-color-critical-hover: var(--hds-color-palette-red-400);
+  --hds-button-border-color-critical-active: var(--hds-core-color-red-400);
+  --hds-button-border-color-critical-default: var(--hds-core-color-red-300);
+  --hds-button-border-color-critical-hover: var(--hds-core-color-red-400);
   --hds-button-border-color-disabled: var(--hds-color-border-primary);
-  --hds-button-border-color-primary-active: var(--hds-color-palette-blue-400);
-  --hds-button-border-color-primary-default: var(--hds-color-palette-blue-300);
-  --hds-button-border-color-primary-hover: var(--hds-color-palette-blue-400);
+  --hds-button-border-color-primary-active: var(--hds-core-color-blue-400);
+  --hds-button-border-color-primary-default: var(--hds-core-color-blue-300);
+  --hds-button-border-color-primary-hover: var(--hds-core-color-blue-400);
   --hds-button-border-color-secondary-active: var(--hds-color-border-strong);
   --hds-button-border-color-secondary-default: var(--hds-color-border-strong);
   --hds-button-border-color-secondary-hover: var(--hds-color-border-strong);
@@ -437,19 +431,19 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-button-padding-vertical-large: 11px; /** here we're taking into account the 1px border */
   --hds-button-padding-vertical-medium: 9px; /** here we're taking into account the 1px border */
   --hds-button-padding-vertical-small: 6px; /** here we're taking into account the 1px border */
-  --hds-button-surface-color-critical-active: var(--hds-color-palette-red-400);
+  --hds-button-surface-color-critical-active: var(--hds-core-color-red-400);
   --hds-button-surface-color-critical-default: var(
     --hds-color-surface-critical
   );
   --hds-button-surface-color-critical-focus: var(--hds-color-surface-critical);
-  --hds-button-surface-color-critical-hover: var(--hds-color-palette-red-300);
+  --hds-button-surface-color-critical-hover: var(--hds-core-color-red-300);
   --hds-button-surface-color-disabled: var(
     --hds-color-surface-interactive-disabled
   );
-  --hds-button-surface-color-primary-active: var(--hds-color-palette-blue-400);
-  --hds-button-surface-color-primary-default: var(--hds-color-palette-blue-200);
-  --hds-button-surface-color-primary-focus: var(--hds-color-palette-blue-200);
-  --hds-button-surface-color-primary-hover: var(--hds-color-palette-blue-300);
+  --hds-button-surface-color-primary-active: var(--hds-core-color-blue-400);
+  --hds-button-surface-color-primary-default: var(--hds-core-color-blue-200);
+  --hds-button-surface-color-primary-focus: var(--hds-core-color-blue-200);
+  --hds-button-surface-color-primary-hover: var(--hds-core-color-blue-300);
   --hds-button-surface-color-secondary-active: var(
     --hds-color-surface-interactive-active
   );
@@ -508,107 +502,57 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-code-block-syntax-highlight-color-red: #ff3b20;
   --hds-code-block-syntax-highlight-color-yellow: #ffeb3b;
   --hds-code-block-typography-font-size: 0.8125rem;
-  --hds-color-border-action: var(--hds-color-palette-blue-100);
-  --hds-color-border-critical: var(--hds-color-palette-red-100);
-  --hds-color-border-faint: var(--hds-color-palette-alpha-100);
-  --hds-color-border-highlight: var(--hds-color-palette-purple-100);
-  --hds-color-border-primary: var(--hds-color-palette-alpha-200);
-  --hds-color-border-strong: var(--hds-color-palette-alpha-300);
-  --hds-color-border-success: var(--hds-color-palette-green-100);
-  --hds-color-border-warning: var(--hds-color-palette-amber-100);
+  --hds-color-border-action: var(--hds-core-color-blue-100);
+  --hds-color-border-critical: var(--hds-core-color-red-100);
+  --hds-color-border-faint: var(--hds-core-color-alpha-100);
+  --hds-color-border-highlight: var(--hds-core-color-purple-100);
+  --hds-color-border-primary: var(--hds-core-color-alpha-200);
+  --hds-color-border-strong: var(--hds-core-color-alpha-300);
+  --hds-color-border-success: var(--hds-core-color-green-100);
+  --hds-color-border-warning: var(--hds-core-color-amber-100);
   --hds-color-focus-action-external: #5990ff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-action-internal: var(--hds-color-palette-blue-300);
+  --hds-color-focus-action-internal: var(--hds-core-color-blue-300);
   --hds-color-focus-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-critical-internal: var(--hds-color-palette-red-300);
-  --hds-color-foreground-action-active: var(--hds-color-palette-blue-400);
-  --hds-color-foreground-action-hover: var(--hds-color-palette-blue-300);
-  --hds-color-foreground-action: var(--hds-color-palette-blue-200);
-  --hds-color-foreground-critical-high-contrast: var(
-    --hds-color-palette-red-500
-  );
-  --hds-color-foreground-critical-on-surface: var(--hds-color-palette-red-300);
-  --hds-color-foreground-critical: var(--hds-color-palette-red-200);
-  --hds-color-foreground-disabled: var(--hds-color-palette-neutral-400);
-  --hds-color-foreground-faint: var(--hds-color-palette-neutral-500);
-  --hds-color-foreground-high-contrast: var(--hds-color-palette-neutral-0);
+  --hds-color-focus-critical-internal: var(--hds-core-color-red-300);
+  --hds-color-foreground-action-active: var(--hds-core-color-blue-400);
+  --hds-color-foreground-action-hover: var(--hds-core-color-blue-300);
+  --hds-color-foreground-action: var(--hds-core-color-blue-200);
+  --hds-color-foreground-critical-high-contrast: var(--hds-core-color-red-500);
+  --hds-color-foreground-critical-on-surface: var(--hds-core-color-red-300);
+  --hds-color-foreground-critical: var(--hds-core-color-red-200);
+  --hds-color-foreground-disabled: var(--hds-core-color-neutral-400);
+  --hds-color-foreground-faint: var(--hds-core-color-neutral-500);
+  --hds-color-foreground-high-contrast: var(--hds-core-color-neutral-0);
   --hds-color-foreground-highlight-high-contrast: var(
-    --hds-color-palette-purple-500
+    --hds-core-color-purple-500
   );
-  --hds-color-foreground-highlight-on-surface: var(
-    --hds-color-palette-purple-300
-  );
-  --hds-color-foreground-highlight: var(--hds-color-palette-purple-200);
-  --hds-color-foreground-primary: var(--hds-color-palette-neutral-600);
-  --hds-color-foreground-strong: var(--hds-color-palette-neutral-700);
-  --hds-color-foreground-success-high-contrast: var(
-    --hds-color-palette-green-500
-  );
-  --hds-color-foreground-success-on-surface: var(--hds-color-palette-green-300);
-  --hds-color-foreground-success: var(--hds-color-palette-green-200);
-  --hds-color-foreground-warning-high-contrast: var(
-    --hds-color-palette-amber-500
-  );
-  --hds-color-foreground-warning-on-surface: var(--hds-color-palette-amber-300);
-  --hds-color-foreground-warning: var(--hds-color-palette-amber-200);
+  --hds-color-foreground-highlight-on-surface: var(--hds-core-color-purple-300);
+  --hds-color-foreground-highlight: var(--hds-core-color-purple-200);
+  --hds-color-foreground-primary: var(--hds-core-color-neutral-600);
+  --hds-color-foreground-strong: var(--hds-core-color-neutral-700);
+  --hds-color-foreground-success-high-contrast: var(--hds-core-color-green-500);
+  --hds-color-foreground-success-on-surface: var(--hds-core-color-green-300);
+  --hds-color-foreground-success: var(--hds-core-color-green-200);
+  --hds-color-foreground-warning-high-contrast: var(--hds-core-color-amber-500);
+  --hds-color-foreground-warning-on-surface: var(--hds-core-color-amber-300);
+  --hds-color-foreground-warning: var(--hds-core-color-amber-200);
   --hds-color-hashicorp-brand: #000000;
   --hds-color-hcp-brand: #000000;
-  --hds-color-page-faint: var(--hds-color-palette-neutral-50);
-  --hds-color-page-primary: var(--hds-color-palette-neutral-0);
-  --hds-color-palette-alpha-100: #656a761a;
-  --hds-color-palette-alpha-200: #656a7633;
-  --hds-color-palette-alpha-300: #3b3d4566;
-  --hds-color-palette-amber-100: #fbeabf;
-  --hds-color-palette-amber-200: #bb5a00;
-  --hds-color-palette-amber-300: #9e4b00;
-  --hds-color-palette-amber-400: #803d00;
-  --hds-color-palette-amber-500: #542800;
-  --hds-color-palette-amber-50: #fff9e8;
-  --hds-color-palette-blue-100: #cce3fe;
-  --hds-color-palette-blue-200: #1060ff;
-  --hds-color-palette-blue-300: #0c56e9;
-  --hds-color-palette-blue-400: #0046d1;
-  --hds-color-palette-blue-500: #1c345f;
-  --hds-color-palette-blue-50: #f2f8ff;
-  --hds-color-palette-green-100: #cceeda;
-  --hds-color-palette-green-200: #008a22;
-  --hds-color-palette-green-300: #00781e;
-  --hds-color-palette-green-400: #006619;
-  --hds-color-palette-green-500: #054220;
-  --hds-color-palette-green-50: #f2fbf6;
-  --hds-color-palette-neutral-0: #ffffff;
-  --hds-color-palette-neutral-100: #f1f2f3;
-  --hds-color-palette-neutral-200: #dedfe3;
-  --hds-color-palette-neutral-300: #c2c5cb;
-  --hds-color-palette-neutral-400: #8c909c;
-  --hds-color-palette-neutral-500: #656a76;
-  --hds-color-palette-neutral-50: #fafafa;
-  --hds-color-palette-neutral-600: #3b3d45;
-  --hds-color-palette-neutral-700: #0c0c0e;
-  --hds-color-palette-purple-100: #ead2fe;
-  --hds-color-palette-purple-200: #a737ff;
-  --hds-color-palette-purple-300: #911ced;
-  --hds-color-palette-purple-400: #7b00db;
-  --hds-color-palette-purple-500: #42215b;
-  --hds-color-palette-purple-50: #f9f2ff;
-  --hds-color-palette-red-100: #fbd4d4;
-  --hds-color-palette-red-200: #e52228;
-  --hds-color-palette-red-300: #c00005;
-  --hds-color-palette-red-400: #940004;
-  --hds-color-palette-red-500: #51130a;
-  --hds-color-palette-red-50: #fff5f5;
-  --hds-color-surface-action: var(--hds-color-palette-blue-50);
-  --hds-color-surface-critical: var(--hds-color-palette-red-50);
-  --hds-color-surface-faint: var(--hds-color-palette-neutral-50);
-  --hds-color-surface-high-contrast: var(--hds-color-palette-neutral-700);
-  --hds-color-surface-highlight: var(--hds-color-palette-purple-50);
-  --hds-color-surface-interactive-active: var(--hds-color-palette-neutral-200);
-  --hds-color-surface-interactive-disabled: var(--hds-color-palette-neutral-50);
-  --hds-color-surface-interactive-hover: var(--hds-color-palette-neutral-100);
-  --hds-color-surface-interactive: var(--hds-color-palette-neutral-0);
-  --hds-color-surface-primary: var(--hds-color-palette-neutral-0);
-  --hds-color-surface-strong: var(--hds-color-palette-neutral-100);
-  --hds-color-surface-success: var(--hds-color-palette-green-50);
-  --hds-color-surface-warning: var(--hds-color-palette-amber-50);
+  --hds-color-page-faint: var(--hds-core-color-neutral-50);
+  --hds-color-page-primary: var(--hds-core-color-neutral-0);
+  --hds-color-surface-action: var(--hds-core-color-blue-50);
+  --hds-color-surface-critical: var(--hds-core-color-red-50);
+  --hds-color-surface-faint: var(--hds-core-color-neutral-50);
+  --hds-color-surface-high-contrast: var(--hds-core-color-neutral-700);
+  --hds-color-surface-highlight: var(--hds-core-color-purple-50);
+  --hds-color-surface-interactive-active: var(--hds-core-color-neutral-200);
+  --hds-color-surface-interactive-disabled: var(--hds-core-color-neutral-50);
+  --hds-color-surface-interactive-hover: var(--hds-core-color-neutral-100);
+  --hds-color-surface-interactive: var(--hds-core-color-neutral-0);
+  --hds-color-surface-primary: var(--hds-core-color-neutral-0);
+  --hds-color-surface-strong: var(--hds-core-color-neutral-100);
+  --hds-color-surface-success: var(--hds-core-color-green-50);
+  --hds-color-surface-warning: var(--hds-core-color-amber-50);
   --hds-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --hds-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --hds-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
@@ -630,6 +574,48 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-copy-button-surface-color-hover: var(
     --hds-button-surface-color-secondary-hover
   );
+  --hds-core-color-alpha-100: #656a761a;
+  --hds-core-color-alpha-200: #656a7633;
+  --hds-core-color-alpha-300: #3b3d4566;
+  --hds-core-color-amber-100: #fbeabf;
+  --hds-core-color-amber-200: #bb5a00;
+  --hds-core-color-amber-300: #9e4b00;
+  --hds-core-color-amber-400: #803d00;
+  --hds-core-color-amber-500: #542800;
+  --hds-core-color-amber-50: #fff9e8;
+  --hds-core-color-blue-100: #cce3fe;
+  --hds-core-color-blue-200: #1060ff;
+  --hds-core-color-blue-300: #0c56e9;
+  --hds-core-color-blue-400: #0046d1;
+  --hds-core-color-blue-500: #1c345f;
+  --hds-core-color-blue-50: #f2f8ff;
+  --hds-core-color-green-100: #cceeda;
+  --hds-core-color-green-200: #008a22;
+  --hds-core-color-green-300: #00781e;
+  --hds-core-color-green-400: #006619;
+  --hds-core-color-green-500: #054220;
+  --hds-core-color-green-50: #f2fbf6;
+  --hds-core-color-neutral-0: #ffffff;
+  --hds-core-color-neutral-100: #f1f2f3;
+  --hds-core-color-neutral-200: #dedfe3;
+  --hds-core-color-neutral-300: #c2c5cb;
+  --hds-core-color-neutral-400: #8c909c;
+  --hds-core-color-neutral-500: #656a76;
+  --hds-core-color-neutral-50: #fafafa;
+  --hds-core-color-neutral-600: #3b3d45;
+  --hds-core-color-neutral-700: #0c0c0e;
+  --hds-core-color-purple-100: #ead2fe;
+  --hds-core-color-purple-200: #a737ff;
+  --hds-core-color-purple-300: #911ced;
+  --hds-core-color-purple-400: #7b00db;
+  --hds-core-color-purple-500: #42215b;
+  --hds-core-color-purple-50: #f9f2ff;
+  --hds-core-color-red-100: #fbd4d4;
+  --hds-core-color-red-200: #e52228;
+  --hds-core-color-red-300: #c00005;
+  --hds-core-color-red-400: #940004;
+  --hds-core-color-red-500: #51130a;
+  --hds-core-color-red-50: #fff5f5;
   --hds-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --hds-dialog-primitive-border-color: rgba(0, 0, 0, 0);
   --hds-dialog-primitive-header-tagline-typography-font-size: var(
@@ -668,16 +654,16 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-foreground-action-hover
   );
   --hds-dropdown-list-item-foreground-color-critical-active: var(
-    --hds-color-palette-red-400
+    --hds-core-color-red-400
   );
   --hds-dropdown-list-item-foreground-color-critical-default: var(
     --hds-color-foreground-critical
   );
   --hds-dropdown-list-item-foreground-color-critical-focus: var(
-    --hds-color-palette-red-400
+    --hds-core-color-red-400
   );
   --hds-dropdown-list-item-foreground-color-critical-hover: var(
-    --hds-color-palette-red-300
+    --hds-core-color-red-300
   );
   --hds-dropdown-list-item-surface-color-action-active: rgba(0, 0, 0, 0);
   --hds-dropdown-list-item-surface-color-action-default: rgba(0, 0, 0, 0);
@@ -722,7 +708,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-character-count-typography-line-height: var(
     --hds-typography-body-100-line-height
   ); /** The character-count line-height is the same as the helper-text as per design */
-  --hds-form-error-foreground-color: var(--hds-color-palette-red-300);
+  --hds-form-error-foreground-color: var(--hds-core-color-red-300);
   --hds-form-error-typography-font-size: var(
     --hds-typography-body-100-font-size
   );
@@ -764,7 +750,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-typography-body-200-line-height
   );
   --hds-form-radiocard-border-color-default-checked: var(
-    --hds-color-palette-blue-300
+    --hds-core-color-blue-300
   );
   --hds-form-radiocard-border-color-default: var(--hds-color-surface-primary);
   --hds-form-radiocard-border-color-focus: var(
@@ -1324,48 +1310,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-hcp-brand: #000000;
     --hds-color-page-faint: #ffffff;
     --hds-color-page-primary: #ffffff;
-    --hds-color-palette-alpha-100: #e0e0e0;
-    --hds-color-palette-alpha-200: #c6c6c6;
-    --hds-color-palette-alpha-300: #8d8d8d;
-    --hds-color-palette-amber-100: #ffd9be;
-    --hds-color-palette-amber-200: #ba4e00;
-    --hds-color-palette-amber-300: #8a3800;
-    --hds-color-palette-amber-400: #5e2900;
-    --hds-color-palette-amber-500: #3e1a00;
-    --hds-color-palette-amber-50: #fff2e8;
-    --hds-color-palette-blue-100: #d0e2ff;
-    --hds-color-palette-blue-200: #0f62fe;
-    --hds-color-palette-blue-300: #0043ce;
-    --hds-color-palette-blue-400: #002d9c;
-    --hds-color-palette-blue-500: #001141;
-    --hds-color-palette-blue-50: #edf5ff;
-    --hds-color-palette-green-100: #a7f0ba;
-    --hds-color-palette-green-200: #24a148;
-    --hds-color-palette-green-300: #198038;
-    --hds-color-palette-green-400: #0e6027;
-    --hds-color-palette-green-500: #044317;
-    --hds-color-palette-green-50: #defbe6;
-    --hds-color-palette-neutral-0: #ffffff;
-    --hds-color-palette-neutral-100: #e0e0e0;
-    --hds-color-palette-neutral-200: #c6c6c6;
-    --hds-color-palette-neutral-300: #a8a8a8;
-    --hds-color-palette-neutral-400: #8d8d8d;
-    --hds-color-palette-neutral-500: #525252;
-    --hds-color-palette-neutral-50: #f4f4f4;
-    --hds-color-palette-neutral-600: #393939;
-    --hds-color-palette-neutral-700: #161616;
-    --hds-color-palette-purple-100: #e8daff;
-    --hds-color-palette-purple-200: #a56eff;
-    --hds-color-palette-purple-300: #8a3ffc;
-    --hds-color-palette-purple-400: #6929c4;
-    --hds-color-palette-purple-500: #31135e;
-    --hds-color-palette-purple-50: #f6f2ff;
-    --hds-color-palette-red-100: #ffd7d9;
-    --hds-color-palette-red-200: #da1e28;
-    --hds-color-palette-red-300: #a2191f;
-    --hds-color-palette-red-400: #750e13;
-    --hds-color-palette-red-500: #520408;
-    --hds-color-palette-red-50: #fff1f1;
     --hds-color-surface-action: #d0e2ff;
     --hds-color-surface-critical: #ffd7d9;
     --hds-color-surface-faint: #f4f4f4;
@@ -1390,6 +1334,48 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-copy-button-surface-color-active: #c6c6c6;
     --hds-copy-button-surface-color-default: #f4f4f4;
     --hds-copy-button-surface-color-hover: #e8e8e8;
+    --hds-core-color-alpha-100: #e0e0e0;
+    --hds-core-color-alpha-200: #c6c6c6;
+    --hds-core-color-alpha-300: #8d8d8d;
+    --hds-core-color-amber-100: #ffd9be;
+    --hds-core-color-amber-200: #ba4e00;
+    --hds-core-color-amber-300: #8a3800;
+    --hds-core-color-amber-400: #5e2900;
+    --hds-core-color-amber-500: #3e1a00;
+    --hds-core-color-amber-50: #fff2e8;
+    --hds-core-color-blue-100: #d0e2ff;
+    --hds-core-color-blue-200: #0f62fe;
+    --hds-core-color-blue-300: #0043ce;
+    --hds-core-color-blue-400: #002d9c;
+    --hds-core-color-blue-500: #001141;
+    --hds-core-color-blue-50: #edf5ff;
+    --hds-core-color-green-100: #a7f0ba;
+    --hds-core-color-green-200: #24a148;
+    --hds-core-color-green-300: #198038;
+    --hds-core-color-green-400: #0e6027;
+    --hds-core-color-green-500: #044317;
+    --hds-core-color-green-50: #defbe6;
+    --hds-core-color-neutral-0: #ffffff;
+    --hds-core-color-neutral-100: #e0e0e0;
+    --hds-core-color-neutral-200: #c6c6c6;
+    --hds-core-color-neutral-300: #a8a8a8;
+    --hds-core-color-neutral-400: #8d8d8d;
+    --hds-core-color-neutral-500: #525252;
+    --hds-core-color-neutral-50: #f4f4f4;
+    --hds-core-color-neutral-600: #393939;
+    --hds-core-color-neutral-700: #161616;
+    --hds-core-color-purple-100: #e8daff;
+    --hds-core-color-purple-200: #a56eff;
+    --hds-core-color-purple-300: #8a3ffc;
+    --hds-core-color-purple-400: #6929c4;
+    --hds-core-color-purple-500: #31135e;
+    --hds-core-color-purple-50: #f6f2ff;
+    --hds-core-color-red-100: #ffd7d9;
+    --hds-core-color-red-200: #da1e28;
+    --hds-core-color-red-300: #a2191f;
+    --hds-core-color-red-400: #750e13;
+    --hds-core-color-red-500: #520408;
+    --hds-core-color-red-50: #fff1f1;
     --hds-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
     --hds-dialog-primitive-border-color: #c6c6c6;
     --hds-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
@@ -1505,7 +1491,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-reveal-surface-color-focus: rgba(0, 0, 0, 0);
     --hds-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
     --hds-rich-tooltip-bubble-arrow-size: 12px;
-    --hds-rich-tooltip-bubble-border-color: var(--hds-color-palette-alpha-200);
+    --hds-rich-tooltip-bubble-border-color: var(--hds-core-color-alpha-200);
     --hds-rich-tooltip-bubble-border-radius: 2px;
     --hds-rich-tooltip-bubble-max-width: 288px;
     --hds-rich-tooltip-toggle-foreground-color-default: #525252;
@@ -1961,48 +1947,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-hcp-brand: #ffffff;
     --hds-color-page-faint: #161616;
     --hds-color-page-primary: #161616;
-    --hds-color-palette-alpha-100: #393939;
-    --hds-color-palette-alpha-200: #525252;
-    --hds-color-palette-alpha-300: #6f6f6f;
-    --hds-color-palette-amber-100: #ffd9be;
-    --hds-color-palette-amber-200: #ba4e00;
-    --hds-color-palette-amber-300: #8a3800;
-    --hds-color-palette-amber-400: #5e2900;
-    --hds-color-palette-amber-500: #3e1a00;
-    --hds-color-palette-amber-50: #fff2e8;
-    --hds-color-palette-blue-100: #d0e2ff;
-    --hds-color-palette-blue-200: #0f62fe;
-    --hds-color-palette-blue-300: #0043ce;
-    --hds-color-palette-blue-400: #002d9c;
-    --hds-color-palette-blue-500: #001141;
-    --hds-color-palette-blue-50: #edf5ff;
-    --hds-color-palette-green-100: #a7f0ba;
-    --hds-color-palette-green-200: #24a148;
-    --hds-color-palette-green-300: #198038;
-    --hds-color-palette-green-400: #0e6027;
-    --hds-color-palette-green-500: #044317;
-    --hds-color-palette-green-50: #defbe6;
-    --hds-color-palette-neutral-0: #ffffff;
-    --hds-color-palette-neutral-100: #e0e0e0;
-    --hds-color-palette-neutral-200: #c6c6c6;
-    --hds-color-palette-neutral-300: #a8a8a8;
-    --hds-color-palette-neutral-400: #8d8d8d;
-    --hds-color-palette-neutral-500: #525252;
-    --hds-color-palette-neutral-50: #f4f4f4;
-    --hds-color-palette-neutral-600: #393939;
-    --hds-color-palette-neutral-700: #161616;
-    --hds-color-palette-purple-100: #e8daff;
-    --hds-color-palette-purple-200: #a56eff;
-    --hds-color-palette-purple-300: #8a3ffc;
-    --hds-color-palette-purple-400: #6929c4;
-    --hds-color-palette-purple-500: #31135e;
-    --hds-color-palette-purple-50: #f6f2ff;
-    --hds-color-palette-red-100: #ffd7d9;
-    --hds-color-palette-red-200: #da1e28;
-    --hds-color-palette-red-300: #a2191f;
-    --hds-color-palette-red-400: #750e13;
-    --hds-color-palette-red-500: #520408;
-    --hds-color-palette-red-50: #fff1f1;
     --hds-color-surface-action: #0043ce;
     --hds-color-surface-critical: #a2191f;
     --hds-color-surface-faint: #262626;
@@ -2027,6 +1971,48 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-copy-button-surface-color-active: #525252;
     --hds-copy-button-surface-color-default: #262626;
     --hds-copy-button-surface-color-hover: #333333;
+    --hds-core-color-alpha-100: #393939;
+    --hds-core-color-alpha-200: #525252;
+    --hds-core-color-alpha-300: #6f6f6f;
+    --hds-core-color-amber-100: #ffd9be;
+    --hds-core-color-amber-200: #ba4e00;
+    --hds-core-color-amber-300: #8a3800;
+    --hds-core-color-amber-400: #5e2900;
+    --hds-core-color-amber-500: #3e1a00;
+    --hds-core-color-amber-50: #fff2e8;
+    --hds-core-color-blue-100: #d0e2ff;
+    --hds-core-color-blue-200: #0f62fe;
+    --hds-core-color-blue-300: #0043ce;
+    --hds-core-color-blue-400: #002d9c;
+    --hds-core-color-blue-500: #001141;
+    --hds-core-color-blue-50: #edf5ff;
+    --hds-core-color-green-100: #a7f0ba;
+    --hds-core-color-green-200: #24a148;
+    --hds-core-color-green-300: #198038;
+    --hds-core-color-green-400: #0e6027;
+    --hds-core-color-green-500: #044317;
+    --hds-core-color-green-50: #defbe6;
+    --hds-core-color-neutral-0: #ffffff;
+    --hds-core-color-neutral-100: #e0e0e0;
+    --hds-core-color-neutral-200: #c6c6c6;
+    --hds-core-color-neutral-300: #a8a8a8;
+    --hds-core-color-neutral-400: #8d8d8d;
+    --hds-core-color-neutral-500: #525252;
+    --hds-core-color-neutral-50: #f4f4f4;
+    --hds-core-color-neutral-600: #393939;
+    --hds-core-color-neutral-700: #161616;
+    --hds-core-color-purple-100: #e8daff;
+    --hds-core-color-purple-200: #a56eff;
+    --hds-core-color-purple-300: #8a3ffc;
+    --hds-core-color-purple-400: #6929c4;
+    --hds-core-color-purple-500: #31135e;
+    --hds-core-color-purple-50: #f6f2ff;
+    --hds-core-color-red-100: #ffd7d9;
+    --hds-core-color-red-200: #da1e28;
+    --hds-core-color-red-300: #a2191f;
+    --hds-core-color-red-400: #750e13;
+    --hds-core-color-red-500: #520408;
+    --hds-core-color-red-50: #fff1f1;
     --hds-css-color-transform-direction: -1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
     --hds-dialog-primitive-border-color: #525252;
     --hds-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
@@ -2142,7 +2128,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-reveal-surface-color-focus: rgba(0, 0, 0, 0);
     --hds-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
     --hds-rich-tooltip-bubble-arrow-size: 12px;
-    --hds-rich-tooltip-bubble-border-color: var(--hds-color-palette-alpha-200);
+    --hds-rich-tooltip-bubble-border-color: var(--hds-core-color-alpha-200);
     --hds-rich-tooltip-bubble-border-radius: 2px;
     --hds-rich-tooltip-bubble-max-width: 288px;
     --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
@@ -2578,48 +2564,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-hcp-brand: #000000;
   --hds-color-page-faint: #ffffff;
   --hds-color-page-primary: #ffffff;
-  --hds-color-palette-alpha-100: #e0e0e0;
-  --hds-color-palette-alpha-200: #c6c6c6;
-  --hds-color-palette-alpha-300: #8d8d8d;
-  --hds-color-palette-amber-100: #ffd9be;
-  --hds-color-palette-amber-200: #ba4e00;
-  --hds-color-palette-amber-300: #8a3800;
-  --hds-color-palette-amber-400: #5e2900;
-  --hds-color-palette-amber-500: #3e1a00;
-  --hds-color-palette-amber-50: #fff2e8;
-  --hds-color-palette-blue-100: #d0e2ff;
-  --hds-color-palette-blue-200: #0f62fe;
-  --hds-color-palette-blue-300: #0043ce;
-  --hds-color-palette-blue-400: #002d9c;
-  --hds-color-palette-blue-500: #001141;
-  --hds-color-palette-blue-50: #edf5ff;
-  --hds-color-palette-green-100: #a7f0ba;
-  --hds-color-palette-green-200: #24a148;
-  --hds-color-palette-green-300: #198038;
-  --hds-color-palette-green-400: #0e6027;
-  --hds-color-palette-green-500: #044317;
-  --hds-color-palette-green-50: #defbe6;
-  --hds-color-palette-neutral-0: #ffffff;
-  --hds-color-palette-neutral-100: #e0e0e0;
-  --hds-color-palette-neutral-200: #c6c6c6;
-  --hds-color-palette-neutral-300: #a8a8a8;
-  --hds-color-palette-neutral-400: #8d8d8d;
-  --hds-color-palette-neutral-500: #525252;
-  --hds-color-palette-neutral-50: #f4f4f4;
-  --hds-color-palette-neutral-600: #393939;
-  --hds-color-palette-neutral-700: #161616;
-  --hds-color-palette-purple-100: #e8daff;
-  --hds-color-palette-purple-200: #a56eff;
-  --hds-color-palette-purple-300: #8a3ffc;
-  --hds-color-palette-purple-400: #6929c4;
-  --hds-color-palette-purple-500: #31135e;
-  --hds-color-palette-purple-50: #f6f2ff;
-  --hds-color-palette-red-100: #ffd7d9;
-  --hds-color-palette-red-200: #da1e28;
-  --hds-color-palette-red-300: #a2191f;
-  --hds-color-palette-red-400: #750e13;
-  --hds-color-palette-red-500: #520408;
-  --hds-color-palette-red-50: #fff1f1;
   --hds-color-surface-action: #d0e2ff;
   --hds-color-surface-critical: #ffd7d9;
   --hds-color-surface-faint: #f4f4f4;
@@ -2644,6 +2588,48 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-copy-button-surface-color-active: #c6c6c6;
   --hds-copy-button-surface-color-default: #f4f4f4;
   --hds-copy-button-surface-color-hover: #e8e8e8;
+  --hds-core-color-alpha-100: #e0e0e0;
+  --hds-core-color-alpha-200: #c6c6c6;
+  --hds-core-color-alpha-300: #8d8d8d;
+  --hds-core-color-amber-100: #ffd9be;
+  --hds-core-color-amber-200: #ba4e00;
+  --hds-core-color-amber-300: #8a3800;
+  --hds-core-color-amber-400: #5e2900;
+  --hds-core-color-amber-500: #3e1a00;
+  --hds-core-color-amber-50: #fff2e8;
+  --hds-core-color-blue-100: #d0e2ff;
+  --hds-core-color-blue-200: #0f62fe;
+  --hds-core-color-blue-300: #0043ce;
+  --hds-core-color-blue-400: #002d9c;
+  --hds-core-color-blue-500: #001141;
+  --hds-core-color-blue-50: #edf5ff;
+  --hds-core-color-green-100: #a7f0ba;
+  --hds-core-color-green-200: #24a148;
+  --hds-core-color-green-300: #198038;
+  --hds-core-color-green-400: #0e6027;
+  --hds-core-color-green-500: #044317;
+  --hds-core-color-green-50: #defbe6;
+  --hds-core-color-neutral-0: #ffffff;
+  --hds-core-color-neutral-100: #e0e0e0;
+  --hds-core-color-neutral-200: #c6c6c6;
+  --hds-core-color-neutral-300: #a8a8a8;
+  --hds-core-color-neutral-400: #8d8d8d;
+  --hds-core-color-neutral-500: #525252;
+  --hds-core-color-neutral-50: #f4f4f4;
+  --hds-core-color-neutral-600: #393939;
+  --hds-core-color-neutral-700: #161616;
+  --hds-core-color-purple-100: #e8daff;
+  --hds-core-color-purple-200: #a56eff;
+  --hds-core-color-purple-300: #8a3ffc;
+  --hds-core-color-purple-400: #6929c4;
+  --hds-core-color-purple-500: #31135e;
+  --hds-core-color-purple-50: #f6f2ff;
+  --hds-core-color-red-100: #ffd7d9;
+  --hds-core-color-red-200: #da1e28;
+  --hds-core-color-red-300: #a2191f;
+  --hds-core-color-red-400: #750e13;
+  --hds-core-color-red-500: #520408;
+  --hds-core-color-red-50: #fff1f1;
   --hds-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --hds-dialog-primitive-border-color: #c6c6c6;
   --hds-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
@@ -2758,7 +2744,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-reveal-surface-color-focus: rgba(0, 0, 0, 0);
   --hds-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
   --hds-rich-tooltip-bubble-arrow-size: 12px;
-  --hds-rich-tooltip-bubble-border-color: var(--hds-color-palette-alpha-200);
+  --hds-rich-tooltip-bubble-border-color: var(--hds-core-color-alpha-200);
   --hds-rich-tooltip-bubble-border-radius: 2px;
   --hds-rich-tooltip-bubble-max-width: 288px;
   --hds-rich-tooltip-toggle-foreground-color-default: #525252;
@@ -3213,48 +3199,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-hcp-brand: #ffffff;
   --hds-color-page-faint: #161616;
   --hds-color-page-primary: #161616;
-  --hds-color-palette-alpha-100: #393939;
-  --hds-color-palette-alpha-200: #525252;
-  --hds-color-palette-alpha-300: #6f6f6f;
-  --hds-color-palette-amber-100: #ffd9be;
-  --hds-color-palette-amber-200: #ba4e00;
-  --hds-color-palette-amber-300: #8a3800;
-  --hds-color-palette-amber-400: #5e2900;
-  --hds-color-palette-amber-500: #3e1a00;
-  --hds-color-palette-amber-50: #fff2e8;
-  --hds-color-palette-blue-100: #d0e2ff;
-  --hds-color-palette-blue-200: #0f62fe;
-  --hds-color-palette-blue-300: #0043ce;
-  --hds-color-palette-blue-400: #002d9c;
-  --hds-color-palette-blue-500: #001141;
-  --hds-color-palette-blue-50: #edf5ff;
-  --hds-color-palette-green-100: #a7f0ba;
-  --hds-color-palette-green-200: #24a148;
-  --hds-color-palette-green-300: #198038;
-  --hds-color-palette-green-400: #0e6027;
-  --hds-color-palette-green-500: #044317;
-  --hds-color-palette-green-50: #defbe6;
-  --hds-color-palette-neutral-0: #ffffff;
-  --hds-color-palette-neutral-100: #e0e0e0;
-  --hds-color-palette-neutral-200: #c6c6c6;
-  --hds-color-palette-neutral-300: #a8a8a8;
-  --hds-color-palette-neutral-400: #8d8d8d;
-  --hds-color-palette-neutral-500: #525252;
-  --hds-color-palette-neutral-50: #f4f4f4;
-  --hds-color-palette-neutral-600: #393939;
-  --hds-color-palette-neutral-700: #161616;
-  --hds-color-palette-purple-100: #e8daff;
-  --hds-color-palette-purple-200: #a56eff;
-  --hds-color-palette-purple-300: #8a3ffc;
-  --hds-color-palette-purple-400: #6929c4;
-  --hds-color-palette-purple-500: #31135e;
-  --hds-color-palette-purple-50: #f6f2ff;
-  --hds-color-palette-red-100: #ffd7d9;
-  --hds-color-palette-red-200: #da1e28;
-  --hds-color-palette-red-300: #a2191f;
-  --hds-color-palette-red-400: #750e13;
-  --hds-color-palette-red-500: #520408;
-  --hds-color-palette-red-50: #fff1f1;
   --hds-color-surface-action: #0043ce;
   --hds-color-surface-critical: #a2191f;
   --hds-color-surface-faint: #262626;
@@ -3279,6 +3223,48 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-copy-button-surface-color-active: #525252;
   --hds-copy-button-surface-color-default: #262626;
   --hds-copy-button-surface-color-hover: #333333;
+  --hds-core-color-alpha-100: #393939;
+  --hds-core-color-alpha-200: #525252;
+  --hds-core-color-alpha-300: #6f6f6f;
+  --hds-core-color-amber-100: #ffd9be;
+  --hds-core-color-amber-200: #ba4e00;
+  --hds-core-color-amber-300: #8a3800;
+  --hds-core-color-amber-400: #5e2900;
+  --hds-core-color-amber-500: #3e1a00;
+  --hds-core-color-amber-50: #fff2e8;
+  --hds-core-color-blue-100: #d0e2ff;
+  --hds-core-color-blue-200: #0f62fe;
+  --hds-core-color-blue-300: #0043ce;
+  --hds-core-color-blue-400: #002d9c;
+  --hds-core-color-blue-500: #001141;
+  --hds-core-color-blue-50: #edf5ff;
+  --hds-core-color-green-100: #a7f0ba;
+  --hds-core-color-green-200: #24a148;
+  --hds-core-color-green-300: #198038;
+  --hds-core-color-green-400: #0e6027;
+  --hds-core-color-green-500: #044317;
+  --hds-core-color-green-50: #defbe6;
+  --hds-core-color-neutral-0: #ffffff;
+  --hds-core-color-neutral-100: #e0e0e0;
+  --hds-core-color-neutral-200: #c6c6c6;
+  --hds-core-color-neutral-300: #a8a8a8;
+  --hds-core-color-neutral-400: #8d8d8d;
+  --hds-core-color-neutral-500: #525252;
+  --hds-core-color-neutral-50: #f4f4f4;
+  --hds-core-color-neutral-600: #393939;
+  --hds-core-color-neutral-700: #161616;
+  --hds-core-color-purple-100: #e8daff;
+  --hds-core-color-purple-200: #a56eff;
+  --hds-core-color-purple-300: #8a3ffc;
+  --hds-core-color-purple-400: #6929c4;
+  --hds-core-color-purple-500: #31135e;
+  --hds-core-color-purple-50: #f6f2ff;
+  --hds-core-color-red-100: #ffd7d9;
+  --hds-core-color-red-200: #da1e28;
+  --hds-core-color-red-300: #a2191f;
+  --hds-core-color-red-400: #750e13;
+  --hds-core-color-red-500: #520408;
+  --hds-core-color-red-50: #fff1f1;
   --hds-css-color-transform-direction: -1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --hds-dialog-primitive-border-color: #525252;
   --hds-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
@@ -3393,7 +3379,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-reveal-surface-color-focus: rgba(0, 0, 0, 0);
   --hds-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
   --hds-rich-tooltip-bubble-arrow-size: 12px;
-  --hds-rich-tooltip-bubble-border-color: var(--hds-color-palette-alpha-200);
+  --hds-rich-tooltip-bubble-border-color: var(--hds-core-color-alpha-200);
   --hds-rich-tooltip-bubble-border-radius: 2px;
   --hds-rich-tooltip-bubble-max-width: 288px;
   --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
@@ -3827,48 +3813,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-hcp-brand: #000000;
   --hds-color-page-faint: #f4f4f4;
   --hds-color-page-primary: #f4f4f4;
-  --hds-color-palette-alpha-100: #c6c6c6;
-  --hds-color-palette-alpha-200: #e0e0e0;
-  --hds-color-palette-alpha-300: #8d8d8d;
-  --hds-color-palette-amber-100: #ffd9be;
-  --hds-color-palette-amber-200: #ba4e00;
-  --hds-color-palette-amber-300: #8a3800;
-  --hds-color-palette-amber-400: #5e2900;
-  --hds-color-palette-amber-500: #3e1a00;
-  --hds-color-palette-amber-50: #fff2e8;
-  --hds-color-palette-blue-100: #d0e2ff;
-  --hds-color-palette-blue-200: #0f62fe;
-  --hds-color-palette-blue-300: #0043ce;
-  --hds-color-palette-blue-400: #002d9c;
-  --hds-color-palette-blue-500: #001141;
-  --hds-color-palette-blue-50: #edf5ff;
-  --hds-color-palette-green-100: #a7f0ba;
-  --hds-color-palette-green-200: #24a148;
-  --hds-color-palette-green-300: #198038;
-  --hds-color-palette-green-400: #0e6027;
-  --hds-color-palette-green-500: #044317;
-  --hds-color-palette-green-50: #defbe6;
-  --hds-color-palette-neutral-0: #ffffff;
-  --hds-color-palette-neutral-100: #e0e0e0;
-  --hds-color-palette-neutral-200: #c6c6c6;
-  --hds-color-palette-neutral-300: #a8a8a8;
-  --hds-color-palette-neutral-400: #8d8d8d;
-  --hds-color-palette-neutral-500: #525252;
-  --hds-color-palette-neutral-50: #f4f4f4;
-  --hds-color-palette-neutral-600: #393939;
-  --hds-color-palette-neutral-700: #161616;
-  --hds-color-palette-purple-100: #e8daff;
-  --hds-color-palette-purple-200: #a56eff;
-  --hds-color-palette-purple-300: #8a3ffc;
-  --hds-color-palette-purple-400: #6929c4;
-  --hds-color-palette-purple-500: #31135e;
-  --hds-color-palette-purple-50: #f6f2ff;
-  --hds-color-palette-red-100: #ffd7d9;
-  --hds-color-palette-red-200: #da1e28;
-  --hds-color-palette-red-300: #a2191f;
-  --hds-color-palette-red-400: #750e13;
-  --hds-color-palette-red-500: #520408;
-  --hds-color-palette-red-50: #fff1f1;
   --hds-color-surface-action: #d0e2ff;
   --hds-color-surface-critical: #ffd7d9;
   --hds-color-surface-faint: #ffffff;
@@ -3893,6 +3837,48 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-copy-button-surface-color-active: #c6c6c6;
   --hds-copy-button-surface-color-default: #ffffff;
   --hds-copy-button-surface-color-hover: #e8e8e8;
+  --hds-core-color-alpha-100: #c6c6c6;
+  --hds-core-color-alpha-200: #e0e0e0;
+  --hds-core-color-alpha-300: #8d8d8d;
+  --hds-core-color-amber-100: #ffd9be;
+  --hds-core-color-amber-200: #ba4e00;
+  --hds-core-color-amber-300: #8a3800;
+  --hds-core-color-amber-400: #5e2900;
+  --hds-core-color-amber-500: #3e1a00;
+  --hds-core-color-amber-50: #fff2e8;
+  --hds-core-color-blue-100: #d0e2ff;
+  --hds-core-color-blue-200: #0f62fe;
+  --hds-core-color-blue-300: #0043ce;
+  --hds-core-color-blue-400: #002d9c;
+  --hds-core-color-blue-500: #001141;
+  --hds-core-color-blue-50: #edf5ff;
+  --hds-core-color-green-100: #a7f0ba;
+  --hds-core-color-green-200: #24a148;
+  --hds-core-color-green-300: #198038;
+  --hds-core-color-green-400: #0e6027;
+  --hds-core-color-green-500: #044317;
+  --hds-core-color-green-50: #defbe6;
+  --hds-core-color-neutral-0: #ffffff;
+  --hds-core-color-neutral-100: #e0e0e0;
+  --hds-core-color-neutral-200: #c6c6c6;
+  --hds-core-color-neutral-300: #a8a8a8;
+  --hds-core-color-neutral-400: #8d8d8d;
+  --hds-core-color-neutral-500: #525252;
+  --hds-core-color-neutral-50: #f4f4f4;
+  --hds-core-color-neutral-600: #393939;
+  --hds-core-color-neutral-700: #161616;
+  --hds-core-color-purple-100: #e8daff;
+  --hds-core-color-purple-200: #a56eff;
+  --hds-core-color-purple-300: #8a3ffc;
+  --hds-core-color-purple-400: #6929c4;
+  --hds-core-color-purple-500: #31135e;
+  --hds-core-color-purple-50: #f6f2ff;
+  --hds-core-color-red-100: #ffd7d9;
+  --hds-core-color-red-200: #da1e28;
+  --hds-core-color-red-300: #a2191f;
+  --hds-core-color-red-400: #750e13;
+  --hds-core-color-red-500: #520408;
+  --hds-core-color-red-50: #fff1f1;
   --hds-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --hds-dialog-primitive-border-color: #e0e0e0;
   --hds-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
@@ -4007,7 +3993,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-reveal-surface-color-focus: rgba(0, 0, 0, 0);
   --hds-reveal-surface-color-hover: rgba(141, 141, 141, 0.12);
   --hds-rich-tooltip-bubble-arrow-size: 12px;
-  --hds-rich-tooltip-bubble-border-color: var(--hds-color-palette-alpha-200);
+  --hds-rich-tooltip-bubble-border-color: var(--hds-core-color-alpha-200);
   --hds-rich-tooltip-bubble-border-radius: 2px;
   --hds-rich-tooltip-bubble-max-width: 288px;
   --hds-rich-tooltip-toggle-foreground-color-default: #525252;
@@ -4461,48 +4447,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-hcp-brand: #ffffff;
   --hds-color-page-faint: #262626;
   --hds-color-page-primary: #262626;
-  --hds-color-palette-alpha-100: #525252;
-  --hds-color-palette-alpha-200: #6f6f6f;
-  --hds-color-palette-alpha-300: #8d8d8d;
-  --hds-color-palette-amber-100: #ffd9be;
-  --hds-color-palette-amber-200: #ba4e00;
-  --hds-color-palette-amber-300: #8a3800;
-  --hds-color-palette-amber-400: #5e2900;
-  --hds-color-palette-amber-500: #3e1a00;
-  --hds-color-palette-amber-50: #fff2e8;
-  --hds-color-palette-blue-100: #d0e2ff;
-  --hds-color-palette-blue-200: #0f62fe;
-  --hds-color-palette-blue-300: #0043ce;
-  --hds-color-palette-blue-400: #002d9c;
-  --hds-color-palette-blue-500: #001141;
-  --hds-color-palette-blue-50: #edf5ff;
-  --hds-color-palette-green-100: #a7f0ba;
-  --hds-color-palette-green-200: #24a148;
-  --hds-color-palette-green-300: #198038;
-  --hds-color-palette-green-400: #0e6027;
-  --hds-color-palette-green-500: #044317;
-  --hds-color-palette-green-50: #defbe6;
-  --hds-color-palette-neutral-0: #ffffff;
-  --hds-color-palette-neutral-100: #e0e0e0;
-  --hds-color-palette-neutral-200: #c6c6c6;
-  --hds-color-palette-neutral-300: #a8a8a8;
-  --hds-color-palette-neutral-400: #8d8d8d;
-  --hds-color-palette-neutral-500: #525252;
-  --hds-color-palette-neutral-50: #f4f4f4;
-  --hds-color-palette-neutral-600: #393939;
-  --hds-color-palette-neutral-700: #161616;
-  --hds-color-palette-purple-100: #e8daff;
-  --hds-color-palette-purple-200: #a56eff;
-  --hds-color-palette-purple-300: #8a3ffc;
-  --hds-color-palette-purple-400: #6929c4;
-  --hds-color-palette-purple-500: #31135e;
-  --hds-color-palette-purple-50: #f6f2ff;
-  --hds-color-palette-red-100: #ffd7d9;
-  --hds-color-palette-red-200: #da1e28;
-  --hds-color-palette-red-300: #a2191f;
-  --hds-color-palette-red-400: #750e13;
-  --hds-color-palette-red-500: #520408;
-  --hds-color-palette-red-50: #fff1f1;
   --hds-color-surface-action: #0f62fe;
   --hds-color-surface-critical: #a2191f;
   --hds-color-surface-faint: #393939;
@@ -4527,6 +4471,48 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-copy-button-surface-color-active: #6f6f6f;
   --hds-copy-button-surface-color-default: #393939;
   --hds-copy-button-surface-color-hover: #474747;
+  --hds-core-color-alpha-100: #525252;
+  --hds-core-color-alpha-200: #6f6f6f;
+  --hds-core-color-alpha-300: #8d8d8d;
+  --hds-core-color-amber-100: #ffd9be;
+  --hds-core-color-amber-200: #ba4e00;
+  --hds-core-color-amber-300: #8a3800;
+  --hds-core-color-amber-400: #5e2900;
+  --hds-core-color-amber-500: #3e1a00;
+  --hds-core-color-amber-50: #fff2e8;
+  --hds-core-color-blue-100: #d0e2ff;
+  --hds-core-color-blue-200: #0f62fe;
+  --hds-core-color-blue-300: #0043ce;
+  --hds-core-color-blue-400: #002d9c;
+  --hds-core-color-blue-500: #001141;
+  --hds-core-color-blue-50: #edf5ff;
+  --hds-core-color-green-100: #a7f0ba;
+  --hds-core-color-green-200: #24a148;
+  --hds-core-color-green-300: #198038;
+  --hds-core-color-green-400: #0e6027;
+  --hds-core-color-green-500: #044317;
+  --hds-core-color-green-50: #defbe6;
+  --hds-core-color-neutral-0: #ffffff;
+  --hds-core-color-neutral-100: #e0e0e0;
+  --hds-core-color-neutral-200: #c6c6c6;
+  --hds-core-color-neutral-300: #a8a8a8;
+  --hds-core-color-neutral-400: #8d8d8d;
+  --hds-core-color-neutral-500: #525252;
+  --hds-core-color-neutral-50: #f4f4f4;
+  --hds-core-color-neutral-600: #393939;
+  --hds-core-color-neutral-700: #161616;
+  --hds-core-color-purple-100: #e8daff;
+  --hds-core-color-purple-200: #a56eff;
+  --hds-core-color-purple-300: #8a3ffc;
+  --hds-core-color-purple-400: #6929c4;
+  --hds-core-color-purple-500: #31135e;
+  --hds-core-color-purple-50: #f6f2ff;
+  --hds-core-color-red-100: #ffd7d9;
+  --hds-core-color-red-200: #da1e28;
+  --hds-core-color-red-300: #a2191f;
+  --hds-core-color-red-400: #750e13;
+  --hds-core-color-red-500: #520408;
+  --hds-core-color-red-50: #fff1f1;
   --hds-css-color-transform-direction: -1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --hds-dialog-primitive-border-color: #6f6f6f;
   --hds-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
@@ -4641,7 +4627,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-reveal-surface-color-focus: rgba(0, 0, 0, 0);
   --hds-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
   --hds-rich-tooltip-bubble-arrow-size: 12px;
-  --hds-rich-tooltip-bubble-border-color: var(--hds-color-palette-alpha-200);
+  --hds-rich-tooltip-bubble-border-color: var(--hds-core-color-alpha-200);
   --hds-rich-tooltip-bubble-border-radius: 2px;
   --hds-rich-tooltip-bubble-max-width: 288px;
   --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
@@ -4796,7 +4782,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-app-side-nav-toggle-button-border-radius: var(
     --hds-border-radius-small
   );
-  --hds-app-side-nav-wrapper-border-color: var(--hds-color-palette-neutral-200);
+  --hds-app-side-nav-wrapper-border-color: var(--hds-core-color-neutral-200);
   --hds-app-side-nav-wrapper-border-width: 1px;
   --hds-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
   --hds-app-side-nav-wrapper-padding-vertical-minimized: 22px;
@@ -4943,11 +4929,9 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-size: 16px;
   --hds-form-control-base-border-color-default: var(
-    --hds-color-palette-neutral-400
+    --hds-core-color-neutral-400
   );
-  --hds-form-control-base-border-color-hover: var(
-    --hds-color-palette-neutral-500
-  );
+  --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-base-foreground-color: var(--hds-color-foreground-strong);
   --hds-form-control-base-placeholder-foreground-color: var(
     --hds-color-foreground-faint
@@ -4961,19 +4945,17 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-control-border-radius: var(--hds-border-radius-small);
   --hds-form-control-border-width: 1px;
   --hds-form-control-checked-border-color-default: var(
-    --hds-color-palette-blue-300
+    --hds-core-color-blue-300
   );
-  --hds-form-control-checked-border-color-hover: var(
-    --hds-color-palette-blue-400
-  );
+  --hds-form-control-checked-border-color-hover: var(--hds-core-color-blue-400);
   --hds-form-control-checked-foreground-color: var(
     --hds-color-foreground-high-contrast
   );
   --hds-form-control-checked-surface-color-default: var(
-    --hds-color-palette-blue-200
+    --hds-core-color-blue-200
   );
   --hds-form-control-checked-surface-color-hover: var(
-    --hds-color-palette-blue-300
+    --hds-core-color-blue-300
   );
   --hds-form-control-disabled-border-color: var(--hds-color-border-primary);
   --hds-form-control-disabled-foreground-color: var(
@@ -4983,11 +4965,9 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --hds-color-surface-interactive-disabled
   );
   --hds-form-control-invalid-border-color-default: var(
-    --hds-color-palette-red-300
+    --hds-core-color-red-300
   );
-  --hds-form-control-invalid-border-color-hover: var(
-    --hds-color-palette-red-400
-  );
+  --hds-form-control-invalid-border-color-hover: var(--hds-core-color-red-400);
   --hds-form-control-padding: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma. */
   --hds-form-control-readonly-border-color: var(--hds-color-border-faint);
   --hds-form-control-readonly-foreground-color: var(
@@ -4995,7 +4975,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   );
   --hds-form-control-readonly-surface-color: var(--hds-color-surface-strong);
   --hds-form-error-color: var(
-    --hds-color-palette-red-300
+    --hds-core-color-red-300
   ); /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-icon-size: 14px;
   --hds-form-helper-text-color: var(

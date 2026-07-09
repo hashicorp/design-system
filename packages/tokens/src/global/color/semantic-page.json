@@ -3,10 +3,10 @@
     "page": {
       "primary": {
         "$type": "color",
-        "$value": "{color.palette.neutral-0}",
+        "$value": "{core.color.neutral-0}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.neutral-0}",
+          "default": "{core.color.neutral-0}",
           "cds-g0": "{carbon.themes.white.background}",
           "cds-g10": "{carbon.themes.g10.background}",
           "cds-g90": "{carbon.themes.g90.background}",
@@ -15,10 +15,10 @@
       },
       "faint": {
         "$type": "color",
-        "$value": "{color.palette.neutral-50}",
+        "$value": "{core.color.neutral-50}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.neutral-50}",
+          "default": "{core.color.neutral-50}",
           "cds-g0": "{carbon.themes.white.background}",
           "cds-g10": "{carbon.themes.g10.background}",
           "cds-g90": "{carbon.themes.g90.background}",

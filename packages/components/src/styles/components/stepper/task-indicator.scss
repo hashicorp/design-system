@@ -15,7 +15,7 @@ $hds-stepper-indicator-task-size: 16px;
 // Determine states and corresponding styles
 $hds-stepper-indicator-task-status-props: (
   "incomplete": (
-    "color-default": var(--hds-color-palette-neutral-300),
+    "color-default": var(--hds-core-color-neutral-300),
     "color-hover": var(--hds-color-foreground-action-hover),
     "color-active": var(--hds-color-foreground-action-active),
   ),
@@ -31,8 +31,8 @@ $hds-stepper-indicator-task-status-props: (
   ),
   "complete": (
     "color-default": var(--hds-color-foreground-success),
-    "color-hover": var(--hds-color-palette-green-300),
-    "color-active": var(--hds-color-palette-green-400),
+    "color-hover": var(--hds-core-color-green-300),
+    "color-active": var(--hds-core-color-green-400),
   ),
 );
 
