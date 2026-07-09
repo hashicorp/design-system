@@ -7,8 +7,6 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { hash } from '@ember/helper';
 
-import type { WithBoundArgs } from '@glint/template';
-
 import HdsAccordionItem, {
   SIZES,
   DEFAULT_SIZE,
@@ -18,31 +16,11 @@ import HdsAccordionItem, {
 import { HdsAccordionItemTitleTagValues } from './types.ts';
 
 import type {
-  HdsAccordionForceStates,
   HdsAccordionSizes,
   HdsAccordionTypes,
   HdsAccordionItemTitleTags,
+  HdsAccordionSignature,
 } from './types.ts';
-
-export interface HdsAccordionSignature {
-  Args: {
-    size?: HdsAccordionSizes;
-    type?: HdsAccordionTypes;
-    forceState?: HdsAccordionForceStates;
-    titleTag?: HdsAccordionItemTitleTags;
-  };
-  Blocks: {
-    default: [
-      {
-        Item?: WithBoundArgs<
-          typeof HdsAccordionItem,
-          'titleTag' | 'size' | 'type' | 'forceState'
-        >;
-      },
-    ];
-  };
-  Element: HTMLDivElement;
-}
 
 export default class HdsAccordion extends Component<HdsAccordionSignature> {
   get size(): HdsAccordionSizes {

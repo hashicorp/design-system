@@ -8,7 +8,7 @@ import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import { HdsAccordion } from '@hashicorp/design-system-components/components';
 
-import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
+import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components';
 
 export interface CodeFragmentWithToggleVariantsSignature {
   Args: {
