@@ -134,25 +134,25 @@ $hds-app-footer-icon-text-gap: 6px;
 
 // Light
 .hds-app-footer--theme-light {
-  --app-footer-foreground-color: var(--hds-color-foreground-primary);
-  --app-footer-border-top-color: var(--hds-color-border-primary);
+  --app-footer-foreground-color: var(--hds-foreground-color-primary);
+  --app-footer-border-top-color: var(--hds-border-color-primary);
 
   // Overriding default Secondary Link colors
-  --app-footer-link-foreground-color-default: var(--hds-color-foreground-faint);
-  --app-footer-link-foreground-color-hover: var(--hds-color-foreground-primary);
-  --app-footer-link-foreground-color-active: var(--hds-color-foreground-strong);
-  --app-footer-link-foreground-color-focus: var(--hds-color-foreground-faint);
+  --app-footer-link-foreground-color-default: var(--hds-foreground-color-faint);
+  --app-footer-link-foreground-color-hover: var(--hds-foreground-color-primary);
+  --app-footer-link-foreground-color-active: var(--hds-foreground-color-strong);
+  --app-footer-link-foreground-color-focus: var(--hds-foreground-color-faint);
   --app-footer-link-outline-color: var(--hds-app-footer-link-focus-outline-color);
 
   // Copyright
-  --app-footer-copyright-text-color: var(--hds-color-foreground-faint);
+  --app-footer-copyright-text-color: var(--hds-foreground-color-faint);
   --app-footer-copyright-icon-color: var(--hds-product-hashicorp-brand-color);
 
   // StatusLink icon colors
-  --app-footer-status-link-icon-operational-color: var(--hds-color-foreground-success);
-  --app-footer-status-link-icon-degraded-color: var(--hds-color-foreground-warning);
-  --app-footer-status-link-icon-maintenance-color: var(--hds-color-foreground-warning);
-  --app-footer-status-link-icon-outage-color: var(--hds-color-foreground-critical);
+  --app-footer-status-link-icon-operational-color: var(--hds-foreground-color-success);
+  --app-footer-status-link-icon-degraded-color: var(--hds-foreground-color-warning);
+  --app-footer-status-link-icon-maintenance-color: var(--hds-foreground-color-warning);
+  --app-footer-status-link-icon-outage-color: var(--hds-foreground-color-critical);
 }
 
 // Dark

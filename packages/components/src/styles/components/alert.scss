@@ -64,28 +64,28 @@
     font-size: 0.9em; // as discussed with designers, we reduce the size for optical/visual balance
     font-family: var(--hds-typography-code-100-font-family);
     line-height: 1em;
-    background-color: var(--hds-color-surface-primary);
+    background-color: var(--hds-surface-color-primary);
     border: 1px solid var(--hds-core-color-neutral-200);
     border-radius: var(--hds-border-radius-small);
   }
 
   // Default styling for bare HTML links not using HDS::Link components
   a:not([class*="hds-"]) {
-    color: var(--hds-color-foreground-strong);
+    color: var(--hds-foreground-color-strong);
 
     &:focus,
     &:focus-visible {
       text-decoration: none;
-      outline: 2px solid var(--hds-color-focus-action-internal);
+      outline: 2px solid var(--hds-focus-color-action-internal);
       outline-offset: 1px;
     }
 
     &:hover {
-      color: var(--hds-color-foreground-primary);
+      color: var(--hds-foreground-color-primary);
     }
 
     &:active {
-      color: var(--hds-color-foreground-faint);
+      color: var(--hds-foreground-color-faint);
     }
   }
 }

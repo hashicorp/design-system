@@ -70,7 +70,7 @@
   flex-direction: column;
   height: 100%;
   color: var(
-    --hds-color-foreground-primary
+    --hds-foreground-color-primary
   ); // we set a default color (in case generic content is added to the body of the appsidenav)
   background: var(--hds-app-side-nav-wrapper-surface-color);
   border-right: var(--hds-app-side-nav-wrapper-border-width) solid var(--hds-app-side-nav-wrapper-border-color);

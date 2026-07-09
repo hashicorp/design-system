@@ -110,13 +110,13 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
                     font-family="var(--hds-typography-display-200-font-family)"
                     font-size="var(--hds-typography-display-200-font-size)"
                     line-height="var(--hds-typography-display-200-line-height)"
-                    color="var(--hds-color-foreground-strong)"
+                    color="var(--hds-foreground-color-strong)"
                     margin="0"
                   }}
                 >Heading with --hds-typography-display-200-font-family /
                   --hds-typography-display-200-font-size /
                   --hds-typography-display-200-line-height /
-                  --hds-color-foreground-strong</h2>
+                  --hds-foreground-color-strong</h2>
               </SF.Item>
               <SF.Item>
                 <p
@@ -124,13 +124,13 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
                     font-family="var(--hds-typography-body-300-font-family)"
                     font-size="var(--hds-typography-body-300-font-size)"
                     line-height="var(--hds-typography-body-300-line-height)"
-                    color="var(--hds-color-foreground-primary)"
+                    color="var(--hds-foreground-color-primary)"
                     margin="0"
                   }}
                 >Paragraph with --hds-typography-body-300-font-family /
                   --hds-typography-body-300-font-size /
                   --hds-typography-body-300-line-height /
-                  --hds-color-foreground-primary</p>
+                  --hds-foreground-color-primary</p>
               </SF.Item>
               <SF.Item>
                 <code
@@ -138,13 +138,13 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
                     font-family="var(--hds-typography-code-300-font-family)"
                     font-size="var(--hds-typography-code-300-font-size)"
                     line-height="var(--hds-typography-code-300-line-height)"
-                    color="var(--hds-color-foreground-success)"
+                    color="var(--hds-foreground-color-success)"
                     margin="0"
                   }}
                 >Code with --hds-typography-code-300-font-family /
                   --hds-typography-code-300-font-size /
                   --hds-typography-code-300-line-height /
-                  --hds-color-foreground-success</code>
+                  --hds-foreground-color-success</code>
               </SF.Item>
             </ShwFlex>
           </T.Panel>

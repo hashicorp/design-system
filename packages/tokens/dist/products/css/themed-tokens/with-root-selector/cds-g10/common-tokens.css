@@ -7,9 +7,9 @@
   --hds-accordion-item-toggle-icon-size-small: 16px;
   --hds-accordion-item-toggle-padding-right-large: 16px;
   --hds-alert-page-padding-horizontal: 48px;
-  --hds-alert-surface-color-neutral: var(--hds-color-surface-faint);
-  --hds-alert-title-foreground-color-neutral: var(--hds-color-foreground-primary);
-  --hds-app-header-button-foreground-color-disabled: var(--hds-color-foreground-disabled);
+  --hds-alert-surface-color-neutral: var(--hds-surface-color-faint);
+  --hds-alert-title-foreground-color-neutral: var(--hds-foreground-color-primary);
+  --hds-app-header-button-foreground-color-disabled: var(--hds-foreground-color-disabled);
   --hds-app-header-home-link-logo-size: 28px;
   --hds-app-side-nav-body-list-item-border-radius: var(--hds-border-radius-small);
   --hds-app-side-nav-body-list-item-content-gap: 8px;
@@ -21,12 +21,12 @@
   --hds-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
   --hds-app-side-nav-wrapper-padding-vertical-minimized: 22px;
   --hds-app-side-nav-wrapper-padding-vertical: 16px;
-  --hds-badge-foreground-color-critical-inverted: var(--hds-color-foreground-high-contrast);
-  --hds-badge-foreground-color-highlight-inverted: var(--hds-color-foreground-high-contrast);
-  --hds-badge-foreground-color-neutral-dark-mode-filled: var(--hds-color-foreground-high-contrast);
-  --hds-badge-foreground-color-neutral-dark-mode-outlined: var(--hds-color-foreground-high-contrast);
-  --hds-badge-foreground-color-success-inverted: var(--hds-color-foreground-high-contrast);
-  --hds-badge-foreground-color-warning-inverted: var(--hds-color-foreground-high-contrast);
+  --hds-badge-foreground-color-critical-inverted: var(--hds-foreground-color-high-contrast);
+  --hds-badge-foreground-color-highlight-inverted: var(--hds-foreground-color-high-contrast);
+  --hds-badge-foreground-color-neutral-dark-mode-filled: var(--hds-foreground-color-high-contrast);
+  --hds-badge-foreground-color-neutral-dark-mode-outlined: var(--hds-foreground-color-high-contrast);
+  --hds-badge-foreground-color-success-inverted: var(--hds-foreground-color-high-contrast);
+  --hds-badge-foreground-color-warning-inverted: var(--hds-foreground-color-high-contrast);
   --hds-badge-height-large: 32px;
   --hds-badge-height-medium: 24px;
   --hds-badge-icon-size-large: 16px;
@@ -39,14 +39,14 @@
   --hds-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
   --hds-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
   --hds-border-radius-rounded: 1000000000px;
-  --hds-breadcrumb-link-foreground-color-active: var(--hds-color-foreground-primary);
+  --hds-breadcrumb-link-foreground-color-active: var(--hds-foreground-color-primary);
   --hds-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
   --hds-button-border-color-secondary-muted-active: var(--hds-button-border-color-secondary-active);
   --hds-button-border-color-secondary-muted-default: var(--hds-button-border-color-secondary-default);
   --hds-button-border-color-secondary-muted-hover: var(--hds-button-border-color-secondary-hover);
   --hds-button-border-radius: var(--hds-border-radius-small);
   --hds-button-border-width: 1px;
-  --hds-button-foreground-color-tertiary-disabled: var(--hds-color-foreground-disabled);
+  --hds-button-foreground-color-tertiary-disabled: var(--hds-foreground-color-disabled);
   --hds-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
   --hds-code-block-foreground-color-selection: #0d0e12;
   --hds-code-block-surface-color-selection: #86ff13;
@@ -61,31 +61,31 @@
   --hds-form-checkbox-size: 16px;
   --hds-form-control-base-border-color-default: var(--hds-core-color-neutral-400);
   --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
-  --hds-form-control-base-foreground-color: var(--hds-color-foreground-strong);
-  --hds-form-control-base-placeholder-foreground-color: var(--hds-color-foreground-faint);
-  --hds-form-control-base-surface-color-default: var(--hds-color-surface-interactive);
-  --hds-form-control-base-surface-color-hover: var(--hds-color-surface-interactive-hover);
+  --hds-form-control-base-foreground-color: var(--hds-foreground-color-strong);
+  --hds-form-control-base-placeholder-foreground-color: var(--hds-foreground-color-faint);
+  --hds-form-control-base-surface-color-default: var(--hds-surface-color-interactive);
+  --hds-form-control-base-surface-color-hover: var(--hds-surface-color-interactive-hover);
   --hds-form-control-border-radius: var(--hds-border-radius-small);
   --hds-form-control-border-width: 1px;
   --hds-form-control-checked-border-color-default: var(--hds-core-color-blue-300);
   --hds-form-control-checked-border-color-hover: var(--hds-core-color-blue-400);
-  --hds-form-control-checked-foreground-color: var(--hds-color-foreground-high-contrast);
+  --hds-form-control-checked-foreground-color: var(--hds-foreground-color-high-contrast);
   --hds-form-control-checked-surface-color-default: var(--hds-core-color-blue-200);
   --hds-form-control-checked-surface-color-hover: var(--hds-core-color-blue-300);
-  --hds-form-control-disabled-border-color: var(--hds-color-border-primary);
-  --hds-form-control-disabled-foreground-color: var(--hds-color-foreground-disabled);
-  --hds-form-control-disabled-surface-color: var(--hds-color-surface-interactive-disabled);
+  --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
+  --hds-form-control-disabled-foreground-color: var(--hds-foreground-color-disabled);
+  --hds-form-control-disabled-surface-color: var(--hds-surface-color-interactive-disabled);
   --hds-form-control-invalid-border-color-default: var(--hds-core-color-red-300);
   --hds-form-control-invalid-border-color-hover: var(--hds-core-color-red-400);
   --hds-form-control-padding: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma. */
-  --hds-form-control-readonly-border-color: var(--hds-color-border-faint);
-  --hds-form-control-readonly-foreground-color: var(--hds-color-foreground-primary);
-  --hds-form-control-readonly-surface-color: var(--hds-color-surface-strong);
+  --hds-form-control-readonly-border-color: var(--hds-border-color-faint);
+  --hds-form-control-readonly-foreground-color: var(--hds-foreground-color-primary);
+  --hds-form-control-readonly-surface-color: var(--hds-surface-color-strong);
   --hds-form-error-color: var(--hds-core-color-red-300); /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-icon-size: 14px;
-  --hds-form-helper-text-color: var(--hds-color-foreground-faint); /** deprecated: use `hds-form-helper-text-foreground-color` instead */
-  --hds-form-indicator-optional-color: var(--hds-color-foreground-faint); /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
-  --hds-form-label-color: var(--hds-color-foreground-strong); /** deprecated: use `hds-form-label-foreground-color` instead */
+  --hds-form-helper-text-color: var(--hds-foreground-color-faint); /** deprecated: use `hds-form-helper-text-foreground-color` instead */
+  --hds-form-indicator-optional-color: var(--hds-foreground-color-faint); /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
+  --hds-form-label-color: var(--hds-foreground-color-strong); /** deprecated: use `hds-form-label-foreground-color` instead */
   --hds-form-legend-color: var(--hds-form-label-color); /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */
@@ -114,7 +114,7 @@
   --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-toggle-background-image-position-x: 2px;
   --hds-form-toggle-background-image-size: 12px;
-  --hds-form-toggle-base-surface-color-default: var(--hds-color-surface-strong); /** the toggle has a different base surface color, compared to the other controls */
+  --hds-form-toggle-base-surface-color-default: var(--hds-surface-color-strong); /** the toggle has a different base surface color, compared to the other controls */
   --hds-form-toggle-border-radius: var(--hds-border-radius-x-small);
   --hds-form-toggle-border-width: 1px;
   --hds-form-toggle-height: 16px;
@@ -125,7 +125,7 @@
   --hds-link-standalone-icon-size-medium: 1rem;
   --hds-link-standalone-typography-font-size-large: 1rem;
   --hds-link-standalone-typography-font-size-medium: 0.875rem;
-  --hds-pagination-bar-surface-color: var(--hds-color-surface-primary);
+  --hds-pagination-bar-surface-color: var(--hds-surface-color-primary);
   --hds-pagination-child-spacing-horizontal: 20px;
   --hds-pagination-child-spacing-vertical: 8px;
   --hds-pagination-nav-control-icon-spacing: 6px;
@@ -211,8 +211,8 @@
   --hds-product-waypoint-gradient-color-primary-start: #cbf1f3;
   --hds-product-waypoint-gradient-color-primary-stop: #62d4dc;
   --hds-product-waypoint-surface-color: #e0fcff;
-  --hds-rich-tooltip-toggle-foreground-color-active: var(--hds-color-foreground-faint);
-  --hds-rich-tooltip-toggle-foreground-color-hover: var(--hds-color-foreground-primary);
+  --hds-rich-tooltip-toggle-foreground-color-active: var(--hds-foreground-color-faint);
+  --hds-rich-tooltip-toggle-foreground-color-hover: var(--hds-foreground-color-primary);
   --hds-tabs-divider-height: 1px;
   --hds-tabs-indicator-transition-duration: 0.6s;
   --hds-tabs-indicator-transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);

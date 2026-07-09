@@ -17,7 +17,7 @@
       "surface": {
         "color": {
           "$type": "color",
-          "$value": "{color.surface.primary}"
+          "$value": "{surface.color.primary}"
         }
       }
     },
@@ -39,9 +39,9 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.foreground.action}",
+              "$value": "{foreground.color.action}",
               "$modes": {
-                "default": "{color.foreground.action}",
+                "default": "{foreground.color.action}",
                 "cds-g0": "{carbon.themes.white.textPrimary}",
                 "cds-g10": "{carbon.themes.g10.textPrimary}",
                 "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -50,9 +50,9 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.foreground.action-hover}",
+              "$value": "{foreground.color.action-hover}",
               "$modes": {
-                "default": "{color.foreground.action-hover}",
+                "default": "{foreground.color.action-hover}",
                 "cds-g0": "{carbon.themes.white.textPrimary}",
                 "cds-g10": "{carbon.themes.g10.textPrimary}",
                 "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -61,9 +61,9 @@
             },
             "active": {
               "$type": "color",
-              "$value": "{color.foreground.action-active}",
+              "$value": "{foreground.color.action-active}",
               "$modes": {
-                "default": "{color.foreground.action-active}",
+                "default": "{foreground.color.action-active}",
                 "cds-g0": "{carbon.themes.white.textPrimary}",
                 "cds-g10": "{carbon.themes.g10.textPrimary}",
                 "cds-g90": "{carbon.themes.g90.textPrimary}",

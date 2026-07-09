@@ -17,9 +17,9 @@
           },
           "color": {
             "$type": "color",
-            "$value": "{color.focus.action.internal}",
+            "$value": "{focus.color.action.internal}",
             "$modes": {
-              "default": "{color.focus.action.internal}",
+              "default": "{focus.color.action.internal}",
               "cds-g0": "{carbon.themes.white.focus}",
               "cds-g10": "{carbon.themes.g10.focus}",
               "cds-g90": "{carbon.themes.g90.focus}",

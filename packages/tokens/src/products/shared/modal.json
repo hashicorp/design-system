@@ -5,9 +5,9 @@
         "color": {
           "warning": {
             "$type": "color",
-            "$value": "{color.foreground.warning-on-surface}",
+            "$value": "{foreground.color.warning-on-surface}",
             "$modes": {
-              "default": "{color.foreground.warning-on-surface}",
+              "default": "{foreground.color.warning-on-surface}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -16,9 +16,9 @@
           },
           "critical": {
             "$type": "color",
-            "$value": "{color.foreground.critical-on-surface}",
+            "$value": "{foreground.color.critical-on-surface}",
             "$modes": {
-              "default": "{color.foreground.critical-on-surface}",
+              "default": "{foreground.color.critical-on-surface}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -31,24 +31,24 @@
         "color": {
           "warning": {
             "$type": "color",
-            "$value": "{color.surface.warning}",
+            "$value": "{surface.color.warning}",
             "$modes": {
-              "default": "{color.surface.warning}",
-              "cds-g0": "{color.surface.faint}",
-              "cds-g10": "{color.surface.faint}",
-              "cds-g90": "{color.surface.faint}",
-              "cds-g100": "{color.surface.faint}"
+              "default": "{surface.color.warning}",
+              "cds-g0": "{surface.color.faint}",
+              "cds-g10": "{surface.color.faint}",
+              "cds-g90": "{surface.color.faint}",
+              "cds-g100": "{surface.color.faint}"
             }
           },
           "critical": {
             "$type": "color",
-            "$value": "{color.surface.critical}",
+            "$value": "{surface.color.critical}",
             "$modes": {
-              "default": "{color.surface.critical}",
-              "cds-g0": "{color.surface.faint}",
-              "cds-g10": "{color.surface.faint}",
-              "cds-g90": "{color.surface.faint}",
-              "cds-g100": "{color.surface.faint}"
+              "default": "{surface.color.critical}",
+              "cds-g0": "{surface.color.faint}",
+              "cds-g10": "{surface.color.faint}",
+              "cds-g90": "{surface.color.faint}",
+              "cds-g100": "{surface.color.faint}"
             }
           }
         }
@@ -57,9 +57,9 @@
         "color": {
           "warning": {
             "$type": "color",
-            "$value": "{color.border.warning}",
+            "$value": "{border.color.warning}",
             "$modes": {
-              "default": "{color.border.warning}",
+              "default": "{border.color.warning}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -68,9 +68,9 @@
           },
           "critical": {
             "$type": "color",
-            "$value": "{color.border.critical}",
+            "$value": "{border.color.critical}",
             "$modes": {
-              "default": "{color.border.critical}",
+              "default": "{border.color.critical}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -83,9 +83,9 @@
         "color": {
           "warning": {
             "$type": "color",
-            "$value": "{color.foreground.warning-on-surface}",
+            "$value": "{foreground.color.warning-on-surface}",
             "$modes": {
-              "default": "{color.foreground.warning-on-surface}",
+              "default": "{foreground.color.warning-on-surface}",
               "cds-g0": "{carbon.themes.white.textSecondary}",
               "cds-g10": "{carbon.themes.g10.textSecondary}",
               "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -94,9 +94,9 @@
           },
           "critical": {
             "$type": "color",
-            "$value": "{color.foreground.critical-on-surface}",
+            "$value": "{foreground.color.critical-on-surface}",
             "$modes": {
-              "default": "{color.foreground.critical-on-surface}",
+              "default": "{foreground.color.critical-on-surface}",
               "cds-g0": "{carbon.themes.white.textSecondary}",
               "cds-g10": "{carbon.themes.g10.textSecondary}",
               "cds-g90": "{carbon.themes.g90.textSecondary}",

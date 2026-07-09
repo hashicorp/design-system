@@ -19,10 +19,10 @@
             "$value": "transparent",
             "$modes": {
               "default": "transparent",
-              "cds-g0": "{color.border.strong}",
-              "cds-g10": "{color.border.strong}",
-              "cds-g90": "{color.border.strong}",
-              "cds-g100": "{color.border.strong}"
+              "cds-g0": "{border.color.strong}",
+              "cds-g10": "{border.color.strong}",
+              "cds-g90": "{border.color.strong}",
+              "cds-g100": "{border.color.strong}"
             }
           }
         },
@@ -62,9 +62,9 @@
         "color": {
           "default": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.white.textSecondary}",
               "cds-g10": "{carbon.themes.g10.textSecondary}",
               "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -73,9 +73,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.foreground.action-hover}",
+            "$value": "{foreground.color.action-hover}",
             "$modes": {
-              "default": "{color.foreground.action-hover}",
+              "default": "{foreground.color.action-hover}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -127,9 +127,9 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.foreground.action}",
+              "$value": "{foreground.color.action}",
               "$modes": {
-                "default": "{color.foreground.action}",
+                "default": "{foreground.color.action}",
                 "cds-g0": "{carbon.themes.white.borderInteractive}",
                 "cds-g10": "{carbon.themes.g10.borderInteractive}",
                 "cds-g90": "{carbon.themes.g90.borderInteractive}",
@@ -138,9 +138,9 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.foreground.action-hover}",
+              "$value": "{foreground.color.action-hover}",
               "$modes": {
-                "default": "{color.foreground.action-hover}",
+                "default": "{foreground.color.action-hover}",
                 "cds-g0": "{carbon.themes.white.borderInteractive}",
                 "cds-g10": "{carbon.themes.g10.borderInteractive}",
                 "cds-g90": "{carbon.themes.g90.borderInteractive}",
@@ -153,9 +153,9 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.foreground.action}",
+              "$value": "{foreground.color.action}",
               "$modes": {
-                "default": "{color.foreground.action}",
+                "default": "{foreground.color.action}",
                 "cds-g0": "{carbon.themes.white.textPrimary}",
                 "cds-g10": "{carbon.themes.g10.textPrimary}",
                 "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -164,9 +164,9 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.foreground.action-hover}",
+              "$value": "{foreground.color.action-hover}",
               "$modes": {
-                "default": "{color.foreground.action-hover}",
+                "default": "{foreground.color.action-hover}",
                 "cds-g0": "{carbon.themes.white.textPrimary}",
                 "cds-g10": "{carbon.themes.g10.textPrimary}",
                 "cds-g90": "{carbon.themes.g90.textPrimary}",

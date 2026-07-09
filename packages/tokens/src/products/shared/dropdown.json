@@ -16,9 +16,9 @@
           "action": {
             "default": {
               "$type": "color",
-              "$value": "{color.foreground.primary}",
+              "$value": "{foreground.color.primary}",
               "$modes": {
-                "default": "{color.foreground.primary}",
+                "default": "{foreground.color.primary}",
                 "cds-g0": "{carbon.themes.white.textSecondary}",
                 "cds-g10": "{carbon.themes.g10.textSecondary}",
                 "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -27,9 +27,9 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.foreground.action-hover}",
+              "$value": "{foreground.color.action-hover}",
               "$modes": {
-                "default": "{color.foreground.action-hover}",
+                "default": "{foreground.color.action-hover}",
                 "cds-g0": "{carbon.themes.white.textPrimary}",
                 "cds-g10": "{carbon.themes.g10.textPrimary}",
                 "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -38,9 +38,9 @@
             },
             "focus": {
               "$type": "color",
-              "$value": "{color.foreground.action-active}",
+              "$value": "{foreground.color.action-active}",
               "$modes": {
-                "default": "{color.foreground.action-active}",
+                "default": "{foreground.color.action-active}",
                 "cds-g0": "{carbon.themes.white.textSecondary}",
                 "cds-g10": "{carbon.themes.g10.textSecondary}",
                 "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -49,9 +49,9 @@
             },
             "active": {
               "$type": "color",
-              "$value": "{color.foreground.action-active}",
+              "$value": "{foreground.color.action-active}",
               "$modes": {
-                "default": "{color.foreground.action-active}",
+                "default": "{foreground.color.action-active}",
                 "cds-g0": "{carbon.themes.white.textSecondary}",
                 "cds-g10": "{carbon.themes.g10.textSecondary}",
                 "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -62,9 +62,9 @@
           "critical": {
             "default": {
               "$type": "color",
-              "$value": "{color.foreground.critical}",
+              "$value": "{foreground.color.critical}",
               "$modes": {
-                "default": "{color.foreground.critical}",
+                "default": "{foreground.color.critical}",
                 "cds-g0": "{carbon.themes.white.textSecondary}",
                 "cds-g10": "{carbon.themes.g10.textSecondary}",
                 "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -208,9 +208,9 @@
       "border": {
         "color": {
           "$type": "color",
-          "$value": "{color.border.primary}",
+          "$value": "{border.color.primary}",
           "$modes": {
-            "default": "{color.border.primary}",
+            "default": "{border.color.primary}",
             "cds-g0": "{carbon.themes.white.borderSubtle00}",
             "cds-g10": "{carbon.themes.g10.borderSubtle00}",
             "cds-g90": "{carbon.themes.g90.borderSubtle00}",
