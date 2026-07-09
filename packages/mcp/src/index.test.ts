@@ -4,11 +4,15 @@
  */
 
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 import type { Implementation } from "@modelcontextprotocol/sdk/types.js";
+
+const currentFilePath = fileURLToPath(import.meta.url);
+const currentDirectoryPath = dirname(currentFilePath);
 
 describe("test entry point", () => {
   it("runs vitest in the mcp package", () => {
@@ -16,7 +20,7 @@ describe("test entry point", () => {
   });
 
   it("uses the expected package name", () => {
-    const packageJsonPath = resolve(process.cwd(), "package.json");
+    const packageJsonPath = resolve(currentDirectoryPath, "../package.json");
     const rawPackageJson = readFileSync(packageJsonPath, "utf8");
     const packageJson = JSON.parse(rawPackageJson) as { name?: unknown };
 
