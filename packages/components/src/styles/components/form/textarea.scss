@@ -41,7 +41,7 @@
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-basic();
-    border-color: var(--hds-color-focus-action-internal);
+    border-color: var(--hds-focus-color-action-internal);
   }
 
   // READONLY
@@ -75,8 +75,8 @@
 
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--hds-color-focus-critical-internal);
-      outline-color: var(--hds-color-focus-critical-external);
+      border-color: var(--hds-focus-color-critical-internal);
+      outline-color: var(--hds-focus-color-critical-external);
     }
   }
 }

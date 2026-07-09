@@ -159,12 +159,12 @@
 .hds-app-side-nav__list-item-link--back-link {
   &:active,
   &.mock-active {
-    background: var(--hds-color-surface-faint);
+    background: var(--hds-surface-color-faint);
 
     .hds-app-side-nav__list-item-text,
     .hds-app-side-nav__list-item-icon-leading,
     .hds-app-side-nav__list-item-icon-trailing {
-      color: var(--hds-color-foreground-primary);
+      color: var(--hds-foreground-color-primary);
     }
   }
 }

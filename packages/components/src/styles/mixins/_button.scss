@@ -251,8 +251,8 @@ $hds-button-sizes: ("small", "medium", "large");
 
       @include hds-apply-only-if-carbon() {
         box-shadow:
-          inset 0 0 0 2px var(--hds-color-focus-action-external),
-          inset 0 0 0 3px var(--hds-color-focus-action-internal);
+          inset 0 0 0 2px var(--hds-focus-color-action-external),
+          inset 0 0 0 3px var(--hds-focus-color-action-internal);
       }
     }
   }

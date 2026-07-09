@@ -56,13 +56,13 @@
 
 .tippy-box[data-theme~="hds"] {
   padding: var(--hds-tooltip-padding-vertical) var(--hds-tooltip-padding-horizontal);
-  color: var(--hds-color-foreground-high-contrast);
+  color: var(--hds-foreground-color-high-contrast);
   font-weight: var(--hds-typography-font-weight-regular);
   font-size: var(--hds-typography-body-200-font-size);
   font-family: var(--hds-typography-body-200-font-family);
   line-height: var(--hds-typography-body-200-line-height);
   overflow-wrap: break-word;
-  background-color: var(--hds-color-surface-high-contrast);
+  background-color: var(--hds-surface-color-high-contrast);
   border-radius: var(--hds-tooltip-border-radius);
   box-shadow: var(--hds-elevation-higher-box-shadow);
   transition-property: transform, visibility, opacity;
@@ -103,7 +103,7 @@
       position: absolute;
       width: var(--hds-tooltip-caret-width);
       height: var(--hds-tooltip-caret-height);
-      background-color: var(--hds-color-surface-high-contrast);
+      background-color: var(--hds-surface-color-high-contrast);
       content: "";
       clip-path: var(--hds-tooltip-caret-clip-path);
     }

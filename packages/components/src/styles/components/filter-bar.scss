@@ -14,8 +14,8 @@
   flex-direction: column;
   gap: 8px;
   padding: 8px;
-  background-color: var(--hds-color-surface-faint);
-  border: 1px solid var(--hds-color-border-primary);
+  background-color: var(--hds-surface-color-faint);
+  border: 1px solid var(--hds-border-color-primary);
   border-radius: var(--hds-border-radius-medium);
 }
 
@@ -68,8 +68,8 @@
   padding: 8px;
   overflow-y: auto;
   list-style: none;
-  background-color: var(--hds-color-surface-faint);
-  border-right: 1px solid var(--hds-color-border-primary);
+  background-color: var(--hds-surface-color-faint);
+  border-right: 1px solid var(--hds-border-color-primary);
   border-top-left-radius: var(--hds-border-radius-medium);
 }
 
@@ -83,7 +83,7 @@
   align-items: center;
   width: 100%;
   padding: 8px 16px;
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
   text-align: left;
   background-color: transparent;
   border: none;
@@ -91,7 +91,7 @@
 
   &:hover,
   &.mock-hover {
-    background-color: var(--hds-color-surface-interactive-hover);
+    background-color: var(--hds-surface-color-interactive-hover);
     cursor: pointer;
   }
 
@@ -102,7 +102,7 @@
 
   &:active,
   &.mock-active {
-    background-color: var(--hds-color-surface-interactive-active);
+    background-color: var(--hds-surface-color-interactive-active);
   }
 }
 
@@ -116,8 +116,8 @@
 
 .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button {
   position: relative;
-  color: var(--hds-color-foreground-action);
-  background-color: var(--hds-color-surface-strong);
+  color: var(--hds-foreground-color-action);
+  background-color: var(--hds-surface-color-strong);
 
   // we use `:after` to avoid conflicts with the `:before` used for the focus ring
   &::after {
@@ -126,7 +126,7 @@
     left: 4px;
     width: 2px;
     height: calc(100% - 12px);
-    background-color: var(--hds-color-foreground-action);
+    background-color: var(--hds-foreground-color-action);
     border-radius: 1px;
     content: "";
   }
@@ -160,7 +160,7 @@
   max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
   padding: 16px 0;
   overflow-y: auto;
-  background-color: var(--hds-color-surface-primary);
+  background-color: var(--hds-surface-color-primary);
   border-top-right-radius: var(--hds-border-radius-medium);
 }
 
@@ -172,7 +172,7 @@
 
 .hds-filter-bar__filter-group__search {
   padding: 0 16px 16px 16px;
-  border-bottom: 1px solid var(--hds-color-border-primary);
+  border-bottom: 1px solid var(--hds-border-color-primary);
 }
 
 .hds-filter-bar__filter-group__list {
@@ -212,7 +212,7 @@
   display: flex;
   align-items: self-start;
   padding: 8px 16px;
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
 
   &.hds-filter-bar__filter-group__selection-option--hidden {
     display: none;

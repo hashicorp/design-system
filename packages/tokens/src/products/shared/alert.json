@@ -4,9 +4,9 @@
       "color": {
         "neutral": {
           "$type": "color",
-          "$value": "{color.border.strong}",
+          "$value": "{border.color.strong}",
           "$modes": {
-            "default": "{color.border.strong}",
+            "default": "{border.color.strong}",
             "cds-g0": {
               "$value": "{carbon.themes.white.borderStrong01}",
               "alpha": "0.4"
@@ -27,9 +27,9 @@
         },
         "highlight": {
           "$type": "color",
-          "$value": "{color.border.highlight}",
+          "$value": "{border.color.highlight}",
           "$modes": {
-            "default": "{color.border.highlight}",
+            "default": "{border.color.highlight}",
             "cds-g0": {
               "$value": "{carbon.themes.white.supportInfo}",
               "alpha": "0.4"
@@ -50,9 +50,9 @@
         },
         "success": {
           "$type": "color",
-          "$value": "{color.border.success}",
+          "$value": "{border.color.success}",
           "$modes": {
-            "default": "{color.border.success}",
+            "default": "{border.color.success}",
             "cds-g0": {
               "$value": "{carbon.themes.white.supportSuccess}",
               "alpha": "0.4"
@@ -73,9 +73,9 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "{color.border.warning}",
+          "$value": "{border.color.warning}",
           "$modes": {
-            "default": "{color.border.warning}",
+            "default": "{border.color.warning}",
             "cds-g0": {
               "$value": "{carbon.themes.white.supportWarning}",
               "alpha": "0.4"
@@ -96,9 +96,9 @@
         },
         "critical": {
           "$type": "color",
-          "$value": "{color.border.critical}",
+          "$value": "{border.color.critical}",
           "$modes": {
-            "default": "{color.border.critical}",
+            "default": "{border.color.critical}",
             "cds-g0": {
               "$value": "{carbon.themes.white.supportError}",
               "alpha": "0.4"
@@ -123,13 +123,13 @@
       "color": {
         "neutral": {
           "$type": "color",
-          "$value": "{color.surface.faint}"
+          "$value": "{surface.color.faint}"
         },
         "highlight": {
           "$type": "color",
-          "$value": "{color.surface.highlight}",
+          "$value": "{surface.color.highlight}",
           "$modes": {
-            "default": "{color.surface.highlight}",
+            "default": "{surface.color.highlight}",
             "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundInfo.white}",
             "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g10}",
             "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundInfo.g90}",
@@ -138,9 +138,9 @@
         },
         "success": {
           "$type": "color",
-          "$value": "{color.surface.success}",
+          "$value": "{surface.color.success}",
           "$modes": {
-            "default": "{color.surface.success}",
+            "default": "{surface.color.success}",
             "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.white}",
             "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g10}",
             "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundSuccess.g90}",
@@ -149,9 +149,9 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "{color.surface.warning}",
+          "$value": "{surface.color.warning}",
           "$modes": {
-            "default": "{color.surface.warning}",
+            "default": "{surface.color.warning}",
             "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundWarning.white}",
             "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g10}",
             "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundWarning.g90}",
@@ -160,9 +160,9 @@
         },
         "critical": {
           "$type": "color",
-          "$value": "{color.surface.critical}",
+          "$value": "{surface.color.critical}",
           "$modes": {
-            "default": "{color.surface.critical}",
+            "default": "{surface.color.critical}",
             "cds-g0": "{carbon.themes.notificationTokens.notificationBackgroundError.white}",
             "cds-g10": "{carbon.themes.notificationTokens.notificationBackgroundError.g10}",
             "cds-g90": "{carbon.themes.notificationTokens.notificationBackgroundError.g90}",
@@ -189,13 +189,13 @@
         "color": {
           "neutral": {
             "$type": "color",
-            "$value": "{color.foreground.primary}"
+            "$value": "{foreground.color.primary}"
           },
           "highlight": {
             "$type": "color",
-            "$value": "{color.foreground.highlight-on-surface}",
+            "$value": "{foreground.color.highlight-on-surface}",
             "$modes": {
-              "default": "{color.foreground.highlight-on-surface}",
+              "default": "{foreground.color.highlight-on-surface}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -204,9 +204,9 @@
           },
           "success": {
             "$type": "color",
-            "$value": "{color.foreground.success-on-surface}",
+            "$value": "{foreground.color.success-on-surface}",
             "$modes": {
-              "default": "{color.foreground.success-on-surface}",
+              "default": "{foreground.color.success-on-surface}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -215,9 +215,9 @@
           },
           "warning": {
             "$type": "color",
-            "$value": "{color.foreground.warning-on-surface}",
+            "$value": "{foreground.color.warning-on-surface}",
             "$modes": {
-              "default": "{color.foreground.warning-on-surface}",
+              "default": "{foreground.color.warning-on-surface}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -226,9 +226,9 @@
           },
           "critical": {
             "$type": "color",
-            "$value": "{color.foreground.critical-on-surface}",
+            "$value": "{foreground.color.critical-on-surface}",
             "$modes": {
-              "default": "{color.foreground.critical-on-surface}",
+              "default": "{foreground.color.critical-on-surface}",
               "cds-g0": "{carbon.themes.white.textPrimary}",
               "cds-g10": "{carbon.themes.g10.textPrimary}",
               "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -288,9 +288,9 @@
       "color": {
         "neutral": {
           "$type": "color",
-          "$value": "{color.foreground.faint}",
+          "$value": "{foreground.color.faint}",
           "$modes": {
-            "default": "{color.foreground.faint}",
+            "default": "{foreground.color.faint}",
             "cds-g0": "{carbon.themes.statusTokens.statusGray.white}",
             "cds-g10": "{carbon.themes.statusTokens.statusGray.g10}",
             "cds-g90": "{carbon.themes.statusTokens.statusGray.g90}",
@@ -299,9 +299,9 @@
         },
         "highlight": {
           "$type": "color",
-          "$value": "{color.foreground.highlight-on-surface}",
+          "$value": "{foreground.color.highlight-on-surface}",
           "$modes": {
-            "default": "{color.foreground.highlight-on-surface}",
+            "default": "{foreground.color.highlight-on-surface}",
             "cds-g0": "{carbon.themes.white.supportInfo}",
             "cds-g10": "{carbon.themes.g10.supportInfo}",
             "cds-g90": "{carbon.themes.g90.supportInfo}",
@@ -310,9 +310,9 @@
         },
         "success": {
           "$type": "color",
-          "$value": "{color.foreground.success-on-surface}",
+          "$value": "{foreground.color.success-on-surface}",
           "$modes": {
-            "default": "{color.foreground.success-on-surface}",
+            "default": "{foreground.color.success-on-surface}",
             "cds-g0": "{carbon.themes.white.supportSuccess}",
             "cds-g10": "{carbon.themes.g10.supportSuccess}",
             "cds-g90": "{carbon.themes.g90.supportSuccess}",
@@ -321,9 +321,9 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "{color.foreground.warning-on-surface}",
+          "$value": "{foreground.color.warning-on-surface}",
           "$modes": {
-            "default": "{color.foreground.warning-on-surface}",
+            "default": "{foreground.color.warning-on-surface}",
             "cds-g0": "{carbon.themes.white.supportWarning}",
             "cds-g10": "{carbon.themes.g10.supportWarning}",
             "cds-g90": "{carbon.themes.g90.supportWarning}",
@@ -332,9 +332,9 @@
         },
         "critical": {
           "$type": "color",
-          "$value": "{color.foreground.critical-on-surface}",
+          "$value": "{foreground.color.critical-on-surface}",
           "$modes": {
-            "default": "{color.foreground.critical-on-surface}",
+            "default": "{foreground.color.critical-on-surface}",
             "cds-g0": "{carbon.themes.white.supportError}",
             "cds-g10": "{carbon.themes.g10.supportError}",
             "cds-g90": "{carbon.themes.g90.supportError}",
@@ -422,9 +422,9 @@
           "color": {
             "neutral": {
               "$type": "color",
-              "$value": "{color.border.strong}",
+              "$value": "{border.color.strong}",
               "$modes": {
-                "default": "{color.border.strong}",
+                "default": "{border.color.strong}",
                 "cds-g0": "{carbon.themes.statusTokens.statusGray.white}",
                 "cds-g10": "{carbon.themes.statusTokens.statusGray.g10}",
                 "cds-g90": "{carbon.themes.statusTokens.statusGray.g90}",
@@ -433,9 +433,9 @@
             },
             "highlight": {
               "$type": "color",
-              "$value": "{color.border.highlight}",
+              "$value": "{border.color.highlight}",
               "$modes": {
-                "default": "{color.border.highlight}",
+                "default": "{border.color.highlight}",
                 "cds-g0": "{carbon.themes.white.supportInfo}",
                 "cds-g10": "{carbon.themes.g10.supportInfo}",
                 "cds-g90": "{carbon.themes.g90.supportInfo}",
@@ -444,9 +444,9 @@
             },
             "success": {
               "$type": "color",
-              "$value": "{color.border.success}",
+              "$value": "{border.color.success}",
               "$modes": {
-                "default": "{color.border.success}",
+                "default": "{border.color.success}",
                 "cds-g0": "{carbon.themes.white.supportSuccess}",
                 "cds-g10": "{carbon.themes.g10.supportSuccess}",
                 "cds-g90": "{carbon.themes.g90.supportSuccess}",
@@ -455,9 +455,9 @@
             },
             "warning": {
               "$type": "color",
-              "$value": "{color.border.warning}",
+              "$value": "{border.color.warning}",
               "$modes": {
-                "default": "{color.border.warning}",
+                "default": "{border.color.warning}",
                 "cds-g0": "{carbon.themes.white.supportWarning}",
                 "cds-g10": "{carbon.themes.g10.supportWarning}",
                 "cds-g90": "{carbon.themes.g90.supportWarning}",
@@ -466,9 +466,9 @@
             },
             "critical": {
               "$type": "color",
-              "$value": "{color.border.critical}",
+              "$value": "{border.color.critical}",
               "$modes": {
-                "default": "{color.border.critical}",
+                "default": "{border.color.critical}",
                 "cds-g0": "{carbon.themes.white.supportError}",
                 "cds-g10": "{carbon.themes.g10.supportError}",
                 "cds-g90": "{carbon.themes.g90.supportError}",

@@ -1,6 +1,6 @@
 {
-  "color": {
-    "page": {
+  "page": {
+    "color": {
       "primary": {
         "$type": "color",
         "$value": "{core.color.neutral-0}",

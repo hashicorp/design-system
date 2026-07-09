@@ -26,7 +26,7 @@
     content: "";
 
     @include hds-apply-only-if-carbon() {
-      box-shadow: 0 0 0 1px var(--hds-color-focus-action-external);
+      box-shadow: 0 0 0 1px var(--hds-focus-color-action-external);
     }
   }
 }
@@ -147,7 +147,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   min-width: 0;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
-  color: var(--hds-color-foreground-strong);
+  color: var(--hds-foreground-color-strong);
 }
 
 // SUB-ELEMENTS
@@ -261,7 +261,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   width: max-content;
   max-width: 200px; // by design
   padding: 6px 12px;
-  background-color: var(--hds-color-surface-primary);
+  background-color: var(--hds-surface-color-primary);
   border-radius: var(--hds-border-radius-medium);
   box-shadow: var(--hds-breadcrumb-truncation-content-box-shadow);
 
@@ -288,22 +288,22 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   .hds-breadcrumb__link {
     width: 100%;
-    color: var(--hds-color-foreground-faint);
+    color: var(--hds-foreground-color-faint);
 
     &:hover,
     &.mock-hover {
-      color: var(--hds-color-foreground-primary);
+      color: var(--hds-foreground-color-primary);
     }
 
     @include hds-apply-only-if-carbon() {
       margin: 0;
       padding: 11px 16px;
       text-decoration: none;
-      background-color: var(--hds-color-surface-interactive);
+      background-color: var(--hds-surface-color-interactive);
 
       &:hover,
       &.mock-hover {
-        background-color: var(--hds-color-surface-interactive-hover);
+        background-color: var(--hds-surface-color-interactive-hover);
       }
 
       .hds-breadcrumb__text {

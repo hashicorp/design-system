@@ -49,29 +49,29 @@
 // COLORS & STATES
 
 .hds-link-inline--color-primary {
-  color: var(--hds-color-foreground-action);
+  color: var(--hds-foreground-color-action);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-color-foreground-action-hover);
+    color: var(--hds-foreground-color-action-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-color-foreground-action-active);
+    color: var(--hds-foreground-color-action-active);
   }
 }
 
 .hds-link-inline--color-secondary {
-  color: var(--hds-color-foreground-strong);
+  color: var(--hds-foreground-color-strong);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-color-foreground-primary);
+    color: var(--hds-foreground-color-primary);
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-color-foreground-faint);
+    color: var(--hds-foreground-color-faint);
   }
 }

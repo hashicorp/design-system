@@ -91,7 +91,7 @@
   --hds-app-header-padding-left: 0px;
   --hds-app-header-padding-right: 0px;
   --hds-app-header-padding-top: 0px;
-  --hds-app-header-surface-color: var(--hds-color-page-primary);
+  --hds-app-header-surface-color: var(--hds-page-color-primary);
   --hds-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
   --hds-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
   --hds-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
@@ -149,6 +149,14 @@
   --hds-badge-typography-font-size-medium: 0.75rem;
   --hds-badge-typography-font-size-small: 0.75rem;
   --hds-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+  --hds-border-color-action: #4589ff;
+  --hds-border-color-critical: #fa4d56;
+  --hds-border-color-faint: #393939;
+  --hds-border-color-highlight: #a56eff;
+  --hds-border-color-primary: #6f6f6f;
+  --hds-border-color-strong: #6f6f6f;
+  --hds-border-color-success: #24a148;
+  --hds-border-color-warning: #b28600;
   --hds-border-radius-large: 0px;
   --hds-border-radius-medium: 0px;
   --hds-border-radius-small: 0px;
@@ -265,53 +273,6 @@
   --hds-code-block-syntax-highlight-color-red: #ffafd2;
   --hds-code-block-syntax-highlight-color-yellow: #f1c21b;
   --hds-code-block-typography-font-size: 0.75rem;
-  --hds-color-border-action: #4589ff;
-  --hds-color-border-critical: #fa4d56;
-  --hds-color-border-faint: #393939;
-  --hds-color-border-highlight: #a56eff;
-  --hds-color-border-primary: #6f6f6f;
-  --hds-color-border-strong: #6f6f6f;
-  --hds-color-border-success: #24a148;
-  --hds-color-border-warning: #b28600;
-  --hds-color-focus-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-action-internal: #161616;
-  --hds-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-critical-internal: #161616;
-  --hds-color-foreground-action-active: #78a9ff;
-  --hds-color-foreground-action-hover: #a6c8ff;
-  --hds-color-foreground-action: #78a9ff;
-  --hds-color-foreground-critical-high-contrast: #ffd7d9;
-  --hds-color-foreground-critical-on-surface: #ffb3b8;
-  --hds-color-foreground-critical: #ff8389;
-  --hds-color-foreground-disabled: rgba(244, 244, 244, 0.25);
-  --hds-color-foreground-faint: #c6c6c6;
-  --hds-color-foreground-high-contrast: #161616;
-  --hds-color-foreground-highlight-high-contrast: #d4bbff;
-  --hds-color-foreground-highlight-on-surface: #d4bbff;
-  --hds-color-foreground-highlight: #be95ff;
-  --hds-color-foreground-primary: #f4f4f4;
-  --hds-color-foreground-strong: #f4f4f4;
-  --hds-color-foreground-success-high-contrast: #a7f0ba;
-  --hds-color-foreground-success-on-surface: #6fdc8c;
-  --hds-color-foreground-success: #42be65;
-  --hds-color-foreground-warning-high-contrast: #fddc69;
-  --hds-color-foreground-warning-on-surface: #f1c21b;
-  --hds-color-foreground-warning: #d2a106;
-  --hds-color-page-faint: #161616;
-  --hds-color-page-primary: #161616;
-  --hds-color-surface-action: #0043ce;
-  --hds-color-surface-critical: #a2191f;
-  --hds-color-surface-faint: #262626;
-  --hds-color-surface-high-contrast: #f4f4f4;
-  --hds-color-surface-highlight: #6929c4;
-  --hds-color-surface-interactive-active: #525252;
-  --hds-color-surface-interactive-disabled: #525252;
-  --hds-color-surface-interactive-hover: #333333;
-  --hds-color-surface-interactive: #262626;
-  --hds-color-surface-primary: #262626;
-  --hds-color-surface-strong: #393939;
-  --hds-color-surface-success: #0e6027;
-  --hds-color-surface-warning: #684e00;
   --hds-copy-button-foreground-color: #f4f4f4;
   --hds-copy-button-icon-color-active: #f4f4f4;
   --hds-copy-button-icon-color-default: #f4f4f4;
@@ -404,10 +365,34 @@
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
-  --hds-focus-ring-action-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
-  --hds-focus-ring-critical-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+  --hds-focus-color-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-action-internal: #161616;
+  --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-critical-internal: #161616;
+  --hds-focus-ring-action-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+  --hds-focus-ring-critical-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-width-external: 2px;
   --hds-focus-ring-width-internal: 0px;
+  --hds-foreground-color-action-active: #78a9ff;
+  --hds-foreground-color-action-hover: #a6c8ff;
+  --hds-foreground-color-action: #78a9ff;
+  --hds-foreground-color-critical-high-contrast: #ffd7d9;
+  --hds-foreground-color-critical-on-surface: #ffb3b8;
+  --hds-foreground-color-critical: #ff8389;
+  --hds-foreground-color-disabled: rgba(244, 244, 244, 0.25);
+  --hds-foreground-color-faint: #c6c6c6;
+  --hds-foreground-color-high-contrast: #161616;
+  --hds-foreground-color-highlight-high-contrast: #d4bbff;
+  --hds-foreground-color-highlight-on-surface: #d4bbff;
+  --hds-foreground-color-highlight: #be95ff;
+  --hds-foreground-color-primary: #f4f4f4;
+  --hds-foreground-color-strong: #f4f4f4;
+  --hds-foreground-color-success-high-contrast: #a7f0ba;
+  --hds-foreground-color-success-on-surface: #6fdc8c;
+  --hds-foreground-color-success: #42be65;
+  --hds-foreground-color-warning-high-contrast: #fddc69;
+  --hds-foreground-color-warning-on-surface: #f1c21b;
+  --hds-foreground-color-warning: #d2a106;
   --hds-form-character-count-foreground-color: #a8a8a8;
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -449,10 +434,12 @@
   --hds-modal-header-border-color-warning: rgba(0, 0, 0, 0);
   --hds-modal-header-foreground-color-critical: #f4f4f4;
   --hds-modal-header-foreground-color-warning: #f4f4f4;
-  --hds-modal-header-surface-color-critical: var(--hds-color-surface-faint);
-  --hds-modal-header-surface-color-warning: var(--hds-color-surface-faint);
+  --hds-modal-header-surface-color-critical: var(--hds-surface-color-faint);
+  --hds-modal-header-surface-color-warning: var(--hds-surface-color-faint);
   --hds-modal-header-tagline-color-critical: #c6c6c6;
   --hds-modal-header-tagline-color-warning: #c6c6c6;
+  --hds-page-color-faint: #161616;
+  --hds-page-color-primary: #161616;
   --hds-pagination-bar-border-color: #525252;
   --hds-pagination-info-typography-font-size: 0.875rem;
   --hds-pagination-nav-control-foreground-color-active: #f4f4f4;
@@ -483,6 +470,19 @@
   --hds-rich-tooltip-toggle-gap-horizontal: 8px;
   --hds-rich-tooltip-toggle-icon-size: 14px;
   --hds-surface-base-box-shadow: none;
+  --hds-surface-color-action: #0043ce;
+  --hds-surface-color-critical: #a2191f;
+  --hds-surface-color-faint: #262626;
+  --hds-surface-color-high-contrast: #f4f4f4;
+  --hds-surface-color-highlight: #6929c4;
+  --hds-surface-color-interactive-active: #525252;
+  --hds-surface-color-interactive-disabled: #525252;
+  --hds-surface-color-interactive-hover: #333333;
+  --hds-surface-color-interactive: #262626;
+  --hds-surface-color-primary: #262626;
+  --hds-surface-color-strong: #393939;
+  --hds-surface-color-success: #0e6027;
+  --hds-surface-color-warning: #684e00;
   --hds-surface-high-box-shadow: none;
   --hds-surface-higher-box-shadow: none;
   --hds-surface-inset-box-shadow: none;
@@ -491,7 +491,7 @@
   --hds-surface-overlay-box-shadow: none;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #393939;
-  --hds-tabs-tab-border-color-hover: var(--hds-color-border-strong);
+  --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
   --hds-tabs-tab-foreground-color-default: #c6c6c6;
   --hds-tabs-tab-foreground-color-hover: #f4f4f4;
   --hds-tabs-tab-height-large: 48px;

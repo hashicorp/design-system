@@ -55,9 +55,9 @@
         "color": {
           "default": {
             "$type": "color",
-            "$value": "{color.foreground.action}",
+            "$value": "{foreground.color.action}",
             "$modes": {
-              "default": "{color.foreground.action}",
+              "default": "{foreground.color.action}",
               "cds-g0": "{carbon.themes.white.iconPrimary}",
               "cds-g10": "{carbon.themes.g10.iconPrimary}",
               "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -66,9 +66,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.foreground.action-hover}",
+            "$value": "{foreground.color.action-hover}",
             "$modes": {
-              "default": "{color.foreground.action-hover}",
+              "default": "{foreground.color.action-hover}",
               "cds-g0": "{carbon.themes.white.iconPrimary}",
               "cds-g10": "{carbon.themes.g10.iconPrimary}",
               "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -77,9 +77,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.foreground.action-hover}",
+            "$value": "{foreground.color.action-hover}",
             "$modes": {
-              "default": "{color.foreground.action-hover}",
+              "default": "{foreground.color.action-hover}",
               "cds-g0": "{carbon.themes.white.iconPrimary}",
               "cds-g10": "{carbon.themes.g10.iconPrimary}",
               "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -88,9 +88,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.foreground.action-active}",
+            "$value": "{foreground.color.action-active}",
             "$modes": {
-              "default": "{color.foreground.action-active}",
+              "default": "{foreground.color.action-active}",
               "cds-g0": "{carbon.themes.white.iconPrimary}",
               "cds-g10": "{carbon.themes.g10.iconPrimary}",
               "cds-g90": "{carbon.themes.g90.iconPrimary}",

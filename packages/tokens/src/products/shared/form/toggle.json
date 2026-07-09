@@ -16,7 +16,7 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.surface.strong}",
+              "$value": "{surface.color.strong}",
               "group": "components",
               "comment": "the toggle has a different base surface color, compared to the other controls"
             }

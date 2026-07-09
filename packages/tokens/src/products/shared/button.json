@@ -226,9 +226,9 @@
         "primary": {
           "default": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -237,9 +237,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -248,9 +248,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -259,9 +259,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -272,9 +272,9 @@
         "secondary": {
           "default": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -283,9 +283,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -294,9 +294,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -305,9 +305,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -364,9 +364,9 @@
         "tertiary": {
           "default": {
             "$type": "color",
-            "$value": "{color.foreground.action}",
+            "$value": "{foreground.color.action}",
             "$modes": {
-              "default": "{color.foreground.action}",
+              "default": "{foreground.color.action}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
@@ -375,9 +375,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.foreground.action-hover}",
+            "$value": "{foreground.color.action-hover}",
             "$modes": {
-              "default": "{color.foreground.action-hover}",
+              "default": "{foreground.color.action-hover}",
               "cds-g0": "{carbon.themes.white.textInverse}",
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -386,9 +386,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.foreground.action}",
+            "$value": "{foreground.color.action}",
             "$modes": {
-              "default": "{color.foreground.action}",
+              "default": "{foreground.color.action}",
               "cds-g0": "{carbon.themes.white.textInverse}",
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -397,9 +397,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.foreground.action-active}",
+            "$value": "{foreground.color.action-active}",
             "$modes": {
-              "default": "{color.foreground.action-active}",
+              "default": "{foreground.color.action-active}",
               "cds-g0": "{carbon.themes.white.textInverse}",
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -408,7 +408,7 @@
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.foreground.disabled}",
+            "$value": "{foreground.color.disabled}",
             "comments": {
               "cds": "This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products"
             }
@@ -417,9 +417,9 @@
         "critical": {
           "default": {
             "$type": "color",
-            "$value": "{color.foreground.critical-on-surface}",
+            "$value": "{foreground.color.critical-on-surface}",
             "$modes": {
-              "default": "{color.foreground.critical-on-surface}",
+              "default": "{foreground.color.critical-on-surface}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -428,9 +428,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -439,9 +439,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.foreground.critical-on-surface}",
+            "$value": "{foreground.color.critical-on-surface}",
             "$modes": {
-              "default": "{color.foreground.critical-on-surface}",
+              "default": "{foreground.color.critical-on-surface}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -450,9 +450,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.themes.white.textOnColor}",
               "cds-g10": "{carbon.themes.g10.textOnColor}",
               "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -462,9 +462,9 @@
         },
         "disabled": {
           "$type": "color",
-          "$value": "{color.foreground.disabled}",
+          "$value": "{foreground.color.disabled}",
           "$modes": {
-            "default": "{color.foreground.disabled}",
+            "default": "{foreground.color.disabled}",
             "cds-g0": "{carbon.themes.white.textOnColorDisabled}",
             "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
             "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
@@ -527,9 +527,9 @@
         "secondary": {
           "default": {
             "$type": "color",
-            "$value": "{color.surface.faint}",
+            "$value": "{surface.color.faint}",
             "$modes": {
-              "default": "{color.surface.faint}",
+              "default": "{surface.color.faint}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonSecondary.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonSecondary.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonSecondary.g90}",
@@ -538,9 +538,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.surface.primary}",
+            "$value": "{surface.color.primary}",
             "$modes": {
-              "default": "{color.surface.primary}",
+              "default": "{surface.color.primary}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonSecondaryHover.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonSecondaryHover.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonSecondaryHover.g90}",
@@ -549,9 +549,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.surface.faint}",
+            "$value": "{surface.color.faint}",
             "$modes": {
-              "default": "{color.surface.faint}",
+              "default": "{surface.color.faint}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonSecondary.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonSecondary.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonSecondary.g90}",
@@ -560,9 +560,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.surface.interactive-active}",
+            "$value": "{surface.color.interactive-active}",
             "$modes": {
-              "default": "{color.surface.interactive-active}",
+              "default": "{surface.color.interactive-active}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonSecondaryActive.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonSecondaryActive.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonSecondaryActive.g90}",
@@ -623,9 +623,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.surface.primary}",
+            "$value": "{surface.color.primary}",
             "$modes": {
-              "default": "{color.surface.primary}",
+              "default": "{surface.color.primary}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonTertiaryHover.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonTertiaryHover.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonTertiaryHover.g90}",
@@ -645,9 +645,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.surface.interactive-active}",
+            "$value": "{surface.color.interactive-active}",
             "$modes": {
-              "default": "{color.surface.interactive-active}",
+              "default": "{surface.color.interactive-active}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonTertiaryActive.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonTertiaryActive.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonTertiaryActive.g90}",
@@ -658,9 +658,9 @@
         "critical": {
           "default": {
             "$type": "color",
-            "$value": "{color.surface.critical}",
+            "$value": "{surface.color.critical}",
             "$modes": {
-              "default": "{color.surface.critical}",
+              "default": "{surface.color.critical}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonDangerPrimary.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonDangerPrimary.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonDangerPrimary.g90}",
@@ -680,9 +680,9 @@
           },
           "focus": {
             "$type": "color",
-            "$value": "{color.surface.critical}",
+            "$value": "{surface.color.critical}",
             "$modes": {
-              "default": "{color.surface.critical}",
+              "default": "{surface.color.critical}",
               "cds-g0": "{carbon.themes.buttonTokens.buttonDangerPrimary.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonDangerPrimary.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonDangerPrimary.g90}",
@@ -703,9 +703,9 @@
         },
         "disabled": {
           "$type": "color",
-          "$value": "{color.surface.interactive-disabled}",
+          "$value": "{surface.color.interactive-disabled}",
           "$modes": {
-            "default": "{color.surface.interactive-disabled}",
+            "default": "{surface.color.interactive-disabled}",
             "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
             "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
             "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
@@ -767,9 +767,9 @@
         "secondary": {
           "default": {
             "$type": "color",
-            "$value": "{color.border.strong}",
+            "$value": "{border.color.strong}",
             "$modes": {
-              "default": "{color.border.strong}",
+              "default": "{border.color.strong}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -778,9 +778,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.border.strong}",
+            "$value": "{border.color.strong}",
             "$modes": {
-              "default": "{color.border.strong}",
+              "default": "{border.color.strong}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -789,9 +789,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.border.strong}",
+            "$value": "{border.color.strong}",
             "$modes": {
-              "default": "{color.border.strong}",
+              "default": "{border.color.strong}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -827,9 +827,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.border.strong}",
+            "$value": "{border.color.strong}",
             "$modes": {
-              "default": "{color.border.strong}",
+              "default": "{border.color.strong}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -838,9 +838,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.border.strong}",
+            "$value": "{border.color.strong}",
             "$modes": {
-              "default": "{color.border.strong}",
+              "default": "{border.color.strong}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -899,9 +899,9 @@
         },
         "disabled": {
           "$type": "color",
-          "$value": "{color.border.primary}",
+          "$value": "{border.color.primary}",
           "$modes": {
-            "default": "{color.border.primary}",
+            "default": "{border.color.primary}",
             "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
             "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
             "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",

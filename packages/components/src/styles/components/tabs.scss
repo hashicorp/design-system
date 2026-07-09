@@ -24,7 +24,7 @@ $hds-tabs-sizes: ("medium", "large");
     bottom: calc((var(--hds-tabs-indicator-height) - var(--hds-tabs-divider-height)) / 2);
     left: 0;
     display: block;
-    border-top: var(--hds-tabs-divider-height) solid var(--hds-color-border-primary);
+    border-top: var(--hds-tabs-divider-height) solid var(--hds-border-color-primary);
     content: "";
 
     @include hds-apply-only-if-carbon() {

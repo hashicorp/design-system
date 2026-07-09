@@ -98,13 +98,13 @@ $progress-bar-animation-duration: 0.25s;
 }
 
 .hds-stepper-nav__step-title {
-  color: var(--hds-color-foreground-faint);
+  color: var(--hds-foreground-color-faint);
   text-decoration: none;
 }
 
 .hds-stepper-nav__step-description {
   margin-top: 4px;
-  color: var(--hds-color-foreground-faint);
+  color: var(--hds-foreground-color-faint);
 }
 
 // STATUSES
@@ -114,11 +114,11 @@ $progress-bar-animation-duration: 0.25s;
 .hds-stepper-nav__step--complete,
 .hds-stepper-nav__step--active {
   .hds-stepper-nav__step-title {
-    color: var(--hds-color-foreground-strong);
+    color: var(--hds-foreground-color-strong);
   }
 
   .hds-stepper-nav__step-description {
-    color: var(--hds-color-foreground-primary);
+    color: var(--hds-foreground-color-primary);
   }
 }
 
@@ -144,7 +144,7 @@ $progress-bar-animation-duration: 0.25s;
   .hds-stepper-nav__step--active {
     .hds-stepper-nav__step-button {
       .hds-stepper-nav__step-title {
-        color: var(--hds-color-foreground-action);
+        color: var(--hds-foreground-color-action);
       }
 
       &:focus-visible,
@@ -165,7 +165,7 @@ $progress-bar-animation-duration: 0.25s;
       cursor: pointer;
 
       .hds-stepper-nav__step-title {
-        color: var(--hds-color-foreground-action);
+        color: var(--hds-foreground-color-action);
         text-decoration: underline;
         text-decoration-skip-ink: none;
         text-underline-position: from-font;
@@ -173,10 +173,10 @@ $progress-bar-animation-duration: 0.25s;
 
       &:hover,
       &.mock-hover {
-        background-color: var(--hds-color-surface-interactive-hover);
+        background-color: var(--hds-surface-color-interactive-hover);
 
         .hds-stepper-nav__step-title {
-          color: var(--hds-color-foreground-action-hover);
+          color: var(--hds-foreground-color-action-hover);
         }
       }
 
@@ -193,10 +193,10 @@ $progress-bar-animation-duration: 0.25s;
 
       &:active,
       &.mock-active {
-        background-color: var(--hds-color-surface-interactive-active);
+        background-color: var(--hds-surface-color-interactive-active);
 
         .hds-stepper-nav__step-title {
-          color: var(--hds-color-foreground-action-active);
+          color: var(--hds-foreground-color-action-active);
         }
       }
     }

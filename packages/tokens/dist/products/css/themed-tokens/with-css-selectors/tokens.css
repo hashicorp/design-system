@@ -135,7 +135,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-app-header-padding-left: 0px;
   --hds-app-header-padding-right: 0px;
   --hds-app-header-padding-top: 0px;
-  --hds-app-header-surface-color: var(--hds-color-page-primary);
+  --hds-app-header-surface-color: var(--hds-page-color-primary);
   --hds-app-side-nav-body-list-item-foreground-color-default: #525252;
   --hds-app-side-nav-body-list-item-foreground-color-hover: #525252;
   --hds-app-side-nav-body-list-item-foreground-color-selected: #525252;
@@ -208,6 +208,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-badge-typography-font-size-medium: 0.75rem;
   --hds-badge-typography-font-size-small: 0.75rem;
   --hds-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+  --hds-border-color-action: #0f62fe;
+  --hds-border-color-critical: #ff8389;
+  --hds-border-color-faint: #e0e0e0;
+  --hds-border-color-highlight: #be95ff;
+  --hds-border-color-primary: #c6c6c6;
+  --hds-border-color-strong: #8d8d8d;
+  --hds-border-color-success: #42be65;
+  --hds-border-color-warning: #d2a106;
   --hds-border-radius-large: 0px;
   --hds-border-radius-medium: 0px;
   --hds-border-radius-small: 0px;
@@ -330,53 +338,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-code-block-syntax-highlight-color-red: #9f1853;
   --hds-code-block-syntax-highlight-color-yellow: #684e00;
   --hds-code-block-typography-font-size: 0.75rem;
-  --hds-color-border-action: #0f62fe;
-  --hds-color-border-critical: #ff8389;
-  --hds-color-border-faint: #e0e0e0;
-  --hds-color-border-highlight: #be95ff;
-  --hds-color-border-primary: #c6c6c6;
-  --hds-color-border-strong: #8d8d8d;
-  --hds-color-border-success: #42be65;
-  --hds-color-border-warning: #d2a106;
-  --hds-color-focus-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-action-internal: #ffffff;
-  --hds-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-critical-internal: #ffffff;
-  --hds-color-foreground-action-active: #0f62fe;
-  --hds-color-foreground-action-hover: #0043ce;
-  --hds-color-foreground-action: #0f62fe;
-  --hds-color-foreground-critical-high-contrast: #750e13;
-  --hds-color-foreground-critical-on-surface: #a2191f;
-  --hds-color-foreground-critical: #da1e28;
-  --hds-color-foreground-disabled: rgba(22, 22, 22, 0.25);
-  --hds-color-foreground-faint: #525252;
-  --hds-color-foreground-high-contrast: #ffffff;
-  --hds-color-foreground-highlight-high-contrast: #491d8b;
-  --hds-color-foreground-highlight-on-surface: #6929c4;
-  --hds-color-foreground-highlight: #8a3ffc;
-  --hds-color-foreground-primary: #161616;
-  --hds-color-foreground-strong: #161616;
-  --hds-color-foreground-success-high-contrast: #044317;
-  --hds-color-foreground-success-on-surface: #0e6027;
-  --hds-color-foreground-success: #198038;
-  --hds-color-foreground-warning-high-contrast: #483700;
-  --hds-color-foreground-warning-on-surface: #684e00;
-  --hds-color-foreground-warning: #8e6a00;
-  --hds-color-page-faint: #ffffff;
-  --hds-color-page-primary: #ffffff;
-  --hds-color-surface-action: #d0e2ff;
-  --hds-color-surface-critical: #ffd7d9;
-  --hds-color-surface-faint: #f4f4f4;
-  --hds-color-surface-high-contrast: #393939;
-  --hds-color-surface-highlight: #e8daff;
-  --hds-color-surface-interactive-active: #c6c6c6;
-  --hds-color-surface-interactive-disabled: #c6c6c6;
-  --hds-color-surface-interactive-hover: #e8e8e8;
-  --hds-color-surface-interactive: #f4f4f4;
-  --hds-color-surface-primary: #f4f4f4;
-  --hds-color-surface-strong: #e0e0e0;
-  --hds-color-surface-success: #a7f0ba;
-  --hds-color-surface-warning: #fcf4d6;
   --hds-copy-button-foreground-color: #161616;
   --hds-copy-button-icon-color-active: #161616;
   --hds-copy-button-icon-color-default: #161616;
@@ -469,13 +430,37 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
+  --hds-focus-color-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-action-internal: #ffffff;
+  --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-critical-internal: #ffffff;
   --hds-focus-ring-action-box-shadow: inset 0 0 0
-    var(--hds-focus-ring-width-external) var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+    var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-critical-box-shadow: inset 0 0 0
     var(--hds-focus-ring-width-external)
-    var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+    var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-width-external: 2px;
   --hds-focus-ring-width-internal: 0px;
+  --hds-foreground-color-action-active: #0f62fe;
+  --hds-foreground-color-action-hover: #0043ce;
+  --hds-foreground-color-action: #0f62fe;
+  --hds-foreground-color-critical-high-contrast: #750e13;
+  --hds-foreground-color-critical-on-surface: #a2191f;
+  --hds-foreground-color-critical: #da1e28;
+  --hds-foreground-color-disabled: rgba(22, 22, 22, 0.25);
+  --hds-foreground-color-faint: #525252;
+  --hds-foreground-color-high-contrast: #ffffff;
+  --hds-foreground-color-highlight-high-contrast: #491d8b;
+  --hds-foreground-color-highlight-on-surface: #6929c4;
+  --hds-foreground-color-highlight: #8a3ffc;
+  --hds-foreground-color-primary: #161616;
+  --hds-foreground-color-strong: #161616;
+  --hds-foreground-color-success-high-contrast: #044317;
+  --hds-foreground-color-success-on-surface: #0e6027;
+  --hds-foreground-color-success: #198038;
+  --hds-foreground-color-warning-high-contrast: #483700;
+  --hds-foreground-color-warning-on-surface: #684e00;
+  --hds-foreground-color-warning: #8e6a00;
   --hds-form-character-count-foreground-color: #6f6f6f;
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -519,10 +504,12 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-modal-header-border-color-warning: rgba(0, 0, 0, 0);
   --hds-modal-header-foreground-color-critical: #161616;
   --hds-modal-header-foreground-color-warning: #161616;
-  --hds-modal-header-surface-color-critical: var(--hds-color-surface-faint);
-  --hds-modal-header-surface-color-warning: var(--hds-color-surface-faint);
+  --hds-modal-header-surface-color-critical: var(--hds-surface-color-faint);
+  --hds-modal-header-surface-color-warning: var(--hds-surface-color-faint);
   --hds-modal-header-tagline-color-critical: #525252;
   --hds-modal-header-tagline-color-warning: #525252;
+  --hds-page-color-faint: #ffffff;
+  --hds-page-color-primary: #ffffff;
   --hds-pagination-bar-border-color: #c6c6c6;
   --hds-pagination-info-typography-font-size: 0.875rem;
   --hds-pagination-nav-control-foreground-color-active: #161616;
@@ -553,6 +540,19 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-rich-tooltip-toggle-gap-horizontal: 8px;
   --hds-rich-tooltip-toggle-icon-size: 14px;
   --hds-surface-base-box-shadow: none;
+  --hds-surface-color-action: #d0e2ff;
+  --hds-surface-color-critical: #ffd7d9;
+  --hds-surface-color-faint: #f4f4f4;
+  --hds-surface-color-high-contrast: #393939;
+  --hds-surface-color-highlight: #e8daff;
+  --hds-surface-color-interactive-active: #c6c6c6;
+  --hds-surface-color-interactive-disabled: #c6c6c6;
+  --hds-surface-color-interactive-hover: #e8e8e8;
+  --hds-surface-color-interactive: #f4f4f4;
+  --hds-surface-color-primary: #f4f4f4;
+  --hds-surface-color-strong: #e0e0e0;
+  --hds-surface-color-success: #a7f0ba;
+  --hds-surface-color-warning: #fcf4d6;
   --hds-surface-high-box-shadow: none;
   --hds-surface-higher-box-shadow: none;
   --hds-surface-inset-box-shadow: none;
@@ -561,7 +561,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-surface-overlay-box-shadow: none;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #e0e0e0;
-  --hds-tabs-tab-border-color-hover: var(--hds-color-border-strong);
+  --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
   --hds-tabs-tab-foreground-color-default: #525252;
   --hds-tabs-tab-foreground-color-hover: #161616;
   --hds-tabs-tab-height-large: 48px;
@@ -750,7 +750,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-app-header-padding-left: 0px;
     --hds-app-header-padding-right: 0px;
     --hds-app-header-padding-top: 0px;
-    --hds-app-header-surface-color: var(--hds-color-page-primary);
+    --hds-app-header-surface-color: var(--hds-page-color-primary);
     --hds-app-side-nav-body-list-item-foreground-color-default: #525252;
     --hds-app-side-nav-body-list-item-foreground-color-hover: #525252;
     --hds-app-side-nav-body-list-item-foreground-color-selected: #525252;
@@ -823,6 +823,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-badge-typography-font-size-medium: 0.75rem;
     --hds-badge-typography-font-size-small: 0.75rem;
     --hds-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+    --hds-border-color-action: #0f62fe;
+    --hds-border-color-critical: #ff8389;
+    --hds-border-color-faint: #e0e0e0;
+    --hds-border-color-highlight: #be95ff;
+    --hds-border-color-primary: #c6c6c6;
+    --hds-border-color-strong: #8d8d8d;
+    --hds-border-color-success: #42be65;
+    --hds-border-color-warning: #d2a106;
     --hds-border-radius-large: 0px;
     --hds-border-radius-medium: 0px;
     --hds-border-radius-small: 0px;
@@ -945,53 +953,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-code-block-syntax-highlight-color-red: #9f1853;
     --hds-code-block-syntax-highlight-color-yellow: #684e00;
     --hds-code-block-typography-font-size: 0.75rem;
-    --hds-color-border-action: #0f62fe;
-    --hds-color-border-critical: #ff8389;
-    --hds-color-border-faint: #e0e0e0;
-    --hds-color-border-highlight: #be95ff;
-    --hds-color-border-primary: #c6c6c6;
-    --hds-color-border-strong: #8d8d8d;
-    --hds-color-border-success: #42be65;
-    --hds-color-border-warning: #d2a106;
-    --hds-color-focus-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-    --hds-color-focus-action-internal: #ffffff;
-    --hds-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-    --hds-color-focus-critical-internal: #ffffff;
-    --hds-color-foreground-action-active: #0f62fe;
-    --hds-color-foreground-action-hover: #0043ce;
-    --hds-color-foreground-action: #0f62fe;
-    --hds-color-foreground-critical-high-contrast: #750e13;
-    --hds-color-foreground-critical-on-surface: #a2191f;
-    --hds-color-foreground-critical: #da1e28;
-    --hds-color-foreground-disabled: rgba(22, 22, 22, 0.25);
-    --hds-color-foreground-faint: #525252;
-    --hds-color-foreground-high-contrast: #ffffff;
-    --hds-color-foreground-highlight-high-contrast: #491d8b;
-    --hds-color-foreground-highlight-on-surface: #6929c4;
-    --hds-color-foreground-highlight: #8a3ffc;
-    --hds-color-foreground-primary: #161616;
-    --hds-color-foreground-strong: #161616;
-    --hds-color-foreground-success-high-contrast: #044317;
-    --hds-color-foreground-success-on-surface: #0e6027;
-    --hds-color-foreground-success: #198038;
-    --hds-color-foreground-warning-high-contrast: #483700;
-    --hds-color-foreground-warning-on-surface: #684e00;
-    --hds-color-foreground-warning: #8e6a00;
-    --hds-color-page-faint: #ffffff;
-    --hds-color-page-primary: #ffffff;
-    --hds-color-surface-action: #d0e2ff;
-    --hds-color-surface-critical: #ffd7d9;
-    --hds-color-surface-faint: #f4f4f4;
-    --hds-color-surface-high-contrast: #393939;
-    --hds-color-surface-highlight: #e8daff;
-    --hds-color-surface-interactive-active: #c6c6c6;
-    --hds-color-surface-interactive-disabled: #c6c6c6;
-    --hds-color-surface-interactive-hover: #e8e8e8;
-    --hds-color-surface-interactive: #f4f4f4;
-    --hds-color-surface-primary: #f4f4f4;
-    --hds-color-surface-strong: #e0e0e0;
-    --hds-color-surface-success: #a7f0ba;
-    --hds-color-surface-warning: #fcf4d6;
     --hds-copy-button-foreground-color: #161616;
     --hds-copy-button-icon-color-active: #161616;
     --hds-copy-button-icon-color-default: #161616;
@@ -1084,14 +1045,38 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-elevation-low-box-shadow: none;
     --hds-elevation-mid-box-shadow: none;
     --hds-elevation-overlay-box-shadow: none;
+    --hds-focus-color-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+    --hds-focus-color-action-internal: #ffffff;
+    --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+    --hds-focus-color-critical-internal: #ffffff;
     --hds-focus-ring-action-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+      var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-critical-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+      var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
     --hds-focus-ring-width-internal: 0px;
+    --hds-foreground-color-action-active: #0f62fe;
+    --hds-foreground-color-action-hover: #0043ce;
+    --hds-foreground-color-action: #0f62fe;
+    --hds-foreground-color-critical-high-contrast: #750e13;
+    --hds-foreground-color-critical-on-surface: #a2191f;
+    --hds-foreground-color-critical: #da1e28;
+    --hds-foreground-color-disabled: rgba(22, 22, 22, 0.25);
+    --hds-foreground-color-faint: #525252;
+    --hds-foreground-color-high-contrast: #ffffff;
+    --hds-foreground-color-highlight-high-contrast: #491d8b;
+    --hds-foreground-color-highlight-on-surface: #6929c4;
+    --hds-foreground-color-highlight: #8a3ffc;
+    --hds-foreground-color-primary: #161616;
+    --hds-foreground-color-strong: #161616;
+    --hds-foreground-color-success-high-contrast: #044317;
+    --hds-foreground-color-success-on-surface: #0e6027;
+    --hds-foreground-color-success: #198038;
+    --hds-foreground-color-warning-high-contrast: #483700;
+    --hds-foreground-color-warning-on-surface: #684e00;
+    --hds-foreground-color-warning: #8e6a00;
     --hds-form-character-count-foreground-color: #6f6f6f;
     --hds-form-character-count-typography-font-size: 0.75rem;
     --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -1135,10 +1120,12 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-modal-header-border-color-warning: rgba(0, 0, 0, 0);
     --hds-modal-header-foreground-color-critical: #161616;
     --hds-modal-header-foreground-color-warning: #161616;
-    --hds-modal-header-surface-color-critical: var(--hds-color-surface-faint);
-    --hds-modal-header-surface-color-warning: var(--hds-color-surface-faint);
+    --hds-modal-header-surface-color-critical: var(--hds-surface-color-faint);
+    --hds-modal-header-surface-color-warning: var(--hds-surface-color-faint);
     --hds-modal-header-tagline-color-critical: #525252;
     --hds-modal-header-tagline-color-warning: #525252;
+    --hds-page-color-faint: #ffffff;
+    --hds-page-color-primary: #ffffff;
     --hds-pagination-bar-border-color: #c6c6c6;
     --hds-pagination-info-typography-font-size: 0.875rem;
     --hds-pagination-nav-control-foreground-color-active: #161616;
@@ -1169,6 +1156,19 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
     --hds-surface-base-box-shadow: none;
+    --hds-surface-color-action: #d0e2ff;
+    --hds-surface-color-critical: #ffd7d9;
+    --hds-surface-color-faint: #f4f4f4;
+    --hds-surface-color-high-contrast: #393939;
+    --hds-surface-color-highlight: #e8daff;
+    --hds-surface-color-interactive-active: #c6c6c6;
+    --hds-surface-color-interactive-disabled: #c6c6c6;
+    --hds-surface-color-interactive-hover: #e8e8e8;
+    --hds-surface-color-interactive: #f4f4f4;
+    --hds-surface-color-primary: #f4f4f4;
+    --hds-surface-color-strong: #e0e0e0;
+    --hds-surface-color-success: #a7f0ba;
+    --hds-surface-color-warning: #fcf4d6;
     --hds-surface-high-box-shadow: none;
     --hds-surface-higher-box-shadow: none;
     --hds-surface-inset-box-shadow: none;
@@ -1177,7 +1177,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-surface-overlay-box-shadow: none;
     --hds-tabs-indicator-height: 2px;
     --hds-tabs-tab-border-color-default: #e0e0e0;
-    --hds-tabs-tab-border-color-hover: var(--hds-color-border-strong);
+    --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
     --hds-tabs-tab-foreground-color-default: #525252;
     --hds-tabs-tab-foreground-color-hover: #161616;
     --hds-tabs-tab-height-large: 48px;
@@ -1367,7 +1367,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-app-header-padding-left: 0px;
     --hds-app-header-padding-right: 0px;
     --hds-app-header-padding-top: 0px;
-    --hds-app-header-surface-color: var(--hds-color-page-primary);
+    --hds-app-header-surface-color: var(--hds-page-color-primary);
     --hds-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
     --hds-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
     --hds-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
@@ -1440,6 +1440,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-badge-typography-font-size-medium: 0.75rem;
     --hds-badge-typography-font-size-small: 0.75rem;
     --hds-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+    --hds-border-color-action: #4589ff;
+    --hds-border-color-critical: #fa4d56;
+    --hds-border-color-faint: #393939;
+    --hds-border-color-highlight: #a56eff;
+    --hds-border-color-primary: #6f6f6f;
+    --hds-border-color-strong: #6f6f6f;
+    --hds-border-color-success: #24a148;
+    --hds-border-color-warning: #b28600;
     --hds-border-radius-large: 0px;
     --hds-border-radius-medium: 0px;
     --hds-border-radius-small: 0px;
@@ -1582,53 +1590,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-code-block-syntax-highlight-color-red: #ffafd2;
     --hds-code-block-syntax-highlight-color-yellow: #f1c21b;
     --hds-code-block-typography-font-size: 0.75rem;
-    --hds-color-border-action: #4589ff;
-    --hds-color-border-critical: #fa4d56;
-    --hds-color-border-faint: #393939;
-    --hds-color-border-highlight: #a56eff;
-    --hds-color-border-primary: #6f6f6f;
-    --hds-color-border-strong: #6f6f6f;
-    --hds-color-border-success: #24a148;
-    --hds-color-border-warning: #b28600;
-    --hds-color-focus-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-    --hds-color-focus-action-internal: #161616;
-    --hds-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-    --hds-color-focus-critical-internal: #161616;
-    --hds-color-foreground-action-active: #78a9ff;
-    --hds-color-foreground-action-hover: #a6c8ff;
-    --hds-color-foreground-action: #78a9ff;
-    --hds-color-foreground-critical-high-contrast: #ffd7d9;
-    --hds-color-foreground-critical-on-surface: #ffb3b8;
-    --hds-color-foreground-critical: #ff8389;
-    --hds-color-foreground-disabled: rgba(244, 244, 244, 0.25);
-    --hds-color-foreground-faint: #c6c6c6;
-    --hds-color-foreground-high-contrast: #161616;
-    --hds-color-foreground-highlight-high-contrast: #d4bbff;
-    --hds-color-foreground-highlight-on-surface: #d4bbff;
-    --hds-color-foreground-highlight: #be95ff;
-    --hds-color-foreground-primary: #f4f4f4;
-    --hds-color-foreground-strong: #f4f4f4;
-    --hds-color-foreground-success-high-contrast: #a7f0ba;
-    --hds-color-foreground-success-on-surface: #6fdc8c;
-    --hds-color-foreground-success: #42be65;
-    --hds-color-foreground-warning-high-contrast: #fddc69;
-    --hds-color-foreground-warning-on-surface: #f1c21b;
-    --hds-color-foreground-warning: #d2a106;
-    --hds-color-page-faint: #161616;
-    --hds-color-page-primary: #161616;
-    --hds-color-surface-action: #0043ce;
-    --hds-color-surface-critical: #a2191f;
-    --hds-color-surface-faint: #262626;
-    --hds-color-surface-high-contrast: #f4f4f4;
-    --hds-color-surface-highlight: #6929c4;
-    --hds-color-surface-interactive-active: #525252;
-    --hds-color-surface-interactive-disabled: #525252;
-    --hds-color-surface-interactive-hover: #333333;
-    --hds-color-surface-interactive: #262626;
-    --hds-color-surface-primary: #262626;
-    --hds-color-surface-strong: #393939;
-    --hds-color-surface-success: #0e6027;
-    --hds-color-surface-warning: #684e00;
     --hds-copy-button-foreground-color: #f4f4f4;
     --hds-copy-button-icon-color-active: #f4f4f4;
     --hds-copy-button-icon-color-default: #f4f4f4;
@@ -1721,14 +1682,38 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-elevation-low-box-shadow: none;
     --hds-elevation-mid-box-shadow: none;
     --hds-elevation-overlay-box-shadow: none;
+    --hds-focus-color-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+    --hds-focus-color-action-internal: #161616;
+    --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+    --hds-focus-color-critical-internal: #161616;
     --hds-focus-ring-action-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+      var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-critical-box-shadow: inset 0 0 0
       var(--hds-focus-ring-width-external)
-      var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+      var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
     --hds-focus-ring-width-external: 2px;
     --hds-focus-ring-width-internal: 0px;
+    --hds-foreground-color-action-active: #78a9ff;
+    --hds-foreground-color-action-hover: #a6c8ff;
+    --hds-foreground-color-action: #78a9ff;
+    --hds-foreground-color-critical-high-contrast: #ffd7d9;
+    --hds-foreground-color-critical-on-surface: #ffb3b8;
+    --hds-foreground-color-critical: #ff8389;
+    --hds-foreground-color-disabled: rgba(244, 244, 244, 0.25);
+    --hds-foreground-color-faint: #c6c6c6;
+    --hds-foreground-color-high-contrast: #161616;
+    --hds-foreground-color-highlight-high-contrast: #d4bbff;
+    --hds-foreground-color-highlight-on-surface: #d4bbff;
+    --hds-foreground-color-highlight: #be95ff;
+    --hds-foreground-color-primary: #f4f4f4;
+    --hds-foreground-color-strong: #f4f4f4;
+    --hds-foreground-color-success-high-contrast: #a7f0ba;
+    --hds-foreground-color-success-on-surface: #6fdc8c;
+    --hds-foreground-color-success: #42be65;
+    --hds-foreground-color-warning-high-contrast: #fddc69;
+    --hds-foreground-color-warning-on-surface: #f1c21b;
+    --hds-foreground-color-warning: #d2a106;
     --hds-form-character-count-foreground-color: #a8a8a8;
     --hds-form-character-count-typography-font-size: 0.75rem;
     --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -1772,10 +1757,12 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-modal-header-border-color-warning: rgba(0, 0, 0, 0);
     --hds-modal-header-foreground-color-critical: #f4f4f4;
     --hds-modal-header-foreground-color-warning: #f4f4f4;
-    --hds-modal-header-surface-color-critical: var(--hds-color-surface-faint);
-    --hds-modal-header-surface-color-warning: var(--hds-color-surface-faint);
+    --hds-modal-header-surface-color-critical: var(--hds-surface-color-faint);
+    --hds-modal-header-surface-color-warning: var(--hds-surface-color-faint);
     --hds-modal-header-tagline-color-critical: #c6c6c6;
     --hds-modal-header-tagline-color-warning: #c6c6c6;
+    --hds-page-color-faint: #161616;
+    --hds-page-color-primary: #161616;
     --hds-pagination-bar-border-color: #525252;
     --hds-pagination-info-typography-font-size: 0.875rem;
     --hds-pagination-nav-control-foreground-color-active: #f4f4f4;
@@ -1806,6 +1793,19 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
     --hds-surface-base-box-shadow: none;
+    --hds-surface-color-action: #0043ce;
+    --hds-surface-color-critical: #a2191f;
+    --hds-surface-color-faint: #262626;
+    --hds-surface-color-high-contrast: #f4f4f4;
+    --hds-surface-color-highlight: #6929c4;
+    --hds-surface-color-interactive-active: #525252;
+    --hds-surface-color-interactive-disabled: #525252;
+    --hds-surface-color-interactive-hover: #333333;
+    --hds-surface-color-interactive: #262626;
+    --hds-surface-color-primary: #262626;
+    --hds-surface-color-strong: #393939;
+    --hds-surface-color-success: #0e6027;
+    --hds-surface-color-warning: #684e00;
     --hds-surface-high-box-shadow: none;
     --hds-surface-higher-box-shadow: none;
     --hds-surface-inset-box-shadow: none;
@@ -1814,7 +1814,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-surface-overlay-box-shadow: none;
     --hds-tabs-indicator-height: 2px;
     --hds-tabs-tab-border-color-default: #393939;
-    --hds-tabs-tab-border-color-hover: var(--hds-color-border-strong);
+    --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
     --hds-tabs-tab-foreground-color-default: #c6c6c6;
     --hds-tabs-tab-foreground-color-hover: #f4f4f4;
     --hds-tabs-tab-height-large: 48px;
@@ -2003,7 +2003,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-app-header-padding-left: 0px;
   --hds-app-header-padding-right: 0px;
   --hds-app-header-padding-top: 0px;
-  --hds-app-header-surface-color: var(--hds-color-page-primary);
+  --hds-app-header-surface-color: var(--hds-page-color-primary);
   --hds-app-side-nav-body-list-item-foreground-color-default: #525252;
   --hds-app-side-nav-body-list-item-foreground-color-hover: #525252;
   --hds-app-side-nav-body-list-item-foreground-color-selected: #525252;
@@ -2076,6 +2076,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-badge-typography-font-size-medium: 0.75rem;
   --hds-badge-typography-font-size-small: 0.75rem;
   --hds-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+  --hds-border-color-action: #0f62fe;
+  --hds-border-color-critical: #ff8389;
+  --hds-border-color-faint: #e0e0e0;
+  --hds-border-color-highlight: #be95ff;
+  --hds-border-color-primary: #c6c6c6;
+  --hds-border-color-strong: #8d8d8d;
+  --hds-border-color-success: #42be65;
+  --hds-border-color-warning: #d2a106;
   --hds-border-radius-large: 0px;
   --hds-border-radius-medium: 0px;
   --hds-border-radius-small: 0px;
@@ -2198,53 +2206,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-code-block-syntax-highlight-color-red: #9f1853;
   --hds-code-block-syntax-highlight-color-yellow: #684e00;
   --hds-code-block-typography-font-size: 0.75rem;
-  --hds-color-border-action: #0f62fe;
-  --hds-color-border-critical: #ff8389;
-  --hds-color-border-faint: #e0e0e0;
-  --hds-color-border-highlight: #be95ff;
-  --hds-color-border-primary: #c6c6c6;
-  --hds-color-border-strong: #8d8d8d;
-  --hds-color-border-success: #42be65;
-  --hds-color-border-warning: #d2a106;
-  --hds-color-focus-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-action-internal: #ffffff;
-  --hds-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-critical-internal: #ffffff;
-  --hds-color-foreground-action-active: #0f62fe;
-  --hds-color-foreground-action-hover: #0043ce;
-  --hds-color-foreground-action: #0f62fe;
-  --hds-color-foreground-critical-high-contrast: #750e13;
-  --hds-color-foreground-critical-on-surface: #a2191f;
-  --hds-color-foreground-critical: #da1e28;
-  --hds-color-foreground-disabled: rgba(22, 22, 22, 0.25);
-  --hds-color-foreground-faint: #525252;
-  --hds-color-foreground-high-contrast: #ffffff;
-  --hds-color-foreground-highlight-high-contrast: #491d8b;
-  --hds-color-foreground-highlight-on-surface: #6929c4;
-  --hds-color-foreground-highlight: #8a3ffc;
-  --hds-color-foreground-primary: #161616;
-  --hds-color-foreground-strong: #161616;
-  --hds-color-foreground-success-high-contrast: #044317;
-  --hds-color-foreground-success-on-surface: #0e6027;
-  --hds-color-foreground-success: #198038;
-  --hds-color-foreground-warning-high-contrast: #483700;
-  --hds-color-foreground-warning-on-surface: #684e00;
-  --hds-color-foreground-warning: #8e6a00;
-  --hds-color-page-faint: #ffffff;
-  --hds-color-page-primary: #ffffff;
-  --hds-color-surface-action: #d0e2ff;
-  --hds-color-surface-critical: #ffd7d9;
-  --hds-color-surface-faint: #f4f4f4;
-  --hds-color-surface-high-contrast: #393939;
-  --hds-color-surface-highlight: #e8daff;
-  --hds-color-surface-interactive-active: #c6c6c6;
-  --hds-color-surface-interactive-disabled: #c6c6c6;
-  --hds-color-surface-interactive-hover: #e8e8e8;
-  --hds-color-surface-interactive: #f4f4f4;
-  --hds-color-surface-primary: #f4f4f4;
-  --hds-color-surface-strong: #e0e0e0;
-  --hds-color-surface-success: #a7f0ba;
-  --hds-color-surface-warning: #fcf4d6;
   --hds-copy-button-foreground-color: #161616;
   --hds-copy-button-icon-color-active: #161616;
   --hds-copy-button-icon-color-default: #161616;
@@ -2337,13 +2298,37 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
+  --hds-focus-color-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-action-internal: #ffffff;
+  --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-critical-internal: #ffffff;
   --hds-focus-ring-action-box-shadow: inset 0 0 0
-    var(--hds-focus-ring-width-external) var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+    var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-critical-box-shadow: inset 0 0 0
     var(--hds-focus-ring-width-external)
-    var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+    var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-width-external: 2px;
   --hds-focus-ring-width-internal: 0px;
+  --hds-foreground-color-action-active: #0f62fe;
+  --hds-foreground-color-action-hover: #0043ce;
+  --hds-foreground-color-action: #0f62fe;
+  --hds-foreground-color-critical-high-contrast: #750e13;
+  --hds-foreground-color-critical-on-surface: #a2191f;
+  --hds-foreground-color-critical: #da1e28;
+  --hds-foreground-color-disabled: rgba(22, 22, 22, 0.25);
+  --hds-foreground-color-faint: #525252;
+  --hds-foreground-color-high-contrast: #ffffff;
+  --hds-foreground-color-highlight-high-contrast: #491d8b;
+  --hds-foreground-color-highlight-on-surface: #6929c4;
+  --hds-foreground-color-highlight: #8a3ffc;
+  --hds-foreground-color-primary: #161616;
+  --hds-foreground-color-strong: #161616;
+  --hds-foreground-color-success-high-contrast: #044317;
+  --hds-foreground-color-success-on-surface: #0e6027;
+  --hds-foreground-color-success: #198038;
+  --hds-foreground-color-warning-high-contrast: #483700;
+  --hds-foreground-color-warning-on-surface: #684e00;
+  --hds-foreground-color-warning: #8e6a00;
   --hds-form-character-count-foreground-color: #6f6f6f;
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -2387,10 +2372,12 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-modal-header-border-color-warning: rgba(0, 0, 0, 0);
   --hds-modal-header-foreground-color-critical: #161616;
   --hds-modal-header-foreground-color-warning: #161616;
-  --hds-modal-header-surface-color-critical: var(--hds-color-surface-faint);
-  --hds-modal-header-surface-color-warning: var(--hds-color-surface-faint);
+  --hds-modal-header-surface-color-critical: var(--hds-surface-color-faint);
+  --hds-modal-header-surface-color-warning: var(--hds-surface-color-faint);
   --hds-modal-header-tagline-color-critical: #525252;
   --hds-modal-header-tagline-color-warning: #525252;
+  --hds-page-color-faint: #ffffff;
+  --hds-page-color-primary: #ffffff;
   --hds-pagination-bar-border-color: #c6c6c6;
   --hds-pagination-info-typography-font-size: 0.875rem;
   --hds-pagination-nav-control-foreground-color-active: #161616;
@@ -2421,6 +2408,19 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-rich-tooltip-toggle-gap-horizontal: 8px;
   --hds-rich-tooltip-toggle-icon-size: 14px;
   --hds-surface-base-box-shadow: none;
+  --hds-surface-color-action: #d0e2ff;
+  --hds-surface-color-critical: #ffd7d9;
+  --hds-surface-color-faint: #f4f4f4;
+  --hds-surface-color-high-contrast: #393939;
+  --hds-surface-color-highlight: #e8daff;
+  --hds-surface-color-interactive-active: #c6c6c6;
+  --hds-surface-color-interactive-disabled: #c6c6c6;
+  --hds-surface-color-interactive-hover: #e8e8e8;
+  --hds-surface-color-interactive: #f4f4f4;
+  --hds-surface-color-primary: #f4f4f4;
+  --hds-surface-color-strong: #e0e0e0;
+  --hds-surface-color-success: #a7f0ba;
+  --hds-surface-color-warning: #fcf4d6;
   --hds-surface-high-box-shadow: none;
   --hds-surface-higher-box-shadow: none;
   --hds-surface-inset-box-shadow: none;
@@ -2429,7 +2429,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-surface-overlay-box-shadow: none;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #e0e0e0;
-  --hds-tabs-tab-border-color-hover: var(--hds-color-border-strong);
+  --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
   --hds-tabs-tab-foreground-color-default: #525252;
   --hds-tabs-tab-foreground-color-hover: #161616;
   --hds-tabs-tab-height-large: 48px;
@@ -2617,7 +2617,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-app-header-padding-left: 0px;
   --hds-app-header-padding-right: 0px;
   --hds-app-header-padding-top: 0px;
-  --hds-app-header-surface-color: var(--hds-color-page-primary);
+  --hds-app-header-surface-color: var(--hds-page-color-primary);
   --hds-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
   --hds-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
   --hds-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
@@ -2690,6 +2690,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-badge-typography-font-size-medium: 0.75rem;
   --hds-badge-typography-font-size-small: 0.75rem;
   --hds-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+  --hds-border-color-action: #4589ff;
+  --hds-border-color-critical: #fa4d56;
+  --hds-border-color-faint: #393939;
+  --hds-border-color-highlight: #a56eff;
+  --hds-border-color-primary: #6f6f6f;
+  --hds-border-color-strong: #6f6f6f;
+  --hds-border-color-success: #24a148;
+  --hds-border-color-warning: #b28600;
   --hds-border-radius-large: 0px;
   --hds-border-radius-medium: 0px;
   --hds-border-radius-small: 0px;
@@ -2832,53 +2840,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-code-block-syntax-highlight-color-red: #ffafd2;
   --hds-code-block-syntax-highlight-color-yellow: #f1c21b;
   --hds-code-block-typography-font-size: 0.75rem;
-  --hds-color-border-action: #4589ff;
-  --hds-color-border-critical: #fa4d56;
-  --hds-color-border-faint: #393939;
-  --hds-color-border-highlight: #a56eff;
-  --hds-color-border-primary: #6f6f6f;
-  --hds-color-border-strong: #6f6f6f;
-  --hds-color-border-success: #24a148;
-  --hds-color-border-warning: #b28600;
-  --hds-color-focus-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-action-internal: #161616;
-  --hds-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-critical-internal: #161616;
-  --hds-color-foreground-action-active: #78a9ff;
-  --hds-color-foreground-action-hover: #a6c8ff;
-  --hds-color-foreground-action: #78a9ff;
-  --hds-color-foreground-critical-high-contrast: #ffd7d9;
-  --hds-color-foreground-critical-on-surface: #ffb3b8;
-  --hds-color-foreground-critical: #ff8389;
-  --hds-color-foreground-disabled: rgba(244, 244, 244, 0.25);
-  --hds-color-foreground-faint: #c6c6c6;
-  --hds-color-foreground-high-contrast: #161616;
-  --hds-color-foreground-highlight-high-contrast: #d4bbff;
-  --hds-color-foreground-highlight-on-surface: #d4bbff;
-  --hds-color-foreground-highlight: #be95ff;
-  --hds-color-foreground-primary: #f4f4f4;
-  --hds-color-foreground-strong: #f4f4f4;
-  --hds-color-foreground-success-high-contrast: #a7f0ba;
-  --hds-color-foreground-success-on-surface: #6fdc8c;
-  --hds-color-foreground-success: #42be65;
-  --hds-color-foreground-warning-high-contrast: #fddc69;
-  --hds-color-foreground-warning-on-surface: #f1c21b;
-  --hds-color-foreground-warning: #d2a106;
-  --hds-color-page-faint: #161616;
-  --hds-color-page-primary: #161616;
-  --hds-color-surface-action: #0043ce;
-  --hds-color-surface-critical: #a2191f;
-  --hds-color-surface-faint: #262626;
-  --hds-color-surface-high-contrast: #f4f4f4;
-  --hds-color-surface-highlight: #6929c4;
-  --hds-color-surface-interactive-active: #525252;
-  --hds-color-surface-interactive-disabled: #525252;
-  --hds-color-surface-interactive-hover: #333333;
-  --hds-color-surface-interactive: #262626;
-  --hds-color-surface-primary: #262626;
-  --hds-color-surface-strong: #393939;
-  --hds-color-surface-success: #0e6027;
-  --hds-color-surface-warning: #684e00;
   --hds-copy-button-foreground-color: #f4f4f4;
   --hds-copy-button-icon-color-active: #f4f4f4;
   --hds-copy-button-icon-color-default: #f4f4f4;
@@ -2971,13 +2932,37 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
+  --hds-focus-color-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-action-internal: #161616;
+  --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-critical-internal: #161616;
   --hds-focus-ring-action-box-shadow: inset 0 0 0
-    var(--hds-focus-ring-width-external) var(--hds-color-focus-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+    var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-critical-box-shadow: inset 0 0 0
     var(--hds-focus-ring-width-external)
-    var(--hds-color-focus-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+    var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
   --hds-focus-ring-width-external: 2px;
   --hds-focus-ring-width-internal: 0px;
+  --hds-foreground-color-action-active: #78a9ff;
+  --hds-foreground-color-action-hover: #a6c8ff;
+  --hds-foreground-color-action: #78a9ff;
+  --hds-foreground-color-critical-high-contrast: #ffd7d9;
+  --hds-foreground-color-critical-on-surface: #ffb3b8;
+  --hds-foreground-color-critical: #ff8389;
+  --hds-foreground-color-disabled: rgba(244, 244, 244, 0.25);
+  --hds-foreground-color-faint: #c6c6c6;
+  --hds-foreground-color-high-contrast: #161616;
+  --hds-foreground-color-highlight-high-contrast: #d4bbff;
+  --hds-foreground-color-highlight-on-surface: #d4bbff;
+  --hds-foreground-color-highlight: #be95ff;
+  --hds-foreground-color-primary: #f4f4f4;
+  --hds-foreground-color-strong: #f4f4f4;
+  --hds-foreground-color-success-high-contrast: #a7f0ba;
+  --hds-foreground-color-success-on-surface: #6fdc8c;
+  --hds-foreground-color-success: #42be65;
+  --hds-foreground-color-warning-high-contrast: #fddc69;
+  --hds-foreground-color-warning-on-surface: #f1c21b;
+  --hds-foreground-color-warning: #d2a106;
   --hds-form-character-count-foreground-color: #a8a8a8;
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
@@ -3021,10 +3006,12 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-modal-header-border-color-warning: rgba(0, 0, 0, 0);
   --hds-modal-header-foreground-color-critical: #f4f4f4;
   --hds-modal-header-foreground-color-warning: #f4f4f4;
-  --hds-modal-header-surface-color-critical: var(--hds-color-surface-faint);
-  --hds-modal-header-surface-color-warning: var(--hds-color-surface-faint);
+  --hds-modal-header-surface-color-critical: var(--hds-surface-color-faint);
+  --hds-modal-header-surface-color-warning: var(--hds-surface-color-faint);
   --hds-modal-header-tagline-color-critical: #c6c6c6;
   --hds-modal-header-tagline-color-warning: #c6c6c6;
+  --hds-page-color-faint: #161616;
+  --hds-page-color-primary: #161616;
   --hds-pagination-bar-border-color: #525252;
   --hds-pagination-info-typography-font-size: 0.875rem;
   --hds-pagination-nav-control-foreground-color-active: #f4f4f4;
@@ -3055,6 +3042,19 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-rich-tooltip-toggle-gap-horizontal: 8px;
   --hds-rich-tooltip-toggle-icon-size: 14px;
   --hds-surface-base-box-shadow: none;
+  --hds-surface-color-action: #0043ce;
+  --hds-surface-color-critical: #a2191f;
+  --hds-surface-color-faint: #262626;
+  --hds-surface-color-high-contrast: #f4f4f4;
+  --hds-surface-color-highlight: #6929c4;
+  --hds-surface-color-interactive-active: #525252;
+  --hds-surface-color-interactive-disabled: #525252;
+  --hds-surface-color-interactive-hover: #333333;
+  --hds-surface-color-interactive: #262626;
+  --hds-surface-color-primary: #262626;
+  --hds-surface-color-strong: #393939;
+  --hds-surface-color-success: #0e6027;
+  --hds-surface-color-warning: #684e00;
   --hds-surface-high-box-shadow: none;
   --hds-surface-higher-box-shadow: none;
   --hds-surface-inset-box-shadow: none;
@@ -3063,7 +3063,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-surface-overlay-box-shadow: none;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #393939;
-  --hds-tabs-tab-border-color-hover: var(--hds-color-border-strong);
+  --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
   --hds-tabs-tab-foreground-color-default: #c6c6c6;
   --hds-tabs-tab-foreground-color-hover: #f4f4f4;
   --hds-tabs-tab-height-large: 48px;
@@ -3179,12 +3179,12 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-accordion-item-toggle-icon-size-small: 16px;
   --hds-accordion-item-toggle-padding-right-large: 16px;
   --hds-alert-page-padding-horizontal: 48px;
-  --hds-alert-surface-color-neutral: var(--hds-color-surface-faint);
+  --hds-alert-surface-color-neutral: var(--hds-surface-color-faint);
   --hds-alert-title-foreground-color-neutral: var(
-    --hds-color-foreground-primary
+    --hds-foreground-color-primary
   );
   --hds-app-header-button-foreground-color-disabled: var(
-    --hds-color-foreground-disabled
+    --hds-foreground-color-disabled
   );
   --hds-app-header-home-link-logo-size: 28px;
   --hds-app-side-nav-body-list-item-border-radius: var(
@@ -3204,22 +3204,22 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-app-side-nav-wrapper-padding-vertical-minimized: 22px;
   --hds-app-side-nav-wrapper-padding-vertical: 16px;
   --hds-badge-foreground-color-critical-inverted: var(
-    --hds-color-foreground-high-contrast
+    --hds-foreground-color-high-contrast
   );
   --hds-badge-foreground-color-highlight-inverted: var(
-    --hds-color-foreground-high-contrast
+    --hds-foreground-color-high-contrast
   );
   --hds-badge-foreground-color-neutral-dark-mode-filled: var(
-    --hds-color-foreground-high-contrast
+    --hds-foreground-color-high-contrast
   );
   --hds-badge-foreground-color-neutral-dark-mode-outlined: var(
-    --hds-color-foreground-high-contrast
+    --hds-foreground-color-high-contrast
   );
   --hds-badge-foreground-color-success-inverted: var(
-    --hds-color-foreground-high-contrast
+    --hds-foreground-color-high-contrast
   );
   --hds-badge-foreground-color-warning-inverted: var(
-    --hds-color-foreground-high-contrast
+    --hds-foreground-color-high-contrast
   );
   --hds-badge-height-large: 32px;
   --hds-badge-height-medium: 24px;
@@ -3234,7 +3234,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
   --hds-border-radius-rounded: 1000000000px;
   --hds-breadcrumb-link-foreground-color-active: var(
-    --hds-color-foreground-primary
+    --hds-foreground-color-primary
   );
   --hds-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
   --hds-button-border-color-secondary-muted-active: var(
@@ -3249,7 +3249,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-button-border-radius: var(--hds-border-radius-small);
   --hds-button-border-width: 1px;
   --hds-button-foreground-color-tertiary-disabled: var(
-    --hds-color-foreground-disabled
+    --hds-foreground-color-disabled
   );
   --hds-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
   --hds-code-block-foreground-color-selection: #0d0e12;
@@ -3267,15 +3267,15 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --hds-core-color-neutral-400
   );
   --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
-  --hds-form-control-base-foreground-color: var(--hds-color-foreground-strong);
+  --hds-form-control-base-foreground-color: var(--hds-foreground-color-strong);
   --hds-form-control-base-placeholder-foreground-color: var(
-    --hds-color-foreground-faint
+    --hds-foreground-color-faint
   );
   --hds-form-control-base-surface-color-default: var(
-    --hds-color-surface-interactive
+    --hds-surface-color-interactive
   );
   --hds-form-control-base-surface-color-hover: var(
-    --hds-color-surface-interactive-hover
+    --hds-surface-color-interactive-hover
   );
   --hds-form-control-border-radius: var(--hds-border-radius-small);
   --hds-form-control-border-width: 1px;
@@ -3284,7 +3284,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   );
   --hds-form-control-checked-border-color-hover: var(--hds-core-color-blue-400);
   --hds-form-control-checked-foreground-color: var(
-    --hds-color-foreground-high-contrast
+    --hds-foreground-color-high-contrast
   );
   --hds-form-control-checked-surface-color-default: var(
     --hds-core-color-blue-200
@@ -3292,35 +3292,35 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-control-checked-surface-color-hover: var(
     --hds-core-color-blue-300
   );
-  --hds-form-control-disabled-border-color: var(--hds-color-border-primary);
+  --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
   --hds-form-control-disabled-foreground-color: var(
-    --hds-color-foreground-disabled
+    --hds-foreground-color-disabled
   );
   --hds-form-control-disabled-surface-color: var(
-    --hds-color-surface-interactive-disabled
+    --hds-surface-color-interactive-disabled
   );
   --hds-form-control-invalid-border-color-default: var(
     --hds-core-color-red-300
   );
   --hds-form-control-invalid-border-color-hover: var(--hds-core-color-red-400);
   --hds-form-control-padding: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma. */
-  --hds-form-control-readonly-border-color: var(--hds-color-border-faint);
+  --hds-form-control-readonly-border-color: var(--hds-border-color-faint);
   --hds-form-control-readonly-foreground-color: var(
-    --hds-color-foreground-primary
+    --hds-foreground-color-primary
   );
-  --hds-form-control-readonly-surface-color: var(--hds-color-surface-strong);
+  --hds-form-control-readonly-surface-color: var(--hds-surface-color-strong);
   --hds-form-error-color: var(
     --hds-core-color-red-300
   ); /** deprecated: use `hds-form-error-foreground-color` instead */
   --hds-form-error-icon-size: 14px;
   --hds-form-helper-text-color: var(
-    --hds-color-foreground-faint
+    --hds-foreground-color-faint
   ); /** deprecated: use `hds-form-helper-text-foreground-color` instead */
   --hds-form-indicator-optional-color: var(
-    --hds-color-foreground-faint
+    --hds-foreground-color-faint
   ); /** deprecated: use `hds-form-indicator-optional-foreground-color` instead */
   --hds-form-label-color: var(
-    --hds-color-foreground-strong
+    --hds-foreground-color-strong
   ); /** deprecated: use `hds-form-label-foreground-color` instead */
   --hds-form-legend-color: var(
     --hds-form-label-color
@@ -3357,7 +3357,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-toggle-background-image-position-x: 2px;
   --hds-form-toggle-background-image-size: 12px;
   --hds-form-toggle-base-surface-color-default: var(
-    --hds-color-surface-strong
+    --hds-surface-color-strong
   ); /** the toggle has a different base surface color, compared to the other controls */
   --hds-form-toggle-border-radius: var(--hds-border-radius-x-small);
   --hds-form-toggle-border-width: 1px;
@@ -3374,7 +3374,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-link-standalone-icon-size-medium: 1rem;
   --hds-link-standalone-typography-font-size-large: 1rem;
   --hds-link-standalone-typography-font-size-medium: 0.875rem;
-  --hds-pagination-bar-surface-color: var(--hds-color-surface-primary);
+  --hds-pagination-bar-surface-color: var(--hds-surface-color-primary);
   --hds-pagination-child-spacing-horizontal: 20px;
   --hds-pagination-child-spacing-vertical: 8px;
   --hds-pagination-nav-control-icon-spacing: 6px;
@@ -3461,10 +3461,10 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-product-waypoint-gradient-color-primary-stop: #62d4dc;
   --hds-product-waypoint-surface-color: #e0fcff;
   --hds-rich-tooltip-toggle-foreground-color-active: var(
-    --hds-color-foreground-faint
+    --hds-foreground-color-faint
   );
   --hds-rich-tooltip-toggle-foreground-color-hover: var(
-    --hds-color-foreground-primary
+    --hds-foreground-color-primary
   );
   --hds-tabs-divider-height: 1px;
   --hds-tabs-indicator-transition-duration: 0.6s;

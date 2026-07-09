@@ -195,9 +195,9 @@
         "neutral": {
           "filled": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
@@ -206,9 +206,9 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.color.gray.20}",
               "cds-g10": "{carbon.color.gray.20}",
               "cds-g90": "{carbon.color.gray.100}",
@@ -217,9 +217,9 @@
           },
           "outlined": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
@@ -230,13 +230,13 @@
         "neutral-dark-mode": {
           "filled": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}"
+            "$value": "{foreground.color.high-contrast}"
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
@@ -245,7 +245,7 @@
           },
           "outlined": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "comments": {
               "cds": "In Figma the `cds` value uses a token `Tag/HighContrast/TagColor` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
             }
@@ -266,13 +266,13 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}"
+            "$value": "{foreground.color.high-contrast}"
           },
           "outlined": {
             "$type": "color",
-            "$value": "{color.foreground.highlight}",
+            "$value": "{foreground.color.highlight}",
             "$modes": {
-              "default": "{color.foreground.highlight}",
+              "default": "{foreground.color.highlight}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorPurple.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorPurple.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorPurple.g90}",
@@ -295,13 +295,13 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}"
+            "$value": "{foreground.color.high-contrast}"
           },
           "outlined": {
             "$type": "color",
-            "$value": "{color.foreground.success}",
+            "$value": "{foreground.color.success}",
             "$modes": {
-              "default": "{color.foreground.success}",
+              "default": "{foreground.color.success}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorGreen.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorGreen.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorGreen.g90}",
@@ -327,13 +327,13 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}"
+            "$value": "{foreground.color.high-contrast}"
           },
           "outlined": {
             "$type": "color",
-            "$value": "{color.foreground.warning}",
+            "$value": "{foreground.color.warning}",
             "$modes": {
-              "default": "{color.foreground.warning}",
+              "default": "{foreground.color.warning}",
               "cds-g0": "{carbon.color.orange.70}",
               "cds-g10": "{carbon.color.orange.70}",
               "cds-g90": "{carbon.color.orange.20}",
@@ -359,13 +359,13 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}"
+            "$value": "{foreground.color.high-contrast}"
           },
           "outlined": {
             "$type": "color",
-            "$value": "{color.foreground.critical}",
+            "$value": "{foreground.color.critical}",
             "$modes": {
-              "default": "{color.foreground.critical}",
+              "default": "{foreground.color.critical}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorRed.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorRed.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorRed.g90}",
@@ -421,9 +421,9 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.surface.faint}",
+            "$value": "{surface.color.faint}",
             "$modes": {
-              "default": "{color.surface.faint}",
+              "default": "{surface.color.faint}",
               "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGray.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGray.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",

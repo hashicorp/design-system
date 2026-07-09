@@ -145,7 +145,7 @@ $pagination-nav-control-padding-horizontal: 12px;
   height: var(--hds-pagination-nav-control-height);
   // border width is subtracted from padding:
   padding: 0 calc(#{$pagination-nav-control-padding-horizontal} - 1px);
-  color: var(--hds-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
@@ -183,7 +183,7 @@ $pagination-nav-control-padding-horizontal: 12px;
   // so no need to add the [disabled] selector here (elsewhere it's done to cover the `a[disabled]` case)
   &:disabled,
   &.mock-disabled {
-    color: var(--hds-color-foreground-disabled);
+    color: var(--hds-foreground-color-disabled);
     cursor: not-allowed;
   }
 }
@@ -225,7 +225,7 @@ $pagination-nav-control-padding-horizontal: 12px;
     left: calc(var(--hds-pagination-nav-indicator-spacing) - 1px);
     height: var(--hds-pagination-nav-indicator-height);
     margin: 0 auto;
-    color: var(--hds-color-foreground-action);
+    color: var(--hds-foreground-color-action);
     background-color: currentColor;
     border-radius: var(--hds-border-radius-x-small);
     content: "";
@@ -242,7 +242,7 @@ $pagination-nav-control-padding-horizontal: 12px;
   align-items: center;
   height: var(--hds-pagination-nav-control-height);
   padding: 0 $pagination-nav-control-padding-horizontal;
-  color: var(--hds-color-foreground-faint);
+  color: var(--hds-foreground-color-faint);
 }
 
 // * Sub-component: SizeSelector
