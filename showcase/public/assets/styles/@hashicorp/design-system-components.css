@@ -117,8 +117,8 @@
   --hds-elevation-overlay-box-shadow: 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --hds-focus-ring-width-external: 3px;
   --hds-focus-ring-width-internal: 1px;
-  --hds-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
-  --hds-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --hds-focus-ring-box-shadow-action: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
+  --hds-focus-ring-box-shadow-critical: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
   --hds-accordion-card-gap-small: 4px;
   --hds-accordion-card-gap-medium: 8px;
   --hds-accordion-card-gap-large: 12px;
@@ -1046,12 +1046,12 @@
 /**
  * Do not edit directly, this file was auto-generated.
  */
-.hds-focus-ring-action-box-shadow {
-  box-shadow: var(--hds-focus-ring-action-box-shadow);
+.hds-focus-ring-box-shadow-action {
+  box-shadow: var(--hds-focus-ring-box-shadow-action);
 }
 
-.hds-focus-ring-critical-box-shadow {
-  box-shadow: var(--hds-focus-ring-critical-box-shadow);
+.hds-focus-ring-box-shadow-critical {
+  box-shadow: var(--hds-focus-ring-box-shadow-critical);
 }
 
 /**
@@ -3029,7 +3029,7 @@
 }
 .hds-app-side-nav__list-item-link:focus-visible, .hds-app-side-nav__list-item-link.mock-focus {
   outline: none;
-  box-shadow: var(--hds-focus-ring-action-box-shadow);
+  box-shadow: var(--hds-focus-ring-box-shadow-action);
 }
 .hds-app-side-nav__list-item-link:hover, .hds-app-side-nav__list-item-link.mock-hover {
   background: var(--hds-app-side-nav-body-list-item-surface-color-hover);
@@ -3605,7 +3605,7 @@
   inset: 0;
   z-index: -1;
   border-radius: inherit;
-  box-shadow: var(--hds-focus-ring-action-box-shadow);
+  box-shadow: var(--hds-focus-ring-box-shadow-action);
   content: "";
 }
 .hds-theme-light .hds-breadcrumb__link:focus-visible::before, .hds-theme-light .hds-breadcrumb__link.mock-focus::before,
@@ -3697,7 +3697,7 @@
   inset: -1px;
   z-index: -1;
   border-radius: inherit;
-  box-shadow: var(--hds-focus-ring-action-box-shadow);
+  box-shadow: var(--hds-focus-ring-box-shadow-action);
   content: "";
 }
 .hds-theme-light .hds-breadcrumb__truncation-toggle:focus-visible::before, .hds-theme-light .hds-breadcrumb__truncation-toggle.mock-focus::before,
@@ -4088,7 +4088,7 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   inset: -1px;
   z-index: -1;
   border-radius: inherit;
-  box-shadow: var(--hds-focus-ring-critical-box-shadow);
+  box-shadow: var(--hds-focus-ring-box-shadow-critical);
   content: "";
 }
 .hds-theme-light .hds-button--color-critical:focus-visible::before, .hds-theme-light .hds-button--color-critical.mock-focus::before,
@@ -6141,7 +6141,7 @@ button.hds-button[href]::after {
 .hds-dropdown-list-item--color-action a::after,
 .hds-dropdown-list-item--color-action button::after,
 .hds-dropdown-list-item--color-action .hds-dropdown-list-item__label::after {
-  --current-focus-ring-box-shadow: var(--hds-focus-ring-action-box-shadow);
+  --current-focus-ring-box-shadow: var(--hds-focus-ring-box-shadow-action);
 }
 .hds-dropdown-list-item--color-action:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
   background-color: var(--hds-dropdown-list-item-surface-color-action-hover);
@@ -6157,7 +6157,7 @@ button.hds-button[href]::after {
 .hds-dropdown-list-item--color-critical a::after,
 .hds-dropdown-list-item--color-critical button::after {
   --current-background-color: var(--hds-surface-color-critical);
-  --current-focus-ring-box-shadow: var(--hds-focus-ring-critical-box-shadow);
+  --current-focus-ring-box-shadow: var(--hds-focus-ring-box-shadow-critical);
 }
 .hds-dropdown-list-item--color-critical:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover), .hds-dropdown-list-item--color-critical:has(button:focus, button.mock-focus, a:focus, a.mock-focus, input:focus, input.mock-focus), .hds-dropdown-list-item--color-critical:has(button:active, button.mock-active, a:active, a.mock-active, input:active, input.mock-active) {
   background-color: var(--hds-dropdown-list-item-surface-color-critical-hover);

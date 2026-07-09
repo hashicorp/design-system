@@ -101,7 +101,7 @@
   &:focus-visible,
   &.mock-focus {
     outline: none;
-    box-shadow: var(--hds-focus-ring-action-box-shadow);
+    box-shadow: var(--hds-focus-ring-box-shadow-action);
   }
 
   &:hover,
