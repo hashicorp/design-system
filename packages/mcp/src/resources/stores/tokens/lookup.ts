@@ -6,12 +6,13 @@
 import { TOKEN_TYPES } from "./schema.js";
 
 import type { TokenCatalogRow, TokenType } from "./schema.js";
+import type { JsonValue } from "../../../types.js";
 
 export type TokenSummary = {
   key: string;
   name: string;
   type: TokenType;
-  value: unknown;
+  value: JsonValue;
   cssVar: string;
   category: string | null;
   path: string[];

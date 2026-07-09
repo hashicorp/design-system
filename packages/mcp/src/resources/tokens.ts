@@ -9,7 +9,7 @@ import { toJsonResourceResponse } from "./utils.js";
 
 import type { McpResource } from "./types.js";
 import type { TokenCatalogStore } from "./stores/tokens/store.js";
-import type { JsonObject, JsonValue } from "../types.js";
+import type { JsonObject } from "../types.js";
 import type { TokenRecord, TokenSummary } from "./stores/tokens/lookup.js";
 
 export const TOKENS_URI = "hds://tokens";
@@ -19,29 +19,12 @@ const getTokenByKeyUri = (tokenKey: string): string => {
   return `${TOKENS_URI}/${encodeURIComponent(tokenKey)}`;
 };
 
-const toJsonValue = (value: unknown): JsonValue => {
-  if (
-    value === null ||
-    typeof value === "string" ||
-    typeof value === "number" ||
-    typeof value === "boolean"
-  ) {
-    return value;
+const decodeTokenKey = (tokenKey: string): string => {
+  try {
+    return decodeURIComponent(tokenKey);
+  } catch {
+    return tokenKey;
   }
-
-  if (Array.isArray(value)) {
-    return value.map((item) => toJsonValue(item));
-  }
-
-  if (typeof value === "object") {
-    const entries = Object.entries(value as Record<string, unknown>).map(
-      ([key, entryValue]) => [key, toJsonValue(entryValue)],
-    );
-
-    return Object.fromEntries(entries) as JsonObject;
-  }
-
-  return String(value);
 };
 
 const toSerializableTokenSummary = (token: TokenSummary): JsonObject => {
@@ -49,7 +32,7 @@ const toSerializableTokenSummary = (token: TokenSummary): JsonObject => {
     key: token.key,
     name: token.name,
     type: token.type,
-    value: toJsonValue(token.value),
+    value: token.value,
     cssVar: token.cssVar,
     category: token.category,
     path: token.path,
@@ -59,9 +42,7 @@ const toSerializableTokenSummary = (token: TokenSummary): JsonObject => {
 const toSerializableTokenRecord = (token: TokenRecord): JsonObject => {
   return {
     ...toSerializableTokenSummary(token),
-    ...(token.original === undefined
-      ? {}
-      : { original: toJsonValue(token.original) }),
+    ...(token.original === undefined ? {} : { original: token.original }),
   };
 };
 
@@ -107,6 +88,28 @@ const getOrLoadTokenStore = (): TokenCatalogStore => {
   return tokenStore;
 };
 
+const completeTokenKey = (value: string): string[] => {
+  const query = value.trim().toLowerCase();
+  const matches: string[] = [];
+
+  for (const token of getOrLoadTokenStore().listTokens()) {
+    const aliases = [token.key, token.name, token.path.join(".")];
+    const isMatch =
+      query.length === 0 ||
+      aliases.some((alias) => alias.toLowerCase().includes(query));
+
+    if (isMatch) {
+      matches.push(token.key);
+    }
+
+    if (matches.length >= 100) {
+      break;
+    }
+  }
+
+  return matches;
+};
+
 const getTokensResource: McpResource = {
   name: "get_hds_tokens",
   uri: TOKENS_URI,
@@ -124,6 +127,9 @@ const getTokenByKeyResource: McpResource = {
   name: "get_hds_token",
   template: new ResourceTemplate(TOKEN_BY_KEY_URI_TEMPLATE, {
     list: undefined,
+    complete: {
+      tokenKey: completeTokenKey,
+    },
   }),
   config: {
     title: "HDS token detail",
@@ -143,7 +149,7 @@ const getTokenByKeyResource: McpResource = {
       });
     }
 
-    return readTokenByKeyResource(getOrLoadTokenStore(), tokenKey);
+    return readTokenByKeyResource(getOrLoadTokenStore(), decodeTokenKey(tokenKey));
   },
 };
 

@@ -5,47 +5,59 @@
 
 import { z } from "zod";
 
+import type { JsonValue } from "../../../types.js";
+
 export const TOKEN_TYPES = [
   "color",
-  "dimension",
-  "fontFamily",
-  "fontWeight",
-  "lineHeight",
-  "letterSpacing",
-  "duration",
   "cubicBezier",
+  "dimension",
+  "duration",
+  "font-family",
+  "font-weight",
+  "font-size",
+  "letter-spacing",
   "number",
-  "shadow",
   "other",
 ] as const;
 
 export type TokenType = (typeof TOKEN_TYPES)[number];
 
+const jsonValueSchema: z.ZodType<JsonValue> = z.lazy(() =>
+  z.union([
+    z.string(),
+    z.number(),
+    z.boolean(),
+    z.null(),
+    z.array(jsonValueSchema),
+    z.record(z.string(), jsonValueSchema),
+  ]),
+);
+
 const tokenAttributesSchema = z
   .object({
     category: z.string().min(1).optional(),
   })
-  .passthrough();
+  .catchall(z.any());
 
 const tokenOriginalSchema = z
   .object({
-    $type: z.string().optional(),
-    $value: z.unknown().optional(),
+    $type: z.enum(TOKEN_TYPES).optional(),
+    $value: jsonValueSchema.optional(),
     key: z.string().optional(),
   })
-  .passthrough();
+  .catchall(jsonValueSchema);
 
 export const tokenCatalogRowSchema = z
   .object({
     key: z.string().min(1),
-    $type: z.string().optional(),
-    $value: z.unknown(),
+    $type: z.enum(TOKEN_TYPES).optional(),
+    $value: jsonValueSchema,
     name: z.string().min(1),
     attributes: tokenAttributesSchema.optional(),
     path: z.array(z.string().min(1)),
     original: tokenOriginalSchema.optional(),
   })
-  .passthrough();
+  .catchall(z.any());
 
 export const tokenCatalogSchema = z.array(tokenCatalogRowSchema);
 
