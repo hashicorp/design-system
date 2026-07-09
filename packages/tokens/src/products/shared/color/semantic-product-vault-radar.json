@@ -3,7 +3,7 @@
     "vault-radar": {
       "brand": {
         "$type": "color",
-        "$value": "{color.palette.vault-radar-brand}",
+        "$value": "{core.color.vault-radar-brand}",
         "group": "branding"
       },
       "brand-alt": {
@@ -21,29 +21,29 @@
       },
       "foreground": {
         "$type": "color",
-        "$value": "{color.palette.vault-radar-500}",
+        "$value": "{core.color.vault-radar-500}",
         "group": "branding"
       },
       "surface": {
         "$type": "color",
-        "$value": "{color.palette.vault-radar-50}",
+        "$value": "{core.color.vault-radar-50}",
         "group": "branding"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.palette.vault-radar-100}",
+        "$value": "{core.color.vault-radar-100}",
         "group": "branding"
       },
       "gradient": {
         "primary": {
           "start": {
             "$type": "color",
-            "$value": "{color.palette.vault-radar-100}",
+            "$value": "{core.color.vault-radar-100}",
             "group": "branding"
           },
           "stop": {
             "$type": "color",
-            "$value": "{color.palette.vault-radar-200}",
+            "$value": "{core.color.vault-radar-200}",
             "group": "branding"
           }
         },
@@ -56,7 +56,7 @@
           },
           "stop": {
             "$type": "color",
-            "$value": "{color.palette.vault-radar-50}",
+            "$value": "{core.color.vault-radar-50}",
             "group": "branding"
           }
         }

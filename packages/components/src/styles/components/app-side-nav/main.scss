@@ -45,7 +45,7 @@
   position: fixed;
   z-index: -1;
   inset: 0;
-  background-color: var(--hds-color-palette-neutral-700);
+  background-color: var(--hds-core-color-neutral-700);
   opacity: 0.2;
   transition: opacity var(--hds-var-app-side-nav-animation-duration) var(--hds-var-app-side-nav-animation-easing)
     var(--hds-var-app-side-nav-animation-delay);

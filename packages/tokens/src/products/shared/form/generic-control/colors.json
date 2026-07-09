@@ -27,12 +27,12 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.palette.neutral-400}",
+              "$value": "{core.color.neutral-400}",
               "group": "components"
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.palette.neutral-500}",
+              "$value": "{core.color.neutral-500}",
               "group": "components"
             }
           }
@@ -59,12 +59,12 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.palette.blue-200}",
+              "$value": "{core.color.blue-200}",
               "group": "components"
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.palette.blue-300}",
+              "$value": "{core.color.blue-300}",
               "group": "components"
             }
           }
@@ -73,12 +73,12 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.palette.blue-300}",
+              "$value": "{core.color.blue-300}",
               "group": "components"
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.palette.blue-400}",
+              "$value": "{core.color.blue-400}",
               "group": "components"
             }
           }
@@ -89,12 +89,12 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{color.palette.red-300}",
+              "$value": "{core.color.red-300}",
               "group": "components"
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.palette.red-400}",
+              "$value": "{core.color.red-400}",
               "group": "components"
             }
           }

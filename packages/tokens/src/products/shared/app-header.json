@@ -53,9 +53,9 @@
     "border": {
       "color": {
         "$type": "color",
-        "$value": "{color.palette.neutral-500}",
+        "$value": "{core.color.neutral-500}",
         "$modes": {
-          "default": "{color.palette.neutral-500}",
+          "default": "{core.color.neutral-500}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
           "cds-g10": "{carbon.themes.g10.borderSubtle00}",
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
@@ -79,9 +79,9 @@
     "surface": {
       "color": {
         "$type": "color",
-        "$value": "{color.palette.neutral-700}",
+        "$value": "{core.color.neutral-700}",
         "$modes": {
-          "default": "{color.palette.neutral-700}",
+          "default": "{core.color.neutral-700}",
           "cds-g0": "{color.page.primary}",
           "cds-g10": "{color.page.primary}",
           "cds-g90": "{color.page.primary}",
@@ -94,9 +94,9 @@
         "color": {
           "default": {
             "$type": "color",
-            "$value": "{color.palette.neutral-500}",
+            "$value": "{core.color.neutral-500}",
             "$modes": {
-              "default": "{color.palette.neutral-500}",
+              "default": "{core.color.neutral-500}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -105,9 +105,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.palette.neutral-400}",
+            "$value": "{core.color.neutral-400}",
             "$modes": {
-              "default": "{color.palette.neutral-400}",
+              "default": "{core.color.neutral-400}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -150,9 +150,9 @@
         "color": {
           "default": {
             "$type": "color",
-            "$value": "{color.palette.neutral-700}",
+            "$value": "{core.color.neutral-700}",
             "$modes": {
-              "default": "{color.palette.neutral-700}",
+              "default": "{core.color.neutral-700}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -161,9 +161,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.palette.neutral-600}",
+            "$value": "{core.color.neutral-600}",
             "$modes": {
-              "default": "{color.palette.neutral-600}",
+              "default": "{core.color.neutral-600}",
               "cds-g0": "{carbon.themes.white.backgroundHover}",
               "cds-g10": "{carbon.themes.g10.backgroundHover}",
               "cds-g90": "{carbon.themes.g90.backgroundHover}",
@@ -172,9 +172,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.palette.neutral-500}",
+            "$value": "{core.color.neutral-500}",
             "$modes": {
-              "default": "{color.palette.neutral-500}",
+              "default": "{core.color.neutral-500}",
               "cds-g0": "{carbon.themes.white.backgroundActive}",
               "cds-g10": "{carbon.themes.g10.backgroundActive}",
               "cds-g90": "{carbon.themes.g90.backgroundActive}",
@@ -183,9 +183,9 @@
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.palette.neutral-600}",
+            "$value": "{core.color.neutral-600}",
             "$modes": {
-              "default": "{color.palette.neutral-600}",
+              "default": "{core.color.neutral-600}",
               "cds-g0": "{carbon.color.gray.30}",
               "cds-g10": "{carbon.color.gray.30}",
               "cds-g90": "{carbon.color.gray.60}",

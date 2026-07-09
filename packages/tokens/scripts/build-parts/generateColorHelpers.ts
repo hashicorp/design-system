@@ -35,11 +35,9 @@ export function generateColorHelpers(tokens: TransformedToken[], outputCssVars: 
         helpers.push(`.${PREFIX}-${group}-${name} { border: 1px solid ${value}; }`)
       }
     } else if (['hashicorp', 'hcp', 'boundary','consul','nomad','packer','terraform','vagrant','vault','vault-secrets','vault-radar','waypoint'].includes(group)) {
-      // TODO!
-      // to be discussed if we want to expose all these colors as helpers
-    } else if (group === 'palette') {
-      // TODO!
-      // do we want people to use palette colors directly as CSS helpers?
+      // we don't want to expose all these colors as helpers
+    } else if (group === 'core') {
+      // we don't want people to use "core" colors directly as CSS helpers
     } else if (group === 'focus') {
       // we don't want to expose them as helpers (they're related to a11y, so we don't want users to mess up with them)
     } else {

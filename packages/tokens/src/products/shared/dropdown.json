@@ -73,9 +73,9 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.palette.red-300}",
+              "$value": "{core.color.red-300}",
               "$modes": {
-                "default": "{color.palette.red-300}",
+                "default": "{core.color.red-300}",
                 "cds-g0": "{carbon.themes.white.textOnColor}",
                 "cds-g10": "{carbon.themes.g10.textOnColor}",
                 "cds-g90": "{carbon.themes.g90.textOnColor}",
@@ -84,9 +84,9 @@
             },
             "focus": {
               "$type": "color",
-              "$value": "{color.palette.red-400}",
+              "$value": "{core.color.red-400}",
               "$modes": {
-                "default": "{color.palette.red-400}",
+                "default": "{core.color.red-400}",
                 "cds-g0": "{carbon.color.white.0}",
                 "cds-g10": "{carbon.color.white.0}",
                 "cds-g90": "{carbon.color.white.0}",
@@ -95,9 +95,9 @@
             },
             "active": {
               "$type": "color",
-              "$value": "{color.palette.red-400}",
+              "$value": "{core.color.red-400}",
               "$modes": {
-                "default": "{color.palette.red-400}",
+                "default": "{core.color.red-400}",
                 "cds-g0": "{carbon.color.white.0}",
                 "cds-g10": "{carbon.color.white.0}",
                 "cds-g90": "{carbon.color.white.0}",
