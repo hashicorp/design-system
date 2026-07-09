@@ -524,8 +524,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-foreground-warning-high-contrast: var(--hds-core-color-amber-500);
   --hds-color-foreground-warning-on-surface: var(--hds-core-color-amber-300);
   --hds-color-foreground-warning: var(--hds-core-color-amber-200);
-  --hds-color-hashicorp-brand: #000000;
-  --hds-color-hcp-brand: #000000;
   --hds-color-page-faint: var(--hds-core-color-neutral-50);
   --hds-color-page-primary: var(--hds-core-color-neutral-0);
   --hds-color-surface-action: var(--hds-core-color-blue-50);
@@ -541,9 +539,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-surface-strong: var(--hds-core-color-neutral-100);
   --hds-color-surface-success: var(--hds-core-color-green-50);
   --hds-color-surface-warning: var(--hds-core-color-amber-50);
-  --hds-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-  --hds-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-  --hds-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-copy-button-foreground-color: var(
     --hds-button-foreground-color-secondary-default
   );
@@ -799,6 +794,11 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-pagination-size-selector-typography-font-size: var(
     --hds-typography-body-100-font-size
   );
+  --hds-product-hashicorp-brand-color: #000000;
+  --hds-product-hcp-brand-color: #000000;
+  --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-reveal-foreground-color-active: var(
     --hds-button-foreground-color-tertiary-active
   );
@@ -1294,8 +1294,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-foreground-warning-high-contrast: #483700;
     --hds-color-foreground-warning-on-surface: #684e00;
     --hds-color-foreground-warning: #8e6a00;
-    --hds-color-hashicorp-brand: #000000;
-    --hds-color-hcp-brand: #000000;
     --hds-color-page-faint: #ffffff;
     --hds-color-page-primary: #ffffff;
     --hds-color-surface-action: #d0e2ff;
@@ -1311,9 +1309,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-surface-strong: #e0e0e0;
     --hds-color-surface-success: #a7f0ba;
     --hds-color-surface-warning: #fcf4d6;
-    --hds-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-    --hds-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-    --hds-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
     --hds-copy-button-foreground-color: #161616;
     --hds-copy-button-icon-color-active: #161616;
     --hds-copy-button-icon-color-default: #161616;
@@ -1472,6 +1467,11 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-pagination-nav-indicator-height: 4px;
     --hds-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --hds-pagination-size-selector-typography-font-size: 0.875rem;
+    --hds-product-hashicorp-brand-color: #000000;
+    --hds-product-hcp-brand-color: #000000;
+    --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+    --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+    --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
     --hds-reveal-foreground-color-active: #0043ce;
     --hds-reveal-foreground-color-default: #0f62fe;
     --hds-reveal-foreground-color-hover: #0043ce;
@@ -1931,8 +1931,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-foreground-warning-high-contrast: #fddc69;
     --hds-color-foreground-warning-on-surface: #f1c21b;
     --hds-color-foreground-warning: #d2a106;
-    --hds-color-hashicorp-brand: #ffffff;
-    --hds-color-hcp-brand: #ffffff;
     --hds-color-page-faint: #161616;
     --hds-color-page-primary: #161616;
     --hds-color-surface-action: #0043ce;
@@ -1948,9 +1946,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-color-surface-strong: #393939;
     --hds-color-surface-success: #0e6027;
     --hds-color-surface-warning: #684e00;
-    --hds-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-    --hds-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-    --hds-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
     --hds-copy-button-foreground-color: #f4f4f4;
     --hds-copy-button-icon-color-active: #f4f4f4;
     --hds-copy-button-icon-color-default: #f4f4f4;
@@ -2109,6 +2104,11 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-pagination-nav-indicator-height: 4px;
     --hds-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --hds-pagination-size-selector-typography-font-size: 0.875rem;
+    --hds-product-hashicorp-brand-color: #ffffff;
+    --hds-product-hcp-brand-color: #ffffff;
+    --hds-product-vault-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+    --hds-product-vault-radar-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+    --hds-product-vault-secrets-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
     --hds-reveal-foreground-color-active: #a6c8ff;
     --hds-reveal-foreground-color-default: #78a9ff;
     --hds-reveal-foreground-color-hover: #a6c8ff;
@@ -2547,8 +2547,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-foreground-warning-high-contrast: #483700;
   --hds-color-foreground-warning-on-surface: #684e00;
   --hds-color-foreground-warning: #8e6a00;
-  --hds-color-hashicorp-brand: #000000;
-  --hds-color-hcp-brand: #000000;
   --hds-color-page-faint: #ffffff;
   --hds-color-page-primary: #ffffff;
   --hds-color-surface-action: #d0e2ff;
@@ -2564,9 +2562,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-surface-strong: #e0e0e0;
   --hds-color-surface-success: #a7f0ba;
   --hds-color-surface-warning: #fcf4d6;
-  --hds-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-  --hds-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-  --hds-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-copy-button-foreground-color: #161616;
   --hds-copy-button-icon-color-active: #161616;
   --hds-copy-button-icon-color-default: #161616;
@@ -2724,6 +2719,11 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-pagination-nav-indicator-height: 4px;
   --hds-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
   --hds-pagination-size-selector-typography-font-size: 0.875rem;
+  --hds-product-hashicorp-brand-color: #000000;
+  --hds-product-hcp-brand-color: #000000;
+  --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-reveal-foreground-color-active: #0043ce;
   --hds-reveal-foreground-color-default: #0f62fe;
   --hds-reveal-foreground-color-hover: #0043ce;
@@ -3181,8 +3181,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-foreground-warning-high-contrast: #fddc69;
   --hds-color-foreground-warning-on-surface: #f1c21b;
   --hds-color-foreground-warning: #d2a106;
-  --hds-color-hashicorp-brand: #ffffff;
-  --hds-color-hcp-brand: #ffffff;
   --hds-color-page-faint: #161616;
   --hds-color-page-primary: #161616;
   --hds-color-surface-action: #0043ce;
@@ -3198,9 +3196,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-color-surface-strong: #393939;
   --hds-color-surface-success: #0e6027;
   --hds-color-surface-warning: #684e00;
-  --hds-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-  --hds-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-  --hds-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-copy-button-foreground-color: #f4f4f4;
   --hds-copy-button-icon-color-active: #f4f4f4;
   --hds-copy-button-icon-color-default: #f4f4f4;
@@ -3358,6 +3353,11 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-pagination-nav-indicator-height: 4px;
   --hds-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
   --hds-pagination-size-selector-typography-font-size: 0.875rem;
+  --hds-product-hashicorp-brand-color: #ffffff;
+  --hds-product-hcp-brand-color: #ffffff;
+  --hds-product-vault-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-radar-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-secrets-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-reveal-foreground-color-active: #a6c8ff;
   --hds-reveal-foreground-color-default: #78a9ff;
   --hds-reveal-foreground-color-hover: #a6c8ff;
@@ -3572,87 +3572,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
   --hds-code-block-foreground-color-selection: #0d0e12;
   --hds-code-block-surface-color-selection: #86ff13;
-  --hds-color-boundary-border: #fbd7d8;
-  --hds-color-boundary-brand: #f24c53;
-  --hds-color-boundary-foreground: #cf2d32;
-  --hds-color-boundary-gradient-faint-start: #fffafa; /** this is the 'boundary-50' value at 25% opacity on white */
-  --hds-color-boundary-gradient-faint-stop: #ffecec;
-  --hds-color-boundary-gradient-primary-start: #f97076;
-  --hds-color-boundary-gradient-primary-stop: #db363b;
-  --hds-color-boundary-surface: #ffecec;
-  --hds-color-consul-border: #ffcede;
-  --hds-color-consul-brand: #e03875;
-  --hds-color-consul-foreground: #d01c5b;
-  --hds-color-consul-gradient-faint-start: #fff9fb; /** this is the 'consul-50' value at 25% opacity on white */
-  --hds-color-consul-gradient-faint-stop: #ffe9f1;
-  --hds-color-consul-gradient-primary-start: #ff99be;
-  --hds-color-consul-gradient-primary-stop: #da306e;
-  --hds-color-consul-surface: #ffe9f1;
-  --hds-color-nomad-border: #bff3dd;
-  --hds-color-nomad-brand: #06d092;
-  --hds-color-nomad-foreground: #008661;
-  --hds-color-nomad-gradient-faint-start: #f3fff9; /** this is the 'nomad-50' value at 25% opacity on white */
-  --hds-color-nomad-gradient-faint-stop: #d3fdeb;
-  --hds-color-nomad-gradient-primary-start: #bff3dd;
-  --hds-color-nomad-gradient-primary-stop: #60dea9;
-  --hds-color-nomad-surface: #d3fdeb;
-  --hds-color-packer-border: #b4e4ff;
-  --hds-color-packer-brand: #02a8ef;
-  --hds-color-packer-foreground: #007eb4;
-  --hds-color-packer-gradient-faint-start: #f3fcff; /** this is the 'packer-50' value at 25% opacity on white */
-  --hds-color-packer-gradient-faint-stop: #d4f2ff;
-  --hds-color-packer-gradient-primary-start: #b4e4ff;
-  --hds-color-packer-gradient-primary-stop: #63d0ff;
-  --hds-color-packer-surface: #d4f2ff;
-  --hds-color-terraform-border: #ebdbfc;
-  --hds-color-terraform-brand-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
-  --hds-color-terraform-brand: #7b42bc;
-  --hds-color-terraform-foreground: #773cb4;
-  --hds-color-terraform-gradient-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
-  --hds-color-terraform-gradient-faint-stop: #f4ecff;
-  --hds-color-terraform-gradient-primary-start: #bb8deb;
-  --hds-color-terraform-gradient-primary-stop: #844fba;
-  --hds-color-terraform-surface: #f4ecff;
-  --hds-color-vagrant-border: #c7dbfc;
-  --hds-color-vagrant-brand: #1868f2;
-  --hds-color-vagrant-foreground: #1c61d8;
-  --hds-color-vagrant-gradient-faint-start: #f4faff; /** this is the 'vagrant-50' value at 25% opacity on white */
-  --hds-color-vagrant-gradient-faint-stop: #d6ebff;
-  --hds-color-vagrant-gradient-primary-start: #639cff;
-  --hds-color-vagrant-gradient-primary-stop: #2e71e5;
-  --hds-color-vagrant-surface: #d6ebff;
-  --hds-color-vault-border: #feec7b;
-  --hds-color-vault-brand: #ffcf25;
-  --hds-color-vault-foreground: #9a6f00;
-  --hds-color-vault-gradient-faint-start: #fffdf2; /** this is the 'vault-50' value at 25% opacity on white */
-  --hds-color-vault-gradient-faint-stop: #fff9cf;
-  --hds-color-vault-gradient-primary-start: #feec7b;
-  --hds-color-vault-gradient-primary-stop: #ffe543;
-  --hds-color-vault-radar-border: #feec7b;
-  --hds-color-vault-radar-brand: #ffcf25;
-  --hds-color-vault-radar-foreground: #9a6f00;
-  --hds-color-vault-radar-gradient-faint-start: #fffdf2; /** this is the 'vault-radar-50' value at 25% opacity on white */
-  --hds-color-vault-radar-gradient-faint-stop: #fff9cf;
-  --hds-color-vault-radar-gradient-primary-start: #feec7b;
-  --hds-color-vault-radar-gradient-primary-stop: #ffe543;
-  --hds-color-vault-radar-surface: #fff9cf;
-  --hds-color-vault-secrets-border: #feec7b;
-  --hds-color-vault-secrets-brand: #ffcf25;
-  --hds-color-vault-secrets-foreground: #9a6f00;
-  --hds-color-vault-secrets-gradient-faint-start: #fffdf2; /** this is the 'vault-secrets-50' value at 25% opacity on white */
-  --hds-color-vault-secrets-gradient-faint-stop: #fff9cf;
-  --hds-color-vault-secrets-gradient-primary-start: #feec7b;
-  --hds-color-vault-secrets-gradient-primary-stop: #ffe543;
-  --hds-color-vault-secrets-surface: #fff9cf;
-  --hds-color-vault-surface: #fff9cf;
-  --hds-color-waypoint-border: #cbf1f3;
-  --hds-color-waypoint-brand: #14c6cb;
-  --hds-color-waypoint-foreground: #008196;
-  --hds-color-waypoint-gradient-faint-start: #f6feff; /** this is the 'waypoint-50' value at 25% opacity on white */
-  --hds-color-waypoint-gradient-faint-stop: #e0fcff;
-  --hds-color-waypoint-gradient-primary-start: #cbf1f3;
-  --hds-color-waypoint-gradient-primary-stop: #62d4dc;
-  --hds-color-waypoint-surface: #e0fcff;
   --hds-dropdown-toggle-button-gap: 6px;
   --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
@@ -3778,6 +3697,87 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-pagination-child-spacing-vertical: 8px;
   --hds-pagination-nav-control-icon-spacing: 6px;
   --hds-pagination-nav-indicator-spacing: 6px;
+  --hds-product-boundary-border-color: #fbd7d8;
+  --hds-product-boundary-brand-color: #f24c53;
+  --hds-product-boundary-foreground-color: #cf2d32;
+  --hds-product-boundary-gradient-color-faint-start: #fffafa; /** this is the 'boundary-50' value at 25% opacity on white */
+  --hds-product-boundary-gradient-color-faint-stop: #ffecec;
+  --hds-product-boundary-gradient-color-primary-start: #f97076;
+  --hds-product-boundary-gradient-color-primary-stop: #db363b;
+  --hds-product-boundary-surface-color: #ffecec;
+  --hds-product-consul-border-color: #ffcede;
+  --hds-product-consul-brand-color: #e03875;
+  --hds-product-consul-foreground-color: #d01c5b;
+  --hds-product-consul-gradient-color-faint-start: #fff9fb; /** this is the 'consul-50' value at 25% opacity on white */
+  --hds-product-consul-gradient-color-faint-stop: #ffe9f1;
+  --hds-product-consul-gradient-color-primary-start: #ff99be;
+  --hds-product-consul-gradient-color-primary-stop: #da306e;
+  --hds-product-consul-surface-color: #ffe9f1;
+  --hds-product-nomad-border-color: #bff3dd;
+  --hds-product-nomad-brand-color: #06d092;
+  --hds-product-nomad-foreground-color: #008661;
+  --hds-product-nomad-gradient-color-faint-start: #f3fff9; /** this is the 'nomad-50' value at 25% opacity on white */
+  --hds-product-nomad-gradient-color-faint-stop: #d3fdeb;
+  --hds-product-nomad-gradient-color-primary-start: #bff3dd;
+  --hds-product-nomad-gradient-color-primary-stop: #60dea9;
+  --hds-product-nomad-surface-color: #d3fdeb;
+  --hds-product-packer-border-color: #b4e4ff;
+  --hds-product-packer-brand-color: #02a8ef;
+  --hds-product-packer-foreground-color: #007eb4;
+  --hds-product-packer-gradient-color-faint-start: #f3fcff; /** this is the 'packer-50' value at 25% opacity on white */
+  --hds-product-packer-gradient-color-faint-stop: #d4f2ff;
+  --hds-product-packer-gradient-color-primary-start: #b4e4ff;
+  --hds-product-packer-gradient-color-primary-stop: #63d0ff;
+  --hds-product-packer-surface-color: #d4f2ff;
+  --hds-product-terraform-border-color: #ebdbfc;
+  --hds-product-terraform-brand-color-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
+  --hds-product-terraform-brand-color: #7b42bc;
+  --hds-product-terraform-foreground-color: #773cb4;
+  --hds-product-terraform-gradient-color-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
+  --hds-product-terraform-gradient-color-faint-stop: #f4ecff;
+  --hds-product-terraform-gradient-color-primary-start: #bb8deb;
+  --hds-product-terraform-gradient-color-primary-stop: #844fba;
+  --hds-product-terraform-surface-color: #f4ecff;
+  --hds-product-vagrant-border-color: #c7dbfc;
+  --hds-product-vagrant-brand-color: #1868f2;
+  --hds-product-vagrant-foreground-color: #1c61d8;
+  --hds-product-vagrant-gradient-color-faint-start: #f4faff; /** this is the 'vagrant-50' value at 25% opacity on white */
+  --hds-product-vagrant-gradient-color-faint-stop: #d6ebff;
+  --hds-product-vagrant-gradient-color-primary-start: #639cff;
+  --hds-product-vagrant-gradient-color-primary-stop: #2e71e5;
+  --hds-product-vagrant-surface-color: #d6ebff;
+  --hds-product-vault-border-color: #feec7b;
+  --hds-product-vault-brand-color: #ffcf25;
+  --hds-product-vault-foreground-color: #9a6f00;
+  --hds-product-vault-gradient-color-faint-start: #fffdf2; /** this is the 'vault-50' value at 25% opacity on white */
+  --hds-product-vault-gradient-color-faint-stop: #fff9cf;
+  --hds-product-vault-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-radar-border-color: #feec7b;
+  --hds-product-vault-radar-brand-color: #ffcf25;
+  --hds-product-vault-radar-foreground-color: #9a6f00;
+  --hds-product-vault-radar-gradient-color-faint-start: #fffdf2; /** this is the 'vault-radar-50' value at 25% opacity on white */
+  --hds-product-vault-radar-gradient-color-faint-stop: #fff9cf;
+  --hds-product-vault-radar-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-radar-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-radar-surface-color: #fff9cf;
+  --hds-product-vault-secrets-border-color: #feec7b;
+  --hds-product-vault-secrets-brand-color: #ffcf25;
+  --hds-product-vault-secrets-foreground-color: #9a6f00;
+  --hds-product-vault-secrets-gradient-color-faint-start: #fffdf2; /** this is the 'vault-secrets-50' value at 25% opacity on white */
+  --hds-product-vault-secrets-gradient-color-faint-stop: #fff9cf;
+  --hds-product-vault-secrets-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-secrets-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-secrets-surface-color: #fff9cf;
+  --hds-product-vault-surface-color: #fff9cf;
+  --hds-product-waypoint-border-color: #cbf1f3;
+  --hds-product-waypoint-brand-color: #14c6cb;
+  --hds-product-waypoint-foreground-color: #008196;
+  --hds-product-waypoint-gradient-color-faint-start: #f6feff; /** this is the 'waypoint-50' value at 25% opacity on white */
+  --hds-product-waypoint-gradient-color-faint-stop: #e0fcff;
+  --hds-product-waypoint-gradient-color-primary-start: #cbf1f3;
+  --hds-product-waypoint-gradient-color-primary-stop: #62d4dc;
+  --hds-product-waypoint-surface-color: #e0fcff;
   --hds-rich-tooltip-toggle-foreground-color-active: var(
     --hds-color-foreground-faint
   );

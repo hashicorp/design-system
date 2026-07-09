@@ -101,92 +101,6 @@
   --hds-color-surface-success: #f2fbf6;
   --hds-color-surface-warning: #fff9e8;
   --hds-color-surface-critical: #fff5f5;
-  --hds-color-hashicorp-brand: #000000;
-  --hds-color-boundary-brand: #f24c53;
-  --hds-color-boundary-foreground: #cf2d32;
-  --hds-color-boundary-surface: #ffecec;
-  --hds-color-boundary-border: #fbd7d8;
-  --hds-color-boundary-gradient-primary-start: #f97076;
-  --hds-color-boundary-gradient-primary-stop: #db363b;
-  --hds-color-boundary-gradient-faint-start: #fffafa; /** this is the 'boundary-50' value at 25% opacity on white */
-  --hds-color-boundary-gradient-faint-stop: #ffecec;
-  --hds-color-consul-brand: #e03875;
-  --hds-color-consul-foreground: #d01c5b;
-  --hds-color-consul-surface: #ffe9f1;
-  --hds-color-consul-border: #ffcede;
-  --hds-color-consul-gradient-primary-start: #ff99be;
-  --hds-color-consul-gradient-primary-stop: #da306e;
-  --hds-color-consul-gradient-faint-start: #fff9fb; /** this is the 'consul-50' value at 25% opacity on white */
-  --hds-color-consul-gradient-faint-stop: #ffe9f1;
-  --hds-color-hcp-brand: #000000;
-  --hds-color-nomad-brand: #06d092;
-  --hds-color-nomad-foreground: #008661;
-  --hds-color-nomad-surface: #d3fdeb;
-  --hds-color-nomad-border: #bff3dd;
-  --hds-color-nomad-gradient-primary-start: #bff3dd;
-  --hds-color-nomad-gradient-primary-stop: #60dea9;
-  --hds-color-nomad-gradient-faint-start: #f3fff9; /** this is the 'nomad-50' value at 25% opacity on white */
-  --hds-color-nomad-gradient-faint-stop: #d3fdeb;
-  --hds-color-packer-brand: #02a8ef;
-  --hds-color-packer-foreground: #007eb4;
-  --hds-color-packer-surface: #d4f2ff;
-  --hds-color-packer-border: #b4e4ff;
-  --hds-color-packer-gradient-primary-start: #b4e4ff;
-  --hds-color-packer-gradient-primary-stop: #63d0ff;
-  --hds-color-packer-gradient-faint-start: #f3fcff; /** this is the 'packer-50' value at 25% opacity on white */
-  --hds-color-packer-gradient-faint-stop: #d4f2ff;
-  --hds-color-terraform-brand: #7b42bc;
-  --hds-color-terraform-brand-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
-  --hds-color-terraform-foreground: #773cb4;
-  --hds-color-terraform-surface: #f4ecff;
-  --hds-color-terraform-border: #ebdbfc;
-  --hds-color-terraform-gradient-primary-start: #bb8deb;
-  --hds-color-terraform-gradient-primary-stop: #844fba;
-  --hds-color-terraform-gradient-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
-  --hds-color-terraform-gradient-faint-stop: #f4ecff;
-  --hds-color-vagrant-brand: #1868f2;
-  --hds-color-vagrant-foreground: #1c61d8;
-  --hds-color-vagrant-surface: #d6ebff;
-  --hds-color-vagrant-border: #c7dbfc;
-  --hds-color-vagrant-gradient-primary-start: #639cff;
-  --hds-color-vagrant-gradient-primary-stop: #2e71e5;
-  --hds-color-vagrant-gradient-faint-start: #f4faff; /** this is the 'vagrant-50' value at 25% opacity on white */
-  --hds-color-vagrant-gradient-faint-stop: #d6ebff;
-  --hds-color-vault-radar-brand: #ffcf25;
-  --hds-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-  --hds-color-vault-radar-foreground: #9a6f00;
-  --hds-color-vault-radar-surface: #fff9cf;
-  --hds-color-vault-radar-border: #feec7b;
-  --hds-color-vault-radar-gradient-primary-start: #feec7b;
-  --hds-color-vault-radar-gradient-primary-stop: #ffe543;
-  --hds-color-vault-radar-gradient-faint-start: #fffdf2; /** this is the 'vault-radar-50' value at 25% opacity on white */
-  --hds-color-vault-radar-gradient-faint-stop: #fff9cf;
-  --hds-color-vault-secrets-brand: #ffcf25;
-  --hds-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-  --hds-color-vault-secrets-foreground: #9a6f00;
-  --hds-color-vault-secrets-surface: #fff9cf;
-  --hds-color-vault-secrets-border: #feec7b;
-  --hds-color-vault-secrets-gradient-primary-start: #feec7b;
-  --hds-color-vault-secrets-gradient-primary-stop: #ffe543;
-  --hds-color-vault-secrets-gradient-faint-start: #fffdf2; /** this is the 'vault-secrets-50' value at 25% opacity on white */
-  --hds-color-vault-secrets-gradient-faint-stop: #fff9cf;
-  --hds-color-vault-brand: #ffcf25;
-  --hds-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-  --hds-color-vault-foreground: #9a6f00;
-  --hds-color-vault-surface: #fff9cf;
-  --hds-color-vault-border: #feec7b;
-  --hds-color-vault-gradient-primary-start: #feec7b;
-  --hds-color-vault-gradient-primary-stop: #ffe543;
-  --hds-color-vault-gradient-faint-start: #fffdf2; /** this is the 'vault-50' value at 25% opacity on white */
-  --hds-color-vault-gradient-faint-stop: #fff9cf;
-  --hds-color-waypoint-brand: #14c6cb;
-  --hds-color-waypoint-foreground: #008196;
-  --hds-color-waypoint-surface: #e0fcff;
-  --hds-color-waypoint-border: #cbf1f3;
-  --hds-color-waypoint-gradient-primary-start: #cbf1f3;
-  --hds-color-waypoint-gradient-primary-stop: #62d4dc;
-  --hds-color-waypoint-gradient-faint-start: #f6feff; /** this is the 'waypoint-50' value at 25% opacity on white */
-  --hds-color-waypoint-gradient-faint-stop: #e0fcff;
   --hds-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
   --hds-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
   --hds-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
@@ -509,6 +423,92 @@
   --hds-code-block-button-surface-color-active: #2b303c;
   --hds-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
   --hds-code-block-line-highlight-border-color: #1555d4;
+  --hds-product-hashicorp-brand-color: #000000;
+  --hds-product-boundary-brand-color: #f24c53;
+  --hds-product-boundary-foreground-color: #cf2d32;
+  --hds-product-boundary-surface-color: #ffecec;
+  --hds-product-boundary-border-color: #fbd7d8;
+  --hds-product-boundary-gradient-color-primary-start: #f97076;
+  --hds-product-boundary-gradient-color-primary-stop: #db363b;
+  --hds-product-boundary-gradient-color-faint-start: #fffafa; /** this is the 'boundary-50' value at 25% opacity on white */
+  --hds-product-boundary-gradient-color-faint-stop: #ffecec;
+  --hds-product-consul-brand-color: #e03875;
+  --hds-product-consul-foreground-color: #d01c5b;
+  --hds-product-consul-surface-color: #ffe9f1;
+  --hds-product-consul-border-color: #ffcede;
+  --hds-product-consul-gradient-color-primary-start: #ff99be;
+  --hds-product-consul-gradient-color-primary-stop: #da306e;
+  --hds-product-consul-gradient-color-faint-start: #fff9fb; /** this is the 'consul-50' value at 25% opacity on white */
+  --hds-product-consul-gradient-color-faint-stop: #ffe9f1;
+  --hds-product-hcp-brand-color: #000000;
+  --hds-product-nomad-brand-color: #06d092;
+  --hds-product-nomad-foreground-color: #008661;
+  --hds-product-nomad-surface-color: #d3fdeb;
+  --hds-product-nomad-border-color: #bff3dd;
+  --hds-product-nomad-gradient-color-primary-start: #bff3dd;
+  --hds-product-nomad-gradient-color-primary-stop: #60dea9;
+  --hds-product-nomad-gradient-color-faint-start: #f3fff9; /** this is the 'nomad-50' value at 25% opacity on white */
+  --hds-product-nomad-gradient-color-faint-stop: #d3fdeb;
+  --hds-product-packer-brand-color: #02a8ef;
+  --hds-product-packer-foreground-color: #007eb4;
+  --hds-product-packer-surface-color: #d4f2ff;
+  --hds-product-packer-border-color: #b4e4ff;
+  --hds-product-packer-gradient-color-primary-start: #b4e4ff;
+  --hds-product-packer-gradient-color-primary-stop: #63d0ff;
+  --hds-product-packer-gradient-color-faint-start: #f3fcff; /** this is the 'packer-50' value at 25% opacity on white */
+  --hds-product-packer-gradient-color-faint-stop: #d4f2ff;
+  --hds-product-terraform-brand-color: #7b42bc;
+  --hds-product-terraform-brand-color-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
+  --hds-product-terraform-foreground-color: #773cb4;
+  --hds-product-terraform-surface-color: #f4ecff;
+  --hds-product-terraform-border-color: #ebdbfc;
+  --hds-product-terraform-gradient-color-primary-start: #bb8deb;
+  --hds-product-terraform-gradient-color-primary-stop: #844fba;
+  --hds-product-terraform-gradient-color-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
+  --hds-product-terraform-gradient-color-faint-stop: #f4ecff;
+  --hds-product-vagrant-brand-color: #1868f2;
+  --hds-product-vagrant-foreground-color: #1c61d8;
+  --hds-product-vagrant-surface-color: #d6ebff;
+  --hds-product-vagrant-border-color: #c7dbfc;
+  --hds-product-vagrant-gradient-color-primary-start: #639cff;
+  --hds-product-vagrant-gradient-color-primary-stop: #2e71e5;
+  --hds-product-vagrant-gradient-color-faint-start: #f4faff; /** this is the 'vagrant-50' value at 25% opacity on white */
+  --hds-product-vagrant-gradient-color-faint-stop: #d6ebff;
+  --hds-product-vault-radar-brand-color: #ffcf25;
+  --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-radar-foreground-color: #9a6f00;
+  --hds-product-vault-radar-surface-color: #fff9cf;
+  --hds-product-vault-radar-border-color: #feec7b;
+  --hds-product-vault-radar-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-radar-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-radar-gradient-color-faint-start: #fffdf2; /** this is the 'vault-radar-50' value at 25% opacity on white */
+  --hds-product-vault-radar-gradient-color-faint-stop: #fff9cf;
+  --hds-product-vault-secrets-brand-color: #ffcf25;
+  --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --hds-product-vault-secrets-foreground-color: #9a6f00;
+  --hds-product-vault-secrets-surface-color: #fff9cf;
+  --hds-product-vault-secrets-border-color: #feec7b;
+  --hds-product-vault-secrets-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-secrets-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-secrets-gradient-color-faint-start: #fffdf2; /** this is the 'vault-secrets-50' value at 25% opacity on white */
+  --hds-product-vault-secrets-gradient-color-faint-stop: #fff9cf;
+  --hds-product-vault-brand-color: #ffcf25;
+  --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-foreground-color: #9a6f00;
+  --hds-product-vault-surface-color: #fff9cf;
+  --hds-product-vault-border-color: #feec7b;
+  --hds-product-vault-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-gradient-color-faint-start: #fffdf2; /** this is the 'vault-50' value at 25% opacity on white */
+  --hds-product-vault-gradient-color-faint-stop: #fff9cf;
+  --hds-product-waypoint-brand-color: #14c6cb;
+  --hds-product-waypoint-foreground-color: #008196;
+  --hds-product-waypoint-surface-color: #e0fcff;
+  --hds-product-waypoint-border-color: #cbf1f3;
+  --hds-product-waypoint-gradient-color-primary-start: #cbf1f3;
+  --hds-product-waypoint-gradient-color-primary-stop: #62d4dc;
+  --hds-product-waypoint-gradient-color-faint-start: #f6feff; /** this is the 'waypoint-50' value at 25% opacity on white */
+  --hds-product-waypoint-gradient-color-faint-stop: #e0fcff;
   --hds-copy-button-foreground-color: #3b3d45;
   --hds-copy-button-surface-color-default: #fafafa;
   --hds-copy-button-surface-color-hover: #ffffff;
@@ -2487,7 +2487,7 @@
   --app-footer-link-foreground-color-focus: var(--hds-color-foreground-faint);
   --app-footer-link-outline-color: var(--hds-app-footer-link-focus-outline-color);
   --app-footer-copyright-text-color: var(--hds-color-foreground-faint);
-  --app-footer-copyright-icon-color: var(--hds-color-hashicorp-brand);
+  --app-footer-copyright-icon-color: var(--hds-product-hashicorp-brand-color);
   --app-footer-status-link-icon-operational-color: var(--hds-color-foreground-success);
   --app-footer-status-link-icon-degraded-color: var(--hds-color-foreground-warning);
   --app-footer-status-link-icon-maintenance-color: var(--hds-color-foreground-warning);
@@ -8332,37 +8332,37 @@ button.hds-button[href]::after {
   border-color: var(--hds-icon-tile-border-color-logo);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-boundary {
-  color: var(--hds-color-boundary-brand);
+  color: var(--hds-product-boundary-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-consul {
-  color: var(--hds-color-consul-brand);
+  color: var(--hds-product-consul-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-hcp {
-  color: var(--hds-color-hcp-brand);
+  color: var(--hds-product-hcp-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-nomad {
-  color: var(--hds-color-nomad-brand);
+  color: var(--hds-product-nomad-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-packer {
-  color: var(--hds-color-packer-brand);
+  color: var(--hds-product-packer-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-terraform {
-  color: var(--hds-color-terraform-brand);
+  color: var(--hds-product-terraform-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-vagrant {
-  color: var(--hds-color-vagrant-brand);
+  color: var(--hds-product-vagrant-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-vault {
-  color: var(--hds-color-vault-brand);
+  color: var(--hds-product-vault-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-vault-secrets {
-  color: var(--hds-color-vault-secrets-brand);
+  color: var(--hds-product-vault-secrets-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-vault-radar {
-  color: var(--hds-color-vault-radar-brand);
+  color: var(--hds-product-vault-radar-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-waypoint {
-  color: var(--hds-color-waypoint-brand);
+  color: var(--hds-product-waypoint-brand-color);
 }
 
 .hds-icon-tile--icon.hds-icon-tile--color-neutral {
@@ -8370,48 +8370,48 @@ button.hds-button[href]::after {
   background-color: var(--hds-color-surface-strong);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-boundary {
-  color: var(--hds-color-boundary-foreground);
-  background-color: var(--hds-color-boundary-surface);
+  color: var(--hds-product-boundary-foreground-color);
+  background-color: var(--hds-product-boundary-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-consul {
-  color: var(--hds-color-consul-foreground);
-  background-color: var(--hds-color-consul-surface);
+  color: var(--hds-product-consul-foreground-color);
+  background-color: var(--hds-product-consul-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-hcp {
-  color: var(--hds-color-hcp-brand);
+  color: var(--hds-product-hcp-brand-color);
   background-color: var(--hds-color-surface-strong);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-nomad {
-  color: var(--hds-color-nomad-foreground);
-  background-color: var(--hds-color-nomad-surface);
+  color: var(--hds-product-nomad-foreground-color);
+  background-color: var(--hds-product-nomad-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-packer {
-  color: var(--hds-color-packer-foreground);
-  background-color: var(--hds-color-packer-surface);
+  color: var(--hds-product-packer-foreground-color);
+  background-color: var(--hds-product-packer-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-terraform {
-  color: var(--hds-color-terraform-foreground);
-  background-color: var(--hds-color-terraform-surface);
+  color: var(--hds-product-terraform-foreground-color);
+  background-color: var(--hds-product-terraform-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-vagrant {
-  color: var(--hds-color-vagrant-foreground);
-  background-color: var(--hds-color-vagrant-surface);
+  color: var(--hds-product-vagrant-foreground-color);
+  background-color: var(--hds-product-vagrant-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-vault {
-  color: var(--hds-color-vault-foreground);
-  background-color: var(--hds-color-vault-surface);
+  color: var(--hds-product-vault-foreground-color);
+  background-color: var(--hds-product-vault-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-vault-secrets {
-  color: var(--hds-color-vault-secrets-foreground);
-  background-color: var(--hds-color-vault-secrets-surface);
+  color: var(--hds-product-vault-secrets-foreground-color);
+  background-color: var(--hds-product-vault-secrets-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-vault-radar {
-  color: var(--hds-color-vault-radar-foreground);
-  background-color: var(--hds-color-vault-radar-surface);
+  color: var(--hds-product-vault-radar-foreground-color);
+  background-color: var(--hds-product-vault-radar-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-waypoint {
-  color: var(--hds-color-waypoint-foreground);
-  background-color: var(--hds-color-waypoint-surface);
+  color: var(--hds-product-waypoint-foreground-color);
+  background-color: var(--hds-product-waypoint-surface-color);
 }
 
 /**

@@ -1,10 +1,12 @@
 {
-  "color": {
+  "product": {
     "hcp": {
       "brand": {
-        "$type": "color",
-        "$value": "{core.color.hcp-brand}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.hcp-brand}",
+          "group": "branding"
+        }
       }
     }
   }
