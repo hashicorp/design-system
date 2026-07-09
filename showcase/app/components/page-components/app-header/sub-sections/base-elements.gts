@@ -49,7 +49,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         <HdsAppHeaderHomeLink
           @icon="boundary"
           @text="Boundary"
-          @color="var(--hds-color-boundary-brand)"
+          @color="var(--hds-product-boundary-brand-color)"
           @href="#"
         />
       </div>
@@ -109,7 +109,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
             <HdsAppHeaderHomeLink
               @icon="boundary"
               @text="Boundary"
-              @color="var(--hds-color-boundary-brand)"
+              @color="var(--hds-product-boundary-brand-color)"
               @href="#"
               mock-state-value={{state}}
             />

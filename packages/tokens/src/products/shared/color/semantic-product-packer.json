@@ -1,50 +1,60 @@
 {
-  "color": {
+  "product": {
     "packer": {
       "brand": {
-        "$type": "color",
-        "$value": "{core.color.packer-brand}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.packer-brand}",
+          "group": "branding"
+        }
       },
       "foreground": {
-        "$type": "color",
-        "$value": "{core.color.packer-500}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.packer-500}",
+          "group": "branding"
+        }
       },
       "surface": {
-        "$type": "color",
-        "$value": "{core.color.packer-50}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.packer-50}",
+          "group": "branding"
+        }
       },
       "border": {
-        "$type": "color",
-        "$value": "{core.color.packer-100}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.packer-100}",
+          "group": "branding"
+        }
       },
       "gradient": {
-        "primary": {
-          "start": {
-            "$type": "color",
-            "$value": "{core.color.packer-100}",
-            "group": "branding"
+        "color": {
+          "primary": {
+            "start": {
+              "$type": "color",
+              "$value": "{core.color.packer-100}",
+              "group": "branding"
+            },
+            "stop": {
+              "$type": "color",
+              "$value": "{core.color.packer-200}",
+              "group": "branding"
+            }
           },
-          "stop": {
-            "$type": "color",
-            "$value": "{core.color.packer-200}",
-            "group": "branding"
-          }
-        },
-        "faint": {
-          "start": {
-            "$type": "color",
-            "$value": "#F3FCFF",
-            "group": "branding",
-            "comment": "this is the 'packer-50' value at 25% opacity on white"
-          },
-          "stop": {
-            "$type": "color",
-            "$value": "{core.color.packer-50}",
-            "group": "branding"
+          "faint": {
+            "start": {
+              "$type": "color",
+              "$value": "#F3FCFF",
+              "group": "branding",
+              "comment": "this is the 'packer-50' value at 25% opacity on white"
+            },
+            "stop": {
+              "$type": "color",
+              "$value": "{core.color.packer-50}",
+              "group": "branding"
+            }
           }
         }
       }

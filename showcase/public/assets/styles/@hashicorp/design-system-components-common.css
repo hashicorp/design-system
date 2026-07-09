@@ -1677,7 +1677,7 @@
   --app-footer-link-foreground-color-focus: var(--hds-color-foreground-faint);
   --app-footer-link-outline-color: var(--hds-app-footer-link-focus-outline-color);
   --app-footer-copyright-text-color: var(--hds-color-foreground-faint);
-  --app-footer-copyright-icon-color: var(--hds-color-hashicorp-brand);
+  --app-footer-copyright-icon-color: var(--hds-product-hashicorp-brand-color);
   --app-footer-status-link-icon-operational-color: var(--hds-color-foreground-success);
   --app-footer-status-link-icon-degraded-color: var(--hds-color-foreground-warning);
   --app-footer-status-link-icon-maintenance-color: var(--hds-color-foreground-warning);
@@ -7522,37 +7522,37 @@ button.hds-button[href]::after {
   border-color: var(--hds-icon-tile-border-color-logo);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-boundary {
-  color: var(--hds-color-boundary-brand);
+  color: var(--hds-product-boundary-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-consul {
-  color: var(--hds-color-consul-brand);
+  color: var(--hds-product-consul-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-hcp {
-  color: var(--hds-color-hcp-brand);
+  color: var(--hds-product-hcp-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-nomad {
-  color: var(--hds-color-nomad-brand);
+  color: var(--hds-product-nomad-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-packer {
-  color: var(--hds-color-packer-brand);
+  color: var(--hds-product-packer-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-terraform {
-  color: var(--hds-color-terraform-brand);
+  color: var(--hds-product-terraform-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-vagrant {
-  color: var(--hds-color-vagrant-brand);
+  color: var(--hds-product-vagrant-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-vault {
-  color: var(--hds-color-vault-brand);
+  color: var(--hds-product-vault-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-vault-secrets {
-  color: var(--hds-color-vault-secrets-brand);
+  color: var(--hds-product-vault-secrets-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-vault-radar {
-  color: var(--hds-color-vault-radar-brand);
+  color: var(--hds-product-vault-radar-brand-color);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-waypoint {
-  color: var(--hds-color-waypoint-brand);
+  color: var(--hds-product-waypoint-brand-color);
 }
 
 .hds-icon-tile--icon.hds-icon-tile--color-neutral {
@@ -7560,48 +7560,48 @@ button.hds-button[href]::after {
   background-color: var(--hds-color-surface-strong);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-boundary {
-  color: var(--hds-color-boundary-foreground);
-  background-color: var(--hds-color-boundary-surface);
+  color: var(--hds-product-boundary-foreground-color);
+  background-color: var(--hds-product-boundary-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-consul {
-  color: var(--hds-color-consul-foreground);
-  background-color: var(--hds-color-consul-surface);
+  color: var(--hds-product-consul-foreground-color);
+  background-color: var(--hds-product-consul-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-hcp {
-  color: var(--hds-color-hcp-brand);
+  color: var(--hds-product-hcp-brand-color);
   background-color: var(--hds-color-surface-strong);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-nomad {
-  color: var(--hds-color-nomad-foreground);
-  background-color: var(--hds-color-nomad-surface);
+  color: var(--hds-product-nomad-foreground-color);
+  background-color: var(--hds-product-nomad-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-packer {
-  color: var(--hds-color-packer-foreground);
-  background-color: var(--hds-color-packer-surface);
+  color: var(--hds-product-packer-foreground-color);
+  background-color: var(--hds-product-packer-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-terraform {
-  color: var(--hds-color-terraform-foreground);
-  background-color: var(--hds-color-terraform-surface);
+  color: var(--hds-product-terraform-foreground-color);
+  background-color: var(--hds-product-terraform-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-vagrant {
-  color: var(--hds-color-vagrant-foreground);
-  background-color: var(--hds-color-vagrant-surface);
+  color: var(--hds-product-vagrant-foreground-color);
+  background-color: var(--hds-product-vagrant-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-vault {
-  color: var(--hds-color-vault-foreground);
-  background-color: var(--hds-color-vault-surface);
+  color: var(--hds-product-vault-foreground-color);
+  background-color: var(--hds-product-vault-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-vault-secrets {
-  color: var(--hds-color-vault-secrets-foreground);
-  background-color: var(--hds-color-vault-secrets-surface);
+  color: var(--hds-product-vault-secrets-foreground-color);
+  background-color: var(--hds-product-vault-secrets-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-vault-radar {
-  color: var(--hds-color-vault-radar-foreground);
-  background-color: var(--hds-color-vault-radar-surface);
+  color: var(--hds-product-vault-radar-foreground-color);
+  background-color: var(--hds-product-vault-radar-surface-color);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-waypoint {
-  color: var(--hds-color-waypoint-foreground);
-  background-color: var(--hds-color-waypoint-surface);
+  color: var(--hds-product-waypoint-foreground-color);
+  background-color: var(--hds-product-waypoint-surface-color);
 }
 
 /**

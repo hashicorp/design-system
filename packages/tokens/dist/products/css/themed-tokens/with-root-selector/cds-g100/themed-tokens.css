@@ -297,8 +297,6 @@
   --hds-color-foreground-warning-high-contrast: #fddc69;
   --hds-color-foreground-warning-on-surface: #f1c21b;
   --hds-color-foreground-warning: #d2a106;
-  --hds-color-hashicorp-brand: #ffffff;
-  --hds-color-hcp-brand: #ffffff;
   --hds-color-page-faint: #161616;
   --hds-color-page-primary: #161616;
   --hds-color-surface-action: #0043ce;
@@ -314,9 +312,6 @@
   --hds-color-surface-strong: #393939;
   --hds-color-surface-success: #0e6027;
   --hds-color-surface-warning: #684e00;
-  --hds-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-  --hds-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-  --hds-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-copy-button-foreground-color: #f4f4f4;
   --hds-copy-button-icon-color-active: #f4f4f4;
   --hds-copy-button-icon-color-default: #f4f4f4;
@@ -469,6 +464,11 @@
   --hds-pagination-nav-indicator-height: 4px;
   --hds-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
   --hds-pagination-size-selector-typography-font-size: 0.875rem;
+  --hds-product-hashicorp-brand-color: #ffffff;
+  --hds-product-hcp-brand-color: #ffffff;
+  --hds-product-vault-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-radar-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-secrets-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-reveal-foreground-color-active: #a6c8ff;
   --hds-reveal-foreground-color-default: #78a9ff;
   --hds-reveal-foreground-color-hover: #a6c8ff;
