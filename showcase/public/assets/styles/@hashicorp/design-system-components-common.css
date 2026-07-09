@@ -3543,7 +3543,6 @@ button.hds-button[href]::after {
 .hds-code-block--theme-dark {
   --hds-var-code-block-color-token: var(--hds-code-block-foreground-color-primary);
   --hds-var-code-block-color-atrule: var(--hds-code-block-syntax-highlight-color-blue);
-  --hds-var-code-block-color-code-block-attr-name: var(--hds-code-block-syntax-highlight-color-blue);
   --hds-var-code-block-color-attr-name: var(--hds-code-block-syntax-highlight-color-blue);
   --hds-var-code-block-color-attr-value: var(--hds-code-block-syntax-highlight-color-cyan);
   --hds-var-code-block-color-boolean: var(--hds-code-block-syntax-highlight-color-purple);
