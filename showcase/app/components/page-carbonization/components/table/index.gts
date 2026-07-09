@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { array, hash } from '@ember/helper';
 import { capitalize } from '@ember/string';
+import { eq } from 'ember-truth-helpers';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -38,136 +39,6 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Table - Carbonization"}}
 
   <ShwTextH1>Table - Carbonization</ShwTextH1>
-
-  <ShwTextH2>Basic</ShwTextH2>
-
-  <section>
-    <ShwCarbonizationComparisonGrid @layout="side-by-side">
-      <:theming>
-        <HdsTable>
-          <:head as |H|>
-            <H.Tr>
-              <H.Th>Cell Header</H.Th>
-              <H.Th>Cell Header</H.Th>
-              <H.Th>Cell Header</H.Th>
-            </H.Tr>
-          </:head>
-          <:body as |B|>
-            <B.Tr>
-              <B.Th>Scope Row</B.Th>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-            <B.Tr>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-            <B.Tr>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-          </:body>
-        </HdsTable>
-      </:theming>
-      <:reference>
-        <cds-table>
-          <cds-table-head>
-            <cds-table-header-row>
-              <cds-table-header-cell>Cell Header</cds-table-header-cell>
-              <cds-table-header-cell>Cell Header</cds-table-header-cell>
-              <cds-table-header-cell>Cell Header</cds-table-header-cell>
-            </cds-table-header-row>
-          </cds-table-head>
-          <cds-table-body>
-            <cds-table-row>
-              <cds-table-cell>Scope Row</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-            </cds-table-row>
-            <cds-table-row>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-            </cds-table-row>
-            <cds-table-row>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-            </cds-table-row>
-          </cds-table-body>
-        </cds-table>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-  </section>
-
-  <ShwDivider />
-
-  <ShwTextH2>With Striping</ShwTextH2>
-
-  <section>
-    <ShwCarbonizationComparisonGrid @layout="side-by-side">
-      <:theming>
-        <HdsTable @isStriped={{true}}>
-          <:head as |H|>
-            <H.Tr>
-              <H.Th>Cell Header</H.Th>
-              <H.Th>Cell Header</H.Th>
-              <H.Th>Cell Header</H.Th>
-            </H.Tr>
-          </:head>
-          <:body as |B|>
-            <B.Tr>
-              <B.Th>Scope Row</B.Th>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-            <B.Tr>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-            <B.Tr>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-          </:body>
-        </HdsTable>
-      </:theming>
-      <:reference>
-        <cds-table use-zebra-styles>
-          <cds-table-head>
-            <cds-table-header-row>
-              <cds-table-header-cell>Cell Header</cds-table-header-cell>
-              <cds-table-header-cell>Cell Header</cds-table-header-cell>
-              <cds-table-header-cell>Cell Header</cds-table-header-cell>
-            </cds-table-header-row>
-          </cds-table-head>
-          <cds-table-body>
-            <cds-table-row>
-              <cds-table-cell>Scope Row</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-            </cds-table-row>
-            <cds-table-row>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-            </cds-table-row>
-            <cds-table-row>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-              <cds-table-cell>Cell Content</cds-table-cell>
-            </cds-table-row>
-          </cds-table-body>
-        </cds-table>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-  </section>
-
-  <ShwDivider />
 
   <ShwTextH2>Density</ShwTextH2>
 
@@ -357,148 +228,12 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
 
   <ShwDivider />
 
-  <ShwTextH2>With Tooltip</ShwTextH2>
+  <ShwTextH2>With Striping</ShwTextH2>
 
   <section>
     <ShwCarbonizationComparisonGrid @layout="side-by-side">
       <:theming>
-        <HdsTable
-          @model={{MUSIC}}
-          @columns={{array
-            (hash key="artist" label="Artist" tooltip="Tooltip")
-            (hash key="album" label="Album" tooltip="Tooltip")
-            (hash key="year" label="Release Year" tooltip="Tooltip")
-          }}
-        >
-          <:body as |B|>
-            <B.Tr>
-              <B.Td>{{B.data.artist}}</B.Td>
-              <B.Td>{{B.data.album}}</B.Td>
-              <B.Td>{{B.data.year}}</B.Td>
-            </B.Tr>
-          </:body>
-        </HdsTable>
-      </:theming>
-      <:reference>
-        <cds-table is-sortable>
-          <cds-table-head>
-            <cds-table-header-row>
-              <cds-table-header-cell>
-                <div>
-                  Artist
-                  <cds-tooltip autoalign>
-                    <cds-tag class="sb-tooltip-trigger">
-                      <cds-icon
-                        slot="icon"
-                        {{setCdsIcon Information16}}
-                      /></cds-tag>
-                    <cds-tooltip-content
-                      id="content-0"
-                    >Tooltip</cds-tooltip-content>
-                  </cds-tooltip>
-                </div>
-              </cds-table-header-cell>
-              <cds-table-header-cell>
-                <div>
-                  Album
-                  <cds-tooltip autoalign>
-                    <cds-tag class="sb-tooltip-trigger">
-                      <cds-icon
-                        slot="icon"
-                        {{setCdsIcon Information16}}
-                      /></cds-tag>
-                    <cds-tooltip-content
-                      id="content-1"
-                    >Tooltip</cds-tooltip-content>
-                  </cds-tooltip>
-                </div>
-              </cds-table-header-cell>
-              <cds-table-header-cell>
-                <div>
-                  Release Year
-                  <cds-tooltip autoalign>
-                    <cds-tag class="sb-tooltip-trigger">
-                      <cds-icon
-                        slot="icon"
-                        {{setCdsIcon Information16}}
-                      /></cds-tag>
-                    <cds-tooltip-content
-                      id="content-2"
-                    >Tooltip</cds-tooltip-content>
-                  </cds-tooltip>
-                </div>
-              </cds-table-header-cell>
-            </cds-table-header-row>
-          </cds-table-head>
-          <cds-table-body>
-            {{#each MUSIC as |row|}}
-              <cds-table-row>
-                <cds-table-cell>{{row.artist}}</cds-table-cell>
-                <cds-table-cell>{{row.album}}</cds-table-cell>
-                <cds-table-cell>{{row.year}}</cds-table-cell>
-              </cds-table-row>
-            {{/each}}
-          </cds-table-body>
-        </cds-table>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-  </section>
-
-  <ShwDivider />
-
-  <ShwTextH2>With Sorting</ShwTextH2>
-
-  <section>
-    <ShwCarbonizationComparisonGrid @layout="side-by-side">
-      <:theming>
-        <HdsTable
-          @model={{MUSIC}}
-          @columns={{array
-            (hash key="artist" label="Artist" isSortable=true)
-            (hash key="album" label="Album" isSortable=true)
-            (hash key="year" label="Release Year" isSortable=true)
-          }}
-        >
-          <:body as |B|>
-            <B.Tr>
-              <B.Td>{{B.data.artist}}</B.Td>
-              <B.Td>{{B.data.album}}</B.Td>
-              <B.Td>{{B.data.year}}</B.Td>
-            </B.Tr>
-          </:body>
-        </HdsTable>
-      </:theming>
-      <:reference>
-        <cds-table is-sortable>
-          <cds-table-head>
-            <cds-table-header-row>
-              <cds-table-header-cell>Artist</cds-table-header-cell>
-              <cds-table-header-cell>Album</cds-table-header-cell>
-              <cds-table-header-cell>Release Year</cds-table-header-cell>
-            </cds-table-header-row>
-          </cds-table-head>
-          <cds-table-body>
-            {{#each MUSIC as |row|}}
-              <cds-table-row>
-                <cds-table-cell>{{row.artist}}</cds-table-cell>
-                <cds-table-cell>{{row.album}}</cds-table-cell>
-                <cds-table-cell>{{row.year}}</cds-table-cell>
-              </cds-table-row>
-            {{/each}}
-          </cds-table-body>
-        </cds-table>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-  </section>
-
-  <ShwDivider />
-
-  <ShwTextH2>With Select</ShwTextH2>
-
-  <section>
-    <ShwCarbonizationComparisonGrid @layout="side-by-side">
-      <:theming>
-        <HdsTable @isSelectable={{true}}>
+        <HdsTable @isStriped={{true}}>
           <:head as |H|>
             <H.Tr>
               <H.Th>Cell Header</H.Th>
@@ -507,17 +242,17 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
             </H.Tr>
           </:head>
           <:body as |B|>
-            <B.Tr @selectionKey="row1">
+            <B.Tr>
               <B.Th>Scope Row</B.Th>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
             </B.Tr>
-            <B.Tr @selectionKey="row2" @isSelected={{true}}>
+            <B.Tr>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
             </B.Tr>
-            <B.Tr @selectionKey="row3">
+            <B.Tr>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
@@ -526,26 +261,26 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsTable>
       </:theming>
       <:reference>
-        <cds-table is-selectable>
+        <cds-table use-zebra-styles>
           <cds-table-head>
-            <cds-table-header-row selection-name="header">
+            <cds-table-header-row>
               <cds-table-header-cell>Cell Header</cds-table-header-cell>
               <cds-table-header-cell>Cell Header</cds-table-header-cell>
               <cds-table-header-cell>Cell Header</cds-table-header-cell>
             </cds-table-header-row>
           </cds-table-head>
           <cds-table-body>
-            <cds-table-row selection-name="0">
+            <cds-table-row>
               <cds-table-cell>Scope Row</cds-table-cell>
               <cds-table-cell>Cell Content</cds-table-cell>
               <cds-table-cell>Cell Content</cds-table-cell>
             </cds-table-row>
-            <cds-table-row selection-name="1" selected>
+            <cds-table-row>
               <cds-table-cell>Cell Content</cds-table-cell>
               <cds-table-cell>Cell Content</cds-table-cell>
               <cds-table-cell>Cell Content</cds-table-cell>
             </cds-table-row>
-            <cds-table-row selection-name="2">
+            <cds-table-row>
               <cds-table-cell>Cell Content</cds-table-cell>
               <cds-table-cell>Cell Content</cds-table-cell>
               <cds-table-cell>Cell Content</cds-table-cell>
@@ -558,7 +293,7 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
 
   <ShwDivider />
 
-  <ShwTextH2>With Select + Sort</ShwTextH2>
+  <ShwTextH2>With Select + Sort + Tooltip</ShwTextH2>
 
   <section>
     <ShwCarbonizationComparisonGrid @layout="side-by-side">
@@ -567,13 +302,13 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
           @model={{MUSIC}}
           @isSelectable={{true}}
           @columns={{array
-            (hash key="artist" label="Artist" isSortable=true)
+            (hash key="artist" label="Artist" isSortable=true tooltip="Tooltip")
             (hash key="album" label="Album" isSortable=true)
             (hash key="year" label="Release Year" isSortable=true)
           }}
         >
           <:body as |B|>
-            <B.Tr @selectionKey={{B.data.id}}>
+            <B.Tr @selectionKey={{B.data.id}} @isSelected={{eq B.data.id "2"}}>
               <B.Td>{{B.data.artist}}</B.Td>
               <B.Td>{{B.data.album}}</B.Td>
               <B.Td>{{B.data.year}}</B.Td>
@@ -585,14 +320,27 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-table is-sortable is-selectable>
           <cds-table-head>
             <cds-table-header-row selection-name="header">
-              <cds-table-header-cell>Artist</cds-table-header-cell>
+              <cds-table-header-cell>Artist
+                <cds-tooltip autoalign>
+                  <cds-icon
+                    class="sb-tooltip-trigger"
+                    {{setCdsIcon Information16}}
+                  />
+                  <cds-tooltip-content
+                    id="content-0"
+                  >Tooltip</cds-tooltip-content>
+                </cds-tooltip>
+              </cds-table-header-cell>
               <cds-table-header-cell>Album</cds-table-header-cell>
               <cds-table-header-cell>Release Year</cds-table-header-cell>
             </cds-table-header-row>
           </cds-table-head>
           <cds-table-body>
             {{#each MUSIC as |row|}}
-              <cds-table-row selection-name="{{row.id}}">
+              <cds-table-row
+                selection-name="{{row.id}}"
+                selected={{eq row.id "2"}}
+              >
                 <cds-table-cell>{{row.artist}}</cds-table-cell>
                 <cds-table-cell>{{row.album}}</cds-table-cell>
                 <cds-table-cell>{{row.year}}</cds-table-cell>
