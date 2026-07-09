@@ -3,7 +3,7 @@ applyTo: ".changeset/**"
 description: "Instructions for how changeset files should be formatted for the components package."
 ---
 
-For every consumer facing change made to the `@hashicorp/design-system-components` package, a changeset file must be created in the `.changeset` folder. The changeset file should follow the formatting rules outlined below.
+For every consumer-facing change made to the `@hashicorp/design-system-components` package, a changeset file must be created in the `.changeset` folder. The changeset file should follow the formatting rules outlined below.
 
 ## Components package changeset formatting
 Each changeset entry related to the `@hashicorp/design-system-components` package should follow this template:

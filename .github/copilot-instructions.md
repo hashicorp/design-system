@@ -7,7 +7,7 @@ The Helios Design System (HDS) provides the building blocks to design and implem
 Under `.github/skills` are specific skill instructions for common workflows.
 
 - `add-changeset/SKILL.md` use this skill for creating changesets when making changes to packages
-- `review-pr/SKILL.md` for reviewing pull requests, use this workflow when reviewing every PR
+- `review-pr/SKILL.md` for reviewing pull requests, use this skill when reviewing every PR
 
 ## Repository structure
 

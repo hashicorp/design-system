@@ -135,4 +135,4 @@ For detailed language-specific patterns, see:
 
 ## Skills
 
-Read `.github/skills` for avaialble skills
+Read `.github/skills` for available skills
