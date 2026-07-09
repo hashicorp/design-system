@@ -246,7 +246,7 @@ $hds-button-sizes: ("small", "medium", "large");
       inset: -1px; // we have to take into account the border
       z-index: -1;
       border-radius: inherit;
-      box-shadow: var(--hds-focus-ring-critical-box-shadow);
+      box-shadow: var(--hds-focus-ring-box-shadow-critical);
       content: "";
 
       @include hds-apply-only-if-carbon() {

@@ -369,8 +369,8 @@
   --hds-focus-color-action-internal: var(--hds-core-color-blue-300);
   --hds-focus-color-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-critical-internal: var(--hds-core-color-red-300);
-  --hds-focus-ring-action-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-internal) var(--hds-focus-color-action-internal), 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external);
-  --hds-focus-ring-critical-box-shadow: inset 0 0 0 var(--hds-focus-ring-width-internal) var(--hds-focus-color-critical-internal), 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-critical-external);
+  --hds-focus-ring-box-shadow-action: inset 0 0 0 var(--hds-focus-ring-width-internal) var(--hds-focus-color-action-internal), 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external);
+  --hds-focus-ring-box-shadow-critical: inset 0 0 0 var(--hds-focus-ring-width-internal) var(--hds-focus-color-critical-internal), 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-critical-external);
   --hds-focus-ring-width-external: 3px;
   --hds-focus-ring-width-internal: 1px;
   --hds-foreground-color-action-active: var(--hds-core-color-blue-400);

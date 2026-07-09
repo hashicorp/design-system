@@ -520,7 +520,7 @@
     --current-color-active: var(--hds-dropdown-list-item-foreground-color-action-active);
 
     &::after {
-      --current-focus-ring-box-shadow: var(--hds-focus-ring-action-box-shadow);
+      --current-focus-ring-box-shadow: var(--hds-focus-ring-box-shadow-action);
     }
   }
 
@@ -543,7 +543,7 @@
 
     &::after {
       --current-background-color: var(--hds-surface-color-critical);
-      --current-focus-ring-box-shadow: var(--hds-focus-ring-critical-box-shadow);
+      --current-focus-ring-box-shadow: var(--hds-focus-ring-box-shadow-critical);
     }
   }
 

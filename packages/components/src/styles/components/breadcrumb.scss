@@ -22,7 +22,7 @@
     inset: $pseudo-element-inset;
     z-index: -1;
     border-radius: inherit;
-    box-shadow: var(--hds-focus-ring-action-box-shadow);
+    box-shadow: var(--hds-focus-ring-box-shadow-action);
     content: "";
 
     @include hds-apply-only-if-carbon() {
