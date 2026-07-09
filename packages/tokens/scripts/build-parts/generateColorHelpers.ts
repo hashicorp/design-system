@@ -34,8 +34,6 @@ export function generateColorHelpers(tokens: TransformedToken[], outputCssVars: 
         // notice: we assume a 1px border (if a user needs a different border width, and want to use the helper, they have to apply an override)
         helpers.push(`.${PREFIX}-${group}-${name} { border: 1px solid ${value}; }`)
       }
-    } else if (['hashicorp', 'hcp', 'boundary','consul','nomad','packer','terraform','vagrant','vault','vault-secrets','vault-radar','waypoint'].includes(group)) {
-      // we don't want to expose all these colors as helpers
     } else if (group === 'core') {
       // we don't want people to use "core" colors directly as CSS helpers
     } else if (group === 'focus') {

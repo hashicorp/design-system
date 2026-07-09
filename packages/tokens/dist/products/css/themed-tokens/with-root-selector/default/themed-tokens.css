@@ -297,8 +297,6 @@
   --hds-color-foreground-warning-high-contrast: var(--hds-core-color-amber-500);
   --hds-color-foreground-warning-on-surface: var(--hds-core-color-amber-300);
   --hds-color-foreground-warning: var(--hds-core-color-amber-200);
-  --hds-color-hashicorp-brand: #000000;
-  --hds-color-hcp-brand: #000000;
   --hds-color-page-faint: var(--hds-core-color-neutral-50);
   --hds-color-page-primary: var(--hds-core-color-neutral-0);
   --hds-color-surface-action: var(--hds-core-color-blue-50);
@@ -314,9 +312,6 @@
   --hds-color-surface-strong: var(--hds-core-color-neutral-100);
   --hds-color-surface-success: var(--hds-core-color-green-50);
   --hds-color-surface-warning: var(--hds-core-color-amber-50);
-  --hds-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-  --hds-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-  --hds-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-copy-button-foreground-color: var(--hds-button-foreground-color-secondary-default);
   --hds-copy-button-icon-color-active: var(--hds-color-foreground-action-active);
   --hds-copy-button-icon-color-default: var(--hds-color-foreground-action);
@@ -469,6 +464,11 @@
   --hds-pagination-nav-indicator-height: 2px;
   --hds-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
   --hds-pagination-size-selector-typography-font-size: var(--hds-typography-body-100-font-size);
+  --hds-product-hashicorp-brand-color: #000000;
+  --hds-product-hcp-brand-color: #000000;
+  --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --hds-reveal-foreground-color-active: var(--hds-button-foreground-color-tertiary-active);
   --hds-reveal-foreground-color-default: var(--hds-button-foreground-color-tertiary-default);
   --hds-reveal-foreground-color-hover: var(--hds-button-foreground-color-tertiary-hover);

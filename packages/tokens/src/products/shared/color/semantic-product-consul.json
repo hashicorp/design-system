@@ -1,50 +1,60 @@
 {
-  "color": {
+  "product": {
     "consul": {
       "brand": {
-        "$type": "color",
-        "$value": "{core.color.consul-brand}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.consul-brand}",
+          "group": "branding"
+        }
       },
       "foreground": {
-        "$type": "color",
-        "$value": "{core.color.consul-500}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.consul-500}",
+          "group": "branding"
+        }
       },
       "surface": {
-        "$type": "color",
-        "$value": "{core.color.consul-50}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.consul-50}",
+          "group": "branding"
+        }
       },
       "border": {
-        "$type": "color",
-        "$value": "{core.color.consul-100}",
-        "group": "branding"
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.consul-100}",
+          "group": "branding"
+        }
       },
       "gradient": {
-        "primary": {
-          "start": {
-            "$type": "color",
-            "$value": "{core.color.consul-300}",
-            "group": "branding"
+        "color": {
+          "primary": {
+            "start": {
+              "$type": "color",
+              "$value": "{core.color.consul-300}",
+              "group": "branding"
+            },
+            "stop": {
+              "$type": "color",
+              "$value": "{core.color.consul-400}",
+              "group": "branding"
+            }
           },
-          "stop": {
-            "$type": "color",
-            "$value": "{core.color.consul-400}",
-            "group": "branding"
-          }
-        },
-        "faint": {
-          "start": {
-            "$type": "color",
-            "$value": "#fff9fb",
-            "group": "branding",
-            "comment": "this is the 'consul-50' value at 25% opacity on white"
-          },
-          "stop": {
-            "$type": "color",
-            "$value": "{core.color.consul-50}",
-            "group": "branding"
+          "faint": {
+            "start": {
+              "$type": "color",
+              "$value": "#fff9fb",
+              "group": "branding",
+              "comment": "this is the 'consul-50' value at 25% opacity on white"
+            },
+            "stop": {
+              "$type": "color",
+              "$value": "{core.color.consul-50}",
+              "group": "branding"
+            }
           }
         }
       }

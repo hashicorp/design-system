@@ -140,7 +140,7 @@ $hds-icon-tile-size-props: (
   // We use the non-colored logos and apply the brand color via CSS
   @each $product in $hds-icon-tile-colors-products {
     &.hds-icon-tile--color-#{$product} {
-      color: var(--hds-color-#{$product}-brand);
+      color: var(--hds-product-#{$product}-brand-color);
     }
   }
 }
@@ -157,13 +157,13 @@ $hds-icon-tile-size-props: (
     @if ($product == "hcp") {
       // exception for HCP (we use neutral colors, we don't have specific product colors for foreground/background)
       &.hds-icon-tile--color-hcp {
-        color: var(--hds-color-#{$product}-brand);
+        color: var(--hds-product-#{$product}-brand-color);
         background-color: var(--hds-color-surface-strong);
       }
     } @else {
       &.hds-icon-tile--color-#{$product} {
-        color: var(--hds-color-#{$product}-foreground);
-        background-color: var(--hds-color-#{$product}-surface);
+        color: var(--hds-product-#{$product}-foreground-color);
+        background-color: var(--hds-product-#{$product}-surface-color);
       }
     }
   }
