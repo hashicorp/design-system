@@ -28,9 +28,9 @@
       "color": {
         "incomplete": {
           "$type": "color",
-          "$value": "{color.foreground.primary}",
+          "$value": "{foreground.color.primary}",
           "$modes": {
-            "default": "{color.foreground.primary}",
+            "default": "{foreground.color.primary}",
             "cds-g0": "{carbon.themes.white.iconPrimary}",
             "cds-g10": "{carbon.themes.g10.iconPrimary}",
             "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -39,9 +39,9 @@
         },
         "progress": {
           "$type": "color",
-          "$value": "{color.foreground.high-contrast}",
+          "$value": "{foreground.color.high-contrast}",
           "$modes": {
-            "default": "{color.foreground.high-contrast}",
+            "default": "{foreground.color.high-contrast}",
             "cds-g0": "{carbon.themes.white.iconPrimary}",
             "cds-g10": "{carbon.themes.g10.iconPrimary}",
             "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -50,9 +50,9 @@
         },
         "processing": {
           "$type": "color",
-          "$value": "{color.foreground.high-contrast}",
+          "$value": "{foreground.color.high-contrast}",
           "$modes": {
-            "default": "{color.foreground.high-contrast}",
+            "default": "{foreground.color.high-contrast}",
             "cds-g0": "{carbon.themes.white.iconPrimary}",
             "cds-g10": "{carbon.themes.g10.iconPrimary}",
             "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -61,9 +61,9 @@
         },
         "complete": {
           "$type": "color",
-          "$value": "{color.foreground.high-contrast}",
+          "$value": "{foreground.color.high-contrast}",
           "$modes": {
-            "default": "{color.foreground.high-contrast}",
+            "default": "{foreground.color.high-contrast}",
             "cds-g0": "{carbon.themes.white.iconPrimary}",
             "cds-g10": "{carbon.themes.g10.iconPrimary}",
             "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -103,9 +103,9 @@
         "color": {
           "incomplete": {
             "$type": "color",
-            "$value": "{color.foreground.primary}",
+            "$value": "{foreground.color.primary}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{foreground.color.primary}",
               "cds-g0": "{carbon.themes.white.iconPrimary}",
               "cds-g10": "{carbon.themes.g10.iconPrimary}",
               "cds-g90": "{carbon.themes.g90.iconPrimary}",
@@ -114,9 +114,9 @@
           },
           "progress": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.themes.white.interactive}",
               "cds-g10": "{carbon.themes.g10.interactive}",
               "cds-g90": "{carbon.themes.g90.interactive}",
@@ -125,9 +125,9 @@
           },
           "processing": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}",
+            "$value": "{foreground.color.high-contrast}",
             "$modes": {
-              "default": "{color.foreground.high-contrast}",
+              "default": "{foreground.color.high-contrast}",
               "cds-g0": "{carbon.themes.white.interactive}",
               "cds-g10": "{carbon.themes.g10.interactive}",
               "cds-g90": "{carbon.themes.g90.interactive}",
@@ -136,9 +136,9 @@
           },
           "complete": {
             "$type": "color",
-            "$value": "{color.palette.blue-200}",
+            "$value": "{core.color.blue-200}",
             "$modes": {
-              "default": "{color.palette.blue-200}",
+              "default": "{core.color.blue-200}",
               "cds-g0": "{carbon.themes.white.interactive}",
               "cds-g10": "{carbon.themes.g10.interactive}",
               "cds-g90": "{carbon.themes.g90.interactive}",
