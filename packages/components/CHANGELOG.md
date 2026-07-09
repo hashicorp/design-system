@@ -1,22 +1,32 @@
 # @hashicorp/design-system-components
 
+## 6.4.0
+
+### Minor Changes
+
+<!-- START components/filter-bar -->
+
+`FilterBar` - Added a `searchAriaLabel` feature to expose the value of the search input aria-label, allowing the value to be customized
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3980](https://github.com/hashicorp/design-system/pull/3980)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 6.3.0
 
 [6.3.0 documentation](https://hds-website-6-3-0.vercel.app/)
 
 ### Minor Changes
 
-
 `AppFooter` - Exported `THEMES` constant.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3946](https://github.com/hashicorp/design-system/pull/3946)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Alert` - Deprecated the `Generic` yielded block which renders below actions and added `GenericContent` and `GenericFooter` yielded blocks for including custom content either above or below `Alert` actions.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3932](https://github.com/hashicorp/design-system/pull/3932)</small>
 
@@ -24,33 +34,25 @@
 
 ### Patch Changes
 
-
 `StepperList` - Fixed description and content contextual blocks to be hidden if conditionally empty
-
 
 <small class="doc-whats-new-changelog-metadata">[#3899](https://github.com/hashicorp/design-system/pull/3899)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Toggle` - Added the `aria-checked` attribute to the input for accessibility. It is synced with the `checked` attribute.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3918](https://github.com/hashicorp/design-system/pull/3918)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Pagination` - Added keyboard focus management at the beginning and end of pagination. When an arrow button becomes disabled after clicking because a boundary has been reached, focus moves to the opposite arrow button.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3917](https://github.com/hashicorp/design-system/pull/3917)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Modal` - Fixed issue causing `Modal` to close unexpectedly by checking that a click on the `Overlay` both starts and ends within the `Overlay` before closing
-
 
 <small class="doc-whats-new-changelog-metadata">[#3923](https://github.com/hashicorp/design-system/pull/3923)</small>
 
@@ -62,10 +64,7 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Flyout` - Replaced custom box shadow with standard `elevation-overlay-box-shadow` token.
-
-
 
 `Form Primitives` - Replaced rendering of text via HDS `Text` component and used standard HTML tags, then updated CSS styles to use newly added component-level design tokens.
 
@@ -78,20 +77,14 @@ Components updated:
 - `FormLabel`
 - `FormLegend`
 
-
 `IconTile` - Replaced `[product]-colored` icon with standard `[product]` icon in `@logo="[product]"` variant.
 
-
-
 `LinkStandalone` - Set explicit secondary hover state color to avoid possible overrides.
-
-
 
 `Pagination` - Multiple changes:
 
 - Added extra modifier classes `hds-pagination--numbered`/`hds-pagination—compact` to variants.
 - Removed extra whitespace in label for `PaginationSizeSelector`.
-
 
 `Tag` - Multiple changes:
 
