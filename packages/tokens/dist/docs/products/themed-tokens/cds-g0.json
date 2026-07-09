@@ -13933,6 +13933,40 @@
     ]
   },
   {
+    "key": "{code-block.syntax-highlight.color.white}",
+    "$type": "color",
+    "$value": "#525252",
+    "$modes": {
+      "default": "#efeff1",
+      "cds-g0": "#525252",
+      "cds-g10": "#525252",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.gray.70}",
+      "$modes": {
+        "default": "#efeff1",
+        "cds-g0": "{carbon.color.gray.70}",
+        "cds-g10": "{carbon.color.gray.70}",
+        "cds-g90": "{carbon.color.white.0}",
+        "cds-g100": "{carbon.color.white.0}"
+      },
+      "key": "{code-block.syntax-highlight.color.white}"
+    },
+    "name": "hds-code-block-syntax-highlight-color-white",
+    "attributes": {
+      "category": "code-block"
+    },
+    "path": [
+      "code-block",
+      "syntax-highlight",
+      "color",
+      "white"
+    ]
+  },
+  {
     "key": "{code-block.foreground.color.primary}",
     "$type": "color",
     "$value": "#161616",

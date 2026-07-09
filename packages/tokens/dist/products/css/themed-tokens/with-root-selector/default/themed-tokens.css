@@ -271,6 +271,7 @@
   --hds-code-block-syntax-highlight-color-orange: #ffa800;
   --hds-code-block-syntax-highlight-color-purple: #c76cff;
   --hds-code-block-syntax-highlight-color-red: #ff3b20;
+  --hds-code-block-syntax-highlight-color-white: #efeff1;
   --hds-code-block-syntax-highlight-color-yellow: #ffeb3b;
   --hds-code-block-typography-font-size: 0.8125rem;
   --hds-copy-button-foreground-color: var(--hds-button-foreground-color-secondary-default);

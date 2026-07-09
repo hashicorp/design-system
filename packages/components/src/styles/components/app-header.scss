@@ -119,7 +119,7 @@
       align-content: flex-start;
       padding: 16px;
       overflow: auto; // allow users to scroll if the content is too long
-      background: var(--hds-app-side-nav-interactive-surface-color-default);
+      background: var(--hds-app-header-surface-color);
     }
 
     &.hds-app-header--menu-is-closed {
