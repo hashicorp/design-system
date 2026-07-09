@@ -75,7 +75,6 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
           BROWSERSLIST_IGNORE_OLD_DATA: 1
-          PERCY_TARGET_BRANCH: project-solar/phase-1-main-feature-branch
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
