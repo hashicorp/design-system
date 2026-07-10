@@ -205,6 +205,7 @@ Router.map(function () {
         this.route('super-select');
         this.route('toggle');
       });
+      this.route('filter-bar');
       this.route('icon-tile');
       this.route('link', function (): void {
         this.route('inline');

@@ -509,6 +509,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.filter-bar">
+            FilterBar
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.icon-tile">
             IconTile
           </LinkTo>
