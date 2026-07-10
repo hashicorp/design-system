@@ -41,7 +41,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-incomplete');
-    assert.dom('.sr-only').hasNoText();
+    assert.dom('.sr-only:last-child').hasNoText();
   });
 
   test('it sets the status to complete when the @status argument is provided', async function (assert) {
@@ -58,7 +58,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-complete');
-    assert.dom('.sr-only').hasText('(complete)');
+    assert.dom('.sr-only:last-child').hasText('(complete)');
   });
 
   test('it sets the status to progress when the @status argument is provided', async function (assert) {
@@ -75,7 +75,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-progress');
-    assert.dom('.sr-only').hasText('(current)');
+    assert.dom('.sr-only:last-child').hasText('(current)');
   });
 
   test('it sets the status to processing when the @status argument is provided', async function (assert) {
@@ -92,7 +92,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-processing');
-    assert.dom('.sr-only').hasText('(in progress)');
+    assert.dom('.sr-only:last-child').hasText('(in progress)');
   });
 
   // TITLE TAG
@@ -131,6 +131,9 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
       </template>,
     );
     assert.dom('.hds-stepper-indicator-step__text').hasText('1');
+    assert
+      .dom('.hds-stepper-list__step-title .sr-only:first-child')
+      .hasText('Step 1');
   });
 
   // TITLE

@@ -1,3 +1,4 @@
 progress: "(current)"
 processing: "(in progress)"
 complete: "(complete)"
+step-number: "Step {stepNumber}"

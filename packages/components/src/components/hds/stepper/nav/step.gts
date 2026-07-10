@@ -8,6 +8,7 @@ import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import { eq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
+import { concat } from '@ember/helper';
 
 import { service } from '@ember/service';
 import type HdsIntlService from '../../../../services/hds-intl';
@@ -21,6 +22,7 @@ import {
 } from '../types.ts';
 import HdsStepperStepIndicator from '../step/indicator.gts';
 import HdsTextBody from '../../text/body.gts';
+import hdsT from '../../../../helpers/hds-t.ts';
 
 import type {
   HdsStepperNavPanelIds,
@@ -217,6 +219,7 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
               @text="{{this.stepNumber}}"
               @status={{this.stepIndicatorStatus}}
               @isInteractive={{true}}
+              aria-hidden="true"
               class="hds-stepper-nav__step-indicator"
             />
           </div>
@@ -227,6 +230,13 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
               @size="200"
               @weight="semibold"
             >
+              <span class="sr-only">
+                {{hdsT
+                  "hds.components.stepper.step-number"
+                  default=(concat "Step " this.stepNumber)
+                  stepNumber=this.stepNumber
+                }}
+              </span>
               {{yield to="title"}}
               <span class="sr-only">{{this.statusSrOnlyText}}</span>
             </HdsTextBody>
