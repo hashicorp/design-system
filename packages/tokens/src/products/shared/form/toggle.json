@@ -18,7 +18,50 @@
               "$type": "color",
               "$value": "{surface.color.strong}",
               "group": "components",
-              "comment": "the toggle has a different base surface color, compared to the other controls"
+              "comment": "the toggle has a different base surface color, compared to the other controls",
+              "$modes": {
+                "default": "{surface.color.strong}",
+                "cds-g0": "{carbon.themes.white.toggleOff}",
+                "cds-g10": "{carbon.themes.g10.toggleOff}",
+                "cds-g90": "{carbon.themes.g90.toggleOff}",
+                "cds-g100": "{carbon.themes.g100.toggleOff}"
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{surface.color.interactive-disabled}",
+              "group": "components",
+              "$modes": {
+                "default": "{surface.color.interactive-disabled}",
+                "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+                "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+                "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+                "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+              }
+            },
+            "checked": {
+              "$type": "color",
+              "$value": "{core.color.blue-200}",
+              "group": "components",
+              "$modes": {
+                "default": "{core.color.blue-200}",
+                "cds-g0": "{carbon.themes.white.supportSuccess}",
+                "cds-g10": "{carbon.themes.g10.supportSuccess}",
+                "cds-g90": "{carbon.themes.g90.supportSuccess}",
+                "cds-g100": "{carbon.themes.g100.supportSuccess}"
+              }
+            },
+            "checked-hover": {
+              "$type": "color",
+              "$value": "{core.color.blue-300}",
+              "group": "components",
+              "$modes": {
+                "default": "{core.color.blue-300}",
+                "cds-g0": "{carbon.themes.white.supportSuccess}",
+                "cds-g10": "{carbon.themes.g10.supportSuccess}",
+                "cds-g90": "{carbon.themes.g90.supportSuccess}",
+                "cds-g100": "{carbon.themes.g100.supportSuccess}"
+              }
             }
           }
         }
@@ -47,12 +90,56 @@
           "unit": "px"
         },
         "data-url": {
-          "$value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e\")",
-          "comment": "notice: the 'tick' color is hardcoded here!"
+          "$value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e\")",
+          "comment": "notice: the 'tick' color is hardcoded here!",
+          "$modes": {
+            "default": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e\")",
+            "cds-g0": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E\")",
+            "cds-g10": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E\")",
+            "cds-g90": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E\")",
+            "cds-g100": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E\")"
+          }
         },
         "data-url-disabled": {
-          "$value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e\")",
-          "comment": "notice: the 'tick' color is hardcoded here!"
+          "$value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e\")",
+          "comment": "notice: the 'tick' color is hardcoded here!",
+          "$modes": {
+            "default": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e\")",
+            "cds-g0": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E\")",
+            "cds-g10": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E\")",
+            "cds-g90": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E\")",
+            "cds-g100": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E\")"
+          }
+        }
+      },
+      "handle": {
+        "surface": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{surface.color.interactive}",
+              "group": "components",
+              "$modes": {
+                "default": "{surface.color.interactive}",
+                "cds-g0": "#fff",
+                "cds-g10": "#fff",
+                "cds-g90": "#fff",
+                "cds-g100": "#fff"
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{surface.color.interactive-disabled}",
+              "group": "components",
+              "$modes": {
+                "default": "{surface.color.interactive-disabled}",
+                "cds-g0": "{carbon.themes.white.iconOnColorDisabled}",
+                "cds-g10": "{carbon.themes.g10.iconOnColorDisabled}",
+                "cds-g90": "{carbon.themes.g90.iconOnColorDisabled}",
+                "cds-g100": "{carbon.themes.g100.iconOnColorDisabled}"
+              }
+            }
+          }
         }
       },
       "transition": {
@@ -68,7 +155,15 @@
       },
       "thumb-size": {
         "$type": "dimension",
-        "$value": "{form.toggle.height}"
+        "$value": "{form.toggle.height}",
+        "unit": "px",
+        "$modes": {
+          "default": "{form.toggle.height}",
+          "cds-g0": "10",
+          "cds-g10": "10",
+          "cds-g90": "10",
+          "cds-g100": "10"
+        }
       }
     }
   }

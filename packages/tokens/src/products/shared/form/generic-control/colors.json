@@ -151,7 +151,7 @@
               "$value": "{core.color.blue-300}",
               "group": "components",
               "$modes": {
-                "default": "{core.color.blue-200}",
+                "default": "{core.color.blue-300}",
                 "cds-g0": "{carbon.color.gray.100}",
                 "cds-g10": "{carbon.color.gray.100}",
                 "cds-g90": "{carbon.color.gray.10}",
@@ -175,7 +175,7 @@
               "$value": "{core.color.blue-400}",
               "group": "components",
               "$modes": {
-                "default": "{core.color.blue-200}",
+                "default": "{core.color.blue-400}",
                 "cds-g0": "{carbon.color.gray.100}",
                 "cds-g10": "{carbon.color.gray.100}",
                 "cds-g90": "{carbon.color.gray.10}",

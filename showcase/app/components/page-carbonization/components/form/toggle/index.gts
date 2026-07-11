@@ -46,10 +46,44 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <ShwFlex @gap="1rem" as |SF|>
           <SF.Item @label="Unchecked">
-            <cds-toggle label-text="Label"></cds-toggle>
+            <ShwFlex @gap=".5rem" @direction="column" as |SF|>
+              <SF.Item>
+                <cds-toggle
+                  size="sm"
+                  hideLabel="true"
+                  labelText=""
+                ></cds-toggle>
+              </SF.Item>
+
+              <SF.Item>
+                <cds-toggle
+                  size="md"
+                  hideLabel="true"
+                  labelText=""
+                ></cds-toggle>
+              </SF.Item>
+            </ShwFlex>
           </SF.Item>
           <SF.Item @label="Checked">
-            <cds-toggle label-text="Label" toggled></cds-toggle>
+            <ShwFlex @gap=".5rem" @direction="column" as |SF|>
+              <SF.Item>
+                <cds-toggle
+                  size="sm"
+                  hideLabel="true"
+                  labelText=""
+                  toggled
+                ></cds-toggle>
+              </SF.Item>
+
+              <SF.Item>
+                <cds-toggle
+                  size="md"
+                  hideLabel="true"
+                  labelText=""
+                  toggled
+                ></cds-toggle>
+              </SF.Item>
+            </ShwFlex>
           </SF.Item>
         </ShwFlex>
       </:reference>
@@ -82,10 +116,19 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
           {{#if (eq state "default")}}
             <ShwFlex @gap="1rem" as |SF|>
               <SF.Item>
-                <cds-toggle label-text="Label"></cds-toggle>
+                <cds-toggle
+                  size="sm"
+                  hideLabel="true"
+                  labelText=""
+                ></cds-toggle>
               </SF.Item>
               <SF.Item>
-                <cds-toggle label-text="Label" toggled></cds-toggle>
+                <cds-toggle
+                  size="sm"
+                  hideLabel="true"
+                  labelText=""
+                  toggled
+                ></cds-toggle>
               </SF.Item>
             </ShwFlex>
           {{else}}
@@ -116,10 +159,21 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <ShwFlex @gap="1rem" as |SF|>
           <SF.Item>
-            <cds-toggle label-text="Label" disabled></cds-toggle>
+            <cds-toggle
+              size="sm"
+              hideLabel="true"
+              labelText=""
+              disabled
+            ></cds-toggle>
           </SF.Item>
           <SF.Item>
-            <cds-toggle label-text="Label" toggled disabled></cds-toggle>
+            <cds-toggle
+              size="sm"
+              hideLabel="true"
+              labelText=""
+              toggled
+              disabled
+            ></cds-toggle>
           </SF.Item>
         </ShwFlex>
       </:reference>
@@ -155,6 +209,7 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
             <ShwFlex @direction="column" as |SF|>
               <SF.Item>
                 <cds-toggle
+                  size="sm"
                   label-text="This is the label"
                   helper-text="This is the helper text"
                   toggled
@@ -162,6 +217,7 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
               </SF.Item>
               <SF.Item>
                 <cds-toggle
+                  size="sm"
                   label-text="This is the label"
                   helper-text="This is the helper text"
                   invalid
@@ -194,6 +250,7 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
             <cds-toggle
+              size="sm"
               label-text="This is the label"
               helper-text="This is the helper text"
               toggled
@@ -202,6 +259,7 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
           </SF.Item>
           <SF.Item>
             <cds-toggle
+              size="sm"
               label-text="This is the label"
               helper-text="This is the helper text"
               invalid
