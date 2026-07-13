@@ -4,13 +4,13 @@
  */
 
 import { ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { loadTokenCatalog } from "./stores/tokens/store.js";
-import { toJsonResourceResponse } from "./utils.js";
+import { loadTokenCatalog } from "./store/index.js";
+import { toJsonResourceResponse } from "../utils.js";
 
-import type { McpResource } from "./types.js";
-import type { TokenCatalogStore } from "./stores/tokens/store.js";
-import type { JsonObject } from "../types.js";
-import type { TokenRecord, TokenSummary } from "./stores/tokens/lookup.js";
+import type { McpResource } from "../types.js";
+import type { TokenCatalogStore } from "./store/index.js";
+import type { JsonObject } from "../../types.js";
+import type { TokenRecord, TokenSummary } from "./store/lookup.js";
 
 export const TOKENS_URI = "hds://tokens";
 export const TOKEN_BY_KEY_URI_TEMPLATE = `${TOKENS_URI}/{tokenKey}`;
@@ -149,7 +149,10 @@ const getTokenByKeyResource: McpResource = {
       });
     }
 
-    return readTokenByKeyResource(getOrLoadTokenStore(), decodeTokenKey(tokenKey));
+    return readTokenByKeyResource(
+      getOrLoadTokenStore(),
+      decodeTokenKey(tokenKey),
+    );
   },
 };
 

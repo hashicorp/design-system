@@ -10,7 +10,7 @@
           "type": "'open' | 'close'",
           "required": false,
           "description": "Controls the state of all items within a group. Can be used to expand or collapse all items at once."
-        }
+        },
         {
           "name": "size",
           "type": "'small' | 'medium' | 'large'",
@@ -40,12 +40,7 @@
               "type": "WithBoundArgs< typeof HdsAccordionItem, 'titleTag' | 'size' | 'type' | 'forceState' >",
               "kind": "component",
               "componentName": "HdsAccordionItem",
-              "boundArgs": [
-                "titleTag",
-                "size",
-                "type",
-                "forceState"
-              ],
+              "boundArgs": ["titleTag", "size", "type", "forceState"],
               "description": "`Accordion::Item` yielded as contextual component."
             }
           ]
