@@ -22418,7 +22418,7 @@
     ]
   },
   {
-    "key": "{stepper-list.step.title.typography.font-weight}",
+    "key": "{stepper.list.step.title.typography.font-weight}",
     "$type": "font-weight",
     "$value": 400,
     "$modes": {
@@ -22438,14 +22438,15 @@
         "cds-g90": "{carbon.typography.bodyCompact01.font-weight}",
         "cds-g100": "{carbon.typography.bodyCompact01.font-weight}"
       },
-      "key": "{stepper-list.step.title.typography.font-weight}"
+      "key": "{stepper.list.step.title.typography.font-weight}"
     },
     "name": "hds-stepper-list-step-title-typography-font-weight",
     "attributes": {
-      "category": "stepper-list"
+      "category": "stepper"
     },
     "path": [
-      "stepper-list",
+      "stepper",
+      "list",
       "step",
       "title",
       "typography",
@@ -22453,7 +22454,7 @@
     ]
   },
   {
-    "key": "{stepper-list.step.description.margin.top}",
+    "key": "{stepper.list.step.description.margin.top}",
     "$type": "dimension",
     "$value": "0px",
     "unit": "px",
@@ -22475,14 +22476,15 @@
         "cds-g90": "0",
         "cds-g100": "0"
       },
-      "key": "{stepper-list.step.description.margin.top}"
+      "key": "{stepper.list.step.description.margin.top}"
     },
     "name": "hds-stepper-list-step-description-margin-top",
     "attributes": {
-      "category": "stepper-list"
+      "category": "stepper"
     },
     "path": [
-      "stepper-list",
+      "stepper",
+      "list",
       "step",
       "description",
       "margin",
@@ -22490,7 +22492,7 @@
     ]
   },
   {
-    "key": "{stepper-list.step.description.typography.font-size}",
+    "key": "{stepper.list.step.description.typography.font-size}",
     "$type": "font-size",
     "$value": "0.75rem",
     "$modes": {
@@ -22560,14 +22562,15 @@
         }
       },
       "unit": "rem",
-      "key": "{stepper-list.step.description.typography.font-size}"
+      "key": "{stepper.list.step.description.typography.font-size}"
     },
     "name": "hds-stepper-list-step-description-typography-font-size",
     "attributes": {
-      "category": "stepper-list"
+      "category": "stepper"
     },
     "path": [
-      "stepper-list",
+      "stepper",
+      "list",
       "step",
       "description",
       "typography",
@@ -22575,7 +22578,7 @@
     ]
   },
   {
-    "key": "{stepper-list.step.description.foreground.color}",
+    "key": "{stepper.list.step.description.foreground.color}",
     "$type": "color",
     "$value": "#c6c6c6",
     "$modes": {
@@ -22595,14 +22598,15 @@
         "cds-g90": "{carbon.themes.g90.textSecondary}",
         "cds-g100": "{carbon.themes.g100.textSecondary}"
       },
-      "key": "{stepper-list.step.description.foreground.color}"
+      "key": "{stepper.list.step.description.foreground.color}"
     },
     "name": "hds-stepper-list-step-description-foreground-color",
     "attributes": {
-      "category": "stepper-list"
+      "category": "stepper"
     },
     "path": [
-      "stepper-list",
+      "stepper",
+      "list",
       "step",
       "description",
       "foreground",
@@ -22610,7 +22614,7 @@
     ]
   },
   {
-    "key": "{stepper-list.progress-bar.top}",
+    "key": "{stepper.list.progress-bar.top}",
     "$type": "dimension",
     "$value": "0px",
     "unit": "px",
@@ -22632,20 +22636,21 @@
         "cds-g90": "0",
         "cds-g100": "0"
       },
-      "key": "{stepper-list.progress-bar.top}"
+      "key": "{stepper.list.progress-bar.top}"
     },
     "name": "hds-stepper-list-progress-bar-top",
     "attributes": {
-      "category": "stepper-list"
+      "category": "stepper"
     },
     "path": [
-      "stepper-list",
+      "stepper",
+      "list",
       "progress-bar",
       "top"
     ]
   },
   {
-    "key": "{stepper-list.progress-bar.left}",
+    "key": "{stepper.list.progress-bar.left}",
     "$type": "dimension",
     "$value": "0px",
     "unit": "px",
@@ -22667,20 +22672,21 @@
         "cds-g90": "0",
         "cds-g100": "0"
       },
-      "key": "{stepper-list.progress-bar.left}"
+      "key": "{stepper.list.progress-bar.left}"
     },
     "name": "hds-stepper-list-progress-bar-left",
     "attributes": {
-      "category": "stepper-list"
+      "category": "stepper"
     },
     "path": [
-      "stepper-list",
+      "stepper",
+      "list",
       "progress-bar",
       "left"
     ]
   },
   {
-    "key": "{stepper-list.progress-bar.surface.color.incomplete}",
+    "key": "{stepper.list.progress-bar.surface.color.incomplete}",
     "$type": "color",
     "$value": "#525252",
     "$modes": {
@@ -22700,14 +22706,15 @@
         "cds-g90": "{carbon.themes.g90.borderSubtle00}",
         "cds-g100": "{carbon.themes.g100.borderSubtle00}"
       },
-      "key": "{stepper-list.progress-bar.surface.color.incomplete}"
+      "key": "{stepper.list.progress-bar.surface.color.incomplete}"
     },
     "name": "hds-stepper-list-progress-bar-surface-color-incomplete",
     "attributes": {
-      "category": "stepper-list"
+      "category": "stepper"
     },
     "path": [
-      "stepper-list",
+      "stepper",
+      "list",
       "progress-bar",
       "surface",
       "color",
@@ -22715,7 +22722,7 @@
     ]
   },
   {
-    "key": "{stepper-list.progress-bar.surface.color.complete}",
+    "key": "{stepper.list.progress-bar.surface.color.complete}",
     "$type": "color",
     "$value": "#e0e0e0",
     "$modes": {
@@ -22735,14 +22742,15 @@
         "cds-g90": "{core.color.neutral-100}",
         "cds-g100": "{core.color.neutral-100}"
       },
-      "key": "{stepper-list.progress-bar.surface.color.complete}"
+      "key": "{stepper.list.progress-bar.surface.color.complete}"
     },
     "name": "hds-stepper-list-progress-bar-surface-color-complete",
     "attributes": {
-      "category": "stepper-list"
+      "category": "stepper"
     },
     "path": [
-      "stepper-list",
+      "stepper",
+      "list",
       "progress-bar",
       "surface",
       "color",

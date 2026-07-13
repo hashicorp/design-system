@@ -149,15 +149,11 @@ $hds-stepper-list-gap-spacing: 16px;
 
 // For Carbon themes, the progress bar line should be present for the active step in addition to the completed step,
 // and we do not need to account for the 4px offset of the completed line, which is needed for the HDS theme
-.hds-stepper-list__step {
-  &.hds-stepper-list__step--progress,
-  &.hds-stepper-list__step--processing,
-  &.hds-stepper-list__step--complete {
-    .hds-stepper-list__step-progress::after {
-      @include hds-apply-only-if-carbon() {
-        top: 0;
-        height: calc(100% + $hds-stepper-list-gap-spacing);
-      }
+.hds-stepper-list__step:not(.hds-stepper-list__step--incomplete) {
+  .hds-stepper-list__step-progress::after {
+    @include hds-apply-only-if-carbon() {
+      top: 0;
+      height: calc(100% + $hds-stepper-list-gap-spacing);
     }
   }
 }

@@ -9938,9 +9938,9 @@ button.hds-button[href]::after {
   border-radius: 0 0 var(--hds-border-radius-x-small) var(--hds-border-radius-x-small);
 }
 
-.hds-theme-light .hds-stepper-list__step.hds-stepper-list__step--progress .hds-stepper-list__step-progress::after, .hds-theme-light .hds-stepper-list__step.hds-stepper-list__step--processing .hds-stepper-list__step-progress::after, .hds-theme-light .hds-stepper-list__step.hds-stepper-list__step--complete .hds-stepper-list__step-progress::after,
-.hds-theme-dark .hds-stepper-list__step.hds-stepper-list__step--progress .hds-stepper-list__step-progress::after, .hds-theme-dark .hds-stepper-list__step.hds-stepper-list__step--processing .hds-stepper-list__step-progress::after, .hds-theme-dark .hds-stepper-list__step.hds-stepper-list__step--complete .hds-stepper-list__step-progress::after,
-.hds-theme-system .hds-stepper-list__step.hds-stepper-list__step--progress .hds-stepper-list__step-progress::after, .hds-theme-system .hds-stepper-list__step.hds-stepper-list__step--processing .hds-stepper-list__step-progress::after, .hds-theme-system .hds-stepper-list__step.hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
+.hds-theme-light .hds-stepper-list__step:not(.hds-stepper-list__step--incomplete) .hds-stepper-list__step-progress::after,
+.hds-theme-dark .hds-stepper-list__step:not(.hds-stepper-list__step--incomplete) .hds-stepper-list__step-progress::after,
+.hds-theme-system .hds-stepper-list__step:not(.hds-stepper-list__step--incomplete) .hds-stepper-list__step-progress::after {
   top: 0;
   height: calc(100% + 16px);
 }
