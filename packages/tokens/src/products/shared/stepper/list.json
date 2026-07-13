@@ -97,7 +97,7 @@
             "cds-g100": "0"
           }
         },
-        "surface": {
+        "border": {
           "color": {
             "incomplete": {
               "$type": "color",

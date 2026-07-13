@@ -264,45 +264,6 @@
               }
             }
           }
-        },
-        "surface": {
-          "color": {
-            "incomplete": {
-              "$type": "color",
-              "$value": "{core.color.neutral-100}",
-              "$modes": {
-                "default": "{core.color.neutral-100}",
-                "cds-g0": "{carbon.themes.white.borderSubtle00}",
-                "cds-g10": "{carbon.themes.g10.borderSubtle00}",
-                "cds-g90": "{carbon.themes.g90.borderSubtle00}",
-                "cds-g100": "{carbon.themes.g100.borderSubtle00}"
-              }
-            },
-            "complete": {
-              "default": {
-                "$type": "color",
-                "$value": "{core.color.neutral-700}",
-                "$modes": {
-                  "default": "{core.color.neutral-700}",
-                  "cds-g0": "{core.color.neutral-700}",
-                  "cds-g10": "{core.color.neutral-700}",
-                  "cds-g90": "{core.color.neutral-100}",
-                  "cds-g100": "{core.color.neutral-100}"
-                }
-              },
-              "interactive": {
-                "$type": "color",
-                "$value": "{core.color.blue-200}",
-                "$modes": {
-                  "default": "{core.color.blue-200}",
-                  "cds-g0": "{carbon.themes.white.interactive}",
-                  "cds-g10": "{carbon.themes.g10.interactive}",
-                  "cds-g90": "{carbon.themes.g90.interactive}",
-                  "cds-g100": "{carbon.themes.g100.interactive}"
-                }
-              }
-            }
-          }
         }
       }
     }

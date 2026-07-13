@@ -10,6 +10,7 @@
 @use "../../mixins/carbonization" as *;
 
 $hds-stepper-list-gap-spacing: 16px;
+$hds-stepper-list-progress-bar-offset: 4px;
 
 .hds-stepper-list {
   display: flex;
@@ -38,15 +39,14 @@ $hds-stepper-list-gap-spacing: 16px;
       top: var(--hds-stepper-list-progress-bar-top);
       left: var(--hds-stepper-list-progress-bar-left);
       z-index: -1;
-      width: 2px;
+      border-left: 2px solid;
       content: "";
     }
 
     // Progress Bar - background line
     &::before {
       height: calc(100% + $hds-stepper-list-gap-spacing);
-      background-color: var(--hds-stepper-list-progress-bar-surface-color-incomplete);
-      background-image: linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%);
+      border-color: var(--hds-stepper-list-progress-bar-border-color-incomplete);
 
       @include hds-apply-only-if-carbon() {
         background-image: none;
@@ -55,7 +55,7 @@ $hds-stepper-list-gap-spacing: 16px;
 
     // Progress bar - completed line
     &::after {
-      background-color: var(--hds-stepper-list-progress-bar-surface-color-complete);
+      border-color: var(--hds-stepper-list-progress-bar-border-color-complete);
     }
   }
 
@@ -116,17 +116,17 @@ $hds-stepper-list-gap-spacing: 16px;
 
 .hds-stepper-list__step {
   &:not(:last-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
-    height: calc(100% + $hds-stepper-list-gap-spacing - 4px);
+    height: calc(100% + $hds-stepper-list-gap-spacing - $hds-stepper-list-progress-bar-offset);
   }
 
   &:not(:last-of-type, :first-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
-    top: calc(-1 * 4px);
+    top: calc(-1 * $hds-stepper-list-progress-bar-offset);
     height: calc(100% + $hds-stepper-list-gap-spacing);
   }
 
   &:not(:first-of-type):last-of-type.hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
     position: absolute;
-    top: calc(-1 * 4px);
+    top: calc(-1 * $hds-stepper-list-progress-bar-offset);
     left: 11px;
     z-index: -1;
     width: 2px;
@@ -135,7 +135,7 @@ $hds-stepper-list-gap-spacing: 16px;
 
     @include hds-apply-only-if-carbon() {
       left: 0;
-      height: calc(100% + $hds-stepper-list-gap-spacing + 4px);
+      height: calc(100% + $hds-stepper-list-gap-spacing + $hds-stepper-list-progress-bar-offset);
     }
   }
 
@@ -148,7 +148,7 @@ $hds-stepper-list-gap-spacing: 16px;
 }
 
 // For Carbon themes, the progress bar line should be present for the active step in addition to the completed step,
-// and we do not need to account for the 4px offset of the completed line, which is needed for the HDS theme
+// and we do not need to account for the $hds-stepper-list-progress-bar-offset of the completed line, which is needed for the HDS theme
 .hds-stepper-list__step:not(.hds-stepper-list__step--incomplete) {
   .hds-stepper-list__step-progress::after {
     @include hds-apply-only-if-carbon() {

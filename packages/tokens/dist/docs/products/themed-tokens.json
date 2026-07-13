@@ -22670,8 +22670,8 @@
         "left"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.list.progress-bar.surface.color.incomplete}",
+    "hds-stepper-list-progress-bar-border-color-incomplete": {
+      "key": "{stepper.list.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#f1f2f3",
       "$modes": {
@@ -22691,9 +22691,9 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.list.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-list-progress-bar-border-color-incomplete",
       "attributes": {
         "category": "stepper"
       },
@@ -22701,13 +22701,13 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-complete": {
-      "key": "{stepper.list.progress-bar.surface.color.complete}",
+    "hds-stepper-list-progress-bar-border-color-complete": {
+      "key": "{stepper.list.progress-bar.border.color.complete}",
       "$type": "color",
       "$value": "#0c0c0e",
       "$modes": {
@@ -22727,9 +22727,9 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.complete}"
+        "key": "{stepper.list.progress-bar.border.color.complete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-complete",
+      "name": "hds-stepper-list-progress-bar-border-color-complete",
       "attributes": {
         "category": "stepper"
       },
@@ -22737,7 +22737,7 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete"
       ]
@@ -23490,116 +23490,6 @@
         "nav",
         "progress-bar",
         "border",
-        "color",
-        "complete",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
-      "$type": "color",
-      "$value": "#f1f2f3",
-      "$modes": {
-        "default": "#f1f2f3",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#c6c6c6",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.neutral-100}",
-        "$modes": {
-          "default": "{core.color.neutral-100}",
-          "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
-          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
-          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "incomplete"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
-      "$type": "color",
-      "$value": "#0c0c0e",
-      "$modes": {
-        "default": "#0c0c0e",
-        "cds-g0": "#0c0c0e",
-        "cds-g10": "#0c0c0e",
-        "cds-g90": "#f1f2f3",
-        "cds-g100": "#f1f2f3"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.neutral-700}",
-        "$modes": {
-          "default": "{core.color.neutral-700}",
-          "cds-g0": "{core.color.neutral-700}",
-          "cds-g10": "{core.color.neutral-700}",
-          "cds-g90": "{core.color.neutral-100}",
-          "cds-g100": "{core.color.neutral-100}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "complete",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
-      "$type": "color",
-      "$value": "#1060ff",
-      "$modes": {
-        "default": "#1060ff",
-        "cds-g0": "#0f62fe",
-        "cds-g10": "#0f62fe",
-        "cds-g90": "#4589ff",
-        "cds-g100": "#4589ff"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.blue-200}",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.interactive}",
-          "cds-g10": "{carbon.themes.g10.interactive}",
-          "cds-g90": "{carbon.themes.g90.interactive}",
-          "cds-g100": "{carbon.themes.g100.interactive}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
         "color",
         "complete",
         "interactive"
@@ -50115,8 +50005,8 @@
         "left"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.list.progress-bar.surface.color.incomplete}",
+    "hds-stepper-list-progress-bar-border-color-incomplete": {
+      "key": "{stepper.list.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
@@ -50136,9 +50026,9 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.list.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-list-progress-bar-border-color-incomplete",
       "attributes": {
         "category": "stepper"
       },
@@ -50146,13 +50036,13 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-complete": {
-      "key": "{stepper.list.progress-bar.surface.color.complete}",
+    "hds-stepper-list-progress-bar-border-color-complete": {
+      "key": "{stepper.list.progress-bar.border.color.complete}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -50172,9 +50062,9 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.complete}"
+        "key": "{stepper.list.progress-bar.border.color.complete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-complete",
+      "name": "hds-stepper-list-progress-bar-border-color-complete",
       "attributes": {
         "category": "stepper"
       },
@@ -50182,7 +50072,7 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete"
       ]
@@ -50937,116 +50827,6 @@
         "nav",
         "progress-bar",
         "border",
-        "color",
-        "complete",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
-      "$type": "color",
-      "$value": "#e0e0e0",
-      "$modes": {
-        "default": "#e0e0e0",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#c6c6c6",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.borderSubtle00}",
-        "$modes": {
-          "default": "{core.color.neutral-100}",
-          "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
-          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
-          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "incomplete"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#e0e0e0",
-        "cds-g100": "#e0e0e0"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.neutral-700}",
-        "$modes": {
-          "default": "{core.color.neutral-700}",
-          "cds-g0": "{core.color.neutral-700}",
-          "cds-g10": "{core.color.neutral-700}",
-          "cds-g90": "{core.color.neutral-100}",
-          "cds-g100": "{core.color.neutral-100}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "complete",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
-      "$type": "color",
-      "$value": "#0f62fe",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#0f62fe",
-        "cds-g10": "#0f62fe",
-        "cds-g90": "#4589ff",
-        "cds-g100": "#4589ff"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.interactive}",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.interactive}",
-          "cds-g10": "{carbon.themes.g10.interactive}",
-          "cds-g90": "{carbon.themes.g90.interactive}",
-          "cds-g100": "{carbon.themes.g100.interactive}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
         "color",
         "complete",
         "interactive"
@@ -77562,8 +77342,8 @@
         "left"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.list.progress-bar.surface.color.incomplete}",
+    "hds-stepper-list-progress-bar-border-color-incomplete": {
+      "key": "{stepper.list.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -77583,9 +77363,9 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.list.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-list-progress-bar-border-color-incomplete",
       "attributes": {
         "category": "stepper"
       },
@@ -77593,13 +77373,13 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-complete": {
-      "key": "{stepper.list.progress-bar.surface.color.complete}",
+    "hds-stepper-list-progress-bar-border-color-complete": {
+      "key": "{stepper.list.progress-bar.border.color.complete}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -77619,9 +77399,9 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.complete}"
+        "key": "{stepper.list.progress-bar.border.color.complete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-complete",
+      "name": "hds-stepper-list-progress-bar-border-color-complete",
       "attributes": {
         "category": "stepper"
       },
@@ -77629,7 +77409,7 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete"
       ]
@@ -78384,116 +78164,6 @@
         "nav",
         "progress-bar",
         "border",
-        "color",
-        "complete",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
-      "$type": "color",
-      "$value": "#c6c6c6",
-      "$modes": {
-        "default": "#e0e0e0",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#c6c6c6",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.borderSubtle00}",
-        "$modes": {
-          "default": "{core.color.neutral-100}",
-          "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
-          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
-          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "incomplete"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#e0e0e0",
-        "cds-g100": "#e0e0e0"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.neutral-700}",
-        "$modes": {
-          "default": "{core.color.neutral-700}",
-          "cds-g0": "{core.color.neutral-700}",
-          "cds-g10": "{core.color.neutral-700}",
-          "cds-g90": "{core.color.neutral-100}",
-          "cds-g100": "{core.color.neutral-100}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "complete",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
-      "$type": "color",
-      "$value": "#0f62fe",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#0f62fe",
-        "cds-g10": "#0f62fe",
-        "cds-g90": "#4589ff",
-        "cds-g100": "#4589ff"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.interactive}",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.interactive}",
-          "cds-g10": "{carbon.themes.g10.interactive}",
-          "cds-g90": "{carbon.themes.g90.interactive}",
-          "cds-g100": "{carbon.themes.g100.interactive}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
         "color",
         "complete",
         "interactive"
@@ -105009,8 +104679,8 @@
         "left"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.list.progress-bar.surface.color.incomplete}",
+    "hds-stepper-list-progress-bar-border-color-incomplete": {
+      "key": "{stepper.list.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -105030,9 +104700,9 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.list.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-list-progress-bar-border-color-incomplete",
       "attributes": {
         "category": "stepper"
       },
@@ -105040,13 +104710,13 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-complete": {
-      "key": "{stepper.list.progress-bar.surface.color.complete}",
+    "hds-stepper-list-progress-bar-border-color-complete": {
+      "key": "{stepper.list.progress-bar.border.color.complete}",
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
@@ -105066,9 +104736,9 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.complete}"
+        "key": "{stepper.list.progress-bar.border.color.complete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-complete",
+      "name": "hds-stepper-list-progress-bar-border-color-complete",
       "attributes": {
         "category": "stepper"
       },
@@ -105076,7 +104746,7 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete"
       ]
@@ -105831,116 +105501,6 @@
         "nav",
         "progress-bar",
         "border",
-        "color",
-        "complete",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
-      "$type": "color",
-      "$value": "#525252",
-      "$modes": {
-        "default": "#e0e0e0",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#c6c6c6",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.borderSubtle00}",
-        "$modes": {
-          "default": "{core.color.neutral-100}",
-          "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
-          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
-          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "incomplete"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
-      "$type": "color",
-      "$value": "#e0e0e0",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#e0e0e0",
-        "cds-g100": "#e0e0e0"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.neutral-100}",
-        "$modes": {
-          "default": "{core.color.neutral-700}",
-          "cds-g0": "{core.color.neutral-700}",
-          "cds-g10": "{core.color.neutral-700}",
-          "cds-g90": "{core.color.neutral-100}",
-          "cds-g100": "{core.color.neutral-100}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "complete",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
-      "$type": "color",
-      "$value": "#4589ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#0f62fe",
-        "cds-g10": "#0f62fe",
-        "cds-g90": "#4589ff",
-        "cds-g100": "#4589ff"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.interactive}",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.interactive}",
-          "cds-g10": "{carbon.themes.g10.interactive}",
-          "cds-g90": "{carbon.themes.g90.interactive}",
-          "cds-g100": "{carbon.themes.g100.interactive}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
         "color",
         "complete",
         "interactive"
@@ -132456,8 +132016,8 @@
         "left"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.list.progress-bar.surface.color.incomplete}",
+    "hds-stepper-list-progress-bar-border-color-incomplete": {
+      "key": "{stepper.list.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#393939",
       "$modes": {
@@ -132477,9 +132037,9 @@
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.list.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-list-progress-bar-border-color-incomplete",
       "attributes": {
         "category": "stepper"
       },
@@ -132487,13 +132047,13 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-list-progress-bar-surface-color-complete": {
-      "key": "{stepper.list.progress-bar.surface.color.complete}",
+    "hds-stepper-list-progress-bar-border-color-complete": {
+      "key": "{stepper.list.progress-bar.border.color.complete}",
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
@@ -132513,9 +132073,9 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper.list.progress-bar.surface.color.complete}"
+        "key": "{stepper.list.progress-bar.border.color.complete}"
       },
-      "name": "hds-stepper-list-progress-bar-surface-color-complete",
+      "name": "hds-stepper-list-progress-bar-border-color-complete",
       "attributes": {
         "category": "stepper"
       },
@@ -132523,7 +132083,7 @@
         "stepper",
         "list",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete"
       ]
@@ -133278,116 +132838,6 @@
         "nav",
         "progress-bar",
         "border",
-        "color",
-        "complete",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
-      "$type": "color",
-      "$value": "#393939",
-      "$modes": {
-        "default": "#e0e0e0",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#c6c6c6",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.borderSubtle00}",
-        "$modes": {
-          "default": "{core.color.neutral-100}",
-          "cds-g0": "{carbon.themes.white.borderSubtle00}",
-          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
-          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
-          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "incomplete"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
-      "$type": "color",
-      "$value": "#e0e0e0",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#e0e0e0",
-        "cds-g100": "#e0e0e0"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{core.color.neutral-100}",
-        "$modes": {
-          "default": "{core.color.neutral-700}",
-          "cds-g0": "{core.color.neutral-700}",
-          "cds-g10": "{core.color.neutral-700}",
-          "cds-g90": "{core.color.neutral-100}",
-          "cds-g100": "{core.color.neutral-100}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
-        "color",
-        "complete",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
-      "$type": "color",
-      "$value": "#4589ff",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#0f62fe",
-        "cds-g10": "#0f62fe",
-        "cds-g90": "#4589ff",
-        "cds-g100": "#4589ff"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.interactive}",
-        "$modes": {
-          "default": "{core.color.blue-200}",
-          "cds-g0": "{carbon.themes.white.interactive}",
-          "cds-g10": "{carbon.themes.g10.interactive}",
-          "cds-g90": "{carbon.themes.g90.interactive}",
-          "cds-g100": "{carbon.themes.g100.interactive}"
-        },
-        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
-      },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "surface",
         "color",
         "complete",
         "interactive"

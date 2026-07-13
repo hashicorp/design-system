@@ -22686,7 +22686,7 @@
     ]
   },
   {
-    "key": "{stepper.list.progress-bar.surface.color.incomplete}",
+    "key": "{stepper.list.progress-bar.border.color.incomplete}",
     "$type": "color",
     "$value": "#393939",
     "$modes": {
@@ -22706,9 +22706,9 @@
         "cds-g90": "{carbon.themes.g90.borderSubtle00}",
         "cds-g100": "{carbon.themes.g100.borderSubtle00}"
       },
-      "key": "{stepper.list.progress-bar.surface.color.incomplete}"
+      "key": "{stepper.list.progress-bar.border.color.incomplete}"
     },
-    "name": "hds-stepper-list-progress-bar-surface-color-incomplete",
+    "name": "hds-stepper-list-progress-bar-border-color-incomplete",
     "attributes": {
       "category": "stepper"
     },
@@ -22716,13 +22716,13 @@
       "stepper",
       "list",
       "progress-bar",
-      "surface",
+      "border",
       "color",
       "incomplete"
     ]
   },
   {
-    "key": "{stepper.list.progress-bar.surface.color.complete}",
+    "key": "{stepper.list.progress-bar.border.color.complete}",
     "$type": "color",
     "$value": "#e0e0e0",
     "$modes": {
@@ -22742,9 +22742,9 @@
         "cds-g90": "{core.color.neutral-100}",
         "cds-g100": "{core.color.neutral-100}"
       },
-      "key": "{stepper.list.progress-bar.surface.color.complete}"
+      "key": "{stepper.list.progress-bar.border.color.complete}"
     },
-    "name": "hds-stepper-list-progress-bar-surface-color-complete",
+    "name": "hds-stepper-list-progress-bar-border-color-complete",
     "attributes": {
       "category": "stepper"
     },
@@ -22752,7 +22752,7 @@
       "stepper",
       "list",
       "progress-bar",
-      "surface",
+      "border",
       "color",
       "complete"
     ]
@@ -23507,116 +23507,6 @@
       "nav",
       "progress-bar",
       "border",
-      "color",
-      "complete",
-      "interactive"
-    ]
-  },
-  {
-    "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
-    "$type": "color",
-    "$value": "#393939",
-    "$modes": {
-      "default": "#e0e0e0",
-      "cds-g0": "#e0e0e0",
-      "cds-g10": "#c6c6c6",
-      "cds-g90": "#525252",
-      "cds-g100": "#393939"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g100.borderSubtle00}",
-      "$modes": {
-        "default": "{core.color.neutral-100}",
-        "cds-g0": "{carbon.themes.white.borderSubtle00}",
-        "cds-g10": "{carbon.themes.g10.borderSubtle00}",
-        "cds-g90": "{carbon.themes.g90.borderSubtle00}",
-        "cds-g100": "{carbon.themes.g100.borderSubtle00}"
-      },
-      "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
-    },
-    "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
-    "attributes": {
-      "category": "stepper"
-    },
-    "path": [
-      "stepper",
-      "nav",
-      "progress-bar",
-      "surface",
-      "color",
-      "incomplete"
-    ]
-  },
-  {
-    "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
-    "$type": "color",
-    "$value": "#e0e0e0",
-    "$modes": {
-      "default": "#161616",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#e0e0e0",
-      "cds-g100": "#e0e0e0"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.neutral-100}",
-      "$modes": {
-        "default": "{core.color.neutral-700}",
-        "cds-g0": "{core.color.neutral-700}",
-        "cds-g10": "{core.color.neutral-700}",
-        "cds-g90": "{core.color.neutral-100}",
-        "cds-g100": "{core.color.neutral-100}"
-      },
-      "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
-    },
-    "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
-    "attributes": {
-      "category": "stepper"
-    },
-    "path": [
-      "stepper",
-      "nav",
-      "progress-bar",
-      "surface",
-      "color",
-      "complete",
-      "default"
-    ]
-  },
-  {
-    "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
-    "$type": "color",
-    "$value": "#4589ff",
-    "$modes": {
-      "default": "#0f62fe",
-      "cds-g0": "#0f62fe",
-      "cds-g10": "#0f62fe",
-      "cds-g90": "#4589ff",
-      "cds-g100": "#4589ff"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g100.interactive}",
-      "$modes": {
-        "default": "{core.color.blue-200}",
-        "cds-g0": "{carbon.themes.white.interactive}",
-        "cds-g10": "{carbon.themes.g10.interactive}",
-        "cds-g90": "{carbon.themes.g90.interactive}",
-        "cds-g100": "{carbon.themes.g100.interactive}"
-      },
-      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
-    },
-    "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
-    "attributes": {
-      "category": "stepper"
-    },
-    "path": [
-      "stepper",
-      "nav",
-      "progress-bar",
-      "surface",
       "color",
       "complete",
       "interactive"

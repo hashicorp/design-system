@@ -709,6 +709,8 @@
   --hds-stepper-list-step-description-foreground-color: #3b3d45;
   --hds-stepper-list-progress-bar-top: 1px;
   --hds-stepper-list-progress-bar-left: 11px;
+  --hds-stepper-list-progress-bar-border-color-incomplete: #f1f2f3;
+  --hds-stepper-list-progress-bar-border-color-complete: #0c0c0e;
   --hds-stepper-list-progress-bar-surface-color-incomplete: #f1f2f3;
   --hds-stepper-list-progress-bar-surface-color-complete: #0c0c0e;
   --hds-stepper-nav-step-title-typography-font-weight: 600;
@@ -9855,13 +9857,12 @@ button.hds-button[href]::after {
   top: var(--hds-stepper-list-progress-bar-top);
   left: var(--hds-stepper-list-progress-bar-left);
   z-index: -1;
-  width: 2px;
+  border-left: 2px solid;
   content: "";
 }
 .hds-stepper-list__step .hds-stepper-list__step-progress::before {
   height: calc(100% + 16px);
-  background-color: var(--hds-stepper-list-progress-bar-surface-color-incomplete);
-  background-image: linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%);
+  border-color: var(--hds-stepper-list-progress-bar-border-color-incomplete);
 }
 .hds-theme-light .hds-stepper-list__step .hds-stepper-list__step-progress::before,
 .hds-theme-dark .hds-stepper-list__step .hds-stepper-list__step-progress::before,
@@ -9870,7 +9871,7 @@ button.hds-button[href]::after {
 }
 
 .hds-stepper-list__step .hds-stepper-list__step-progress::after {
-  background-color: var(--hds-stepper-list-progress-bar-surface-color-complete);
+  border-color: var(--hds-stepper-list-progress-bar-border-color-complete);
 }
 .hds-stepper-list__step:last-of-type .hds-stepper-list__step-progress:not(.hds-stepper-list__step--complete)::before, .hds-stepper-list__step:last-of-type .hds-stepper-list__step-progress:not(.hds-stepper-list__step--complete)::after {
   content: none;
