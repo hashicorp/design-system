@@ -139,6 +139,8 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
         let activeStepWidth;
         const width = this.currentStep / this._stepIds.length;
 
+        // For Carbon themes, the progress bar line is the full width of the active step,
+        // while for HDS themes, the progress bar line is only half the width of the active step and offset by 16px.
         if (this.hdsTheming.isCarbonThemeEnabled) {
           activeStepWidth = 1 / this._stepIds.length;
         } else {

@@ -22743,7 +22743,7 @@
       ]
     },
     "hds-stepper-nav-step-title-typography-font-weight": {
-      "key": "{stepper-nav.step.title.typography.font-weight}",
+      "key": "{stepper.nav.step.title.typography.font-weight}",
       "$type": "font-weight",
       "$value": "600",
       "$modes": {
@@ -22763,22 +22763,212 @@
           "cds-g90": "{carbon.typography.bodyCompact01.font-weight}",
           "cds-g100": "{carbon.typography.bodyCompact01.font-weight}"
         },
-        "key": "{stepper-nav.step.title.typography.font-weight}"
+        "key": "{stepper.nav.step.title.typography.font-weight}"
       },
       "name": "hds-stepper-nav-step-title-typography-font-weight",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "title",
         "typography",
         "font-weight"
       ]
     },
+    "hds-stepper-nav-step-title-foreground-color-complete-default": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#0c0c0e",
+      "$modes": {
+        "default": "#0c0c0e",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.strong}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-complete-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#1060ff",
+      "$modes": {
+        "default": "#1060ff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.action}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-default": {
+      "key": "{stepper.nav.step.title.foreground.color.active.default}",
+      "$type": "color",
+      "$value": "#0c0c0e",
+      "$modes": {
+        "default": "#0c0c0e",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.strong}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.active.interactive}",
+      "$type": "color",
+      "$value": "#1060ff",
+      "$modes": {
+        "default": "#1060ff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.action}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.title.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#656a76",
+      "$modes": {
+        "default": "#656a76",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.faint}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
     "hds-stepper-nav-step-description-margin-top": {
-      "key": "{stepper-nav.step.description.margin.top}",
+      "key": "{stepper.nav.step.description.margin.top}",
       "$type": "dimension",
       "$value": "4px",
       "unit": "px",
@@ -22800,14 +22990,15 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.step.description.margin.top}"
+        "key": "{stepper.nav.step.description.margin.top}"
       },
       "name": "hds-stepper-nav-step-description-margin-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "margin",
@@ -22815,7 +23006,7 @@
       ]
     },
     "hds-stepper-nav-step-description-typography-font-size": {
-      "key": "{stepper-nav.step.description.typography.font-size}",
+      "key": "{stepper.nav.step.description.typography.font-size}",
       "$type": "font-size",
       "$value": "0.8125rem",
       "$modes": {
@@ -22883,96 +23074,23 @@
             "$type": "font-size"
           }
         },
-        "key": "{stepper-nav.step.description.typography.font-size}"
+        "key": "{stepper.nav.step.description.typography.font-size}"
       },
       "name": "hds-stepper-nav-step-description-typography-font-size",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "typography",
         "font-size"
       ]
     },
-    "hds-stepper-nav-step-complete-title-foreground-color-default": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#0c0c0e",
-      "$modes": {
-        "default": "#0c0c0e",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.strong}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-complete-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#1060ff",
-      "$modes": {
-        "default": "#1060ff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.action}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-complete-description-foreground-color": {
-      "key": "{stepper-nav.step.complete.description.foreground.color}",
+    "hds-stepper-nav-step-description-foreground-color-complete": {
+      "key": "{stepper.nav.step.description.foreground.color.complete}",
       "$type": "color",
       "$value": "#3b3d45",
       "$modes": {
@@ -22992,23 +23110,98 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{stepper-nav.step.complete.description.foreground.color}"
+        "key": "{stepper.nav.step.description.foreground.color.complete}"
       },
-      "name": "hds-stepper-nav-step-complete-description-foreground-color",
+      "name": "hds-stepper-nav-step-description-foreground-color-complete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "description",
         "foreground",
-        "color"
+        "color",
+        "complete"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-hover": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.hover}",
+    "hds-stepper-nav-step-description-foreground-color-active": {
+      "key": "{stepper.nav.step.description.foreground.color.active}",
+      "$type": "color",
+      "$value": "#3b3d45",
+      "$modes": {
+        "default": "#3b3d45",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.primary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.active}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-active",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "active"
+      ]
+    },
+    "hds-stepper-nav-step-description-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.description.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#656a76",
+      "$modes": {
+        "default": "#656a76",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.faint}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-step-surface-color-complete-interactive-hover": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "#f1f2f3",
       "$modes": {
@@ -23028,24 +23221,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.hover}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.hover}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-hover",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-hover",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "hover"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-active": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.active}",
+    "hds-stepper-nav-step-surface-color-complete-interactive-active": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.active}",
       "$type": "color",
       "$value": "#dedfe3",
       "$modes": {
@@ -23065,206 +23259,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.active}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.active}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-active",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-active",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "active"
       ]
     },
-    "hds-stepper-nav-step-active-title-foreground-color-default": {
-      "key": "{stepper-nav.step.active.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#0c0c0e",
-      "$modes": {
-        "default": "#0c0c0e",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.strong}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-active-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.active.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#1060ff",
-      "$modes": {
-        "default": "#1060ff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.action}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-active-description-foreground-color": {
-      "key": "{stepper-nav.step.active.description.foreground.color}",
-      "$type": "color",
-      "$value": "#3b3d45",
-      "$modes": {
-        "default": "#3b3d45",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.primary}",
-        "$modes": {
-          "default": "{foreground.color.primary}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.active.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-active-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-title-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.title.foreground.color}",
-      "$type": "color",
-      "$value": "#656a76",
-      "$modes": {
-        "default": "#656a76",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.faint}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.incomplete.title.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-title-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "title",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-description-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.description.foreground.color}",
-      "$type": "color",
-      "$value": "#656a76",
-      "$modes": {
-        "default": "#656a76",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.faint}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.incomplete.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper-nav.progress-bar.height}",
+      "key": "{stepper.nav.progress-bar.height}",
       "$type": "dimension",
       "$value": "4px",
       "unit": "px",
@@ -23286,20 +23299,21 @@
           "cds-g90": "2",
           "cds-g100": "2"
         },
-        "key": "{stepper-nav.progress-bar.height}"
+        "key": "{stepper.nav.progress-bar.height}"
       },
       "name": "hds-stepper-nav-progress-bar-height",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "height"
       ]
     },
     "hds-stepper-nav-progress-bar-top": {
-      "key": "{stepper-nav.progress-bar.top}",
+      "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
       "$value": "-4px",
       "unit": "px",
@@ -23321,24 +23335,62 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.progress-bar.top}"
+        "key": "{stepper.nav.progress-bar.top}"
       },
       "name": "hds-stepper-nav-progress-bar-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "top"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper-nav.progress-bar.surface.color.incomplete}",
-      "$type": "color",
-      "$value": "#f1f2f3",
+    "hds-stepper-nav-progress-bar-border-width": {
+      "key": "{stepper.nav.progress-bar.border.width}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
       "$modes": {
-        "default": "#f1f2f3",
+        "default": "4",
+        "cds-g0": "2",
+        "cds-g10": "2",
+        "cds-g90": "2",
+        "cds-g100": "2"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        },
+        "key": "{stepper.nav.progress-bar.border.width}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-width",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "width"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-border-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.border.color.incomplete}",
+      "$type": "color",
+      "$value": "#dedfe3",
+      "$modes": {
+        "default": "#dedfe3",
         "cds-g0": "#e0e0e0",
         "cds-g10": "#c6c6c6",
         "cds-g90": "#525252",
@@ -23346,30 +23398,31 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{core.color.neutral-100}",
+        "$value": "{core.color.neutral-200}",
         "$modes": {
-          "default": "{core.color.neutral-100}",
+          "default": "{core.color.neutral-200}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
           "cds-g10": "{carbon.themes.g10.borderSubtle00}",
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.nav.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-nav-progress-bar-border-color-incomplete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.default}",
+    "hds-stepper-nav-progress-bar-border-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.default}",
       "$type": "color",
       "$value": "#0c0c0e",
       "$modes": {
@@ -23389,23 +23442,24 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.default}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.default}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-default",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete",
         "default"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}",
+    "hds-stepper-nav-progress-bar-border-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.interactive}",
       "$type": "color",
       "$value": "#1060ff",
       "$modes": {
@@ -23425,14 +23479,125 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
+      "$type": "color",
+      "$value": "#f1f2f3",
+      "$modes": {
+        "default": "#f1f2f3",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-100}",
+        "$modes": {
+          "default": "{core.color.neutral-100}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
+      "$type": "color",
+      "$value": "#0c0c0e",
+      "$modes": {
+        "default": "#0c0c0e",
+        "cds-g0": "#0c0c0e",
+        "cds-g10": "#0c0c0e",
+        "cds-g90": "#f1f2f3",
+        "cds-g100": "#f1f2f3"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-700}",
+        "$modes": {
+          "default": "{core.color.neutral-700}",
+          "cds-g0": "{core.color.neutral-700}",
+          "cds-g10": "{core.color.neutral-700}",
+          "cds-g90": "{core.color.neutral-100}",
+          "cds-g100": "{core.color.neutral-100}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#1060ff",
+      "$modes": {
+        "default": "#1060ff",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.blue-200}",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
       },
       "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "surface",
         "color",
@@ -49967,7 +50132,7 @@
       ]
     },
     "hds-stepper-nav-step-title-typography-font-weight": {
-      "key": "{stepper-nav.step.title.typography.font-weight}",
+      "key": "{stepper.nav.step.title.typography.font-weight}",
       "$type": "font-weight",
       "$value": 400,
       "$modes": {
@@ -49987,22 +50152,212 @@
           "cds-g90": "{carbon.typography.bodyCompact01.font-weight}",
           "cds-g100": "{carbon.typography.bodyCompact01.font-weight}"
         },
-        "key": "{stepper-nav.step.title.typography.font-weight}"
+        "key": "{stepper.nav.step.title.typography.font-weight}"
       },
       "name": "hds-stepper-nav-step-title-typography-font-weight",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "title",
         "typography",
         "font-weight"
       ]
     },
+    "hds-stepper-nav-step-title-foreground-color-complete-default": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-complete-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-default": {
+      "key": "{stepper.nav.step.title.foreground.color.active.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.active.interactive}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.title.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
     "hds-stepper-nav-step-description-margin-top": {
-      "key": "{stepper-nav.step.description.margin.top}",
+      "key": "{stepper.nav.step.description.margin.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -50024,14 +50379,15 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.step.description.margin.top}"
+        "key": "{stepper.nav.step.description.margin.top}"
       },
       "name": "hds-stepper-nav-step-description-margin-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "margin",
@@ -50039,7 +50395,7 @@
       ]
     },
     "hds-stepper-nav-step-description-typography-font-size": {
-      "key": "{stepper-nav.step.description.typography.font-size}",
+      "key": "{stepper.nav.step.description.typography.font-size}",
       "$type": "font-size",
       "$value": "0.75rem",
       "$modes": {
@@ -50109,96 +50465,23 @@
           }
         },
         "unit": "rem",
-        "key": "{stepper-nav.step.description.typography.font-size}"
+        "key": "{stepper.nav.step.description.typography.font-size}"
       },
       "name": "hds-stepper-nav-step-description-typography-font-size",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "typography",
         "font-size"
       ]
     },
-    "hds-stepper-nav-step-complete-title-foreground-color-default": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-complete-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-complete-description-foreground-color": {
-      "key": "{stepper-nav.step.complete.description.foreground.color}",
+    "hds-stepper-nav-step-description-foreground-color-complete": {
+      "key": "{stepper.nav.step.description.foreground.color.complete}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -50218,23 +50501,98 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{stepper-nav.step.complete.description.foreground.color}"
+        "key": "{stepper.nav.step.description.foreground.color.complete}"
       },
-      "name": "hds-stepper-nav-step-complete-description-foreground-color",
+      "name": "hds-stepper-nav-step-description-foreground-color-complete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "description",
         "foreground",
-        "color"
+        "color",
+        "complete"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-hover": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.hover}",
+    "hds-stepper-nav-step-description-foreground-color-active": {
+      "key": "{stepper.nav.step.description.foreground.color.active}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.active}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-active",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "active"
+      ]
+    },
+    "hds-stepper-nav-step-description-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.description.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-step-surface-color-complete-interactive-hover": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -50254,24 +50612,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.hover}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.hover}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-hover",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-hover",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "hover"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-active": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.active}",
+    "hds-stepper-nav-step-surface-color-complete-interactive-active": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.active}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -50291,206 +50650,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.active}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.active}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-active",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-active",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "active"
       ]
     },
-    "hds-stepper-nav-step-active-title-foreground-color-default": {
-      "key": "{stepper-nav.step.active.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-active-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.active.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-active-description-foreground-color": {
-      "key": "{stepper-nav.step.active.description.foreground.color}",
-      "$type": "color",
-      "$value": "#525252",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.textSecondary}",
-        "$modes": {
-          "default": "{foreground.color.primary}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.active.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-active-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-title-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.title.foreground.color}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#525252",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.incomplete.title.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-title-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "title",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-description-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.description.foreground.color}",
-      "$type": "color",
-      "$value": "#525252",
-      "$modes": {
-        "default": "#525252",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.textSecondary}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.incomplete.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper-nav.progress-bar.height}",
+      "key": "{stepper.nav.progress-bar.height}",
       "$type": "dimension",
       "$value": "2px",
       "unit": "px",
@@ -50512,20 +50690,21 @@
           "cds-g90": "2",
           "cds-g100": "2"
         },
-        "key": "{stepper-nav.progress-bar.height}"
+        "key": "{stepper.nav.progress-bar.height}"
       },
       "name": "hds-stepper-nav-progress-bar-height",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "height"
       ]
     },
     "hds-stepper-nav-progress-bar-top": {
-      "key": "{stepper-nav.progress-bar.top}",
+      "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -50547,24 +50726,62 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.progress-bar.top}"
+        "key": "{stepper.nav.progress-bar.top}"
       },
       "name": "hds-stepper-nav-progress-bar-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "top"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper-nav.progress-bar.surface.color.incomplete}",
+    "hds-stepper-nav-progress-bar-border-width": {
+      "key": "{stepper.nav.progress-bar.border.width}",
+      "$type": "dimension",
+      "$value": "2px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "2",
+        "cds-g10": "2",
+        "cds-g90": "2",
+        "cds-g100": "2"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "2",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        },
+        "key": "{stepper.nav.progress-bar.border.width}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-width",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "width"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-border-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
-        "default": "#e0e0e0",
+        "default": "#c6c6c6",
         "cds-g0": "#e0e0e0",
         "cds-g10": "#c6c6c6",
         "cds-g90": "#525252",
@@ -50574,28 +50791,29 @@
         "$type": "color",
         "$value": "{carbon.themes.white.borderSubtle00}",
         "$modes": {
-          "default": "{core.color.neutral-100}",
+          "default": "{core.color.neutral-200}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
           "cds-g10": "{carbon.themes.g10.borderSubtle00}",
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.nav.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-nav-progress-bar-border-color-incomplete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.default}",
+    "hds-stepper-nav-progress-bar-border-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -50615,23 +50833,24 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.default}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.default}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-default",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete",
         "default"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}",
+    "hds-stepper-nav-progress-bar-border-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -50651,14 +50870,125 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
+      "$type": "color",
+      "$value": "#e0e0e0",
+      "$modes": {
+        "default": "#e0e0e0",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.borderSubtle00}",
+        "$modes": {
+          "default": "{core.color.neutral-100}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#e0e0e0",
+        "cds-g100": "#e0e0e0"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-700}",
+        "$modes": {
+          "default": "{core.color.neutral-700}",
+          "cds-g0": "{core.color.neutral-700}",
+          "cds-g10": "{core.color.neutral-700}",
+          "cds-g90": "{core.color.neutral-100}",
+          "cds-g100": "{core.color.neutral-100}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
       },
       "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "surface",
         "color",
@@ -77193,7 +77523,7 @@
       ]
     },
     "hds-stepper-nav-step-title-typography-font-weight": {
-      "key": "{stepper-nav.step.title.typography.font-weight}",
+      "key": "{stepper.nav.step.title.typography.font-weight}",
       "$type": "font-weight",
       "$value": 400,
       "$modes": {
@@ -77213,22 +77543,212 @@
           "cds-g90": "{carbon.typography.bodyCompact01.font-weight}",
           "cds-g100": "{carbon.typography.bodyCompact01.font-weight}"
         },
-        "key": "{stepper-nav.step.title.typography.font-weight}"
+        "key": "{stepper.nav.step.title.typography.font-weight}"
       },
       "name": "hds-stepper-nav-step-title-typography-font-weight",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "title",
         "typography",
         "font-weight"
       ]
     },
+    "hds-stepper-nav-step-title-foreground-color-complete-default": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-complete-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-default": {
+      "key": "{stepper.nav.step.title.foreground.color.active.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.active.interactive}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.title.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
     "hds-stepper-nav-step-description-margin-top": {
-      "key": "{stepper-nav.step.description.margin.top}",
+      "key": "{stepper.nav.step.description.margin.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -77250,14 +77770,15 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.step.description.margin.top}"
+        "key": "{stepper.nav.step.description.margin.top}"
       },
       "name": "hds-stepper-nav-step-description-margin-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "margin",
@@ -77265,7 +77786,7 @@
       ]
     },
     "hds-stepper-nav-step-description-typography-font-size": {
-      "key": "{stepper-nav.step.description.typography.font-size}",
+      "key": "{stepper.nav.step.description.typography.font-size}",
       "$type": "font-size",
       "$value": "0.75rem",
       "$modes": {
@@ -77335,96 +77856,23 @@
           }
         },
         "unit": "rem",
-        "key": "{stepper-nav.step.description.typography.font-size}"
+        "key": "{stepper.nav.step.description.typography.font-size}"
       },
       "name": "hds-stepper-nav-step-description-typography-font-size",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "typography",
         "font-size"
       ]
     },
-    "hds-stepper-nav-step-complete-title-foreground-color-default": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-complete-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-complete-description-foreground-color": {
-      "key": "{stepper-nav.step.complete.description.foreground.color}",
+    "hds-stepper-nav-step-description-foreground-color-complete": {
+      "key": "{stepper.nav.step.description.foreground.color.complete}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
@@ -77444,23 +77892,98 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{stepper-nav.step.complete.description.foreground.color}"
+        "key": "{stepper.nav.step.description.foreground.color.complete}"
       },
-      "name": "hds-stepper-nav-step-complete-description-foreground-color",
+      "name": "hds-stepper-nav-step-description-foreground-color-complete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "description",
         "foreground",
-        "color"
+        "color",
+        "complete"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-hover": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.hover}",
+    "hds-stepper-nav-step-description-foreground-color-active": {
+      "key": "{stepper.nav.step.description.foreground.color.active}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.active}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-active",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "active"
+      ]
+    },
+    "hds-stepper-nav-step-description-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.description.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#525252",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-step-surface-color-complete-interactive-hover": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -77480,24 +78003,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.hover}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.hover}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-hover",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-hover",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "hover"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-active": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.active}",
+    "hds-stepper-nav-step-surface-color-complete-interactive-active": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.active}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -77517,206 +78041,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.active}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.active}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-active",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-active",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "active"
       ]
     },
-    "hds-stepper-nav-step-active-title-foreground-color-default": {
-      "key": "{stepper-nav.step.active.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-active-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.active.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#0f62fe",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-active-description-foreground-color": {
-      "key": "{stepper-nav.step.active.description.foreground.color}",
-      "$type": "color",
-      "$value": "#525252",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.textSecondary}",
-        "$modes": {
-          "default": "{foreground.color.primary}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.active.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-active-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-title-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.title.foreground.color}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#525252",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.incomplete.title.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-title-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "title",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-description-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.description.foreground.color}",
-      "$type": "color",
-      "$value": "#525252",
-      "$modes": {
-        "default": "#525252",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.textSecondary}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.incomplete.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper-nav.progress-bar.height}",
+      "key": "{stepper.nav.progress-bar.height}",
       "$type": "dimension",
       "$value": "2px",
       "unit": "px",
@@ -77738,20 +78081,21 @@
           "cds-g90": "2",
           "cds-g100": "2"
         },
-        "key": "{stepper-nav.progress-bar.height}"
+        "key": "{stepper.nav.progress-bar.height}"
       },
       "name": "hds-stepper-nav-progress-bar-height",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "height"
       ]
     },
     "hds-stepper-nav-progress-bar-top": {
-      "key": "{stepper-nav.progress-bar.top}",
+      "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -77773,24 +78117,62 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.progress-bar.top}"
+        "key": "{stepper.nav.progress-bar.top}"
       },
       "name": "hds-stepper-nav-progress-bar-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "top"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper-nav.progress-bar.surface.color.incomplete}",
+    "hds-stepper-nav-progress-bar-border-width": {
+      "key": "{stepper.nav.progress-bar.border.width}",
+      "$type": "dimension",
+      "$value": "2px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "2",
+        "cds-g10": "2",
+        "cds-g90": "2",
+        "cds-g100": "2"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "2",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        },
+        "key": "{stepper.nav.progress-bar.border.width}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-width",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "width"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-border-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
-        "default": "#e0e0e0",
+        "default": "#c6c6c6",
         "cds-g0": "#e0e0e0",
         "cds-g10": "#c6c6c6",
         "cds-g90": "#525252",
@@ -77800,28 +78182,29 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.borderSubtle00}",
         "$modes": {
-          "default": "{core.color.neutral-100}",
+          "default": "{core.color.neutral-200}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
           "cds-g10": "{carbon.themes.g10.borderSubtle00}",
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.nav.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-nav-progress-bar-border-color-incomplete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.default}",
+    "hds-stepper-nav-progress-bar-border-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -77841,23 +78224,24 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.default}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.default}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-default",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete",
         "default"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}",
+    "hds-stepper-nav-progress-bar-border-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -77877,14 +78261,125 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#e0e0e0",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.borderSubtle00}",
+        "$modes": {
+          "default": "{core.color.neutral-100}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#e0e0e0",
+        "cds-g100": "#e0e0e0"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-700}",
+        "$modes": {
+          "default": "{core.color.neutral-700}",
+          "cds-g0": "{core.color.neutral-700}",
+          "cds-g10": "{core.color.neutral-700}",
+          "cds-g90": "{core.color.neutral-100}",
+          "cds-g100": "{core.color.neutral-100}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
       },
       "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "surface",
         "color",
@@ -104419,7 +104914,7 @@
       ]
     },
     "hds-stepper-nav-step-title-typography-font-weight": {
-      "key": "{stepper-nav.step.title.typography.font-weight}",
+      "key": "{stepper.nav.step.title.typography.font-weight}",
       "$type": "font-weight",
       "$value": 400,
       "$modes": {
@@ -104439,22 +104934,212 @@
           "cds-g90": "{carbon.typography.bodyCompact01.font-weight}",
           "cds-g100": "{carbon.typography.bodyCompact01.font-weight}"
         },
-        "key": "{stepper-nav.step.title.typography.font-weight}"
+        "key": "{stepper.nav.step.title.typography.font-weight}"
       },
       "name": "hds-stepper-nav-step-title-typography-font-weight",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "title",
         "typography",
         "font-weight"
       ]
     },
+    "hds-stepper-nav-step-title-foreground-color-complete-default": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-complete-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#78a9ff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-default": {
+      "key": "{stepper.nav.step.title.foreground.color.active.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.active.interactive}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#78a9ff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.title.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
     "hds-stepper-nav-step-description-margin-top": {
-      "key": "{stepper-nav.step.description.margin.top}",
+      "key": "{stepper.nav.step.description.margin.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -104476,14 +105161,15 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.step.description.margin.top}"
+        "key": "{stepper.nav.step.description.margin.top}"
       },
       "name": "hds-stepper-nav-step-description-margin-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "margin",
@@ -104491,7 +105177,7 @@
       ]
     },
     "hds-stepper-nav-step-description-typography-font-size": {
-      "key": "{stepper-nav.step.description.typography.font-size}",
+      "key": "{stepper.nav.step.description.typography.font-size}",
       "$type": "font-size",
       "$value": "0.75rem",
       "$modes": {
@@ -104561,96 +105247,23 @@
           }
         },
         "unit": "rem",
-        "key": "{stepper-nav.step.description.typography.font-size}"
+        "key": "{stepper.nav.step.description.typography.font-size}"
       },
       "name": "hds-stepper-nav-step-description-typography-font-size",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "typography",
         "font-size"
       ]
     },
-    "hds-stepper-nav-step-complete-title-foreground-color-default": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#f4f4f4",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-complete-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#78a9ff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-complete-description-foreground-color": {
-      "key": "{stepper-nav.step.complete.description.foreground.color}",
+    "hds-stepper-nav-step-description-foreground-color-complete": {
+      "key": "{stepper.nav.step.description.foreground.color.complete}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -104670,23 +105283,98 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{stepper-nav.step.complete.description.foreground.color}"
+        "key": "{stepper.nav.step.description.foreground.color.complete}"
       },
-      "name": "hds-stepper-nav-step-complete-description-foreground-color",
+      "name": "hds-stepper-nav-step-description-foreground-color-complete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "description",
         "foreground",
-        "color"
+        "color",
+        "complete"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-hover": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.hover}",
+    "hds-stepper-nav-step-description-foreground-color-active": {
+      "key": "{stepper.nav.step.description.foreground.color.active}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.active}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-active",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "active"
+      ]
+    },
+    "hds-stepper-nav-step-description-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.description.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-step-surface-color-complete-interactive-hover": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -104706,24 +105394,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.hover}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.hover}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-hover",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-hover",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "hover"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-active": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.active}",
+    "hds-stepper-nav-step-surface-color-complete-interactive-active": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.active}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -104743,206 +105432,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.active}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.active}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-active",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-active",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "active"
       ]
     },
-    "hds-stepper-nav-step-active-title-foreground-color-default": {
-      "key": "{stepper-nav.step.active.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#f4f4f4",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-active-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.active.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#78a9ff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-active-description-foreground-color": {
-      "key": "{stepper-nav.step.active.description.foreground.color}",
-      "$type": "color",
-      "$value": "#c6c6c6",
-      "$modes": {
-        "default": "#f4f4f4",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.textSecondary}",
-        "$modes": {
-          "default": "{foreground.color.primary}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.active.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-active-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-title-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.title.foreground.color}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#c6c6c6",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.incomplete.title.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-title-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "title",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-description-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.description.foreground.color}",
-      "$type": "color",
-      "$value": "#c6c6c6",
-      "$modes": {
-        "default": "#c6c6c6",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.textSecondary}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.incomplete.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper-nav.progress-bar.height}",
+      "key": "{stepper.nav.progress-bar.height}",
       "$type": "dimension",
       "$value": "2px",
       "unit": "px",
@@ -104964,20 +105472,21 @@
           "cds-g90": "2",
           "cds-g100": "2"
         },
-        "key": "{stepper-nav.progress-bar.height}"
+        "key": "{stepper.nav.progress-bar.height}"
       },
       "name": "hds-stepper-nav-progress-bar-height",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "height"
       ]
     },
     "hds-stepper-nav-progress-bar-top": {
-      "key": "{stepper-nav.progress-bar.top}",
+      "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -104999,24 +105508,62 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.progress-bar.top}"
+        "key": "{stepper.nav.progress-bar.top}"
       },
       "name": "hds-stepper-nav-progress-bar-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "top"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper-nav.progress-bar.surface.color.incomplete}",
+    "hds-stepper-nav-progress-bar-border-width": {
+      "key": "{stepper.nav.progress-bar.border.width}",
+      "$type": "dimension",
+      "$value": "2px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "2",
+        "cds-g10": "2",
+        "cds-g90": "2",
+        "cds-g100": "2"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "2",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        },
+        "key": "{stepper.nav.progress-bar.border.width}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-width",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "width"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-border-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#525252",
       "$modes": {
-        "default": "#e0e0e0",
+        "default": "#c6c6c6",
         "cds-g0": "#e0e0e0",
         "cds-g10": "#c6c6c6",
         "cds-g90": "#525252",
@@ -105026,28 +105573,29 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.borderSubtle00}",
         "$modes": {
-          "default": "{core.color.neutral-100}",
+          "default": "{core.color.neutral-200}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
           "cds-g10": "{carbon.themes.g10.borderSubtle00}",
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.nav.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-nav-progress-bar-border-color-incomplete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.default}",
+    "hds-stepper-nav-progress-bar-border-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.default}",
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
@@ -105067,23 +105615,24 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.default}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.default}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-default",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete",
         "default"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}",
+    "hds-stepper-nav-progress-bar-border-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -105103,14 +105652,125 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
+      "$type": "color",
+      "$value": "#525252",
+      "$modes": {
+        "default": "#e0e0e0",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.borderSubtle00}",
+        "$modes": {
+          "default": "{core.color.neutral-100}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
+      "$type": "color",
+      "$value": "#e0e0e0",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#e0e0e0",
+        "cds-g100": "#e0e0e0"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-100}",
+        "$modes": {
+          "default": "{core.color.neutral-700}",
+          "cds-g0": "{core.color.neutral-700}",
+          "cds-g10": "{core.color.neutral-700}",
+          "cds-g90": "{core.color.neutral-100}",
+          "cds-g100": "{core.color.neutral-100}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#4589ff",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
       },
       "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "surface",
         "color",
@@ -131645,7 +132305,7 @@
       ]
     },
     "hds-stepper-nav-step-title-typography-font-weight": {
-      "key": "{stepper-nav.step.title.typography.font-weight}",
+      "key": "{stepper.nav.step.title.typography.font-weight}",
       "$type": "font-weight",
       "$value": 400,
       "$modes": {
@@ -131665,22 +132325,212 @@
           "cds-g90": "{carbon.typography.bodyCompact01.font-weight}",
           "cds-g100": "{carbon.typography.bodyCompact01.font-weight}"
         },
-        "key": "{stepper-nav.step.title.typography.font-weight}"
+        "key": "{stepper.nav.step.title.typography.font-weight}"
       },
       "name": "hds-stepper-nav-step-title-typography-font-weight",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "title",
         "typography",
         "font-weight"
       ]
     },
+    "hds-stepper-nav-step-title-foreground-color-complete-default": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-complete-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#78a9ff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-default": {
+      "key": "{stepper.nav.step.title.foreground.color.active.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.strong}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.default}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-active-interactive": {
+      "key": "{stepper.nav.step.title.foreground.color.active.interactive}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#78a9ff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.action}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.active.interactive}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-active-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "active",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-step-title-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.title.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textPrimary}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textPrimary}",
+          "cds-g10": "{carbon.themes.g10.textPrimary}",
+          "cds-g90": "{carbon.themes.g90.textPrimary}",
+          "cds-g100": "{carbon.themes.g100.textPrimary}"
+        },
+        "key": "{stepper.nav.step.title.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-title-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "title",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
     "hds-stepper-nav-step-description-margin-top": {
-      "key": "{stepper-nav.step.description.margin.top}",
+      "key": "{stepper.nav.step.description.margin.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -131702,14 +132552,15 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.step.description.margin.top}"
+        "key": "{stepper.nav.step.description.margin.top}"
       },
       "name": "hds-stepper-nav-step-description-margin-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "margin",
@@ -131717,7 +132568,7 @@
       ]
     },
     "hds-stepper-nav-step-description-typography-font-size": {
-      "key": "{stepper-nav.step.description.typography.font-size}",
+      "key": "{stepper.nav.step.description.typography.font-size}",
       "$type": "font-size",
       "$value": "0.75rem",
       "$modes": {
@@ -131787,96 +132638,23 @@
           }
         },
         "unit": "rem",
-        "key": "{stepper-nav.step.description.typography.font-size}"
+        "key": "{stepper.nav.step.description.typography.font-size}"
       },
       "name": "hds-stepper-nav-step-description-typography-font-size",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
         "description",
         "typography",
         "font-size"
       ]
     },
-    "hds-stepper-nav-step-complete-title-foreground-color-default": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#f4f4f4",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-complete-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.complete.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#78a9ff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.complete.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-complete-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "complete",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-complete-description-foreground-color": {
-      "key": "{stepper-nav.step.complete.description.foreground.color}",
+    "hds-stepper-nav-step-description-foreground-color-complete": {
+      "key": "{stepper.nav.step.description.foreground.color.complete}",
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
@@ -131896,23 +132674,98 @@
           "cds-g90": "{carbon.themes.g90.textSecondary}",
           "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
-        "key": "{stepper-nav.step.complete.description.foreground.color}"
+        "key": "{stepper.nav.step.description.foreground.color.complete}"
       },
-      "name": "hds-stepper-nav-step-complete-description-foreground-color",
+      "name": "hds-stepper-nav-step-description-foreground-color-complete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "description",
         "foreground",
-        "color"
+        "color",
+        "complete"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-hover": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.hover}",
+    "hds-stepper-nav-step-description-foreground-color-active": {
+      "key": "{stepper.nav.step.description.foreground.color.active}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#f4f4f4",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.primary}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.active}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-active",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "active"
+      ]
+    },
+    "hds-stepper-nav-step-description-foreground-color-incomplete": {
+      "key": "{stepper.nav.step.description.foreground.color.incomplete}",
+      "$type": "color",
+      "$value": "#c6c6c6",
+      "$modes": {
+        "default": "#c6c6c6",
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.textSecondary}",
+        "$modes": {
+          "default": "{foreground.color.faint}",
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
+        },
+        "key": "{stepper.nav.step.description.foreground.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-step-description-foreground-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "step",
+        "description",
+        "foreground",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-step-surface-color-complete-interactive-hover": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -131932,24 +132785,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.hover}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.hover}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-hover",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-hover",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "hover"
       ]
     },
-    "hds-stepper-nav-step-complete-surface-color-interactive-active": {
-      "key": "{stepper-nav.step.complete.surface.color.interactive.active}",
+    "hds-stepper-nav-step-surface-color-complete-interactive-active": {
+      "key": "{stepper.nav.step.surface.color.complete.interactive.active}",
       "$type": "color",
       "$value": "rgba(0, 0, 0, 0)",
       "$modes": {
@@ -131969,206 +132823,25 @@
           "cds-g90": "transparent",
           "cds-g100": "transparent"
         },
-        "key": "{stepper-nav.step.complete.surface.color.interactive.active}"
+        "key": "{stepper.nav.step.surface.color.complete.interactive.active}"
       },
-      "name": "hds-stepper-nav-step-complete-surface-color-interactive-active",
+      "name": "hds-stepper-nav-step-surface-color-complete-interactive-active",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "step",
-        "complete",
         "surface",
         "color",
+        "complete",
         "interactive",
         "active"
       ]
     },
-    "hds-stepper-nav-step-active-title-foreground-color-default": {
-      "key": "{stepper-nav.step.active.title.foreground.color.default}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#f4f4f4",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.strong}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.default}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-default",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "default"
-      ]
-    },
-    "hds-stepper-nav-step-active-title-foreground-color-interactive": {
-      "key": "{stepper-nav.step.active.title.foreground.color.interactive}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#78a9ff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.action}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.active.title.foreground.color.interactive}"
-      },
-      "name": "hds-stepper-nav-step-active-title-foreground-color-interactive",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "title",
-        "foreground",
-        "color",
-        "interactive"
-      ]
-    },
-    "hds-stepper-nav-step-active-description-foreground-color": {
-      "key": "{stepper-nav.step.active.description.foreground.color}",
-      "$type": "color",
-      "$value": "#c6c6c6",
-      "$modes": {
-        "default": "#f4f4f4",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.textSecondary}",
-        "$modes": {
-          "default": "{foreground.color.primary}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.active.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-active-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "active",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-title-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.title.foreground.color}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#c6c6c6",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.textPrimary}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
-        },
-        "key": "{stepper-nav.step.incomplete.title.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-title-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "title",
-        "foreground",
-        "color"
-      ]
-    },
-    "hds-stepper-nav-step-incomplete-description-foreground-color": {
-      "key": "{stepper-nav.step.incomplete.description.foreground.color}",
-      "$type": "color",
-      "$value": "#c6c6c6",
-      "$modes": {
-        "default": "#c6c6c6",
-        "cds-g0": "#525252",
-        "cds-g10": "#525252",
-        "cds-g90": "#c6c6c6",
-        "cds-g100": "#c6c6c6"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.textSecondary}",
-        "$modes": {
-          "default": "{foreground.color.faint}",
-          "cds-g0": "{carbon.themes.white.textSecondary}",
-          "cds-g10": "{carbon.themes.g10.textSecondary}",
-          "cds-g90": "{carbon.themes.g90.textSecondary}",
-          "cds-g100": "{carbon.themes.g100.textSecondary}"
-        },
-        "key": "{stepper-nav.step.incomplete.description.foreground.color}"
-      },
-      "name": "hds-stepper-nav-step-incomplete-description-foreground-color",
-      "attributes": {
-        "category": "stepper-nav"
-      },
-      "path": [
-        "stepper-nav",
-        "step",
-        "incomplete",
-        "description",
-        "foreground",
-        "color"
-      ]
-    },
     "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper-nav.progress-bar.height}",
+      "key": "{stepper.nav.progress-bar.height}",
       "$type": "dimension",
       "$value": "2px",
       "unit": "px",
@@ -132190,20 +132863,21 @@
           "cds-g90": "2",
           "cds-g100": "2"
         },
-        "key": "{stepper-nav.progress-bar.height}"
+        "key": "{stepper.nav.progress-bar.height}"
       },
       "name": "hds-stepper-nav-progress-bar-height",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "height"
       ]
     },
     "hds-stepper-nav-progress-bar-top": {
-      "key": "{stepper-nav.progress-bar.top}",
+      "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -132225,24 +132899,62 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{stepper-nav.progress-bar.top}"
+        "key": "{stepper.nav.progress-bar.top}"
       },
       "name": "hds-stepper-nav-progress-bar-top",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "top"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
-      "key": "{stepper-nav.progress-bar.surface.color.incomplete}",
+    "hds-stepper-nav-progress-bar-border-width": {
+      "key": "{stepper.nav.progress-bar.border.width}",
+      "$type": "dimension",
+      "$value": "2px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "2",
+        "cds-g10": "2",
+        "cds-g90": "2",
+        "cds-g100": "2"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "2",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        },
+        "key": "{stepper.nav.progress-bar.border.width}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-width",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "width"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-border-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.border.color.incomplete}",
       "$type": "color",
       "$value": "#393939",
       "$modes": {
-        "default": "#e0e0e0",
+        "default": "#c6c6c6",
         "cds-g0": "#e0e0e0",
         "cds-g10": "#c6c6c6",
         "cds-g90": "#525252",
@@ -132252,28 +132964,29 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.borderSubtle00}",
         "$modes": {
-          "default": "{core.color.neutral-100}",
+          "default": "{core.color.neutral-200}",
           "cds-g0": "{carbon.themes.white.borderSubtle00}",
           "cds-g10": "{carbon.themes.g10.borderSubtle00}",
           "cds-g90": "{carbon.themes.g90.borderSubtle00}",
           "cds-g100": "{carbon.themes.g100.borderSubtle00}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.incomplete}"
+        "key": "{stepper.nav.progress-bar.border.color.incomplete}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "name": "hds-stepper-nav-progress-bar-border-color-incomplete",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "incomplete"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.default}",
+    "hds-stepper-nav-progress-bar-border-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.default}",
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
@@ -132293,23 +133006,24 @@
           "cds-g90": "{core.color.neutral-100}",
           "cds-g100": "{core.color.neutral-100}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.default}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.default}"
       },
-      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-default",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
-        "surface",
+        "border",
         "color",
         "complete",
         "default"
       ]
     },
-    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
-      "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}",
+    "hds-stepper-nav-progress-bar-border-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.border.color.complete.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -132329,14 +133043,125 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{stepper-nav.progress-bar.surface.color.complete.interactive}"
+        "key": "{stepper.nav.progress-bar.border.color.complete.interactive}"
+      },
+      "name": "hds-stepper-nav-progress-bar-border-color-complete-interactive",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "border",
+        "color",
+        "complete",
+        "interactive"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-incomplete": {
+      "key": "{stepper.nav.progress-bar.surface.color.incomplete}",
+      "$type": "color",
+      "$value": "#393939",
+      "$modes": {
+        "default": "#e0e0e0",
+        "cds-g0": "#e0e0e0",
+        "cds-g10": "#c6c6c6",
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.borderSubtle00}",
+        "$modes": {
+          "default": "{core.color.neutral-100}",
+          "cds-g0": "{carbon.themes.white.borderSubtle00}",
+          "cds-g10": "{carbon.themes.g10.borderSubtle00}",
+          "cds-g90": "{carbon.themes.g90.borderSubtle00}",
+          "cds-g100": "{carbon.themes.g100.borderSubtle00}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.incomplete}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-incomplete",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "incomplete"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-default": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.default}",
+      "$type": "color",
+      "$value": "#e0e0e0",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#e0e0e0",
+        "cds-g100": "#e0e0e0"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-100}",
+        "$modes": {
+          "default": "{core.color.neutral-700}",
+          "cds-g0": "{core.color.neutral-700}",
+          "cds-g10": "{core.color.neutral-700}",
+          "cds-g90": "{core.color.neutral-100}",
+          "cds-g100": "{core.color.neutral-100}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.default}"
+      },
+      "name": "hds-stepper-nav-progress-bar-surface-color-complete-default",
+      "attributes": {
+        "category": "stepper"
+      },
+      "path": [
+        "stepper",
+        "nav",
+        "progress-bar",
+        "surface",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-stepper-nav-progress-bar-surface-color-complete-interactive": {
+      "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}",
+      "$type": "color",
+      "$value": "#4589ff",
+      "$modes": {
+        "default": "#0f62fe",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-200}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{stepper.nav.progress-bar.surface.color.complete.interactive}"
       },
       "name": "hds-stepper-nav-progress-bar-surface-color-complete-interactive",
       "attributes": {
-        "category": "stepper-nav"
+        "category": "stepper"
       },
       "path": [
-        "stepper-nav",
+        "stepper",
+        "nav",
         "progress-bar",
         "surface",
         "color",

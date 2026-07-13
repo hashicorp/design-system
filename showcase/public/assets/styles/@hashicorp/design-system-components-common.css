@@ -9271,23 +9271,16 @@ button.hds-button[href]::after {
   top: var(--hds-stepper-nav-progress-bar-top);
   left: 0;
   z-index: -1;
-  height: var(--hds-stepper-nav-progress-bar-height);
+  border-top: var(--hds-stepper-nav-progress-bar-border-width) solid;
   content: "";
 }
 .hds-stepper-nav__progress-bar::before {
   width: 100%;
-  background-color: var(--hds-stepper-nav-progress-bar-surface-color-incomplete);
-  background-image: linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%);
+  border-color: var(--hds-stepper-nav-progress-bar-border-color-incomplete);
 }
-.hds-theme-light .hds-stepper-nav__progress-bar::before,
-.hds-theme-dark .hds-stepper-nav__progress-bar::before,
-.hds-theme-system .hds-stepper-nav__progress-bar::before {
-  background-image: none;
-}
-
 .hds-stepper-nav__progress-bar::after {
   width: var(--hds-var-stepper-nav-progress-bar-width, 0);
-  background-color: var(--hds-stepper-nav-progress-bar-surface-color-complete-default);
+  border-color: var(--hds-stepper-nav-progress-bar-border-color-complete-default);
   border-radius: 0 var(--hds-border-radius-x-small) var(--hds-border-radius-x-small) 0;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -9366,29 +9359,29 @@ button.hds-button[href]::after {
 }
 
 .hds-stepper-nav__step-title {
-  color: var(--hds-stepper-nav-step-incomplete-title-foreground-color);
+  color: var(--hds-stepper-nav-step-title-foreground-color-incomplete);
   font-weight: var(--hds-stepper-nav-step-title-typography-font-weight);
   text-decoration: none;
 }
 
 .hds-stepper-nav__step-description {
   margin-top: var(--hds-stepper-nav-step-description-margin-top);
-  color: var(--hds-stepper-nav-step-incomplete-description-foreground-color);
+  color: var(--hds-stepper-nav-step-description-foreground-color-incomplete);
   font-size: var(--hds-stepper-nav-step-description-typography-font-size);
 }
 
 .hds-stepper-nav__step--complete .hds-stepper-nav__step-title {
-  color: var(--hds-stepper-nav-step-complete-title-foreground-color-default);
+  color: var(--hds-stepper-nav-step-title-foreground-color-complete-default);
 }
 .hds-stepper-nav__step--complete .hds-stepper-nav__step-description {
-  color: var(--hds-stepper-nav-step-complete-description-foreground-color);
+  color: var(--hds-stepper-nav-step-description-foreground-color-complete);
 }
 
 .hds-stepper-nav__step--active .hds-stepper-nav__step-title {
-  color: var(--hds-stepper-nav-step-active-title-foreground-color-default);
+  color: var(--hds-stepper-nav-step-title-foreground-color-active-default);
 }
 .hds-stepper-nav__step--active .hds-stepper-nav__step-description {
-  color: var(--hds-stepper-nav-step-active-description-foreground-color);
+  color: var(--hds-stepper-nav-step-description-foreground-color-active);
 }
 @media (prefers-reduced-motion: no-preference) {
   .hds-stepper-nav__step--active .hds-stepper-indicator-step__svg-hexagon path,
@@ -9404,10 +9397,10 @@ button.hds-button[href]::after {
 }
 
 .hds-stepper-nav--interactive .hds-stepper-nav__progress-bar::after {
-  background-color: var(--hds-stepper-nav-progress-bar-surface-color-complete-interactive);
+  border-color: var(--hds-stepper-nav-progress-bar-border-color-complete-interactive);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button .hds-stepper-nav__step-title {
-  color: var(--hds-stepper-nav-step-active-title-foreground-color-interactive);
+  color: var(--hds-stepper-nav-step-title-foreground-color-active-interactive);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button:focus-visible, .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button.mock-focus {
   position: relative;
@@ -9451,13 +9444,13 @@ button.hds-button[href]::after {
   cursor: pointer;
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button .hds-stepper-nav__step-title {
-  color: var(--hds-stepper-nav-step-complete-title-foreground-color-interactive);
+  color: var(--hds-stepper-nav-step-title-foreground-color-complete-interactive);
   text-decoration: underline;
   text-decoration-skip-ink: none;
   text-underline-position: from-font;
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover {
-  background-color: var(--hds-stepper-nav-step-complete-surface-color-interactive-hover);
+  background-color: var(--hds-stepper-nav-step-surface-color-complete-interactive-hover);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-nav__step-title, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-nav__step-title {
   color: var(--hds-foreground-color-action-hover);
@@ -9479,7 +9472,7 @@ button.hds-button[href]::after {
   pointer-events: auto;
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active {
-  background-color: var(--hds-stepper-nav-step-complete-surface-color-interactive-active);
+  background-color: var(--hds-stepper-nav-step-surface-color-complete-interactive-active);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-nav__step-title, .hds-stepper-nav--interactive .hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-nav__step-title {
   color: var(--hds-foreground-color-action-active);

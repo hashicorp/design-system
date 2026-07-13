@@ -852,6 +852,16 @@
     --hds-stepper-list-step-title-typography-font-weight: var(
       --hds-typography-font-weight-semibold
     );
+    --hds-stepper-nav-progress-bar-border-color-complete-default: var(
+      --hds-core-color-neutral-700
+    );
+    --hds-stepper-nav-progress-bar-border-color-complete-interactive: var(
+      --hds-core-color-blue-200
+    );
+    --hds-stepper-nav-progress-bar-border-color-incomplete: var(
+      --hds-core-color-neutral-200
+    );
+    --hds-stepper-nav-progress-bar-border-width: 4px;
     --hds-stepper-nav-progress-bar-height: 4px;
     --hds-stepper-nav-progress-bar-surface-color-complete-default: var(
       --hds-core-color-neutral-700
@@ -863,38 +873,38 @@
       --hds-core-color-neutral-100
     );
     --hds-stepper-nav-progress-bar-top: -4px;
-    --hds-stepper-nav-step-active-description-foreground-color: var(
+    --hds-stepper-nav-step-description-foreground-color-active: var(
       --hds-foreground-color-primary
     );
-    --hds-stepper-nav-step-active-title-foreground-color-default: var(
-      --hds-foreground-color-strong
-    );
-    --hds-stepper-nav-step-active-title-foreground-color-interactive: var(
-      --hds-foreground-color-action
-    );
-    --hds-stepper-nav-step-complete-description-foreground-color: var(
+    --hds-stepper-nav-step-description-foreground-color-complete: var(
       --hds-foreground-color-primary
     );
-    --hds-stepper-nav-step-complete-surface-color-interactive-active: var(
-      --hds-surface-color-interactive-active
-    );
-    --hds-stepper-nav-step-complete-surface-color-interactive-hover: var(
-      --hds-surface-color-interactive-hover
-    );
-    --hds-stepper-nav-step-complete-title-foreground-color-default: var(
-      --hds-foreground-color-strong
-    );
-    --hds-stepper-nav-step-complete-title-foreground-color-interactive: var(
-      --hds-foreground-color-action
+    --hds-stepper-nav-step-description-foreground-color-incomplete: var(
+      --hds-foreground-color-faint
     );
     --hds-stepper-nav-step-description-margin-top: 4px;
     --hds-stepper-nav-step-description-typography-font-size: var(
       --hds-typography-body-100-font-size
     );
-    --hds-stepper-nav-step-incomplete-description-foreground-color: var(
-      --hds-foreground-color-faint
+    --hds-stepper-nav-step-surface-color-complete-interactive-active: var(
+      --hds-surface-color-interactive-active
     );
-    --hds-stepper-nav-step-incomplete-title-foreground-color: var(
+    --hds-stepper-nav-step-surface-color-complete-interactive-hover: var(
+      --hds-surface-color-interactive-hover
+    );
+    --hds-stepper-nav-step-title-foreground-color-active-default: var(
+      --hds-foreground-color-strong
+    );
+    --hds-stepper-nav-step-title-foreground-color-active-interactive: var(
+      --hds-foreground-color-action
+    );
+    --hds-stepper-nav-step-title-foreground-color-complete-default: var(
+      --hds-foreground-color-strong
+    );
+    --hds-stepper-nav-step-title-foreground-color-complete-interactive: var(
+      --hds-foreground-color-action
+    );
+    --hds-stepper-nav-step-title-foreground-color-incomplete: var(
       --hds-foreground-color-faint
     );
     --hds-stepper-nav-step-title-typography-font-weight: var(
@@ -1591,6 +1601,12 @@
     --hds-stepper-list-step-description-margin-top: 0px;
     --hds-stepper-list-step-description-typography-font-size: 0.75rem;
     --hds-stepper-list-step-title-typography-font-weight: 400;
+    --hds-stepper-nav-progress-bar-border-color-complete-default: var(
+      --hds-core-color-neutral-700
+    );
+    --hds-stepper-nav-progress-bar-border-color-complete-interactive: #0f62fe;
+    --hds-stepper-nav-progress-bar-border-color-incomplete: #e0e0e0;
+    --hds-stepper-nav-progress-bar-border-width: 2px;
     --hds-stepper-nav-progress-bar-height: 2px;
     --hds-stepper-nav-progress-bar-surface-color-complete-default: var(
       --hds-core-color-neutral-700
@@ -1598,28 +1614,28 @@
     --hds-stepper-nav-progress-bar-surface-color-complete-interactive: #0f62fe;
     --hds-stepper-nav-progress-bar-surface-color-incomplete: #e0e0e0;
     --hds-stepper-nav-progress-bar-top: 0px;
-    --hds-stepper-nav-step-active-description-foreground-color: #525252;
-    --hds-stepper-nav-step-active-title-foreground-color-default: #161616;
-    --hds-stepper-nav-step-active-title-foreground-color-interactive: #161616;
-    --hds-stepper-nav-step-complete-description-foreground-color: #525252;
-    --hds-stepper-nav-step-complete-surface-color-interactive-active: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-surface-color-interactive-hover: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-title-foreground-color-default: #161616;
-    --hds-stepper-nav-step-complete-title-foreground-color-interactive: #161616;
+    --hds-stepper-nav-step-description-foreground-color-active: #525252;
+    --hds-stepper-nav-step-description-foreground-color-complete: #525252;
+    --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
-    --hds-stepper-nav-step-incomplete-description-foreground-color: #525252;
-    --hds-stepper-nav-step-incomplete-title-foreground-color: #161616;
+    --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-surface-color-complete-interactive-hover: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
+    --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
+    --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
+    --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
+    --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
     --hds-surface-base-box-shadow: none;
     --hds-surface-color-action: #d0e2ff;
@@ -2282,6 +2298,12 @@
     --hds-stepper-list-step-description-margin-top: 0px;
     --hds-stepper-list-step-description-typography-font-size: 0.75rem;
     --hds-stepper-list-step-title-typography-font-weight: 400;
+    --hds-stepper-nav-progress-bar-border-color-complete-default: var(
+      --hds-core-color-neutral-100
+    );
+    --hds-stepper-nav-progress-bar-border-color-complete-interactive: #4589ff;
+    --hds-stepper-nav-progress-bar-border-color-incomplete: #393939;
+    --hds-stepper-nav-progress-bar-border-width: 2px;
     --hds-stepper-nav-progress-bar-height: 2px;
     --hds-stepper-nav-progress-bar-surface-color-complete-default: var(
       --hds-core-color-neutral-100
@@ -2289,28 +2311,28 @@
     --hds-stepper-nav-progress-bar-surface-color-complete-interactive: #4589ff;
     --hds-stepper-nav-progress-bar-surface-color-incomplete: #393939;
     --hds-stepper-nav-progress-bar-top: 0px;
-    --hds-stepper-nav-step-active-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-active-title-foreground-color-default: #f4f4f4;
-    --hds-stepper-nav-step-active-title-foreground-color-interactive: #f4f4f4;
-    --hds-stepper-nav-step-complete-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-complete-surface-color-interactive-active: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-surface-color-interactive-hover: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-title-foreground-color-default: #f4f4f4;
-    --hds-stepper-nav-step-complete-title-foreground-color-interactive: #f4f4f4;
+    --hds-stepper-nav-step-description-foreground-color-active: #c6c6c6;
+    --hds-stepper-nav-step-description-foreground-color-complete: #c6c6c6;
+    --hds-stepper-nav-step-description-foreground-color-incomplete: #c6c6c6;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
-    --hds-stepper-nav-step-incomplete-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-incomplete-title-foreground-color: #f4f4f4;
+    --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-surface-color-complete-interactive-hover: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-title-foreground-color-active-default: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-active-interactive: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-complete-default: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-complete-interactive: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-incomplete: #f4f4f4;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
     --hds-surface-base-box-shadow: none;
     --hds-surface-color-action: #0043ce;
@@ -2953,6 +2975,12 @@
     --hds-stepper-list-step-description-margin-top: 0px;
     --hds-stepper-list-step-description-typography-font-size: 0.75rem;
     --hds-stepper-list-step-title-typography-font-weight: 400;
+    --hds-stepper-nav-progress-bar-border-color-complete-default: var(
+      --hds-core-color-neutral-700
+    );
+    --hds-stepper-nav-progress-bar-border-color-complete-interactive: #0f62fe;
+    --hds-stepper-nav-progress-bar-border-color-incomplete: #e0e0e0;
+    --hds-stepper-nav-progress-bar-border-width: 2px;
     --hds-stepper-nav-progress-bar-height: 2px;
     --hds-stepper-nav-progress-bar-surface-color-complete-default: var(
       --hds-core-color-neutral-700
@@ -2960,28 +2988,28 @@
     --hds-stepper-nav-progress-bar-surface-color-complete-interactive: #0f62fe;
     --hds-stepper-nav-progress-bar-surface-color-incomplete: #e0e0e0;
     --hds-stepper-nav-progress-bar-top: 0px;
-    --hds-stepper-nav-step-active-description-foreground-color: #525252;
-    --hds-stepper-nav-step-active-title-foreground-color-default: #161616;
-    --hds-stepper-nav-step-active-title-foreground-color-interactive: #161616;
-    --hds-stepper-nav-step-complete-description-foreground-color: #525252;
-    --hds-stepper-nav-step-complete-surface-color-interactive-active: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-surface-color-interactive-hover: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-title-foreground-color-default: #161616;
-    --hds-stepper-nav-step-complete-title-foreground-color-interactive: #161616;
+    --hds-stepper-nav-step-description-foreground-color-active: #525252;
+    --hds-stepper-nav-step-description-foreground-color-complete: #525252;
+    --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
-    --hds-stepper-nav-step-incomplete-description-foreground-color: #525252;
-    --hds-stepper-nav-step-incomplete-title-foreground-color: #161616;
+    --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-surface-color-complete-interactive-hover: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
+    --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
+    --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
+    --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
+    --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
     --hds-surface-base-box-shadow: none;
     --hds-surface-color-action: #d0e2ff;
@@ -3624,6 +3652,12 @@
     --hds-stepper-list-step-description-margin-top: 0px;
     --hds-stepper-list-step-description-typography-font-size: 0.75rem;
     --hds-stepper-list-step-title-typography-font-weight: 400;
+    --hds-stepper-nav-progress-bar-border-color-complete-default: var(
+      --hds-core-color-neutral-700
+    );
+    --hds-stepper-nav-progress-bar-border-color-complete-interactive: #0f62fe;
+    --hds-stepper-nav-progress-bar-border-color-incomplete: #c6c6c6;
+    --hds-stepper-nav-progress-bar-border-width: 2px;
     --hds-stepper-nav-progress-bar-height: 2px;
     --hds-stepper-nav-progress-bar-surface-color-complete-default: var(
       --hds-core-color-neutral-700
@@ -3631,28 +3665,28 @@
     --hds-stepper-nav-progress-bar-surface-color-complete-interactive: #0f62fe;
     --hds-stepper-nav-progress-bar-surface-color-incomplete: #c6c6c6;
     --hds-stepper-nav-progress-bar-top: 0px;
-    --hds-stepper-nav-step-active-description-foreground-color: #525252;
-    --hds-stepper-nav-step-active-title-foreground-color-default: #161616;
-    --hds-stepper-nav-step-active-title-foreground-color-interactive: #161616;
-    --hds-stepper-nav-step-complete-description-foreground-color: #525252;
-    --hds-stepper-nav-step-complete-surface-color-interactive-active: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-surface-color-interactive-hover: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-title-foreground-color-default: #161616;
-    --hds-stepper-nav-step-complete-title-foreground-color-interactive: #161616;
+    --hds-stepper-nav-step-description-foreground-color-active: #525252;
+    --hds-stepper-nav-step-description-foreground-color-complete: #525252;
+    --hds-stepper-nav-step-description-foreground-color-incomplete: #525252;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
-    --hds-stepper-nav-step-incomplete-description-foreground-color: #525252;
-    --hds-stepper-nav-step-incomplete-title-foreground-color: #161616;
+    --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-surface-color-complete-interactive-hover: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-title-foreground-color-active-default: #161616;
+    --hds-stepper-nav-step-title-foreground-color-active-interactive: #161616;
+    --hds-stepper-nav-step-title-foreground-color-complete-default: #161616;
+    --hds-stepper-nav-step-title-foreground-color-complete-interactive: #161616;
+    --hds-stepper-nav-step-title-foreground-color-incomplete: #161616;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
     --hds-surface-base-box-shadow: none;
     --hds-surface-color-action: #d0e2ff;
@@ -4315,6 +4349,12 @@
     --hds-stepper-list-step-description-margin-top: 0px;
     --hds-stepper-list-step-description-typography-font-size: 0.75rem;
     --hds-stepper-list-step-title-typography-font-weight: 400;
+    --hds-stepper-nav-progress-bar-border-color-complete-default: var(
+      --hds-core-color-neutral-100
+    );
+    --hds-stepper-nav-progress-bar-border-color-complete-interactive: #4589ff;
+    --hds-stepper-nav-progress-bar-border-color-incomplete: #525252;
+    --hds-stepper-nav-progress-bar-border-width: 2px;
     --hds-stepper-nav-progress-bar-height: 2px;
     --hds-stepper-nav-progress-bar-surface-color-complete-default: var(
       --hds-core-color-neutral-100
@@ -4322,28 +4362,28 @@
     --hds-stepper-nav-progress-bar-surface-color-complete-interactive: #4589ff;
     --hds-stepper-nav-progress-bar-surface-color-incomplete: #525252;
     --hds-stepper-nav-progress-bar-top: 0px;
-    --hds-stepper-nav-step-active-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-active-title-foreground-color-default: #f4f4f4;
-    --hds-stepper-nav-step-active-title-foreground-color-interactive: #f4f4f4;
-    --hds-stepper-nav-step-complete-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-complete-surface-color-interactive-active: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-surface-color-interactive-hover: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-title-foreground-color-default: #f4f4f4;
-    --hds-stepper-nav-step-complete-title-foreground-color-interactive: #f4f4f4;
+    --hds-stepper-nav-step-description-foreground-color-active: #c6c6c6;
+    --hds-stepper-nav-step-description-foreground-color-complete: #c6c6c6;
+    --hds-stepper-nav-step-description-foreground-color-incomplete: #c6c6c6;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
-    --hds-stepper-nav-step-incomplete-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-incomplete-title-foreground-color: #f4f4f4;
+    --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-surface-color-complete-interactive-hover: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-title-foreground-color-active-default: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-active-interactive: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-complete-default: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-complete-interactive: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-incomplete: #f4f4f4;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
     --hds-surface-base-box-shadow: none;
     --hds-surface-color-action: #0f62fe;
@@ -5006,6 +5046,12 @@
     --hds-stepper-list-step-description-margin-top: 0px;
     --hds-stepper-list-step-description-typography-font-size: 0.75rem;
     --hds-stepper-list-step-title-typography-font-weight: 400;
+    --hds-stepper-nav-progress-bar-border-color-complete-default: var(
+      --hds-core-color-neutral-100
+    );
+    --hds-stepper-nav-progress-bar-border-color-complete-interactive: #4589ff;
+    --hds-stepper-nav-progress-bar-border-color-incomplete: #393939;
+    --hds-stepper-nav-progress-bar-border-width: 2px;
     --hds-stepper-nav-progress-bar-height: 2px;
     --hds-stepper-nav-progress-bar-surface-color-complete-default: var(
       --hds-core-color-neutral-100
@@ -5013,28 +5059,28 @@
     --hds-stepper-nav-progress-bar-surface-color-complete-interactive: #4589ff;
     --hds-stepper-nav-progress-bar-surface-color-incomplete: #393939;
     --hds-stepper-nav-progress-bar-top: 0px;
-    --hds-stepper-nav-step-active-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-active-title-foreground-color-default: #f4f4f4;
-    --hds-stepper-nav-step-active-title-foreground-color-interactive: #f4f4f4;
-    --hds-stepper-nav-step-complete-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-complete-surface-color-interactive-active: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-surface-color-interactive-hover: rgba(
-      0,
-      0,
-      0,
-      0
-    );
-    --hds-stepper-nav-step-complete-title-foreground-color-default: #f4f4f4;
-    --hds-stepper-nav-step-complete-title-foreground-color-interactive: #f4f4f4;
+    --hds-stepper-nav-step-description-foreground-color-active: #c6c6c6;
+    --hds-stepper-nav-step-description-foreground-color-complete: #c6c6c6;
+    --hds-stepper-nav-step-description-foreground-color-incomplete: #c6c6c6;
     --hds-stepper-nav-step-description-margin-top: 0px;
     --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
-    --hds-stepper-nav-step-incomplete-description-foreground-color: #c6c6c6;
-    --hds-stepper-nav-step-incomplete-title-foreground-color: #f4f4f4;
+    --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-surface-color-complete-interactive-hover: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-stepper-nav-step-title-foreground-color-active-default: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-active-interactive: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-complete-default: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-complete-interactive: #f4f4f4;
+    --hds-stepper-nav-step-title-foreground-color-incomplete: #f4f4f4;
     --hds-stepper-nav-step-title-typography-font-weight: 400;
     --hds-surface-base-box-shadow: none;
     --hds-surface-color-action: #0043ce;
