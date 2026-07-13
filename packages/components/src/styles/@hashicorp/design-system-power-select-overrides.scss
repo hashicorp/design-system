@@ -20,8 +20,8 @@
   .ember-power-select-trigger {
     max-width: 100%;
     min-height: 36px;
-    padding: calc(var(--hds-form-control-padding) + 1px);
-    padding-right: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
+    padding: calc(var(--hds-form-control-padding-horizontal) + 1px);
+    padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
     color: var(--hds-form-control-base-foreground-color);
     background-color: var(--hds-form-control-base-surface-color-default);
     background-image: var(--hds-form-select-background-image-data-url);
@@ -96,7 +96,7 @@
     .ember-power-select-search-input {
       width: 100%;
       max-width: 100%;
-      padding: var(--hds-form-control-padding);
+      padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
       color: var(--hds-form-control-base-foreground-color);
       line-height: 1rem;
       background-color: var(--hds-form-control-base-surface-color-default);
@@ -126,7 +126,7 @@
       }
 
       &[type="search"] {
-        padding-left: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
+        padding-left: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
         background-image: var(--hds-form-text-input-background-image-data-url-search-default);
         background-repeat: no-repeat;
         background-position: var(--hds-form-text-input-background-image-position-x) 50%;
@@ -213,8 +213,8 @@
   }
 
   .ember-power-select-multiple-trigger {
-    padding-top: calc(var(--hds-form-control-padding) - 3px);
-    padding-bottom: calc(var(--hds-form-control-padding) - 3px);
+    padding-top: calc(var(--hds-form-control-padding-vertical) - 3px);
+    padding-bottom: calc(var(--hds-form-control-padding-vertical) - 3px);
     padding-left: 20px;
     background-image: var(--hds-form-select-background-image-data-url);
   }

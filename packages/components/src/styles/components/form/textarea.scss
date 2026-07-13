@@ -16,7 +16,7 @@
   width: 100%;
   max-width: 100%;
   min-height: 36px;
-  padding: var(--hds-form-control-padding);
+  padding: var(--hds-form-textarea-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
   background-color: var(--hds-form-control-base-surface-color-default);
   border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
@@ -26,8 +26,6 @@
 
   @include hds-apply-only-if-carbon() {
     min-height: 40px; // 2.5rem // TODO: create a token for this value
-    // TODO: Create tokens for vertical vs. horizontal padding
-    padding: 11px var(--hds-form-control-padding);
     // Carbon's text input has only a bottom border
     border-width: 0 0 var(--hds-form-control-border-width) 0;
   }

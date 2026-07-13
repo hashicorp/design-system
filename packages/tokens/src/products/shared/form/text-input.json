@@ -9,10 +9,10 @@
         },
         "position-x": {
           "$type": "dimension",
-          "$value": "{form.control.padding}",
+          "$value": "{form.control.padding.horizontal}",
           "unit": "px",
           "$modes": {
-            "default": "{form.control.padding}",
+            "default": "{form.control.padding.horizontal}",
             "cds-g0": "10",
             "cds-g10": "10",
             "cds-g90": "10",

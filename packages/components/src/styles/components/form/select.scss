@@ -14,8 +14,7 @@
 
 .hds-form-select {
   max-width: 100%;
-  padding: var(--hds-form-control-padding);
-  padding-right: calc(var(--hds-form-control-padding) + 24px); // extra space for the icon
+  padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
   background-color: var(--hds-form-control-base-surface-color-default);
   background-image: var(--hds-form-select-background-image-data-url);
@@ -28,10 +27,13 @@
   box-shadow: var(--hds-elevation-low-box-shadow);
   appearance: none;
 
+  // Note: There is no icon background for multiple/size select, so we don't need extra padding on the right
+  &:not([multiple], [size]) {
+    padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
+  }
+
   @include hds-apply-only-if-carbon() {
     min-height: 40px; // 2.5rem // TODO: create a token for this value
-    // padding: 0 var(--hds-form-control-padding);
-    padding: 8px var(--hds-form-control-padding); // TODO: 8px seems to work better, can be used for positioning icons/etc. (Test to confirm)
     padding-right: 48px; // TODO: Create token? (This matches the right padding in the Carbon Select)
 
     // Carbon's select has only a bottom border

@@ -9,7 +9,7 @@
         },
         "position-right-x": {
           "$type": "dimension",
-          "$value": "{form.control.padding}"
+          "$value": "{form.control.padding.horizontal}"
         },
         "position-top-y": {
           "$type": "dimension",

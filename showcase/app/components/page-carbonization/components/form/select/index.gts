@@ -82,10 +82,7 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
         <R.NoEquivalent @isCompact={{true}} @entity="variant" />
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="Multiple / With groups"
-      @layout="column-stacked"
-    >
+    <ShwCarbonizationComparisonGrid @label="Multiple / With groups">
       <:theming>
         <HdsFormSelectBase
           aria-label="multiple groups select"

@@ -2,19 +2,36 @@
   "form": {
     "control": {
       "padding": {
-        "$type": "dimension",
-        "$value": "7",
-        "unit": "px",
-        "$modes": {
-          "default": "7",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
+        "vertical": {
+          "$type": "dimension",
+          "$value": "7",
+          "unit": "px",
+          "$modes": {
+            "default": "7",
+            "cds-g0": "9",
+            "cds-g10": "9",
+            "cds-g90": "9",
+            "cds-g100": "9"
+          },
+          "comments": {
+            "hds": "Notice: we have to take in account the border, so it's 1px less than in Figma",
+            "cds": "Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases"
+          }
         },
-        "comments": {
-          "hds": "Notice: we have to take in account the border, so it's 1px less than in Figma",
-          "cds": "Notice: we set only horizontal padding"
+        "horizontal": {
+          "$type": "dimension",
+          "$value": "7",
+          "unit": "px",
+          "$modes": {
+            "default": "7",
+            "cds-g0": "16",
+            "cds-g10": "16",
+            "cds-g90": "16",
+            "cds-g100": "16"
+          },
+          "comments": {
+            "hds": "Notice: we have to take in account the border, so it's 1px less than in Figma"
+          }
         }
       },
       "border": {

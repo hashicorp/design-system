@@ -20,7 +20,7 @@ $hds-form-masked-input-button-size: 24px;
 
   .hds-form-masked-input__control {
     grid-area: input;
-    padding-right: calc(var(--hds-form-control-padding) + $hds-form-masked-input-button-size);
+    padding-right: calc(var(--hds-form-control-padding-horizontal) + $hds-form-masked-input-button-size);
     scrollbar-width: thin;
 
     @include hds-apply-only-if-carbon() {
@@ -43,8 +43,8 @@ $hds-form-masked-input-button-size: 24px;
 
 .hds-form-masked-input__toggle-button {
   position: absolute;
-  top: calc(var(--hds-form-control-padding) - var(--hds-form-control-border-width));
-  right: calc(var(--hds-form-control-padding) - var(--hds-form-control-border-width));
+  top: calc(var(--hds-form-control-padding-vertical) - var(--hds-form-control-border-width));
+  right: calc(var(--hds-form-control-padding-horizontal) - var(--hds-form-control-border-width));
   grid-area: input;
 
   @include hds-apply-only-if-carbon() {
