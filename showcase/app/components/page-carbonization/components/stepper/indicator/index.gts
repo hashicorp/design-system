@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { eq } from 'ember-truth-helpers';
 import { capitalize } from '@ember/string';
+import { LinkTo } from '@ember/routing';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -30,6 +31,11 @@ const StepperIndicatorCarbonizationIndex: TemplateOnlyComponent = <template>
 
   <section>
     <ShwTextH2>StepIndicator</ShwTextH2>
+
+    <ShwTextBody>
+      The StepIndicator component relies on the <code>HdsTheming</code> service to render the appropriate icons for the Carbon theme.
+      The changes made through the service will not be visible in this page. It is preferrable to view this component in the <LinkTo @route="page-components.stepper.indicator">main Stepper page</LinkTo>.
+    </ShwTextBody>
 
     <ShwTextH3>Default</ShwTextH3>
 

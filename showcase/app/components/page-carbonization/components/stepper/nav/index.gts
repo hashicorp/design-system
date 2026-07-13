@@ -9,6 +9,7 @@ import { array } from '@ember/helper';
 import { eq, or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 import NOOP from 'showcase/utils/noop';
+import { LinkTo } from '@ember/routing';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -32,6 +33,11 @@ const StepperNavCarbonizationIndex: TemplateOnlyComponent<StepperNavCarbonizatio
     {{pageTitle "Stepper::Nav - Carbonization"}}
 
     <ShwTextH1>Stepper::Nav - Carbonization</ShwTextH1>
+
+    <ShwTextBody>
+      The Stepper::Nav component relies on the <code>HdsTheming</code> service to render the appropriate <code>Stepper::Indicator</code> icons, and progress bar width for the Carbon theme.
+      The changes made through the service will not be visible in this page. It is preferrable to view this component in the <LinkTo @route="page-components.stepper.nav">main Stepper::Nav page</LinkTo>.
+    </ShwTextBody>
 
     <section>
       <ShwTextH2>Interactivity</ShwTextH2>

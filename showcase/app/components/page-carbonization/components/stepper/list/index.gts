@@ -6,10 +6,12 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import style from 'ember-style-modifier';
+import { LinkTo } from '@ember/routing';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
@@ -20,6 +22,11 @@ const StepperListCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Stepper::List - Carbonization"}}
 
   <ShwTextH1>Stepper::List - Carbonization</ShwTextH1>
+
+  <ShwTextBody>
+    The Stepper::List component relies on the <code>HdsTheming</code> service to render the appropriate <code>Stepper::Indicator</code> icons for the Carbon theme.
+    The changes made through the service will not be visible in this page. It is preferrable to view this component in the <LinkTo @route="page-components.stepper.list">main Stepper::List page</LinkTo>.
+  </ShwTextBody>
 
   <ShwTextH2>Status</ShwTextH2>
 
