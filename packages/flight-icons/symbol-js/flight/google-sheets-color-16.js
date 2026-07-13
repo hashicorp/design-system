@@ -1,6 +1,1 @@
-/**
- * Copyright IBM Corp. 2021, 2026
- * SPDX-License-Identifier: MPL-2.0
- */
-
 export default `<symbol id="hds-icon-flight-google-sheets-color-16" viewBox="0 0 16 16"><path fill="#188038" d="M9.5 1 13 4.5H9.5z"/><path fill="#34a853" d="M9.5 4.5V1H3.938A.946.946 0 0 0 3 1.955v12.09c0 .528.42.955.938.955h8.124a.946.946 0 0 0 .938-.954V4.5z"/><path fill="#fdffff" d="M5 6v5h6V6zm2.625 4.138H5.75V8.93h1.875zm0-2.069H5.75V6.862h1.875zm2.625 2.069H8.375V8.93h1.875zm0-2.069H8.375V6.862h1.875z"/></symbol>`;
