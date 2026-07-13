@@ -188,7 +188,7 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
               "hds.components.filter-bar.filters-dropdown.clear"
               default="Clear all filters"
             }}
-            @color="secondary-muted"
+            @color="secondary"
             @size="small"
             {{on "click" (fn this.onClear D.close)}}
           />

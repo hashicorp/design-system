@@ -8,6 +8,7 @@
 //
 
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 .hds-filter-bar {
   display: flex;
@@ -17,6 +18,12 @@
   background-color: var(--hds-surface-color-faint);
   border: 1px solid var(--hds-border-color-primary);
   border-radius: var(--hds-border-radius-medium);
+
+  .hds-separator {
+    @include hds-apply-only-if-carbon() {
+      display: none;
+    }
+  }
 }
 
 .hds-filter-bar__applied-filters-list,
@@ -70,11 +77,11 @@
 .hds-filter-bar__tabs__list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--hds-filter-bar-tabs-list-gap);
   width: 50%;
   max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
   margin: 0;
-  padding: 8px;
+  padding: var(--hds-filter-bar-tabs-list-padding);
   overflow-y: auto;
   list-style: none;
   background-color: var(--hds-surface-color-faint);
@@ -92,7 +99,7 @@
   align-items: center;
   width: 100%;
   padding: 8px 16px;
-  color: var(--hds-foreground-color-primary);
+  color: var(--hds-filter-bar-tabs-tab-foreground-color-unselected);
   text-align: left;
   background-color: transparent;
   border: none;
@@ -125,8 +132,8 @@
 
 .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button {
   position: relative;
-  color: var(--hds-foreground-color-action);
-  background-color: var(--hds-surface-color-strong);
+  color: var(--hds-filter-bar-tabs-tab-foreground-color-selected-default);
+  background-color: var(--hds-filter-bar-tabs-tab-surface-color-selected-default);
 
   // we use `:after` to avoid conflicts with the `:before` used for the focus ring
   &::after {
@@ -138,12 +145,16 @@
     background-color: var(--hds-foreground-color-action);
     border-radius: 1px;
     content: "";
+
+    @include hds-apply-only-if-carbon() {
+      content: none;
+    }
   }
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-core-color-blue-400);
-    background-color: var(--hds-core-color-neutral-200);
+    color: var(--hds-filter-bar-tabs-tab-foreground-color-selected-hover);
+    background-color: var(--hds-filter-bar-tabs-tab-surface-color-selected-hover);
 
     &::after {
       background-color: var(--hds-core-color-blue-400);
@@ -152,8 +163,8 @@
 
   &:active,
   &.mock-active {
-    color: var(--hds-core-color-blue-500);
-    background-color: var(--hds-core-color-neutral-300);
+    color: var(--hds-filter-bar-tabs-tab-foreground-color-selected-active);
+    background-color: var(--hds-filter-bar-tabs-tab-surface-color-selected-active);
 
     &::after {
       background-color: var(--hds-core-color-blue-500);
@@ -187,7 +198,7 @@
 .hds-filter-bar__filter-group__list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--hds-filter-bar-filter-group-values-list-gap);
   margin: 0;
   padding: 0;
   overflow-y: auto;
@@ -220,7 +231,7 @@
 .hds-filter-bar__filter-group__selection-option {
   display: flex;
   align-items: self-start;
-  padding: 8px 16px;
+  padding: var(--hds-filter-bar-filter-group-values-list-selection-option-padding-vertical) 16px;
   color: var(--hds-foreground-color-primary);
 
   &.hds-filter-bar__filter-group__selection-option--hidden {
@@ -240,7 +251,7 @@
 
 // Note: Specific margin adjustments for Clear Button with single-select and multi-select types
 .hds-filter-bar__filter-group__values-list .hds-filter-bar__filter-group__clear-button {
-  margin: 0 0 4px 4px;
+  margin: 0 0 4px var(--hds-filter-bar-filter-group-values-list-clear-button-margin-left);
 }
 
 // Note: Specific margin adjustments for Clear Button with date, number, and generic types

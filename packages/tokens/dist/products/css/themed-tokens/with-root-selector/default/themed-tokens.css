@@ -384,6 +384,17 @@
   --hds-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
   --hds-elevation-mid-box-shadow: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --hds-elevation-overlay-box-shadow: 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 4px;
+  --hds-filter-bar-filter-group-values-list-gap: 4px;
+  --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 8px;
+  --hds-filter-bar-tabs-list-gap: 4px;
+  --hds-filter-bar-tabs-list-padding: 8px;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-active: var(--hds-core-color-blue-500);
+  --hds-filter-bar-tabs-tab-foreground-color-selected-default: var(--hds-foreground-color-action);
+  --hds-filter-bar-tabs-tab-foreground-color-selected-hover: var(--hds-core-color-blue-400);
+  --hds-filter-bar-tabs-tab-foreground-color-unselected: var(--hds-foreground-color-primary);
+  --hds-filter-bar-tabs-tab-surface-color-selected-active: var(--hds-core-color-neutral-300);
+  --hds-filter-bar-tabs-tab-surface-color-selected-hover: var(--hds-core-color-neutral-200);
   --hds-focus-color-action-external: #5990ff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-action-internal: var(--hds-core-color-blue-300);
   --hds-focus-color-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
