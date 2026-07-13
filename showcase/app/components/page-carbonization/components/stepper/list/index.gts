@@ -24,8 +24,13 @@ const StepperListCarbonizationIndex: TemplateOnlyComponent = <template>
   <ShwTextH1>Stepper::List - Carbonization</ShwTextH1>
 
   <ShwTextBody>
-    The Stepper::List component relies on the <code>HdsTheming</code> service to render the appropriate <code>Stepper::Indicator</code> icons for the Carbon theme.
-    The changes made through the service will not be visible in this page. It is preferrable to view this component in the <LinkTo @route="page-components.stepper.list">main Stepper::List page</LinkTo>.
+    The Stepper::List component relies on the
+    <code>HdsTheming</code>
+    service to render the appropriate
+    <code>Stepper::Indicator</code>
+    icons for the Carbon theme. The changes made through the service will not be
+    visible in this page. It is preferrable to view this component in the
+    <LinkTo @route="page-components.stepper.list">main Stepper::List page</LinkTo>.
   </ShwTextBody>
 
   <ShwTextH2>Status</ShwTextH2>

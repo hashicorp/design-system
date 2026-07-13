@@ -33,8 +33,12 @@ const StepperIndicatorCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH2>StepIndicator</ShwTextH2>
 
     <ShwTextBody>
-      The StepIndicator component relies on the <code>HdsTheming</code> service to render the appropriate icons for the Carbon theme.
-      The changes made through the service will not be visible in this page. It is preferrable to view this component in the <LinkTo @route="page-components.stepper.indicator">main Stepper page</LinkTo>.
+      The StepIndicator component relies on the
+      <code>HdsTheming</code>
+      service to render the appropriate icons for the Carbon theme. The changes
+      made through the service will not be visible in this page. It is
+      preferrable to view this component in the
+      <LinkTo @route="page-components.stepper.indicator">main Stepper page</LinkTo>.
     </ShwTextBody>
 
     <ShwTextH3>Default</ShwTextH3>
