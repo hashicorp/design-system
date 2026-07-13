@@ -23495,8 +23495,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-size": {
-      "key": "{step.indicator.size}",
+    "hds-stepper-step-indicator-size": {
+      "key": "{stepper.step.indicator.size}",
       "$type": "dimension",
       "$value": "24px",
       "unit": "px",
@@ -23518,20 +23518,21 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.size}"
+        "key": "{stepper.step.indicator.size}"
       },
-      "name": "hds-step-indicator-size",
+      "name": "hds-stepper-step-indicator-size",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "size"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-default": {
-      "key": "{step.indicator.foreground.color.incomplete.default}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-default": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#3b3d45",
       "$modes": {
@@ -23551,13 +23552,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.default}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23566,8 +23568,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-interactive": {
-      "key": "{step.indicator.foreground.color.incomplete.interactive}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#3b3d45",
       "$modes": {
@@ -23587,13 +23589,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23602,8 +23605,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-default": {
-      "key": "{step.indicator.foreground.color.progress.default}",
+    "hds-stepper-step-indicator-foreground-color-progress-default": {
+      "key": "{stepper.step.indicator.foreground.color.progress.default}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -23623,13 +23626,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.progress.default}"
+        "key": "{stepper.step.indicator.foreground.color.progress.default}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-default",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23638,8 +23642,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-interactive": {
-      "key": "{step.indicator.foreground.color.progress.interactive}",
+    "hds-stepper-step-indicator-foreground-color-progress-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -23659,13 +23663,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.progress.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23674,8 +23679,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-default": {
-      "key": "{step.indicator.foreground.color.processing.default}",
+    "hds-stepper-step-indicator-foreground-color-processing-default": {
+      "key": "{stepper.step.indicator.foreground.color.processing.default}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -23695,13 +23700,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.processing.default}"
+        "key": "{stepper.step.indicator.foreground.color.processing.default}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-default",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23710,8 +23716,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-interactive": {
-      "key": "{step.indicator.foreground.color.processing.interactive}",
+    "hds-stepper-step-indicator-foreground-color-processing-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -23731,13 +23737,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.processing.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23746,8 +23753,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-default": {
-      "key": "{step.indicator.foreground.color.complete.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.default}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -23767,13 +23774,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.complete.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23782,8 +23790,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-default": {
-      "key": "{step.indicator.foreground.color.complete.interactive.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#1060ff",
       "$modes": {
@@ -23803,13 +23811,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23819,8 +23828,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-hover": {
-      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "#0c56e9",
       "$modes": {
@@ -23840,13 +23849,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-hover",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23856,8 +23866,8 @@
         "hover"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-active": {
-      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}",
       "$type": "color",
       "$value": "#0046d1",
       "$modes": {
@@ -23877,13 +23887,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-active",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -23893,8 +23904,8 @@
         "active"
       ]
     },
-    "hds-step-indicator-icon-height": {
-      "key": "{step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-height": {
+      "key": "{stepper.step.indicator.icon.height}",
       "$type": "dimension",
       "$value": "12px",
       "unit": "px",
@@ -23916,21 +23927,22 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.height}"
       },
-      "name": "hds-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-height",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
         "height"
       ]
     },
-    "hds-step-indicator-icon-width": {
-      "key": "{step.indicator.icon.width}",
+    "hds-stepper-step-indicator-icon-width": {
+      "key": "{stepper.step.indicator.icon.width}",
       "$type": "dimension",
       "$value": "12px",
       "unit": "px",
@@ -23952,13 +23964,14 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.width}"
+        "key": "{stepper.step.indicator.icon.width}"
       },
-      "name": "hds-step-indicator-icon-width",
+      "name": "hds-stepper-step-indicator-icon-width",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
@@ -50832,8 +50845,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-size": {
-      "key": "{step.indicator.size}",
+    "hds-stepper-step-indicator-size": {
+      "key": "{stepper.step.indicator.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -50855,20 +50868,21 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.size}"
+        "key": "{stepper.step.indicator.size}"
       },
-      "name": "hds-step-indicator-size",
+      "name": "hds-stepper-step-indicator-size",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "size"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-default": {
-      "key": "{step.indicator.foreground.color.incomplete.default}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-default": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -50888,13 +50902,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.default}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -50903,8 +50918,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-interactive": {
-      "key": "{step.indicator.foreground.color.incomplete.interactive}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -50924,13 +50939,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -50939,8 +50955,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-default": {
-      "key": "{step.indicator.foreground.color.progress.default}",
+    "hds-stepper-step-indicator-foreground-color-progress-default": {
+      "key": "{stepper.step.indicator.foreground.color.progress.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -50960,13 +50976,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.progress.default}"
+        "key": "{stepper.step.indicator.foreground.color.progress.default}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-default",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -50975,8 +50992,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-interactive": {
-      "key": "{step.indicator.foreground.color.progress.interactive}",
+    "hds-stepper-step-indicator-foreground-color-progress-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -50996,13 +51013,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.progress.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -51011,8 +51029,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-default": {
-      "key": "{step.indicator.foreground.color.processing.default}",
+    "hds-stepper-step-indicator-foreground-color-processing-default": {
+      "key": "{stepper.step.indicator.foreground.color.processing.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -51032,13 +51050,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.processing.default}"
+        "key": "{stepper.step.indicator.foreground.color.processing.default}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-default",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -51047,8 +51066,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-interactive": {
-      "key": "{step.indicator.foreground.color.processing.interactive}",
+    "hds-stepper-step-indicator-foreground-color-processing-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -51068,13 +51087,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.processing.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -51083,8 +51103,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-default": {
-      "key": "{step.indicator.foreground.color.complete.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -51104,13 +51124,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.complete.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -51119,8 +51140,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-default": {
-      "key": "{step.indicator.foreground.color.complete.interactive.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -51140,13 +51161,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -51156,8 +51178,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-hover": {
-      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -51177,13 +51199,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-hover",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -51193,8 +51216,8 @@
         "hover"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-active": {
-      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -51214,13 +51237,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-active",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -51230,8 +51254,8 @@
         "active"
       ]
     },
-    "hds-step-indicator-icon-height": {
-      "key": "{step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-height": {
+      "key": "{stepper.step.indicator.icon.height}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -51253,21 +51277,22 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.height}"
       },
-      "name": "hds-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-height",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
         "height"
       ]
     },
-    "hds-step-indicator-icon-width": {
-      "key": "{step.indicator.icon.width}",
+    "hds-stepper-step-indicator-icon-width": {
+      "key": "{stepper.step.indicator.icon.width}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -51289,13 +51314,14 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.width}"
+        "key": "{stepper.step.indicator.icon.width}"
       },
-      "name": "hds-step-indicator-icon-width",
+      "name": "hds-stepper-step-indicator-icon-width",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
@@ -78169,8 +78195,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-size": {
-      "key": "{step.indicator.size}",
+    "hds-stepper-step-indicator-size": {
+      "key": "{stepper.step.indicator.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -78192,20 +78218,21 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.size}"
+        "key": "{stepper.step.indicator.size}"
       },
-      "name": "hds-step-indicator-size",
+      "name": "hds-stepper-step-indicator-size",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "size"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-default": {
-      "key": "{step.indicator.foreground.color.incomplete.default}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-default": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -78225,13 +78252,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.default}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78240,8 +78268,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-interactive": {
-      "key": "{step.indicator.foreground.color.incomplete.interactive}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -78261,13 +78289,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78276,8 +78305,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-default": {
-      "key": "{step.indicator.foreground.color.progress.default}",
+    "hds-stepper-step-indicator-foreground-color-progress-default": {
+      "key": "{stepper.step.indicator.foreground.color.progress.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -78297,13 +78326,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.progress.default}"
+        "key": "{stepper.step.indicator.foreground.color.progress.default}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-default",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78312,8 +78342,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-interactive": {
-      "key": "{step.indicator.foreground.color.progress.interactive}",
+    "hds-stepper-step-indicator-foreground-color-progress-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -78333,13 +78363,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.progress.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78348,8 +78379,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-default": {
-      "key": "{step.indicator.foreground.color.processing.default}",
+    "hds-stepper-step-indicator-foreground-color-processing-default": {
+      "key": "{stepper.step.indicator.foreground.color.processing.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -78369,13 +78400,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.processing.default}"
+        "key": "{stepper.step.indicator.foreground.color.processing.default}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-default",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78384,8 +78416,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-interactive": {
-      "key": "{step.indicator.foreground.color.processing.interactive}",
+    "hds-stepper-step-indicator-foreground-color-processing-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -78405,13 +78437,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.processing.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78420,8 +78453,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-default": {
-      "key": "{step.indicator.foreground.color.complete.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -78441,13 +78474,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.complete.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78456,8 +78490,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-default": {
-      "key": "{step.indicator.foreground.color.complete.interactive.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -78477,13 +78511,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78493,8 +78528,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-hover": {
-      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -78514,13 +78549,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-hover",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78530,8 +78566,8 @@
         "hover"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-active": {
-      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -78551,13 +78587,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-active",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -78567,8 +78604,8 @@
         "active"
       ]
     },
-    "hds-step-indicator-icon-height": {
-      "key": "{step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-height": {
+      "key": "{stepper.step.indicator.icon.height}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -78590,21 +78627,22 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.height}"
       },
-      "name": "hds-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-height",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
         "height"
       ]
     },
-    "hds-step-indicator-icon-width": {
-      "key": "{step.indicator.icon.width}",
+    "hds-stepper-step-indicator-icon-width": {
+      "key": "{stepper.step.indicator.icon.width}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -78626,13 +78664,14 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.width}"
+        "key": "{stepper.step.indicator.icon.width}"
       },
-      "name": "hds-step-indicator-icon-width",
+      "name": "hds-stepper-step-indicator-icon-width",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
@@ -105506,8 +105545,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-size": {
-      "key": "{step.indicator.size}",
+    "hds-stepper-step-indicator-size": {
+      "key": "{stepper.step.indicator.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -105529,20 +105568,21 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.size}"
+        "key": "{stepper.step.indicator.size}"
       },
-      "name": "hds-step-indicator-size",
+      "name": "hds-stepper-step-indicator-size",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "size"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-default": {
-      "key": "{step.indicator.foreground.color.incomplete.default}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-default": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -105562,13 +105602,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.default}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105577,8 +105618,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-interactive": {
-      "key": "{step.indicator.foreground.color.incomplete.interactive}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -105598,13 +105639,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105613,8 +105655,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-default": {
-      "key": "{step.indicator.foreground.color.progress.default}",
+    "hds-stepper-step-indicator-foreground-color-progress-default": {
+      "key": "{stepper.step.indicator.foreground.color.progress.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -105634,13 +105676,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.progress.default}"
+        "key": "{stepper.step.indicator.foreground.color.progress.default}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-default",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105649,8 +105692,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-interactive": {
-      "key": "{step.indicator.foreground.color.progress.interactive}",
+    "hds-stepper-step-indicator-foreground-color-progress-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -105670,13 +105713,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.progress.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105685,8 +105729,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-default": {
-      "key": "{step.indicator.foreground.color.processing.default}",
+    "hds-stepper-step-indicator-foreground-color-processing-default": {
+      "key": "{stepper.step.indicator.foreground.color.processing.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -105706,13 +105750,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.processing.default}"
+        "key": "{stepper.step.indicator.foreground.color.processing.default}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-default",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105721,8 +105766,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-interactive": {
-      "key": "{step.indicator.foreground.color.processing.interactive}",
+    "hds-stepper-step-indicator-foreground-color-processing-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -105742,13 +105787,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.processing.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105757,8 +105803,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-default": {
-      "key": "{step.indicator.foreground.color.complete.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -105778,13 +105824,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.complete.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105793,8 +105840,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-default": {
-      "key": "{step.indicator.foreground.color.complete.interactive.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -105814,13 +105861,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105830,8 +105878,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-hover": {
-      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -105851,13 +105899,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-hover",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105867,8 +105916,8 @@
         "hover"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-active": {
-      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -105888,13 +105937,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-active",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -105904,8 +105954,8 @@
         "active"
       ]
     },
-    "hds-step-indicator-icon-height": {
-      "key": "{step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-height": {
+      "key": "{stepper.step.indicator.icon.height}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -105927,21 +105977,22 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.height}"
       },
-      "name": "hds-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-height",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
         "height"
       ]
     },
-    "hds-step-indicator-icon-width": {
-      "key": "{step.indicator.icon.width}",
+    "hds-stepper-step-indicator-icon-width": {
+      "key": "{stepper.step.indicator.icon.width}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -105963,13 +106014,14 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.width}"
+        "key": "{stepper.step.indicator.icon.width}"
       },
-      "name": "hds-step-indicator-icon-width",
+      "name": "hds-stepper-step-indicator-icon-width",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
@@ -132843,8 +132895,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-size": {
-      "key": "{step.indicator.size}",
+    "hds-stepper-step-indicator-size": {
+      "key": "{stepper.step.indicator.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -132866,20 +132918,21 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.size}"
+        "key": "{stepper.step.indicator.size}"
       },
-      "name": "hds-step-indicator-size",
+      "name": "hds-stepper-step-indicator-size",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "size"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-default": {
-      "key": "{step.indicator.foreground.color.incomplete.default}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-default": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -132899,13 +132952,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.default}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -132914,8 +132968,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-incomplete-interactive": {
-      "key": "{step.indicator.foreground.color.incomplete.interactive}",
+    "hds-stepper-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -132935,13 +132989,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.incomplete.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -132950,8 +133005,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-default": {
-      "key": "{step.indicator.foreground.color.progress.default}",
+    "hds-stepper-step-indicator-foreground-color-progress-default": {
+      "key": "{stepper.step.indicator.foreground.color.progress.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -132971,13 +133026,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.progress.default}"
+        "key": "{stepper.step.indicator.foreground.color.progress.default}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-default",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -132986,8 +133042,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress-interactive": {
-      "key": "{step.indicator.foreground.color.progress.interactive}",
+    "hds-stepper-step-indicator-foreground-color-progress-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -133007,13 +133063,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.progress.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-progress-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -133022,8 +133079,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-default": {
-      "key": "{step.indicator.foreground.color.processing.default}",
+    "hds-stepper-step-indicator-foreground-color-processing-default": {
+      "key": "{stepper.step.indicator.foreground.color.processing.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -133043,13 +133100,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.processing.default}"
+        "key": "{stepper.step.indicator.foreground.color.processing.default}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-default",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -133058,8 +133116,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-processing-interactive": {
-      "key": "{step.indicator.foreground.color.processing.interactive}",
+    "hds-stepper-step-indicator-foreground-color-processing-interactive": {
+      "key": "{stepper.step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -133079,13 +133137,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.processing.interactive}"
+        "key": "{stepper.step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-foreground-color-processing-interactive",
+      "name": "hds-stepper-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -133094,8 +133153,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-default": {
-      "key": "{step.indicator.foreground.color.complete.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -133115,13 +133174,14 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step.indicator.foreground.color.complete.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -133130,8 +133190,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-default": {
-      "key": "{step.indicator.foreground.color.complete.interactive.default}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -133151,13 +133211,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.default}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -133167,8 +133228,8 @@
         "default"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-hover": {
-      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -133188,13 +133249,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.hover}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-hover",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -133204,8 +133266,8 @@
         "hover"
       ]
     },
-    "hds-step-indicator-foreground-color-complete-interactive-active": {
-      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+    "hds-stepper-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -133225,13 +133287,14 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+        "key": "{stepper.step.indicator.foreground.color.complete.interactive.active}"
       },
-      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "name": "hds-stepper-step-indicator-foreground-color-complete-interactive-active",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "foreground",
@@ -133241,8 +133304,8 @@
         "active"
       ]
     },
-    "hds-step-indicator-icon-height": {
-      "key": "{step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-height": {
+      "key": "{stepper.step.indicator.icon.height}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -133264,21 +133327,22 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.height}"
       },
-      "name": "hds-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-height",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
         "height"
       ]
     },
-    "hds-step-indicator-icon-width": {
-      "key": "{step.indicator.icon.width}",
+    "hds-stepper-step-indicator-icon-width": {
+      "key": "{stepper.step.indicator.icon.width}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -133300,13 +133364,14 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step.indicator.icon.width}"
+        "key": "{stepper.step.indicator.icon.width}"
       },
-      "name": "hds-step-indicator-icon-width",
+      "name": "hds-stepper-step-indicator-icon-width",
       "attributes": {
-        "category": "step"
+        "category": "stepper"
       },
       "path": [
+        "stepper",
         "step",
         "indicator",
         "icon",
