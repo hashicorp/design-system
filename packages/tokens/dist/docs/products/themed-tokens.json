@@ -23605,8 +23605,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-height": {
-      "key": "{step-indicator.height}",
+    "hds-step-indicator-size": {
+      "key": "{step.indicator.size}",
       "$type": "dimension",
       "$value": "24px",
       "unit": "px",
@@ -23628,53 +23628,20 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step-indicator.height}"
+        "key": "{step.indicator.size}"
       },
-      "name": "hds-step-indicator-height",
+      "name": "hds-step-indicator-size",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "height"
+        "step",
+        "indicator",
+        "size"
       ]
     },
-    "hds-step-indicator-width": {
-      "key": "{step-indicator.width}",
-      "$type": "dimension",
-      "$value": "24px",
-      "unit": "px",
-      "$modes": {
-        "default": "24",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "24",
-        "unit": "px",
-        "$modes": {
-          "default": "24",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.width}"
-      },
-      "name": "hds-step-indicator-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "width"
-      ]
-    },
-    "hds-step-indicator-foreground-color-incomplete": {
-      "key": "{step-indicator.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-default": {
+      "key": "{step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#3b3d45",
       "$modes": {
@@ -23694,193 +23661,23 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress": {
-      "key": "{step-indicator.foreground.color.progress}",
-      "$type": "color",
-      "$value": "#ffffff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.high-contrast}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.progress}"
-      },
-      "name": "hds-step-indicator-foreground-color-progress",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "progress"
-      ]
-    },
-    "hds-step-indicator-foreground-color-processing": {
-      "key": "{step-indicator.foreground.color.processing}",
-      "$type": "color",
-      "$value": "#ffffff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.high-contrast}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.processing}"
-      },
-      "name": "hds-step-indicator-foreground-color-processing",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "processing"
-      ]
-    },
-    "hds-step-indicator-foreground-color-complete": {
-      "key": "{step-indicator.foreground.color.complete}",
-      "$type": "color",
-      "$value": "#ffffff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{foreground.color.high-contrast}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.complete}"
-      },
-      "name": "hds-step-indicator-foreground-color-complete",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "complete"
-      ]
-    },
-    "hds-step-indicator-icon-height": {
-      "key": "{step-indicator.icon.height}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.height}"
-      },
-      "name": "hds-step-indicator-icon-height",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "height"
-      ]
-    },
-    "hds-step-indicator-icon-width": {
-      "key": "{step-indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.width}"
-      },
-      "name": "hds-step-indicator-icon-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "width"
-      ]
-    },
-    "hds-step-indicator-interactive-foreground-color-incomplete": {
-      "key": "{step-indicator.interactive.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#3b3d45",
       "$modes": {
@@ -23900,22 +23697,59 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.interactive.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-progress": {
-      "key": "{step-indicator.interactive.foreground.color.progress}",
+    "hds-step-indicator-foreground-color-progress-default": {
+      "key": "{step.indicator.foreground.color.progress.default}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.high-contrast}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.progress.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-progress-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "progress",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-progress-interactive": {
+      "key": "{step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -23935,22 +23769,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.progress}"
+        "key": "{step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-progress",
+      "name": "hds-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "progress"
+        "progress",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-processing": {
-      "key": "{step-indicator.interactive.foreground.color.processing}",
+    "hds-step-indicator-foreground-color-processing-default": {
+      "key": "{step.indicator.foreground.color.processing.default}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.high-contrast}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.processing.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-processing-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "processing",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-processing-interactive": {
+      "key": "{step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
@@ -23970,22 +23841,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.processing}"
+        "key": "{step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-processing",
+      "name": "hds-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "processing"
+        "processing",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-complete": {
-      "key": "{step-indicator.interactive.foreground.color.complete}",
+    "hds-step-indicator-foreground-color-complete-default": {
+      "key": "{step.indicator.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{foreground.color.high-contrast}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.complete.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#1060ff",
       "$modes": {
@@ -24005,18 +23913,166 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.complete}"
+        "key": "{step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-complete",
+      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "complete"
+        "complete",
+        "interactive",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+      "$type": "color",
+      "$value": "#0c56e9",
+      "$modes": {
+        "default": "#0c56e9",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.blue-300}",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "hover"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+      "$type": "color",
+      "$value": "#0046d1",
+      "$modes": {
+        "default": "#0046d1",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.blue-400}",
+        "$modes": {
+          "default": "{core.color.blue-400}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "active"
+      ]
+    },
+    "hds-step-indicator-icon-height": {
+      "key": "{step.indicator.icon.height}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.height}"
+      },
+      "name": "hds-step-indicator-icon-height",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "height"
+      ]
+    },
+    "hds-step-indicator-icon-width": {
+      "key": "{step.indicator.icon.width}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.width}"
+      },
+      "name": "hds-step-indicator-icon-width",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "width"
       ]
     },
     "hds-tabs-tab-border-color-default": {
@@ -50996,8 +51052,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-height": {
-      "key": "{step-indicator.height}",
+    "hds-step-indicator-size": {
+      "key": "{step.indicator.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -51019,53 +51075,20 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step-indicator.height}"
+        "key": "{step.indicator.size}"
       },
-      "name": "hds-step-indicator-height",
+      "name": "hds-step-indicator-size",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "height"
+        "step",
+        "indicator",
+        "size"
       ]
     },
-    "hds-step-indicator-width": {
-      "key": "{step-indicator.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "24",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "24",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.width}"
-      },
-      "name": "hds-step-indicator-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "width"
-      ]
-    },
-    "hds-step-indicator-foreground-color-incomplete": {
-      "key": "{step-indicator.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-default": {
+      "key": "{step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -51085,193 +51108,23 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress": {
-      "key": "{step-indicator.foreground.color.progress}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.progress}"
-      },
-      "name": "hds-step-indicator-foreground-color-progress",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "progress"
-      ]
-    },
-    "hds-step-indicator-foreground-color-processing": {
-      "key": "{step-indicator.foreground.color.processing}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.processing}"
-      },
-      "name": "hds-step-indicator-foreground-color-processing",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "processing"
-      ]
-    },
-    "hds-step-indicator-foreground-color-complete": {
-      "key": "{step-indicator.foreground.color.complete}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.complete}"
-      },
-      "name": "hds-step-indicator-foreground-color-complete",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "complete"
-      ]
-    },
-    "hds-step-indicator-icon-height": {
-      "key": "{step-indicator.icon.height}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.height}"
-      },
-      "name": "hds-step-indicator-icon-height",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "height"
-      ]
-    },
-    "hds-step-indicator-icon-width": {
-      "key": "{step-indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.width}"
-      },
-      "name": "hds-step-indicator-icon-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "width"
-      ]
-    },
-    "hds-step-indicator-interactive-foreground-color-incomplete": {
-      "key": "{step-indicator.interactive.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -51291,22 +51144,59 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.interactive.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-progress": {
-      "key": "{step-indicator.interactive.foreground.color.progress}",
+    "hds-step-indicator-foreground-color-progress-default": {
+      "key": "{step.indicator.foreground.color.progress.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.progress.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-progress-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "progress",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-progress-interactive": {
+      "key": "{step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -51326,22 +51216,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.progress}"
+        "key": "{step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-progress",
+      "name": "hds-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "progress"
+        "progress",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-processing": {
-      "key": "{step-indicator.interactive.foreground.color.processing}",
+    "hds-step-indicator-foreground-color-processing-default": {
+      "key": "{step.indicator.foreground.color.processing.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.processing.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-processing-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "processing",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-processing-interactive": {
+      "key": "{step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -51361,22 +51288,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.processing}"
+        "key": "{step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-processing",
+      "name": "hds-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "processing"
+        "processing",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-complete": {
-      "key": "{step-indicator.interactive.foreground.color.complete}",
+    "hds-step-indicator-foreground-color-complete-default": {
+      "key": "{step.indicator.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.complete.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -51396,18 +51360,166 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.complete}"
+        "key": "{step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-complete",
+      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "complete"
+        "complete",
+        "interactive",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "#0043ce",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "hover"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "#002d9c",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-400}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "active"
+      ]
+    },
+    "hds-step-indicator-icon-height": {
+      "key": "{step.indicator.icon.height}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.height}"
+      },
+      "name": "hds-step-indicator-icon-height",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "height"
+      ]
+    },
+    "hds-step-indicator-icon-width": {
+      "key": "{step.indicator.icon.width}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.width}"
+      },
+      "name": "hds-step-indicator-icon-width",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "width"
       ]
     },
     "hds-tabs-tab-border-color-default": {
@@ -78387,8 +78499,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-height": {
-      "key": "{step-indicator.height}",
+    "hds-step-indicator-size": {
+      "key": "{step.indicator.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -78410,53 +78522,20 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step-indicator.height}"
+        "key": "{step.indicator.size}"
       },
-      "name": "hds-step-indicator-height",
+      "name": "hds-step-indicator-size",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "height"
+        "step",
+        "indicator",
+        "size"
       ]
     },
-    "hds-step-indicator-width": {
-      "key": "{step-indicator.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "24",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "24",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.width}"
-      },
-      "name": "hds-step-indicator-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "width"
-      ]
-    },
-    "hds-step-indicator-foreground-color-incomplete": {
-      "key": "{step-indicator.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-default": {
+      "key": "{step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -78476,193 +78555,23 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress": {
-      "key": "{step-indicator.foreground.color.progress}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.progress}"
-      },
-      "name": "hds-step-indicator-foreground-color-progress",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "progress"
-      ]
-    },
-    "hds-step-indicator-foreground-color-processing": {
-      "key": "{step-indicator.foreground.color.processing}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.processing}"
-      },
-      "name": "hds-step-indicator-foreground-color-processing",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "processing"
-      ]
-    },
-    "hds-step-indicator-foreground-color-complete": {
-      "key": "{step-indicator.foreground.color.complete}",
-      "$type": "color",
-      "$value": "#161616",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.complete}"
-      },
-      "name": "hds-step-indicator-foreground-color-complete",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "complete"
-      ]
-    },
-    "hds-step-indicator-icon-height": {
-      "key": "{step-indicator.icon.height}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.height}"
-      },
-      "name": "hds-step-indicator-icon-height",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "height"
-      ]
-    },
-    "hds-step-indicator-icon-width": {
-      "key": "{step-indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.width}"
-      },
-      "name": "hds-step-indicator-icon-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "width"
-      ]
-    },
-    "hds-step-indicator-interactive-foreground-color-incomplete": {
-      "key": "{step-indicator.interactive.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#161616",
       "$modes": {
@@ -78682,22 +78591,59 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.interactive.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-progress": {
-      "key": "{step-indicator.interactive.foreground.color.progress}",
+    "hds-step-indicator-foreground-color-progress-default": {
+      "key": "{step.indicator.foreground.color.progress.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.progress.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-progress-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "progress",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-progress-interactive": {
+      "key": "{step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -78717,22 +78663,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.progress}"
+        "key": "{step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-progress",
+      "name": "hds-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "progress"
+        "progress",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-processing": {
-      "key": "{step-indicator.interactive.foreground.color.processing}",
+    "hds-step-indicator-foreground-color-processing-default": {
+      "key": "{step.indicator.foreground.color.processing.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.processing.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-processing-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "processing",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-processing-interactive": {
+      "key": "{step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -78752,22 +78735,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.processing}"
+        "key": "{step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-processing",
+      "name": "hds-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "processing"
+        "processing",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-complete": {
-      "key": "{step-indicator.interactive.foreground.color.complete}",
+    "hds-step-indicator-foreground-color-complete-default": {
+      "key": "{step.indicator.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#161616",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.complete.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#0f62fe",
       "$modes": {
@@ -78787,18 +78807,166 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.complete}"
+        "key": "{step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-complete",
+      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "complete"
+        "complete",
+        "interactive",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "#0043ce",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "hover"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "#002d9c",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-400}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "active"
+      ]
+    },
+    "hds-step-indicator-icon-height": {
+      "key": "{step.indicator.icon.height}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.height}"
+      },
+      "name": "hds-step-indicator-icon-height",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "height"
+      ]
+    },
+    "hds-step-indicator-icon-width": {
+      "key": "{step.indicator.icon.width}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.width}"
+      },
+      "name": "hds-step-indicator-icon-width",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "width"
       ]
     },
     "hds-tabs-tab-border-color-default": {
@@ -105778,8 +105946,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-height": {
-      "key": "{step-indicator.height}",
+    "hds-step-indicator-size": {
+      "key": "{step.indicator.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -105801,53 +105969,20 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step-indicator.height}"
+        "key": "{step.indicator.size}"
       },
-      "name": "hds-step-indicator-height",
+      "name": "hds-step-indicator-size",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "height"
+        "step",
+        "indicator",
+        "size"
       ]
     },
-    "hds-step-indicator-width": {
-      "key": "{step-indicator.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "24",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "24",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.width}"
-      },
-      "name": "hds-step-indicator-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "width"
-      ]
-    },
-    "hds-step-indicator-foreground-color-incomplete": {
-      "key": "{step-indicator.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-default": {
+      "key": "{step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -105867,193 +106002,23 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress": {
-      "key": "{step-indicator.foreground.color.progress}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.progress}"
-      },
-      "name": "hds-step-indicator-foreground-color-progress",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "progress"
-      ]
-    },
-    "hds-step-indicator-foreground-color-processing": {
-      "key": "{step-indicator.foreground.color.processing}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.processing}"
-      },
-      "name": "hds-step-indicator-foreground-color-processing",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "processing"
-      ]
-    },
-    "hds-step-indicator-foreground-color-complete": {
-      "key": "{step-indicator.foreground.color.complete}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.complete}"
-      },
-      "name": "hds-step-indicator-foreground-color-complete",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "complete"
-      ]
-    },
-    "hds-step-indicator-icon-height": {
-      "key": "{step-indicator.icon.height}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.height}"
-      },
-      "name": "hds-step-indicator-icon-height",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "height"
-      ]
-    },
-    "hds-step-indicator-icon-width": {
-      "key": "{step-indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.width}"
-      },
-      "name": "hds-step-indicator-icon-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "width"
-      ]
-    },
-    "hds-step-indicator-interactive-foreground-color-incomplete": {
-      "key": "{step-indicator.interactive.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -106073,22 +106038,59 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.interactive.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-progress": {
-      "key": "{step-indicator.interactive.foreground.color.progress}",
+    "hds-step-indicator-foreground-color-progress-default": {
+      "key": "{step.indicator.foreground.color.progress.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.progress.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-progress-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "progress",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-progress-interactive": {
+      "key": "{step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -106108,22 +106110,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.progress}"
+        "key": "{step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-progress",
+      "name": "hds-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "progress"
+        "progress",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-processing": {
-      "key": "{step-indicator.interactive.foreground.color.processing}",
+    "hds-step-indicator-foreground-color-processing-default": {
+      "key": "{step.indicator.foreground.color.processing.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.processing.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-processing-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "processing",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-processing-interactive": {
+      "key": "{step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -106143,22 +106182,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.processing}"
+        "key": "{step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-processing",
+      "name": "hds-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "processing"
+        "processing",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-complete": {
-      "key": "{step-indicator.interactive.foreground.color.complete}",
+    "hds-step-indicator-foreground-color-complete-default": {
+      "key": "{step.indicator.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.complete.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -106178,18 +106254,166 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.complete}"
+        "key": "{step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-complete",
+      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "complete"
+        "complete",
+        "interactive",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+      "$type": "color",
+      "$value": "#4589ff",
+      "$modes": {
+        "default": "#0043ce",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "hover"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+      "$type": "color",
+      "$value": "#4589ff",
+      "$modes": {
+        "default": "#002d9c",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-400}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "active"
+      ]
+    },
+    "hds-step-indicator-icon-height": {
+      "key": "{step.indicator.icon.height}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.height}"
+      },
+      "name": "hds-step-indicator-icon-height",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "height"
+      ]
+    },
+    "hds-step-indicator-icon-width": {
+      "key": "{step.indicator.icon.width}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.width}"
+      },
+      "name": "hds-step-indicator-icon-width",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "width"
       ]
     },
     "hds-tabs-tab-border-color-default": {
@@ -133169,8 +133393,8 @@
         "interactive"
       ]
     },
-    "hds-step-indicator-height": {
-      "key": "{step-indicator.height}",
+    "hds-step-indicator-size": {
+      "key": "{step.indicator.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -133192,53 +133416,20 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{step-indicator.height}"
+        "key": "{step.indicator.size}"
       },
-      "name": "hds-step-indicator-height",
+      "name": "hds-step-indicator-size",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "height"
+        "step",
+        "indicator",
+        "size"
       ]
     },
-    "hds-step-indicator-width": {
-      "key": "{step-indicator.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "24",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "24",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.width}"
-      },
-      "name": "hds-step-indicator-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "width"
-      ]
-    },
-    "hds-step-indicator-foreground-color-incomplete": {
-      "key": "{step-indicator.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-default": {
+      "key": "{step.indicator.foreground.color.incomplete.default}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -133258,193 +133449,23 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.default}"
       },
-      "name": "hds-step-indicator-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "default"
       ]
     },
-    "hds-step-indicator-foreground-color-progress": {
-      "key": "{step-indicator.foreground.color.progress}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.progress}"
-      },
-      "name": "hds-step-indicator-foreground-color-progress",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "progress"
-      ]
-    },
-    "hds-step-indicator-foreground-color-processing": {
-      "key": "{step-indicator.foreground.color.processing}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.processing}"
-      },
-      "name": "hds-step-indicator-foreground-color-processing",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "processing"
-      ]
-    },
-    "hds-step-indicator-foreground-color-complete": {
-      "key": "{step-indicator.foreground.color.complete}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.iconPrimary}",
-        "$modes": {
-          "default": "{foreground.color.high-contrast}",
-          "cds-g0": "{carbon.themes.white.iconPrimary}",
-          "cds-g10": "{carbon.themes.g10.iconPrimary}",
-          "cds-g90": "{carbon.themes.g90.iconPrimary}",
-          "cds-g100": "{carbon.themes.g100.iconPrimary}"
-        },
-        "key": "{step-indicator.foreground.color.complete}"
-      },
-      "name": "hds-step-indicator-foreground-color-complete",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "foreground",
-        "color",
-        "complete"
-      ]
-    },
-    "hds-step-indicator-icon-height": {
-      "key": "{step-indicator.icon.height}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.height}"
-      },
-      "name": "hds-step-indicator-icon-height",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "height"
-      ]
-    },
-    "hds-step-indicator-icon-width": {
-      "key": "{step-indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{step-indicator.icon.width}"
-      },
-      "name": "hds-step-indicator-icon-width",
-      "attributes": {
-        "category": "step-indicator"
-      },
-      "path": [
-        "step-indicator",
-        "icon",
-        "width"
-      ]
-    },
-    "hds-step-indicator-interactive-foreground-color-incomplete": {
-      "key": "{step-indicator.interactive.foreground.color.incomplete}",
+    "hds-step-indicator-foreground-color-incomplete-interactive": {
+      "key": "{step.indicator.foreground.color.incomplete.interactive}",
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
@@ -133464,22 +133485,59 @@
           "cds-g90": "{carbon.themes.g90.iconPrimary}",
           "cds-g100": "{carbon.themes.g100.iconPrimary}"
         },
-        "key": "{step-indicator.interactive.foreground.color.incomplete}"
+        "key": "{step.indicator.foreground.color.incomplete.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-incomplete",
+      "name": "hds-step-indicator-foreground-color-incomplete-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "incomplete"
+        "incomplete",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-progress": {
-      "key": "{step-indicator.interactive.foreground.color.progress}",
+    "hds-step-indicator-foreground-color-progress-default": {
+      "key": "{step.indicator.foreground.color.progress.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.progress.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-progress-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "progress",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-progress-interactive": {
+      "key": "{step.indicator.foreground.color.progress.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -133499,22 +133557,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.progress}"
+        "key": "{step.indicator.foreground.color.progress.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-progress",
+      "name": "hds-step-indicator-foreground-color-progress-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "progress"
+        "progress",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-processing": {
-      "key": "{step-indicator.interactive.foreground.color.processing}",
+    "hds-step-indicator-foreground-color-processing-default": {
+      "key": "{step.indicator.foreground.color.processing.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.processing.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-processing-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "processing",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-processing-interactive": {
+      "key": "{step.indicator.foreground.color.processing.interactive}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -133534,22 +133629,59 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.processing}"
+        "key": "{step.indicator.foreground.color.processing.interactive}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-processing",
+      "name": "hds-step-indicator-foreground-color-processing-interactive",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "processing"
+        "processing",
+        "interactive"
       ]
     },
-    "hds-step-indicator-interactive-foreground-color-complete": {
-      "key": "{step-indicator.interactive.foreground.color.complete}",
+    "hds-step-indicator-foreground-color-complete-default": {
+      "key": "{step.indicator.foreground.color.complete.default}",
+      "$type": "color",
+      "$value": "#f4f4f4",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#161616",
+        "cds-g10": "#161616",
+        "cds-g90": "#f4f4f4",
+        "cds-g100": "#f4f4f4"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.iconPrimary}",
+        "$modes": {
+          "default": "{foreground.color.high-contrast}",
+          "cds-g0": "{carbon.themes.white.iconPrimary}",
+          "cds-g10": "{carbon.themes.g10.iconPrimary}",
+          "cds-g90": "{carbon.themes.g90.iconPrimary}",
+          "cds-g100": "{carbon.themes.g100.iconPrimary}"
+        },
+        "key": "{step.indicator.foreground.color.complete.default}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-default",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-default": {
+      "key": "{step.indicator.foreground.color.complete.interactive.default}",
       "$type": "color",
       "$value": "#4589ff",
       "$modes": {
@@ -133569,18 +133701,166 @@
           "cds-g90": "{carbon.themes.g90.interactive}",
           "cds-g100": "{carbon.themes.g100.interactive}"
         },
-        "key": "{step-indicator.interactive.foreground.color.complete}"
+        "key": "{step.indicator.foreground.color.complete.interactive.default}"
       },
-      "name": "hds-step-indicator-interactive-foreground-color-complete",
+      "name": "hds-step-indicator-foreground-color-complete-interactive-default",
       "attributes": {
-        "category": "step-indicator"
+        "category": "step"
       },
       "path": [
-        "step-indicator",
-        "interactive",
+        "step",
+        "indicator",
         "foreground",
         "color",
-        "complete"
+        "complete",
+        "interactive",
+        "default"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-hover": {
+      "key": "{step.indicator.foreground.color.complete.interactive.hover}",
+      "$type": "color",
+      "$value": "#4589ff",
+      "$modes": {
+        "default": "#0043ce",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-300}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.hover}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-hover",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "hover"
+      ]
+    },
+    "hds-step-indicator-foreground-color-complete-interactive-active": {
+      "key": "{step.indicator.foreground.color.complete.interactive.active}",
+      "$type": "color",
+      "$value": "#4589ff",
+      "$modes": {
+        "default": "#002d9c",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#4589ff",
+        "cds-g100": "#4589ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.interactive}",
+        "$modes": {
+          "default": "{core.color.blue-400}",
+          "cds-g0": "{carbon.themes.white.interactive}",
+          "cds-g10": "{carbon.themes.g10.interactive}",
+          "cds-g90": "{carbon.themes.g90.interactive}",
+          "cds-g100": "{carbon.themes.g100.interactive}"
+        },
+        "key": "{step.indicator.foreground.color.complete.interactive.active}"
+      },
+      "name": "hds-step-indicator-foreground-color-complete-interactive-active",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "foreground",
+        "color",
+        "complete",
+        "interactive",
+        "active"
+      ]
+    },
+    "hds-step-indicator-icon-height": {
+      "key": "{step.indicator.icon.height}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.height}"
+      },
+      "name": "hds-step-indicator-icon-height",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "height"
+      ]
+    },
+    "hds-step-indicator-icon-width": {
+      "key": "{step.indicator.icon.width}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{step.indicator.icon.width}"
+      },
+      "name": "hds-step-indicator-icon-width",
+      "attributes": {
+        "category": "step"
+      },
+      "path": [
+        "step",
+        "indicator",
+        "icon",
+        "width"
       ]
     },
     "hds-tabs-tab-border-color-default": {

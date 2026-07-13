@@ -733,18 +733,19 @@
   --hds-stepper-nav-progress-bar-surface-color-incomplete: #f1f2f3;
   --hds-stepper-nav-progress-bar-surface-color-complete-default: #0c0c0e;
   --hds-stepper-nav-progress-bar-surface-color-complete-interactive: #1060ff;
-  --hds-step-indicator-height: 24px;
-  --hds-step-indicator-width: 24px;
-  --hds-step-indicator-foreground-color-incomplete: #3b3d45;
-  --hds-step-indicator-foreground-color-progress: #ffffff;
-  --hds-step-indicator-foreground-color-processing: #ffffff;
-  --hds-step-indicator-foreground-color-complete: #ffffff;
+  --hds-step-indicator-size: 24px;
+  --hds-step-indicator-foreground-color-incomplete-default: #3b3d45;
+  --hds-step-indicator-foreground-color-incomplete-interactive: #3b3d45;
+  --hds-step-indicator-foreground-color-progress-default: #ffffff;
+  --hds-step-indicator-foreground-color-progress-interactive: #ffffff;
+  --hds-step-indicator-foreground-color-processing-default: #ffffff;
+  --hds-step-indicator-foreground-color-processing-interactive: #ffffff;
+  --hds-step-indicator-foreground-color-complete-default: #ffffff;
+  --hds-step-indicator-foreground-color-complete-interactive-default: #1060ff;
+  --hds-step-indicator-foreground-color-complete-interactive-hover: #0c56e9;
+  --hds-step-indicator-foreground-color-complete-interactive-active: #0046d1;
   --hds-step-indicator-icon-height: 12px;
   --hds-step-indicator-icon-width: 12px;
-  --hds-step-indicator-interactive-foreground-color-incomplete: #3b3d45;
-  --hds-step-indicator-interactive-foreground-color-progress: #ffffff;
-  --hds-step-indicator-interactive-foreground-color-processing: #ffffff;
-  --hds-step-indicator-interactive-foreground-color-complete: #1060ff;
   --hds-tabs-tab-border-color-default: rgba(0, 0, 0, 0);
   --hds-tabs-tab-border-color-hover: rgba(0, 0, 0, 0);
   --hds-tabs-tab-border-radius: 5px;
@@ -9971,8 +9972,8 @@ button.hds-button[href]::after {
  */
 .hds-stepper-indicator-step {
   position: relative;
-  width: var(--hds-step-indicator-width);
-  height: var(--hds-step-indicator-height);
+  width: var(--hds-step-indicator-size);
+  height: var(--hds-step-indicator-size);
 }
 
 .hds-stepper-indicator-step__svg-hexagon {
@@ -10011,7 +10012,7 @@ button.hds-button[href]::after {
 }
 
 .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-foreground-color-incomplete);
+  color: var(--hds-step-indicator-foreground-color-incomplete-default);
 }
 .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-surface-color-primary);
@@ -10019,7 +10020,7 @@ button.hds-button[href]::after {
 }
 
 .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-foreground-color-progress);
+  color: var(--hds-step-indicator-foreground-color-progress-default);
 }
 .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-foreground-color-strong);
@@ -10027,7 +10028,7 @@ button.hds-button[href]::after {
 }
 
 .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-foreground-color-processing);
+  color: var(--hds-step-indicator-foreground-color-processing-default);
 }
 .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-foreground-color-strong);
@@ -10035,7 +10036,7 @@ button.hds-button[href]::after {
 }
 
 .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-foreground-color-complete);
+  color: var(--hds-step-indicator-foreground-color-complete-default);
 }
 .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-foreground-color-strong);
@@ -10046,7 +10047,7 @@ button.hds-button[href]::after {
   cursor: pointer;
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-incomplete);
+  color: var(--hds-step-indicator-foreground-color-incomplete-interactive);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-surface-color-interactive);
@@ -10059,7 +10060,7 @@ button.hds-button[href]::after {
   fill: var(--hds-surface-color-interactive-active);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-progress);
+  color: var(--hds-step-indicator-foreground-color-progress-interactive);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-core-color-blue-200);
@@ -10074,7 +10075,7 @@ button.hds-button[href]::after {
   stroke: var(--hds-core-color-blue-400);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-processing);
+  color: var(--hds-step-indicator-foreground-color-processing-interactive);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-core-color-blue-200);
@@ -10089,21 +10090,21 @@ button.hds-button[href]::after {
   stroke: var(--hds-core-color-blue-400);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-complete);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-default);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-surface-color-action);
   stroke: var(--hds-core-color-blue-300);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete:hover .hds-stepper-indicator-step__status, .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete.mock-hover .hds-stepper-indicator-step__status {
-  color: var(--hds-core-color-blue-300);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-hover);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete:hover .hds-stepper-indicator-step__svg-hexagon path, .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete.mock-hover .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-core-color-blue-100);
   stroke: var(--hds-core-color-blue-400);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete:active .hds-stepper-indicator-step__status, .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete.mock-active .hds-stepper-indicator-step__status {
-  color: var(--hds-core-color-blue-400);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-active);
 }
 .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete:active .hds-stepper-indicator-step__svg-hexagon path, .hds-stepper-indicator-step--is-interactive.hds-stepper-indicator-step--status-complete.mock-active .hds-stepper-indicator-step__svg-hexagon path {
   fill: var(--hds-core-color-blue-100);
@@ -10369,7 +10370,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-incomplete);
+  color: var(--hds-step-indicator-foreground-color-incomplete-interactive);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__svg-hexagon path {
@@ -10382,7 +10383,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-incomplete);
+  color: var(--hds-step-indicator-foreground-color-incomplete-interactive);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__svg-hexagon path {
@@ -10400,7 +10401,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status, .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status,
 .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status, .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status,
 .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status, .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-incomplete);
+  color: var(--hds-step-indicator-foreground-color-incomplete-interactive);
 }
 
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-incomplete.hds-stepper-indicator-step,
@@ -10414,7 +10415,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status, .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status,
 .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status, .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status,
 .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status, .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-incomplete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-incomplete);
+  color: var(--hds-step-indicator-foreground-color-incomplete-interactive);
 }
 
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-progress.hds-stepper-indicator-step,
@@ -10423,7 +10424,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-progress);
+  color: var(--hds-step-indicator-foreground-color-progress-interactive);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__svg-hexagon path {
@@ -10436,7 +10437,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-progress);
+  color: var(--hds-step-indicator-foreground-color-progress-interactive);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__svg-hexagon path {
@@ -10455,7 +10456,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status, .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status,
 .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status, .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status,
 .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status, .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-progress);
+  color: var(--hds-step-indicator-foreground-color-progress-interactive);
 }
 
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-progress.hds-stepper-indicator-step,
@@ -10470,7 +10471,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status, .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status,
 .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status, .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status,
 .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status, .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-progress .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-progress);
+  color: var(--hds-step-indicator-foreground-color-progress-interactive);
 }
 
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-processing.hds-stepper-indicator-step,
@@ -10479,7 +10480,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-processing);
+  color: var(--hds-step-indicator-foreground-color-processing-interactive);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__svg-hexagon path {
@@ -10492,7 +10493,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-processing);
+  color: var(--hds-step-indicator-foreground-color-processing-interactive);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__svg-hexagon path {
@@ -10511,7 +10512,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status, .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status,
 .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status, .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status,
 .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status, .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-processing);
+  color: var(--hds-step-indicator-foreground-color-processing-interactive);
 }
 
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-processing.hds-stepper-indicator-step,
@@ -10526,7 +10527,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status, .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status,
 .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status, .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status,
 .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status, .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-processing .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-processing);
+  color: var(--hds-step-indicator-foreground-color-processing-interactive);
 }
 
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-complete.hds-stepper-indicator-step,
@@ -10535,7 +10536,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-complete);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-default);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path {
@@ -10548,7 +10549,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-complete);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-default);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path {
@@ -10561,7 +10562,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status {
-  color: var(--hds-core-color-blue-300);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-hover);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path {
@@ -10571,7 +10572,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status, .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status,
 .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status, .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status,
 .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status, .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-hover .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-complete);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-default);
 }
 
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-complete.hds-stepper-indicator-step,
@@ -10580,7 +10581,7 @@ button.hds-button[href]::after {
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status,
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status {
-  color: var(--hds-core-color-blue-400);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-active);
 }
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path,
 .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__svg-hexagon path {
@@ -10590,7 +10591,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status, .hds-theme-light .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status,
 .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status, .hds-theme-dark .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status,
 .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button:active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status, .hds-theme-system .hds-stepper-nav--interactive .hds-stepper-nav__step.hds-stepper-nav__step--complete .hds-stepper-nav__step-button.mock-active .hds-stepper-indicator-step--status-complete .hds-stepper-indicator-step__status {
-  color: var(--hds-step-indicator-interactive-foreground-color-complete);
+  color: var(--hds-step-indicator-foreground-color-complete-interactive-default);
 }
 
 @media screen and (max-width: 479.98px) {

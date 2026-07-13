@@ -57,7 +57,7 @@ export default class HdsStepperStepIndicator extends Component<HdsStepperStepInd
     return this.args.isInteractive || false;
   }
 
-  get statusIcon(): HdsIconSignature['Args']['name'] {
+  get carbonThemeStatusIcon(): HdsIconSignature['Args']['name'] {
     return MAPPING_STATUSES_TO_CARBON_THEME_ICONS[this.status];
   }
 
@@ -76,7 +76,15 @@ export default class HdsStepperStepIndicator extends Component<HdsStepperStepInd
 
   <template>
     <div class={{this.classNames}} ...attributes>
-      {{#unless this.hdsTheming.isCarbonThemeEnabled}}
+      {{#if this.hdsTheming.isCarbonThemeEnabled}}
+        <div class="hds-stepper-indicator-step__status">
+          <HdsIcon
+            class="hds-stepper-indicator-step__icon"
+            @name={{this.carbonThemeStatusIcon}}
+            @size="16"
+          />
+        </div>
+      {{else}}
         <div class="hds-stepper-indicator-step__svg-hexagon">
           <svg
             width="24"
@@ -92,15 +100,7 @@ export default class HdsStepperStepIndicator extends Component<HdsStepperStepInd
             ></path>
           </svg>
         </div>
-      {{/unless}}
-      <div class="hds-stepper-indicator-step__status">
-        {{#if this.hdsTheming.isCarbonThemeEnabled}}
-          <HdsIcon
-            class="hds-stepper-indicator-step__icon"
-            @name={{this.statusIcon}}
-            @size="16"
-          />
-        {{else}}
+        <div class="hds-stepper-indicator-step__status">
           {{#if (eq @status "processing")}}
             <HdsIcon
               class="hds-stepper-indicator-step__icon"
@@ -121,8 +121,8 @@ export default class HdsStepperStepIndicator extends Component<HdsStepperStepInd
               @weight="medium"
             >{{@text}}</HdsTextBody>
           {{/if}}
-        {{/if}}
-      </div>
+        </div>
+      {{/if}}
     </div>
   </template>
 }

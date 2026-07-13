@@ -806,34 +806,39 @@
     );
     --hds-rich-tooltip-toggle-gap-horizontal: 4px;
     --hds-rich-tooltip-toggle-icon-size: 1em;
-    --hds-step-indicator-foreground-color-complete: var(
+    --hds-step-indicator-foreground-color-complete-default: var(
       --hds-foreground-color-high-contrast
     );
-    --hds-step-indicator-foreground-color-incomplete: var(
-      --hds-foreground-color-primary
+    --hds-step-indicator-foreground-color-complete-interactive-active: var(
+      --hds-core-color-blue-400
     );
-    --hds-step-indicator-foreground-color-processing: var(
-      --hds-foreground-color-high-contrast
-    );
-    --hds-step-indicator-foreground-color-progress: var(
-      --hds-foreground-color-high-contrast
-    );
-    --hds-step-indicator-height: 24px;
-    --hds-step-indicator-icon-height: 12px;
-    --hds-step-indicator-icon-width: 12px;
-    --hds-step-indicator-interactive-foreground-color-complete: var(
+    --hds-step-indicator-foreground-color-complete-interactive-default: var(
       --hds-core-color-blue-200
     );
-    --hds-step-indicator-interactive-foreground-color-incomplete: var(
+    --hds-step-indicator-foreground-color-complete-interactive-hover: var(
+      --hds-core-color-blue-300
+    );
+    --hds-step-indicator-foreground-color-incomplete-default: var(
       --hds-foreground-color-primary
     );
-    --hds-step-indicator-interactive-foreground-color-processing: var(
+    --hds-step-indicator-foreground-color-incomplete-interactive: var(
+      --hds-foreground-color-primary
+    );
+    --hds-step-indicator-foreground-color-processing-default: var(
       --hds-foreground-color-high-contrast
     );
-    --hds-step-indicator-interactive-foreground-color-progress: var(
+    --hds-step-indicator-foreground-color-processing-interactive: var(
       --hds-foreground-color-high-contrast
     );
-    --hds-step-indicator-width: 24px;
+    --hds-step-indicator-foreground-color-progress-default: var(
+      --hds-foreground-color-high-contrast
+    );
+    --hds-step-indicator-foreground-color-progress-interactive: var(
+      --hds-foreground-color-high-contrast
+    );
+    --hds-step-indicator-icon-height: 12px;
+    --hds-step-indicator-icon-width: 12px;
+    --hds-step-indicator-size: 24px;
     --hds-stepper-list-progress-bar-left: 11px;
     --hds-stepper-list-progress-bar-surface-color-complete: var(
       --hds-core-color-neutral-700
@@ -1579,18 +1584,19 @@
     --hds-rich-tooltip-toggle-foreground-color-default: #525252;
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
-    --hds-step-indicator-foreground-color-complete: #161616;
-    --hds-step-indicator-foreground-color-incomplete: #161616;
-    --hds-step-indicator-foreground-color-processing: #161616;
-    --hds-step-indicator-foreground-color-progress: #161616;
-    --hds-step-indicator-height: 16px;
+    --hds-step-indicator-foreground-color-complete-default: #161616;
+    --hds-step-indicator-foreground-color-complete-interactive-active: #0f62fe;
+    --hds-step-indicator-foreground-color-complete-interactive-default: #0f62fe;
+    --hds-step-indicator-foreground-color-complete-interactive-hover: #0f62fe;
+    --hds-step-indicator-foreground-color-incomplete-default: #161616;
+    --hds-step-indicator-foreground-color-incomplete-interactive: #161616;
+    --hds-step-indicator-foreground-color-processing-default: #161616;
+    --hds-step-indicator-foreground-color-processing-interactive: #0f62fe;
+    --hds-step-indicator-foreground-color-progress-default: #161616;
+    --hds-step-indicator-foreground-color-progress-interactive: #0f62fe;
     --hds-step-indicator-icon-height: 16px;
     --hds-step-indicator-icon-width: 16px;
-    --hds-step-indicator-interactive-foreground-color-complete: #0f62fe;
-    --hds-step-indicator-interactive-foreground-color-incomplete: #161616;
-    --hds-step-indicator-interactive-foreground-color-processing: #0f62fe;
-    --hds-step-indicator-interactive-foreground-color-progress: #0f62fe;
-    --hds-step-indicator-width: 16px;
+    --hds-step-indicator-size: 16px;
     --hds-stepper-list-progress-bar-left: 0px;
     --hds-stepper-list-progress-bar-surface-color-complete: var(
       --hds-core-color-neutral-700
@@ -2276,18 +2282,19 @@
     --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
-    --hds-step-indicator-foreground-color-complete: #f4f4f4;
-    --hds-step-indicator-foreground-color-incomplete: #f4f4f4;
-    --hds-step-indicator-foreground-color-processing: #f4f4f4;
-    --hds-step-indicator-foreground-color-progress: #f4f4f4;
-    --hds-step-indicator-height: 16px;
+    --hds-step-indicator-foreground-color-complete-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-complete-interactive-active: #4589ff;
+    --hds-step-indicator-foreground-color-complete-interactive-default: #4589ff;
+    --hds-step-indicator-foreground-color-complete-interactive-hover: #4589ff;
+    --hds-step-indicator-foreground-color-incomplete-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-incomplete-interactive: #f4f4f4;
+    --hds-step-indicator-foreground-color-processing-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-processing-interactive: #4589ff;
+    --hds-step-indicator-foreground-color-progress-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-progress-interactive: #4589ff;
     --hds-step-indicator-icon-height: 16px;
     --hds-step-indicator-icon-width: 16px;
-    --hds-step-indicator-interactive-foreground-color-complete: #4589ff;
-    --hds-step-indicator-interactive-foreground-color-incomplete: #f4f4f4;
-    --hds-step-indicator-interactive-foreground-color-processing: #4589ff;
-    --hds-step-indicator-interactive-foreground-color-progress: #4589ff;
-    --hds-step-indicator-width: 16px;
+    --hds-step-indicator-size: 16px;
     --hds-stepper-list-progress-bar-left: 0px;
     --hds-stepper-list-progress-bar-surface-color-complete: var(
       --hds-core-color-neutral-100
@@ -2953,18 +2960,19 @@
     --hds-rich-tooltip-toggle-foreground-color-default: #525252;
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
-    --hds-step-indicator-foreground-color-complete: #161616;
-    --hds-step-indicator-foreground-color-incomplete: #161616;
-    --hds-step-indicator-foreground-color-processing: #161616;
-    --hds-step-indicator-foreground-color-progress: #161616;
-    --hds-step-indicator-height: 16px;
+    --hds-step-indicator-foreground-color-complete-default: #161616;
+    --hds-step-indicator-foreground-color-complete-interactive-active: #0f62fe;
+    --hds-step-indicator-foreground-color-complete-interactive-default: #0f62fe;
+    --hds-step-indicator-foreground-color-complete-interactive-hover: #0f62fe;
+    --hds-step-indicator-foreground-color-incomplete-default: #161616;
+    --hds-step-indicator-foreground-color-incomplete-interactive: #161616;
+    --hds-step-indicator-foreground-color-processing-default: #161616;
+    --hds-step-indicator-foreground-color-processing-interactive: #0f62fe;
+    --hds-step-indicator-foreground-color-progress-default: #161616;
+    --hds-step-indicator-foreground-color-progress-interactive: #0f62fe;
     --hds-step-indicator-icon-height: 16px;
     --hds-step-indicator-icon-width: 16px;
-    --hds-step-indicator-interactive-foreground-color-complete: #0f62fe;
-    --hds-step-indicator-interactive-foreground-color-incomplete: #161616;
-    --hds-step-indicator-interactive-foreground-color-processing: #0f62fe;
-    --hds-step-indicator-interactive-foreground-color-progress: #0f62fe;
-    --hds-step-indicator-width: 16px;
+    --hds-step-indicator-size: 16px;
     --hds-stepper-list-progress-bar-left: 0px;
     --hds-stepper-list-progress-bar-surface-color-complete: var(
       --hds-core-color-neutral-700
@@ -3630,18 +3638,19 @@
     --hds-rich-tooltip-toggle-foreground-color-default: #525252;
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
-    --hds-step-indicator-foreground-color-complete: #161616;
-    --hds-step-indicator-foreground-color-incomplete: #161616;
-    --hds-step-indicator-foreground-color-processing: #161616;
-    --hds-step-indicator-foreground-color-progress: #161616;
-    --hds-step-indicator-height: 16px;
+    --hds-step-indicator-foreground-color-complete-default: #161616;
+    --hds-step-indicator-foreground-color-complete-interactive-active: #0f62fe;
+    --hds-step-indicator-foreground-color-complete-interactive-default: #0f62fe;
+    --hds-step-indicator-foreground-color-complete-interactive-hover: #0f62fe;
+    --hds-step-indicator-foreground-color-incomplete-default: #161616;
+    --hds-step-indicator-foreground-color-incomplete-interactive: #161616;
+    --hds-step-indicator-foreground-color-processing-default: #161616;
+    --hds-step-indicator-foreground-color-processing-interactive: #0f62fe;
+    --hds-step-indicator-foreground-color-progress-default: #161616;
+    --hds-step-indicator-foreground-color-progress-interactive: #0f62fe;
     --hds-step-indicator-icon-height: 16px;
     --hds-step-indicator-icon-width: 16px;
-    --hds-step-indicator-interactive-foreground-color-complete: #0f62fe;
-    --hds-step-indicator-interactive-foreground-color-incomplete: #161616;
-    --hds-step-indicator-interactive-foreground-color-processing: #0f62fe;
-    --hds-step-indicator-interactive-foreground-color-progress: #0f62fe;
-    --hds-step-indicator-width: 16px;
+    --hds-step-indicator-size: 16px;
     --hds-stepper-list-progress-bar-left: 0px;
     --hds-stepper-list-progress-bar-surface-color-complete: var(
       --hds-core-color-neutral-700
@@ -4327,18 +4336,19 @@
     --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
-    --hds-step-indicator-foreground-color-complete: #f4f4f4;
-    --hds-step-indicator-foreground-color-incomplete: #f4f4f4;
-    --hds-step-indicator-foreground-color-processing: #f4f4f4;
-    --hds-step-indicator-foreground-color-progress: #f4f4f4;
-    --hds-step-indicator-height: 16px;
+    --hds-step-indicator-foreground-color-complete-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-complete-interactive-active: #4589ff;
+    --hds-step-indicator-foreground-color-complete-interactive-default: #4589ff;
+    --hds-step-indicator-foreground-color-complete-interactive-hover: #4589ff;
+    --hds-step-indicator-foreground-color-incomplete-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-incomplete-interactive: #f4f4f4;
+    --hds-step-indicator-foreground-color-processing-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-processing-interactive: #4589ff;
+    --hds-step-indicator-foreground-color-progress-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-progress-interactive: #4589ff;
     --hds-step-indicator-icon-height: 16px;
     --hds-step-indicator-icon-width: 16px;
-    --hds-step-indicator-interactive-foreground-color-complete: #4589ff;
-    --hds-step-indicator-interactive-foreground-color-incomplete: #f4f4f4;
-    --hds-step-indicator-interactive-foreground-color-processing: #4589ff;
-    --hds-step-indicator-interactive-foreground-color-progress: #4589ff;
-    --hds-step-indicator-width: 16px;
+    --hds-step-indicator-size: 16px;
     --hds-stepper-list-progress-bar-left: 0px;
     --hds-stepper-list-progress-bar-surface-color-complete: var(
       --hds-core-color-neutral-100
@@ -5024,18 +5034,19 @@
     --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
-    --hds-step-indicator-foreground-color-complete: #f4f4f4;
-    --hds-step-indicator-foreground-color-incomplete: #f4f4f4;
-    --hds-step-indicator-foreground-color-processing: #f4f4f4;
-    --hds-step-indicator-foreground-color-progress: #f4f4f4;
-    --hds-step-indicator-height: 16px;
+    --hds-step-indicator-foreground-color-complete-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-complete-interactive-active: #4589ff;
+    --hds-step-indicator-foreground-color-complete-interactive-default: #4589ff;
+    --hds-step-indicator-foreground-color-complete-interactive-hover: #4589ff;
+    --hds-step-indicator-foreground-color-incomplete-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-incomplete-interactive: #f4f4f4;
+    --hds-step-indicator-foreground-color-processing-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-processing-interactive: #4589ff;
+    --hds-step-indicator-foreground-color-progress-default: #f4f4f4;
+    --hds-step-indicator-foreground-color-progress-interactive: #4589ff;
     --hds-step-indicator-icon-height: 16px;
     --hds-step-indicator-icon-width: 16px;
-    --hds-step-indicator-interactive-foreground-color-complete: #4589ff;
-    --hds-step-indicator-interactive-foreground-color-incomplete: #f4f4f4;
-    --hds-step-indicator-interactive-foreground-color-processing: #4589ff;
-    --hds-step-indicator-interactive-foreground-color-progress: #4589ff;
-    --hds-step-indicator-width: 16px;
+    --hds-step-indicator-size: 16px;
     --hds-stepper-list-progress-bar-left: 0px;
     --hds-stepper-list-progress-bar-surface-color-complete: var(
       --hds-core-color-neutral-100
