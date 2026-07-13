@@ -39,7 +39,7 @@
   $hds-form-file-input-background-position-x: 15px;
 
   display: inline-flex; // override display: flex in hds-button() mixin
-  min-height: 36px;
+  min-height: var(--hds-form-control-height);
   margin-right: 16px;
   padding: 7px 16px 7px; // padding in code altered to match Figma visual design
   padding-left: calc(
@@ -54,7 +54,6 @@
 
   @include hds-apply-only-if-carbon() {
     @include hds-button-color-primary();
-    min-height: 40px; // 2.5rem // TODO: create a token for this value
   }
 }
 
