@@ -35,10 +35,12 @@ const StepperNavCarbonizationIndex: TemplateOnlyComponent<StepperNavCarbonizatio
     <ShwTextH1>Stepper::Nav - Carbonization</ShwTextH1>
 
     <ShwTextBody>
-      The Stepper::Nav component relies on the
+      ⚠️ The
+      <code>Stepper::Nav</code>
+      component relies on the
       <code>HdsTheming</code>
       service to render the appropriate
-      <code>Stepper::Indicator</code>
+      <code>Stepper::Step::Indicator</code>
       icons, and progress bar width for the Carbon theme. The changes made
       through the service will not be visible in this page. It is preferrable to
       view this component in the
