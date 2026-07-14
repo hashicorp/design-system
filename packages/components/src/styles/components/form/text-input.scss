@@ -222,11 +222,22 @@
     background-size: var(--hds-form-text-input-background-image-size);
     // stylelint-disable-next-line property-no-vendor-prefix
     -webkit-appearance: none;
+
+    @include hds-apply-only-if-carbon() {
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      bottom: 2px; // Mirror visual "gap" caused by transparent borders on top & right sides
+      width: 40px; // TODO: Add token
+      height: auto;
+      margin: 0;
+      opacity: 1;
+    }
   }
 
+  // HOVER (for search cancel button)
   &:not(:disabled, [readonly]) {
     // Display native search cancel button for hover examples in Showcase
-    &:hover,
     &.mock-hover {
       &::-webkit-search-cancel-button {
         opacity: 1;
@@ -234,27 +245,11 @@
     }
 
     @include hds-apply-only-if-carbon() {
-      // For Showcase examples we are setting the mock hover state on the parent input
-      &.mock-hover {
-        &::-webkit-search-cancel-button {
-          background-color: var(--hds-surface-color-interactive-hover);
-        }
-      }
-
-      // Display native search cancel button in carbonized non-disabled, non-readonly search input
-      &::-webkit-search-cancel-button {
-        position: absolute;
-        top: 1px;
-        right: 1px;
-        bottom: 1px;
-        width: 40px; // TODO: Add token
-        height: auto;
-        margin: 0;
-        opacity: 1;
-
-        &:hover {
-          background-color: var(--hds-surface-color-interactive-hover);
-        }
+      // For Showcase examples, we are setting the mock hover state on the parent input.
+      // Otherwise, we set the hover style on the search cancel button itself.
+      &.mock-hover::-webkit-search-cancel-button,
+      &::-webkit-search-cancel-button:hover {
+        background-color: var(--hds-surface-color-interactive-hover);
       }
     }
   }

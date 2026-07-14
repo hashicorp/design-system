@@ -246,98 +246,102 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
                   </ShwFlex>
                 </:theming>
                 <:reference>
-                  <ShwFlex @direction="column" as |SF|>
-                    <SF.Item>
-                      <cds-text-input
-                        type="text"
-                        size="md"
-                        disabled={{if (eq variant "disabled") "disabled"}}
-                        readonly={{if (eq variant "readonly") "readonly"}}
-                        invalid={{if (eq variant "invalid") true}}
-                        invalid-text="Error message goes here"
-                      ></cds-text-input>
-                    </SF.Item>
-                    <SF.Item>
-                      <cds-text-input
-                        type="text"
-                        size="md"
-                        placeholder="Placeholder"
-                        disabled={{if (eq variant "disabled") "disabled"}}
-                        readonly={{if (eq variant "readonly") "readonly"}}
-                        invalid={{if (eq variant "invalid") true}}
-                        invalid-text="Error message goes here"
-                      ></cds-text-input>
-                    </SF.Item>
-                    <SF.Item>
-                      <cds-text-input
-                        type="text"
-                        size="md"
-                        value="Lorem ipsum dolor"
-                        disabled={{if (eq variant "disabled") "disabled"}}
-                        readonly={{if (eq variant "readonly") "readonly"}}
-                        invalid={{if (eq variant "invalid") true}}
-                        invalid-text="Error message goes here"
-                      ></cds-text-input>
-                    </SF.Item>
-                    <SF.Item>
-                      <cds-text-input
-                        type="password"
-                        size="md"
-                        value="Lorem ipsum dolor"
-                        disabled={{if (eq variant "disabled") "disabled"}}
-                        readonly={{if (eq variant "readonly") "readonly"}}
-                        invalid={{if (eq variant "invalid") true}}
-                        invalid-text="Error message goes here"
-                      ></cds-text-input>
-                    </SF.Item>
-                    <SF.Item>
-                      {{#if
-                        (or
-                          (eq variant "invalid")
-                          (eq variant "loading")
-                          (eq variant "readonly")
-                        )
-                      }}
-                        <pre>TODO: static image here</pre>
-                      {{else}}
-                        <cds-search
-                          label-text="Search"
-                          placeholder="search"
-                          size="md"
-                          value="Search component"
-                          disabled={{if (eq variant "disabled") "true"}}
-                          readonly={{if (eq variant "readonly") "true"}}
-                          invalid={{if (eq variant "invalid") true}}
-                          invalid-text="Error message goes here"
-                        ></cds-search>
-                      {{/if}}
-                    </SF.Item>
-                    <SF.Item>
-                      {{#if (eq variant "invalid")}}
-                        <pre>TODO: static image here</pre>
-                      {{else}}
+                  {{#if (eq state "default")}}
+                    <ShwFlex @direction="column" as |SF|>
+                      <SF.Item>
                         <cds-text-input
-                          type="date"
+                          type="text"
                           size="md"
                           disabled={{if (eq variant "disabled") "disabled"}}
                           readonly={{if (eq variant "readonly") "readonly"}}
                           invalid={{if (eq variant "invalid") true}}
                           invalid-text="Error message goes here"
                         ></cds-text-input>
-                      {{/if}}
-                    </SF.Item>
-                    <SF.Item>
-                      <cds-text-input
-                        type="time"
-                        size="md"
-                        value="Lorem ipsum dolor"
-                        disabled={{if (eq variant "disabled") "disabled"}}
-                        readonly={{if (eq variant "readonly") "readonly"}}
-                        invalid={{if (eq variant "invalid") true}}
-                        invalid-text="Error message goes here"
-                      ></cds-text-input>
-                    </SF.Item>
-                  </ShwFlex>
+                      </SF.Item>
+                      <SF.Item>
+                        <cds-text-input
+                          type="text"
+                          size="md"
+                          placeholder="Placeholder"
+                          disabled={{if (eq variant "disabled") "disabled"}}
+                          readonly={{if (eq variant "readonly") "readonly"}}
+                          invalid={{if (eq variant "invalid") true}}
+                          invalid-text="Error message goes here"
+                        ></cds-text-input>
+                      </SF.Item>
+                      <SF.Item>
+                        <cds-text-input
+                          type="text"
+                          size="md"
+                          value="Lorem ipsum dolor"
+                          disabled={{if (eq variant "disabled") "disabled"}}
+                          readonly={{if (eq variant "readonly") "readonly"}}
+                          invalid={{if (eq variant "invalid") true}}
+                          invalid-text="Error message goes here"
+                        ></cds-text-input>
+                      </SF.Item>
+                      <SF.Item>
+                        <cds-text-input
+                          type="password"
+                          size="md"
+                          value="Lorem ipsum dolor"
+                          disabled={{if (eq variant "disabled") "disabled"}}
+                          readonly={{if (eq variant "readonly") "readonly"}}
+                          invalid={{if (eq variant "invalid") true}}
+                          invalid-text="Error message goes here"
+                        ></cds-text-input>
+                      </SF.Item>
+                      <SF.Item>
+                        {{#if
+                          (or
+                            (eq variant "invalid")
+                            (eq variant "loading")
+                            (eq variant "readonly")
+                          )
+                        }}
+                          <pre>TODO: static image here</pre>
+                        {{else}}
+                          <cds-search
+                            label-text="Search"
+                            placeholder="search"
+                            size="md"
+                            value="Search component"
+                            disabled={{if (eq variant "disabled") "true"}}
+                            readonly={{if (eq variant "readonly") "true"}}
+                            invalid={{if (eq variant "invalid") true}}
+                            invalid-text="Error message goes here"
+                          ></cds-search>
+                        {{/if}}
+                      </SF.Item>
+                      <SF.Item>
+                        {{#if (eq variant "invalid")}}
+                          <pre>TODO: static image here</pre>
+                        {{else}}
+                          <cds-text-input
+                            type="date"
+                            size="md"
+                            disabled={{if (eq variant "disabled") "disabled"}}
+                            readonly={{if (eq variant "readonly") "readonly"}}
+                            invalid={{if (eq variant "invalid") true}}
+                            invalid-text="Error message goes here"
+                          ></cds-text-input>
+                        {{/if}}
+                      </SF.Item>
+                      <SF.Item>
+                        <cds-text-input
+                          type="time"
+                          size="md"
+                          value="Lorem ipsum dolor"
+                          disabled={{if (eq variant "disabled") "disabled"}}
+                          readonly={{if (eq variant "readonly") "readonly"}}
+                          invalid={{if (eq variant "invalid") true}}
+                          invalid-text="Error message goes here"
+                        ></cds-text-input>
+                      </SF.Item>
+                    </ShwFlex>
+                  {{else}}
+                    <pre>TODO: static image here</pre>
+                  {{/if}}
                 </:reference>
               </ShwCarbonizationComparisonGrid>
             {{/unless}}
