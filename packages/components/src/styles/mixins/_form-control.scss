@@ -1,0 +1,19 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "../mixins/carbonization" as *;
+
+@mixin hds-form-control-border(
+  $default-hds-border-color: var(--hds-form-control-base-border-color-default),
+  $default-cds-border-color: $default-hds-border-color
+) {
+  border: var(--hds-form-control-border-width) solid $default-hds-border-color;
+
+  // Most carbon form controls have only a bottom border
+  @include hds-apply-only-if-carbon() {
+    border-color: transparent;
+    border-bottom-color: $default-cds-border-color;
+  }
+}

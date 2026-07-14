@@ -9,10 +9,12 @@
 
 @use "../../mixins/focus-ring" as *;
 @use "../../mixins/carbonization" as *;
+@use "../../mixins/form-control" as *;
 
 // "BASE" CONTROL
 
 .hds-form-select {
+  @include hds-form-control-border();
   max-width: 100%;
   min-height: var(--hds-form-control-height); // mainly needed by carbon themes
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
@@ -23,7 +25,6 @@
   background-position: right var(--hds-form-select-background-image-position-right-x) top
     var(--hds-form-select-background-image-position-top-y); // we have to take into account the border
   background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
-  border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-low-box-shadow);
   appearance: none;
@@ -35,18 +36,13 @@
 
   @include hds-apply-only-if-carbon() {
     padding-right: 48px; // TODO: Create token? (This matches the right padding in the Carbon Select)
-
-    // Carbon's select has only a bottom border
-    &:not([multiple]) {
-      border-width: 0 0 var(--hds-form-control-border-width) 0;
-    }
   }
 
   // STATUS
 
   &:hover,
   &.mock-hover {
-    border-color: var(--hds-form-control-base-border-color-hover);
+    @include hds-form-control-border(var(--hds-form-control-base-border-color-hover));
 
     @include hds-apply-only-if-carbon() {
       &:not(:disabled, .mock-disabled, [readonly]) {
@@ -59,8 +55,8 @@
 
   &:focus-visible,
   &.mock-focus {
+    @include hds-form-control-border(var(--hds-focus-color-action-internal));
     @include hds-focus-ring-basic();
-    border-color: var(--hds-focus-color-action-internal);
 
     @include hds-apply-only-if-carbon() {
       outline-offset: -2px;
@@ -70,10 +66,10 @@
   // DISABLED
 
   &:disabled {
+    @include hds-form-control-border(var(--hds-form-control-disabled-border-color));
     color: var(--hds-form-control-disabled-foreground-color);
     background-color: var(--hds-form-control-disabled-surface-color);
     background-image: var(--hds-form-select-background-image-data-url-disabled);
-    border-color: var(--hds-form-control-disabled-border-color);
     box-shadow: none;
     cursor: not-allowed;
   }
@@ -81,7 +77,7 @@
   // INVALID
 
   &.hds-form-select--is-invalid {
-    border-color: var(--hds-form-control-invalid-border-color-default);
+    @include hds-form-control-border(var(--hds-form-control-invalid-border-color-default));
 
     @include hds-apply-only-if-carbon() {
       outline: 2px solid var(--hds-form-control-invalid-border-color-default);
@@ -90,12 +86,12 @@
 
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-form-control-invalid-border-color-hover);
+      @include hds-form-control-border(var(--hds-form-control-invalid-border-color-hover));
     }
 
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--hds-focus-color-critical-internal);
+      @include hds-form-control-border(var(--hds-focus-color-critical-internal));
       outline-color: var(--hds-focus-color-critical-external);
     }
   }
@@ -107,6 +103,8 @@
   &[multiple],
   &[size] {
     background: none;
+    // Note: Select multipls/size has borders on all sides unlike the single select
+    border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
 
     option {
       margin: 2px auto;
@@ -125,7 +123,7 @@
         background: var(--hds-core-color-blue-200);
 
         @include hds-apply-only-if-carbon() {
-          color: #fff; // TODO: Create token for this value
+          color: #fff; // TODO: Update token to include this value
         }
       }
     }

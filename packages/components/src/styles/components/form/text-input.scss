@@ -9,24 +9,20 @@
 
 @use "../../mixins/focus-ring" as *;
 @use "../../mixins/carbonization" as *;
+@use "../../mixins/form-control" as *;
 
 // "BASE" CONTROL
 
 .hds-form-text-input {
+  @include hds-form-control-border(); // var(--hds-form-control-base-border-color-default)
   width: 100%;
   max-width: 100%;
+  min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
   background-color: var(--hds-form-control-base-surface-color-default);
-  border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
-
-  @include hds-apply-only-if-carbon() {
-    min-height: 40px; // 2.5rem // TODO: create a token for this value
-    // Carbon's text input has only a bottom border
-    border-width: 0 0 var(--hds-form-control-border-width) 0;
-  }
 
   // PLACEHOLDER
 
@@ -38,7 +34,7 @@
 
   &:hover,
   &.mock-hover {
-    border-color: var(--hds-form-control-base-border-color-hover);
+    @include hds-form-control-border(var(--hds-form-control-base-border-color-hover));
   }
 
   // focus (same for all the states)
@@ -46,7 +42,7 @@
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-basic();
-    border-color: var(--hds-focus-color-action-internal);
+    @include hds-form-control-border(var(--hds-focus-color-action-internal));
 
     @include hds-apply-only-if-carbon() {
       outline-offset: -2px;
@@ -56,18 +52,18 @@
   // READONLY
 
   &:read-only {
+    @include hds-form-control-border(var(--hds-form-control-readonly-border-color));
     color: var(--hds-form-control-readonly-foreground-color);
     background-color: var(--hds-form-control-readonly-surface-color);
-    border-color: var(--hds-form-control-readonly-border-color);
     box-shadow: none;
   }
 
   // DISABLED
 
   &:disabled {
+    @include hds-form-control-border(var(--hds-form-control-disabled-border-color));
     color: var(--hds-form-control-disabled-foreground-color);
     background-color: var(--hds-form-control-disabled-surface-color);
-    border-color: var(--hds-form-control-disabled-border-color);
     box-shadow: none;
     cursor: not-allowed;
 
@@ -79,7 +75,7 @@
   // INVALID
 
   &.hds-form-text-input--is-invalid {
-    border-color: var(--hds-form-control-invalid-border-color-default);
+    @include hds-form-control-border(var(--hds-form-control-invalid-border-color-default));
 
     @include hds-apply-only-if-carbon() {
       outline: 2px solid var(--hds-form-control-invalid-border-color-default);
@@ -88,12 +84,12 @@
 
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-form-control-invalid-border-color-hover);
+      @include hds-form-control-border(var(--hds-form-control-invalid-border-color-hover));
     }
 
     &:focus-visible,
     &.mock-focus {
-      border-color: var(--hds-focus-color-critical-internal);
+      @include hds-form-control-border(var(--hds-focus-color-critical-internal));
       outline-color: var(--hds-focus-color-critical-external);
     }
   }
