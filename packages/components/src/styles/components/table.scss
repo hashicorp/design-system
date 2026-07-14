@@ -49,6 +49,7 @@ $hds-table-header-height: 48px;
   .hds-table--density-short & {
     @include hds-apply-only-if-carbon() {
       // CSS doesn't allow minimum height set on table cells, need to set height instead
+      height: 2rem;
     }
   }
 
