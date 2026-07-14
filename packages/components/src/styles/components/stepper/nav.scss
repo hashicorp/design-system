@@ -287,13 +287,13 @@ $progress-bar-animation-duration: 0.25s;
         }
 
         .hds-stepper-indicator-step__status {
-          color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-default");
+          color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-default");
         }
 
         .hds-stepper-indicator-step__svg-hexagon {
           path {
-            fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-default");
-            stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-default");
+            fill: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "fill-color-default");
+            stroke: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "stroke-color-default");
           }
         }
       }
@@ -307,13 +307,13 @@ $progress-bar-animation-duration: 0.25s;
         }
 
         .hds-stepper-indicator-step__status {
-          color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-default");
+          color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-default");
         }
 
         .hds-stepper-indicator-step__svg-hexagon {
           path {
-            fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-default");
-            stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-default");
+            fill: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "fill-color-default");
+            stroke: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "stroke-color-default");
           }
         }
       }
@@ -328,19 +328,19 @@ $progress-bar-animation-duration: 0.25s;
           }
 
           .hds-stepper-indicator-step__status {
-            color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-hover");
+            color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-hover");
           }
 
           .hds-stepper-indicator-step__svg-hexagon {
             path {
-              fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-hover");
-              stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-hover");
+              fill: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "fill-color-hover");
+              stroke: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "stroke-color-hover");
             }
           }
 
           @include hds-apply-only-if-carbon() {
             .hds-stepper-indicator-step__status {
-              color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-default");
+              color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-default");
             }
           }
         }
@@ -354,19 +354,19 @@ $progress-bar-animation-duration: 0.25s;
           }
 
           .hds-stepper-indicator-step__status {
-            color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-active");
+            color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-active");
           }
 
           .hds-stepper-indicator-step__svg-hexagon {
             path {
-              fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-active");
-              stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-active");
+              fill: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "fill-color-active");
+              stroke: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "stroke-color-active");
             }
           }
 
           @include hds-apply-only-if-carbon() {
             .hds-stepper-indicator-step__status {
-              color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-default");
+              color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-default");
             }
           }
         }

@@ -720,7 +720,6 @@
   --hds-stepper-nav-step-description-foreground-color-incomplete: #656a76;
   --hds-stepper-nav-step-surface-color-complete-interactive-hover: #f1f2f3;
   --hds-stepper-nav-step-surface-color-complete-interactive-active: #dedfe3;
-  --hds-stepper-nav-progress-bar-height: 4px;
   --hds-stepper-nav-progress-bar-top: -4px;
   --hds-stepper-nav-progress-bar-border-width: 4px;
   --hds-stepper-nav-progress-bar-border-color-incomplete: #dedfe3;
@@ -737,8 +736,7 @@
   --hds-stepper-step-indicator-foreground-color-complete-interactive-default: #1060ff;
   --hds-stepper-step-indicator-foreground-color-complete-interactive-hover: #0c56e9;
   --hds-stepper-step-indicator-foreground-color-complete-interactive-active: #0046d1;
-  --hds-stepper-step-indicator-icon-height: 12px;
-  --hds-stepper-step-indicator-icon-width: 12px;
+  --hds-stepper-step-indicator-icon-size: 12px;
   --hds-tabs-tab-border-color-default: rgba(0, 0, 0, 0);
   --hds-tabs-tab-border-color-hover: rgba(0, 0, 0, 0);
   --hds-tabs-tab-border-radius: 5px;

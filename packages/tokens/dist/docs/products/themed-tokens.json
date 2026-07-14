@@ -23276,42 +23276,6 @@
         "active"
       ]
     },
-    "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper.nav.progress-bar.height}",
-      "$type": "dimension",
-      "$value": "4px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "2",
-        "cds-g10": "2",
-        "cds-g90": "2",
-        "cds-g100": "2"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "4",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "2",
-          "cds-g10": "2",
-          "cds-g90": "2",
-          "cds-g100": "2"
-        },
-        "key": "{stepper.nav.progress-bar.height}"
-      },
-      "name": "hds-stepper-nav-progress-bar-height",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "height"
-      ]
-    },
     "hds-stepper-nav-progress-bar-top": {
       "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
@@ -23904,8 +23868,8 @@
         "active"
       ]
     },
-    "hds-stepper-step-indicator-icon-height": {
-      "key": "{stepper.step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-size": {
+      "key": "{stepper.step.indicator.icon.size}",
       "$type": "dimension",
       "$value": "12px",
       "unit": "px",
@@ -23927,9 +23891,9 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{stepper.step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.size}"
       },
-      "name": "hds-stepper-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-size",
       "attributes": {
         "category": "stepper"
       },
@@ -23938,44 +23902,7 @@
         "step",
         "indicator",
         "icon",
-        "height"
-      ]
-    },
-    "hds-stepper-step-indicator-icon-width": {
-      "key": "{stepper.step.indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{stepper.step.indicator.icon.width}"
-      },
-      "name": "hds-stepper-step-indicator-icon-width",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "step",
-        "indicator",
-        "icon",
-        "width"
+        "size"
       ]
     },
     "hds-tabs-tab-border-color-default": {
@@ -50626,42 +50553,6 @@
         "active"
       ]
     },
-    "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper.nav.progress-bar.height}",
-      "$type": "dimension",
-      "$value": "2px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "2",
-        "cds-g10": "2",
-        "cds-g90": "2",
-        "cds-g100": "2"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "2",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "2",
-          "cds-g10": "2",
-          "cds-g90": "2",
-          "cds-g100": "2"
-        },
-        "key": "{stepper.nav.progress-bar.height}"
-      },
-      "name": "hds-stepper-nav-progress-bar-height",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "height"
-      ]
-    },
     "hds-stepper-nav-progress-bar-top": {
       "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
@@ -51254,8 +51145,8 @@
         "active"
       ]
     },
-    "hds-stepper-step-indicator-icon-height": {
-      "key": "{stepper.step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-size": {
+      "key": "{stepper.step.indicator.icon.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -51277,9 +51168,9 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{stepper.step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.size}"
       },
-      "name": "hds-stepper-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-size",
       "attributes": {
         "category": "stepper"
       },
@@ -51288,44 +51179,7 @@
         "step",
         "indicator",
         "icon",
-        "height"
-      ]
-    },
-    "hds-stepper-step-indicator-icon-width": {
-      "key": "{stepper.step.indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{stepper.step.indicator.icon.width}"
-      },
-      "name": "hds-stepper-step-indicator-icon-width",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "step",
-        "indicator",
-        "icon",
-        "width"
+        "size"
       ]
     },
     "hds-tabs-tab-border-color-default": {
@@ -77976,42 +77830,6 @@
         "active"
       ]
     },
-    "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper.nav.progress-bar.height}",
-      "$type": "dimension",
-      "$value": "2px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "2",
-        "cds-g10": "2",
-        "cds-g90": "2",
-        "cds-g100": "2"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "2",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "2",
-          "cds-g10": "2",
-          "cds-g90": "2",
-          "cds-g100": "2"
-        },
-        "key": "{stepper.nav.progress-bar.height}"
-      },
-      "name": "hds-stepper-nav-progress-bar-height",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "height"
-      ]
-    },
     "hds-stepper-nav-progress-bar-top": {
       "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
@@ -78604,8 +78422,8 @@
         "active"
       ]
     },
-    "hds-stepper-step-indicator-icon-height": {
-      "key": "{stepper.step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-size": {
+      "key": "{stepper.step.indicator.icon.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -78627,9 +78445,9 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{stepper.step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.size}"
       },
-      "name": "hds-stepper-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-size",
       "attributes": {
         "category": "stepper"
       },
@@ -78638,44 +78456,7 @@
         "step",
         "indicator",
         "icon",
-        "height"
-      ]
-    },
-    "hds-stepper-step-indicator-icon-width": {
-      "key": "{stepper.step.indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{stepper.step.indicator.icon.width}"
-      },
-      "name": "hds-stepper-step-indicator-icon-width",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "step",
-        "indicator",
-        "icon",
-        "width"
+        "size"
       ]
     },
     "hds-tabs-tab-border-color-default": {
@@ -105326,42 +105107,6 @@
         "active"
       ]
     },
-    "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper.nav.progress-bar.height}",
-      "$type": "dimension",
-      "$value": "2px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "2",
-        "cds-g10": "2",
-        "cds-g90": "2",
-        "cds-g100": "2"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "2",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "2",
-          "cds-g10": "2",
-          "cds-g90": "2",
-          "cds-g100": "2"
-        },
-        "key": "{stepper.nav.progress-bar.height}"
-      },
-      "name": "hds-stepper-nav-progress-bar-height",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "height"
-      ]
-    },
     "hds-stepper-nav-progress-bar-top": {
       "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
@@ -105954,8 +105699,8 @@
         "active"
       ]
     },
-    "hds-stepper-step-indicator-icon-height": {
-      "key": "{stepper.step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-size": {
+      "key": "{stepper.step.indicator.icon.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -105977,9 +105722,9 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{stepper.step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.size}"
       },
-      "name": "hds-stepper-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-size",
       "attributes": {
         "category": "stepper"
       },
@@ -105988,44 +105733,7 @@
         "step",
         "indicator",
         "icon",
-        "height"
-      ]
-    },
-    "hds-stepper-step-indicator-icon-width": {
-      "key": "{stepper.step.indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{stepper.step.indicator.icon.width}"
-      },
-      "name": "hds-stepper-step-indicator-icon-width",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "step",
-        "indicator",
-        "icon",
-        "width"
+        "size"
       ]
     },
     "hds-tabs-tab-border-color-default": {
@@ -132676,42 +132384,6 @@
         "active"
       ]
     },
-    "hds-stepper-nav-progress-bar-height": {
-      "key": "{stepper.nav.progress-bar.height}",
-      "$type": "dimension",
-      "$value": "2px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "2",
-        "cds-g10": "2",
-        "cds-g90": "2",
-        "cds-g100": "2"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "2",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "2",
-          "cds-g10": "2",
-          "cds-g90": "2",
-          "cds-g100": "2"
-        },
-        "key": "{stepper.nav.progress-bar.height}"
-      },
-      "name": "hds-stepper-nav-progress-bar-height",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "nav",
-        "progress-bar",
-        "height"
-      ]
-    },
     "hds-stepper-nav-progress-bar-top": {
       "key": "{stepper.nav.progress-bar.top}",
       "$type": "dimension",
@@ -133304,8 +132976,8 @@
         "active"
       ]
     },
-    "hds-stepper-step-indicator-icon-height": {
-      "key": "{stepper.step.indicator.icon.height}",
+    "hds-stepper-step-indicator-icon-size": {
+      "key": "{stepper.step.indicator.icon.size}",
       "$type": "dimension",
       "$value": "16px",
       "unit": "px",
@@ -133327,9 +132999,9 @@
           "cds-g90": "16",
           "cds-g100": "16"
         },
-        "key": "{stepper.step.indicator.icon.height}"
+        "key": "{stepper.step.indicator.icon.size}"
       },
-      "name": "hds-stepper-step-indicator-icon-height",
+      "name": "hds-stepper-step-indicator-icon-size",
       "attributes": {
         "category": "stepper"
       },
@@ -133338,44 +133010,7 @@
         "step",
         "indicator",
         "icon",
-        "height"
-      ]
-    },
-    "hds-stepper-step-indicator-icon-width": {
-      "key": "{stepper.step.indicator.icon.width}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "12",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "12",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{stepper.step.indicator.icon.width}"
-      },
-      "name": "hds-stepper-step-indicator-icon-width",
-      "attributes": {
-        "category": "stepper"
-      },
-      "path": [
-        "stepper",
-        "step",
-        "indicator",
-        "icon",
-        "width"
+        "size"
       ]
     },
     "hds-tabs-tab-border-color-default": {

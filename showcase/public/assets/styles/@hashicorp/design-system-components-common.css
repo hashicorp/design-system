@@ -9009,12 +9009,6 @@ button.hds-button[href]::after {
   height: calc(100% + 16px);
   border-color: var(--hds-stepper-list-progress-bar-border-color-incomplete);
 }
-.hds-theme-light .hds-stepper-list__step .hds-stepper-list__step-progress::before,
-.hds-theme-dark .hds-stepper-list__step .hds-stepper-list__step-progress::before,
-.hds-theme-system .hds-stepper-list__step .hds-stepper-list__step-progress::before {
-  background-image: none;
-}
-
 .hds-stepper-list__step .hds-stepper-list__step-progress::after {
   border-color: var(--hds-stepper-list-progress-bar-border-color-complete);
 }
@@ -9112,10 +9106,6 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
 .hds-stepper-indicator-step {
   position: relative;
   width: var(--hds-stepper-step-indicator-size);
@@ -9126,11 +9116,6 @@ button.hds-button[href]::after {
   width: 100%;
   height: 100%;
   filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 0.05));
-}
-.hds-theme-light .hds-stepper-indicator-step__svg-hexagon,
-.hds-theme-dark .hds-stepper-indicator-step__svg-hexagon,
-.hds-theme-system .hds-stepper-indicator-step__svg-hexagon {
-  display: none;
 }
 
 .hds-stepper-indicator-step__status {
@@ -9145,8 +9130,8 @@ button.hds-button[href]::after {
 }
 
 .hds-stepper-indicator-step__icon {
-  width: var(--hds-stepper-step-indicator-icon-width);
-  height: var(--hds-stepper-step-indicator-icon-height);
+  width: var(--hds-stepper-step-indicator-icon-size);
+  height: var(--hds-stepper-step-indicator-icon-size);
 }
 
 .hds-stepper-indicator-step__text {

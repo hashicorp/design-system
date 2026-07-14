@@ -47,10 +47,6 @@ $hds-stepper-list-progress-bar-offset: 4px;
     &::before {
       height: calc(100% + $hds-stepper-list-gap-spacing);
       border-color: var(--hds-stepper-list-progress-bar-border-color-incomplete);
-
-      @include hds-apply-only-if-carbon() {
-        background-image: none;
-      }
     }
 
     // Progress bar - completed line
