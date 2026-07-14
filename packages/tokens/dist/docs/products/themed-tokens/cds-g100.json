@@ -23923,6 +23923,507 @@
     ]
   },
   {
+    "key": "{stepper.task.indicator.size}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "key": "{stepper.task.indicator.size}"
+    },
+    "name": "hds-stepper-task-indicator-size",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "size"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.incomplete.interactive.default}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#a8a8a8",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{core.color.neutral-300}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.incomplete.interactive.default}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-incomplete-interactive-default",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "incomplete",
+      "interactive",
+      "default"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.incomplete.interactive.hover}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#a6c8ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.action-hover}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.incomplete.interactive.hover}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "incomplete",
+      "interactive",
+      "hover"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.incomplete.interactive.active}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#78a9ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.action-active}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.incomplete.interactive.active}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-incomplete-interactive-active",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "incomplete",
+      "interactive",
+      "active"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.progress.interactive.default}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#78a9ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.action}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.progress.interactive.default}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-progress-interactive-default",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "progress",
+      "interactive",
+      "default"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.progress.interactive.hover}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#a6c8ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.action-hover}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.progress.interactive.hover}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-progress-interactive-hover",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "progress",
+      "interactive",
+      "hover"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.progress.interactive.active}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#78a9ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.action-active}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.progress.interactive.active}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-progress-interactive-active",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "progress",
+      "interactive",
+      "active"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.processing.interactive.default}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#78a9ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.action}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.processing.interactive.default}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-processing-interactive-default",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "processing",
+      "interactive",
+      "default"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.processing.interactive.hover}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#a6c8ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.action-hover}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.processing.interactive.hover}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-processing-interactive-hover",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "processing",
+      "interactive",
+      "hover"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.processing.interactive.active}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#78a9ff",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.action-active}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.processing.interactive.active}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-processing-interactive-active",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "processing",
+      "interactive",
+      "active"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.complete.interactive.default}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#42be65",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{foreground.color.success}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.complete.interactive.default}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-complete-interactive-default",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "complete",
+      "interactive",
+      "default"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.complete.interactive.hover}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#198038",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{core.color.green-300}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.complete.interactive.hover}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-complete-interactive-hover",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "complete",
+      "interactive",
+      "hover"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.foreground.color.complete.interactive.active}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#0e6027",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.iconInteractive}",
+      "$modes": {
+        "default": "{core.color.green-400}",
+        "cds-g0": "{carbon.themes.white.iconInteractive}",
+        "cds-g10": "{carbon.themes.g10.iconInteractive}",
+        "cds-g90": "{carbon.themes.g90.iconInteractive}",
+        "cds-g100": "{carbon.themes.g100.iconInteractive}"
+      },
+      "key": "{stepper.task.indicator.foreground.color.complete.interactive.active}"
+    },
+    "name": "hds-stepper-task-indicator-foreground-color-complete-interactive-active",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "foreground",
+      "color",
+      "complete",
+      "interactive",
+      "active"
+    ]
+  },
+  {
+    "key": "{stepper.task.indicator.icon.size}",
+    "$type": "dimension",
+    "$value": "12px",
+    "unit": "px",
+    "original": {
+      "$type": "dimension",
+      "$value": "12",
+      "unit": "px",
+      "key": "{stepper.task.indicator.icon.size}"
+    },
+    "name": "hds-stepper-task-indicator-icon-size",
+    "attributes": {
+      "category": "stepper"
+    },
+    "path": [
+      "stepper",
+      "task",
+      "indicator",
+      "icon",
+      "size"
+    ]
+  },
+  {
     "key": "{tabs.tab.border.color.default}",
     "$type": "color",
     "$value": "#393939",

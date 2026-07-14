@@ -213,6 +213,8 @@
   --hds-product-waypoint-surface-color: #e0fcff;
   --hds-rich-tooltip-toggle-foreground-color-active: var(--hds-foreground-color-faint);
   --hds-rich-tooltip-toggle-foreground-color-hover: var(--hds-foreground-color-primary);
+  --hds-stepper-task-indicator-icon-size: 12px;
+  --hds-stepper-task-indicator-size: 16px;
   --hds-tabs-divider-height: 1px;
   --hds-tabs-indicator-transition-duration: 0.6s;
   --hds-tabs-indicator-transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);

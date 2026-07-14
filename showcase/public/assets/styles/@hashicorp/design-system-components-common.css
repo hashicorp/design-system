@@ -9795,54 +9795,54 @@ button.hds-button[href]::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: var(--hds-stepper-task-indicator-size);
+  height: var(--hds-stepper-task-indicator-size);
   color: var(--hds-foreground-color-strong);
 }
 
 .hds-stepper-indicator-task__icon {
-  width: 12px;
-  height: 12px;
+  width: var(--hds-stepper-task-indicator-icon-size);
+  height: var(--hds-stepper-task-indicator-icon-size);
 }
 
 .hds-stepper-indicator-task--is-interactive {
   cursor: pointer;
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-incomplete {
-  color: var(--hds-core-color-neutral-300);
+  color: var(--hds-stepper-task-indicator-foreground-color-incomplete-interactive-default);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-incomplete:hover, .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-incomplete.mock-hover {
-  color: var(--hds-foreground-color-action-hover);
+  color: var(--hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-incomplete:active, .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-incomplete.mock-active {
-  color: var(--hds-foreground-color-action-active);
+  color: var(--hds-stepper-task-indicator-foreground-color-incomplete-interactive-active);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-progress {
-  color: var(--hds-foreground-color-action);
+  color: var(--hds-stepper-task-indicator-foreground-color-progress-interactive-default);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-progress:hover, .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-progress.mock-hover {
-  color: var(--hds-foreground-color-action-hover);
+  color: var(--hds-stepper-task-indicator-foreground-color-progress-interactive-hover);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-progress:active, .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-progress.mock-active {
-  color: var(--hds-foreground-color-action-active);
+  color: var(--hds-stepper-task-indicator-foreground-color-progress-interactive-active);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-processing {
-  color: var(--hds-foreground-color-action);
+  color: var(--hds-stepper-task-indicator-foreground-color-processing-interactive-default);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-processing:hover, .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-processing.mock-hover {
-  color: var(--hds-foreground-color-action-hover);
+  color: var(--hds-stepper-task-indicator-foreground-color-processing-interactive-hover);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-processing:active, .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-processing.mock-active {
-  color: var(--hds-foreground-color-action-active);
+  color: var(--hds-stepper-task-indicator-foreground-color-processing-interactive-active);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-complete {
-  color: var(--hds-foreground-color-success);
+  color: var(--hds-stepper-task-indicator-foreground-color-complete-interactive-default);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-complete:hover, .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-complete.mock-hover {
-  color: var(--hds-core-color-green-300);
+  color: var(--hds-stepper-task-indicator-foreground-color-complete-interactive-hover);
 }
 .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-complete:active, .hds-stepper-indicator-task--is-interactive.hds-stepper-indicator-task--status-complete.mock-active {
-  color: var(--hds-core-color-green-400);
+  color: var(--hds-stepper-task-indicator-foreground-color-complete-interactive-active);
 }
 
 /**

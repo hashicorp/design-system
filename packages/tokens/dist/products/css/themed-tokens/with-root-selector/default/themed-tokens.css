@@ -507,6 +507,18 @@
   --hds-stepper-step-indicator-foreground-color-progress-interactive: var(--hds-foreground-color-high-contrast);
   --hds-stepper-step-indicator-icon-size: 12px;
   --hds-stepper-step-indicator-size: 24px;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-active: var(--hds-core-color-green-400);
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-default: var(--hds-foreground-color-success);
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-hover: var(--hds-core-color-green-300);
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-active: var(--hds-foreground-color-action-active);
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-default: var(--hds-core-color-neutral-300);
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover: var(--hds-foreground-color-action-hover);
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-active: var(--hds-foreground-color-action-active);
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-default: var(--hds-foreground-color-action);
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-hover: var(--hds-foreground-color-action-hover);
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-active: var(--hds-foreground-color-action-active);
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-default: var(--hds-foreground-color-action);
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-hover: var(--hds-foreground-color-action-hover);
   --hds-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --hds-surface-color-action: var(--hds-core-color-blue-50);
   --hds-surface-color-critical: var(--hds-core-color-red-50);
