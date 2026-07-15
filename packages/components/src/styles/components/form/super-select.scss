@@ -6,6 +6,8 @@
 // SUPER-SELECT
 
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
+@use "../../mixins/form-control" as *;
 
 // Copied from components/src/styles/components/tag.scss styles
 // we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
@@ -22,6 +24,7 @@ $hds-super-select-item-height: 36px;
   // TRIGGER
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
+    @include hds-form-control-border();
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -41,13 +44,24 @@ $hds-super-select-item-height: 36px;
       right var(--hds-form-select-background-image-position-right-x) center,
       top var(--hds-form-select-background-image-position-top-y) left 20px;
     background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
-    border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
     border-radius: var(--hds-form-control-border-radius);
     box-shadow: var(--hds-elevation-low-box-shadow);
 
+    @include hds-apply-only-if-carbon() {
+      // TODO: Create tokens? (Note: HDS padding values are intentionally different than the Select component)
+      min-height: 40px;
+      padding-left: var(--hds-form-control-padding-horizontal);
+    }
+
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-form-control-base-border-color-hover);
+      &:not([aria-disabled="true"], :disabled, .mock-disabled, [readonly]) {
+        @include hds-form-control-border(var(--hds-form-control-base-border-color-hover));
+
+        @include hds-apply-only-if-carbon() {
+          background-color: var(--hds-form-select-surface-color-hover);
+        }
+      }
     }
 
     &:focus-visible,
@@ -142,6 +156,8 @@ $hds-super-select-item-height: 36px;
   // Options List
   .ember-power-select-options {
     padding: 3px 0;
+    background-color: var(--hds-form-control-base-surface-color-default);
+    border-radius: inherit;
 
     .ember-power-select-options {
       padding: 0;
@@ -160,24 +176,50 @@ $hds-super-select-item-height: 36px;
     overflow-wrap: break-word; // when used with flex parent, content may overflow (therefore not using flex layout on parent)
     border: none; // guard against border in default theme
 
-    + .ember-power-select-option {
-      margin-top: 8px;
+    // TODO: Add token? This is mostly the same as the Dropdown component
+    @include hds-apply-only-if-carbon() {
+      padding: 11px 16px 11px 39px;
     }
 
-    // states
+    + .ember-power-select-option {
+      margin-top: 8px;
+
+      @include hds-apply-only-if-carbon() {
+        margin-top: 0; // remove spacing between items
+      }
+    }
+
+    // States
+
+    // Current
+
     &[aria-current="true"] {
       color: var(--hds-form-control-base-foreground-color);
       background-color: var(--hds-form-control-base-surface-color-default);
     }
 
+    // Selected
+
     &[aria-selected="true"] {
-      background-color: var(--hds-form-control-base-surface-color-default);
+      background-color: var(--hds-form-control-base-surface-color-selected);
+    }
+
+    // Hover
+
+    // Selects item containing an interactive child which is hovered
+    // TESTING
+    &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
+      background-color: var(--hds-dropdown-list-item-surface-color-action-hover);
     }
 
     &[aria-current="true"],
     &:hover,
     &.mock-hover {
       border: none; // guard against border in default theme
+
+      @include hds-apply-only-if-carbon() {
+        background-color: var(--hds-form-super-select-option-surface-color-action-hover);
+      }
 
       // left border
       &::after {
@@ -189,8 +231,14 @@ $hds-super-select-item-height: 36px;
         background-color: var(--hds-foreground-color-action-hover);
         border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
         content: "";
+
+        @include hds-apply-only-if-carbon() {
+          display: none; // remove left border indicator
+        }
       }
     }
+
+    // Active
 
     &:active,
     &.mock-active {
@@ -200,8 +248,29 @@ $hds-super-select-item-height: 36px;
       }
     }
 
+    // Disabled
+
     &[aria-disabled="true"] {
       color: var(--hds-form-control-disabled-foreground-color);
+    }
+  }
+
+  // Separator line (between items, and above the first item in a group).
+  .ember-power-select-option,
+  .hds-form-super-select__option-group-title {
+    @include hds-apply-only-if-carbon() {
+      + .ember-power-select-option {
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 15px;
+          left: 15px;
+          display: block;
+          height: 1px;
+          background-color: var(--hds-form-super-select-option-border-color);
+          content: "";
+        }
+      }
     }
   }
 
@@ -241,6 +310,12 @@ $hds-super-select-item-height: 36px;
     margin-bottom: 3px;
     padding: 11px 11px 0 11px;
     border-radius: var(--hds-form-control-border-radius);
+
+    @include hds-apply-only-if-carbon() {
+      // TODO: Create tokens?
+      margin-bottom: 0;
+      padding: 0;
+    }
   }
 
   .ember-power-select-search-input {
@@ -255,6 +330,10 @@ $hds-super-select-item-height: 36px;
     border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
     border-radius: var(--hds-form-control-border-radius);
     box-shadow: var(--hds-elevation-inset-box-shadow);
+
+    @include hds-apply-only-if-carbon() {
+      border-bottom: none;
+    }
 
     // placeholder
     &::placeholder {
@@ -310,6 +389,7 @@ $hds-super-select-item-height: 36px;
     min-width: 0;
     margin: 0 4px 0 0;
     padding: 3px 10px 5px 10px;
+    color: var(--hds-form-control-base-foreground-color);
     font-size: var(--hds-typography-body-100-font-size);
     font-family: var(--hds-typography-body-100-font-family);
     line-height: 1rem; // 16px - override line height in `.ember-power-select-multiple-option`
@@ -349,6 +429,11 @@ $hds-super-select-item-height: 36px;
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     border-color: var(--hds-form-control-invalid-border-color-default);
+
+    @include hds-apply-only-if-carbon() {
+      outline: 2px solid var(--hds-form-control-invalid-border-color-default);
+      outline-offset: -2px;
+    }
 
     &:hover,
     &.mock-hover {
@@ -397,7 +482,7 @@ $hds-super-select-item-height: 36px;
     .ember-power-select-option--loading-message
   ) {
     background-repeat: no-repeat;
-    background-position: 15px 10px;
+    background-position: 15px center;
     background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
 
     // checked
@@ -407,7 +492,7 @@ $hds-super-select-item-height: 36px;
 
       &:hover,
       &.mock-hover {
-        color: var(--hds-foreground-color-action-hover);
+        color: var(--hds-form-super-select-option-foreground-color-action-hover);
       }
 
       &:active,
@@ -419,7 +504,7 @@ $hds-super-select-item-height: 36px;
     &[aria-current="true"],
     &:hover,
     &.mock-hover {
-      color: var(--hds-foreground-color-action-hover);
+      color: var(--hds-form-super-select-option-foreground-color-action-hover);
     }
 
     &:active,
@@ -452,6 +537,7 @@ $hds-super-select-item-height: 36px;
       display: block;
       width: var(--hds-form-checkbox-size);
       height: var(--hds-form-checkbox-size);
+      background-repeat: no-repeat;
       background-position: center center;
       background-size: var(--hds-form-checkbox-background-image-size) var(--hds-form-checkbox-background-image-size);
       border-style: solid;
@@ -459,6 +545,11 @@ $hds-super-select-item-height: 36px;
       border-radius: var(--hds-form-checkbox-border-radius);
       cursor: pointer;
       content: "";
+
+      // TODO: Add token?
+      @include hds-apply-only-if-carbon() {
+        top: 12px;
+      }
     }
 
     // unchecked checkbox:

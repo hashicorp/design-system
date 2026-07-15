@@ -1,0 +1,42 @@
+{
+  "form": {
+    "super-select": {
+      "comment": "TODO: Add token referencing the dropdown list token value: color: var(--hds-form-super-select-option-foreground-color-action-hover);",
+      "option": {
+        "foreground": {
+          "color": {
+            "action": {
+              "hover": {
+                "$type": "color",
+                "$value": "{dropdown.list-item.foreground.color.action.hover}"
+              }
+            }
+          }
+        },
+        "surface": {
+          "color": {
+            "action": {
+              "hover": {
+                "$type": "color",
+                "$value": "{dropdown.list-item.surface.color.action.hover}"
+              }
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "transparent",
+            "$modes": {
+              "default": "transparent",
+              "cds-g0": "{carbon.themes.white.borderSubtle01}",
+              "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+              "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+              "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

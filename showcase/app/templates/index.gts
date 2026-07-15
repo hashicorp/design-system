@@ -638,6 +638,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.form.super-select">
+            Form::SuperSelect
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.form.textarea">
             Form::Textarea
           </LinkTo>
