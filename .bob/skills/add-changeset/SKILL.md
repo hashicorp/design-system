@@ -12,14 +12,32 @@ All changelog entries are created using changesets. Upcoming changeset files are
 
 For a given changeset the following parameters are required:
 - **Package**: The package(s) affected by the change.
-- **Type of change**: The type of change being made (patch, minor, major).
+- **Version bump**: The level of change being made (patch, minor, major).
 - **Summary**: A short description of the change, including relevant details.
 
 ### Generating a changeset file
 
-1. Run `pnpm changeset` in the terminal.
-2. Follow the prompts provided by the cli to select the package(s) affected, the type of change, and provide a summary of the change based on the parameters above. The CLI will generate a changeset file in the `.changeset` folder with a unique name based on the current date and time.
-3. If the changeset file is for changes to the `@hashicorp/design-system-components` package, follow the below formatting rules for the changeset file generated.
+1. Locate the `.changeset` directory where the changeset file should be placed
+
+2. Create the changeset file
+Under the `.changeset` directory create a file with a unique filename using the pattern: [random-adjective]-[random-noun]-[random-verb].md (e.g., happy-lions-jump.md)
+
+3. Add the required parameters to the changeset file
+
+Follow the below template to add the required parameters to the changeset file:
+  - Specify the package(s) affected by the change
+  - Specify the version bump (patch, minor, major)
+  - Add a summary of the change, including relevant details
+
+```
+---
+"@hashicorp/design-system-components": minor
+---
+
+{Summary}
+```
+
+**IMPORTANT** If changes are to the `@hashicorp/design-system-components` package, the summary must follow the formatting guidelines outlined in the "Components package changeset formatting" section.
 
 ## Components package changeset formatting
 Each changeset entry related to the `@hashicorp/design-system-components` package should follow this template:
