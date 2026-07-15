@@ -2,4 +2,5 @@
 "@hashicorp/flight-icons": minor
 ---
 
-Added Carbon icon references to contributed icons; `delay`, `user-minus`
+Added icons `delay` and `user-minus`
+Added Carbon icon references to contributed icons
