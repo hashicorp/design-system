@@ -14,7 +14,7 @@ import {
 import { tokenCatalogSchema } from "./schema.js";
 
 import type { TokenRecord, TokenSummary } from "./lookup.js";
-import type { TokenType } from "./schema.js";
+import type { TokenCatalogRow, TokenType } from "./schema.js";
 
 type SearchTokensInput = {
   query: string;
@@ -46,16 +46,22 @@ const toSearchBlob = (token: TokenSummary): string => {
   return [token.key, token.name, path, category, value].join(" ").toLowerCase();
 };
 
-export const loadTokenCatalog = (): TokenCatalogStore => {
-  const tokensPath = getTokensPath();
-  const rawTokens = readFileSync(tokensPath, "utf8");
-  const parsedTokens = JSON.parse(rawTokens) as unknown;
-  const rows = tokenCatalogSchema.parse(parsedTokens);
+export const parseTokenCatalog = (value: unknown): TokenCatalogRow[] => {
+  return tokenCatalogSchema.parse(value);
+};
+
+export const createTokenCatalogStore = (
+  rows: TokenCatalogRow[],
+): TokenCatalogStore => {
   const tokenRecords = rows.map((row) => toTokenRecord(row));
   const tokenLookup = new Map<string, TokenRecord>();
 
-  for (const row of rows) {
-    const token = toTokenRecord(row);
+  for (const [index, row] of rows.entries()) {
+    const token = tokenRecords[index];
+
+    if (token === undefined) {
+      continue;
+    }
 
     for (const key of getTokenLookupKeys(row)) {
       tokenLookup.set(key, token);
@@ -99,4 +105,22 @@ export const loadTokenCatalog = (): TokenCatalogStore => {
       );
     },
   };
+};
+
+export const loadTokenCatalog = (): TokenCatalogStore => {
+  const tokensPath = getTokensPath();
+  const rawTokens = readFileSync(tokensPath, "utf8");
+  const parsedTokens = JSON.parse(rawTokens) as unknown;
+
+  return createTokenCatalogStore(parseTokenCatalog(parsedTokens));
+};
+
+let tokenStore: TokenCatalogStore | null = null;
+
+export const getOrLoadTokenStore = (): TokenCatalogStore => {
+  if (tokenStore === null) {
+    tokenStore = loadTokenCatalog();
+  }
+
+  return tokenStore;
 };

@@ -4,21 +4,19 @@
  */
 
 import { describe, expect, it } from "vitest";
-import {
-  TOKENS_URI,
-  readTokenByKeyResource,
-  readTokensResource,
-} from "../../src/resources/tokens";
+import { TOKENS_URI } from "../../../src/resources/tokens/constants.js";
+import { readTokensResource } from "../../../src/resources/tokens/get-tokens.js";
+import { readTokenByKeyResource } from "../../../src/resources/tokens/get-token-by-key.js";
 import {
   getTextContent,
   parseResourceJson,
-} from "../support/resource-content.js";
+} from "../../support/resource-content.js";
 
-import type { TokenCatalogStore } from "../../src/resources/tokens/store/index.js";
+import type { TokenCatalogStore } from "../../../src/resources/tokens/store/index.js";
 import type {
   TokenRecord,
   TokenSummary,
-} from "../../src/resources/tokens/store/lookup.js";
+} from "../../../src/resources/tokens/store/lookup.js";
 
 const buildStore = ({
   tokens,
