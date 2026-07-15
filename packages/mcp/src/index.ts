@@ -40,8 +40,6 @@ const buildServer = (): McpServer => {
     version: getServerVersion(),
   });
 
-  registerTools(server);
-
   return server;
 };
 
