@@ -39,4 +39,4 @@ Changes to multiple components in a single changeset entry:
 <!-- END -->
 ```
 
-For further instructions on changesets review the `.github/skills/add-changeset/SKILL.md` file.
+For further instructions on changesets review the `.bob/skills/add-changeset/SKILL.md` file.

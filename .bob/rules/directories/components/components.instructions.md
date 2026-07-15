@@ -35,7 +35,7 @@ All component files for a given `component-name` should be contained in a folder
 
 ### Styling
 
-All styles for a component should be defined in its corresponding SCSS file under `packages/components/src/styles/components/`. See `.github/instructions/languages/scss.instructions.md` for further instructions on scss standards.
+All styles for a component should be defined in its corresponding SCSS file under `packages/components/src/styles/components/`. See `.bob/rules/languages/scss.instructions.md` for further instructions on scss standards.
 
 #### Required files
 - `{component-name}.scss` - Main SCSS file for the component, containing styles for the component.
