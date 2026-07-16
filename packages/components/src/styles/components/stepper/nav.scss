@@ -11,6 +11,7 @@
 @use "../../mixins/focus-ring" as *;
 @use "../../mixins/breakpoints" as *;
 @use "./step-indicator.scss" as *;
+@use "../../mixins/carbonization" as *;
 
 $progress-bar-animation-duration: 0.25s;
 
@@ -21,23 +22,21 @@ $progress-bar-animation-duration: 0.25s;
   &::before,
   &::after {
     position: absolute;
-    top: -4px;
+    top: var(--hds-stepper-nav-progress-bar-top);
     left: 0;
     z-index: -1;
-    height: 4px;
+    border-top: var(--hds-stepper-nav-progress-bar-border-width) solid;
     content: "";
   }
 
   &::before {
     width: 100%;
-    background:
-      linear-gradient(0deg, var(--hds-core-color-alpha-200) 0%, var(--hds-core-color-alpha-200) 100%),
-      var(--hds-core-color-neutral-100);
+    border-color: var(--hds-stepper-nav-progress-bar-border-color-incomplete);
   }
 
   &::after {
     width: var(--hds-var-stepper-nav-progress-bar-width, 0);
-    background-color: var(--hds-core-color-neutral-700);
+    border-color: var(--hds-stepper-nav-progress-bar-border-color-complete-default);
     border-radius: 0 var(--hds-border-radius-x-small) var(--hds-border-radius-x-small) 0;
 
     @media (prefers-reduced-motion: no-preference) {
@@ -78,6 +77,13 @@ $progress-bar-animation-duration: 0.25s;
   padding: 0;
   background-color: transparent;
   border: none;
+
+  @include hds-apply-only-if-carbon() {
+    flex-direction: row;
+    gap: 8px;
+    align-items: start;
+    padding: 10px 16px 0 0;
+  }
 }
 
 .hds-stepper-nav__step-progress {
@@ -88,6 +94,12 @@ $progress-bar-animation-duration: 0.25s;
   display: flex;
   justify-content: center;
   width: 100%;
+
+  @include hds-apply-only-if-carbon() {
+    position: static;
+    width: auto;
+    margin-top: 2px;
+  }
 }
 
 .hds-stepper-nav__step-text {
@@ -95,41 +107,59 @@ $progress-bar-animation-duration: 0.25s;
   flex-direction: column;
   align-items: center;
   padding: 16px 8px 12px 8px;
+
+  @include hds-apply-only-if-carbon() {
+    align-items: start;
+    padding: 0;
+  }
 }
 
 .hds-stepper-nav__step-title {
-  color: var(--hds-foreground-color-faint);
+  color: var(--hds-stepper-nav-step-title-foreground-color-incomplete);
+  font-weight: var(--hds-stepper-nav-step-title-typography-font-weight);
   text-decoration: none;
 }
 
 .hds-stepper-nav__step-description {
-  margin-top: 4px;
-  color: var(--hds-foreground-color-faint);
+  margin-top: var(--hds-stepper-nav-step-description-margin-top);
+  color: var(--hds-stepper-nav-step-description-foreground-color-incomplete);
+  font-size: var(--hds-stepper-nav-step-description-typography-font-size);
 }
 
 // STATUSES
 
-// Complete & Active
+// Complete
 
-.hds-stepper-nav__step--complete,
-.hds-stepper-nav__step--active {
+.hds-stepper-nav__step--complete {
   .hds-stepper-nav__step-title {
-    color: var(--hds-foreground-color-strong);
+    color: var(--hds-stepper-nav-step-title-foreground-color-complete-default);
   }
 
   .hds-stepper-nav__step-description {
-    color: var(--hds-foreground-color-primary);
+    color: var(--hds-stepper-nav-step-description-foreground-color-complete);
   }
 }
 
 // Active
 
 .hds-stepper-nav__step--active {
+  .hds-stepper-nav__step-title {
+    color: var(--hds-stepper-nav-step-title-foreground-color-active-default);
+  }
+
+  .hds-stepper-nav__step-description {
+    color: var(--hds-stepper-nav-step-description-foreground-color-active);
+  }
+
   .hds-stepper-indicator-step__svg-hexagon path,
   .hds-stepper-indicator-step__status,
   .hds-stepper-nav__step-title {
     @media (prefers-reduced-motion: no-preference) {
       transition: all 0.15s ease-in-out ($progress-bar-animation-duration);
+    }
+
+    @include hds-apply-only-if-carbon() {
+      transition: none;
     }
   }
 }
@@ -138,13 +168,13 @@ $progress-bar-animation-duration: 0.25s;
 
 .hds-stepper-nav--interactive {
   .hds-stepper-nav__progress-bar::after {
-    background-color: var(--hds-core-color-blue-200);
+    border-color: var(--hds-stepper-nav-progress-bar-border-color-complete-interactive);
   }
 
   .hds-stepper-nav__step--active {
     .hds-stepper-nav__step-button {
       .hds-stepper-nav__step-title {
-        color: var(--hds-foreground-color-action);
+        color: var(--hds-stepper-nav-step-title-foreground-color-active-interactive);
       }
 
       &:focus-visible,
@@ -157,6 +187,20 @@ $progress-bar-animation-duration: 0.25s;
           $pseudo-element-border-radius: 0 0 var(--hds-border-radius-medium) var(--hds-border-radius-medium)
         );
       }
+
+      // The Carbon focus ring should be on the step title, not the entire step item
+      @include hds-apply-only-if-carbon() {
+        &:focus-visible,
+        &.mock-focus {
+          &::before {
+            content: none;
+          }
+
+          .hds-stepper-nav__step-title {
+            @include hds-focus-ring-basic();
+          }
+        }
+      }
     }
   }
 
@@ -165,7 +209,7 @@ $progress-bar-animation-duration: 0.25s;
       cursor: pointer;
 
       .hds-stepper-nav__step-title {
-        color: var(--hds-foreground-color-action);
+        color: var(--hds-stepper-nav-step-title-foreground-color-complete-interactive);
         text-decoration: underline;
         text-decoration-skip-ink: none;
         text-underline-position: from-font;
@@ -173,7 +217,7 @@ $progress-bar-animation-duration: 0.25s;
 
       &:hover,
       &.mock-hover {
-        background-color: var(--hds-surface-color-interactive-hover);
+        background-color: var(--hds-stepper-nav-step-surface-color-complete-interactive-hover);
 
         .hds-stepper-nav__step-title {
           color: var(--hds-foreground-color-action-hover);
@@ -193,10 +237,35 @@ $progress-bar-animation-duration: 0.25s;
 
       &:active,
       &.mock-active {
-        background-color: var(--hds-surface-color-interactive-active);
+        background-color: var(--hds-stepper-nav-step-surface-color-complete-interactive-active);
 
         .hds-stepper-nav__step-title {
           color: var(--hds-foreground-color-action-active);
+        }
+      }
+
+      @include hds-apply-only-if-carbon() {
+        .hds-stepper-nav__step-title {
+          text-decoration: none;
+        }
+
+        &:hover,
+        &.mock-hover {
+          .hds-stepper-nav__step-title {
+            text-decoration: underline;
+          }
+        }
+
+        // The Carbon focus ring should be on the step title, not the entire step item
+        &:focus-visible,
+        &.mock-focus {
+          &::before {
+            content: none;
+          }
+
+          .hds-stepper-nav__step-title {
+            @include hds-focus-ring-basic();
+          }
         }
       }
     }
@@ -218,13 +287,13 @@ $progress-bar-animation-duration: 0.25s;
         }
 
         .hds-stepper-indicator-step__status {
-          color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-default");
+          color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-default");
         }
 
         .hds-stepper-indicator-step__svg-hexagon {
           path {
-            fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-default");
-            stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-default");
+            fill: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "fill-color-default");
+            stroke: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "stroke-color-default");
           }
         }
       }
@@ -238,13 +307,13 @@ $progress-bar-animation-duration: 0.25s;
         }
 
         .hds-stepper-indicator-step__status {
-          color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-default");
+          color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-default");
         }
 
         .hds-stepper-indicator-step__svg-hexagon {
           path {
-            fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-default");
-            stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-default");
+            fill: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "fill-color-default");
+            stroke: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "stroke-color-default");
           }
         }
       }
@@ -259,13 +328,19 @@ $progress-bar-animation-duration: 0.25s;
           }
 
           .hds-stepper-indicator-step__status {
-            color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-hover");
+            color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-hover");
           }
 
           .hds-stepper-indicator-step__svg-hexagon {
             path {
-              fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-hover");
-              stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-hover");
+              fill: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "fill-color-hover");
+              stroke: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "stroke-color-hover");
+            }
+          }
+
+          @include hds-apply-only-if-carbon() {
+            .hds-stepper-indicator-step__status {
+              color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-default");
             }
           }
         }
@@ -279,13 +354,19 @@ $progress-bar-animation-duration: 0.25s;
           }
 
           .hds-stepper-indicator-step__status {
-            color: map.get($hds-stepper-indicator-step-status-props, $status, "text-color-active");
+            color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-active");
           }
 
           .hds-stepper-indicator-step__svg-hexagon {
             path {
-              fill: map.get($hds-stepper-indicator-step-status-props, $status, "fill-color-active");
-              stroke: map.get($hds-stepper-indicator-step-status-props, $status, "stroke-color-active");
+              fill: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "fill-color-active");
+              stroke: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "stroke-color-active");
+            }
+          }
+
+          @include hds-apply-only-if-carbon() {
+            .hds-stepper-indicator-step__status {
+              color: map.get($hds-stepper-indicator-step-interactive-status-props, $status, "text-color-default");
             }
           }
         }
@@ -312,6 +393,12 @@ $progress-bar-animation-duration: 0.25s;
     align-items: start;
     padding: 8px;
     border-radius: 0;
+
+    @include hds-apply-only-if-carbon() {
+      flex-direction: column;
+      gap: 0;
+      padding: 8px;
+    }
   }
 
   .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step-content {
