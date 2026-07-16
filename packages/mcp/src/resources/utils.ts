@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { serializeCaughtError } from "../utils.js";
-
 import type { JsonObject } from "../types.js";
 import type {
   ReadResourceCallback,
