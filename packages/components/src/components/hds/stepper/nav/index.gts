@@ -10,9 +10,11 @@ import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
 import { and } from 'ember-truth-helpers';
+import { service } from '@ember/service';
 import style from 'ember-style-modifier';
 
 import type { WithBoundArgs } from '@glint/template';
+import type HdsThemingService from '../../../../services/hds-theming.ts';
 
 import { HdsStepperTitleTagValues } from '../types.ts';
 import HdsStepperNavStep from './step.gts';
@@ -74,6 +76,8 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   @tracked private _panelNodes: HTMLElement[] = [];
   @tracked private _panelIds: HdsStepperNavPanelIds = [];
 
+  @service declare readonly hdsTheming: HdsThemingService;
+
   private _element!: HTMLDivElement;
 
   private _setUpStepperNav = modifier((element: HTMLDivElement) => {
@@ -132,10 +136,19 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
         progressBarWidth = 100;
         progressBarOffset = 0;
       } else {
-        const activeStepWidth = 1 / this._stepIds.length / 2;
+        let activeStepWidth;
         const width = this.currentStep / this._stepIds.length;
+
+        // For Carbon themes, the progress bar line is the full width of the active step,
+        // while for HDS themes, the progress bar line is only half the width of the active step and offset by 16px.
+        if (this.hdsTheming.isCarbonThemeEnabled) {
+          activeStepWidth = 1 / this._stepIds.length;
+        } else {
+          activeStepWidth = 1 / this._stepIds.length / 2;
+          progressBarOffset = 16;
+        }
+
         progressBarWidth = (width + activeStepWidth) * 100;
-        progressBarOffset = 16;
       }
     }
     return `calc(${progressBarWidth}% - ${progressBarOffset}px)`;

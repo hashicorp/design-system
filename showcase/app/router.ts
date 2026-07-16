@@ -207,6 +207,11 @@ Router.map(function () {
       this.route('rich-tooltip');
       this.route('segmented-group');
       this.route('separator');
+      this.route('stepper', function () {
+        this.route('indicator');
+        this.route('list');
+        this.route('nav');
+      });
       this.route('tabs');
       this.route('tag');
       this.route('toast');
