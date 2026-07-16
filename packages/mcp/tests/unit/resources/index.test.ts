@@ -8,7 +8,11 @@ import { describe, expect, it, vi } from "vitest";
 import { registerResources } from "../../../src/resources/index.js";
 
 describe("registerResources", () => {
+<<<<<<< HEAD
   it("registers the static icon catalog and icon detail template", () => {
+=======
+  it("registers the component catalog and detail template", () => {
+>>>>>>> c5424d5764 (added component resources)
     const server = new McpServer({ name: "test-server", version: "0.0.0" });
     const registerResource = vi.spyOn(server, "registerResource");
 
@@ -30,14 +34,24 @@ describe("registerResources", () => {
     expect(registrations).toStrictEqual(
       expect.arrayContaining([
         {
+<<<<<<< HEAD
           name: "get_hds_icons",
           uri: "hds://icons",
+=======
+          name: "get_hds_components",
+          uri: "hds://components",
+>>>>>>> c5424d5764 (added component resources)
           mimeType: "application/json",
           callback: expect.any(Function),
         },
         {
+<<<<<<< HEAD
           name: "get_hds_icon",
           uri: "hds://icons/{iconName}",
+=======
+          name: "get_hds_component",
+          uri: "hds://components/{componentName}",
+>>>>>>> c5424d5764 (added component resources)
           mimeType: "application/json",
           callback: expect.any(Function),
         },

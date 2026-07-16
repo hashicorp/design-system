@@ -5,13 +5,18 @@
 
 import { withSafeResourceHandler } from "./utils.js";
 
+import componentsResources from "./components/index.js";
 import flightIconsResources from "./flight-icons/index.js";
 import tokensResources from "./tokens/index.js";
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { McpResource } from "./types.js";
 
-const RESOURCES: McpResource[] = [...flightIconsResources, ...tokensResources];
+const RESOURCES: McpResource[] = [
+  ...componentsResources,
+  ...flightIconsResources,
+  ...tokensResources,
+];
 
 export function registerResources(server: McpServer) {
   for (const resource of RESOURCES) {
