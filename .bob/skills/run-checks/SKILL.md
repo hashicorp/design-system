@@ -13,7 +13,8 @@ The objective of this skill is to automatically check for linting errors, test f
 
 ## Procedure
 1. Determine the scope of checks to be run
-- Run `git log --oneline origin/main..HEAD` to list commits on this branch, then run `git diff-tree --no-commit-id -r --name-only <sha>` for each commit sha to get the files changed in that commit. Combine those file lists — these are the only files in scope.
+- Run `git merge-base origin/main HEAD` and `git log --oneline $(git merge-base origin/main HEAD)..HEAD` to list commits on this branch
+- Run `git diff-tree --no-commit-id -r --name-only <sha>` for each commit sha to get the files changed in that commit. Combine those file lists — these are the only files in scope.
   - **Do not** use `git diff --name-only origin/main..HEAD`; that compares the full working-tree against `main` and will include files changed by others on `main` since the branch was cut.
 - Check if any of the in-scope files belong to the following directories:- Check if any of the in-scope files belong to the following directories:
   - `packages/components`
