@@ -84,8 +84,15 @@ Received from orchestrator:
    - Update imports (remove Helios, add CWC)
    - Transform component usage (tag name, attributes, events, slots)
    - Preserve comments and formatting where possible
-3. Track changed files and any skipped candidates.
-4. Return execution summary.
+3. **Post-swap class check:** After all transformations are applied to a file, inspect the backing class:
+   - If the class body is empty (no `@tracked` properties, no methods, no constructor, no other class members) — remove the class wrapper entirely and convert to a template-only component:
+     - Remove `import Component from '@glimmer/component'`
+     - Remove `export default class X extends Component { ... }`
+     - Promote the `<template>` block to the top level as a standalone export
+   - This avoids the `ember/no-empty-glimmer-component-classes` ESLint error
+   - If the class has any remaining members, leave it unchanged
+4. Track changed files and any skipped candidates.
+5. Return execution summary.
 
 **Output:** Execution summary (see schema below).
 

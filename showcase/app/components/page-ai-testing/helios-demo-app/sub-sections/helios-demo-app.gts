@@ -60,7 +60,9 @@ export default class SubSectionHeliosDemoApp extends Component {
 
   confirmSubmit = () => {
     this.isModalOpen = false;
-    alert(`Form submitted successfully!\nName: ${this.nameValue}\nEmail: ${this.emailValue}`);
+    alert(
+      `Form submitted successfully!\nName: ${this.nameValue}\nEmail: ${this.emailValue}`,
+    );
     // Reset form
     this.nameValue = '';
     this.emailValue = '';
@@ -89,11 +91,7 @@ export default class SubSectionHeliosDemoApp extends Component {
     </ShwTextBody>
 
     <div class="helios-demo-app-container">
-      <HdsAppFrame
-        @hasHeader={{true}}
-        @hasSidebar={{true}}
-        as |Frame|
-      >
+      <HdsAppFrame @hasHeader={{true}} @hasSidebar={{true}} as |Frame|>
         <Frame.Header>
           <HdsAppHeader @hasA11yRefocus={{false}}>
             <:logo as |actions|>
@@ -184,21 +182,21 @@ export default class SubSectionHeliosDemoApp extends Component {
                 <A.Item @isOpen={{true}}>
                   <:toggle>How to fill out this form</:toggle>
                   <:content>
-                 <HdsTextBody>
-                    <p>
-                      This form collects basic user information. Please ensure
-                      all required fields are completed before submitting.
-                    </p>
-                    <ul>
-                      <li>
-                        <strong>Full Name:</strong>
-                        Enter your complete first and last name
-                      </li>
-                      <li>
-                        <strong>Email Address:</strong>
-                        Provide a valid email address for contact purposes
-                      </li>
-                    </ul>
+                    <HdsTextBody>
+                      <p>
+                        This form collects basic user information. Please ensure
+                        all required fields are completed before submitting.
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>Full Name:</strong>
+                          Enter your complete first and last name
+                        </li>
+                        <li>
+                          <strong>Email Address:</strong>
+                          Provide a valid email address for contact purposes
+                        </li>
+                      </ul>
                     </HdsTextBody>
                   </:content>
                 </A.Item>
@@ -354,8 +352,8 @@ export default class SubSectionHeliosDemoApp extends Component {
               </p>
             </div>
             <p class="helios-demo-app-modal-footer-text">
-              Click "Confirm & Submit" to complete your submission, or "Go
-              Back" to make changes.
+              Click "Confirm & Submit" to complete your submission, or "Go Back"
+              to make changes.
             </p>
           </HdsTextBody>
         </M.Body>

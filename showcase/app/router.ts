@@ -25,7 +25,7 @@ Router.map(function () {
     });
   });
 
-  this.route('page-ai-testing', {path: 'ai-testing'}, function () {
+  this.route('page-ai-testing', { path: 'ai-testing' }, function () {
     this.route('helios-demo-app');
     this.route('carbon-demo-app');
     this.route('component-sandbox');
