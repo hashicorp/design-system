@@ -9,6 +9,7 @@
 
 .hds-segmented-group {
   display: inline-flex;
+  gap: var(--hds-segmented-group-gap);
   max-width: var(--hds-segmented-group-max-width);
 
   &.hds-segmented-group--is-full-width {
@@ -63,7 +64,7 @@
     }
 
     &:last-child:not(:only-child) {
-      margin-left: -1px;
+      margin-left: var(--hds-segmented-group-margin-left);
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
 
@@ -79,7 +80,7 @@
     }
 
     &:not(:first-child, :last-child, :only-child) {
-      margin-left: -1px;
+      margin-left: var(--hds-segmented-group-margin-left);
       border-radius: 0;
 
       &::before,

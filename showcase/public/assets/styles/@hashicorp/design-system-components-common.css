@@ -5697,11 +5697,8 @@ button.hds-button[href]::after {
   align-items: center;
 }
 
-.hds-filter-bar__actions__left {
-  display: contents;
-}
-.hds-filter-bar__actions__left > :last-child {
-  margin-right: auto;
+.hds-filter-bar__actions__right {
+  margin-left: auto;
 }
 
 .hds-filter-bar__search.hds-form-text-input {
@@ -6351,6 +6348,7 @@ button.hds-button[href]::after {
 .hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-focus::file-selector-button {
   color: var(--hds-button-foreground-color-secondary-focus);
   background-color: var(--hds-button-surface-color-secondary-focus);
+  border-color: var(--hds-focus-color-action-internal);
 }
 .hds-theme-light .hds-form-file-input:not(:disabled, [disabled], .mock-disabled):focus-within::file-selector-button, .hds-theme-light .hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-focus::file-selector-button,
 .hds-theme-dark .hds-form-file-input:not(:disabled, [disabled], .mock-disabled):focus-within::file-selector-button, .hds-theme-dark .hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-focus::file-selector-button,
@@ -6480,6 +6478,11 @@ button.hds-button[href]::after {
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
 }
+.hds-theme-light .hds-form-indicator--optional,
+.hds-theme-dark .hds-form-indicator--optional,
+.hds-theme-system .hds-form-indicator--optional {
+  text-transform: lowercase;
+}
 
 .hds-theme-light .hds-form-indicator--required.hds-badge,
 .hds-theme-dark .hds-form-indicator--required.hds-badge,
@@ -6490,6 +6493,7 @@ button.hds-button[href]::after {
   font-size: var(--hds-form-indicator-optional-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
+  text-transform: lowercase;
   background-color: transparent;
 }
 .hds-theme-light .hds-form-indicator--required.hds-badge .hds-badge__text,
@@ -6537,51 +6541,57 @@ button.hds-button[href]::after {
   appearance: none;
 }
 .hds-form-checkbox:not(:checked, :indeterminate) {
-  background-color: var(--hds-form-control-surface-color-unchecked-default);
-  border-color: var(--hds-form-control-border-color-unchecked-default);
+  background-color: var(--hds-form-control-unchecked-surface-color-default);
+  border-color: var(--hds-form-control-unchecked-border-color-default);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
 .hds-form-checkbox:checked, .hds-form-checkbox:indeterminate {
-  background-color: var(--hds-form-control-surface-color-checked-default);
+  background-color: var(--hds-form-control-checked-surface-color-default);
 }
 .hds-form-checkbox:checked {
   background-image: var(--hds-form-checkbox-background-image-data-url);
-  border-color: var(--hds-form-control-border-color-checked-default);
+  border-color: var(--hds-form-control-checked-border-color-default);
 }
 .hds-form-checkbox:indeterminate {
   background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate);
-  border-color: var(--hds-form-control-border-color-checked-default);
+  border-color: var(--hds-form-control-checked-border-color-default);
 }
 .hds-form-checkbox:hover:not(:checked, :indeterminate), .hds-form-checkbox.mock-hover:not(:checked, :indeterminate) {
-  background-color: var(--hds-form-control-surface-color-unchecked-hover);
-  border-color: var(--hds-form-control-border-color-unchecked-hover);
+  background-color: var(--hds-form-control-unchecked-surface-color-hover);
+  border-color: var(--hds-form-control-unchecked-border-color-hover);
 }
 .hds-form-checkbox:hover:checked, .hds-form-checkbox.mock-hover:checked, .hds-form-checkbox:hover:indeterminate, .hds-form-checkbox.mock-hover:indeterminate {
-  background-color: var(--hds-form-control-surface-color-checked-hover);
-  border-color: var(--hds-form-control-border-color-checked-hover);
+  background-color: var(--hds-form-control-checked-surface-color-hover);
+  border-color: var(--hds-form-control-checked-border-color-hover);
 }
 .hds-form-checkbox:focus-visible, .hds-form-checkbox.mock-focus {
   outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
   outline-offset: 1px;
 }
+.hds-theme-light .hds-form-checkbox:focus-visible, .hds-theme-light .hds-form-checkbox.mock-focus,
+.hds-theme-dark .hds-form-checkbox:focus-visible, .hds-theme-dark .hds-form-checkbox.mock-focus,
+.hds-theme-system .hds-form-checkbox:focus-visible, .hds-theme-system .hds-form-checkbox.mock-focus {
+  outline-offset: 0;
+}
+
 .hds-form-checkbox:disabled:not(:checked, :indeterminate) {
-  background-color: var(--hds-form-control-surface-color-unchecked-disabled);
-  border-color: var(--hds-form-control-border-color-unchecked-disabled);
+  background-color: var(--hds-form-control-unchecked-surface-color-disabled);
+  border-color: var(--hds-form-control-unchecked-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 .hds-form-checkbox:disabled:checked {
-  background-color: var(--hds-form-control-surface-color-checked-disabled);
+  background-color: var(--hds-form-control-checked-surface-color-disabled);
   background-image: var(--hds-form-checkbox-background-image-data-url-disabled);
-  border-color: var(--hds-form-checkbox-border-color-checked-disabled);
+  border-color: var(--hds-form-control-checked-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 .hds-form-checkbox:disabled:indeterminate {
-  background-color: var(--hds-form-control-surface-color-checked-disabled);
+  background-color: var(--hds-form-control-checked-surface-color-disabled);
   background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate-disabled);
   background-repeat: no-repeat;
-  border-color: var(--hds-form-checkbox-border-color-checked-disabled);
+  border-color: var(--hds-form-control-checked-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
@@ -6607,13 +6617,13 @@ button.hds-button[href]::after {
 }
 .hds-form-masked-input .hds-form-masked-input__control {
   grid-area: input;
-  padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-size));
+  padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-button-size));
   scrollbar-width: thin;
 }
 .hds-theme-light .hds-form-masked-input .hds-form-masked-input__control,
 .hds-theme-dark .hds-form-masked-input .hds-form-masked-input__control,
 .hds-theme-system .hds-form-masked-input .hds-form-masked-input__control {
-  padding-right: var(--hds-form-visibility-toggle-size);
+  padding-right: var(--hds-form-visibility-toggle-button-size);
 }
 
 .hds-form-masked-input--is-masked .hds-form-masked-input__control {
@@ -6665,37 +6675,43 @@ button.hds-button[href]::after {
   appearance: none;
 }
 .hds-form-radio:not(:checked) {
-  background-color: var(--hds-form-control-surface-color-unchecked-default);
-  border-color: var(--hds-form-control-border-color-unchecked-default);
+  background-color: var(--hds-form-control-unchecked-surface-color-default);
+  border-color: var(--hds-form-control-unchecked-border-color-default);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
 .hds-form-radio:checked {
   background-color: var(--hds-form-radio-surface-color-checked-default);
   background-image: var(--hds-form-radio-background-image-data-url);
-  border-color: var(--hds-form-control-border-color-checked-default);
+  border-color: var(--hds-form-control-checked-border-color-default);
 }
 .hds-form-radio:hover:not(:checked), .hds-form-radio.mock-hover:not(:checked) {
-  background-color: var(--hds-form-control-surface-color-unchecked-hover);
-  border-color: var(--hds-form-control-border-color-unchecked-hover);
+  background-color: var(--hds-form-control-unchecked-surface-color-hover);
+  border-color: var(--hds-form-control-unchecked-border-color-hover);
 }
 .hds-form-radio:hover:checked, .hds-form-radio.mock-hover:checked {
   background-color: var(--hds-form-radio-surface-color-checked-hover);
-  border-color: var(--hds-form-control-border-color-checked-hover);
+  border-color: var(--hds-form-control-checked-border-color-hover);
 }
 .hds-form-radio:focus-visible, .hds-form-radio.mock-focus {
   outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
   outline-offset: 1px;
 }
+.hds-theme-light .hds-form-radio:focus-visible, .hds-theme-light .hds-form-radio.mock-focus,
+.hds-theme-dark .hds-form-radio:focus-visible, .hds-theme-dark .hds-form-radio.mock-focus,
+.hds-theme-system .hds-form-radio:focus-visible, .hds-theme-system .hds-form-radio.mock-focus {
+  outline-offset: 0;
+}
+
 .hds-form-radio:disabled:not(:checked) {
-  background-color: var(--hds-form-control-surface-color-unchecked-disabled);
-  border-color: var(--hds-form-control-border-color-unchecked-disabled);
+  background-color: var(--hds-form-control-unchecked-surface-color-disabled);
+  border-color: var(--hds-form-control-unchecked-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 .hds-form-radio:disabled:checked {
   background-color: var(--hds-form-radio-surface-color-checked-disabled);
   background-image: var(--hds-form-radio-background-image-data-url-disabled);
-  border-color: var(--hds-form-control-border-color-checked-disabled);
+  border-color: var(--hds-form-control-checked-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
@@ -6704,6 +6720,10 @@ button.hds-button[href]::after {
   font-size: var(--hds-form-label-inline-typography-font-size);
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -6828,7 +6848,7 @@ button.hds-button[href]::after {
   font-weight: var(--hds-form-radio-card-label-typography-font-weight);
   font-size: var(--hds-form-radio-card-label-typography-font-size);
   font-family: var(--hds-typography-display-300-font-family);
-  line-height: var(--hds-form-radio-card-label-typography-line-height);
+  line-height: var(--hds-typography-display-300-line-height);
   overflow-wrap: break-word;
 }
 .hds-form-radio-card__label:first-child {
@@ -6920,9 +6940,12 @@ button.hds-button[href]::after {
   border-bottom-color: var(--hds-form-control-base-border-color-hover);
 }
 
-.hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]) {
+.hds-theme-light .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]),
+.hds-theme-dark .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]),
+.hds-theme-system .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]) {
   background-color: var(--hds-form-select-surface-color-hover);
 }
+
 .hds-form-select:focus-visible, .hds-form-select.mock-focus {
   border: var(--hds-form-control-border-width) solid var(--hds-focus-color-action-internal);
 }
@@ -7017,48 +7040,9 @@ button.hds-button[href]::after {
 .hds-form-select[multiple]:hover, .hds-form-select[multiple].mock-hover, .hds-form-select[size]:hover, .hds-form-select[size].mock-hover {
   border-color: var(--hds-form-control-base-border-color-hover);
 }
-.hds-theme-light .hds-form-select[multiple]:hover, .hds-theme-light .hds-form-select[multiple].mock-hover, .hds-theme-light .hds-form-select[size]:hover, .hds-theme-light .hds-form-select[size].mock-hover,
-.hds-theme-dark .hds-form-select[multiple]:hover, .hds-theme-dark .hds-form-select[multiple].mock-hover, .hds-theme-dark .hds-form-select[size]:hover, .hds-theme-dark .hds-form-select[size].mock-hover,
-.hds-theme-system .hds-form-select[multiple]:hover, .hds-theme-system .hds-form-select[multiple].mock-hover, .hds-theme-system .hds-form-select[size]:hover, .hds-theme-system .hds-form-select[size].mock-hover {
-  border-color: var(--hds-form-control-base-border-color-hover);
-}
-
 .hds-form-select[multiple]:disabled, .hds-form-select[size]:disabled {
   border-color: var(--hds-form-control-disabled-border-color);
 }
-.hds-theme-light .hds-form-select[multiple]:disabled, .hds-theme-light .hds-form-select[size]:disabled,
-.hds-theme-dark .hds-form-select[multiple]:disabled, .hds-theme-dark .hds-form-select[size]:disabled,
-.hds-theme-system .hds-form-select[multiple]:disabled, .hds-theme-system .hds-form-select[size]:disabled {
-  border-color: var(--hds-form-control-disabled-border-color);
-}
-
-.hds-form-select[multiple].hds-form-select--is-invalid, .hds-form-select[size].hds-form-select--is-invalid {
-  border-color: var(--hds-form-control-invalid-border-color-default);
-}
-.hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid,
-.hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid,
-.hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid {
-  border-color: var(--hds-form-control-invalid-border-color-default);
-}
-
-.hds-form-select[multiple].hds-form-select--is-invalid:hover, .hds-form-select[multiple].hds-form-select--is-invalid.mock-hover, .hds-form-select[size].hds-form-select--is-invalid:hover, .hds-form-select[size].hds-form-select--is-invalid.mock-hover {
-  border-color: var(--hds-form-control-invalid-border-color-hover);
-}
-.hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid:hover, .hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid.mock-hover, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid:hover, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid.mock-hover,
-.hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid:hover, .hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid.mock-hover, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid:hover, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid.mock-hover,
-.hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid:hover, .hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid.mock-hover, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid:hover, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid.mock-hover {
-  border-color: var(--hds-form-control-invalid-border-color-hover);
-}
-
-.hds-form-select[multiple].hds-form-select--is-invalid:focus-visible, .hds-form-select[multiple].hds-form-select--is-invalid.mock-focus, .hds-form-select[size].hds-form-select--is-invalid:focus-visible, .hds-form-select[size].hds-form-select--is-invalid.mock-focus {
-  border-color: var(--hds-focus-color-critical-internal);
-}
-.hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid:focus-visible, .hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid.mock-focus, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid:focus-visible, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid.mock-focus,
-.hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid:focus-visible, .hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid.mock-focus, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid:focus-visible, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid.mock-focus,
-.hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid:focus-visible, .hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid.mock-focus, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid:focus-visible, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid.mock-focus {
-  border-color: var(--hds-focus-color-critical-internal);
-}
-
 .hds-form-select[multiple] option, .hds-form-select[size] option {
   margin: 2px auto;
   border-radius: var(--hds-border-radius-x-small);
@@ -7120,24 +7104,10 @@ button.hds-button[href]::after {
   background-color: var(--hds-form-control-base-surface-color-default);
   background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
-  background-position: right var(--hds-form-select-background-image-position-right-x) center, top 9px left 20px;
+  background-position: right var(--hds-form-select-background-image-position-right-x) center, top var(--hds-form-select-background-image-position-top-y) left 20px;
   background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-low-box-shadow);
-}
-.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger::after,
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger::after {
-  display: var(--hds-var-form-super-select-selected-text-display);
-  flex-shrink: 0;
-  align-items: center;
-  align-self: stretch;
-  padding-left: 8px;
-  color: var(--hds-foreground-color-faint);
-  font-size: var(--hds-typography-body-100-font-size);
-  font-family: var(--hds-typography-body-100-font-family);
-  line-height: var(--hds-typography-body-100-line-height);
-  border-left: 1px solid var(--hds-border-color-strong);
-  content: var(--hds-var-form-super-select-selected-text);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
@@ -7151,11 +7121,12 @@ button.hds-button[href]::after {
   border-bottom-color: var(--hds-form-control-base-border-color-hover);
 }
 
-.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]) {
+.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
+.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
+.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]) {
   background-color: var(--hds-form-select-surface-color-hover);
 }
+
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:focus-visible, .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus-visible,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-focus {
@@ -7173,31 +7144,6 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus-visible,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-focus {
   border-color: var(--hds-focus-color-action-internal);
-}
-.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-disabled=true],
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-disabled=true] {
-  color: var(--hds-form-control-disabled-foreground-color);
-  background-color: var(--hds-form-control-disabled-surface-color);
-  background-image: var(--hds-form-select-background-image-data-url-disabled);
-  border-color: var(--hds-form-control-disabled-border-color);
-  box-shadow: none;
-  cursor: not-allowed;
-  opacity: 1;
-}
-.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-disabled=true] .ember-power-select-selected-item,
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-disabled=true] .ember-power-select-selected-item {
-  opacity: inherit;
-}
-.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-disabled=true] .ember-power-select-multiple-option,
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-disabled=true] .ember-power-select-multiple-option {
-  color: var(--hds-form-control-disabled-foreground-color);
-  background-color: var(--hds-form-control-disabled-surface-color);
-  border-color: var(--hds-form-control-disabled-border-color);
-}
-.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-disabled=true]::after,
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-disabled=true]::after {
-  color: var(--hds-form-control-disabled-foreground-color);
-  border-left-color: var(--hds-form-control-disabled-border-color);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-expanded=true].ember-basic-dropdown-trigger--in-place,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-expanded=true].ember-basic-dropdown-trigger--in-place {
@@ -7220,6 +7166,34 @@ button.hds-button[href]::after {
   font-size: var(--hds-typography-body-200-font-size);
   font-family: var(--hds-typography-body-200-font-family);
   line-height: var(--hds-typography-body-200-line-height);
+}
+.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-disabled=true],
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-disabled=true] {
+  color: var(--hds-form-control-disabled-foreground-color);
+  background-color: var(--hds-form-control-disabled-surface-color);
+  background-image: var(--hds-form-select-background-image-data-url-disabled);
+  border-color: var(--hds-form-control-disabled-border-color);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-disabled=true] .ember-power-select-selected-item,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-disabled=true] .ember-power-select-selected-item {
+  opacity: inherit;
+}
+.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger::after,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger::after {
+  display: var(--hds-var-form-super-select-selected-text-display);
+  flex-shrink: 0;
+  align-items: center;
+  align-self: stretch;
+  padding-left: 8px;
+  color: var(--hds-foreground-color-faint);
+  font-size: var(--hds-typography-body-100-font-size);
+  font-family: var(--hds-typography-body-100-font-family);
+  line-height: var(--hds-typography-body-100-line-height);
+  border-left: 1px solid var(--hds-border-color-strong);
+  content: var(--hds-var-form-super-select-selected-text);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-content {
   max-width: var(--hds-var-form-super-select-dropdown-max-width, none);
@@ -7267,7 +7241,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option {
   position: relative;
-  min-height: var(--hds-form-control-height);
+  min-height: var(--hds-form-super-select-height);
   padding: 7px 7px 7px 39px;
   color: var(--hds-foreground-color-primary);
   font-size: var(--hds-typography-body-200-font-size);
@@ -7293,19 +7267,19 @@ button.hds-button[href]::after {
 
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true] {
   color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-super-select-option-surface-color-default);
+  background-color: var(--hds-form-control-base-surface-color-default);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-selected=true] {
   background: var(--hds-form-super-select-option-surface-color-checked-default);
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover {
-  background-color: var(--hds-form-super-select-option-surface-color-hover);
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover {
+  background-color: var(--hds-form-super-select-option-surface-color-action-hover);
   border: none;
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true][aria-selected=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover[aria-selected=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover[aria-selected=true] {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover[aria-selected=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover[aria-selected=true] {
   background-color: var(--hds-form-super-select-option-surface-color-checked-hover);
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
   position: absolute;
   top: 6px;
   bottom: 6px;
@@ -7315,9 +7289,9 @@ button.hds-button[href]::after {
   border-radius: 500px;
   content: "";
 }
-.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after,
-.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after,
-.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
+.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after,
+.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after,
+.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
   display: none;
 }
 
@@ -7360,6 +7334,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search {
+  margin-bottom: 3px;
   margin-bottom: var(--hds-form-super-select-search-margin-bottom);
   padding: 11px 11px 0 11px;
   border-radius: var(--hds-form-control-border-radius);
@@ -7372,7 +7347,7 @@ button.hds-button[href]::after {
 
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input {
   width: 100%;
-  min-height: var(--hds-form-control-height);
+  min-height: var(--hds-form-super-select-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
   font-size: var(--hds-typography-body-200-font-size);
@@ -7432,14 +7407,14 @@ button.hds-button[href]::after {
   min-width: 0;
   margin: 0 4px 0 0;
   padding: 3px 10px 5px 10px;
-  color: var(--hds-form-super-select-tag-foreground-color);
+  color: var(--hds-form-control-base-foreground-color);
   font-size: var(--hds-typography-body-100-font-size);
   font-family: var(--hds-typography-body-100-font-family);
   line-height: 1rem;
   vertical-align: middle;
   overflow-wrap: break-word;
-  background-color: var(--hds-form-super-select-tag-surface-color);
-  border: 1px solid var(--hds-form-super-select-tag-border-color);
+  background-color: var(--hds-surface-color-interactive);
+  border: 1px solid var(--hds-border-color-strong);
   border-radius: 50px;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-multiple-remove-btn {
@@ -7460,6 +7435,10 @@ button.hds-button[href]::after {
   -webkit-appearance: none;
 }
 
+.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger,
+.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger {
+  border-color: var(--hds-form-control-invalid-border-color-default);
+}
 .hds-theme-light .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger, .hds-theme-light .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger,
 .hds-theme-dark .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger, .hds-theme-dark .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger,
 .hds-theme-system .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger, .hds-theme-system .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger {
@@ -7467,10 +7446,6 @@ button.hds-button[href]::after {
   outline-offset: -2px;
 }
 
-.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger,
-.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger {
-  border-color: var(--hds-form-control-invalid-border-color-default);
-}
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger:hover, .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover,
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger:hover,
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger.mock-hover {
@@ -7522,23 +7497,22 @@ button.hds-button[href]::after {
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]).mock-hover {
-  color: var(--hds-form-super-select-option-foreground-color-hover);
+  color: var(--hds-form-super-select-option-foreground-color-action-hover);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]).mock-active {
-  color: var(--hds-form-super-select-option-foreground-color-active);
+  color: var(--hds-form-super-select-option-foreground-color-action-active);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
-.ember-power-select-option--loading-message)[aria-current=true], .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message).mock-hover {
-  color: var(--hds-form-super-select-option-foreground-color-hover);
+  color: var(--hds-form-super-select-option-foreground-color-action-hover);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message).mock-active {
-  color: var(--hds-form-super-select-option-foreground-color-active);
+  color: var(--hds-form-super-select-option-foreground-color-action-active);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-disabled=true] {
@@ -7600,16 +7574,16 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true])::before {
-  background-color: var(--hds-form-control-surface-color-checked-default);
+  background-color: var(--hds-form-control-checked-surface-color-default);
   background-image: var(--hds-form-checkbox-background-image-data-url);
-  border-color: var(--hds-form-control-border-color-checked-default);
+  border-color: var(--hds-form-control-checked-border-color-default);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:hover[aria-selected=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true].mock-hover[aria-selected=true]::before {
-  background-color: var(--hds-form-control-border-color-checked-default);
-  border-color: var(--hds-form-control-border-color-checked-hover);
+  background-color: var(--hds-form-control-checked-border-color-default);
+  border-color: var(--hds-form-control-checked-border-color-hover);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-disabled=true]::before {
@@ -7645,7 +7619,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-super-select__no-options-selected {
-  min-height: var(--hds-form-control-height);
+  min-height: var(--hds-form-super-select-height);
   padding: 4px 15px 10px;
 }
 
@@ -7812,7 +7786,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-text-input--has-visibility-toggle {
-  padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-size));
+  padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px);
 }
 
 .hds-form-text-input__visibility-toggle {
@@ -7928,6 +7902,10 @@ button.hds-button[href]::after {
   background-image: var(--hds-form-text-input-background-image-data-url-search-loading);
 }
 
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -8181,7 +8159,7 @@ button.hds-button[href]::after {
   background-color: var(--hds-form-toggle-base-surface-color-default);
 }
 :checked + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-border-color-checked-default);
+  --border-color: var(--hds-form-control-checked-border-color-default);
   background-color: var(--hds-form-toggle-base-surface-color-checked-default);
 }
 .hds-theme-light :checked + .hds-form-toggle__facade,
@@ -8206,7 +8184,7 @@ button.hds-button[href]::after {
   --border-color: var(--hds-form-control-base-border-color-hover);
 }
 :hover:checked + .hds-form-toggle__facade, .mock-hover:checked + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-border-color-checked-hover);
+  --border-color: var(--hds-form-control-checked-border-color-hover);
   background-color: var(--hds-form-toggle-base-surface-color-checked-hover);
 }
 :focus + .hds-form-toggle__facade::before, .mock-focus + .hds-form-toggle__facade::before {
@@ -8243,12 +8221,16 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-form-visibility-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--hds-form-visibility-toggle-size);
-  height: var(--hds-form-visibility-toggle-size);
+  width: var(--hds-form-visibility-toggle-button-size);
+  height: var(--hds-form-visibility-toggle-button-size);
   padding: 2px;
   color: var(--hds-foreground-color-primary);
   background-color: transparent;
@@ -9855,30 +9837,12 @@ button.hds-button[href]::after {
  */
 .hds-segmented-group {
   display: inline-flex;
-  max-width: var(--hds-segmented-group-max-width);
-}
-.hds-segmented-group.hds-segmented-group--is-full-width {
-  display: flex;
-}
-.hds-segmented-group > .hds-form-super-select .ember-basic-dropdown-content--in-place {
-  margin-top: 4px;
-}
-.hds-segmented-group > .hds-form-super-select:first-child:not(:only-child) .ember-basic-dropdown-trigger--in-place[aria-expanded=true] {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.hds-segmented-group > .hds-form-super-select:last-child:not(:only-child) .ember-basic-dropdown-trigger--in-place[aria-expanded=true] {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.hds-segmented-group > .hds-form-super-select:not(:first-child, :last-child, :only-child) .ember-basic-dropdown-trigger--in-place[aria-expanded=true] {
-  border-radius: 0;
+  gap: var(--hds-segmented-group-gap);
 }
 .hds-segmented-group > .hds-button:first-child:not(:only-child),
 .hds-segmented-group > .hds-dropdown:first-child:not(:only-child),
 .hds-segmented-group > .hds-form-select:first-child:not(:only-child),
-.hds-segmented-group > .hds-form-text-input:first-child:not(:only-child),
-.hds-segmented-group > .hds-form-super-select:first-child:not(:only-child) {
+.hds-segmented-group > .hds-form-text-input:first-child:not(:only-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -9887,40 +9851,29 @@ button.hds-button[href]::after {
 .hds-segmented-group > .hds-button:first-child:not(:only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-button:first-child:not(:only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-button:first-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-button:first-child:not(:only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-dropdown:first-child:not(:only-child)::before,
 .hds-segmented-group > .hds-dropdown:first-child:not(:only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-dropdown:first-child:not(:only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-dropdown:first-child:not(:only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-dropdown:first-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-dropdown:first-child:not(:only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-form-select:first-child:not(:only-child)::before,
 .hds-segmented-group > .hds-form-select:first-child:not(:only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-form-select:first-child:not(:only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-form-select:first-child:not(:only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-form-select:first-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-select:first-child:not(:only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-form-text-input:first-child:not(:only-child)::before,
 .hds-segmented-group > .hds-form-text-input:first-child:not(:only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-form-text-input:first-child:not(:only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-form-text-input:first-child:not(:only-child) .hds-dropdown-toggle-icon,
-.hds-segmented-group > .hds-form-text-input:first-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-text-input:first-child:not(:only-child) .ember-power-select-trigger,
-.hds-segmented-group > .hds-form-super-select:first-child:not(:only-child)::before,
-.hds-segmented-group > .hds-form-super-select:first-child:not(:only-child) .hds-dropdown-toggle-button,
-.hds-segmented-group > .hds-form-super-select:first-child:not(:only-child) .hds-dropdown-toggle-button::before,
-.hds-segmented-group > .hds-form-super-select:first-child:not(:only-child) .hds-dropdown-toggle-icon,
-.hds-segmented-group > .hds-form-super-select:first-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-super-select:first-child:not(:only-child) .ember-power-select-trigger {
+.hds-segmented-group > .hds-form-text-input:first-child:not(:only-child) .hds-dropdown-toggle-icon::before {
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
 }
 .hds-segmented-group > .hds-button:last-child:not(:only-child),
 .hds-segmented-group > .hds-dropdown:last-child:not(:only-child),
 .hds-segmented-group > .hds-form-select:last-child:not(:only-child),
-.hds-segmented-group > .hds-form-text-input:last-child:not(:only-child),
-.hds-segmented-group > .hds-form-super-select:last-child:not(:only-child) {
-  margin-left: -1px;
+.hds-segmented-group > .hds-form-text-input:last-child:not(:only-child) {
+  margin-left: var(--hds-segmented-group-margin-left);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -9929,40 +9882,29 @@ button.hds-button[href]::after {
 .hds-segmented-group > .hds-button:last-child:not(:only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-button:last-child:not(:only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-button:last-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-button:last-child:not(:only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-dropdown:last-child:not(:only-child)::before,
 .hds-segmented-group > .hds-dropdown:last-child:not(:only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-dropdown:last-child:not(:only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-dropdown:last-child:not(:only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-dropdown:last-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-dropdown:last-child:not(:only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-form-select:last-child:not(:only-child)::before,
 .hds-segmented-group > .hds-form-select:last-child:not(:only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-form-select:last-child:not(:only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-form-select:last-child:not(:only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-form-select:last-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-select:last-child:not(:only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-form-text-input:last-child:not(:only-child)::before,
 .hds-segmented-group > .hds-form-text-input:last-child:not(:only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-form-text-input:last-child:not(:only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-form-text-input:last-child:not(:only-child) .hds-dropdown-toggle-icon,
-.hds-segmented-group > .hds-form-text-input:last-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-text-input:last-child:not(:only-child) .ember-power-select-trigger,
-.hds-segmented-group > .hds-form-super-select:last-child:not(:only-child)::before,
-.hds-segmented-group > .hds-form-super-select:last-child:not(:only-child) .hds-dropdown-toggle-button,
-.hds-segmented-group > .hds-form-super-select:last-child:not(:only-child) .hds-dropdown-toggle-button::before,
-.hds-segmented-group > .hds-form-super-select:last-child:not(:only-child) .hds-dropdown-toggle-icon,
-.hds-segmented-group > .hds-form-super-select:last-child:not(:only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-super-select:last-child:not(:only-child) .ember-power-select-trigger {
+.hds-segmented-group > .hds-form-text-input:last-child:not(:only-child) .hds-dropdown-toggle-icon::before {
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
 }
 .hds-segmented-group > .hds-button:not(:first-child, :last-child, :only-child),
 .hds-segmented-group > .hds-dropdown:not(:first-child, :last-child, :only-child),
 .hds-segmented-group > .hds-form-select:not(:first-child, :last-child, :only-child),
-.hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child),
-.hds-segmented-group > .hds-form-super-select:not(:first-child, :last-child, :only-child) {
-  margin-left: -1px;
+.hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child) {
+  margin-left: var(--hds-segmented-group-margin-left);
   border-radius: 0;
 }
 .hds-segmented-group > .hds-button:not(:first-child, :last-child, :only-child)::before,
@@ -9970,57 +9912,38 @@ button.hds-button[href]::after {
 .hds-segmented-group > .hds-button:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-button:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-button:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-button:not(:first-child, :last-child, :only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-dropdown:not(:first-child, :last-child, :only-child)::before,
 .hds-segmented-group > .hds-dropdown:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-dropdown:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-dropdown:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-dropdown:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-dropdown:not(:first-child, :last-child, :only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-form-select:not(:first-child, :last-child, :only-child)::before,
 .hds-segmented-group > .hds-form-select:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-form-select:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-form-select:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon,
 .hds-segmented-group > .hds-form-select:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-select:not(:first-child, :last-child, :only-child) .ember-power-select-trigger,
 .hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child)::before,
 .hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button,
 .hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button::before,
 .hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon,
-.hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child) .ember-power-select-trigger,
-.hds-segmented-group > .hds-form-super-select:not(:first-child, :last-child, :only-child)::before,
-.hds-segmented-group > .hds-form-super-select:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button,
-.hds-segmented-group > .hds-form-super-select:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-button::before,
-.hds-segmented-group > .hds-form-super-select:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon,
-.hds-segmented-group > .hds-form-super-select:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon::before,
-.hds-segmented-group > .hds-form-super-select:not(:first-child, :last-child, :only-child) .ember-power-select-trigger {
+.hds-segmented-group > .hds-form-text-input:not(:first-child, :last-child, :only-child) .hds-dropdown-toggle-icon::before {
   border-radius: inherit;
 }
 .hds-segmented-group > .hds-button:focus-visible, .hds-segmented-group > .hds-button.mock-focus,
 .hds-segmented-group > .hds-button .hds-dropdown-toggle-button:focus,
 .hds-segmented-group > .hds-button .hds-dropdown-toggle-icon:focus,
-.hds-segmented-group > .hds-button .ember-power-select-trigger:focus,
 .hds-segmented-group > .hds-dropdown:focus-visible,
 .hds-segmented-group > .hds-dropdown.mock-focus,
 .hds-segmented-group > .hds-dropdown .hds-dropdown-toggle-button:focus,
 .hds-segmented-group > .hds-dropdown .hds-dropdown-toggle-icon:focus,
-.hds-segmented-group > .hds-dropdown .ember-power-select-trigger:focus,
 .hds-segmented-group > .hds-form-select:focus-visible,
 .hds-segmented-group > .hds-form-select.mock-focus,
 .hds-segmented-group > .hds-form-select .hds-dropdown-toggle-button:focus,
 .hds-segmented-group > .hds-form-select .hds-dropdown-toggle-icon:focus,
-.hds-segmented-group > .hds-form-select .ember-power-select-trigger:focus,
 .hds-segmented-group > .hds-form-text-input:focus-visible,
 .hds-segmented-group > .hds-form-text-input.mock-focus,
 .hds-segmented-group > .hds-form-text-input .hds-dropdown-toggle-button:focus,
-.hds-segmented-group > .hds-form-text-input .hds-dropdown-toggle-icon:focus,
-.hds-segmented-group > .hds-form-text-input .ember-power-select-trigger:focus,
-.hds-segmented-group > .hds-form-super-select:focus-visible,
-.hds-segmented-group > .hds-form-super-select.mock-focus,
-.hds-segmented-group > .hds-form-super-select .hds-dropdown-toggle-button:focus,
-.hds-segmented-group > .hds-form-super-select .hds-dropdown-toggle-icon:focus,
-.hds-segmented-group > .hds-form-super-select .ember-power-select-trigger:focus {
+.hds-segmented-group > .hds-form-text-input .hds-dropdown-toggle-icon:focus {
   z-index: 1;
 }
 
