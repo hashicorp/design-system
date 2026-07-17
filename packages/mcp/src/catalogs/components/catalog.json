@@ -10,7 +10,7 @@
           "type": "'open' | 'close'",
           "required": false,
           "description": "Controls the state of all items within a group. Can be used to expand or collapse all items at once."
-        }
+        },
         {
           "name": "size",
           "type": "'small' | 'medium' | 'large'",
