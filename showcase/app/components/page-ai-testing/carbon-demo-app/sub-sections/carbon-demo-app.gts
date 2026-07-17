@@ -10,12 +10,12 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwFrame from 'showcase/components/shw/frame'; // import the showframe component
 
 const SubSectionCarbonDemoApp: TemplateOnlyComponent = <template>
-
   <ShwTextH2>Carbon Design System Demo</ShwTextH2>
 
   <ShwTextBody>
-    A full application layout using Carbon Design System components, mirroring the Helios demo structure.
-    This demo is displayed in an iframe to properly contain Carbon's fixed-position UI Shell components.
+    A full application layout using Carbon Design System components, mirroring
+    the Helios demo structure. This demo is displayed in an iframe to properly
+    contain Carbon's fixed-position UI Shell components.
   </ShwTextBody>
 
   <ShwFrame
