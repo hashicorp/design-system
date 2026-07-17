@@ -409,11 +409,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH3>Fieldset</ShwTextH3>
 
     {{#each FIELDSET_LAYOUT_TYPES as |layout|}}
-      <ShwCarbonizationComparisonGrid
-        @label="{{capitalize layout}} layout"
-        @hideThemeLabels={{true}}
-        @hideCarbonLabels={{true}}
-      >
+      <ShwCarbonizationComparisonGrid @label="{{capitalize layout}} layout">
         <:theming>
           <ShwFlex @gap="2rem" as |SF|>
             <SF.Item>

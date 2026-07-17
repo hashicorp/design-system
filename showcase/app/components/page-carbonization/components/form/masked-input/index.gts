@@ -58,10 +58,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="With value (masked)"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="With value (masked)">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -93,10 +90,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="With value (in clear)"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="With value (in clear)">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -131,10 +125,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="With value + copy button (masked)"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="With value + copy button (masked)">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -170,7 +161,6 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid
       @label="With value + copy button (in clear)"
-      @hideThemeLabels={{true}}
     >
       <:theming>
         <ShwFlex @direction="column" as |SF|>
@@ -338,7 +328,6 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid
       @label="Label + Helper text + Copy button + Error"
-      @hideThemeLabels={{true}}
     >
       <:theming>
         <ShwFlex @direction="column" as |SF|>
@@ -432,7 +421,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Optional" @hideThemeLabels={{true}}>
+    <ShwCarbonizationComparisonGrid @label="Optional">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -519,7 +508,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Disabled" @hideThemeLabels={{true}}>
+    <ShwCarbonizationComparisonGrid @label="Disabled">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>

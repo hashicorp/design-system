@@ -43,10 +43,7 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-textarea value=""></cds-textarea>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="With placeholder"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="With placeholder">
       <:theming>
         <HdsFormTextareaBase
           aria-label="textarea example with placeholder"
@@ -57,10 +54,7 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-textarea placeholder="Lorem ipsum dolor"></cds-textarea>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="With value"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="With value">
       <:theming>
         <HdsFormTextareaBase
           aria-label="textarea example with value"
@@ -237,7 +231,7 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
         ></cds-textarea>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Optional" @hideThemeLabels={{true}}>
+    <ShwCarbonizationComparisonGrid @label="Optional">
       <:theming>
         <HdsFormTextareaField
           @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
@@ -279,7 +273,7 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
         ></cds-textarea>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Disabled" @hideThemeLabels={{true}}>
+    <ShwCarbonizationComparisonGrid @label="Disabled">
       <:theming>
         <HdsFormTextareaField
           @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"

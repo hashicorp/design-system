@@ -46,11 +46,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-text-input type="text" size="md" value=""></cds-text-input>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="With placeholder"
-      @hideThemeLabels={{true}}
-      @hideCarbonLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="With placeholder">
       <:theming>
         <HdsFormTextInputBase placeholder="Lorem ipsum dolor" />
       </:theming>
@@ -63,11 +59,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
         ></cds-text-input>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="With value"
-      @hideThemeLabels={{true}}
-      @hideCarbonLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="With value">
       <:theming>
         <HdsFormTextInputBase
           @value="Lorem ipsum dolor"
@@ -90,17 +82,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
     {{#each TYPES as |type|}}
       <ShwCarbonizationComparisonGrid
         @label={{capitalize type}}
-        @hideThemeLabels={{(if
-          (and
-            (notEq type "text")
-            (notEq type "date")
-            (notEq type "datetime-local")
-            (notEq type "month")
-            (notEq type "week")
-            (notEq type "search")
-          )
-          true
-        )}}
         @layout={{if
           (or
             (eq type "date")
@@ -135,11 +116,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
-    <ShwCarbonizationComparisonGrid
-      @label="Search (loading state)"
-      @hideThemeLabels={{true}}
-      @hideCarbonLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="Search (loading state)">
       <:theming>
         <HdsFormTextInputBase
           @type="search"
@@ -403,10 +380,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Content</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid
-      @label="Label + Helper text + Error"
-      @hideCarbonLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="Label + Helper text + Error">
       <:theming>
         <HdsFormTextInputField
           @value="Lorem ipsum dolor"
@@ -437,7 +411,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="Label + Helper text + Character count"
-      @hideCarbonLabels={{true}}
     >
       <:theming>
         <CodeFragmentWithCharacterCount
@@ -487,11 +460,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
         ></cds-text-input>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="Disabled"
-      @hideThemeLabels={{true}}
-      @hideCarbonLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="Disabled">
       <:theming>
         <HdsFormTextInputField
           @value="Lorem ipsum dolor"
