@@ -104,6 +104,94 @@
       "riskFlags": [],
       "notes": "High confidence - straightforward mapping with minor attribute transformations"
     },
+    "Hds::Link::Inline": {
+      "cwcComponent": "cds-link",
+      "description": "Inline link rendered within text content",
+      "attributes": {
+        "@href": {
+          "target": "href",
+          "transform": "direct"
+        },
+        "@color": {
+          "target": null,
+          "transform": "remove",
+          "notes": "cds-link has no color prop — primary style is the default. Remove this attribute."
+        },
+        "@isHrefExternal": {
+          "target": "target",
+          "transform": "transformValue",
+          "valueMap": {
+            "true": "_blank"
+          },
+          "notes": "@isHrefExternal={{true}} becomes target='_blank' on cds-link"
+        },
+        "@icon": {
+          "target": null,
+          "transform": "manual",
+          "notes": "cds-link has no icon slot. Place a Carbon SVG directly as a child element next to the text content."
+        },
+        "@iconPosition": {
+          "target": null,
+          "transform": "manual",
+          "notes": "No icon-position prop on cds-link. Control icon order via DOM order (leading = SVG before text, trailing = SVG after text)."
+        }
+      },
+      "events": {},
+      "slots": {
+        "default": {
+          "target": "default",
+          "transform": "direct",
+          "notes": "Yielded text content passes through to the cds-link default slot unchanged"
+        }
+      },
+      "confidence": 0.85,
+      "riskFlags": [
+        "manual-migration-required"
+      ],
+      "notes": "Medium-high confidence. Text-only usages (no @icon) are straightforward swaps at 0.92+. Any usage with @icon drops to ~0.70 and requires manual Carbon SVG placement. @color is simply removed — cds-link only has one style."
+    },
+    "Hds::Icon": {
+      "cwcComponent": "cds-icon",
+      "description": "Icon component — renders a Flight icon by string name",
+      "attributes": {
+        "@name": {
+          "target": "icon",
+          "transform": "manual",
+          "notes": "HDS takes a string name (e.g. 'arrow-right'). cds-icon takes a JS property binding: .icon=\"${ArrowRight16}\" imported from '@carbon/icons/es/<name>/<size>.js'. There is no automatic string-to-import mapping — the correct Carbon icon must be identified manually and imported at the top of the file."
+        },
+        "@size": {
+          "target": "size",
+          "transform": "direct",
+          "valueMap": {
+            "16": "16",
+            "24": "24"
+          },
+          "notes": "HDS supports 16 and 24. cds-icon supports 16, 20, 24, 32. Values map directly."
+        },
+        "@color": {
+          "target": null,
+          "transform": "remove",
+          "notes": "cds-icon has no color attribute. Apply color via CSS (fill or currentColor) on the element or a parent. HDS named colors (e.g. 'action', 'critical') must be translated to the equivalent CSS custom property or class."
+        },
+        "@isInline": {
+          "target": null,
+          "transform": "remove",
+          "notes": "cds-icon is always inline. Remove this attribute."
+        },
+        "@stretched": {
+          "target": null,
+          "transform": "remove",
+          "notes": "No cds-icon equivalent. Control sizing via CSS width/height on the element."
+        }
+      },
+      "events": {},
+      "slots": {},
+      "confidence": 0.72,
+      "riskFlags": [
+        "manual-migration-required"
+      ],
+      "notes": "Medium confidence. The @name → .icon transform is always manual — requires identifying the correct Carbon icon import from '@carbon/icons'. Size and aria-label map directly. Color must move to CSS. Usage without @color and with a standard size (16 or 24) can be partially auto-scaffolded but the import line must always be written by hand."
+    },
     "Hds::Badge": {
       "cwcComponent": "cds-tag",
       "description": "Badge/tag component for labels and status indicators",

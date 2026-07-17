@@ -3,6 +3,10 @@
     "ember": {
       "command": "npx",
       "args": ["-y", "ember-mcp@0.1.0"]
+    },
+    "helios": {
+      "command": "node",
+      "args": ["/Users/pkj/design-system/packages/mcp/dist/index.js"]
     }
   }
 }

@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Fix Carbon header to span full width */
@@ -138,5 +138,3 @@ cds-form:not(:defined) {
 .carbon-demo-modal-preview-item:last-child {
   margin-bottom: 0;
 }
-
-

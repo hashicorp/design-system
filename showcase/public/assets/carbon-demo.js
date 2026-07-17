@@ -4,7 +4,7 @@
  */
 
 // Simple form interaction logic
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const nameInput = document.getElementById('name-input');
   const emailInput = document.getElementById('email-input');
   const previewBtn = document.getElementById('preview-btn');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Preview button click
-  previewBtn.addEventListener('click', function() {
+  previewBtn.addEventListener('click', function () {
     const nameValue = nameInput.value || '';
     const emailValue = emailInput.value || '';
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Cancel button click
-  cancelBtn.addEventListener('click', function() {
+  cancelBtn.addEventListener('click', function () {
     if (confirm('Are you sure you want to cancel? All data will be lost.')) {
       nameInput.value = '';
       emailInput.value = '';
@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Modal back button
-  modalBackBtn.addEventListener('click', function() {
+  modalBackBtn.addEventListener('click', function () {
     modal.removeAttribute('open');
   });
 
   // Modal confirm button
-  modalConfirmBtn.addEventListener('click', function() {
+  modalConfirmBtn.addEventListener('click', function () {
     const nameValue = nameInput.value;
     const emailValue = emailInput.value;
 
@@ -70,9 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Close modal on backdrop click
-  modal.addEventListener('cds-modal-closed', function() {
+  modal.addEventListener('cds-modal-closed', function () {
     modal.removeAttribute('open');
   });
 });
-
-

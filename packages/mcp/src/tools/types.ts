@@ -11,7 +11,10 @@ import type {
 import type { ToolAnnotations } from "@modelcontextprotocol/sdk/types.js";
 
 export interface McpTool<
-  InputArgs extends ZodRawShapeCompat | undefined = undefined,
+  InputArgs extends ZodRawShapeCompat | AnySchema | undefined =
+    | ZodRawShapeCompat
+    | AnySchema
+    | undefined,
   OutputArgs extends ZodRawShapeCompat | AnySchema =
     | ZodRawShapeCompat
     | AnySchema,
@@ -25,5 +28,5 @@ export interface McpTool<
     annotations?: ToolAnnotations;
     _meta?: Record<string, unknown>;
   };
-  executeCallback: ToolCallback<InputArgs>;
+  executeCallback: ToolCallback;
 }
