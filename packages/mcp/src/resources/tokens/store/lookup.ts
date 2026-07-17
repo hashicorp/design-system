@@ -33,14 +33,7 @@ const trimTokenBraces = (value: string): string => {
 };
 
 export const normalizeTokenLookupKey = (value: string): string => {
-  const normalized = normalizeLookupValue(value);
-  const withoutBraces = trimTokenBraces(normalized);
-
-  if (withoutBraces.startsWith("token-")) {
-    return withoutBraces;
-  }
-
-  return withoutBraces;
+  return trimTokenBraces(normalizeLookupValue(value));
 };
 
 export const toTokenType = (value: string | undefined): TokenType => {
