@@ -35,10 +35,10 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwCarbonizationComparisonGrid @label="Unchecked / Checked">
       <:theming>
         <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item @label="Unchecked">
+          <SF.Item>
             <HdsFormRadioBase aria-label="Unchecked radio" />
           </SF.Item>
-          <SF.Item @label="Checked">
+          <SF.Item>
             <HdsFormRadioBase checked="checked" aria-label="Checked radio" />
           </SF.Item>
         </ShwFlex>
