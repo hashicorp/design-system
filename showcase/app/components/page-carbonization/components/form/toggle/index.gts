@@ -36,10 +36,10 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwCarbonizationComparisonGrid @label="Unchecked / Checked">
       <:theming>
         <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item @label="Unchecked">
+          <SF.Item>
             <HdsFormToggleBase aria-label="Unchecked toggle" />
           </SF.Item>
-          <SF.Item @label="Checked">
+          <SF.Item>
             <HdsFormToggleBase checked="checked" aria-label="Checked toggle" />
           </SF.Item>
         </ShwFlex>
