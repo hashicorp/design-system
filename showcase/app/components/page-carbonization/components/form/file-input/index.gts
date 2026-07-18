@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
+import { array } from '@ember/helper';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -80,23 +81,36 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
-    <ShwCarbonizationComparisonGrid @label="Disabled" @layout="column-stacked">
-      <:theming>
-        <HdsFormFileInputBase disabled aria-label="disabled file input" />
-      </:theming>
-      <:reference>
-        <cds-file-uploader icon-description="Delete file" disabled>
-          <cds-file-uploader-button
-            accept="image/jpeg"
-            name="default-file-uploader-button"
-            button-kind="primary"
-            size="md"
-          >
-            Add file
-          </cds-file-uploader-button>
-        </cds-file-uploader>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @label="Disabled / {{capitalize state}}"
+        @layout="column-stacked"
+      >
+        <:theming>
+          <HdsFormFileInputBase
+            disabled
+            mock-state-value={{state}}
+            aria-label="disabled file input"
+          />
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <cds-file-uploader icon-description="Delete file" disabled>
+              <cds-file-uploader-button
+                accept="image/jpeg"
+                name="default-file-uploader-button"
+                button-kind="primary"
+                size="md"
+              >
+                Add file
+              </cds-file-uploader-button>
+            </cds-file-uploader>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider />
 

@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
+import { array } from '@ember/helper';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -138,46 +139,56 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwCarbonizationComparisonGrid @label="Disabled">
-      <:theming>
-        <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item>
-            <HdsFormToggleBase
-              disabled="disabled"
-              aria-label="Disabled toggle"
-            />
-          </SF.Item>
-          <SF.Item>
-            <HdsFormToggleBase
-              checked="checked"
-              disabled="disabled"
-              aria-label="Checked, disabled toggle"
-            />
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference>
-        <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item>
-            <cds-toggle
-              size="sm"
-              hideLabel="true"
-              labelText=""
-              disabled
-            ></cds-toggle>
-          </SF.Item>
-          <SF.Item>
-            <cds-toggle
-              size="sm"
-              hideLabel="true"
-              labelText=""
-              toggled
-              disabled
-            ></cds-toggle>
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @label="Disabled / {{capitalize state}}"
+        mock-state-value={{state}}
+        mock-state-selector="input"
+      >
+        <:theming>
+          <ShwFlex @gap="1rem" as |SF|>
+            <SF.Item>
+              <HdsFormToggleBase
+                disabled="disabled"
+                aria-label="Disabled toggle"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsFormToggleBase
+                checked="checked"
+                disabled="disabled"
+                aria-label="Checked, disabled toggle"
+              />
+            </SF.Item>
+          </ShwFlex>
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <ShwFlex @gap="1rem" as |SF|>
+              <SF.Item>
+                <cds-toggle
+                  size="sm"
+                  hideLabel="true"
+                  labelText=""
+                  disabled
+                ></cds-toggle>
+              </SF.Item>
+              <SF.Item>
+                <cds-toggle
+                  size="sm"
+                  hideLabel="true"
+                  labelText=""
+                  toggled
+                  disabled
+                ></cds-toggle>
+              </SF.Item>
+            </ShwFlex>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider />
 
@@ -232,44 +243,54 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwCarbonizationComparisonGrid @label="Disabled">
-      <:theming>
-        <HdsFormToggleGroup as |G|>
-          <G.ToggleField checked="checked" disabled={{true}} as |F|>
-            <F.Label>This is the label</F.Label>
-            <F.HelperText>This is the helper text</F.HelperText>
-          </G.ToggleField>
-          <G.ToggleField disabled={{true}} as |F|>
-            <F.Label>This is the label</F.Label>
-            <F.HelperText>This is the helper text</F.HelperText>
-            <F.Error>This is the error</F.Error>
-          </G.ToggleField>
-        </HdsFormToggleGroup>
-      </:theming>
-      <:reference>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <cds-toggle
-              size="sm"
-              label-text="This is the label"
-              helper-text="This is the helper text"
-              toggled
-              disabled
-            ></cds-toggle>
-          </SF.Item>
-          <SF.Item>
-            <cds-toggle
-              size="sm"
-              label-text="This is the label"
-              helper-text="This is the helper text"
-              invalid
-              invalid-text="This is the error"
-              disabled
-            ></cds-toggle>
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @label="Disabled / {{capitalize state}}"
+        mock-state-value={{state}}
+        mock-state-selector="input"
+      >
+        <:theming>
+          <HdsFormToggleGroup as |G|>
+            <G.ToggleField checked="checked" disabled={{true}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+            </G.ToggleField>
+            <G.ToggleField disabled={{true}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </G.ToggleField>
+          </HdsFormToggleGroup>
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <ShwFlex @direction="column" as |SF|>
+              <SF.Item>
+                <cds-toggle
+                  size="sm"
+                  label-text="This is the label"
+                  helper-text="This is the helper text"
+                  toggled
+                  disabled
+                ></cds-toggle>
+              </SF.Item>
+              <SF.Item>
+                <cds-toggle
+                  size="sm"
+                  label-text="This is the label"
+                  helper-text="This is the helper text"
+                  invalid
+                  invalid-text="This is the error"
+                  disabled
+                ></cds-toggle>
+              </SF.Item>
+            </ShwFlex>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider />
 

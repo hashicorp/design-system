@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
+import { array } from '@ember/helper';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -123,28 +124,58 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
         <:theming>
           <ShwFlex @gap="1rem" as |SF|>
             <SF.Item @label="Base">
-              <HdsFormSelectBase aria-label="base" as |C|>
-                <C.Options>
-                  <option selected>Lorem ipsum dolor</option>
-                  <option>Sine qua non est</option>
-                </C.Options>
-              </HdsFormSelectBase>
+              <ShwFlex @gap="1rem" as |SFN|>
+                <SFN.Item>
+                  <HdsFormSelectBase aria-label="base" as |C|>
+                    <C.Options>
+                      <option selected>Lorem ipsum dolor</option>
+                      <option>Sine qua non est</option>
+                    </C.Options>
+                  </HdsFormSelectBase>
+                </SFN.Item>
+                <SFN.Item>
+                  <HdsFormSelectBase aria-label="multiple" multiple as |C|>
+                    <C.Options>
+                      <option selected>Lorem ipsum dolor</option>
+                      <option>Sine qua non est</option>
+                    </C.Options>
+                  </HdsFormSelectBase>
+                </SFN.Item>
+              </ShwFlex>
             </SF.Item>
+
             <SF.Item @label="Invalid">
-              <HdsFormSelectBase
-                @isInvalid={{true}}
-                aria-label="invalid"
-                as |C|
-              >
-                <C.Options>
-                  <option selected>Lorem ipsum dolor</option>
-                  <option>Sine qua non est</option>
-                </C.Options>
-              </HdsFormSelectBase>
+              <ShwFlex @gap="1rem" as |SFN|>
+                <SFN.Item>
+                  <HdsFormSelectBase
+                    @isInvalid={{true}}
+                    aria-label="invalid"
+                    as |C|
+                  >
+                    <C.Options>
+                      <option selected>Lorem ipsum dolor</option>
+                      <option>Sine qua non est</option>
+                    </C.Options>
+                  </HdsFormSelectBase>
+                </SFN.Item>
+                <SFN.Item>
+                  <HdsFormSelectBase
+                    @isInvalid={{true}}
+                    aria-label="multiple invalid"
+                    multiple
+                    as |C|
+                  >
+                    <C.Options>
+                      <option selected>Lorem ipsum dolor</option>
+                      <option>Sine qua non est</option>
+                    </C.Options>
+                  </HdsFormSelectBase>
+                </SFN.Item>
+              </ShwFlex>
             </SF.Item>
           </ShwFlex>
         </:theming>
-        <:reference>
+        <:reference as |R|>
           {{#if (eq state "default")}}
             <ShwFlex @gap="1rem" as |SF|>
               <SF.Item @label="Base">
@@ -152,6 +183,7 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                   <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>
                   <cds-select-item value="sine">Sine qua non est</cds-select-item>
                 </cds-select>
+                <R.NoEquivalent @isCompact={{true}} @entity="variant" />
               </SF.Item>
               <SF.Item @label="Invalid">
                 <cds-select
@@ -162,6 +194,7 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                   <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>
                   <cds-select-item value="sine">Sine qua non est</cds-select-item>
                 </cds-select>
+                <R.NoEquivalent @isCompact={{true}} @entity="variant" />
               </SF.Item>
             </ShwFlex>
           {{else}}
@@ -170,22 +203,49 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
-    <ShwCarbonizationComparisonGrid @label="Disabled">
-      <:theming>
-        <HdsFormSelectBase disabled aria-label="disabled select" as |C|>
-          <C.Options>
-            <option selected>Lorem ipsum dolor</option>
-            <option>Sine qua non est</option>
-          </C.Options>
-        </HdsFormSelectBase>
-      </:theming>
-      <:reference>
-        <cds-select disabled value="lorem">
-          <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>
-          <cds-select-item value="sine">Sine qua non est</cds-select-item>
-        </cds-select>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @label="Disabled / {{capitalize state}}"
+        mock-state-value={{state}}
+        mock-state-selector="select"
+      >
+        <:theming>
+          <ShwFlex @gap="1rem" as |SFN|>
+            <SFN.Item>
+              <HdsFormSelectBase disabled aria-label="disabled select" as |C|>
+                <C.Options>
+                  <option selected>Lorem ipsum dolor</option>
+                  <option>Sine qua non est</option>
+                </C.Options>
+              </HdsFormSelectBase>
+            </SFN.Item>
+            <SFN.Item>
+              <HdsFormSelectBase
+                disabled
+                aria-label="disabled select multiple"
+                multiple
+                as |C|
+              >
+                <C.Options>
+                  <option selected>Lorem ipsum dolor</option>
+                  <option>Sine qua non est</option>
+                </C.Options>
+              </HdsFormSelectBase>
+            </SFN.Item>
+          </ShwFlex>
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <cds-select disabled value="lorem">
+              <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>
+              <cds-select-item value="sine">Sine qua non est</cds-select-item>
+            </cds-select>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider />
 

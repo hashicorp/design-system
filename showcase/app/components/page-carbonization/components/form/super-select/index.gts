@@ -6,7 +6,7 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
-import { hash } from '@ember/helper';
+import { hash, array } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 
@@ -129,20 +129,27 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwCarbonizationComparisonGrid @label="Disabled">
-      <:theming>
-        <CodeFragmentWithSingleBaseElement
-          @isSelected={{true}}
-          @disabled={{true}}
-        />
-      </:theming>
-      <:reference>
-        <cds-multi-select disabled {{setCdsMultiSelectValue "option-1"}}>
-          <cds-multi-select-item value="option-1" selected>Option 1</cds-multi-select-item>
-          <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
-        </cds-multi-select>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid @label="Disabled / {{capitalize state}}">
+        <:theming>
+          <CodeFragmentWithSingleBaseElement
+            @isSelected={{true}}
+            @disabled={{true}}
+            class="mock-{{state}}"
+          />
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <cds-multi-select disabled {{setCdsMultiSelectValue "option-1"}}>
+              <cds-multi-select-item value="option-1" selected>Option 1</cds-multi-select-item>
+              <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
+            </cds-multi-select>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider @level={{2}} />
 
@@ -228,29 +235,39 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwCarbonizationComparisonGrid @label="Disabled">
-      <:theming>
-        <CodeFragmentWithSingleFieldElement
-          @isSelected={{true}}
-          @disabled={{true}}
-          as |CF|
-        >
-          <CF.Label>This is the label</CF.Label>
-          <CF.HelperText>This is the helper text</CF.HelperText>
-        </CodeFragmentWithSingleFieldElement>
-      </:theming>
-      <:reference>
-        <cds-multi-select
-          title-text="This is the label"
-          helper-text="This is the helper text"
-          disabled
-          {{setCdsMultiSelectValue "option-1"}}
-        >
-          <cds-multi-select-item value="option-1" selected>Option 1</cds-multi-select-item>
-          <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
-        </cds-multi-select>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @label="Disabled / {{capitalize state}}"
+        mock-state-value={{state}}
+        mock-state-selector=".ember-basic-dropdown-trigger, .ember-power-select-trigger"
+      >
+        <:theming>
+          <CodeFragmentWithSingleFieldElement
+            @isSelected={{true}}
+            @disabled={{true}}
+            as |CF|
+          >
+            <CF.Label>This is the label</CF.Label>
+            <CF.HelperText>This is the helper text</CF.HelperText>
+          </CodeFragmentWithSingleFieldElement>
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <cds-multi-select
+              title-text="This is the label"
+              helper-text="This is the helper text"
+              disabled
+              {{setCdsMultiSelectValue "option-1"}}
+            >
+              <cds-multi-select-item value="option-1" selected>Option 1</cds-multi-select-item>
+              <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
+            </cds-multi-select>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider />
 
@@ -360,20 +377,30 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwCarbonizationComparisonGrid @label="Disabled" @layout="column-stacked">
-      <:theming>
-        <CodeFragmentWithMultipleBaseElement
-          @isSelected={{true}}
-          @disabled={{true}}
-        />
-      </:theming>
-      <:reference>
-        <cds-multi-select disabled {{setCdsMultiSelectValue "option-1"}}>
-          <cds-multi-select-item value="option-1" selected>Option 1</cds-multi-select-item>
-          <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
-        </cds-multi-select>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @label="Disabled / {{capitalize state}}"
+        @layout="column-stacked"
+      >
+        <:theming>
+          <CodeFragmentWithMultipleBaseElement
+            @isSelected={{true}}
+            @disabled={{true}}
+            class="mock-{{state}}"
+          />
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <cds-multi-select disabled {{setCdsMultiSelectValue "option-1"}}>
+              <cds-multi-select-item value="option-1" selected>Option 1</cds-multi-select-item>
+              <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
+            </cds-multi-select>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider @level={{2}} />
 
@@ -464,29 +491,40 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwCarbonizationComparisonGrid @label="Disabled" @layout="column-stacked">
-      <:theming>
-        <CodeFragmentWithMultipleFieldElement
-          @isSelected={{true}}
-          @disabled={{true}}
-          as |CF|
-        >
-          <CF.Label>This is the label</CF.Label>
-          <CF.HelperText>This is the helper text</CF.HelperText>
-        </CodeFragmentWithMultipleFieldElement>
-      </:theming>
-      <:reference>
-        <cds-multi-select
-          title-text="This is the label"
-          helper-text="This is the helper text"
-          disabled
-          {{setCdsMultiSelectValue "option-1"}}
-        >
-          <cds-multi-select-item value="option-1" selected>Option 1</cds-multi-select-item>
-          <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
-        </cds-multi-select>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @label="Disabled / {{capitalize state}}"
+        mock-state-value={{state}}
+        mock-state-selector=".ember-basic-dropdown-trigger, .ember-power-select-trigger"
+        @layout="column-stacked"
+      >
+        <:theming>
+          <CodeFragmentWithMultipleFieldElement
+            @isSelected={{true}}
+            @disabled={{true}}
+            as |CF|
+          >
+            <CF.Label>This is the label</CF.Label>
+            <CF.HelperText>This is the helper text</CF.HelperText>
+          </CodeFragmentWithMultipleFieldElement>
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <cds-multi-select
+              title-text="This is the label"
+              helper-text="This is the helper text"
+              disabled
+              {{setCdsMultiSelectValue "option-1"}}
+            >
+              <cds-multi-select-item value="option-1" selected>Option 1</cds-multi-select-item>
+              <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
+            </cds-multi-select>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
     <ShwDivider />
 
     <ShwTextH2>Base elements</ShwTextH2>

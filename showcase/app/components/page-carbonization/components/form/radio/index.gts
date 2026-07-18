@@ -7,6 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
+import { array } from '@ember/helper';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -91,32 +92,45 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
-    <ShwCarbonizationComparisonGrid @label="Disabled">
-      <:theming>
-        <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item>
-            <HdsFormRadioBase disabled="disabled" aria-label="Disabled radio" />
-          </SF.Item>
-          <SF.Item>
-            <HdsFormRadioBase
-              checked="checked"
-              disabled="disabled"
-              aria-label="Checked, disabled radio"
-            />
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference>
-        <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item>
-            <cds-radio-button disabled></cds-radio-button>
-          </SF.Item>
-          <SF.Item>
-            <cds-radio-button checked disabled></cds-radio-button>
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
+    {{#each (array "default" "hover") as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @label="Disabled / {{capitalize state}}"
+        mock-state-value={{state}}
+        mock-state-selector="input"
+      >
+        <:theming>
+          <ShwFlex @gap="1rem" as |SF|>
+            <SF.Item>
+              <HdsFormRadioBase
+                disabled="disabled"
+                aria-label="Disabled radio"
+              />
+            </SF.Item>
+            <SF.Item>
+              <HdsFormRadioBase
+                checked="checked"
+                disabled="disabled"
+                aria-label="Checked, disabled radio"
+              />
+            </SF.Item>
+          </ShwFlex>
+        </:theming>
+        <:reference>
+          {{#if (eq state "default")}}
+            <ShwFlex @gap="1rem" as |SF|>
+              <SF.Item>
+                <cds-radio-button disabled></cds-radio-button>
+              </SF.Item>
+              <SF.Item>
+                <cds-radio-button checked disabled></cds-radio-button>
+              </SF.Item>
+            </ShwFlex>
+          {{else}}
+            <pre>TODO: static image here</pre>
+          {{/if}}
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider />
 

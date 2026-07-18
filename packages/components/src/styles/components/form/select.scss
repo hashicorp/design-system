@@ -106,24 +106,24 @@
     // Note: Select multipls/size has borders on all sides unlike the single select
     border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
 
+    &:hover {
+      border-color: var(--hds-form-control-base-border-color-hover);
+    }
+
+    &:disabled {
+      border-color: var(--hds-form-control-disabled-border-color);
+    }
+
     option {
       margin: 2px auto;
       border-radius: var(--hds-border-radius-x-small);
-
-      &:hover {
-        color: var(--hds-foreground-color-action);
-      }
-
-      &:disabled {
-        color: var(--hds-foreground-color-disabled);
-      }
 
       &:checked {
         color: var(--hds-foreground-color-high-contrast);
         background: var(--hds-core-color-blue-200);
 
         @include hds-apply-only-if-carbon() {
-          color: #fff; // TODO: Update token to include this value
+          color: #fff;
         }
       }
     }
