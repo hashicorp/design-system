@@ -28,8 +28,9 @@ Ignore reviewing the following files unless explicitly told to do so:
 - Changes to the `website` directory are done in their own PR and not included with other changes to the `components` library.
 
 ### Code quality checks
-- Functions and methods have clear and descriptive names that accurately reflect their purpose.
+- Functions and methods have clear and descriptive names that accurately reflect their purpose
 - Naming conventions for variables, functions, classes, and other identifiers are followed
+- Private properties follow the proper naming conventions
 - Dead code is removed (e.g. commented out code, unused variables or imports)
 - Console logs or debugging statements are removed
 - No misspelled words
