@@ -41,7 +41,7 @@ const tokenAttributesSchema = z
 
 const tokenOriginalSchema = z
   .object({
-    $type: z.enum(TOKEN_TYPES).optional(),
+    $type: z.string().min(1).optional(),
     $value: jsonValueSchema.optional(),
     key: z.string().optional(),
   })
