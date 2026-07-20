@@ -1,1 +1,6 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export default `<symbol id="hds-icon-flight-azure-vms-color-24" viewBox="0 0 24 24"><path fill="url(#azure-vms-color-24__a)" d="M21.333 3H2.667A.667.667 0 0 0 2 3.667v12c0 .368.298.666.667.666h18.666a.667.667 0 0 0 .667-.666v-12A.667.667 0 0 0 21.333 3"/><path fill="#50e6ff" d="M15.333 7.722V11.6L12 13.556v-3.89z"/><path fill="#c3f1ff" d="M15.333 7.722 12 9.678 8.667 7.722 12 5.778z"/><path fill="#9cebff" d="M12 9.678v3.878L8.667 11.6V7.722z"/><path fill="#c3f1ff" d="M8.667 11.6 12 9.667v3.889z"/><path fill="#9cebff" d="M15.333 11.6 12 9.667v3.889z"/><path fill="url(#azure-vms-color-24__b)" d="M16.011 20.367c-1.978-.312-2.055-1.734-2.055-4.034h-3.923c0 2.3-.066 3.723-2.044 4.034A1.11 1.11 0 0 0 7 21.477h10a1.11 1.11 0 0 0-.989-1.11"/><defs><linearGradient id="azure-vms-color-24__a" x1="12" x2="12" y1="21.478" y2="3" gradientUnits="userSpaceOnUse"><stop stop-color="#0078d4"/><stop offset=".82" stop-color="#5ea0ef"/></linearGradient><linearGradient id="azure-vms-color-24__b" x1="12" x2="12" y1="21.478" y2="16.333" gradientUnits="userSpaceOnUse"><stop offset=".15" stop-color="#ccc"/><stop offset="1" stop-color="#707070"/></linearGradient></defs></symbol>`;
