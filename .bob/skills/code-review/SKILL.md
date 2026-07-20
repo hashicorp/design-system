@@ -94,7 +94,7 @@ A comment should include the following elements:
 
 ## Process
 1. **Read through changed files**
-- Run `git merge-base origin/main HEAD` and `git log --oneline $(git merge-base origin/main HEAD)..HEAD` to list commits on this branch
+- Run `git merge-base origin/main HEAD` and `git log --oneline origin/main..HEAD` to list commits on this branch
 - Run `git diff-tree --no-commit-id -r --name-only <sha>` for each commit sha to get the files changed in that commit. Combine those file lists — these are the only files in scope.
   - **Do not** use `git diff --name-only origin/main..HEAD`; that compares the full working-tree against `main` and will include files changed by others on `main` since the branch was cut.
   - Determine the areas of the codebase affected by the changes and read relevant instructions around those directories in the `.bob/rules/directories` folder.
