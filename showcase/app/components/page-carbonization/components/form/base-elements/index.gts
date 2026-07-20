@@ -12,6 +12,7 @@ import style from 'ember-style-modifier';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwOutliner from 'showcase/components/shw/outliner';
@@ -28,6 +29,7 @@ import {
   HdsFormFieldset,
   HdsFormVisibilityToggle,
   HdsFormField,
+  HdsFormIndicator,
 } from '@hashicorp/design-system-components/components';
 
 import CodeFragmentWithCharacterCount from 'showcase/components/page-components/form/base-elements/code-fragments/with-character-count';
@@ -169,7 +171,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider />
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Helper text</ShwTextH3>
 
@@ -216,7 +218,31 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider />
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>Indicator</ShwTextH3>
+    <ShwTextBody>
+      Note: The closest Carbon equivalent is plain text included in the form
+      control component label.
+    </ShwTextBody>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex as |SF|>
+          <SF.Item @label="isRequired">
+            <HdsFormIndicator @isRequired={{true}} />
+          </SF.Item>
+          <SF.Item @label="isOptional">
+            <HdsFormIndicator @isOptional={{true}} />
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Character count</ShwTextH3>
 
@@ -233,7 +259,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider />
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Error</ShwTextH3>
 
@@ -284,7 +310,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider />
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Legend</ShwTextH3>
 
@@ -344,7 +370,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider />
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Field</ShwTextH3>
 
@@ -404,7 +430,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwDivider />
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Fieldset</ShwTextH3>
 
@@ -446,7 +472,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwDivider />
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Visibility toggle</ShwTextH3>
 
