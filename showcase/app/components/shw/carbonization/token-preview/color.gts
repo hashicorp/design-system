@@ -23,9 +23,9 @@ export default class ShwCarbonizationTokenPreviewColor extends Component<ShwCarb
   }
 
   get value(): string {
-    const allThemedTokensForCurrentMode:
+    const allThemedTokensForCurrentMode = THEMED_TOKENS_RAW[this.args.mode] as
       | Record<string, DesignToken>
-      | undefined = THEMED_TOKENS_RAW[this.args.mode];
+      | undefined;
     const themedToken = allThemedTokensForCurrentMode?.[this.args.tokenName];
 
     if (themedToken?.$value) {
