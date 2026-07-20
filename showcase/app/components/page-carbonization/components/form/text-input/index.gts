@@ -380,28 +380,53 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Content</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="Label + Helper text + Error">
+    <ShwCarbonizationComparisonGrid
+      @label="Label + helper text, with & without error"
+    >
       <:theming>
-        <HdsFormTextInputField
-          @value="Lorem ipsum dolor"
-          @isInvalid={{true}}
-          as |F|
-        >
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.Error>This is the error text</F.Error>
-        </HdsFormTextInputField>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsFormTextInputField @value="Lorem ipsum dolor" as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+            </HdsFormTextInputField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormTextInputField
+              @value="Lorem ipsum dolor"
+              @isInvalid={{true}}
+              as |F|
+            >
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error text</F.Error>
+            </HdsFormTextInputField>
+          </SF.Item>
+        </ShwFlex>
       </:theming>
       <:reference>
-        <cds-text-input
-          type="text"
-          size="md"
-          label="This is the label text"
-          helper-text="This is the helper text (not visible)"
-          value="Lorem ipsum dolor"
-          invalid="true"
-          invalid-text="This is the error text"
-        ></cds-text-input>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-text-input
+              type="text"
+              size="md"
+              label="This is the label text"
+              helper-text="This is the helper text"
+              value="Lorem ipsum dolor"
+            ></cds-text-input>
+          </SF.Item>
+          <SF.Item>
+            <cds-text-input
+              type="text"
+              size="md"
+              label="This is the label text"
+              helper-text="This is the helper text"
+              value="Lorem ipsum dolor"
+              invalid="true"
+              invalid-text="This is the error text"
+            ></cds-text-input>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -415,8 +440,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <CodeFragmentWithCharacterCount
           @maxLength={{20}}
-          @value="Lorem ipsum dolor sit amet"
-          @hasValidation={{true}}
+          @value="Lorem ipsum dolor"
         />
       </:theming>
       <:reference>
@@ -428,9 +452,60 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
           value="Lorem ipsum dolor"
           enable-counter="true"
           max-count="20"
-          invalid="true"
-          invalid-text="Maximum numbers of characters exceeded"
         ></cds-text-input>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>Required and optional</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsFormTextInputField
+              @value="Lorem ipsum dolor"
+              @isOptional={{true}}
+              as |F|
+            >
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+            </HdsFormTextInputField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormTextInputField
+              @value="Lorem ipsum dolor"
+              @isRequired={{true}}
+              as |F|
+            >
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+            </HdsFormTextInputField>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-text-input
+              type="text"
+              size="md"
+              label="This is the label text (optional)"
+              helper-text="This is the helper text"
+              value="Lorem ipsum dolor"
+            ></cds-text-input>
+          </SF.Item>
+          <SF.Item>
+            <cds-text-input
+              type="text"
+              size="md"
+              label="This is the label text (required)"
+              helper-text="This is the helper text"
+              value="Lorem ipsum dolor"
+            ></cds-text-input>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 

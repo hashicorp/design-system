@@ -429,14 +429,14 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        <ShwFlex as |SF|>
+        <ShwFlex @direction="column" @gap="1.5rem" as |SF|>
           <SF.Item @label="With legend + Required">
             <HdsFormCheckboxGroup
               @isRequired={{true}}
               @name="control-required"
               as |G|
             >
-              <G.Legend>Legend of the group</G.Legend>
+              <G.Legend>Group legend</G.Legend>
               <G.CheckboxField as |F|>
                 <F.Label>Label of control #1</F.Label>
               </G.CheckboxField>
@@ -454,7 +454,7 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
               @name="control-optional"
               as |G|
             >
-              <G.Legend>Legend of the group</G.Legend>
+              <G.Legend>Group legend</G.Legend>
               <G.CheckboxField as |F|>
                 <F.Label>Label of control #1</F.Label>
               </G.CheckboxField>
@@ -471,14 +471,14 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <ShwFlex as |SF|>
           <SF.Item @label="With legend + Required">
-            <cds-checkbox-group legend-text="Legend of the group (required)">
+            <cds-checkbox-group legend-text="Group legend (required)">
               <cds-checkbox>Label of control #1</cds-checkbox>
               <cds-checkbox checked>Label of control #2</cds-checkbox>
               <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
             </cds-checkbox-group>
           </SF.Item>
           <SF.Item @label="With legend + Optional">
-            <cds-checkbox-group legend-text="Legend of the group (optional)">
+            <cds-checkbox-group legend-text="Group legend (optional)">
               <cds-checkbox>Label of control #1</cds-checkbox>
               <cds-checkbox checked>Label of control #2</cds-checkbox>
               <cds-checkbox indeterminate>Label of control #3</cds-checkbox>

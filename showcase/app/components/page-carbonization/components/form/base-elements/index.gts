@@ -103,13 +103,13 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
-            <HdsFormLabel>This is the label</HdsFormLabel>
+            <HdsFormLabel>Label text</HdsFormLabel>
           </SF.Item>
           <SF.Item>
-            <HdsFormLabel @isRequired={{true}}>This is the label</HdsFormLabel>
+            <HdsFormLabel @isRequired={{true}}>Label text</HdsFormLabel>
           </SF.Item>
           <SF.Item>
-            <HdsFormLabel @isOptional={{true}}>This is the label</HdsFormLabel>
+            <HdsFormLabel @isOptional={{true}}>Label text</HdsFormLabel>
           </SF.Item>
           <SF.Item>
             <ShwOutliner {{style max-width="190px"}}>
@@ -122,7 +122,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
               <div
                 class="shw-component-form-base-elements-container-with-badge"
               >
-                This is the label
+                Label text
                 <HdsBadge @size="small" @text="Some badge" @color="highlight" />
               </div>
             </HdsFormLabel>
@@ -133,16 +133,16 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
         {{! In Carbon the required/optional indication is added as plain text in the label: https://carbondesignsystem.com/components/text-input/usage/#required-versus-optional }}
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
-            <cds-text-input label="This is the label"></cds-text-input>
+            <cds-text-input label="Label text"></cds-text-input>
           </SF.Item>
           <SF.Item>
             <cds-text-input
-              label="This is the label (required)"
+              label="Label text (required)"
               required=""
             ></cds-text-input>
           </SF.Item>
           <SF.Item>
-            <cds-text-input label="This is the label (optional)">
+            <cds-text-input label="Label text (optional)">
             </cds-text-input>
           </SF.Item>
           <SF.Item>
@@ -160,7 +160,7 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
                 class="shw-component-form-base-elements-container-with-badge"
                 slot="label-text"
               >
-                This is the label
+                Label text
                 <cds-tag size="sm" type="purple">Some badge</cds-tag>
               </div>
             </cds-text-input>

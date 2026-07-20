@@ -162,26 +162,52 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Content</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="Label + Helper text + Error">
+    <ShwCarbonizationComparisonGrid
+      @label="Label + helper text, with & without error"
+    >
       <:theming>
-        <HdsFormTextareaField
-          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-          @isInvalid={{true}}
-          as |F|
-        >
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.Error>This is the error</F.Error>
-        </HdsFormTextareaField>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsFormTextareaField
+              @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+              as |F|
+            >
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+            </HdsFormTextareaField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormTextareaField
+              @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+              @isInvalid={{true}}
+              as |F|
+            >
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </HdsFormTextareaField>
+          </SF.Item>
+        </ShwFlex>
       </:theming>
       <:reference>
-        <cds-textarea
-          label="This is the label"
-          helper-text="This is the helper text"
-          value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-          invalid="true"
-          invalid-text="This is the error"
-        ></cds-textarea>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-textarea
+              label="This is the label"
+              helper-text="This is the helper text"
+              value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+            ></cds-textarea>
+          </SF.Item>
+          <SF.Item>
+            <cds-textarea
+              label="This is the label"
+              helper-text="This is the helper text"
+              value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+              invalid="true"
+              invalid-text="This is the error"
+            ></cds-textarea>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -189,22 +215,20 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Character count</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="Label + Character count + Error">
+    <ShwCarbonizationComparisonGrid @label="Label + Character count">
       <:theming>
         <CodeFragmentWithCharacterCount
           @maxLength={{50}}
-          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-          @hasValidation={{true}}
+          @value="Ut enim ad minim veniam, quis nostrud"
         />
       </:theming>
       <:reference>
         <cds-textarea
           label="This is the label text"
-          value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+          helper-text="This is the helper text"
+          value="Ut enim ad minim veniam, quis nostrud"
           enable-counter="true"
           max-count="50"
-          invalid="true"
-          invalid-text="Maximum number of characters exceeded"
         ></cds-textarea>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -213,39 +237,45 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Required and optional</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="Required">
+    <ShwCarbonizationComparisonGrid>
       <:theming>
-        <HdsFormTextareaField
-          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-          @isRequired={{true}}
-          as |F|
-        >
-          <F.Label>This is the label text</F.Label>
-        </HdsFormTextareaField>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsFormTextareaField
+              @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+              @isRequired={{true}}
+              as |F|
+            >
+              <F.Label>This is the label</F.Label>
+            </HdsFormTextareaField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormTextareaField
+              @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+              @isOptional={{true}}
+              as |F|
+            >
+              <F.Label>This is the label</F.Label>
+            </HdsFormTextareaField>
+          </SF.Item>
+        </ShwFlex>
       </:theming>
       <:reference>
-        <cds-textarea
-          label="This is the label text"
-          value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-          required
-        ></cds-textarea>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Optional">
-      <:theming>
-        <HdsFormTextareaField
-          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-          @isOptional={{true}}
-          as |F|
-        >
-          <F.Label>This is the label text</F.Label>
-        </HdsFormTextareaField>
-      </:theming>
-      <:reference>
-        <cds-textarea
-          label="This is the label text"
-          value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-        ></cds-textarea>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-textarea
+              label="This is the label"
+              value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+              required
+            ></cds-textarea>
+          </SF.Item>
+          <SF.Item>
+            <cds-textarea
+              label="This is the label"
+              value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+            ></cds-textarea>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 

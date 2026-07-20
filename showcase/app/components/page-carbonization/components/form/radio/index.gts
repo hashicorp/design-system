@@ -239,7 +239,10 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsFormRadioGroup>
       </:theming>
       <:reference>
-        <cds-radio-button-group legend-text="Legend of the group">
+        <cds-radio-button-group
+          legend-text="Legend of the group"
+          orientation="vertical"
+        >
           <cds-radio-button label-text="Label of control #1"></cds-radio-button>
           <cds-radio-button
             label-text="Label of control #2"
@@ -272,6 +275,7 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-radio-button-group
           legend-text="Legend of the group"
           helper-text="Helper text for the entire group"
+          orientation="vertical"
         >
           <cds-radio-button label-text="Label of control #1"></cds-radio-button>
           <cds-radio-button
@@ -306,6 +310,7 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
           legend-text="Legend of the group"
           invalid
           invalid-text="Error for the entire group"
+          orientation="vertical"
         >
           <cds-radio-button label-text="Label of control #1"></cds-radio-button>
           <cds-radio-button
@@ -352,6 +357,91 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
           ></cds-radio-button>
           <cds-radio-button label-text="Label of control #3"></cds-radio-button>
         </cds-radio-button-group>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>Required and optional</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex @direction="column" @gap="1.5rem" as |SF|>
+          <SF.Item @label="With legend + Required">
+            <HdsFormRadioGroup
+              @isRequired={{true}}
+              @name="control-required"
+              as |G|
+            >
+              <G.Legend>Group legend</G.Legend>
+              <G.RadioField as |F|>
+                <F.Label>Label of control #1</F.Label>
+              </G.RadioField>
+              <G.RadioField checked="checked" as |F|>
+                <F.Label>Label of control #2</F.Label>
+              </G.RadioField>
+              <G.RadioField indeterminate={{true}} as |F|>
+                <F.Label>Label of control #3</F.Label>
+              </G.RadioField>
+            </HdsFormRadioGroup>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormRadioGroup
+              @isOptional={{true}}
+              @name="control-optional"
+              as |G|
+            >
+              <G.Legend>Group legend</G.Legend>
+              <G.RadioField as |F|>
+                <F.Label>Label of control #1</F.Label>
+              </G.RadioField>
+              <G.RadioField checked="checked" as |F|>
+                <F.Label>Label of control #2</F.Label>
+              </G.RadioField>
+              <G.RadioField indeterminate={{true}} as |F|>
+                <F.Label>Label of control #3</F.Label>
+              </G.RadioField>
+            </HdsFormRadioGroup>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <ShwFlex as |SF|>
+          <SF.Item>
+            <cds-radio-button-group
+              legend-text="Group legend (required)"
+              orientation="vertical"
+            >
+              <cds-radio-button
+                label-text="Label of control #1"
+              ></cds-radio-button>
+              <cds-radio-button
+                label-text="Label of control #2"
+                checked
+              ></cds-radio-button>
+              <cds-radio-button
+                label-text="Label of control #3"
+              ></cds-radio-button>
+            </cds-radio-button-group>
+          </SF.Item>
+          <SF.Item @label="With legend + Optional">
+            <cds-radio-button-group
+              legend-text="Group legend (optional)"
+              orientation="vertical"
+            >
+              <cds-radio-button
+                label-text="Label of control #1"
+              ></cds-radio-button>
+              <cds-radio-button
+                label-text="Label of control #2"
+                checked
+              ></cds-radio-button>
+              <cds-radio-button
+                label-text="Label of control #3"
+              ></cds-radio-button>
+            </cds-radio-button-group>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
   </section>
