@@ -50,7 +50,7 @@ const tokenOriginalSchema = z
 export const tokenCatalogRowSchema = z
   .object({
     key: z.string().min(1),
-    $type: z.enum(TOKEN_TYPES).optional(),
+    $type: z.string().min(1).optional(),
     $value: jsonValueSchema,
     name: z.string().min(1),
     attributes: tokenAttributesSchema.optional(),
