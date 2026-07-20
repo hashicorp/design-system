@@ -484,7 +484,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Required and optional</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="Required">
+    <ShwCarbonizationComparisonGrid>
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -501,6 +501,25 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
               @isMultiline={{true}}
               @value="Lorem ipsum dolor"
               @isRequired={{true}}
+              as |F|
+            >
+              <F.Label>This is the label text</F.Label>
+            </HdsFormMaskedInputField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormMaskedInputField
+              @value="Lorem ipsum dolor"
+              @isOptional={{true}}
+              as |F|
+            >
+              <F.Label>This is the label text</F.Label>
+            </HdsFormMaskedInputField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormMaskedInputField
+              @isMultiline={{true}}
+              @value="Lorem ipsum dolor"
+              @isOptional={{true}}
               as |F|
             >
               <F.Label>This is the label text</F.Label>
@@ -521,35 +540,6 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
           <SF.Item>
             <R.NoEquivalent @isCompact={{true}} />
           </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Optional">
-      <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <HdsFormMaskedInputField
-              @value="Lorem ipsum dolor"
-              @isOptional={{true}}
-              as |F|
-            >
-              <F.Label>This is the label text</F.Label>
-            </HdsFormMaskedInputField>
-          </SF.Item>
-          <SF.Item>
-            <HdsFormMaskedInputField
-              @isMultiline={{true}}
-              @value="Lorem ipsum dolor"
-              @isOptional={{true}}
-              as |F|
-            >
-              <F.Label>This is the label text</F.Label>
-            </HdsFormMaskedInputField>
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference as |R|>
-        <ShwFlex @direction="column" as |SF|>
           <SF.Item>
             <cds-password-input
               size="md"

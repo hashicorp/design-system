@@ -13,6 +13,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwFlex from 'showcase/components/shw/flex';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
 import {
@@ -197,6 +198,61 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference as |R|>
         <R.NoEquivalent @isCompact={{true}} @entity="variant" />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>Required and optional</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid @layout="column-stacked">
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsFormFileInputField @isRequired={{true}} as |F|>
+              <F.Label>This is the label text</F.Label>
+            </HdsFormFileInputField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormFileInputField @isOptional={{true}} as |F|>
+              <F.Label>This is the label text</F.Label>
+            </HdsFormFileInputField>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-file-uploader
+              label-title="This is the label text (required)"
+              icon-description="Delete file"
+            >
+              <cds-file-uploader-button
+                accept="image/jpeg"
+                name="default-file-uploader-button"
+                button-kind="primary"
+                size="md"
+              >
+                Add file
+              </cds-file-uploader-button>
+            </cds-file-uploader>
+          </SF.Item>
+          <SF.Item>
+            <cds-file-uploader
+              label-title="This is the label text (optional)"
+              icon-description="Delete file"
+            >
+              <cds-file-uploader-button
+                accept="image/jpeg"
+                name="default-file-uploader-button"
+                button-kind="primary"
+                size="md"
+              >
+                Add file
+              </cds-file-uploader-button>
+            </cds-file-uploader>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 

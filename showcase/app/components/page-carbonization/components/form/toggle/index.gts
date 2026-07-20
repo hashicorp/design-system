@@ -392,6 +392,56 @@ const FormToggleCarbonizationIndex: TemplateOnlyComponent = <template>
         <R.NoEquivalent @isCompact={{true}} />
       </:reference>
     </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>Required and optional</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex @direction="column" @gap="1.5rem" as |SF|>
+          <SF.Item @label="With legend + Required">
+            <HdsFormToggleGroup
+              @layout="horizontal"
+              @isRequired={{true}}
+              as |G|
+            >
+              <G.Legend>Legend of the group</G.Legend>
+              <G.ToggleField as |F|>
+                <F.Label>Label of control #1</F.Label>
+              </G.ToggleField>
+              <G.ToggleField checked="checked" as |F|>
+                <F.Label>Label of control #2</F.Label>
+              </G.ToggleField>
+              <G.ToggleField as |F|>
+                <F.Label>Label of control #3</F.Label>
+              </G.ToggleField>
+            </HdsFormToggleGroup>
+          </SF.Item>
+          <SF.Item @label="With legend + Optional">
+            <HdsFormToggleGroup
+              @layout="horizontal"
+              @isOptional={{true}}
+              as |G|
+            >
+              <G.Legend>Legend of the group</G.Legend>
+              <G.ToggleField as |F|>
+                <F.Label>Label of control #1</F.Label>
+              </G.ToggleField>
+              <G.ToggleField checked="checked" as |F|>
+                <F.Label>Label of control #2</F.Label>
+              </G.ToggleField>
+              <G.ToggleField as |F|>
+                <F.Label>Label of control #3</F.Label>
+              </G.ToggleField>
+            </HdsFormToggleGroup>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
   </section>
 </template>;
 

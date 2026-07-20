@@ -366,8 +366,8 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        <ShwFlex @direction="column" @gap="1.5rem" as |SF|>
-          <SF.Item @label="With legend + Required">
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
             <HdsFormRadioGroup
               @isRequired={{true}}
               @name="control-required"
@@ -424,7 +424,7 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
               ></cds-radio-button>
             </cds-radio-button-group>
           </SF.Item>
-          <SF.Item @label="With legend + Optional">
+          <SF.Item>
             <cds-radio-button-group
               legend-text="Group legend (optional)"
               orientation="vertical"

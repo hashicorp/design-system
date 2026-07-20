@@ -303,6 +303,61 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwDivider @level={{2}} />
 
+    <ShwTextH3>Required and optional</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid>
+      <:theming>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <HdsFormSelectField @isRequired={{true}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Options>
+                <option selected>Lorem ipsum dolor</option>
+                <option>Sine qua non est</option>
+              </F.Options>
+            </HdsFormSelectField>
+          </SF.Item>
+          <SF.Item>
+            <HdsFormSelectField @isOptional={{true}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Options>
+                <option selected>Lorem ipsum dolor</option>
+                <option>Sine qua non est</option>
+              </F.Options>
+            </HdsFormSelectField>
+          </SF.Item>
+        </ShwFlex>
+      </:theming>
+      <:reference>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-select
+              label-text="This is the label (required)"
+              helper-text="This is the helper text"
+              value="lorem"
+            >
+              <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>
+              <cds-select-item value="sine">Sine qua non est</cds-select-item>
+            </cds-select>
+          </SF.Item>
+          <SF.Item>
+            <cds-select
+              label-text="This is the label (optional)"
+              helper-text="This is the helper text"
+              value="lorem"
+            >
+              <cds-select-item value="lorem">Lorem ipsum dolor</cds-select-item>
+              <cds-select-item value="sine">Sine qua non est</cds-select-item>
+            </cds-select>
+          </SF.Item>
+        </ShwFlex>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
     <ShwTextH3>States</ShwTextH3>
 
     {{#each STATES as |state|}}
