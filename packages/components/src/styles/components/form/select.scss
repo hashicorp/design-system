@@ -22,8 +22,7 @@
   background-color: var(--hds-form-control-base-surface-color-default);
   background-image: var(--hds-form-select-background-image-data-url);
   background-repeat: no-repeat;
-  background-position: right var(--hds-form-select-background-image-position-right-x) top
-    var(--hds-form-select-background-image-position-top-y); // we have to take into account the border
+  background-position: right var(--hds-form-select-background-image-position-right-x) center;
   background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-low-box-shadow);
