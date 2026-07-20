@@ -27,7 +27,7 @@ export const completeComponentNames = (
   value: string,
   limit = 100,
 ): string[] => {
-  const query = value.trim().toLowerCase();
+  const query = value.trim().toLowerCase().replace(/^hds[-:\s]*/u, "hds");
 
   return components
     .filter((component) => component.name.toLowerCase().includes(query))
