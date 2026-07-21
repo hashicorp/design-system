@@ -37,6 +37,8 @@ module.exports = function (defaults) {
           ? [componentsSrcStylesFolder]
           : [componentsDistStylesFolder]),
         'node_modules/ember-power-select/vendor',
+        // Carbon type classes (cds--type-*) for HdsText → native HTML migration
+        'node_modules/@carbon/type/scss',
       ],
     },
     // we need to add this or Ember Sass compilation will mess up the generated CSS

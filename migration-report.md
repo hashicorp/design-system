@@ -1,6 +1,6 @@
 # Helios → Carbon Web Components Migration Report
 
-**Generated:** 2025-07-14  
+**Generated:** 2025-07-15  
 **Mode:** `full`  
 **Scope:** `showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts`
 
@@ -8,11 +8,11 @@
 
 ## Summary
 
-- **Total candidates identified:** 1
-- **High-confidence (≥ 0.90):** 0
-- **Medium-confidence (0.60-0.89):** 1
+- **Total candidates identified:** 5
+- **High-confidence (≥ 0.90):** 2
+- **Medium-confidence (0.60-0.89):** 3
 - **Low-confidence (< 0.60):** 0
-- **Migrations applied:** 1
+- **Migrations applied:** 5
 - **Migrations skipped:** 0
 - **Manual review required:** 0
 
@@ -22,29 +22,40 @@
 
 ### High Confidence (≥ 0.90)
 
-_None identified._
+| ID | Helios Component | → CWC Component | Line | Confidence |
+|----|------------------|-----------------|------|------------|
+| sandbox-001 | `Hds::Button` | `cds-button` | 19 | 0.95 |
+| sandbox-003 | `Hds::Link::Inline` | `cds-link` | 33 | 0.92 |
+
+**Status:** Auto-applied. ✅
 
 ### Medium Confidence (0.60-0.89)
 
-| ID | File | Line | Helios | CWC Target | Confidence | Risk Flags |
-|---|---|---|---|---|---|---|
-| `sandbox-accordion-L16` | `component-sandbox.gts` | 16 | `Hds::Accordion` | `cds-accordion` | 0.82 | `complex-transformation` |
+| ID | Helios Component | → CWC Component | Line | Confidence | Risk Flags |
+|----|------------------|-----------------|------|------------|------------|
+| sandbox-002 | `Hds::Text` | `<p class="cds--type-body-01">` | 25 | 0.75 | `manual-migration-required`, `styling-difference` |
+| sandbox-004 | `Hds::Alert` | `cds-inline-notification` | 40 | 0.75 | `dismissal-pattern-change`, `slot-to-attribute` |
+| sandbox-005 | `Hds::Icon` | `cds-icon` | 49 | 0.72 | `manual-migration-required` |
 
-**Status:** Explicitly approved and applied in `full` mode.
+**Status:** Explicitly approved and applied in `full` mode. ✅
 
 ### Low Confidence (< 0.60)
 
-_None identified._
+_None._
 
 ---
 
 ## Migrations Applied
 
-**Count:** 1
+**Count:** 5
 
-| ID | Helios | CWC | File | Line |
-|---|---|---|---|---|
-| `sandbox-accordion-L16` | `Hds::Accordion` | `cds-accordion` | `component-sandbox.gts` | 16 |
+| ID | Helios Component | Applied Transform |
+|----|------------------|-------------------|
+| sandbox-001 | `Hds::Button` | `<HdsButton @text="Click me" />` → `<cds-button>Click me</cds-button>` |
+| sandbox-002 | `Hds::Text` | `<HdsText @tag="p" @size="200" @group="body">` → `<p class="cds--type-body-01">` |
+| sandbox-003 | `Hds::Link::Inline` | `<HdsLinkInline @href="...">` → `<cds-link href="...">` |
+| sandbox-004 | `Hds::Alert` | `<HdsAlert @type="inline" @color="neutral" as \|A\|>` → `<cds-inline-notification kind="info" title="..." subtitle="...">` |
+| sandbox-005 | `Hds::Icon` | `<HdsIcon @name="arrow-right" @size="24" />` → `<cds-icon size="24" {{setIcon ArrowRight24}}>` |
 
 **Changed files:**
 - `showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts`
@@ -55,21 +66,25 @@ _None identified._
 
 **Count:** 0
 
-_All approved candidates were applied successfully._
+_All candidates applied._
 
 ---
 
 ## Verification Results
 
 ### Lint
-✅ **Passed**
+✅ **PASS**
 
 ```
-pnpm --filter showcase lint:types → ember-tsc --noEmit → 0 errors
+lint:js     — passed (eslint)
+lint:hbs    — passed (ember-template-lint, 604 files)
+lint:format — passed (prettier)
+lint:types  — passed (ember-tsc --noEmit)
+lint:css    — passed
 ```
 
 ### Build
-_Not run — lint:types passed, no breaking changes detected._
+_Not run. Run `pnpm build` in `packages/components/` then `showcase/` to verify the full build._
 
 ---
 
@@ -81,7 +96,7 @@ _None._
 
 ## Manual Follow-ups
 
-_None — all candidates resolved._
+_None — all 5 candidates resolved._
 
 ---
 
@@ -89,26 +104,44 @@ _None — all candidates resolved._
 
 | Helios Component | Carbon Component | Candidates | Applied | Manual | Skipped |
 |------------------|------------------|------------|---------|--------|---------|
-| `Hds::Accordion` | `cds-accordion` | 1 | 1 | 0 | 0 |
+| `Hds::Button` | `cds-button` | 1 | 1 | 0 | 0 |
+| `Hds::Link::Inline` | `cds-link` | 1 | 1 | 0 | 0 |
+| `Hds::Text` | `<p>` + `cds--type-body-01` | 1 | 1 | 0 | 0 |
+| `Hds::Alert` | `cds-inline-notification` | 1 | 1 | 0 | 0 |
+| `Hds::Icon` | `cds-icon` | 1 | 1 | 0 | 0 |
+| **Total** | | **5** | **5** | **0** | **0** |
 
 ---
 
 ## Risk Flags Summary
 
-| Risk Flag | Count | Candidates | Resolution |
-|---|---|---|---|
-| `complex-transformation` | 1 | `sandbox-accordion-L16` | Applied — explicitly approved in `full` mode |
+| Flag | Count | Resolution |
+|------|-------|------------|
+| `manual-migration-required` | 2 | Applied — explicitly approved in `full` mode |
+| `styling-difference` | 1 | Applied — `cds--type-body-01` via `@carbon/type` mixin in `app.scss` |
+| `dismissal-pattern-change` | 1 | Applied — no `@onDismiss` present, no handler needed |
+| `slot-to-attribute` | 1 | Applied — `A.Title`/`A.Description` → `title=`/`subtitle=` attributes |
+
+---
+
+## Post-Swap Notes
+
+- File is template-only — no backing class, no empty class check needed.
+- All HDS imports removed; `ember-modifier` + `ArrowRight24` added for `cds-icon`.
+- `app.scss` already has `@carbon/type/scss/classes` `@use` and `@include` at end of file from prior fix.
 
 ---
 
 ## Next Actions
 
 ### Immediate
-_None — migration complete._
+1. Check the showcase dev server — all 5 components should render as CWC.
+2. Verify `cds--type-body-01` typography is applied to the paragraph.
+3. Confirm `cds-icon` renders Arrow Right (requires `icon.min.js` CDN script in `index.html`).
 
 ### Follow-up
-- Confirm `cds-accordion` renders correctly in the showcase app (`pnpm start`).
-- Check Problems panel in VS Code — should be zero errors.
+- Run `full` mode on `helios-demo-app.gts` and `carbon-demo-app.gts`.
+- Run full build (`pnpm build` in showcase) to confirm no runtime regressions.
 
 ---
 
@@ -118,12 +151,6 @@ _None — migration complete._
 - **Migration report:** `migration-report.md` (this file)
 - **Mapping table:** `.ai/migration/helios-to-carbon-component-map.json`
 - **Candidate schema:** `.ai/migration/schemas/migration-candidate.schema.json`
-
----
-
-## Notes
-
-Full mode run complete. 1 medium-confidence candidate explicitly approved and applied. Verification passed with zero type errors.
 
 ---
 
