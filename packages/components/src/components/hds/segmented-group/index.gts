@@ -10,6 +10,8 @@ import HdsButton from '../button/index.gts';
 import HdsDropdown from '../dropdown/index.gts';
 import HdsFormSelectBase from '../form/select/base.gts';
 import HdsFormTextInputBase from '../form/text-input/base.gts';
+import HdsFormSuperSelectSingleBase from '../form/super-select/single/base.gts';
+import HdsFormSuperSelectMultipleBase from '../form/super-select/multiple/base.gts';
 import HdsYield from '../yield/index.gts';
 
 export interface HdsSegmentedGroupSignature {
@@ -20,6 +22,8 @@ export interface HdsSegmentedGroupSignature {
         Dropdown?: typeof HdsDropdown;
         Select?: typeof HdsFormSelectBase;
         TextInput?: typeof HdsFormTextInputBase;
+        SuperSelect?: typeof HdsFormSuperSelectSingleBase;
+        SuperSelectMultiple?: typeof HdsFormSuperSelectMultipleBase;
         Generic?: typeof HdsYield;
       },
     ];
@@ -36,6 +40,8 @@ const HdsSegmentedGroup: TemplateOnlyComponent<HdsSegmentedGroupSignature> =
           Dropdown=HdsDropdown
           Select=HdsFormSelectBase
           TextInput=HdsFormTextInputBase
+          SuperSelect=HdsFormSuperSelectSingleBase
+          SuperSelectMultiple=HdsFormSuperSelectMultipleBase
           Generic=HdsYield
         )
       }}
