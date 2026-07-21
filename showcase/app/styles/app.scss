@@ -5,6 +5,8 @@
 
 @use "@hashicorp/design-system-components";
 @use "@hashicorp/design-system-power-select-overrides";
+// Carbon type classes (cds--type-*) for HdsText → native HTML migration
+@use "@carbon/type/scss/classes" as carbon-type;
 
 // global declarations
 
@@ -89,3 +91,6 @@
 @use "./showcase-pages/helios-demo-app" as showcase-helios-demo-app;
 @use "./showcase-pages/component-sandbox" as showcase-component-sandbox;
 // END COMPONENT PAGES IMPORTS
+
+// Carbon type-classes output — must come after all @use rules
+@include carbon-type.type-classes();
