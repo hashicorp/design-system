@@ -9,6 +9,19 @@ An MCP server for the Helios Design System.
 - `pnpm build`
 - `pnpm start`
 
+## Documentation catalog
+
+The documentation search tools use a generated catalog committed at
+`src/catalogs/docs/catalog.json`. To rebuild the website and regenerate the
+catalog:
+
+```bash
+pnpm catalog:docs:build
+```
+
+Tokens and icons are exposed separately as MCP resources and are not included
+in documentation search.
+
 ## Local usage
 
 From the monorepo root:
