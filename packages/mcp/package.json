@@ -18,6 +18,8 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "type": "module",
   "scripts": {
+    "catalog:docs": "node ./scripts/generate-docs-catalog.mjs",
+    "catalog:docs:build": "pnpm -C ../../website build:packages && pnpm -C ../../website exec ember build --environment=development && pnpm catalog:docs",    
     "typecheck": "pnpm tsc",
     "lint": "pnpm eslint --quiet .",
     "test": "pnpm vitest run --dir tests",
