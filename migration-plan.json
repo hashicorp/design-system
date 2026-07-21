@@ -1,18 +1,99 @@
-[
-  {
-    "id": "sandbox-accordion-L16",
-    "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
-    "line": 16,
-    "heliosComponent": "Hds::Accordion",
-    "proposedCwcComponent": "cds-accordion",
-    "transformOperations": [
-      { "type": "replaceTag", "from": "HdsAccordion", "to": "cds-accordion" },
-      { "type": "manual", "notes": "A.Item contextual component → cds-accordion-item, <:toggle> text → title attribute, <:content> children → direct children, @isOpen={{true}} → bare open boolean attribute, <:default as |A|> wrapper removed" }
-    ],
-    "confidence": 0.82,
-    "riskFlags": ["complex-transformation"],
-    "status": "planned",
-    "rationale": "Explicitly approved in full mode. Applied successfully.",
-    "manualNotes": []
-  }
-]
+{
+  "$schema": ".ai/migration/schemas/migration-candidate.schema.json",
+  "generatedAt": "2025-07-15T00:00:00Z",
+  "mode": "full",
+  "scope": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+  "candidates": [
+    {
+      "id": "sandbox-001",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 19,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot", "from": "@text", "to": "default" },
+        { "type": "manual", "from": "HdsButton import", "notes": "Remove HdsButton from import statement" }
+      ],
+      "confidence": 0.95,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct 1:1 mapping. @text='Click me' moves to default slot. No @color, @size, @icon or other attributes present.",
+      "manualNotes": []
+    },
+    {
+      "id": "sandbox-002",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 25,
+      "heliosComponent": "Hds::Text",
+      "proposedCwcComponent": null,
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsText", "to": "p" },
+        { "type": "removeAttribute", "from": "@tag" },
+        { "type": "removeAttribute", "from": "@group" },
+        { "type": "removeAttribute", "from": "@size" },
+        { "type": "addAttribute", "to": "class", "value": "cds--type-body-01" },
+        { "type": "manual", "from": "HdsText import", "notes": "Remove HdsText from import statement" }
+      ],
+      "confidence": 0.75,
+      "riskFlags": ["manual-migration-required", "styling-difference"],
+      "status": "planned",
+      "rationale": "Explicitly approved in full mode. @group='body' + @size='200' → cds--type-body-01. Carbon type-classes CSS in app.scss.",
+      "manualNotes": []
+    },
+    {
+      "id": "sandbox-003",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 33,
+      "heliosComponent": "Hds::Link::Inline",
+      "proposedCwcComponent": "cds-link",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsLinkInline", "to": "cds-link" },
+        { "type": "renameAttribute", "from": "@href", "to": "href" },
+        { "type": "manual", "from": "HdsLinkInline import", "notes": "Remove HdsLinkInline from import statement" }
+      ],
+      "confidence": 0.92,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Text-only usage — no @icon, @color, @isHrefExternal. Scores 0.92+ per mapping notes. @href maps directly to href.",
+      "manualNotes": []
+    },
+    {
+      "id": "sandbox-004",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 40,
+      "heliosComponent": "Hds::Alert",
+      "proposedCwcComponent": "cds-inline-notification",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAlert", "to": "cds-inline-notification" },
+        { "type": "removeAttribute", "from": "@type" },
+        { "type": "renameAttribute", "from": "@color", "to": "kind" },
+        { "type": "transformValue", "attribute": "kind", "from": "neutral", "to": "info" },
+        { "type": "manual", "from": "as |A| block", "notes": "A.Title → title attribute, A.Description → subtitle attribute. Remove as |A| block and HdsAlert import." }
+      ],
+      "confidence": 0.75,
+      "riskFlags": ["dismissal-pattern-change", "slot-to-attribute"],
+      "status": "planned",
+      "rationale": "Explicitly approved in full mode. @type='inline' → cds-inline-notification tag. @color='neutral' → kind='info'. A.Title/A.Description → title/subtitle attributes.",
+      "manualNotes": []
+    },
+    {
+      "id": "sandbox-005",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 49,
+      "heliosComponent": "Hds::Icon",
+      "proposedCwcComponent": "cds-icon",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsIcon", "to": "cds-icon" },
+        { "type": "renameAttribute", "from": "@size", "to": "size" },
+        { "type": "manual", "from": "@name='arrow-right'", "notes": "Import ArrowRight24 from '@carbon/icons/es/arrow--right/24.js'. Bind .icon JS property via ember-modifier." },
+        { "type": "manual", "from": "HdsIcon import", "notes": "Remove HdsIcon from import statement" }
+      ],
+      "confidence": 0.72,
+      "riskFlags": ["manual-migration-required"],
+      "status": "planned",
+      "rationale": "Explicitly approved in full mode. ArrowRight24 imported from @carbon/icons. ember-modifier used to set .icon Lit property. @size='24' maps directly.",
+      "manualNotes": []
+    }
+  ]
+}

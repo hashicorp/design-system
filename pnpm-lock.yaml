@@ -573,6 +573,25 @@ importers:
         version: 8.38.0(eslint@9.32.0)(typescript@5.9.2)
 
   showcase:
+    dependencies:
+      '@carbon/grid':
+        specifier: ^11.45.0
+        version: 11.45.0
+      '@carbon/icons':
+        specifier: ^11.76.0
+        version: 11.76.0
+      '@carbon/layout':
+        specifier: ^11.43.0
+        version: 11.43.0
+      '@carbon/motion':
+        specifier: ^11.37.0
+        version: 11.37.0
+      '@carbon/themes':
+        specifier: ^11.62.0
+        version: 11.62.0
+      '@carbon/type':
+        specifier: ^11.49.0
+        version: 11.49.0
     devDependencies:
       '@babel/core':
         specifier: ^7.27.1

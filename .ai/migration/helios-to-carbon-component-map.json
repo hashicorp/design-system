@@ -251,40 +251,37 @@
         "@type": {
           "target": null,
           "transform": "remove",
-          "notes": "@type is the Helios display VARIANT ('page', 'inline', 'compact') — not the severity. Choose the correct CWC tag based on this value: 'inline' → cds-inline-notification, 'page' → cds-actionable-notification. Do NOT map @type to kind."
+          "notes": "@type is the Helios display VARIANT ('page', 'inline', 'compact') — not the severity. Choose the correct CWC tag: 'inline' → cds-inline-notification, 'page' → cds-actionable-notification. Do NOT map @type to kind."
         },
         "@color": {
           "target": "kind",
           "transform": "rename",
           "valueMap": {
             "neutral": "info",
-            "info": "info",
+            "highlight": "info",
             "success": "success",
             "warning": "warning",
             "critical": "error"
           },
-          "notes": "@color is the Helios severity — this maps to kind on cds-inline-notification"
-        },
-        "@title": {
-          "target": "title",
-          "transform": "direct"
-        },
-        "@description": {
-          "target": "subtitle",
-          "transform": "rename"
+          "notes": "@color is the Helios severity — maps to kind on cds-inline-notification. Note: Helios does not have an 'info' color value — 'neutral' is the closest equivalent."
         },
         "@onDismiss": {
           "target": null,
           "transform": "manual",
-          "notes": "Dismissal requires manual implementation with close button"
+          "notes": "Dismissal requires manual implementation — add a close button with cds-inline-notification-close attribute"
         }
       },
       "events": {},
       "slots": {
-        "default": {
+        "A.Title": {
+          "target": "title",
+          "transform": "manual",
+          "notes": "HdsAlert uses contextual components: <HdsAlert as |A|><A.Title>text</A.Title></HdsAlert>. The A.Title content becomes the title attribute on cds-inline-notification."
+        },
+        "A.Description": {
           "target": "subtitle",
-          "transform": "moveToAttribute",
-          "notes": "Content may need to move to subtitle attribute"
+          "transform": "manual",
+          "notes": "A.Description content becomes the subtitle attribute on cds-inline-notification. If multiple A.Description blocks are used, concatenate them into a single subtitle value."
         }
       },
       "confidence": 0.75,
@@ -292,7 +289,7 @@
         "dismissal-pattern-change",
         "slot-to-attribute"
       ],
-      "notes": "Medium confidence - dismissal pattern differs, requires manual review"
+      "notes": "Medium confidence. HdsAlert uses contextual components (as |A| pattern) — NOT named blocks or direct attributes. Title/description are yielded via A.Title and A.Description. These move to title= and subtitle= attributes on cds-inline-notification. Dismissal pattern differs significantly."
     },
     "Hds::AppFrame": {
       "cwcComponent": null,
@@ -623,16 +620,37 @@
     },
     "Hds::Text": {
       "cwcComponent": null,
-      "description": "Text component - no direct Carbon equivalent",
-      "attributes": {},
+      "description": "Text component - no CWC equivalent. Migrates to native HTML element + Carbon type class.",
+      "attributes": {
+        "@tag": {
+          "target": "htmlTag",
+          "transform": "direct",
+          "notes": "@tag maps directly to the HTML element tag (p, h1-h6, span, etc.)"
+        },
+        "@group": {
+          "target": "class",
+          "transform": "manual",
+          "notes": "Combined with @size to determine the Carbon type class. See valueMap in notes."
+        },
+        "@size": {
+          "target": "class",
+          "transform": "manual",
+          "notes": "Combined with @group to determine the Carbon type class. See valueMap in notes."
+        }
+      },
       "events": {},
-      "slots": {},
-      "confidence": 0.0,
+      "slots": {
+        "default": {
+          "target": "default",
+          "transform": "direct"
+        }
+      },
+      "confidence": 0.75,
       "riskFlags": [
-        "no-equivalent",
-        "manual-migration-required"
+        "manual-migration-required",
+        "styling-difference"
       ],
-      "notes": "No direct Carbon equivalent - requires manual migration to native HTML elements or Carbon typography utilities"
+      "notes": "No CWC custom element — migrates to native HTML + Carbon type class (cds--type-{token}). Type class is loaded via themes.css CDN. Mapping: body/100 → cds--type-body-compact-01, body/200 → cds--type-body-01, body/300 → cds--type-body-02, display/100 → cds--type-heading-03, display/200 → cds--type-heading-04, display/300 → cds--type-heading-05, display/400 → cds--type-heading-06, display/500 → cds--type-heading-07. Remove HdsText import after migration."
     }
   }
 }
