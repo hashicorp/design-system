@@ -35,24 +35,37 @@ export const getSectionUrl = (page: DocsPage, section: DocsSection): string => {
   return `${page.url}${tab}${anchor}`;
 };
 
+// TODO: adjust scores as data comes back from testing
 export const getSearchScore = (record: SearchRecord, query: string): number => {
   const title = normalizeDocsText(record.page.title);
   const heading = normalizeDocsText(record.section.heading);
   const keywords = normalizeDocsText(record.page.keywords.join(" "));
   const terms = query.split(/\s+/);
+  
   let score = 0;
 
-  if (title === query) score += 100;
-  else if (title.startsWith(query)) score += 60;
-  else if (title.includes(query)) score += 40;
+  if (title === query) {
+    score += 100;
+  } else if (title.startsWith(query)) {
+    score += 60;
+  } else if (title.includes(query)) {
+    score += 40;
+  }
 
-  if (heading === query) score += 50;
-  else if (heading.includes(query)) score += 25;
+  if (heading === query) {
+    score += 50;
+  } else if (heading.includes(query)) {
+    score += 25;
+  }
 
-  if (keywords.includes(query)) score += 20;
+  if (keywords.includes(query)) {
+    score += 20;
+  }
 
   for (const term of terms) {
-    if (record.searchableText.includes(term)) score += 1;
+    if (record.searchableText.includes(term)) {
+      score += 1;
+    }
   }
 
   return terms.every((term) => record.searchableText.includes(term))
