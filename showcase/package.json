@@ -137,5 +137,13 @@
   "exports": {
     "./tests/*": "./tests/*",
     "./*": "./app/*"
+  },
+  "dependencies": {
+    "@carbon/grid": "^11.45.0",
+    "@carbon/icons": "^11.76.0",
+    "@carbon/layout": "^11.43.0",
+    "@carbon/motion": "^11.37.0",
+    "@carbon/themes": "^11.62.0",
+    "@carbon/type": "^11.49.0"
   }
 }

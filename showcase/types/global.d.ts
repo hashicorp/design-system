@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+// Carbon Icons — no @types package available, declare as module wildcard
+declare module '@carbon/icons/es/*';
+
 // Carbon Web Components — custom element type declarations
 // Covers all components in .ai/migration/helios-to-carbon-component-map.json
 declare module '@glint/template/globals' {
