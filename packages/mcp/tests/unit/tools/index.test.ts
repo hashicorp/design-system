@@ -15,7 +15,9 @@ describe("registerTools", () => {
 
     registerTools(server);
 
-    expect(registerTool.mock.calls.map(([name]) => name)).toEqual([
+    expect(
+      registerTool.mock.calls.map(([name]: [string]) => name),
+    ).toEqual([
       "hds_search_docs",
       "hds_read_doc",
     ]);

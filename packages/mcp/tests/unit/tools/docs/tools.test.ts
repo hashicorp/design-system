@@ -35,6 +35,7 @@ describe("documentation tool factories", () => {
       {
         docId: "components/button/index",
         sectionId: "code--component-api",
+        cursor: undefined,
         maxSections: 1,
         maxChars: 1_000,
       },
