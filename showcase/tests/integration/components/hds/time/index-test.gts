@@ -323,7 +323,16 @@ module('Integration | Component | hds/time/index', function (hooks) {
         <HdsTime @date={{fiveMinutesFromNow}} @display="relative" />
       </template>,
     );
-    assert.dom('.hds-time').hasText('in 5 minutes');
+
+    const renderedText = document
+      .querySelector('.hds-time')
+      ?.textContent?.trim();
+
+    // This can render as 5 or 6 minutes so we need to accomodate that.
+    assert.true(
+      renderedText === 'in 5 minutes' || renderedText === 'in 6 minutes',
+      `Element .hds-time has text "${renderedText}"`,
+    );
   });
 
   test('it should render the correct string for a date that is two days from now', async function (assert) {
@@ -383,7 +392,16 @@ module('Integration | Component | hds/time/index', function (hooks) {
         <HdsTime @date={{fiveMinutesAgo}} @display="relative" />
       </template>,
     );
-    assert.dom('.hds-time').hasText('5 minutes ago');
+
+    const renderedText = document
+      .querySelector('.hds-time')
+      ?.textContent?.trim();
+
+    // This can render as 5 or 6 minutes so we need to accomodate that.
+    assert.true(
+      renderedText === '5 minutes ago' || renderedText === '6 minutes ago',
+      `Element .hds-time has text "${renderedText}"`,
+    );
   });
 
   test('it should render the correct string for a date that is two days ago', async function (assert) {

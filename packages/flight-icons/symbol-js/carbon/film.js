@@ -1,1 +1,6 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export default `<symbol id="hds-icon-carbon-film" viewBox="0 0 32 32"><path d="M13 11 13 21 21 16 13 11z"/><path d="m28,6H4c-1.103,0-2,.8975-2,2v16c0,1.1025.897,2,2,2h24c1.103,0,2-.8975,2-2V8c0-1.1025-.897-2-2-2Zm0,18H4V8h24v16Z"/></symbol>`;

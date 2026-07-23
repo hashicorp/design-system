@@ -21,6 +21,23 @@ All component files for a given `component-name` should be contained in a folder
 - Use camelCase for argument names.
 - Use the `argument?: type` syntax.
 
+### Private properties
+
+All internal component variables, modifiers, and functions not included in the public API of a component should have names prefixed with `_` to indicate they are private.
+
+Examples of private properties in components
+```
+// Variables
+private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
+private _menuContentId = 'hds-menu-content-' + guidFor(this);
+
+// Modifiers
+private _setUpCodeObserver = modifier((element: HTMLElement) => {});
+
+// Functions
+private _addHighlightSrOnlyText = (code: string): SafeString => {}
+```
+
 #### Class names
 - Use the `hds-<component-name>` prefix for all class names in component template files, TS functions, and SCSS files.
 - Use BEM methodology for class names, where the block is the component name, elements are separated by double underscores (`__`), and modifiers are separated by double dashes (`--`).
@@ -35,7 +52,7 @@ All component files for a given `component-name` should be contained in a folder
 
 ### Styling
 
-All styles for a component should be defined in its corresponding SCSS file under `packages/components/src/styles/components/`. See `.github/instructions/languages/scss.instructions.md` for further instructions on scss standards.
+All styles for a component should be defined in its corresponding SCSS file under `packages/components/src/styles/components/`. See `.bob/rules/languages/scss.instructions.md` for further instructions on scss standards.
 
 #### Required files
 - `{component-name}.scss` - Main SCSS file for the component, containing styles for the component.

@@ -16,6 +16,24 @@ showcase/               # Private Ember app — component demo app + test suite 
 website/                # Private Ember app — helios.hashicorp.design docs site
 ```
 
+## Instruction architecture
+
+This repository uses split instruction files under `.bob/rules/`:
+
+- `languages/` contains language-specific guidance
+- `directories/` contains package or app-specific context and implementation guidance
+
+### Directories model
+
+Within each `directories/` sub-folder:
+
+- `context.instructions.md` provides baseline context (scope, file structure, related guidance, and core principles)
+- Additional `*.instructions.md` files provide focused guidance on specific tasks
+
+## Skills
+
+Read `.bob/skills` for available skills
+
 ## Key commands - Root
 
 ```bash
@@ -44,7 +62,7 @@ pnpm format
 ```
 
 #### Additional context
-Read through further context and guidance for this library at `.github/instructions/directories/components`
+Read through further context and guidance for this library at `.bob/rules/directories/components`
 
 #### Additional resources
 - Design system documentation: [https://helios.hashicorp.design/components](https://helios.hashicorp.design/components)
@@ -102,7 +120,7 @@ pnpm format
 ```
 
 #### Additional context
-Read through further context and guidance for this application at `.github/instructions/directories/showcase`
+Read through further context and guidance for this application at `.bob/rules/directories/showcase`
 
 ### website
 
@@ -131,9 +149,4 @@ When working with this codebase:
 ## Architecture overview
 
 For detailed language-specific patterns, see:
-- **Sass / CSS**: `.github/instructions/languages/scss.instructions.md` - Sass and CSS patterns and best practices
-
-## Workflows overview
-
-For detailed instructions on specific workflows see:
-- **Adding changesets**: `.github/instructions/workflows/changeset.instructions.md` - Details on adding a changeset entry for user-facing changes to packages
+- **Sass / CSS**: `.bob/rules/languages/scss.instructions.md` - Sass and CSS patterns and best practices

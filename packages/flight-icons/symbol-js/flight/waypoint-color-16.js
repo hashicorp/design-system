@@ -1,1 +1,6 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export default `<symbol id="hds-icon-flight-waypoint-color-16" viewBox="0 0 16 16"><g fill="#14c6cb"><path d="m16 3-1.998 3.463L12.004 3zM5.334 5.312H4l3.332 5.777L6 13.4 0 3h6.667L10 8.778l.666-1.155L8 3h2.666l2.668 4.623L10 13.4z"/></g></symbol>`;

@@ -42,8 +42,8 @@ The Advanced Table component itself is where most of the options will be applied
       <C.Property @name="children" @type="array">
         If there are nested rows, the Advanced Table will use the `children` key in the model to render the child content. The key can be changed by setting `childrenKey` argument on the `Hds::AdvancedTable`.
       </C.Property>
-      <C.Property @name="isExpanded" @type="boolean">
-        If there are nested rows, the default state of the toggle can be set by adding `isExpanded` to the row in the model.
+      <C.Property @name="isOpen" @type="boolean">
+        If there are nested rows, the default state of the toggle can be set by adding `isOpen` to the row in the model.
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
