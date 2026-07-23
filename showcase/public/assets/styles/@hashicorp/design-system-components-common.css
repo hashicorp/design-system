@@ -5688,6 +5688,12 @@ button.hds-button[href]::after {
   border: 1px solid var(--hds-border-color-primary);
   border-radius: var(--hds-border-radius-medium);
 }
+.hds-theme-light .hds-filter-bar,
+.hds-theme-dark .hds-filter-bar,
+.hds-theme-system .hds-filter-bar {
+  border: none;
+}
+
 .hds-theme-light .hds-filter-bar .hds-separator,
 .hds-theme-dark .hds-filter-bar .hds-separator,
 .hds-theme-system .hds-filter-bar .hds-separator {

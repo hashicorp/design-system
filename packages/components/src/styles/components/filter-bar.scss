@@ -19,6 +19,10 @@
   border: 1px solid var(--hds-border-color-primary);
   border-radius: var(--hds-border-radius-medium);
 
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
+
   .hds-separator {
     @include hds-apply-only-if-carbon() {
       display: none;
