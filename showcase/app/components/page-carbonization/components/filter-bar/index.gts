@@ -142,6 +142,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @key="multi-select"
               @text="Multi-select"
               @type="multi-select"
+              @searchEnabled={{true}}
               as |FG|
             >
               <FG.Checkbox @value="1" @label="Option 1" />
@@ -152,6 +153,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @key="single-select"
               @text="Single-select"
               @type="single-select"
+              @searchEnabled={{true}}
               as |FG|
             >
               <FG.Radio @value="1" @label="Option 1" />
@@ -184,6 +186,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @key="multi-select"
               @text="Multi-select"
               @type="multi-select"
+              @searchEnabled={{true}}
               as |FG|
             >
               <FG.Checkbox @value="1" @label="Option 1" />
@@ -194,6 +197,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @key="single-select"
               @text="Single-select"
               @type="single-select"
+              @searchEnabled={{true}}
               as |FG|
             >
               <FG.Radio @value="1" @label="Option 1" />
@@ -226,6 +230,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @key="multi-select"
               @text="Multi-select"
               @type="multi-select"
+              @searchEnabled={{true}}
               as |FG|
             >
               <FG.Checkbox @value="1" @label="Option 1" />
@@ -241,6 +246,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @key="single-select"
               @text="Single-select"
               @type="single-select"
+              @searchEnabled={{true}}
               as |FG|
             >
               <FG.Radio @value="1" @label="Option 1" />
@@ -276,6 +282,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
             @key="multi-select"
             @text="Multi-select"
             @type="multi-select"
+            @searchEnabled={{true}}
             as |FG|
           >
             <FG.Checkbox @value="1" @label="Option 1" />
@@ -286,6 +293,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
             @key="single-select"
             @text="Single-select"
             @type="single-select"
+            @searchEnabled={{true}}
             as |FG|
           >
             <FG.Radio @value="1" @label="Option 1" />
