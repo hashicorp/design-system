@@ -14,7 +14,7 @@
 // "BASE" CONTROL
 
 .hds-form-text-input {
-  @include hds-form-control-border(); // var(--hds-form-control-base-border-color-default)
+  @include hds-form-control-border();
   width: 100%;
   max-width: 100%;
   min-height: var(--hds-form-control-height);

@@ -93,7 +93,6 @@ export default class FormRadioCardCarbonizationIndex extends Component {
     <ShwTextH1>RadioCard - Carbonization</ShwTextH1>
 
     <section>
-
       <ShwTextH2>“Base” control</ShwTextH2>
 
       <ShwTextH3>States</ShwTextH3>

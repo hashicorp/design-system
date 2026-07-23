@@ -8,6 +8,7 @@
 //
 
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 // RadioCard Group
 
@@ -43,6 +44,10 @@
   border-radius: var(--hds-form-radiocard-border-radius);
   box-shadow: var(--hds-elevation-mid-box-shadow);
   cursor: pointer;
+
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
 
   // prevent focus on the form control as it is handled at the card level
   .hds-form-radio-card__control {
@@ -154,6 +159,10 @@
   display: block;
   margin: 8px 0;
   color: var(--hds-form-label-foreground-color);
+  font-weight: var(--hds-typography-font-weight-bold);
+  font-size: var(--hds-typography-body-300-font-size);
+  font-family: var(--hds-typography-display-300-font-family);
+  line-height: var(--hds-typography-display-300-line-height);
   overflow-wrap: break-word;
 
   &:first-child {
@@ -174,5 +183,7 @@
 
 .hds-form-radio-card__control {
   display: block;
+  width: var(--hds-form-radiocard-control-size);
+  height: var(--hds-form-radiocard-control-size);
   margin: auto;
 }
