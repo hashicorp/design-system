@@ -9,7 +9,7 @@ import { resolve } from "node:path";
 
 import { afterEach, describe, expect, it } from "vitest";
 
-import { buildCodeExamplesCatalog } from "../../../scripts/generate-code-examples-catalog.mjs";
+import { buildCodeExamplesCatalog } from "../../../scripts/mcp/generate-code-examples-catalog.mjs";
 
 const temporaryDirectories: string[] = [];
 

@@ -18,7 +18,7 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "type": "module",
   "scripts": {
-    "catalog:code-examples": "node ./scripts/generate-code-examples-catalog.mjs",
+    "catalog:code-examples": "node ./scripts/mcp/generate-code-examples-catalog.mjs",
     "catalog:code-examples:check": "pnpm catalog:code-examples && git diff --exit-code -- src/catalogs/code-examples/catalog.json",
     "typecheck": "pnpm tsc",
     "lint": "pnpm eslint --quiet .",
@@ -37,9 +37,11 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@babel/parser": "^8.0.4",
     "@eslint/js": "^9.27.0",
     "@types/node": "^22.10.2",
     "concurrently": "^9.2.3",
+    "content-tag": "^4.2.0",
     "eslint": "^9.27.0",
     "globals": "^16.1.0",
     "typescript": "^5.8.3",
