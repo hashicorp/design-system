@@ -85,9 +85,7 @@ export const createCodeExamplesStore = (
             left.record.example.component.localeCompare(
               right.record.example.component,
             ) ||
-            left.record.example.title.localeCompare(
-              right.record.example.title,
-            ),
+            left.record.example.title.localeCompare(right.record.example.title),
         )
         .slice(0, limit)
         .map(({ record }) => ({

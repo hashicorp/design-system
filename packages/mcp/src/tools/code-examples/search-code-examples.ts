@@ -12,9 +12,7 @@ import {
   SEARCH_CODE_EXAMPLES_TOOL_NAME,
 } from "./constants.js";
 import { getOrLoadCodeExamplesStore } from "./store/index.js";
-import {
-  codeExamplesSearchOutputSchema,
-} from "./store/schema.js";
+import { codeExamplesSearchOutputSchema } from "./store/schema.js";
 
 import type { McpTool } from "../types.js";
 import type { CodeExamplesStore } from "./store/index.js";
