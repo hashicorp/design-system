@@ -358,7 +358,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
             default="Filters will be applied automatically as selections are made"
           }}</span>
       {{/if}}
-      <HdsLayoutFlex @align="center" @gap="8" class="hds-filter-bar__actions">
+      <HdsLayoutFlex @wrap={{true}} @align="center" @gap="8" class="hds-filter-bar__actions">
         <HdsButton
           @text={{hdsT
             "hds.components.filter-bar.applied-filters.toggle-button"
@@ -396,6 +396,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
           />
         {{/if}}
         <HdsLayoutFlex
+          @wrap={{true}}
           @gap="8"
           @align="center"
           class="hds-filter-bar__actions__right"

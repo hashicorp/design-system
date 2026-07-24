@@ -1,0 +1,15 @@
+
+================================================================================
+ERROR LOGGED: 2026-07-24T17:39:41.534Z
+================================================================================
+Error Name: Error
+Error Message: Connection failed for 'product-knowledge': SSE error: TypeError: fetch failed: unable to get local issuer certificate
+
+Stack Trace:
+Error: Connection failed for 'product-knowledge': SSE error: TypeError: fetch failed: unable to get local issuer certificate
+    at Lcr (file:///Users/jorytindall/.nvm/versions/node/v24.1.0/lib/node_modules/bobshell/bundle/bob.js:3480:10291)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Ixe.connect (file:///Users/jorytindall/.nvm/versions/node/v24.1.0/lib/node_modules/bobshell/bundle/bob.js:3480:13137)
+    at async file:///Users/jorytindall/.nvm/versions/node/v24.1.0/lib/node_modules/bobshell/bundle/bob.js:3480:17293
+================================================================================
+

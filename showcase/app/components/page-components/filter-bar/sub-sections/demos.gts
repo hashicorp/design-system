@@ -13,9 +13,23 @@ import ShwFrame from 'showcase/components/shw/frame';
 import CodeFragmentWithComplexTable from 'showcase/components/page-components/filter-bar/code-fragments/with-complex-table';
 import CodeFragmentWithTable from 'showcase/components/page-components/filter-bar/code-fragments/with-table';
 import CodeFragmentWithGenericFilters from 'showcase/components/page-components/filter-bar/code-fragments/with-generic-filters';
+import CodeFragmentWithWrapping from 'showcase/components/page-components/filter-bar/code-fragments/with-wrapping';
+import CodeFragmentWithWrappingNoSegmentedGroup from 'showcase/components/page-components/filter-bar/code-fragments/with-wrapping-no-segmented-group';
 
 const SubSectionDemos: TemplateOnlyComponent = <template>
   <ShwTextH2>Demos</ShwTextH2>
+
+  <ShwTextH3>Wrapping</ShwTextH3>
+
+  <CodeFragmentWithWrapping />
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Wrapping (no segmented group)</ShwTextH3>
+
+  <CodeFragmentWithWrappingNoSegmentedGroup />
+
+  <ShwDivider @level={{2}} />
 
   <ShwTextH3>Basic implementation</ShwTextH3>
 
