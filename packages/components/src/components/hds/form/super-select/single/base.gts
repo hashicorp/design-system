@@ -42,7 +42,7 @@ export interface HdsFormSuperSelectSingleBaseSignature {
     isInvalid?: boolean;
   };
   Blocks: PowerSelectSignature['Blocks'];
-  Element: PowerSelectSignature['Element'];
+  Element: HTMLDivElement;
 }
 
 export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuperSelectSingleBaseSignature> {
@@ -141,7 +141,11 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
 
   <template>
     {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
-    <div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
+    <div
+      class={{this.classNames}}
+      {{style this.dropdownMaxWidthStyle}}
+      ...attributes
+    >
       <PowerSelect
         @afterOptionsComponent={{if
           this.showAfterOptions
@@ -207,7 +211,6 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         @triggerRole={{@triggerRole}}
         @typeAheadOptionMatcher={{@typeAheadOptionMatcher}}
         @verticalPosition={{@verticalPosition}}
-        ...attributes
         as |option select|
       >
         <HdsTextBody>{{yield option select}}</HdsTextBody>

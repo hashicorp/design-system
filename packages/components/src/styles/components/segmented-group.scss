@@ -10,6 +10,10 @@
 .hds-segmented-group {
   display: inline-flex;
 
+  > .hds-form-super-select .ember-basic-dropdown-content--in-place {
+    margin-top: 4px;
+  }
+
   > .hds-button,
   > .hds-dropdown,
   > .hds-form-select,

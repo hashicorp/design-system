@@ -398,7 +398,7 @@ export default class SubSectionContent extends Component {
             @selected={{this.superSelectSingleValue}}
             @onChange={{this.setSuperSelectSingleValue}}
             @placeholder="Select service"
-            aria-label="segmented-super-select-single-trailing-control"
+            @ariaLabel="segmented-super-select-single-trailing-control"
             as |option|
           >
             {{option}}
@@ -413,7 +413,7 @@ export default class SubSectionContent extends Component {
             @selected={{this.superSelectSingleValueLeading}}
             @onChange={{this.setSuperSelectSingleValueLeading}}
             @placeholder="Select service"
-            aria-label="segmented-super-select-single-leading-control"
+            @ariaLabel="segmented-super-select-single-leading-control"
             as |option|
           >
             {{option}}
@@ -432,7 +432,7 @@ export default class SubSectionContent extends Component {
             @selected={{this.superSelectMultipleValues}}
             @onChange={{this.setSuperSelectMultipleValues}}
             @placeholder="Select services"
-            aria-label="segmented-super-select-multiple-trailing-control"
+            @ariaLabel="segmented-super-select-multiple-trailing-control"
             as |option|
           >
             {{option}}
@@ -447,7 +447,7 @@ export default class SubSectionContent extends Component {
             @selected={{this.superSelectMultipleValuesMiddle}}
             @onChange={{this.setSuperSelectMultipleValuesMiddle}}
             @placeholder="Select services"
-            aria-label="segmented-super-select-multiple-leading-control"
+            @ariaLabel="segmented-super-select-multiple-leading-control"
             as |option|
           >
             {{option}}
@@ -466,7 +466,7 @@ export default class SubSectionContent extends Component {
             @selected={{this.superSelectMultipleValuesThreeSegment}}
             @onChange={{this.setSuperSelectMultipleValuesThreeSegment}}
             @placeholder="Select services"
-            aria-label="segmented-super-select-multiple-middle-control"
+            @ariaLabel="segmented-super-select-multiple-middle-control"
             as |option|
           >
             {{option}}

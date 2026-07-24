@@ -9,6 +9,7 @@ import { render } from '@ember/test-helpers';
 import { HdsSegmentedGroup } from '@hashicorp/design-system-components/components';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
+import NOOP from 'showcase/utils/noop';
 
 module('Integration | Component | hds/segmented-group/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -35,6 +36,11 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
           </SG.Dropdown>
           <SG.Select id="segmented-select" />
           <SG.TextInput id="segmented-input" />
+          <SG.SuperSelect id="segmented-super-select" @onChange={{NOOP}} />
+          <SG.SuperSelectMultiple
+            id="segmented-super-select-multiple"
+            @onChange={{NOOP}}
+          />
           <SG.Generic><span id="segmented-generic"></span></SG.Generic>
         </HdsSegmentedGroup>
       </template>,
@@ -43,6 +49,12 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
     assert.dom('#segmented-dropdown').hasClass('hds-dropdown');
     assert.dom('#segmented-select').hasClass('hds-form-select');
     assert.dom('#segmented-input').hasClass('hds-form-text-input');
+    assert
+      .dom('#segmented-super-select')
+      .hasClass('hds-form-super-select-single');
+    assert
+      .dom('#segmented-super-select-multiple')
+      .hasClass('hds-form-super-select-multiple');
     assert.dom('#segmented-generic').exists();
   });
 });
