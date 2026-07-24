@@ -30,8 +30,8 @@ module(
         </template>,
       );
       assert
-        .dom('.hds-form-super-select-multiple #test-super-select-multiple')
-        .exists();
+        .dom('#test-super-select-multiple')
+        .hasClass('hds-form-super-select-multiple');
     });
 
     // OPTIONS
