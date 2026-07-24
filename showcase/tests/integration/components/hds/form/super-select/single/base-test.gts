@@ -28,8 +28,8 @@ module(
         </template>,
       );
       assert
-        .dom('.hds-form-super-select-single #test-super-select-single')
-        .exists();
+        .dom('#test-super-select-single')
+        .hasClass('hds-form-super-select-single');
     });
 
     // OPTIONS
