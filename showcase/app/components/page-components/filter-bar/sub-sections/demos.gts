@@ -15,6 +15,7 @@ import CodeFragmentWithTable from 'showcase/components/page-components/filter-ba
 import CodeFragmentWithGenericFilters from 'showcase/components/page-components/filter-bar/code-fragments/with-generic-filters';
 import CodeFragmentWithWrapping from 'showcase/components/page-components/filter-bar/code-fragments/with-wrapping';
 import CodeFragmentWithWrappingNoSegmentedGroup from 'showcase/components/page-components/filter-bar/code-fragments/with-wrapping-no-segmented-group';
+import CodeFragmentWithWrappingResponsive from 'showcase/components/page-components/filter-bar/code-fragments/with-wrapping-responsive';
 
 const SubSectionDemos: TemplateOnlyComponent = <template>
   <ShwTextH2>Demos</ShwTextH2>
@@ -28,6 +29,12 @@ const SubSectionDemos: TemplateOnlyComponent = <template>
   <ShwTextH3>Wrapping (no segmented group)</ShwTextH3>
 
   <CodeFragmentWithWrappingNoSegmentedGroup />
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Wrapping (responsive with dropdown)</ShwTextH3>
+
+  <CodeFragmentWithWrappingResponsive />
 
   <ShwDivider @level={{2}} />
 
