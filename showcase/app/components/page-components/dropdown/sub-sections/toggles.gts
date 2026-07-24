@@ -14,15 +14,21 @@ import ShwGrid from 'showcase/components/shw/grid';
 import ShwOutliner from 'showcase/components/shw/outliner';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 import {
   HdsDropdownToggleButton,
   HdsDropdownToggleIcon,
 } from '@hashicorp/design-system-components/components';
 import {
-  COLORS,
-  SIZES,
+  COLORS as BUTTON_COLORS,
+  SIZES as BUTTON_SIZES,
 } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/button';
+
+import {
+  COLORS as ICON_COLORS,
+  SIZES as ICON_SIZES,
+} from '@hashicorp/design-system-components/components/hds/dropdown/toggle/icon';
 
 // these are used only for presentation purpose in the showcase
 const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
@@ -30,9 +36,9 @@ const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
 const SubSectionToggles: TemplateOnlyComponent = <template>
   <ShwTextH2>Toggles</ShwTextH2>
 
-  {{#each COLORS as |color|}}
+  {{#each BUTTON_COLORS as |color|}}
     <ShwFlex as |SF|>
-      {{#each SIZES as |size|}}
+      {{#each BUTTON_SIZES as |size|}}
         <SF.Item @label="{{capitalize color}} {{size}}">
           <HdsDropdownToggleButton
             @color={{color}}
@@ -55,9 +61,9 @@ const SubSectionToggles: TemplateOnlyComponent = <template>
 
   <ShwTextH3>With icon</ShwTextH3>
 
-  {{#each COLORS as |color|}}
+  {{#each BUTTON_COLORS as |color|}}
     <ShwFlex as |SF|>
-      {{#each SIZES as |size|}}
+      {{#each BUTTON_SIZES as |size|}}
         <SF.Item @label="{{capitalize color}} {{size}}">
           <HdsDropdownToggleButton
             @icon="hexagon"
@@ -82,9 +88,9 @@ const SubSectionToggles: TemplateOnlyComponent = <template>
 
   <ShwTextH3>With count</ShwTextH3>
 
-  {{#each COLORS as |color|}}
+  {{#each BUTTON_COLORS as |color|}}
     <ShwFlex as |SF|>
-      {{#each SIZES as |size|}}
+      {{#each BUTTON_SIZES as |size|}}
         <SF.Item @label="{{capitalize color}} {{size}}">
           <HdsDropdownToggleButton
             @color={{color}}
@@ -109,9 +115,9 @@ const SubSectionToggles: TemplateOnlyComponent = <template>
 
   <ShwTextH3>With badge</ShwTextH3>
 
-  {{#each COLORS as |color|}}
+  {{#each BUTTON_COLORS as |color|}}
     <ShwFlex as |SF|>
-      {{#each SIZES as |size|}}
+      {{#each BUTTON_SIZES as |size|}}
         <SF.Item @label="{{capitalize color}} {{size}}">
           <HdsDropdownToggleButton
             @color={{color}}
@@ -140,48 +146,84 @@ const SubSectionToggles: TemplateOnlyComponent = <template>
 
   <ShwTextH3>Icon</ShwTextH3>
 
-  <ShwFlex as |SF|>
-    {{#each SIZES as |size|}}
-      <SF.Item @label="With icon + chevron, {{size}}">
-        <HdsDropdownToggleIcon @icon="user" @text="user menu" @size={{size}} />
-      </SF.Item>
-    {{/each}}
-  </ShwFlex>
+  <ShwTextH4>With icon + chevron</ShwTextH4>
 
-  <ShwFlex as |SF|>
-    {{#each SIZES as |size|}}
-      <SF.Item @label="With image (avatar), {{size}}">
-        <HdsDropdownToggleIcon
-          @imageSrc="/assets/images/avatar.png"
-          @text="user menu"
-          @size={{size}}
-        />
-      </SF.Item>
-    {{/each}}
-    <SF.Item @label="With broken image (fallback to icon)">
-      <HdsDropdownToggleIcon
-        @imageSrc="/assets/images/avatar-broken.png"
-        @text="user menu"
-      />
-    </SF.Item>
-  </ShwFlex>
+  {{#each ICON_COLORS as |color|}}
+    <ShwFlex as |SF|>
+      {{#each ICON_SIZES as |size|}}
+        <SF.Item @label="{{capitalize color}}, {{size}}">
+          <HdsDropdownToggleIcon
+            @icon="user"
+            @text="user menu"
+            @color={{color}}
+            @size={{size}}
+          />
+        </SF.Item>
+      {{/each}}
+    </ShwFlex>
+  {{/each}}
 
-  <ShwFlex as |SF|>
-    {{#each SIZES as |size|}}
-      <SF.Item @label="Icon only, {{size}}">
-        <HdsDropdownToggleIcon
-          @icon="more-horizontal"
-          @hasChevron={{false}}
-          @text="overflow menu"
-          @size={{size}}
-        />
-      </SF.Item>
-    {{/each}}
-  </ShwFlex>
+  <ShwTextH4>With image (avatar)</ShwTextH4>
+
+  {{#each ICON_COLORS as |color|}}
+    <ShwFlex as |SF|>
+      {{#each ICON_SIZES as |size|}}
+        <SF.Item @label="{{capitalize color}}, {{size}}">
+          <HdsDropdownToggleIcon
+            @imageSrc="/assets/images/avatar.png"
+            @text="user menu"
+            @color={{color}}
+            @size={{size}}
+          />
+        </SF.Item>
+      {{/each}}
+    </ShwFlex>
+  {{/each}}
+
+  <ShwTextH4>With broken image (fallback to icon)</ShwTextH4>
+
+  {{#each ICON_COLORS as |color|}}
+    <ShwFlex as |SF|>
+      {{#each ICON_SIZES as |size|}}
+        <SF.Item
+          @label="{{capitalize
+            color
+          }}, {{size}}, With broken image (fallback to icon)"
+        >
+          <HdsDropdownToggleIcon
+            @imageSrc="/assets/images/avatar-broken.png"
+            @text="user menu"
+            @color={{color}}
+            @size={{size}}
+          />
+        </SF.Item>
+      {{/each}}
+    </ShwFlex>
+  {{/each}}
+
+  <ShwTextH4>Icon only</ShwTextH4>
+
+  {{#each ICON_COLORS as |color|}}
+    <ShwFlex as |SF|>
+      {{#each ICON_SIZES as |size|}}
+        <SF.Item @label="{{capitalize color}}, {{size}}">
+          <HdsDropdownToggleIcon
+            @icon="more-horizontal"
+            @hasChevron={{false}}
+            @text="overflow menu"
+            @color={{color}}
+            @size={{size}}
+          />
+        </SF.Item>
+      {{/each}}
+    </ShwFlex>
+  {{/each}}
 
   <ShwDivider @level={{2}} />
 
   <ShwTextH3>States</ShwTextH3>
+
+  <ShwTextH4>ToggleButton</ShwTextH4>
 
   <ShwGrid @columns={{6}} class="shw-component-dropdown-states-matrix" as |SG|>
 
@@ -196,7 +238,7 @@ const SubSectionToggles: TemplateOnlyComponent = <template>
       <span class="shw-label">Open</span>
     </SG.Item>
 
-    {{#each COLORS as |color|}}
+    {{#each BUTTON_COLORS as |color|}}
       {{#each STATES as |state|}}
         <SG.Item @label="{{capitalize color}}">
           {{#if (eq state "disabled")}}
@@ -306,55 +348,78 @@ const SubSectionToggles: TemplateOnlyComponent = <template>
         />
       </SG.Item>
     {{/each}}
+  </ShwGrid>
+
+  <ShwTextH4>ToggleIcon</ShwTextH4>
+
+  <ShwGrid @columns={{6}} class="shw-component-dropdown-states-matrix" as |SG|>
+
+    {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
 
     {{#each STATES as |state|}}
+      <SG.Item>
+        <span class="shw-label">{{capitalize state}}</span>
+      </SG.Item>
+    {{/each}}
+    <SG.Item>
+      <span class="shw-label">Open</span>
+    </SG.Item>
+
+    {{#each ICON_COLORS as |color|}}
+      {{#each STATES as |state|}}
+        <SG.Item @label="Icon">
+          <HdsDropdownToggleIcon
+            @icon="more-horizontal"
+            @text="overflow menu"
+            @hasChevron={{false}}
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
       <SG.Item @label="Icon">
         <HdsDropdownToggleIcon
           @icon="more-horizontal"
           @text="overflow menu"
           @hasChevron={{false}}
-          mock-state-value={{state}}
+          @isOpen={{true}}
+          @color={{color}}
         />
       </SG.Item>
-    {{/each}}
-    <SG.Item @label="Icon">
-      <HdsDropdownToggleIcon
-        @icon="more-horizontal"
-        @text="overflow menu"
-        @hasChevron={{false}}
-        @isOpen={{true}}
-      />
-    </SG.Item>
 
-    {{#each STATES as |state|}}
+      {{#each STATES as |state|}}
+        <SG.Item @label="Icon+chevron">
+          <HdsDropdownToggleIcon
+            @icon="user"
+            @text={{state}}
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
       <SG.Item @label="Icon+chevron">
-        <HdsDropdownToggleIcon
-          @icon="user"
-          @text={{state}}
-          mock-state-value={{state}}
-        />
+        <HdsDropdownToggleIcon @icon="user" @text="open" @isOpen={{true}} />
       </SG.Item>
-    {{/each}}
-    <SG.Item @label="Icon+chevron">
-      <HdsDropdownToggleIcon @icon="user" @text="open" @isOpen={{true}} />
-    </SG.Item>
 
-    {{#each STATES as |state|}}
+      {{#each STATES as |state|}}
+        <SG.Item @label="Avatar+chevron">
+          <HdsDropdownToggleIcon
+            @text={{state}}
+            @imageSrc="/assets/images/avatar.png"
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
       <SG.Item @label="Avatar+chevron">
         <HdsDropdownToggleIcon
-          @text={{state}}
+          @text="open"
+          @isOpen={{true}}
           @imageSrc="/assets/images/avatar.png"
-          mock-state-value={{state}}
+          @color={{color}}
         />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="Avatar+chevron">
-      <HdsDropdownToggleIcon
-        @text="open"
-        @isOpen={{true}}
-        @imageSrc="/assets/images/avatar.png"
-      />
-    </SG.Item>
   </ShwGrid>
 
   <ShwDivider />

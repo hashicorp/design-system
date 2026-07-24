@@ -55,11 +55,6 @@
   align-items: center;
   justify-content: center;
   padding: var(--hds-dropdown-toggle-icon-padding);
-  // this variant mimics the secondary button, but not entirely (eg. it doesn't have an elevation shadow)
-  // so we need to provide the same color values but without using the `hds-button-color-secondary()` mixin
-  color: var(--hds-button-foreground-color-secondary-default);
-  background-color: var(--hds-button-surface-color-secondary-default);
-  border: 1px solid var(--hds-button-border-color-secondary-default);
   border-radius: var(--hds-button-border-radius);
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
@@ -95,6 +90,21 @@
   &:disabled,
   &.mock-disabled {
     @include hds-button-state-disabled();
+  }
+
+  // this variant mimics the secondary and secondary-muted button, but not entirely (eg. it doesn't have an elevation shadow)
+  // so we need to provide the same color values but without using the `hds-button-color-{color}()` mixin
+
+  &.hds-dropdown-toggle-icon--color-secondary {
+    color: var(--hds-button-foreground-color-secondary-default);
+    background-color: var(--hds-button-surface-color-secondary-default);
+    border: 1px solid var(--hds-button-border-color-secondary-default);
+  }
+
+  &.hds-dropdown-toggle-icon--color-secondary-muted {
+    color: var(--hds-button-foreground-color-secondary-muted-default);
+    background-color: var(--hds-button-surface-color-secondary-muted-default);
+    border: 1px solid var(--hds-button-border-color-secondary-muted-default);
   }
 }
 

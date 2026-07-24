@@ -3333,7 +3333,7 @@
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-badge {
@@ -3496,7 +3496,7 @@
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-badge-count {
@@ -5444,9 +5444,6 @@ button.hds-button[href]::after {
   align-items: center;
   justify-content: center;
   padding: var(--hds-dropdown-toggle-icon-padding);
-  color: var(--hds-button-foreground-color-secondary-default);
-  background-color: var(--hds-button-surface-color-secondary-default);
-  border: 1px solid var(--hds-button-border-color-secondary-default);
   border-radius: var(--hds-button-border-radius);
   isolation: isolate;
 }
@@ -5492,6 +5489,16 @@ button.hds-button[href]::after {
   border-color: var(--hds-button-border-color-disabled);
   box-shadow: none;
   cursor: not-allowed;
+}
+.hds-dropdown-toggle-icon.hds-dropdown-toggle-icon--color-secondary {
+  color: var(--hds-button-foreground-color-secondary-default);
+  background-color: var(--hds-button-surface-color-secondary-default);
+  border: 1px solid var(--hds-button-border-color-secondary-default);
+}
+.hds-dropdown-toggle-icon.hds-dropdown-toggle-icon--color-secondary-muted {
+  color: var(--hds-button-foreground-color-secondary-muted-default);
+  background-color: var(--hds-button-surface-color-secondary-muted-default);
+  border: 1px solid var(--hds-button-border-color-secondary-muted-default);
 }
 
 .hds-dropdown-toggle-icon__wrapper {
@@ -6664,7 +6671,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-label {
@@ -6682,7 +6689,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-helper-text {
@@ -6699,7 +6706,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-character-count {
@@ -6714,7 +6721,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-error {
@@ -6900,7 +6907,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-legend {
@@ -6963,7 +6970,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-indicator--optional {
@@ -8278,7 +8285,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-icon-tile {
@@ -8895,7 +8902,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-link-standalone {
@@ -9698,7 +9705,7 @@ button.hds-button[href]::after {
 
 /* clean-css ignore:end */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-segmented-group {
@@ -11073,7 +11080,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-tag {
