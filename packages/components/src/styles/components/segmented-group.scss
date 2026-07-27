@@ -10,6 +10,11 @@
 .hds-segmented-group {
   display: inline-flex;
 
+  // SuperSelect uses `@renderInPlace={{true}}` inside SegmentedGroup, which causes the dropdown
+  // to use the `--in-place` class instead of the usual `--below` class. The normal 4px gap comes
+  // from `.ember-basic-dropdown-content--below { margin-top: 4px }` in HDS styles, but that rule
+  // doesn't apply to in-place dropdowns — so without this rule the dropdown sits flush against
+  // the trigger. This restores the same spacing for the in-place rendering mode.
   > .hds-form-super-select .ember-basic-dropdown-content--in-place {
     margin-top: 4px;
   }
