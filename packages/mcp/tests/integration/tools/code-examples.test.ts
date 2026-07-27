@@ -17,6 +17,7 @@ describe("code examples tools", () => {
   beforeEach(async () => {
     server = new McpServer({ name: "test-server", version: "0.0.0" });
     client = new Client({ name: "test-client", version: "0.0.0" });
+
     registerTools(server);
 
     const [clientTransport, serverTransport] =
@@ -86,7 +87,9 @@ describe("code examples tools", () => {
   it("returns not-found for an unknown example id", async () => {
     const result = await client.callTool({
       name: "hds_read_code_example",
-      arguments: { exampleId: "page-components/nonexistent/code-fragments/example" },
+      arguments: {
+        exampleId: "page-components/nonexistent/code-fragments/example",
+      },
     });
 
     expect(result.structuredContent).toMatchObject({

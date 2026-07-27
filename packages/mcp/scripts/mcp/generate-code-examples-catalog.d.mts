@@ -20,6 +20,20 @@ export interface CodeExample {
   isStandalone: boolean;
 }
 
+export declare function deriveComponent(relativePath: string): string;
+
+export declare function deriveTitle(filename: string): string;
+
+export interface ParseImportsResult {
+  importedHdsComponents: string[];
+  localDependencies: string[];
+}
+
+export declare function parseImports(
+  source: string,
+  filename: string,
+): ParseImportsResult;
+
 export declare function buildCodeExamplesCatalog(
   inputDirectory: string,
 ): Promise<CodeExamplesCatalog>;

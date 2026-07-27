@@ -29,16 +29,20 @@ const HDS_COMPONENTS_MODULE = "@hashicorp/design-system-components/components";
  *   page-components/accordion/code-fragments/... -> accordion
  *   page-components/form/select/code-fragments/... -> form/select
  */
-const deriveComponent = (relativePath) => {
+export const deriveComponent = (relativePath) => {
   const parts = relativePath.split("/");
   const codeFragmentIndex = parts.indexOf("code-fragments");
 
-  return codeFragmentIndex < 2
-    ? (parts[1] ?? "unknown")
-    : parts.slice(1, codeFragmentIndex).join("/");
+  if (codeFragmentIndex < 1) {
+    return "unknown";
+  }
+
+  const componentStartIndex = codeFragmentIndex === 1 ? 0 : 1;
+
+  return parts.slice(componentStartIndex, codeFragmentIndex).join("/");
 };
 
-const deriveTitle = (filename) => {
+export const deriveTitle = (filename) => {
   const base = filename.replace(/\.gts$/, "");
 
   return base.charAt(0).toUpperCase() + base.slice(1).replaceAll("-", " ");
@@ -75,7 +79,7 @@ export const parseImports = (source, filename) => {
     for (const specifier of node.specifiers) {
       if (
         specifier.type === "ImportSpecifier" &&
-        specifier.importKind !== "type"
+        specifier.importKind === "type"
       ) {
         continue;
       }
