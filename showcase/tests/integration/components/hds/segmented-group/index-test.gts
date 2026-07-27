@@ -36,11 +36,8 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
           </SG.Dropdown>
           <SG.Select id="segmented-select" />
           <SG.TextInput id="segmented-input" />
-          <SG.SuperSelect id="segmented-super-select" @onChange={{NOOP}} />
-          <SG.SuperSelectMultiple
-            id="segmented-super-select-multiple"
-            @onChange={{NOOP}}
-          />
+          <SG.SuperSelect @onChange={{NOOP}} />
+          <SG.SuperSelectMultiple @onChange={{NOOP}} />
           <SG.Generic><span id="segmented-generic"></span></SG.Generic>
         </HdsSegmentedGroup>
       </template>,
@@ -49,12 +46,8 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
     assert.dom('#segmented-dropdown').hasClass('hds-dropdown');
     assert.dom('#segmented-select').hasClass('hds-form-select');
     assert.dom('#segmented-input').hasClass('hds-form-text-input');
-    assert
-      .dom('#segmented-super-select')
-      .hasClass('hds-form-super-select-single');
-    assert
-      .dom('#segmented-super-select-multiple')
-      .hasClass('hds-form-super-select-multiple');
+    assert.dom('.hds-form-super-select-single').exists();
+    assert.dom('.hds-form-super-select-multiple').exists();
     assert.dom('#segmented-generic').exists();
   });
 });
