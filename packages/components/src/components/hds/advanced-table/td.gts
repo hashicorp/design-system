@@ -42,6 +42,7 @@ export interface HdsAdvancedTableTdSignature {
 
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @tracked private _shouldTrapFocus = false;
+
   private _element!: HTMLDivElement;
 
   // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
@@ -121,7 +122,7 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
         )
       }}
       {{@compositeItem disabled=@isCompositeItemDisabled}}
-      {{hdsScrollIntoViewOnFocus options=(hash block="center" inline="center")}}
+      {{hdsScrollIntoViewOnFocus}}
       ...attributes
     >
       {{yield}}

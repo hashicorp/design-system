@@ -468,7 +468,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
         )
       }}
       {{@compositeItem disabled=@isCompositeItemDisabled}}
-      {{hdsScrollIntoViewOnFocus options=(hash block="center" inline="center")}}
+      {{hdsScrollIntoViewOnFocus}}
       ...attributes
     >
       <HdsLayoutFlex @justify="space-between" @align="center" @gap="8">
