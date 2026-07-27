@@ -68,24 +68,23 @@ export default class HdsAppFrame extends Component<HdsAppFrameSignature> {
 
   <template>
     <div class={{this.classNames}} ...attributes>
-      {{#if this.hasHeader}}
-        {{yield (hash Header=HdsAppFrameHeader)}}
-      {{/if}}
-      {{#if this.hasSidebar}}
-        {{yield (hash Sidebar=HdsAppFrameSidebar)}}
-      {{/if}}
-      {{!
+      {{!--
         IMPORTANT: since the modals may be injected via portal or in-element with code that lives in the "main" container,
         the "modal" container needs to be present in the DOM _before_ the "main" block, otherwise it may cause errors
         where the target DOM element is not found (for example in tests where the modal may be immediately opened on first render).
+
+        All sub-components are yielded in a single hash to avoid multiple {{yield}} calls, which would cause any
+        content placed directly in the block (e.g. a modal with {{#if}}) to be instantiated once per yield.
+      --}}
+      {{yield
+        (hash
+          Header=HdsAppFrameHeader
+          Sidebar=HdsAppFrameSidebar
+          Modals=HdsAppFrameModals
+          Main=HdsAppFrameMain
+          Footer=HdsAppFrameFooter
+        )
       }}
-      {{#if this.hasModals}}
-        {{yield (hash Modals=HdsAppFrameModals)}}
-      {{/if}}
-      {{yield (hash Main=HdsAppFrameMain)}}
-      {{#if this.hasFooter}}
-        {{yield (hash Footer=HdsAppFrameFooter)}}
-      {{/if}}
     </div>
   </template>
 }
