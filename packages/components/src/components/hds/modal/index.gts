@@ -115,13 +115,17 @@ export default class HdsModal extends Component<HdsModalSignature> {
   }
 
   private _performCloseCleanup(caller: string = 'unknown'): void {
-    console.log(`[HdsModal] _performCloseCleanup called from: ${caller} | _isOpen=${String(this._isOpen)} | body.overflow="${document.body.style.getPropertyValue('overflow')}"`);
+    console.log(
+      `[HdsModal] _performCloseCleanup called from: ${caller} | _isOpen=${String(this._isOpen)} | body.overflow="${document.body.style.getPropertyValue('overflow')}"`
+    );
     this._isOpen = false;
 
     // Reset page `overflow` property
     if (this._body) {
       this._body.style.removeProperty('overflow');
-      console.log(`[HdsModal] _performCloseCleanup: overflow removed, body.overflow now="${document.body.style.getPropertyValue('overflow')}"`);
+      console.log(
+        `[HdsModal] _performCloseCleanup: overflow removed, body.overflow now="${document.body.style.getPropertyValue('overflow')}"`
+      );
       if (this._bodyInitialOverflowValue === '') {
         if (this._body.style.length === 0) {
           this._body.removeAttribute('style');
@@ -133,7 +137,9 @@ export default class HdsModal extends Component<HdsModalSignature> {
         );
       }
     } else {
-      console.warn('[HdsModal] _performCloseCleanup: this._body is falsy — overflow NOT restored!');
+      console.warn(
+        '[HdsModal] _performCloseCleanup: this._body is falsy — overflow NOT restored!'
+      );
     }
 
     // Return focus to a specific element (if provided)
@@ -143,11 +149,15 @@ export default class HdsModal extends Component<HdsModalSignature> {
         initiator.focus();
       }
     }
-    console.log(`[HdsModal] _performCloseCleanup done from: ${caller} | body.overflow="${document.body.style.getPropertyValue('overflow')}"`);
+    console.log(
+      `[HdsModal] _performCloseCleanup done from: ${caller} | body.overflow="${document.body.style.getPropertyValue('overflow')}"`
+    );
   }
 
   registerOnCloseCallback = (event: Event): void => {
-    console.log(`[HdsModal] registerOnCloseCallback fired | _isOpen=${String(this._isOpen)} | body.overflow="${document.body.style.getPropertyValue('overflow')}"`);
+    console.log(
+      `[HdsModal] registerOnCloseCallback fired | _isOpen=${String(this._isOpen)} | body.overflow="${document.body.style.getPropertyValue('overflow')}"`
+    );
     if (
       !this.isDismissDisabled &&
       this.args.onClose &&
@@ -155,7 +165,9 @@ export default class HdsModal extends Component<HdsModalSignature> {
     ) {
       console.log('[HdsModal] registerOnCloseCallback: calling args.onClose');
       this.args.onClose(event);
-      console.log(`[HdsModal] registerOnCloseCallback: args.onClose returned | body.overflow="${document.body.style.getPropertyValue('overflow')}"`);
+      console.log(
+        `[HdsModal] registerOnCloseCallback: args.onClose returned | body.overflow="${document.body.style.getPropertyValue('overflow')}"`
+      );
     }
 
     // If the dismissal of the modal is disabled, we keep the modal open/visible otherwise we mark it as closed
@@ -170,7 +182,9 @@ export default class HdsModal extends Component<HdsModalSignature> {
     } else {
       this._performCloseCleanup('registerOnCloseCallback');
     }
-    console.log(`[HdsModal] registerOnCloseCallback done | body.overflow="${document.body.style.getPropertyValue('overflow')}"`);
+    console.log(
+      `[HdsModal] registerOnCloseCallback done | body.overflow="${document.body.style.getPropertyValue('overflow')}"`
+    );
   };
 
   private _registerDialog = modifier((element: HTMLDialogElement) => {
@@ -227,13 +241,19 @@ export default class HdsModal extends Component<HdsModalSignature> {
     });
 
     return () => {
-      console.log(`[HdsModal] _registerDialog TEARDOWN | _isOpen=${String(this._isOpen)} | body.overflow="${document.body.style.getPropertyValue('overflow')}"`);
+      console.log(
+        `[HdsModal] _registerDialog TEARDOWN | _isOpen=${String(this._isOpen)} | body.overflow="${document.body.style.getPropertyValue('overflow')}"`
+      );
       // if the <dialog> is removed from the dom while open we emulate the close event
       if (this._isOpen) {
-        console.log('[HdsModal] _registerDialog teardown: _isOpen=true, calling _performCloseCleanup');
+        console.log(
+          '[HdsModal] _registerDialog teardown: _isOpen=true, calling _performCloseCleanup'
+        );
         this._performCloseCleanup('teardown');
       } else {
-        console.log('[HdsModal] _registerDialog teardown: _isOpen=false, skipping _performCloseCleanup');
+        console.log(
+          '[HdsModal] _registerDialog teardown: _isOpen=false, skipping _performCloseCleanup'
+        );
       }
 
       this._element?.removeEventListener(
@@ -257,14 +277,18 @@ export default class HdsModal extends Component<HdsModalSignature> {
   });
 
   open = (): void => {
-    console.log(`[HdsModal] open() called | body.overflow before="${document.body.style.getPropertyValue('overflow')}"`);
+    console.log(
+      `[HdsModal] open() called | body.overflow before="${document.body.style.getPropertyValue('overflow')}"`
+    );
     // Make modal dialog visible using the native `showModal` method
     this._element.showModal();
     this._isOpen = true;
 
     // Prevent page from scrolling when the dialog is open
     if (this._body) this._body.style.setProperty('overflow', 'hidden');
-    console.log(`[HdsModal] open() done | body.overflow="${document.body.style.getPropertyValue('overflow')}"`);
+    console.log(
+      `[HdsModal] open() done | body.overflow="${document.body.style.getPropertyValue('overflow')}"`
+    );
 
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
