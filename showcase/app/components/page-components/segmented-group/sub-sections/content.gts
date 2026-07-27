@@ -2,9 +2,7 @@
  * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { capitalize } from '@ember/string';
 import { concat } from '@ember/helper';
 
@@ -22,6 +20,8 @@ import {
   HdsFormField,
 } from '@hashicorp/design-system-components/components';
 import type { HdsFormTextInputTypes } from '@hashicorp/design-system-components/components/hds/form/text-input/types';
+
+import CodeFragmentWithSuperSelect from 'showcase/components/page-components/segmented-group/code-fragments/with-super-select';
 
 const TEXT_INPUT_TYPES: HdsFormTextInputTypes[] = [
   'text',
@@ -41,457 +41,348 @@ const DROPDOWN_OPTIONS = [
   { name: 'hyperv', count: 0 },
 ];
 
-const SUPER_SELECT_OPTIONS = [
-  'Boundary',
-  'Consul',
-  'Packer',
-  'Terraform',
-  'Vault',
-  'Waypoint',
-];
+const SubSectionContent: TemplateOnlyComponent = <template>
+  <ShwTextH2>Content</ShwTextH2>
 
-export default class SubSectionContent extends Component {
-  @tracked superSelectSingleValue: string | undefined = undefined;
-  @tracked superSelectSingleValueLeading: string | undefined = undefined;
-  @tracked superSelectMultipleValues: string[] = [];
-  @tracked superSelectMultipleValuesMiddle: string[] = [];
-  @tracked superSelectMultipleValuesThreeSegment: string[] = [];
+  <ShwTextH3>One segment</ShwTextH3>
 
-  @action setSuperSelectSingleValue(value: string): void {
-    this.superSelectSingleValue = value;
-  }
+  <ShwGrid @columns={{4}} as |SG|>
+    <SG.Item @label="Button only">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input only">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-lone-item" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+  </ShwGrid>
 
-  @action setSuperSelectSingleValueLeading(value: string): void {
-    this.superSelectSingleValueLeading = value;
-  }
+  <ShwDivider @level={{2}} />
 
-  @action setSuperSelectMultipleValues(values: string[]): void {
-    this.superSelectMultipleValues = values;
-  }
+  <ShwTextH3>Two segments</ShwTextH3>
 
-  @action setSuperSelectMultipleValuesMiddle(values: string[]): void {
-    this.superSelectMultipleValuesMiddle = values;
-  }
+  <ShwGrid @columns={{4}} as |SG|>
+    <SG.Item @label="Button trailing">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-button-trailing" />
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Button leading">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.TextInput aria-label="segmented-text-input-button-leading" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Dropdown trailing">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Interactive @href="#">Dropdown Item</D.Interactive>
+        </SGR.Dropdown>
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Dropdown leading">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Interactive @href="#">Dropdown Item</D.Interactive>
+        </SGR.Dropdown>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-leading" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Icon Dropdown trailing">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleIcon @icon="user" @text="user menu" />
+          <D.Title @text="Signed In" />
+          <D.Description @text="email@domain.com" />
+        </SGR.Dropdown>
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Icon Dropdown leading">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleIcon @icon="user" @text="user menu" />
+          <D.Title @text="Signed In" />
+          <D.Description @text="email@domain.com" />
+        </SGR.Dropdown>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-leading" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+  </ShwGrid>
 
-  @action setSuperSelectMultipleValuesThreeSegment(values: string[]): void {
-    this.superSelectMultipleValuesThreeSegment = values;
-  }
+  <ShwDivider @level={{2}} />
 
-  <template>
-    <ShwTextH2>Content</ShwTextH2>
-
-    <ShwTextH3>One segment</ShwTextH3>
-
-    <ShwGrid @columns={{4}} as |SG|>
-      <SG.Item @label="Button only">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Input only">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-text-input-lone-item" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-    </ShwGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Two segments</ShwTextH3>
-
-    <ShwGrid @columns={{4}} as |SG|>
-      <SG.Item @label="Button trailing">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-text-input-button-trailing" />
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Button leading">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.Button @color="secondary" @text="Button" />
-          <SGR.TextInput aria-label="segmented-text-input-button-leading" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Dropdown trailing">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
-          <SGR.Dropdown as |D|>
-            <D.ToggleButton @color="secondary" @text="Dropdown" />
-            <D.Interactive @href="#">Dropdown Item</D.Interactive>
-          </SGR.Dropdown>
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Dropdown leading">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.Dropdown as |D|>
-            <D.ToggleButton @color="secondary" @text="Dropdown" />
-            <D.Interactive @href="#">Dropdown Item</D.Interactive>
-          </SGR.Dropdown>
-          <SGR.TextInput aria-label="segmented-text-input-dropdown-leading" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Icon Dropdown trailing">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
-          <SGR.Dropdown as |D|>
-            <D.ToggleIcon @icon="user" @text="user menu" />
-            <D.Title @text="Signed In" />
-            <D.Description @text="email@domain.com" />
-          </SGR.Dropdown>
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Icon Dropdown leading">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.Dropdown as |D|>
-            <D.ToggleIcon @icon="user" @text="user menu" />
-            <D.Title @text="Signed In" />
-            <D.Description @text="email@domain.com" />
-          </SGR.Dropdown>
-          <SGR.TextInput aria-label="segmented-text-input-dropdown-leading" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-    </ShwGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwGrid @columns={{3}} as |SG|>
-      {{#each TEXT_INPUT_TYPES as |type|}}
-        <SG.Item @label={{capitalize type}}>
-          <HdsSegmentedGroup as |SGR|>
-            <SGR.TextInput
-              @type={{type}}
-              aria-label={{concat "segmented-" type "-input"}}
-            />
-            <SGR.Button @color="secondary" @text="Button" />
-          </HdsSegmentedGroup>
-        </SG.Item>
-      {{/each}}
-
-      <SG.Item @label="Select">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.Select aria-label="segmented-select" as |SEL|>
-            <SEL.Options>
-              <option>Select</option>
-              <option>Another option</option>
-              <option>Yet another one</option>
-            </SEL.Options>
-          </SGR.Select>
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-    </ShwGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Multiple segments</ShwTextH3>
-
-    <ShwGrid @columns={{3}} as |SG|>
-      <SG.Item @label="Input, Button, Button">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-input-button-button" />
-          <SGR.Button @color="secondary" @text="Button" />
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Input, Button, Dropdown">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-input-button-dropdown" />
-          <SGR.Button @color="secondary" @text="Button" />
-          <SGR.Dropdown as |D|>
-            <D.ToggleButton @color="secondary" @text="Dropdown" />
-            <D.Header @hasDivider={{true}}>
-              <HdsFormTextInputBase
-                @type="search"
-                placeholder="Narrow results"
-              />
-            </D.Header>
-            {{#each DROPDOWN_OPTIONS as |option|}}
-              <D.Checkbox
-                name="checkbox-item-dropdown"
-                @count={{option.count}}
-                checked={{option.checked}}
-              >{{option.name}}</D.Checkbox>
-            {{/each}}
-            <D.Footer @hasDivider={{true}}>
-              <HdsButtonSet>
-                <HdsButton @text="Apply" @isFullWidth={{true}} @size="small" />
-                <HdsButton
-                  @text="Cancel"
-                  @color="secondary"
-                  @isFullWidth={{true}}
-                  @size="small"
-                />
-              </HdsButtonSet>
-            </D.Footer>
-          </SGR.Dropdown>
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Input, Dropdown, Button">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-input-dropdown-button" />
-          <SGR.Dropdown as |D|>
-            <D.ToggleButton @color="secondary" @text="Dropdown" />
-            <D.Header @hasDivider={{true}}>
-              <HdsFormTextInputBase
-                @type="search"
-                placeholder="Narrow results"
-              />
-            </D.Header>
-            {{#each DROPDOWN_OPTIONS as |option|}}
-              <D.Checkbox
-                name="checkbox-item-dropdown"
-                @count={{option.count}}
-                checked={{option.checked}}
-              >{{option.name}}</D.Checkbox>
-            {{/each}}
-            <D.Footer @hasDivider={{true}}>
-              <HdsButtonSet>
-                <HdsButton @text="Apply" @isFullWidth={{true}} @size="small" />
-                <HdsButton
-                  @text="Cancel"
-                  @color="secondary"
-                  @isFullWidth={{true}}
-                  @size="small"
-                />
-              </HdsButtonSet>
-            </D.Footer>
-          </SGR.Dropdown>
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Input, Input, Button">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-input-input-button-1" />
-          <SGR.TextInput aria-label="segmented-input-input-button-2" />
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Input, Select, Button">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-input-select-button-1" />
-          <SGR.Select aria-label="segmented-input-select-button-2" as |SEL|>
-            <SEL.Options>
-              <option>Select</option>
-              <option>Another option</option>
-              <option>Yet another one</option>
-            </SEL.Options>
-          </SGR.Select>
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Input, Select, Dropdown">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-input-select-dropdown-1" />
-          <SGR.Select aria-label="segmented-input-select-dropdown-2" as |SEL|>
-            <SEL.Options>
-              <option>Select</option>
-              <option>Another option</option>
-              <option>Yet another one</option>
-            </SEL.Options>
-          </SGR.Select>
-          <SGR.Dropdown as |D|>
-            <D.ToggleButton @color="secondary" @text="Dropdown" />
-            <D.Header @hasDivider={{true}}>
-              <HdsFormTextInputBase
-                @type="search"
-                placeholder="Narrow results"
-              />
-            </D.Header>
-            {{#each DROPDOWN_OPTIONS as |option|}}
-              <D.Checkbox
-                name="checkbox-item-dropdown"
-                @count={{option.count}}
-                checked={{option.checked}}
-              >{{option.name}}</D.Checkbox>
-            {{/each}}
-            <D.Footer @hasDivider={{true}}>
-              <HdsButtonSet>
-                <HdsButton @text="Apply" @isFullWidth={{true}} @size="small" />
-                <HdsButton
-                  @text="Cancel"
-                  @color="secondary"
-                  @isFullWidth={{true}}
-                  @size="small"
-                />
-              </HdsButtonSet>
-            </D.Footer>
-          </SGR.Dropdown>
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Input, Icon Dropdown, Button">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-input-dropdown-button" />
-          <SGR.Dropdown as |D|>
-            <D.ToggleIcon @icon="user" @text="user menu" />
-            <D.Title @text="Signed In" />
-            <D.Description @text="email@domain.com" />
-          </SGR.Dropdown>
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-    </ShwGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Generic</ShwTextH3>
-
-    <ShwGrid @columns={{3}} as |SG|>
-      <SG.Item @label="Trailing">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-text-input-generic-trailing" />
-          <SGR.Generic>
-            <ShwPlaceholder
-              @text="generic content"
-              @width="160"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </SGR.Generic>
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Leading">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.Generic>
-            <ShwPlaceholder
-              @text="generic content"
-              @width="250"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </SGR.Generic>
-          <SGR.Button @color="secondary" @text="Button" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-      <SG.Item @label="Trailing & leading">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.Generic>
-            <ShwPlaceholder
-              @text="generic content"
-              @width="125"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </SGR.Generic>
-          <SGR.Button @color="secondary" @text="Button" />
-          <SGR.Generic>
-            <ShwPlaceholder
-              @text="generic content"
-              @width="125"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </SGR.Generic>
-        </HdsSegmentedGroup>
-      </SG.Item>
-    </ShwGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>SuperSelect</ShwTextH3>
-
-    <ShwGrid @columns={{3}} as |SG|>
-      <SG.Item @label="SuperSelect trailing">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput aria-label="segmented-super-select-single-trailing" />
-          <SGR.SuperSelect
-            @options={{SUPER_SELECT_OPTIONS}}
-            @selected={{this.superSelectSingleValue}}
-            @onChange={{this.setSuperSelectSingleValue}}
-            @placeholder="Select service"
-            @ariaLabel="segmented-super-select-single-trailing-control"
-            as |option|
-          >
-            {{option}}
-          </SGR.SuperSelect>
-        </HdsSegmentedGroup>
-      </SG.Item>
-
-      <SG.Item @label="SuperSelect leading">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.SuperSelect
-            @options={{SUPER_SELECT_OPTIONS}}
-            @selected={{this.superSelectSingleValueLeading}}
-            @onChange={{this.setSuperSelectSingleValueLeading}}
-            @placeholder="Select service"
-            @ariaLabel="segmented-super-select-single-leading-control"
-            as |option|
-          >
-            {{option}}
-          </SGR.SuperSelect>
-          <SGR.Button @color="secondary" @text="Apply" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-
-      <SG.Item @label="SuperSelectMultiple trailing">
+  <ShwGrid @columns={{3}} as |SG|>
+    {{#each TEXT_INPUT_TYPES as |type|}}
+      <SG.Item @label={{capitalize type}}>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput
-            aria-label="segmented-super-select-multiple-trailing"
+            @type={{type}}
+            aria-label={{concat "segmented-" type "-input"}}
           />
-          <SGR.SuperSelectMultiple
-            @options={{SUPER_SELECT_OPTIONS}}
-            @selected={{this.superSelectMultipleValues}}
-            @onChange={{this.setSuperSelectMultipleValues}}
-            @placeholder="Select services"
-            @ariaLabel="segmented-super-select-multiple-trailing-control"
-            as |option|
-          >
-            {{option}}
-          </SGR.SuperSelectMultiple>
-        </HdsSegmentedGroup>
-      </SG.Item>
-
-      <SG.Item @label="SuperSelectMultiple leading">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.SuperSelectMultiple
-            @options={{SUPER_SELECT_OPTIONS}}
-            @selected={{this.superSelectMultipleValuesMiddle}}
-            @onChange={{this.setSuperSelectMultipleValuesMiddle}}
-            @placeholder="Select services"
-            @ariaLabel="segmented-super-select-multiple-leading-control"
-            as |option|
-          >
-            {{option}}
-          </SGR.SuperSelectMultiple>
-          <SGR.Button @color="secondary" @text="Apply" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-
-      <SG.Item @label="Input, SuperSelectMultiple, Button">
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput
-            aria-label="segmented-input-super-select-multiple-button"
-          />
-          <SGR.SuperSelectMultiple
-            @options={{SUPER_SELECT_OPTIONS}}
-            @selected={{this.superSelectMultipleValuesThreeSegment}}
-            @onChange={{this.setSuperSelectMultipleValuesThreeSegment}}
-            @placeholder="Select services"
-            @ariaLabel="segmented-super-select-multiple-middle-control"
-            as |option|
-          >
-            {{option}}
-          </SGR.SuperSelectMultiple>
-          <SGR.Button @color="secondary" @text="Apply" />
-        </HdsSegmentedGroup>
-      </SG.Item>
-    </ShwGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Within a form field</ShwTextH3>
-
-    <HdsFormField @layout="vertical" @isRequired={{true}} as |F|>
-      <F.Label>This is the label</F.Label>
-      <F.HelperText>This is the helper text</F.HelperText>
-      <F.Control>
-        <HdsSegmentedGroup as |SGR|>
-          <SGR.TextInput id={{F.id}} aria-describedby={{F.ariaDescribedBy}} />
           <SGR.Button @color="secondary" @text="Button" />
         </HdsSegmentedGroup>
-      </F.Control>
-      <F.Error>This is the error</F.Error>
-    </HdsFormField>
+      </SG.Item>
+    {{/each}}
 
-    <ShwDivider />
-  </template>
-}
+    <SG.Item @label="Select">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Select aria-label="segmented-select" as |SEL|>
+          <SEL.Options>
+            <option>Select</option>
+            <option>Another option</option>
+            <option>Yet another one</option>
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Multiple segments</ShwTextH3>
+
+  <ShwGrid @columns={{3}} as |SG|>
+    <SG.Item @label="Input, Button, Button">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-button-button" />
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input, Button, Dropdown">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-button-dropdown" />
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Header @hasDivider={{true}}>
+            <HdsFormTextInputBase @type="search" placeholder="Narrow results" />
+          </D.Header>
+          {{#each DROPDOWN_OPTIONS as |option|}}
+            <D.Checkbox
+              name="checkbox-item-dropdown"
+              @count={{option.count}}
+              checked={{option.checked}}
+            >{{option.name}}</D.Checkbox>
+          {{/each}}
+          <D.Footer @hasDivider={{true}}>
+            <HdsButtonSet>
+              <HdsButton @text="Apply" @isFullWidth={{true}} @size="small" />
+              <HdsButton
+                @text="Cancel"
+                @color="secondary"
+                @isFullWidth={{true}}
+                @size="small"
+              />
+            </HdsButtonSet>
+          </D.Footer>
+        </SGR.Dropdown>
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input, Dropdown, Button">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-dropdown-button" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Header @hasDivider={{true}}>
+            <HdsFormTextInputBase @type="search" placeholder="Narrow results" />
+          </D.Header>
+          {{#each DROPDOWN_OPTIONS as |option|}}
+            <D.Checkbox
+              name="checkbox-item-dropdown"
+              @count={{option.count}}
+              checked={{option.checked}}
+            >{{option.name}}</D.Checkbox>
+          {{/each}}
+          <D.Footer @hasDivider={{true}}>
+            <HdsButtonSet>
+              <HdsButton @text="Apply" @isFullWidth={{true}} @size="small" />
+              <HdsButton
+                @text="Cancel"
+                @color="secondary"
+                @isFullWidth={{true}}
+                @size="small"
+              />
+            </HdsButtonSet>
+          </D.Footer>
+        </SGR.Dropdown>
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input, Input, Button">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-input-button-1" />
+        <SGR.TextInput aria-label="segmented-input-input-button-2" />
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input, Select, Button">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-select-button-1" />
+        <SGR.Select aria-label="segmented-input-select-button-2" as |SEL|>
+          <SEL.Options>
+            <option>Select</option>
+            <option>Another option</option>
+            <option>Yet another one</option>
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input, Select, Dropdown">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-select-dropdown-1" />
+        <SGR.Select aria-label="segmented-input-select-dropdown-2" as |SEL|>
+          <SEL.Options>
+            <option>Select</option>
+            <option>Another option</option>
+            <option>Yet another one</option>
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Header @hasDivider={{true}}>
+            <HdsFormTextInputBase @type="search" placeholder="Narrow results" />
+          </D.Header>
+          {{#each DROPDOWN_OPTIONS as |option|}}
+            <D.Checkbox
+              name="checkbox-item-dropdown"
+              @count={{option.count}}
+              checked={{option.checked}}
+            >{{option.name}}</D.Checkbox>
+          {{/each}}
+          <D.Footer @hasDivider={{true}}>
+            <HdsButtonSet>
+              <HdsButton @text="Apply" @isFullWidth={{true}} @size="small" />
+              <HdsButton
+                @text="Cancel"
+                @color="secondary"
+                @isFullWidth={{true}}
+                @size="small"
+              />
+            </HdsButtonSet>
+          </D.Footer>
+        </SGR.Dropdown>
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input, Icon Dropdown, Button">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-dropdown-button" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleIcon @icon="user" @text="user menu" />
+          <D.Title @text="Signed In" />
+          <D.Description @text="email@domain.com" />
+        </SGR.Dropdown>
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Generic</ShwTextH3>
+
+  <ShwGrid @columns={{3}} as |SG|>
+    <SG.Item @label="Trailing">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-generic-trailing" />
+        <SGR.Generic>
+          <ShwPlaceholder
+            @text="generic content"
+            @width="160"
+            @height="36"
+            @background="#e1f5fe"
+          />
+        </SGR.Generic>
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Leading">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Generic>
+          <ShwPlaceholder
+            @text="generic content"
+            @width="250"
+            @height="36"
+            @background="#e1f5fe"
+          />
+        </SGR.Generic>
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Trailing & leading">
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.Generic>
+          <ShwPlaceholder
+            @text="generic content"
+            @width="125"
+            @height="36"
+            @background="#e1f5fe"
+          />
+        </SGR.Generic>
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.Generic>
+          <ShwPlaceholder
+            @text="generic content"
+            @width="125"
+            @height="36"
+            @background="#e1f5fe"
+          />
+        </SGR.Generic>
+      </HdsSegmentedGroup>
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>SuperSelect</ShwTextH3>
+
+  <ShwGrid @columns={{3}} as |SG|>
+    <SG.Item @label="SuperSelect trailing">
+      <CodeFragmentWithSuperSelect @type="single" @position="trailing" />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelect leading">
+      <CodeFragmentWithSuperSelect @type="single" @position="leading" />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple trailing">
+      <CodeFragmentWithSuperSelect @type="multiple" @position="trailing" />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple leading">
+      <CodeFragmentWithSuperSelect @type="multiple" @position="leading" />
+    </SG.Item>
+
+    <SG.Item @label="Input, SuperSelectMultiple, Button">
+      <CodeFragmentWithSuperSelect @type="multiple" @position="middle" />
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Within a form field</ShwTextH3>
+
+  <HdsFormField @layout="vertical" @isRequired={{true}} as |F|>
+    <F.Label>This is the label</F.Label>
+    <F.HelperText>This is the helper text</F.HelperText>
+    <F.Control>
+      <HdsSegmentedGroup as |SGR|>
+        <SGR.TextInput id={{F.id}} aria-describedby={{F.ariaDescribedBy}} />
+        <SGR.Button @color="secondary" @text="Button" />
+      </HdsSegmentedGroup>
+    </F.Control>
+    <F.Error>This is the error</F.Error>
+  </HdsFormField>
+
+  <ShwDivider />
+</template>;
+
+export default SubSectionContent;
