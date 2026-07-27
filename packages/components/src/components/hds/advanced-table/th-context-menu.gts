@@ -14,6 +14,7 @@ import { on } from '@ember/modifier';
 
 import HdsDropdown from '../dropdown/index.gts';
 import hdsT from '../../../helpers/hds-t.ts';
+import { requestAnimationFrameWaiter } from './utils.ts';
 
 import type { HdsDropdownSignature } from '../dropdown/index.gts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.gts';
@@ -22,7 +23,10 @@ import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-hand
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.gts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.gts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
-import type { HdsAdvancedTableNormalizedColumn } from './types.ts';
+import type {
+  HdsAdvancedTableNormalizedColumn,
+  HdsAdvancedTablePixelString,
+} from './types.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
@@ -44,6 +48,9 @@ export interface HdsAdvancedTableThContextMenuSignature {
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onFocusReorderHandle?: () => void;
+    onGetRenderedWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => HdsAdvancedTablePixelString | undefined;
     onMoveColumnToTerminalPosition?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key'],
       position: 'start' | 'end'
@@ -219,20 +226,27 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   private _resetColumnWidth(dropdownCloseCallback: () => void): void {
-    const { column, onColumnResize, onRestoreColumnWidth } = this.args;
+    const { column, onColumnResize, onGetRenderedWidth, onRestoreColumnWidth } =
+      this.args;
 
     if (
-      typeof onRestoreColumnWidth === 'function' &&
-      column.key !== undefined
+      typeof onRestoreColumnWidth !== 'function' ||
+      column.key === undefined
     ) {
-      onRestoreColumnWidth(column.key);
-
-      if (typeof onColumnResize === 'function') {
-        onColumnResize(column.key, column.width);
-      }
-
-      dropdownCloseCallback();
+      return;
     }
+
+    onRestoreColumnWidth(column.key);
+
+    if (typeof onColumnResize === 'function') {
+      // restoring re-flows every flexible column, so the resulting width is only
+      // knowable after the grid has re-laid-out
+      requestAnimationFrameWaiter(() => {
+        onColumnResize(column.key, onGetRenderedWidth?.(column.key));
+      });
+    }
+
+    dropdownCloseCallback();
   }
 
   private _moveColumn() {
@@ -252,7 +266,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     onMoveColumnToTerminalPosition?.(column.key, position);
 
-    requestAnimationFrame(() => {
+    requestAnimationFrameWaiter(() => {
       dropdownCloseCallback?.();
 
       this._toggleElement?.focus();

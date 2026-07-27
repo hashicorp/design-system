@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { hash } from '@ember/helper';
-import { isPixelSize, pixelToNumber } from '../utils.ts';
+import { isPixelSize, measureColumnWidth, pixelToNumber } from '../utils.ts';
 
 import type {
   HdsAdvancedTableNormalizedColumn,
@@ -17,7 +17,7 @@ import type { ModifierLike } from '@glint/template';
 
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
 export const DEFAULT_MIN_WIDTH = '150px';
-export const DEFAULT_MAX_WIDTH = '800px';
+export const SUBPIXEL_TOLERANCE = 0.5;
 
 type HdsAdvancedTableColumnWidth = HdsAdvancedTableNormalizedColumn['width'];
 
@@ -41,12 +41,18 @@ interface HdsAdvancedTableColumnManagerWidthSignature {
       {
         gridTemplateColumns: string;
         syncWidthValues: ModifierLike<HdsAdvancedTableSyncWidthValuesSignature>;
-        applyTransientWidth: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key']
-        ) => void;
+        beginColumnResize: () => void;
+        resizeColumnByDelta: (
+          columnKey: HdsAdvancedTableNormalizedColumn['key'],
+          deltaPx: number
+        ) => number;
+        commitColumnWidths: () => void;
         getAppliedWidth: (
           columnKey: HdsAdvancedTableNormalizedColumn['key']
         ) => HdsAdvancedTableNormalizedColumn['width'];
+        getRenderedWidth: (
+          columnKey: HdsAdvancedTableNormalizedColumn['key']
+        ) => HdsAdvancedTablePixelString | undefined;
         getSiblingColumnKeys: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'] | null
         ) => {
@@ -56,16 +62,6 @@ interface HdsAdvancedTableColumnManagerWidthSignature {
         resetTransientColumnWidths: () => void;
         restoreColumnWidth: (
           columnKey: HdsAdvancedTableNormalizedColumn['key']
-        ) => void;
-        setTransientColumnWidth: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key'],
-          width: `${number}px`,
-          clamped?: boolean
-        ) => void;
-        setTransientColumnWidths: (options: { roundValues?: boolean }) => void;
-        updateResizeDebt: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key'],
-          delta: number
         ) => void;
       },
     ];
@@ -82,7 +78,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     string,
     HdsAdvancedTablePixelString
   >();
-  private _columnDebts = new TrackedMap<string, Record<string, number>>(); // key -> { lenderKey -> amount }
+  private _resizeStartWidths = new TrackedMap<string, number>();
 
   syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(() => {
     const { columns } = this.args;
@@ -99,12 +95,22 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     let style = isSelectable ? 'min-content ' : '';
 
     for (const col of orderedColumns) {
-      const appliedWidth = this.getAppliedWidth(col.key);
-
-      style += ` ${appliedWidth}`;
+      style += ` ${this._getColumnTrackSize(col)}`;
     }
 
     return style;
+  }
+
+  private _getColumnTrackSize(col: HdsAdvancedTableNormalizedColumn): string {
+    const appliedWidth = this.getAppliedWidth(col.key) ?? DEFAULT_WIDTH;
+
+    if (this._parseFrMultiplier(appliedWidth) !== undefined) {
+      const minWidth = col.minWidth ?? DEFAULT_MIN_WIDTH;
+
+      return `minmax(${minWidth}, ${appliedWidth})`;
+    }
+
+    return appliedWidth;
   }
 
   getAppliedWidth = (
@@ -156,279 +162,210 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     }
   }
 
-  private _getPxMinWidth(key: string): number {
-    const column = this.args.getColumnByKey(key);
+  private _colMinPx(
+    column: HdsAdvancedTableNormalizedColumn | undefined
+  ): number {
     const minWidth = column?.minWidth ?? DEFAULT_MIN_WIDTH;
 
     return isPixelSize(minWidth) ? pixelToNumber(minWidth) : 0;
   }
 
-  applyTransientWidth = (
-    columnKey: HdsAdvancedTableNormalizedColumn['key']
-  ) => {
-    if (columnKey == undefined) {
-      return;
+  private _colMaxPx(
+    column: HdsAdvancedTableNormalizedColumn | undefined
+  ): number {
+    const maxWidth = column?.maxWidth;
+
+    return maxWidth !== undefined && isPixelSize(maxWidth)
+      ? pixelToNumber(maxWidth)
+      : Infinity;
+  }
+
+  beginColumnResize = (): void => {
+    this._resizeStartWidths.clear();
+
+    for (const key of this.args.columnOrder) {
+      const pixelWidth = this._getPxWidth(key);
+
+      this._resizeStartWidths.set(key, pixelWidth);
+      this._transientColumnWidths.set(key, `${pixelWidth}px`);
     }
-
-    const transientWidth = this._transientColumnWidths.get(columnKey);
-
-    this._columnWidths.set(columnKey, transientWidth);
   };
 
-  setTransientColumnWidths = (
-    options: { roundValues?: boolean } = {}
-  ): void => {
-    const roundValues = options.roundValues ?? false;
+  private _distributeWidthChange(keys: string[], amount: number): void {
+    let remaining = amount;
 
-    this._columnWidths.forEach((width, key) => {
-      let _width: number;
+    for (const key of keys) {
+      const start = this._resizeStartWidths.get(key) ?? 0;
+      const column = this.args.getColumnByKey(key);
+      let applied = 0;
 
-      if (width !== undefined && isPixelSize(width)) {
-        _width = pixelToNumber(width as `${number}px`);
-      } else {
-        _width = this.args.thElements.get(key)?.offsetWidth ?? 0;
+      if (remaining > 0) {
+        applied = Math.min(
+          remaining,
+          Math.max(0, this._colMaxPx(column) - start)
+        );
+      } else if (remaining < 0) {
+        applied = -Math.min(
+          -remaining,
+          Math.max(0, start - this._colMinPx(column))
+        );
       }
 
-      this._transientColumnWidths.set(
-        key,
-        `${roundValues ? Math.round(_width) : _width}px`
+      this._transientColumnWidths.set(key, `${start + applied}px`);
+      remaining -= applied;
+    }
+  }
+
+  private _distributableCapacity(keys: string[], grow: boolean): number {
+    return keys.reduce((sum, key) => {
+      const start = this._resizeStartWidths.get(key) ?? 0;
+      const column = this.args.getColumnByKey(key);
+
+      return (
+        sum +
+        (grow
+          ? Math.max(0, this._colMaxPx(column) - start)
+          : Math.max(0, start - this._colMinPx(column)))
       );
-    });
+    }, 0);
+  }
+
+  resizeColumnByDelta = (
+    columnKey: HdsAdvancedTableNormalizedColumn['key'],
+    deltaPx: number
+  ): number => {
+    const order = this.args.columnOrder;
+    const index = order.indexOf(columnKey);
+
+    if (index === -1) {
+      return 0;
+    }
+
+    const draggedKeys = [columnKey];
+    // nearest-to-boundary first, so the cascade grows outward
+    const rightKeys = order.slice(index + 1);
+
+    let actualDelta: number;
+
+    if (deltaPx > 0) {
+      const capacity = Math.min(
+        this._distributableCapacity(draggedKeys, true),
+        this._distributableCapacity(rightKeys, false)
+      );
+
+      actualDelta = Math.max(0, Math.min(deltaPx, capacity));
+    } else if (deltaPx < 0) {
+      const capacity = Math.min(
+        this._distributableCapacity(draggedKeys, false),
+        this._distributableCapacity(rightKeys, true)
+      );
+
+      actualDelta = Math.min(0, -Math.min(-deltaPx, capacity));
+    } else {
+      actualDelta = 0;
+    }
+
+    this._distributeWidthChange(draggedKeys, actualDelta);
+    this._distributeWidthChange(rightKeys, -actualDelta);
+
+    return actualDelta;
   };
+
+  commitColumnWidths = (): void => {
+    const entries = this.args.columns.map((column) => {
+      const startPixelWidth = this._resizeStartWidths.get(column.key);
+      const transientWidth = this._transientColumnWidths.get(column.key);
+      const pixelWidth =
+        transientWidth !== undefined
+          ? pixelToNumber(transientWidth)
+          : this._getPxWidth(column.key);
+
+      return {
+        key: column.key,
+        pixelWidth,
+        startPixelWidth: startPixelWidth ?? pixelWidth,
+        frMultiplier: this._parseFrMultiplier(
+          this._columnWidths.get(column.key) ?? DEFAULT_WIDTH
+        ),
+        hasMoved:
+          startPixelWidth !== undefined &&
+          Math.abs(pixelWidth - startPixelWidth) > SUBPIXEL_TOLERANCE,
+      };
+    });
+
+    const pxPerFrUnit = this._resolvePxPerFrUnit(entries);
+
+    for (const entry of entries) {
+      if (!entry.hasMoved) {
+        continue;
+      }
+
+      if (entry.frMultiplier !== undefined && pxPerFrUnit > 0) {
+        // 6 decimals keeps the committed track within a thousandth of a pixel of
+        // the transient one, so there is no visible jump when the gesture ends
+        const weight = Math.round((entry.pixelWidth / pxPerFrUnit) * 1e6) / 1e6;
+
+        this._columnWidths.set(entry.key, `${weight}fr`);
+      } else {
+        this._columnWidths.set(entry.key, `${Math.round(entry.pixelWidth)}px`);
+      }
+    }
+  };
+
+  private _resolvePxPerFrUnit(
+    entries: {
+      pixelWidth: number;
+      startPixelWidth: number;
+      frMultiplier: number | undefined;
+      hasMoved: boolean;
+    }[]
+  ): number {
+    const flexible = entries.filter(
+      (entry) => entry.frMultiplier !== undefined && entry.frMultiplier > 0
+    );
+
+    const anchor = flexible.find((entry) => !entry.hasMoved);
+
+    if (anchor !== undefined) {
+      return anchor.startPixelWidth / (anchor.frMultiplier ?? 1);
+    }
+
+    const totalWeight = flexible.reduce(
+      (sum, entry) => sum + (entry.frMultiplier ?? 0),
+      0
+    );
+    const totalPixels = flexible.reduce(
+      (sum, entry) => sum + entry.pixelWidth,
+      0
+    );
+
+    return totalWeight > 0 ? totalPixels / totalWeight : 0;
+  }
 
   resetTransientColumnWidths = (): void => {
     this._transientColumnWidths.clear();
   };
 
-  setTransientColumnWidth = (
-    columnKey: HdsAdvancedTableNormalizedColumn['key'],
-    width: `${number}px`,
-    clamped: boolean = true
-  ): void => {
-    const column = this.args.getColumnByKey(columnKey);
-
-    if (column === undefined) {
-      return;
-    }
-
-    if (clamped) {
-      const { minWidth, maxWidth } = column;
-
-      const minWidthInPixels =
-        minWidth === undefined ? 1 : pixelToNumber(minWidth);
-      const maxWidthInPixels =
-        maxWidth === undefined ? Infinity : pixelToNumber(maxWidth);
-
-      const transientColumnWidthInPixels = Math.min(
-        Math.max(pixelToNumber(width), minWidthInPixels),
-        maxWidthInPixels
-      );
-
-      this._transientColumnWidths.set(
-        columnKey,
-        `${transientColumnWidthInPixels}px`
-      );
-    } else {
-      this._transientColumnWidths.set(columnKey, width);
-    }
-  };
-
-  updateResizeDebt = (
-    columnKey: HdsAdvancedTableNormalizedColumn['key'],
-    delta: number
-  ): void => {
-    if (delta === 0) {
-      return;
-    }
-
-    const { next: nextColumnKey } = this.getSiblingColumnKeys(columnKey);
-
-    if (nextColumnKey === undefined) {
-      return;
-    }
-
-    // determine borrower and lender
-    const borrowerKey = delta > 0 ? columnKey : nextColumnKey;
-    const lenderKey = delta > 0 ? nextColumnKey : columnKey;
-    let amount = Math.abs(delta);
-
-    // check if lender has existing debt to borrower
-    const lenderDebts = this._columnDebts.get(lenderKey) ?? {};
-    const existingDebt = lenderDebts[borrowerKey] ?? 0;
-
-    if (existingDebt > 0) {
-      const paymentAmount = Math.min(amount, existingDebt);
-      const newDebt = existingDebt - paymentAmount;
-
-      const updatedDebts = { ...lenderDebts };
-
-      if (newDebt <= 0) {
-        delete updatedDebts[borrowerKey];
-      } else {
-        updatedDebts[borrowerKey] = newDebt;
-      }
-
-      this._columnDebts.set(lenderKey, updatedDebts);
-
-      amount = amount - paymentAmount;
-    }
-
-    // if amount remains, create new debt
-    if (amount > 0) {
-      const borrowerDebts = this._columnDebts.get(borrowerKey) ?? {};
-
-      this._columnDebts.set(borrowerKey, {
-        ...borrowerDebts,
-        [lenderKey]: (borrowerDebts[lenderKey] ?? 0) + amount,
-      });
-    }
-  };
-
-  // restores a column to its original width, settling all debts first
   restoreColumnWidth = (
     columnKey: HdsAdvancedTableNormalizedColumn['key']
   ): void => {
-    // settle debts (collect from debtors, pay lenders)
-    this._settleWidthDebts(columnKey);
+    const originalWidth =
+      this._originalColumnWidths.get(columnKey) ?? DEFAULT_WIDTH;
 
-    // restore original width
-    const originalWidth = this._originalColumnWidths.get(columnKey);
-
-    if (originalWidth) {
-      this._columnWidths.set(columnKey, originalWidth);
-      this._transientColumnWidths.delete(columnKey);
-    }
+    this._transientColumnWidths.delete(columnKey);
+    this._columnWidths.set(columnKey, originalWidth);
   };
 
-  private _settleWidthDebts(key: string): void {
-    this._collectWidthDebts(key);
-    this._payWidthDebts(key);
-  }
+  getRenderedWidth = (
+    columnKey: HdsAdvancedTableNormalizedColumn['key']
+  ): HdsAdvancedTablePixelString | undefined => {
+    return measureColumnWidth(this.args.thElements.get(columnKey));
+  };
 
-  private _collectWidthDebts(collectorKey: string): void {
-    // iterate over all known columns to see if they owe the collector
-    this.args.columnOrder.forEach((debtorKey) => {
-      if (debtorKey === collectorKey) {
-        return;
-      }
+  private _parseFrMultiplier(value: string): number | undefined {
+    const match = /^(-?\d+(?:\.\d+)?)fr$/.exec(value);
 
-      const debtorDebts = this._columnDebts.get(debtorKey);
-      const debtToCollect = debtorDebts?.[collectorKey] ?? 0;
-
-      if (debtToCollect <= 0) {
-        return;
-      }
-
-      // attempt to source funds from the debtor
-      const amountPaid = this._sourceFundsForPayment(debtorKey, debtToCollect);
-
-      if (amountPaid > 0) {
-        // add funds to collector
-        const currentCollectorWidth = this._getPxWidth(collectorKey);
-
-        this._columnWidths.set(
-          collectorKey,
-          `${currentCollectorWidth + amountPaid}px`
-        );
-        this._transientColumnWidths.delete(collectorKey);
-
-        // update debtors ledger
-        const remainingDebt = debtToCollect - amountPaid;
-        const currentDebts = this._columnDebts.get(debtorKey) ?? {};
-        const updatedDebts = { ...currentDebts };
-
-        if (remainingDebt > 0) {
-          updatedDebts[collectorKey] = remainingDebt;
-        } else {
-          delete updatedDebts[collectorKey];
-        }
-
-        this._columnDebts.set(debtorKey, updatedDebts);
-      }
-    });
-  }
-
-  private _payWidthDebts(payerKey: string): void {
-    const debts = this._columnDebts.get(payerKey);
-
-    if (debts === undefined) {
-      return;
-    }
-
-    Object.entries(debts).forEach(([lenderKey, amount]) => {
-      // give width back to lender
-      const currentLenderWidth = this._getPxWidth(lenderKey);
-
-      this._columnWidths.set(lenderKey, `${currentLenderWidth + amount}px`);
-      this._transientColumnWidths.delete(lenderKey);
-    });
-
-    // lear payers debts
-    this._columnDebts.delete(payerKey);
-  }
-
-  private _sourceFundsForPayment(key: string, amountNeeded: number): number {
-    let fundsSourced = 0;
-
-    // preferentially source width from our own surplus first
-    const currentWidth = this._getPxWidth(key);
-    const minWidth = this._getPxMinWidth(key);
-    const surplus = Math.max(0, currentWidth - minWidth);
-    const paymentFromSurplus = Math.min(amountNeeded, surplus);
-
-    if (paymentFromSurplus > 0) {
-      this._columnWidths.set(key, `${currentWidth - paymentFromSurplus}px`);
-      this._transientColumnWidths.delete(key);
-
-      fundsSourced = fundsSourced + paymentFromSurplus;
-    }
-
-    // if shortfall, source from our debtors (recursive)
-    const shortfall = amountNeeded - fundsSourced;
-
-    if (shortfall > 0) {
-      // find who owes this column (key)
-      const ourDebtors = this.args.columnOrder.filter((debtorKey) => {
-        const debtorDebts = this._columnDebts.get(debtorKey);
-
-        return debtorDebts && debtorDebts[key] && debtorDebts[key] > 0;
-      });
-
-      for (const subDebtorKey of ourDebtors) {
-        const amountStillNeeded = amountNeeded - fundsSourced;
-
-        if (amountStillNeeded <= 0) {
-          break;
-        }
-
-        const subDebtorDebts = this._columnDebts.get(subDebtorKey)!;
-        const subDebtOwed = subDebtorDebts[key] ?? 0;
-        const amountToRequest = Math.min(amountStillNeeded, subDebtOwed);
-
-        const collectedFromSubDebtor = this._sourceFundsForPayment(
-          subDebtorKey,
-          amountToRequest
-        );
-
-        if (collectedFromSubDebtor > 0) {
-          fundsSourced = fundsSourced + collectedFromSubDebtor;
-
-          // update sub-debtor ledger
-          const remaining = subDebtOwed - collectedFromSubDebtor;
-          const updatedSubDebts = { ...subDebtorDebts };
-
-          if (remaining > 0) {
-            updatedSubDebts[key] = remaining;
-          } else {
-            delete updatedSubDebts[key];
-          }
-
-          this._columnDebts.set(subDebtorKey, updatedSubDebts);
-        }
-      }
-    }
-
-    return fundsSourced;
+    return match ? Number(match[1]) : undefined;
   }
 
   <template>
@@ -436,14 +373,14 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       (hash
         gridTemplateColumns=this.gridTemplateColumns
         syncWidthValues=this.syncWidthValues
-        applyTransientWidth=this.applyTransientWidth
+        beginColumnResize=this.beginColumnResize
+        resizeColumnByDelta=this.resizeColumnByDelta
+        commitColumnWidths=this.commitColumnWidths
         getAppliedWidth=this.getAppliedWidth
         getSiblingColumnKeys=this.getSiblingColumnKeys
+        getRenderedWidth=this.getRenderedWidth
         restoreColumnWidth=this.restoreColumnWidth
-        setTransientColumnWidths=this.setTransientColumnWidths
-        setTransientColumnWidth=this.setTransientColumnWidth
         resetTransientColumnWidths=this.resetTransientColumnWidths
-        updateResizeDebt=this.updateResizeDebt
       )
     }}
   </template>

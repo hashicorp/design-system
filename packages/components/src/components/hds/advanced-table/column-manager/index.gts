@@ -20,6 +20,7 @@ import type {
   HdsAdvancedTableColumn,
   HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
+  HdsAdvancedTablePixelString,
 } from '../types.ts';
 import type { HdsAdvancedTableSignature } from '../index.gts';
 
@@ -56,15 +57,17 @@ export interface HdsAdvancedTableColumnManagerSignature {
         syncColumnOrder: ModifierLike<HdsAdvancedTableSyncColumnOrderSignature>;
         syncThElements: ModifierLike<HdsAdvancedTableSyncThElementsSignature>;
         syncWidthValues: ModifierLike<HdsAdvancedTableSyncWidthValuesSignature>;
-        applyTransientWidth: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key']
-        ) => void;
+        beginColumnResize: () => void;
+        commitColumnWidths: () => void;
         getAppliedWidth: (
           columnKey: HdsAdvancedTableNormalizedColumn['key']
         ) => HdsAdvancedTableNormalizedColumn['width'];
         getColumnByKey: (
           columnKey: HdsAdvancedTableNormalizedColumn['key']
         ) => HdsAdvancedTableNormalizedColumn | undefined;
+        getRenderedWidth: (
+          columnKey: HdsAdvancedTableNormalizedColumn['key']
+        ) => HdsAdvancedTablePixelString | undefined;
         getSiblingColumnKeys: (
           columnKey: HdsAdvancedTableNormalizedColumn['key']
         ) => {
@@ -84,6 +87,10 @@ export interface HdsAdvancedTableColumnManagerSignature {
           columnKey: HdsAdvancedTableNormalizedColumn['key'],
           position: 'start' | 'end'
         ) => void;
+        resizeColumnByDelta: (
+          columnKey: HdsAdvancedTableNormalizedColumn['key'],
+          deltaPx: number
+        ) => number;
         restoreColumnWidth: (
           columnKey: HdsAdvancedTableNormalizedColumn['key']
         ) => void;
@@ -93,20 +100,10 @@ export interface HdsAdvancedTableColumnManagerSignature {
         setReorderHoveredColumnKey: (
           key: HdsAdvancedTableNormalizedColumn['key'] | null
         ) => void;
-        setTransientColumnWidths: (options: { roundValues?: boolean }) => void;
-        setTransientColumnWidth: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key'],
-          width: `${number}px`,
-          clamped?: boolean
-        ) => void;
         resetTransientColumnWidths: () => void;
         stepColumn: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'],
           step: number
-        ) => void;
-        updateResizeDebt: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key'],
-          delta: number
         ) => void;
       },
     ];
@@ -176,22 +173,22 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
             syncColumnOrder=Order.syncColumnOrder
             syncThElements=this.syncThElements
             syncWidthValues=Width.syncWidthValues
-            applyTransientWidth=Width.applyTransientWidth
+            beginColumnResize=Width.beginColumnResize
+            resizeColumnByDelta=Width.resizeColumnByDelta
+            commitColumnWidths=Width.commitColumnWidths
             getAppliedWidth=Width.getAppliedWidth
             getColumnByKey=this.getColumnByKey
             getSiblingColumnKeys=Width.getSiblingColumnKeys
+            getRenderedWidth=Width.getRenderedWidth
             reorderHoveredColumnKey=Order.reorderHoveredColumnKey
             restoreColumnWidth=Width.restoreColumnWidth
             moveColumnToDropTarget=Order.moveColumnToDropTarget
             moveColumnToTarget=Order.moveColumnToTarget
             moveColumnToTerminalPosition=Order.moveColumnToTerminalPosition
-            setTransientColumnWidths=Width.setTransientColumnWidths
-            setTransientColumnWidth=Width.setTransientColumnWidth
             resetTransientColumnWidths=Width.resetTransientColumnWidths
             stepColumn=Order.stepColumn
             setDraggedColumnKey=Order.setDraggedColumnKey
             setReorderHoveredColumnKey=Order.setReorderHoveredColumnKey
-            updateResizeDebt=Width.updateResizeDebt
           )
         }}
       </HdsAdvancedTableColumnManagerWidth>

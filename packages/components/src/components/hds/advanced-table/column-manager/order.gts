@@ -12,6 +12,7 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { HdsAdvancedTableColumnReorderSideValues } from '../types.ts';
+import { requestAnimationFrameWaiter } from '../utils.ts';
 
 import type {
   HdsAdvancedTableColumnReorderCallback,
@@ -298,7 +299,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
       this.columnOrder = updated;
 
       // we need to wait until the reposition has finished
-      requestAnimationFrame(() => {
+      requestAnimationFrameWaiter(() => {
         const thElement = this.args.thElements.get(sourceColumnKey);
 
         if (thElement === undefined) {

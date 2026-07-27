@@ -45,6 +45,7 @@ import type {
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
+  HdsAdvancedTableColumnResizeCallback,
   HdsAdvancedTableModel,
 } from './types.ts';
 
@@ -185,7 +186,7 @@ export interface HdsAdvancedTableSignature<T = HdsAdvancedTableModel> {
     childrenKey?: string;
     maxHeight?: string;
     onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
-    onColumnResize?: (columnKey: string, newWidth?: string) => void;
+    onColumnResize?: HdsAdvancedTableColumnResizeCallback;
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
     ) => void;
@@ -1076,7 +1077,6 @@ export default class HdsAdvancedTable<
                         CM.draggedColumnKey
                         (CM.getSiblingColumnKeys CM.draggedColumnKey)
                       }}
-                      @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
                       @tableHeight={{this._tableHeight}}
                       @tooltip={{column.tooltip}}
                       @hasExpandAllButton={{this.hasRowsWithChildren}}
@@ -1086,26 +1086,25 @@ export default class HdsAdvancedTable<
                         (eq column.key this.currentSortBy)
                         this.currentSortOrder
                       }}
-                      @onApplyTransientWidth={{CM.applyTransientWidth}}
+                      @onBeginColumnResize={{CM.beginColumnResize}}
                       @onClickSort={{if
                         column.isSortable
                         (fn this.setSortBy column.key)
                       }}
                       @onClickToggle={{this.toggleExpandAll}}
                       @onColumnResize={{@onColumnResize}}
+                      @onCommitColumnWidths={{CM.commitColumnWidths}}
                       @onGetAppliedWidth={{CM.getAppliedWidth}}
-                      @onGetColumnByKey={{CM.getColumnByKey}}
+                      @onGetRenderedWidth={{CM.getRenderedWidth}}
                       @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
                       @onPinFirstColumn={{this._onPinFirstColumn}}
                       @onReorderDrop={{CM.moveColumnToDropTarget}}
-                      @onRestoreColumnWidth={{CM.restoreColumnWidth}}
                       @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
+                      @onResizeColumnByDelta={{CM.resizeColumnByDelta}}
+                      @onRestoreColumnWidth={{CM.restoreColumnWidth}}
                       @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
                       @onSetReorderHoveredColumnKey={{CM.setReorderHoveredColumnKey}}
-                      @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
-                      @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
                       @onStepColumn={{CM.stepColumn}}
-                      @onUpdateResizeDebt={{CM.updateResizeDebt}}
                       {{CM.syncThElements column.key}}
                     >
                       {{column.label}}

@@ -98,6 +98,8 @@ export default class SubSectionsBaseElements extends Component {
     ];
   }
 
+  returnZero = () => 0;
+
   mockIndeterminateState = (checkbox: HTMLInputElement) => {
     checkbox.indeterminate = true;
   };
@@ -1204,13 +1206,10 @@ export default class SubSectionsBaseElements extends Component {
                     <HdsAdvancedTableThResizeHandle
                       mock-state-value={{state}}
                       @column={{get this.columns 0}}
-                      @onApplyTransientWidth={{NOOP}}
-                      @onGetAppliedWidth={{this.returnString}}
-                      @onGetColumnByKey={{this.returnUndefined}}
-                      @onSetTransientColumnWidth={{NOOP}}
-                      @onSetTransientColumnWidths={{NOOP}}
+                      @onBeginColumnResize={{NOOP}}
+                      @onResizeColumnByDelta={{this.returnZero}}
+                      @onCommitColumnWidths={{NOOP}}
                       @onResetTransientColumnWidths={{NOOP}}
-                      @onUpdateResizeDebt={{NOOP}}
                       aria-valuenow="200"
                     />
                   </HdsLayoutFlex>
