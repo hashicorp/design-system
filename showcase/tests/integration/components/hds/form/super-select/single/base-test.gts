@@ -21,15 +21,10 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
         <template>
-          <HdsFormSuperSelectSingleBase
-            @onChange={{NOOP}}
-            id="test-super-select-single"
-          />
+          <HdsFormSuperSelectSingleBase @onChange={{NOOP}} />
         </template>,
       );
-      assert
-        .dom('#test-super-select-single')
-        .hasClass('hds-form-super-select-single');
+      assert.dom('.hds-form-super-select-single').exists();
     });
 
     // OPTIONS

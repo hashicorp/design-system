@@ -23,15 +23,10 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
         <template>
-          <HdsFormSuperSelectMultipleBase
-            @onChange={{NOOP}}
-            id="test-super-select-multiple"
-          />
+          <HdsFormSuperSelectMultipleBase @onChange={{NOOP}} />
         </template>,
       );
-      assert
-        .dom('#test-super-select-multiple')
-        .hasClass('hds-form-super-select-multiple');
+      assert.dom('.hds-form-super-select-multiple').exists();
     });
 
     // OPTIONS

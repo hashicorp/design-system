@@ -40,7 +40,7 @@ export interface HdsFormSuperSelectMultipleBaseSignature {
     isInvalid?: boolean;
   };
   Blocks: PowerSelectSignature['Blocks'];
-  Element: HTMLDivElement;
+  Element: PowerSelectSignature['Element'];
 }
 
 export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSuperSelectMultipleBaseSignature> {
@@ -184,7 +184,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
 
   <template>
     {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
-    <div class={{this.classNames}} {{style this.styles}} ...attributes>
+    <div class={{this.classNames}} {{style this.styles}}>
       <PowerSelect
         tabindex="0"
         @afterOptionsComponent={{if
@@ -258,6 +258,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         @triggerRole={{@triggerRole}}
         @typeAheadOptionMatcher={{@typeAheadOptionMatcher}}
         @verticalPosition={{@verticalPosition}}
+        ...attributes
         as |option select|
       >
         {{! even if technically what is yielded here are _a list_ of options, we've decided to keep the option name for consistency with the existing PowerSelect API }}
