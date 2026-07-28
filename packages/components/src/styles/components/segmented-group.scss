@@ -19,10 +19,19 @@
     margin-top: 4px;
   }
 
-  // Unsure if this was needed or not to fix the layout of Health Status when superSelectMultiple is being used.
-  //> .hds-form-super-select {
-   // width: auto;
-  //}
+  // `.hds-form-super-select` has `width: 100%` globally, which causes the trigger to expand to
+  // fill the segmented group and inflate its height. Setting `width: auto` here restores intrinsic
+  // sizing so the trigger matches the Dropdown toggle button in height.
+  // The dropdown panel (rendered in-place as a sibling inside `.ember-basic-dropdown`) would also
+  // collapse to `auto` width, so we explicitly give it `width: max-content` to let it size to its
+  // content instead of being constrained by the trigger width.
+  > .hds-form-super-select {
+    width: auto;
+
+    .ember-basic-dropdown-content--in-place {
+      width: max-content;
+    }
+  }
 
   > .hds-button,
   > .hds-dropdown,
