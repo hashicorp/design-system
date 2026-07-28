@@ -398,7 +398,12 @@ const SubSectionToggles: TemplateOnlyComponent = <template>
         </SG.Item>
       {{/each}}
       <SG.Item @label="Icon+chevron">
-        <HdsDropdownToggleIcon @icon="user" @text="open" @isOpen={{true}} />
+        <HdsDropdownToggleIcon
+          @icon="user"
+          @text="open"
+          @color={{color}}
+          @isOpen={{true}}
+        />
       </SG.Item>
 
       {{#each STATES as |state|}}

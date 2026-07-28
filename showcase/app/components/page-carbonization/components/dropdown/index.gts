@@ -42,7 +42,14 @@ import {
   HdsFormTextInputBase,
 } from '@hashicorp/design-system-components/components';
 
-const TOGGLE_STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
+const TOGGLE_STATES = [
+  'default',
+  'hover',
+  'active',
+  'focus',
+  'disabled',
+  'open',
+];
 const ITEM_STATES = ['default', 'hover', 'focus', 'active'];
 const GENERIC_ITEMS = ['1', '2', '3'];
 const ORGANIZATIONS = ['Organization A', 'Organization B', 'Organization C'];
@@ -50,13 +57,13 @@ const ORGANIZATIONS = ['Organization A', 'Organization B', 'Organization C'];
 import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
 
 import {
-  COLORS as BUTTON_COLORS,
-  SIZES as BUTTON_SIZES,
+  COLORS as TOGGLE_BUTTION_COLORS,
+  SIZES as TOGGLE_BUTTION_SIZES,
 } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/button';
 
 import {
-  COLORS as ICON_COLORS,
-  SIZES as ICON_SIZES,
+  COLORS as TOGGLE_ICON_COLORS,
+  SIZES as TOGGLE_ICON_SIZES,
 } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/icon';
 
 const CARBON_SIZES = ['xs', 'sm', 'md'] as const;
@@ -203,9 +210,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid @layout="side-by-side">
       <:theming>
-        {{#each BUTTON_COLORS as |color|}}
+        {{#each TOGGLE_BUTTION_COLORS as |color|}}
           <ShwFlex @direction="column" as |SF|>
-            {{#each BUTTON_SIZES as |size|}}
+            {{#each TOGGLE_BUTTION_SIZES as |size|}}
               <SF.Item>
                 <HdsDropdownToggleButton
                   @color={{color}}
@@ -238,9 +245,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid @layout="side-by-side">
       <:theming>
-        {{#each BUTTON_COLORS as |color|}}
+        {{#each TOGGLE_BUTTION_COLORS as |color|}}
           <ShwFlex @direction="column" as |SF|>
-            {{#each BUTTON_SIZES as |size|}}
+            {{#each TOGGLE_BUTTION_SIZES as |size|}}
               <SF.Item>
                 <ShwFlex @direction="column" as |SF|>
                   <SF.Item>
@@ -278,7 +285,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid @layout="side-by-side">
       <:theming>
-        {{#each BUTTON_COLORS as |color|}}
+        {{#each TOGGLE_BUTTION_COLORS as |color|}}
           <ShwFlex @direction="column" as |SF|>
             <SF.Item>
               <ShwOutliner {{style width="300px"}}>
@@ -325,9 +332,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid @layout="side-by-side">
       <:theming>
-        {{#each ICON_COLORS as |color|}}
+        {{#each TOGGLE_ICON_COLORS as |color|}}
           <ShwFlex as |SF|>
-            {{#each ICON_SIZES as |size|}}
+            {{#each TOGGLE_ICON_SIZES as |size|}}
               <SF.Item>
                 <HdsDropdownToggleIcon
                   @icon="user"
@@ -340,9 +347,9 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
           </ShwFlex>
         {{/each}}
 
-        {{#each ICON_COLORS as |color|}}
+        {{#each TOGGLE_ICON_COLORS as |color|}}
           <ShwFlex as |SF|>
-            {{#each ICON_SIZES as |size|}}
+            {{#each TOGGLE_ICON_SIZES as |size|}}
               <SF.Item>
                 <HdsDropdownToggleIcon
                   @imageSrc="/assets/images/avatar.png"
@@ -372,7 +379,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwTextH3>Toggle states</ShwTextH3>
 
     <ShwTextH4>Text Toggle states</ShwTextH4>
-    {{#each BUTTON_COLORS as |color|}}
+    {{#each TOGGLE_BUTTION_COLORS as |color|}}
       <ShwTextBody>{{capitalize color}}</ShwTextBody>
       {{#each TOGGLE_STATES as |state|}}
         <ShwCarbonizationComparisonGrid
@@ -392,6 +399,16 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                     @badgeIcon="hexagon"
                     @color={{color}}
                     disabled
+                  />
+                {{else if (eq state "open")}}
+                  <HdsDropdownToggleButton
+                    @text="Tgl"
+                    @icon="hexagon"
+                    @count="1"
+                    @badge="Bdg"
+                    @badgeIcon="hexagon"
+                    @color={{color}}
+                    @isOpen={{true}}
                   />
                 {{else}}
                   <HdsDropdownToggleButton
@@ -416,7 +433,7 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH4>Icon/Image Toggle states</ShwTextH4>
 
-    {{#each ICON_COLORS as |color|}}
+    {{#each TOGGLE_ICON_COLORS as |color|}}
       <ShwTextBody>{{capitalize color}}</ShwTextBody>
 
       {{#each TOGGLE_STATES as |state|}}
@@ -451,6 +468,32 @@ const DropdownCarbonizationIndex: TemplateOnlyComponent = <template>
                     @imageSrc="/assets/images/avatar.png"
                     @color={{color}}
                     disabled
+                  />
+                </SF.Item>
+              {{else if (eq state "open")}}
+                <SF.Item>
+                  <HdsDropdownToggleIcon
+                    @icon="more-horizontal"
+                    @text="overflow menu"
+                    @hasChevron={{false}}
+                    @color={{color}}
+                    @isOpen={{true}}
+                  />
+                </SF.Item>
+                <SF.Item>
+                  <HdsDropdownToggleIcon
+                    @icon="user"
+                    @text="user menu"
+                    @color={{color}}
+                    @isOpen={{true}}
+                  />
+                </SF.Item>
+                <SF.Item>
+                  <HdsDropdownToggleIcon
+                    @text={{state}}
+                    @imageSrc="/assets/images/avatar.png"
+                    @color={{color}}
+                    @isOpen={{true}}
                   />
                 </SF.Item>
               {{else}}
