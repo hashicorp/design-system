@@ -311,6 +311,20 @@
         "$value": "14",
         "unit": "px"
       }
+    },
+    "visibility-toggle": {
+      "button-size": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px",
+        "$modes": {
+          "default": "24",
+          "cds-g0": "40",
+          "cds-g10": "40",
+          "cds-g90": "40",
+          "cds-g100": "40"
+        }
+      }
     }
   }
 }
