@@ -59,7 +59,11 @@
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
   &:disabled,
-  &.mock-disabled {
+  &.mock-disabled,
+  &:disabled:hover,
+  &.mock-disabled:hover,
+  &:disabled:focus,
+  &.mock-disabled:focus {
     @include hds-button-state-disabled();
   }
 }

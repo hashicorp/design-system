@@ -5447,7 +5447,7 @@ button.hds-button[href]::after {
   border-radius: var(--hds-button-border-radius);
   isolation: isolate;
 }
-.hds-dropdown-toggle-icon:disabled, .hds-dropdown-toggle-icon.mock-disabled {
+.hds-dropdown-toggle-icon:disabled, .hds-dropdown-toggle-icon.mock-disabled, .hds-dropdown-toggle-icon:disabled:hover, .hds-dropdown-toggle-icon.mock-disabled:hover, .hds-dropdown-toggle-icon:disabled:focus, .hds-dropdown-toggle-icon.mock-disabled:focus {
   color: var(--hds-button-foreground-color-disabled);
   background-color: var(--hds-button-surface-color-disabled);
   border-color: var(--hds-button-border-color-disabled);
