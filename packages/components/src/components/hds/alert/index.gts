@@ -67,7 +67,7 @@ export const MAPPING_COLORS_TO_CARBON_THEME_ICONS = {
   [HdsAlertColorValues.Highlight]: 'info-fill',
   [HdsAlertColorValues.Success]: 'check-circle-fill',
   [HdsAlertColorValues.Warning]: 'alert-circle-fill',
-  [HdsAlertColorValues.Critical]: 'skip', // Note: The HDS "skip" icon is used because it maps to the Carbon icon used in their critical alerts
+  [HdsAlertColorValues.Critical]: 'error-filled',
 } as const;
 
 const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
