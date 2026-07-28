@@ -136,6 +136,7 @@
       transform: translate3d($hds-translation, 0, 0);
 
       @include hds-apply-only-if-carbon() {
+        // checkmark image
         background-image: var(--hds-form-toggle-background-image-data-url);
         background-repeat: no-repeat;
         background-position: center center;

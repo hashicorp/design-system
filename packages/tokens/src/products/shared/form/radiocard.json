@@ -108,6 +108,17 @@
               "cds-g90": "14",
               "cds-g100": "14"
             }
+          },
+          "font-weight": {
+            "$type": "font-weight",
+            "$value": "{typography.font-weight.bold}",
+            "$modes": {
+              "default": "{typography.font-weight.bold}",
+              "cds-g0": "400",
+              "cds-g10": "400",
+              "cds-g90": "400",
+              "cds-g100": "400"
+            }
           }
         }
       },

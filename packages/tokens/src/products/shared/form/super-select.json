@@ -1,7 +1,32 @@
 {
   "form": {
     "super-select": {
-      "comment": "TODO: Add token referencing the dropdown list token value: color: var(--hds-form-super-select-option-foreground-color-action-hover);",
+      "height": {
+        "$type": "dimension",
+        "$value": "36",
+        "unit": "px",
+        "$modes": {
+          "default": "36",
+          "cds-g0": "40",
+          "cds-g10": "40",
+          "cds-g90": "40",
+          "cds-g100": "40"
+        }
+      },
+      "padding": {
+        "left": {
+          "$type": "dimension",
+          "$value": "11",
+          "unit": "px",
+          "$modes": {
+            "default": "11",
+            "cds-g0": "{form.control.padding.horizontal}",
+            "cds-g10": "{form.control.padding.horizontal}",
+            "cds-g90": "{form.control.padding.horizontal}",
+            "cds-g100": "{form.control.padding.horizontal}"
+          }
+        }
+      },
       "option": {
         "foreground": {
           "color": {
@@ -33,6 +58,22 @@
               "cds-g10": "{carbon.themes.g10.borderSubtle01}",
               "cds-g90": "{carbon.themes.g90.borderSubtle01}",
               "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+            }
+          }
+        }
+      },
+      "search": {
+        "margin": {
+          "bottom": {
+            "$type": "dimension",
+            "$value": "3",
+            "unit": "px",
+            "$modes": {
+              "default": "3",
+              "cds-g0": "0",
+              "cds-g10": "0",
+              "cds-g90": "0",
+              "cds-g100": "0"
             }
           }
         }

@@ -12,7 +12,6 @@
 // Copied from components/src/styles/components/tag.scss styles
 // we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
 $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
-$hds-super-select-item-height: 36px;
 
 // Style overrides:
 
@@ -29,11 +28,11 @@ $hds-super-select-item-height: 36px;
     grid-template-columns: 1fr auto;
     align-items: center;
     max-width: 100%;
-    min-height: $hds-super-select-item-height;
+    min-height: var(--hds-form-super-select-height);
     padding-top: 4px;
     padding-right: calc(var(--hds-form-control-padding-horizontal) + 21px); // extra space for the icon
     padding-bottom: 4px;
-    padding-left: 11px;
+    padding-left: var(--hds-form-super-select-padding-left);
     color: var(--hds-form-control-base-foreground-color);
     line-height: var(--hds-typography-body-200-line-height);
     background-color: var(--hds-form-control-base-surface-color-default);
@@ -46,12 +45,6 @@ $hds-super-select-item-height: 36px;
     background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
     border-radius: var(--hds-form-control-border-radius);
     box-shadow: var(--hds-elevation-low-box-shadow);
-
-    @include hds-apply-only-if-carbon() {
-      // TODO: Create tokens? (Note: HDS padding values are intentionally different than the Select component)
-      min-height: 40px;
-      padding-left: var(--hds-form-control-padding-horizontal);
-    }
 
     &:hover,
     &.mock-hover {
@@ -167,7 +160,7 @@ $hds-super-select-item-height: 36px;
   // Options Item
   .ember-power-select-option {
     position: relative;
-    min-height: $hds-super-select-item-height;
+    min-height: var(--hds-form-super-select-height);
     padding: 7px 7px 7px 39px;
     color: var(--hds-foreground-color-primary);
     font-size: var(--hds-typography-body-200-font-size);
@@ -176,7 +169,6 @@ $hds-super-select-item-height: 36px;
     overflow-wrap: break-word; // when used with flex parent, content may overflow (therefore not using flex layout on parent)
     border: none; // guard against border in default theme
 
-    // TODO: Add token? This is mostly the same as the Dropdown component
     @include hds-apply-only-if-carbon() {
       padding: 11px 16px 11px 39px;
     }
@@ -308,19 +300,18 @@ $hds-super-select-item-height: 36px;
   // (Single select, to be added to Multiple | in @beforeOptionsComponent area)
   .ember-power-select-search {
     margin-bottom: 3px;
+    margin-bottom: var(--hds-form-super-select-search-margin-bottom);
     padding: 11px 11px 0 11px;
     border-radius: var(--hds-form-control-border-radius);
 
     @include hds-apply-only-if-carbon() {
-      // TODO: Create tokens?
-      margin-bottom: 0;
       padding: 0;
     }
   }
 
   .ember-power-select-search-input {
     width: 100%;
-    min-height: $hds-super-select-item-height;
+    min-height: var(--hds-form-super-select-height);
     padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
     color: var(--hds-form-control-base-foreground-color);
     font-size: var(--hds-typography-body-200-font-size);
@@ -546,7 +537,6 @@ $hds-super-select-item-height: 36px;
       cursor: pointer;
       content: "";
 
-      // TODO: Add token?
       @include hds-apply-only-if-carbon() {
         top: 12px;
       }
@@ -646,7 +636,7 @@ $hds-super-select-item-height: 36px;
 }
 
 .hds-form-super-select__no-options-selected {
-  min-height: $hds-super-select-item-height;
+  min-height: var(--hds-form-super-select-height);
   padding: 4px 15px 10px;
 }
 

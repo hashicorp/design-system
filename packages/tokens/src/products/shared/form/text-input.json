@@ -86,6 +86,20 @@
         "width": {
           "$value": "initial"
         }
+      },
+      "search-cancel-button": {
+        "width": {
+          "$type": "dimension",
+          "$value": "{form.text-input.background-image.size}",
+          "unit": "px",
+          "$modes": {
+            "default": "{form.text-input.background-image.size}",
+            "cds-g0": "40",
+            "cds-g10": "40",
+            "cds-g90": "40",
+            "cds-g100": "40"
+          }
+        }
       }
     }
   }

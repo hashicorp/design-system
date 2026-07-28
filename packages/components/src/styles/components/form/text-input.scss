@@ -193,19 +193,9 @@
   background-position: var(--hds-form-text-input-background-image-position-x) 50%;
   background-size: var(--hds-form-text-input-background-image-size);
 
-  // make space for invalid icon + search cancel button
-  &.hds-form-text-input--is-invalid {
-    @include hds-apply-only-if-carbon() {
-      padding-right: calc(2.5rem + 40px);
-    }
-  }
-
   @include hds-apply-only-if-carbon() {
-    // make space for search cancel button
-    // TODO:
-    // * Create a new token for the search cancel button width and use it here,
-    // * BUG: padding being overridden in the invalid state (& the invalid icon is overlapping the search cancel button)
-    padding-right: calc(40px + var(--hds-form-control-padding-horizontal));
+    // make space for positioned search cancel button
+    padding-right: var(--hds-form-text-input-search-cancel-button-width);
 
     &:disabled {
       background-image: var(--hds-form-text-input-background-image-data-url-search-disabled);
@@ -214,7 +204,7 @@
 
   // SEARCH CANCEL BUTTON
   &::-webkit-search-cancel-button {
-    width: var(--hds-form-text-input-background-image-size);
+    width: var(--hds-form-text-input-search-cancel-button-width);
     height: var(--hds-form-text-input-background-image-size);
     background-image: var(--hds-form-text-input-background-image-data-url-search-cancel);
     background-repeat: no-repeat;
@@ -228,7 +218,6 @@
       top: 1px;
       right: 1px;
       bottom: 2px; // Mirror visual "gap" caused by transparent borders on top & right sides
-      width: 40px; // TODO: Add token
       height: auto;
       margin: 0;
       opacity: 1;

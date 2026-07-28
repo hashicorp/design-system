@@ -34,7 +34,7 @@
   }
 
   @include hds-apply-only-if-carbon() {
-    padding-right: 48px; // TODO: Create token? (This matches the right padding in the Carbon Select)
+    padding-right: 48px; // matches the right padding in the Carbon Select
   }
 
   // STATUS

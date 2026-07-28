@@ -159,15 +159,11 @@
   display: block;
   margin: 8px 0;
   color: var(--hds-form-label-foreground-color);
-  font-weight: var(--hds-typography-font-weight-bold);
+  font-weight: var(--hds-form-radiocard-item-label-typography-font-weight);
   font-size: var(--hds-form-radiocard-item-label-typography-font-size);
   font-family: var(--hds-typography-display-300-font-family);
   line-height: var(--hds-typography-display-300-line-height);
   overflow-wrap: break-word;
-
-  @include hds-apply-only-if-carbon() {
-    font-weight: 400; // TODO: Add token?
-  }
 
   &:first-child {
     margin-top: 0;
