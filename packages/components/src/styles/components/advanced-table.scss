@@ -489,28 +489,28 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   &.mock-hover {
     box-shadow: var(--hds-elevation-low-box-shadow);
 
-    @include hds-apply-only-if-carbon() {
-      color: var(--hds-advanced-table-header-button-foreground-color-hover);
-      background-color: var(--hds-advanced-table-header-button-surface-color-hover);
-      border-color: var(--hds-advanced-table-header-button-border-color-hover);
-    }
+    // @include hds-apply-only-if-carbon() {
+    //   color: var(--hds-advanced-table-header-button-foreground-color-hover);
+    //   background-color: var(--hds-advanced-table-header-button-surface-color-hover);
+    //   border-color: var(--hds-advanced-table-header-button-border-color-hover);
+    // }
   }
 
-  &:active,
-  &.mock-active {
-    @include hds-apply-only-if-carbon() {
-      color: var(--hds-advanced-table-header-button-foreground-color-active);
-      background-color: var(--hds-advanced-table-header-button-surface-color-active);
-      border-color: var(--hds-advanced-table-header-button-border-color-active);
-    }
-  }
+  // &:active,
+  // &.mock-active {
+  //   @include hds-apply-only-if-carbon() {
+  //     color: var(--hds-advanced-table-header-button-foreground-color-active);
+  //     background-color: var(--hds-advanced-table-header-button-surface-color-active);
+  //     border-color: var(--hds-advanced-table-header-button-border-color-active);
+  //   }
+  // }
 
   &:focus-visible,
   &.mock-focus {
-    @include hds-apply-only-if-carbon() {
-      color: var(--hds-foreground-color-faint);
-      background-color: transparent;
-    }
+    // @include hds-apply-only-if-carbon() {
+    //   color: var(--hds-foreground-color-faint);
+    //   background-color: transparent;
+    // }
 
     &::before {
       // these are needed to make the dropdown icon focus state match the size of the other header buttons focus state

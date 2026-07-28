@@ -2012,29 +2012,6 @@
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:hover, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-hover {
   box-shadow: var(--hds-elevation-low-box-shadow);
 }
-.hds-theme-light .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:hover, .hds-theme-light .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-hover,
-.hds-theme-dark .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:hover, .hds-theme-dark .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-hover,
-.hds-theme-system .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:hover, .hds-theme-system .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-hover {
-  color: var(--hds-advanced-table-header-button-foreground-color-hover);
-  background-color: var(--hds-advanced-table-header-button-surface-color-hover);
-  border-color: var(--hds-advanced-table-header-button-border-color-hover);
-}
-
-.hds-theme-light .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:active, .hds-theme-light .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-active,
-.hds-theme-dark .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:active, .hds-theme-dark .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-active,
-.hds-theme-system .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:active, .hds-theme-system .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-active {
-  color: var(--hds-advanced-table-header-button-foreground-color-active);
-  background-color: var(--hds-advanced-table-header-button-surface-color-active);
-  border-color: var(--hds-advanced-table-header-button-border-color-active);
-}
-
-.hds-theme-light .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus-visible, .hds-theme-light .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus,
-.hds-theme-dark .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus-visible, .hds-theme-dark .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus,
-.hds-theme-system .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus-visible, .hds-theme-system .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus {
-  color: var(--hds-foreground-color-faint);
-  background-color: transparent;
-}
-
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus-visible::before, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus::before {
   inset: 0 !important;
   border-width: 0 !important;
