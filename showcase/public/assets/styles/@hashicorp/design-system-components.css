@@ -5447,16 +5447,29 @@ button.hds-button[href]::after {
   border-radius: var(--hds-button-border-radius);
   isolation: isolate;
 }
-.hds-dropdown-toggle-icon:hover, .hds-dropdown-toggle-icon.mock-hover {
+.hds-dropdown-toggle-icon:disabled, .hds-dropdown-toggle-icon.mock-disabled {
+  color: var(--hds-button-foreground-color-disabled);
+  background-color: var(--hds-button-surface-color-disabled);
+  border-color: var(--hds-button-border-color-disabled);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.hds-dropdown-toggle-icon--color-secondary {
+  color: var(--hds-button-foreground-color-secondary-default);
+  background-color: var(--hds-button-surface-color-secondary-default);
+  border: 1px solid var(--hds-button-border-color-secondary-default);
+}
+.hds-dropdown-toggle-icon--color-secondary:hover, .hds-dropdown-toggle-icon--color-secondary.mock-hover {
   color: var(--hds-button-foreground-color-secondary-hover);
   background-color: var(--hds-button-surface-color-secondary-hover);
   border-color: var(--hds-button-border-color-secondary-hover);
   cursor: pointer;
 }
-.hds-dropdown-toggle-icon:focus-visible, .hds-dropdown-toggle-icon.mock-focus {
+.hds-dropdown-toggle-icon--color-secondary:focus-visible, .hds-dropdown-toggle-icon--color-secondary.mock-focus {
   outline: none;
 }
-.hds-dropdown-toggle-icon:focus-visible::before, .hds-dropdown-toggle-icon.mock-focus::before {
+.hds-dropdown-toggle-icon--color-secondary:focus-visible::before, .hds-dropdown-toggle-icon--color-secondary.mock-focus::before {
   position: absolute;
   inset: -1px;
   z-index: 1;
@@ -5467,38 +5480,63 @@ button.hds-button[href]::after {
   content: "";
   pointer-events: auto;
 }
-.hds-theme-light .hds-dropdown-toggle-icon:focus-visible::before, .hds-theme-light .hds-dropdown-toggle-icon.mock-focus::before,
-.hds-theme-dark .hds-dropdown-toggle-icon:focus-visible::before, .hds-theme-dark .hds-dropdown-toggle-icon.mock-focus::before,
-.hds-theme-system .hds-dropdown-toggle-icon:focus-visible::before, .hds-theme-system .hds-dropdown-toggle-icon.mock-focus::before {
+.hds-theme-light .hds-dropdown-toggle-icon--color-secondary:focus-visible::before, .hds-theme-light .hds-dropdown-toggle-icon--color-secondary.mock-focus::before,
+.hds-theme-dark .hds-dropdown-toggle-icon--color-secondary:focus-visible::before, .hds-theme-dark .hds-dropdown-toggle-icon--color-secondary.mock-focus::before,
+.hds-theme-system .hds-dropdown-toggle-icon--color-secondary:focus-visible::before, .hds-theme-system .hds-dropdown-toggle-icon--color-secondary.mock-focus::before {
   inset: 1px;
   border-width: 1px;
 }
 
-.hds-dropdown-toggle-icon:focus-visible, .hds-dropdown-toggle-icon.mock-focus {
+.hds-dropdown-toggle-icon--color-secondary:focus-visible, .hds-dropdown-toggle-icon--color-secondary.mock-focus {
   color: var(--hds-button-foreground-color-secondary-focus);
   background-color: var(--hds-button-surface-color-secondary-focus);
 }
-.hds-dropdown-toggle-icon:active, .hds-dropdown-toggle-icon.mock-active {
+.hds-dropdown-toggle-icon--color-secondary:active, .hds-dropdown-toggle-icon--color-secondary.mock-active {
   color: var(--hds-button-foreground-color-secondary-active);
   background-color: var(--hds-button-surface-color-secondary-active);
   border-color: var(--hds-button-border-color-secondary-active);
 }
-.hds-dropdown-toggle-icon:disabled, .hds-dropdown-toggle-icon.mock-disabled {
-  color: var(--hds-button-foreground-color-disabled);
-  background-color: var(--hds-button-surface-color-disabled);
-  border-color: var(--hds-button-border-color-disabled);
-  box-shadow: none;
-  cursor: not-allowed;
-}
-.hds-dropdown-toggle-icon.hds-dropdown-toggle-icon--color-secondary {
-  color: var(--hds-button-foreground-color-secondary-default);
-  background-color: var(--hds-button-surface-color-secondary-default);
-  border: 1px solid var(--hds-button-border-color-secondary-default);
-}
-.hds-dropdown-toggle-icon.hds-dropdown-toggle-icon--color-secondary-muted {
+
+.hds-dropdown-toggle-icon--color-secondary-muted {
   color: var(--hds-button-foreground-color-secondary-muted-default);
   background-color: var(--hds-button-surface-color-secondary-muted-default);
   border: 1px solid var(--hds-button-border-color-secondary-muted-default);
+}
+.hds-dropdown-toggle-icon--color-secondary-muted:hover, .hds-dropdown-toggle-icon--color-secondary-muted.mock-hover {
+  color: var(--hds-button-foreground-color-secondary-muted-hover);
+  background-color: var(--hds-button-surface-color-secondary-muted-hover);
+  border-color: var(--hds-button-border-color-secondary-muted-hover);
+  cursor: pointer;
+}
+.hds-dropdown-toggle-icon--color-secondary-muted:focus-visible, .hds-dropdown-toggle-icon--color-secondary-muted.mock-focus {
+  outline: none;
+}
+.hds-dropdown-toggle-icon--color-secondary-muted:focus-visible::before, .hds-dropdown-toggle-icon--color-secondary-muted.mock-focus::before {
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  border: var(--hds-focus-ring-width-internal) solid var(--hds-focus-color-action-internal);
+  border-radius: inherit;
+  outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
+  outline-offset: 0;
+  content: "";
+  pointer-events: auto;
+}
+.hds-theme-light .hds-dropdown-toggle-icon--color-secondary-muted:focus-visible::before, .hds-theme-light .hds-dropdown-toggle-icon--color-secondary-muted.mock-focus::before,
+.hds-theme-dark .hds-dropdown-toggle-icon--color-secondary-muted:focus-visible::before, .hds-theme-dark .hds-dropdown-toggle-icon--color-secondary-muted.mock-focus::before,
+.hds-theme-system .hds-dropdown-toggle-icon--color-secondary-muted:focus-visible::before, .hds-theme-system .hds-dropdown-toggle-icon--color-secondary-muted.mock-focus::before {
+  inset: 1px;
+  border-width: 1px;
+}
+
+.hds-dropdown-toggle-icon--color-secondary-muted:focus-visible, .hds-dropdown-toggle-icon--color-secondary-muted.mock-focus {
+  color: var(--hds-button-foreground-color-secondary-muted-focus);
+  background-color: var(--hds-button-surface-color-secondary-muted-focus);
+}
+.hds-dropdown-toggle-icon--color-secondary-muted:active, .hds-dropdown-toggle-icon--color-secondary-muted.mock-active {
+  color: var(--hds-button-foreground-color-secondary-muted-active);
+  background-color: var(--hds-button-surface-color-secondary-muted-active);
+  border-color: var(--hds-button-border-color-secondary-muted-active);
 }
 
 .hds-dropdown-toggle-icon__wrapper {

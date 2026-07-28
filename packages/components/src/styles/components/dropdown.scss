@@ -58,53 +58,50 @@
   border-radius: var(--hds-button-border-radius);
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
-  &:hover,
-  &.mock-hover {
-    color: var(--hds-button-foreground-color-secondary-hover);
-    background-color: var(--hds-button-surface-color-secondary-hover);
-    border-color: var(--hds-button-border-color-secondary-hover);
-    cursor: pointer;
-  }
-
-  &:focus-visible,
-  &.mock-focus {
-    @include hds-focus-ring-advanced(
-      // the element has already a `position: relative` with `isolation: isolate`
-      $element-position: false,
-      // needs to overlay the avatar image
-      $pseudo-element-z-index: 1,
-      // we want to see the white/black inner border for cds
-      $internal-border-width-cds: 1px
-    );
-    color: var(--hds-button-foreground-color-secondary-focus);
-    background-color: var(--hds-button-surface-color-secondary-focus);
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--hds-button-foreground-color-secondary-active);
-    background-color: var(--hds-button-surface-color-secondary-active);
-    border-color: var(--hds-button-border-color-secondary-active);
-  }
-
   &:disabled,
   &.mock-disabled {
     @include hds-button-state-disabled();
   }
+}
 
-  // this variant mimics the secondary and secondary-muted button, but not entirely (eg. it doesn't have an elevation shadow)
-  // so we need to provide the same color values but without using the `hds-button-color-{color}()` mixin
+// this variant mimics the secondary and secondary-muted button, but not entirely (eg. it doesn't have an elevation shadow)
+// so we need to provide the same color values but without using the `hds-button-color-{color}()` mixin
+$hds-dropdown-toggle-icon-colors: ("secondary", "secondary-muted");
 
-  &.hds-dropdown-toggle-icon--color-secondary {
-    color: var(--hds-button-foreground-color-secondary-default);
-    background-color: var(--hds-button-surface-color-secondary-default);
-    border: 1px solid var(--hds-button-border-color-secondary-default);
-  }
+@each $color in $hds-dropdown-toggle-icon-colors {
+  .hds-dropdown-toggle-icon--color-#{$color} {
+    color: var(--hds-button-foreground-color-#{$color}-default);
+    background-color: var(--hds-button-surface-color-#{$color}-default);
+    border: 1px solid var(--hds-button-border-color-#{$color}-default);
 
-  &.hds-dropdown-toggle-icon--color-secondary-muted {
-    color: var(--hds-button-foreground-color-secondary-muted-default);
-    background-color: var(--hds-button-surface-color-secondary-muted-default);
-    border: 1px solid var(--hds-button-border-color-secondary-muted-default);
+    &:hover,
+    &.mock-hover {
+      color: var(--hds-button-foreground-color-#{$color}-hover);
+      background-color: var(--hds-button-surface-color-#{$color}-hover);
+      border-color: var(--hds-button-border-color-#{$color}-hover);
+      cursor: pointer;
+    }
+
+    &:focus-visible,
+    &.mock-focus {
+      @include hds-focus-ring-advanced(
+        // the element has already a `position: relative` with `isolation: isolate`
+        $element-position: false,
+        // needs to overlay the avatar image
+        $pseudo-element-z-index: 1,
+        // we want to see the white/black inner border for cds
+        $internal-border-width-cds: 1px
+      );
+      color: var(--hds-button-foreground-color-#{$color}-focus);
+      background-color: var(--hds-button-surface-color-#{$color}-focus);
+    }
+
+    &:active,
+    &.mock-active {
+      color: var(--hds-button-foreground-color-#{$color}-active);
+      background-color: var(--hds-button-surface-color-#{$color}-active);
+      border-color: var(--hds-button-border-color-#{$color}-active);
+    }
   }
 }
 
