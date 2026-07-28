@@ -22,8 +22,8 @@ export const STATUSES: HdsStepperStatuses[] = Object.values(
 );
 
 export const MAPPING_STATUSES_TO_CARBON_THEME_ICONS = {
-  [HdsStepperStatusesValues.Incomplete]: 'circle',
-  [HdsStepperStatusesValues.Progress]: 'circle-half',
+  [HdsStepperStatusesValues.Incomplete]: 'circle-dash',
+  [HdsStepperStatusesValues.Progress]: 'incomplete-normal',
   [HdsStepperStatusesValues.Processing]: 'loading',
   [HdsStepperStatusesValues.Complete]: 'check-circle',
 } as const;
