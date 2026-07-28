@@ -47,6 +47,7 @@
 
   &:indeterminate {
     background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate);
+    border-color: var(--hds-form-control-checked-border-color-default);
   }
 
   // hover

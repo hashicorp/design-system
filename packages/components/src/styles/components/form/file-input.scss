@@ -78,11 +78,13 @@
 
   @include hds-apply-only-if-carbon() {
     @include hds-button-color-primary-state-focus();
+    // The border-color style in the hds-focus-ring-basic() mixin is overriding the border-color set above
+    border-color: var(--hds-focus-color-action-internal); // TODO: shouldn't have to repeat style here
   }
 }
 
 // Fix issue with button focus style which was displaying after button was activated
-.hds-form-file-input:not(:focus, .mock-focus) {
+.hds-form-file-input:not(:focus, :focus-within, .mock-focus) {
   &::file-selector-button {
     border-color: var(--hds-button-border-color-secondary-default);
     outline: 0;
