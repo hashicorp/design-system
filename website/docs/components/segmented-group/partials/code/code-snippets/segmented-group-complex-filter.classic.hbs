@@ -10,9 +10,13 @@
     <D.Checkbox>Consul</D.Checkbox>
     <D.Checkbox>Kubernetes</D.Checkbox>
   </SG.Dropdown>
-  <SG.Dropdown as |D|>
-    <D.ToggleButton @color="secondary" @text="Type" />
-    <D.Checkbox>Service</D.Checkbox>
-    <D.Checkbox>Debug service</D.Checkbox>
-  </SG.Dropdown>
+  <SG.SuperSelectMultiple
+    @options={{(array "Service" "Debug service")}}
+    @selected={{this.selectedTypes}}
+    @onChange={{fn (mut this.selectedTypes)}}
+    @placeholder="Type"
+    as |option|
+  >
+    {{option}}
+  </SG.SuperSelectMultiple>
 </Hds::SegmentedGroup>

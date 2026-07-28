@@ -19,6 +19,11 @@
     margin-top: 4px;
   }
 
+  // Unsure if this was needed or not to fix the layout of Health Status when superSelectMultiple is being used.
+  //> .hds-form-super-select {
+   // width: auto;
+  //}
+
   > .hds-button,
   > .hds-dropdown,
   > .hds-form-select,

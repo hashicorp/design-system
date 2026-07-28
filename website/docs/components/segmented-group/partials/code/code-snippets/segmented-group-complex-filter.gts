@@ -1,6 +1,9 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { array } from '@ember/helper';
 
 import { HdsSegmentedGroup } from '@hashicorp/design-system-components/components';
+
+const noop = (): void => {};
 
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsSegmentedGroup as |SG|>
@@ -15,11 +18,15 @@ const LocalComponent: TemplateOnlyComponent = <template>
       <D.Checkbox>Consul</D.Checkbox>
       <D.Checkbox>Kubernetes</D.Checkbox>
     </SG.Dropdown>
-    <SG.Dropdown as |D|>
-      <D.ToggleButton @color="secondary" @text="Type" />
-      <D.Checkbox>Service</D.Checkbox>
-      <D.Checkbox>Debug service</D.Checkbox>
-    </SG.Dropdown>
+    <SG.SuperSelectMultiple
+
+      @options={{(array "Service" "Debug service")}}
+      @placeholder="Type"
+      @onChange={{noop}}
+      as |option|
+    >
+      {{option}}
+    </SG.SuperSelectMultiple>
   </HdsSegmentedGroup>
 </template>;
 
