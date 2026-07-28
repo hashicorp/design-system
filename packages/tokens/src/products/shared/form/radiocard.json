@@ -79,6 +79,38 @@
           "unit": "px"
         }
       },
+      "description": {
+        "typography": {
+          "font-size": {
+            "$type": "font-size",
+            "$value": "13",
+            "unit": "px",
+            "$modes": {
+              "default": "13",
+              "cds-g0": "14",
+              "cds-g10": "14",
+              "cds-g90": "14",
+              "cds-g100": "14"
+            }
+          }
+        }
+      },
+      "item-label": {
+        "typography": {
+          "font-size": {
+            "$type": "font-size",
+            "$value": "18",
+            "unit": "px",
+            "$modes": {
+              "default": "18",
+              "cds-g0": "14",
+              "cds-g10": "14",
+              "cds-g90": "14",
+              "cds-g100": "14"
+            }
+          }
+        }
+      },
       "transition": {
         "duration": {
           "$type": "duration",

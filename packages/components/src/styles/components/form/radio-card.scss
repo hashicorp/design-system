@@ -160,10 +160,14 @@
   margin: 8px 0;
   color: var(--hds-form-label-foreground-color);
   font-weight: var(--hds-typography-font-weight-bold);
-  font-size: var(--hds-typography-body-300-font-size);
+  font-size: var(--hds-form-radiocard-item-label-typography-font-size);
   font-family: var(--hds-typography-display-300-font-family);
   line-height: var(--hds-typography-display-300-line-height);
   overflow-wrap: break-word;
+
+  @include hds-apply-only-if-carbon() {
+    font-weight: 400; // TODO: Add token?
+  }
 
   &:first-child {
     margin-top: 0;
@@ -173,6 +177,10 @@
 .hds-form-radio-card__description {
   display: block;
   color: var(--hds-foreground-color-primary);
+  font-weight: var(--hds-typography-font-weight-regular);
+  font-size: var(--hds-form-radiocard-description-typography-font-size);
+  font-family: var(--hds-typography-body-100-font-family);
+  line-height: var(--hds-typography-body-100-line-height);
 }
 
 .hds-form-radio-card__control-wrapper {
