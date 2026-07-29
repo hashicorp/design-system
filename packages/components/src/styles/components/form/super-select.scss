@@ -126,6 +126,19 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
     border-radius: var(--hds-form-control-border-radius);
 
+    @include hds-apply-only-if-carbon() {
+      border: none;
+
+      // Apply box-shadow to content container in all cases
+      &,
+      &.ember-basic-dropdown-content--in-place {
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0%),
+          0 16px 16px -10px rgba(255, 255, 255, 0%),
+          0 2px 6px 0 rgba(0, 0, 0, 30%);
+      }
+    }
+
     &.ember-basic-dropdown-content--in-place {
       box-shadow: var(--hds-elevation-high-box-shadow), var(--hds-elevation-high-box-shadow);
     }
@@ -152,6 +165,11 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     background-color: var(--hds-form-control-base-surface-color-default);
     border-radius: inherit;
 
+    @include hds-apply-only-if-carbon() {
+      padding: 0;
+    }
+
+    // nested
     .ember-power-select-options {
       padding: 0;
     }
@@ -280,6 +298,11 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       margin: 7px 5px 9px 5px;
       border-bottom: 1px solid var(--hds-border-color-primary);
       content: "";
+
+      @include hds-apply-only-if-carbon() {
+        height: 0;
+        margin: 0 15px;
+      }
     }
 
     .hds-form-super-select__option-group {
