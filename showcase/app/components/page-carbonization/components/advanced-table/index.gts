@@ -10,6 +10,8 @@ import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import style from 'ember-style-modifier';
 
+import type Owner from '@ember/owner';
+
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
@@ -18,9 +20,10 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwFlex from 'showcase/components/shw/flex';
 import MUSIC from 'showcase/mocks/folk-music-data';
 import POLICIES from 'showcase/mocks/policy-data';
-import type { FolkMusic } from 'showcase/mocks/folk-music-data';
 import NOOP from 'showcase/utils/noop';
-import type Owner from '@ember/owner';
+import CodeFragmentWithFiltering from 'showcase/components/page-components/advanced-table/code-fragments/with-filtering';
+
+import type { FolkMusic } from 'showcase/mocks/folk-music-data';
 
 import {
   HdsAdvancedTable,
@@ -33,10 +36,7 @@ import {
   HdsDropdownToggleIcon,
   HdsLayoutFlex,
 } from '@hashicorp/design-system-components/components';
-import type {
-  HdsAdvancedTableNormalizedColumn,
-  // HdsAdvancedTableModel,
-} from '@hashicorp/design-system-components/components/hds/advanced-table/types';
+import type { HdsAdvancedTableNormalizedColumn } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
 import HdsAdvancedTableThReorderHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-reorder-handle';
 import HdsAdvancedTableThResizeHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-resize-handle';
 
@@ -535,6 +535,18 @@ export default class AdvancedTableCarbonizationIndex extends Component {
               </B.Tr>
             </:body>
           </HdsAdvancedTable>
+        </:theming>
+      </ShwCarbonizationComparisonGrid>
+    </section>
+
+    <ShwDivider />
+
+    <ShwTextH2>Filter bar</ShwTextH2>
+
+    <section>
+      <ShwCarbonizationComparisonGrid @layout="column">
+        <:theming>
+          <CodeFragmentWithFiltering />
         </:theming>
       </ShwCarbonizationComparisonGrid>
     </section>
