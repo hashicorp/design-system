@@ -71,6 +71,8 @@ $hds-table-header-height: 48px;
 // TABLE HEADER
 
 .hds-table__thead {
+  background-color: var(--hds-table-header-surface-color);
+
   .hds-table__tr {
     color: var(--hds-foreground-color-strong);
     background-color: var(--hds-surface-color-strong);
@@ -204,6 +206,8 @@ $hds-table-header-height: 48px;
 // TABLE BODY
 
 .hds-table__tbody {
+  background-color: var(--hds-table-body-surface-color);
+
   .hds-table__tr {
     color: var(--hds-table-row-color-default);
     background-color: var(--hds-surface-color-primary);
