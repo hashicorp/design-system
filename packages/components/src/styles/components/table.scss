@@ -48,8 +48,7 @@ $hds-table-header-height: 48px;
 .hds-table__td {
   .hds-table--density-short & {
     @include hds-apply-only-if-carbon() {
-      // CSS doesnt allow minimum height set on table cells, need to set height instead
-      height: 2rem;
+      // CSS doesn't allow minimum height set on table cells, need to set height instead
     }
   }
 
@@ -279,7 +278,7 @@ $hds-table-header-height: 48px;
 
     .hds-table--striped & {
       @include hds-apply-only-if-carbon() {
-        border-bottom: none;
+        border-bottom-color: transparent;
       }
     }
 
