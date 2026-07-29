@@ -424,6 +424,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.advanced-table">
+            AdvancedTable
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.alert">
             Alert
           </LinkTo>

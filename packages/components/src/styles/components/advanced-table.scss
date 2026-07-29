@@ -10,18 +10,14 @@
 
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 $hds-advanced-table-border-radius: var(--hds-border-radius-medium);
-$hds-advanced-table-border-width: 1px;
+$hds-advanced-table-border-width: var(--hds-advanced-table-row-border-width);
 $hds-advanced-table-inner-border-radius: calc(
   #{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width}
 );
-$hds-advanced-table-border-color: var(--hds-border-color-primary);
 $hds-advanced-table-border-resize-handle-hover-color: #b1b1b5;
-$hds-advanced-table-header-height: 48px;
-$hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
-$hds-advanced-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
-$hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown triggers in the header cell
 $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
@@ -57,12 +53,20 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 // table border
 .hds-advanced-table__th,
 .hds-advanced-table__td {
-  border: calc(#{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
+  border: calc(#{$hds-advanced-table-border-width} / 2) solid var(--hds-advanced-table-row-border-color-default);
+
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
 }
 
 .hds-advanced-table__thead,
 .hds-advanced-table__tbody {
-  border: calc(#{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
+  border: calc(#{$hds-advanced-table-border-width} / 2) solid var(--hds-advanced-table-row-border-color-default);
+
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
 }
 
 .hds-advanced-table__thead {
@@ -77,6 +81,29 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   border-bottom-left-radius: inherit;
 }
 
+// row height
+
+.hds-advanced-table__th,
+.hds-advanced-table__td {
+  .hds-advanced-table--density-short & {
+    @include hds-apply-only-if-carbon() {
+      min-height: 2rem;
+    }
+  }
+
+  .hds-advanced-table--density-medium & {
+    @include hds-apply-only-if-carbon() {
+      min-height: 2.5rem;
+    }
+  }
+
+  .hds-advanced-table--density-tall & {
+    @include hds-apply-only-if-carbon() {
+      min-height: 3rem;
+    }
+  }
+}
+
 // ----------------------------------------------------------------
 
 // TABLE HEADER
@@ -85,6 +112,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
+  background-color: var(--hds-advanced-table-header-surface-color);
 
   .hds-advanced-table__tr {
     display: contents;
@@ -93,10 +121,24 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       position: relative;
       align-content: center;
       height: 100%;
-      padding: $hds-advanced-table-cell-padding-medium;
+      padding: var(--hds-advanced-table-header-cell-padding-vertical-medium)
+        var(--hds-advanced-table-header-cell-padding-horizontal-medium)
+        calc(var(--hds-advanced-table-header-cell-padding-vertical-medium) - #{$hds-advanced-table-border-width});
       color: var(--hds-foreground-color-strong);
       text-align: left;
       background-color: var(--hds-surface-color-strong);
+
+      .hds-advanced-table--density-short & {
+        padding: var(--hds-advanced-table-header-cell-padding-vertical-short)
+          var(--hds-advanced-table-header-cell-padding-horizontal-short)
+          calc(var(--hds-advanced-table-header-cell-padding-vertical-short) - #{$hds-advanced-table-border-width});
+      }
+
+      .hds-advanced-table--density-tall & {
+        padding: var(--hds-advanced-table-header-cell-padding-vertical-tall)
+          var(--hds-advanced-table-header-cell-padding-horizontal-tall)
+          calc(var(--hds-advanced-table-header-cell-padding-vertical-tall) - #{$hds-advanced-table-border-width});
+      }
 
       &:hover,
       &.mock-hover,
@@ -282,13 +324,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       &:first-of-type {
         left: -1px;
         // add extra left border to offset -1px and the 0.5px border from the table container being gone
-        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
+        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
+          var(--hds-advanced-table-row-border-color-default);
       }
     }
 
     // Only apply the thick border to the last sticky column
     .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
-      border-right: 3px solid $hds-advanced-table-border-color;
+      border-right: 3px solid var(--hds-advanced-table-row-border-color-default);
     }
 
     .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
@@ -334,9 +377,10 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     position: sticky;
     top: -1px;
     z-index: 5;
-    background-color: var(--hds-surface-color-strong);
+    background-color: var(--hds-advanced-table-header-surface-color);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
-    border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
+    border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid
+      var(--hds-advanced-table-row-border-color-default);
 
     .hds-advanced-table__scroll-indicator-top {
       top: unset;
@@ -345,10 +389,11 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   }
 
   &.hds-advanced-table__thead--is-pinned {
-    background-color: var(--hds-surface-color-strong);
+    background-color: var(--hds-advanced-table-header-surface-color);
     // need to add 1px to offset `top: -1px`
-    border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid $hds-advanced-table-border-color;
-    border-bottom: 3px solid $hds-advanced-table-border-color;
+    border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid
+      var(--hds-advanced-table-row-border-color-default);
+    border-bottom: 3px solid var(--hds-advanced-table-row-border-color-default);
 
     .hds-advanced-table__tr {
       &:first-of-type {
@@ -475,8 +520,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-foreground-color-primary);
-    background-color: var(--hds-surface-color-interactive);
+    color: var(--hds-advanced-table-header-button-foreground-color-hover);
+    background-color: var(--hds-advanced-table-header-button-surface-color-hover);
     border-color: var(--hds-border-color-strong);
     box-shadow: var(--hds-elevation-low-box-shadow);
     cursor: pointer;
@@ -489,24 +534,24 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   &:active,
   &.mock-active {
-    color: var(--hds-foreground-color-primary);
-    background-color: var(--hds-surface-color-interactive-active);
+    color: var(--hds-advanced-table-header-button-foreground-color-active);
+    background-color: var(--hds-advanced-table-header-button-surface-color-active);
     border-color: var(--hds-border-color-strong);
     box-shadow: none;
   }
 }
 
 .hds-advanced-table__th-button--is-sorted {
-  color: var(--hds-foreground-color-action);
+  color: var(--hds-advanced-table-header-button-foreground-color-sorted-default);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-foreground-color-action-hover);
+    color: var(--hds-advanced-table-header-button-foreground-color-sorted-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-foreground-color-action-active);
+    color: var(--hds-advanced-table-header-button-foreground-color-sorted-active);
   }
 }
 
@@ -527,17 +572,90 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
   align-items: center;
+  background-color: var(--hds-advanced-table-body-surface-color);
 
   .hds-advanced-table__tr {
     display: contents;
-    color: var(--hds-foreground-color-primary);
+    color: var(--hds-advanced-table-cell-foreground-color-default);
+
+    @include hds-apply-only-if-carbon() {
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        border-bottom: var(--hds-advanced-table-row-border-width) solid
+          var(--hds-advanced-table-row-border-color-default);
+      }
+    }
+
+    &:hover,
+    &.mock-hover {
+      color: var(--hds-advanced-table-cell-foreground-color-hover);
+
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        background-color: var(--hds-advanced-table-cell-surface-color-hover);
+        border-color: var(--hds-advanced-table-row-border-color-hover);
+      }
+
+      @include hds-apply-only-if-carbon() {
+        .hds-advanced-table__th,
+        .hds-advanced-table__td {
+          border-bottom: var(--hds-advanced-table-row-border-width) solid
+            var(--hds-advanced-table-row-border-color-hover);
+        }
+      }
+    }
 
     // striped rows
+
+    .hds-advanced-table--striped & {
+      @include hds-apply-only-if-carbon() {
+        border-bottom-color: transparent;
+      }
+    }
 
     .hds-advanced-table--striped &:nth-child(even) {
       .hds-advanced-table__th,
       .hds-advanced-table__td {
-        background-color: var(--hds-surface-color-faint);
+        background-color: var(--hds-advanced-table-cell-surface-color-striped-default);
+      }
+
+      &:hover,
+      &.mock-hover {
+        .hds-advanced-table__th,
+        .hds-advanced-table__td {
+          background-color: var(--hds-advanced-table-cell-surface-color-striped-hover);
+        }
+      }
+    }
+
+    // selected rows
+
+    &.hds-advanced-table__tr--is-selected {
+      color: var(--hds-advanced-table-cell-foreground-color-selected);
+
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        @include hds-apply-only-if-carbon() {
+          background-color: var(--hds-advanced-table-cell-surface-color-selected-default);
+          border-bottom: var(--hds-advanced-table-row-border-width) solid
+            var(--hds-advanced-table-row-border-color-selected-default);
+        }
+      }
+
+      &:hover,
+      &.mock-hover {
+        @include hds-apply-only-if-carbon() {
+          background-color: var(--hds-advanced-table-cell-surface-color-selected-hover);
+        }
+
+        .hds-advanced-table__th,
+        .hds-advanced-table__td {
+          @include hds-apply-only-if-carbon() {
+            background-color: var(--hds-advanced-table-cell-surface-color-selected-hover);
+            border-bottom: var(--hds-advanced-table-row-border-width) solid
+              var(--hds-advanced-table-row-border-color-selected-hover);
+          }
+        }
       }
     }
   }
@@ -571,7 +689,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     font-family: var(--hds-typography-body-200-font-family);
     line-height: var(--hds-typography-body-200-line-height);
     text-align: left;
-    background-color: var(--hds-surface-color-primary);
+    background-color: var(--hds-advanced-table-body-surface-color);
 
     &:focus-visible,
     &.mock-focus {
@@ -592,15 +710,21 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     // density
 
     .hds-advanced-table--density-short & {
-      padding: $hds-advanced-table-cell-padding-short;
+      padding: var(--hds-advanced-table-cell-padding-vertical-short)
+        var(--hds-advanced-table-cell-padding-horizontal-short)
+        calc(var(--hds-advanced-table-cell-padding-vertical-short) - #{$hds-advanced-table-border-width});
     }
 
     .hds-advanced-table--density-medium & {
-      padding: $hds-advanced-table-cell-padding-medium;
+      padding: var(--hds-advanced-table-cell-padding-vertical-medium)
+        var(--hds-advanced-table-cell-padding-horizontal-medium)
+        calc(var(--hds-advanced-table-cell-padding-vertical-medium) - #{$hds-advanced-table-border-width});
     }
 
     .hds-advanced-table--density-tall & {
-      padding: $hds-advanced-table-cell-padding-tall;
+      padding: var(--hds-advanced-table-cell-padding-vertical-tall)
+        var(--hds-advanced-table-cell-padding-horizontal-tall)
+        calc(var(--hds-advanced-table-cell-padding-vertical-tall) - #{$hds-advanced-table-border-width});
     }
   }
 
@@ -614,7 +738,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
         // Apply the thick right border to whichever one is acting as the "visual" first column
         &:not(.hds-advanced-table__th--is-selectable) {
-          border-right: 3px solid $hds-advanced-table-border-color;
+          border-right: 3px solid var(--hds-advanced-table-row-border-color-default);
         }
       }
     }
@@ -624,7 +748,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     .hds-advanced-table__tr {
       > :first-child {
         left: -1px;
-        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
+        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
+          var(--hds-advanced-table-row-border-color-default);
       }
 
       // Specific override for the column following a selectable checkbox

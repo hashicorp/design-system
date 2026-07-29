@@ -172,6 +172,7 @@ Router.map(function () {
     });
     this.route('components', function () {
       this.route('accordion');
+      this.route('advanced-table');
       this.route('alert');
       this.route('application-state');
       this.route('app-footer');
