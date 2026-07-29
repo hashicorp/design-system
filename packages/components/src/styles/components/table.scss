@@ -136,14 +136,14 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
   padding: 0;
   color: var(--hds-foreground-color-faint);
   background-color: transparent;
-  border: 1px solid transparent;
+  border: 1px solid var(--hds-table-header-button-border-color-default);
   border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
     color: var(--hds-table-header-button-foreground-color-hover);
     background-color: var(--hds-table-header-button-surface-color-hover);
-    border-color: var(--hds-border-color-strong);
+    border-color: var(--hds-table-header-button-border-color-hover);
     box-shadow: var(--hds-elevation-low-box-shadow);
     cursor: pointer;
   }
@@ -157,7 +157,7 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
   &.mock-active {
     color: var(--hds-table-header-button-foreground-color-active);
     background-color: var(--hds-table-header-button-surface-color-active);
-    border-color: var(--hds-border-color-strong);
+    border-color: var(--hds-table-header-button-border-color-active);
     box-shadow: none;
   }
 }

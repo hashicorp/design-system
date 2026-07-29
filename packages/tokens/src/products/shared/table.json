@@ -362,6 +362,36 @@
               }
             }
           }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "transparent"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{border.color.strong}",
+              "$modes": {
+                "default": "{border.color.strong}",
+                "cds-g0": "transparent",
+                "cds-g10": "transparent",
+                "cds-g90": "transparent",
+                "cds-g100": "transparent"
+              }
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{border.color.strong}",
+              "$modes": {
+                "default": "{border.color.strong}",
+                "cds-g0": "transparent",
+                "cds-g10": "transparent",
+                "cds-g90": "transparent",
+                "cds-g100": "transparent"
+              }
+            }
+          }
         }
       }
     },

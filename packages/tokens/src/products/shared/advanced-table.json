@@ -222,6 +222,22 @@
               "$value": "{table.header.button.surface.color.hover}"
             }
           }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{table.header.button.border.color.default}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{table.header.button.border.color.hover}"
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{table.header.button.border.color.active}"
+            }
+          }
         }
       }
     },

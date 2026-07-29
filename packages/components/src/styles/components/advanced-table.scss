@@ -492,7 +492,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   padding: 0;
   color: var(--hds-foreground-color-faint);
   background-color: transparent;
-  border: 1px solid transparent;
+  border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
   border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
@@ -502,7 +502,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     @include hds-apply-only-if-carbon() {
       color: var(--hds-advanced-table-header-button-foreground-color-hover);
       background-color: var(--hds-advanced-table-header-button-surface-color-hover);
-      border-color: var(--hds-border-color-strong);
+      border-color: var(--hds-advanced-table-header-button-border-color-hover);
     }
   }
 
@@ -511,7 +511,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     @include hds-apply-only-if-carbon() {
       color: var(--hds-advanced-table-header-button-foreground-color-active);
       background-color: var(--hds-advanced-table-header-button-surface-color-active);
-      border-color: var(--hds-border-color-strong);
+      border-color: var(--hds-advanced-table-header-button-border-color-active);
     }
   }
 
@@ -541,14 +541,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   padding: 0;
   color: var(--hds-foreground-color-faint);
   background-color: transparent;
-  border: 1px solid transparent;
+  border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
   border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
     color: var(--hds-advanced-table-header-button-foreground-color-hover);
     background-color: var(--hds-advanced-table-header-button-surface-color-hover);
-    border-color: var(--hds-border-color-strong);
+    border-color: var(--hds-advanced-table-header-button-border-color-hover);
     box-shadow: var(--hds-elevation-low-box-shadow);
     cursor: pointer;
   }
@@ -562,7 +562,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   &.mock-active {
     color: var(--hds-advanced-table-header-button-foreground-color-active);
     background-color: var(--hds-advanced-table-header-button-surface-color-active);
-    border-color: var(--hds-border-color-strong);
+    border-color: var(--hds-advanced-table-header-button-border-color-active);
     box-shadow: none;
   }
 }
