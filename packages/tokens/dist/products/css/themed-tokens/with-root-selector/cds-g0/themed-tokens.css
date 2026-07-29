@@ -37,6 +37,14 @@
   --hds-accordion-item-toggle-padding-top-large: 14px;
   --hds-accordion-item-toggle-padding-top-medium: 10px;
   --hds-accordion-item-toggle-padding-top-small: 6px;
+  --hds-advanced-table-cell-border-pinned-color: #c6c6c6;
+  --hds-advanced-table-cell-border-pinned-width: 2px;
+  --hds-advanced-table-cell-surface-color-hover: #e0e0e0; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
+  --hds-advanced-table-cell-surface-color-nested-hover: rgba(141, 141, 141, 0.12);
+  --hds-advanced-table-cell-surface-color-parent-hover: rgba(141, 141, 141, 0.12);
+  --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
   --hds-alert-border-color-highlight: #0043ce66;
@@ -540,6 +548,32 @@
   --hds-surface-low-box-shadow: none;
   --hds-surface-mid-box-shadow: none;
   --hds-surface-overlay-box-shadow: none;
+  --hds-table-body-surface-color: #f4f4f4;
+  --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+  --hds-table-cell-border-width: 0px;
+  --hds-table-cell-foreground-color-default: #525252;
+  --hds-table-cell-foreground-color-hover: #161616;
+  --hds-table-cell-foreground-color-selected: #161616;
+  --hds-table-cell-padding-vertical-medium: 7px;
+  --hds-table-cell-padding-vertical-short: 7px;
+  --hds-table-cell-padding-vertical-tall: 7px;
+  --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-table-cell-surface-color-selected-default: #e0e0e0;
+  --hds-table-cell-surface-color-selected-hover: #d1d1d1;
+  --hds-table-cell-surface-color-striped-default: #e0e0e0;
+  --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.12);
+  --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-sorted-active: #161616;
+  --hds-table-header-button-foreground-color-sorted-default: #161616;
+  --hds-table-header-button-foreground-color-sorted-hover: #161616;
+  --hds-table-header-cell-padding-vertical: 7px;
+  --hds-table-header-surface-color: #e0e0e0;
+  --hds-table-row-border-color-default: #e0e0e0;
+  --hds-table-row-border-color-hover: #e8e8e8;
+  --hds-table-row-border-color-selected-default: #c6c6c6;
+  --hds-table-row-border-color-selected-hover: #d1d1d1;
+  --hds-table-row-border-width: 1px;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #e0e0e0;
   --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
