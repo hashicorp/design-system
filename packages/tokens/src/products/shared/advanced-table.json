@@ -3,18 +3,8 @@
     "cell": {
       "padding": {
         "horizontal": {
-          "short": {
-            "$type": "dimension",
-            "$value": "{table.cell.padding.horizontal.short}"
-          },
-          "medium": {
-            "$type": "dimension",
-            "$value": "{table.cell.padding.horizontal.medium}"
-          },
-          "tall": {
-            "$type": "dimension",
-            "$value": "{table.cell.padding.horizontal.tall}"
-          }
+          "$type": "dimension",
+          "$value": "{table.cell.padding.horizontal}"
         },
         "vertical": {
           "short": {
@@ -171,18 +161,8 @@
       "cell": {
         "padding": {
           "horizontal": {
-            "short": {
-              "$type": "dimension",
-              "$value": "{table.header.cell.padding.horizontal.short}"
-            },
-            "medium": {
-              "$type": "dimension",
-              "$value": "{table.header.cell.padding.horizontal.medium}"
-            },
-            "tall": {
-              "$type": "dimension",
-              "$value": "{table.header.cell.padding.horizontal.tall}"
-            }
+            "$type": "dimension",
+            "$value": "{table.header.cell.padding.horizontal}"
           },
           "vertical": {
             "short": {
@@ -246,6 +226,22 @@
         "color": {
           "$type": "color",
           "$value": "{table.body.surface.color}"
+        }
+      }
+    },
+    "scroll-indicator-top": {
+      "offset": {
+        "bottom": {
+          "$type": "dimension",
+          "$value": "-11",
+          "unit": "px",
+          "$modes": {
+            "default": "-11",
+            "cds-g0": "-8",
+            "cds-g10": "-8",
+            "cds-g90": "-8",
+            "cds-g100": "-8"
+          }
         }
       }
     }

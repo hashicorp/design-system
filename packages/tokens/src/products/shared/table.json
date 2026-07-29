@@ -3,21 +3,9 @@
     "cell": {
       "padding": {
         "horizontal": {
-          "short": {
-            "$type": "dimension",
-            "$value": "16",
-            "unit": "px"
-          },
-          "medium": {
-            "$type": "dimension",
-            "$value": "16",
-            "unit": "px"
-          },
-          "tall": {
-            "$type": "dimension",
-            "$value": "16",
-            "unit": "px"
-          }
+          "$type": "dimension",
+          "$value": "16",
+          "unit": "px"
         },
         "vertical": {
           "short": {
@@ -233,21 +221,9 @@
       "cell": {
         "padding": {
           "horizontal": {
-            "short": {
-              "$type": "dimension",
-              "$value": "16",
-              "unit": "px"
-            },
-            "medium": {
-              "$type": "dimension",
-              "$value": "16",
-              "unit": "px"
-            },
-            "tall": {
-              "$type": "dimension",
-              "$value": "16",
-              "unit": "px"
-            }
+            "$type": "dimension",
+            "$value": "16",
+            "unit": "px"
           },
           "vertical": {
             "short": {

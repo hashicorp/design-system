@@ -122,7 +122,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       align-content: center;
       height: 100%;
       padding: var(--hds-advanced-table-header-cell-padding-vertical-medium)
-        var(--hds-advanced-table-header-cell-padding-horizontal-medium)
+        var(--hds-advanced-table-header-cell-padding-horizontal)
         calc(var(--hds-advanced-table-header-cell-padding-vertical-medium) - #{$hds-advanced-table-border-width});
       color: var(--hds-foreground-color-strong);
       text-align: left;
@@ -130,13 +130,13 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       .hds-advanced-table--density-short & {
         padding: var(--hds-advanced-table-header-cell-padding-vertical-short)
-          var(--hds-advanced-table-header-cell-padding-horizontal-short)
+          var(--hds-advanced-table-header-cell-padding-horizontal)
           calc(var(--hds-advanced-table-header-cell-padding-vertical-short) - #{$hds-advanced-table-border-width});
       }
 
       .hds-advanced-table--density-tall & {
         padding: var(--hds-advanced-table-header-cell-padding-vertical-tall)
-          var(--hds-advanced-table-header-cell-padding-horizontal-tall)
+          var(--hds-advanced-table-header-cell-padding-horizontal)
           calc(var(--hds-advanced-table-header-cell-padding-vertical-tall) - #{$hds-advanced-table-border-width});
       }
 
@@ -396,12 +396,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
     .hds-advanced-table__scroll-indicator-top {
       top: unset;
-      bottom: -11px;
-
-      @include hds-apply-only-if-carbon() {
-        // less offset because the carbonized table doesn't have borders
-        bottom: -8px;
-      }
+      bottom: var(--hds-advanced-table-scroll-indicator-top-offset-bottom);
     }
   }
 
@@ -764,20 +759,17 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     // density
 
     .hds-advanced-table--density-short & {
-      padding: var(--hds-advanced-table-cell-padding-vertical-short)
-        var(--hds-advanced-table-cell-padding-horizontal-short)
+      padding: var(--hds-advanced-table-cell-padding-vertical-short) var(--hds-advanced-table-cell-padding-horizontal)
         calc(var(--hds-advanced-table-cell-padding-vertical-short) - #{$hds-advanced-table-border-width});
     }
 
     .hds-advanced-table--density-medium & {
-      padding: var(--hds-advanced-table-cell-padding-vertical-medium)
-        var(--hds-advanced-table-cell-padding-horizontal-medium)
+      padding: var(--hds-advanced-table-cell-padding-vertical-medium) var(--hds-advanced-table-cell-padding-horizontal)
         calc(var(--hds-advanced-table-cell-padding-vertical-medium) - #{$hds-advanced-table-border-width});
     }
 
     .hds-advanced-table--density-tall & {
-      padding: var(--hds-advanced-table-cell-padding-vertical-tall)
-        var(--hds-advanced-table-cell-padding-horizontal-tall)
+      padding: var(--hds-advanced-table-cell-padding-vertical-tall) var(--hds-advanced-table-cell-padding-horizontal)
         calc(var(--hds-advanced-table-cell-padding-vertical-tall) - #{$hds-advanced-table-border-width});
     }
   }
