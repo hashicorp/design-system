@@ -261,7 +261,7 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsTable>
       </:theming>
       <:reference>
-        <cds-table use-zebra-styles>
+        <cds-table use-zebra-styles size="md">
           <cds-table-head>
             <cds-table-header-row>
               <cds-table-header-cell>Cell Header</cds-table-header-cell>
@@ -317,7 +317,7 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsTable>
       </:theming>
       <:reference>
-        <cds-table is-sortable is-selectable>
+        <cds-table is-sortable is-selectable size="md">
           <cds-table-head>
             <cds-table-header-row selection-name="header">
               <cds-table-header-cell>Artist

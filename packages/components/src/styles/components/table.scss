@@ -9,15 +9,12 @@
 //
 
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 $hds-table-border-radius: var(--hds-border-radius-medium);
 $hds-table-border-width: 1px;
 $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - #{$hds-table-border-width});
-$hds-table-border-color: var(--hds-border-color-primary);
 $hds-table-header-height: 48px;
-$hds-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
-$hds-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
-$hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
 
 // TABLE
 
@@ -38,7 +35,11 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 .hds-table,
 .hds-table__th,
 .hds-table__td {
-  border: calc(#{$hds-table-border-width} / 2) solid $hds-table-border-color;
+  border: calc(#{$hds-table-border-width} / 2) solid var(--hds-table-border-color);
+
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
 }
 
 // ----------------------------------------------------------------
@@ -51,8 +52,22 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     background-color: var(--hds-surface-color-strong);
 
     .hds-table__th {
-      padding: $hds-table-cell-padding-medium;
+      // we need to account for the `1px` border when calculating the actual padding
+      padding: var(--hds-table-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal-medium) calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
       text-align: left;
+
+      .hds-table--density-short & {
+        @include hds-apply-only-if-carbon() {
+          padding: var(--hds-table-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal-short) calc(var(--hds-table-cell-padding-vertical-short) - 1px);
+        }
+      }
+
+      .hds-table--density-tall & {
+        @include hds-apply-only-if-carbon() {
+          // we need to account for the `1px` border when calculating the actual padding
+          padding: var(--hds-table-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal-tall) calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
+        }
+      }
     }
 
     // horizontal alignment
@@ -169,7 +184,7 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     // striped rows
 
     .hds-table--striped &:nth-child(even) {
-      background-color: var(--hds-surface-color-faint);
+      background-color: var(--hds-table-striped-color);
     }
 
     // border radius: target first th (scope of row) and td, and last td elements in the last row
@@ -191,18 +206,28 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   .hds-table__td {
     text-align: left;
 
+    @include hds-apply-only-if-carbon() {
+      border-bottom: $hds-table-border-width solid var(--hds-table-border-color);
+    }
+
+    .hds-table--striped & {
+      @include hds-apply-only-if-carbon() {
+        border-bottom: none;
+      }
+    }
+
     // density
 
     .hds-table--density-short & {
-      padding: $hds-table-cell-padding-short;
+      padding: var(--hds-table-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal-short) calc(var(--hds-table-cell-padding-vertical-short) - 1px);
     }
 
     .hds-table--density-medium & {
-      padding: $hds-table-cell-padding-medium;
+      padding: var(--hds-table-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal-medium) calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
     }
 
     .hds-table--density-tall & {
-      padding: $hds-table-cell-padding-tall;
+      padding: var(--hds-table-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal-tall) calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
     }
   }
   // horizontal alignment
