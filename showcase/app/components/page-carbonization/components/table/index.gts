@@ -285,11 +285,60 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
         </cds-table>
       </:reference>
     </ShwCarbonizationComparisonGrid>
+
+    <ShwTextH2>With Striping + Selection</ShwTextH2>
+
+    <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <:theming>
+        <HdsTable
+          @model={{MUSIC}}
+          @isStriped={{true}}
+          @isSelectable={{true}}
+          @columns={{array
+            (hash key="artist" label="Artist" isSortable=true tooltip="Tooltip")
+            (hash key="album" label="Album" isSortable=true)
+            (hash key="year" label="Release Year" isSortable=true)
+          }}
+        >
+          <:body as |B|>
+            <B.Tr @selectionKey={{B.data.id}} @isSelected={{eq B.data.id "2"}}>
+              <B.Td>{{B.data.artist}}</B.Td>
+              <B.Td>{{B.data.album}}</B.Td>
+              <B.Td>{{B.data.year}}</B.Td>
+            </B.Tr>
+          </:body>
+        </HdsTable>
+      </:theming>
+      <:reference>
+        <cds-table is-selectable use-zebra-styles size="md">
+          <cds-table-head>
+            <cds-table-header-row selection-name="header">
+              <cds-table-header-cell>Artist</cds-table-header-cell>
+              <cds-table-header-cell>Album</cds-table-header-cell>
+              <cds-table-header-cell>Release Year</cds-table-header-cell>
+            </cds-table-header-row>
+          </cds-table-head>
+          <cds-table-body>
+            {{#each MUSIC as |row|}}
+              <cds-table-row
+                selection-name="{{row.id}}"
+                selected={{eq row.id "2"}}
+              >
+                <cds-table-cell>{{row.artist}}</cds-table-cell>
+                <cds-table-cell>{{row.album}}</cds-table-cell>
+                <cds-table-cell>{{row.year}}</cds-table-cell>
+              </cds-table-row>
+            {{/each}}
+          </cds-table-body>
+        </cds-table>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
   </section>
 
   <ShwDivider />
 
-  <ShwTextH2>With Select + Sort + Tooltip</ShwTextH2>
+  <ShwTextH2>With Selection + Sort + Tooltip</ShwTextH2>
 
   <section>
     <ShwCarbonizationComparisonGrid @layout="side-by-side">
