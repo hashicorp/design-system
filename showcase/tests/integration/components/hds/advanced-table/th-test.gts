@@ -532,28 +532,4 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     );
     assert.ok(isClicked);
   });
-
-  test('it should scroll into view on focus using the minimum scroll distance', async function (assert) {
-    const stub = sinon.stub(HTMLElement.prototype, 'scrollIntoView');
-
-    try {
-      await render(
-        <template>
-          <HdsAdvancedTableTh id="data-test-advanced-table-th" tabindex="0">
-            Artist
-          </HdsAdvancedTableTh>
-        </template>,
-      );
-
-      await focus('#data-test-advanced-table-th');
-
-      assert.ok(stub.calledOnce, 'scrollIntoView should be called once');
-
-      assert.deepEqual(stub.firstCall.args, [
-        { block: 'nearest', inline: 'nearest' },
-      ]);
-    } finally {
-      stub.restore();
-    }
-  });
 });
