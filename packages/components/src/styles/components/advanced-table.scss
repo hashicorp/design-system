@@ -523,6 +523,35 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   &:hover,
   &.mock-hover {
     box-shadow: var(--hds-elevation-low-box-shadow);
+
+    @include hds-apply-only-if-carbon() {
+      color: var(--hds-advanced-table-header-button-foreground-color-hover);
+      background-color: var(--hds-advanced-table-header-button-surface-color-hover);
+      border-color: var(--hds-border-color-strong);
+    }
+  }
+
+  &:active,
+  &.mock-active {
+    @include hds-apply-only-if-carbon() {
+      color: var(--hds-advanced-table-header-button-foreground-color-active);
+      background-color: var(--hds-advanced-table-header-button-surface-color-active);
+      border-color: var(--hds-border-color-strong);
+    }
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-apply-only-if-carbon() {
+      color: var(--hds-foreground-color-faint);
+      background-color: transparent;
+    }
+
+    &::before {
+      // these are needed to make the dropdown icon focus state match the size of the other header buttons focus state
+      inset: 0 !important;
+      border-width: 0 !important;
+    }
   }
 }
 
@@ -867,7 +896,15 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   .hds-advanced-table__tr {
     .hds-advanced-table__th,
     .hds-advanced-table__td {
-      background-color: var(--hds-surface-color-faint);
+      background-color: var(--hds-advanced-table-cell-surface-color-nested-default);
+    }
+
+    &:hover,
+    &.mock-hover {
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        background-color: var(--hds-advanced-table-cell-surface-color-nested-hover);
+      }
     }
   }
 
@@ -875,6 +912,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     .hds-advanced-table__th,
     .hds-advanced-table__td {
       background-color: var(--hds-surface-color-primary);
+    }
+
+    &:hover,
+    &.mock-hover {
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        background-color: var(--hds-advanced-table-cell-surface-color-parent-hover);
+      }
     }
   }
 }

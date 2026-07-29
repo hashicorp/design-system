@@ -39,7 +39,15 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{table.cell.surface.color.hover}"
+            "$value": "{surface.color.primary}",
+            "$modes": {
+              "default": "{surface.color.primary}",
+              "cds-g0": "#E0E0E0",
+              "cds-g10": "#F1F1F1",
+              "cds-g90": "#474747",
+              "cds-g100": "#373737"
+            },
+            "comment": "the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values."
           },
           "striped": {
             "default": {
@@ -48,7 +56,15 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{table.cell.surface.color.striped.hover}"
+              "$value": "{surface.color.primary}",
+              "$modes": {
+                "default": "{surface.color.primary}",
+                "cds-g0": "#E8E8E8",
+                "cds-g10": "#E8E8E8",
+                "cds-g90": "#474747",
+                "cds-g100": "#373737"
+              },
+              "comment": "the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values."
             }
           },
           "selected": {
@@ -59,6 +75,43 @@
             "hover": {
               "$type": "color",
               "$value": "{table.cell.surface.color.selected.hover}"
+            }
+          },
+          "parent": {
+            "hover": {
+              "$type": "color",
+              "$value": "{surface.color.primary}",
+              "$modes": {
+                "default": "{surface.color.primary}",
+                "cds-g0": "{carbon.themes.white.backgroundHover}",
+                "cds-g10": "{carbon.themes.g10.backgroundHover}",
+                "cds-g90": "{carbon.themes.g90.backgroundHover}",
+                "cds-g100": "{carbon.themes.g100.backgroundHover}"
+              }
+            }
+          },
+          "nested": {
+            "default": {
+              "$type": "color",
+              "$value": "{surface.color.faint}",
+              "$modes": {
+                "default": "{surface.color.faint}",
+                "cds-g0": "{carbon.themes.white.layerAccent01}",
+                "cds-g10": "{carbon.themes.g10.layerAccent01}",
+                "cds-g90": "{carbon.themes.g90.layerAccent01}",
+                "cds-g100": "{carbon.themes.g100.layerAccent01}"
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{surface.color.faint}",
+              "$modes": {
+                "default": "{surface.color.faint}",
+                "cds-g0": "{carbon.themes.white.backgroundHover}",
+                "cds-g10": "{carbon.themes.g10.backgroundHover}",
+                "cds-g90": "{carbon.themes.g90.backgroundHover}",
+                "cds-g100": "{carbon.themes.g100.backgroundHover}"
+              }
             }
           }
         }
