@@ -53,20 +53,12 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 // table border
 .hds-advanced-table__th,
 .hds-advanced-table__td {
-  border: calc(#{$hds-advanced-table-border-width} / 2) solid var(--hds-advanced-table-row-border-color-default);
-
-  @include hds-apply-only-if-carbon() {
-    border: none;
-  }
+  border: var(--hds-advanced-table-cell-border-width) solid var(--hds-advanced-table-cell-border-color);
 }
 
 .hds-advanced-table__thead,
 .hds-advanced-table__tbody {
-  border: calc(#{$hds-advanced-table-border-width} / 2) solid var(--hds-advanced-table-row-border-color-default);
-
-  @include hds-apply-only-if-carbon() {
-    border: none;
-  }
+  border: var(--hds-advanced-table-cell-border-width) solid var(--hds-advanced-table-cell-border-color);
 }
 
 .hds-advanced-table__thead {
@@ -612,12 +604,11 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     display: contents;
     color: var(--hds-advanced-table-cell-foreground-color-default);
 
-    @include hds-apply-only-if-carbon() {
-      .hds-advanced-table__th,
-      .hds-advanced-table__td {
-        border-bottom: var(--hds-advanced-table-row-border-width) solid
-          var(--hds-advanced-table-row-border-color-default);
-      }
+    // @include hds-apply-only-if-carbon() {
+    .hds-advanced-table__th,
+    .hds-advanced-table__td {
+      border-bottom: var(--hds-advanced-table-row-border-width) solid var(--hds-advanced-table-row-border-color-default);
+      // }
     }
 
     &:hover,
@@ -630,23 +621,18 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         border-color: var(--hds-advanced-table-row-border-color-hover);
       }
 
-      @include hds-apply-only-if-carbon() {
-        .hds-advanced-table__th,
-        .hds-advanced-table__td {
-          border-bottom: var(--hds-advanced-table-row-border-width) solid
-            var(--hds-advanced-table-row-border-color-hover);
-        }
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        border-bottom: var(--hds-advanced-table-row-border-width) solid var(--hds-advanced-table-row-border-color-hover);
       }
     }
 
     // striped rows
 
-    .hds-advanced-table--striped & {
+    .hds-advanced-table--striped &.hds-advanced-table__tr {
       .hds-advanced-table__th,
       .hds-advanced-table__td {
-        @include hds-apply-only-if-carbon() {
-          border-bottom-color: transparent;
-        }
+        border-bottom-color: var(--hds-advanced-table-row-border-color-striped);
       }
     }
 
@@ -672,6 +658,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       .hds-advanced-table__th,
       .hds-advanced-table__td {
+        // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
         @include hds-apply-only-if-carbon() {
           background-color: var(--hds-advanced-table-cell-surface-color-selected-default);
           border-bottom: var(--hds-advanced-table-row-border-width) solid
@@ -681,12 +668,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       &:hover,
       &.mock-hover {
+        // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
         @include hds-apply-only-if-carbon() {
           background-color: var(--hds-advanced-table-cell-surface-color-selected-hover);
         }
 
         .hds-advanced-table__th,
         .hds-advanced-table__td {
+          // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
           @include hds-apply-only-if-carbon() {
             background-color: var(--hds-advanced-table-cell-surface-color-selected-hover);
             border-bottom: var(--hds-advanced-table-row-border-width) solid

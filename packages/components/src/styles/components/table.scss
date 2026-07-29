@@ -33,16 +33,12 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
 .hds-table,
 .hds-table__th,
 .hds-table__td {
-  border: calc(var(--hds-table-row-border-width) / 2) solid var(--hds-table-row-border-color-default);
-
-  @include hds-apply-only-if-carbon() {
-    border: none;
-  }
+  border: var(--hds-table-cell-border-width) solid var(--hds-table-cell-border-color);
 }
 
 // row height
 
-  // CSS doesn't allow minimum height set on table cells, need to set height instead
+// CSS doesn't allow minimum height set on table cells, need to set height instead
 .hds-table__th,
 .hds-table__td {
   .hds-table--density-short & {
@@ -195,11 +191,9 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
     color: var(--hds-table-cell-foreground-color-default);
     background-color: var(--hds-surface-color-primary);
 
-    @include hds-apply-only-if-carbon() {
-      .hds-table__th,
-      .hds-table__td {
-        border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-default);
-      }
+    .hds-table__th,
+    .hds-table__td {
+      border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-default);
     }
 
     &:hover,
@@ -207,21 +201,20 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
       color: var(--hds-table-cell-foreground-color-hover);
       background-color: var(--hds-table-cell-surface-color-hover);
 
-      @include hds-apply-only-if-carbon() {
-        .hds-table__th,
-        .hds-table__td {
-          border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-hover);
-        }
-      }
-    }
-
-    .hds-table--striped & {
-      @include hds-apply-only-if-carbon() {
-        border-bottom-color: transparent;
+      .hds-table__th,
+      .hds-table__td {
+        border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-hover);
       }
     }
 
     // striped rows
+
+    .hds-table--striped &.hds-table__tr {
+      .hds-table__th,
+      .hds-table__td {
+        border-bottom-color: var(--hds-table-row-border-color-striped);
+      }
+    }
 
     .hds-table--striped &:nth-child(even) {
       background-color: var(--hds-table-cell-surface-color-striped-default);
@@ -237,12 +230,14 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
     &.hds-table__tr--is-selected {
       color: var(--hds-table-cell-foreground-color-selected);
 
+      // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
       @include hds-apply-only-if-carbon() {
         background-color: var(--hds-table-cell-surface-color-selected-default);
       }
 
       .hds-table__th,
       .hds-table__td {
+        // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
         @include hds-apply-only-if-carbon() {
           border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-default);
         }
@@ -250,12 +245,14 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
 
       &:hover,
       &.mock-hover {
+        // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
         @include hds-apply-only-if-carbon() {
           background-color: var(--hds-table-cell-surface-color-selected-hover);
         }
 
         .hds-table__th,
         .hds-table__td {
+          // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
           @include hds-apply-only-if-carbon() {
             border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-hover);
           }
