@@ -534,6 +534,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
     '#data-test-selectable-table thead th[scope="col"] .hds-table__checkbox';
   const rowCheckboxesSelector =
     '#data-test-selectable-table tbody th[scope="row"] .hds-table__checkbox';
+  const selectableRowsSelector =
+    '#data-test-selectable-table tbody .hds-table__tr';
 
   // basic multi-select
 
@@ -593,6 +595,9 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await click(selectAllCheckboxSelector);
     assert.dom(selectAllCheckboxSelector).isChecked();
     assert.dom(rowCheckboxesSelector).isChecked().exists({ count: 3 });
+    assert
+      .dom(`${selectableRowsSelector}.hds-table__tr--is-selected`)
+      .exists({ count: 3 });
   });
 
   test('it deselects all rows when the "select all" checkbox unchecked state is triggered', async function (assert) {
@@ -603,6 +608,9 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await click(selectAllCheckboxSelector);
     assert.dom(selectAllCheckboxSelector).isNotChecked();
     assert.dom(rowCheckboxesSelector).isNotChecked().exists({ count: 3 });
+    assert
+      .dom(`${selectableRowsSelector}.hds-table__tr--is-selected`)
+      .doesNotExist();
   });
 
   test('if some rows are selected but not all, the "select all" checkbox should be in an indeterminate state', async function (assert) {

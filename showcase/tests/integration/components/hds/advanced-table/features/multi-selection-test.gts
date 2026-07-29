@@ -86,6 +86,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       '#data-test-selectable-advanced-table .hds-advanced-table__thead .hds-advanced-table__th[role="columnheader"] .hds-advanced-table__checkbox';
     const rowCheckboxesSelector =
       '#data-test-selectable-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th .hds-advanced-table__checkbox';
+    const selectedRowsSelector =
+      '#data-test-selectable-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr--is-selected';
 
     test('it renders a multi-select table when isSelectable is set to true for a table with a model', async function (assert) {
       await createSelectableTable({});
@@ -106,6 +108,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       await click(selectAllCheckboxSelector);
       assert.dom(selectAllCheckboxSelector).isChecked();
       assert.dom(rowCheckboxesSelector).isChecked().exists({ count: 3 });
+      assert
+        .dom(selectedRowsSelector)
+        .exists({ count: DEFAULT_SELECTABLE_MODEL.length });
     });
 
     test('it deselects all rows when the "select all" checkbox unchecked state is triggered', async function (assert) {
@@ -116,6 +121,24 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       await click(selectAllCheckboxSelector);
       assert.dom(selectAllCheckboxSelector).isNotChecked();
       assert.dom(rowCheckboxesSelector).isNotChecked().exists({ count: 3 });
+      assert.dom(selectedRowsSelector).doesNotExist();
+    });
+
+    test('it toggles the selected row class when a row checkbox is clicked', async function (assert) {
+      await createSelectableTable({});
+
+      assert.dom(selectedRowsSelector).doesNotExist();
+
+      const rowCheckboxes = findAll(rowCheckboxesSelector);
+      const firstRowCheckbox = rowCheckboxes[0];
+
+      if (firstRowCheckbox) {
+        await click(firstRowCheckbox);
+        assert.dom(selectedRowsSelector).exists({ count: 1 });
+
+        await click(firstRowCheckbox);
+        assert.dom(selectedRowsSelector).doesNotExist();
+      }
     });
 
     test('if some rows are selected but not all, the "select all" checkbox should be in an indeterminate state', async function (assert) {
