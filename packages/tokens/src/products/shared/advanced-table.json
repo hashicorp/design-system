@@ -29,9 +29,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{surface.color.primary}",
+            "$value": "{table.cell.surface.color.hover}",
             "$modes": {
-              "default": "{surface.color.primary}",
+              "default": "{table.cell.surface.color.hover}",
               "cds-g0": "#E0E0E0",
               "cds-g10": "#F1F1F1",
               "cds-g90": "#474747",
@@ -48,9 +48,9 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{surface.color.faint}",
+              "$value": "{table.cell.surface.color.striped.hover}",
               "$modes": {
-                "default": "{surface.color.faint}",
+                "default": "{table.cell.surface.color.striped.hover}",
                 "cds-g0": "#E8E8E8",
                 "cds-g10": "#E8E8E8",
                 "cds-g90": "#474747",
@@ -128,15 +128,11 @@
       },
       "border": {
         "color": {
-          "$type": "color",
-          "$value": "{table.cell.border.color}"
-        },
-        "width": {
-          "$type": "dimension",
-          "$value": "{table.cell.border.width}"
-        },
-        "pinned": {
-          "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{table.cell.border.color}"
+          },
+          "pinned": {
             "$type": "color",
             "$value": "{border.color.primary}",
             "$modes": {
@@ -146,8 +142,14 @@
               "cds-g90": "{carbon.themes.g90.borderSubtle01}",
               "cds-g100": "{carbon.themes.g100.borderSubtle01}"
             }
+          }
+        },
+        "width": {
+          "default": {
+            "$type": "dimension",
+            "$value": "{table.cell.border.width}"
           },
-          "width": {
+          "pinned": {
             "$type": "dimension",
             "$value": "3",
             "unit": "px",
@@ -202,6 +204,10 @@
         }
       },
       "cell": {
+        "border-offset": {
+          "$type": "dimension",
+          "$value": "{table.header.cell.border-offset}"
+        },
         "padding": {
           "horizontal": {
             "$type": "dimension",
@@ -214,41 +220,54 @@
         }
       },
       "button": {
+        "size": {
+          "$type": "dimension",
+          "$value": "24",
+          "unit": "px"
+        },
         "foreground": {
           "color": {
-            "active": {
+            "default": {
               "$type": "color",
-              "$value": "{table.header.button.foreground.color.active}"
+              "$value": "{table.header.button.foreground.color.default}"
             },
             "hover": {
               "$type": "color",
               "$value": "{table.header.button.foreground.color.hover}"
             },
+            "active": {
+              "$type": "color",
+              "$value": "{table.header.button.foreground.color.active}"
+            },
             "sorted": {
-              "active": {
+              "default": {
                 "$type": "color",
-                "$value": "{table.header.button.foreground.color.sorted.active}"
+                "$value": "{table.header.button.foreground.color.sorted.default}"
               },
               "hover": {
                 "$type": "color",
                 "$value": "{table.header.button.foreground.color.sorted.hover}"
               },
-              "default": {
+              "active": {
                 "$type": "color",
-                "$value": "{table.header.button.foreground.color.sorted.default}"
+                "$value": "{table.header.button.foreground.color.sorted.active}"
               }
             }
           }
         },
         "surface": {
           "color": {
-            "active": {
+            "default": {
               "$type": "color",
-              "$value": "{table.header.button.surface.color.active}"
+              "$value": "{table.header.button.surface.color.default}"
             },
             "hover": {
               "$type": "color",
               "$value": "{table.header.button.surface.color.hover}"
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{table.header.button.surface.color.active}"
             }
           }
         },
@@ -291,6 +310,28 @@
             "cds-g90": "-8",
             "cds-g100": "-8"
           }
+        }
+      }
+    },
+    "resize-handle": {
+      "surface": {
+        "color": {
+          "focus": {
+            "$type": "color",
+            "$value": "{core.color.blue-300}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "#b1b1b5"
+          }
+        }
+      }
+    },
+    "drag-preview": {
+      "surface": {
+        "color": {
+          "$type": "color",
+          "$value": "rgba(204, 227, 254, 30%)"
         }
       }
     }

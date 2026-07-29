@@ -36,28 +36,32 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
   border: var(--hds-table-cell-border-width) solid var(--hds-table-cell-border-color);
 }
 
-// row height
+// density
 
-// CSS doesn't allow minimum height set on table cells, need to set height instead
 .hds-table__th,
 .hds-table__td {
-  .hds-table--density-short & {
-    @include hds-apply-only-if-carbon() {
-      height: 2rem;
-    }
+  @include hds-apply-only-if-carbon() {
+    // CSS doesn't allow minimum height set on table cells, need to set height instead
+    height: var(--hds-var-table-cell-height);
   }
+}
 
-  .hds-table--density-medium & {
-    @include hds-apply-only-if-carbon() {
-      height: 2.5rem;
-    }
-  }
+.hds-table--density-short {
+  --hds-var-table-cell-height: 2rem;
+  --hds-var-table-cell-padding-top: var(--hds-table-cell-padding-vertical-short);
+  --hds-var-table-cell-padding-bottom: calc(var(--hds-table-cell-padding-vertical-short) - 1px);
+}
 
-  .hds-table--density-tall & {
-    @include hds-apply-only-if-carbon() {
-      height: 3rem;
-    }
-  }
+.hds-table--density-medium {
+  --hds-var-table-cell-height: 2.5rem;
+  --hds-var-table-cell-padding-top: var(--hds-table-cell-padding-vertical-medium);
+  --hds-var-table-cell-padding-bottom: calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
+}
+
+.hds-table--density-tall {
+  --hds-var-table-cell-height: 3rem;
+  --hds-var-table-cell-padding-top: var(--hds-table-cell-padding-vertical-tall);
+  --hds-var-table-cell-padding-bottom: calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
 }
 
 // ----------------------------------------------------------------
@@ -72,9 +76,8 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
     background-color: var(--hds-surface-color-strong);
 
     .hds-table__th {
-      // we need to account for the `1px` border when calculating the actual padding
       padding: var(--hds-table-header-cell-padding-vertical) var(--hds-table-cell-padding-horizontal)
-        calc(var(--hds-table-header-cell-padding-vertical) - 1px);
+        calc(var(--hds-table-header-cell-padding-vertical) - var(--hds-table-header-cell-border-offset));
       text-align: left;
     }
 
@@ -134,8 +137,8 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
   height: 24px;
   margin: -2px 0; // this is necessary to compensate for the height of the button being 24px while the line height of the text is 20px (the overall height of the cell shoud be 48px and we want to keep the cell's padding as is for consistency with Figma)
   padding: 0;
-  color: var(--hds-foreground-color-faint);
-  background-color: transparent;
+  color: var(--hds-table-header-button-foreground-color-default);
+  background-color: var(--hds-table-header-button-surface-color-default);
   border: 1px solid var(--hds-table-header-button-border-color-default);
   border-radius: var(--hds-border-radius-x-small);
 
@@ -209,10 +212,15 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
 
     // striped rows
 
-    .hds-table--striped &.hds-table__tr {
+    .hds-table--striped & {
       .hds-table__th,
       .hds-table__td {
         border-bottom-color: var(--hds-table-row-border-color-striped);
+      }
+
+      &:hover,
+      &.mock-hover {
+        background-color: var(--hds-table-cell-surface-color-striped-hover);
       }
     }
 
@@ -233,27 +241,18 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
       // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
       @include hds-apply-only-if-carbon() {
         background-color: var(--hds-table-cell-surface-color-selected-default);
-      }
-
-      .hds-table__th,
-      .hds-table__td {
-        // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
-        @include hds-apply-only-if-carbon() {
-          border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-default);
-        }
-      }
-
-      &:hover,
-      &.mock-hover {
-        // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
-        @include hds-apply-only-if-carbon() {
-          background-color: var(--hds-table-cell-surface-color-selected-hover);
-        }
 
         .hds-table__th,
         .hds-table__td {
-          // setting it only with carbon to avoid the striped styles being affected by the selected styles in the helios theme
-          @include hds-apply-only-if-carbon() {
+          border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-default);
+        }
+
+        &:hover,
+        &.mock-hover {
+          background-color: var(--hds-table-cell-surface-color-selected-hover);
+
+          .hds-table__th,
+          .hds-table__td {
             border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-hover);
           }
         }
@@ -277,24 +276,9 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
 
   .hds-table__th,
   .hds-table__td {
+    padding: var(--hds-var-table-cell-padding-top) var(--hds-table-cell-padding-horizontal)
+      var(--hds-var-table-cell-padding-bottom);
     text-align: left;
-
-    // density
-
-    .hds-table--density-short & {
-      padding: var(--hds-table-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal)
-        calc(var(--hds-table-cell-padding-vertical-short) - 1px);
-    }
-
-    .hds-table--density-medium & {
-      padding: var(--hds-table-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal)
-        calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
-    }
-
-    .hds-table--density-tall & {
-      padding: var(--hds-table-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal)
-        calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
-    }
   }
   // horizontal alignment
 

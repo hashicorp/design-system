@@ -37,13 +37,13 @@
   --hds-accordion-item-toggle-padding-top-large: 16px;
   --hds-accordion-item-toggle-padding-top-medium: 12px;
   --hds-accordion-item-toggle-padding-top-small: 8px;
-  --hds-advanced-table-cell-border-pinned-color: var(--hds-border-color-primary);
-  --hds-advanced-table-cell-border-pinned-width: 3px;
-  --hds-advanced-table-cell-surface-color-hover: var(--hds-surface-color-primary);
+  --hds-advanced-table-cell-border-color-pinned: var(--hds-border-color-primary);
+  --hds-advanced-table-cell-border-width-pinned: 3px;
+  --hds-advanced-table-cell-surface-color-hover: var(--hds-table-cell-surface-color-hover);
   --hds-advanced-table-cell-surface-color-nested-default: var(--hds-surface-color-faint);
   --hds-advanced-table-cell-surface-color-nested-hover: var(--hds-surface-color-faint);
   --hds-advanced-table-cell-surface-color-parent-hover: var(--hds-surface-color-primary);
-  --hds-advanced-table-cell-surface-color-striped-hover: var(--hds-surface-color-faint);
+  --hds-advanced-table-cell-surface-color-striped-hover: var(--hds-table-cell-surface-color-striped-hover);
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
   --hds-alert-actions-margin-top: 16px;
   --hds-alert-border-color-critical: var(--hds-border-color-critical);
@@ -567,6 +567,9 @@
   --hds-table-header-button-foreground-color-sorted-active: var(--hds-foreground-color-action-active);
   --hds-table-header-button-foreground-color-sorted-default: var(--hds-foreground-color-action);
   --hds-table-header-button-foreground-color-sorted-hover: var(--hds-foreground-color-action-hover);
+  --hds-table-header-button-surface-color-active: var(--hds-surface-color-interactive-active);
+  --hds-table-header-button-surface-color-hover: var(--hds-surface-color-interactive);
+  --hds-table-header-cell-border-offset: 1px;
   --hds-table-header-cell-padding-vertical: 14px;
   --hds-table-header-surface-color: rgba(0, 0, 0, 0);
   --hds-table-row-border-color-default: rgba(0, 0, 0, 0);
