@@ -205,7 +205,7 @@
           "transform": "rename",
           "valueMap": {
             "filled": "filled",
-            "inverted": "outlined",
+            "inverted": "high-contrast",
             "outlined": "outlined"
           }
         },
