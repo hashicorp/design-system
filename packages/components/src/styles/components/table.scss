@@ -157,8 +157,8 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-foreground-color-primary);
-    background-color: var(--hds-surface-color-interactive);
+    color: var(--hds-table-header-button-foreground-color-hover);
+    background-color: var(--hds-table-header-button-surface-color-hover);
     border-color: var(--hds-border-color-strong);
     box-shadow: var(--hds-elevation-low-box-shadow);
     cursor: pointer;
@@ -171,24 +171,24 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
 
   &:active,
   &.mock-active {
-    color: var(--hds-foreground-color-primary);
-    background-color: var(--hds-surface-color-interactive-active);
+    color: var(--hds-table-header-button-foreground-color-active);
+    background-color: var(--hds-table-header-button-surface-color-active);
     border-color: var(--hds-border-color-strong);
     box-shadow: none;
   }
 }
 
 .hds-table__th-button--is-sorted {
-  color: var(--hds-foreground-color-action);
+  color: var(--hds-table-header-button-foreground-color-sorted-default);
 
   &:hover,
   &.mock-hover {
-    color: var(--hds-foreground-color-action-hover);
+    color: var(--hds-table-header-button-foreground-color-sorted-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--hds-foreground-color-action-active);
+    color: var(--hds-table-header-button-foreground-color-sorted-active);
   }
 }
 
