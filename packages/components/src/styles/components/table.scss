@@ -79,24 +79,20 @@ $hds-table-header-height: 48px;
 
     .hds-table__th {
       // we need to account for the `1px` border when calculating the actual padding
-      padding: var(--hds-table-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal-medium)
-        calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
+      padding: var(--hds-table-header-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal-medium)
+        calc(var(--hds-table-header-cell-padding-vertical-medium) - 1px);
       text-align: left;
 
       .hds-table--density-short & {
-        @include hds-apply-only-if-carbon() {
-          // we need to account for the `1px` border when calculating the actual padding
-          padding: var(--hds-table-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal-short)
-            calc(var(--hds-table-cell-padding-vertical-short) - 1px);
-        }
+        // we need to account for the `1px` border when calculating the actual padding
+        padding: var(--hds-table-header-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal-short)
+          calc(var(--hds-table-header-cell-padding-vertical-short) - 1px);
       }
 
       .hds-table--density-tall & {
-        @include hds-apply-only-if-carbon() {
-          // we need to account for the `1px` border when calculating the actual padding
-          padding: var(--hds-table-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal-tall)
-            calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
-        }
+        // we need to account for the `1px` border when calculating the actual padding
+        padding: var(--hds-table-header-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal-tall)
+          calc(var(--hds-table-header-cell-padding-vertical-tall) - 1px);
       }
     }
 
