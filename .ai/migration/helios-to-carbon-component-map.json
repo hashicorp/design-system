@@ -214,7 +214,7 @@
           "transform": "mapToType",
           "valueMap": {
             "neutral": "gray",
-            "highlight": "blue",
+            "highlight": "purple",
             "success": "green",
             "warning": "yellow",
             "critical": "red"
