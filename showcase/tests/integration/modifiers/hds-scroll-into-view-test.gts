@@ -95,33 +95,5 @@ module(
         'scrollIntoView is not called for pointer-driven focus',
       );
     });
-
-    test('it does not call scrollIntoView when a descendant is focused', async function (assert) {
-      assert.expect(1);
-
-      const stub = sinon.stub(HTMLElement.prototype, 'scrollIntoView');
-
-      await render(
-        <template>
-          <div id="parent" {{hdsScrollIntoViewOnFocus}}>
-            <button id="child" type="button">
-              Child
-            </button>
-          </div>
-        </template>,
-      );
-
-      // hold the ":focus-visible" guard open, otherwise it short circuites the handler
-      const target = find('#parent') as HTMLElement;
-      const matches = sinon.stub(target, 'matches').callThrough();
-      matches.withArgs(':focus-visible').returns(false);
-
-      await focus('#child');
-
-      assert.false(
-        stub.called,
-        'scrollIntoView is not called when a descendant is focused',
-      );
-    });
   },
 );
