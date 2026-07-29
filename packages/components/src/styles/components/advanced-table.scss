@@ -714,7 +714,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     font-family: var(--hds-typography-body-200-font-family);
     line-height: var(--hds-typography-body-200-line-height);
     text-align: left;
-    background-color: var(--hds-advanced-table-body-surface-color);
+    background-color: var(--hds-advanced-table-cell-surface-color-default);
 
     &:focus-visible,
     &.mock-focus {

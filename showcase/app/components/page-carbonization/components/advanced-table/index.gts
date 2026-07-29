@@ -390,31 +390,30 @@ export default class AdvancedTableCarbonizationIndex extends Component {
     <ShwTextH2>With sticky columns + header</ShwTextH2>
 
     <section>
-      <ShwCarbonizationComparisonGrid @layout="row">
+      <ShwCarbonizationComparisonGrid @layout="column">
         <:theming>
-          <HdsAdvancedTable
-            @model={{MUSIC}}
-            @columns={{array
-              (hash key="artist" label="Artist" width="auto")
-              (hash key="album" label="Album")
-              (hash key="quote" label="Quote")
-            }}
-            @hasStickyFirstColumn={{true}}
-            @hasStickyHeader={{true}}
-            @maxHeight="220px"
-          >
-            <:body as |B|>
-              <B.Tr>
-                <B.Th>{{B.data.artist}}</B.Th>
-                <B.Td>{{B.data.album}}</B.Td>
-                <B.Td>{{B.data.quote}}</B.Td>
-              </B.Tr>
-            </:body>
-          </HdsAdvancedTable>
+          <div {{style maxWidth="500px"}}>
+            <HdsAdvancedTable
+              @model={{MUSIC}}
+              @columns={{array
+                (hash key="artist" label="Artist" width="auto")
+                (hash key="album" label="Album")
+                (hash key="quote" label="Quote" width="500px")
+              }}
+              @hasStickyFirstColumn={{true}}
+              @hasStickyHeader={{true}}
+              @maxHeight="220px"
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Th>{{B.data.artist}}</B.Th>
+                  <B.Td>{{B.data.album}}</B.Td>
+                  <B.Td>{{B.data.quote}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
         </:theming>
-        {{!-- <:reference as |R|>
-        <R.NoEquivalent @isCompact={{true}} />
-      </:reference> --}}
       </ShwCarbonizationComparisonGrid>
     </section>
 
@@ -450,9 +449,6 @@ export default class AdvancedTableCarbonizationIndex extends Component {
             </:body>
           </HdsAdvancedTable>
         </:theming>
-        {{!-- <:reference as |R|>
-        <R.NoEquivalent @isCompact={{true}} />
-      </:reference> --}}
       </ShwCarbonizationComparisonGrid>
     </section>
 

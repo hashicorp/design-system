@@ -33,6 +33,10 @@
       },
       "surface": {
         "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{surface.color.primary}"
+          },
           "hover": {
             "$type": "color",
             "$value": "{table.cell.surface.color.hover}"
