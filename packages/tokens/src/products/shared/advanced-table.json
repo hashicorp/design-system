@@ -37,7 +37,9 @@
               "cds-g90": "#474747",
               "cds-g100": "#373737"
             },
-            "comment": "the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values."
+            "comments": {
+              "cds": "the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values."
+            }
           },
           "striped": {
             "default": {
@@ -54,7 +56,9 @@
                 "cds-g90": "#474747",
                 "cds-g100": "#373737"
               },
-              "comment": "the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values."
+              "comments": {
+                "cds": "the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values."
+              }
             }
           },
           "selected": {
@@ -130,6 +134,31 @@
         "width": {
           "$type": "dimension",
           "$value": "{table.cell.border.width}"
+        },
+        "pinned": {
+          "color": {
+            "$type": "color",
+            "$value": "{border.color.primary}",
+            "$modes": {
+              "default": "{border.color.primary}",
+              "cds-g0": "{carbon.themes.white.borderSubtle01}",
+              "cds-g10": "{carbon.color.gray.30}",
+              "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+              "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+            }
+          },
+          "width": {
+            "$type": "dimension",
+            "$value": "3",
+            "unit": "px",
+            "$modes": {
+              "default": "3",
+              "cds-g0": "2",
+              "cds-g10": "2",
+              "cds-g90": "2",
+              "cds-g100": "2"
+            }
+          }
         }
       }
     },

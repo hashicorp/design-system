@@ -13,9 +13,8 @@
 @use "../mixins/carbonization" as *;
 
 $hds-advanced-table-border-radius: var(--hds-border-radius-medium);
-$hds-advanced-table-border-width: var(--hds-advanced-table-row-border-width);
 $hds-advanced-table-inner-border-radius: calc(
-  #{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width}
+  #{$hds-advanced-table-border-radius} - var(--hds-advanced-table-row-border-width)
 );
 $hds-advanced-table-border-resize-handle-hover-color: #b1b1b5;
 $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown triggers in the header cell
@@ -115,7 +114,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       height: 100%;
       padding: var(--hds-advanced-table-header-cell-padding-vertical)
         var(--hds-advanced-table-header-cell-padding-horizontal)
-        calc(var(--hds-advanced-table-header-cell-padding-vertical) - #{$hds-advanced-table-border-width});
+        calc(var(--hds-advanced-table-header-cell-padding-vertical) - var(--hds-advanced-table-row-border-width));
       color: var(--hds-foreground-color-strong);
       text-align: left;
       background-color: var(--hds-surface-color-strong);
@@ -304,8 +303,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       &:first-of-type {
         left: -1px;
         // add extra left border to offset -1px and the 0.5px border from the table container being gone
-        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
-          var(--hds-advanced-table-row-border-color-default);
+        border-left: calc(var(--hds-advanced-table-cell-border-width) + 1px) solid
+          var(--hds-advanced-table-cell-border-color);
 
         @include hds-apply-only-if-carbon() {
           border-left: none;
@@ -315,18 +314,15 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
     // Only apply the thick border to the last sticky column
     .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
-      border-right: 3px solid var(--hds-advanced-table-row-border-color-default);
-
-      @include hds-apply-only-if-carbon() {
-        border-right: none;
-      }
+      border-right: var(--hds-advanced-table-cell-border-pinned-width) solid
+        var(--hds-advanced-table-cell-border-pinned-color);
     }
 
     .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
       + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
       // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
       left: var(--hds-var-advanced-table-sticky-column-offset, 0);
-      border-left-width: $hds-advanced-table-border-width;
+      border-left-width: var(--hds-advanced-table-row-border-width);
     }
 
     // border radius: target first and last th elements in the row
@@ -367,12 +363,10 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     z-index: 5;
     background-color: var(--hds-advanced-table-header-surface-color);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
-    border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid
-      var(--hds-advanced-table-row-border-color-default);
-
-    @include hds-apply-only-if-carbon() {
-      border-bottom: none;
-    }
+    border-bottom: calc(
+        var(--hds-advanced-table-cell-border-pinned-width) - var(--hds-advanced-table-row-border-width) / 2
+      )
+      solid var(--hds-advanced-table-cell-border-pinned-color);
 
     .hds-advanced-table__scroll-indicator-top {
       top: unset;
@@ -383,14 +377,10 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   &.hds-advanced-table__thead--is-pinned {
     background-color: var(--hds-advanced-table-header-surface-color);
     // need to add 1px to offset `top: -1px`
-    border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid
+    border-top: calc(var(--hds-advanced-table-row-border-width) / 2 + 1px) solid
       var(--hds-advanced-table-row-border-color-default);
-    border-bottom: 3px solid var(--hds-advanced-table-row-border-color-default);
-
-    @include hds-apply-only-if-carbon() {
-      border-top: none;
-      border-bottom: none;
-    }
+    border-bottom: var(--hds-advanced-table-cell-border-pinned-width) solid
+      var(--hds-advanced-table-cell-border-pinned-color);
 
     .hds-advanced-table__tr {
       &:first-of-type {
@@ -604,11 +594,9 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     display: contents;
     color: var(--hds-advanced-table-cell-foreground-color-default);
 
-    // @include hds-apply-only-if-carbon() {
     .hds-advanced-table__th,
     .hds-advanced-table__td {
       border-bottom: var(--hds-advanced-table-row-border-width) solid var(--hds-advanced-table-row-border-color-default);
-      // }
     }
 
     &:hover,
@@ -737,17 +725,17 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
     .hds-advanced-table--density-short & {
       padding: var(--hds-advanced-table-cell-padding-vertical-short) var(--hds-advanced-table-cell-padding-horizontal)
-        calc(var(--hds-advanced-table-cell-padding-vertical-short) - #{$hds-advanced-table-border-width});
+        calc(var(--hds-advanced-table-cell-padding-vertical-short) - var(--hds-advanced-table-row-border-width));
     }
 
     .hds-advanced-table--density-medium & {
       padding: var(--hds-advanced-table-cell-padding-vertical-medium) var(--hds-advanced-table-cell-padding-horizontal)
-        calc(var(--hds-advanced-table-cell-padding-vertical-medium) - #{$hds-advanced-table-border-width});
+        calc(var(--hds-advanced-table-cell-padding-vertical-medium) - var(--hds-advanced-table-row-border-width));
     }
 
     .hds-advanced-table--density-tall & {
       padding: var(--hds-advanced-table-cell-padding-vertical-tall) var(--hds-advanced-table-cell-padding-horizontal)
-        calc(var(--hds-advanced-table-cell-padding-vertical-tall) - #{$hds-advanced-table-border-width});
+        calc(var(--hds-advanced-table-cell-padding-vertical-tall) - var(--hds-advanced-table-row-border-width));
     }
   }
 
@@ -761,11 +749,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
         // Apply the thick right border to whichever one is acting as the "visual" first column
         &:not(.hds-advanced-table__th--is-selectable) {
-          border-right: 3px solid var(--hds-advanced-table-row-border-color-default);
-
-          @include hds-apply-only-if-carbon() {
-            border-right: none;
-          }
+          border-right: var(--hds-advanced-table-cell-border-pinned-width) solid
+            var(--hds-advanced-table-cell-border-pinned-color);
         }
       }
     }
@@ -775,8 +760,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     .hds-advanced-table__tr {
       > :first-child {
         left: -1px;
-        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
-          var(--hds-advanced-table-row-border-color-default);
+        border-left: calc(var(--hds-advanced-table-cell-border-width) + 1px) solid
+          var(--hds-advanced-table-cell-border-color);
 
         @include hds-apply-only-if-carbon() {
           border-left: none;
@@ -786,11 +771,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       // Specific override for the column following a selectable checkbox
       > .hds-advanced-table__th--is-selectable + * {
         left: var(--hds-var-advanced-table-sticky-column-offset, 0);
-        border-left-width: $hds-advanced-table-border-width;
-
-        @include hds-apply-only-if-carbon() {
-          border-left: none;
-        }
+        border-left-width: var(--hds-advanced-table-row-border-width);
       }
     }
   }
@@ -944,10 +925,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 .hds-advanced-table__actions .hds-filter-bar {
   border-bottom: none;
   border-radius: $hds-advanced-table-border-radius $hds-advanced-table-border-radius 0 0;
-
-  @include hds-apply-only-if-carbon() {
-    border: none;
-  }
 }
 
 .hds-advanced-table__actions-container-wrapper .hds-advanced-table__actions + .hds-advanced-table__container {
