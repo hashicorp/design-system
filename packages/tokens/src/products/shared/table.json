@@ -143,22 +143,24 @@
         }
       },
       "foreground": {
-        "hover": {
-          "$type": "color",
-          "$value": "{surface.color.primary}",
-          "$modes": {
-            "default": "{surface.color.primary}",
-            "cds-g0": {
-              "$value": "{carbon.themes.white.backgroundHover}"
-            },
-            "cds-g10": {
-              "$value": "{carbon.themes.g10.backgroundHover}"
-            },
-            "cds-g90": {
-              "$value": "{carbon.themes.g90.backgroundHover}"
-            },
-            "cds-g100": {
-              "$value": "{carbon.themes.g100.backgroundHover}"
+        "color": {
+          "hover": {
+            "$type": "color",
+            "$value": "{surface.color.primary}",
+            "$modes": {
+              "default": "{surface.color.primary}",
+              "cds-g0": {
+                "$value": "{carbon.themes.white.backgroundHover}"
+              },
+              "cds-g10": {
+                "$value": "{carbon.themes.g10.backgroundHover}"
+              },
+              "cds-g90": {
+                "$value": "{carbon.themes.g90.backgroundHover}"
+              },
+              "cds-g100": {
+                "$value": "{carbon.themes.g100.backgroundHover}"
+              }
             }
           }
         }

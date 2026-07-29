@@ -215,7 +215,7 @@ $hds-table-header-height: 48px;
     &:hover,
     &.mock-hover {
       color: var(--hds-table-row-color-hover);
-      background-color: var(--hds-table-row-foreground-hover);
+      background-color: var(--hds-table-row-foreground-color-hover);
     }
 
     // striped rows
