@@ -326,12 +326,20 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         // add extra left border to offset -1px and the 0.5px border from the table container being gone
         border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
           var(--hds-advanced-table-row-border-color-default);
+
+        @include hds-apply-only-if-carbon() {
+          border-left: none;
+        }
       }
     }
 
     // Only apply the thick border to the last sticky column
     .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
       border-right: 3px solid var(--hds-advanced-table-row-border-color-default);
+
+      @include hds-apply-only-if-carbon() {
+        border-right: none;
+      }
     }
 
     .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
@@ -382,9 +390,18 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid
       var(--hds-advanced-table-row-border-color-default);
 
+    @include hds-apply-only-if-carbon() {
+      border-bottom: none;
+    }
+
     .hds-advanced-table__scroll-indicator-top {
       top: unset;
       bottom: -11px;
+
+      @include hds-apply-only-if-carbon() {
+        // less offset because the carbonized table doesn't have borders
+        bottom: -8px;
+      }
     }
   }
 
@@ -394,6 +411,11 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid
       var(--hds-advanced-table-row-border-color-default);
     border-bottom: 3px solid var(--hds-advanced-table-row-border-color-default);
+
+    @include hds-apply-only-if-carbon() {
+      border-top: none;
+      border-bottom: none;
+    }
 
     .hds-advanced-table__tr {
       &:first-of-type {
@@ -608,8 +630,11 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     // striped rows
 
     .hds-advanced-table--striped & {
-      @include hds-apply-only-if-carbon() {
-        border-bottom-color: transparent;
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
+        @include hds-apply-only-if-carbon() {
+          border-bottom-color: transparent;
+        }
       }
     }
 
@@ -739,6 +764,10 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         // Apply the thick right border to whichever one is acting as the "visual" first column
         &:not(.hds-advanced-table__th--is-selectable) {
           border-right: 3px solid var(--hds-advanced-table-row-border-color-default);
+
+          @include hds-apply-only-if-carbon() {
+            border-right: none;
+          }
         }
       }
     }
@@ -750,12 +779,20 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         left: -1px;
         border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
           var(--hds-advanced-table-row-border-color-default);
+
+        @include hds-apply-only-if-carbon() {
+          border-left: none;
+        }
       }
 
       // Specific override for the column following a selectable checkbox
       > .hds-advanced-table__th--is-selectable + * {
         left: var(--hds-var-advanced-table-sticky-column-offset, 0);
         border-left-width: $hds-advanced-table-border-width;
+
+        @include hds-apply-only-if-carbon() {
+          border-left: none;
+        }
       }
     }
   }
@@ -933,4 +970,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   border: 1px solid var(--hds-border-color-primary);
   border-bottom-right-radius: $hds-advanced-table-border-radius;
   border-bottom-left-radius: $hds-advanced-table-border-radius;
+
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
 }

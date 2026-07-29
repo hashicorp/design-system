@@ -1,0 +1,14 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > ACCORDION
+
+body.page-carbonization-components-advanced-table {
+  .shw-component-advanced-table-reorder-handle-container
+    .hds-advanced-table__th-reorder-handle {
+    visibility: visible;
+    opacity: 1;
+  }
+}
