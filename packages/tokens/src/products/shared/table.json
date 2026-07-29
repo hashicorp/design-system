@@ -209,7 +209,7 @@
         "color": {
           "$type": "color",
           "$value": "transparent",
-          "$modes": {
+          "$modes":  {
             "default": "transparent",
             "cds-g0": "{carbon.themes.white.layerAccent01}",
             "cds-g10": "{carbon.themes.g10.layerAccent01}",
@@ -226,41 +226,15 @@
             "unit": "px"
           },
           "vertical": {
-            "short": {
-              "$type": "dimension",
-              "$value": "14",
-              "unit": "px",
-              "$modes": {
-                "default": "14",
-                "cds-g0": "7",
-                "cds-g10": "7",
-                "cds-g90": "7",
-                "cds-g100": "7"
-              }
-            },
-            "medium": {
-              "$type": "dimension",
-              "$value": "14",
-              "unit": "px",
-              "$modes": {
-                "default": "14",
-                "cds-g0": "7",
-                "cds-g10": "7",
-                "cds-g90": "7",
-                "cds-g100": "7"
-              }
-            },
-            "tall": {
-              "$type": "dimension",
-              "$value": "14",
-              "unit": "px",
-              "$modes": {
-                "default": "14",
-                "cds-g0": "7",
-                "cds-g10": "7",
-                "cds-g90": "7",
-                "cds-g100": "7"
-              }
+            "$type": "dimension",
+            "$value": "14",
+            "unit": "px",
+            "$modes": {
+              "default": "14",
+              "cds-g0": "7",
+              "cds-g10": "7",
+              "cds-g90": "7",
+              "cds-g100": "7"
             }
           }
         }

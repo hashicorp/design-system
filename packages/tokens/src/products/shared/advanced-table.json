@@ -165,18 +165,8 @@
             "$value": "{table.header.cell.padding.horizontal}"
           },
           "vertical": {
-            "short": {
-              "$type": "dimension",
-              "$value": "{table.header.cell.padding.vertical.short}"
-            },
-            "medium": {
-              "$type": "dimension",
-              "$value": "{table.header.cell.padding.vertical.medium}"
-            },
-            "tall": {
-              "$type": "dimension",
-              "$value": "{table.header.cell.padding.vertical.tall}"
-            }
+            "$type": "dimension",
+            "$value": "{table.header.cell.padding.vertical}"
           }
         }
       },
