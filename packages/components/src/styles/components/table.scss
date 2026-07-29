@@ -12,9 +12,7 @@
 @use "../mixins/carbonization" as *;
 
 $hds-table-border-radius: var(--hds-border-radius-medium);
-$hds-table-border-width: 1px;
-$hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - #{$hds-table-border-width});
-$hds-table-header-height: 48px;
+$hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-table-row-border-width));
 
 // TABLE
 
@@ -35,7 +33,7 @@ $hds-table-header-height: 48px;
 .hds-table,
 .hds-table__th,
 .hds-table__td {
-  border: calc(#{$hds-table-border-width} / 2) solid var(--hds-table-row-border-color-default);
+  border: calc(var(--hds-table-row-border-width) / 2) solid var(--hds-table-row-border-color-default);
 
   @include hds-apply-only-if-carbon() {
     border: none;
@@ -209,10 +207,30 @@ $hds-table-header-height: 48px;
     color: var(--hds-table-cell-foreground-color-default);
     background-color: var(--hds-surface-color-primary);
 
+    @include hds-apply-only-if-carbon() {
+      .hds-table__th,
+      .hds-table__td {
+        border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-default);
+      }
+    }
+
     &:hover,
     &.mock-hover {
       color: var(--hds-table-cell-foreground-color-hover);
       background-color: var(--hds-table-cell-surface-color-hover);
+
+      @include hds-apply-only-if-carbon() {
+        .hds-table__th,
+        .hds-table__td {
+          border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-hover);
+        }
+      }
+    }
+
+    .hds-table--striped & {
+      @include hds-apply-only-if-carbon() {
+        border-bottom-color: transparent;
+      }
     }
 
     // striped rows
@@ -226,25 +244,32 @@ $hds-table-header-height: 48px;
       }
     }
 
+    // selected rows
+
     &.hds-table__tr--is-selected {
       color: var(--hds-table-cell-foreground-color-selected);
-      background-color: var(--hds-table-cell-surface-color-selected-default);
+
+      @include hds-apply-only-if-carbon() {
+        background-color: var(--hds-table-cell-surface-color-selected-default);
+      }
 
       .hds-table__th,
       .hds-table__td {
         @include hds-apply-only-if-carbon() {
-          border-bottom: $hds-table-border-width solid var(--hds-table-row-border-color-selected-default);
+          border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-default);
         }
       }
 
       &:hover,
       &.mock-hover {
-        background-color: var(--hds-table-cell-surface-color-selected-hover);
+        @include hds-apply-only-if-carbon() {
+          background-color: var(--hds-table-cell-surface-color-selected-hover);
+        }
 
         .hds-table__th,
         .hds-table__td {
           @include hds-apply-only-if-carbon() {
-            border-bottom: $hds-table-border-width solid var(--hds-table-row-border-color-selected-hover);
+            border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-selected-hover);
           }
         }
       }
@@ -268,16 +293,6 @@ $hds-table-header-height: 48px;
   .hds-table__th,
   .hds-table__td {
     text-align: left;
-
-    @include hds-apply-only-if-carbon() {
-      border-bottom: $hds-table-border-width solid var(--hds-table-row-border-color-default);
-    }
-
-    .hds-table--striped & {
-      @include hds-apply-only-if-carbon() {
-        border-bottom-color: transparent;
-      }
-    }
 
     // density
 
