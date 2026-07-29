@@ -42,6 +42,30 @@ $hds-table-header-height: 48px;
   }
 }
 
+// row height
+
+.hds-table__th,
+.hds-table__td {
+  .hds-table--density-short & {
+    @include hds-apply-only-if-carbon() {
+      // CSS doesnt allow minimum height set on table cells, need to set height instead
+      height: 2rem;
+    }
+  }
+
+  .hds-table--density-medium & {
+    @include hds-apply-only-if-carbon() {
+      height: 2.5rem;
+    }
+  }
+
+  .hds-table--density-tall & {
+    @include hds-apply-only-if-carbon() {
+      height: 3rem;
+    }
+  }
+}
+
 // ----------------------------------------------------------------
 
 // TABLE HEADER
@@ -53,19 +77,22 @@ $hds-table-header-height: 48px;
 
     .hds-table__th {
       // we need to account for the `1px` border when calculating the actual padding
-      padding: var(--hds-table-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal-medium) calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
+      padding: var(--hds-table-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal-medium)
+        calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
       text-align: left;
 
       .hds-table--density-short & {
         @include hds-apply-only-if-carbon() {
-          padding: var(--hds-table-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal-short) calc(var(--hds-table-cell-padding-vertical-short) - 1px);
+          padding: var(--hds-table-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal-short)
+            calc(var(--hds-table-cell-padding-vertical-short) - 1px);
         }
       }
 
       .hds-table--density-tall & {
         @include hds-apply-only-if-carbon() {
           // we need to account for the `1px` border when calculating the actual padding
-          padding: var(--hds-table-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal-tall) calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
+          padding: var(--hds-table-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal-tall)
+            calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
         }
       }
     }
@@ -178,13 +205,24 @@ $hds-table-header-height: 48px;
 
 .hds-table__tbody {
   .hds-table__tr {
-    color: var(--hds-foreground-color-primary);
+    color: var(--hds-table-row-color-default);
     background-color: var(--hds-surface-color-primary);
+
+    &:hover,
+    &.mock-hover {
+      color: var(--hds-table-row-color-hover);
+      background-color: var(--hds-table-row-foreground-hover);
+    }
 
     // striped rows
 
     .hds-table--striped &:nth-child(even) {
-      background-color: var(--hds-table-striped-color);
+      background-color: var(--hds-table-striped-color-default);
+
+      &:hover,
+      &.mock-hover {
+        background-color: var(--hds-table-striped-color-hover);
+      }
     }
 
     // border radius: target first th (scope of row) and td, and last td elements in the last row
@@ -219,15 +257,18 @@ $hds-table-header-height: 48px;
     // density
 
     .hds-table--density-short & {
-      padding: var(--hds-table-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal-short) calc(var(--hds-table-cell-padding-vertical-short) - 1px);
+      padding: var(--hds-table-cell-padding-vertical-short) var(--hds-table-cell-padding-horizontal-short)
+        calc(var(--hds-table-cell-padding-vertical-short) - 1px);
     }
 
     .hds-table--density-medium & {
-      padding: var(--hds-table-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal-medium) calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
+      padding: var(--hds-table-cell-padding-vertical-medium) var(--hds-table-cell-padding-horizontal-medium)
+        calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
     }
 
     .hds-table--density-tall & {
-      padding: var(--hds-table-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal-tall) calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
+      padding: var(--hds-table-cell-padding-vertical-tall) var(--hds-table-cell-padding-horizontal-tall)
+        calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
     }
   }
   // horizontal alignment

@@ -17,11 +17,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
 
 import MUSIC from 'showcase/mocks/folk-music-data';
-
-import Information16 from '@carbon/icons/es/information/16.js';
-
 import NOOP from 'showcase/utils/noop';
-import setCdsIcon from 'showcase/modifiers/set-cds-icon';
 
 import {
   HdsTable,
@@ -320,17 +316,7 @@ const TableCarbonizationIndex: TemplateOnlyComponent = <template>
         <cds-table is-sortable is-selectable size="md">
           <cds-table-head>
             <cds-table-header-row selection-name="header">
-              <cds-table-header-cell>Artist
-                <cds-tooltip autoalign>
-                  <cds-icon
-                    class="sb-tooltip-trigger"
-                    {{setCdsIcon Information16}}
-                  />
-                  <cds-tooltip-content
-                    id="content-0"
-                  >Tooltip</cds-tooltip-content>
-                </cds-tooltip>
-              </cds-table-header-cell>
+              <cds-table-header-cell>Artist</cds-table-header-cell>
               <cds-table-header-cell>Album</cds-table-header-cell>
               <cds-table-header-cell>Release Year</cds-table-header-cell>
             </cds-table-header-row>
