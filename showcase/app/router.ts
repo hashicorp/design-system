@@ -45,7 +45,6 @@ Router.map(function () {
       });
     });
     this.route('application-state');
-    this.route('badge');
     this.route('badge-count');
     this.route('breadcrumb');
     this.route('button');
@@ -119,7 +118,6 @@ Router.map(function () {
     this.route('tabs');
     this.route('tooltip');
     this.route('copy', function () {
-      this.route('button');
       this.route('snippet');
     });
   });
