@@ -124,6 +124,7 @@ export default class HdsTable<T = HdsTableModel> extends Component<
     undefined;
   private _selectableRows: HdsTableSelectableRow[] = [];
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
+  private _isBulkSelectionChange = false;
 
   constructor(owner: Owner, args: HdsTableSignature<T>['Args']) {
     super(owner, args);
@@ -297,9 +298,14 @@ export default class HdsTable<T = HdsTableModel> extends Component<
   };
 
   onSelectionAllChange = (): void => {
+    this._isBulkSelectionChange = true;
+
     this._selectableRows.forEach((row) => {
       row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
+      row.checkbox.dispatchEvent(new Event('change', { bubbles: true }));
     });
+
+    this._isBulkSelectionChange = false;
     this._isSelectAllCheckboxSelected =
       this._selectAllCheckbox?.checked ?? false;
     this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
@@ -309,6 +315,10 @@ export default class HdsTable<T = HdsTableModel> extends Component<
     checkbox?: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
   ): void => {
+    if (this._isBulkSelectionChange) {
+      return;
+    }
+
     this.setSelectAllState();
     this.onSelectionChangeCallback(checkbox, selectionKey);
   };

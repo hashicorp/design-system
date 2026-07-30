@@ -238,6 +238,7 @@ export default class HdsAdvancedTable<
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
   @tracked private _tableHeight = 0;
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
+  private _isBulkSelectionChange = false;
   private _captionId = 'caption-' + guidFor(this);
   private _scrollHandler!: (event: Event) => void;
   private _dragOverHandler!: (event: DragEvent) => void;
@@ -801,9 +802,14 @@ export default class HdsAdvancedTable<
 
   @action
   onSelectionAllChange(): void {
+    this._isBulkSelectionChange = true;
+
     this._selectableRows.forEach((row) => {
       row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
+      row.checkbox.dispatchEvent(new Event('change', { bubbles: true }));
     });
+
+    this._isBulkSelectionChange = false;
     this._isSelectAllCheckboxSelected =
       this._selectAllCheckbox?.checked ?? false;
     this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
@@ -814,6 +820,10 @@ export default class HdsAdvancedTable<
     checkbox?: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
   ): void {
+    if (this._isBulkSelectionChange) {
+      return;
+    }
+
     this.setSelectAllState();
     this.onSelectionChangeCallback(checkbox, selectionKey);
   }
