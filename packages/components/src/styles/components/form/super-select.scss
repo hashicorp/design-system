@@ -484,7 +484,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     @include hds-apply-only-if-carbon() {
       .hds-form-super-select__option-text {
         padding: 11px 0;
-        padding-right: 24px; // space for checkmark
+        padding-right: 28px; // space for checkmark
       }
     }
   }
@@ -510,7 +510,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
       &:active,
       &.mock-active {
-        color: var(--hds-foreground-color-action-active);
+        color: var(--hds-form-super-select-option-foreground-color-action-active);
       }
     }
 

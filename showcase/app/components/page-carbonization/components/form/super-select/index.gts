@@ -542,7 +542,6 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
               class="ember-basic-dropdown-content"
               {{style position="static"}}
             >
-              {{! TODO: Replace these hard-coded HTML ul lists with examples more similar to regular Showcase }}
               <ul
                 class="ember-power-select-options"
                 role="listbox"
