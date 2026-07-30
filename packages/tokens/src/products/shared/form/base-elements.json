@@ -114,6 +114,22 @@
             "cds-g100": "{carbon.typography.label01.line-height}"
           }
         }
+      },
+      "inline": {
+        "typography": {
+          "font-size": {
+            "$type": "font-size",
+            "$value": "{typography.body-200.font-size}",
+            "unit": "px",
+            "$modes": {
+              "default": "{typography.body-200.font-size}",
+              "cds-g0": "14",
+              "cds-g10": "14",
+              "cds-g90": "14",
+              "cds-g100": "14"
+            }
+          }
+        }
       }
     },
     "legend": {

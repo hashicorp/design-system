@@ -98,3 +98,11 @@
     cursor: not-allowed;
   }
 }
+
+// FIELD CONTROL
+
+.hds-form-field--checkbox {
+  .hds-form-field__label {
+    font-size: var(--hds-form-label-inline-typography-font-size);
+  }
+}

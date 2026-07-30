@@ -162,17 +162,21 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
         </:theming>
         <:reference>
           {{#if (eq state "default")}}
-            <cds-radio-button-group>
+            <cds-radio-button-group orientation="vertical">
               <cds-radio-button
                 label-text="This is the label"
                 helper-text="This is the helper text"
                 checked
               ></cds-radio-button>
+            </cds-radio-button-group>
+            <cds-radio-button-group
+              orientation="vertical"
+              invalid
+              invalid-text="This is the error"
+            >
               <cds-radio-button
                 label-text="This is the label"
                 helper-text="This is the helper text"
-                invalid
-                invalid-text="This is the error"
               ></cds-radio-button>
             </cds-radio-button-group>
           {{else}}
@@ -196,18 +200,22 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
         </HdsFormRadioGroup>
       </:theming>
       <:reference>
-        <cds-radio-button-group>
+        <cds-radio-button-group orientation="vertical">
           <cds-radio-button
             label-text="This is the label"
             helper-text="This is the helper text"
             checked
             disabled
           ></cds-radio-button>
+        </cds-radio-button-group>
+        <cds-radio-button-group
+          orientation="vertical"
+          invalid
+          invalid-text="This is the error"
+        >
           <cds-radio-button
             label-text="This is the label"
             helper-text="This is the helper text"
-            invalid
-            invalid-text="This is the error"
             disabled
           ></cds-radio-button>
         </cds-radio-button-group>
