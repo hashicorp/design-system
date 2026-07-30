@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import sinon from 'sinon';
 import { module, test } from 'qunit';
-import { focus, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 
 import { HdsAdvancedTableTd } from '@hashicorp/design-system-components/components';
 
