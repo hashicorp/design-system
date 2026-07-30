@@ -44,6 +44,7 @@
   --hds-advanced-table-cell-surface-color-nested-hover: var(--hds-surface-color-faint);
   --hds-advanced-table-cell-surface-color-parent-hover: var(--hds-surface-color-primary);
   --hds-advanced-table-cell-surface-color-striped-hover: var(--hds-table-cell-surface-color-striped-hover);
+  --hds-advanced-table-empty-state-border-width: 1px;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
   --hds-alert-actions-margin-top: 16px;
   --hds-alert-border-color-critical: var(--hds-border-color-critical);
@@ -552,8 +553,9 @@
   --hds-table-cell-border-color: var(--hds-border-color-primary);
   --hds-table-cell-border-width: 0.5px;
   --hds-table-cell-foreground-color-default: var(--hds-foreground-color-primary);
-  --hds-table-cell-foreground-color-hover: var(--hds-foreground-color-primary);
-  --hds-table-cell-foreground-color-selected: var(--hds-foreground-color-primary);
+  --hds-table-cell-height-medium: 0rem;
+  --hds-table-cell-height-short: 0rem;
+  --hds-table-cell-height-tall: 0rem;
   --hds-table-cell-padding-vertical-medium: 14px;
   --hds-table-cell-padding-vertical-short: 6px;
   --hds-table-cell-padding-vertical-tall: 22px;

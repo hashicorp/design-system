@@ -1,6 +1,20 @@
 {
   "advanced-table": {
     "cell": {
+      "height": {
+        "short": {
+          "$type": "dimension",
+          "$value": "{table.cell.height.short}"
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "{table.cell.height.medium}"
+        },
+        "tall": {
+          "$type": "dimension",
+          "$value": "{table.cell.height.tall}"
+        }
+      },
       "padding": {
         "horizontal": {
           "$type": "dimension",
@@ -32,7 +46,7 @@
             "$value": "{table.cell.surface.color.hover}",
             "$modes": {
               "default": "{table.cell.surface.color.hover}",
-              "cds-g0": "#E0E0E0",
+              "cds-g0": "#E8E8E8",
               "cds-g10": "#F1F1F1",
               "cds-g90": "#474747",
               "cds-g100": "#373737"
@@ -332,6 +346,22 @@
         "color": {
           "$type": "color",
           "$value": "rgba(204, 227, 254, 30%)"
+        }
+      }
+    },
+    "empty-state": {
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px",
+          "$modes": {
+            "default": "1",
+            "cds-g0": "0",
+            "cds-g10": "0",
+            "cds-g90": "0",
+            "cds-g100": "0"
+          }
         }
       }
     }

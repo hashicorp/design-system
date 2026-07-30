@@ -62,6 +62,7 @@
     --hds-advanced-table-cell-surface-color-striped-hover: var(
       --hds-table-cell-surface-color-striped-hover
     );
+    --hds-advanced-table-empty-state-border-width: 1px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
     --hds-alert-actions-margin-top: 16px;
     --hds-alert-border-color-critical: var(--hds-border-color-critical);
@@ -997,12 +998,9 @@
     --hds-table-cell-foreground-color-default: var(
       --hds-foreground-color-primary
     );
-    --hds-table-cell-foreground-color-hover: var(
-      --hds-foreground-color-primary
-    );
-    --hds-table-cell-foreground-color-selected: var(
-      --hds-foreground-color-primary
-    );
+    --hds-table-cell-height-medium: 0rem;
+    --hds-table-cell-height-short: 0rem;
+    --hds-table-cell-height-tall: 0rem;
     --hds-table-cell-padding-vertical-medium: 14px;
     --hds-table-cell-padding-vertical-short: 6px;
     --hds-table-cell-padding-vertical-tall: 22px;
@@ -1225,7 +1223,7 @@
     --hds-accordion-item-toggle-padding-top-small: 6px;
     --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
     --hds-advanced-table-cell-border-width-pinned: 2px;
-    --hds-advanced-table-cell-surface-color-hover: #e0e0e0; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-cell-surface-color-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
     --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
     --hds-advanced-table-cell-surface-color-nested-hover: rgba(
       141,
@@ -1240,6 +1238,7 @@
       0.12
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -1794,8 +1793,9 @@
     --hds-table-cell-border-color: rgba(0, 0, 0, 0);
     --hds-table-cell-border-width: 0px;
     --hds-table-cell-foreground-color-default: #525252;
-    --hds-table-cell-foreground-color-hover: #161616;
-    --hds-table-cell-foreground-color-selected: #161616;
+    --hds-table-cell-height-medium: 2.5rem;
+    --hds-table-cell-height-short: 2rem;
+    --hds-table-cell-height-tall: 3rem;
     --hds-table-cell-padding-vertical-medium: 7px;
     --hds-table-cell-padding-vertical-short: 7px;
     --hds-table-cell-padding-vertical-tall: 7px;
@@ -1971,6 +1971,7 @@
       0.16
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -2545,8 +2546,9 @@
     --hds-table-cell-border-color: rgba(0, 0, 0, 0);
     --hds-table-cell-border-width: 0px;
     --hds-table-cell-foreground-color-default: #c6c6c6;
-    --hds-table-cell-foreground-color-hover: #f4f4f4;
-    --hds-table-cell-foreground-color-selected: #f4f4f4;
+    --hds-table-cell-height-medium: 2.5rem;
+    --hds-table-cell-height-short: 2rem;
+    --hds-table-cell-height-tall: 3rem;
     --hds-table-cell-padding-vertical-medium: 7px;
     --hds-table-cell-padding-vertical-short: 7px;
     --hds-table-cell-padding-vertical-tall: 7px;
@@ -2707,7 +2709,7 @@
     --hds-accordion-item-toggle-padding-top-small: 6px;
     --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
     --hds-advanced-table-cell-border-width-pinned: 2px;
-    --hds-advanced-table-cell-surface-color-hover: #e0e0e0; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-cell-surface-color-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
     --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
     --hds-advanced-table-cell-surface-color-nested-hover: rgba(
       141,
@@ -2722,6 +2724,7 @@
       0.12
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -3276,8 +3279,9 @@
     --hds-table-cell-border-color: rgba(0, 0, 0, 0);
     --hds-table-cell-border-width: 0px;
     --hds-table-cell-foreground-color-default: #525252;
-    --hds-table-cell-foreground-color-hover: #161616;
-    --hds-table-cell-foreground-color-selected: #161616;
+    --hds-table-cell-height-medium: 2.5rem;
+    --hds-table-cell-height-short: 2rem;
+    --hds-table-cell-height-tall: 3rem;
     --hds-table-cell-padding-vertical-medium: 7px;
     --hds-table-cell-padding-vertical-short: 7px;
     --hds-table-cell-padding-vertical-tall: 7px;
@@ -3453,6 +3457,7 @@
       0.12
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -4007,8 +4012,9 @@
     --hds-table-cell-border-color: rgba(0, 0, 0, 0);
     --hds-table-cell-border-width: 0px;
     --hds-table-cell-foreground-color-default: #525252;
-    --hds-table-cell-foreground-color-hover: #161616;
-    --hds-table-cell-foreground-color-selected: #161616;
+    --hds-table-cell-height-medium: 2.5rem;
+    --hds-table-cell-height-short: 2rem;
+    --hds-table-cell-height-tall: 3rem;
     --hds-table-cell-padding-vertical-medium: 7px;
     --hds-table-cell-padding-vertical-short: 7px;
     --hds-table-cell-padding-vertical-tall: 7px;
@@ -4184,6 +4190,7 @@
       0.16
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #474747; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -4758,8 +4765,9 @@
     --hds-table-cell-border-color: rgba(0, 0, 0, 0);
     --hds-table-cell-border-width: 0px;
     --hds-table-cell-foreground-color-default: #c6c6c6;
-    --hds-table-cell-foreground-color-hover: #f4f4f4;
-    --hds-table-cell-foreground-color-selected: #f4f4f4;
+    --hds-table-cell-height-medium: 2.5rem;
+    --hds-table-cell-height-short: 2rem;
+    --hds-table-cell-height-tall: 3rem;
     --hds-table-cell-padding-vertical-medium: 7px;
     --hds-table-cell-padding-vertical-short: 7px;
     --hds-table-cell-padding-vertical-tall: 7px;
@@ -4935,6 +4943,7 @@
       0.16
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -5509,8 +5518,9 @@
     --hds-table-cell-border-color: rgba(0, 0, 0, 0);
     --hds-table-cell-border-width: 0px;
     --hds-table-cell-foreground-color-default: #c6c6c6;
-    --hds-table-cell-foreground-color-hover: #f4f4f4;
-    --hds-table-cell-foreground-color-selected: #f4f4f4;
+    --hds-table-cell-height-medium: 2.5rem;
+    --hds-table-cell-height-short: 2rem;
+    --hds-table-cell-height-tall: 3rem;
     --hds-table-cell-padding-vertical-medium: 7px;
     --hds-table-cell-padding-vertical-short: 7px;
     --hds-table-cell-padding-vertical-tall: 7px;
@@ -5649,6 +5659,11 @@
     --hds-advanced-table-cell-foreground-color-selected: var(
       --hds-table-cell-foreground-color-selected
     );
+    --hds-advanced-table-cell-height-medium: var(
+      --hds-table-cell-height-medium
+    );
+    --hds-advanced-table-cell-height-short: var(--hds-table-cell-height-short);
+    --hds-advanced-table-cell-height-tall: var(--hds-table-cell-height-tall);
     --hds-advanced-table-cell-padding-horizontal: var(
       --hds-table-cell-padding-horizontal
     );
@@ -6041,6 +6056,12 @@
     );
     --hds-stepper-task-indicator-icon-size: 12px;
     --hds-stepper-task-indicator-size: 16px;
+    --hds-table-cell-foreground-color-hover: var(
+      --hds-foreground-color-primary
+    );
+    --hds-table-cell-foreground-color-selected: var(
+      --hds-foreground-color-primary
+    );
     --hds-table-cell-padding-horizontal: 16px;
     --hds-table-header-button-border-color-default: rgba(0, 0, 0, 0);
     --hds-table-header-button-foreground-color-active: var(

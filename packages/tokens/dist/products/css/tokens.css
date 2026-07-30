@@ -152,6 +152,9 @@
   --hds-accordion-item-content-padding-left-small: 12px;
   --hds-accordion-item-content-padding-left-medium: 12px;
   --hds-accordion-item-content-padding-left-large: 16px;
+  --hds-advanced-table-cell-height-short: 0rem;
+  --hds-advanced-table-cell-height-medium: 0rem;
+  --hds-advanced-table-cell-height-tall: 0rem;
   --hds-advanced-table-cell-padding-horizontal: 16px;
   --hds-advanced-table-cell-padding-vertical-short: 6px;
   --hds-advanced-table-cell-padding-vertical-medium: 14px;
@@ -200,6 +203,7 @@
   --hds-advanced-table-resize-handle-surface-color-focus: #0c56e9;
   --hds-advanced-table-resize-handle-surface-color-hover: #b1b1b5;
   --hds-advanced-table-drag-preview-surface-color: #cce3fe;
+  --hds-advanced-table-empty-state-border-width: 1px;
   --hds-alert-border-color-neutral: #3b3d4566;
   --hds-alert-border-color-highlight: #ead2fe;
   --hds-alert-border-color-success: #cceeda;
@@ -800,6 +804,9 @@
   --hds-stepper-task-indicator-foreground-color-complete-interactive-hover: #00781e;
   --hds-stepper-task-indicator-foreground-color-complete-interactive-active: #006619;
   --hds-stepper-task-indicator-icon-size: 12px;
+  --hds-table-cell-height-short: 0rem;
+  --hds-table-cell-height-medium: 0rem;
+  --hds-table-cell-height-tall: 0rem;
   --hds-table-cell-padding-horizontal: 16px;
   --hds-table-cell-padding-vertical-short: 6px;
   --hds-table-cell-padding-vertical-medium: 14px;

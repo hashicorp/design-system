@@ -71,35 +71,23 @@ $hds-advanced-table-inner-border-radius: calc(
 
 // density
 
+$hds-advanced-table-densities: ("short", "medium", "tall");
+
+@each $density in $hds-advanced-table-densities {
+  .hds-advanced-table--density-#{$density} {
+    --hds-var-advanced-table-cell-height: var(--hds-advanced-table-cell-height-#{$density});
+    --hds-var-advanced-table-cell-padding-top: var(--hds-advanced-table-cell-padding-vertical-#{$density});
+    --hds-var-advanced-table-cell-padding-bottom: calc(
+      var(--hds-advanced-table-cell-padding-vertical-#{$density}) - 1px
+    );
+  }
+}
+
 .hds-advanced-table__th,
 .hds-advanced-table__td {
   @include hds-apply-only-if-carbon() {
     min-height: var(--hds-var-advanced-table-cell-height);
   }
-}
-
-.hds-advanced-table--density-short {
-  --hds-var-advanced-table-cell-height: 2rem;
-  --hds-var-advanced-table-cell-padding-top: var(--hds-advanced-table-cell-padding-vertical-short);
-  --hds-var-advanced-table-cell-padding-bottom: calc(
-    var(--hds-advanced-table-cell-padding-vertical-short) - var(--hds-advanced-table-row-border-width)
-  );
-}
-
-.hds-advanced-table--density-medium {
-  --hds-var-advanced-table-cell-height: 2.5rem;
-  --hds-var-advanced-table-cell-padding-top: var(--hds-advanced-table-cell-padding-vertical-medium);
-  --hds-var-advanced-table-cell-padding-bottom: calc(
-    var(--hds-advanced-table-cell-padding-vertical-medium) - var(--hds-advanced-table-row-border-width)
-  );
-}
-
-.hds-advanced-table--density-tall {
-  --hds-var-advanced-table-cell-height: 3rem;
-  --hds-var-advanced-table-cell-padding-top: var(--hds-advanced-table-cell-padding-vertical-tall);
-  --hds-var-advanced-table-cell-padding-bottom: calc(
-    var(--hds-advanced-table-cell-padding-vertical-tall) - var(--hds-advanced-table-row-border-width)
-  );
 }
 
 // ----------------------------------------------------------------
@@ -437,9 +425,10 @@ $hds-advanced-table-inner-border-radius: calc(
     justify-content: center;
     width: 24px;
     height: 16px;
-    color: var(--hds-foreground-color-faint);
+    color: var(--hds-advanced-table-header-button-foreground-color-default);
+    // We don't use the existing `hds-advanced-table-header-button-foreground-color-default` token here because it is transparent. since the reorder handle sits halfway between the header and body, transparent background makes the button look split
     background-color: var(--hds-surface-color-interactive);
-    border: 1px solid var(--hds-border-color-primary);
+    border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
     border-radius: var(--hds-border-radius-small);
     box-shadow: var(--hds-elevation-low-box-shadow);
   }
@@ -451,10 +440,12 @@ $hds-advanced-table-inner-border-radius: calc(
 
   &:hover,
   &.mock-hover {
+    border-color: var(--hds-advanced-table-header-button-border-color-hover);
     cursor: grab;
 
     .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--hds-surface-color-interactive-hover);
+      color: var(--hds-advanced-table-header-button-foreground-color-hover);
+      background-color: var(--hds-advanced-table-header-button-surface-color-hover);
     }
   }
 
@@ -476,10 +467,12 @@ $hds-advanced-table-inner-border-radius: calc(
 
   &:active,
   &.mock-active {
+    border-color: var(--hds-advanced-table-header-button-border-color-active);
     cursor: grabbing;
 
     .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--hds-surface-color-interactive-hover);
+      color: var(--hds-advanced-table-header-button-foreground-color-active);
+      background-color: var(--hds-advanced-table-header-button-surface-color-active);
     }
   }
 }
@@ -933,11 +926,7 @@ $hds-advanced-table-inner-border-radius: calc(
   min-height: 400px;
   padding: 16px;
   background-color: var(--hds-surface-color-primary);
-  border: 1px solid var(--hds-border-color-primary);
+  border: var(--hds-advanced-table-empty-state-border-width) solid var(--hds-border-color-primary);
   border-bottom-right-radius: $hds-advanced-table-border-radius;
   border-bottom-left-radius: $hds-advanced-table-border-radius;
-
-  @include hds-apply-only-if-carbon() {
-    border: none;
-  }
 }

@@ -44,6 +44,7 @@
   --hds-advanced-table-cell-surface-color-nested-hover: rgba(141, 141, 141, 0.16);
   --hds-advanced-table-cell-surface-color-parent-hover: rgba(141, 141, 141, 0.16);
   --hds-advanced-table-cell-surface-color-striped-hover: #474747; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-empty-state-border-width: 0px;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
@@ -552,8 +553,9 @@
   --hds-table-cell-border-color: rgba(0, 0, 0, 0);
   --hds-table-cell-border-width: 0px;
   --hds-table-cell-foreground-color-default: #c6c6c6;
-  --hds-table-cell-foreground-color-hover: #f4f4f4;
-  --hds-table-cell-foreground-color-selected: #f4f4f4;
+  --hds-table-cell-height-medium: 2.5rem;
+  --hds-table-cell-height-short: 2rem;
+  --hds-table-cell-height-tall: 3rem;
   --hds-table-cell-padding-vertical-medium: 7px;
   --hds-table-cell-padding-vertical-short: 7px;
   --hds-table-cell-padding-vertical-tall: 7px;

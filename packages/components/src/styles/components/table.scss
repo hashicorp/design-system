@@ -38,30 +38,22 @@ $hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - var(--hds-tab
 
 // density
 
+$hds-table-densities: ("short", "medium", "tall");
+
+@each $density in $hds-table-densities {
+  .hds-table--density-#{$density} {
+    --hds-var-table-cell-height: var(--hds-table-cell-height-#{$density});
+    --hds-var-table-cell-padding-top: var(--hds-table-cell-padding-vertical-#{$density});
+    --hds-var-table-cell-padding-bottom: calc(var(--hds-table-cell-padding-vertical-#{$density}) - 1px);
+  }
+}
+
 .hds-table__th,
 .hds-table__td {
   @include hds-apply-only-if-carbon() {
     // CSS doesn't allow minimum height set on table cells, need to set height instead
     height: var(--hds-var-table-cell-height);
   }
-}
-
-.hds-table--density-short {
-  --hds-var-table-cell-height: 2rem;
-  --hds-var-table-cell-padding-top: var(--hds-table-cell-padding-vertical-short);
-  --hds-var-table-cell-padding-bottom: calc(var(--hds-table-cell-padding-vertical-short) - 1px);
-}
-
-.hds-table--density-medium {
-  --hds-var-table-cell-height: 2.5rem;
-  --hds-var-table-cell-padding-top: var(--hds-table-cell-padding-vertical-medium);
-  --hds-var-table-cell-padding-bottom: calc(var(--hds-table-cell-padding-vertical-medium) - 1px);
-}
-
-.hds-table--density-tall {
-  --hds-var-table-cell-height: 3rem;
-  --hds-var-table-cell-padding-top: var(--hds-table-cell-padding-vertical-tall);
-  --hds-var-table-cell-padding-bottom: calc(var(--hds-table-cell-padding-vertical-tall) - 1px);
 }
 
 // ----------------------------------------------------------------

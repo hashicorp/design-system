@@ -12,6 +12,9 @@
   --hds-advanced-table-cell-foreground-color-default: var(--hds-table-cell-foreground-color-default);
   --hds-advanced-table-cell-foreground-color-hover: var(--hds-table-cell-foreground-color-hover);
   --hds-advanced-table-cell-foreground-color-selected: var(--hds-table-cell-foreground-color-selected);
+  --hds-advanced-table-cell-height-medium: var(--hds-table-cell-height-medium);
+  --hds-advanced-table-cell-height-short: var(--hds-table-cell-height-short);
+  --hds-advanced-table-cell-height-tall: var(--hds-table-cell-height-tall);
   --hds-advanced-table-cell-padding-horizontal: var(--hds-table-cell-padding-horizontal);
   --hds-advanced-table-cell-padding-vertical-medium: var(--hds-table-cell-padding-vertical-medium);
   --hds-advanced-table-cell-padding-vertical-short: var(--hds-table-cell-padding-vertical-short);
@@ -255,6 +258,8 @@
   --hds-rich-tooltip-toggle-foreground-color-hover: var(--hds-foreground-color-primary);
   --hds-stepper-task-indicator-icon-size: 12px;
   --hds-stepper-task-indicator-size: 16px;
+  --hds-table-cell-foreground-color-hover: var(--hds-foreground-color-primary);
+  --hds-table-cell-foreground-color-selected: var(--hds-foreground-color-primary);
   --hds-table-cell-padding-horizontal: 16px;
   --hds-table-header-button-border-color-default: rgba(0, 0, 0, 0);
   --hds-table-header-button-foreground-color-active: var(--hds-foreground-color-primary);

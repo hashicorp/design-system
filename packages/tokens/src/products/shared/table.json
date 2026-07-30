@@ -1,6 +1,44 @@
 {
   "table": {
     "cell": {
+      "height": {
+        "short": {
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "rem",
+          "$modes": {
+            "default": "0",
+            "cds-g0": "2",
+            "cds-g10": "2",
+            "cds-g90": "2",
+            "cds-g100": "2"
+          } 
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "rem",
+          "$modes": {
+            "default": "0",
+            "cds-g0": "2.5",
+            "cds-g10": "2.5",
+            "cds-g90": "2.5",
+            "cds-g100": "2.5"
+          } 
+        },
+        "tall": {
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "rem",
+          "$modes": {
+            "default": "0",
+            "cds-g0": "3",
+            "cds-g10": "3",
+            "cds-g90": "3",
+            "cds-g100": "3"
+          } 
+        }
+      },
       "padding": {
         "horizontal": {
           "$type": "dimension",
@@ -124,25 +162,11 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{foreground.color.primary}",
-            "$modes": {
-              "default": "{foreground.color.primary}",
-              "cds-g0": "{carbon.themes.white.textPrimary}",
-              "cds-g10": "{carbon.themes.g10.textPrimary}",
-              "cds-g90": "{carbon.themes.g90.textPrimary}",
-              "cds-g100": "{carbon.themes.g100.textPrimary}"
-            }
+            "$value": "{foreground.color.primary}"
           },
           "selected": {
             "$type": "color",
-            "$value": "{foreground.color.primary}",
-            "$modes": {
-              "default": "{foreground.color.primary}",
-              "cds-g0": "{carbon.themes.white.textPrimary}",
-              "cds-g10": "{carbon.themes.g10.textPrimary}",
-              "cds-g90": "{carbon.themes.g90.textPrimary}",
-              "cds-g100": "{carbon.themes.g100.textPrimary}"
-            }
+            "$value": "{foreground.color.primary}"
           }
         }
       }, 
