@@ -25,6 +25,15 @@
   cursor: pointer;
   appearance: none;
 
+  // We need to add a custom font-size to radio labels for carbon
+  &.hds-form-field--radio {
+    .hds-form-field__label {
+      @include hds-apply-only-if-carbon() {
+        font-size: 14px; // TODO: Add design token
+      }
+    }
+  }
+
   // STATUS
 
   // base (default)

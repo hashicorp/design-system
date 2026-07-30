@@ -542,23 +542,25 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
               class="ember-basic-dropdown-content"
               {{style position="static"}}
             >
+              {{! TODO: Replace these hard-coded HTML ul lists with examples more similar to regular Showcase }}
               <ul
                 class="ember-power-select-options"
                 role="listbox"
                 aria-label="Label"
               >
                 <li class="ember-power-select-option" role="option">
-                  Option 1
+                  <div class="hds-form-super-select__option-text">Option 1</div>
                 </li>
                 <li
                   class="ember-power-select-option"
                   role="option"
                   aria-selected="true"
                 >
-                  Option 2 (checked)
+                  <div class="hds-form-super-select__option-text">Option 2
+                    (checked)</div>
                 </li>
                 <li class="ember-power-select-option" role="option">
-                  Option 3
+                  <div class="hds-form-super-select__option-text">Option 3</div>
                 </li>
               </ul>
             </div>
@@ -595,24 +597,26 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                 aria-label="Label"
               >
                 <li class="ember-power-select-option" role="option">
-                  Option 1
+                  <div class="hds-form-super-select__option-text">Option 1</div>
                 </li>
                 <li
                   class="ember-power-select-option"
                   role="option"
                   aria-selected="true"
                 >
-                  Option 2 (checked)
+                  <div class="hds-form-super-select__option-text">Option 2
+                    (checked)</div>
                 </li>
                 <li
                   class="ember-power-select-option"
                   role="option"
                   aria-selected="true"
                 >
-                  Option 3 (checked)
+                  <div class="hds-form-super-select__option-text">Option 3
+                    (checked)</div>
                 </li>
                 <li class="ember-power-select-option" role="option">
-                  Option 4
+                  <div class="hds-form-super-select__option-text">Option 4</div>
                 </li>
               </ul>
             </div>
@@ -649,14 +653,15 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                 >
                   {{! template-lint-disable require-context-role }}
                   <li class="ember-power-select-option" role="option">
-                    Option 1
+                    <div class="hds-form-super-select__option-text">Option 1</div>
                   </li>
                   <li
                     class="ember-power-select-option"
                     role="option"
                     aria-selected="true"
                   >
-                    Option 2 (checked)
+                    <div class="hds-form-super-select__option-text">Option 2
+                      (checked)</div>
                   </li>
                 </HdsFormSuperSelectOptionGroup>
                 <HdsFormSuperSelectOptionGroup
@@ -664,10 +669,10 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                 >
                   {{! template-lint-disable require-context-role }}
                   <li class="ember-power-select-option" role="option">
-                    Option 3
+                    <div class="hds-form-super-select__option-text">Option 3</div>
                   </li>
                   <li class="ember-power-select-option" role="option">
-                    Option 4
+                    <div class="hds-form-super-select__option-text">Option 4</div>
                   </li>
                 </HdsFormSuperSelectOptionGroup>
               </ul>

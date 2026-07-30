@@ -262,7 +262,10 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         as |option select|
       >
         {{! even if technically what is yielded here are _a list_ of options, we've decided to keep the option name for consistency with the existing PowerSelect API }}
-        {{yield option select}}
+        <div class="hds-form-super-select__option-text">{{yield
+            option
+            select
+          }}</div>
       </PowerSelect>
     </div>
   </template>

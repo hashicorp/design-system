@@ -115,7 +115,8 @@
   &.mock-disabled:focus,
   &:disabled:hover,
   &[disabled]:hover,
-  &.mock-disabled:hover {
+  &:disabled.mock-hover,
+  &[disabled].mock-hover {
     color: var(--hds-foreground-color-disabled);
 
     &::file-selector-button {

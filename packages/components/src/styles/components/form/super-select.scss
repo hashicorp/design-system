@@ -152,11 +152,6 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       bottom: 100%;
       margin-bottom: 4px;
     }
-
-    // hide first group separator line
-    > .ember-power-select-options > .hds-form-super-select__option-group:first-child::before {
-      display: none;
-    }
   }
 
   // Options List
@@ -188,7 +183,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     border: none; // guard against border in default theme
 
     @include hds-apply-only-if-carbon() {
-      padding: 11px 16px 11px 39px;
+      padding: 0 16px;
     }
 
     + .ember-power-select-option {
@@ -196,6 +191,10 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
       @include hds-apply-only-if-carbon() {
         margin-top: 0; // remove spacing between items
+
+        .hds-form-super-select__option-text {
+          border-top: 1px solid var(--hds-form-super-select-option-border-color);
+        }
       }
     }
 
@@ -211,13 +210,13 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     // Selected
 
     &[aria-selected="true"] {
-      background-color: var(--hds-form-control-base-surface-color-selected);
+      // override default ember power select style
+      background-color: transparent;
     }
 
     // Hover
 
     // Selects item containing an interactive child which is hovered
-    // TESTING
     &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
       background-color: var(--hds-dropdown-list-item-surface-color-action-hover);
     }
@@ -226,10 +225,6 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     &:hover,
     &.mock-hover {
       border: none; // guard against border in default theme
-
-      @include hds-apply-only-if-carbon() {
-        background-color: var(--hds-form-super-select-option-surface-color-action-hover);
-      }
 
       // left border
       &::after {
@@ -245,6 +240,13 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
         @include hds-apply-only-if-carbon() {
           display: none; // remove left border indicator
         }
+      }
+    }
+
+    &[aria-current="true"]:hover,
+    &[aria-current="true"].mock-hover {
+      @include hds-apply-only-if-carbon() {
+        background-color: var(--hds-form-super-select-option-surface-color-action-hover);
       }
     }
 
@@ -265,25 +267,6 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     }
   }
 
-  // Separator line (between items, and above the first item in a group).
-  .ember-power-select-option,
-  .hds-form-super-select__option-group-title {
-    @include hds-apply-only-if-carbon() {
-      + .ember-power-select-option {
-        &::after {
-          position: absolute;
-          top: 0;
-          right: 15px;
-          left: 15px;
-          display: block;
-          height: 1px;
-          background-color: var(--hds-form-super-select-option-border-color);
-          content: "";
-        }
-      }
-    }
-  }
-
   // Option Groups (similar to HTML optgroup)
 
   .hds-form-super-select__option-group {
@@ -300,8 +283,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       content: "";
 
       @include hds-apply-only-if-carbon() {
-        height: 0;
-        margin: 0 15px;
+        // Using border style instead
+        display: none;
       }
     }
 
@@ -317,6 +300,10 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   .hds-form-super-select__option-group-title {
     margin: 8px 0;
     padding: 6px 7px 2px 15px;
+
+    @include hds-apply-only-if-carbon() {
+      border-bottom: 1px solid var(--hds-form-super-select-option-border-color);
+    }
   }
 
   // SEARCH
@@ -344,10 +331,6 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
     border-radius: var(--hds-form-control-border-radius);
     box-shadow: var(--hds-elevation-inset-box-shadow);
-
-    @include hds-apply-only-if-carbon() {
-      border-bottom: none;
-    }
 
     // placeholder
     &::placeholder {
@@ -491,18 +474,28 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 // SINGLE
 .hds-form-super-select-single .ember-basic-dropdown {
   // Options Item
+  .ember-power-select-option {
+    @include hds-apply-only-if-carbon() {
+      .hds-form-super-select__option-text {
+        padding: 11px 0;
+        padding-right: 24px; // space for checkmark
+      }
+    }
+  }
+
   .ember-power-select-option:not(
     .ember-power-select-option--no-matches-message,
     .ember-power-select-option--loading-message
   ) {
     background-repeat: no-repeat;
-    background-position: 15px center;
-    background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
+    background-position: var(--hds-form-super-select-option-background-image-position);
+    background-size: var(--hds-form-super-select-option-background-image-size)
+      var(--hds-form-super-select-option-background-image-size);
 
     // checked
     &[aria-selected="true"]:not([aria-disabled="true"]) {
       // checkmark icon:
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+      background-image: var(--hds-form-super-select-option-background-image-data-url-checkmark);
 
       &:hover,
       &.mock-hover {
@@ -523,7 +516,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
     &:active,
     &.mock-active {
-      color: var(--hds-foreground-color-action-active);
+      color: var(--hds-form-super-select-option-foreground-color-action-active);
     }
 
     // checked, disabled:
@@ -536,7 +529,15 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 // MULTIPLE SELECT
 .hds-form-super-select-multiple .ember-basic-dropdown {
   // Options Item
-  // We add a pesudo checkbox to each option except those that are for messages (no matches/loading)
+  .ember-power-select-option {
+    @include hds-apply-only-if-carbon() {
+      .hds-form-super-select__option-text {
+        padding: 11px 0 11px 39px;
+      }
+    }
+  }
+
+  // We add a pseudo checkbox to each option except those that are for messages (no matches/loading)
   .ember-power-select-option:not(
     .ember-power-select-option--no-matches-message,
     .ember-power-select-option--loading-message
@@ -561,7 +562,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       content: "";
 
       @include hds-apply-only-if-carbon() {
-        top: 12px;
+        top: 14px;
       }
     }
 

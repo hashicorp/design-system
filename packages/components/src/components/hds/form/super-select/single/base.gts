@@ -210,7 +210,10 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         ...attributes
         as |option select|
       >
-        <HdsTextBody>{{yield option select}}</HdsTextBody>
+        <HdsTextBody
+          class="hds-form-super-select__option-text"
+          @tag="div"
+        >{{yield option select}}</HdsTextBody>
       </PowerSelect>
     </div>
   </template>

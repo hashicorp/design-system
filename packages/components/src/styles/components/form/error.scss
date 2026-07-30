@@ -25,6 +25,7 @@
   width: var(--hds-form-error-icon-size);
   height: var(--hds-form-error-icon-size);
   margin: 2px 0 2px 0;
+  color: var(--hds-form-error-icon-color);
 
   @include hds-apply-only-if-carbon() {
     margin: 1px 0 1px 0;
