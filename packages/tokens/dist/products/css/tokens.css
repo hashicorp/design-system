@@ -612,11 +612,13 @@
   --hds-form-character-count-foreground-color: #656a76;
   --hds-form-character-count-typography-font-size: 0.8125rem;
   --hds-form-character-count-typography-line-height: 1.3846; /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-group-control-field-margin-top: 12px;
   --hds-form-label-color: #0c0c0e; /** deprecated: use `hds-form-label-foreground-color` instead */
   --hds-form-label-foreground-color: #0c0c0e;
   --hds-form-label-typography-font-size: 0.875rem;
   --hds-form-label-typography-font-weight: 600;
   --hds-form-label-typography-line-height: 1.4286;
+  --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-legend-color: #0c0c0e; /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-legend-foreground-color: #0c0c0e;
   --hds-form-legend-typography-font-size: 0.875rem;
@@ -634,26 +636,41 @@
   --hds-form-error-foreground-color: #c00005;
   --hds-form-error-typography-font-size: 0.8125rem;
   --hds-form-error-typography-line-height: 1.3846;
+  --hds-form-error-icon-color: #c00005;
   --hds-form-error-icon-size: 14px;
+  --hds-form-visibility-toggle-button-size: 24px;
   --hds-form-checkbox-size: 16px;
   --hds-form-checkbox-border-radius: 3px;
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-background-image-size: 12px;
-  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
-  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
-  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
-  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' /%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' /%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233b3d45' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238c909c' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-button-border-color: #3b3d4566;
+  --hds-form-file-input-button-height: 36px;
   --hds-form-control-base-foreground-color: #0c0c0e;
   --hds-form-control-base-surface-color-default: #ffffff;
   --hds-form-control-base-surface-color-hover: #f1f2f3;
   --hds-form-control-base-border-color-default: #8c909c;
   --hds-form-control-base-border-color-hover: #656a76;
-  --hds-form-control-base-placeholder-foreground-color: #656a76;
+  --hds-form-control-base-placeholder-foreground-color-default: #656a76;
+  --hds-form-control-base-placeholder-foreground-color-disabled: #656a76;
   --hds-form-control-checked-foreground-color: #ffffff;
   --hds-form-control-checked-surface-color-default: #1060ff;
+  --hds-form-control-checked-surface-color-disabled: #fafafa;
   --hds-form-control-checked-surface-color-hover: #0c56e9;
   --hds-form-control-checked-border-color-default: #0c56e9;
+  --hds-form-control-checked-border-color-disabled: #656a7633;
   --hds-form-control-checked-border-color-hover: #0046d1;
+  --hds-form-control-unchecked-border-color-default: #8c909c;
+  --hds-form-control-unchecked-border-color-disabled: #656a7633;
+  --hds-form-control-unchecked-border-color-hover: #656a76;
+  --hds-form-control-unchecked-surface-color-default: #ffffff;
+  --hds-form-control-unchecked-surface-color-disabled: #fafafa;
+  --hds-form-control-unchecked-surface-color-hover: #f1f2f3;
   --hds-form-control-invalid-border-color-default: #c00005;
   --hds-form-control-invalid-border-color-hover: #940004;
   --hds-form-control-readonly-foreground-color: #3b3d45;
@@ -662,44 +679,86 @@
   --hds-form-control-disabled-foreground-color: #8c909c;
   --hds-form-control-disabled-surface-color: #fafafa;
   --hds-form-control-disabled-border-color: #656a7633;
-  --hds-form-control-padding: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma. */
+  --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
+  --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-border-radius: 5px;
   --hds-form-control-border-width: 1px;
+  --hds-form-control-height: 36px;
+  --hds-form-radio-card-group-gap: 16px;
+  --hds-form-radio-card-surface-color-hover: #ffffff;
+  --hds-form-radio-card-surface-color-disabled: #fafafa;
+  --hds-form-radio-card-border-width: 1px;
+  --hds-form-radio-card-border-radius: 6px;
+  --hds-form-radio-card-border-color-default: #656a7633;
+  --hds-form-radio-card-border-color-checked-default: #0c56e9;
+  --hds-form-radio-card-border-color-checked-hover: #0046d1;
+  --hds-form-radio-card-border-color-focus: #0c56e9;
+  --hds-form-radio-card-border-color-disabled: #656a7633;
+  --hds-form-radio-card-content-padding: 24px;
+  --hds-form-radio-card-control-size: 16px;
+  --hds-form-radio-card-control-wrapper-surface-color-default: #fafafa;
+  --hds-form-radio-card-control-wrapper-surface-color-checked: #f2f8ff;
+  --hds-form-radio-card-control-wrapper-surface-color-disabled: #fafafa;
+  --hds-form-radio-card-control-wrapper-border-color-default: #656a7633;
+  --hds-form-radio-card-control-wrapper-border-color-checked: #cce3fe;
+  --hds-form-radio-card-control-wrapper-border-color-disabled: #656a7633;
+  --hds-form-radio-card-control-wrapper-padding: 8px;
+  --hds-form-radio-card-description-typography-font-size: 0.8125rem;
+  --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma */
+  --hds-form-radio-card-label-typography-font-size: 1.125rem;
+  --hds-form-radio-card-label-typography-font-weight: 700;
+  --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-radio-size: 16px;
   --hds-form-radio-border-width: 1px;
-  --hds-form-radio-background-image-size: 12px;
-  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */
-  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */
-  --hds-form-radiocard-group-gap: 16px;
-  --hds-form-radiocard-border-width: 1px;
-  --hds-form-radiocard-border-radius: 6px;
-  --hds-form-radiocard-border-color-default: #ffffff;
-  --hds-form-radiocard-border-color-focus: #0c56e9;
-  --hds-form-radiocard-border-color-default-checked: #0c56e9;
-  --hds-form-radiocard-content-padding: 24px;
-  --hds-form-radiocard-control-padding: 8px;
-  --hds-form-radiocard-transition-duration: 0.2s;
+  --hds-form-radio-background-image-size: 16px;
+  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%238C909C' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-surface-color-checked-default: #1060ff;
+  --hds-form-radio-surface-color-checked-hover: #0c56e9;
+  --hds-form-radio-surface-color-checked-disabled: #fafafa;
   --hds-form-select-background-image-size: 16px;
   --hds-form-select-background-image-position-right-x: 7px;
   --hds-form-select-background-image-position-top-y: 9px;
-  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%23656A76'/%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
-  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%238C909C'/%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23656A76' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%238C909C' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-surface-color-hover: #ffffff;
+  --hds-form-select-multiple-option-color-checked: #ffffff;
+  --hds-form-super-select-padding-left: 11px;
+  --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+  --hds-form-super-select-option-background-image-size: 16px;
+  --hds-form-super-select-option-foreground-color-action-hover: #0c56e9;
+  --hds-form-super-select-option-surface-color-action-active: #0046d1;
+  --hds-form-super-select-option-surface-color-action-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-checked-default: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-margin-top: 8px;
+  --hds-form-super-select-search-margin-bottom: 3px;
   --hds-form-text-input-background-image-size: 16px;
   --hds-form-text-input-background-image-position-x: 7px;
-  --hds-form-text-input-background-image-data-url-date: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-time: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search-loading: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' %3e%3cg fill='%23656A76' fill-rule='evenodd' clip-rule='evenodd'%3e%3canimateTransform attributeName='transform' type='rotate' dur='0.9s' from='0 8 8' to='360 8 8' repeatCount='indefinite'/%3e%3cpath d='M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z' opacity='.2'/%3e%3cpath d='M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color and animation are hardcoded here! */
+  --hds-form-text-input-background-image-data-url-date: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e");
+  --hds-form-text-input-background-image-data-url-time: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded here */
+  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76' %3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded. The HDS theme does not use a different search image for the disabled state */
+  --hds-form-text-input-background-image-data-url-search-loading: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' %3e%3cg fill='%23656A76' fill-rule='evenodd' clip-rule='evenodd'%3e%3canimateTransform attributeName='transform' type='rotate' dur='0.9s' from='0 8 8' to='360 8 8' repeatCount='indefinite'/%3e%3cpath d='M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z' opacity='.2'/%3e%3cpath d='M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color and animation are hardcoded here */
+  --hds-form-text-input-search-cancel-button-width: 16px;
+  --hds-form-textarea-padding-vertical: 7px;
   --hds-form-toggle-width: 32px;
   --hds-form-toggle-height: 16px;
   --hds-form-toggle-base-surface-color-default: #f1f2f3; /** the toggle has a different base surface color, compared to the other controls */
+  --hds-form-toggle-base-surface-color-disabled: #fafafa;
+  --hds-form-toggle-base-surface-color-checked-default: #1060ff;
+  --hds-form-toggle-base-surface-color-checked-hover: #0c56e9;
   --hds-form-toggle-border-radius: 3px;
   --hds-form-toggle-border-width: 1px;
   --hds-form-toggle-background-image-size: 12px;
   --hds-form-toggle-background-image-position-x: 2px;
-  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
-  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-handle-surface-color-default: #ffffff;
+  --hds-form-toggle-handle-surface-color-disabled: #fafafa;
   --hds-form-toggle-transition-duration: 0.2s;
   --hds-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --hds-form-toggle-thumb-size: 16px;

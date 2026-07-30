@@ -18,8 +18,8 @@
 .hds-power-select .ember-power-select-trigger {
   max-width: 100%;
   min-height: 36px;
-  padding: calc(var(--hds-form-control-padding) + 1px);
-  padding-right: calc(var(--hds-form-control-padding) + 24px);
+  padding: calc(var(--hds-form-control-padding-vertical) + 1px) calc(var(--hds-form-control-padding-horizontal) + 1px);
+  padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px);
   color: var(--hds-form-control-base-foreground-color);
   background-color: var(--hds-form-control-base-surface-color-default);
   background-image: var(--hds-form-select-background-image-data-url);
@@ -97,7 +97,7 @@
 .hds-power-select .ember-power-select-search .ember-power-select-search-input {
   width: 100%;
   max-width: 100%;
-  padding: var(--hds-form-control-padding);
+  padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
   line-height: 1rem;
   background-color: var(--hds-form-control-base-surface-color-default);
@@ -105,8 +105,8 @@
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
-.hds-power-select .ember-power-select-search .ember-power-select-search-input ::placeholder {
-  color: var(--hds-form-control-base-placeholder-foreground-color);
+.hds-power-select .ember-power-select-search .ember-power-select-search-input::placeholder {
+  color: var(--hds-form-control-base-placeholder-foreground-color-default);
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input:hover, .hds-power-select .ember-power-select-search .ember-power-select-search-input.mock-hover {
   border-color: var(--hds-form-control-base-border-color-hover);
@@ -126,8 +126,8 @@
   border-color: var(--hds-focus-color-action-internal);
 }
 .hds-power-select .ember-power-select-search .ember-power-select-search-input[type=search] {
-  padding-left: calc(var(--hds-form-control-padding) + 24px);
-  background-image: var(--hds-form-text-input-background-image-data-url-search);
+  padding-left: calc(var(--hds-form-control-padding-horizontal) + 24px);
+  background-image: var(--hds-form-text-input-background-image-data-url-search-default);
   background-repeat: no-repeat;
   background-position: var(--hds-form-text-input-background-image-position-x) 50%;
   background-size: var(--hds-form-text-input-background-image-size);
@@ -199,8 +199,8 @@
   cursor: default;
 }
 .hds-power-select .ember-power-select-multiple-trigger {
-  padding-top: calc(var(--hds-form-control-padding) - 3px);
-  padding-bottom: calc(var(--hds-form-control-padding) - 3px);
+  padding-top: calc(var(--hds-form-control-padding-vertical) - 3px);
+  padding-bottom: calc(var(--hds-form-control-padding-vertical) - 3px);
   padding-left: 20px;
   background-image: var(--hds-form-select-background-image-data-url);
 }
