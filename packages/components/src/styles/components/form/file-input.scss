@@ -46,7 +46,6 @@
     #{$hds-form-file-input-background-position-x} + var(--hds-form-text-input-background-image-size) +
       var(--hds-button-gap)
   );
-
   background-image: var(--hds-form-file-input-background-image-data-url-file-selector-button-default);
   background-repeat: no-repeat;
   background-position: $hds-form-file-input-background-position-x 50%;

@@ -21,6 +21,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
 .hds-form-super-select .ember-basic-dropdown {
   // TRIGGER
+
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     @include hds-form-control-border();
@@ -120,6 +121,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   }
 
   // DROPDOWN
+
   .ember-basic-dropdown-content {
     max-width: var(--hds-var-form-super-select-dropdown-max-width, none);
     margin: 0;
@@ -154,7 +156,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     }
   }
 
-  // Options List
+  // OPTIONS LIST (in dropdown)
+
   .ember-power-select-options {
     padding: 3px 0;
     background-color: var(--hds-form-control-base-surface-color-default);
@@ -170,7 +173,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     }
   }
 
-  // Options Item
+  // OPTIONS ITEM
+
   .ember-power-select-option {
     position: relative;
     min-height: var(--hds-form-super-select-height);
@@ -198,11 +202,12 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       }
     }
 
-    // States
+    // STATES
 
     // Current
 
     &[aria-current="true"] {
+      // override default ember power select style
       color: var(--hds-form-control-base-foreground-color);
       background-color: var(--hds-form-control-base-surface-color-default);
     }
@@ -221,10 +226,13 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       background-color: var(--hds-dropdown-list-item-surface-color-action-hover);
     }
 
-    &[aria-current="true"],
     &:hover,
     &.mock-hover {
       border: none; // guard against border in default theme
+
+      @include hds-apply-only-if-carbon() {
+        background-color: var(--hds-form-super-select-option-surface-color-action-hover);
+      }
 
       // left border
       &::after {
@@ -240,13 +248,6 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
         @include hds-apply-only-if-carbon() {
           display: none; // remove left border indicator
         }
-      }
-    }
-
-    &[aria-current="true"]:hover,
-    &[aria-current="true"].mock-hover {
-      @include hds-apply-only-if-carbon() {
-        background-color: var(--hds-form-super-select-option-surface-color-action-hover);
       }
     }
 
@@ -308,6 +309,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
   // SEARCH
   // (Single select, to be added to Multiple | in @beforeOptionsComponent area)
+
   .ember-power-select-search {
     margin-bottom: 3px;
     margin-bottom: var(--hds-form-super-select-search-margin-bottom);
@@ -369,6 +371,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   }
 
   // MULTIPLE
+
   // Tag List
   .ember-power-select-multiple-options {
     display: flex;
@@ -422,6 +425,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 }
 
 // INVALID
+
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown {
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
@@ -446,6 +450,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 }
 
 // ONLY SELECTED
+
 .hds-form-super-select.hds-form-super-select--show-only-selected .ember-basic-dropdown {
   .ember-power-select-option {
     &:not([aria-selected="true"]) {
@@ -472,6 +477,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 // VARIANT COMPONENTS
 
 // SINGLE
+
 .hds-form-super-select-single .ember-basic-dropdown {
   // Options Item
   .ember-power-select-option {
@@ -492,7 +498,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     background-size: var(--hds-form-super-select-option-background-image-size)
       var(--hds-form-super-select-option-background-image-size);
 
-    // checked
+    // Checked
     &[aria-selected="true"]:not([aria-disabled="true"]) {
       // checkmark icon:
       background-image: var(--hds-form-super-select-option-background-image-data-url-checkmark);
@@ -508,7 +514,6 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       }
     }
 
-    &[aria-current="true"],
     &:hover,
     &.mock-hover {
       color: var(--hds-form-super-select-option-foreground-color-action-hover);
@@ -519,7 +524,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       color: var(--hds-form-super-select-option-foreground-color-action-active);
     }
 
-    // checked, disabled:
+    // Checked, disabled
     &[aria-selected="true"][aria-disabled="true"] {
       background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.7803 4.28033C15.0732 3.98744 15.0732 3.51256 14.7803 3.21967C14.4874 2.92678 14.0126 2.92678 13.7197 3.21967L5.75 11.1893L2.28033 7.71967C1.98744 7.42678 1.51256 7.42678 1.21967 7.71967C0.926777 8.01256 0.926777 8.48744 1.21967 8.78033L5.21967 12.7803C5.51256 13.0732 5.98744 13.0732 6.28033 12.7803L14.7803 4.28033Z' fill='%238C909C'/%3E%3C/svg%3E");
     }
@@ -527,6 +532,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 }
 
 // MULTIPLE SELECT
+
 .hds-form-super-select-multiple .ember-basic-dropdown {
   // Options Item
   .ember-power-select-option {
