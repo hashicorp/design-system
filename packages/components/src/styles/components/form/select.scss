@@ -16,7 +16,7 @@
 .hds-form-select {
   @include hds-form-control-border();
   max-width: 100%;
-  min-height: var(--hds-form-control-height); // mainly needed by carbon themes
+  min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
   background-color: var(--hds-form-control-base-surface-color-default);

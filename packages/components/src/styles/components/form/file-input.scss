@@ -39,7 +39,7 @@
   $hds-form-file-input-background-position-x: 15px;
 
   display: inline-flex; // override display: flex in hds-button() mixin
-  min-height: var(--hds-form-control-height);
+  min-height: var(--hds-form-file-input-button-height);
   margin-right: 16px;
   padding: 7px 16px 7px; // padding in code altered to match Figma visual design
   padding-left: calc(
