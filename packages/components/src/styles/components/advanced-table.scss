@@ -491,15 +491,6 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
   &.mock-hover {
     box-shadow: var(--hds-elevation-low-box-shadow);
   }
-
-  &:focus-visible,
-  &.mock-focus {
-    &::before {
-      // these are needed to make the dropdown icon focus state match the size of the other header buttons focus state
-      inset: 0 !important;
-      border-width: 0 !important;
-    }
-  }
 }
 
 .hds-advanced-table__th-button {

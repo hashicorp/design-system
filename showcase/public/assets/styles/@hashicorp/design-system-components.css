@@ -2045,10 +2045,6 @@
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:hover, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-hover {
   box-shadow: var(--hds-elevation-low-box-shadow);
 }
-.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus-visible::before, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus::before {
-  inset: 0 !important;
-  border-width: 0 !important;
-}
 
 .hds-advanced-table__th-button {
   display: flex;
