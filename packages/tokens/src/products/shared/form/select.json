@@ -39,6 +39,20 @@
           }
         }
       },
+      "padding": {
+        "right": {
+          "$type": "dimension",
+          "$value": "24",
+          "unit": "px",
+          "$modes": {
+            "default": "24",
+            "cds-g0": "48",
+            "cds-g10": "48",
+            "cds-g90": "48",
+            "cds-g100": "48"
+          }
+        }
+      },
       "surface-color": {
         "hover": {
           "$value": "{form.control.base.surface.color.default}",
