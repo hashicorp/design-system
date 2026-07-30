@@ -47,7 +47,7 @@ Use blockquotes when quoting a resource or when distinguishing small amounts of 
 ## Images
 
 - Place images after the content they are related to
-- **IMPORTANT** Always set alternative text which describes the image in detail
+- Always set alternative text which describes the image in detail unless the text before or after the image explains what the image shows.
   - Alt text should only be left null if the image is decorative
   - Do: `![Architecture diagram of the splitting demo. A web service directly connects to two different versions of the API service through proxies. Consul configures those proxies.](/static/img/consul-splitting-architecture.png)`
   - Don't: `![Consul splitting architecture](/static/img/consul-splitting-architecture.png)`

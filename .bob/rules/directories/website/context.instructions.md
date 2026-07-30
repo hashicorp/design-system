@@ -22,7 +22,7 @@ The `website` app is an Ember application used to document all HDS components fr
 - `pnpm test` - Runs the test suite
 
 ## Requirements
-- All website pages must be implemented using single-file components with a `.gts` extension
+- Any new pages or components must be implemented using single-file components with a `.gts` extension
 - Changes to the website app do not require a changeset entry
 
 ## Server-side rendering and fastboot
