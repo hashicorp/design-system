@@ -85,9 +85,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
 
 .hds-advanced-table__th,
 .hds-advanced-table__td {
-  @include hds-apply-only-if-carbon() {
-    min-height: var(--hds-var-advanced-table-cell-height);
-  }
+  min-height: var(--hds-var-advanced-table-cell-height);
 }
 
 // ----------------------------------------------------------------
@@ -298,7 +296,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
 
     .hds-advanced-table__th--is-sticky-column-pinned {
       &:first-of-type {
-        left: -1px;
+        left: var(--hds-advanced-table-cell-pinned-left);
         // add extra left border to offset -1px and the 0.5px border from the table container being gone
         border-left: calc(var(--hds-advanced-table-cell-border-width-default) + 1px) solid
           var(--hds-advanced-table-cell-border-color-default);
@@ -483,13 +481,21 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
   margin: -2px 0;
   padding: 0;
   color: var(--hds-foreground-color-faint);
-  background-color: transparent;
+  background-color: var(--hds-advanced-table-header-button-surface-color-default);
   border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
   border-radius: var(--hds-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
     box-shadow: var(--hds-elevation-low-box-shadow);
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    // matching the same focus ring as th-button so the context menu + th buttons are the same size when focused. if use the default dropdown toggle icon focus state it ends up being a pixel too big.
+    @include hds-focus-ring-advanced($pseudo-element-inset-hds: 0, $pseudo-element-inset-cds: 0);
+    // setting it to the default color to match the th-button styles. when focused, th-buttons do not have a background color set so it defaults to the default background color. however, dropdown toggle icon does have a background color on focus, so using the default token here.
+    background-color: var(--hds-advanced-table-header-button-surface-color-default);
   }
 }
 
@@ -588,7 +594,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
     .hds-advanced-table--striped & {
       .hds-advanced-table__th,
       .hds-advanced-table__td {
-        border-bottom-color: var(--hds-advanced-table-row-border-color-striped);
+        border-bottom-color: var(--hds-advanced-table-row-border-color-striped-default);
       }
 
       &:hover,
@@ -714,7 +720,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
   .hds-advanced-table--sticky-first-column-pinned & {
     .hds-advanced-table__tr {
       > :first-child {
-        left: -1px;
+        left: var(--hds-advanced-table-cell-pinned-left);
         border-left: calc(var(--hds-advanced-table-cell-border-width-default) + 1px) solid
           var(--hds-advanced-table-cell-border-color-default);
 

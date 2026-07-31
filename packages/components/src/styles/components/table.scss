@@ -50,10 +50,8 @@ $hds-table-densities: ("short", "medium", "tall");
 
 .hds-table__th,
 .hds-table__td {
-  @include hds-apply-only-if-carbon() {
-    // CSS doesn't allow minimum height set on table cells, need to set height instead
-    height: var(--hds-var-table-cell-height);
-  }
+  // CSS doesn't allow minimum height set on table cells, need to set height instead
+  height: var(--hds-var-table-cell-height);
 }
 
 // ----------------------------------------------------------------
@@ -207,7 +205,7 @@ $hds-table-densities: ("short", "medium", "tall");
     .hds-table--striped & {
       .hds-table__th,
       .hds-table__td {
-        border-bottom-color: var(--hds-table-row-border-color-striped);
+        border-bottom-color: var(--hds-table-row-border-color-striped-default);
       }
 
       &:hover,

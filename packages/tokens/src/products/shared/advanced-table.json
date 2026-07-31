@@ -1,5 +1,140 @@
 {
   "advanced-table": {
+    "header": {
+      "surface": {
+        "color": {
+          "$type": "color",
+          "$value": "{table.header.surface.color}"
+        }
+      },
+      "cell": {
+        "border-offset": {
+          "$type": "dimension",
+          "$value": "{table.header.cell.border-offset}"
+        },
+        "padding": {
+          "horizontal": {
+            "$type": "dimension",
+            "$value": "{table.header.cell.padding.horizontal}"
+          },
+          "vertical": {
+            "$type": "dimension",
+            "$value": "{table.header.cell.padding.vertical}"
+          }
+        }
+      },
+      "button": {
+        "size": {
+          "$type": "dimension",
+          "$value": "24",
+          "unit": "px"
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{table.header.button.foreground.color.default}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{table.header.button.foreground.color.hover}"
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{table.header.button.foreground.color.active}"
+            },
+            "sorted": {
+              "default": {
+                "$type": "color",
+                "$value": "{table.header.button.foreground.color.sorted.default}"
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{table.header.button.foreground.color.sorted.hover}"
+              },
+              "active": {
+                "$type": "color",
+                "$value": "{table.header.button.foreground.color.sorted.active}"
+              }
+            }
+          }
+        },
+        "surface": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{table.header.button.surface.color.default}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{table.header.button.surface.color.hover}"
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{table.header.button.surface.color.active}"
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{table.header.button.border.color.default}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{table.header.button.border.color.hover}"
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{table.header.button.border.color.active}"
+            }
+          }
+        }
+      }
+    },
+    "body": {
+      "surface": {
+        "color": {
+          "$type": "color",
+          "$value": "{table.body.surface.color}"
+        }
+      }
+    },
+    "row": {
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "{table.row.border.width}"
+        },
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{table.row.border.color.default}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{table.row.border.color.hover}"
+          },
+          "striped": {
+            "default": {
+              "$type": "color",
+              "$value": "{table.row.border.color.striped.default}"
+            }
+          },
+          "selected": {
+            "default": {
+              "$type": "color",
+              "$value": "{table.row.border.color.selected.default}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{table.row.border.color.selected.hover}"
+            }
+          }
+        }
+      }
+    },
     "cell": {
       "height": {
         "short": {
@@ -176,138 +311,17 @@
             }
           }
         }
-      }
-    },
-    "row": {
-      "border": {
-        "width": {
-          "$type": "dimension",
-          "$value": "{table.row.border.width}"
-        },
-        "color": {
-          "default": {
-            "$type": "color",
-            "$value": "{table.row.border.color.default}"
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{table.row.border.color.hover}"
-          },
-          "striped": {
-            "$type": "color",
-            "$value": "{table.row.border.color.striped}"
-          },
-          "selected": {
-            "default": {
-              "$type": "color",
-              "$value": "{table.row.border.color.selected.default}"
-            },
-            "hover": {
-              "$type": "color",
-              "$value": "{table.row.border.color.selected.hover}"
-            }
-          }
-        }
-      }
-    },
-    "header": {
-      "surface": {
-        "color": {
-          "$type": "color",
-          "$value": "{table.header.surface.color}"
-        }
       },
-      "cell": {
-        "border-offset": {
-          "$type": "dimension",
-          "$value": "{table.header.cell.border-offset}"
-        },
-        "padding": {
-          "horizontal": {
-            "$type": "dimension",
-            "$value": "{table.header.cell.padding.horizontal}"
-          },
-          "vertical": {
-            "$type": "dimension",
-            "$value": "{table.header.cell.padding.vertical}"
-          }
-        }
-      },
-      "button": {
-        "size": {
-          "$type": "dimension",
-          "$value": "24",
-          "unit": "px"
-        },
-        "foreground": {
-          "color": {
-            "default": {
-              "$type": "color",
-              "$value": "{table.header.button.foreground.color.default}"
-            },
-            "hover": {
-              "$type": "color",
-              "$value": "{table.header.button.foreground.color.hover}"
-            },
-            "active": {
-              "$type": "color",
-              "$value": "{table.header.button.foreground.color.active}"
-            },
-            "sorted": {
-              "default": {
-                "$type": "color",
-                "$value": "{table.header.button.foreground.color.sorted.default}"
-              },
-              "hover": {
-                "$type": "color",
-                "$value": "{table.header.button.foreground.color.sorted.hover}"
-              },
-              "active": {
-                "$type": "color",
-                "$value": "{table.header.button.foreground.color.sorted.active}"
-              }
-            }
-          }
-        },
-        "surface": {
-          "color": {
-            "default": {
-              "$type": "color",
-              "$value": "{table.header.button.surface.color.default}"
-            },
-            "hover": {
-              "$type": "color",
-              "$value": "{table.header.button.surface.color.hover}"
-            },
-            "active": {
-              "$type": "color",
-              "$value": "{table.header.button.surface.color.active}"
-            }
-          }
-        },
-        "border": {
-          "color": {
-            "default": {
-              "$type": "color",
-              "$value": "{table.header.button.border.color.default}"
-            },
-            "hover": {
-              "$type": "color",
-              "$value": "{table.header.button.border.color.hover}"
-            },
-            "active": {
-              "$type": "color",
-              "$value": "{table.header.button.border.color.active}"
-            }
-          }
-        }
-      }
-    },
-    "body": {
-      "surface": {
-        "color": {
-          "$type": "color",
-          "$value": "{table.body.surface.color}"
+      "pinned-left": {
+        "$type": "dimension",
+        "$value": "-1",
+        "unit": "px",
+        "$modes": {
+          "default": "-1",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
         }
       }
     },
@@ -332,11 +346,13 @@
         "color": {
           "focus": {
             "$type": "color",
-            "$value": "{core.color.blue-300}"
+            "$value": "{core.color.blue-300}",
+            "comment": "TODO: Tokenize this color"
           },
           "hover": {
             "$type": "color",
-            "$value": "#b1b1b5"
+            "$value": "#b1b1b5",
+            "comment": "TODO: Tokenize this color"
           }
         }
       }
@@ -345,7 +361,8 @@
       "surface": {
         "color": {
           "$type": "color",
-          "$value": "rgba(204, 227, 254, 30%)"
+          "$value": "rgba(204, 227, 254, 30%)",
+          "comment": "TODO: Tokenize this color"
         }
       }
     },

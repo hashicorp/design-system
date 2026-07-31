@@ -39,6 +39,7 @@
   --hds-accordion-item-toggle-padding-top-small: 8px;
   --hds-advanced-table-cell-border-color-pinned: var(--hds-border-color-primary);
   --hds-advanced-table-cell-border-width-pinned: 3px;
+  --hds-advanced-table-cell-pinned-left: -1px;
   --hds-advanced-table-cell-surface-color-hover: var(--hds-table-cell-surface-color-hover);
   --hds-advanced-table-cell-surface-color-nested-default: var(--hds-surface-color-faint);
   --hds-advanced-table-cell-surface-color-nested-hover: var(--hds-surface-color-faint);
@@ -553,9 +554,9 @@
   --hds-table-cell-border-color: var(--hds-border-color-primary);
   --hds-table-cell-border-width: 0.5px;
   --hds-table-cell-foreground-color-default: var(--hds-foreground-color-primary);
-  --hds-table-cell-height-medium: 0rem;
-  --hds-table-cell-height-short: 0rem;
-  --hds-table-cell-height-tall: 0rem;
+  --hds-table-cell-height-medium: auto;
+  --hds-table-cell-height-short: auto;
+  --hds-table-cell-height-tall: auto;
   --hds-table-cell-padding-vertical-medium: 14px;
   --hds-table-cell-padding-vertical-short: 6px;
   --hds-table-cell-padding-vertical-tall: 22px;

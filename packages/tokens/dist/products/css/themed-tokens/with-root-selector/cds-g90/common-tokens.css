@@ -23,7 +23,7 @@
   --hds-advanced-table-cell-surface-color-selected-default: var(--hds-table-cell-surface-color-selected-default);
   --hds-advanced-table-cell-surface-color-selected-hover: var(--hds-table-cell-surface-color-selected-hover);
   --hds-advanced-table-cell-surface-color-striped-default: var(--hds-table-cell-surface-color-striped-default);
-  --hds-advanced-table-drag-preview-surface-color: #cce3fe;
+  --hds-advanced-table-drag-preview-surface-color: #cce3fe; /** TODO: Tokenize this color */
   --hds-advanced-table-header-button-border-color-active: var(--hds-table-header-button-border-color-active);
   --hds-advanced-table-header-button-border-color-default: var(--hds-table-header-button-border-color-default);
   --hds-advanced-table-header-button-border-color-hover: var(--hds-table-header-button-border-color-hover);
@@ -41,13 +41,13 @@
   --hds-advanced-table-header-cell-padding-horizontal: var(--hds-table-header-cell-padding-horizontal);
   --hds-advanced-table-header-cell-padding-vertical: var(--hds-table-header-cell-padding-vertical);
   --hds-advanced-table-header-surface-color: var(--hds-table-header-surface-color);
-  --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-core-color-blue-300);
-  --hds-advanced-table-resize-handle-surface-color-hover: #b1b1b5;
+  --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-core-color-blue-300); /** TODO: Tokenize this color */
+  --hds-advanced-table-resize-handle-surface-color-hover: #b1b1b5; /** TODO: Tokenize this color */
   --hds-advanced-table-row-border-color-default: var(--hds-table-row-border-color-default);
   --hds-advanced-table-row-border-color-hover: var(--hds-table-row-border-color-hover);
   --hds-advanced-table-row-border-color-selected-default: var(--hds-table-row-border-color-selected-default);
   --hds-advanced-table-row-border-color-selected-hover: var(--hds-table-row-border-color-selected-hover);
-  --hds-advanced-table-row-border-color-striped: var(--hds-table-row-border-color-striped);
+  --hds-advanced-table-row-border-color-striped-default: var(--hds-table-row-border-color-striped-default);
   --hds-advanced-table-row-border-width: var(--hds-table-row-border-width);
   --hds-alert-page-padding-horizontal: 48px;
   --hds-alert-surface-color-neutral: var(--hds-surface-color-faint);
@@ -267,7 +267,7 @@
   --hds-table-header-button-foreground-color-hover: var(--hds-foreground-color-primary);
   --hds-table-header-button-surface-color-default: rgba(0, 0, 0, 0);
   --hds-table-header-cell-padding-horizontal: 16px;
-  --hds-table-row-border-color-striped: rgba(0, 0, 0, 0);
+  --hds-table-row-border-color-striped-default: rgba(0, 0, 0, 0);
   --hds-tabs-divider-height: 1px;
   --hds-tabs-indicator-transition-duration: 0.6s;
   --hds-tabs-indicator-transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);

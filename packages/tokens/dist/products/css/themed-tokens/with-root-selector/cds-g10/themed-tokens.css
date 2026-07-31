@@ -39,6 +39,7 @@
   --hds-accordion-item-toggle-padding-top-small: 6px;
   --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
   --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
   --hds-advanced-table-cell-surface-color-hover: #f1f1f1; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
   --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
   --hds-advanced-table-cell-surface-color-nested-hover: rgba(141, 141, 141, 0.12);

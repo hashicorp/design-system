@@ -96,6 +96,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-border-color-primary
   );
   --hds-advanced-table-cell-border-width-pinned: 3px;
+  --hds-advanced-table-cell-pinned-left: -1px;
   --hds-advanced-table-cell-surface-color-hover: var(
     --hds-table-cell-surface-color-hover
   );
@@ -1014,9 +1015,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-table-cell-foreground-color-default: var(
     --hds-foreground-color-primary
   );
-  --hds-table-cell-height-medium: 0rem;
-  --hds-table-cell-height-short: 0rem;
-  --hds-table-cell-height-tall: 0rem;
+  --hds-table-cell-height-medium: auto;
+  --hds-table-cell-height-short: auto;
+  --hds-table-cell-height-tall: auto;
   --hds-table-cell-padding-vertical-medium: 14px;
   --hds-table-cell-padding-vertical-short: 6px;
   --hds-table-cell-padding-vertical-tall: 22px;
@@ -1226,6 +1227,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-accordion-item-toggle-padding-top-small: 6px;
     --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
     --hds-advanced-table-cell-border-width-pinned: 2px;
+    --hds-advanced-table-cell-pinned-left: 0px;
     --hds-advanced-table-cell-surface-color-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
     --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
     --hds-advanced-table-cell-surface-color-nested-hover: rgba(
@@ -1957,6 +1959,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-accordion-item-toggle-padding-top-small: 6px;
     --hds-advanced-table-cell-border-color-pinned: #525252;
     --hds-advanced-table-cell-border-width-pinned: 2px;
+    --hds-advanced-table-cell-pinned-left: 0px;
     --hds-advanced-table-cell-surface-color-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
     --hds-advanced-table-cell-surface-color-nested-default: #393939;
     --hds-advanced-table-cell-surface-color-nested-hover: rgba(
@@ -2708,6 +2711,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-small: 6px;
   --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
   --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
   --hds-advanced-table-cell-surface-color-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
   --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
   --hds-advanced-table-cell-surface-color-nested-hover: rgba(
@@ -3437,6 +3441,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-small: 6px;
   --hds-advanced-table-cell-border-color-pinned: #525252;
   --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
   --hds-advanced-table-cell-surface-color-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
   --hds-advanced-table-cell-surface-color-nested-default: #393939;
   --hds-advanced-table-cell-surface-color-nested-hover: rgba(
@@ -4185,6 +4190,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-small: 6px;
   --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
   --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
   --hds-advanced-table-cell-surface-color-hover: #f1f1f1; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
   --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
   --hds-advanced-table-cell-surface-color-nested-hover: rgba(
@@ -4913,6 +4919,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-small: 6px;
   --hds-advanced-table-cell-border-color-pinned: #6f6f6f;
   --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
   --hds-advanced-table-cell-surface-color-hover: #474747; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
   --hds-advanced-table-cell-surface-color-nested-default: #525252;
   --hds-advanced-table-cell-surface-color-nested-hover: rgba(
@@ -5693,7 +5700,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-advanced-table-cell-surface-color-striped-default: var(
     --hds-table-cell-surface-color-striped-default
   );
-  --hds-advanced-table-drag-preview-surface-color: #cce3fe;
+  --hds-advanced-table-drag-preview-surface-color: #cce3fe; /** TODO: Tokenize this color */
   --hds-advanced-table-header-button-border-color-active: var(
     --hds-table-header-button-border-color-active
   );
@@ -5745,8 +5752,8 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   );
   --hds-advanced-table-resize-handle-surface-color-focus: var(
     --hds-core-color-blue-300
-  );
-  --hds-advanced-table-resize-handle-surface-color-hover: #b1b1b5;
+  ); /** TODO: Tokenize this color */
+  --hds-advanced-table-resize-handle-surface-color-hover: #b1b1b5; /** TODO: Tokenize this color */
   --hds-advanced-table-row-border-color-default: var(
     --hds-table-row-border-color-default
   );
@@ -5759,8 +5766,8 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-advanced-table-row-border-color-selected-hover: var(
     --hds-table-row-border-color-selected-hover
   );
-  --hds-advanced-table-row-border-color-striped: var(
-    --hds-table-row-border-color-striped
+  --hds-advanced-table-row-border-color-striped-default: var(
+    --hds-table-row-border-color-striped-default
   );
   --hds-advanced-table-row-border-width: var(--hds-table-row-border-width);
   --hds-alert-page-padding-horizontal: 48px;
@@ -6070,7 +6077,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   );
   --hds-table-header-button-surface-color-default: rgba(0, 0, 0, 0);
   --hds-table-header-cell-padding-horizontal: 16px;
-  --hds-table-row-border-color-striped: rgba(0, 0, 0, 0);
+  --hds-table-row-border-color-striped-default: rgba(0, 0, 0, 0);
   --hds-tabs-divider-height: 1px;
   --hds-tabs-indicator-transition-duration: 0.6s;
   --hds-tabs-indicator-transition-timing-function: cubic-bezier(
