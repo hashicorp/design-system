@@ -356,7 +356,8 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
     position: sticky;
     top: -1px;
     z-index: 5;
-    background-color: var(--hds-advanced-table-header-surface-color);
+    // need to set a background color here that doesn't have opacity to prevent content visible behind sticky header
+    background-color: var(--hds-surface-color-strong);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
     border-bottom: calc(
         var(--hds-advanced-table-cell-border-width-pinned) - var(--hds-advanced-table-row-border-width) / 2
@@ -370,10 +371,10 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
   }
 
   &.hds-advanced-table__thead--is-pinned {
-    background-color: var(--hds-advanced-table-header-surface-color);
-    // need to add 1px to offset `top: -1px`
-    border-top: calc(var(--hds-advanced-table-row-border-width) / 2 + 1px) solid
-      var(--hds-advanced-table-row-border-color-default);
+    // need to set a background color here that doesn't have opacity to prevent content visible behind sticky header
+    background-color: var(--hds-surface-color-strong);
+    border-top: var(--hds-advanced-table-header-border-width-pinned) solid
+      var(--hds-advanced-table-cell-border-color-default);
     border-bottom: var(--hds-advanced-table-cell-border-width-pinned) solid
       var(--hds-advanced-table-cell-border-color-pinned);
 

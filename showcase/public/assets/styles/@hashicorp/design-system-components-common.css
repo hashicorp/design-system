@@ -974,7 +974,7 @@
   position: sticky;
   top: -1px;
   z-index: 5;
-  background-color: var(--hds-advanced-table-header-surface-color);
+  background-color: var(--hds-surface-color-strong);
   border-bottom: calc(var(--hds-advanced-table-cell-border-width-pinned) - var(--hds-advanced-table-row-border-width) / 2) solid var(--hds-advanced-table-cell-border-color-pinned);
 }
 .hds-advanced-table__thead.hds-advanced-table__thead--sticky .hds-advanced-table__scroll-indicator-top {
@@ -982,8 +982,8 @@
   bottom: var(--hds-advanced-table-scroll-indicator-top-offset-bottom);
 }
 .hds-advanced-table__thead.hds-advanced-table__thead--is-pinned {
-  background-color: var(--hds-advanced-table-header-surface-color);
-  border-top: calc(var(--hds-advanced-table-row-border-width) / 2 + 1px) solid var(--hds-advanced-table-row-border-color-default);
+  background-color: var(--hds-surface-color-strong);
+  border-top: var(--hds-advanced-table-header-border-width-pinned) solid var(--hds-advanced-table-cell-border-color-default);
   border-bottom: var(--hds-advanced-table-cell-border-width-pinned) solid var(--hds-advanced-table-cell-border-color-pinned);
 }
 .hds-advanced-table__thead.hds-advanced-table__thead--is-pinned .hds-advanced-table__tr:first-of-type .hds-advanced-table__th:first-child {

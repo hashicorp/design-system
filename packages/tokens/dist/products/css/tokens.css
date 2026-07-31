@@ -153,6 +153,7 @@
   --hds-accordion-item-content-padding-left-medium: 12px;
   --hds-accordion-item-content-padding-left-large: 16px;
   --hds-advanced-table-header-surface-color: rgba(0, 0, 0, 0);
+  --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
   --hds-advanced-table-header-cell-border-offset: 1px;
   --hds-advanced-table-header-cell-padding-horizontal: 16px;
   --hds-advanced-table-header-cell-padding-vertical: 14px;

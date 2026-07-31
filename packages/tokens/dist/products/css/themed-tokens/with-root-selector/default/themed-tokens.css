@@ -46,6 +46,7 @@
   --hds-advanced-table-cell-surface-color-parent-hover: var(--hds-surface-color-primary);
   --hds-advanced-table-cell-surface-color-striped-hover: var(--hds-table-cell-surface-color-striped-hover);
   --hds-advanced-table-empty-state-border-width: 1px;
+  --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
   --hds-alert-actions-margin-top: 16px;
   --hds-alert-border-color-critical: var(--hds-border-color-critical);

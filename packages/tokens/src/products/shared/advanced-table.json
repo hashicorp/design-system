@@ -7,6 +7,25 @@
           "$value": "{table.header.surface.color}"
         }
       },
+      "border": {
+        "width": {
+          "pinned": {
+            "$type": "dimension",
+            "$value": "1.5",
+            "unit": "px",
+            "$modes": {
+              "default": "1.5",
+              "cds-g0": "0",
+              "cds-g10": "0",
+              "cds-g90": "0",
+              "cds-g100": "0"
+            },
+            "comments": {
+              "hds": "Value is 1.5 to offset the -1px from the top position."
+            }
+          }
+        }
+      },
       "cell": {
         "border-offset": {
           "$type": "dimension",

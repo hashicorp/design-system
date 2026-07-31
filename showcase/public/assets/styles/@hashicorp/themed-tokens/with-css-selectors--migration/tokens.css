@@ -101,6 +101,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-table-cell-surface-color-striped-hover
   );
   --hds-advanced-table-empty-state-border-width: 1px;
+  --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
   --hds-alert-actions-margin-top: 16px;
   --hds-alert-border-color-critical: var(--hds-border-color-critical);
@@ -1232,6 +1233,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
     --hds-advanced-table-empty-state-border-width: 0px;
+    --hds-advanced-table-header-border-width-pinned: 0px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -1964,6 +1966,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
     --hds-advanced-table-empty-state-border-width: 0px;
+    --hds-advanced-table-header-border-width-pinned: 0px;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -2715,6 +2718,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
   --hds-advanced-table-empty-state-border-width: 0px;
+  --hds-advanced-table-header-border-width-pinned: 0px;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
@@ -3444,6 +3448,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
   --hds-advanced-table-empty-state-border-width: 0px;
+  --hds-advanced-table-header-border-width-pinned: 0px;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
