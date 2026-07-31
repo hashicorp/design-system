@@ -562,27 +562,27 @@
     },
     {
       "before": "--token-form-radiocard-border-radius",
-      "after": "--hds-form-radiocard-border-radius"
+      "after": "--hds-form-radio-card-border-radius"
     },
     {
       "before": "--token-form-radiocard-border-width",
-      "after": "--hds-form-radiocard-border-width"
+      "after": "--hds-form-radio-card-border-width"
     },
     {
       "before": "--token-form-radiocard-content-padding",
-      "after": "--hds-form-radiocard-content-padding"
+      "after": "--hds-form-radio-card-content-padding"
     },
     {
       "before": "--token-form-radiocard-control-padding",
-      "after": "--hds-form-radiocard-control-padding"
+      "after": "--hds-form-radio-card-control-padding"
     },
     {
       "before": "--token-form-radiocard-group-gap",
-      "after": "--hds-form-radiocard-group-gap"
+      "after": "--hds-form-radio-card-group-gap"
     },
     {
       "before": "--token-form-radiocard-transition-duration",
-      "after": "--hds-form-radiocard-transition-duration"
+      "after": "--hds-form-radio-card-transition-duration"
     },
     {
       "before": "--token-form-select-background-image-data-url",
@@ -2906,15 +2906,15 @@
     },
     {
       "before": null,
-      "after": "--hds-form-radiocard-border-color-default"
+      "after": "--hds-form-radio-card-border-color-default"
     },
     {
       "before": null,
-      "after": "--hds-form-radiocard-border-color-default-checked"
+      "after": "--hds-form-radio-card-border-color-default-checked"
     },
     {
       "before": null,
-      "after": "--hds-form-radiocard-border-color-focus"
+      "after": "--hds-form-radio-card-border-color-focus"
     },
     {
       "before": null,

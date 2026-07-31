@@ -743,32 +743,32 @@
     },
     {
       "before": "--token-form-radiocard-border-radius",
-      "after": "--hds-form-radiocard-border-radius",
+      "after": "--hds-form-radio-card-border-radius",
       "count": 1
     },
     {
       "before": "--token-form-radiocard-border-width",
-      "after": "--hds-form-radiocard-border-width",
+      "after": "--hds-form-radio-card-border-width",
       "count": 3
     },
     {
       "before": "--token-form-radiocard-content-padding",
-      "after": "--hds-form-radiocard-content-padding",
+      "after": "--hds-form-radio-card-content-padding",
       "count": 1
     },
     {
       "before": "--token-form-radiocard-control-padding",
-      "after": "--hds-form-radiocard-control-padding",
+      "after": "--hds-form-radio-card-control-padding",
       "count": 1
     },
     {
       "before": "--token-form-radiocard-group-gap",
-      "after": "--hds-form-radiocard-group-gap",
+      "after": "--hds-form-radio-card-group-gap",
       "count": 2
     },
     {
       "before": "--token-form-radiocard-transition-duration",
-      "after": "--hds-form-radiocard-transition-duration",
+      "after": "--hds-form-radio-card-transition-duration",
       "count": 1
     },
     {

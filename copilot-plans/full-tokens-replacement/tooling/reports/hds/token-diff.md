@@ -178,12 +178,12 @@ Only the namespace prefix changed (`--token-` → `--hds-`); structure identical
 | `--token-form-radio-background-image-size` | `--hds-form-radio-background-image-size` | S0 |
 | `--token-form-radio-border-width` | `--hds-form-radio-border-width` | S0 |
 | `--token-form-radio-size` | `--hds-form-radio-size` | S0 |
-| `--token-form-radiocard-border-radius` | `--hds-form-radiocard-border-radius` | S0 |
-| `--token-form-radiocard-border-width` | `--hds-form-radiocard-border-width` | S0 |
-| `--token-form-radiocard-content-padding` | `--hds-form-radiocard-content-padding` | S0 |
-| `--token-form-radiocard-control-padding` | `--hds-form-radiocard-control-padding` | S0 |
-| `--token-form-radiocard-group-gap` | `--hds-form-radiocard-group-gap` | S0 |
-| `--token-form-radiocard-transition-duration` | `--hds-form-radiocard-transition-duration` | S0 |
+| `--token-form-radiocard-border-radius` | `--hds-form-radio-card-border-radius` | S0 |
+| `--token-form-radiocard-border-width` | `--hds-form-radio-card-border-width` | S0 |
+| `--token-form-radiocard-content-padding` | `--hds-form-radio-card-content-padding` | S0 |
+| `--token-form-radiocard-control-padding` | `--hds-form-radio-card-control-padding` | S0 |
+| `--token-form-radiocard-group-gap` | `--hds-form-radio-card-group-gap` | S0 |
+| `--token-form-radiocard-transition-duration` | `--hds-form-radio-card-transition-duration` | S0 |
 | `--token-form-select-background-image-data-url` | `--hds-form-select-background-image-data-url` | S0 |
 | `--token-form-select-background-image-data-url-disabled` | `--hds-form-select-background-image-data-url-disabled` | S0 |
 | `--token-form-select-background-image-position-right-x` | `--hds-form-select-background-image-position-right-x` | S0 |
@@ -816,9 +816,9 @@ Brand-new post tokens with no pre origin (informational; not applied by Phase B)
 - `--hds-dropdown-toggle-icon-padding`
 - `--hds-focus-ring-width-external`
 - `--hds-focus-ring-width-internal`
-- `--hds-form-radiocard-border-color-default`
-- `--hds-form-radiocard-border-color-default-checked`
-- `--hds-form-radiocard-border-color-focus`
+- `--hds-form-radio-card-border-color-default`
+- `--hds-form-radio-card-border-color-default-checked`
+- `--hds-form-radio-card-border-color-focus`
 - `--hds-link-inline-icon-margin-horizontal`
 - `--hds-link-inline-outline-color`
 - `--hds-link-inline-outline-width`
