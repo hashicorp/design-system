@@ -123,10 +123,10 @@
             "unit": "px",
             "$modes": {
               "default": "{typography.body-200.font-size}",
-              "cds-g0": "14",
-              "cds-g10": "14",
-              "cds-g90": "14",
-              "cds-g100": "14"
+              "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
             }
           }
         }

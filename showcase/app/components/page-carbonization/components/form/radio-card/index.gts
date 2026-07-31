@@ -100,49 +100,52 @@ export default class FormRadioCardCarbonizationIndex extends Component {
       {{#each STATES as |state|}}
         <ShwCarbonizationComparisonGrid @label={{capitalize state}}>
           <:theming>
-            <div
-              mock-state-value={{unless (eq state "disabled") state}}
-              mock-state-selector="label"
-            >
-              <HdsFormRadioCard @disabled={{eq state "disabled"}} as |R|>
-                <R.Icon @name="hexagon" />
-                <R.Label>Label</R.Label>
-                <R.Description>Description</R.Description>
-              </HdsFormRadioCard>
-            </div>
+            <ShwFlex @direction="column" as |SF|>
+              <SF.Item @label="Unselected">
+                <div
+                  mock-state-value={{unless (eq state "disabled") state}}
+                  mock-state-selector="label"
+                >
+                  <HdsFormRadioCard @disabled={{eq state "disabled"}} as |R|>
+                    <R.Icon @name="hexagon" />
+                    <R.Label>Label</R.Label>
+                    <R.Description>Description</R.Description>
+                  </HdsFormRadioCard>
+                </div>
+              </SF.Item>
+
+              <SF.Item @label="Selected">
+                <div
+                  mock-state-value={{unless (eq state "disabled") state}}
+                  mock-state-selector="label"
+                >
+                  <HdsFormRadioCard
+                    @disabled={{eq state "disabled"}}
+                    @checked={{true}}
+                    as |R|
+                  >
+                    <R.Icon @name="hexagon" />
+                    <R.Label>Label</R.Label>
+                    <R.Description>Description</R.Description>
+                  </HdsFormRadioCard>
+                </div>
+              </SF.Item>
+            </ShwFlex>
           </:theming>
           <:reference>
-            <cds-radio-tile disabled={{eq state "disabled"}}>
-              <CdsRadioTileContent @showIcon={{true}} />
-            </cds-radio-tile>
-          </:reference>
-        </ShwCarbonizationComparisonGrid>
-      {{/each}}
+            <ShwFlex @direction="column" as |SF|>
+              <SF.Item>
+                <cds-radio-tile disabled={{eq state "disabled"}}>
+                  <CdsRadioTileContent @showIcon={{true}} />
+                </cds-radio-tile>
+              </SF.Item>
 
-      <ShwDivider @level={{2}} />
-
-      {{#each STATES as |state|}}
-        <ShwCarbonizationComparisonGrid @label="{{capitalize state}} selected">
-          <:theming>
-            <div
-              mock-state-value={{unless (eq state "disabled") state}}
-              mock-state-selector="label"
-            >
-              <HdsFormRadioCard
-                @checked={{true}}
-                @disabled={{eq state "disabled"}}
-                as |R|
-              >
-                <R.Icon @name="hexagon" />
-                <R.Label>Label</R.Label>
-                <R.Description>Description</R.Description>
-              </HdsFormRadioCard>
-            </div>
-          </:theming>
-          <:reference>
-            <cds-radio-tile selected="" disabled={{eq state "disabled"}}>
-              <CdsRadioTileContent @showIcon={{true}} />
-            </cds-radio-tile>
+              <SF.Item>
+                <cds-radio-tile selected="" disabled={{eq state "disabled"}}>
+                  <CdsRadioTileContent @showIcon={{true}} />
+                </cds-radio-tile>
+              </SF.Item>
+            </ShwFlex>
           </:reference>
         </ShwCarbonizationComparisonGrid>
       {{/each}}
