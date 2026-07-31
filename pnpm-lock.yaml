@@ -532,6 +532,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^8.18.1
         version: 8.38.0(eslint@9.32.0)(typescript@5.9.2)
+      chalk:
+        specifier: ^5.4.1
+        version: 5.4.1
       eslint:
         specifier: ^9.27.0
         version: 9.32.0
