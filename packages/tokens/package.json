@@ -22,7 +22,8 @@
     "lint": "pnpm eslint --quiet .",
     "extract-carbon-tokens": "tsx ./scripts/extract-carbon-tokens",
     "build": "tsx ./scripts/build",
-    "start": "watch \"pnpm build\" src"
+    "start": "watch \"pnpm build\" src",
+    "postbuild": "cp -R dist/products/css/themed-tokens/with-css-selectors/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors &&  cp -R dist/products/css/themed-tokens/with-css-selectors--migration/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors--migration && cp -R dist/products/css/themed-tokens/with-css-selectors--advanced/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors--advanced"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
