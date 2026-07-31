@@ -18,6 +18,9 @@ export function customFormatDocsJsonFunction({ dictionary }: { dictionary: Dicti
     const outputToken = cloneDeep(token) as Record<string, unknown>;
     delete outputToken.filePath;
     delete outputToken.isSource;
+    // we remove the top-level "comments" prop (resolved into "comment" by the `resolve-comments-for-mode-*` preprocessor)
+    // it is still preserved under the "original" key though
+    delete outputToken.comments;
     output.push(outputToken);
   });
 
