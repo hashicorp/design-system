@@ -264,7 +264,7 @@ $pagination-nav-control-padding-horizontal: 12px;
   }
 
   // notice: this is an `Form::Select::Base` component, slightly customized
-  > select {
+  > .hds-form-select {
     height: 28px;
     margin-left: 12px;
     padding: 0 24px 0 8px;
@@ -272,11 +272,6 @@ $pagination-nav-control-padding-horizontal: 12px;
     font-size: var(--hds-pagination-size-selector-typography-font-size);
     font-family: var(--hds-typography-body-100-font-family);
     line-height: var(--hds-typography-body-100-line-height);
-    // TODO: Test simplifying value in select.scss
-    // from: background-position: right var(--hds-form-select-background-image-position-right-x) top
-    // var(--hds-form-select-background-image-position-top-y);
-    // to: background-position: center right var(--hds-form-select-background-image-position-right-x);
-    // (Check in various browsers)
     background-position: center right 5px;
 
     @include hds-apply-only-if-carbon() {
