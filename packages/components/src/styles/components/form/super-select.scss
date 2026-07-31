@@ -215,23 +215,18 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     // Selected
 
     &[aria-selected="true"] {
-      // override default ember power select style
-      background-color: transparent;
+      background: var(--hds-form-super-select-option-surface-color-checked);
     }
 
     // Hover
 
-    // Selects item containing an interactive child which is hovered
-    &:has(button:hover, button.mock-hover, a:hover, a.mock-hover, input:hover, input.mock-hover) {
-      background-color: var(--hds-dropdown-list-item-surface-color-action-hover);
-    }
-
     &:hover,
     &.mock-hover {
+      background-color: var(--hds-form-super-select-option-surface-color-action-hover);
       border: none; // guard against border in default theme
 
-      @include hds-apply-only-if-carbon() {
-        background-color: var(--hds-form-super-select-option-surface-color-action-hover);
+      &[aria-selected="true"] {
+        background-color: var(--hds-form-super-select-option-surface-color-checked-hover);
       }
 
       // left border

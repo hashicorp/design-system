@@ -89,7 +89,36 @@
               },
               "hover": {
                 "$type": "color",
-                "$value": "{dropdown.list-item.surface.color.action.hover}"
+                "$value": "transparent",
+                "$modes": {
+                  "default": "transparent",
+                  "cds-g0": "{carbon.themes.white.layerHover01}",
+                  "cds-g10": "{carbon.themes.g10.layerHover01}",
+                  "cds-g90": "{carbon.themes.g90.layerHover01}",
+                  "cds-g100": "{carbon.themes.g100.layerHover01}"
+                }
+              }
+            },
+            "checked": {
+              "$type": "color",
+              "$value": "transparent",
+              "$modes": {
+                "default": "transparent",
+                "cds-g0": "{carbon.themes.white.layerSelected01}",
+                "cds-g10": "{carbon.themes.g10.layerSelected01}",
+                "cds-g90": "{carbon.themes.g90.layerSelected01}",
+                "cds-g100": "{carbon.themes.g100.layerSelected01}"
+              }
+            },
+            "checked-hover": {
+              "$type": "color",
+              "$value": "transparent",
+              "$modes": {
+                "default": "transparent",
+                "cds-g0": "{carbon.themes.white.layerSelectedHover01}",
+                "cds-g10": "{carbon.themes.g10.layerSelectedHover01}",
+                "cds-g90": "{carbon.themes.g90.layerSelectedHover01}",
+                "cds-g100": "{carbon.themes.g100.layerSelectedHover01}"
               }
             }
           }
