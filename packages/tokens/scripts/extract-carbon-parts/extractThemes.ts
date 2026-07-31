@@ -17,23 +17,23 @@ type NestedObject = Record<string, unknown>;
 export async function extractThemes(): Promise<void> {
 
   // button tokens
-  const carbonThemesButtonTokensDtcg = convertObjectToDtcgFormat({ value: cleanupObj(buttonTokens), type: 'color', group: 'cds-themes' });
+  const carbonThemesButtonTokensDtcg = convertObjectToDtcgFormat({ value: { buttonTokens: cleanupObj(buttonTokens) }, type: 'color', group: 'cds-themes' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonThemesButtonTokensDtcg, group: 'themes', file: 'button-tokens' });
 
   // context-switcher tokens
-  const carbonThemesContentSwitcherTokensDtcg = convertObjectToDtcgFormat({ value: cleanupObj(contentSwitcherTokens), type: 'color', group: 'cds-themes' });
+  const carbonThemesContentSwitcherTokensDtcg = convertObjectToDtcgFormat({ value: { contentSwitcherTokens: cleanupObj(contentSwitcherTokens) }, type: 'color', group: 'cds-themes' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonThemesContentSwitcherTokensDtcg, group: 'themes', file: 'context-switcher-tokens' });
 
   // notification tokens
-  const carbonThemesNotificationTokensDtcg = convertObjectToDtcgFormat({ value: cleanupObj(notificationTokens), type: 'color', group: 'cds-themes' });
+  const carbonThemesNotificationTokensDtcg = convertObjectToDtcgFormat({ value: { notificationTokens: cleanupObj(notificationTokens) }, type: 'color', group: 'cds-themes' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonThemesNotificationTokensDtcg, group: 'themes', file: 'notification-tokens' });
 
   // status tokens
-  const carbonThemesStatusTokensDtcg = convertObjectToDtcgFormat({ value: cleanupObj(statusTokens), type: 'color', group: 'cds-themes' });
+  const carbonThemesStatusTokensDtcg = convertObjectToDtcgFormat({ value: { statusTokens: cleanupObj(statusTokens) }, type: 'color', group: 'cds-themes' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonThemesStatusTokensDtcg, group: 'themes', file: 'status-tokens' });
 
-  // status tokens
-  const carbonThemesTagTokensDtcg = convertObjectToDtcgFormat({ value: cleanupObj(tagTokens), type: 'color', group: 'cds-themes' });
+  // tag tokens
+  const carbonThemesTagTokensDtcg = convertObjectToDtcgFormat({ value: { tagTokens: cleanupObj(tagTokens) }, type: 'color', group: 'cds-themes' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonThemesTagTokensDtcg, group: 'themes', file: 'tag-tokens' });
 
   // themes (this is a special case, )
