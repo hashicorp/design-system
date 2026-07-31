@@ -18,7 +18,7 @@
   max-width: 100%;
   min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
-  padding-right: var(--hds-form-select-padding-right); // extra space for the icon
+  padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
   color: var(--hds-form-control-base-foreground-color);
   background-color: var(--hds-form-control-base-surface-color-default);
   background-image: var(--hds-form-select-background-image-data-url);
@@ -28,6 +28,10 @@
   border-radius: var(--hds-form-control-border-radius);
   box-shadow: var(--hds-elevation-low-box-shadow);
   appearance: none;
+
+  @include hds-apply-only-if-carbon() {
+    padding-right: 48px; // matches the right padding in the Carbon Select
+  }
 
   // STATUS
 
