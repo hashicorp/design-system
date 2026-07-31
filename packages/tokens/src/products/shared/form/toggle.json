@@ -121,10 +121,10 @@
               "group": "components",
               "$modes": {
                 "default": "{surface.color.interactive}",
-                "cds-g0": "#fff",
-                "cds-g10": "#fff",
-                "cds-g90": "#fff",
-                "cds-g100": "#fff"
+                "cds-g0": "{carbon.themes.white.iconOnColor}",
+                "cds-g10": "{carbon.themes.g10.iconOnColor}",
+                "cds-g90": "{carbon.themes.g90.iconOnColor}",
+                "cds-g100": "{carbon.themes.g100.iconOnColor}"
               }
             },
             "disabled": {

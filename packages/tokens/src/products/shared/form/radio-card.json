@@ -96,6 +96,19 @@
         }
       },
       "item-label": {
+        "comment": "Q: Rename this to just 'label' or 'title'?",
+        "color": {
+          "$type": "color",
+          "$value": "{form.label.foreground.color}",
+          "$modes": {
+            "default": "{form.label.foreground.color}",
+            "cds-g0": "{foreground.color.strong}",
+            "cds-g10": "{foreground.color.strong}",
+            "cds-g90": "{foreground.color.strong}",
+            "cds-g100": "{foreground.color.strong}"
+          },
+          "comment": "Issue: this color is the same as the Description color. Is there another variable to use or dos it need to be hard-coded for carbon?"
+        },
         "typography": {
           "font-size": {
             "$type": "font-size",
@@ -114,10 +127,10 @@
             "$value": "{typography.font-weight.bold}",
             "$modes": {
               "default": "{typography.font-weight.bold}",
-              "cds-g0": "400",
-              "cds-g10": "400",
-              "cds-g90": "400",
-              "cds-g100": "400"
+              "cds-g0": "{carbon.typography.font-weight.regular}",
+              "cds-g10": "{carbon.typography.font-weight.regular}",
+              "cds-g90": "{carbon.typography.font-weight.regular}",
+              "cds-g100": "{carbon.typography.font-weight.regular}"
             }
           }
         }

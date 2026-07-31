@@ -124,10 +124,10 @@
               "group": "components",
               "$modes": {
                 "default": "{core.color.blue-200}",
-                "cds-g0": "{carbon.color.gray.100}",
-                "cds-g10": "{carbon.color.gray.100}",
-                "cds-g90": "{carbon.color.gray.10}",
-                "cds-g100": "{carbon.color.gray.10}"
+                "cds-g0": "{carbon.themes.white.iconPrimary}",
+                "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                "cds-g100": "{carbon.themes.g100.iconPrimary}"
               }
             },
             "disabled": {
@@ -148,10 +148,10 @@
               "group": "components",
               "$modes": {
                 "default": "{core.color.blue-300}",
-                "cds-g0": "{carbon.color.gray.100}",
-                "cds-g10": "{carbon.color.gray.100}",
-                "cds-g90": "{carbon.color.gray.10}",
-                "cds-g100": "{carbon.color.gray.10}"
+                "cds-g0": "{carbon.themes.white.iconPrimary}",
+                "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                "cds-g100": "{carbon.themes.g100.iconPrimary}"
               }
             }
           }
@@ -164,10 +164,10 @@
               "group": "components",
               "$modes": {
                 "default": "{core.color.blue-300}",
-                "cds-g0": "{carbon.color.gray.100}",
-                "cds-g10": "{carbon.color.gray.100}",
-                "cds-g90": "{carbon.color.gray.10}",
-                "cds-g100": "{carbon.color.gray.10}"
+                "cds-g0": "{carbon.themes.white.iconPrimary}",
+                "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                "cds-g100": "{carbon.themes.g100.iconPrimary}"
               }
             },
             "disabled": {
@@ -188,10 +188,10 @@
               "group": "components",
               "$modes": {
                 "default": "{core.color.blue-400}",
-                "cds-g0": "{carbon.color.gray.100}",
-                "cds-g10": "{carbon.color.gray.100}",
-                "cds-g90": "{carbon.color.gray.10}",
-                "cds-g100": "{carbon.color.gray.10}"
+                "cds-g0": "{carbon.themes.white.iconPrimary}",
+                "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                "cds-g100": "{carbon.themes.g100.iconPrimary}"
               }
             }
           }
