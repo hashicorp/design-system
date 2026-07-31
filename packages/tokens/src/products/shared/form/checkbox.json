@@ -18,7 +18,9 @@
             "cds-g90": "2",
             "cds-g100": "2"
           },
-          "comment": "Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design"
+          "comments": {
+            "cds": "Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design"
+          }
         },
         "width": {
           "$type": "dimension",
