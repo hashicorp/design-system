@@ -1,13 +1,13 @@
 {
   "form": {
-    "radiocard-group": {
+    "radio-card-group": {
       "gap": {
         "$type": "dimension",
         "$value": "16",
         "unit": "px"
       }
     },
-    "radiocard": {
+    "radio-card": {
       "border": {
         "width": {
           "$type": "dimension",
