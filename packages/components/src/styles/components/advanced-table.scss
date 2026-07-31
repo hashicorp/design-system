@@ -480,7 +480,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
   height: var(--hds-advanced-table-header-button-size);
   margin: -2px 0;
   padding: 0;
-  color: var(--hds-foreground-color-faint);
+  color: var(--hds-advanced-table-header-button-foreground-color-default);
   background-color: var(--hds-advanced-table-header-button-surface-color-default);
   border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
   border-radius: var(--hds-border-radius-x-small);
@@ -494,7 +494,8 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
   &.mock-focus {
     // matching the same focus ring as th-button so the context menu + th buttons are the same size when focused. if use the default dropdown toggle icon focus state it ends up being a pixel too big.
     @include hds-focus-ring-advanced($pseudo-element-inset-hds: 0, $pseudo-element-inset-cds: 0);
-    // setting it to the default color to match the th-button styles. when focused, th-buttons do not have a background color set so it defaults to the default background color. however, dropdown toggle icon does have a background color on focus, so using the default token here.
+    // setting it to the default color to match the th-button styles. when focused, th-buttons do not have a color or background color set so they default to the default state. however, dropdown toggle icon does have these styles set on focus, so using the default tokens here.
+    color: var(--hds-advanced-table-header-button-foreground-color-default);
     background-color: var(--hds-advanced-table-header-button-surface-color-default);
   }
 }
