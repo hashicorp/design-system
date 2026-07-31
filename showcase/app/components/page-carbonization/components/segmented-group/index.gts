@@ -237,7 +237,11 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
             aria-label="segmented-text-input-icon-dropdown-trailing"
           />
           <SGR.Dropdown as |D|>
-            <D.ToggleIcon @icon="user" @text="user menu" />
+            <D.ToggleIcon
+              @icon="user"
+              @text="user menu"
+              @color="secondary-muted"
+            />
             <D.Title @text="Signed In" />
             <D.Description @text="email@domain.com" />
           </SGR.Dropdown>
@@ -255,7 +259,11 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Dropdown as |D|>
-            <D.ToggleIcon @icon="user" @text="user menu" />
+            <D.ToggleIcon
+              @icon="user"
+              @text="user menu"
+              @color="secondary-muted"
+            />
             <D.Title @text="Signed In" />
             <D.Description @text="email@domain.com" />
           </SGR.Dropdown>
@@ -393,7 +401,11 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
             <HdsSegmentedGroup as |SGR|>
               <SGR.TextInput aria-label="segmented-text-input-button" />
               <SGR.Dropdown as |D|>
-                <D.ToggleIcon @icon="user" @text="user menu" />
+                <D.ToggleIcon
+                  @icon="user"
+                  @text="user menu"
+                  @color="secondary-muted"
+                />
                 <D.Title @text="Signed In" />
                 <D.Description @text="email@domain.com" />
               </SGR.Dropdown>
@@ -543,6 +555,7 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
                   <D.ToggleIcon
                     @icon="user"
                     @text="user menu"
+                    @color="secondary-muted"
                     mock-state-value={{state}}
                   />
                   <D.Title @text="Signed In" />
@@ -556,6 +569,7 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
                   <D.ToggleIcon
                     @icon="user"
                     @text="user menu"
+                    @color="secondary-muted"
                     mock-state-value={{state}}
                   />
                   <D.Title @text="Signed In" />
