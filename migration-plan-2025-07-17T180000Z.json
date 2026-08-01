@@ -1,0 +1,585 @@
+{
+  "$schema": "./.ai/migration/schemas/migration-candidate.schema.json",
+  "generatedAt": "2025-07-17T18:00:00Z",
+  "mode": "full",
+  "scope": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+  "candidates": [
+    {
+      "id": "sandbox-buttonset-form-footer",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 303,
+      "heliosComponent": "Hds::ButtonSet",
+      "proposedCwcComponent": "cds-button-set",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButtonSet", "to": "cds-button-set" }
+      ],
+      "confidence": 0.92,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct 1:1 mapping. cds-button-set is the exact equivalent. No attributes, direct children slot.",
+      "manualNotes": []
+    },
+    {
+      "id": "sandbox-buttonset-modal-footer",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 366,
+      "heliosComponent": "Hds::ButtonSet",
+      "proposedCwcComponent": "cds-button-set",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButtonSet", "to": "cds-button-set" }
+      ],
+      "confidence": 0.92,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct 1:1 mapping. cds-button-set is the exact equivalent. No attributes, direct children slot. Note: inside cds-modal-footer the preferred pattern is cds-modal-footer-button but standalone cds-button-set also works.",
+      "manualNotes": ["Inside cds-modal-footer, prefer cds-modal-footer-button over cds-button-set per mapping notes"]
+    },
+    {
+      "id": "sandbox-button-preview-submit",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 304,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot", "from": "@text", "to": "slot:default", "notes": "@text='Preview & Submit' becomes slot content" }
+      ],
+      "confidence": 0.9,
+      "riskFlags": ["manual-migration-required"],
+      "status": "planned",
+      "rationale": "Standard primary button with @text only and type=submit. Direct mapping. The {{on 'click'}} modifier passes through unchanged.",
+      "manualNotes": []
+    },
+    {
+      "id": "sandbox-button-cancel-form",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 309,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot", "from": "@text", "to": "slot:default", "notes": "@text='Cancel' becomes slot content" },
+        { "type": "renameAttribute", "from": "@color", "to": "kind", "notes": "@color='secondary' → kind='secondary'" }
+      ],
+      "confidence": 0.9,
+      "riskFlags": ["manual-migration-required"],
+      "status": "planned",
+      "rationale": "Standard secondary button with @text and @color. Both map directly.",
+      "manualNotes": []
+    },
+    {
+      "id": "sandbox-button-confirm-submit",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 367,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot", "from": "@text", "to": "slot:default", "notes": "@text='Confirm & Submit' becomes slot content" }
+      ],
+      "confidence": 0.9,
+      "riskFlags": ["manual-migration-required"],
+      "status": "planned",
+      "rationale": "Standard primary button with @text only and type=button. Direct mapping.",
+      "manualNotes": []
+    },
+    {
+      "id": "sandbox-button-go-back",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 373,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButton", "to": "cds-button" },
+        { "type": "moveToSlot", "from": "@text", "to": "slot:default", "notes": "@text='Go Back' becomes slot content" },
+        { "type": "renameAttribute", "from": "@color", "to": "kind", "notes": "@color='secondary' → kind='secondary'" }
+      ],
+      "confidence": 0.9,
+      "riskFlags": ["manual-migration-required"],
+      "status": "planned",
+      "rationale": "Standard secondary button with @text and @color. Both map directly. Uses {{on 'click' MF.close}} which will need updating when modal is migrated.",
+      "manualNotes": ["MF.close becomes data-modal-close attribute when HdsModal is migrated to cds-modal"]
+    },
+    {
+      "id": "sandbox-button-search-icon-only",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 122,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsButton", "to": "cds-icon-button", "notes": "@isIconOnly=true triggers component tag change to cds-icon-button" },
+        { "type": "moveToSlot", "from": "@text", "to": "slot:tooltip-content", "notes": "@text becomes tooltip-content slot content on cds-icon-button" },
+        { "type": "removeAttribute", "from": "@isIconOnly", "notes": "Remove after tag change to cds-icon-button" },
+        { "type": "manual", "notes": "@icon='search' requires manual Carbon SVG substitution in slot='icon'" }
+      ],
+      "confidence": 0.72,
+      "riskFlags": ["manual-migration-required", "complex-transformation"],
+      "status": "manual",
+      "rationale": "@isIconOnly=true requires tag change to cds-icon-button and manual Carbon SVG for search icon. Medium confidence.",
+      "manualNotes": [
+        "Replace tag with cds-icon-button",
+        "Add Carbon search SVG to slot='icon': <svg slot='icon' focusable='false' aria-hidden='true'><use xlink:href='#search'></use></svg>",
+        "Move @text='Search' to <span slot='tooltip-content'>Search</span>"
+      ]
+    },
+    {
+      "id": "sandbox-alert-form-error",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 252,
+      "heliosComponent": "Hds::Alert",
+      "proposedCwcComponent": "cds-inline-notification",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAlert", "to": "cds-inline-notification" },
+        { "type": "removeAttribute", "from": "@type", "notes": "@type='inline' determines tag selection (cds-inline-notification) — remove after selection" },
+        { "type": "renameAttribute", "from": "@color", "to": "kind", "notes": "@color='critical' → kind='error'" },
+        { "type": "manual", "notes": "A.Title and A.Description contextual slot content maps to title and subtitle attributes" }
+      ],
+      "confidence": 0.65,
+      "riskFlags": ["dismissal-pattern-change", "slot-to-attribute", "incomplete-mapping"],
+      "status": "manual",
+      "rationale": "Medium confidence. @type='inline' correctly selects cds-inline-notification. @color='critical' maps to kind='error'. A.Title/A.Description contextual components must be refactored to title/subtitle attributes. tabindex='-1' passes through.",
+      "manualNotes": [
+        "Replace <A.Title @tag='h2'>Form submission error</A.Title> with title='Form submission error' attribute on cds-inline-notification",
+        "Replace <A.Description> with subtitle='Please fill out all required fields before submitting.' attribute",
+        "Remove the 'as |A|' block param syntax",
+        "cds-inline-notification includes a built-in close button — add hide-close-button if no dismiss is needed"
+      ]
+    },
+    {
+      "id": "sandbox-accordion-form-help",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 187,
+      "heliosComponent": "Hds::Accordion",
+      "proposedCwcComponent": "cds-accordion",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAccordion", "to": "cds-accordion" },
+        { "type": "manual", "notes": "Each A.Item becomes cds-accordion-item with title attribute from :toggle block" },
+        { "type": "manual", "notes": "@isOpen={true} on first item becomes open boolean attribute" },
+        { "type": "manual", "notes": ":content named block content becomes direct children of cds-accordion-item" }
+      ],
+      "confidence": 0.78,
+      "riskFlags": ["complex-transformation"],
+      "status": "manual",
+      "rationale": "Medium confidence. The A.Item contextual pattern with :toggle/:content named blocks maps to cds-accordion-item with title attribute + direct children. No @size or @type on the accordion itself.",
+      "manualNotes": [
+        "A.Item → cds-accordion-item",
+        "A.Item @isOpen={{true}} → open attribute on cds-accordion-item",
+        "<:toggle>How to fill out this form</:toggle> → title='How to fill out this form' on cds-accordion-item",
+        "<:content>...</:content> → direct children of cds-accordion-item",
+        "Remove 'as |A|' block param"
+      ]
+    },
+    {
+      "id": "sandbox-modal-preview",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 338,
+      "heliosComponent": "Hds::Modal",
+      "proposedCwcComponent": "cds-modal",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsModal", "to": "cds-modal" },
+        { "type": "manual", "notes": "{{#if this.isModalOpen}}...<HdsModal> becomes <cds-modal open={{this.isModalOpen}}>" },
+        { "type": "manual", "notes": "@onClose={{this.closeModal}} becomes {{on 'cds-modal-closed' this.closeModal}}" },
+        { "type": "manual", "notes": "M.Header becomes <cds-modal-header><cds-modal-heading>" },
+        { "type": "manual", "notes": "M.Body becomes <cds-modal-body><cds-modal-body-content>" },
+        { "type": "manual", "notes": "M.Footer / MF.close becomes <cds-modal-footer> with data-modal-close on buttons" }
+      ],
+      "confidence": 0.68,
+      "riskFlags": ["complex-transformation", "slot-to-attribute", "behavioral-difference"],
+      "status": "manual",
+      "rationale": "Medium confidence. All modal structural slots require manual refactoring. The open/close pattern changes significantly from the Helios {{#if}} approach.",
+      "manualNotes": [
+        "Remove {{#if this.isModalOpen}} wrapper",
+        "Add open={{this.isModalOpen}} attribute directly on cds-modal",
+        "Wire @onClose via {{on 'cds-modal-closed' this.closeModal}} on cds-modal",
+        "M.Header → <cds-modal-header><cds-modal-heading>Confirm Your Information</cds-modal-heading></cds-modal-header>",
+        "M.Body → <cds-modal-body><cds-modal-body-content>...</cds-modal-body-content></cds-modal-body>",
+        "M.Footer as |MF| → <cds-modal-footer>; replace {{on 'click' MF.close}} with data-modal-close attribute on button"
+      ]
+    },
+    {
+      "id": "sandbox-appframe-layout",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 95,
+      "heliosComponent": "Hds::AppFrame",
+      "proposedCwcComponent": null,
+      "transformOperations": [
+        { "type": "manual", "notes": "No CWC equivalent. Entire layout must be restructured." }
+      ],
+      "confidence": 0.3,
+      "riskFlags": ["complex-transformation", "no-equivalent", "manual-migration-required"],
+      "status": "skipped",
+      "rationale": "Low confidence. HdsAppFrame has no CWC equivalent. Layout requires full restructure: remove HdsAppFrame, place cds-header/cds-side-nav/main as siblings with CSS positioning rules.",
+      "manualNotes": [
+        "Remove HdsAppFrame entirely",
+        "Place cds-header at top level",
+        "Place cds-side-nav as sibling to cds-header",
+        "Wrap main content in <main class='cds--content'>",
+        "Add CSS: cds-header ~ cds-side-nav { block-size: calc(100% - 3rem); margin-block-start: 3rem }"
+      ]
+    },
+    {
+      "id": "sandbox-appheader-main",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 102,
+      "heliosComponent": "Hds::AppHeader",
+      "proposedCwcComponent": "cds-header",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAppHeader", "to": "cds-header" },
+        { "type": "removeAttribute", "from": "@hasA11yRefocus", "notes": "No CWC equivalent — remove" },
+        { "type": "manual", "notes": ":logo slot → cds-header-name child" },
+        { "type": "manual", "notes": ":globalActions slot → cds-header-global-action + cds-header-panel + cds-switcher" },
+        { "type": "manual", "notes": ":utilityActions slot → cds-header-global-action elements in div.cds--header__global" }
+      ],
+      "confidence": 0.72,
+      "riskFlags": ["complex-transformation", "slot-to-attribute", "manual-migration-required"],
+      "status": "manual",
+      "rationale": "Medium confidence. @hasA11yRefocus removes cleanly. Named slots (:logo, :globalActions, :utilityActions) each require structural transformation.",
+      "manualNotes": [
+        "Replace <HdsAppHeader @hasA11yRefocus={{false}}> with <cds-header aria-label='HashiCorp'>",
+        ":logo slot → <cds-header-name href='#' prefix='HashiCorp'>Cloud</cds-header-name>",
+        ":globalActions → cds-header-global-action with panel trigger + cds-header-panel with cds-switcher",
+        ":utilityActions → wrap in <div class='cds--header__global'>; each icon action → cds-header-global-action",
+        "Dropdown sub-menus in utility actions → need separate handling"
+      ]
+    },
+    {
+      "id": "sandbox-appheader-homelink",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 104,
+      "heliosComponent": "Hds::AppHeader::HomeLink",
+      "proposedCwcComponent": "cds-header-name",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAppHeaderHomeLink", "to": "cds-header-name" },
+        { "type": "moveToSlot", "from": "@text", "to": "slot:default" },
+        { "type": "renameAttribute", "from": "@href", "to": "href" },
+        { "type": "manual", "notes": "@icon='hashicorp' has no slot on cds-header-name — manual SVG/image needed" }
+      ],
+      "confidence": 0.8,
+      "riskFlags": ["manual-migration-required", "slot-to-attribute"],
+      "status": "manual",
+      "rationale": "Medium-high confidence. @href and @text map cleanly. @icon requires manual SVG. The {{on 'click' actions.close}} context modifier must be handled separately when AppHeader is migrated.",
+      "manualNotes": [
+        "<cds-header-name href='#' prefix='HashiCorp'>Cloud</cds-header-name>",
+        "Place IBM/hashicorp logo SVG as child before text if logo image is needed",
+        "Remove {{on 'click' actions.close}} — no equivalent in CWC header-name"
+      ]
+    },
+    {
+      "id": "sandbox-appsidenavlist-dashboard",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 143,
+      "heliosComponent": "Hds::AppSideNav::List",
+      "proposedCwcComponent": "cds-side-nav-items",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAppSideNavList", "to": "cds-side-nav-items" },
+        { "type": "manual", "notes": "SNL.Link items become cds-side-nav-link elements" },
+        { "type": "manual", "notes": "SNL.Title has no CWC equivalent" }
+      ],
+      "confidence": 0.55,
+      "riskFlags": ["complex-transformation", "incomplete-mapping", "manual-migration-required"],
+      "status": "skipped",
+      "rationale": "Low-medium confidence. SNL.Title has no CWC equivalent. SNL.Link @icon requires Carbon SVG inlining (no string-based icon). @badge on Waypoint link is unsupported. Requires full manual reconstruction.",
+      "manualNotes": [
+        "Each SNL.Link → <cds-side-nav-link href='#'>text</cds-side-nav-link>",
+        "SNL.Link @isActive → active attribute",
+        "SNL.Link @icon: inline Carbon SVG in slot='title-icon' (no string-to-SVG mapping)",
+        "SNL.Title → omit or use cds-side-nav-menu as group header",
+        "@badge='Alpha' on Waypoint link has no CWC equivalent — drop or use custom markup"
+      ]
+    },
+    {
+      "id": "sandbox-appsidenavlist-services",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 150,
+      "heliosComponent": "Hds::AppSideNav::List",
+      "proposedCwcComponent": "cds-side-nav-items",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAppSideNavList", "to": "cds-side-nav-items" },
+        { "type": "manual", "notes": "SNL.Title and SNL.Link items need full manual migration" }
+      ],
+      "confidence": 0.55,
+      "riskFlags": ["complex-transformation", "incomplete-mapping", "manual-migration-required"],
+      "status": "skipped",
+      "rationale": "Low-medium confidence. Same issues as sandbox-appsidenavlist-dashboard. @badge on Waypoint link unsupported.",
+      "manualNotes": ["Same manual steps as sandbox-appsidenavlist-dashboard"]
+    },
+    {
+      "id": "sandbox-appsidenavlist-organization",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 164,
+      "heliosComponent": "Hds::AppSideNav::List",
+      "proposedCwcComponent": "cds-side-nav-items",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAppSideNavList", "to": "cds-side-nav-items" },
+        { "type": "manual", "notes": "SNL.Title and SNL.Link items need full manual migration" }
+      ],
+      "confidence": 0.55,
+      "riskFlags": ["complex-transformation", "incomplete-mapping", "manual-migration-required"],
+      "status": "skipped",
+      "rationale": "Low-medium confidence. Same issues as other SideNavList instances.",
+      "manualNotes": ["Same manual steps as sandbox-appsidenavlist-dashboard"]
+    },
+    {
+      "id": "sandbox-appsidenavmain",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 142,
+      "heliosComponent": "Hds::AppSideNav",
+      "proposedCwcComponent": "cds-side-nav",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAppSideNav", "to": "cds-side-nav" },
+        { "type": "renameAttribute", "from": "@isResponsive", "to": "collapse-mode", "notes": "@isResponsive={{true}} → collapse-mode='responsive'" },
+        { "type": "manual", "notes": "@isCollapsible: add cds-header-menu-button inside cds-header instead" },
+        { "type": "manual", "notes": "Slot content must be wrapped in cds-side-nav-items" }
+      ],
+      "confidence": 0.75,
+      "riskFlags": ["complex-transformation", "behavioral-difference", "manual-migration-required"],
+      "status": "manual",
+      "rationale": "Medium confidence. @isResponsive maps to collapse-mode='responsive'. @isCollapsible requires cds-header-menu-button in cds-header (not on cds-side-nav). Slot wrapping needed.",
+      "manualNotes": [
+        "Add <cds-header-menu-button collapse-mode='responsive' active> inside cds-header to handle hamburger toggle",
+        "Wrap all cds-side-nav-items content inside cds-side-nav",
+        "Add rail attribute to cds-side-nav if icon-only rail mode is desired"
+      ]
+    },
+    {
+      "id": "sandbox-pageheader-main",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 175,
+      "heliosComponent": "Hds::PageHeader",
+      "proposedCwcComponent": null,
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsPageHeader", "to": "div", "notes": "No CWC equivalent — becomes <div class='cds--page-header'>" },
+        { "type": "manual", "notes": "PH.Title → <h1 class='cds--heading-03'>" },
+        { "type": "manual", "notes": "PH.Description → <p class='cds--body-01'>" }
+      ],
+      "confidence": 0.8,
+      "riskFlags": ["no-equivalent", "manual-migration-required", "styling-difference"],
+      "status": "manual",
+      "rationale": "Medium-high confidence. No CWC custom element. PH.Title and PH.Description map cleanly to native HTML with Carbon type classes.",
+      "manualNotes": [
+        "<div class='cds--page-header'><h1 class='cds--heading-03'>Page title</h1><p class='cds--body-01'>description</p></div>",
+        "Remove HdsPageHeader import"
+      ]
+    },
+    {
+      "id": "sandbox-textbody-accordion-item1",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 191,
+      "heliosComponent": "Hds::Text::Body",
+      "proposedCwcComponent": null,
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsTextBody", "to": "div", "notes": "No CWC element — becomes <div class='cds--body-01'>" }
+      ],
+      "confidence": 0.85,
+      "riskFlags": ["styling-difference"],
+      "status": "manual",
+      "rationale": "Medium-high confidence. Contains block-level children (p, ul) so should use div rather than p. Carbon cds--body-01 class provides equivalent typography.",
+      "manualNotes": ["Use <div class='cds--body-01'> because inner content has block-level elements (p, ul)"]
+    },
+    {
+      "id": "sandbox-textbody-accordion-item2",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 212,
+      "heliosComponent": "Hds::Text::Body",
+      "proposedCwcComponent": null,
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsTextBody", "to": "div", "notes": "No CWC element — becomes <div class='cds--body-01'>" }
+      ],
+      "confidence": 0.85,
+      "riskFlags": ["styling-difference"],
+      "status": "manual",
+      "rationale": "Same as above — block-level children present.",
+      "manualNotes": ["Use <div class='cds--body-01'> because inner content has block-level elements (p, ul)"]
+    },
+    {
+      "id": "sandbox-textbody-accordion-item3",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 228,
+      "heliosComponent": "Hds::Text::Body",
+      "proposedCwcComponent": null,
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsTextBody", "to": "div", "notes": "No CWC element — becomes <div class='cds--body-01'>" }
+      ],
+      "confidence": 0.85,
+      "riskFlags": ["styling-difference"],
+      "status": "manual",
+      "rationale": "Same as above — block-level children (p) present.",
+      "manualNotes": ["Use <div class='cds--body-01'> because inner content has block-level p elements"]
+    },
+    {
+      "id": "sandbox-textbody-modal-body",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 347,
+      "heliosComponent": "Hds::Text::Body",
+      "proposedCwcComponent": null,
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsTextBody", "to": "div", "notes": "No CWC element — becomes <div class='cds--body-01'>" }
+      ],
+      "confidence": 0.85,
+      "riskFlags": ["styling-difference"],
+      "status": "manual",
+      "rationale": "Same as above — block-level children (p, div) present.",
+      "manualNotes": ["Use <div class='cds--body-01'> because inner content has block-level elements (p, div)"]
+    },
+    {
+      "id": "sandbox-form-main",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 248,
+      "heliosComponent": "Hds::Form",
+      "proposedCwcComponent": "cds-form",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsForm", "to": "cds-form" },
+        { "type": "removeAttribute", "from": "as |F|", "notes": "Block param syntax is Glimmer-specific — remove" },
+        { "type": "manual", "notes": "F.Section → <div class='cds--form-item'>" },
+        { "type": "manual", "notes": "F.Footer as |FF| → <div class='cds--form-actions'>; FF.ButtonSet → cds-button-set" }
+      ],
+      "confidence": 0.82,
+      "riskFlags": ["slot-to-attribute", "manual-migration-required"],
+      "status": "manual",
+      "rationale": "Medium-high confidence. Tag swap is straightforward. Contextual components F.Section, F.Footer, FF.ButtonSet require manual unwrapping.",
+      "manualNotes": [
+        "Replace <HdsForm as |F|> with <cds-form>",
+        "Replace <F.Section> with <div class='cds--form-item'>",
+        "Replace <F.Footer as |FF|> with <div class='cds--form-actions'>",
+        "FF.ButtonSet is already migrated as HdsButtonSet → cds-button-set"
+      ]
+    },
+    {
+      "id": "sandbox-textinput-name",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 269,
+      "heliosComponent": "Hds::Form::TextInput::Field",
+      "proposedCwcComponent": "cds-text-input",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsFormTextInputField", "to": "cds-text-input" },
+        { "type": "renameAttribute", "from": "@value", "to": "value" },
+        { "type": "manual", "notes": "Field.Label → <span slot='label-text'>Full Name</span>" },
+        { "type": "manual", "notes": "Field.HelperText → <span slot='helper-text'>Enter your first and last name.</span>" },
+        { "type": "manual", "notes": "{{#if this.isNameEmpty}}<Field.Error> → invalid={{this.isNameEmpty}} + <span slot='validity-message'>Name is required.</span>" }
+      ],
+      "confidence": 0.82,
+      "riskFlags": ["slot-to-attribute", "manual-migration-required"],
+      "status": "manual",
+      "rationale": "Medium-high confidence. @value maps directly. name attribute passes through. Named slots (Label, HelperText, Error) map to CWC named slots. Conditional error becomes invalid attribute.",
+      "manualNotes": [
+        "Remove 'as |Field|' block param",
+        "<span slot='label-text'>Full Name</span>",
+        "<span slot='helper-text'>Enter your first and last name.</span>",
+        "Add invalid={{this.isNameEmpty}} on cds-text-input",
+        "{{#if this.isNameEmpty}} error slot: <span slot='validity-message'>Name is required.</span> — but CWC always shows validity-message slot content when invalid=true, so the {{#if}} can be dropped"
+      ]
+    },
+    {
+      "id": "sandbox-textinput-email",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 285,
+      "heliosComponent": "Hds::Form::TextInput::Field",
+      "proposedCwcComponent": "cds-text-input",
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsFormTextInputField", "to": "cds-text-input" },
+        { "type": "renameAttribute", "from": "@value", "to": "value" },
+        { "type": "renameAttribute", "from": "@type", "to": "type", "notes": "@type='email' maps directly" },
+        { "type": "manual", "notes": "Field.Label → <span slot='label-text'>Email Address</span>" },
+        { "type": "manual", "notes": "Field.HelperText → <span slot='helper-text'>text</span>" },
+        { "type": "manual", "notes": "{{#if this.isEmailEmpty}}<Field.Error> → invalid={{this.isEmailEmpty}} + <span slot='validity-message'>" }
+      ],
+      "confidence": 0.82,
+      "riskFlags": ["slot-to-attribute", "manual-migration-required"],
+      "status": "manual",
+      "rationale": "Same as name field. @type='email' is an additional direct mapping.",
+      "manualNotes": [
+        "Remove 'as |Field|' block param",
+        "Add type='email' directly on cds-text-input",
+        "<span slot='label-text'>Email Address</span>",
+        "<span slot='helper-text'>We'll never share your email with anyone else.</span>",
+        "Add invalid={{this.isEmailEmpty}} on cds-text-input",
+        "{{#if this.isEmailEmpty}} → rely on invalid attribute; keep validity-message slot content always present"
+      ]
+    },
+    {
+      "id": "sandbox-appfooter-main",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 323,
+      "heliosComponent": "Hds::AppFooter",
+      "proposedCwcComponent": null,
+      "transformOperations": [
+        { "type": "replaceTag", "from": "HdsAppFooter", "to": "footer", "notes": "No CWC equivalent — becomes <footer class='carbon-demo-footer'>" },
+        { "type": "removeAttribute", "from": "as |AF|", "notes": "Block param syntax — remove" },
+        { "type": "manual", "notes": "AF.StatusLink → status dot span + text" },
+        { "type": "manual", "notes": "AF.Link → <a> inside <nav class='carbon-demo-footer-links'>" },
+        { "type": "manual", "notes": "AF.LegalLinks → <nav class='carbon-demo-footer-legal'> with standard legal links" }
+      ],
+      "confidence": 0.7,
+      "riskFlags": ["no-equivalent", "manual-migration-required", "styling-difference"],
+      "status": "manual",
+      "rationale": "Medium confidence. No CWC custom element. Manual HTML + CSS reconstruction needed using carbon-demo.css classes.",
+      "manualNotes": [
+        "<footer class='carbon-demo-footer'>",
+        "AF.StatusLink @status='operational' → <span class='carbon-demo-footer-status'><span class='carbon-demo-footer-status-dot'></span>All systems operational</span>",
+        "AF.Link → <a href='https://cloud.hashicorp.com/docs/changelog' class='carbon-demo-footer-link'>Changelog</a>",
+        "AF.LegalLinks → <nav class='carbon-demo-footer-legal'><a href='#'>Terms</a><a href='#'>Privacy</a><a href='#'>Security</a><a href='#'>Cookies</a></nav>"
+      ]
+    },
+    {
+      "id": "sandbox-dropdown-org-switcher",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 113,
+      "heliosComponent": "Hds::Dropdown",
+      "proposedCwcComponent": "cds-dropdown",
+      "transformOperations": [
+        { "type": "renameAttribute", "from": "@enableCollisionDetection", "to": "autoalign" },
+        { "type": "manual", "notes": "dd.ToggleButton, dd.Checkmark are Helios-specific sub-components not present in cds-dropdown" }
+      ],
+      "confidence": 0.62,
+      "riskFlags": ["slot-to-attribute", "complex-transformation"],
+      "status": "manual",
+      "rationale": "Medium confidence. The HDS Dropdown is used here as an org-switcher with ToggleButton and Checkmark sub-components. cds-dropdown maps to a select-style dropdown (cds-dropdown-item children). The trigger+menu pattern with custom content requires cds-overflow-menu or a popover — not cds-dropdown.",
+      "manualNotes": [
+        "This usage (ToggleButton + Checkmark items) is a popover/menu pattern, not a cds-dropdown (select-style)",
+        "Consider cds-overflow-menu with cds-overflow-menu-body + cds-overflow-menu-item for menu-style dropdowns",
+        "Or use cds-combo-box for a searchable org switcher",
+        "The :globalActions slot in AppHeader maps to a cds-header-panel + cds-switcher instead"
+      ]
+    },
+    {
+      "id": "sandbox-dropdown-help-menu",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 123,
+      "heliosComponent": "Hds::Dropdown",
+      "proposedCwcComponent": "cds-dropdown",
+      "transformOperations": [
+        { "type": "renameAttribute", "from": "@enableCollisionDetection", "to": "autoalign" },
+        { "type": "manual", "notes": "dd.ToggleIcon, dd.Title, dd.Interactive, dd.Separator are Helios sub-components with no cds-dropdown equivalent" }
+      ],
+      "confidence": 0.62,
+      "riskFlags": ["slot-to-attribute", "complex-transformation"],
+      "status": "manual",
+      "rationale": "Medium confidence. This is a contextual menu pattern (title, links, separator). cds-dropdown is select-style — use cds-overflow-menu or header panel pattern for navigation menus.",
+      "manualNotes": [
+        "dd.ToggleIcon with @icon='help' → cds-header-global-action with help icon SVG in slot",
+        "The menu items (Documentation, Tutorials, separator, Create support ticket) → cds-overflow-menu-body + cds-overflow-menu-item elements",
+        "dd.Title 'Help & Support' → becomes visually-hidden heading or omitted in the overflow menu"
+      ]
+    },
+    {
+      "id": "sandbox-dropdown-user-menu",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 131,
+      "heliosComponent": "Hds::Dropdown",
+      "proposedCwcComponent": "cds-dropdown",
+      "transformOperations": [
+        { "type": "renameAttribute", "from": "@enableCollisionDetection", "to": "autoalign" },
+        { "type": "manual", "notes": "dd.ToggleIcon, dd.Title, dd.Description, dd.Interactive are Helios sub-components with no cds-dropdown equivalent" }
+      ],
+      "confidence": 0.62,
+      "riskFlags": ["slot-to-attribute", "complex-transformation"],
+      "status": "manual",
+      "rationale": "Medium confidence. This is a user account menu pattern. cds-dropdown is select-style — use cds-header-global-action + panel pattern in CWC.",
+      "manualNotes": [
+        "dd.ToggleIcon @icon='user' → cds-header-global-action with user icon SVG",
+        "dd.Title 'Signed In' + dd.Description → header content in the panel",
+        "dd.Interactive → cds-overflow-menu-item or cds-side-nav-link inside a panel"
+      ]
+    }
+  ]
+}

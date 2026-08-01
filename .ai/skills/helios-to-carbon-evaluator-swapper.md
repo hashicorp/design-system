@@ -84,7 +84,12 @@ Received from orchestrator:
    - Update imports (remove Helios, add CWC)
    - Transform component usage (tag name, attributes, events, slots)
    - Preserve comments and formatting where possible
-3. **Post-swap class check:** After all transformations are applied to a file, inspect the backing class:
+3. **UI Shell detection:** After all transformations are applied, check whether the migrated output contains `cds-header` or `cds-side-nav`:
+   - **UI Shell NOT present** → write CWC directly into `component-sandbox.gts`, replacing the file content with the migrated CWC template. Do not touch `sandbox-standalone.html`.
+   - **UI Shell present** → write CWC output to `showcase/public/sandbox-standalone.html` only. Do NOT modify `component-sandbox.gts` or `index.gts` — they permanently render the iframe via `ShwFrame`.
+   - Include `uiShellDetected: true|false` in the execution summary so the orchestrator can act on it.
+
+4. **Post-swap class check:** After all transformations are applied to a file, inspect the backing class:
    - If the class body is empty (no `@tracked` properties, no methods, no constructor, no other class members) — remove the class wrapper entirely and convert to a template-only component:
      - Remove `import Component from '@glimmer/component'`
      - Remove `export default class X extends Component { ... }`
