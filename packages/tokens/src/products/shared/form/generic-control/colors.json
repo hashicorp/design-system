@@ -27,18 +27,6 @@
                 "cds-g90": "#393939",
                 "cds-g100": "#262626"
               }
-            },
-            "selected": {
-              "$type": "color",
-              "$value": "{surface.color.interactive}",
-              "group": "components",
-              "$modes": {
-                "default": "{surface.color.interactive}",
-                "cds-g0": "{carbon.themes.white.layerSelected01}",
-                "cds-g10": "{carbon.themes.g10.layerSelected01}",
-                "cds-g90": "{carbon.themes.g90.layerSelected01}",
-                "cds-g100": "{carbon.themes.g100.layerSelected01}"
-              }
             }
           }
         },
