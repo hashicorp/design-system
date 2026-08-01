@@ -85,12 +85,8 @@
 // Fix issue with button focus style which was displaying after button was activated
 .hds-form-file-input:not(:focus, :focus-within, .mock-focus) {
   &::file-selector-button {
-    border-color: var(--hds-button-border-color-secondary-default);
+    border-color: var(--hds-form-file-input-button-border-color);
     outline: 0;
-
-    @include hds-apply-only-if-carbon() {
-      border-color: var(--hds-button-border-color-primary-default);
-    }
   }
 }
 

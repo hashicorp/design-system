@@ -50,6 +50,23 @@
             "cds-g100": "{carbon.themes.g100.layerHover01}"
           }
         }
+      },
+      "multiple": {
+        "option": {
+          "color": {
+            "checked": {
+              "$type": "color",
+              "$value": "{foreground.color.high-contrast}",
+              "$modes": {
+                "default": "{foreground.color.high-contrast}",
+                "cds-g0": "{carbon.themes.white.textOnColor}",
+                "cds-g10": "{carbon.themes.g10.textOnColor}",
+                "cds-g90": "{carbon.themes.g90.textOnColor}",
+                "cds-g100": "{carbon.themes.g100.textOnColor}"
+              }
+            }
+          }
+        }
       }
     }
   }

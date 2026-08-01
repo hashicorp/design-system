@@ -28,6 +28,19 @@
         }
       },
       "button": {
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{button.border.color.secondary.default}",
+            "$modes": {
+              "default": "{button.border.color.secondary.default}",
+              "cds-g0": "{button.border.color.primary.default}",
+              "cds-g10": "{button.border.color.primary.default}",
+              "cds-g90": "{button.border.color.primary.default}",
+              "cds-g100": "{button.border.color.primary.default}"
+            }
+          }
+        },
         "height": {
           "$type": "dimension",
           "$value": "36",

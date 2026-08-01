@@ -118,12 +118,8 @@
       border-radius: var(--hds-border-radius-x-small);
 
       &:checked {
-        color: var(--hds-foreground-color-high-contrast);
+        color: var(--hds-form-select-multiple-option-color-checked);
         background: var(--hds-core-color-blue-200);
-
-        @include hds-apply-only-if-carbon() {
-          color: #fff;
-        }
       }
     }
 

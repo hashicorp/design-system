@@ -12,7 +12,14 @@
         "width": {
           "$type": "dimension",
           "$value": "1",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "1",
+            "cds-g0": "0",
+            "cds-g10": "0",
+            "cds-g90": "0",
+            "cds-g100": "0"
+          }
         },
         "radius": {
           "$type": "dimension",

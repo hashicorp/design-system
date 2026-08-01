@@ -8,7 +8,6 @@
 //
 
 @use "../../mixins/focus-ring" as *;
-@use "../../mixins/carbonization" as *;
 
 // RadioCard Group
 
@@ -44,10 +43,6 @@
   border-radius: var(--hds-form-radio-card-border-radius);
   box-shadow: var(--hds-elevation-mid-box-shadow);
   cursor: pointer;
-
-  @include hds-apply-only-if-carbon() {
-    border: none;
-  }
 
   // prevent focus on the form control as it is handled at the card level
   .hds-form-radio-card__control {
