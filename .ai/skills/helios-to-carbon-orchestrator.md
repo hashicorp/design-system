@@ -21,8 +21,8 @@ Coordinate a safe migration from Helios components to Carbon Web Components (CWC
 
 `<mode>`:
 - `dry-run`: analyze only, no file edits.
-- `safe-only`: apply only high-confidence migrations.
-- `full`: apply high-confidence migrations and optionally medium-confidence when explicitly approved.
+- `safe-only`: auto-apply high-confidence (≥ 0.90) migrations only. No pause required.
+- `full`: auto-apply high-confidence (≥ 0.90) **AND** medium-confidence (0.60–0.89) — but **medium candidates require an explicit per-candidate approval from the user before any file is touched**. The run MUST pause after Phase 1, present the medium-confidence candidate list, and wait for the user to say which IDs are approved. Do NOT proceed to Phase 2 until that approval is received.
 
 Default mode: `safe-only`.
 
@@ -30,9 +30,10 @@ Default mode: `safe-only`.
 
 1. Direct CWC usage only.
 2. Never emit Helios wrapper components.
-3. Only auto-apply high-confidence transforms.
-4. Preserve behavior before stylistic cleanup.
-5. If transform parsing fails in a file, skip that file and record why.
+3. Only auto-apply high-confidence transforms without asking.
+4. **In `full` mode: STOP after Phase 1 and ask the user which medium-confidence candidates to approve before applying anything.** Do not treat "full mode" as "apply everything" — it is "apply high + whatever the user explicitly approves from medium."
+5. Preserve behavior before stylistic cleanup.
+6. If transform parsing fails in a file, skip that file and record why.
 
 ## Sub-Agent Roles
 
@@ -75,9 +76,11 @@ The orchestrator uses the following artifacts:
 
 - **Mapping table:** `.ai/migration/helios-to-carbon-component-map.json`
 - **Candidate schema:** `.ai/migration/schemas/migration-candidate.schema.json`
-- **Migration plan:** `migration-plan.json` (generated in workspace root)
-- **Migration report:** `migration-report.md` (generated in workspace root)
+- **Migration plan:** `migration-plan-{generatedAt}.json` (generated in workspace root, e.g. `migration-plan-2025-07-15T143022Z.json`)
+- **Migration report:** `migration-report-{generatedAt}.md` (generated in workspace root, same timestamp as plan, e.g. `migration-report-2025-07-15T143022Z.md`)
 - **Report template:** `.ai/templates/migration-report-template.md`
+
+> **Note:** Each run produces new timestamped files — previous runs are never overwritten. The `generatedAt` timestamp is set once at the start of Phase 0 and reused for both artifacts so they share the same suffix.
 
 ## Execution Flow
 
@@ -85,9 +88,11 @@ The orchestrator uses the following artifacts:
 
 1. Resolve target scope from arguments.
 2. Resolve mode (`dry-run`, `safe-only`, `full`).
-3. Initialize report artifacts:
-   - `migration-plan.json`
-   - `migration-report.md`
+3. Generate a `generatedAt` timestamp in full ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` (e.g. `2025-07-15T14:30:22Z`). This value is stored as `generatedAt` inside the JSON artifacts.
+4. Derive a filename-safe version by **removing only the colons** (`:`) from the time portion — the dashes in the date (`YYYY-MM-DD`) are preserved. The pattern is `YYYY-MM-DDTHHMMSSZ` (e.g. `2025-07-15T143022Z`). Use this for artifact filenames. **Common mistake:** do NOT strip the dashes — `20250715T143022Z` is wrong; `2025-07-15T143022Z` is correct.
+5. Initialize report artifacts with timestamped names:
+   - `migration-plan-2025-07-15T143022Z.json`
+   - `migration-report-2025-07-15T143022Z.md`
 
 ### Phase 1: Analyze Components
 
@@ -112,8 +117,8 @@ The orchestrator uses the following artifacts:
    - High: `>= 0.90` (status: `planned`)
    - Medium: `0.60-0.89` (status: `manual`)
    - Low: `< 0.60` (status: `skipped`)
-4. Write `migration-plan.json` with all candidates.
-5. Generate initial `migration-report.md` from template.
+4. Write `migration-plan-{generatedAt}.json` with all candidates.
+5. Generate initial `migration-report-{generatedAt}.md` from template.
 
 **If mode is `dry-run`:** Stop after generating reports. Do not proceed to Phase 2.
 
@@ -140,7 +145,14 @@ The orchestrator uses the following artifacts:
 2. Send approved IDs to subskill Phase 2.
 3. Receive execution summary.
 4. Capture changed file list for verification.
-5. Update `migration-report.md` with applied/skipped counts.
+5. **UI Shell detection:** Inspect the migrated output for the presence of `cds-header` or `cds-side-nav` elements. These components use `position: fixed` and must be rendered in their own document context (iframe) to work correctly.
+   - **UI Shell NOT present** → write CWC directly into `component-sandbox.gts` inline, replacing the file content with the migrated CWC template. `sandbox-standalone.html` is not touched.
+   - **UI Shell present** → write CWC output to `showcase/public/sandbox-standalone.html` only. The `component-sandbox.gts` file and `index.gts` are **never modified by the skill** — they permanently render the iframe via `ShwFrame`.
+6. Update `migration-report-{generatedAt}.md` with applied/skipped counts and UI Shell detection result.
+
+> **UI Shell components:** `cds-header`, `cds-side-nav`. These are the only CWC components that require the iframe pattern. All other CWC components (buttons, forms, modals, accordions, notifications, text inputs) render correctly inline.
+
+> **Sandbox architecture:** `component-sandbox.gts` is a permanent template-only component that always renders a `ShwFrame` pointing to `/sandbox-standalone.html`. When a migration run produces UI Shell output, only `sandbox-standalone.html` is updated. When a migration run produces no UI Shell output, the CWC is written directly into `component-sandbox.gts` replacing the current template content with inline CWC markup.
 
 ### Phase 3: Verify
 
@@ -160,7 +172,7 @@ Run project verification commands appropriate to the repo:
 
 ### Phase 4: Report
 
-Generate final `migration-report.md` using `.ai/templates/migration-report-template.md`:
+Generate final `migration-report-{generatedAt}.md` using `.ai/templates/migration-report-template.md`:
 
 **Required sections:**
 - **Summary:** Scope, mode, total candidates
@@ -173,8 +185,8 @@ Generate final `migration-report.md` using `.ai/templates/migration-report-templ
 - **Next Actions:** Suggested next steps
 
 **Artifact paths:**
-- Migration plan: `migration-plan.json`
-- Migration report: `migration-report.md`
+- Migration plan: `migration-plan-{generatedAt}.json`
+- Migration report: `migration-report-{generatedAt}.md`
 
 ## Delegation Contracts
 
@@ -236,11 +248,12 @@ Output:
 
 ### Dry-Run Mode
 - [ ] Resolve target scope
+- [ ] Generate `generatedAt` timestamp
 - [ ] Invoke subskill Phase 1 (evaluation)
 - [ ] Validate candidate output against schema
 - [ ] Partition candidates by confidence
-- [ ] Write `migration-plan.json`
-- [ ] Generate `migration-report.md` from template
+- [ ] Write `migration-plan-{generatedAt}.json`
+- [ ] Generate `migration-report-{generatedAt}.md` from template
 - [ ] Review report for blockers and manual cases
 - [ ] **Stop here - no file modifications**
 
@@ -250,21 +263,21 @@ Output:
 - [ ] Invoke subskill Phase 2 with approved IDs
 - [ ] Capture changed files from execution summary
 - [ ] Run verification (lint + build)
-- [ ] Update `migration-report.md` with results
+- [ ] Update `migration-report-{generatedAt}.md` with results
 - [ ] Review verification output
 - [ ] Confirm no systemic failures
 - [ ] Report paths to artifacts
 
 ### Full Mode
 - [ ] Complete dry-run steps
-- [ ] Filter high-confidence candidates (`>= 0.90`)
-- [ ] Review medium-confidence candidates (`0.60-0.89`)
-- [ ] Get explicit approval for medium-confidence IDs
-- [ ] Combine high + approved medium IDs
-- [ ] Invoke subskill Phase 2 with approved IDs
+- [ ] Auto-approve all high-confidence candidates (`>= 0.90`) — no user input needed
+- [ ] **MANDATORY PAUSE: Present the full medium-confidence candidate list (0.60–0.89) to the user — ID, component, line, target, confidence, risk flags**
+- [ ] **WAIT for user to explicitly say which medium-confidence IDs are approved — do NOT proceed until this response is received**
+- [ ] Combine high-confidence IDs + user-approved medium IDs into the final apply set
+- [ ] Invoke subskill Phase 2 with the final approved ID set
 - [ ] Capture changed files from execution summary
 - [ ] Run verification (lint + build)
-- [ ] Update `migration-report.md` with results
+- [ ] Update `migration-report-{fileTimestamp}.md` with results
 - [ ] Review verification output
 - [ ] Confirm no systemic failures
 - [ ] Report paths to artifacts
@@ -284,6 +297,6 @@ At completion, print a concise summary:
 - files migrated
 - manual follow-ups
 - verification status
-- paths to generated artifacts
+- paths to generated artifacts (include full timestamped filenames, e.g. `migration-plan-2025-07-15T143022Z.json`)
 
 Do not claim success unless verification and report generation are complete.
