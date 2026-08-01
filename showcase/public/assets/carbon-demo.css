@@ -1,3 +1,4 @@
+/* stylelint-disable */
 /**
  * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
@@ -137,4 +138,64 @@ cds-form:not(:defined) {
 
 .carbon-demo-modal-preview-item:last-child {
   margin-bottom: 0;
+}
+
+/* Footer */
+.carbon-demo-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  height: 2.5rem;
+  padding: 0 1rem 0 calc(256px + 1rem);
+  border-top: 1px solid var(--cds-border-subtle);
+  background-color: var(--cds-layer);
+  color: var(--cds-text-secondary);
+  font-size: 0.75rem;
+}
+
+.carbon-demo-footer-status {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.carbon-demo-footer-status-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.carbon-demo-footer-status-dot--operational {
+  background-color: var(--cds-support-success, #24a148);
+}
+
+.carbon-demo-footer-links {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.carbon-demo-footer-legal {
+  display: flex;
+  gap: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--cds-border-subtle);
+}
+
+.carbon-demo-footer-link {
+  color: var(--cds-text-secondary);
+  text-decoration: none;
+}
+
+.carbon-demo-footer-link:hover {
+  color: var(--cds-text-primary);
+  text-decoration: underline;
 }

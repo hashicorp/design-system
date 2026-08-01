@@ -17,6 +17,7 @@ import {
   HdsAppHeaderHomeLink,
   HdsAppSideNav,
   HdsAppSideNavList,
+  HdsAppFooter,
   HdsDropdown,
   HdsButton,
   HdsButtonSet,
@@ -91,7 +92,12 @@ export default class SubSectionHeliosDemoApp extends Component {
     </ShwTextBody>
 
     <div class="helios-demo-app-container">
-      <HdsAppFrame @hasHeader={{true}} @hasSidebar={{true}} as |Frame|>
+      <HdsAppFrame
+        @hasHeader={{true}}
+        @hasSidebar={{true}}
+        @hasFooter={{true}}
+        as |Frame|
+      >
         <Frame.Header>
           <HdsAppHeader @hasA11yRefocus={{false}}>
             <:logo as |actions|>
@@ -310,21 +316,20 @@ export default class SubSectionHeliosDemoApp extends Component {
               </HdsForm>
             </div>
 
-            <div class="helios-demo-app-info-box">
-              <p>
-                <strong>Components Demonstrated:</strong>
-              </p>
-              <ul>
-                <li><strong>Accordion:</strong> Collapsible help sections</li>
-                <li><strong>Form:</strong> Text inputs with validation</li>
-                <li>
-                  <strong>Modal:</strong>
-                  Preview dialog (click "Preview & Submit")
-                </li>
-              </ul>
-            </div>
           </div>
         </Frame.Main>
+
+        <Frame.Footer>
+          <HdsAppFooter as |AF|>
+            <AF.StatusLink @status="operational" />
+            <AF.Link
+              @href="https://cloud.hashicorp.com/docs/changelog"
+              @icon="logs"
+              @iconPosition="leading"
+            >Changelog</AF.Link>
+            <AF.LegalLinks />
+          </HdsAppFooter>
+        </Frame.Footer>
       </HdsAppFrame>
     </div>
 

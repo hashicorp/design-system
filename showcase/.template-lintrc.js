@@ -13,7 +13,9 @@ module.exports = {
     'no-unnecessary-curly-strings': false,
     'no-redundant-role': false,
     'no-builtin-form-components': false,
-    'no-invalid-interactive': { additionalInteractiveTags: ['cds-button'] },
+    'no-invalid-interactive': {
+      additionalInteractiveTags: ['cds-button', 'cds-modal-footer-button'],
+    },
   },
   ignore: ['blueprints/**', 'tests/**'],
   overrides: [
