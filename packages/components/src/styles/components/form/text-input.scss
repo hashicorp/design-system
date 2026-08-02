@@ -193,12 +193,18 @@
   background-position: var(--hds-form-text-input-background-image-position-x) 50%;
   background-size: var(--hds-form-text-input-background-image-size);
 
+  &:disabled {
+    background-image: var(--hds-form-text-input-background-image-data-url-search-disabled);
+  }
+
   @include hds-apply-only-if-carbon() {
     // make space for positioned search cancel button
     padding-right: var(--hds-form-text-input-search-cancel-button-width);
 
     &:disabled {
-      background-image: var(--hds-form-text-input-background-image-data-url-search-disabled);
+      &::-webkit-search-cancel-button {
+        background-image: var(--hds-form-text-input-background-image-data-url-search-cancel-disabled);
+      }
     }
   }
 
