@@ -48,17 +48,6 @@
               "cds-g90": "pink",
               "cds-g100": "pink"
             }
-          },
-          "default-checked": {
-            "$type": "color",
-            "$value": "{core.color.blue-300}",
-            "$modes": {
-              "default": "{core.color.blue-300}",
-              "cds-g0": "pink",
-              "cds-g10": "pink",
-              "cds-g90": "pink",
-              "cds-g100": "pink"
-            }
           }
         }
       },
@@ -94,10 +83,10 @@
             "unit": "px",
             "$modes": {
               "default": "13",
-              "cds-g0": "14",
-              "cds-g10": "14",
-              "cds-g90": "14",
-              "cds-g100": "14"
+              "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
             }
           }
         }
@@ -123,10 +112,10 @@
             "unit": "px",
             "$modes": {
               "default": "18",
-              "cds-g0": "14",
-              "cds-g10": "14",
-              "cds-g90": "14",
-              "cds-g100": "14"
+              "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
             }
           },
           "font-weight": {

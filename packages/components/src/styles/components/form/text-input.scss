@@ -125,7 +125,7 @@
   &[type="month"],
   &[type="week"] {
     // browsers set a specific width for these controls, we want to keep it in the HDS theme
-    width: var(--hds-form-text-input-date-time-width);
+    width: initial;
 
     // show the native icon dimmed if disabled (hidden in Chrome)
     &:disabled::-webkit-calendar-picker-indicator {
