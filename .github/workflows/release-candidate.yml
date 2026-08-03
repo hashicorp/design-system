@@ -19,7 +19,7 @@ jobs:
   release-candidate:
     name: Release Candidate
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'release-candidate')
