@@ -33,6 +33,7 @@ Ignore reviewing the following files unless explicitly told to do so:
 - Private properties follow the proper naming conventions
 - Dead code is removed (e.g. commented out code, unused variables or imports)
 - Console logs or debugging statements are removed
+  - Exception: Demos or examples within the `showcase` or `website`
 - No misspelled words
 
 ### Testing standards
@@ -49,6 +50,7 @@ Ignore reviewing the following files unless explicitly told to do so:
 - Be specific and actionable in feedback
 - Explain the "why" behind recommendations
 - Ask clarifying questions when code intent is unclear
+- Do not add comments for sucessful checks completed or rules followed correctly.
 
 ## Comment format
 A comment should include the following elements:

@@ -137,6 +137,9 @@ pnpm lint:fix
 pnpm format
 ```
 
+#### Additional context
+Read through further context and guidance for this application at `.bob/rules/directories/website`
+
 ## Critical conventions
 
 When working with this codebase:
