@@ -59,33 +59,35 @@
       "surface" : {
         "color": {
           "checked": {
-            "$value": "{core.color.blue-200}",
-            "$modes": {
-              "default": "{core.color.blue-200}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
-          },
-          "checked-hover": {
-            "$value": "{core.color.blue-300}",
-            "$modes": {
-              "default": "{core.color.blue-300}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
-            }
-          },
-          "checked-disabled": {
-            "$value": "{surface.color.interactive-disabled}",
-            "$modes": {
-              "default": "{surface.color.interactive-disabled}",
-              "cds-g0": "transparent",
-              "cds-g10": "transparent",
-              "cds-g90": "transparent",
-              "cds-g100": "transparent"
+            "default": {
+              "$value": "{core.color.blue-200}",
+              "$modes": {
+                "default": "{core.color.blue-200}",
+                "cds-g0": "transparent",
+                "cds-g10": "transparent",
+                "cds-g90": "transparent",
+                "cds-g100": "transparent"
+              }
+            },
+            "hover": {
+              "$value": "{core.color.blue-300}",
+              "$modes": {
+                "default": "{core.color.blue-300}",
+                "cds-g0": "transparent",
+                "cds-g10": "transparent",
+                "cds-g90": "transparent",
+                "cds-g100": "transparent"
+              }
+            },
+            "disabled": {
+              "$value": "{surface.color.interactive-disabled}",
+              "$modes": {
+                "default": "{surface.color.interactive-disabled}",
+                "cds-g0": "transparent",
+                "cds-g10": "transparent",
+                "cds-g90": "transparent",
+                "cds-g100": "transparent"
+              }
             }
           }
         }
