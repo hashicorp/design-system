@@ -380,7 +380,7 @@
       "surface": {
         "color": {
           "$type": "color",
-          "$value": "rgba(204, 227, 254, 30%)",
+          "$value": "rgba(204, 227, 254, 50%)",
           "comment": "TODO: Tokenize this color"
         }
       }

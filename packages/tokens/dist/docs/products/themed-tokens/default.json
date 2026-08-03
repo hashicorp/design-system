@@ -6691,7 +6691,7 @@
     "comment": "TODO: Tokenize this color",
     "original": {
       "$type": "color",
-      "$value": "rgba(204, 227, 254, 30%)",
+      "$value": "rgba(204, 227, 254, 50%)",
       "comment": "TODO: Tokenize this color",
       "key": "{advanced-table.drag-preview.surface.color}"
     },
