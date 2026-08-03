@@ -480,11 +480,7 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Required and optional</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Required and optional">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -554,96 +550,6 @@ const FormMaskedInputCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>States</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid @label="Readonly">
-      <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <HdsFormMaskedInputField
-              @value="Lorem ipsum dolor"
-              readonly={{true}}
-              as |F|
-            >
-              <F.Label>This is the label text</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-            </HdsFormMaskedInputField>
-          </SF.Item>
-          <SF.Item>
-            <HdsFormMaskedInputField
-              @isMultiline={{true}}
-              @value="Lorem ipsum dolor"
-              readonly={{true}}
-              as |F|
-            >
-              <F.Label>This is the label text</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-            </HdsFormMaskedInputField>
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference as |R|>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <cds-password-input
-              size="md"
-              label-text="This is the label text"
-              helper-text="This is the helper text"
-              value="Lorem ipsum dolor"
-              readonly="true"
-            ></cds-password-input>
-          </SF.Item>
-          <SF.Item>
-            <R.NoEquivalent @isCompact={{true}} />
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Disabled">
-      <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <HdsFormMaskedInputField
-              @value="Lorem ipsum dolor"
-              disabled={{true}}
-              as |F|
-            >
-              <F.Label>This is the label text</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-            </HdsFormMaskedInputField>
-          </SF.Item>
-          <SF.Item>
-            <HdsFormMaskedInputField
-              @isMultiline={{true}}
-              @value="Lorem ipsum dolor"
-              disabled={{true}}
-              as |F|
-            >
-              <F.Label>This is the label text</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-            </HdsFormMaskedInputField>
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference as |R|>
-        <ShwFlex @direction="column" as |SF|>
-          <SF.Item>
-            <cds-password-input
-              size="md"
-              label-text="This is the label text"
-              helper-text="This is the helper text"
-              value="Lorem ipsum dolor"
-              disabled="true"
-            ></cds-password-input>
-          </SF.Item>
-          <SF.Item>
-            <R.NoEquivalent @isCompact={{true}} />
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
   </section>
 </template>;
 

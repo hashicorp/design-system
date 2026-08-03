@@ -430,10 +430,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Character count</ShwTextH3>
-
     <ShwCarbonizationComparisonGrid
       @label="Label + Helper text + Character count"
     >
@@ -456,11 +452,7 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Required and optional</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Required and optional">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -509,54 +501,6 @@ const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>States</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid @label="Readonly">
-      <:theming>
-        <HdsFormTextInputField
-          @value="Lorem ipsum dolor"
-          readonly={{true}}
-          as |F|
-        >
-          <F.Label>This is the label text</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-        </HdsFormTextInputField>
-      </:theming>
-      <:reference>
-        <cds-text-input
-          type="text"
-          size="md"
-          label="This is the label text"
-          helper-text="This is the helper text"
-          value="Lorem ipsum dolor"
-          readonly="true"
-        ></cds-text-input>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Disabled">
-      <:theming>
-        <HdsFormTextInputField
-          @value="Lorem ipsum dolor"
-          disabled={{true}}
-          as |F|
-        >
-          <F.Label>This is the label text</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-        </HdsFormTextInputField>
-      </:theming>
-      <:reference>
-        <cds-text-input
-          type="text"
-          size="md"
-          label="This is the label text"
-          helper-text="This is the helper text"
-          value="Lorem ipsum dolor"
-          disabled="true"
-        ></cds-text-input>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
   </section>
 </template>;
 

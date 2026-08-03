@@ -301,11 +301,7 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Required and optional</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Required and optional">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>

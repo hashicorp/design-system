@@ -263,6 +263,106 @@ export default class FormRadioCardCarbonizationIndex extends Component {
         </:reference>
       </ShwCarbonizationComparisonGrid>
 
+      <ShwCarbonizationComparisonGrid
+        @layout="side-by-side"
+        @label="Required and optional"
+      >
+        <:theming as |T|>
+          <ShwFlex @direction="column" as |SF|>
+            <SF.Item>
+              <HdsFormRadioCardGroup
+                @name="radio-card-required--{{T.context}}"
+                @isRequired={{true}}
+                as |G|
+              >
+                <G.Legend>Group legend</G.Legend>
+                <G.RadioCard
+                  @checked={{true}}
+                  @value="1"
+                  {{on "change" this.onChange}}
+                  as |R|
+                >
+                  <R.Icon @name="hexagon" />
+                  <R.Label>Radio card label 1</R.Label>
+                  <R.Description>Radio card description 1</R.Description>
+                </G.RadioCard>
+                <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
+                  <R.Icon @name="hexagon" />
+                  <R.Label>Radio card label 2</R.Label>
+                  <R.Description>Radio card description 2</R.Description>
+                </G.RadioCard>
+              </HdsFormRadioCardGroup>
+            </SF.Item>
+            <SF.Item>
+              <HdsFormRadioCardGroup
+                @name="radio-card-optional--{{T.context}}"
+                @isOptional={{true}}
+                as |G|
+              >
+                <G.Legend>Group legend</G.Legend>
+                <G.RadioCard
+                  @checked={{true}}
+                  @value="1"
+                  {{on "change" this.onChange}}
+                  as |R|
+                >
+                  <R.Icon @name="hexagon" />
+                  <R.Label>Radio card label 1</R.Label>
+                  <R.Description>Radio card description 1</R.Description>
+                </G.RadioCard>
+                <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
+                  <R.Icon @name="hexagon" />
+                  <R.Label>Radio card label 2</R.Label>
+                  <R.Description>Radio card description 2</R.Description>
+                </G.RadioCard>
+              </HdsFormRadioCardGroup>
+            </SF.Item>
+          </ShwFlex>
+        </:theming>
+        <:reference>
+          <ShwFlex @direction="column" as |SF|>
+            <SF.Item>
+              <cds-tile-group>
+                <legend slot="legend">Group legend (required)</legend>
+                <cds-radio-tile selected="selected">
+                  <CdsRadioTileContent
+                    @showIcon={{true}}
+                    @label="Radio tile label 1"
+                    @description="Radio tile description 1"
+                  />
+                </cds-radio-tile>
+                <cds-radio-tile>
+                  <CdsRadioTileContent
+                    @showIcon={{true}}
+                    @label="Radio tile label 2"
+                    @description="Radio tile description 2"
+                  />
+                </cds-radio-tile>
+              </cds-tile-group>
+            </SF.Item>
+            <SF.Item>
+              <cds-tile-group>
+                <legend slot="legend">Group legend (optional)</legend>
+                <cds-radio-tile selected="selected">
+                  <CdsRadioTileContent
+                    @showIcon={{true}}
+                    @label="Radio tile label 1"
+                    @description="Radio tile description 1"
+                  />
+                </cds-radio-tile>
+                <cds-radio-tile>
+                  <CdsRadioTileContent
+                    @showIcon={{true}}
+                    @label="Radio tile label 2"
+                    @description="Radio tile description 2"
+                  />
+                </cds-radio-tile>
+              </cds-tile-group>
+            </SF.Item>
+          </ShwFlex>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+
       <ShwDivider @level={{2}} />
 
       <ShwTextH3>Control position</ShwTextH3>
@@ -437,106 +537,6 @@ export default class FormRadioCardCarbonizationIndex extends Component {
         </ShwCarbonizationComparisonGrid>
       {{/each}}
 
-      <ShwDivider @level={{2}} />
-
-      <ShwTextH3>Required and optional</ShwTextH3>
-
-      <ShwCarbonizationComparisonGrid @layout="side-by-side">
-        <:theming as |T|>
-          <ShwFlex @direction="column" as |SF|>
-            <SF.Item>
-              <HdsFormRadioCardGroup
-                @name="radio-card-required--{{T.context}}"
-                @isRequired={{true}}
-                as |G|
-              >
-                <G.Legend>Group legend</G.Legend>
-                <G.RadioCard
-                  @checked={{true}}
-                  @value="1"
-                  {{on "change" this.onChange}}
-                  as |R|
-                >
-                  <R.Icon @name="hexagon" />
-                  <R.Label>Radio card label 1</R.Label>
-                  <R.Description>Radio card description 1</R.Description>
-                </G.RadioCard>
-                <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
-                  <R.Icon @name="hexagon" />
-                  <R.Label>Radio card label 2</R.Label>
-                  <R.Description>Radio card description 2</R.Description>
-                </G.RadioCard>
-              </HdsFormRadioCardGroup>
-            </SF.Item>
-            <SF.Item>
-              <HdsFormRadioCardGroup
-                @name="radio-card-optional--{{T.context}}"
-                @isOptional={{true}}
-                as |G|
-              >
-                <G.Legend>Group legend</G.Legend>
-                <G.RadioCard
-                  @checked={{true}}
-                  @value="1"
-                  {{on "change" this.onChange}}
-                  as |R|
-                >
-                  <R.Icon @name="hexagon" />
-                  <R.Label>Radio card label 1</R.Label>
-                  <R.Description>Radio card description 1</R.Description>
-                </G.RadioCard>
-                <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
-                  <R.Icon @name="hexagon" />
-                  <R.Label>Radio card label 2</R.Label>
-                  <R.Description>Radio card description 2</R.Description>
-                </G.RadioCard>
-              </HdsFormRadioCardGroup>
-            </SF.Item>
-          </ShwFlex>
-        </:theming>
-        <:reference>
-          <ShwFlex @direction="column" as |SF|>
-            <SF.Item>
-              <cds-tile-group>
-                <legend slot="legend">Group legend (required)</legend>
-                <cds-radio-tile selected="selected">
-                  <CdsRadioTileContent
-                    @showIcon={{true}}
-                    @label="Radio tile label 1"
-                    @description="Radio tile description 1"
-                  />
-                </cds-radio-tile>
-                <cds-radio-tile>
-                  <CdsRadioTileContent
-                    @showIcon={{true}}
-                    @label="Radio tile label 2"
-                    @description="Radio tile description 2"
-                  />
-                </cds-radio-tile>
-              </cds-tile-group>
-            </SF.Item>
-            <SF.Item>
-              <cds-tile-group>
-                <legend slot="legend">Group legend (optional)</legend>
-                <cds-radio-tile selected="selected">
-                  <CdsRadioTileContent
-                    @showIcon={{true}}
-                    @label="Radio tile label 1"
-                    @description="Radio tile description 1"
-                  />
-                </cds-radio-tile>
-                <cds-radio-tile>
-                  <CdsRadioTileContent
-                    @showIcon={{true}}
-                    @label="Radio tile label 2"
-                    @description="Radio tile description 2"
-                  />
-                </cds-radio-tile>
-              </cds-tile-group>
-            </SF.Item>
-          </ShwFlex>
-        </:reference>
-      </ShwCarbonizationComparisonGrid>
     </section>
   </template>
 }

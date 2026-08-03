@@ -201,11 +201,10 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Required and optional</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid @layout="column-stacked">
+    <ShwCarbonizationComparisonGrid
+      @layout="column-stacked"
+      @label="Required and optional"
+    >
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -256,66 +255,6 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>States</ShwTextH3>
-
-    {{#each STATES as |state|}}
-      <ShwCarbonizationComparisonGrid
-        @label={{capitalize state}}
-        @layout="column-stacked"
-        mock-state-value={{state}}
-        mock-state-selector="input"
-      >
-        <:theming>
-          <HdsFormFileInputField as |F|>
-            <F.Label>This is the label text</F.Label>
-            <F.HelperText>This is the helper text</F.HelperText>
-          </HdsFormFileInputField>
-        </:theming>
-        <:reference>
-          <cds-file-uploader
-            label-title="This is the label text"
-            label-description="This is the helper text"
-            icon-description="Delete file"
-          >
-            <cds-file-uploader-button
-              accept="image/jpeg"
-              name="default-file-uploader-button"
-              button-kind="primary"
-              size="md"
-            >
-              Add file
-            </cds-file-uploader-button>
-          </cds-file-uploader>
-        </:reference>
-      </ShwCarbonizationComparisonGrid>
-    {{/each}}
-    <ShwCarbonizationComparisonGrid @label="Disabled" @layout="column-stacked">
-      <:theming>
-        <HdsFormFileInputField disabled={{true}} as |F|>
-          <F.Label>This is the label text</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-        </HdsFormFileInputField>
-      </:theming>
-      <:reference>
-        <cds-file-uploader
-          label-title="This is the label text"
-          label-description="This is the helper text"
-          icon-description="Delete file"
-          disabled
-        >
-          <cds-file-uploader-button
-            accept="image/jpeg"
-            name="default-file-uploader-button"
-            button-kind="primary"
-            size="md"
-          >
-            Add file
-          </cds-file-uploader-button>
-        </cds-file-uploader>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
   </section>
 </template>;
 

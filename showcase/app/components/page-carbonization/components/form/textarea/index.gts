@@ -211,10 +211,6 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Character count</ShwTextH3>
-
     <ShwCarbonizationComparisonGrid @label="Label + Character count">
       <:theming>
         <CodeFragmentWithCharacterCount
@@ -233,11 +229,7 @@ const FormTextareaCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Required and optional</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Required and optional">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>

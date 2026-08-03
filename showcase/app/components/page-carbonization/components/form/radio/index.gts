@@ -330,49 +330,7 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Horizontal layout</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid @label="With legend" @layout="column">
-      <:theming as |T|>
-        <HdsFormRadioGroup
-          @layout="horizontal"
-          @name="group-horizontal-01-{{T.context}}"
-          as |G|
-        >
-          <G.Legend>Legend of the group</G.Legend>
-          <G.RadioField as |F|>
-            <F.Label>Label of control #1</F.Label>
-          </G.RadioField>
-          <G.RadioField checked="checked" as |F|>
-            <F.Label>Label of control #2</F.Label>
-          </G.RadioField>
-          <G.RadioField as |F|>
-            <F.Label>Label of control #3</F.Label>
-          </G.RadioField>
-        </HdsFormRadioGroup>
-      </:theming>
-      <:reference>
-        <cds-radio-button-group
-          legend-text="Legend of the group"
-          orientation="horizontal"
-        >
-          <cds-radio-button label-text="Label of control #1"></cds-radio-button>
-          <cds-radio-button
-            label-text="Label of control #2"
-            checked
-          ></cds-radio-button>
-          <cds-radio-button label-text="Label of control #3"></cds-radio-button>
-        </cds-radio-button-group>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Required and optional</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @label="Required and optional">
       <:theming>
         <ShwFlex @direction="column" as |SF|>
           <SF.Item>
@@ -452,6 +410,45 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>Horizontal layout</ShwTextH3>
+
+    <ShwCarbonizationComparisonGrid @label="With legend" @layout="column">
+      <:theming as |T|>
+        <HdsFormRadioGroup
+          @layout="horizontal"
+          @name="group-horizontal-01-{{T.context}}"
+          as |G|
+        >
+          <G.Legend>Legend of the group</G.Legend>
+          <G.RadioField as |F|>
+            <F.Label>Label of control #1</F.Label>
+          </G.RadioField>
+          <G.RadioField checked="checked" as |F|>
+            <F.Label>Label of control #2</F.Label>
+          </G.RadioField>
+          <G.RadioField as |F|>
+            <F.Label>Label of control #3</F.Label>
+          </G.RadioField>
+        </HdsFormRadioGroup>
+      </:theming>
+      <:reference>
+        <cds-radio-button-group
+          legend-text="Legend of the group"
+          orientation="horizontal"
+        >
+          <cds-radio-button label-text="Label of control #1"></cds-radio-button>
+          <cds-radio-button
+            label-text="Label of control #2"
+            checked
+          ></cds-radio-button>
+          <cds-radio-button label-text="Label of control #3"></cds-radio-button>
+        </cds-radio-button-group>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
   </section>
 </template>;
 

@@ -422,71 +422,73 @@ const FormCheckboxCarbonizationIndex: TemplateOnlyComponent = <template>
         </:reference>
       </ShwCarbonizationComparisonGrid>
 
-      <ShwDivider @level={{2}} />
+      {{#if (eq layout "vertical")}}
+        <ShwCarbonizationComparisonGrid @label="Required and optional">
+          <:theming>
+            <ShwFlex @direction="column" @gap="1.5rem" as |SF|>
+              <SF.Item @label="With legend + Required">
+                <HdsFormCheckboxGroup
+                  @isRequired={{true}}
+                  @name="control-required"
+                  as |G|
+                >
+                  <G.Legend>Group legend</G.Legend>
+                  <G.CheckboxField as |F|>
+                    <F.Label>Label of control #1</F.Label>
+                  </G.CheckboxField>
+                  <G.CheckboxField checked="checked" as |F|>
+                    <F.Label>Label of control #2</F.Label>
+                  </G.CheckboxField>
+                  <G.CheckboxField indeterminate={{true}} as |F|>
+                    <F.Label>Label of control #3</F.Label>
+                  </G.CheckboxField>
+                </HdsFormCheckboxGroup>
+              </SF.Item>
+              <SF.Item @label="With legend + Optional">
+                <HdsFormCheckboxGroup
+                  @isOptional={{true}}
+                  @name="control-optional"
+                  as |G|
+                >
+                  <G.Legend>Group legend</G.Legend>
+                  <G.CheckboxField as |F|>
+                    <F.Label>Label of control #1</F.Label>
+                  </G.CheckboxField>
+                  <G.CheckboxField checked="checked" as |F|>
+                    <F.Label>Label of control #2</F.Label>
+                  </G.CheckboxField>
+                  <G.CheckboxField indeterminate={{true}} as |F|>
+                    <F.Label>Label of control #3</F.Label>
+                  </G.CheckboxField>
+                </HdsFormCheckboxGroup>
+              </SF.Item>
+            </ShwFlex>
+          </:theming>
+          <:reference>
+            <ShwFlex as |SF|>
+              <SF.Item @label="With legend + Required">
+                <cds-checkbox-group legend-text="Group legend (required)">
+                  <cds-checkbox>Label of control #1</cds-checkbox>
+                  <cds-checkbox checked>Label of control #2</cds-checkbox>
+                  <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
+                </cds-checkbox-group>
+              </SF.Item>
+              <SF.Item @label="With legend + Optional">
+                <cds-checkbox-group legend-text="Group legend (optional)">
+                  <cds-checkbox>Label of control #1</cds-checkbox>
+                  <cds-checkbox checked>Label of control #2</cds-checkbox>
+                  <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
+                </cds-checkbox-group>
+              </SF.Item>
+            </ShwFlex>
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+
+        <ShwDivider @level={{2}} />
+      {{/if}}
+
     {{/each}}
 
-    <ShwTextH3>Required and optional</ShwTextH3>
-
-    <ShwCarbonizationComparisonGrid>
-      <:theming>
-        <ShwFlex @direction="column" @gap="1.5rem" as |SF|>
-          <SF.Item @label="With legend + Required">
-            <HdsFormCheckboxGroup
-              @isRequired={{true}}
-              @name="control-required"
-              as |G|
-            >
-              <G.Legend>Group legend</G.Legend>
-              <G.CheckboxField as |F|>
-                <F.Label>Label of control #1</F.Label>
-              </G.CheckboxField>
-              <G.CheckboxField checked="checked" as |F|>
-                <F.Label>Label of control #2</F.Label>
-              </G.CheckboxField>
-              <G.CheckboxField indeterminate={{true}} as |F|>
-                <F.Label>Label of control #3</F.Label>
-              </G.CheckboxField>
-            </HdsFormCheckboxGroup>
-          </SF.Item>
-          <SF.Item @label="With legend + Optional">
-            <HdsFormCheckboxGroup
-              @isOptional={{true}}
-              @name="control-optional"
-              as |G|
-            >
-              <G.Legend>Group legend</G.Legend>
-              <G.CheckboxField as |F|>
-                <F.Label>Label of control #1</F.Label>
-              </G.CheckboxField>
-              <G.CheckboxField checked="checked" as |F|>
-                <F.Label>Label of control #2</F.Label>
-              </G.CheckboxField>
-              <G.CheckboxField indeterminate={{true}} as |F|>
-                <F.Label>Label of control #3</F.Label>
-              </G.CheckboxField>
-            </HdsFormCheckboxGroup>
-          </SF.Item>
-        </ShwFlex>
-      </:theming>
-      <:reference>
-        <ShwFlex as |SF|>
-          <SF.Item @label="With legend + Required">
-            <cds-checkbox-group legend-text="Group legend (required)">
-              <cds-checkbox>Label of control #1</cds-checkbox>
-              <cds-checkbox checked>Label of control #2</cds-checkbox>
-              <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
-            </cds-checkbox-group>
-          </SF.Item>
-          <SF.Item @label="With legend + Optional">
-            <cds-checkbox-group legend-text="Group legend (optional)">
-              <cds-checkbox>Label of control #1</cds-checkbox>
-              <cds-checkbox checked>Label of control #2</cds-checkbox>
-              <cds-checkbox indeterminate>Label of control #3</cds-checkbox>
-            </cds-checkbox-group>
-          </SF.Item>
-        </ShwFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
   </section>
 </template>;
 
