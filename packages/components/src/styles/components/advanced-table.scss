@@ -491,8 +491,9 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
     box-shadow: var(--hds-elevation-low-box-shadow);
   }
 
-  &:focus-visible,
-  &.mock-focus {
+  // needed to increase the specificity because the dropdown styles were being overriden in Carbon themes
+  &:focus-visible.hds-dropdown-toggle-icon,
+  &.mock-focus.hds-dropdown-toggle-icon {
     // matching the same focus ring as th-button so the context menu + th buttons are the same size when focused. if use the default dropdown toggle icon focus state it ends up being a pixel too big.
     @include hds-focus-ring-advanced($pseudo-element-inset-hds: 0, $pseudo-element-inset-cds: 0);
     // setting it to the default color to match the th-button styles. when focused, th-buttons do not have a color or background color set so they default to the default state. however, dropdown toggle icon does have these styles set on focus, so using the default tokens here.

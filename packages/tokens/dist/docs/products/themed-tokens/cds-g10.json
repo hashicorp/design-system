@@ -6113,6 +6113,69 @@
     ]
   },
   {
+    "key": "{advanced-table.cell.foreground.color.default}",
+    "$type": "color",
+    "$value": "#525252",
+    "original": {
+      "$type": "color",
+      "$value": "{table.cell.foreground.color.default}",
+      "key": "{advanced-table.cell.foreground.color.default}"
+    },
+    "name": "hds-advanced-table-cell-foreground-color-default",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "cell",
+      "foreground",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{advanced-table.cell.foreground.color.hover}",
+    "$type": "color",
+    "$value": "#161616",
+    "original": {
+      "$type": "color",
+      "$value": "{table.cell.foreground.color.hover}",
+      "key": "{advanced-table.cell.foreground.color.hover}"
+    },
+    "name": "hds-advanced-table-cell-foreground-color-hover",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "cell",
+      "foreground",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{advanced-table.cell.foreground.color.selected}",
+    "$type": "color",
+    "$value": "#161616",
+    "original": {
+      "$type": "color",
+      "$value": "{table.cell.foreground.color.selected}",
+      "key": "{advanced-table.cell.foreground.color.selected}"
+    },
+    "name": "hds-advanced-table-cell-foreground-color-selected",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "cell",
+      "foreground",
+      "color",
+      "selected"
+    ]
+  },
+  {
     "key": "{advanced-table.cell.surface.color.default}",
     "$type": "color",
     "$value": "#ffffff",
@@ -6386,69 +6449,6 @@
       "color",
       "nested",
       "hover"
-    ]
-  },
-  {
-    "key": "{advanced-table.cell.foreground.color.default}",
-    "$type": "color",
-    "$value": "#525252",
-    "original": {
-      "$type": "color",
-      "$value": "{table.cell.foreground.color.default}",
-      "key": "{advanced-table.cell.foreground.color.default}"
-    },
-    "name": "hds-advanced-table-cell-foreground-color-default",
-    "attributes": {
-      "category": "advanced-table"
-    },
-    "path": [
-      "advanced-table",
-      "cell",
-      "foreground",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{advanced-table.cell.foreground.color.hover}",
-    "$type": "color",
-    "$value": "#161616",
-    "original": {
-      "$type": "color",
-      "$value": "{table.cell.foreground.color.hover}",
-      "key": "{advanced-table.cell.foreground.color.hover}"
-    },
-    "name": "hds-advanced-table-cell-foreground-color-hover",
-    "attributes": {
-      "category": "advanced-table"
-    },
-    "path": [
-      "advanced-table",
-      "cell",
-      "foreground",
-      "color",
-      "hover"
-    ]
-  },
-  {
-    "key": "{advanced-table.cell.foreground.color.selected}",
-    "$type": "color",
-    "$value": "#161616",
-    "original": {
-      "$type": "color",
-      "$value": "{table.cell.foreground.color.selected}",
-      "key": "{advanced-table.cell.foreground.color.selected}"
-    },
-    "name": "hds-advanced-table-cell-foreground-color-selected",
-    "attributes": {
-      "category": "advanced-table"
-    },
-    "path": [
-      "advanced-table",
-      "cell",
-      "foreground",
-      "color",
-      "selected"
     ]
   },
   {

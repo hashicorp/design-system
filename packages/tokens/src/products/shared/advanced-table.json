@@ -189,6 +189,22 @@
           }
         }
       },
+      "foreground": {
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{table.cell.foreground.color.default}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{table.cell.foreground.color.hover}"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{table.cell.foreground.color.selected}"
+          }
+        }
+      },
       "surface": {
         "color": {
           "default": {
@@ -275,22 +291,6 @@
                 "cds-g100": "{carbon.themes.g100.backgroundHover}"
               }
             }
-          }
-        }
-      },
-      "foreground": {
-        "color": {
-          "default": {
-            "$type": "color",
-            "$value": "{table.cell.foreground.color.default}"
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{table.cell.foreground.color.hover}"
-          },
-          "selected": {
-            "$type": "color",
-            "$value": "{table.cell.foreground.color.selected}"
           }
         }
       },
