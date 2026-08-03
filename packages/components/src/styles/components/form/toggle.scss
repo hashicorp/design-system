@@ -125,7 +125,7 @@
 
   :checked + & {
     --border-color: var(--hds-form-control-checked-border-color-default);
-    background-color: var(--hds-form-toggle-base-surface-color-checked);
+    background-color: var(--hds-form-toggle-base-surface-color-checked-default);
 
     @include hds-apply-only-if-carbon() {
       background-image: none;
