@@ -1,0 +1,20 @@
+{
+  "form": {
+    "textarea": {
+      "padding": {
+        "vertical": {
+          "$type": "dimension",
+          "$value": "7",
+          "unit": "px",
+          "$modes": {
+            "default": "7",
+            "cds-g0": "11",
+            "cds-g10": "11",
+            "cds-g90": "11",
+            "cds-g100": "11"
+          }
+        }
+      }
+    }
+  }
+}
