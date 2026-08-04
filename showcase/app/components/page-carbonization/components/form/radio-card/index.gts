@@ -101,7 +101,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
         <ShwCarbonizationComparisonGrid @label={{capitalize state}}>
           <:theming>
             <ShwFlex @direction="column" as |SF|>
-              <SF.Item @label="Unselected">
+              <SF.Item @label="Not checked">
                 <div
                   mock-state-value={{unless (eq state "disabled") state}}
                   mock-state-selector="label"
@@ -114,7 +114,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
                 </div>
               </SF.Item>
 
-              <SF.Item @label="Selected">
+              <SF.Item @label="Checked">
                 <div
                   mock-state-value={{unless (eq state "disabled") state}}
                   mock-state-selector="label"
@@ -134,13 +134,13 @@ export default class FormRadioCardCarbonizationIndex extends Component {
           </:theming>
           <:reference>
             <ShwFlex @direction="column" as |SF|>
-              <SF.Item>
+              <SF.Item @label="Not checked">
                 <cds-radio-tile disabled={{eq state "disabled"}}>
                   <CdsRadioTileContent @showIcon={{true}} />
                 </cds-radio-tile>
               </SF.Item>
 
-              <SF.Item>
+              <SF.Item @label="Checked">
                 <cds-radio-tile selected="" disabled={{eq state "disabled"}}>
                   <CdsRadioTileContent @showIcon={{true}} />
                 </cds-radio-tile>
