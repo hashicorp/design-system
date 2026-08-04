@@ -74,7 +74,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
     >
       {{#if @hasActionsGeneric}}
         <F.ActionsGeneric>
-          <ShwPlaceholder @text="generic content" @height="24" />
+          <ShwPlaceholder @text="generic content" @width="300" @height="24" />
         </F.ActionsGeneric>
       {{/if}}
       {{#if @hasActionsDropdown}}

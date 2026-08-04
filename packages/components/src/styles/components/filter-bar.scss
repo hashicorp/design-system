@@ -31,8 +31,12 @@
   align-items: center;
 }
 
-.hds-filter-bar__actions__right {
-  margin-left: auto;
+.hds-filter-bar__actions__left {
+  display: contents;
+
+  > :last-child {
+    margin-right: auto;
+  }
 }
 
 .hds-filter-bar__search.hds-form-text-input {
