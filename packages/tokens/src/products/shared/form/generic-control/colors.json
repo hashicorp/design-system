@@ -22,10 +22,10 @@
               "group": "components",
               "$modes": {
                 "default": "{surface.color.interactive-hover}",
-                "cds-g0": "#f4f4f4",
-                "cds-g10": "#ffffff",
-                "cds-g90": "#393939",
-                "cds-g100": "#262626"
+                "cds-g0": "{carbon.themes.white.field01}",
+                "cds-g10": "{carbon.themes.g10.field01}",
+                "cds-g90": "{carbon.themes.g90.field01}",
+                "cds-g100": "{carbon.themes.g100.field01}"
               }
             }
           }
@@ -124,10 +124,10 @@
               "group": "components",
               "$modes": {
                 "default": "{surface.color.interactive-disabled}",
-                "cds-g0": "rgba(22, 22, 22, 0.25)",
-                "cds-g10": "rgba(22, 22, 22, 0.25)",
-                "cds-g90": "rgba(244, 244, 244, 0.25)",
-                "cds-g100": "rgba(244, 244, 244, 0.25)"
+                "cds-g0": "{carbon.themes.white.iconDisabled}",
+                "cds-g10": "{carbon.themes.g10.iconDisabled}",
+                "cds-g90": "{carbon.themes.g90.iconDisabled}",
+                "cds-g100": "{carbon.themes.g100.iconDisabled}"
               }
             },
             "hover": {
@@ -164,10 +164,10 @@
               "group": "components",
               "$modes": {
                 "default": "{border.color.primary}",
-                "cds-g0": "rgba(22, 22, 22, 0.25))",
-                "cds-g10": "rgba(22, 22, 22, 0.25)",
-                "cds-g90": "rgba(244, 244, 244, 0.25)",
-                "cds-g100": "rgba(244, 244, 244, 0.25)"
+                "cds-g0": "{carbon.themes.white.iconDisabled}",
+                "cds-g10": "{carbon.themes.g10.iconDisabled}",
+                "cds-g90": "{carbon.themes.g90.iconDisabled}",
+                "cds-g100": "{carbon.themes.g100.iconDisabled}"
               }
             },
             "hover": {
@@ -206,10 +206,10 @@
               "group": "components",
               "$modes": {
                 "default": "{border.color.primary}",
-                "cds-g0": "rgba(22, 22, 22, 0.25)",
-                "cds-g10": "rgba(22, 22, 22, 0.25)",
-                "cds-g90": "rgba(244, 244, 244, 0.25)",
-                "cds-g100": "rgba(244, 244, 244, 0.25)"
+                "cds-g0": "{carbon.themes.white.iconDisabled}",
+                "cds-g10": "{carbon.themes.g10.iconDisabled}",
+                "cds-g90": "{carbon.themes.g90.iconDisabled}",
+                "cds-g100": "{carbon.themes.g100.iconDisabled}"
               }
             },
             "hover": {

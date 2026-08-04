@@ -44,8 +44,6 @@ $hds-button-sizes: ("small", "medium", "large");
 
 // COLORS (Primary, Secondary, Secondary Muted, Tertiary, Critical)
 
-// TODO: try making a mixin for hover styles for all button types, so we can use it in the file input component as well
-
 // Primary
 
 @mixin hds-button-color-primary() {

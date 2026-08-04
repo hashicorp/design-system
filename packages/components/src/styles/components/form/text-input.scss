@@ -161,7 +161,12 @@
       background-size: var(--hds-form-text-input-background-image-size);
 
       @include hds-apply-only-if-carbon() {
-        // We use the native browser default icon
+        // We use the native browser default icon,
+        // We use "revert" instead of "initial" so that it uses user-agent stylesheet values instead of the true
+        // initial value which would be no background image
+        // From mozilla: "The initial value should not be confused with the value specified by the browser's style sheet."
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/revert
         background-image: revert;
         background-position: revert;
         background-size: revert;
