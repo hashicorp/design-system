@@ -32,6 +32,11 @@ const Index: TemplateOnlyComponent = <template>
             Breakpoints
           </LinkTo>
         </li>
+        <li>
+          <LinkTo @route="page-foundations.theming">
+            Theming
+          </LinkTo>
+        </li>
       </ol>
 
       <ShwTextH2>Internationalization</ShwTextH2>
