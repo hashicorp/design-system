@@ -6,6 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { LinkTo } from '@ember/routing';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 const Index: TemplateOnlyComponent = <template>
   <div class="shw-landing-lists">
@@ -30,6 +31,11 @@ const Index: TemplateOnlyComponent = <template>
         <li>
           <LinkTo @route="page-foundations.breakpoints">
             Breakpoints
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-foundations.theming">
+            Theming
           </LinkTo>
         </li>
       </ol>

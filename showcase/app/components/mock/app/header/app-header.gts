@@ -4,7 +4,10 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 import { on } from '@ember/modifier';
+import { fn } from '@ember/helper';
+import { eq, and, or, not } from 'ember-truth-helpers';
 
 // HDS components
 import {
@@ -14,33 +17,71 @@ import {
   HdsButton,
 } from '@hashicorp/design-system-components/components';
 
+import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
+import ShwThemingService from 'showcase/services/shw-theming';
+
 // types
 import type { HdsAppHeaderSignature } from '@hashicorp/design-system-components/components/hds/app-header/index';
 import type Owner from '@ember/owner';
+
+import type { HdsThemes, HdsThemingOptions } from '@hashicorp/design-system-components/services/hds-theming';
+import type { IconName } from '@hashicorp/flight-icons/svg';
 
 export interface MockAppHeaderAppHeaderSignature {
   Args: {
     showOrgPicker?: boolean;
     orgPickerLabel?: string;
     showRegionPicker?: boolean;
+    showThemeSwitcher?: boolean;
     showSearch?: boolean;
   };
   Element: HdsAppHeaderSignature['Element'];
 }
 
+const THEMING_OPTIONS: Array<{ theme: HdsThemes; icon: IconName; label: string }> = [
+  { theme: 'default', icon: 'hashicorp', label: 'Default' },
+  { theme: 'system', icon: 'monitor', label: 'System' },
+  { theme: 'light', icon: 'sun', label: 'Light' },
+  { theme: 'dark', icon: 'moon', label: 'Dark' },
+];
+
+
 export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHeaderSignature> {
   showOrgPicker;
   orgPickerLabel;
   showRegionPicker;
+  showThemeSwitcher;
   showSearch;
+
+  @service declare readonly hdsTheming: HdsThemingService;
+  @service declare readonly shwTheming: ShwThemingService;
 
   constructor(owner: Owner, args: MockAppHeaderAppHeaderSignature['Args']) {
     super(owner, args);
     this.showOrgPicker = this.args.showOrgPicker ?? true;
     this.orgPickerLabel = this.args.orgPickerLabel ?? 'organization-name';
     this.showRegionPicker = this.args.showRegionPicker ?? true;
+    this.showThemeSwitcher = this.args.showThemeSwitcher ?? true;
     this.showSearch = this.args.showSearch ?? true;
   }
+
+  get themingOptions(): Array<{ theme: HdsThemes; icon: IconName; label: string }> {
+    return THEMING_OPTIONS;
+  }
+
+  onSelectThemingOption = (currentTheme: HdsThemes) => {
+    const currentOptions: HdsThemingOptions = {
+      lightTheme: 'cds-g0',
+      darkTheme: 'cds-g100',
+    };
+    this.shwTheming.setAppTheme({
+      theme: currentTheme,
+      options: currentOptions,
+      onSetTheme: args => {
+        console.log(`onSetTheme invoked`, args, currentTheme, currentOptions);
+      },
+    });
+  };
 
   <template>
     <HdsAppHeader>
@@ -99,6 +140,19 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
           <dd.Interactive @href="#">
             Account Settings
           </dd.Interactive>
+          {{#if this.showThemeSwitcher}}
+            <dd.Separator />
+            <dd.Title @text="Theme" />
+            {{#each this.themingOptions as |data|}}
+              <dd.Checkmark
+                @icon={{data.icon}}
+                @selected={{
+                    (eq this.hdsTheming.currentTheme data.theme)
+                }}
+                {{on "click" (fn this.onSelectThemingOption data.theme)}}
+              >{{data.label}}</dd.Checkmark>
+            {{/each}}
+          {{/if}}
         </HdsDropdown>
       </:utilityActions>
     </HdsAppHeader>
