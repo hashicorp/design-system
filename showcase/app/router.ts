@@ -23,6 +23,11 @@ Router.map(function () {
         this.route('demo-viewport-breakpoints-page-padding');
       });
     });
+    this.route('theming', function () {
+      this.route('frameless', function () {
+        this.route('demo-application-with-theme-switcher');
+      });
+    });
   });
   this.route('page-components', { path: 'components' }, function () {
     this.route('accordion');
