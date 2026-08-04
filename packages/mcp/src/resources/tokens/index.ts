@@ -9,7 +9,6 @@ import getTokenByKeyResource from "./get-token-by-key.js";
 import type { McpResource } from "../types.js";
 
 const TOKENS_RESOURCES: McpResource[] = [
-  // TOKENS
   getTokensResource,
   getTokenByKeyResource,
 ];
