@@ -10,7 +10,7 @@ This skill provides instructions on how to update changelogs and website docs wi
 ## Non-negotiables
 
 - Do not run this skill on any branch except for `changeset-release/main`
-- Do not push any changes to the git remote
+- Do not commit any changes or push any changes to the git remote
 
 ## Procedure
 
@@ -26,7 +26,7 @@ This skill provides instructions on how to update changelogs and website docs wi
     - Example: `[X.Y.Z documentation](https://hds-website-X-Y-Z.vercel.app/)`
   - In the root of the repo, run `pnpm --filter website run generate-changelog-markdown-files`
     - This will copy content from `packages/components/CHANGELOG.md` to `website/docs/whats-new/release-notes/index.md`
-  - Make a commit with these changes with the message `Chore: Add link to X.Y.Z docs`.
+  - STOP and wait for a user to review and commit these changes before proceeding
 
 3. Update website version history and release badges for changed components
   - In the root of the repo, run `pnpm --filter website run generate-component-changelog-entries`
@@ -43,4 +43,3 @@ This skill provides instructions on how to update changelogs and website docs wi
           </section>
         ```
     - If a component is new for this release, change `status.updated` to `status.added` in `index.md` frontmatter.
-  - Make a commit with these changes with the message `Chore: Update badges and website history of components`.
