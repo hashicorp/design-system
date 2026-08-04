@@ -10,7 +10,7 @@
       "border": {
         "radius": {
           "$type": "dimension",
-          "$value": "5",
+          "$value": "{border.radius.small}",
           "unit": "px"
         },
         "width": {
