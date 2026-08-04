@@ -3,12 +3,12 @@
     "color": {
       "base": {
         "$type": "color",
-        "$value": "{color.palette.neutral-500}",
+        "$value": "{core.color.neutral-500}",
         "private": true
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.palette.neutral-600}",
+        "$value": "{core.color.neutral-600}",
         "private": true
       }
     }
