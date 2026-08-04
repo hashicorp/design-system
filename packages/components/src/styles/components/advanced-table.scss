@@ -113,10 +113,12 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         isolation: isolate;
       }
 
+      // The reorder should be visible on hover or focus of the header cell, but not on hover or focus of the resize handle
       &:hover,
       &.mock-hover,
       &:focus-within {
-        .hds-advanced-table__th-reorder-handle {
+        &:not(:has(.hds-advanced-table__th-resize-handle:hover, .hds-advanced-table__th-resize-handle:focus))
+          .hds-advanced-table__th-reorder-handle {
           visibility: visible;
           opacity: 1;
         }
