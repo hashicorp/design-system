@@ -266,6 +266,7 @@ $pagination-nav-control-padding-horizontal: 12px;
   // notice: this is an `Form::Select::Base` component, slightly customized
   > .hds-form-select {
     height: 28px;
+    min-height: 0;
     margin-left: 12px;
     padding: 0 24px 0 8px;
     // font styles for this select differ from standard `Form::Select::Base` styles
