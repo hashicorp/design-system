@@ -156,7 +156,7 @@
   &[type="month"],
   &[type="week"] {
     &::-webkit-calendar-picker-indicator {
-      background-image: var(--hds-form-text-input-background-image-data-url-date-default);
+      background-image: var(--hds-form-text-input-background-image-data-url-date);
       background-position: center center;
       background-size: var(--hds-form-text-input-background-image-size);
 
