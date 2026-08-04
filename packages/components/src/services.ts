@@ -4,3 +4,5 @@
  */
 
 // This file is used to expose public services
+
+export * from './services/hds-theming.ts';
