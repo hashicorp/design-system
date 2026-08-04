@@ -42,10 +42,13 @@
   min-height: var(--hds-form-file-input-button-height);
   margin-right: 16px;
   padding: 7px 16px 7px; // padding in code altered to match Figma visual design
+  // Note: There is a linting issue with a return after the `+` operator, we need to disable the rule for this declaration
+  /* stylelint-disable scss/operator-no-newline-after */
   padding-left: calc(
     #{$hds-form-file-input-background-position-x} + var(--hds-form-text-input-background-image-size) +
       var(--hds-button-gap)
   );
+  /* stylelint-enable scss/operator-no-newline-after */
   background-image: var(--hds-form-file-input-background-image-data-url-file-selector-button-default);
   background-repeat: no-repeat;
   background-position: $hds-form-file-input-background-position-x 50%;
