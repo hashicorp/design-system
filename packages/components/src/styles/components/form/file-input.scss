@@ -62,8 +62,8 @@
 // Button states
 
 // hover
-.hds-form-file-input::file-selector-button:hover,
-.hds-form-file-input.mock-hover::file-selector-button {
+.hds-form-file-input:not(:disabled, [disabled], .mock-disabled)::file-selector-button:hover,
+.hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-hover::file-selector-button {
   @include hds-button-color-secondary-state-hover();
 
   @include hds-apply-only-if-carbon() {
@@ -72,8 +72,8 @@
 }
 
 // focus
-.hds-form-file-input:focus-within::file-selector-button,
-.hds-form-file-input.mock-focus::file-selector-button {
+.hds-form-file-input:not(:disabled, [disabled], .mock-disabled):focus-within::file-selector-button,
+.hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-focus::file-selector-button {
   @include hds-focus-ring-basic();
   @include hds-button-color-secondary-state-focus();
   border-color: var(--hds-focus-color-action-internal);

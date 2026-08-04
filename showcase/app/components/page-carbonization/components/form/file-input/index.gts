@@ -82,7 +82,7 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
-    {{#each (array "default" "hover") as |state|}}
+    {{#each (array "default" "hover" "focus") as |state|}}
       <ShwCarbonizationComparisonGrid
         @label="Disabled / {{capitalize state}}"
         @layout="column-stacked"
@@ -112,6 +112,21 @@ const FormFileInputCarbonizationIndex: TemplateOnlyComponent = <template>
         </:reference>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
+    <ShwCarbonizationComparisonGrid
+      @label="Disabled / Focused / Hover"
+      @layout="column-stacked"
+    >
+      <:theming>
+        <HdsFormFileInputBase
+          disabled
+          mock-state-value="focus hover"
+          aria-label="disabled file input"
+        />
+      </:theming>
+      <:reference>
+        <pre>TODO: static image here</pre>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
 
     <ShwDivider />
 
