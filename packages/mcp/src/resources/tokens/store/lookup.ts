@@ -32,8 +32,12 @@ const trimTokenBraces = (value: string): string => {
   return value.replace(/^\{/u, "").replace(/\}$/u, "");
 };
 
+const trimCssVarPrefix = (value: string): string => {
+  return value.replace(/^--/u, "");
+};
+
 export const normalizeTokenLookupKey = (value: string): string => {
-  return trimTokenBraces(normalizeLookupValue(value));
+  return trimCssVarPrefix(trimTokenBraces(normalizeLookupValue(value)));
 };
 
 export const toTokenType = (value: string | undefined): TokenType => {

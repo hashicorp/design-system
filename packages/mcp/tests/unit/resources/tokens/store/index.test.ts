@@ -59,6 +59,15 @@ describe("createTokenCatalogStore", () => {
     expect(store.getTokenByKey("not-a-token")).toBeNull();
   });
 
+  it("resolves a token by its CSS variable name", () => {
+    const store = createTokenCatalogStore(rows);
+
+    // cssVar for token-color-foreground-action is --token-color-foreground-action
+    expect(store.getTokenByKey("--token-color-foreground-action")?.key).toBe(
+      "{color.foreground.action}"
+    );
+  });
+
   it("returns summaries without original catalog data", () => {
     const store = createTokenCatalogStore(rows);
 

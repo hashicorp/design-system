@@ -75,6 +75,18 @@ describe("normalizeTokenLookupKey", () => {
   it("returns empty string for empty input", () => {
     expect(normalizeTokenLookupKey("")).toBe("");
   });
+
+  it("strips a leading -- CSS variable prefix", () => {
+    expect(normalizeTokenLookupKey("--token-color-blue")).toBe(
+      "token-color-blue"
+    );
+  });
+
+  it("strips -- after lowercasing and brace-trimming", () => {
+    expect(normalizeTokenLookupKey("  --Token-Spacing-100  ")).toBe(
+      "token-spacing-100"
+    );
+  });
 });
 
 describe("toTokenType", () => {
@@ -220,4 +232,5 @@ describe("getTokenLookupKeys", () => {
 
     expect(keys).toContain("token.color.palette.blue.200");
   });
+
 });
