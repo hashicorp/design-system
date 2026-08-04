@@ -5976,6 +5976,25 @@
     ]
   },
   {
+    "key": "{advanced-table.cell.line-height}",
+    "$type": "number",
+    "$value": 1.4286,
+    "original": {
+      "$type": "number",
+      "$value": "{table.cell.line-height}",
+      "key": "{advanced-table.cell.line-height}"
+    },
+    "name": "hds-advanced-table-cell-line-height",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "cell",
+      "line-height"
+    ]
+  },
+  {
     "key": "{advanced-table.cell.height.short}",
     "$type": "dimension",
     "$value": "auto",
@@ -6603,7 +6622,53 @@
     ]
   },
   {
-    "key": "{advanced-table.scroll-indicator-top.offset.bottom}",
+    "key": "{advanced-table.scroll-indicator.gradient.color.start}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "comment": "Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0",
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "comment": "Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0",
+      "key": "{advanced-table.scroll-indicator.gradient.color.start}"
+    },
+    "name": "hds-advanced-table-scroll-indicator-gradient-color-start",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "scroll-indicator",
+      "gradient",
+      "color",
+      "start"
+    ]
+  },
+  {
+    "key": "{advanced-table.scroll-indicator.gradient.color.stop}",
+    "$type": "color",
+    "$value": "#3b3d4514",
+    "alpha": "0.08",
+    "original": {
+      "$type": "color",
+      "$value": "{foreground.color.primary}",
+      "alpha": "0.08",
+      "key": "{advanced-table.scroll-indicator.gradient.color.stop}"
+    },
+    "name": "hds-advanced-table-scroll-indicator-gradient-color-stop",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "scroll-indicator",
+      "gradient",
+      "color",
+      "stop"
+    ]
+  },
+  {
+    "key": "{advanced-table.scroll-indicator.top-offset.bottom}",
     "$type": "dimension",
     "$value": "-11px",
     "unit": "px",
@@ -6625,7 +6690,7 @@
         "cds-g90": "-8",
         "cds-g100": "-8"
       },
-      "key": "{advanced-table.scroll-indicator-top.offset.bottom}"
+      "key": "{advanced-table.scroll-indicator.top-offset.bottom}"
     },
     "name": "hds-advanced-table-scroll-indicator-top-offset-bottom",
     "attributes": {
@@ -6633,43 +6698,20 @@
     },
     "path": [
       "advanced-table",
-      "scroll-indicator-top",
-      "offset",
+      "scroll-indicator",
+      "top-offset",
       "bottom"
-    ]
-  },
-  {
-    "key": "{advanced-table.resize-handle.surface.color.focus}",
-    "$type": "color",
-    "$value": "#0c56e9",
-    "comment": "TODO: Tokenize this color",
-    "original": {
-      "$type": "color",
-      "$value": "{core.color.blue-300}",
-      "comment": "TODO: Tokenize this color",
-      "key": "{advanced-table.resize-handle.surface.color.focus}"
-    },
-    "name": "hds-advanced-table-resize-handle-surface-color-focus",
-    "attributes": {
-      "category": "advanced-table"
-    },
-    "path": [
-      "advanced-table",
-      "resize-handle",
-      "surface",
-      "color",
-      "focus"
     ]
   },
   {
     "key": "{advanced-table.resize-handle.surface.color.hover}",
     "$type": "color",
-    "$value": "#b1b1b5",
-    "comment": "TODO: Tokenize this color",
+    "$value": "#3b3d4566",
+    "alpha": "0.4",
     "original": {
       "$type": "color",
-      "$value": "#b1b1b5",
-      "comment": "TODO: Tokenize this color",
+      "$value": "{foreground.color.primary}",
+      "alpha": "0.4",
       "key": "{advanced-table.resize-handle.surface.color.hover}"
     },
     "name": "hds-advanced-table-resize-handle-surface-color-hover",
@@ -6685,14 +6727,158 @@
     ]
   },
   {
-    "key": "{advanced-table.drag-preview.surface.color}",
+    "key": "{advanced-table.resize-handle.surface.color.active}",
     "$type": "color",
-    "$value": "#cce3fe",
-    "comment": "TODO: Tokenize this color",
+    "$value": "#0c56e9",
+    "$modes": {
+      "default": "#0c56e9",
+      "cds-g0": "#5990ff",
+      "cds-g10": "#5990ff",
+      "cds-g90": "#5990ff",
+      "cds-g100": "#5990ff"
+    },
     "original": {
       "$type": "color",
-      "$value": "rgba(204, 227, 254, 50%)",
-      "comment": "TODO: Tokenize this color",
+      "$value": "{focus.color.action.internal}",
+      "$modes": {
+        "default": "{focus.color.action.internal}",
+        "cds-g0": "{focus.color.action.external}",
+        "cds-g10": "{focus.color.action.external}",
+        "cds-g90": "{focus.color.action.external}",
+        "cds-g100": "{focus.color.action.external}"
+      },
+      "key": "{advanced-table.resize-handle.surface.color.active}"
+    },
+    "name": "hds-advanced-table-resize-handle-surface-color-active",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "resize-handle",
+      "surface",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{advanced-table.resize-handle.surface.color.focus}",
+    "$type": "color",
+    "$value": "#0c56e9",
+    "$modes": {
+      "default": "#0c56e9",
+      "cds-g0": "#5990ff",
+      "cds-g10": "#5990ff",
+      "cds-g90": "#5990ff",
+      "cds-g100": "#5990ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{focus.color.action.internal}",
+      "$modes": {
+        "default": "{focus.color.action.internal}",
+        "cds-g0": "{focus.color.action.external}",
+        "cds-g10": "{focus.color.action.external}",
+        "cds-g90": "{focus.color.action.external}",
+        "cds-g100": "{focus.color.action.external}"
+      },
+      "key": "{advanced-table.resize-handle.surface.color.focus}"
+    },
+    "name": "hds-advanced-table-resize-handle-surface-color-focus",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "resize-handle",
+      "surface",
+      "color",
+      "focus"
+    ]
+  },
+  {
+    "key": "{advanced-table.drag-preview.surface.color}",
+    "$type": "color",
+    "$value": "#cce3fe80",
+    "alpha": "0.5",
+    "$modes": {
+      "default": {
+        "$value": "#CCE3FE",
+        "alpha": "0.5",
+        "filePath": "src/products/shared/advanced-table.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g0": {
+        "$value": "#0F62FE",
+        "alpha": "0.2",
+        "filePath": "src/products/shared/advanced-table.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g10": {
+        "$value": "#0F62FE",
+        "alpha": "0.2",
+        "filePath": "src/products/shared/advanced-table.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g90": {
+        "$value": "#0F62FE",
+        "alpha": "0.2",
+        "filePath": "src/products/shared/advanced-table.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g100": {
+        "$value": "#0F62FE",
+        "alpha": "0.2",
+        "filePath": "src/products/shared/advanced-table.json",
+        "isSource": true,
+        "$type": "color"
+      }
+    },
+    "original": {
+      "$type": "color",
+      "$value": "#CCE3FE",
+      "alpha": "0.5",
+      "$modes": {
+        "default": {
+          "$value": "#CCE3FE",
+          "alpha": "0.5",
+          "filePath": "src/products/shared/advanced-table.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g0": {
+          "$value": "#0F62FE",
+          "alpha": "0.2",
+          "filePath": "src/products/shared/advanced-table.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g10": {
+          "$value": "#0F62FE",
+          "alpha": "0.2",
+          "filePath": "src/products/shared/advanced-table.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g90": {
+          "$value": "#0F62FE",
+          "alpha": "0.2",
+          "filePath": "src/products/shared/advanced-table.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g100": {
+          "$value": "#0F62FE",
+          "alpha": "0.2",
+          "filePath": "src/products/shared/advanced-table.json",
+          "isSource": true,
+          "$type": "color"
+        }
+      },
       "key": "{advanced-table.drag-preview.surface.color}"
     },
     "name": "hds-advanced-table-drag-preview-surface-color",
@@ -25901,9 +26087,23 @@
     "key": "{table.header.button.foreground.color.default}",
     "$type": "color",
     "$value": "#656a76",
+    "$modes": {
+      "default": "#656a76",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
     "original": {
       "$type": "color",
       "$value": "{foreground.color.faint}",
+      "$modes": {
+        "default": "{foreground.color.faint}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
       "key": "{table.header.button.foreground.color.default}"
     },
     "name": "hds-table-header-button-foreground-color-default",
@@ -26497,6 +26697,39 @@
     ]
   },
   {
+    "key": "{table.cell.line-height}",
+    "$type": "number",
+    "$value": 1.4286,
+    "$modes": {
+      "default": 1.4286,
+      "cds-g0": 1.28572,
+      "cds-g10": 1.28572,
+      "cds-g90": 1.28572,
+      "cds-g100": 1.28572
+    },
+    "original": {
+      "$type": "number",
+      "$value": "{typography.body-200.line-height}",
+      "$modes": {
+        "default": "{typography.body-200.line-height}",
+        "cds-g0": "{carbon.typography.bodyShort01.line-height}",
+        "cds-g10": "{carbon.typography.bodyShort01.line-height}",
+        "cds-g90": "{carbon.typography.bodyShort01.line-height}",
+        "cds-g100": "{carbon.typography.bodyShort01.line-height}"
+      },
+      "key": "{table.cell.line-height}"
+    },
+    "name": "hds-table-cell-line-height",
+    "attributes": {
+      "category": "table"
+    },
+    "path": [
+      "table",
+      "cell",
+      "line-height"
+    ]
+  },
+  {
     "key": "{table.cell.height.short}",
     "$value": "auto",
     "$modes": {
@@ -26870,6 +27103,83 @@
     ]
   },
   {
+    "key": "{table.cell.foreground.color.default}",
+    "$type": "color",
+    "$value": "#3b3d45",
+    "$modes": {
+      "default": "#3b3d45",
+      "cds-g0": "#525252",
+      "cds-g10": "#525252",
+      "cds-g90": "#c6c6c6",
+      "cds-g100": "#c6c6c6"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{foreground.color.primary}",
+      "$modes": {
+        "default": "{foreground.color.primary}",
+        "cds-g0": "{carbon.themes.white.textSecondary}",
+        "cds-g10": "{carbon.themes.g10.textSecondary}",
+        "cds-g90": "{carbon.themes.g90.textSecondary}",
+        "cds-g100": "{carbon.themes.g100.textSecondary}"
+      },
+      "key": "{table.cell.foreground.color.default}"
+    },
+    "name": "hds-table-cell-foreground-color-default",
+    "attributes": {
+      "category": "table"
+    },
+    "path": [
+      "table",
+      "cell",
+      "foreground",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{table.cell.foreground.color.hover}",
+    "$type": "color",
+    "$value": "#3b3d45",
+    "original": {
+      "$type": "color",
+      "$value": "{foreground.color.primary}",
+      "key": "{table.cell.foreground.color.hover}"
+    },
+    "name": "hds-table-cell-foreground-color-hover",
+    "attributes": {
+      "category": "table"
+    },
+    "path": [
+      "table",
+      "cell",
+      "foreground",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{table.cell.foreground.color.selected}",
+    "$type": "color",
+    "$value": "#3b3d45",
+    "original": {
+      "$type": "color",
+      "$value": "{foreground.color.primary}",
+      "key": "{table.cell.foreground.color.selected}"
+    },
+    "name": "hds-table-cell-foreground-color-selected",
+    "attributes": {
+      "category": "table"
+    },
+    "path": [
+      "table",
+      "cell",
+      "foreground",
+      "color",
+      "selected"
+    ]
+  },
+  {
     "key": "{table.cell.surface.color.hover}",
     "$type": "color",
     "$value": "#ffffff",
@@ -27046,83 +27356,6 @@
       "color",
       "selected",
       "hover"
-    ]
-  },
-  {
-    "key": "{table.cell.foreground.color.default}",
-    "$type": "color",
-    "$value": "#3b3d45",
-    "$modes": {
-      "default": "#3b3d45",
-      "cds-g0": "#525252",
-      "cds-g10": "#525252",
-      "cds-g90": "#c6c6c6",
-      "cds-g100": "#c6c6c6"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{foreground.color.primary}",
-      "$modes": {
-        "default": "{foreground.color.primary}",
-        "cds-g0": "{carbon.themes.white.textSecondary}",
-        "cds-g10": "{carbon.themes.g10.textSecondary}",
-        "cds-g90": "{carbon.themes.g90.textSecondary}",
-        "cds-g100": "{carbon.themes.g100.textSecondary}"
-      },
-      "key": "{table.cell.foreground.color.default}"
-    },
-    "name": "hds-table-cell-foreground-color-default",
-    "attributes": {
-      "category": "table"
-    },
-    "path": [
-      "table",
-      "cell",
-      "foreground",
-      "color",
-      "default"
-    ]
-  },
-  {
-    "key": "{table.cell.foreground.color.hover}",
-    "$type": "color",
-    "$value": "#3b3d45",
-    "original": {
-      "$type": "color",
-      "$value": "{foreground.color.primary}",
-      "key": "{table.cell.foreground.color.hover}"
-    },
-    "name": "hds-table-cell-foreground-color-hover",
-    "attributes": {
-      "category": "table"
-    },
-    "path": [
-      "table",
-      "cell",
-      "foreground",
-      "color",
-      "hover"
-    ]
-  },
-  {
-    "key": "{table.cell.foreground.color.selected}",
-    "$type": "color",
-    "$value": "#3b3d45",
-    "original": {
-      "$type": "color",
-      "$value": "{foreground.color.primary}",
-      "key": "{table.cell.foreground.color.selected}"
-    },
-    "name": "hds-table-cell-foreground-color-selected",
-    "attributes": {
-      "category": "table"
-    },
-    "path": [
-      "table",
-      "cell",
-      "foreground",
-      "color",
-      "selected"
     ]
   },
   {

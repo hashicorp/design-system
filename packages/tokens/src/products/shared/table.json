@@ -52,7 +52,14 @@
           "color": {
             "default": {
               "$type": "color",
-              "$value": "{foreground.color.faint}"
+              "$value": "{foreground.color.faint}",
+              "$modes": {
+                "default": "{foreground.color.faint}",
+                "cds-g0": "{carbon.themes.white.textPrimary}",
+                "cds-g10": "{carbon.themes.g10.textPrimary}",
+                "cds-g90": "{carbon.themes.g90.textPrimary}",
+                "cds-g100": "{carbon.themes.g100.textPrimary}"
+              }
             },
             "hover": {
               "$type": "color",
@@ -247,6 +254,17 @@
       }
     },
     "cell": {
+      "line-height": {
+        "$type": "number",
+        "$value": "{typography.body-200.line-height}",
+        "$modes": {
+          "default": "{typography.body-200.line-height}",
+          "cds-g0": "{carbon.typography.bodyShort01.line-height}",
+          "cds-g10": "{carbon.typography.bodyShort01.line-height}",
+          "cds-g90": "{carbon.typography.bodyShort01.line-height}",
+          "cds-g100": "{carbon.typography.bodyShort01.line-height}"
+        }
+      },
       "height": {
         "short": {
           "$value": "auto",
@@ -372,6 +390,29 @@
           }
         }
       },
+      "foreground": {
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{foreground.color.primary}",
+            "$modes": {
+              "default": "{foreground.color.primary}",
+              "cds-g0": "{carbon.themes.white.textSecondary}",
+              "cds-g10": "{carbon.themes.g10.textSecondary}",
+              "cds-g90": "{carbon.themes.g90.textSecondary}",
+              "cds-g100": "{carbon.themes.g100.textSecondary}"
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{foreground.color.primary}"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{foreground.color.primary}"
+          }
+        }
+      }, 
       "surface": {
         "color": {
           "hover": {
@@ -435,29 +476,6 @@
           }
         }
       },
-      "foreground": {
-        "color": {
-          "default": {
-            "$type": "color",
-            "$value": "{foreground.color.primary}",
-            "$modes": {
-              "default": "{foreground.color.primary}",
-              "cds-g0": "{carbon.themes.white.textSecondary}",
-              "cds-g10": "{carbon.themes.g10.textSecondary}",
-              "cds-g90": "{carbon.themes.g90.textSecondary}",
-              "cds-g100": "{carbon.themes.g100.textSecondary}"
-            }
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{foreground.color.primary}"
-          },
-          "selected": {
-            "$type": "color",
-            "$value": "{foreground.color.primary}"
-          }
-        }
-      }, 
       "border": {
         "color": {
           "$type": "color",

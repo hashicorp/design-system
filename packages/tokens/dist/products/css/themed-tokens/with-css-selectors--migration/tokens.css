@@ -100,8 +100,17 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-advanced-table-cell-surface-color-striped-hover: var(
     --hds-table-cell-surface-color-striped-hover
   );
+  --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
   --hds-advanced-table-empty-state-border-width: 1px;
   --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
+  --hds-advanced-table-resize-handle-surface-color-active: var(
+    --hds-focus-color-action-internal
+  );
+  --hds-advanced-table-resize-handle-surface-color-focus: var(
+    --hds-focus-color-action-internal
+  );
+  --hds-advanced-table-resize-handle-surface-color-hover: #3b3d4566;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #3b3d4514;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
   --hds-alert-actions-margin-top: 16px;
   --hds-alert-border-color-critical: var(--hds-border-color-critical);
@@ -1007,6 +1016,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-table-cell-height-medium: auto;
   --hds-table-cell-height-short: auto;
   --hds-table-cell-height-tall: auto;
+  --hds-table-cell-line-height: var(--hds-typography-body-200-line-height);
   --hds-table-cell-padding-vertical-medium: 14px;
   --hds-table-cell-padding-vertical-short: 6px;
   --hds-table-cell-padding-vertical-tall: 22px;
@@ -1023,6 +1033,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-table-cell-surface-color-striped-hover: var(--hds-surface-color-faint);
   --hds-table-header-button-border-color-active: var(--hds-border-color-strong);
   --hds-table-header-button-border-color-hover: var(--hds-border-color-strong);
+  --hds-table-header-button-foreground-color-default: var(
+    --hds-foreground-color-faint
+  );
   --hds-table-header-button-foreground-color-sorted-active: var(
     --hds-foreground-color-action-active
   );
@@ -1232,8 +1245,17 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0.12
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
     --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-header-border-width-pinned: 0px;
+    --hds-advanced-table-resize-handle-surface-color-active: var(
+      --hds-focus-color-action-external
+    );
+    --hds-advanced-table-resize-handle-surface-color-focus: var(
+      --hds-focus-color-action-external
+    );
+    --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+    --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -1791,6 +1813,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-table-cell-height-medium: 2.5rem;
     --hds-table-cell-height-short: 2rem;
     --hds-table-cell-height-tall: 3rem;
+    --hds-table-cell-line-height: 1.28572;
     --hds-table-cell-padding-vertical-medium: 7px;
     --hds-table-cell-padding-vertical-short: 7px;
     --hds-table-cell-padding-vertical-tall: 7px;
@@ -1801,6 +1824,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.12);
     --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
     --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+    --hds-table-header-button-foreground-color-default: #161616;
     --hds-table-header-button-foreground-color-sorted-active: #161616;
     --hds-table-header-button-foreground-color-sorted-default: #161616;
     --hds-table-header-button-foreground-color-sorted-hover: #161616;
@@ -1965,8 +1989,17 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0.16
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
     --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-header-border-width-pinned: 0px;
+    --hds-advanced-table-resize-handle-surface-color-active: var(
+      --hds-focus-color-action-external
+    );
+    --hds-advanced-table-resize-handle-surface-color-focus: var(
+      --hds-focus-color-action-external
+    );
+    --hds-advanced-table-resize-handle-surface-color-hover: #f4f4f466;
+    --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
@@ -2544,6 +2577,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-table-cell-height-medium: 2.5rem;
     --hds-table-cell-height-short: 2rem;
     --hds-table-cell-height-tall: 3rem;
+    --hds-table-cell-line-height: 1.28572;
     --hds-table-cell-padding-vertical-medium: 7px;
     --hds-table-cell-padding-vertical-short: 7px;
     --hds-table-cell-padding-vertical-tall: 7px;
@@ -2554,6 +2588,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.16);
     --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
     --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+    --hds-table-header-button-foreground-color-default: #f4f4f4;
     --hds-table-header-button-foreground-color-sorted-active: #f4f4f4;
     --hds-table-header-button-foreground-color-sorted-default: #f4f4f4;
     --hds-table-header-button-foreground-color-sorted-hover: #f4f4f4;
@@ -2717,8 +2752,17 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0.12
   );
   --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
   --hds-advanced-table-empty-state-border-width: 0px;
   --hds-advanced-table-header-border-width-pinned: 0px;
+  --hds-advanced-table-resize-handle-surface-color-active: var(
+    --hds-focus-color-action-external
+  );
+  --hds-advanced-table-resize-handle-surface-color-focus: var(
+    --hds-focus-color-action-external
+  );
+  --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
@@ -3275,6 +3319,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-table-cell-height-medium: 2.5rem;
   --hds-table-cell-height-short: 2rem;
   --hds-table-cell-height-tall: 3rem;
+  --hds-table-cell-line-height: 1.28572;
   --hds-table-cell-padding-vertical-medium: 7px;
   --hds-table-cell-padding-vertical-short: 7px;
   --hds-table-cell-padding-vertical-tall: 7px;
@@ -3285,6 +3330,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.12);
   --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
   --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-default: #161616;
   --hds-table-header-button-foreground-color-sorted-active: #161616;
   --hds-table-header-button-foreground-color-sorted-default: #161616;
   --hds-table-header-button-foreground-color-sorted-hover: #161616;
@@ -3447,8 +3493,17 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0.16
   );
   --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
   --hds-advanced-table-empty-state-border-width: 0px;
   --hds-advanced-table-header-border-width-pinned: 0px;
+  --hds-advanced-table-resize-handle-surface-color-active: var(
+    --hds-focus-color-action-external
+  );
+  --hds-advanced-table-resize-handle-surface-color-focus: var(
+    --hds-focus-color-action-external
+  );
+  --hds-advanced-table-resize-handle-surface-color-hover: #f4f4f466;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
@@ -4025,6 +4080,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-table-cell-height-medium: 2.5rem;
   --hds-table-cell-height-short: 2rem;
   --hds-table-cell-height-tall: 3rem;
+  --hds-table-cell-line-height: 1.28572;
   --hds-table-cell-padding-vertical-medium: 7px;
   --hds-table-cell-padding-vertical-short: 7px;
   --hds-table-cell-padding-vertical-tall: 7px;
@@ -4035,6 +4091,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.16);
   --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
   --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-default: #f4f4f4;
   --hds-table-header-button-foreground-color-sorted-active: #f4f4f4;
   --hds-table-header-button-foreground-color-sorted-default: #f4f4f4;
   --hds-table-header-button-foreground-color-sorted-hover: #f4f4f4;
@@ -4185,6 +4242,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-advanced-table-cell-height-medium: var(--hds-table-cell-height-medium);
   --hds-advanced-table-cell-height-short: var(--hds-table-cell-height-short);
   --hds-advanced-table-cell-height-tall: var(--hds-table-cell-height-tall);
+  --hds-advanced-table-cell-line-height: var(--hds-table-cell-line-height);
   --hds-advanced-table-cell-padding-horizontal: var(
     --hds-table-cell-padding-horizontal
   );
@@ -4209,7 +4267,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-advanced-table-cell-surface-color-striped-default: var(
     --hds-table-cell-surface-color-striped-default
   );
-  --hds-advanced-table-drag-preview-surface-color: #cce3fe; /** TODO: Tokenize this color */
   --hds-advanced-table-header-button-border-color-active: var(
     --hds-table-header-button-border-color-active
   );
@@ -4259,10 +4316,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-advanced-table-header-surface-color: var(
     --hds-table-header-surface-color
   );
-  --hds-advanced-table-resize-handle-surface-color-focus: var(
-    --hds-core-color-blue-300
-  ); /** TODO: Tokenize this color */
-  --hds-advanced-table-resize-handle-surface-color-hover: #b1b1b5; /** TODO: Tokenize this color */
   --hds-advanced-table-row-border-color-default: var(
     --hds-table-row-border-color-default
   );
@@ -4279,6 +4332,12 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --hds-table-row-border-color-striped-default
   );
   --hds-advanced-table-row-border-width: var(--hds-table-row-border-width);
+  --hds-advanced-table-scroll-indicator-gradient-color-start: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /** Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0 */
   --hds-alert-page-padding-horizontal: 48px;
   --hds-alert-surface-color-neutral: var(--hds-surface-color-faint);
   --hds-alert-title-foreground-color-neutral: var(
@@ -4577,9 +4636,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-table-header-button-border-color-default: rgba(0, 0, 0, 0);
   --hds-table-header-button-foreground-color-active: var(
     --hds-foreground-color-primary
-  );
-  --hds-table-header-button-foreground-color-default: var(
-    --hds-foreground-color-faint
   );
   --hds-table-header-button-foreground-color-hover: var(
     --hds-foreground-color-primary

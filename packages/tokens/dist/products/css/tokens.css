@@ -177,6 +177,7 @@
   --hds-advanced-table-row-border-color-striped-default: rgba(0, 0, 0, 0);
   --hds-advanced-table-row-border-color-selected-default: rgba(0, 0, 0, 0);
   --hds-advanced-table-row-border-color-selected-hover: rgba(0, 0, 0, 0);
+  --hds-advanced-table-cell-line-height: 1.4286;
   --hds-advanced-table-cell-height-short: auto;
   --hds-advanced-table-cell-height-medium: auto;
   --hds-advanced-table-cell-height-tall: auto;
@@ -201,10 +202,13 @@
   --hds-advanced-table-cell-border-width-default: 0.5px;
   --hds-advanced-table-cell-border-width-pinned: 3px;
   --hds-advanced-table-cell-pinned-left: -1px;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: rgba(0, 0, 0, 0); /** Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0 */
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #3b3d4514;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
-  --hds-advanced-table-resize-handle-surface-color-focus: #0c56e9; /** TODO: Tokenize this color */
-  --hds-advanced-table-resize-handle-surface-color-hover: #b1b1b5; /** TODO: Tokenize this color */
-  --hds-advanced-table-drag-preview-surface-color: #cce3fe; /** TODO: Tokenize this color */
+  --hds-advanced-table-resize-handle-surface-color-hover: #3b3d4566;
+  --hds-advanced-table-resize-handle-surface-color-active: #0c56e9;
+  --hds-advanced-table-resize-handle-surface-color-focus: #0c56e9;
+  --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
   --hds-advanced-table-empty-state-border-width: 1px;
   --hds-alert-border-color-neutral: #3b3d4566;
   --hds-alert-border-color-highlight: #ead2fe;
@@ -829,6 +833,7 @@
   --hds-table-row-border-color-striped-default: rgba(0, 0, 0, 0);
   --hds-table-row-border-color-selected-default: rgba(0, 0, 0, 0);
   --hds-table-row-border-color-selected-hover: rgba(0, 0, 0, 0);
+  --hds-table-cell-line-height: 1.4286;
   --hds-table-cell-height-short: auto;
   --hds-table-cell-height-medium: auto;
   --hds-table-cell-height-tall: auto;
@@ -836,14 +841,14 @@
   --hds-table-cell-padding-vertical-short: 6px;
   --hds-table-cell-padding-vertical-medium: 14px;
   --hds-table-cell-padding-vertical-tall: 22px;
+  --hds-table-cell-foreground-color-default: #3b3d45;
+  --hds-table-cell-foreground-color-hover: #3b3d45;
+  --hds-table-cell-foreground-color-selected: #3b3d45;
   --hds-table-cell-surface-color-hover: #ffffff;
   --hds-table-cell-surface-color-striped-default: #fafafa;
   --hds-table-cell-surface-color-striped-hover: #fafafa;
   --hds-table-cell-surface-color-selected-default: #ffffff;
   --hds-table-cell-surface-color-selected-hover: #ffffff;
-  --hds-table-cell-foreground-color-default: #3b3d45;
-  --hds-table-cell-foreground-color-hover: #3b3d45;
-  --hds-table-cell-foreground-color-selected: #3b3d45;
   --hds-table-cell-border-color: #656a7633;
   --hds-table-cell-border-width: 0.5px;
   --hds-tabs-tab-border-color-default: rgba(0, 0, 0, 0);

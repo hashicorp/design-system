@@ -15,6 +15,7 @@
   --hds-advanced-table-cell-height-medium: var(--hds-table-cell-height-medium);
   --hds-advanced-table-cell-height-short: var(--hds-table-cell-height-short);
   --hds-advanced-table-cell-height-tall: var(--hds-table-cell-height-tall);
+  --hds-advanced-table-cell-line-height: var(--hds-table-cell-line-height);
   --hds-advanced-table-cell-padding-horizontal: var(--hds-table-cell-padding-horizontal);
   --hds-advanced-table-cell-padding-vertical-medium: var(--hds-table-cell-padding-vertical-medium);
   --hds-advanced-table-cell-padding-vertical-short: var(--hds-table-cell-padding-vertical-short);
@@ -23,7 +24,6 @@
   --hds-advanced-table-cell-surface-color-selected-default: var(--hds-table-cell-surface-color-selected-default);
   --hds-advanced-table-cell-surface-color-selected-hover: var(--hds-table-cell-surface-color-selected-hover);
   --hds-advanced-table-cell-surface-color-striped-default: var(--hds-table-cell-surface-color-striped-default);
-  --hds-advanced-table-drag-preview-surface-color: #cce3fe; /** TODO: Tokenize this color */
   --hds-advanced-table-header-button-border-color-active: var(--hds-table-header-button-border-color-active);
   --hds-advanced-table-header-button-border-color-default: var(--hds-table-header-button-border-color-default);
   --hds-advanced-table-header-button-border-color-hover: var(--hds-table-header-button-border-color-hover);
@@ -41,14 +41,13 @@
   --hds-advanced-table-header-cell-padding-horizontal: var(--hds-table-header-cell-padding-horizontal);
   --hds-advanced-table-header-cell-padding-vertical: var(--hds-table-header-cell-padding-vertical);
   --hds-advanced-table-header-surface-color: var(--hds-table-header-surface-color);
-  --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-core-color-blue-300); /** TODO: Tokenize this color */
-  --hds-advanced-table-resize-handle-surface-color-hover: #b1b1b5; /** TODO: Tokenize this color */
   --hds-advanced-table-row-border-color-default: var(--hds-table-row-border-color-default);
   --hds-advanced-table-row-border-color-hover: var(--hds-table-row-border-color-hover);
   --hds-advanced-table-row-border-color-selected-default: var(--hds-table-row-border-color-selected-default);
   --hds-advanced-table-row-border-color-selected-hover: var(--hds-table-row-border-color-selected-hover);
   --hds-advanced-table-row-border-color-striped-default: var(--hds-table-row-border-color-striped-default);
   --hds-advanced-table-row-border-width: var(--hds-table-row-border-width);
+  --hds-advanced-table-scroll-indicator-gradient-color-start: rgba(0, 0, 0, 0); /** Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0 */
   --hds-alert-page-padding-horizontal: 48px;
   --hds-alert-surface-color-neutral: var(--hds-surface-color-faint);
   --hds-alert-title-foreground-color-neutral: var(--hds-foreground-color-primary);
@@ -263,7 +262,6 @@
   --hds-table-cell-padding-horizontal: 16px;
   --hds-table-header-button-border-color-default: rgba(0, 0, 0, 0);
   --hds-table-header-button-foreground-color-active: var(--hds-foreground-color-primary);
-  --hds-table-header-button-foreground-color-default: var(--hds-foreground-color-faint);
   --hds-table-header-button-foreground-color-hover: var(--hds-foreground-color-primary);
   --hds-table-header-button-surface-color-default: rgba(0, 0, 0, 0);
   --hds-table-header-cell-padding-horizontal: 16px;

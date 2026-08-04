@@ -258,6 +258,11 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
         background-color: var(--hds-advanced-table-resize-handle-surface-color-hover);
       }
 
+      &:active::after,
+      &.mock-active::after {
+        background-color: var(--hds-advanced-table-resize-handle-surface-color-active);
+      }
+
       &:focus::after,
       &.mock-focus::after,
       &.hds-advanced-table__th-resize-handle--resizing::after,
@@ -336,8 +341,11 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
     top: 0;
     width: 100%;
     height: 8px;
-    // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-    background: linear-gradient(to top, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+    background: linear-gradient(
+      to top,
+      var(--hds-advanced-table-scroll-indicator-gradient-color-start) 0%,
+      var(--hds-advanced-table-scroll-indicator-gradient-color-stop) 100%
+    );
   }
 
   // Resizable columns
@@ -448,7 +456,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
     }
   }
 
-  &:focus-visible,
+  &:focus,
   &.mock-focus {
     @include hds-focus-ring-advanced(
       $element-position: absolute,
@@ -858,19 +866,28 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
 }
 
 .hds-advanced-table__scroll-indicator-left {
-  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-  background: linear-gradient(to left, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+  background: linear-gradient(
+    to left,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-start) 0%,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-stop) 100%
+  );
 }
 
 .hds-advanced-table__scroll-indicator-right {
-  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-  background: linear-gradient(to right, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+  background: linear-gradient(
+    to right,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-start) 0%,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-stop) 100%
+  );
 }
 
 .hds-advanced-table__scroll-indicator-bottom {
   height: 8px;
-  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-  background: linear-gradient(to bottom, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+  background: linear-gradient(
+    to bottom,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-start) 0%,
+    var(--hds-advanced-table-scroll-indicator-gradient-color-stop) 100%
+  );
 }
 
 .hds-advanced-table__th-reorder-drag-preview {

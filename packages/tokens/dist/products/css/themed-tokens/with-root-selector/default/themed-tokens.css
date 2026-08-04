@@ -45,8 +45,13 @@
   --hds-advanced-table-cell-surface-color-nested-hover: var(--hds-surface-color-faint);
   --hds-advanced-table-cell-surface-color-parent-hover: var(--hds-surface-color-primary);
   --hds-advanced-table-cell-surface-color-striped-hover: var(--hds-table-cell-surface-color-striped-hover);
+  --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
   --hds-advanced-table-empty-state-border-width: 1px;
   --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
+  --hds-advanced-table-resize-handle-surface-color-active: var(--hds-focus-color-action-internal);
+  --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-focus-color-action-internal);
+  --hds-advanced-table-resize-handle-surface-color-hover: #3b3d4566;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #3b3d4514;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
   --hds-alert-actions-margin-top: 16px;
   --hds-alert-border-color-critical: var(--hds-border-color-critical);
@@ -558,6 +563,7 @@
   --hds-table-cell-height-medium: auto;
   --hds-table-cell-height-short: auto;
   --hds-table-cell-height-tall: auto;
+  --hds-table-cell-line-height: var(--hds-typography-body-200-line-height);
   --hds-table-cell-padding-vertical-medium: 14px;
   --hds-table-cell-padding-vertical-short: 6px;
   --hds-table-cell-padding-vertical-tall: 22px;
@@ -568,6 +574,7 @@
   --hds-table-cell-surface-color-striped-hover: var(--hds-surface-color-faint);
   --hds-table-header-button-border-color-active: var(--hds-border-color-strong);
   --hds-table-header-button-border-color-hover: var(--hds-border-color-strong);
+  --hds-table-header-button-foreground-color-default: var(--hds-foreground-color-faint);
   --hds-table-header-button-foreground-color-sorted-active: var(--hds-foreground-color-action-active);
   --hds-table-header-button-foreground-color-sorted-default: var(--hds-foreground-color-action);
   --hds-table-header-button-foreground-color-sorted-hover: var(--hds-foreground-color-action-hover);

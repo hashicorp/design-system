@@ -155,6 +155,10 @@
       }
     },
     "cell": {
+      "line-height": {
+        "$type": "number",
+        "$value": "{table.cell.line-height}"
+      },
       "height": {
         "short": {
           "$type": "dimension",
@@ -344,8 +348,22 @@
         }
       }
     },
-    "scroll-indicator-top": {
-      "offset": {
+    "scroll-indicator": {
+      "gradient": {
+        "color": {
+          "start": {
+            "$type": "color",
+            "$value": "transparent",
+            "comment": "Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{foreground.color.primary}",
+            "alpha": "0.08"
+          }
+        }
+      },
+      "top-offset": {
         "bottom": {
           "$type": "dimension",
           "$value": "-11",
@@ -363,15 +381,32 @@
     "resize-handle": {
       "surface": {
         "color": {
-          "focus": {
-            "$type": "color",
-            "$value": "{core.color.blue-300}",
-            "comment": "TODO: Tokenize this color"
-          },
           "hover": {
             "$type": "color",
-            "$value": "#b1b1b5",
-            "comment": "TODO: Tokenize this color"
+            "$value": "{foreground.color.primary}",
+            "alpha": "0.4"
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{focus.color.action.internal}",
+            "$modes": {
+              "default": "{focus.color.action.internal}",
+              "cds-g0": "{focus.color.action.external}",
+              "cds-g10": "{focus.color.action.external}",
+              "cds-g90": "{focus.color.action.external}",
+              "cds-g100": "{focus.color.action.external}"
+            }
+          },
+          "focus": {
+            "$type": "color",
+            "$value": "{focus.color.action.internal}",
+            "$modes": {
+              "default": "{focus.color.action.internal}",
+              "cds-g0": "{focus.color.action.external}",
+              "cds-g10": "{focus.color.action.external}",
+              "cds-g90": "{focus.color.action.external}",
+              "cds-g100": "{focus.color.action.external}"
+            }
           }
         }
       }
@@ -380,8 +415,30 @@
       "surface": {
         "color": {
           "$type": "color",
-          "$value": "rgba(204, 227, 254, 50%)",
-          "comment": "TODO: Tokenize this color"
+          "$value": "#CCE3FE",
+          "alpha": "0.5",
+          "$modes": {
+            "default": {
+              "$value": "#CCE3FE",
+              "alpha": "0.5"
+            },
+            "cds-g0": {
+              "$value": "#0F62FE",
+              "alpha": "0.2"
+            },
+            "cds-g10": {
+              "$value": "#0F62FE",
+              "alpha": "0.2"
+            },
+            "cds-g90": {
+              "$value": "#0F62FE",
+              "alpha": "0.2"
+            },
+            "cds-g100": {
+              "$value": "#0F62FE",
+              "alpha": "0.2"
+            }
+          }
         }
       }
     },
