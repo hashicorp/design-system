@@ -79,6 +79,9 @@ describe("tokens resource", () => {
       value: "#e8f1ff",
       cssVar: "--token.color.palette.blue.200",
       category: "palette",
+      attributes: {
+        category: "color"
+      },
       path: ["token", "color", "palette", "blue", "200"],
       original: {
         $type: "color",
