@@ -17,6 +17,6 @@
 .hds-typography-body-300 { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; font-size: 16px; line-height: 1.5; margin: 0; padding: 0; }
 .hds-typography-body-200 { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; font-size: 14px; line-height: 1.4286; margin: 0; padding: 0; }
 .hds-typography-body-100 { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; font-size: 13px; line-height: 1.3846; margin: 0; padding: 0; }
-.hds-typography-code-100 { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.23; margin: 0; padding: 0; }
-.hds-typography-code-200 { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.125; margin: 0; padding: 0; }
 .hds-typography-code-300 { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 16px; line-height: 1.25; margin: 0; padding: 0; }
+.hds-typography-code-200 { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; line-height: 1.125; margin: 0; padding: 0; }
+.hds-typography-code-100 { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.23; margin: 0; padding: 0; }
