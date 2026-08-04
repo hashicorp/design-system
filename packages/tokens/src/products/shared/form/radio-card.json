@@ -1,0 +1,277 @@
+{
+  "form": {
+    "radio-card-group": {
+      "gap": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px"
+      }
+    },
+    "radio-card": {
+      "surface": {
+        "color": {
+          "hover": {
+            "$type": "color",
+            "$value": "{surface.color.primary}",
+            "$modes": {
+              "default": "{surface.color.primary}",
+              "cds-g0": "{carbon.themes.white.layerHover01}",
+              "cds-g10": "{carbon.themes.g10.layerHover01}",
+              "cds-g90": "{carbon.themes.g90.layerHover01}",
+              "cds-g100": "{carbon.themes.g100.layerHover01}"
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{surface.color.interactive-disabled}",
+            "$modes": {
+              "default": "{surface.color.interactive-disabled}",
+              "cds-g0": "{carbon.themes.white.layer01}",
+              "cds-g10": "{carbon.themes.g10.layer01}",
+              "cds-g90": "{carbon.themes.g90.layer01}",
+              "cds-g100": "{carbon.themes.g100.layer01}"
+            }
+          }
+        }
+      },
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px"
+        },
+        "radius": {
+          "$type": "dimension",
+          "$value": "{border.radius.medium}",
+        },
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{border.color.primary}",
+            "$modes": {
+              "default": "{border.color.primary}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          },
+          "checked": {
+            "default": {
+              "$type": "color",
+              "$value": "{core.color.blue-300}",
+              "$modes": {
+                "default": "{core.color.blue-300}",
+                "cds-g0": "{carbon.themes.white.borderInverse}",
+                "cds-g10": "{carbon.themes.g10.borderInverse}",
+                "cds-g90": "{carbon.themes.g90.borderInverse}",
+                "cds-g100": "{carbon.themes.g100.borderInverse}"
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{core.color.blue-400}",
+              "$modes": {
+                "default": "{core.color.blue-400}",
+                "cds-g0": "{carbon.themes.white.borderInverse}",
+                "cds-g10": "{carbon.themes.g10.borderInverse}",
+                "cds-g90": "{carbon.themes.g90.borderInverse}",
+                "cds-g100": "{carbon.themes.g100.borderInverse}"
+              }
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{border.color.primary}",
+            "$modes": {
+              "default": "{border.color.primary}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          }
+        }
+      },
+      "content-padding": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px",
+        "$modes": {
+          "default": "24",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        }
+      },
+      "control": {
+        "size": {
+          "$type": "dimension",
+          "$value": "16",
+          "unit": "px",
+          "comment": "This is the actual radio button control"
+        }
+      },
+      "control-wrapper": {
+        "surface": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{surface.color.faint}",
+              "$modes": {
+                "default": "{surface.color.faint}",
+                "cds-g0": "transparent",
+                "cds-g10": "transparent",
+                "cds-g90": "transparent",
+                "cds-g100": "transparent"
+              }
+            },
+            "checked": {
+              "$type": "color",
+              "$value": "{surface.color.action}",
+              "$modes": {
+                "default": "{surface.color.action}",
+                "cds-g0": "transparent",
+                "cds-g10": "transparent",
+                "cds-g90": "transparent",
+                "cds-g100": "transparent"
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{surface.color.interactive-disabled}",
+              "$modes": {
+                "default": "{surface.color.interactive-disabled}",
+                "cds-g0": "transparent",
+                "cds-g10": "transparent",
+                "cds-g90": "transparent",
+                "cds-g100": "transparent"
+              }
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "{border.color.primary}",
+              "$modes": {
+                "default": "{border.color.primary}",
+                "cds-g0": "{carbon.themes.white.borderSubtle02}",
+                "cds-g10": "{carbon.themes.g10.borderSubtle02}",
+                "cds-g90": "{carbon.themes.g90.borderSubtle02}",
+                "cds-g100": "{carbon.themes.g100.borderSubtle02}"
+              }
+            },
+            "checked": {
+              "$type": "color",
+              "$value": "{border.color.action}",
+              "$modes": {
+                "default": "{border.color.action}",
+                "cds-g0": "{carbon.themes.white.borderSubtle01}",
+                "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+                "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+                "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+              }
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{border.color.primary}",
+              "$modes": {
+                "default": "{border.color.primary}",
+                "cds-g0": "{carbon.color.gray.30}",
+                "cds-g10": "{carbon.color.gray.20}",
+                "cds-g90": "{carbon.color.gray.60}",
+                "cds-g100": "{carbon.color.gray.70}"
+              }
+            }
+          }
+        },
+        "padding": {
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px"
+        }
+      },
+      "description": {
+        "typography": {
+          "font-size": {
+            "$type": "font-size",
+            "$value": "{typography.body-100.font-size}",
+            "unit": "px",
+            "$modes": {
+              "default": "{typography.body-100.font-size}",
+              "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+            }
+          }
+        }
+      },
+      "label": {
+        "foreground": {
+          "color": {
+            "comment": "Note: this is 'label' text within the RadioCard, not a form label in and of itself.",
+            "$type": "color",
+            "$value": "{form.label.foreground.color}",
+            "$modes": {
+              "default": "{form.label.foreground.color}",
+              "cds-g0": "{carbon.themes.white.textSecondary}",
+              "cds-g10": "{carbon.themes.g10.textSecondary}",
+              "cds-g90": "{carbon.themes.g90.textSecondary}",
+              "cds-g100": "{carbon.themes.g100.textSecondary}"
+            }
+          }
+        },
+        "typography": {
+          "font-size": {
+            "$type": "font-size",
+            "$value": "{typography.display-300.font-size}",
+            "$modes": {
+              "default": "{typography.display-300.font-size}",
+              "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+              "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+            }
+          },
+          "font-weight": {
+            "$type": "font-weight",
+            "$value": "{typography.font-weight.bold}",
+            "$modes": {
+              "default": "{typography.font-weight.bold}",
+              "cds-g0": "{carbon.typography.font-weight.regular}",
+              "cds-g10": "{carbon.typography.font-weight.regular}",
+              "cds-g90": "{carbon.typography.font-weight.regular}",
+              "cds-g100": "{carbon.typography.font-weight.regular}"
+            }
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": 1.3333,
+            "$modes": {
+              "default": 1.3333,
+              "cds-g0": 1.2857,
+              "cds-g10": 1.2857,
+              "cds-g90": 1.2857,
+              "cds-g100": 1.2857
+            },
+            "comments": {
+              "hds": "24px",
+              "cds": "18px"
+            }
+          }
+        }
+      },
+      "transition": {
+        "duration": {
+          "$type": "duration",
+          "$value": "0.2",
+          "unit": "s"
+        }
+      }
+    }
+  }
+}
