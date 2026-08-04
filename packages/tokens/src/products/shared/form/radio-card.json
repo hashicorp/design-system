@@ -91,8 +91,8 @@
           }
         }
       },
-      "item-label": {
-        "comment": "Q: Rename this to just 'label' or 'title'?",
+      "label": {
+        "comment": "Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma",
         "color": {
           "$type": "color",
           "$value": "{form.label.foreground.color}",

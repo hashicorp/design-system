@@ -10,7 +10,6 @@
 // "BASE" CONTROL
 
 @use "../../mixins/focus-ring" as *;
-@use "../../mixins/carbonization" as *;
 
 .hds-form-radio {
   width: var(--hds-form-radio-size);

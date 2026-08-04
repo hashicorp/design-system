@@ -7,6 +7,8 @@
 // FORM > INDICATOR
 //
 
+@use "../../mixins/carbonization" as *;
+
 // Used for the 'optional' indicator
 .hds-form-indicator--optional {
   color: var(--hds-form-indicator-optional-foreground-color);
@@ -14,4 +16,43 @@
   font-size: var(--hds-form-indicator-optional-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
+
+  @include hds-apply-only-if-carbon() {
+    text-transform: lowercase;
+  }
+}
+
+// Note: this uses a Badge component so does not need HDS specfic styles for its use as an indicator
+// For Carbon themes, however, it looks like plain text visually vs. like a Badge
+.hds-form-indicator--required.hds-badge {
+  @include hds-apply-only-if-carbon() {
+    padding: 0;
+    color: var(--hds-form-indicator-optional-foreground-color);
+    font-weight: var(--hds-typography-font-weight-regular);
+    font-size: var(--hds-form-indicator-optional-typography-font-size);
+    font-family: var(--hds-typography-font-stack-text);
+    line-height: var(--hds-form-indicator-optional-typography-line-height);
+    text-transform: lowercase;
+    background-color: transparent;
+
+    .hds-badge__text {
+      // this has the effect of removing excess spaces after & before the parenthesis
+      display: flex;
+
+      &::before {
+        content: "(";
+      }
+
+      &::after {
+        content: ")";
+      }
+    }
+  }
+}
+
+// This is a space before the required Badge used in the Indicator which looks like an extra space in Carbon themes so we hide it
+.hds-form-indicator-space {
+  @include hds-apply-only-if-carbon() {
+    display: none;
+  }
 }
