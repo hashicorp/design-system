@@ -167,6 +167,12 @@ importers:
       '@hashicorp/flight-icons':
         specifier: workspace:^5.1.0
         version: link:../flight-icons
+      '@ibm/plex-mono':
+        specifier: ^1.1.0
+        version: 1.1.0
+      '@ibm/plex-sans':
+        specifier: ^1.1.0
+        version: 1.1.0
       '@lezer/highlight':
         specifier: ^1.2.1
         version: 1.2.1
@@ -3017,6 +3023,12 @@ packages:
   '@humanwhocodes/retry@0.4.2':
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
+
+  '@ibm/plex-mono@1.1.0':
+    resolution: {integrity: sha512-hpsdRxR3BRJkC6wGM4MZcUFD6C8M+mmK76RtAy/hlsfPro9FzpXVdIWC+G3jeQOXof109dxlUvmeKxpeKUG68A==}
+
+  '@ibm/plex-sans@1.1.0':
+    resolution: {integrity: sha512-WPgvO6Yfj2w5YbhyAr1tv95RUz4LRJlqN+CmYvBglabXteufP1D1E9BABMde+ZIKdRbFJDoKF5eQzfhpnbgZcQ==}
 
   '@ibm/telemetry-js@1.10.1':
     resolution: {integrity: sha512-aQcDq03BKbgNnkHujHbA950wJVHtJnY0PsMHKyxgRvr3XPgInWjDfgxJQmKIp9I8Vy2wpfe0cGmduJfIX0HewQ==}
@@ -15127,6 +15139,8 @@ snapshots:
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
       '@lezer/highlight': 1.2.1
       '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       clipboard-polyfill: 4.1.1
@@ -15182,6 +15196,8 @@ snapshots:
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
       '@lezer/highlight': 1.2.1
       '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       clipboard-polyfill: 4.1.1
@@ -15288,6 +15304,14 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.2': {}
+
+  '@ibm/plex-mono@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
 
   '@ibm/telemetry-js@1.10.1': {}
 
