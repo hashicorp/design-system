@@ -29,7 +29,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     grid-template-columns: 1fr auto;
     align-items: center;
     max-width: 100%;
-    min-height: var(--hds-form-super-select-height);
+    min-height: var(--hds-form-control-height);
     padding-top: 4px;
     padding-right: calc(var(--hds-form-control-padding-horizontal) + 21px); // extra space for the icon
     padding-bottom: 4px;
@@ -489,9 +489,13 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     .ember-power-select-option--loading-message
   ) {
     background-repeat: no-repeat;
-    background-position: var(--hds-form-super-select-option-background-image-position);
+    background-position: top 10px left 15px;
     background-size: var(--hds-form-super-select-option-background-image-size)
       var(--hds-form-super-select-option-background-image-size);
+
+    @include hds-apply-only-if-carbon() {
+      background-position: top 16px right 24px;
+    }
 
     // Checked
     &[aria-selected="true"]:not([aria-disabled="true"]) {
