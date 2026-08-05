@@ -273,6 +273,27 @@ export default class HdsAdvancedTable<
       this.showScrollIndicatorRight = element.clientWidth < element.scrollWidth;
     };
 
+    const updateBottomScrollIndicator = () => {
+      // when hasReorderableColumns is true, the reorder handles are absolutely
+      // positioned with translateY(50%), which causes them to overflow the
+      // header's bottom edge by half their height, inflating scrollHeight even
+      // when there is no actual scrollable content. visibility:hidden means
+      // getBoundingClientRect() returns zeros at mount time, so we use
+      // offsetHeight / 2 instead.
+      let reorderHandleOverflow = 0;
+      if (this.args.hasReorderableColumns) {
+        const firstHandle = this._theadElement?.querySelector(
+          '.hds-advanced-table__th-reorder-handle'
+        ) as HTMLElement;
+        if (firstHandle) {
+          reorderHandleOverflow = firstHandle.offsetHeight / 2;
+        }
+      }
+
+      this.showScrollIndicatorBottom =
+        element.scrollHeight - reorderHandleOverflow - element.clientHeight > 0;
+    };
+
     this._scrollHandler = () => {
       this._updateScrollIndicators(element);
     };
@@ -380,6 +401,7 @@ export default class HdsAdvancedTable<
       entries.forEach(() => {
         updateMeasurements();
         updateHorizontalScrollIndicators();
+        updateBottomScrollIndicator();
       });
     });
 
@@ -391,9 +413,7 @@ export default class HdsAdvancedTable<
     updateHorizontalScrollIndicators();
 
     // on render check if should show bottom scroll indicator
-    if (element.clientHeight < element.scrollHeight) {
-      this.showScrollIndicatorBottom = true;
-    }
+    updateBottomScrollIndicator();
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
