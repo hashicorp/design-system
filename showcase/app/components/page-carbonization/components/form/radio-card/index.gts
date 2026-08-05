@@ -101,7 +101,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
         <ShwCarbonizationComparisonGrid @label={{capitalize state}}>
           <:theming>
             <ShwFlex @direction="column" as |SF|>
-              <SF.Item @label="Unselected">
+              <SF.Item @label="Not checked">
                 <div mock-state-value={{state}} mock-state-selector="label">
                   <HdsFormRadioCard as |R|>
                     <R.Icon @name="hexagon" />
@@ -111,7 +111,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
                 </div>
               </SF.Item>
 
-              <SF.Item @label="Selected">
+              <SF.Item @label="Checked">
                 <div mock-state-value={{state}} mock-state-selector="label">
                   <HdsFormRadioCard @checked={{true}} as |R|>
                     <R.Icon @name="hexagon" />
@@ -145,7 +145,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
         >
           <:theming>
             <ShwFlex @direction="column" as |SF|>
-              <SF.Item @label="Unselected">
+              <SF.Item @label="Not checked">
                 <div mock-state-value={{state}} mock-state-selector="label">
                   <HdsFormRadioCard @disabled={{true}} as |R|>
                     <R.Icon @name="hexagon" />
@@ -155,7 +155,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
                 </div>
               </SF.Item>
 
-              <SF.Item @label="Selected">
+              <SF.Item @label="Checked">
                 <div mock-state-value={{state}} mock-state-selector="label">
                   <HdsFormRadioCard @disabled={{true}} @checked={{true}} as |R|>
                     <R.Icon @name="hexagon" />
