@@ -473,13 +473,13 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   test('`Tab` should render an icon with the correct color if @iconColor is declared with a custom CSS color token', async function (assert) {
     await createTabs({
       iconTab1: 'waypoint',
-      iconColorTab1: 'var(--token-color-waypoint-brand)',
+      iconColorTab1: 'var(--hds-product-waypoint-brand-color)',
     });
     assert.dom('.hds-tabs__tab-icon').exists();
     assert
       .dom('.hds-tabs__tab-icon')
       .hasAttribute('data-test-icon', 'waypoint')
-      .hasAttribute('fill', 'var(--token-color-waypoint-brand)');
+      .hasAttribute('fill', 'var(--hds-product-waypoint-brand-color)');
   });
 
   test('`Tab` should render an icon with accessible text if @iconTitle is defined', async function (assert) {

@@ -51,7 +51,7 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
     );
     assert
       .dom('#test-segmented-group')
-      .hasStyle({ '--hds-segmented-group-max-width': '400px' });
+      .hasStyle({ '--hds-var-segmented-group-max-width': '400px' });
   });
 
   test('it should not set the max-width CSS custom property by default', async function (assert) {
