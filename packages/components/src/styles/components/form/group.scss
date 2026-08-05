@@ -37,7 +37,7 @@
   }
 
   .hds-form-group__control-field + .hds-form-group__control-field {
-    margin-top: 6px;
+    margin-top: var(--hds-form-group-control-field-margin-top);
   }
 }
 

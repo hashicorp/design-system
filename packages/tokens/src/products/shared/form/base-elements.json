@@ -64,6 +64,24 @@
         }
       }
     },
+    "group": {
+      "control-field": {
+        "margin": {
+          "top": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px",
+            "$modes": {
+              "default": "12",
+              "cds-g0": "8",
+              "cds-g10": "8",
+              "cds-g90": "8",
+              "cds-g100": "8"
+            }
+          }
+        }
+      }
+    },
     "label": {
       "color": {
         "$type": "color",
