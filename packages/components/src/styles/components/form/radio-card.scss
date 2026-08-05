@@ -84,7 +84,7 @@
   // note: using full class name so it overrides the :hover styles
   &.hds-form-radio-card--disabled {
     background-color: var(--hds-form-radio-card-surface-color-disabled);
-    border-color: var(--hds-border-color-primary);
+    border-color: var(--hds-form-radio-card-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
 
@@ -99,7 +99,7 @@
 
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-border-color-primary);
+      border-color: var(--hds-form-radio-card-border-color-disabled);
     }
   }
 }
