@@ -758,6 +758,60 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('a resized column keeps the table filling its container when the container shrinks', async function (assert) {
+      const context = new TrackedObject({ width: '1000px' });
+
+      await render(
+        <template>
+          <div id="shrink-container" {{style width=context.width}}>
+            <HdsAdvancedTable
+              id="shrink-table"
+              @columns={{array
+                (hash key="name" label="Name")
+                (hash key="type" label="Type")
+                (hash key="status" label="Status")
+              }}
+              @model={{array
+                (hash name="Alpha" type="One" status="Active")
+                (hash name="Beta" type="Two" status="Inactive")
+              }}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "name"}}</B.Td>
+                  <B.Td>{{get B.data "type"}}</B.Td>
+                  <B.Td>{{get B.data "status"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      const handle = findOrThrow(
+        '#shrink-table .hds-advanced-table__th-resize-handle',
+      );
+      await simulateRightPointerDrag(handle);
+      await waitForLayout();
+
+      // 600px leaves room for all three columns above the 150px default
+      // minimum, so nothing is clamped and the table can still fit exactly
+      context.width = '600px';
+      await settled();
+      await waitForLayout();
+
+      const table = findOrThrow('#shrink-table');
+      const container = findOrThrow('#shrink-container');
+
+      assert.ok(
+        Math.abs(table.offsetWidth - container.offsetWidth) <= 1,
+        `table still fits its container after it shrinks (table=${table.offsetWidth}, container=${container.offsetWidth})`,
+      );
+    });
+
     test('resizing chains across columns when a neighbor reaches its minimum width', async function (assert) {
       // four columns at ~250px each (min 150): dragging 300px is more than any
       // single neighbor can give up, so the change must chain across the columns
