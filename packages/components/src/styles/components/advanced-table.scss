@@ -690,7 +690,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
     font-weight: var(--hds-typography-font-weight-regular);
     font-size: var(--hds-typography-body-200-font-size);
     font-family: var(--hds-typography-body-200-font-family);
-    line-height: var(--hds-typography-body-200-line-height);
+    line-height: var(--hds-advanced-table-cell-line-height);
     text-align: left;
     background-color: var(--hds-advanced-table-cell-surface-color-default);
 

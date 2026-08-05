@@ -186,6 +186,7 @@ $hds-table-densities: ("short", "medium", "tall");
 
     .hds-table__th,
     .hds-table__td {
+      line-height: var(--hds-table-cell-line-height);
       border-bottom: var(--hds-table-row-border-width) solid var(--hds-table-row-border-color-default);
     }
 
