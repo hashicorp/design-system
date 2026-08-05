@@ -20,9 +20,9 @@ const htmlPreviewIcon = ({ html, iconName }) => html`
 const htmlPreviewToken = ({ html, tokenName, tokenValue, tokenType }) => {
   let style = '';
   let content = '';
-  if (tokenName.match(/^token-typography/)) {
+  if (tokenName.match(/^hds-typography/)) {
     content = 'Aa';
-  } else if (tokenType === 'color' || tokenName.match(/^token-color/)) {
+  } else if (tokenType === 'color' || tokenName.match(/^hds-color/)) {
     style = `background-color: ${tokenValue}`;
   } else {
     content = 'T';
