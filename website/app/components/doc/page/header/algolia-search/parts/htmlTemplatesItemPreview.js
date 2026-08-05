@@ -12,7 +12,7 @@ const htmlPreviewIcon = ({ html, iconName }) => html`
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <use href="#flight-${iconName}-24"></use>
+      <use href="#hds-icon-flight-${iconName}-24"></use>
     </svg>
   </div>
 `;
