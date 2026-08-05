@@ -20,7 +20,7 @@
       $external-outline-width: var(--hds-link-inline-outline-width),
       $external-outline-color: var(--hds-link-inline-outline-color),
       // we want the focus ring to extend a bit around the content
-      $external-outline-offset: 1px,
+      $external-outline-offset-hds: 1px,
       $has-internal-border: false
     );
     text-decoration: none;

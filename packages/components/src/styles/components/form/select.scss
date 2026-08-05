@@ -55,11 +55,7 @@
   &:focus-visible,
   &.mock-focus {
     @include hds-form-control-border(var(--hds-focus-color-action-internal));
-    @include hds-focus-ring-basic();
-
-    @include hds-apply-only-if-carbon() {
-      outline-offset: -2px;
-    }
+    @include hds-focus-ring-basic($external-outline-offset-cds: -2px);
   }
 
   // DISABLED

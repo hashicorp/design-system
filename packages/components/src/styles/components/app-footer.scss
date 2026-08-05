@@ -97,7 +97,7 @@ $hds-app-footer-icon-text-gap: 6px;
       $external-outline-width: var(--hds-app-footer-link-focus-outline-width),
       $external-outline-color: var(--app-footer-link-outline-color),
       // we want the focus ring to extend a bit around the content
-      $external-outline-offset: 1px,
+      $external-outline-offset-hds: 1px,
       $has-internal-border: false
     );
     color: var(--app-footer-link-foreground-color-focus);

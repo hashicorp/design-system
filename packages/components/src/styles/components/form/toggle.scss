@@ -176,7 +176,7 @@
   :focus + &,
   .mock-focus + & {
     &::before {
-      @include hds-focus-ring-basic($external-outline-offset: 1px, $has-internal-border: false);
+      @include hds-focus-ring-basic($external-outline-offset-hds: 1px, $has-internal-border: false);
     }
   }
 

@@ -12,13 +12,20 @@
 @mixin hds-focus-ring-basic(
   $external-outline-width: var(--hds-focus-ring-width-external),
   $external-outline-color: var(--hds-focus-color-action-external),
-  $external-outline-offset: 0,
+  $external-outline-offset-hds: 0,
+  $external-outline-offset-cds: 0,
   $has-internal-border: true,
   $internal-border-color-hds: var(--hds-focus-color-action-internal),
   $internal-border-color-cds: transparent
 ) {
   outline: $external-outline-width solid $external-outline-color;
-  outline-offset: $external-outline-offset;
+  outline-offset: $external-outline-offset-hds;
+
+  @if $external-outline-offset-cds != $external-outline-offset-hds {
+    @include hds-apply-only-if-carbon() {
+      outline-offset: $external-outline-offset-cds;
+    }
+  }
 
   @if $has-internal-border and $internal-border-color-hds != false {
     border-color: $internal-border-color-hds;

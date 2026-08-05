@@ -147,7 +147,7 @@ $hds-code-block-code-footer-height: 48px;
   &.mock-focus {
     @include hds-focus-ring-basic(
       // we want the outline to be inside the element, or it will be cut out by the `overflow` of the parent
-      $external-outline-offset: calc(-1 * var(--hds-focus-ring-width-external)),
+      $external-outline-offset-hds: calc(-1 * var(--hds-focus-ring-width-external)),
       $has-internal-border: false
     );
   }
