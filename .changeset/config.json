@@ -13,6 +13,7 @@
     "updateInternalDependents": "always"
   },
   "ignore": ["showcase", "website"],
+  "privatePackages": { "version": true, "tag": false },
   "snapshot": {
     "useCalculatedVersion": true
   }
