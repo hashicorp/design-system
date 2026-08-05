@@ -17,7 +17,6 @@
             "default": {
               "$type": "color",
               "$value": "{surface.color.strong}",
-              "group": "components",
               "comment": "the toggle has a different base surface color, compared to the other controls",
               "$modes": {
                 "default": "{surface.color.strong}",
@@ -30,7 +29,6 @@
             "disabled": {
               "$type": "color",
               "$value": "{surface.color.interactive-disabled}",
-              "group": "components",
               "$modes": {
                 "default": "{surface.color.interactive-disabled}",
                 "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
@@ -43,7 +41,6 @@
               "default": {
                 "$type": "color",
                 "$value": "{core.color.blue-200}",
-                "group": "components",
                 "$modes": {
                   "default": "{core.color.blue-200}",
                   "cds-g0": "{carbon.themes.white.supportSuccess}",
@@ -55,7 +52,6 @@
               "hover": {
                 "$type": "color",
                 "$value": "{core.color.blue-300}",
-                "group": "components",
                 "$modes": {
                   "default": "{core.color.blue-300}",
                   "cds-g0": "{carbon.themes.white.supportSuccess}",
@@ -120,7 +116,6 @@
             "default": {
               "$type": "color",
               "$value": "{surface.color.interactive}",
-              "group": "components",
               "$modes": {
                 "default": "{surface.color.interactive}",
                 "cds-g0": "{carbon.themes.white.iconOnColor}",
@@ -132,7 +127,6 @@
             "disabled": {
               "$type": "color",
               "$value": "{surface.color.interactive-disabled}",
-              "group": "components",
               "$modes": {
                 "default": "{surface.color.interactive-disabled}",
                 "cds-g0": "{carbon.themes.white.iconOnColorDisabled}",

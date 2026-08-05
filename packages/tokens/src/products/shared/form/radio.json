@@ -23,15 +23,7 @@
       "background-image": {
         "size": {
           "$type": "dimension",
-          "$value": "{form.radio.size}",
-          "unit": "px",
-          "$modes": {
-            "default": "{form.radio.size}",
-            "cds-g0": "{form.radio.size}",
-            "cds-g10": "{form.radio.size}",
-            "cds-g90": "{form.radio.size}",
-            "cds-g100": "{form.radio.size}"
-          }
+          "$value": "{form.radio.size}"
         },
         "data-url": {
           "$value": "url(\"data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e\")",

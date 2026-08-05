@@ -39,15 +39,17 @@
           }
         }
       },
-      "surface-color": {
-        "hover": {
-          "$value": "{form.control.base.surface.color.default}",
-          "$modes": {
-            "default": "{form.control.base.surface.color.default}",
-            "cds-g0": "{carbon.themes.white.layerHover01}",
-            "cds-g10": "{carbon.themes.g10.layerHover01}",
-            "cds-g90": "{carbon.themes.g90.layerHover01}",
-            "cds-g100": "{carbon.themes.g100.layerHover01}"
+      "surface": {
+        "color": {
+          "hover": {
+            "$value": "{form.control.base.surface.color.default}",
+            "$modes": {
+              "default": "{form.control.base.surface.color.default}",
+              "cds-g0": "{carbon.themes.white.layerHover01}",
+              "cds-g10": "{carbon.themes.g10.layerHover01}",
+              "cds-g90": "{carbon.themes.g90.layerHover01}",
+              "cds-g100": "{carbon.themes.g100.layerHover01}"
+            }
           }
         }
       },

@@ -7,9 +7,6 @@
 // FORM > FILE-INPUT
 //
 
-// Note: There is a linting issue with a return after the `+` operator in the `padding-left` property of
-// the `::file-selector-button` selector. We need to disable the rule for the entire file in this case
-
 @use "../../mixins/button" as *;
 @use "../../mixins/focus-ring" as *;
 @use "../../mixins/carbonization" as *;

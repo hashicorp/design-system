@@ -211,10 +211,10 @@
         "typography": {
           "font-size": {
             "$type": "font-size",
-            "$value": "13",
+            "$value": "{typography.body-100.font-size}",
             "unit": "px",
             "$modes": {
-              "default": "13",
+              "default": "{typography.body-100.font-size}",
               "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
               "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
               "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
@@ -241,10 +241,10 @@
         "typography": {
           "font-size": {
             "$type": "font-size",
-            "$value": "18",
+            "$value": "{typography.display-300.font-size}",
             "unit": "px",
             "$modes": {
-              "default": "18",
+              "default": "{typography.display-300.font-size}",
               "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
               "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
               "cds-g90": "{carbon.typography.bodyCompact01.font-size}",

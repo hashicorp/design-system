@@ -161,7 +161,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
   .ember-power-select-options {
     padding: 3px 0;
     background-color: var(--hds-form-control-base-surface-color-default);
-    border-radius: inherit;
+    border-radius: inherit; // prevents corners appearing cut off
 
     @include hds-apply-only-if-carbon() {
       padding: 0;
@@ -191,11 +191,9 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     }
 
     + .ember-power-select-option {
-      margin-top: 8px;
+      margin-top: var(--hds-form-super-select-option-margin-top);
 
       @include hds-apply-only-if-carbon() {
-        margin-top: 0; // remove spacing between items
-
         .hds-form-super-select__option-text {
           border-top: 1px solid var(--hds-form-super-select-option-border-color);
         }

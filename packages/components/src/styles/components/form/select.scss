@@ -101,7 +101,8 @@
     // Note: Select multiple/size has borders on all sides unlike the single select
     border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
 
-    &:hover {
+    &:hover,
+    &.mock-hover {
       border-color: var(--hds-form-control-base-border-color-hover);
     }
 
