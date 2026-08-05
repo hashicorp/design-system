@@ -10,8 +10,7 @@
     "radio-card": {
       "surface": {
         "color": {
-          "active": {
-            "comment": "TODO: Carbon background colors are incorrect. Tried to make same value as Figma variable but looks wrong",
+          "hover": {
             "$type": "color",
             "$value": "{surface.color.primary}",
             "$modes": {
@@ -79,17 +78,6 @@
                 "cds-g10": "{carbon.themes.g10.borderInverse}",
                 "cds-g90": "{carbon.themes.g90.borderInverse}",
                 "cds-g100": "{carbon.themes.g100.borderInverse}"
-              }
-            },
-            "disabled": {
-              "$type": "color",
-              "$value": "",
-              "$modes": {
-                "default": "",
-                "cds-g0": "{carbon.themes.white.borderDisabled}",
-                "cds-g10": "{carbon.themes.g10.borderDisabled}",
-                "cds-g90": "{carbon.themes.g90.borderDisabled}",
-                "cds-g100": "{carbon.themes.g100.borderDisabled}"
               }
             }
           },
@@ -177,7 +165,7 @@
                 "cds-g100": "{carbon.themes.g100.borderSubtle02}"
               }
             },
-            "action": {
+            "checked": {
               "$type": "color",
               "$value": "{border.color.action}",
               "$modes": {

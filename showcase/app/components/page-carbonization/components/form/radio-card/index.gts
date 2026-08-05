@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
-import { eq } from 'ember-truth-helpers';
+import { array } from '@ember/helper';
 import { on } from '@ember/modifier';
 import HexagonSolid24 from '@carbon/icons/es/hexagon--solid/24.js';
 
@@ -34,7 +34,7 @@ import {
 
 import { LAYOUT_TYPES } from '@hashicorp/design-system-components/components/hds/form/fieldset/index';
 
-const STATES = ['default', 'hover', 'focus', 'disabled'];
+const STATES = ['default', 'hover', 'focus'];
 
 export interface CdsRadioTileContentSignature {
   Args: {
@@ -101,12 +101,9 @@ export default class FormRadioCardCarbonizationIndex extends Component {
         <ShwCarbonizationComparisonGrid @label={{capitalize state}}>
           <:theming>
             <ShwFlex @direction="column" as |SF|>
-              <SF.Item @label="Not checked">
-                <div
-                  mock-state-value={{unless (eq state "disabled") state}}
-                  mock-state-selector="label"
-                >
-                  <HdsFormRadioCard @disabled={{eq state "disabled"}} as |R|>
+              <SF.Item @label="Unselected">
+                <div mock-state-value={{state}} mock-state-selector="label">
+                  <HdsFormRadioCard as |R|>
                     <R.Icon @name="hexagon" />
                     <R.Label>Label</R.Label>
                     <R.Description>Description</R.Description>
@@ -114,16 +111,9 @@ export default class FormRadioCardCarbonizationIndex extends Component {
                 </div>
               </SF.Item>
 
-              <SF.Item @label="Checked">
-                <div
-                  mock-state-value={{unless (eq state "disabled") state}}
-                  mock-state-selector="label"
-                >
-                  <HdsFormRadioCard
-                    @disabled={{eq state "disabled"}}
-                    @checked={{true}}
-                    as |R|
-                  >
+              <SF.Item @label="Selected">
+                <div mock-state-value={{state}} mock-state-selector="label">
+                  <HdsFormRadioCard @checked={{true}} as |R|>
                     <R.Icon @name="hexagon" />
                     <R.Label>Label</R.Label>
                     <R.Description>Description</R.Description>
@@ -134,14 +124,58 @@ export default class FormRadioCardCarbonizationIndex extends Component {
           </:theming>
           <:reference>
             <ShwFlex @direction="column" as |SF|>
-              <SF.Item @label="Not checked">
-                <cds-radio-tile disabled={{eq state "disabled"}}>
+              <SF.Item>
+                <cds-radio-tile>
                   <CdsRadioTileContent @showIcon={{true}} />
                 </cds-radio-tile>
               </SF.Item>
 
-              <SF.Item @label="Checked">
-                <cds-radio-tile selected="" disabled={{eq state "disabled"}}>
+              <SF.Item>
+                <cds-radio-tile selected>
+                  <CdsRadioTileContent @showIcon={{true}} />
+                </cds-radio-tile>
+              </SF.Item>
+            </ShwFlex>
+          </:reference>
+        </ShwCarbonizationComparisonGrid>
+      {{/each}}
+      {{#each (array "default" "hover") as |state|}}
+        <ShwCarbonizationComparisonGrid
+          @label="Disabled / {{capitalize state}}"
+        >
+          <:theming>
+            <ShwFlex @direction="column" as |SF|>
+              <SF.Item @label="Unselected">
+                <div mock-state-value={{state}} mock-state-selector="label">
+                  <HdsFormRadioCard @disabled={{true}} as |R|>
+                    <R.Icon @name="hexagon" />
+                    <R.Label>Label</R.Label>
+                    <R.Description>Description</R.Description>
+                  </HdsFormRadioCard>
+                </div>
+              </SF.Item>
+
+              <SF.Item @label="Selected">
+                <div mock-state-value={{state}} mock-state-selector="label">
+                  <HdsFormRadioCard @disabled={{true}} @checked={{true}} as |R|>
+                    <R.Icon @name="hexagon" />
+                    <R.Label>Label</R.Label>
+                    <R.Description>Description</R.Description>
+                  </HdsFormRadioCard>
+                </div>
+              </SF.Item>
+            </ShwFlex>
+          </:theming>
+          <:reference>
+            <ShwFlex @direction="column" as |SF|>
+              <SF.Item>
+                <cds-radio-tile disabled>
+                  <CdsRadioTileContent @showIcon={{true}} />
+                </cds-radio-tile>
+              </SF.Item>
+
+              <SF.Item>
+                <cds-radio-tile selected disabled>
                   <CdsRadioTileContent @showIcon={{true}} />
                 </cds-radio-tile>
               </SF.Item>

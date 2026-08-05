@@ -39,8 +39,7 @@
 .hds-form-radio-card {
   display: flex;
   flex-direction: column;
-  // variable/token naming reflects: "active" vs. "disabled"
-  background-color: var(--hds-form-radio-card-surface-color-active);
+  background-color: var(--hds-surface-color-primary);
   border: var(--hds-form-radio-card-border-width) solid var(--hds-form-radio-card-border-color-default);
   border-radius: var(--hds-form-radio-card-border-radius);
   box-shadow: var(--hds-elevation-mid-box-shadow);
@@ -55,6 +54,7 @@
 
   &:hover,
   &.mock-hover {
+    background-color: var(--hds-form-radio-card-surface-color-hover);
     box-shadow: var(--hds-elevation-high-box-shadow);
     transition: var(--hds-form-radio-card-transition-duration);
   }
@@ -72,12 +72,11 @@
 
     .hds-form-radio-card__control-wrapper {
       background-color: var(--hds-form-radio-card-control-wrapper-surface-color-checked);
-      border-color: var(--hds-form-radio-card-control-wrapper-border-color-action);
+      border-color: var(--hds-form-radio-card-control-wrapper-border-color-checked);
     }
 
     &:hover,
     &.mock-hover {
-      // border-color: var(--hds-core-color-blue-400);
       border-color: var(--hds-form-radio-card-border-color-checked-hover);
     }
   }
@@ -85,13 +84,13 @@
   // note: using full class name so it overrides the :hover styles
   &.hds-form-radio-card--disabled {
     background-color: var(--hds-form-radio-card-surface-color-disabled);
-    border-color: var(--hds-form-radio-card-border-color-disabled);
+    border-color: var(--hds-border-color-primary);
     box-shadow: none;
     cursor: not-allowed;
 
     .hds-form-radio-card__control-wrapper {
       background-color: var(--hds-form-radio-card-control-wrapper-surface-color-disabled);
-      border-color: var(--hds-form-radio-card-control-wrapper-border-color-action);
+      border-color: var(--hds-form-radio-card-control-wrapper-border-color-disabled);
     }
 
     .hds-form-radio-card__content {
@@ -100,7 +99,7 @@
 
     &:hover,
     &.mock-hover {
-      border-color: var(--hds-form-radio-card-border-color-hover);
+      border-color: var(--hds-border-color-primary);
     }
   }
 }
