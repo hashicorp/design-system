@@ -301,11 +301,16 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
       }
 
       if (entry.frMultiplier !== undefined && pxPerFrUnit > 0) {
-        // 6 decimals keeps the committed track within a thousandth of a pixel of
-        // the transient one, so there is no visible jump when the gesture ends
-        const weight = Math.round((entry.pixelWidth / pxPerFrUnit) * 1e6) / 1e6;
+        const weight = Math.max(
+          0,
+          entry.frMultiplier +
+            (entry.pixelWidth - entry.startPixelWidth) / pxPerFrUnit
+        );
 
-        this._columnWidths.set(entry.key, `${weight}fr`);
+        this._columnWidths.set(
+          entry.key,
+          `${Math.round(weight * 1e6) / 1e6}fr`
+        );
       } else {
         this._columnWidths.set(entry.key, `${Math.round(entry.pixelWidth)}px`);
       }
@@ -314,28 +319,20 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
 
   private _resolvePxPerFrUnit(
     entries: {
-      pixelWidth: number;
       startPixelWidth: number;
       frMultiplier: number | undefined;
-      hasMoved: boolean;
     }[]
   ): number {
     const flexible = entries.filter(
       (entry) => entry.frMultiplier !== undefined && entry.frMultiplier > 0
     );
 
-    const anchor = flexible.find((entry) => !entry.hasMoved);
-
-    if (anchor !== undefined) {
-      return anchor.startPixelWidth / (anchor.frMultiplier ?? 1);
-    }
-
     const totalWeight = flexible.reduce(
       (sum, entry) => sum + (entry.frMultiplier ?? 0),
       0
     );
     const totalPixels = flexible.reduce(
-      (sum, entry) => sum + entry.pixelWidth,
+      (sum, entry) => sum + entry.startPixelWidth,
       0
     );
 

@@ -810,6 +810,73 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('repeated keyboard resizes leave the untouched columns alone', async function (assert) {
+      await render(
+        <template>
+          <div {{style width="1000px"}}>
+            <HdsAdvancedTable
+              id="kbd-table"
+              @columns={{array
+                (hash key="a" label="A")
+                (hash key="b" label="B")
+                (hash key="c" label="C")
+                (hash key="d" label="D")
+              }}
+              @model={{array
+                (hash a="a1" b="b1" c="c1" d="d1")
+                (hash a="a2" b="b2" c="c2" d="d2")
+              }}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                  <B.Td>{{get B.data "c"}}</B.Td>
+                  <B.Td>{{get B.data "d"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      const startFirst = columnWidth('#kbd-table', 0);
+
+      // the handle on column B's right edge, so column A sits outside the
+      // gesture entirely. columns to its RIGHT are expected to move — they
+      // cascade once column C reaches its minimum — but column A must not.
+      const handle = findAtOrThrow(
+        '#kbd-table .hds-advanced-table__th-resize-handle',
+        1,
+      );
+
+      await focus(handle);
+
+      // each keypress is a full begin/commit cycle, so any per-commit error
+      // compounds; twelve of them make a sub-pixel drift plainly visible
+      const trace: number[] = [];
+
+      for (let index = 0; index < 12; index++) {
+        await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
+        await waitForLayout();
+
+        trace.push(columnWidth('#kbd-table', 0));
+      }
+
+      assert.strictEqual(
+        columnWidth('#kbd-table', 0),
+        startFirst,
+        `the column left of the boundary never moved (trace ${JSON.stringify(trace)})`,
+      );
+      assert.ok(
+        columnWidth('#kbd-table', 1) > startFirst,
+        'the resized column actually grew',
+      );
+    });
+
     test('the resize handle exposes accurate aria values after a resize', async function (assert) {
       await createResizableTable({});
 
