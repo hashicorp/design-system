@@ -95,22 +95,10 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     let style = isSelectable ? 'min-content ' : '';
 
     for (const col of orderedColumns) {
-      style += ` ${this._getColumnTrackSize(col)}`;
+      style += ` ${this.getAppliedWidth(col.key)}`;
     }
 
     return style;
-  }
-
-  private _getColumnTrackSize(col: HdsAdvancedTableNormalizedColumn): string {
-    const appliedWidth = this.getAppliedWidth(col.key) ?? DEFAULT_WIDTH;
-
-    if (this._parseFrMultiplier(appliedWidth) !== undefined) {
-      const minWidth = col.minWidth ?? DEFAULT_MIN_WIDTH;
-
-      return `minmax(${minWidth}, ${appliedWidth})`;
-    }
-
-    return appliedWidth;
   }
 
   getAppliedWidth = (

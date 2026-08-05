@@ -812,6 +812,44 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
+    test('a flexible column keeps its content width when the table overflows', async function (assert) {
+      await render(
+        <template>
+          <div {{style width="500px"}}>
+            <HdsAdvancedTable
+              id="of-table"
+              @columns={{array
+                (hash key="a" label="A" width="300px")
+                (hash key="b" label="B" width="300px")
+                (hash key="c" label="C")
+              }}
+              @model={{array
+                (hash a="a1" b="b1" c="/var/log/boundary_session.log")
+              }}
+              @hasResizableColumns={{true}}
+            >
+              <:body as |B|>
+                <B.Tr>
+                  <B.Td>{{get B.data "a"}}</B.Td>
+                  <B.Td>{{get B.data "b"}}</B.Td>
+                  <B.Td>{{get B.data "c"}}</B.Td>
+                </B.Tr>
+              </:body>
+            </HdsAdvancedTable>
+          </div>
+        </template>,
+      );
+
+      await waitForLayout();
+
+      const flexible = columnWidth('#of-table', 2);
+
+      assert.ok(
+        flexible > 160,
+        `flexible column kept its content width instead of collapsing to the 150px minimum (actual ${flexible})`,
+      );
+    });
+
     test('resizing chains across columns when a neighbor reaches its minimum width', async function (assert) {
       // four columns at ~250px each (min 150): dragging 300px is more than any
       // single neighbor can give up, so the change must chain across the columns
