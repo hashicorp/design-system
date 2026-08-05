@@ -353,8 +353,8 @@
         "color": {
           "start": {
             "$type": "color",
-            "$value": "transparent",
-            "comment": "Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0"
+            "$value": "{foreground.color.primary}",
+            "alpha": "0"
           },
           "stop": {
             "$type": "color",
@@ -418,10 +418,7 @@
           "$value": "#CCE3FE",
           "alpha": "0.5",
           "$modes": {
-            "default": {
-              "$value": "#CCE3FE",
-              "alpha": "0.5"
-            },
+            "default": "#CCE3FE",
             "cds-g0": {
               "$value": "#0F62FE",
               "alpha": "0.2"
