@@ -64,6 +64,7 @@ export default class HdsFormSuperSelectSingleField extends Component<HdsFormSupe
           @disabled={{@disabled}}
           @dropdownClass={{@dropdownClass}}
           @dropdownMaxWidth={{@dropdownMaxWidth}}
+          @width={{@width}}
           @extra={{@extra}}
           @groupComponent={{@groupComponent}}
           @horizontalPosition={{@horizontalPosition}}

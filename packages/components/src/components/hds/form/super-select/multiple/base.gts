@@ -38,6 +38,7 @@ export interface HdsFormSuperSelectMultipleBaseSignature {
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
+    width?: string;
   };
   Blocks: PowerSelectSignature['Blocks'];
   Element: PowerSelectSignature['Element'];
@@ -147,6 +148,10 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     if (this.args.dropdownMaxWidth) {
       styles['--hds-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
+    }
+
+    if (this.args.width) {
+      styles['--hds-form-super-select-width'] = this.args.width;
     }
 
     if (this.selectedCount === '0') {

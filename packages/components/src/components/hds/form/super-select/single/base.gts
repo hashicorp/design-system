@@ -40,6 +40,7 @@ export interface HdsFormSuperSelectSingleBaseSignature {
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
+    width?: string;
   };
   Blocks: PowerSelectSignature['Blocks'];
   Element: PowerSelectSignature['Element'];
@@ -114,13 +115,16 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     return this.args.searchPlaceholder ?? 'Search';
   }
 
-  get dropdownMaxWidthStyle(): Record<string, string> {
-    const maxWidthStyle: { [key: string]: string } = {};
+  get styles(): Record<string, string> {
+    const styles: { [key: string]: string } = {};
     if (this.args.dropdownMaxWidth) {
-      maxWidthStyle['--hds-form-super-select-dropdown-max-width'] =
+      styles['--hds-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
     }
-    return maxWidthStyle;
+    if (this.args.width) {
+      styles['--hds-form-super-select-width'] = this.args.width;
+    }
+    return styles;
   }
 
   get classNames(): string {
@@ -141,7 +145,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
 
   <template>
     {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
-    <div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
+    <div class={{this.classNames}} {{style this.styles}}>
       <PowerSelect
         @afterOptionsComponent={{if
           this.showAfterOptions

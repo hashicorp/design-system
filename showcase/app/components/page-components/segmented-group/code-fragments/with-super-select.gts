@@ -56,6 +56,7 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
           @selected={{this.selectedValues}}
           @onChange={{this.setSelectedValues}}
           @placeholder="Select services"
+          @width="300px"
           @ariaLabel={{concat
             "segmented-super-select-multiple-"
             @position
@@ -71,6 +72,7 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
           @selected={{this.selectedValue}}
           @onChange={{this.setSelectedValue}}
           @placeholder="Select service"
+          @width="300px"
           @ariaLabel={{concat
             "segmented-super-select-single-"
             @position

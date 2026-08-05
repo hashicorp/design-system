@@ -6,6 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { capitalize } from '@ember/string';
 import { concat } from '@ember/helper';
 
+import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwGrid from 'showcase/components/shw/grid';
@@ -343,6 +344,11 @@ const SubSectionContent: TemplateOnlyComponent = <template>
   <ShwDivider @level={{2}} />
 
   <ShwTextH3>SuperSelect</ShwTextH3>
+
+  <ShwTextBody>
+    Note: all of the SuperSelects have
+    <code>@width="300px"</code>.
+  </ShwTextBody>
 
   <ShwGrid @columns={{3}} as |SG|>
     <SG.Item @label="SuperSelect trailing">

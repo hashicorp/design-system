@@ -63,6 +63,7 @@ export default class HdsFormSuperSelectMultipleField extends Component<HdsFormSu
           @disabled={{@disabled}}
           @dropdownClass={{@dropdownClass}}
           @dropdownMaxWidth={{@dropdownMaxWidth}}
+          @width={{@width}}
           @extra={{@extra}}
           @groupComponent={{@groupComponent}}
           @horizontalPosition={{@horizontalPosition}}
