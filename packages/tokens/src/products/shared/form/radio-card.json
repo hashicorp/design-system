@@ -224,18 +224,19 @@
         }
       },
       "label": {
-        "comment": "Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma",
-        "color": {
-          "$type": "color",
-          "$value": "{form.label.foreground.color}",
-          "$modes": {
-            "default": "{form.label.foreground.color}",
-            "cds-g0": "{foreground.color.strong}",
-            "cds-g10": "{foreground.color.strong}",
-            "cds-g90": "{foreground.color.strong}",
-            "cds-g100": "{foreground.color.strong}"
-          },
-          "comment": "Issue: this color is the same as the Description color. Is there another variable to use or dos it need to be hard-coded for carbon?"
+        "foreground": {
+          "color": {
+            "comment": "Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma",
+            "$type": "color",
+            "$value": "{form.label.foreground.color}",
+            "$modes": {
+              "default": "{form.label.foreground.color}",
+              "cds-g0": "{foreground.color.strong}",
+              "cds-g10": "{foreground.color.strong}",
+              "cds-g90": "{foreground.color.strong}",
+              "cds-g100": "{foreground.color.strong}"
+            }
+          }
         },
         "typography": {
           "font-size": {
