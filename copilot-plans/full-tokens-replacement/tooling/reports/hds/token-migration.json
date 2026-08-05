@@ -1,0 +1,1465 @@
+{
+  "generatedAt": "2026-07-17T13:16:54.135Z",
+  "mapPath": "copilot-plans/full-tokens-replacement/tooling/reports/hds/token-map.generated.json",
+  "prefixes": [
+    "--token-"
+  ],
+  "roots": [
+    "packages/components/src",
+    "showcase/app",
+    "showcase/tests",
+    "website/app",
+    "website/docs"
+  ],
+  "dryRun": false,
+  "summary": {
+    "filesScanned": 2970,
+    "filesChanged": 99,
+    "replacements": 1176,
+    "todos": 34,
+    "interpolated": 33,
+    "staleRemaining": 0
+  },
+  "replacementsByToken": [
+    {
+      "before": "--token-app-header-height",
+      "after": "--hds-app-header-height",
+      "count": 7
+    },
+    {
+      "before": "--token-app-side-nav-body-list-item-border-radius",
+      "after": "--hds-app-side-nav-body-list-item-border-radius",
+      "count": 2
+    },
+    {
+      "before": "--token-app-side-nav-body-list-item-content-spacing-horizontal",
+      "after": "--hds-app-side-nav-body-list-item-padding-horizontal",
+      "count": 1
+    },
+    {
+      "before": "--token-app-side-nav-body-list-item-height",
+      "after": "--hds-app-side-nav-body-list-item-height",
+      "count": 2
+    },
+    {
+      "before": "--token-app-side-nav-body-list-item-padding-horizontal",
+      "after": "--hds-app-side-nav-body-list-item-padding-horizontal",
+      "count": 2
+    },
+    {
+      "before": "--token-app-side-nav-body-list-item-padding-vertical",
+      "after": "--hds-app-side-nav-body-list-item-padding-vertical",
+      "count": 1
+    },
+    {
+      "before": "--token-app-side-nav-body-list-item-spacing-vertical",
+      "after": "--hds-app-side-nav-body-list-margin-vertical",
+      "count": 1
+    },
+    {
+      "before": "--token-app-side-nav-body-list-margin-vertical",
+      "after": "--hds-app-side-nav-body-list-margin-vertical",
+      "count": 1
+    },
+    {
+      "before": "--token-app-side-nav-color-surface-primary",
+      "after": "--hds-app-side-nav-wrapper-surface-color",
+      "count": 7
+    },
+    {
+      "before": "--token-app-side-nav-toggle-button-border-radius",
+      "after": "--hds-app-side-nav-toggle-button-border-radius",
+      "count": 14
+    },
+    {
+      "before": "--token-app-side-nav-wrapper-border-color",
+      "after": "--hds-app-side-nav-wrapper-border-color",
+      "count": 8
+    },
+    {
+      "before": "--token-app-side-nav-wrapper-border-width",
+      "after": "--hds-app-side-nav-wrapper-border-width",
+      "count": 9
+    },
+    {
+      "before": "--token-app-side-nav-wrapper-padding-horizontal",
+      "after": "--hds-app-side-nav-wrapper-padding-horizontal",
+      "count": 11
+    },
+    {
+      "before": "--token-app-side-nav-wrapper-padding-vertical",
+      "after": "--hds-app-side-nav-wrapper-padding-vertical",
+      "count": 9
+    },
+    {
+      "before": "--token-badge-border-radius",
+      "after": "--hds-badge-border-radius",
+      "count": 1
+    },
+    {
+      "before": "--token-border-radius-large",
+      "after": "--hds-border-radius-large",
+      "count": 1
+    },
+    {
+      "before": "--token-border-radius-medium",
+      "after": "--hds-border-radius-medium",
+      "count": 29
+    },
+    {
+      "before": "--token-border-radius-small",
+      "after": "--hds-border-radius-small",
+      "count": 14
+    },
+    {
+      "before": "--token-border-radius-x-small",
+      "after": "--hds-border-radius-x-small",
+      "count": 10
+    },
+    {
+      "before": "--token-color-border-action",
+      "after": "--hds-border-color-action",
+      "count": 1
+    },
+    {
+      "before": "--token-color-border-critical",
+      "after": "--hds-border-color-critical",
+      "count": 3
+    },
+    {
+      "before": "--token-color-border-highlight",
+      "after": "--hds-border-color-highlight",
+      "count": 3
+    },
+    {
+      "before": "--token-color-border-primary",
+      "after": "--hds-border-color-primary",
+      "count": 25
+    },
+    {
+      "before": "--token-color-border-strong",
+      "after": "--hds-border-color-strong",
+      "count": 31
+    },
+    {
+      "before": "--token-color-border-success",
+      "after": "--hds-border-color-success",
+      "count": 2
+    },
+    {
+      "before": "--token-color-border-warning",
+      "after": "--hds-border-color-warning",
+      "count": 3
+    },
+    {
+      "before": "--token-color-boundary-brand",
+      "after": "--hds-product-boundary-brand-color",
+      "count": 6
+    },
+    {
+      "before": "--token-color-focus-action-external",
+      "after": "--hds-focus-color-action-external",
+      "count": 19
+    },
+    {
+      "before": "--token-color-focus-action-internal",
+      "after": "--hds-focus-color-action-internal",
+      "count": 19
+    },
+    {
+      "before": "--token-color-focus-critical-external",
+      "after": "--hds-focus-color-critical-external",
+      "count": 5
+    },
+    {
+      "before": "--token-color-focus-critical-internal",
+      "after": "--hds-focus-color-critical-internal",
+      "count": 5
+    },
+    {
+      "before": "--token-color-foreground-action",
+      "after": "--hds-foreground-color-action",
+      "count": 27
+    },
+    {
+      "before": "--token-color-foreground-action-active",
+      "after": "--hds-foreground-color-action-active",
+      "count": 22
+    },
+    {
+      "before": "--token-color-foreground-action-hover",
+      "after": "--hds-foreground-color-action-hover",
+      "count": 22
+    },
+    {
+      "before": "--token-color-foreground-critical",
+      "after": "--hds-foreground-color-critical",
+      "count": 5
+    },
+    {
+      "before": "--token-color-foreground-critical-on-surface",
+      "after": "--hds-foreground-color-critical-on-surface",
+      "count": 5
+    },
+    {
+      "before": "--token-color-foreground-disabled",
+      "after": "--hds-foreground-color-disabled",
+      "count": 7
+    },
+    {
+      "before": "--token-color-foreground-faint",
+      "after": "--hds-foreground-color-faint",
+      "count": 26
+    },
+    {
+      "before": "--token-color-foreground-high-contrast",
+      "after": "--hds-foreground-color-high-contrast",
+      "count": 23
+    },
+    {
+      "before": "--token-color-foreground-highlight",
+      "after": "--hds-foreground-color-highlight",
+      "count": 1
+    },
+    {
+      "before": "--token-color-foreground-highlight-on-surface",
+      "after": "--hds-foreground-color-highlight-on-surface",
+      "count": 1
+    },
+    {
+      "before": "--token-color-foreground-primary",
+      "after": "--hds-foreground-color-primary",
+      "count": 49
+    },
+    {
+      "before": "--token-color-foreground-strong",
+      "after": "--hds-foreground-color-strong",
+      "count": 28
+    },
+    {
+      "before": "--token-color-foreground-success",
+      "after": "--hds-foreground-color-success",
+      "count": 7
+    },
+    {
+      "before": "--token-color-foreground-success-on-surface",
+      "after": "--hds-foreground-color-success-on-surface",
+      "count": 1
+    },
+    {
+      "before": "--token-color-foreground-warning",
+      "after": "--hds-foreground-color-warning",
+      "count": 2
+    },
+    {
+      "before": "--token-color-foreground-warning-on-surface",
+      "after": "--hds-foreground-color-warning-on-surface",
+      "count": 2
+    },
+    {
+      "before": "--token-color-hashicorp-brand",
+      "after": "--hds-product-hashicorp-brand-color",
+      "count": 1
+    },
+    {
+      "before": "--token-color-palette-alpha-200",
+      "after": "--hds-core-color-alpha-200",
+      "count": 4
+    },
+    {
+      "before": "--token-color-palette-alpha-300",
+      "after": "--hds-core-color-alpha-300",
+      "count": 1
+    },
+    {
+      "before": "--token-color-palette-blue-100",
+      "after": "--hds-core-color-blue-100",
+      "count": 2
+    },
+    {
+      "before": "--token-color-palette-blue-200",
+      "after": "--hds-core-color-blue-200",
+      "count": 7
+    },
+    {
+      "before": "--token-color-palette-blue-300",
+      "after": "--hds-core-color-blue-300",
+      "count": 12
+    },
+    {
+      "before": "--token-color-palette-blue-400",
+      "after": "--hds-core-color-blue-400",
+      "count": 17
+    },
+    {
+      "before": "--token-color-palette-blue-500",
+      "after": "--hds-core-color-blue-500",
+      "count": 2
+    },
+    {
+      "before": "--token-color-palette-green-300",
+      "after": "--hds-core-color-green-300",
+      "count": 1
+    },
+    {
+      "before": "--token-color-palette-green-400",
+      "after": "--hds-core-color-green-400",
+      "count": 1
+    },
+    {
+      "before": "--token-color-palette-neutral-100",
+      "after": "--hds-core-color-neutral-100",
+      "count": 3
+    },
+    {
+      "before": "--token-color-palette-neutral-200",
+      "after": "--hds-core-color-neutral-200",
+      "count": 4
+    },
+    {
+      "before": "--token-color-palette-neutral-300",
+      "after": "--hds-core-color-neutral-300",
+      "count": 4
+    },
+    {
+      "before": "--token-color-palette-neutral-400",
+      "after": "--hds-core-color-neutral-400",
+      "count": 4
+    },
+    {
+      "before": "--token-color-palette-neutral-500",
+      "after": "--hds-core-color-neutral-500",
+      "count": 9
+    },
+    {
+      "before": "--token-color-palette-neutral-600",
+      "after": "--hds-core-color-neutral-600",
+      "count": 7
+    },
+    {
+      "before": "--token-color-palette-neutral-700",
+      "after": "--hds-core-color-neutral-700",
+      "count": 16
+    },
+    {
+      "before": "--token-color-palette-purple-400",
+      "after": "--hds-core-color-purple-400",
+      "count": 4
+    },
+    {
+      "before": "--token-color-palette-red-300",
+      "after": "--hds-core-color-red-300",
+      "count": 2
+    },
+    {
+      "before": "--token-color-palette-red-400",
+      "after": "--hds-core-color-red-400",
+      "count": 5
+    },
+    {
+      "before": "--token-color-surface-action",
+      "after": "--hds-surface-color-action",
+      "count": 4
+    },
+    {
+      "before": "--token-color-surface-critical",
+      "after": "--hds-surface-color-critical",
+      "count": 6
+    },
+    {
+      "before": "--token-color-surface-faint",
+      "after": "--hds-surface-color-faint",
+      "count": 20
+    },
+    {
+      "before": "--token-color-surface-highlight",
+      "after": "--hds-surface-color-highlight",
+      "count": 2
+    },
+    {
+      "before": "--token-color-surface-interactive",
+      "after": "--hds-surface-color-interactive",
+      "count": 18
+    },
+    {
+      "before": "--token-color-surface-interactive-active",
+      "after": "--hds-surface-color-interactive-active",
+      "count": 16
+    },
+    {
+      "before": "--token-color-surface-interactive-disabled",
+      "after": "--hds-surface-color-interactive-disabled",
+      "count": 2
+    },
+    {
+      "before": "--token-color-surface-interactive-hover",
+      "after": "--hds-surface-color-interactive-hover",
+      "count": 7
+    },
+    {
+      "before": "--token-color-surface-primary",
+      "after": "--hds-surface-color-primary",
+      "count": 21
+    },
+    {
+      "before": "--token-color-surface-strong",
+      "after": "--hds-surface-color-strong",
+      "count": 10
+    },
+    {
+      "before": "--token-color-surface-success",
+      "after": "--hds-surface-color-success",
+      "count": 2
+    },
+    {
+      "before": "--token-color-surface-warning",
+      "after": "--hds-surface-color-warning",
+      "count": 3
+    },
+    {
+      "before": "--token-color-terraform-brand",
+      "after": "--hds-product-terraform-brand-color",
+      "count": 2
+    },
+    {
+      "before": "--token-color-waypoint-brand",
+      "after": "--hds-product-waypoint-brand-color",
+      "count": 2
+    },
+    {
+      "before": "--token-elevation-high-box-shadow",
+      "after": "--hds-elevation-high-box-shadow",
+      "count": 6
+    },
+    {
+      "before": "--token-elevation-higher-box-shadow",
+      "after": "--hds-elevation-higher-box-shadow",
+      "count": 2
+    },
+    {
+      "before": "--token-elevation-inset-box-shadow",
+      "after": "--hds-elevation-inset-box-shadow",
+      "count": 7
+    },
+    {
+      "before": "--token-elevation-low-box-shadow",
+      "after": "--hds-elevation-low-box-shadow",
+      "count": 11
+    },
+    {
+      "before": "--token-elevation-mid-box-shadow",
+      "after": "--hds-elevation-mid-box-shadow",
+      "count": 2
+    },
+    {
+      "before": "--token-elevation-overlay-box-shadow",
+      "after": "--hds-elevation-overlay-box-shadow",
+      "count": 1
+    },
+    {
+      "before": "--token-focus-ring-action-box-shadow",
+      "after": "--hds-focus-ring-box-shadow-action",
+      "count": 6
+    },
+    {
+      "before": "--token-focus-ring-critical-box-shadow",
+      "after": "--hds-focus-ring-box-shadow-critical",
+      "count": 1
+    },
+    {
+      "before": "--token-form-character-count-foreground-color",
+      "after": "--hds-form-character-count-foreground-color",
+      "count": 1
+    },
+    {
+      "before": "--token-form-character-count-typography-font-size",
+      "after": "--hds-form-character-count-typography-font-size",
+      "count": 1
+    },
+    {
+      "before": "--token-form-character-count-typography-line-height",
+      "after": "--hds-form-character-count-typography-line-height",
+      "count": 1
+    },
+    {
+      "before": "--token-form-checkbox-background-image-data-url",
+      "after": "--hds-form-checkbox-background-image-data-url",
+      "count": 2
+    },
+    {
+      "before": "--token-form-checkbox-background-image-data-url-disabled",
+      "after": "--hds-form-checkbox-background-image-data-url-disabled",
+      "count": 2
+    },
+    {
+      "before": "--token-form-checkbox-background-image-data-url-indeterminate",
+      "after": "--hds-form-checkbox-background-image-data-url-indeterminate",
+      "count": 1
+    },
+    {
+      "before": "--token-form-checkbox-background-image-data-url-indeterminate-disabled",
+      "after": "--hds-form-checkbox-background-image-data-url-indeterminate-disabled",
+      "count": 1
+    },
+    {
+      "before": "--token-form-checkbox-background-image-size",
+      "after": "--hds-form-checkbox-background-image-size",
+      "count": 4
+    },
+    {
+      "before": "--token-form-checkbox-border-radius",
+      "after": "--hds-form-checkbox-border-radius",
+      "count": 2
+    },
+    {
+      "before": "--token-form-checkbox-border-width",
+      "after": "--hds-form-checkbox-border-width",
+      "count": 2
+    },
+    {
+      "before": "--token-form-checkbox-size",
+      "after": "--hds-form-checkbox-size",
+      "count": 4
+    },
+    {
+      "before": "--token-form-control-base-border-color-default",
+      "after": "--hds-form-control-base-border-color-default",
+      "count": 16
+    },
+    {
+      "before": "--token-form-control-base-border-color-hover",
+      "after": "--hds-form-control-base-border-color-hover",
+      "count": 11
+    },
+    {
+      "before": "--token-form-control-base-foreground-placeholder-color",
+      "after": "--hds-form-control-base-placeholder-foreground-color",
+      "count": 5
+    },
+    {
+      "before": "--token-form-control-base-foreground-value-color",
+      "after": "--hds-form-control-base-foreground-color",
+      "count": 9
+    },
+    {
+      "before": "--token-form-control-base-surface-color-default",
+      "after": "--hds-form-control-base-surface-color-default",
+      "count": 13
+    },
+    {
+      "before": "--token-form-control-base-surface-color-hover",
+      "after": "--hds-form-control-base-surface-color-hover",
+      "count": 3
+    },
+    {
+      "before": "--token-form-control-border-radius",
+      "after": "--hds-form-control-border-radius",
+      "count": 12
+    },
+    {
+      "before": "--token-form-control-border-width",
+      "after": "--hds-form-control-border-width",
+      "count": 18
+    },
+    {
+      "before": "--token-form-control-checked-border-color-default",
+      "after": "--hds-form-control-checked-border-color-default",
+      "count": 9
+    },
+    {
+      "before": "--token-form-control-checked-border-color-hover",
+      "after": "--hds-form-control-checked-border-color-hover",
+      "count": 4
+    },
+    {
+      "before": "--token-form-control-checked-surface-color-default",
+      "after": "--hds-form-control-checked-surface-color-default",
+      "count": 5
+    },
+    {
+      "before": "--token-form-control-disabled-border-color",
+      "after": "--hds-form-control-disabled-border-color",
+      "count": 13
+    },
+    {
+      "before": "--token-form-control-disabled-foreground-color",
+      "after": "--hds-form-control-disabled-foreground-color",
+      "count": 6
+    },
+    {
+      "before": "--token-form-control-disabled-surface-color",
+      "after": "--hds-form-control-disabled-surface-color",
+      "count": 13
+    },
+    {
+      "before": "--token-form-control-invalid-border-color-default",
+      "after": "--hds-form-control-invalid-border-color-default",
+      "count": 4
+    },
+    {
+      "before": "--token-form-control-invalid-border-color-hover",
+      "after": "--hds-form-control-invalid-border-color-hover",
+      "count": 4
+    },
+    {
+      "before": "--token-form-control-padding",
+      "after": "--hds-form-control-padding",
+      "count": 21
+    },
+    {
+      "before": "--token-form-control-readonly-border-color",
+      "after": "--hds-form-control-readonly-border-color",
+      "count": 2
+    },
+    {
+      "before": "--token-form-control-readonly-foreground-color",
+      "after": "--hds-form-control-readonly-foreground-color",
+      "count": 2
+    },
+    {
+      "before": "--token-form-control-readonly-surface-color",
+      "after": "--hds-form-control-readonly-surface-color",
+      "count": 2
+    },
+    {
+      "before": "--token-form-error-foreground-color",
+      "after": "--hds-form-error-foreground-color",
+      "count": 1
+    },
+    {
+      "before": "--token-form-error-icon-size",
+      "after": "--hds-form-error-icon-size",
+      "count": 2
+    },
+    {
+      "before": "--token-form-error-typography-font-size",
+      "after": "--hds-form-error-typography-font-size",
+      "count": 1
+    },
+    {
+      "before": "--token-form-error-typography-line-height",
+      "after": "--hds-form-error-typography-line-height",
+      "count": 1
+    },
+    {
+      "before": "--token-form-helper-text-foreground-color",
+      "after": "--hds-form-helper-text-foreground-color",
+      "count": 1
+    },
+    {
+      "before": "--token-form-helper-text-typography-font-size",
+      "after": "--hds-form-helper-text-typography-font-size",
+      "count": 1
+    },
+    {
+      "before": "--token-form-helper-text-typography-line-height",
+      "after": "--hds-form-helper-text-typography-line-height",
+      "count": 1
+    },
+    {
+      "before": "--token-form-indicator-optional-foreground-color",
+      "after": "--hds-form-indicator-optional-foreground-color",
+      "count": 1
+    },
+    {
+      "before": "--token-form-indicator-optional-typography-font-size",
+      "after": "--hds-form-indicator-optional-typography-font-size",
+      "count": 1
+    },
+    {
+      "before": "--token-form-indicator-optional-typography-line-height",
+      "after": "--hds-form-indicator-optional-typography-line-height",
+      "count": 1
+    },
+    {
+      "before": "--token-form-label-color",
+      "after": "--hds-form-label-color",
+      "count": 1
+    },
+    {
+      "before": "--token-form-label-foreground-color",
+      "after": "--hds-form-label-foreground-color",
+      "count": 1
+    },
+    {
+      "before": "--token-form-label-typography-font-size",
+      "after": "--hds-form-label-typography-font-size",
+      "count": 1
+    },
+    {
+      "before": "--token-form-label-typography-font-weight",
+      "after": "--hds-form-label-typography-font-weight",
+      "count": 1
+    },
+    {
+      "before": "--token-form-label-typography-line-height",
+      "after": "--hds-form-label-typography-line-height",
+      "count": 1
+    },
+    {
+      "before": "--token-form-legend-foreground-color",
+      "after": "--hds-form-legend-foreground-color",
+      "count": 1
+    },
+    {
+      "before": "--token-form-legend-typography-font-size",
+      "after": "--hds-form-legend-typography-font-size",
+      "count": 1
+    },
+    {
+      "before": "--token-form-legend-typography-font-weight",
+      "after": "--hds-form-legend-typography-font-weight",
+      "count": 1
+    },
+    {
+      "before": "--token-form-legend-typography-line-height",
+      "after": "--hds-form-legend-typography-line-height",
+      "count": 1
+    },
+    {
+      "before": "--token-form-radio-background-image-data-url",
+      "after": "--hds-form-radio-background-image-data-url",
+      "count": 1
+    },
+    {
+      "before": "--token-form-radio-background-image-data-url-disabled",
+      "after": "--hds-form-radio-background-image-data-url-disabled",
+      "count": 1
+    },
+    {
+      "before": "--token-form-radio-background-image-size",
+      "after": "--hds-form-radio-background-image-size",
+      "count": 2
+    },
+    {
+      "before": "--token-form-radio-border-width",
+      "after": "--hds-form-radio-border-width",
+      "count": 5
+    },
+    {
+      "before": "--token-form-radio-size",
+      "after": "--hds-form-radio-size",
+      "count": 2
+    },
+    {
+      "before": "--token-form-radiocard-border-radius",
+      "after": "--hds-form-radiocard-border-radius",
+      "count": 1
+    },
+    {
+      "before": "--token-form-radiocard-border-width",
+      "after": "--hds-form-radiocard-border-width",
+      "count": 3
+    },
+    {
+      "before": "--token-form-radiocard-content-padding",
+      "after": "--hds-form-radiocard-content-padding",
+      "count": 1
+    },
+    {
+      "before": "--token-form-radiocard-control-padding",
+      "after": "--hds-form-radiocard-control-padding",
+      "count": 1
+    },
+    {
+      "before": "--token-form-radiocard-group-gap",
+      "after": "--hds-form-radiocard-group-gap",
+      "count": 2
+    },
+    {
+      "before": "--token-form-radiocard-transition-duration",
+      "after": "--hds-form-radiocard-transition-duration",
+      "count": 1
+    },
+    {
+      "before": "--token-form-select-background-image-data-url",
+      "after": "--hds-form-select-background-image-data-url",
+      "count": 4
+    },
+    {
+      "before": "--token-form-select-background-image-data-url-disabled",
+      "after": "--hds-form-select-background-image-data-url-disabled",
+      "count": 3
+    },
+    {
+      "before": "--token-form-select-background-image-position-right-x",
+      "after": "--hds-form-select-background-image-position-right-x",
+      "count": 3
+    },
+    {
+      "before": "--token-form-select-background-image-position-top-y",
+      "after": "--hds-form-select-background-image-position-top-y",
+      "count": 2
+    },
+    {
+      "before": "--token-form-select-background-image-size",
+      "after": "--hds-form-select-background-image-size",
+      "count": 12
+    },
+    {
+      "before": "--token-form-text-input-background-image-data-url-date",
+      "after": "--hds-form-text-input-background-image-data-url-date",
+      "count": 1
+    },
+    {
+      "before": "--token-form-text-input-background-image-data-url-search",
+      "after": "--hds-form-text-input-background-image-data-url-search",
+      "count": 3
+    },
+    {
+      "before": "--token-form-text-input-background-image-data-url-search-cancel",
+      "after": "--hds-form-text-input-background-image-data-url-search-cancel",
+      "count": 5
+    },
+    {
+      "before": "--token-form-text-input-background-image-data-url-search-loading",
+      "after": "--hds-form-text-input-background-image-data-url-search-loading",
+      "count": 1
+    },
+    {
+      "before": "--token-form-text-input-background-image-data-url-time",
+      "after": "--hds-form-text-input-background-image-data-url-time",
+      "count": 1
+    },
+    {
+      "before": "--token-form-text-input-background-image-position-x",
+      "after": "--hds-form-text-input-background-image-position-x",
+      "count": 3
+    },
+    {
+      "before": "--token-form-text-input-background-image-size",
+      "after": "--hds-form-text-input-background-image-size",
+      "count": 21
+    },
+    {
+      "before": "--token-form-toggle-background-image-data-url",
+      "after": "--hds-form-toggle-background-image-data-url",
+      "count": 1
+    },
+    {
+      "before": "--token-form-toggle-background-image-data-url-disabled",
+      "after": "--hds-form-toggle-background-image-data-url-disabled",
+      "count": 1
+    },
+    {
+      "before": "--token-form-toggle-background-image-position-x",
+      "after": "--hds-form-toggle-background-image-position-x",
+      "count": 1
+    },
+    {
+      "before": "--token-form-toggle-background-image-size",
+      "after": "--hds-form-toggle-background-image-size",
+      "count": 2
+    },
+    {
+      "before": "--token-form-toggle-base-surface-color-default",
+      "after": "--hds-form-toggle-base-surface-color-default",
+      "count": 1
+    },
+    {
+      "before": "--token-form-toggle-height",
+      "after": "--hds-form-toggle-height",
+      "count": 3
+    },
+    {
+      "before": "--token-form-toggle-thumb-size",
+      "after": "--hds-form-toggle-thumb-size",
+      "count": 3
+    },
+    {
+      "before": "--token-form-toggle-transition-duration",
+      "after": "--hds-form-toggle-transition-duration",
+      "count": 2
+    },
+    {
+      "before": "--token-form-toggle-transition-timing-function",
+      "after": "--hds-form-toggle-transition-timing-function",
+      "count": 2
+    },
+    {
+      "before": "--token-form-toggle-width",
+      "after": "--hds-form-toggle-width",
+      "count": 2
+    },
+    {
+      "before": "--token-icon-tile-border-color-logo",
+      "after": "--hds-icon-tile-border-color-logo",
+      "count": 1
+    },
+    {
+      "before": "--token-icon-tile-border-color-overlay",
+      "after": "--hds-icon-tile-border-color-overlay",
+      "count": 1
+    },
+    {
+      "before": "--token-icon-tile-surface-color-overlay",
+      "after": "--hds-icon-tile-surface-color-overlay",
+      "count": 1
+    },
+    {
+      "before": "--token-pagination-child-spacing-horizontal",
+      "after": "--hds-pagination-child-spacing-horizontal",
+      "count": 4
+    },
+    {
+      "before": "--token-pagination-child-spacing-vertical",
+      "after": "--hds-pagination-child-spacing-vertical",
+      "count": 2
+    },
+    {
+      "before": "--token-pagination-nav-control-height",
+      "after": "--hds-pagination-nav-control-height",
+      "count": 2
+    },
+    {
+      "before": "--token-pagination-nav-control-icon-spacing",
+      "after": "--hds-pagination-nav-control-icon-spacing",
+      "count": 1
+    },
+    {
+      "before": "--token-pagination-nav-indicator-height",
+      "after": "--hds-pagination-nav-indicator-height",
+      "count": 1
+    },
+    {
+      "before": "--token-pagination-nav-indicator-spacing",
+      "after": "--hds-pagination-nav-indicator-spacing",
+      "count": 2
+    },
+    {
+      "before": "--token-surface-base-box-shadow",
+      "after": "--hds-surface-base-box-shadow",
+      "count": 1
+    },
+    {
+      "before": "--token-surface-high-box-shadow",
+      "after": "--hds-surface-high-box-shadow",
+      "count": 3
+    },
+    {
+      "before": "--token-surface-higher-box-shadow",
+      "after": "--hds-surface-higher-box-shadow",
+      "count": 2
+    },
+    {
+      "before": "--token-surface-mid-box-shadow",
+      "after": "--hds-surface-mid-box-shadow",
+      "count": 1
+    },
+    {
+      "before": "--token-surface-overlay-box-shadow",
+      "after": "--hds-surface-overlay-box-shadow",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-divider-height",
+      "after": "--hds-tabs-divider-height",
+      "count": 2
+    },
+    {
+      "before": "--token-tabs-indicator-height",
+      "after": "--hds-tabs-indicator-height",
+      "count": 3
+    },
+    {
+      "before": "--token-tabs-indicator-transition-duration",
+      "after": "--hds-tabs-indicator-transition-duration",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-indicator-transition-function",
+      "after": "--hds-tabs-indicator-transition-timing-function",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-tab-border-radius",
+      "after": "--hds-tabs-tab-border-radius",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-tab-gutter",
+      "after": "--hds-tabs-tab-gutter",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-tab-height-large",
+      "after": "--hds-tabs-tab-height-large",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-tab-height-medium",
+      "after": "--hds-tabs-tab-height-medium",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-tab-padding-horizontal-large",
+      "after": "--hds-tabs-tab-padding-horizontal-large",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-tab-padding-horizontal-medium",
+      "after": "--hds-tabs-tab-padding-horizontal-medium",
+      "count": 1
+    },
+    {
+      "before": "--token-tabs-tab-padding-vertical",
+      "after": "--hds-tabs-tab-padding-vertical",
+      "count": 1
+    },
+    {
+      "before": "--token-tooltip-border-radius",
+      "after": "--hds-tooltip-border-radius",
+      "count": 1
+    },
+    {
+      "before": "--token-tooltip-max-width",
+      "after": "--hds-tooltip-max-width",
+      "count": 3
+    },
+    {
+      "before": "--token-tooltip-padding-horizontal",
+      "after": "--hds-tooltip-padding-horizontal",
+      "count": 2
+    },
+    {
+      "before": "--token-tooltip-padding-vertical",
+      "after": "--hds-tooltip-padding-vertical",
+      "count": 1
+    },
+    {
+      "before": "--token-tooltip-transition-function",
+      "after": "--hds-tooltip-transition-timing-function",
+      "count": 1
+    },
+    {
+      "before": "--token-typography-body-100-font-family",
+      "after": "--hds-typography-body-100-font-family",
+      "count": 7
+    },
+    {
+      "before": "--token-typography-body-100-font-size",
+      "after": "--hds-typography-body-100-font-size",
+      "count": 5
+    },
+    {
+      "before": "--token-typography-body-100-line-height",
+      "after": "--hds-typography-body-100-line-height",
+      "count": 3
+    },
+    {
+      "before": "--token-typography-body-200-font-family",
+      "after": "--hds-typography-body-200-font-family",
+      "count": 8
+    },
+    {
+      "before": "--token-typography-body-200-font-size",
+      "after": "--hds-typography-body-200-font-size",
+      "count": 8
+    },
+    {
+      "before": "--token-typography-body-200-line-height",
+      "after": "--hds-typography-body-200-line-height",
+      "count": 6
+    },
+    {
+      "before": "--token-typography-body-300-font-family",
+      "after": "--hds-typography-body-300-font-family",
+      "count": 3
+    },
+    {
+      "before": "--token-typography-body-300-font-size",
+      "after": "--hds-typography-body-300-font-size",
+      "count": 3
+    },
+    {
+      "before": "--token-typography-body-300-line-height",
+      "after": "--hds-typography-body-300-line-height",
+      "count": 1
+    },
+    {
+      "before": "--token-typography-code-100-font-family",
+      "after": "--hds-typography-code-100-font-family",
+      "count": 2
+    },
+    {
+      "before": "--token-typography-code-200-font-family",
+      "after": "--hds-typography-code-200-font-family",
+      "count": 2
+    },
+    {
+      "before": "--token-typography-display-200-font-family",
+      "after": "--hds-typography-display-200-font-family",
+      "count": 1
+    },
+    {
+      "before": "--token-typography-display-200-font-size",
+      "after": "--hds-typography-display-200-font-size",
+      "count": 1
+    },
+    {
+      "before": "--token-typography-display-200-line-height",
+      "after": "--hds-typography-display-200-line-height",
+      "count": 1
+    },
+    {
+      "before": "--token-typography-font-stack-text",
+      "after": "--hds-typography-font-stack-text",
+      "count": 13
+    },
+    {
+      "before": "--token-typography-font-weight-medium",
+      "after": "--hds-typography-font-weight-medium",
+      "count": 6
+    },
+    {
+      "before": "--token-typography-font-weight-regular",
+      "after": "--hds-typography-font-weight-regular",
+      "count": 10
+    },
+    {
+      "before": "--token-typography-font-weight-semibold",
+      "after": "--hds-typography-font-weight-semibold",
+      "count": 4
+    }
+  ],
+  "todos": [
+    {
+      "token": "--token-app-header-logo-size",
+      "line": 173,
+      "file": "packages/components/src/styles/components/app-header.scss"
+    },
+    {
+      "token": "--token-app-header-logo-size",
+      "line": 174,
+      "file": "packages/components/src/styles/components/app-header.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-foreground-faint",
+      "line": 52,
+      "file": "packages/components/src/styles/components/app-side-nav/content.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-foreground-primary",
+      "line": 91,
+      "file": "packages/components/src/styles/components/app-side-nav/content.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-surface-interactive-hover",
+      "line": 110,
+      "file": "packages/components/src/styles/components/app-side-nav/content.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-foreground-strong",
+      "line": 116,
+      "file": "packages/components/src/styles/components/app-side-nav/content.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-foreground-primary",
+      "line": 168,
+      "file": "packages/components/src/styles/components/app-side-nav/content.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-foreground-primary",
+      "line": 73,
+      "file": "packages/components/src/styles/components/app-side-nav/main.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-surface-interactive-hover",
+      "line": 68,
+      "file": "packages/components/src/styles/components/app-side-nav/toggle-button.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-surface-interactive-hover",
+      "line": 73,
+      "file": "packages/components/src/styles/components/app-side-nav/toggle-button.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-surface-interactive-active",
+      "line": 79,
+      "file": "packages/components/src/styles/components/app-side-nav/toggle-button.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-surface-interactive-active",
+      "line": 84,
+      "file": "packages/components/src/styles/components/app-side-nav/toggle-button.scss"
+    },
+    {
+      "token": "--token-pagination-nav-control-padding-horizontal",
+      "line": 94,
+      "file": "packages/components/src/styles/components/pagination.scss"
+    },
+    {
+      "token": "--token-pagination-nav-control-focus-inset",
+      "line": 101,
+      "file": "packages/components/src/styles/components/pagination.scss"
+    },
+    {
+      "token": "--token-pagination-nav-control-focus-inset",
+      "line": 102,
+      "file": "packages/components/src/styles/components/pagination.scss"
+    },
+    {
+      "token": "--token-pagination-nav-control-focus-inset",
+      "line": 103,
+      "file": "packages/components/src/styles/components/pagination.scss"
+    },
+    {
+      "token": "--token-pagination-nav-control-focus-inset",
+      "line": 104,
+      "file": "packages/components/src/styles/components/pagination.scss"
+    },
+    {
+      "token": "--token-pagination-nav-control-padding-horizontal",
+      "line": 172,
+      "file": "packages/components/src/styles/components/pagination.scss"
+    },
+    {
+      "token": "--token-tabs-tab-focus-inset",
+      "line": 71,
+      "file": "packages/components/src/styles/components/tabs.scss"
+    },
+    {
+      "token": "--token-tabs-tab-focus-inset",
+      "line": 72,
+      "file": "packages/components/src/styles/components/tabs.scss"
+    },
+    {
+      "token": "--token-tabs-tab-focus-inset",
+      "line": 73,
+      "file": "packages/components/src/styles/components/tabs.scss"
+    },
+    {
+      "token": "--token-tabs-tab-focus-inset",
+      "line": 74,
+      "file": "packages/components/src/styles/components/tabs.scss"
+    },
+    {
+      "token": "--token-tooltip-focus-offset",
+      "line": 14,
+      "file": "packages/components/src/styles/components/tooltip.scss"
+    },
+    {
+      "token": "--token-tooltip-focus-offset",
+      "line": 15,
+      "file": "packages/components/src/styles/components/tooltip.scss"
+    },
+    {
+      "token": "--token-tooltip-focus-offset",
+      "line": 16,
+      "file": "packages/components/src/styles/components/tooltip.scss"
+    },
+    {
+      "token": "--token-tooltip-focus-offset",
+      "line": 17,
+      "file": "packages/components/src/styles/components/tooltip.scss"
+    },
+    {
+      "token": "--token-tooltip-color-foreground-primary",
+      "line": 53,
+      "file": "packages/components/src/styles/components/tooltip.scss"
+    },
+    {
+      "token": "--token-tooltip-color-surface-primary",
+      "line": 59,
+      "file": "packages/components/src/styles/components/tooltip.scss"
+    },
+    {
+      "token": "--token-tooltip-color-surface-primary",
+      "line": 90,
+      "file": "packages/components/src/styles/components/tooltip.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-foreground-strong",
+      "line": 31,
+      "file": "packages/components/src/styles/mixins/_interactive-dark-theme.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-foreground-strong",
+      "line": 50,
+      "file": "packages/components/src/styles/mixins/_interactive-dark-theme.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-surface-interactive-hover",
+      "line": 51,
+      "file": "packages/components/src/styles/mixins/_interactive-dark-theme.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-foreground-strong",
+      "line": 91,
+      "file": "packages/components/src/styles/mixins/_interactive-dark-theme.scss"
+    },
+    {
+      "token": "--token-app-side-nav-color-surface-interactive-active",
+      "line": 92,
+      "file": "packages/components/src/styles/mixins/_interactive-dark-theme.scss"
+    }
+  ],
+  "interpolated": [
+    {
+      "token": "--token-badge-height-",
+      "line": 28,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-padding-vertical-",
+      "line": 30,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-count-padding-horizontal-",
+      "line": 32,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-typography-font-size-",
+      "line": 33,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-typography-line-height-",
+      "line": 34,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-height-",
+      "line": 35,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-foreground-color-",
+      "line": 45,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-foreground-color-",
+      "line": 49,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-surface-color-",
+      "line": 51,
+      "file": "packages/components/src/styles/components/badge-count.scss"
+    },
+    {
+      "token": "--token-badge-gap-",
+      "line": 39,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-height-",
+      "line": 40,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-padding-vertical-",
+      "line": 42,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-padding-horizontal-",
+      "line": 43,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-icon-size-",
+      "line": 46,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-icon-size-",
+      "line": 47,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-typography-font-size-",
+      "line": 51,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-typography-line-height-",
+      "line": 52,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-foreground-color-",
+      "line": 63,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-surface-color-",
+      "line": 68,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-foreground-color-",
+      "line": 72,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-badge-surface-color-",
+      "line": 74,
+      "file": "packages/components/src/styles/components/badge.scss"
+    },
+    {
+      "token": "--token-color-",
+      "line": 143,
+      "file": "packages/components/src/styles/components/icon-tile.scss"
+    },
+    {
+      "token": "--token-color-",
+      "line": 160,
+      "file": "packages/components/src/styles/components/icon-tile.scss"
+    },
+    {
+      "token": "--token-color-",
+      "line": 165,
+      "file": "packages/components/src/styles/components/icon-tile.scss"
+    },
+    {
+      "token": "--token-color-",
+      "line": 166,
+      "file": "packages/components/src/styles/components/icon-tile.scss"
+    },
+    {
+      "token": "--token-focus-ring-",
+      "line": 17,
+      "file": "packages/components/src/styles/mixins/_focus-ring.scss"
+    },
+    {
+      "token": "--token-focus-ring-",
+      "line": 25,
+      "file": "packages/components/src/styles/mixins/_focus-ring.scss"
+    },
+    {
+      "token": "--token-focus-ring-",
+      "line": 63,
+      "file": "packages/components/src/styles/mixins/_focus-ring.scss"
+    },
+    {
+      "token": "--token-focus-ring-",
+      "line": 75,
+      "file": "packages/components/src/styles/mixins/_focus-ring.scss"
+    },
+    {
+      "token": "--token-focus-ring-",
+      "line": 117,
+      "file": "packages/components/src/styles/mixins/_focus-ring.scss"
+    },
+    {
+      "token": "--token-border-radius-",
+      "line": 21,
+      "file": "website/docs/foundations/border/index.js"
+    },
+    {
+      "token": "--token-elevation-",
+      "line": 15,
+      "file": "website/docs/foundations/elevation/index.js"
+    },
+    {
+      "token": "--token-surface-",
+      "line": 18,
+      "file": "website/docs/foundations/elevation/index.js"
+    }
+  ],
+  "staleRemaining": []
+}
