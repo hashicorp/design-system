@@ -1,0 +1,25 @@
+{
+  "$comment": "Phase B config for the HDS monorepo TEST HARNESS. Phase B's real targets are downstream Ember consumer apps whose code still uses the pre-carbonization `--token-*` tokens; running it here against `main`-style usages validates the tool. Copy this file per target repo and edit only these values; never edit migrate-tokens.mjs. `prefix` is the PRE prefix to scan for (what `removed[].before` names carry). Note: `mapPath`/`reportDir` are resolved relative to THIS config file, hence the `../reports/` prefix (reports live in tooling/reports/, config in tooling/config/).",
+  "mapPath": "../reports/hds/token-map.generated.json",
+  "reportDir": "../reports/hds",
+  "prefix": "--token-",
+  "sassPrefixes": [ ],
+  "roots": [
+    "packages/components/src",
+    "showcase/app",
+    "showcase/tests",
+    "website/app",
+    "website/docs"
+  ],
+  "extensions": [ "scss", "css", "gts", "hbs", "ts", "js" ],
+  "excludeGlobs": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/*.map",
+    "**/*.md",
+    "showcase/public/assets/**"
+  ],
+  "todoMarker": "🚧 TODO [HDS-TOKEN-CARBONIZATION]",
+  "dryRun": true
+}
