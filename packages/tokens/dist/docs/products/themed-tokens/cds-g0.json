@@ -6622,12 +6622,12 @@
   {
     "key": "{advanced-table.scroll-indicator.gradient.color.start}",
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "comment": "Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0",
+    "$value": "#16161600",
+    "alpha": "0",
     "original": {
       "$type": "color",
-      "$value": "transparent",
-      "comment": "Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0",
+      "$value": "{foreground.color.primary}",
+      "alpha": "0",
       "key": "{advanced-table.scroll-indicator.gradient.color.start}"
     },
     "name": "hds-advanced-table-scroll-indicator-gradient-color-start",
@@ -6800,13 +6800,7 @@
     "$value": "#0f62fe33",
     "alpha": "0.2",
     "$modes": {
-      "default": {
-        "$value": "#CCE3FE",
-        "alpha": "0.5",
-        "filePath": "src/products/shared/advanced-table.json",
-        "isSource": true,
-        "$type": "color"
-      },
+      "default": "#CCE3FE",
       "cds-g0": {
         "$value": "#0F62FE",
         "alpha": "0.2",
@@ -6841,13 +6835,7 @@
       "$value": "#0F62FE",
       "alpha": "0.2",
       "$modes": {
-        "default": {
-          "$value": "#CCE3FE",
-          "alpha": "0.5",
-          "filePath": "src/products/shared/advanced-table.json",
-          "isSource": true,
-          "$type": "color"
-        },
+        "default": "#CCE3FE",
         "cds-g0": {
           "$value": "#0F62FE",
           "alpha": "0.2",

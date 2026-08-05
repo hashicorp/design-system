@@ -104,6 +104,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-focus-color-action-external
   );
   --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
@@ -846,6 +847,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       --hds-focus-color-action-external
     );
     --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+    --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
     --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
@@ -1590,6 +1592,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       --hds-focus-color-action-external
     );
     --hds-advanced-table-resize-handle-surface-color-hover: #f4f4f466;
+    --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
     --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
@@ -2353,6 +2356,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-focus-color-action-external
   );
   --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
@@ -3094,6 +3098,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-focus-color-action-external
   );
   --hds-advanced-table-resize-handle-surface-color-hover: #f4f4f466;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
@@ -3922,12 +3927,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --hds-table-row-border-color-striped-default
   );
   --hds-advanced-table-row-border-width: var(--hds-table-row-border-width);
-  --hds-advanced-table-scroll-indicator-gradient-color-start: rgba(
-    0,
-    0,
-    0,
-    0
-  ); /** Using transparent here instead of foreground.color.primary with a 0.0 alpha because the validation requires an alpha > 0 */
   --hds-alert-page-padding-horizontal: 48px;
   --hds-alert-surface-color-neutral: var(--hds-surface-color-faint);
   --hds-alert-title-foreground-color-neutral: var(

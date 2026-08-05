@@ -51,6 +51,7 @@
   --hds-advanced-table-resize-handle-surface-color-active: var(--hds-focus-color-action-external);
   --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-focus-color-action-external);
   --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
