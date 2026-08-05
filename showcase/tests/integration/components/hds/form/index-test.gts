@@ -44,7 +44,7 @@ module('Integration | Component | hds/form/index', function (hooks) {
     );
     assert.dom('#test-form-component').hasStyle(
       {
-        '--hds-form-section-max-width': '32em',
+        '--hds-var-form-section-max-width': '32em',
       },
       'Inline style for section max-width is set',
     );
