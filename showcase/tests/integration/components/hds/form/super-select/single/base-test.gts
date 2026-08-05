@@ -161,7 +161,7 @@ module(
         .hasClass('hds-form-super-select--dropdown-content-auto-width')
         .hasAttribute(
           'style',
-          '--hds-form-super-select-dropdown-max-width: 40em;',
+          '--hds-var-form-super-select-dropdown-max-width: 40em;',
         );
     });
 
