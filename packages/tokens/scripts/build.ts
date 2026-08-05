@@ -189,7 +189,7 @@ StyleDictionary.registerTransform({
       console.error(`🚨 Invalid Color: '${token.name}: ${token.$value}' is not a valid color.\n`);
     }
     const alpha = parseFloat(token.alpha);
-    if (!(alpha > 0 && alpha < 1)) {
+    if (!(alpha >= 0 && alpha <= 1)) {
       console.error(`🚨 Invalid Alpha: '${token.name}: ${token.$value}' is not a valid alpha value (should be in the format 0.x).\n`);
     }
     // https://caniuse.com/mdn-css_types_color_alpha_hexadecimal_notation
