@@ -7,7 +7,7 @@ const LocalComponent: TemplateOnlyComponent = <template>
     {{!
     // example of CSS code associated with the demo class:
     .doc-grid-demo-custom-grid-column-gap {
-      --hds-layout-grid-column-gap: 13px;
+      --hds-var-layout-grid-column-gap: 13px;
     }
   }}
     {{!

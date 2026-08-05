@@ -6,8 +6,8 @@ import { HdsLayoutFlex } from '@hashicorp/design-system-components/components';
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsLayoutFlex
     {{style
-      --hds-layout-flex-row-gap="10px"
-      --hds-layout-flex-column-gap="0.625rem"
+      --hds-var-layout-flex-row-gap="10px"
+      --hds-var-layout-flex-column-gap="0.625rem"
     }}
     @wrap={{true}}
   >

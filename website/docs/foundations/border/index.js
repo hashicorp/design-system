@@ -6,10 +6,10 @@
 import Component from '@glimmer/component';
 
 /*
-  --token-border-radius-x-small: 3px;
-  --token-border-radius-small: 5px;
-  --token-border-radius-medium: 6px;
-  --token-border-radius-large: 8px;
+  --hds-border-radius-x-small: 3px;
+  --hds-border-radius-small: 5px;
+  --hds-border-radius-medium: 6px;
+  --hds-border-radius-large: 8px;
 */
 
 const RADII = ['x-small', 'small', 'medium', 'large'];
@@ -18,7 +18,7 @@ export default class Index extends Component {
   get cssVariables() {
     const cssVariables = { radii: [] };
     RADII.forEach((radius) => {
-      cssVariables.radii.push(`--token-border-radius-${radius}`);
+      cssVariables.radii.push(`--hds-border-radius-${radius}`);
     });
     return cssVariables;
   }

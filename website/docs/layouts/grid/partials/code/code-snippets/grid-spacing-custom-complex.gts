@@ -6,8 +6,8 @@ import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsLayoutGrid
     {{style
-      --hds-layout-grid-row-gap="10px"
-      --hds-layout-grid-column-gap="0.625rem"
+      --hds-var-layout-grid-row-gap="10px"
+      --hds-var-layout-grid-column-gap="0.625rem"
     }}
   >
     {{!
