@@ -43,6 +43,7 @@ import type {
   HdsAdvancedTableNormalizedColumn,
   HdsAdvancedTableThSortOrderLabels,
   HdsAdvancedTableThSortOrder,
+  HdsAdvancedTablePixelString,
 } from './types.ts';
 
 import type { HdsCompositeSignature } from '../composite/index.gts';
@@ -83,10 +84,6 @@ export interface HdsAdvancedTableThSignature {
     reorderHoveredColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     rowspan?: number;
     scope?: HdsAdvancedTableScope;
-    siblingColumnKeys?: {
-      previous?: HdsAdvancedTableNormalizedColumn['key'];
-      next?: HdsAdvancedTableNormalizedColumn['key'];
-    };
     draggedColumnSiblingColumnKeys?: {
       previous?: HdsAdvancedTableNormalizedColumn['key'];
       next?: HdsAdvancedTableNormalizedColumn['key'];
@@ -95,18 +92,14 @@ export interface HdsAdvancedTableThSignature {
     tableHeight?: number;
     tooltip?: string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
-    onApplyTransientWidth?: (
-      columnKey: HdsAdvancedTableNormalizedColumn['key']
-    ) => void;
+    onBeginColumnResize?: () => void;
+    onCommitColumnWidths?: () => void;
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onGetAppliedWidth?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key']
     ) => HdsAdvancedTableNormalizedColumn['width'];
-    onGetColumnByKey?: (
-      columnKey: HdsAdvancedTableNormalizedColumn['key']
-    ) => HdsAdvancedTableNormalizedColumn | undefined;
     onMoveColumnToTerminalPosition?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key'],
       position: 'start' | 'end'
@@ -117,27 +110,25 @@ export interface HdsAdvancedTableThSignature {
       side: HdsAdvancedTableColumnReorderSide
     ) => void;
     onResetTransientColumnWidths?: () => void;
+    onResizeColumnByDelta?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
+      deltaPx: number
+    ) => number;
     onRestoreColumnWidth?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key']
     ) => void;
+    onGetRenderedWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => HdsAdvancedTablePixelString | undefined;
     onSetDraggedColumnKey?: (
       key: HdsAdvancedTableNormalizedColumn['key'] | null
     ) => void;
     onSetReorderHoveredColumnKey?: (
       key: HdsAdvancedTableNormalizedColumn['key'] | null
     ) => void;
-    onSetTransientColumnWidth?: (
-      columnKey: HdsAdvancedTableNormalizedColumn['key'],
-      width: `${number}px`
-    ) => void;
-    onSetTransientColumnWidths?: (options: { roundValues?: boolean }) => void;
     onStepColumn?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key'],
       step: number
-    ) => void;
-    onUpdateResizeDebt?: (
-      columnKey: HdsAdvancedTableNormalizedColumn['key'],
-      delta: number
     ) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
@@ -349,12 +340,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     this._reorderHandleElement.focus();
   }
 
-  @action applyTransientWidth(
-    columnKey: HdsAdvancedTableNormalizedColumn['key']
-  ): void {
-    this.args.onApplyTransientWidth?.(columnKey);
-  }
-
   @action resetTransientColumnWidths(): void {
     this.args.onResetTransientColumnWidths?.();
   }
@@ -365,31 +350,10 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return this.args.onGetAppliedWidth?.(columnKey);
   }
 
-  @action getColumnByKey(
-    columnKey: HdsAdvancedTableNormalizedColumn['key']
-  ): HdsAdvancedTableNormalizedColumn | undefined {
-    return this.args.onGetColumnByKey?.(columnKey);
-  }
-
   @action setDraggedColumnKey(
     columnKey: HdsAdvancedTableNormalizedColumn['key'] | null
   ): void {
     this.args.onSetDraggedColumnKey?.(columnKey);
-  }
-
-  @action setTransientColumnWidth(
-    columnKey: HdsAdvancedTableNormalizedColumn['key'],
-    width: `${number}px`
-  ): void {
-    const { column, onSetTransientColumnWidth } = this.args;
-
-    if (column !== undefined && onSetTransientColumnWidth !== undefined) {
-      onSetTransientColumnWidth(columnKey, width);
-    }
-  }
-
-  @action setTransientColumnWidths(options: { roundValues?: boolean }): void {
-    this.args.onSetTransientColumnWidths?.(options);
   }
 
   @action stepColumn(step: number): void {
@@ -397,14 +361,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
     if (column !== undefined && onStepColumn !== undefined) {
       onStepColumn(column.key, step);
-    }
-  }
-
-  @action updateResizeDebt(delta: number): void {
-    const { column, onUpdateResizeDebt } = this.args;
-
-    if (column !== undefined && onUpdateResizeDebt !== undefined) {
-      onUpdateResizeDebt(column.key, delta);
     }
   }
 
@@ -521,6 +477,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
               @onMoveColumnToTerminalPosition={{@onMoveColumnToTerminalPosition}}
               @onPinFirstColumn={{@onPinFirstColumn}}
               @onRestoreColumnWidth={{@onRestoreColumnWidth}}
+              @onGetRenderedWidth={{@onGetRenderedWidth}}
             />
             {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
               <HdsAdvancedTableThReorderHandle
@@ -536,16 +493,13 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
             {{#if this.showResizeHandle}}
               <HdsAdvancedTableThResizeHandle
                 @column={{@column}}
-                @siblingColumnKeys={{@siblingColumnKeys}}
                 @tableHeight={{@tableHeight}}
-                @onApplyTransientWidth={{this.applyTransientWidth}}
                 @onColumnResize={{@onColumnResize}}
+                @onBeginColumnResize={{@onBeginColumnResize}}
+                @onResizeColumnByDelta={{@onResizeColumnByDelta}}
+                @onCommitColumnWidths={{@onCommitColumnWidths}}
                 @onGetAppliedWidth={{this.getAppliedWidth}}
-                @onGetColumnByKey={{this.getColumnByKey}}
-                @onSetTransientColumnWidth={{this.setTransientColumnWidth}}
-                @onSetTransientColumnWidths={{this.setTransientColumnWidths}}
                 @onResetTransientColumnWidths={{this.resetTransientColumnWidths}}
-                @onUpdateResizeDebt={{this.updateResizeDebt}}
                 {{this._registerResizeHandleElement}}
               />
             {{/if}}
