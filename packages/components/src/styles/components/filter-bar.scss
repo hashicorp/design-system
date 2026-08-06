@@ -31,6 +31,10 @@
   align-items: center;
 }
 
+// Setting `margin-right: auto` on the last element of the toggle, filters dropdown,
+// or search fills the leftover space and shoves the right-side items
+// (ActionsGeneric, ActionsDropdown) to the end of the row. Using `margin-left:
+// auto` on those right-side items instead would break row wrapping.
 .hds-filter-bar__actions__left {
   display: contents;
 
