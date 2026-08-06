@@ -6881,6 +6881,40 @@
         "color"
       ]
     },
+    "hds-advanced-table-drop-preview-surface-color": {
+      "key": "{advanced-table.drop-preview.surface.color}",
+      "$type": "color",
+      "$value": "#0c56e9",
+      "$modes": {
+        "default": "#0c56e9",
+        "cds-g0": "#5990ff",
+        "cds-g10": "#5990ff",
+        "cds-g90": "#5990ff",
+        "cds-g100": "#5990ff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{focus.color.action.internal}",
+        "$modes": {
+          "default": "{focus.color.action.internal}",
+          "cds-g0": "{focus.color.action.external}",
+          "cds-g10": "{focus.color.action.external}",
+          "cds-g90": "{focus.color.action.external}",
+          "cds-g100": "{focus.color.action.external}"
+        },
+        "key": "{advanced-table.drop-preview.surface.color}"
+      },
+      "name": "hds-advanced-table-drop-preview-surface-color",
+      "attributes": {
+        "category": "advanced-table"
+      },
+      "path": [
+        "advanced-table",
+        "drop-preview",
+        "surface",
+        "color"
+      ]
+    },
     "hds-advanced-table-empty-state-border-width": {
       "key": "{advanced-table.empty-state.border.width}",
       "$type": "dimension",
@@ -37646,6 +37680,40 @@
       "path": [
         "advanced-table",
         "drag-preview",
+        "surface",
+        "color"
+      ]
+    },
+    "hds-advanced-table-drop-preview-surface-color": {
+      "key": "{advanced-table.drop-preview.surface.color}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#0f62fe",
+        "cds-g100": "#0f62fe"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{focus.color.action.external}",
+        "$modes": {
+          "default": "{focus.color.action.internal}",
+          "cds-g0": "{focus.color.action.external}",
+          "cds-g10": "{focus.color.action.external}",
+          "cds-g90": "{focus.color.action.external}",
+          "cds-g100": "{focus.color.action.external}"
+        },
+        "key": "{advanced-table.drop-preview.surface.color}"
+      },
+      "name": "hds-advanced-table-drop-preview-surface-color",
+      "attributes": {
+        "category": "advanced-table"
+      },
+      "path": [
+        "advanced-table",
+        "drop-preview",
         "surface",
         "color"
       ]
@@ -68453,6 +68521,40 @@
         "color"
       ]
     },
+    "hds-advanced-table-drop-preview-surface-color": {
+      "key": "{advanced-table.drop-preview.surface.color}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#0f62fe",
+        "cds-g100": "#0f62fe"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{focus.color.action.external}",
+        "$modes": {
+          "default": "{focus.color.action.internal}",
+          "cds-g0": "{focus.color.action.external}",
+          "cds-g10": "{focus.color.action.external}",
+          "cds-g90": "{focus.color.action.external}",
+          "cds-g100": "{focus.color.action.external}"
+        },
+        "key": "{advanced-table.drop-preview.surface.color}"
+      },
+      "name": "hds-advanced-table-drop-preview-surface-color",
+      "attributes": {
+        "category": "advanced-table"
+      },
+      "path": [
+        "advanced-table",
+        "drop-preview",
+        "surface",
+        "color"
+      ]
+    },
     "hds-advanced-table-empty-state-border-width": {
       "key": "{advanced-table.empty-state.border.width}",
       "$type": "dimension",
@@ -99256,6 +99358,40 @@
         "color"
       ]
     },
+    "hds-advanced-table-drop-preview-surface-color": {
+      "key": "{advanced-table.drop-preview.surface.color}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{focus.color.action.external}",
+        "$modes": {
+          "default": "{focus.color.action.internal}",
+          "cds-g0": "{focus.color.action.external}",
+          "cds-g10": "{focus.color.action.external}",
+          "cds-g90": "{focus.color.action.external}",
+          "cds-g100": "{focus.color.action.external}"
+        },
+        "key": "{advanced-table.drop-preview.surface.color}"
+      },
+      "name": "hds-advanced-table-drop-preview-surface-color",
+      "attributes": {
+        "category": "advanced-table"
+      },
+      "path": [
+        "advanced-table",
+        "drop-preview",
+        "surface",
+        "color"
+      ]
+    },
     "hds-advanced-table-empty-state-border-width": {
       "key": "{advanced-table.empty-state.border.width}",
       "$type": "dimension",
@@ -130055,6 +130191,40 @@
       "path": [
         "advanced-table",
         "drag-preview",
+        "surface",
+        "color"
+      ]
+    },
+    "hds-advanced-table-drop-preview-surface-color": {
+      "key": "{advanced-table.drop-preview.surface.color}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#161616",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#ffffff",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{focus.color.action.external}",
+        "$modes": {
+          "default": "{focus.color.action.internal}",
+          "cds-g0": "{focus.color.action.external}",
+          "cds-g10": "{focus.color.action.external}",
+          "cds-g90": "{focus.color.action.external}",
+          "cds-g100": "{focus.color.action.external}"
+        },
+        "key": "{advanced-table.drop-preview.surface.color}"
+      },
+      "name": "hds-advanced-table-drop-preview-surface-color",
+      "attributes": {
+        "category": "advanced-table"
+      },
+      "path": [
+        "advanced-table",
+        "drop-preview",
         "surface",
         "color"
       ]

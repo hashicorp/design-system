@@ -6879,6 +6879,40 @@
     ]
   },
   {
+    "key": "{advanced-table.drop-preview.surface.color}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{focus.color.action.external}",
+      "$modes": {
+        "default": "{focus.color.action.internal}",
+        "cds-g0": "{focus.color.action.external}",
+        "cds-g10": "{focus.color.action.external}",
+        "cds-g90": "{focus.color.action.external}",
+        "cds-g100": "{focus.color.action.external}"
+      },
+      "key": "{advanced-table.drop-preview.surface.color}"
+    },
+    "name": "hds-advanced-table-drop-preview-surface-color",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "drop-preview",
+      "surface",
+      "color"
+    ]
+  },
+  {
     "key": "{advanced-table.empty-state.border.width}",
     "$type": "dimension",
     "$value": "0px",

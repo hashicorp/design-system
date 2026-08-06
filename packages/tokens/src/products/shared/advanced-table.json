@@ -439,6 +439,21 @@
         }
       }
     },
+    "drop-preview": {
+      "surface": {
+        "color": {
+          "$type": "color",
+          "$value": "{focus.color.action.internal}",
+          "$modes": {
+            "default": "{focus.color.action.internal}",
+            "cds-g0": "{focus.color.action.external}",
+            "cds-g10": "{focus.color.action.external}",
+            "cds-g90": "{focus.color.action.external}",
+            "cds-g100": "{focus.color.action.external}"
+          }
+        }
+      }
+    },
     "empty-state": {
       "border": {
         "width": {

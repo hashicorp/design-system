@@ -6881,6 +6881,40 @@
     ]
   },
   {
+    "key": "{advanced-table.drop-preview.surface.color}",
+    "$type": "color",
+    "$value": "#0c56e9",
+    "$modes": {
+      "default": "#0c56e9",
+      "cds-g0": "#5990ff",
+      "cds-g10": "#5990ff",
+      "cds-g90": "#5990ff",
+      "cds-g100": "#5990ff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{focus.color.action.internal}",
+      "$modes": {
+        "default": "{focus.color.action.internal}",
+        "cds-g0": "{focus.color.action.external}",
+        "cds-g10": "{focus.color.action.external}",
+        "cds-g90": "{focus.color.action.external}",
+        "cds-g100": "{focus.color.action.external}"
+      },
+      "key": "{advanced-table.drop-preview.surface.color}"
+    },
+    "name": "hds-advanced-table-drop-preview-surface-color",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "drop-preview",
+      "surface",
+      "color"
+    ]
+  },
+  {
     "key": "{advanced-table.empty-state.border.width}",
     "$type": "dimension",
     "$value": "1px",

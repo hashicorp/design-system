@@ -213,6 +213,7 @@
   --hds-advanced-table-resize-handle-surface-color-active: #0c56e9;
   --hds-advanced-table-resize-handle-surface-color-focus: #0c56e9;
   --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
+  --hds-advanced-table-drop-preview-surface-color: #0c56e9;
   --hds-advanced-table-empty-state-border-width: 1px;
   --hds-alert-border-color-neutral: #3b3d4566;
   --hds-alert-border-color-highlight: #ead2fe;
@@ -1806,7 +1807,7 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background-color: var(--hds-core-color-blue-300);
+  background-color: var(--hds-advanced-table-drop-preview-surface-color);
   content: "";
   pointer-events: none;
 }

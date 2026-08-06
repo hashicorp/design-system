@@ -176,7 +176,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
         top: 0;
         bottom: 0;
         width: 4px;
-        background-color: var(--hds-core-color-blue-300);
+        background-color: var(--hds-advanced-table-drop-preview-surface-color);
         content: "";
         pointer-events: none;
       }
