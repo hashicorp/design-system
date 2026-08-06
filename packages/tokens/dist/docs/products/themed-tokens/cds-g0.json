@@ -6704,12 +6704,24 @@
   {
     "key": "{advanced-table.resize-handle.surface.color.hover}",
     "$type": "color",
-    "$value": "#16161666",
-    "alpha": "0.4",
+    "$value": "#a8a8a8",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "#a8a8a8",
+      "cds-g10": "#a8a8a8",
+      "cds-g90": "#e0e0e0",
+      "cds-g100": "#e0e0e0"
+    },
     "original": {
       "$type": "color",
-      "$value": "{foreground.color.primary}",
-      "alpha": "0.4",
+      "$value": "{carbon.color.gray.40}",
+      "$modes": {
+        "default": "{core.color.neutral-400}",
+        "cds-g0": "{carbon.color.gray.40}",
+        "cds-g10": "{carbon.color.gray.40}",
+        "cds-g90": "{carbon.color.gray.20}",
+        "cds-g100": "{carbon.color.gray.20}"
+      },
       "key": "{advanced-table.resize-handle.surface.color.hover}"
     },
     "name": "hds-advanced-table-resize-handle-surface-color-hover",
@@ -6729,21 +6741,21 @@
     "$type": "color",
     "$value": "#0f62fe",
     "$modes": {
-      "default": "#ffffff",
+      "default": "#0043ce",
       "cds-g0": "#0f62fe",
       "cds-g10": "#0f62fe",
-      "cds-g90": "#0f62fe",
-      "cds-g100": "#0f62fe"
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
     },
     "original": {
       "$type": "color",
-      "$value": "{focus.color.action.external}",
+      "$value": "{carbon.color.blue.60}",
       "$modes": {
-        "default": "{focus.color.action.internal}",
-        "cds-g0": "{focus.color.action.external}",
-        "cds-g10": "{focus.color.action.external}",
-        "cds-g90": "{focus.color.action.external}",
-        "cds-g100": "{focus.color.action.external}"
+        "default": "{core.color.blue-300}",
+        "cds-g0": "{carbon.color.blue.60}",
+        "cds-g10": "{carbon.color.blue.60}",
+        "cds-g90": "{carbon.color.white.0}",
+        "cds-g100": "{carbon.color.white.0}"
       },
       "key": "{advanced-table.resize-handle.surface.color.active}"
     },
@@ -6764,21 +6776,21 @@
     "$type": "color",
     "$value": "#0f62fe",
     "$modes": {
-      "default": "#ffffff",
+      "default": "#0043ce",
       "cds-g0": "#0f62fe",
       "cds-g10": "#0f62fe",
-      "cds-g90": "#0f62fe",
-      "cds-g100": "#0f62fe"
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
     },
     "original": {
       "$type": "color",
-      "$value": "{focus.color.action.external}",
+      "$value": "{carbon.color.blue.60}",
       "$modes": {
-        "default": "{focus.color.action.internal}",
-        "cds-g0": "{focus.color.action.external}",
-        "cds-g10": "{focus.color.action.external}",
-        "cds-g90": "{focus.color.action.external}",
-        "cds-g100": "{focus.color.action.external}"
+        "default": "{core.color.blue-300}",
+        "cds-g0": "{carbon.color.blue.60}",
+        "cds-g10": "{carbon.color.blue.60}",
+        "cds-g90": "{carbon.color.white.0}",
+        "cds-g100": "{carbon.color.white.0}"
       },
       "key": "{advanced-table.resize-handle.surface.color.focus}"
     },
@@ -6795,35 +6807,69 @@
     ]
   },
   {
+    "key": "{advanced-table.drag-preview.border.color}",
+    "$type": "color",
+    "$value": "#0f62fe",
+    "$modes": {
+      "default": "#0f62fe",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.blue.60}",
+      "$modes": {
+        "default": "{core.color.blue-200}",
+        "cds-g0": "{carbon.color.blue.60}",
+        "cds-g10": "{carbon.color.blue.60}",
+        "cds-g90": "{carbon.color.white.0}",
+        "cds-g100": "{carbon.color.white.0}"
+      },
+      "key": "{advanced-table.drag-preview.border.color}"
+    },
+    "name": "hds-advanced-table-drag-preview-border-color",
+    "attributes": {
+      "category": "advanced-table"
+    },
+    "path": [
+      "advanced-table",
+      "drag-preview",
+      "border",
+      "color"
+    ]
+  },
+  {
     "key": "{advanced-table.drag-preview.surface.color}",
     "$type": "color",
     "$value": "#0f62fe33",
     "alpha": "0.2",
     "$modes": {
-      "default": "#CCE3FE",
+      "default": "#d0e2ff",
       "cds-g0": {
-        "$value": "#0F62FE",
+        "$value": "#0f62fe",
         "alpha": "0.2",
         "filePath": "src/products/shared/advanced-table.json",
         "isSource": true,
         "$type": "color"
       },
       "cds-g10": {
-        "$value": "#0F62FE",
+        "$value": "#0f62fe",
         "alpha": "0.2",
         "filePath": "src/products/shared/advanced-table.json",
         "isSource": true,
         "$type": "color"
       },
       "cds-g90": {
-        "$value": "#0F62FE",
+        "$value": "#ffffff",
         "alpha": "0.2",
         "filePath": "src/products/shared/advanced-table.json",
         "isSource": true,
         "$type": "color"
       },
       "cds-g100": {
-        "$value": "#0F62FE",
+        "$value": "#ffffff",
         "alpha": "0.2",
         "filePath": "src/products/shared/advanced-table.json",
         "isSource": true,
@@ -6832,33 +6878,33 @@
     },
     "original": {
       "$type": "color",
-      "$value": "#0F62FE",
+      "$value": "{carbon.color.blue.60}",
       "alpha": "0.2",
       "$modes": {
-        "default": "#CCE3FE",
+        "default": "{core.color.blue-100}",
         "cds-g0": {
-          "$value": "#0F62FE",
+          "$value": "{carbon.color.blue.60}",
           "alpha": "0.2",
           "filePath": "src/products/shared/advanced-table.json",
           "isSource": true,
           "$type": "color"
         },
         "cds-g10": {
-          "$value": "#0F62FE",
+          "$value": "{carbon.color.blue.60}",
           "alpha": "0.2",
           "filePath": "src/products/shared/advanced-table.json",
           "isSource": true,
           "$type": "color"
         },
         "cds-g90": {
-          "$value": "#0F62FE",
+          "$value": "{carbon.color.white.0}",
           "alpha": "0.2",
           "filePath": "src/products/shared/advanced-table.json",
           "isSource": true,
           "$type": "color"
         },
         "cds-g100": {
-          "$value": "#0F62FE",
+          "$value": "{carbon.color.white.0}",
           "alpha": "0.2",
           "filePath": "src/products/shared/advanced-table.json",
           "isSource": true,
@@ -6883,21 +6929,21 @@
     "$type": "color",
     "$value": "#0f62fe",
     "$modes": {
-      "default": "#ffffff",
+      "default": "#0043ce",
       "cds-g0": "#0f62fe",
       "cds-g10": "#0f62fe",
-      "cds-g90": "#0f62fe",
-      "cds-g100": "#0f62fe"
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
     },
     "original": {
       "$type": "color",
-      "$value": "{focus.color.action.external}",
+      "$value": "{carbon.color.blue.60}",
       "$modes": {
-        "default": "{focus.color.action.internal}",
-        "cds-g0": "{focus.color.action.external}",
-        "cds-g10": "{focus.color.action.external}",
-        "cds-g90": "{focus.color.action.external}",
-        "cds-g100": "{focus.color.action.external}"
+        "default": "{core.color.blue-300}",
+        "cds-g0": "{carbon.color.blue.60}",
+        "cds-g10": "{carbon.color.blue.60}",
+        "cds-g90": "{carbon.color.white.0}",
+        "cds-g100": "{carbon.color.white.0}"
       },
       "key": "{advanced-table.drop-preview.surface.color}"
     },

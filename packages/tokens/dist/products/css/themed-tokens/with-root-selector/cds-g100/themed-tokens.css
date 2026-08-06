@@ -45,13 +45,14 @@
   --hds-advanced-table-cell-surface-color-nested-hover: rgba(141, 141, 141, 0.16);
   --hds-advanced-table-cell-surface-color-parent-hover: rgba(141, 141, 141, 0.16);
   --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
-  --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
-  --hds-advanced-table-drop-preview-surface-color: var(--hds-focus-color-action-external);
+  --hds-advanced-table-drag-preview-border-color: #ffffff;
+  --hds-advanced-table-drag-preview-surface-color: #ffffff33;
+  --hds-advanced-table-drop-preview-surface-color: #ffffff;
   --hds-advanced-table-empty-state-border-width: 0px;
   --hds-advanced-table-header-border-width-pinned: 0px;
-  --hds-advanced-table-resize-handle-surface-color-active: var(--hds-focus-color-action-external);
-  --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-focus-color-action-external);
-  --hds-advanced-table-resize-handle-surface-color-hover: #f4f4f466;
+  --hds-advanced-table-resize-handle-surface-color-active: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-focus: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-hover: #e0e0e0;
   --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;

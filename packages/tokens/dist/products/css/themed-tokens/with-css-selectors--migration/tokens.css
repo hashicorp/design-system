@@ -100,19 +100,24 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-advanced-table-cell-surface-color-striped-hover: var(
     --hds-table-cell-surface-color-striped-hover
   );
+  --hds-advanced-table-drag-preview-border-color: var(
+    --hds-core-color-blue-200
+  );
   --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
   --hds-advanced-table-drop-preview-surface-color: var(
-    --hds-focus-color-action-internal
+    --hds-core-color-blue-300
   );
   --hds-advanced-table-empty-state-border-width: 1px;
   --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
   --hds-advanced-table-resize-handle-surface-color-active: var(
-    --hds-focus-color-action-internal
+    --hds-core-color-blue-300
   );
   --hds-advanced-table-resize-handle-surface-color-focus: var(
-    --hds-focus-color-action-internal
+    --hds-core-color-blue-300
   );
-  --hds-advanced-table-resize-handle-surface-color-hover: #3b3d4566;
+  --hds-advanced-table-resize-handle-surface-color-hover: var(
+    --hds-core-color-neutral-400
+  );
   --hds-advanced-table-scroll-indicator-gradient-color-start: #3b3d4500;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #3b3d4514;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
@@ -1443,19 +1448,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0.12
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-drag-preview-border-color: #0f62fe;
     --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
-    --hds-advanced-table-drop-preview-surface-color: var(
-      --hds-focus-color-action-external
-    );
+    --hds-advanced-table-drop-preview-surface-color: #0f62fe;
     --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-header-border-width-pinned: 0px;
-    --hds-advanced-table-resize-handle-surface-color-active: var(
-      --hds-focus-color-action-external
-    );
-    --hds-advanced-table-resize-handle-surface-color-focus: var(
-      --hds-focus-color-action-external
-    );
-    --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+    --hds-advanced-table-resize-handle-surface-color-active: #0f62fe;
+    --hds-advanced-table-resize-handle-surface-color-focus: #0f62fe;
+    --hds-advanced-table-resize-handle-surface-color-hover: #a8a8a8;
     --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
     --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
@@ -2315,19 +2315,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0.16
     );
     --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
-    --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
-    --hds-advanced-table-drop-preview-surface-color: var(
-      --hds-focus-color-action-external
-    );
+    --hds-advanced-table-drag-preview-border-color: #ffffff;
+    --hds-advanced-table-drag-preview-surface-color: #ffffff33;
+    --hds-advanced-table-drop-preview-surface-color: #ffffff;
     --hds-advanced-table-empty-state-border-width: 0px;
     --hds-advanced-table-header-border-width-pinned: 0px;
-    --hds-advanced-table-resize-handle-surface-color-active: var(
-      --hds-focus-color-action-external
-    );
-    --hds-advanced-table-resize-handle-surface-color-focus: var(
-      --hds-focus-color-action-external
-    );
-    --hds-advanced-table-resize-handle-surface-color-hover: #f4f4f466;
+    --hds-advanced-table-resize-handle-surface-color-active: #ffffff;
+    --hds-advanced-table-resize-handle-surface-color-focus: #ffffff;
+    --hds-advanced-table-resize-handle-surface-color-hover: #e0e0e0;
     --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
     --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
     --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
@@ -3216,19 +3211,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0.12
   );
   --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-border-color: #0f62fe;
   --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
-  --hds-advanced-table-drop-preview-surface-color: var(
-    --hds-focus-color-action-external
-  );
+  --hds-advanced-table-drop-preview-surface-color: #0f62fe;
   --hds-advanced-table-empty-state-border-width: 0px;
   --hds-advanced-table-header-border-width-pinned: 0px;
-  --hds-advanced-table-resize-handle-surface-color-active: var(
-    --hds-focus-color-action-external
-  );
-  --hds-advanced-table-resize-handle-surface-color-focus: var(
-    --hds-focus-color-action-external
-  );
-  --hds-advanced-table-resize-handle-surface-color-hover: #16161666;
+  --hds-advanced-table-resize-handle-surface-color-active: #0f62fe;
+  --hds-advanced-table-resize-handle-surface-color-focus: #0f62fe;
+  --hds-advanced-table-resize-handle-surface-color-hover: #a8a8a8;
   --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
@@ -4075,19 +4065,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0.16
   );
   --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
-  --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
-  --hds-advanced-table-drop-preview-surface-color: var(
-    --hds-focus-color-action-external
-  );
+  --hds-advanced-table-drag-preview-border-color: #ffffff;
+  --hds-advanced-table-drag-preview-surface-color: #ffffff33;
+  --hds-advanced-table-drop-preview-surface-color: #ffffff;
   --hds-advanced-table-empty-state-border-width: 0px;
   --hds-advanced-table-header-border-width-pinned: 0px;
-  --hds-advanced-table-resize-handle-surface-color-active: var(
-    --hds-focus-color-action-external
-  );
-  --hds-advanced-table-resize-handle-surface-color-focus: var(
-    --hds-focus-color-action-external
-  );
-  --hds-advanced-table-resize-handle-surface-color-hover: #f4f4f466;
+  --hds-advanced-table-resize-handle-surface-color-active: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-focus: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-hover: #e0e0e0;
   --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;

@@ -45,13 +45,14 @@
   --hds-advanced-table-cell-surface-color-nested-hover: var(--hds-surface-color-faint);
   --hds-advanced-table-cell-surface-color-parent-hover: var(--hds-surface-color-primary);
   --hds-advanced-table-cell-surface-color-striped-hover: var(--hds-table-cell-surface-color-striped-hover);
+  --hds-advanced-table-drag-preview-border-color: var(--hds-core-color-blue-200);
   --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
-  --hds-advanced-table-drop-preview-surface-color: var(--hds-focus-color-action-internal);
+  --hds-advanced-table-drop-preview-surface-color: var(--hds-core-color-blue-300);
   --hds-advanced-table-empty-state-border-width: 1px;
   --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
-  --hds-advanced-table-resize-handle-surface-color-active: var(--hds-focus-color-action-internal);
-  --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-focus-color-action-internal);
-  --hds-advanced-table-resize-handle-surface-color-hover: #3b3d4566;
+  --hds-advanced-table-resize-handle-surface-color-active: var(--hds-core-color-blue-300);
+  --hds-advanced-table-resize-handle-surface-color-focus: var(--hds-core-color-blue-300);
+  --hds-advanced-table-resize-handle-surface-color-hover: var(--hds-core-color-neutral-400);
   --hds-advanced-table-scroll-indicator-gradient-color-start: #3b3d4500;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #3b3d4514;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;

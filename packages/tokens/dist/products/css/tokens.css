@@ -205,9 +205,10 @@
   --hds-advanced-table-scroll-indicator-gradient-color-start: #3b3d4500;
   --hds-advanced-table-scroll-indicator-gradient-color-stop: #3b3d4514;
   --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
-  --hds-advanced-table-resize-handle-surface-color-hover: #3b3d4566;
+  --hds-advanced-table-resize-handle-surface-color-hover: #8c909c;
   --hds-advanced-table-resize-handle-surface-color-active: #0c56e9;
   --hds-advanced-table-resize-handle-surface-color-focus: #0c56e9;
+  --hds-advanced-table-drag-preview-border-color: #1060ff;
   --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
   --hds-advanced-table-drop-preview-surface-color: #0c56e9;
   --hds-advanced-table-empty-state-border-width: 1px;

@@ -383,56 +383,75 @@
         "color": {
           "hover": {
             "$type": "color",
-            "$value": "{foreground.color.primary}",
-            "alpha": "0.4"
+            "$value": "{core.color.neutral-400}",
+            "$modes": {
+              "default": "{core.color.neutral-400}",
+              "cds-g0": "{carbon.color.gray.40}",
+              "cds-g10": "{carbon.color.gray.40}",
+              "cds-g90": "{carbon.color.gray.20}",
+              "cds-g100": "{carbon.color.gray.20}"
+            }
           },
           "active": {
             "$type": "color",
-            "$value": "{focus.color.action.internal}",
+            "$value": "{core.color.blue-300}",
             "$modes": {
-              "default": "{focus.color.action.internal}",
-              "cds-g0": "{focus.color.action.external}",
-              "cds-g10": "{focus.color.action.external}",
-              "cds-g90": "{focus.color.action.external}",
-              "cds-g100": "{focus.color.action.external}"
+              "default": "{core.color.blue-300}",
+              "cds-g0": "{carbon.color.blue.60}",
+              "cds-g10": "{carbon.color.blue.60}",
+              "cds-g90": "{carbon.color.white.0}",
+              "cds-g100": "{carbon.color.white.0}"
             }
           },
           "focus": {
             "$type": "color",
-            "$value": "{focus.color.action.internal}",
+            "$value": "{core.color.blue-300}",
             "$modes": {
-              "default": "{focus.color.action.internal}",
-              "cds-g0": "{focus.color.action.external}",
-              "cds-g10": "{focus.color.action.external}",
-              "cds-g90": "{focus.color.action.external}",
-              "cds-g100": "{focus.color.action.external}"
+              "default": "{core.color.blue-300}",
+              "cds-g0": "{carbon.color.blue.60}",
+              "cds-g10": "{carbon.color.blue.60}",
+              "cds-g90": "{carbon.color.white.0}",
+              "cds-g100": "{carbon.color.white.0}"
             }
           }
         }
       }
     },
     "drag-preview": {
+      "border": {
+        "color": {
+          "$type": "color",
+          "$value": "{core.color.blue-200}",
+          "$modes": {
+            "default": "{core.color.blue-200}",
+            "cds-g0": "{carbon.color.blue.60}",
+            "cds-g10": "{carbon.color.blue.60}",
+            "cds-g90": "{carbon.color.white.0}",
+            "cds-g100": "{carbon.color.white.0}"
+          }
+        }
+      },
       "surface": {
         "color": {
           "$type": "color",
-          "$value": "#CCE3FE",
+          "$value": "{core.color.blue-100}",
           "alpha": "0.5",
           "$modes": {
-            "default": "#CCE3FE",
+            "default": "{core.color.blue-100}",
             "cds-g0": {
-              "$value": "#0F62FE",
+              "$value": "{carbon.color.blue.60}",
               "alpha": "0.2"
             },
             "cds-g10": {
-              "$value": "#0F62FE",
+              "$value": "{carbon.color.blue.60}",
               "alpha": "0.2"
             },
             "cds-g90": {
-              "$value": "#0F62FE",
+              "$value": "{carbon.color.white.0}",
               "alpha": "0.2"
             },
             "cds-g100": {
-              "$value": "#0F62FE",
+              "$value": "{carbon.color.white.0}",
               "alpha": "0.2"
             }
           }
@@ -443,13 +462,13 @@
       "surface": {
         "color": {
           "$type": "color",
-          "$value": "{focus.color.action.internal}",
+          "$value": "{core.color.blue-300}",
           "$modes": {
-            "default": "{focus.color.action.internal}",
-            "cds-g0": "{focus.color.action.external}",
-            "cds-g10": "{focus.color.action.external}",
-            "cds-g90": "{focus.color.action.external}",
-            "cds-g100": "{focus.color.action.external}"
+            "default": "{core.color.blue-300}",
+            "cds-g0": "{carbon.color.blue.60}",
+            "cds-g10": "{carbon.color.blue.60}",
+            "cds-g90": "{carbon.color.white.0}",
+            "cds-g100": "{carbon.color.white.0}"
           }
         }
       }

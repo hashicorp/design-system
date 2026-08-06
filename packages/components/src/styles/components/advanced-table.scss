@@ -897,7 +897,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
   top: -9999px;
   left: -9999px;
   background-color: var(--hds-advanced-table-drag-preview-surface-color);
-  border: 5px solid var(--hds-focus-color-action-external);
+  border: 5px solid var(--hds-advanced-table-drag-preview-border-color);
   border-radius: var(--hds-border-radius-medium);
   box-shadow: var(--hds-elevation-mid-box-shadow);
 }
