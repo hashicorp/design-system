@@ -44,7 +44,7 @@ export default class SubSectionVariants extends Component {
       >Three</T.Tab>
       <T.Tab
         @icon="waypoint"
-        @iconColor="var(--token-color-waypoint-brand)"
+        @iconColor="var(--hds-product-waypoint-brand-color)"
         @count="5"
       >Four</T.Tab>
 
