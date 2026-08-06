@@ -69,11 +69,7 @@
 
   &.hds-form-textarea--is-invalid {
     @include hds-form-control-border(var(--hds-form-control-invalid-border-color-default));
-
-    @include hds-apply-only-if-carbon() {
-      outline: 2px solid var(--hds-form-control-invalid-border-color-default);
-      outline-offset: -2px;
-    }
+    @include hds-form-control-invalid-outline();
 
     &:hover,
     &.mock-hover {

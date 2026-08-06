@@ -422,12 +422,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown {
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
+    @include hds-form-control-invalid-outline();
     border-color: var(--hds-form-control-invalid-border-color-default);
-
-    @include hds-apply-only-if-carbon() {
-      outline: 2px solid var(--hds-form-control-invalid-border-color-default);
-      outline-offset: -2px;
-    }
 
     &:hover,
     &.mock-hover {

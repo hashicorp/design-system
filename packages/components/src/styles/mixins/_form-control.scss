@@ -17,3 +17,10 @@
     border-bottom-color: $default-cds-border-color;
   }
 }
+
+@mixin hds-form-control-invalid-outline() {
+  @include hds-apply-only-if-carbon() {
+    outline: 2px solid var(--hds-form-control-invalid-border-color-default);
+    outline-offset: -2px;
+  }
+}
