@@ -4,5 +4,5 @@
 # compiled output
 /dist/
 
-# temporary CSS files for theming
+# generated CSS files for HDS theming
 /public/assets/styles/@hashicorp/
