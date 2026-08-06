@@ -15,7 +15,7 @@ const SubSectionBase: TemplateOnlyComponent = <template>
 
   <ShwFlex as |SF|>
     <SF.Item>
-      <div class="hds-focus-ring-action-box-shadow">
+      <div class="hds-focus-ring-box-shadow-action">
         <ShwPlaceholder
           @text="no radius"
           @width="100"
@@ -26,7 +26,7 @@ const SubSectionBase: TemplateOnlyComponent = <template>
     </SF.Item>
     <SF.Item>
       <div
-        class="hds-focus-ring-action-box-shadow"
+        class="hds-focus-ring-box-shadow-action"
         {{style border-radius="5px"}}
       >
         <ShwPlaceholder
