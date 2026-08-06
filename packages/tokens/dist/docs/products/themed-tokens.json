@@ -22448,41 +22448,6 @@
         "hover"
       ]
     },
-    "hds-form-radio-card-border-color-focus": {
-      "key": "{form.radio-card.border.color.focus}",
-      "$type": "color",
-      "$value": "#0c56e9",
-      "$modes": {
-        "default": "#0c56e9",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{focus.color.action.internal}",
-        "$modes": {
-          "default": "{focus.color.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "key": "{form.radio-card.border.color.focus}"
-      },
-      "name": "hds-form-radio-card-border-color-focus",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "color",
-        "focus"
-      ]
-    },
     "hds-form-radio-card-border-color-disabled": {
       "key": "{form.radio-card.border.color.disabled}",
       "$type": "color",
@@ -55881,41 +55846,6 @@
         "color",
         "checked",
         "hover"
-      ]
-    },
-    "hds-form-radio-card-border-color-focus": {
-      "key": "{form.radio-card.border.color.focus}",
-      "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{focus.color.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "key": "{form.radio-card.border.color.focus}"
-      },
-      "name": "hds-form-radio-card-border-color-focus",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "color",
-        "focus"
       ]
     },
     "hds-form-radio-card-border-color-disabled": {
@@ -89334,41 +89264,6 @@
         "hover"
       ]
     },
-    "hds-form-radio-card-border-color-focus": {
-      "key": "{form.radio-card.border.color.focus}",
-      "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{focus.color.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "key": "{form.radio-card.border.color.focus}"
-      },
-      "name": "hds-form-radio-card-border-color-focus",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "color",
-        "focus"
-      ]
-    },
     "hds-form-radio-card-border-color-disabled": {
       "key": "{form.radio-card.border.color.disabled}",
       "$type": "color",
@@ -122785,41 +122680,6 @@
         "hover"
       ]
     },
-    "hds-form-radio-card-border-color-focus": {
-      "key": "{form.radio-card.border.color.focus}",
-      "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{focus.color.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "key": "{form.radio-card.border.color.focus}"
-      },
-      "name": "hds-form-radio-card-border-color-focus",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "color",
-        "focus"
-      ]
-    },
     "hds-form-radio-card-border-color-disabled": {
       "key": "{form.radio-card.border.color.disabled}",
       "$type": "color",
@@ -156234,41 +156094,6 @@
         "color",
         "checked",
         "hover"
-      ]
-    },
-    "hds-form-radio-card-border-color-focus": {
-      "key": "{form.radio-card.border.color.focus}",
-      "$type": "color",
-      "$value": "#ffc0cb",
-      "$modes": {
-        "default": "#161616",
-        "cds-g0": "pink",
-        "cds-g10": "pink",
-        "cds-g90": "pink",
-        "cds-g100": "pink"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "pink",
-        "$modes": {
-          "default": "{focus.color.action.internal}",
-          "cds-g0": "pink",
-          "cds-g10": "pink",
-          "cds-g90": "pink",
-          "cds-g100": "pink"
-        },
-        "key": "{form.radio-card.border.color.focus}"
-      },
-      "name": "hds-form-radio-card-border-color-focus",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "radio-card",
-        "border",
-        "color",
-        "focus"
       ]
     },
     "hds-form-radio-card-border-color-disabled": {

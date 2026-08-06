@@ -696,7 +696,6 @@
   --hds-form-radio-card-border-color-default: #656a7633;
   --hds-form-radio-card-border-color-checked-default: #0c56e9;
   --hds-form-radio-card-border-color-checked-hover: #0046d1;
-  --hds-form-radio-card-border-color-focus: #0c56e9;
   --hds-form-radio-card-border-color-disabled: #656a7633;
   --hds-form-radio-card-content-padding: 24px;
   --hds-form-radio-card-control-size: 16px;
@@ -1810,7 +1809,7 @@
   text-align: left;
   background-color: var(--hds-surface-color-strong);
 }
-.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:hover .hds-advanced-table__th-reorder-handle, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-hover .hds-advanced-table__th-reorder-handle, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus-within .hds-advanced-table__th-reorder-handle {
+.hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:hover:not(:has(.hds-advanced-table__th-resize-handle:hover, .hds-advanced-table__th-resize-handle:focus)) .hds-advanced-table__th-reorder-handle, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th.mock-hover:not(:has(.hds-advanced-table__th-resize-handle:hover, .hds-advanced-table__th-resize-handle:focus)) .hds-advanced-table__th-reorder-handle, .hds-advanced-table__thead .hds-advanced-table__tr .hds-advanced-table__th:focus-within:not(:has(.hds-advanced-table__th-resize-handle:hover, .hds-advanced-table__th-resize-handle:focus)) .hds-advanced-table__th-reorder-handle {
   visibility: visible;
   opacity: 1;
 }
@@ -2475,6 +2474,7 @@
 }
 
 .hds-advanced-table:has(+ .hds-advanced-table__empty-state) {
+  overflow: visible;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }

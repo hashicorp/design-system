@@ -477,7 +477,6 @@
   --hds-form-radio-card-border-color-checked-hover: var(--hds-core-color-blue-400);
   --hds-form-radio-card-border-color-default: var(--hds-border-color-primary);
   --hds-form-radio-card-border-color-disabled: var(--hds-border-color-primary);
-  --hds-form-radio-card-border-color-focus: var(--hds-focus-color-action-internal);
   --hds-form-radio-card-content-padding: 24px;
   --hds-form-radio-card-control-wrapper-border-color-checked: var(--hds-border-color-action);
   --hds-form-radio-card-control-wrapper-border-color-default: var(--hds-border-color-primary);

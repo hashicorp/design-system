@@ -855,9 +855,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-form-radio-card-border-color-default: var(--hds-border-color-primary);
   --hds-form-radio-card-border-color-disabled: var(--hds-border-color-primary);
-  --hds-form-radio-card-border-color-focus: var(
-    --hds-focus-color-action-internal
-  );
   --hds-form-radio-card-content-padding: 24px;
   --hds-form-radio-card-control-wrapper-border-color-checked: var(
     --hds-border-color-action
@@ -1931,7 +1928,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-radio-card-border-color-checked-hover: #161616;
     --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
     --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
-    --hds-form-radio-card-border-color-focus: #ffc0cb;
     --hds-form-radio-card-content-padding: 16px;
     --hds-form-radio-card-control-wrapper-border-color-checked: #c6c6c6;
     --hds-form-radio-card-control-wrapper-border-color-default: #e0e0e0;
@@ -2833,7 +2829,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
     --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
     --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
-    --hds-form-radio-card-border-color-focus: #ffc0cb;
     --hds-form-radio-card-content-padding: 16px;
     --hds-form-radio-card-control-wrapper-border-color-checked: #525252;
     --hds-form-radio-card-control-wrapper-border-color-default: #6f6f6f;
@@ -3704,7 +3699,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-radio-card-border-color-checked-hover: #161616;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
   --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
-  --hds-form-radio-card-border-color-focus: #ffc0cb;
   --hds-form-radio-card-content-padding: 16px;
   --hds-form-radio-card-control-wrapper-border-color-checked: #c6c6c6;
   --hds-form-radio-card-control-wrapper-border-color-default: #e0e0e0;
@@ -4584,7 +4578,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
   --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
-  --hds-form-radio-card-border-color-focus: #ffc0cb;
   --hds-form-radio-card-content-padding: 16px;
   --hds-form-radio-card-control-wrapper-border-color-checked: #525252;
   --hds-form-radio-card-control-wrapper-border-color-default: #6f6f6f;
@@ -5443,7 +5436,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-radio-card-border-color-checked-hover: #161616;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
   --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
-  --hds-form-radio-card-border-color-focus: #ffc0cb;
   --hds-form-radio-card-content-padding: 16px;
   --hds-form-radio-card-control-wrapper-border-color-checked: #e0e0e0;
   --hds-form-radio-card-control-wrapper-border-color-default: #c6c6c6;
@@ -6322,7 +6314,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
   --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
   --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
-  --hds-form-radio-card-border-color-focus: #ffc0cb;
   --hds-form-radio-card-content-padding: 16px;
   --hds-form-radio-card-control-wrapper-border-color-checked: #6f6f6f;
   --hds-form-radio-card-control-wrapper-border-color-default: #8d8d8d;
