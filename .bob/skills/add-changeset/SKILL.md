@@ -37,7 +37,7 @@ Follow the below template to add the required parameters to the changeset file:
 {Summary}
 ```
 
-**IMPORTANT** If changes are to the `@hashicorp/design-system-components` package, the summary must follow the formatting guidelines outlined in the "Components package changeset formatting" section.
+**IMPORTANT** If changes are to the `@hashicorp/design-system-components` package, the summary must follow the formatting guidelines outlined in the "Components package changeset formatting" section. If changes are to the `@hashicorp/design-system-mcp` package, the summary must follow the guidelines outlined in the "MCP package changeset formatting" section instead.
 
 ## Components package changeset formatting
 Each changeset entry related to the `@hashicorp/design-system-components` package should follow this template:
@@ -70,6 +70,21 @@ Changes to multiple components in a single changeset entry:
 `ComponentName2` - Fixed {...additional details}.
 <!-- END -->
 ```
+
+## MCP package changeset formatting
+
+Each changeset entry related to the `@hashicorp/design-system-mcp` package should follow this template:
+
+```
+---
+"@hashicorp/design-system-mcp": minor
+---
+
+Added the `list-components` tool for querying the component catalog.
+```
+
+For further instructions on changesets review the `.bob/skills/add-changeset/SKILL.md` file.
+
 
 ## Requirements
 - Include a short description of the change with relevant details.

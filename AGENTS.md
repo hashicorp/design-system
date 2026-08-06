@@ -103,6 +103,23 @@ pnpm lint
 pnpm lint:fix
 ```
 
+### packages/mcp
+
+The `packages/mcp` package is a Model Context Protocol server that exposes design system knowledge — component APIs, tokens, and usage guidance — to MCP-capable clients over a stdio transport.
+
+#### Key commands
+```bash
+pnpm build      # compile to dist/
+pnpm start      # rebuild and restart the server on file changes
+pnpm start:dev  # rebuild on file changes and run under the MCP Inspector
+pnpm test       # Vitest (not QUnit/Jest)
+pnpm typecheck
+pnpm lint
+```
+
+#### Additional context
+Read through further context and guidance for this package at `.bob/rules/directories/mcp`
+
 ### showcase
 
 The `showcase` app is an Ember application used to develop, test, and visually validate all HDS components from the `packages/components` library. It serves as a live component playground, source for Percy visual regression snapshots, and houses the component acceptance and integration test suite.
