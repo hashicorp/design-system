@@ -7435,10 +7435,6 @@ button.hds-button[href]::after {
   -webkit-appearance: none;
 }
 
-.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger,
-.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger {
-  border-color: var(--hds-form-control-invalid-border-color-default);
-}
 .hds-theme-light .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger, .hds-theme-light .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger,
 .hds-theme-dark .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger, .hds-theme-dark .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger,
 .hds-theme-system .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger, .hds-theme-system .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger {
@@ -7446,6 +7442,10 @@ button.hds-button[href]::after {
   outline-offset: -2px;
 }
 
+.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger,
+.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger {
+  border-color: var(--hds-form-control-invalid-border-color-default);
+}
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger:hover, .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover,
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger:hover,
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown .ember-power-select-trigger.mock-hover {
