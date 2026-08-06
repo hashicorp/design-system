@@ -81,17 +81,6 @@
               }
             }
           },
-          "focus": {
-            "$type": "color",
-            "$value": "{focus.color.action.internal}",
-            "$modes": {
-              "default": "{focus.color.action.internal}",
-              "cds-g0": "pink",
-              "cds-g10": "pink",
-              "cds-g90": "pink",
-              "cds-g100": "pink"
-            }
-          },
           "disabled": {
             "$type": "color",
             "$value": "{border.color.primary}",
