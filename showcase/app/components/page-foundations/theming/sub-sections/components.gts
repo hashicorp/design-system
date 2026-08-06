@@ -12,7 +12,6 @@ import ShwTextBody from 'showcase/components/shw/text/body';
 import {
   HdsAppFooter,
   HdsCodeBlock,
-  HdsThemeSwitcher,
   HdsThemeContext,
 } from '@hashicorp/design-system-components/components';
 
@@ -37,9 +36,6 @@ export default class SubSectionComponents extends Component {
           <SFI.Label>&lt;AppFooter @theme=light&gt;</SFI.Label>
           <div class="shw-foundation-theming-light-background">
             <HdsAppFooter @theme="light" as |AF|>
-              <AF.ExtraBefore>
-                <HdsThemeSwitcher />
-              </AF.ExtraBefore>
               <AF.StatusLink @status="operational" />
               <AF.Link
                 @href="https://cloud.hashicorp.com/docs/changelog"
@@ -54,9 +50,6 @@ export default class SubSectionComponents extends Component {
           <div class="shw-foundation-theming-dark-background">
             <HdsThemeContext @context="dark">
               <HdsAppFooter as |AF|>
-                <AF.ExtraBefore>
-                  <HdsThemeSwitcher />
-                </AF.ExtraBefore>
                 <AF.StatusLink @status="operational" />
                 <AF.Link
                   @href="https://cloud.hashicorp.com/docs/changelog"

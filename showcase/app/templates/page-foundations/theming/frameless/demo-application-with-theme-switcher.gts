@@ -25,7 +25,6 @@ import {
   HdsTabs,
   HdsTextBody,
   HdsTextDisplay,
-  HdsThemeSwitcher,
   HdsToast,
   HdsTooltipButton,
 } from '@hashicorp/design-system-components/components';
@@ -54,19 +53,9 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
     {{pageTitle "AppFrame Component - Frameless"}}
 
     <MockApp @hasPageAlert={{true}}>
-      <:sidebar as |S|>
-        <S.AppSideNav>
-          <:extraAfter>
-            <div {{style margin-top="16px"}}>
-              <HdsThemeSwitcher
-                @toggleSize="medium"
-                @toggleIsFullWidth={{true}}
-                @hasDefaultOption={{true}}
-              />
-            </div>
-          </:extraAfter>
-        </S.AppSideNav>
-      </:sidebar>
+      <:header as |H|>
+        <H.AppHeader />
+      </:header>
       <:main as |M|>
         <M.PageHeader @showActionButton={{true}} @showActionDropdown={{true}} />
 
