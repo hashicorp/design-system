@@ -358,51 +358,52 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
             default="Filters will be applied automatically as selections are made"
           }}</span>
       {{/if}}
-      <HdsLayoutFlex @align="center" @gap="8" class="hds-filter-bar__actions">
-        <HdsButton
-          @text={{hdsT
-            "hds.components.filter-bar.applied-filters.toggle-button"
-            default="View applied filters"
-          }}
-          @color="secondary"
-          @size="small"
-          @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
-          @isIconOnly={{true}}
-          id={{this._appliedFiltersButtonId}}
-          aria-controls={{this._appliedFiltersContentId}}
-          aria-expanded={{if this._isExpanded "true" "false"}}
-          class="hds-filter-bar__applied-filters-toggle-button"
-          {{on "click" this.toggleExpand}}
-        />
-        {{yield
-          (hash
-            FiltersDropdown=(component
-              HdsFilterBarFiltersDropdown
-              filters=@filters
-              isLiveFilter=@isLiveFilter
-              onFilter=this.onFilter
-            )
-          )
-        }}
-        {{#if @hasSearch}}
-          <HdsFormTextInputBase
-            @type="search"
-            @value={{this.searchValue}}
-            class="hds-filter-bar__search"
-            placeholder={{this.searchPlaceholder}}
-            aria-label={{this.searchAriaLabel}}
-            name="search"
-            {{on "change" this.onSearch}}
+      <HdsLayoutFlex
+        @align="center"
+        @wrap={{true}}
+        @gap="8"
+        class="hds-filter-bar__actions"
+      >
+        <div class="hds-filter-bar__actions__left">
+          <HdsButton
+            @text={{hdsT
+              "hds.components.filter-bar.applied-filters.toggle-button"
+              default="View applied filters"
+            }}
+            @color="secondary"
+            @size="small"
+            @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
+            @isIconOnly={{true}}
+            id={{this._appliedFiltersButtonId}}
+            aria-controls={{this._appliedFiltersContentId}}
+            aria-expanded={{if this._isExpanded "true" "false"}}
+            class="hds-filter-bar__applied-filters-toggle-button"
+            {{on "click" this.toggleExpand}}
           />
-        {{/if}}
-        <HdsLayoutFlex
-          @gap="8"
-          @align="center"
-          class="hds-filter-bar__actions__right"
-        >
-          {{yield (hash ActionsGeneric=HdsYield)}}
-          {{yield (hash ActionsDropdown=HdsFilterBarActionsDropdown)}}
-        </HdsLayoutFlex>
+          {{yield
+            (hash
+              FiltersDropdown=(component
+                HdsFilterBarFiltersDropdown
+                filters=@filters
+                isLiveFilter=@isLiveFilter
+                onFilter=this.onFilter
+              )
+            )
+          }}
+          {{#if @hasSearch}}
+            <HdsFormTextInputBase
+              @type="search"
+              @value={{this.searchValue}}
+              class="hds-filter-bar__search"
+              placeholder={{this.searchPlaceholder}}
+              aria-label={{this.searchAriaLabel}}
+              name="search"
+              {{on "change" this.onSearch}}
+            />
+          {{/if}}
+        </div>
+        {{yield (hash ActionsGeneric=HdsYield)}}
+        {{yield (hash ActionsDropdown=HdsFilterBarActionsDropdown)}}
       </HdsLayoutFlex>
       <div
         class="hds-filter-bar__applied-filters-list"
