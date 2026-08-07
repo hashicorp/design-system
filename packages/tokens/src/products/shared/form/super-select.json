@@ -54,17 +54,6 @@
         "surface": {
           "color": {
             "action": {
-              "active": {
-                "$type": "color",
-                "$value": "{dropdown.list-item.foreground.color.action.active}",
-                "$modes": {
-                  "default": "{dropdown.list-item.foreground.color.action.active}",
-                  "cds-g0": "{form.control.base.foreground.color}",
-                  "cds-g10": "{form.control.base.foreground.color}",
-                  "cds-g90": "{form.control.base.foreground.color}",
-                  "cds-g100": "{form.control.base.foreground.color}"
-                }
-              },
               "hover": {
                 "$type": "color",
                 "$value": "transparent",

@@ -43,7 +43,6 @@
         "radius": {
           "$type": "dimension",
           "$value": "{border.radius.medium}",
-          "unit": "px"
         },
         "color": {
           "default": {
@@ -107,11 +106,11 @@
         }
       },
       "control": {
-        "comment": "This is the actual radio button control",
         "size": {
           "$type": "dimension",
           "$value": "16",
-          "unit": "px"
+          "unit": "px",
+          "comment": "This is the actual radio button control"
         }
       },
       "control-wrapper": {
@@ -230,7 +229,6 @@
           "font-size": {
             "$type": "font-size",
             "$value": "{typography.display-300.font-size}",
-            "unit": "px",
             "$modes": {
               "default": "{typography.display-300.font-size}",
               "cds-g0": "{carbon.typography.bodyCompact01.font-size}",

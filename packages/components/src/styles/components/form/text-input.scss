@@ -116,7 +116,7 @@
   &[type="datetime-local"],
   &[type="month"],
   &[type="week"] {
-    // browsers set a specific width for these controls, we want to keep it in the HDS theme
+    // browsers set a specific width for these controls, we want to keep it
     width: initial;
 
     // show the native icon dimmed if disabled (hidden in Chrome)

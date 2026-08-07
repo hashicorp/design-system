@@ -42,7 +42,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     // placing the selection indicator to middle-right, in contrast with the Select component where it's top-right
     background-position:
       right var(--hds-form-select-background-image-position-right-x) center,
-      top var(--hds-form-select-background-image-position-top-y) left 20px;
+      top 9px left 20px;
     background-size: var(--hds-form-select-background-image-size) var(--hds-form-select-background-image-size);
     border-radius: var(--hds-form-control-border-radius);
     box-shadow: var(--hds-elevation-low-box-shadow);
