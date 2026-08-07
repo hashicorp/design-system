@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-08-07T01:25:55Z",
+  "mode": "full",
+  "scope": [
+    "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts"
+  ],
+  "candidates": [
+    {
+      "id": "component_sandbox_hds_button_1",
+      "filePath": "showcase/app/components/page-ai-testing/component-sandbox/sub-sections/component-sandbox.gts",
+      "line": 10,
+      "heliosComponent": "Hds::Button",
+      "proposedCwcComponent": "cds-button",
+      "transformOperations": [
+        {
+          "type": "replaceTag",
+          "from": "Hds::Button",
+          "to": "cds-button"
+        },
+        {
+          "type": "renameAttribute",
+          "from": "@color",
+          "to": "kind",
+          "valueMap": {
+            "primary": "primary"
+          },
+          "notes": "Mapped from HDS @color to cds-button kind per component mapping."
+        },
+        {
+          "type": "moveToSlot",
+          "from": "@text",
+          "to": "default",
+          "notes": "Move @text value into the default slot content of cds-button."
+        }
+      ],
+      "confidence": 0.9,
+      "riskFlags": [],
+      "status": "planned",
+      "rationale": "Direct mapping from Hds::Button to cds-button with complete coverage for the specific @text and @color=primary usage in this file.",
+      "manualNotes": []
+    }
+  ]
+}
