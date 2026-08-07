@@ -222,9 +222,11 @@ const FormBaseElementsCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Indicator</ShwTextH3>
     <ShwTextBody>
-      Note: The closest Carbon equivalent is plain text included in the form
-      control component label.
+      Note: The closest Carbon equivalent is plain text which is included inside
+      the form control component label content.
     </ShwTextBody>
+    <ShwTextBody>Uppercase is used in the Helios Indicator component as per
+      design.</ShwTextBody>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>

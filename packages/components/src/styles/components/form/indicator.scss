@@ -16,14 +16,10 @@
   font-size: var(--hds-form-indicator-optional-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
-
-  @include hds-apply-only-if-carbon() {
-    text-transform: lowercase;
-  }
 }
 
 // Note: this uses a Badge component so does not need HDS specfic styles for its use as an indicator
-// For Carbon themes, however, it looks like plain text visually vs. like a Badge
+// For Carbon themes, however, it looks like plain text visually
 .hds-form-indicator--required.hds-badge {
   @include hds-apply-only-if-carbon() {
     padding: 0;
@@ -32,7 +28,6 @@
     font-size: var(--hds-form-indicator-optional-typography-font-size);
     font-family: var(--hds-typography-font-stack-text);
     line-height: var(--hds-form-indicator-optional-typography-line-height);
-    text-transform: lowercase;
     background-color: transparent;
 
     .hds-badge__text {

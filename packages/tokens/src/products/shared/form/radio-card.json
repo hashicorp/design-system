@@ -214,15 +214,15 @@
       "label": {
         "foreground": {
           "color": {
-            "comment": "Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma",
+            "comment": "Note: this is 'label' text within the RadioCard, not a form label in and of itself.",
             "$type": "color",
             "$value": "{form.label.foreground.color}",
             "$modes": {
               "default": "{form.label.foreground.color}",
-              "cds-g0": "{foreground.color.strong}",
-              "cds-g10": "{foreground.color.strong}",
-              "cds-g90": "{foreground.color.strong}",
-              "cds-g100": "{foreground.color.strong}"
+              "cds-g0": "{carbon.themes.white.textSecondary}",
+              "cds-g10": "{carbon.themes.g10.textSecondary}",
+              "cds-g90": "{carbon.themes.g90.textSecondary}",
+              "cds-g100": "{carbon.themes.g100.textSecondary}"
             }
           }
         },
@@ -248,6 +248,21 @@
               "cds-g10": "{carbon.typography.font-weight.regular}",
               "cds-g90": "{carbon.typography.font-weight.regular}",
               "cds-g100": "{carbon.typography.font-weight.regular}"
+            }
+          },
+          "line-height": {
+            "$type": "number",
+            "$value": 1.3333,
+            "$modes": {
+              "default": 1.3333,
+              "cds-g0": 1.2857,
+              "cds-g10": 1.2857,
+              "cds-g90": 1.2857,
+              "cds-g100": 1.2857
+            },
+            "comments": {
+              "hds": "24px",
+              "cds": "18px"
             }
           }
         }
