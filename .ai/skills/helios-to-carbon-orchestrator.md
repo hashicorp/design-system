@@ -2,6 +2,9 @@
 name: helios-to-carbon-orchestrator
 description: Orchestrate Helios to Carbon Web Components migrations with direct CWC usage, scoped to component code updates only.
 argument-hint: "[Target path/glob and optional mode: dry-run|safe-only|full]"
+
+> **Implementation note on timestamps:** When implementing this skill in code, use your platform's built-in time function to get the current UTC time (e.g. `new Date().toISOString()` in JavaScript, `date -u +'%Y-%m-%dT%H:%M:%SZ'` in bash, `datetime.utcnow().strftime(...)` in Python). The timestamp must reflect the actual time the migration run starts, not a placeholder or example time.
+
 ---
 
 # Helios -> Carbon Web Components Orchestrator
@@ -76,8 +79,8 @@ The orchestrator uses the following artifacts:
 
 - **Mapping table:** `.ai/migration/helios-to-carbon-component-map.json`
 - **Candidate schema:** `.ai/migration/schemas/migration-candidate.schema.json`
-- **Migration plan:** `migration-plan-{generatedAt}.json` (generated in workspace root, e.g. `migration-plan-2025-07-15T143022Z.json`)
-- **Migration report:** `migration-report-{generatedAt}.md` (generated in workspace root, same timestamp as plan, e.g. `migration-report-2025-07-15T143022Z.md`)
+- **Migration plan:** `migration-plan-{generatedAt}.json` (generated in workspace root, e.g. `migration-plan-2025-07-15T14:30:22Z.json`)
+- **Migration report:** `migration-report-{generatedAt}.md` (generated in workspace root, same timestamp as plan, e.g. `migration-report-2025-07-15T14:30:22Z.md`)
 - **Report template:** `.ai/templates/migration-report-template.md`
 
 > **Note:** Each run produces new timestamped files — previous runs are never overwritten. The `generatedAt` timestamp is set once at the start of Phase 0 and reused for both artifacts so they share the same suffix.
@@ -88,11 +91,11 @@ The orchestrator uses the following artifacts:
 
 1. Resolve target scope from arguments.
 2. Resolve mode (`dry-run`, `safe-only`, `full`).
-3. Generate a `generatedAt` timestamp in full ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` (e.g. `2025-07-15T14:30:22Z`). This value is stored as `generatedAt` inside the JSON artifacts.
-4. Derive a filename-safe version by **removing only the colons** (`:`) from the time portion — the dashes in the date (`YYYY-MM-DD`) are preserved. The pattern is `YYYY-MM-DDTHHMMSSZ` (e.g. `2025-07-15T143022Z`). Use this for artifact filenames. **Common mistake:** do NOT strip the dashes — `20250715T143022Z` is wrong; `2025-07-15T143022Z` is correct.
+3. Generate a `generatedAt` timestamp using the **current UTC time** in full ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` (e.g. if run at 2:30:22 PM UTC on July 15, 2025: `2025-07-15T14:30:22Z`). This value is stored as `generatedAt` inside the JSON artifacts. Do NOT use a hardcoded or past timestamp — always use the actual time when the migration run executes.
+4. Use the same timestamp with colons for artifact filenames (pattern: `YYYY-MM-DDTHH:MM:SSZ`). The colons make the timestamp human-readable in filenames (e.g. `2025-07-15T14:30:22Z`). **Important:** Keep all dashes and colons — do NOT strip any characters.
 5. Initialize report artifacts with timestamped names:
-   - `migration-plan-2025-07-15T143022Z.json`
-   - `migration-report-2025-07-15T143022Z.md`
+   - `migration-plan-2025-07-15T14:30:22Z.json`
+   - `migration-report-2025-07-15T14:30:22Z.md`
 
 ### Phase 1: Analyze Components
 
@@ -297,6 +300,6 @@ At completion, print a concise summary:
 - files migrated
 - manual follow-ups
 - verification status
-- paths to generated artifacts (include full timestamped filenames, e.g. `migration-plan-2025-07-15T143022Z.json`)
+- paths to generated artifacts (include full timestamped filenames, e.g. `migration-plan-2025-07-15T14:30:22Z.json`)
 
 Do not claim success unless verification and report generation are complete.
