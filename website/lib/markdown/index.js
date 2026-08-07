@@ -75,6 +75,7 @@ module.exports = {
       'foundations',
       'components',
       'patterns',
+      'tooling',
       'error',
     ];
     const docsURLs = flatPageListJson.flat
