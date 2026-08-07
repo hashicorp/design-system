@@ -23,6 +23,7 @@ const getTocSectionsBundle = (section) => {
   const COMPONENTS = ['components', 'layouts', 'overrides', 'utilities'];
   const CONTENT = ['content'];
   const PATTERNS = ['patterns'];
+  const TOOLING = ['tooling'];
   // this will be removed later
   const TESTING = ['testing'];
 
@@ -36,6 +37,8 @@ const getTocSectionsBundle = (section) => {
     return PATTERNS;
   } else if (CONTENT.includes(section)) {
     return CONTENT;
+  } else if (TOOLING.includes(section)) {
+    return TOOLING;
   } else if (TESTING.includes(section)) {
     return TESTING;
   } else {
@@ -224,6 +227,14 @@ export default class DocPageSidebarComponent extends Component {
                 class="doc-table-of-contents__link"
                 @route="patterns"
               >Patterns</LinkTo>
+            </li>
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <LinkTo
+                class="doc-table-of-contents__link"
+                @route="tooling"
+              >Tooling</LinkTo>
             </li>
             <li
               class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
