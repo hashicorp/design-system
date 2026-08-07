@@ -424,7 +424,7 @@
   --hds-form-control-base-border-color-default: var(--hds-core-color-neutral-400);
   --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-base-placeholder-foreground-color-default: var(--hds-foreground-color-faint);
-  --hds-form-control-base-placeholder-foreground-color-disabled: var(--hds-foreground-color-faint);
+  --hds-form-control-base-placeholder-foreground-color-disabled: var(--hds-foreground-color-disabled);
   --hds-form-control-base-surface-color-hover: var(--hds-surface-color-interactive-hover);
   --hds-form-control-checked-border-color-default: var(--hds-core-color-blue-300);
   --hds-form-control-checked-border-color-disabled: var(--hds-border-color-primary);
@@ -485,9 +485,10 @@
   --hds-form-radio-card-control-wrapper-surface-color-default: var(--hds-surface-color-faint);
   --hds-form-radio-card-control-wrapper-surface-color-disabled: var(--hds-surface-color-interactive-disabled);
   --hds-form-radio-card-description-typography-font-size: var(--hds-typography-body-100-font-size);
-  --hds-form-radio-card-label-foreground-color: var(--hds-form-label-foreground-color); /** Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma */
+  --hds-form-radio-card-label-foreground-color: var(--hds-form-label-foreground-color); /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
   --hds-form-radio-card-label-typography-font-size: var(--hds-typography-display-300-font-size);
   --hds-form-radio-card-label-typography-font-weight: var(--hds-typography-font-weight-bold);
+  --hds-form-radio-card-label-typography-line-height: 1.3333; /** 24px */
   --hds-form-radio-card-surface-color-disabled: var(--hds-surface-color-interactive-disabled);
   --hds-form-radio-card-surface-color-hover: var(--hds-surface-color-primary);
   --hds-form-radio-size: 16px;

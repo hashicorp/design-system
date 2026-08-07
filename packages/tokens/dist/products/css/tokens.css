@@ -657,7 +657,7 @@
   --hds-form-control-base-border-color-default: #8c909c;
   --hds-form-control-base-border-color-hover: #656a76;
   --hds-form-control-base-placeholder-foreground-color-default: #656a76;
-  --hds-form-control-base-placeholder-foreground-color-disabled: #656a76;
+  --hds-form-control-base-placeholder-foreground-color-disabled: #8c909c;
   --hds-form-control-checked-foreground-color: #ffffff;
   --hds-form-control-checked-surface-color-default: #1060ff;
   --hds-form-control-checked-surface-color-disabled: #fafafa;
@@ -703,9 +703,10 @@
   --hds-form-radio-card-control-wrapper-border-color-disabled: #656a7633;
   --hds-form-radio-card-control-wrapper-padding: 8px;
   --hds-form-radio-card-description-typography-font-size: 0.8125rem;
-  --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma */
+  --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
   --hds-form-radio-card-label-typography-font-size: 1.125rem;
   --hds-form-radio-card-label-typography-font-weight: 700;
+  --hds-form-radio-card-label-typography-line-height: 1.3333; /** 24px */
   --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-radio-size: 16px;
   --hds-form-radio-border-width: 1px;

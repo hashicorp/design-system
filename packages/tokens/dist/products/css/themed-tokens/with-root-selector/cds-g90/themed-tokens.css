@@ -416,7 +416,7 @@
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
   --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
-  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 2'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-checkbox-background-image-size: 8px;
@@ -485,9 +485,10 @@
   --hds-form-radio-card-control-wrapper-surface-color-default: rgba(0, 0, 0, 0);
   --hds-form-radio-card-control-wrapper-surface-color-disabled: rgba(0, 0, 0, 0);
   --hds-form-radio-card-description-typography-font-size: 0.875rem;
-  --hds-form-radio-card-label-foreground-color: var(--hds-foreground-color-strong); /** Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma */
+  --hds-form-radio-card-label-foreground-color: #c6c6c6; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
   --hds-form-radio-card-label-typography-font-size: 0.875rem;
   --hds-form-radio-card-label-typography-font-weight: 400;
+  --hds-form-radio-card-label-typography-line-height: 1.2857; /** 18px */
   --hds-form-radio-card-surface-color-disabled: #393939;
   --hds-form-radio-card-surface-color-hover: #474747;
   --hds-form-radio-size: 18px;

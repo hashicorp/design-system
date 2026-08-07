@@ -661,7 +661,7 @@
   --hds-form-control-base-border-color-default: #8c909c;
   --hds-form-control-base-border-color-hover: #656a76;
   --hds-form-control-base-placeholder-foreground-color-default: #656a76;
-  --hds-form-control-base-placeholder-foreground-color-disabled: #656a76;
+  --hds-form-control-base-placeholder-foreground-color-disabled: #8c909c;
   --hds-form-control-checked-foreground-color: #ffffff;
   --hds-form-control-checked-surface-color-default: #1060ff;
   --hds-form-control-checked-surface-color-disabled: #fafafa;
@@ -707,9 +707,10 @@
   --hds-form-radio-card-control-wrapper-border-color-disabled: #656a7633;
   --hds-form-radio-card-control-wrapper-padding: 8px;
   --hds-form-radio-card-description-typography-font-size: 0.8125rem;
-  --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label itself. Called a 'title' in Figma */
+  --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
   --hds-form-radio-card-label-typography-font-size: 1.125rem;
   --hds-form-radio-card-label-typography-font-weight: 700;
+  --hds-form-radio-card-label-typography-line-height: 1.3333; /** 24px */
   --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-radio-size: 16px;
   --hds-form-radio-border-width: 1px;
@@ -7499,11 +7500,6 @@ button.hds-button[href]::after {
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
 }
-.hds-theme-light .hds-form-indicator--optional,
-.hds-theme-dark .hds-form-indicator--optional,
-.hds-theme-system .hds-form-indicator--optional {
-  text-transform: lowercase;
-}
 
 .hds-theme-light .hds-form-indicator--required.hds-badge,
 .hds-theme-dark .hds-form-indicator--required.hds-badge,
@@ -7514,7 +7510,6 @@ button.hds-button[href]::after {
   font-size: var(--hds-form-indicator-optional-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
-  text-transform: lowercase;
   background-color: transparent;
 }
 .hds-theme-light .hds-form-indicator--required.hds-badge .hds-badge__text,
@@ -7869,7 +7864,7 @@ button.hds-button[href]::after {
   font-weight: var(--hds-form-radio-card-label-typography-font-weight);
   font-size: var(--hds-form-radio-card-label-typography-font-size);
   font-family: var(--hds-typography-display-300-font-family);
-  line-height: var(--hds-typography-display-300-line-height);
+  line-height: var(--hds-form-radio-card-label-typography-line-height);
   overflow-wrap: break-word;
 }
 .hds-form-radio-card__label:first-child {

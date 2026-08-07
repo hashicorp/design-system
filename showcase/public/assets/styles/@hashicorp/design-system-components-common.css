@@ -6478,11 +6478,6 @@ button.hds-button[href]::after {
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
 }
-.hds-theme-light .hds-form-indicator--optional,
-.hds-theme-dark .hds-form-indicator--optional,
-.hds-theme-system .hds-form-indicator--optional {
-  text-transform: lowercase;
-}
 
 .hds-theme-light .hds-form-indicator--required.hds-badge,
 .hds-theme-dark .hds-form-indicator--required.hds-badge,
@@ -6493,7 +6488,6 @@ button.hds-button[href]::after {
   font-size: var(--hds-form-indicator-optional-typography-font-size);
   font-family: var(--hds-typography-font-stack-text);
   line-height: var(--hds-form-indicator-optional-typography-line-height);
-  text-transform: lowercase;
   background-color: transparent;
 }
 .hds-theme-light .hds-form-indicator--required.hds-badge .hds-badge__text,
@@ -6848,7 +6842,7 @@ button.hds-button[href]::after {
   font-weight: var(--hds-form-radio-card-label-typography-font-weight);
   font-size: var(--hds-form-radio-card-label-typography-font-size);
   font-family: var(--hds-typography-display-300-font-family);
-  line-height: var(--hds-typography-display-300-line-height);
+  line-height: var(--hds-form-radio-card-label-typography-line-height);
   overflow-wrap: break-word;
 }
 .hds-form-radio-card__label:first-child {
