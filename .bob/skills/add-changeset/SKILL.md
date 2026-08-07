@@ -31,15 +31,15 @@ Follow the below template to add the required parameters to the changeset file:
 
 ```
 ---
-"@hashicorp/design-system-components": minor
+"@hashicorp/{package-name}": {patch | minor | major}
 ---
 
-{Summary}
+{summary}
 ```
 
-**IMPORTANT** If changes are to the `@hashicorp/design-system-components` package, the summary must follow the formatting guidelines outlined in the "Components package changeset formatting" section. If changes are to the `@hashicorp/design-system-mcp` package, the summary must follow the guidelines outlined in the "MCP package changeset formatting" section instead.
+**IMPORTANT** A changeset must follow the below formatting for its targeted package and general formatting rules.
 
-## Components package changeset formatting
+## @hashicorp/design-system-components changeset formatting
 Each changeset entry related to the `@hashicorp/design-system-components` package should follow this template:
 
 ```
@@ -47,6 +47,18 @@ Each changeset entry related to the `@hashicorp/design-system-components` packag
 `ComponentName` - Fixed {...additional details}.
 <!-- END -->
 ```
+
+### Requirements
+- Include a short description of the change with relevant details.
+- List the component name associated with a change in this format:
+
+```
+`ComponentName` - Description of the change.
+```
+
+- Add an HTML comment before each change in the format `<!-- START components/path -->`.
+  - The `components/path` should be the file path to the component's documentation in the website that the change is associated with, starting from `website/docs/`. Example: `components/accordion`.
+- Add an HTML comment after each change in the format `<!-- END -->`.
 
 ### Other formatting scenarios
 
@@ -71,7 +83,7 @@ Changes to multiple components in a single changeset entry:
 <!-- END -->
 ```
 
-## MCP package changeset formatting
+## @hashicorp/design-system-mcp changeset formatting
 
 Each changeset entry related to the `@hashicorp/design-system-mcp` package should follow this template:
 
@@ -82,21 +94,6 @@ Each changeset entry related to the `@hashicorp/design-system-mcp` package shoul
 
 Added the `list-components` tool for querying the component catalog.
 ```
-
-For further instructions on changesets review the `.bob/skills/add-changeset/SKILL.md` file.
-
-
-## Requirements
-- Include a short description of the change with relevant details.
-- List the component name associated with a change in this format:
-
-```
-`ComponentName` - Description of the change.
-```
-
-- Add an HTML comment before each change in the format `<!-- START components/path -->`.
-  - The `components/path` should be the file path to the component's documentation in the website that the change is associated with, starting from `website/docs/`. Example: `components/accordion`.
-- Add an HTML comment after each change in the format `<!-- END -->`.
 
 ## Formatting
 - Always start an entry with a paragraph, not a list.
