@@ -45,6 +45,7 @@ Router.map(function () {
       });
     });
     this.route('application-state');
+    this.route('badge');
     this.route('badge-count');
     this.route('breadcrumb');
     this.route('button');
