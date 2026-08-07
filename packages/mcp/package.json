@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
+    "@hashicorp/flight-icons": "workspace:^5.0.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
