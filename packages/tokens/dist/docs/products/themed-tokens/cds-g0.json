@@ -21816,7 +21816,9 @@
       "cds-g10": "#da1e28",
       "cds-g90": "#ff8389",
       "cds-g100": "#fa4d56",
-      "comment": "Carbon uses outline instead of a border color change"
+      "comments": {
+        "cds": "Carbon uses outline instead of a border color change"
+      }
     },
     "original": {
       "$type": "color",
@@ -21828,7 +21830,9 @@
         "cds-g10": "{carbon.themes.g10.supportError}",
         "cds-g90": "{carbon.themes.g90.supportError}",
         "cds-g100": "{carbon.themes.g100.supportError}",
-        "comment": "Carbon uses outline instead of a border color change"
+        "comments": {
+          "cds": "Carbon uses outline instead of a border color change"
+        }
       },
       "key": "{form.control.invalid.border.color.default}"
     },
@@ -22338,11 +22342,9 @@
     "key": "{form.radio-card.border.radius}",
     "$type": "dimension",
     "$value": "0px",
-    "unit": "px",
     "original": {
       "$type": "dimension",
       "$value": "{border.radius.medium}",
-      "unit": "px",
       "key": "{form.radio-card.border.radius}"
     },
     "name": "hds-form-radio-card-border-radius",
@@ -22538,10 +22540,12 @@
     "$type": "dimension",
     "$value": "16px",
     "unit": "px",
+    "comment": "This is the actual radio button control",
     "original": {
       "$type": "dimension",
       "$value": "16",
       "unit": "px",
+      "comment": "This is the actual radio button control",
       "key": "{form.radio-card.control.size}"
     },
     "name": "hds-form-radio-card-control-size",
@@ -22871,7 +22875,6 @@
     "key": "{form.radio-card.label.typography.font-size}",
     "$type": "font-size",
     "$value": "0.875rem",
-    "unit": "px",
     "$modes": {
       "default": "1.25rem",
       "cds-g0": "0.875rem",
@@ -22882,7 +22885,6 @@
     "original": {
       "$type": "font-size",
       "$value": "{carbon.typography.bodyCompact01.font-size}",
-      "unit": "px",
       "$modes": {
         "default": "{typography.display-300.font-size}",
         "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
@@ -23292,28 +23294,6 @@
     ]
   },
   {
-    "key": "{form.select.background-image.position-top-y}",
-    "$type": "dimension",
-    "$value": "9px",
-    "unit": "px",
-    "original": {
-      "$type": "dimension",
-      "$value": "9",
-      "unit": "px",
-      "key": "{form.select.background-image.position-top-y}"
-    },
-    "name": "hds-form-select-background-image-position-top-y",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "select",
-      "background-image",
-      "position-top-y"
-    ]
-  },
-  {
     "key": "{form.select.background-image.data-url}",
     "$value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E\")",
     "comment": "notice: the 'caret' color is hardcoded here!",
@@ -23579,43 +23559,6 @@
       "color",
       "action",
       "hover"
-    ]
-  },
-  {
-    "key": "{form.super-select.option.surface.color.action.active}",
-    "$type": "color",
-    "$value": "#161616",
-    "$modes": {
-      "default": "#525252",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#161616",
-      "cds-g100": "#161616"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{form.control.base.foreground.color}",
-      "$modes": {
-        "default": "{dropdown.list-item.foreground.color.action.active}",
-        "cds-g0": "{form.control.base.foreground.color}",
-        "cds-g10": "{form.control.base.foreground.color}",
-        "cds-g90": "{form.control.base.foreground.color}",
-        "cds-g100": "{form.control.base.foreground.color}"
-      },
-      "key": "{form.super-select.option.surface.color.action.active}"
-    },
-    "name": "hds-form-super-select-option-surface-color-action-active",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "super-select",
-      "option",
-      "surface",
-      "color",
-      "action",
-      "active"
     ]
   },
   {
@@ -24645,7 +24588,7 @@
     ]
   },
   {
-    "key": "{form.toggle.thumb-size}",
+    "key": "{form.toggle.thumb.size}",
     "$type": "dimension",
     "$value": "10px",
     "unit": "px",
@@ -24667,7 +24610,7 @@
         "cds-g90": "10",
         "cds-g100": "10"
       },
-      "key": "{form.toggle.thumb-size}"
+      "key": "{form.toggle.thumb.size}"
     },
     "name": "hds-form-toggle-thumb-size",
     "attributes": {
@@ -24676,7 +24619,8 @@
     "path": [
       "form",
       "toggle",
-      "thumb-size"
+      "thumb",
+      "size"
     ]
   },
   {

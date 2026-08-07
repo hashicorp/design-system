@@ -694,7 +694,7 @@
   --hds-form-radio-card-border-color-checked-hover: #0046d1;
   --hds-form-radio-card-border-color-disabled: #656a7633;
   --hds-form-radio-card-content-padding: 24px;
-  --hds-form-radio-card-control-size: 16px;
+  --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
   --hds-form-radio-card-control-wrapper-surface-color-default: #fafafa;
   --hds-form-radio-card-control-wrapper-surface-color-checked: #f2f8ff;
   --hds-form-radio-card-control-wrapper-surface-color-disabled: #fafafa;
@@ -718,7 +718,6 @@
   --hds-form-radio-surface-color-checked-disabled: #fafafa;
   --hds-form-select-background-image-size: 16px;
   --hds-form-select-background-image-position-right-x: 7px;
-  --hds-form-select-background-image-position-top-y: 9px;
   --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23656A76' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%238C909C' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-surface-color-hover: #ffffff;
@@ -727,7 +726,6 @@
   --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
   --hds-form-super-select-option-background-image-size: 16px;
   --hds-form-super-select-option-foreground-color-action-hover: #0c56e9;
-  --hds-form-super-select-option-surface-color-action-active: #0046d1;
   --hds-form-super-select-option-surface-color-action-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);

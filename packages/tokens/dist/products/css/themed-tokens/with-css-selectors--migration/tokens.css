@@ -901,9 +901,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-margin-top: 8px;
-  --hds-form-super-select-option-surface-color-action-active: var(
-    --hds-dropdown-list-item-foreground-color-action-active
-  );
   --hds-form-super-select-option-surface-color-action-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-default: rgba(
     0,
@@ -1958,9 +1955,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #c6c6c6;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-action-active: var(
-      --hds-form-control-base-foreground-color
-    );
     --hds-form-super-select-option-surface-color-action-hover: #e8e8e8;
     --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
@@ -2858,9 +2852,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #525252;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-action-active: var(
-      --hds-form-control-base-foreground-color
-    );
     --hds-form-super-select-option-surface-color-action-hover: #333333;
     --hds-form-super-select-option-surface-color-checked-default: #393939;
     --hds-form-super-select-option-surface-color-checked-hover: #474747;
@@ -3716,9 +3707,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-background-image-size: 12px;
   --hds-form-super-select-option-border-color: #c6c6c6;
   --hds-form-super-select-option-margin-top: 0px;
-  --hds-form-super-select-option-surface-color-action-active: var(
-    --hds-form-control-base-foreground-color
-  );
   --hds-form-super-select-option-surface-color-action-hover: #e8e8e8;
   --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
   --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
@@ -4593,9 +4581,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-background-image-size: 12px;
   --hds-form-super-select-option-border-color: #525252;
   --hds-form-super-select-option-margin-top: 0px;
-  --hds-form-super-select-option-surface-color-action-active: var(
-    --hds-form-control-base-foreground-color
-  );
   --hds-form-super-select-option-surface-color-action-hover: #333333;
   --hds-form-super-select-option-surface-color-checked-default: #393939;
   --hds-form-super-select-option-surface-color-checked-hover: #474747;
@@ -5128,14 +5113,13 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-radio-border-width: 1px;
   --hds-form-radio-card-border-radius: var(--hds-border-radius-medium);
   --hds-form-radio-card-border-width: 1px;
-  --hds-form-radio-card-control-size: 16px;
+  --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
   --hds-form-radio-card-control-wrapper-padding: 8px;
   --hds-form-radio-card-group-gap: 16px;
   --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-select-background-image-position-right-x: var(
     --hds-form-control-padding-horizontal
   );
-  --hds-form-select-background-image-position-top-y: 9px;
   --hds-form-select-background-image-size: 16px;
   --hds-form-super-select-option-foreground-color-action-hover: var(
     --hds-dropdown-list-item-foreground-color-action-hover
