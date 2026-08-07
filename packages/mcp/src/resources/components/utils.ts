@@ -6,6 +6,5 @@ export const toSerializableComponentSummary = (
 ): JsonObject => {
   return {
     name: component.name,
-    description: component.description,
   };
 };

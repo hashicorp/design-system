@@ -7,7 +7,6 @@ import type { ComponentCatalogComponent } from "../../../catalogs/components/sch
 
 export interface ComponentSummary {
   name: string;
-  description: string;
 }
 
 export const normalizeComponentName = (value: string): string => {
@@ -28,6 +27,5 @@ export const toComponentSummary = (
 ): ComponentSummary => {
   return {
     name: component.name,
-    description: component.description,
   };
 };

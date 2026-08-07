@@ -34,7 +34,6 @@ describe("toComponentSummary", () => {
 
     expect(toComponentSummary(component)).toStrictEqual({
       name: "HdsButton",
-      description: "A button component.",
     });
   });
 });
