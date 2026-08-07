@@ -92,7 +92,7 @@ body.application:not(.index) {
       content: "";
     }
 
-    @include breakpoint.medium () {
+    @include breakpoint.with-fixed-sidebar () {
       display: none;
     }
   }
