@@ -17,6 +17,7 @@ Router.map(function () {
   this.route('components');
   this.route('patterns');
   this.route('content');
+  this.route('tooling');
 
   this.route('error');
 
