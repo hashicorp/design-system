@@ -7953,12 +7953,9 @@ button.hds-button[href]::after {
   border-bottom-color: var(--hds-form-control-base-border-color-hover);
 }
 
-.hds-theme-light .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]),
-.hds-theme-dark .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]),
-.hds-theme-system .hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]) {
+.hds-form-select:hover:not(:disabled, .mock-disabled, [readonly]), .hds-form-select.mock-hover:not(:disabled, .mock-disabled, [readonly]) {
   background-color: var(--hds-form-select-surface-color-hover);
 }
-
 .hds-form-select:focus-visible, .hds-form-select.mock-focus {
   border: var(--hds-form-control-border-width) solid var(--hds-focus-color-action-internal);
 }
@@ -8148,12 +8145,11 @@ button.hds-button[href]::after {
   border-bottom-color: var(--hds-form-control-base-border-color-hover);
 }
 
-.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
-.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
-.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]) {
+.hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]), .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]),
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-hover:not([aria-disabled=true], :disabled, .mock-disabled, [readonly]) {
   background-color: var(--hds-form-select-surface-color-hover);
 }
-
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger:focus-visible, .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger.mock-focus,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger:focus-visible,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger.mock-focus {
