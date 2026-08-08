@@ -135,6 +135,47 @@
             }
           }
         }
+      },
+      "tag": {
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{border.color.strong}",
+            "$modes": {
+              "default": "{border.color.strong}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "$type": "color",
+            "$value": "{form.control.base.foreground.color}",
+            "$modes": {
+              "default": "{form.control.base.foreground.color}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
+          }
+        },
+        "surface": {
+          "color": {
+            "$type": "color",
+            "$value": "{surface.color.interactive}",
+            "$modes": {
+              "default": "{surface.color.interactive}",
+              "cds-g0": "{carbon.themes.white.backgroundInverse}",
+              "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+              "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+              "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+            }
+          }
+        }
       }
     }
   }
