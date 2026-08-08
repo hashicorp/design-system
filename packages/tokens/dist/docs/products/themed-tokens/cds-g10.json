@@ -23782,6 +23782,111 @@
     ]
   },
   {
+    "key": "{form.super-select.tag.border.color}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#8d8d8d",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{border.color.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{form.super-select.tag.border.color}"
+    },
+    "name": "hds-form-super-select-tag-border-color",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "super-select",
+      "tag",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{form.super-select.tag.foreground.color}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#161616",
+      "cds-g100": "#161616"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.textInverse}",
+      "$modes": {
+        "default": "{form.control.base.foreground.color}",
+        "cds-g0": "{carbon.themes.white.textInverse}",
+        "cds-g10": "{carbon.themes.g10.textInverse}",
+        "cds-g90": "{carbon.themes.g90.textInverse}",
+        "cds-g100": "{carbon.themes.g100.textInverse}"
+      },
+      "key": "{form.super-select.tag.foreground.color}"
+    },
+    "name": "hds-form-super-select-tag-foreground-color",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "super-select",
+      "tag",
+      "foreground",
+      "color"
+    ]
+  },
+  {
+    "key": "{form.super-select.tag.surface.color}",
+    "$type": "color",
+    "$value": "#393939",
+    "$modes": {
+      "default": "#ffffff",
+      "cds-g0": "#393939",
+      "cds-g10": "#393939",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g10.backgroundInverse}",
+      "$modes": {
+        "default": "{surface.color.interactive}",
+        "cds-g0": "{carbon.themes.white.backgroundInverse}",
+        "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+        "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+        "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+      },
+      "key": "{form.super-select.tag.surface.color}"
+    },
+    "name": "hds-form-super-select-tag-surface-color",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "super-select",
+      "tag",
+      "surface",
+      "color"
+    ]
+  },
+  {
     "key": "{form.text-input.background-image.size}",
     "$type": "dimension",
     "$value": "16px",

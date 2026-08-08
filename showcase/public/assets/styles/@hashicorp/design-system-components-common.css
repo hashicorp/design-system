@@ -7408,14 +7408,14 @@ button.hds-button[href]::after {
   min-width: 0;
   margin: 0 4px 0 0;
   padding: 3px 10px 5px 10px;
-  color: var(--hds-form-control-base-foreground-color);
+  color: var(--hds-form-super-select-tag-foreground-color);
   font-size: var(--hds-typography-body-100-font-size);
   font-family: var(--hds-typography-body-100-font-family);
   line-height: 1rem;
   vertical-align: middle;
   overflow-wrap: break-word;
-  background-color: var(--hds-surface-color-interactive);
-  border: 1px solid var(--hds-border-color-strong);
+  background-color: var(--hds-form-super-select-tag-surface-color);
+  border: 1px solid var(--hds-form-super-select-tag-border-color);
   border-radius: 50px;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-multiple-remove-btn {

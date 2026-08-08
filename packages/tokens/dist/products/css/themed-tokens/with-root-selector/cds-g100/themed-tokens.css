@@ -508,6 +508,9 @@
   --hds-form-super-select-option-surface-color-checked-hover: #474747;
   --hds-form-super-select-padding-left: var(--hds-form-control-padding-horizontal);
   --hds-form-super-select-search-margin-bottom: 0px;
+  --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-tag-foreground-color: #161616;
+  --hds-form-super-select-tag-surface-color: #f4f4f4;
   --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
   --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
   --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded */
