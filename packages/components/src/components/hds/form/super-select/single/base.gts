@@ -40,6 +40,7 @@ export interface HdsFormSuperSelectSingleBaseSignature {
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
+    maxWidth?: string;
     width?: string;
   };
   Blocks: PowerSelectSignature['Blocks'];
@@ -120,6 +121,9 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     if (this.args.dropdownMaxWidth) {
       styles['--hds-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
+    }
+    if (this.args.maxWidth) {
+      styles['--hds-form-super-select-max-width'] = this.args.maxWidth;
     }
     if (this.args.width) {
       styles['--hds-form-super-select-width'] = this.args.width;
