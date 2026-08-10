@@ -21,6 +21,46 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
     assert.dom('#test-segmented-group').hasClass('hds-segmented-group');
   });
 
+  // ARGUMENTS
+
+  test('it should not render the full-width CSS class by default', async function (assert) {
+    await render(
+      <template><HdsSegmentedGroup id="test-segmented-group" /></template>,
+    );
+    assert
+      .dom('#test-segmented-group')
+      .doesNotHaveClass('hds-segmented-group--is-full-width');
+  });
+
+  test('it should render the full-width CSS class when @isFullWidth is true', async function (assert) {
+    await render(
+      <template>
+        <HdsSegmentedGroup id="test-segmented-group" @isFullWidth={{true}} />
+      </template>,
+    );
+    assert
+      .dom('#test-segmented-group')
+      .hasClass('hds-segmented-group--is-full-width');
+  });
+
+  test('it should set the max-width CSS custom property when @maxWidth is provided', async function (assert) {
+    await render(
+      <template>
+        <HdsSegmentedGroup id="test-segmented-group" @maxWidth="400px" />
+      </template>,
+    );
+    assert
+      .dom('#test-segmented-group')
+      .hasStyle({ '--hds-segmented-group-max-width': '400px' });
+  });
+
+  test('it should not set the max-width CSS custom property by default', async function (assert) {
+    await render(
+      <template><HdsSegmentedGroup id="test-segmented-group" /></template>,
+    );
+    assert.dom('#test-segmented-group').doesNotHaveAttribute('style');
+  });
+
   // CONTEXTUAL COMPONENTS
 
   test('it renders the contextual components with CSS modifier classes', async function (assert) {
