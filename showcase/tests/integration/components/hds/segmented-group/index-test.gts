@@ -32,7 +32,7 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
       .doesNotHaveClass('hds-segmented-group--is-full-width');
   });
 
-  test('it should render the full-width CSS class when @isFullWidth is true', async function (assert) {
+  test('it renders the full-width CSS class when @isFullWidth is true', async function (assert) {
     await render(
       <template>
         <HdsSegmentedGroup id="test-segmented-group" @isFullWidth={{true}} />
