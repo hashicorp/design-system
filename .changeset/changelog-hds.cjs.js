@@ -17,52 +17,49 @@ dotenv.config();
 
 const SKIP_USERS = [
   // HDS users
-  'didoo',
-  'KristinLBradley',
-  'MelSumner',
-  'alex-ju',
-  'jorytindall',
-  'Dhaulagiri',
-  'heatherlarsen',
-  'andgen404',
-  'majedelass',
-  'zamoore',
-  'curthashicorp',
-  'shleewhite',
-  'LilithJames-HDS',
-  'dchyun',
-  'pkj-web',
-  'annawanggg',
+  "didoo",
+  "KristinLBradley",
+  "MelSumner",
+  "alex-ju",
+  "jorytindall",
+  "Dhaulagiri",
+  "heatherlarsen",
+  "zamoore",
+  "shleewhite",
+  "LilithJames-HDS",
+  "dchyun",
+  "pkj-web",
+  "annawanggg",
   // bots
-  'apps/dependabot',
-  'apps/hashicorp-copywrite',
-  'dependabot',
-  'hashibot-hds',
-]
+  "apps/dependabot",
+  "apps/hashicorp-copywrite",
+  "dependabot",
+  "hashibot-hds",
+];
 
 const changelogFunctions = {
   getDependencyReleaseLine: async (
     changesets,
     dependenciesUpdated,
-    options
+    options,
   ) => {
     if (!options.repo) {
       throw new Error(
-        'Please provide a repo to this changelog generator like this:\n"changelog": ["@changesets/changelog-github", { "repo": "org/repo" }]'
+        'Please provide a repo to this changelog generator like this:\n"changelog": ["@changesets/changelog-github", { "repo": "org/repo" }]',
       );
     }
     if (dependenciesUpdated.length === 0) return "";
 
     const changesetLink = `**🔄 Updated dependencies:**`;
     const updatedDependenciesList = dependenciesUpdated.map(
-      (dependency) => `  - ${dependency.name}@${dependency.newVersion}`
+      (dependency) => `  - ${dependency.name}@${dependency.newVersion}`,
     );
-    return [changesetLink, ...updatedDependenciesList].join('\n');
+    return [changesetLink, ...updatedDependenciesList].join("\n");
   },
   getReleaseLine: async (changeset, type, options) => {
     if (!options || !options.repo) {
       throw new Error(
-        'Please provide a repo to this changelog generator like this:\n"changelog": ["@changesets/changelog-github", { "repo": "org/repo" }]'
+        'Please provide a repo to this changelog generator like this:\n"changelog": ["@changesets/changelog-github", { "repo": "org/repo" }]',
       );
     }
 
@@ -80,10 +77,13 @@ const changelogFunctions = {
         commitFromSummary = commit;
         return "";
       })
-      .replace(/^\s*(?:author|user|co-authored-by):\s*@?([^\s]+)/gim, (_, user) => {
-        usersFromSummary.push(user);
-        return "";
-      })
+      .replace(
+        /^\s*(?:author|user|co-authored-by):\s*@?([^\s]+)/gim,
+        (_, user) => {
+          usersFromSummary.push(user);
+          return "";
+        },
+      )
       .trim();
 
     const [firstLine, ...moreLines] = replacedChangelog
@@ -117,7 +117,7 @@ const changelogFunctions = {
       contributors = usersFromSummary
         .filter((user) => !SKIP_USERS.includes(user))
         .map((user) => `[@${user}](https://github.com/${user})`)
-        .join(', ');
+        .join(", ");
     } else if (links.user) {
       // this user is coming from the `getInfoFromPullRequest` method that returns a string in the format `[@USER](https://github.com/USER)` / `[@${user.login}](${user.url})`
       // see: https://github.com/changesets/changesets/blob/main/packages/get-github-info/src/index.ts#L215
@@ -142,10 +142,10 @@ const changelogFunctions = {
 
     let releaseEntry = "";
     releaseEntry += `\n`;
-    releaseEntry += `${firstLine.replace(/^- /,'')}\n`;
-    releaseEntry += `${moreLines.join('\n')}\n`;
+    releaseEntry += `${firstLine.replace(/^- /, "")}\n`;
+    releaseEntry += `${moreLines.join("\n")}\n`;
     if (metadata) {
-      releaseEntry += `\n<small class="doc-whats-new-changelog-metadata">${metadata.join(' - ')}</small>\n`;
+      releaseEntry += `\n<small class="doc-whats-new-changelog-metadata">${metadata.join(" - ")}</small>\n`;
     }
     releaseEntry += `\n<div class="doc-whats-new-changelog-separator"></div>\n`;
     return releaseEntry;
