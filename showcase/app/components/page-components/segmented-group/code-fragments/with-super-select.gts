@@ -72,7 +72,7 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
           {{option}}
         </SGR.SuperSelectMultiple>
       {{else}}
-        <SGR.SuperSelect
+        <SGR.SuperSelectSingle
           @options={{SUPER_SELECT_OPTIONS}}
           @selected={{this.selectedValue}}
           @onChange={{this.setSelectedValue}}
@@ -85,7 +85,7 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
           as |option|
         >
           {{option}}
-        </SGR.SuperSelect>
+        </SGR.SuperSelectSingle>
       {{/if}}
 
       {{#if (or (eq @position "leading") (eq @position "middle"))}}

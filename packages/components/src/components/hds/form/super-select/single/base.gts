@@ -114,13 +114,13 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     return this.args.searchPlaceholder ?? 'Search';
   }
 
-  get styles(): Record<string, string> {
-    const styles: { [key: string]: string } = {};
+  get dropdownMaxWidthStyle(): Record<string, string> {
+    const maxWidthStyle: { [key: string]: string } = {};
     if (this.args.dropdownMaxWidth) {
-      styles['--hds-form-super-select-dropdown-max-width'] =
+      maxWidthStyle['--hds-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
     }
-    return styles;
+    return maxWidthStyle;
   }
 
   get classNames(): string {
@@ -141,7 +141,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
 
   <template>
     {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
-    <div class={{this.classNames}} {{style this.styles}}>
+    <div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
       <PowerSelect
         @afterOptionsComponent={{if
           this.showAfterOptions

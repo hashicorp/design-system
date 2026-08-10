@@ -27,7 +27,7 @@ export interface HdsSegmentedGroupSignature {
         Dropdown?: typeof HdsDropdown;
         Select?: typeof HdsFormSelectBase;
         TextInput?: typeof HdsFormTextInputBase;
-        SuperSelect?: typeof HdsFormSuperSelectSingleBase;
+        SuperSelectSingle?: typeof HdsFormSuperSelectSingleBase;
         SuperSelectMultiple?: typeof HdsFormSuperSelectMultipleBase;
         Generic?: typeof HdsYield;
       },
@@ -64,7 +64,7 @@ export default class HdsSegmentedGroup extends Component<HdsSegmentedGroupSignat
           Dropdown=HdsDropdown
           Select=HdsFormSelectBase
           TextInput=HdsFormTextInputBase
-          SuperSelect=HdsFormSuperSelectSingleBase
+          SuperSelectSingle=HdsFormSuperSelectSingleBase
           SuperSelectMultiple=HdsFormSuperSelectMultipleBase
           Generic=HdsYield
         )

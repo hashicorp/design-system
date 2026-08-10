@@ -13,8 +13,7 @@ $hds-super-select-item-height: 36px;
 // Style overrides:
 
 .hds-form-super-select {
-  width: var(--hds-form-super-select-width, 100%);
-  max-width: var(--hds-form-super-select-max-width, none);
+  width: 100%;
 }
 
 .hds-form-super-select .ember-basic-dropdown {

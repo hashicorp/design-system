@@ -76,7 +76,7 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
           </SG.Dropdown>
           <SG.Select id="segmented-select" />
           <SG.TextInput id="segmented-input" />
-          <SG.SuperSelect @onChange={{NOOP}} />
+          <SG.SuperSelectSingle @onChange={{NOOP}} />
           <SG.SuperSelectMultiple @onChange={{NOOP}} />
           <SG.Generic><span id="segmented-generic"></span></SG.Generic>
         </HdsSegmentedGroup>
