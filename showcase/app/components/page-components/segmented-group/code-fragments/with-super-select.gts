@@ -22,6 +22,7 @@ export interface CodeFragmentWithSuperSelectSignature {
   Args: {
     type?: 'single' | 'multiple';
     position?: 'leading' | 'middle' | 'trailing';
+    width?: string;
   };
 }
 
@@ -56,7 +57,7 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
           @selected={{this.selectedValues}}
           @onChange={{this.setSelectedValues}}
           @placeholder="Select services"
-          @width="300px"
+          @width={{@width}}
           @ariaLabel={{concat
             "segmented-super-select-multiple-"
             @position

@@ -6,9 +6,9 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { capitalize } from '@ember/string';
 import { concat } from '@ember/helper';
 
-import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
@@ -345,10 +345,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
 
   <ShwTextH3>SuperSelect</ShwTextH3>
 
-  <ShwTextBody>
-    Note: all of the SuperSelects have
-    <code>@width="300px"</code>.
-  </ShwTextBody>
+  <ShwTextH4>No set width</ShwTextH4>
 
   <ShwGrid @columns={{3}} as |SG|>
     <SG.Item @label="SuperSelect trailing">
@@ -369,6 +366,50 @@ const SubSectionContent: TemplateOnlyComponent = <template>
 
     <SG.Item @label="Input, SuperSelectMultiple, Button">
       <CodeFragmentWithSuperSelect @type="multiple" @position="middle" />
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwTextH4>With 300px width set</ShwTextH4>
+
+  <ShwGrid @columns={{3}} as |SG|>
+    <SG.Item @label="SuperSelect trailing">
+      <CodeFragmentWithSuperSelect
+        @type="single"
+        @position="trailing"
+        @width="300px"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelect leading">
+      <CodeFragmentWithSuperSelect
+        @type="single"
+        @position="leading"
+        @width="300px"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple trailing">
+      <CodeFragmentWithSuperSelect
+        @type="multiple"
+        @position="trailing"
+        @width="300px"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple leading">
+      <CodeFragmentWithSuperSelect
+        @type="multiple"
+        @position="leading"
+        @width="300px"
+      />
+    </SG.Item>
+
+    <SG.Item @label="Input, SuperSelectMultiple, Button">
+      <CodeFragmentWithSuperSelect
+        @type="multiple"
+        @position="middle"
+        @width="300px"
+      />
     </SG.Item>
   </ShwGrid>
 
