@@ -5,21 +5,27 @@
 
 import { TOKEN_TYPES } from "./schema.js";
 
-import type { TokenCatalogRow, TokenType } from "./schema.js";
+import type {
+  TokenAttributes,
+  TokenCatalogRow,
+  TokenOriginal,
+  TokenType,
+} from "./schema.js";
 import type { JsonValue } from "../../../types.js";
 
 export type TokenSummary = {
   key: string;
   name: string;
+  attributes: TokenAttributes;
   type: TokenType;
   value: JsonValue;
   cssVar: string;
-  category: string | null;
+  category: string;
   path: string[];
 };
 
 export type TokenRecord = TokenSummary & {
-  original?: TokenCatalogRow["original"];
+  original?: TokenOriginal;
 };
 
 const KNOWN_TOKEN_TYPE_LOOKUP = new Set<string>(TOKEN_TYPES);
@@ -62,10 +68,11 @@ export const toTokenSummary = (row: TokenCatalogRow): TokenSummary => {
   return {
     key: row.key,
     name: row.name,
+    attributes: row.attributes,
     type: toTokenType(row.$type),
     value: row.$value,
     cssVar: toCssVarName(row.name),
-    category: row.attributes?.category ?? null,
+    category: row.attributes.category,
     path: row.path,
   };
 };

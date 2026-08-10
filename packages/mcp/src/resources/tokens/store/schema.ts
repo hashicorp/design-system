@@ -5,8 +5,6 @@
 
 import { z } from "zod";
 
-import type { JsonValue } from "../../../types.js";
-
 export const TOKEN_TYPES = [
   "color",
   "cubicBezier",
@@ -22,38 +20,31 @@ export const TOKEN_TYPES = [
 
 export type TokenType = (typeof TOKEN_TYPES)[number];
 
-const jsonValueSchema: z.ZodType<JsonValue> = z.lazy(() =>
-  z.union([
-    z.string(),
-    z.number(),
-    z.boolean(),
-    z.null(),
-    z.array(jsonValueSchema),
-    z.record(z.string(), jsonValueSchema),
-  ]),
-);
-
 const tokenAttributesSchema = z
   .object({
-    category: z.string().min(1).optional(),
+    category: z.string().min(1),
   })
   .catchall(z.any());
+
+export type TokenAttributes = z.infer<typeof tokenAttributesSchema>;
 
 const tokenOriginalSchema = z
   .object({
     $type: z.string().min(1).optional(),
-    $value: jsonValueSchema.optional(),
+    $value: z.json().optional(),
     key: z.string().optional(),
   })
-  .catchall(jsonValueSchema);
+  .catchall(z.json());
+
+export type TokenOriginal = z.infer<typeof tokenOriginalSchema>;
 
 export const tokenCatalogRowSchema = z
   .object({
     key: z.string().min(1),
     $type: z.string().min(1).optional(),
-    $value: jsonValueSchema,
+    $value: z.json(),
     name: z.string().min(1),
-    attributes: tokenAttributesSchema.optional(),
+    attributes: tokenAttributesSchema,
     path: z.array(z.string().min(1)),
     original: tokenOriginalSchema.optional(),
   })

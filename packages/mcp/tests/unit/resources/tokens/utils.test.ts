@@ -17,6 +17,9 @@ describe("toSerializableTokenSummary", () => {
       value: "#e8f1ff",
       cssVar: "--token.color.palette.blue.200",
       category: "palette",
+      attributes: {
+        category: "color",
+      },
       path: ["token", "color", "palette", "blue", "200"],
     };
     const result = toSerializableTokenSummary(summary);

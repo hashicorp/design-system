@@ -44,6 +44,9 @@ describe("tokens resource", () => {
       value: "#e8f1ff",
       cssVar: "--token.color.palette.blue.200",
       category: "palette",
+      attributes: {
+        category: "color",
+      },
       path: ["token", "color", "palette", "blue", "200"],
     };
     const store = buildStore({ tokens: [token], tokenByKey: null });
@@ -79,6 +82,9 @@ describe("tokens resource", () => {
       value: "#e8f1ff",
       cssVar: "--token.color.palette.blue.200",
       category: "palette",
+      attributes: {
+        category: "color",
+      },
       path: ["token", "color", "palette", "blue", "200"],
       original: {
         $type: "color",
@@ -134,6 +140,9 @@ describe("tokens resource", () => {
       value: "#e8f1ff",
       cssVar: "--token.color.palette.blue.200",
       category: "palette",
+      attributes: {
+        category: "color",
+      },
       path: ["token", "color", "palette", "blue", "200"],
     };
     const store = buildStore({ tokens: [], tokenByKey: token });

@@ -135,22 +135,25 @@ describe("toTokenSummary", () => {
       value: "#e8f1ff",
       cssVar: "--token.color.palette.blue.200",
       category: "palette",
+      attributes: {
+        category: "palette",
+      },
       path: ["token", "color", "palette", "blue", "200"],
     });
   });
 
-  it("sets category to null when attributes is absent", () => {
-    const row = buildRow({ attributes: undefined });
+  it("extracts category from attributes", () => {
+    const row = buildRow({ attributes: { category: "typography" } });
     const summary = toTokenSummary(row);
 
-    expect(summary.category).toBeNull();
+    expect(summary.category).toBe("typography");
   });
 
-  it("sets category to null when attributes.category is absent", () => {
-    const row = buildRow({ attributes: {} });
+  it("sets category from attributes.category", () => {
+    const row = buildRow({ attributes: { category: "color" } });
     const summary = toTokenSummary(row);
 
-    expect(summary.category).toBeNull();
+    expect(summary.category).toBe("color");
   });
 
   it("defaults type to 'other' when $type is absent", () => {
