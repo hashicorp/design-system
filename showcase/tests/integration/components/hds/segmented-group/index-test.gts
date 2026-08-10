@@ -43,7 +43,7 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
       .hasClass('hds-segmented-group--is-full-width');
   });
 
-  test('it should set the max-width CSS custom property when @maxWidth is provided', async function (assert) {
+  test('it sets the max-width CSS custom property when @maxWidth is provided', async function (assert) {
     await render(
       <template>
         <HdsSegmentedGroup id="test-segmented-group" @maxWidth="400px" />
