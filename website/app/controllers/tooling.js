@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Controller from '@ember/controller'
+import Controller from '@ember/controller';
 
 export default class ToolingController extends Controller {
   get cards() {
