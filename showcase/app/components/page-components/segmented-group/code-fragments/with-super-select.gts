@@ -22,7 +22,9 @@ export interface CodeFragmentWithSuperSelectSignature {
   Args: {
     type?: 'single' | 'multiple';
     position?: 'leading' | 'middle' | 'trailing';
-    width?: string;
+    superSelectWidth?: string;
+    superSelectMaxWidth?: string;
+    isFullWidth?: boolean;
     maxWidth?: string;
   };
 }
@@ -40,7 +42,11 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
   };
 
   <template>
-    <HdsSegmentedGroup as |SGR|>
+    <HdsSegmentedGroup
+      @isFullWidth={{@isFullWidth}}
+      @maxWidth={{@maxWidth}}
+      as |SGR|
+    >
       {{#if (or (eq @position "trailing") (eq @position "middle"))}}
         <SGR.TextInput
           aria-label={{concat
@@ -58,8 +64,8 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
           @selected={{this.selectedValues}}
           @onChange={{this.setSelectedValues}}
           @placeholder="Select services"
-          @width={{@width}}
-          @maxWidth={{@maxWidth}}
+          @width={{@superSelectWidth}}
+          @maxWidth={{@superSelectMaxWidth}}
           @ariaLabel={{concat
             "segmented-super-select-multiple-"
             @position
@@ -75,8 +81,8 @@ export default class CodeFragmentWithSuperSelect extends Component<CodeFragmentW
           @selected={{this.selectedValue}}
           @onChange={{this.setSelectedValue}}
           @placeholder="Select service"
-          @width={{@width}}
-          @maxWidth={{@maxWidth}}
+          @width={{@superSelectWidth}}
+          @maxWidth={{@superSelectMaxWidth}}
           @ariaLabel={{concat
             "segmented-super-select-single-"
             @position

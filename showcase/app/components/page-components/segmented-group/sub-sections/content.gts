@@ -369,6 +369,55 @@ const SubSectionContent: TemplateOnlyComponent = <template>
     </SG.Item>
   </ShwGrid>
 
+  <ShwTextH4>isFullWidth and maxWidth on the SegmentedGroup</ShwTextH4>
+
+  <ShwGrid @columns={{2}} as |SG|>
+    <SG.Item @label="SuperSelect trailing">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="single"
+        @position="trailing"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelect leading">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="single"
+        @position="leading"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple trailing">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="multiple"
+        @position="trailing"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple leading">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="multiple"
+        @position="leading"
+      />
+    </SG.Item>
+
+    <SG.Item @label="Input, SuperSelectMultiple, Button">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="multiple"
+        @position="middle"
+      />
+    </SG.Item>
+  </ShwGrid>
+
   <ShwTextH4>With 300px width set</ShwTextH4>
 
   <ShwGrid @columns={{3}} as |SG|>
@@ -376,7 +425,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="single"
         @position="trailing"
-        @width="300px"
+        @superSelectWidth="300px"
       />
     </SG.Item>
 
@@ -384,7 +433,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="single"
         @position="leading"
-        @width="300px"
+        @superSelectWidth="300px"
       />
     </SG.Item>
 
@@ -392,7 +441,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="multiple"
         @position="trailing"
-        @width="300px"
+        @superSelectWidth="300px"
       />
     </SG.Item>
 
@@ -400,7 +449,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="multiple"
         @position="leading"
-        @width="300px"
+        @superSelectWidth="300px"
       />
     </SG.Item>
 
@@ -408,7 +457,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="multiple"
         @position="middle"
-        @width="300px"
+        @superSelectWidth="300px"
       />
     </SG.Item>
   </ShwGrid>
@@ -420,7 +469,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="single"
         @position="trailing"
-        @maxWidth="200px"
+        @superSelectMaxWidth="200px"
       />
     </SG.Item>
 
@@ -428,7 +477,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="single"
         @position="leading"
-        @maxWidth="200px"
+        @superSelectMaxWidth="200px"
       />
     </SG.Item>
 
@@ -436,7 +485,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="multiple"
         @position="trailing"
-        @maxWidth="200px"
+        @superSelectMaxWidth="200px"
       />
     </SG.Item>
 
@@ -444,7 +493,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="multiple"
         @position="leading"
-        @maxWidth="200px"
+        @superSelectMaxWidth="200px"
       />
     </SG.Item>
 
@@ -452,7 +501,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithSuperSelect
         @type="multiple"
         @position="middle"
-        @maxWidth="200px"
+        @superSelectMaxWidth="200px"
       />
     </SG.Item>
   </ShwGrid>

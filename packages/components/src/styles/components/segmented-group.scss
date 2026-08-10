@@ -9,6 +9,11 @@
 
 .hds-segmented-group {
   display: inline-flex;
+  max-width: var(--hds-segmented-group-max-width);
+
+  &.hds-segmented-group--is-full-width {
+    display: flex;
+  }
 
   // SuperSelect uses `@renderInPlace={{true}}` inside SegmentedGroup, which causes the dropdown
   // to use the `--in-place` class instead of the usual `--below` class. The normal 4px gap comes
