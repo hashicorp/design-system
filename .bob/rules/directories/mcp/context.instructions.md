@@ -13,7 +13,7 @@ The `packages/mcp` package is the Model Context Protocol (MCP) server for the He
 - `src/prompts/` - Prompt descriptors and the `registerPrompts` registration loop
 - `src/resources/` - Resource descriptors, the `registerResources` registration loop, and shared response/error helpers
 - `src/tools/` - Tool descriptors and the `registerTools` registration loop
-- `src/catalogs/` - Static design system data served by resources and tools, each with a Zod schema describing its shape
+- `src/resources/<name>/store/` - Loads the catalog data for a resource from the workspace dependency that ships it, validated by the Zod schema in its `schema.ts`
 - `tests/` - Vitest suites, with shared helpers under `tests/support/`
 
 ## Common build commands
@@ -30,7 +30,7 @@ The `packages/mcp` package is the Model Context Protocol (MCP) server for the He
 - All user-facing changes to the server must be accompanied by a changeset
 - Never write to stdout; the stdio transport reserves it for protocol messages, so all diagnostics must go to stderr
 - Register prompts, resources, and tools by adding descriptors to the arrays in the relevant `index.ts`, rather than calling the server registration methods directly
-- Catalog data must conform to the Zod schema that sits alongside it
+- Catalog data is read from the workspace dependency that ships it, and must conform to the Zod schema at `src/resources/<name>/store/schema.ts`
 
 ## Related instructions
 
