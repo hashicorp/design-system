@@ -29,5 +29,5 @@ The `showcase` app is an Ember application used to develop, test, and visually v
 
 - `components-pages.instructions.md`
   Guidelines on how to build showcase pages, including file structure, code formatting, and best practices for demonstrating component features and states.
-- `testing.instructions.md`
+- `tests.instructions.md`
   Instructions for how to write and organize acceptance and integration tests
