@@ -642,8 +642,9 @@
   --hds-form-error-typography-line-height: 1.3846;
   --hds-form-error-icon-color: #c00005;
   --hds-form-error-icon-size: 14px;
-  --hds-form-visibility-toggle-button-size: 24px;
+  --hds-form-visibility-toggle-size: 24px;
   --hds-form-checkbox-size: 16px;
+  --hds-form-checkbox-border-color-checked-disabled: #656a7633;
   --hds-form-checkbox-border-radius: 3px;
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-background-image-size: 12px;
@@ -655,6 +656,21 @@
   --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238c909c' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
   --hds-form-file-input-button-border-color: #3b3d4566;
   --hds-form-file-input-button-height: 36px;
+  --hds-form-control-border-color-unchecked-default: #8c909c;
+  --hds-form-control-border-color-unchecked-disabled: #656a7633;
+  --hds-form-control-border-color-unchecked-hover: #656a76;
+  --hds-form-control-border-color-checked-default: #0c56e9;
+  --hds-form-control-border-color-checked-disabled: #656a7633;
+  --hds-form-control-border-color-checked-hover: #0046d1;
+  --hds-form-control-border-radius: 5px;
+  --hds-form-control-border-width: 1px;
+  --hds-form-control-surface-color-unchecked-default: #ffffff;
+  --hds-form-control-surface-color-unchecked-disabled: #fafafa;
+  --hds-form-control-surface-color-unchecked-hover: #f1f2f3;
+  --hds-form-control-surface-color-checked-default: #1060ff;
+  --hds-form-control-surface-color-checked-disabled: #fafafa;
+  --hds-form-control-surface-color-checked-hover: #0c56e9;
+  --hds-form-control-foreground-color-checked: #ffffff;
   --hds-form-control-base-foreground-color: #0c0c0e;
   --hds-form-control-base-surface-color-default: #ffffff;
   --hds-form-control-base-surface-color-hover: #f1f2f3;
@@ -662,19 +678,6 @@
   --hds-form-control-base-border-color-hover: #656a76;
   --hds-form-control-base-placeholder-foreground-color-default: #656a76;
   --hds-form-control-base-placeholder-foreground-color-disabled: #8c909c;
-  --hds-form-control-checked-foreground-color: #ffffff;
-  --hds-form-control-checked-surface-color-default: #1060ff;
-  --hds-form-control-checked-surface-color-disabled: #fafafa;
-  --hds-form-control-checked-surface-color-hover: #0c56e9;
-  --hds-form-control-checked-border-color-default: #0c56e9;
-  --hds-form-control-checked-border-color-disabled: #656a7633;
-  --hds-form-control-checked-border-color-hover: #0046d1;
-  --hds-form-control-unchecked-border-color-default: #8c909c;
-  --hds-form-control-unchecked-border-color-disabled: #656a7633;
-  --hds-form-control-unchecked-border-color-hover: #656a76;
-  --hds-form-control-unchecked-surface-color-default: #ffffff;
-  --hds-form-control-unchecked-surface-color-disabled: #fafafa;
-  --hds-form-control-unchecked-surface-color-hover: #f1f2f3;
   --hds-form-control-invalid-border-color-default: #c00005;
   --hds-form-control-invalid-border-color-hover: #940004;
   --hds-form-control-readonly-foreground-color: #3b3d45;
@@ -685,8 +688,6 @@
   --hds-form-control-disabled-border-color: #656a7633;
   --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
-  --hds-form-control-border-radius: 5px;
-  --hds-form-control-border-width: 1px;
   --hds-form-control-height: 36px;
   --hds-form-radio-card-group-gap: 16px;
   --hds-form-radio-card-surface-color-hover: #ffffff;
@@ -7558,28 +7559,28 @@ button.hds-button[href]::after {
   appearance: none;
 }
 .hds-form-checkbox:not(:checked, :indeterminate) {
-  background-color: var(--hds-form-control-unchecked-surface-color-default);
-  border-color: var(--hds-form-control-unchecked-border-color-default);
+  background-color: var(--hds-form-control-surface-color-unchecked-default);
+  border-color: var(--hds-form-control-border-color-unchecked-default);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
 .hds-form-checkbox:checked, .hds-form-checkbox:indeterminate {
-  background-color: var(--hds-form-control-checked-surface-color-default);
+  background-color: var(--hds-form-control-surface-color-checked-default);
 }
 .hds-form-checkbox:checked {
   background-image: var(--hds-form-checkbox-background-image-data-url);
-  border-color: var(--hds-form-control-checked-border-color-default);
+  border-color: var(--hds-form-control-border-color-checked-default);
 }
 .hds-form-checkbox:indeterminate {
   background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate);
-  border-color: var(--hds-form-control-checked-border-color-default);
+  border-color: var(--hds-form-control-border-color-checked-default);
 }
 .hds-form-checkbox:hover:not(:checked, :indeterminate), .hds-form-checkbox.mock-hover:not(:checked, :indeterminate) {
-  background-color: var(--hds-form-control-unchecked-surface-color-hover);
-  border-color: var(--hds-form-control-unchecked-border-color-hover);
+  background-color: var(--hds-form-control-surface-color-unchecked-hover);
+  border-color: var(--hds-form-control-border-color-unchecked-hover);
 }
 .hds-form-checkbox:hover:checked, .hds-form-checkbox.mock-hover:checked, .hds-form-checkbox:hover:indeterminate, .hds-form-checkbox.mock-hover:indeterminate {
-  background-color: var(--hds-form-control-checked-surface-color-hover);
-  border-color: var(--hds-form-control-checked-border-color-hover);
+  background-color: var(--hds-form-control-surface-color-checked-hover);
+  border-color: var(--hds-form-control-border-color-checked-hover);
 }
 .hds-form-checkbox:focus-visible, .hds-form-checkbox.mock-focus {
   outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
@@ -7592,23 +7593,23 @@ button.hds-button[href]::after {
 }
 
 .hds-form-checkbox:disabled:not(:checked, :indeterminate) {
-  background-color: var(--hds-form-control-unchecked-surface-color-disabled);
-  border-color: var(--hds-form-control-unchecked-border-color-disabled);
+  background-color: var(--hds-form-control-surface-color-unchecked-disabled);
+  border-color: var(--hds-form-control-border-color-unchecked-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 .hds-form-checkbox:disabled:checked {
-  background-color: var(--hds-form-control-checked-surface-color-disabled);
+  background-color: var(--hds-form-control-surface-color-checked-disabled);
   background-image: var(--hds-form-checkbox-background-image-data-url-disabled);
-  border-color: var(--hds-form-control-checked-border-color-disabled);
+  border-color: var(--hds-form-checkbox-border-color-checked-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 .hds-form-checkbox:disabled:indeterminate {
-  background-color: var(--hds-form-control-checked-surface-color-disabled);
+  background-color: var(--hds-form-control-surface-color-checked-disabled);
   background-image: var(--hds-form-checkbox-background-image-data-url-indeterminate-disabled);
   background-repeat: no-repeat;
-  border-color: var(--hds-form-control-checked-border-color-disabled);
+  border-color: var(--hds-form-checkbox-border-color-checked-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
@@ -7692,22 +7693,22 @@ button.hds-button[href]::after {
   appearance: none;
 }
 .hds-form-radio:not(:checked) {
-  background-color: var(--hds-form-control-unchecked-surface-color-default);
-  border-color: var(--hds-form-control-unchecked-border-color-default);
+  background-color: var(--hds-form-control-surface-color-unchecked-default);
+  border-color: var(--hds-form-control-border-color-unchecked-default);
   box-shadow: var(--hds-elevation-inset-box-shadow);
 }
 .hds-form-radio:checked {
   background-color: var(--hds-form-radio-surface-color-checked-default);
   background-image: var(--hds-form-radio-background-image-data-url);
-  border-color: var(--hds-form-control-checked-border-color-default);
+  border-color: var(--hds-form-control-border-color-checked-default);
 }
 .hds-form-radio:hover:not(:checked), .hds-form-radio.mock-hover:not(:checked) {
-  background-color: var(--hds-form-control-unchecked-surface-color-hover);
-  border-color: var(--hds-form-control-unchecked-border-color-hover);
+  background-color: var(--hds-form-control-surface-color-unchecked-hover);
+  border-color: var(--hds-form-control-border-color-unchecked-hover);
 }
 .hds-form-radio:hover:checked, .hds-form-radio.mock-hover:checked {
   background-color: var(--hds-form-radio-surface-color-checked-hover);
-  border-color: var(--hds-form-control-checked-border-color-hover);
+  border-color: var(--hds-form-control-border-color-checked-hover);
 }
 .hds-form-radio:focus-visible, .hds-form-radio.mock-focus {
   outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
@@ -7720,15 +7721,15 @@ button.hds-button[href]::after {
 }
 
 .hds-form-radio:disabled:not(:checked) {
-  background-color: var(--hds-form-control-unchecked-surface-color-disabled);
-  border-color: var(--hds-form-control-unchecked-border-color-disabled);
+  background-color: var(--hds-form-control-surface-color-unchecked-disabled);
+  border-color: var(--hds-form-control-border-color-unchecked-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
 .hds-form-radio:disabled:checked {
   background-color: var(--hds-form-radio-surface-color-checked-disabled);
   background-image: var(--hds-form-radio-background-image-data-url-disabled);
-  border-color: var(--hds-form-control-checked-border-color-disabled);
+  border-color: var(--hds-form-control-border-color-checked-disabled);
   box-shadow: none;
   cursor: not-allowed;
 }
@@ -8594,16 +8595,16 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true])::before {
-  background-color: var(--hds-form-control-checked-surface-color-default);
+  background-color: var(--hds-form-control-surface-color-checked-default);
   background-image: var(--hds-form-checkbox-background-image-data-url);
-  border-color: var(--hds-form-control-checked-border-color-default);
+  border-color: var(--hds-form-control-border-color-checked-default);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:hover[aria-selected=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true].mock-hover[aria-selected=true]::before {
-  background-color: var(--hds-form-control-checked-border-color-default);
-  border-color: var(--hds-form-control-checked-border-color-hover);
+  background-color: var(--hds-form-control-border-color-checked-default);
+  border-color: var(--hds-form-control-border-color-checked-hover);
 }
 .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-disabled=true]::before {
@@ -9175,7 +9176,7 @@ button.hds-button[href]::after {
   background-color: var(--hds-form-toggle-base-surface-color-default);
 }
 :checked + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-checked-border-color-default);
+  --border-color: var(--hds-form-control-border-color-checked-default);
   background-color: var(--hds-form-toggle-base-surface-color-checked-default);
 }
 .hds-theme-light :checked + .hds-form-toggle__facade,
@@ -9200,7 +9201,7 @@ button.hds-button[href]::after {
   --border-color: var(--hds-form-control-base-border-color-hover);
 }
 :hover:checked + .hds-form-toggle__facade, .mock-hover:checked + .hds-form-toggle__facade {
-  --border-color: var(--hds-form-control-checked-border-color-hover);
+  --border-color: var(--hds-form-control-border-color-checked-hover);
   background-color: var(--hds-form-toggle-base-surface-color-checked-hover);
 }
 :focus + .hds-form-toggle__facade::before, .mock-focus + .hds-form-toggle__facade::before {
@@ -9241,8 +9242,8 @@ button.hds-button[href]::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--hds-form-visibility-toggle-button-size);
-  height: var(--hds-form-visibility-toggle-button-size);
+  width: var(--hds-form-visibility-toggle-size);
+  height: var(--hds-form-visibility-toggle-size);
   padding: 2px;
   color: var(--hds-foreground-color-primary);
   background-color: transparent;

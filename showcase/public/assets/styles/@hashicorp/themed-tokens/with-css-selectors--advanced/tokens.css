@@ -730,6 +730,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' /%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-checkbox-background-image-size: 12px;
+  --hds-form-checkbox-border-color-checked-disabled: var(
+    --hds-border-color-primary
+  );
   --hds-form-checkbox-border-radius: var(--hds-border-radius-x-small);
   --hds-form-control-base-border-color-default: var(
     --hds-core-color-neutral-400
@@ -744,28 +747,28 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-base-surface-color-hover: var(
     --hds-surface-color-interactive-hover
   );
-  --hds-form-control-checked-border-color-default: var(
+  --hds-form-control-border-color-checked-default: var(
     --hds-core-color-blue-300
   );
-  --hds-form-control-checked-border-color-disabled: var(
+  --hds-form-control-border-color-checked-disabled: var(
     --hds-border-color-primary
   );
-  --hds-form-control-checked-border-color-hover: var(--hds-core-color-blue-400);
-  --hds-form-control-checked-foreground-color: var(
-    --hds-foreground-color-high-contrast
+  --hds-form-control-border-color-checked-hover: var(--hds-core-color-blue-400);
+  --hds-form-control-border-color-unchecked-default: var(
+    --hds-core-color-neutral-400
   );
-  --hds-form-control-checked-surface-color-default: var(
-    --hds-core-color-blue-200
+  --hds-form-control-border-color-unchecked-disabled: var(
+    --hds-border-color-primary
   );
-  --hds-form-control-checked-surface-color-disabled: var(
-    --hds-surface-color-interactive-disabled
-  );
-  --hds-form-control-checked-surface-color-hover: var(
-    --hds-core-color-blue-300
+  --hds-form-control-border-color-unchecked-hover: var(
+    --hds-core-color-neutral-500
   );
   --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
   --hds-form-control-disabled-surface-color: var(
     --hds-surface-color-interactive-disabled
+  );
+  --hds-form-control-foreground-color-checked: var(
+    --hds-foreground-color-high-contrast
   );
   --hds-form-control-height: 36px;
   --hds-form-control-invalid-border-color-default: var(
@@ -775,22 +778,22 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-readonly-surface-color: var(--hds-surface-color-strong);
-  --hds-form-control-unchecked-border-color-default: var(
-    --hds-core-color-neutral-400
+  --hds-form-control-surface-color-checked-default: var(
+    --hds-core-color-blue-200
   );
-  --hds-form-control-unchecked-border-color-disabled: var(
-    --hds-border-color-primary
-  );
-  --hds-form-control-unchecked-border-color-hover: var(
-    --hds-core-color-neutral-500
-  );
-  --hds-form-control-unchecked-surface-color-default: var(
-    --hds-surface-color-interactive
-  );
-  --hds-form-control-unchecked-surface-color-disabled: var(
+  --hds-form-control-surface-color-checked-disabled: var(
     --hds-surface-color-interactive-disabled
   );
-  --hds-form-control-unchecked-surface-color-hover: var(
+  --hds-form-control-surface-color-checked-hover: var(
+    --hds-core-color-blue-300
+  );
+  --hds-form-control-surface-color-unchecked-default: var(
+    --hds-surface-color-interactive
+  );
+  --hds-form-control-surface-color-unchecked-disabled: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-control-surface-color-unchecked-hover: var(
     --hds-surface-color-interactive-hover
   );
   --hds-form-error-foreground-color: var(--hds-core-color-red-300);
@@ -962,7 +965,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-surface-color-interactive-disabled
   );
   --hds-form-toggle-thumb-size: var(--hds-form-toggle-height);
-  --hds-form-visibility-toggle-button-size: 24px;
+  --hds-form-visibility-toggle-size: 24px;
   --hds-icon-tile-border-color-logo: var(--hds-border-color-primary);
   --hds-icon-tile-border-color-overlay: var(--hds-border-color-primary);
   --hds-icon-tile-surface-color-overlay: var(--hds-surface-color-primary);
@@ -1862,6 +1865,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23fff' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
     --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
     --hds-form-checkbox-background-image-size: 8px;
+    --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
     --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
     --hds-form-control-base-border-color-default: #8d8d8d;
     --hds-form-control-base-border-color-hover: #8d8d8d;
@@ -1878,27 +1882,27 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0.25
     );
     --hds-form-control-base-surface-color-hover: #f4f4f4;
-    --hds-form-control-checked-border-color-default: #161616;
-    --hds-form-control-checked-border-color-disabled: rgba(22, 22, 22, 0.25);
-    --hds-form-control-checked-border-color-hover: #161616;
-    --hds-form-control-checked-foreground-color: #161616;
-    --hds-form-control-checked-surface-color-default: #161616;
-    --hds-form-control-checked-surface-color-disabled: rgba(22, 22, 22, 0.25);
-    --hds-form-control-checked-surface-color-hover: #161616;
+    --hds-form-control-border-color-checked-default: #161616;
+    --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
+    --hds-form-control-border-color-checked-hover: #161616;
+    --hds-form-control-border-color-unchecked-default: #161616;
+    --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
+    --hds-form-control-border-color-unchecked-hover: #161616;
     --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
     --hds-form-control-disabled-surface-color: #f4f4f4;
+    --hds-form-control-foreground-color-checked: #161616;
     --hds-form-control-height: 40px;
     --hds-form-control-invalid-border-color-default: #da1e28;
     --hds-form-control-invalid-border-color-hover: #da1e28;
     --hds-form-control-padding-horizontal: 16px;
     --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
     --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-    --hds-form-control-unchecked-border-color-default: #161616;
-    --hds-form-control-unchecked-border-color-disabled: rgba(22, 22, 22, 0.25);
-    --hds-form-control-unchecked-border-color-hover: #161616;
-    --hds-form-control-unchecked-surface-color-default: rgba(0, 0, 0, 0);
-    --hds-form-control-unchecked-surface-color-disabled: rgba(0, 0, 0, 0);
-    --hds-form-control-unchecked-surface-color-hover: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-checked-default: #161616;
+    --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
+    --hds-form-control-surface-color-checked-hover: #161616;
+    --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
     --hds-form-error-foreground-color: #da1e28;
     --hds-form-error-icon-color: #da1e28;
     --hds-form-error-typography-font-size: 0.75rem;
@@ -1927,7 +1931,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-legend-typography-font-size: 0.75rem;
     --hds-form-legend-typography-font-weight: 400;
     --hds-form-legend-typography-line-height: 1.33333;
-    --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+    --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
     --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
     --hds-form-radio-card-border-color-checked-default: #161616;
     --hds-form-radio-card-border-color-checked-hover: #161616;
@@ -2000,7 +2004,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-toggle-handle-surface-color-default: #ffffff;
     --hds-form-toggle-handle-surface-color-disabled: #8d8d8d;
     --hds-form-toggle-thumb-size: 10px;
-    --hds-form-visibility-toggle-button-size: 40px;
+    --hds-form-visibility-toggle-size: 40px;
     --hds-icon-tile-border-color-logo: #c6c6c6;
     --hds-icon-tile-border-color-overlay: #e0e0e0;
     --hds-icon-tile-surface-color-overlay: #ffffff;
@@ -2752,6 +2756,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
     --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
     --hds-form-checkbox-background-image-size: 8px;
+    --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
     --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
     --hds-form-control-base-border-color-default: #6f6f6f;
     --hds-form-control-base-border-color-hover: #6f6f6f;
@@ -2768,37 +2773,37 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
       0.25
     );
     --hds-form-control-base-surface-color-hover: #262626;
-    --hds-form-control-checked-border-color-default: #f4f4f4;
-    --hds-form-control-checked-border-color-disabled: rgba(244, 244, 244, 0.25);
-    --hds-form-control-checked-border-color-hover: #f4f4f4;
-    --hds-form-control-checked-foreground-color: #f4f4f4;
-    --hds-form-control-checked-surface-color-default: #f4f4f4;
-    --hds-form-control-checked-surface-color-disabled: rgba(
+    --hds-form-control-border-color-checked-default: #f4f4f4;
+    --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
+    --hds-form-control-border-color-checked-hover: #f4f4f4;
+    --hds-form-control-border-color-unchecked-default: #f4f4f4;
+    --hds-form-control-border-color-unchecked-disabled: rgba(
       244,
       244,
       244,
       0.25
     );
-    --hds-form-control-checked-surface-color-hover: #f4f4f4;
+    --hds-form-control-border-color-unchecked-hover: #f4f4f4;
     --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
     --hds-form-control-disabled-surface-color: #262626;
+    --hds-form-control-foreground-color-checked: #f4f4f4;
     --hds-form-control-height: 40px;
     --hds-form-control-invalid-border-color-default: #fa4d56;
     --hds-form-control-invalid-border-color-hover: #fa4d56;
     --hds-form-control-padding-horizontal: 16px;
     --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
     --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-    --hds-form-control-unchecked-border-color-default: #f4f4f4;
-    --hds-form-control-unchecked-border-color-disabled: rgba(
+    --hds-form-control-surface-color-checked-default: #f4f4f4;
+    --hds-form-control-surface-color-checked-disabled: rgba(
       244,
       244,
       244,
       0.25
     );
-    --hds-form-control-unchecked-border-color-hover: #f4f4f4;
-    --hds-form-control-unchecked-surface-color-default: rgba(0, 0, 0, 0);
-    --hds-form-control-unchecked-surface-color-disabled: rgba(0, 0, 0, 0);
-    --hds-form-control-unchecked-surface-color-hover: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-checked-hover: #f4f4f4;
+    --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
     --hds-form-error-foreground-color: #ff8389;
     --hds-form-error-icon-color: #fa4d56;
     --hds-form-error-typography-font-size: 0.75rem;
@@ -2827,7 +2832,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-legend-typography-font-size: 0.75rem;
     --hds-form-legend-typography-font-weight: 400;
     --hds-form-legend-typography-line-height: 1.33333;
-    --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+    --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
     --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
     --hds-form-radio-card-border-color-checked-default: #f4f4f4;
     --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
@@ -2900,7 +2905,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-toggle-handle-surface-color-default: #ffffff;
     --hds-form-toggle-handle-surface-color-disabled: rgba(255, 255, 255, 0.25);
     --hds-form-toggle-thumb-size: 10px;
-    --hds-form-visibility-toggle-button-size: 40px;
+    --hds-form-visibility-toggle-size: 40px;
     --hds-icon-tile-border-color-logo: #525252;
     --hds-icon-tile-border-color-overlay: #6f6f6f;
     --hds-icon-tile-surface-color-overlay: #393939;
@@ -3631,6 +3636,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23fff' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
   --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
   --hds-form-control-base-border-color-default: #8d8d8d;
   --hds-form-control-base-border-color-hover: #8d8d8d;
@@ -3647,27 +3653,27 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0.25
   );
   --hds-form-control-base-surface-color-hover: #f4f4f4;
-  --hds-form-control-checked-border-color-default: #161616;
-  --hds-form-control-checked-border-color-disabled: rgba(22, 22, 22, 0.25);
-  --hds-form-control-checked-border-color-hover: #161616;
-  --hds-form-control-checked-foreground-color: #161616;
-  --hds-form-control-checked-surface-color-default: #161616;
-  --hds-form-control-checked-surface-color-disabled: rgba(22, 22, 22, 0.25);
-  --hds-form-control-checked-surface-color-hover: #161616;
+  --hds-form-control-border-color-checked-default: #161616;
+  --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-border-color-checked-hover: #161616;
+  --hds-form-control-border-color-unchecked-default: #161616;
+  --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #161616;
   --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #f4f4f4;
+  --hds-form-control-foreground-color-checked: #161616;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #da1e28;
   --hds-form-control-invalid-border-color-hover: #da1e28;
   --hds-form-control-padding-horizontal: 16px;
   --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
   --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-border-color-default: #161616;
-  --hds-form-control-unchecked-border-color-disabled: rgba(22, 22, 22, 0.25);
-  --hds-form-control-unchecked-border-color-hover: #161616;
-  --hds-form-control-unchecked-surface-color-default: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-surface-color-disabled: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #161616;
+  --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-surface-color-checked-hover: #161616;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #da1e28;
   --hds-form-error-icon-color: #da1e28;
   --hds-form-error-typography-font-size: 0.75rem;
@@ -3696,7 +3702,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-font-size: 0.75rem;
   --hds-form-legend-typography-font-weight: 400;
   --hds-form-legend-typography-line-height: 1.33333;
-  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-card-border-color-checked-default: #161616;
   --hds-form-radio-card-border-color-checked-hover: #161616;
@@ -3759,7 +3765,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-toggle-handle-surface-color-default: #ffffff;
   --hds-form-toggle-handle-surface-color-disabled: #8d8d8d;
   --hds-form-toggle-thumb-size: 10px;
-  --hds-form-visibility-toggle-button-size: 40px;
+  --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #c6c6c6;
   --hds-icon-tile-border-color-overlay: #e0e0e0;
   --hds-icon-tile-surface-color-overlay: #ffffff;
@@ -4509,6 +4515,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
   --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
   --hds-form-control-base-border-color-default: #6f6f6f;
   --hds-form-control-base-border-color-hover: #6f6f6f;
@@ -4525,27 +4532,27 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0.25
   );
   --hds-form-control-base-surface-color-hover: #262626;
-  --hds-form-control-checked-border-color-default: #f4f4f4;
-  --hds-form-control-checked-border-color-disabled: rgba(244, 244, 244, 0.25);
-  --hds-form-control-checked-border-color-hover: #f4f4f4;
-  --hds-form-control-checked-foreground-color: #f4f4f4;
-  --hds-form-control-checked-surface-color-default: #f4f4f4;
-  --hds-form-control-checked-surface-color-disabled: rgba(244, 244, 244, 0.25);
-  --hds-form-control-checked-surface-color-hover: #f4f4f4;
+  --hds-form-control-border-color-checked-default: #f4f4f4;
+  --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-checked-hover: #f4f4f4;
+  --hds-form-control-border-color-unchecked-default: #f4f4f4;
+  --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #f4f4f4;
   --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #262626;
+  --hds-form-control-foreground-color-checked: #f4f4f4;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #fa4d56;
   --hds-form-control-invalid-border-color-hover: #fa4d56;
   --hds-form-control-padding-horizontal: 16px;
   --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
   --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-border-color-default: #f4f4f4;
-  --hds-form-control-unchecked-border-color-disabled: rgba(244, 244, 244, 0.25);
-  --hds-form-control-unchecked-border-color-hover: #f4f4f4;
-  --hds-form-control-unchecked-surface-color-default: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-surface-color-disabled: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #f4f4f4;
+  --hds-form-control-surface-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-surface-color-checked-hover: #f4f4f4;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #ff8389;
   --hds-form-error-icon-color: #fa4d56;
   --hds-form-error-typography-font-size: 0.75rem;
@@ -4574,7 +4581,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-font-size: 0.75rem;
   --hds-form-legend-typography-font-weight: 400;
   --hds-form-legend-typography-line-height: 1.33333;
-  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-card-border-color-checked-default: #f4f4f4;
   --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
@@ -4637,7 +4644,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-toggle-handle-surface-color-default: #ffffff;
   --hds-form-toggle-handle-surface-color-disabled: rgba(255, 255, 255, 0.25);
   --hds-form-toggle-thumb-size: 10px;
-  --hds-form-visibility-toggle-button-size: 40px;
+  --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #525252;
   --hds-icon-tile-border-color-overlay: #6f6f6f;
   --hds-icon-tile-surface-color-overlay: #393939;
@@ -5366,6 +5373,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23fff' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
   --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
   --hds-form-control-base-border-color-default: #8d8d8d;
   --hds-form-control-base-border-color-hover: #8d8d8d;
@@ -5382,27 +5390,27 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0.25
   );
   --hds-form-control-base-surface-color-hover: #ffffff;
-  --hds-form-control-checked-border-color-default: #161616;
-  --hds-form-control-checked-border-color-disabled: rgba(22, 22, 22, 0.25);
-  --hds-form-control-checked-border-color-hover: #161616;
-  --hds-form-control-checked-foreground-color: #161616;
-  --hds-form-control-checked-surface-color-default: #161616;
-  --hds-form-control-checked-surface-color-disabled: rgba(22, 22, 22, 0.25);
-  --hds-form-control-checked-surface-color-hover: #161616;
+  --hds-form-control-border-color-checked-default: #161616;
+  --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-border-color-checked-hover: #161616;
+  --hds-form-control-border-color-unchecked-default: #161616;
+  --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #161616;
   --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #ffffff;
+  --hds-form-control-foreground-color-checked: #161616;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #da1e28;
   --hds-form-control-invalid-border-color-hover: #da1e28;
   --hds-form-control-padding-horizontal: 16px;
   --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
   --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-border-color-default: #161616;
-  --hds-form-control-unchecked-border-color-disabled: rgba(22, 22, 22, 0.25);
-  --hds-form-control-unchecked-border-color-hover: #161616;
-  --hds-form-control-unchecked-surface-color-default: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-surface-color-disabled: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #161616;
+  --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-surface-color-checked-hover: #161616;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #da1e28;
   --hds-form-error-icon-color: #da1e28;
   --hds-form-error-typography-font-size: 0.75rem;
@@ -5431,7 +5439,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-font-size: 0.75rem;
   --hds-form-legend-typography-font-weight: 400;
   --hds-form-legend-typography-line-height: 1.33333;
-  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23BDBDBD' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-card-border-color-checked-default: #161616;
   --hds-form-radio-card-border-color-checked-hover: #161616;
@@ -5494,7 +5502,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-toggle-handle-surface-color-default: #ffffff;
   --hds-form-toggle-handle-surface-color-disabled: #8d8d8d;
   --hds-form-toggle-thumb-size: 10px;
-  --hds-form-visibility-toggle-button-size: 40px;
+  --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #e0e0e0;
   --hds-icon-tile-border-color-overlay: #c6c6c6;
   --hds-icon-tile-surface-color-overlay: #f4f4f4;
@@ -6243,6 +6251,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
   --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
   --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
   --hds-form-control-base-border-color-default: #8d8d8d;
   --hds-form-control-base-border-color-hover: #8d8d8d;
@@ -6259,27 +6268,27 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0.25
   );
   --hds-form-control-base-surface-color-hover: #393939;
-  --hds-form-control-checked-border-color-default: #f4f4f4;
-  --hds-form-control-checked-border-color-disabled: rgba(244, 244, 244, 0.25);
-  --hds-form-control-checked-border-color-hover: #f4f4f4;
-  --hds-form-control-checked-foreground-color: #f4f4f4;
-  --hds-form-control-checked-surface-color-default: #f4f4f4;
-  --hds-form-control-checked-surface-color-disabled: rgba(244, 244, 244, 0.25);
-  --hds-form-control-checked-surface-color-hover: #f4f4f4;
+  --hds-form-control-border-color-checked-default: #f4f4f4;
+  --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-checked-hover: #f4f4f4;
+  --hds-form-control-border-color-unchecked-default: #f4f4f4;
+  --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #f4f4f4;
   --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
   --hds-form-control-disabled-surface-color: #393939;
+  --hds-form-control-foreground-color-checked: #f4f4f4;
   --hds-form-control-height: 40px;
   --hds-form-control-invalid-border-color-default: #ff8389;
   --hds-form-control-invalid-border-color-hover: #ff8389;
   --hds-form-control-padding-horizontal: 16px;
   --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
   --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-border-color-default: #f4f4f4;
-  --hds-form-control-unchecked-border-color-disabled: rgba(244, 244, 244, 0.25);
-  --hds-form-control-unchecked-border-color-hover: #f4f4f4;
-  --hds-form-control-unchecked-surface-color-default: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-surface-color-disabled: rgba(0, 0, 0, 0);
-  --hds-form-control-unchecked-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #f4f4f4;
+  --hds-form-control-surface-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-surface-color-checked-hover: #f4f4f4;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #ffb3b8;
   --hds-form-error-icon-color: #ff8389;
   --hds-form-error-typography-font-size: 0.75rem;
@@ -6308,7 +6317,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-font-size: 0.75rem;
   --hds-form-legend-typography-font-weight: 400;
   --hds-form-legend-typography-line-height: 1.33333;
-  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23595959' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-card-border-color-checked-default: #f4f4f4;
   --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
@@ -6371,7 +6380,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-toggle-handle-surface-color-default: #ffffff;
   --hds-form-toggle-handle-surface-color-disabled: rgba(255, 255, 255, 0.25);
   --hds-form-toggle-thumb-size: 10px;
-  --hds-form-visibility-toggle-button-size: 40px;
+  --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #6f6f6f;
   --hds-icon-tile-border-color-overlay: #8d8d8d;
   --hds-icon-tile-surface-color-overlay: #525252;
