@@ -1,0 +1,14 @@
+<Hds::SegmentedGroup @isFullWidth={{true}} @maxWidth="500px" as |SG|>
+  <SG.TextInput @type="search" placeholder="Search services" aria-label="Search services" />
+  <SG.SuperSelectSingle
+    @options={{this.SUPER_SELECT_OPTIONS}}
+    @selected={{this.SELECTED_SERVICE}}
+    @onChange={{fn (mut this.SELECTED_SERVICE)}}
+    @placeholder="Select service"
+    @ariaLabel="Select service"
+    as |option|
+  >
+    {{option}}
+  </SG.SuperSelectSingle>
+  <SG.Button @color="secondary" @text="Apply" />
+</Hds::SegmentedGroup>

@@ -3,6 +3,16 @@
 ### SegmentedGroup
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="isFullWidth" @type="boolean" @default="false">
+    Makes the Segmented Group expand to the full width of its parent container.
+    <br/><br/>
+    When enabled, the group is rendered as a block-level flex container instead of an inline-flex container.
+  </C.Property>
+  <C.Property @name="maxWidth" @type="string" @valueNote="any valid CSS width value">
+    Sets the maximum width of the Segmented Group wrapper.
+    <br/><br/>
+    Use this to cap the width of a full-width Segmented Group or to constrain the group when you want it to size itself within a specific limit.
+  </C.Property>
   <C.Property @name="<[SD].Button>" @type="yielded component">
     `Button` yielded as contextual component (see below).
   </C.Property>

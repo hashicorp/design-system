@@ -14,6 +14,13 @@ When used within a form we recommend using component composition, passing a `Seg
 
 [[code-snippets/segmented-group-form]]
 
+### Super Select
+
+Use the yielded `SuperSelect` or `SuperSelectMultiple` segments when placing a Super Select inside a Segmented Group.
+If you want the Segmented Group to stretch to the width of its parent while keeping a maximum width, set `@isFullWidth={{true}}` and `@maxWidth` on the Segmented Group itself.
+
+[[code-snippets/segmented-group-super-select-width]]
+
 ### Generic Segment
 
 Use the `Generic` block to pass custom Segments to the group. The predefined Segments adjust their styles automatically depending on their placement within the group. You will need to ensure similar styling for your custom Segment.
