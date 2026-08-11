@@ -18,8 +18,8 @@ When used within a form we recommend using component composition, passing a `Seg
 
 Use `@isFullWidth` to make the Segmented Group fill the width of its parent container. Use `@maxWidth` to limit how wide the group can grow.
 
-These properties are especially useful when placing a Super Select inside a Segmented Group. In this case, use the yielded `SuperSelect` or `SuperSelectMultiple` segments.
-If you want the Segmented Group to stretch to the width of its parent while keeping a maximum width, set `@isFullWidth={{true}}` and `@maxWidth` on the Segmented Group itself.
+We recommend using `@isFullWidth={{true}}` when placing a Super Select within the Segmented Group to prevent the Super Select from changing size as the user interacts with it.
+
 
 [[code-snippets/segmented-group-super-select-width]]
 
