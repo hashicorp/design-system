@@ -14,9 +14,11 @@ When used within a form we recommend using component composition, passing a `Seg
 
 [[code-snippets/segmented-group-form]]
 
-### Super Select
+### Layout
 
-Use the yielded `SuperSelectSingle` or `SuperSelectMultiple` segments when placing a Super Select inside a Segmented Group.
+Use `@isFullWidth` to make the Segmented Group fill the width of its parent container. Use `@maxWidth` to limit how wide the group can grow.
+
+These properties are especially useful when placing a Super Select inside a Segmented Group. In this case, use the yielded `SuperSelect` or `SuperSelectMultiple` segments.
 If you want the Segmented Group to stretch to the width of its parent while keeping a maximum width, set `@isFullWidth={{true}}` and `@maxWidth` on the Segmented Group itself.
 
 [[code-snippets/segmented-group-super-select-width]]
