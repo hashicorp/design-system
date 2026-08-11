@@ -17,7 +17,8 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "rollup --config",
+    "build": "rollup --config && pnpm catalog:components",
+    "catalog:components": "node ./scripts/build-component-catalog.mjs",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
@@ -400,7 +401,8 @@
     "./codemirror": {
       "types": "./declarations/re-exports/codemirror.d.ts",
       "default": "./dist/re-exports/codemirror.js"
-    }
+    },
+    "./component-catalog.json": "./component-catalog.json"
   },
   "typesVersions": {
     "*": {
@@ -411,6 +413,7 @@
   },
   "files": [
     "addon-main.cjs",
+    "component-catalog.json",
     "declarations",
     "dist",
     "translations"
