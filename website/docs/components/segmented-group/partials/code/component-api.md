@@ -31,7 +31,7 @@
 
 ### Contextual components
 
-The following predefined segments can be passed into the Segmented Group as yielded contextual components: `Button`, `Dropdown`, `Select`, `TextInput`, `SuperSelect`, and `SuperSelectMultiple`. For bespoke Segments use the `Generic` contextual component and style it accordingly.
+The following predefined segments can be passed into the Segmented Group as yielded contextual components: `Button`, `Dropdown`, `Select`, `TextInput`, `SuperSelect`, and `SuperSelectMultiple`. For custom segments, use the `Generic` contextual component and style it accordingly.
 
 #### [SD].Button
 
