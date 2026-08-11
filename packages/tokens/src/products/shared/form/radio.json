@@ -41,10 +41,10 @@
           "comment": "notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px.",
           "$modes": {
             "default": "url(\"data:image/svg+xml,%3csvg fill='%238C909C' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e\")",
-            "cds-g0": "url(\"data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e\")",
-            "cds-g10": "url(\"data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e\")",
-            "cds-g90": "url(\"data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e\")",
-            "cds-g100": "url(\"data:image/svg+xml,%3csvg fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e\")"
+            "cds-g0": "url(\"data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e\")",
+            "cds-g10": "url(\"data:image/svg+xml,%3csvg fill='%23BDBDBD' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e\")",
+            "cds-g90": "url(\"data:image/svg+xml,%3csvg fill='%23595959' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e\")",
+            "cds-g100": "url(\"data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e\")"
           }
         }
       },

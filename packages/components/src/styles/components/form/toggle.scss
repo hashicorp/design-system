@@ -124,7 +124,8 @@
   // checked
 
   :checked + & {
-    --border-color: var(--hds-form-control-checked-border-color-default);
+    --border-color: var(--hds-form-control-border-color-checked-default);
+
     background-color: var(--hds-form-toggle-base-surface-color-checked-default);
 
     @include hds-apply-only-if-carbon() {
@@ -166,7 +167,8 @@
 
   :hover:checked + &,
   .mock-hover:checked + & {
-    --border-color: var(--hds-form-control-checked-border-color-hover);
+    --border-color: var(--hds-form-control-border-color-checked-hover);
+
     background-color: var(--hds-form-toggle-base-surface-color-checked-hover);
   }
 

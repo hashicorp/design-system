@@ -361,7 +361,7 @@
       }
     },
     "visibility-toggle": {
-      "button-size": {
+      "size": {
         "$type": "dimension",
         "$value": "24",
         "unit": "px",

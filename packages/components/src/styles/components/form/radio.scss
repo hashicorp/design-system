@@ -29,29 +29,29 @@
   // base (default)
 
   &:not(:checked) {
-    background-color: var(--hds-form-control-unchecked-surface-color-default);
-    border-color: var(--hds-form-control-unchecked-border-color-default);
+    background-color: var(--hds-form-control-surface-color-unchecked-default);
+    border-color: var(--hds-form-control-border-color-unchecked-default);
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
 
   &:checked {
     background-color: var(--hds-form-radio-surface-color-checked-default);
     background-image: var(--hds-form-radio-background-image-data-url);
-    border-color: var(--hds-form-control-checked-border-color-default);
+    border-color: var(--hds-form-control-border-color-checked-default);
   }
 
   // hover
 
   &:hover:not(:checked),
   &.mock-hover:not(:checked) {
-    background-color: var(--hds-form-control-unchecked-surface-color-hover);
-    border-color: var(--hds-form-control-unchecked-border-color-hover);
+    background-color: var(--hds-form-control-surface-color-unchecked-hover);
+    border-color: var(--hds-form-control-border-color-unchecked-hover);
   }
 
   &:hover:checked,
   &.mock-hover:checked {
     background-color: var(--hds-form-radio-surface-color-checked-hover);
-    border-color: var(--hds-form-control-checked-border-color-hover);
+    border-color: var(--hds-form-control-border-color-checked-hover);
   }
 
   // focus (same for all the states)
@@ -64,8 +64,8 @@
   // DISABLED
 
   &:disabled:not(:checked) {
-    background-color: var(--hds-form-control-unchecked-surface-color-disabled);
-    border-color: var(--hds-form-control-unchecked-border-color-disabled);
+    background-color: var(--hds-form-control-surface-color-unchecked-disabled);
+    border-color: var(--hds-form-control-border-color-unchecked-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
@@ -73,7 +73,7 @@
   &:disabled:checked {
     background-color: var(--hds-form-radio-surface-color-checked-disabled);
     background-image: var(--hds-form-radio-background-image-data-url-disabled);
-    border-color: var(--hds-form-control-checked-border-color-disabled);
+    border-color: var(--hds-form-control-border-color-checked-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }

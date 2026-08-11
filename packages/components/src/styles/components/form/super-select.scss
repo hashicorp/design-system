@@ -621,9 +621,9 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     &[aria-selected="true"] {
       &:not([aria-disabled="true"]) {
         &::before {
-          background-color: var(--hds-form-control-checked-surface-color-default);
+          background-color: var(--hds-form-control-surface-color-checked-default);
           background-image: var(--hds-form-checkbox-background-image-data-url);
-          border-color: var(--hds-form-control-checked-border-color-default);
+          border-color: var(--hds-form-control-border-color-checked-default);
         }
       }
 
@@ -632,8 +632,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       &:hover[aria-selected="true"],
       &.mock-hover[aria-selected="true"] {
         &::before {
-          background-color: var(--hds-form-control-checked-border-color-default);
-          border-color: var(--hds-form-control-checked-border-color-hover);
+          background-color: var(--hds-form-control-border-color-checked-default);
+          border-color: var(--hds-form-control-border-color-checked-hover);
         }
       }
 
