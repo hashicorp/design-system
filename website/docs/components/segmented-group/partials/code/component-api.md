@@ -25,7 +25,7 @@
   <C.Property @name="<[SD].TextInput>" @type="yielded component">
     `Form::TextInput::Base` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[SD].SuperSelect>" @type="yielded component">
+  <C.Property @name="<[SD].SuperSelectSingle>" @type="yielded component">
     `Form::SuperSelect::Single::Base` yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="<[SD].SuperSelectMultiple>" @type="yielded component">
@@ -41,7 +41,7 @@
 
 ### Contextual components
 
-The following predefined segments can be passed into the Segmented Group as yielded contextual components: `Button`, `Dropdown`, `Select`, `TextInput`, `SuperSelect`, and `SuperSelectMultiple`. For custom segments, use the `Generic` contextual component and style it accordingly.
+The following predefined segments can be passed into the Segmented Group as yielded contextual components: `Button`, `Dropdown`, `Select`, `TextInput`, `SuperSelectSingle`, and `SuperSelectMultiple`. For custom segments, use the `Generic` contextual component and style it accordingly.
 
 #### [SD].Button
 
@@ -83,7 +83,7 @@ The [`Form::TextInput::Base`](/components/form/text-input) component, yielded as
   </C.Property>
 </Doc::ComponentApi>
 
-#### [SD].SuperSelect
+#### [SD].SuperSelectSingle
 
 The [`Form::SuperSelect::Single::Base`](/components/form/super-select) component, yielded as contextual component.
 
