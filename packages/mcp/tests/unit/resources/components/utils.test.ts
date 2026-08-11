@@ -20,16 +20,12 @@ describe("toSerializableComponentSummary", () => {
       name: "Hds::Button",
       modulePath: "hds/button",
       docsPath: "components/button",
-      argCount: 1,
-      blockCount: 1,
     };
 
     expect(toSerializableComponentSummary(summary)).toStrictEqual({
       name: "Hds::Button",
       modulePath: "hds/button",
       docsPath: "components/button",
-      argCount: 1,
-      blockCount: 1,
     });
   });
 
@@ -37,15 +33,11 @@ describe("toSerializableComponentSummary", () => {
     const summary: ComponentSummary = {
       name: "Hds::Button",
       modulePath: "hds/button",
-      argCount: 0,
-      blockCount: 0,
     };
 
     expect(toSerializableComponentSummary(summary)).toStrictEqual({
       name: "Hds::Button",
       modulePath: "hds/button",
-      argCount: 0,
-      blockCount: 0,
     });
   });
 });
