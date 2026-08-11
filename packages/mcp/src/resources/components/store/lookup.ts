@@ -1,0 +1,64 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import type {
+  ComponentArg,
+  ComponentBlock,
+  ComponentCatalogEntry,
+} from "./schema.js";
+
+export interface ComponentSummary {
+  name: string;
+  modulePath: string;
+  docsPath?: string;
+}
+
+export interface ComponentRecord {
+  name: string;
+  modulePath: string;
+  docsPath?: string;
+  element?: string;
+  args: ComponentArg[];
+  blocks: ComponentBlock[];
+}
+
+const HDS_NAMESPACE_PREFIX = "hds::";
+
+export const normalizeLookupValue = (value: string): string => {
+  return value.trim().toLowerCase();
+};
+
+export const normalizeComponentName = (value: string): string => {
+  const normalized = normalizeLookupValue(value);
+
+  return normalized.startsWith(HDS_NAMESPACE_PREFIX)
+    ? normalized.slice(HDS_NAMESPACE_PREFIX.length)
+    : normalized;
+};
+
+export const toComponentRecord = (
+  entry: ComponentCatalogEntry,
+): ComponentRecord => {
+  return {
+    name: entry.name,
+    modulePath: entry.modulePath,
+    ...(entry.docsPath === undefined ? {} : { docsPath: entry.docsPath }),
+    ...(entry.element === undefined ? {} : { element: entry.element }),
+    args: entry.args,
+    blocks: entry.blocks,
+  };
+};
+
+export const toComponentSummary = (
+  component: ComponentRecord,
+): ComponentSummary => {
+  return {
+    name: component.name,
+    modulePath: component.modulePath,
+    ...(component.docsPath === undefined
+      ? {}
+      : { docsPath: component.docsPath }),
+  };
+};
