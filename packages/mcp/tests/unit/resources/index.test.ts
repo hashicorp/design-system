@@ -26,7 +26,7 @@ describe("registerResources", () => {
       }),
     );
 
-    expect(registerResource).toHaveBeenCalledTimes(4);
+    expect(registerResource).toHaveBeenCalledTimes(6);
     expect(registrations).toStrictEqual(
       expect.arrayContaining([
         {
@@ -63,7 +63,7 @@ describe("registerResources", () => {
       }),
     );
 
-    expect(registerResource).toHaveBeenCalledTimes(4);
+    expect(registerResource).toHaveBeenCalledTimes(6);
     expect(registrations).toStrictEqual(
       expect.arrayContaining([
         {
