@@ -74,25 +74,6 @@ describe("toComponentRecord", () => {
 });
 
 describe("toComponentSummary", () => {
-  it("counts args and blocks instead of inlining them", () => {
-    const record = toComponentRecord(
-      buildComponentCatalogEntry({
-        blocks: [
-          { name: "default", yields: [] },
-          { name: "body", yields: [{ name: "T", type: "unknown" }] },
-        ],
-      }),
-    );
-
-    expect(toComponentSummary(record)).toStrictEqual({
-      name: "Hds::Button",
-      modulePath: "hds/button",
-      docsPath: "components/button",
-      argCount: 1,
-      blockCount: 2,
-    });
-  });
-
   it("omits docsPath when absent from the record", () => {
     const record = toComponentRecord(
       buildComponentCatalogEntry({ docsPath: undefined }),

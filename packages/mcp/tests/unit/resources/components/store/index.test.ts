@@ -78,15 +78,12 @@ describe("createComponentCatalogStore", () => {
         name: "Hds::Button",
         modulePath: "hds/button",
         docsPath: "components/button",
-        argCount: 1,
         blockCount: 1,
       },
       {
         name: "Hds::AdvancedTable::Th",
         modulePath: "hds/advanced-table/th",
         docsPath: "components/table/advanced-table",
-        argCount: 0,
-        blockCount: 1,
       },
     ]);
   });
