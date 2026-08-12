@@ -44,6 +44,8 @@ type Themes = 'hds-default' | 'carbon-light' | 'carbon-dark';
 
 const CODE_GROUP_LANGUAGE_STORAGE_KEY = 'hds-doc-code-group-language';
 const CODE_GROUP_LANGUAGE_CHANGE_EVENT = 'hds-doc-code-group-language-change';
+const CODE_GROUP_THEME_STORAGE_KEY = 'hds-doc-code-group-theme';
+const CODE_GROUP_THEME_CHANGE_EVENT = 'hds-doc-code-group-theme-change';
 
 // Helper to undo code escaping for display
 const unescapeCode = (code?: string) => {
@@ -75,15 +77,21 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     this.applyLanguageSelection(customEvent.detail);
   };
 
-  private readonly handleStorageEvent = (event: StorageEvent) => {
-    if (
-      !this.shouldSyncLanguageSelection ||
-      event.key !== CODE_GROUP_LANGUAGE_STORAGE_KEY
-    ) {
-      return;
-    }
+  private readonly handleStoredThemeChange = (event: Event) => {
+    const customEvent = event as CustomEvent<string>;
+    this.applyThemeSelection(customEvent.detail);
+  };
 
-    this.applyLanguageSelection(event.newValue);
+  private readonly handleStorageEvent = (event: StorageEvent) => {
+    if (event.key === CODE_GROUP_LANGUAGE_STORAGE_KEY) {
+      if (!this.shouldSyncLanguageSelection) {
+        return;
+      }
+
+      this.applyLanguageSelection(event.newValue);
+    } else if (event.key === CODE_GROUP_THEME_STORAGE_KEY) {
+      this.applyThemeSelection(event.newValue);
+    }
   };
 
   constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
@@ -94,6 +102,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
           this.getStoredLanguage() || this.languageOptions[0]?.value || 'hbs',
         )
       : this.languageOptions[0]?.value || 'hbs';
+
+    this.currentTheme = this.resolveThemeSelection(this.getStoredTheme());
 
     if (args.isExpanded === 'true') {
       this.isExpanded = true;
@@ -111,12 +121,21 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
         CODE_GROUP_LANGUAGE_CHANGE_EVENT,
         this.handleStoredLanguageChange,
       );
+      // this custom event is used to notify other code group instances on the page that the theme selection has changed so that they can update their selected theme too
+      window.addEventListener(
+        CODE_GROUP_THEME_CHANGE_EVENT,
+        this.handleStoredThemeChange,
+      );
       window.addEventListener('storage', this.handleStorageEvent);
 
       registerDestructor(this, () => {
         window.removeEventListener(
           CODE_GROUP_LANGUAGE_CHANGE_EVENT,
           this.handleStoredLanguageChange,
+        );
+        window.removeEventListener(
+          CODE_GROUP_THEME_CHANGE_EVENT,
+          this.handleStoredThemeChange,
         );
         window.removeEventListener('storage', this.handleStorageEvent);
       });
@@ -279,6 +298,19 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
   }
 
+  private getStoredTheme() {
+    if (this.fastboot.isFastBoot) {
+      return null;
+    }
+
+    try {
+      return window.localStorage.getItem(CODE_GROUP_THEME_STORAGE_KEY);
+    } catch (err) {
+      console.warn('Failed to access localStorage:', err);
+      return null;
+    }
+  }
+
   private resolveLanguageSelection(value?: string | null) {
     if (!value) {
       return this.languageOptions[0]?.value || 'hbs';
@@ -289,8 +321,18 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       : this.languageOptions[0]?.value || 'hbs';
   }
 
+  private resolveThemeSelection(value?: string | null): Themes {
+    return this.themeOptions.some((option) => option.value === value)
+      ? (value as Themes)
+      : 'hds-default';
+  }
+
   private applyLanguageSelection(value?: string | null) {
     this.currentView = this.resolveLanguageSelection(value);
+  }
+
+  private applyThemeSelection(value?: string | null) {
+    this.currentTheme = this.resolveThemeSelection(value);
   }
 
   private persistLanguageSelection(value: string) {
@@ -301,6 +343,19 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     window.localStorage.setItem(CODE_GROUP_LANGUAGE_STORAGE_KEY, value);
     window.dispatchEvent(
       new CustomEvent(CODE_GROUP_LANGUAGE_CHANGE_EVENT, {
+        detail: value,
+      }),
+    );
+  }
+
+  private persistThemeSelection(value: string) {
+    if (this.fastboot.isFastBoot) {
+      return;
+    }
+
+    window.localStorage.setItem(CODE_GROUP_THEME_STORAGE_KEY, value);
+    window.dispatchEvent(
+      new CustomEvent(CODE_GROUP_THEME_CHANGE_EVENT, {
         detail: value,
       }),
     );
@@ -326,7 +381,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     const selectedOption = input.selectedOptions[0]?.value;
 
     if (selectedOption) {
-      this.currentTheme = selectedOption as Themes;
+      this.persistThemeSelection(selectedOption);
     }
   };
 
@@ -337,17 +392,17 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   <template>
     <div class="doc-code-group">
-      <DocCodeGroupActionBar>
-        <:primary>
-          <DocCodeGroupThemePicker
-            @themeOptions={{this.themeOptions}}
-            @currentTheme={{this.currentTheme}}
-            @eventName={{this.themeEventName}}
-            @onThemeChange={{this.handleThemeChange}}
-          />
-        </:primary>
-      </DocCodeGroupActionBar>
       {{#if this.showPreview}}
+        <DocCodeGroupActionBar>
+          <:primary>
+            <DocCodeGroupThemePicker
+              @themeOptions={{this.themeOptions}}
+              @currentTheme={{this.currentTheme}}
+              @eventName={{this.themeEventName}}
+              @onThemeChange={{this.handleThemeChange}}
+            />
+          </:primary>
+        </DocCodeGroupActionBar>
         <div class="doc-code-group__preview {{this.previewThemeClass}}">
           <DynamicTemplate
             @templateString={{this.preview.templateString}}
