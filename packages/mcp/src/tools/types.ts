@@ -27,3 +27,7 @@ export interface McpTool<
   };
   executeCallback: ToolCallback<InputArgs>;
 }
+
+// heterogeneous tool schemas require type erasure at the registry boundary
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type RegisteredMcpTool = McpTool<any, any>;
