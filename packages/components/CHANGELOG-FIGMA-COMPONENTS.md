@@ -2,7 +2,7 @@
 
 ## August 11th, 2026
 
-`FilterBar` - Added wrapping to the "main" auto-layout container to scale more elegantly with complex generic content.
+`FilterBar` - Added wrapping to the "main" auto-layout container to ensure generic content wraps as expected.
 
 ## February 4th, 2026
 
