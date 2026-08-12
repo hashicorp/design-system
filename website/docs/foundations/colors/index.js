@@ -7,6 +7,16 @@ import Component from '@glimmer/component';
 
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
+const COLOR_TOKEN_CATEGORIES = [
+  'core',
+  'foreground',
+  'surface',
+  'border',
+  'focus',
+  'page',
+  'product'
+];
+
 export default class Colors extends Component {
   get colors() {
     const colors = {
@@ -16,9 +26,9 @@ export default class Colors extends Component {
     };
 
     TOKENS_RAW.forEach((token) => {
-      if (token.attributes.category === 'color' && !token.deprecated) {
+      if (COLOR_TOKEN_CATEGORIES.includes(token.attributes.category) && !token.deprecated) {
         if (token.group) {
-          if (token.group === 'palette') {
+          if (token.group === 'core') {
             // notice: we expect the color name to always follow a specific naming pattern (eg. 'blue-200')
             const tone = token.path[2].match(/^(\w+)-(\d+)$/)[1];
             if (!colors['palette'][tone]) {
@@ -31,19 +41,18 @@ export default class Colors extends Component {
               value: token.$value,
             });
           } else if (token.group === 'semantic') {
-            const context = token.path[1];
+            const context = token.path[0];
             if (!colors['semantic'][context]) {
               colors['semantic'][context] = [];
             }
             const tokenObj = {
-              colorName: token.path.slice(1).join('-'),
+              colorName: token.path.slice().join('-'),
               cssVariable: `--${token.name}`,
               // note: we prefix `value` with `$` because we're using the DTCG format
               value: token.$value,
             };
             if (['foreground', 'page', 'surface', 'border'].includes(context)) {
-              const name = token.path[2];
-              tokenObj.cssHelper = `hds-${context}-${name}`;
+              tokenObj.cssHelper = token.name;
             }
             colors['semantic'][context].push(tokenObj);
           } else if (token.group === 'branding') {
@@ -52,7 +61,7 @@ export default class Colors extends Component {
               colors['branding'][brand] = [];
             }
             colors['branding'][brand].push({
-              colorName: token.path.slice(1).join('-'),
+              colorName: token.path.slice().join('-'),
               cssVariable: `--${token.name}`,
               // note: we prefix `value` with `$` because we're using the DTCG format
               value: token.$value,
