@@ -19,7 +19,8 @@ export default class LocalComponent extends Component {
     <HdsSegmentedGroup @isFullWidth={{true}} @maxWidth="500px" as |SG|>
       <SG.TextInput
         @type="search"
-        placeholder="Search services"
+        @width="530px"
+        placeholder="Search HashiCorp services"
         aria-label="Search services"
       />
       <SG.SuperSelectSingle
