@@ -78,7 +78,6 @@ describe("createComponentCatalogStore", () => {
         name: "Hds::Button",
         modulePath: "hds/button",
         docsPath: "components/button",
-        blockCount: 1,
       },
       {
         name: "Hds::AdvancedTable::Th",
