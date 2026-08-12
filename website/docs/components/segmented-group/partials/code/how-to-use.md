@@ -20,7 +20,6 @@ Use `@isFullWidth` to make the Segmented Group fill the width of its parent cont
 
 We recommend using `@isFullWidth={{true}}` when placing a Super Select within the Segmented Group to prevent the Super Select from changing size as the user interacts with it.
 
-
 [[code-snippets/segmented-group-super-select-width]]
 
 ### Generic Segment
