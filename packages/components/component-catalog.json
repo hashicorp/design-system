@@ -10838,7 +10838,18 @@
       "modulePath": "hds/segmented-group",
       "docsPath": "components/segmented-group",
       "element": "HTMLDivElement",
-      "args": [],
+      "args": [
+        {
+          "name": "isFullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "required": false
+        }
+      ],
       "blocks": [
         {
           "name": "default",
@@ -10858,6 +10869,14 @@
             {
               "name": "TextInput",
               "type": "typeof HdsFormTextInputBase"
+            },
+            {
+              "name": "SuperSelectSingle",
+              "type": "typeof HdsFormSuperSelectSingleBase"
+            },
+            {
+              "name": "SuperSelectMultiple",
+              "type": "typeof HdsFormSuperSelectMultipleBase"
             },
             {
               "name": "Generic",
