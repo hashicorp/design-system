@@ -168,6 +168,16 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @text="Numerical"
               @type="numerical"
             />
+            <D.FilterGroup
+              @key="generic"
+              @text="Generic"
+              @type="generic"
+              as |F|
+            >
+              <F.Generic>
+                <ShwPlaceholder @text="Generic content" @height="50" />
+              </F.Generic>
+            </D.FilterGroup>
           </F.FiltersDropdown>
         </HdsFilterBar>
       </:theming>
@@ -212,6 +222,16 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @text="Numerical"
               @type="numerical"
             />
+            <D.FilterGroup
+              @key="generic"
+              @text="Generic"
+              @type="generic"
+              as |F|
+            >
+              <F.Generic>
+                <ShwPlaceholder @text="Generic content" @height="50" />
+              </F.Generic>
+            </D.FilterGroup>
           </F.FiltersDropdown>
         </HdsFilterBar>
       </:theming>
@@ -261,6 +281,16 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
               @text="Numerical"
               @type="numerical"
             />
+            <D.FilterGroup
+              @key="generic"
+              @text="Generic"
+              @type="generic"
+              as |F|
+            >
+              <F.Generic>
+                <ShwPlaceholder @text="Generic content" @height="50" />
+              </F.Generic>
+            </D.FilterGroup>
           </F.FiltersDropdown>
         </HdsFilterBar>
       </:theming>
