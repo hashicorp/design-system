@@ -9967,7 +9967,7 @@
           "name": "weight",
           "type": "HdsTextBodyWeight",
           "required": false,
-          "values": ["medium", "regular", "semibold"],
+          "values": ["regular", "medium", "semibold"],
           "inheritedFrom": "hds/text/body"
         }
       ],
@@ -10014,7 +10014,7 @@
           "name": "weight",
           "type": "HdsTextBodyWeight",
           "required": false,
-          "values": ["medium", "regular", "semibold"],
+          "values": ["regular", "medium", "semibold"],
           "inheritedFrom": "hds/text/body"
         }
       ],
@@ -10061,7 +10061,7 @@
           "name": "weight",
           "type": "HdsTextDisplayWeight",
           "required": false,
-          "values": ["bold", "medium", "semibold"],
+          "values": ["medium", "semibold", "bold"],
           "inheritedFrom": "hds/text/display"
         }
       ],
@@ -11975,7 +11975,7 @@
           "name": "weight",
           "type": "HdsTextBodyWeight",
           "required": false,
-          "values": ["medium", "regular", "semibold"]
+          "values": ["regular", "medium", "semibold"]
         }
       ],
       "blocks": [
@@ -12017,7 +12017,7 @@
           "name": "weight",
           "type": "HdsTextCodeWeight",
           "required": false,
-          "values": ["bold", "regular"]
+          "values": ["regular", "bold"]
         }
       ],
       "blocks": [
@@ -12059,7 +12059,7 @@
           "name": "weight",
           "type": "HdsTextDisplayWeight",
           "required": false,
-          "values": ["bold", "medium", "semibold"]
+          "values": ["medium", "semibold", "bold"]
         }
       ],
       "blocks": [

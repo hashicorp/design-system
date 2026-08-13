@@ -306,14 +306,26 @@ function declaredValueOrder(checker, node, depth = 0) {
     return values;
   }
 
-  if (ts.isLiteralTypeNode(node)) {
-    const { literal } = node;
-
-    if (ts.isStringLiteral(literal) || ts.isNumericLiteral(literal)) {
-      return [literal.text];
-    } else {
+  if (ts.isTemplateLiteralTypeNode(node)) {
+    if (node.head === undefined || node.templateSpans === undefined) {
       return undefined;
     }
+
+    let combinations = [node.head.text];
+
+    for (const span of node.templateSpans) {
+      const parts = declaredValueOrder(checker, span.type, depth + 1);
+
+      if (parts === undefined) {
+        return undefined;
+      }
+
+      combinations = combinations.flatMap((prefix) =>
+        parts.map((part) => `${prefix}${part}${span.literal.text}`)
+      );
+    }
+
+    return combinations;
   }
 
   if (node.kind === ts.SyntaxKind.UndefinedKeyword) {
@@ -335,6 +347,30 @@ function declaredValueOrder(checker, node, depth = 0) {
   }
 
   if (ts.isTypeReferenceNode(node)) {
+    if (
+      ts.isIdentifier(node.typeName) &&
+      node.typeName.text === 'Extract' &&
+      node.typeArguments?.length === 2
+    ) {
+      const order = declaredValueOrder(
+        checker,
+        node.typeArguments[0],
+        depth + 1
+      );
+      const selected = literalValues(
+        checker,
+        checker.getTypeAtLocation(node.typeArguments[1])
+      );
+
+      if (order === undefined || selected === undefined) {
+        return undefined;
+      }
+
+      const allowed = new Set(selected);
+
+      return order.filter((value) => allowed.has(value));
+    }
+
     let symbol = checker.getSymbolAtLocation(node.typeName);
 
     if (symbol === undefined) {
