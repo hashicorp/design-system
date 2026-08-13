@@ -37,7 +37,7 @@ export const createComponentCatalogStore = (
   catalog: ComponentCatalog,
 ): ComponentCatalogStore => {
   const componentRecords = catalog.components.map((entry) =>
-    toComponentRecord(entry),
+    toComponentRecord(entry, catalog.valueSets ?? {}),
   );
   const componentLookup = new Map<string, ComponentRecord>();
 

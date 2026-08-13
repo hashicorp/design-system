@@ -96,3 +96,45 @@ describe("createComponentCatalogStore", () => {
     expect(component?.blocks).toHaveLength(1);
   });
 });
+
+describe("shared value sets", () => {
+  const catalog = {
+    valueSets: { "hds/icon#name": ["search", "plus", "minus"] },
+    components: [
+      buildComponentCatalogEntry({
+        args: [
+          {
+            name: "icon",
+            type: "string",
+            required: true,
+            valuesRef: "hds/icon#name",
+          },
+          {
+            name: "missing",
+            type: "string",
+            required: false,
+            valuesRef: "hds/absent#gone",
+          },
+        ],
+      }),
+    ],
+  };
+
+  it("resolves a referenced set into values and hides the reference", () => {
+    const store = createComponentCatalogStore(parseComponentCatalog(catalog));
+    const [arg] = store.getComponentByName("Hds::Button")?.args ?? [];
+
+    expect(arg?.values).toEqual(["search", "plus", "minus"]);
+    expect(arg).not.toHaveProperty("valuesRef");
+  });
+
+  it("drops a reference that names no set rather than emitting an empty one", () => {
+    const store = createComponentCatalogStore(parseComponentCatalog(catalog));
+    const arg = store
+      .getComponentByName("Hds::Button")
+      ?.args.find((candidate) => candidate.name === "missing");
+
+    expect(arg).not.toHaveProperty("values");
+    expect(arg).not.toHaveProperty("valuesRef");
+  });
+});

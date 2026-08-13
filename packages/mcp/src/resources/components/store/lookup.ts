@@ -38,15 +38,31 @@ export const normalizeComponentName = (value: string): string => {
     : normalized;
 };
 
+const resolveArgValues = (
+  arg: ComponentArg,
+  valueSets: Record<string, string[]>,
+): ComponentArg => {
+  if (arg.valuesRef === undefined) {
+    return arg;
+  } else {
+    const values = valueSets[arg.valuesRef];
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { valuesRef: _valuesRef, ...rest } = arg;
+
+    return values === undefined ? rest : { ...rest, values };
+  }
+};
+
 export const toComponentRecord = (
   entry: ComponentCatalogEntry,
+  valueSets: Record<string, string[]> = {},
 ): ComponentRecord => {
   return {
     name: entry.name,
     modulePath: entry.modulePath,
     ...(entry.docsPath === undefined ? {} : { docsPath: entry.docsPath }),
     ...(entry.element === undefined ? {} : { element: entry.element }),
-    args: entry.args,
+    args: entry.args.map((arg) => resolveArgValues(arg, valueSets)),
     blocks: entry.blocks,
   };
 };

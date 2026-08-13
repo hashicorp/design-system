@@ -10,6 +10,7 @@ const componentArgSchema = z.object({
   type: z.string().min(1),
   required: z.boolean(),
   values: z.array(z.string()).optional(),
+  valuesRef: z.string().min(1).optional(),
   inheritedFrom: z.string().min(1).optional(),
 });
 
@@ -36,6 +37,7 @@ export const componentCatalogEntrySchema = z
 
 export const componentCatalogSchema = z
   .object({
+    valueSets: z.record(z.string(), z.array(z.string())).optional(),
     components: z.array(componentCatalogEntrySchema),
   })
   .catchall(z.any());
