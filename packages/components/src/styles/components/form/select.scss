@@ -29,7 +29,7 @@
   appearance: none;
 
   &:not([multiple], [size]) {
-    // extra space for the icon (not needed for multiple/size variants which do not have arrow icon)
+    // extra padding for icon (16px) + gap (8px); not needed for multiple/size variants which do not have arrow icon
     padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px);
 
     @include hds-apply-only-if-carbon() {

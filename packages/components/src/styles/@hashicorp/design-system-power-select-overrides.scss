@@ -21,7 +21,7 @@
     max-width: 100%;
     min-height: 36px;
     padding: calc(var(--hds-form-control-padding-vertical) + 1px) calc(var(--hds-form-control-padding-horizontal) + 1px);
-    padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
+    padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra padding for icon (16px) + gap (8px)
     color: var(--hds-form-control-base-foreground-color);
     background-color: var(--hds-form-control-base-surface-color-default);
     background-image: var(--hds-form-select-background-image-data-url);
@@ -126,7 +126,9 @@
       }
 
       &[type="search"] {
-        padding-left: calc(var(--hds-form-control-padding-horizontal) + 24px); // extra space for the icon
+        padding-left: calc(
+          var(--hds-form-control-padding-horizontal) + 24px
+        ); // extra padding for icon (16px) + gap (8px)
         background-image: var(--hds-form-text-input-background-image-data-url-search-default);
         background-repeat: no-repeat;
         background-position: var(--hds-form-text-input-background-image-position-x) 50%;

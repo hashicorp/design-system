@@ -21,11 +21,11 @@
     // Add space for positioned toggle-button.
     // In the case of the HDS theme, the width of the button plus its positioning from the edge of the input need to be taken into account
     // In the case of carbon themes, the button is positioned to the input edge with no extra space around it (its width is wider)
-    padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-button-size));
+    padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-size));
     scrollbar-width: thin;
 
     @include hds-apply-only-if-carbon() {
-      padding-right: var(--hds-form-visibility-toggle-button-size);
+      padding-right: var(--hds-form-visibility-toggle-size);
     }
   }
 }

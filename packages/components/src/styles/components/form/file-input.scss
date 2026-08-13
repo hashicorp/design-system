@@ -71,12 +71,10 @@
 .hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-focus::file-selector-button {
   @include hds-focus-ring-basic();
   @include hds-button-color-secondary-state-focus();
-  border-color: var(--hds-focus-color-action-internal);
 
   @include hds-apply-only-if-carbon() {
     @include hds-button-color-primary-state-focus();
-    // The border-color style in the hds-focus-ring-basic() mixin is overriding the border-color set above
-    border-color: var(--hds-focus-color-action-internal); // TODO: shouldn't have to repeat style here
+    border-color: var(--hds-focus-color-action-internal);
   }
 }
 
