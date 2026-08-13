@@ -589,14 +589,10 @@ function collectDocPages() {
 
     const link = GITHUB_SOURCE_LINK.exec(frontmatter[1]);
 
-    if (link === null) {
-      continue;
-    }
-
     const dir = path.dirname(file);
 
     pages.push({
-      modulePath: link[1],
+      modulePath: link === null ? undefined : link[1],
       route: toPosix(path.relative(DOCS_DIR, dir)),
       documents: documentedNames(dir),
     });
@@ -646,6 +642,25 @@ function highestScoring(pages, score) {
   return best;
 }
 
+function resolveUnlinkedDocsPath(name, modulePath, docPages) {
+  const slug = modulePath.slice(modulePath.lastIndexOf('/') + 1);
+  const matches = docPages.filter(
+    (page) =>
+      page.modulePath === undefined &&
+      (documentedDepth(page, name) > 0 ||
+        page.route.slice(page.route.lastIndexOf('/') + 1) === slug)
+  );
+
+  if (matches.length > 1) {
+    fail(
+      `${name} ('${modulePath}') matches ${matches.length} unlinked docs pages: ` +
+        matches.map((page) => page.route).join(', ')
+    );
+  } else {
+    return matches[0]?.route;
+  }
+}
+
 function resolveDocsPath(name, modulePath, docPages) {
   let candidates = [];
   let longest = -1;
@@ -667,24 +682,28 @@ function resolveDocsPath(name, modulePath, docPages) {
     }
   }
 
-  if (candidates.length < 2) {
-    return candidates[0]?.route;
-  }
-
-  let best = highestScoring(candidates, (page) => documentedDepth(page, name));
-
-  if (best.length > 1) {
-    best = highestScoring(best, (page) => routeOverlap(page, modulePath));
-  }
-
-  if (best.length > 1) {
-    fail(
-      `${name} ('${modulePath}') matches ${best.length} docs pages that no tiebreak ` +
-        `separates: ${best.map((page) => page.route).join(', ')}`
+  if (candidates.length === 0) {
+    return resolveUnlinkedDocsPath(name, modulePath, docPages);
+  } else if (candidates.length === 1) {
+    return candidates[0].route;
+  } else {
+    let best = highestScoring(candidates, (page) =>
+      documentedDepth(page, name)
     );
-  }
 
-  return best[0].route;
+    if (best.length > 1) {
+      best = highestScoring(best, (page) => routeOverlap(page, modulePath));
+    }
+
+    if (best.length > 1) {
+      fail(
+        `${name} ('${modulePath}') matches ${best.length} docs pages that no tiebreak ` +
+          `separates: ${best.map((page) => page.route).join(', ')}`
+      );
+    }
+
+    return best[0].route;
+  }
 }
 
 function buildComponent(checker, entry, docPages) {

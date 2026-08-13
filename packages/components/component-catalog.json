@@ -3514,6 +3514,7 @@
     {
       "name": "Hds::Composite",
       "modulePath": "hds/composite",
+      "docsPath": "utilities/composite",
       "args": [
         {
           "name": "defaultCurrentId",
@@ -3743,6 +3744,7 @@
     {
       "name": "Hds::DialogPrimitive::Body",
       "modulePath": "hds/dialog-primitive/body",
+      "docsPath": "utilities/dialog-primitive",
       "element": "HTMLDivElement",
       "args": [
         {
@@ -3761,6 +3763,7 @@
     {
       "name": "Hds::DialogPrimitive::Description",
       "modulePath": "hds/dialog-primitive/description",
+      "docsPath": "utilities/dialog-primitive",
       "element": "HTMLDivElement",
       "args": [
         {
@@ -3779,6 +3782,7 @@
     {
       "name": "Hds::DialogPrimitive::Footer",
       "modulePath": "hds/dialog-primitive/footer",
+      "docsPath": "utilities/dialog-primitive",
       "element": "HTMLDivElement",
       "args": [
         {
@@ -3807,6 +3811,7 @@
     {
       "name": "Hds::DialogPrimitive::Header",
       "modulePath": "hds/dialog-primitive/header",
+      "docsPath": "utilities/dialog-primitive",
       "element": "HTMLDivElement",
       "args": [
         {
@@ -3851,6 +3856,7 @@
     {
       "name": "Hds::DialogPrimitive::Overlay",
       "modulePath": "hds/dialog-primitive/overlay",
+      "docsPath": "utilities/dialog-primitive",
       "element": "HTMLDivElement",
       "args": [
         {
@@ -3864,6 +3870,7 @@
     {
       "name": "Hds::DialogPrimitive::Wrapper",
       "modulePath": "hds/dialog-primitive/wrapper",
+      "docsPath": "utilities/dialog-primitive",
       "element": "HTMLDialogElement",
       "args": [],
       "blocks": [
@@ -3884,6 +3891,7 @@
     {
       "name": "Hds::DisclosurePrimitive",
       "modulePath": "hds/disclosure-primitive",
+      "docsPath": "utilities/disclosure-primitive",
       "element": "HTMLDivElement",
       "args": [
         {
@@ -3934,6 +3942,7 @@
     {
       "name": "Hds::DismissButton",
       "modulePath": "hds/dismiss-button",
+      "docsPath": "utilities/dismiss-button",
       "element": "HTMLButtonElement",
       "args": [
         {
@@ -9382,6 +9391,7 @@
     {
       "name": "Hds::Interactive",
       "modulePath": "hds/interactive",
+      "docsPath": "utilities/interactive",
       "element": "HTMLAnchorElement | HTMLButtonElement",
       "args": [
         {
