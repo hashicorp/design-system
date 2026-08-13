@@ -5,10 +5,7 @@
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { McpPrompt } from "./types.js";
-import { startHeliosMigrationPrompt } from "./start-helios-migration.js";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const PROMPTS: McpPrompt<any>[] = [startHeliosMigrationPrompt];
+const PROMPTS: McpPrompt[] = [];
 
 export function registerPrompts(server: McpServer) {
   for (const prompt of PROMPTS) {
