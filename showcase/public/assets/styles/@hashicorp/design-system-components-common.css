@@ -6348,7 +6348,6 @@ button.hds-button[href]::after {
 .hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-focus::file-selector-button {
   color: var(--hds-button-foreground-color-secondary-focus);
   background-color: var(--hds-button-surface-color-secondary-focus);
-  border-color: var(--hds-focus-color-action-internal);
 }
 .hds-theme-light .hds-form-file-input:not(:disabled, [disabled], .mock-disabled):focus-within::file-selector-button, .hds-theme-light .hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-focus::file-selector-button,
 .hds-theme-dark .hds-form-file-input:not(:disabled, [disabled], .mock-disabled):focus-within::file-selector-button, .hds-theme-dark .hds-form-file-input:not(:disabled, [disabled], .mock-disabled).mock-focus::file-selector-button,
@@ -6611,13 +6610,13 @@ button.hds-button[href]::after {
 }
 .hds-form-masked-input .hds-form-masked-input__control {
   grid-area: input;
-  padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-button-size));
+  padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-size));
   scrollbar-width: thin;
 }
 .hds-theme-light .hds-form-masked-input .hds-form-masked-input__control,
 .hds-theme-dark .hds-form-masked-input .hds-form-masked-input__control,
 .hds-theme-system .hds-form-masked-input .hds-form-masked-input__control {
-  padding-right: var(--hds-form-visibility-toggle-button-size);
+  padding-right: var(--hds-form-visibility-toggle-size);
 }
 
 .hds-form-masked-input--is-masked .hds-form-masked-input__control {
@@ -7783,7 +7782,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-text-input--has-visibility-toggle {
-  padding-right: calc(var(--hds-form-control-padding-horizontal) + 24px);
+  padding-right: calc(var(--hds-form-control-padding-horizontal) + var(--hds-form-visibility-toggle-size));
 }
 
 .hds-form-text-input__visibility-toggle {
