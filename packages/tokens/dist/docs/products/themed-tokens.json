@@ -20031,6 +20031,80 @@
         "active"
       ]
     },
+    "hds-filter-bar-tabs-panel-gap": {
+      "key": "{filter-bar.tabs.panel.gap}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{filter-bar.tabs.panel.gap}"
+      },
+      "name": "hds-filter-bar-tabs-panel-gap",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "tabs",
+        "panel",
+        "gap"
+      ]
+    },
+    "hds-filter-bar-filter-group-generic-clear-button-margin-top": {
+      "key": "{filter-bar.filter-group.generic.clear-button.margin.top}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.generic.clear-button.margin.top}"
+      },
+      "name": "hds-filter-bar-filter-group-generic-clear-button-margin-top",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "generic",
+        "clear-button",
+        "margin",
+        "top"
+      ]
+    },
     "hds-filter-bar-filter-group-values-list-gap": {
       "key": "{filter-bar.filter-group.values-list.gap}",
       "$type": "dimension",
@@ -20141,6 +20215,79 @@
         "selection-option",
         "padding",
         "vertical"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-padding": {
+      "key": "{filter-bar.filter-group.search.padding}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.padding}"
+      },
+      "name": "hds-filter-bar-filter-group-search-padding",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "padding"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-border-width": {
+      "key": "{filter-bar.filter-group.search.border.width}",
+      "$type": "dimension",
+      "$value": "1px",
+      "unit": "px",
+      "$modes": {
+        "default": "1",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "1",
+        "unit": "px",
+        "$modes": {
+          "default": "1",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.border.width}"
+      },
+      "name": "hds-filter-bar-filter-group-search-border-width",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "border",
+        "width"
       ]
     },
     "hds-form-character-count-foreground-color": {
@@ -54043,6 +54190,80 @@
         "active"
       ]
     },
+    "hds-filter-bar-tabs-panel-gap": {
+      "key": "{filter-bar.tabs.panel.gap}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{filter-bar.tabs.panel.gap}"
+      },
+      "name": "hds-filter-bar-tabs-panel-gap",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "tabs",
+        "panel",
+        "gap"
+      ]
+    },
+    "hds-filter-bar-filter-group-generic-clear-button-margin-top": {
+      "key": "{filter-bar.filter-group.generic.clear-button.margin.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.generic.clear-button.margin.top}"
+      },
+      "name": "hds-filter-bar-filter-group-generic-clear-button-margin-top",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "generic",
+        "clear-button",
+        "margin",
+        "top"
+      ]
+    },
     "hds-filter-bar-filter-group-values-list-gap": {
       "key": "{filter-bar.filter-group.values-list.gap}",
       "$type": "dimension",
@@ -54153,6 +54374,79 @@
         "selection-option",
         "padding",
         "vertical"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-padding": {
+      "key": "{filter-bar.filter-group.search.padding}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.padding}"
+      },
+      "name": "hds-filter-bar-filter-group-search-padding",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "padding"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-border-width": {
+      "key": "{filter-bar.filter-group.search.border.width}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "1",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "1",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.border.width}"
+      },
+      "name": "hds-filter-bar-filter-group-search-border-width",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "border",
+        "width"
       ]
     },
     "hds-form-character-count-foreground-color": {
@@ -88071,6 +88365,80 @@
         "active"
       ]
     },
+    "hds-filter-bar-tabs-panel-gap": {
+      "key": "{filter-bar.tabs.panel.gap}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{filter-bar.tabs.panel.gap}"
+      },
+      "name": "hds-filter-bar-tabs-panel-gap",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "tabs",
+        "panel",
+        "gap"
+      ]
+    },
+    "hds-filter-bar-filter-group-generic-clear-button-margin-top": {
+      "key": "{filter-bar.filter-group.generic.clear-button.margin.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.generic.clear-button.margin.top}"
+      },
+      "name": "hds-filter-bar-filter-group-generic-clear-button-margin-top",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "generic",
+        "clear-button",
+        "margin",
+        "top"
+      ]
+    },
     "hds-filter-bar-filter-group-values-list-gap": {
       "key": "{filter-bar.filter-group.values-list.gap}",
       "$type": "dimension",
@@ -88181,6 +88549,79 @@
         "selection-option",
         "padding",
         "vertical"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-padding": {
+      "key": "{filter-bar.filter-group.search.padding}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.padding}"
+      },
+      "name": "hds-filter-bar-filter-group-search-padding",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "padding"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-border-width": {
+      "key": "{filter-bar.filter-group.search.border.width}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "1",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "1",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.border.width}"
+      },
+      "name": "hds-filter-bar-filter-group-search-border-width",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "border",
+        "width"
       ]
     },
     "hds-form-character-count-foreground-color": {
@@ -122099,6 +122540,80 @@
         "active"
       ]
     },
+    "hds-filter-bar-tabs-panel-gap": {
+      "key": "{filter-bar.tabs.panel.gap}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{filter-bar.tabs.panel.gap}"
+      },
+      "name": "hds-filter-bar-tabs-panel-gap",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "tabs",
+        "panel",
+        "gap"
+      ]
+    },
+    "hds-filter-bar-filter-group-generic-clear-button-margin-top": {
+      "key": "{filter-bar.filter-group.generic.clear-button.margin.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.generic.clear-button.margin.top}"
+      },
+      "name": "hds-filter-bar-filter-group-generic-clear-button-margin-top",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "generic",
+        "clear-button",
+        "margin",
+        "top"
+      ]
+    },
     "hds-filter-bar-filter-group-values-list-gap": {
       "key": "{filter-bar.filter-group.values-list.gap}",
       "$type": "dimension",
@@ -122209,6 +122724,79 @@
         "selection-option",
         "padding",
         "vertical"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-padding": {
+      "key": "{filter-bar.filter-group.search.padding}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.padding}"
+      },
+      "name": "hds-filter-bar-filter-group-search-padding",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "padding"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-border-width": {
+      "key": "{filter-bar.filter-group.search.border.width}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "1",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "1",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.border.width}"
+      },
+      "name": "hds-filter-bar-filter-group-search-border-width",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "border",
+        "width"
       ]
     },
     "hds-form-character-count-foreground-color": {
@@ -156127,6 +156715,80 @@
         "active"
       ]
     },
+    "hds-filter-bar-tabs-panel-gap": {
+      "key": "{filter-bar.tabs.panel.gap}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        },
+        "key": "{filter-bar.tabs.panel.gap}"
+      },
+      "name": "hds-filter-bar-tabs-panel-gap",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "tabs",
+        "panel",
+        "gap"
+      ]
+    },
+    "hds-filter-bar-filter-group-generic-clear-button-margin-top": {
+      "key": "{filter-bar.filter-group.generic.clear-button.margin.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.generic.clear-button.margin.top}"
+      },
+      "name": "hds-filter-bar-filter-group-generic-clear-button-margin-top",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "generic",
+        "clear-button",
+        "margin",
+        "top"
+      ]
+    },
     "hds-filter-bar-filter-group-values-list-gap": {
       "key": "{filter-bar.filter-group.values-list.gap}",
       "$type": "dimension",
@@ -156237,6 +156899,79 @@
         "selection-option",
         "padding",
         "vertical"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-padding": {
+      "key": "{filter-bar.filter-group.search.padding}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.padding}"
+      },
+      "name": "hds-filter-bar-filter-group-search-padding",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "padding"
+      ]
+    },
+    "hds-filter-bar-filter-group-search-border-width": {
+      "key": "{filter-bar.filter-group.search.border.width}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "1",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "1",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{filter-bar.filter-group.search.border.width}"
+      },
+      "name": "hds-filter-bar-filter-group-search-border-width",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "filter-group",
+        "search",
+        "border",
+        "width"
       ]
     },
     "hds-form-character-count-foreground-color": {

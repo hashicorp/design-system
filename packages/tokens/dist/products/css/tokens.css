@@ -618,9 +618,13 @@
   --hds-filter-bar-tabs-tab-surface-color-selected-default: #f1f2f3;
   --hds-filter-bar-tabs-tab-surface-color-selected-hover: #dedfe3;
   --hds-filter-bar-tabs-tab-surface-color-selected-active: #c2c5cb;
+  --hds-filter-bar-tabs-panel-gap: 8px;
+  --hds-filter-bar-filter-group-generic-clear-button-margin-top: 8px;
   --hds-filter-bar-filter-group-values-list-gap: 4px;
   --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 4px;
   --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 8px;
+  --hds-filter-bar-filter-group-search-padding: 16px;
+  --hds-filter-bar-filter-group-search-border-width: 1px;
   --hds-form-character-count-foreground-color: #656a76;
   --hds-form-character-count-typography-font-size: 0.8125rem;
   --hds-form-character-count-typography-line-height: 1.3846; /** The character-count line-height is the same as the helper-text as per design */

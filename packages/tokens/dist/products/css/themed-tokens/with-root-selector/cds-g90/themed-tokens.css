@@ -384,11 +384,15 @@
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
+  --hds-filter-bar-filter-group-generic-clear-button-margin-top: 0px;
+  --hds-filter-bar-filter-group-search-border-width: 0px;
+  --hds-filter-bar-filter-group-search-padding: 0px;
   --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
   --hds-filter-bar-filter-group-values-list-gap: 0px;
   --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
   --hds-filter-bar-tabs-list-gap: 0px;
   --hds-filter-bar-tabs-list-padding: 0px;
+  --hds-filter-bar-tabs-panel-gap: 16px;
   --hds-filter-bar-tabs-tab-foreground-color-selected-active: #c6c6c6;
   --hds-filter-bar-tabs-tab-foreground-color-selected-default: #c6c6c6;
   --hds-filter-bar-tabs-tab-foreground-color-selected-hover: #c6c6c6;

@@ -5847,7 +5847,7 @@ button.hds-button[href]::after {
 .hds-filter-bar__tabs__panel:not([hidden]) {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--hds-filter-bar-tabs-panel-gap);
   width: 50%;
   max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
   padding: 16px 0;
@@ -5861,8 +5861,9 @@ button.hds-button[href]::after {
 }
 
 .hds-filter-bar__filter-group__search {
-  padding: 0 16px 16px 16px;
-  border-bottom: 1px solid var(--hds-border-color-primary);
+  padding: var(--hds-filter-bar-filter-group-search-padding);
+  padding-top: 0;
+  border-bottom: var(--hds-filter-bar-filter-group-search-border-width) solid var(--hds-border-color-primary);
 }
 
 .hds-filter-bar__filter-group__list {
@@ -5918,7 +5919,7 @@ button.hds-button[href]::after {
 }
 
 .hds-filter-bar__filter-group__generic ~ .hds-filter-bar__filter-group__clear-button {
-  margin: 8px 16px 0 16px;
+  margin: var(--hds-filter-bar-filter-group-generic-clear-button-margin-top) 16px 0 16px;
 }
 
 /**
