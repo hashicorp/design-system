@@ -437,10 +437,6 @@ function extractValues(checker, symbol, type) {
 
   const unique = [...new Set(resolved)];
 
-  if (unique.length > MAX_LITERAL_VALUES) {
-    return undefined;
-  }
-
   for (const declaration of symbol.getDeclarations() ?? []) {
     const ordered = declaredValueOrder(checker, declaration.type);
 
