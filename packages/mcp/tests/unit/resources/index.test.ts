@@ -26,7 +26,7 @@ describe("registerResources", () => {
       }),
     );
 
-    expect(registerResource).toHaveBeenCalledTimes(2);
+    expect(registerResource).toHaveBeenCalledTimes(4);
     expect(registrations).toStrictEqual(
       expect.arrayContaining([
         {
@@ -38,6 +38,43 @@ describe("registerResources", () => {
         {
           name: "get_hds_icon",
           uri: "hds://icons/{iconName}",
+          mimeType: "application/json",
+          callback: expect.any(Function),
+        },
+      ]),
+    );
+  });
+
+  it("registers the static catalog and token detail template", () => {
+    const server = new McpServer({ name: "test-server", version: "0.0.0" });
+    const registerResource = vi.spyOn(server, "registerResource");
+
+    registerResources(server);
+
+    const registrations = registerResource.mock.calls.map(
+      ([name, uriOrTemplate, config, callback]) => ({
+        name,
+        uri:
+          typeof uriOrTemplate === "string"
+            ? uriOrTemplate
+            : uriOrTemplate.uriTemplate.toString(),
+        mimeType: config.mimeType,
+        callback,
+      }),
+    );
+
+    expect(registerResource).toHaveBeenCalledTimes(4);
+    expect(registrations).toStrictEqual(
+      expect.arrayContaining([
+        {
+          name: "get_hds_tokens",
+          uri: "hds://tokens",
+          mimeType: "application/json",
+          callback: expect.any(Function),
+        },
+        {
+          name: "get_hds_token",
+          uri: "hds://tokens/{tokenKey}",
           mimeType: "application/json",
           callback: expect.any(Function),
         },
