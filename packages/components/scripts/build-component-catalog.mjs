@@ -478,6 +478,20 @@ function declaringModulePaths(symbol) {
   return paths;
 }
 
+const namesItsOwnType = new WeakSet();
+
+// is a type like 'IconName' rather than HdsIconSignature['Args']['name']
+function declaresTypeDirectly(symbol) {
+  const declaration = symbol.declarations?.[0];
+
+  return (
+    declaration !== undefined &&
+    ts.isPropertySignature(declaration) &&
+    declaration.type !== undefined &&
+    ts.isTypeReferenceNode(declaration.type)
+  );
+}
+
 function extractArgs(checker, signature, modulePath) {
   const argsSymbol = signature.getProperty('Args');
 
@@ -498,6 +512,10 @@ function extractArgs(checker, signature, modulePath) {
 
     if (values !== undefined) {
       arg.values = values;
+    }
+
+    if (declaresTypeDirectly(symbol)) {
+      namesItsOwnType.add(arg);
     }
 
     const declaredIn = declaringModulePaths(symbol);
@@ -798,7 +816,7 @@ function hoistLargeValueSets(components) {
       const setKey = JSON.stringify(arg.values);
       const entry = owners.get(setKey) ?? { values: arg.values, args: [] };
 
-      entry.args.push({ arg, owner: `${component.modulePath}#${arg.name}` });
+      entry.args.push({ arg, owner: `${component.name}#${arg.name}` });
 
       owners.set(setKey, entry);
     }
@@ -807,9 +825,11 @@ function hoistLargeValueSets(components) {
   const valueSets = {};
 
   for (const { values, args } of owners.values()) {
-    const key = args
+    const declarers = args.filter(({ arg }) => namesItsOwnType.has(arg));
+
+    const key = (declarers.length > 0 ? declarers : args)
       .map(({ owner }) => owner)
-      .sort((a, b) => a.localeCompare(b))[0];
+      .sort()[0];
 
     valueSets[key] = values;
 
