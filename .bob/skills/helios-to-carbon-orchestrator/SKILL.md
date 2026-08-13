@@ -2,10 +2,9 @@
 name: helios-to-carbon-orchestrator
 description: Orchestrate Helios to Carbon Web Components migrations with direct CWC usage, scoped to component code updates only.
 argument-hint: "[Target path/glob and optional mode: dry-run|safe-only|full]"
+---
 
 > **Implementation note on timestamps:** When implementing this skill in code, use your platform's built-in time function to get the current UTC time (e.g. `new Date().toISOString()` in JavaScript, `date -u +'%Y-%m-%dT%H:%M:%SZ'` in bash, `datetime.utcnow().strftime(...)` in Python). The timestamp must reflect the actual time the migration run starts, not a placeholder or example time.
-
----
 
 # Helios -> Carbon Web Components Orchestrator
 
@@ -40,7 +39,7 @@ Default mode: `safe-only`.
 
 ## Sub-Agent Roles
 
-> **Implementation Note:** Component Analyzer and Component Implementer roles are implemented by the `helios-to-carbon-evaluator-swapper` subskill. See `.ai/skills/helios-to-carbon-evaluator-swapper.md` for detailed execution phases, output schemas, and integration contracts.
+> **Implementation Note:** Component Analyzer and Component Implementer roles are implemented by the `helios-to-carbon-evaluator-swapper` subskill. See `.bob/skills/helios-to-carbon-evaluator-swapper/SKILL.md` for detailed execution phases, output schemas, and integration contracts.
 
 ### A) Component Analyzer
 
@@ -77,11 +76,11 @@ Goal: run lint/build checks and correlate failures to migration records.
 
 The orchestrator uses the following artifacts:
 
-- **Mapping table:** `.ai/migration/helios-to-carbon-component-map.json`
-- **Candidate schema:** `.ai/migration/schemas/migration-candidate.schema.json`
+- **Mapping table:** `.bob/migration/helios-to-carbon-component-map.json`
+- **Candidate schema:** `.bob/migration/schemas/migration-candidate.schema.json`
 - **Migration plan:** `migration-plan-{generatedAt}.json` (generated in workspace root, e.g. `migration-plan-2025-07-15T14:30:22Z.json`)
 - **Migration report:** `migration-report-{generatedAt}.md` (generated in workspace root, same timestamp as plan, e.g. `migration-report-2025-07-15T14:30:22Z.md`)
-- **Report template:** `.ai/templates/migration-report-template.md`
+- **Report template:** `.bob/templates/migration-report-template.md`
 
 > **Note:** Each run produces new timestamped files — previous runs are never overwritten. The `generatedAt` timestamp is set once at the start of Phase 0 and reused for both artifacts so they share the same suffix.
 
@@ -103,10 +102,10 @@ The orchestrator uses the following artifacts:
 
 **Inputs to subskill:**
 - `scopePaths`: Resolved target scope (array of file paths or globs)
-- `mappingTablePath`: `.ai/migration/helios-to-carbon-component-map.json`
+- `mappingTablePath`: `.bob/migration/helios-to-carbon-component-map.json`
 - `allowedOperations`: All transformation types from mapping
 - `prohibitedOperations`: `["createWrapper", "createShim", "modifyTests"]`
-- `outputSchemaPath`: `.ai/migration/schemas/migration-candidate.schema.json`
+- `outputSchemaPath`: `.bob/migration/schemas/migration-candidate.schema.json`
 - `stopConditions`: Missing mapping, malformed data, schema validation failure
 
 **Expected output:**
@@ -115,7 +114,7 @@ The orchestrator uses the following artifacts:
 
 **Orchestrator actions:**
 1. Receive candidate array from subskill.
-2. Validate JSON schema shape against `.ai/migration/schemas/migration-candidate.schema.json`.
+2. Validate JSON schema shape against `.bob/migration/schemas/migration-candidate.schema.json`.
 3. Partition by confidence:
    - High: `>= 0.90` (status: `planned`)
    - Medium: `0.60-0.89` (status: `manual`)
@@ -133,7 +132,7 @@ The orchestrator uses the following artifacts:
 - `approvedCandidateIds`: Array of candidate IDs to migrate
   - `safe-only` mode: IDs where `confidence >= 0.90` and `status === "planned"`
   - `full` mode: High-confidence IDs + explicitly approved medium-confidence IDs
-- `mappingTablePath`: `.ai/migration/helios-to-carbon-component-map.json`
+- `mappingTablePath`: `.bob/migration/helios-to-carbon-component-map.json`
 - `candidates`: Full candidate array from Phase 1 (for context)
 
 **Expected output:**
@@ -148,14 +147,8 @@ The orchestrator uses the following artifacts:
 2. Send approved IDs to subskill Phase 2.
 3. Receive execution summary.
 4. Capture changed file list for verification.
-5. **UI Shell detection:** Inspect the migrated output for the presence of `cds-header` or `cds-side-nav` elements. These components use `position: fixed` and must be rendered in their own document context (iframe) to work correctly.
-   - **UI Shell NOT present** → write CWC directly into `component-sandbox.gts` inline, replacing the file content with the migrated CWC template. `sandbox-standalone.html` is not touched.
-   - **UI Shell present** → write CWC output to `showcase/public/sandbox-standalone.html` only. The `component-sandbox.gts` file and `index.gts` are **never modified by the skill** — they permanently render the iframe via `ShwFrame`.
-6. Update `migration-report-{generatedAt}.md` with applied/skipped counts and UI Shell detection result.
-
-> **UI Shell components:** `cds-header`, `cds-side-nav`. These are the only CWC components that require the iframe pattern. All other CWC components (buttons, forms, modals, accordions, notifications, text inputs) render correctly inline.
-
-> **Sandbox architecture:** `component-sandbox.gts` is a permanent template-only component that always renders a `ShwFrame` pointing to `/sandbox-standalone.html`. When a migration run produces UI Shell output, only `sandbox-standalone.html` is updated. When a migration run produces no UI Shell output, the CWC is written directly into `component-sandbox.gts` replacing the current template content with inline CWC markup.
+5. Write migrated CWC output to the target file(s).
+6. Update `migration-report-{generatedAt}.md` with applied/skipped counts.
 
 ### Phase 3: Verify
 
@@ -175,7 +168,7 @@ Run project verification commands appropriate to the repo:
 
 ### Phase 4: Report
 
-Generate final `migration-report-{generatedAt}.md` using `.ai/templates/migration-report-template.md`:
+Generate final `migration-report-{generatedAt}.md` using `.bob/templates/migration-report-template.md`:
 
 **Required sections:**
 - **Summary:** Scope, mode, total candidates
@@ -201,10 +194,10 @@ When invoking `helios-to-carbon-evaluator-swapper`:
 ```
 Input:
   scopePaths: [array of paths]
-  mappingTablePath: ".ai/migration/helios-to-carbon-component-map.json"
+  mappingTablePath: ".bob/migration/helios-to-carbon-component-map.json"
   allowedOperations: [all transform types]
   prohibitedOperations: ["createWrapper", "createShim", "modifyTests"]
-  outputSchemaPath: ".ai/migration/schemas/migration-candidate.schema.json"
+  outputSchemaPath: ".bob/migration/schemas/migration-candidate.schema.json"
   stopConditions: [missing-mapping, malformed-data, schema-failure]
 
 Output:
@@ -215,7 +208,7 @@ Output:
 ```
 Input:
   approvedCandidateIds: [array of IDs to migrate]
-  mappingTablePath: ".ai/migration/helios-to-carbon-component-map.json"
+  mappingTablePath: ".bob/migration/helios-to-carbon-component-map.json"
   candidates: [full candidate array from Phase 1]
 
 Output:
