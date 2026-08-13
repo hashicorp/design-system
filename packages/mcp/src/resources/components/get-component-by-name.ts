@@ -34,7 +34,11 @@ export const completeComponentNames = (
   const matches: string[] = [];
 
   for (const component of components) {
-    const aliases = [component.name, component.modulePath];
+    const aliases = [
+      component.name,
+      component.name.replaceAll("::", ""),
+      component.modulePath,
+    ];
     const isMatch =
       query.length === 0 ||
       aliases.some((alias) => alias.toLowerCase().includes(query));

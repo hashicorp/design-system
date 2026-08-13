@@ -38,6 +38,20 @@ export const normalizeComponentName = (value: string): string => {
     : normalized;
 };
 
+export const getComponentLookupKeys = (
+  entry: ComponentCatalogEntry,
+): string[] => {
+  const invocation = normalizeLookupValue(entry.name);
+  const withoutNamespace = normalizeComponentName(entry.name);
+
+  return [
+    invocation,
+    withoutNamespace,
+    invocation.replaceAll("::", ""),
+    withoutNamespace.replaceAll("::", ""),
+  ];
+};
+
 const resolveArgValues = (
   arg: ComponentArg,
   valueSets: Record<string, string[]>,

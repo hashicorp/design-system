@@ -138,3 +138,67 @@ describe("shared value sets", () => {
     expect(arg).not.toHaveProperty("valuesRef");
   });
 });
+
+describe("class-name lookup", () => {
+  const store = createComponentCatalogStore(
+    parseComponentCatalog({
+      components: [
+        buildComponentCatalogEntry(),
+        buildComponentCatalogEntry({
+          name: "Hds::AdvancedTable::Th",
+          modulePath: "hds/advanced-table/th",
+          args: [],
+          blocks: [],
+        }),
+      ],
+    }),
+  );
+
+  it("resolves the class name a consumer imports, with or without the namespace", () => {
+    expect(store.getComponentByName("HdsAdvancedTableTh")?.name).toBe(
+      "Hds::AdvancedTable::Th",
+    );
+    expect(store.getComponentByName("AdvancedTableTh")?.name).toBe(
+      "Hds::AdvancedTable::Th",
+    );
+    expect(store.getComponentByName("hdsbutton")?.name).toBe("Hds::Button");
+  });
+
+  it("still resolves the invocation name and the bare name", () => {
+    expect(store.getComponentByName("Hds::AdvancedTable::Th")?.name).toBe(
+      "Hds::AdvancedTable::Th",
+    );
+    expect(store.getComponentByName("AdvancedTable::Th")?.name).toBe(
+      "Hds::AdvancedTable::Th",
+    );
+    expect(store.getComponentByName("button")?.name).toBe("Hds::Button");
+  });
+
+  it("does not let a flattened alias shadow another component's own name", () => {
+    const shadowed = createComponentCatalogStore(
+      parseComponentCatalog({
+        components: [
+          buildComponentCatalogEntry({
+            name: "Hds::CopyButton",
+            modulePath: "hds/copy-button",
+            args: [],
+            blocks: [],
+          }),
+          buildComponentCatalogEntry({
+            name: "Hds::Copy::Button",
+            modulePath: "hds/copy/button",
+            args: [],
+            blocks: [],
+          }),
+        ],
+      }),
+    );
+
+    expect(shadowed.getComponentByName("Hds::CopyButton")?.name).toBe(
+      "Hds::CopyButton",
+    );
+    expect(shadowed.getComponentByName("Hds::Copy::Button")?.name).toBe(
+      "Hds::Copy::Button",
+    );
+  });
+});

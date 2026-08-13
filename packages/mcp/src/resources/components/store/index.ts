@@ -6,7 +6,9 @@
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import {
+  getComponentLookupKeys,
   normalizeComponentName,
+  normalizeLookupValue,
   toComponentRecord,
   toComponentSummary,
 } from "./lookup.js";
@@ -41,8 +43,18 @@ export const createComponentCatalogStore = (
   );
   const componentLookup = new Map<string, ComponentRecord>();
 
-  for (const component of componentRecords) {
-    componentLookup.set(normalizeComponentName(component.name), component);
+  for (const [index, entry] of catalog.components.entries()) {
+    const component = componentRecords[index];
+
+    if (component === undefined) {
+      continue;
+    } else {
+      for (const key of getComponentLookupKeys(entry)) {
+        if (!componentLookup.has(key)) {
+          componentLookup.set(key, component);
+        }
+      }
+    }
   }
 
   return {
@@ -52,7 +64,7 @@ export const createComponentCatalogStore = (
     listComponents: () =>
       componentRecords.map((component) => toComponentSummary(component)),
     getComponentByName: (componentName: string) => {
-      return componentLookup.get(normalizeComponentName(componentName)) ?? null;
+      return componentLookup.get(normalizeLookupValue(componentName)) ?? null;
     },
   };
 };
