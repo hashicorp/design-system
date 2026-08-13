@@ -127,6 +127,12 @@
     "tracked-built-ins": "^4.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
+    "@carbon/grid": "^11.45.0",
+    "@carbon/icons": "^11.76.0",
+    "@carbon/layout": "^11.43.0",
+    "@carbon/motion": "^11.37.0",
+    "@carbon/themes": "^11.62.0",
+    "@carbon/type": "^11.49.0",
     "webpack": "^5.104.1"
   },
   "engines": {
@@ -138,13 +144,5 @@
   "exports": {
     "./tests/*": "./tests/*",
     "./*": "./app/*"
-  },
-  "dependencies": {
-    "@carbon/grid": "^11.45.0",
-    "@carbon/icons": "^11.76.0",
-    "@carbon/layout": "^11.43.0",
-    "@carbon/motion": "^11.37.0",
-    "@carbon/themes": "^11.62.0",
-    "@carbon/type": "^11.49.0"
   }
 }
