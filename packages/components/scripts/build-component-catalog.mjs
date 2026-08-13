@@ -786,6 +786,41 @@ function assertDocsPathsExist(components) {
   }
 }
 
+function hoistLargeValueSets(components) {
+  const owners = new Map();
+
+  for (const component of components) {
+    for (const arg of component.args ?? []) {
+      if (arg.values === undefined || arg.values.length <= MAX_LITERAL_VALUES) {
+        continue;
+      }
+
+      const setKey = JSON.stringify(arg.values);
+      const entry = owners.get(setKey) ?? { values: arg.values, args: [] };
+
+      entry.args.push({ arg, owner: `${component.modulePath}#${arg.name}` });
+
+      owners.set(setKey, entry);
+    }
+  }
+
+  const valueSets = {};
+
+  for (const { values, args } of owners.values()) {
+    const key = args
+      .map(({ owner }) => owner)
+      .sort((a, b) => a.localeCompare(b))[0];
+
+    valueSets[key] = values;
+
+    for (const { arg } of args) {
+      delete arg.values;
+      arg.valuesRef = key;
+    }
+  }
+  return valueSets;
+}
+
 async function writeCatalog(catalog) {
   const source = `${JSON.stringify(catalog, null, 2)}\n`;
   const config = await prettier.resolveConfig(OUTPUT_FILE);
@@ -831,7 +866,9 @@ async function main() {
 
   assertDocsPathsExist(components);
 
-  await writeCatalog({ components });
+  const valueSets = hoistLargeValueSets(components);
+
+  await writeCatalog({ valueSets, components });
 
   console.log(`component-catalog.json: ${components.length} components`);
 }
