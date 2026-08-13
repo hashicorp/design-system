@@ -1,0 +1,453 @@
+{
+    "version": "1.7.0",
+    "meta": {
+        "description": "Helios Design System → Carbon Web Components migration mapping table. Each entry defines how a Helios component maps to its CWC equivalent, including attribute renames, slot transforms, event rewiring, confidence scores, and risk flags.",
+        "uiShell": {
+            "description": "UI Shell components are cds-header and cds-side-nav. These use position:fixed and must be rendered in their own document context (an iframe) to work correctly — they cannot be rendered inline inside an Ember component template.",
+            "components": [
+                "cds-header",
+                "cds-side-nav"
+            ],
+            "outputRule": "If the migrated output contains cds-header or cds-side-nav, write the CWC output to showcase/public/sandbox-standalone.html only. The component-sandbox.gts file permanently renders a ShwFrame iframe pointing at /sandbox-standalone.html and must not be modified with inline CWC. If no UI Shell components are present, write CWC directly into component-sandbox.gts inline."
+        },
+        "confidenceLevels": {
+            "high": "≥ 0.90 — auto-apply in safe-only and full mode. RULE: manual-migration-required must NOT appear in riskFlags at this level — move any manual-case notes into the notes field instead.",
+            "medium": "0.60–0.89 — requires explicit user approval in full mode before applying",
+            "low": "< 0.60 — skipped, marked manual"
+        },
+        "noEquivalent": "Some Helios components have no CWC custom element (cwcComponent: null). These migrate to native HTML elements styled with Carbon design token classes (e.g. cds--body-01, cds--heading-03) loaded via themes.css CDN."
+    },
+    "mappings": {
+        "Hds::Badge": {
+            "cwcComponent": "cds-tag",
+            "description": "Badge/tag component for static labels and status indicators. HdsBadge is non-interactive only. Note: HDS has a separate Hds::Tag component for dismissible/interactive use cases. CWC tag variants: cds-tag (read-only, default open=true), cds-dismissible-tag (user-dismissible), cds-selectable-tag (toggle, no color), cds-operational-tag (toggle with type/color).",
+            "attributes": {
+                "@text": {
+                    "target": "slot:default",
+                    "transform": "moveToSlot",
+                    "notes": "@text (required, string or number) must be placed as default slot content on cds-tag — cds-tag has NO text attribute or property. Example: <cds-tag>{{@text}}</cds-tag>. Note: cds-dismissible-tag, cds-selectable-tag, and cds-operational-tag DO have a text attribute — this correction applies to cds-tag only."
+                },
+                "@type": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "HDS @type ('filled' default, 'inverted', 'outlined') is a fill style. IMPORTANT: CWC cds-tag's type attribute is a COLOR NAME (gray, red, green…) — not a fill style. There is no CWC equivalent for fill style. 'filled' → use cds-tag as-is (default). 'inverted' → no equivalent; approximate with CSS or a dark Carbon theme context. 'outlined' → no equivalent; cds-tag is always filled. This is a lossy migration — @type information is dropped."
+                },
+                "@color": {
+                    "target": "type",
+                    "transform": "rename",
+                    "valueMap": {
+                        "neutral": "gray",
+                        "neutral-dark-mode": "high-contrast",
+                        "highlight": "purple",
+                        "success": "green",
+                        "warning": "red",
+                        "critical": "red"
+                    },
+                    "notes": "HDS @color (semantic) maps to CWC type (palette color name). Confirmed CWC TAG_TYPE values include: gray, red, magenta, purple, blue, cyan, teal, green, cool-gray, warm-gray, high-contrast. Mapping: 'neutral' → 'gray', 'neutral-dark-mode' → 'high-contrast' (approximate), 'highlight' → 'purple', 'success' → 'green', 'warning' → 'red', 'critical' → 'red'. Default on both sides is neutral/gray."
+                },
+                "@size": {
+                    "target": "size",
+                    "transform": "rename",
+                    "valueMap": {
+                        "small": "sm",
+                        "medium": "md",
+                        "large": "lg"
+                    },
+                    "notes": "HDS @size: 'small' | 'medium' (default) | 'large'. CWC TAG_SIZE: 'sm' | 'md' (default) | 'lg'. All three map directly and losslessly: small → sm, medium → md, large → lg."
+                },
+                "@icon": {
+                    "target": "has-custom-icon",
+                    "transform": "manual",
+                    "notes": "@icon accepts an HDS icon name string — icons always display in the leading position. cds-tag has no icon name attribute. Set has-custom-icon boolean on cds-tag and place a Carbon SVG as a child element (it will render in the leading position). No automatic HDS icon name → Carbon SVG mapping exists — manual SVG substitution required."
+                },
+                "@isIconOnly": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "@isIconOnly=true shows only the icon; @text is still required for screen readers (rendered as aria-label in HDS). On cds-tag: set has-custom-icon, place the Carbon SVG as a child, omit text from the default slot, and add aria-label matching @text on the cds-tag element for accessibility."
+                }
+            },
+            "events": {},
+            "slots": {
+                "default": {
+                    "target": "slot:default",
+                    "transform": "direct",
+                    "notes": "Text content passes through as default slot children of cds-tag. This is the only supported mechanism for text on cds-tag — there is no text attribute on cds-tag itself."
+                }
+            },
+            "confidence": 0.58,
+            "riskFlags": [
+                "semantic-difference",
+                "styling-difference"
+            ],
+            "notes": "Confidence lowered to 0.58. @text must go in the default slot — cds-tag has no text attribute (unlike cds-dismissible-tag, cds-selectable-tag, cds-operational-tag which do). @size maps cleanly: small → sm, medium → md, large → lg (all three exist in TAG_SIZE). Core @color → type mapping is correct but approximate — CWC types are palette colors, HDS colors are semantic. The @type fill-style axis (filled/inverted/outlined) is entirely lost — cds-tag has no fill style concept. @icon requires manual SVG substitution + has-custom-icon attribute. cds-tag-beingclosed/cds-tag-closed events only fire when filter=true on cds-tag, which is not relevant for HdsBadge (non-interactive). If @isInteractive is needed, use cds-selectable-tag or cds-operational-tag."
+        },
+        "Hds::Alert": {
+            "cwcComponent": "cds-inline-notification",
+            "description": "Alert/notification component for user feedback. The correct CWC target component depends on the HDS @type value — see @type notes below.",
+            "attributes": {
+                "@type": {
+                    "target": null,
+                    "transform": "remove",
+                    "valueMap": {
+                        "inline": "cds-inline-notification",
+                        "compact": "cds-inline-notification + low-contrast",
+                        "page": "cds-inline-notification"
+                    },
+                    "notes": "@type is the Helios display VARIANT — accepted values are 'page', 'inline', 'compact'. Choose the CWC tag based on this value: 'inline' → cds-inline-notification, 'compact' → cds-inline-notification with low-contrast boolean attribute, 'page' → cds-inline-notification. Do NOT map @type to kind."
+                },
+                "@color": {
+                    "target": "kind",
+                    "transform": "rename",
+                    "valueMap": {
+                        "neutral": "info",
+                        "highlight": "info",
+                        "success": "success",
+                        "warning": "warning",
+                        "critical": "error"
+                    },
+                    "notes": "@color maps to kind on the CWC notification. CWC kind accepts: error | info | success | warning. 'neutral' and 'highlight' both map to 'info'. 'critical' → 'error'. Note: CWC kind defaults to 'success' — always set kind explicitly."
+                },
+                "@icon": {
+                    "target": null,
+                    "transform": "remove",
+                    "notes": "@icon accepts an HDS icon name string to override the default severity icon, or false to hide it. CWC notifications always show a fixed status icon matching the kind — there is no icon override attribute. If @icon={{false}}, add hide-close-button to suppress the close button but the status icon cannot be hidden."
+                },
+                "@onDismiss": {
+                    "target": "cds-notification-beingclosed",
+                    "transform": "manual",
+                    "notes": "HDS @onDismiss fires when the user clicks the dismiss button. CWC fires two events: cds-notification-beingclosed (cancellable, fires BEFORE close) and cds-notification-closed (fires AFTER close). Wire @onDismiss to cds-notification-beingclosed: {{on 'cds-notification-beingclosed' this.onDismiss}}. To suppress the dismiss button entirely, add the hide-close-button boolean attribute. To programmatically dismiss, set open=false on the element."
+                }
+            },
+            "events": {
+                "cds-notification-beingclosed": {
+                    "target": "cds-notification-beingclosed",
+                    "transform": "direct",
+                    "notes": "Fires before the notification is closed by user gesture. Cancellable — call event.preventDefault() to block the close. This is the correct event to wire to @onDismiss."
+                },
+                "cds-notification-closed": {
+                    "target": "cds-notification-closed",
+                    "transform": "direct",
+                    "notes": "Fires after the notification has been closed by user gesture. Use this for post-dismiss side effects (e.g. clearing state), not for blocking the close."
+                }
+            },
+            "slots": {
+                "Title": {
+                    "target": "slot:title",
+                    "transform": "manual",
+                    "notes": "A.Title content becomes a child element in slot='title' on the CWC notification. A.Title accepts a @tag arg ('div' default, or 'h1'–'h6') — use the same tag for the slot wrapper (e.g. <h2 slot='title'>text</h2>). Both cds-inline-notification and cds-actionable-notification have a title named slot."
+                },
+                "Description": {
+                    "target": "slot:subtitle",
+                    "transform": "manual",
+                    "notes": "A.Description content becomes a child element in slot='subtitle'. A.Description accepts complex content (HTML, conditionals) — preserve rich children inside the slot wrapper. Both CWC notification types have a subtitle named slot."
+                },
+                "Button": {
+                    "target": "action-button-label",
+                    "transform": "manual",
+                    "notes": "A.Button (HdsButton with size='small', color limited to 'secondary'/'tertiary') has no equivalent on cds-inline-notification. Switch to cds-actionable-notification and set action-button-label to the button text. For richer action buttons, use cds-callout-notification which has a dedicated action slot."
+                },
+                "LinkStandalone": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "A.LinkStandalone (HdsLinkStandalone with size='small') has no CWC notification equivalent. Switch to cds-actionable-notification or place the link outside the notification."
+                },
+                "GenericContent": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "A.GenericContent yields arbitrary unstyled content below Title/Description and above actions. cds-inline-notification and cds-actionable-notification only support title/subtitle slots — use cds-callout-notification (which has an action slot for richer content) or restructure content outside the notification."
+                },
+                "GenericFooter": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "A.GenericFooter yields arbitrary unstyled content at the bottom. No CWC notification equivalent — use cds-callout-notification's action slot or place content below the notification."
+                }
+            },
+            "confidence": 0.55,
+            "riskFlags": [
+                "dismissal-pattern-change",
+                "slot-to-attribute",
+                "incomplete-mapping"
+            ],
+            "notes": "Confidence lowered to 0.55. The CWC tag depends on HDS @type: 'inline' → cds-inline-notification, 'compact' → cds-inline-notification + low-contrast, 'page' → cds-actionable-notification. For action buttons use cds-actionable-notification (action-button-label attr) or cds-callout-notification (action slot). @color → kind maps cleanly (error|info|success|warning). Dismissal: wire @onDismiss to cds-notification-beingclosed (cancellable) not cds-notification-closed (post-close). hide-close-button suppresses the dismiss button. open=false programmatically closes. A.Title/@tag, A.Button/A.LinkStandalone/A.GenericContent/A.GenericFooter all require manual restructuring."
+        },
+        "Hds::Accordion": {
+            "cwcComponent": "cds-accordion",
+            "description": "Accordion component for collapsible content sections",
+            "attributes": {
+                "@size": {
+                    "target": "size",
+                    "transform": "rename",
+                    "valueMap": {
+                        "small": "sm",
+                        "medium": "md",
+                        "large": "lg"
+                    },
+                    "notes": "HDS @size ('small' | 'medium' | 'large') maps to ACCORDION_SIZE on cds-accordion ('sm' | 'md' | 'lg'). CWC default is 'md', matching HDS default of 'medium'. Note: size is set on cds-accordion itself (not per-item)."
+                },
+                "@type": {
+                    "target": "isFlush",
+                    "transform": "conditional",
+                    "valueMap": {
+                        "flush": "isFlush",
+                        "card": "remove"
+                    },
+                    "notes": "HDS @type accepts 'card' (default) or 'flush' — NOT 'button'. 'flush' maps directly to the isFlush boolean attribute on cds-accordion. 'card' (default) → use cds-accordion without isFlush. Note: isFlush does not work when alignment='start' on cds-accordion."
+                },
+                "@forceState": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "HDS @forceState on the parent forces all items 'open' or 'close'. cds-accordion has no group-level force-state — set the open boolean attribute on each cds-accordion-item individually to replicate this."
+                },
+                "@titleTag": {
+                    "target": null,
+                    "transform": "remove",
+                    "notes": "HDS @titleTag controls the heading element for the toggle ('div' default | 'h1'–'h6'). cds-accordion-item manages its own heading semantics internally — remove this arg."
+                }
+            },
+            "events": {
+                "cds-accordion-item-beingtoggled": {
+                    "target": "cds-accordion-item-beingtoggled",
+                    "transform": "direct",
+                    "notes": "Fires before a cds-accordion-item is toggled by user gesture. Cancellable — call event.preventDefault() to block the toggle. Replaces A.Item @onClickToggle (partially — @onClickToggle cannot cancel; this event can)."
+                },
+                "cds-accordion-item-toggled": {
+                    "target": "cds-accordion-item-toggled",
+                    "transform": "direct",
+                    "notes": "Fires after a cds-accordion-item has been toggled. Use this for post-toggle side effects. Equivalent to A.Item @onClickToggle for non-cancelling use cases."
+                }
+            },
+            "slots": {
+                "Item": {
+                    "target": "cds-accordion-item",
+                    "transform": "manual",
+                    "notes": "A.Item contextual component becomes <cds-accordion-item>. A.Item args: @isOpen → open boolean; @forceState='open'/'close' → open boolean (override after render); @disabled → disabled boolean; @ariaLabel (default 'Toggle display') → no direct CWC equivalent, remove; @isStatic → no CWC equivalent (disabled greys out the item but does not hide the chevron — see note); @containsInteractive → no CWC equivalent, remove."
+                },
+                "toggle": {
+                    "target": "title",
+                    "transform": "namedBlockToAttribute",
+                    "notes": "The <:toggle>content</:toggle> named block becomes the title string attribute on cds-accordion-item. LOSSY: cds-accordion-item title is a plain string only — rich content (HTML, components) in the toggle block cannot be preserved. Flatten to plain text. [C].close (a function to programmatically close the item) has no CWC equivalent — remove any usages."
+                },
+                "content": {
+                    "target": "default",
+                    "transform": "namedBlockToChildren",
+                    "notes": "The <:content>...</:content> named block becomes direct children of cds-accordion-item."
+                }
+            },
+            "confidence": 0.70,
+            "riskFlags": [
+                "complex-transformation",
+                "styling-difference"
+            ],
+            "notes": "Confidence adjusted to 0.70. Key corrections: (1) HDS @type is 'card' (default) | 'flush' — NOT 'button'/'card'. 'flush' maps to the isFlush boolean on cds-accordion. (2) cds-accordion has events: cds-accordion-item-beingtoggled (cancellable) and cds-accordion-item-toggled. (3) A.Item has several args with no CWC equivalent: @isStatic (static/non-interactive toggle), @containsInteractive, @ariaLabel — all must be dropped. (4) :toggle block content must be flattened to plain text for the title attribute — rich toggle content is not supported. (5) [C].close function has no CWC equivalent."
+        },
+        "Hds::Form::TextInput::Field": {
+            "cwcComponent": "cds-text-input",
+            "description": "Text input field with label, helper text, and error message",
+            "attributes": {
+                "@value": {
+                    "target": "value",
+                    "transform": "direct"
+                },
+                "@type": {
+                    "target": "type",
+                    "transform": "direct",
+                    "notes": "HDS accepts: text, email, password, url, search, date, time, datetime-local, month, week, tel. All map directly to INPUT_TYPE on cds-text-input. Note: @isLoading only applies to @type='search' in HDS."
+                },
+                "@id": {
+                    "target": "id",
+                    "transform": "direct",
+                    "notes": "@id sets an explicit id on the input control. Passes through directly to cds-text-input. If omitted, HDS auto-generates an id — cds-text-input does not, so downstream label associations may break if id is absent."
+                },
+                "@isRequired": {
+                    "target": "required",
+                    "transform": "rename"
+                },
+                "@isOptional": {
+                    "target": null,
+                    "transform": "remove",
+                    "notes": "@isOptional appends an '(Optional)' indicator next to the label. cds-text-input has no equivalent — remove and add the word 'Optional' directly into the label text if needed."
+                },
+                "@isInvalid": {
+                    "target": "invalid",
+                    "transform": "rename",
+                    "notes": "HDS @isInvalid is a boolean. CWC cds-text-input DOES have a matching invalid boolean attribute (property({ type: Boolean, reflect: true })). Direct rename: @isInvalid={{true}} → invalid on cds-text-input. Note: in HDS, invalid styling is separate from the error message (Field.Error block). In CWC, the invalid boolean attribute controls styling independently of the validity-message slot — both can coexist. If a Field.Error block is present, also populate the validity-message slot with the error text."
+                },
+                "@isLoading": {
+                    "target": null,
+                    "transform": "remove",
+                    "notes": "@isLoading shows a loading spinner only when @type='search'. cds-text-input has no loading state — remove and handle loading at the form level if needed."
+                },
+                "@hasVisibilityToggle": {
+                    "target": "show-password-visibility-toggle",
+                    "transform": "manual",
+                    "notes": "HDS @hasVisibilityToggle defaults to TRUE for password fields. CWC show-password-visibility-toggle defaults to FALSE. Migration direction: for password inputs, explicitly add show-password-visibility-toggle to cds-text-input. If @hasVisibilityToggle={{false}} was set to suppress it, simply omit show-password-visibility-toggle on CWC (it is off by default)."
+                },
+                "@visibilityToggleAriaLabel": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "HDS @visibilityToggleAriaLabel is a single label for the toggle button. CWC has two separate JS properties: showPasswordLabel (when password is hidden, default 'Show password') and hidePasswordLabel (when password is visible, default 'Hide password'). IMPORTANT: these are bare property() decorators with no explicit attribute — they are JS-property-only and cannot be set via HTML attributes in a template. They must be set programmatically: element.showPasswordLabel = 'Show'; element.hidePasswordLabel = 'Hide'. Map the HDS value to showPasswordLabel; set hidePasswordLabel separately if needed."
+                },
+                "@visibilityToggleAriaMessageText": {
+                    "target": null,
+                    "transform": "remove",
+                    "notes": "@visibilityToggleAriaMessageText sets an aria-live message when the toggle is pressed (default 'Input content is hidden'). cds-text-input has no equivalent aria-live message for the visibility toggle — remove."
+                },
+                "@width": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "@width sets a fixed CSS width on the input. cds-text-input has no width attribute — by default it fills its container (isFluid behavior). Apply a fixed width via CSS on the cds-text-input element directly."
+                },
+                "@extraAriaDescribedBy": {
+                    "target": "aria-describedby",
+                    "transform": "rename",
+                    "notes": "Extra aria-describedby IDs to append. Map directly to aria-describedby on cds-text-input. Note: HDS auto-generates aria-describedby from helper text and error IDs — on CWC this wiring is also automatic for the helper-text and validity-message slots, so only pass truly extra IDs here."
+                }
+            },
+            "events": {
+                "invalid": {
+                    "target": "invalid",
+                    "transform": "direct",
+                    "notes": "CWC cds-text-input fires a native invalid event. Wire handlers via {{on 'invalid' this.handler}}."
+                }
+            },
+            "slots": {
+                "Label": {
+                    "target": "label-text",
+                    "transform": "namedBlockToSlot",
+                    "notes": "<Field.Label>text</Field.Label> maps to the label-text named slot: <span slot='label-text'>text</span>. For plain string labels, the label attribute can be used instead: label='text'. Prefer the slot when the label content contains HTML or components."
+                },
+                "HelperText": {
+                    "target": "helper-text",
+                    "transform": "namedBlockToSlot",
+                    "notes": "<Field.HelperText>text</Field.HelperText> maps to the helper-text named slot: <span slot='helper-text'>text</span>. For plain strings, the helperText property can be used instead. Prefer the slot for rich content."
+                },
+                "Error": {
+                    "target": "validity-message",
+                    "transform": "namedBlockToSlot",
+                    "notes": "<Field.Error>text</Field.Error> maps to the validity-message named slot: <span slot='validity-message'>text</span>. For plain strings, use the invalid-text attribute instead. Populating this slot or attribute is what triggers the invalid visual state — there is no separate invalid boolean. If Field.Error uses [E].Message to iterate multiple messages, concatenate them into a single validity-message slot."
+                },
+                "CharacterCount": {
+                    "target": "enable-counter",
+                    "transform": "manual",
+                    "notes": "<Field.CharacterCount> maps to CWC's built-in character counter: add enable-counter boolean attribute and max-count attribute (required for the counter to display) on cds-text-input. Example: <cds-text-input enable-counter max-count='200'>. The counter display is automatic — no custom slot needed."
+                }
+            },
+            "confidence": 0.8,
+            "riskFlags": [
+                "slot-to-attribute",
+                "behavioral-difference"
+            ],
+            "notes": "Confidence adjusted to 0.80. Key corrections: (1) @isInvalid maps directly to the invalid boolean attribute on cds-text-input — it exists and reflects; (2) @hasVisibilityToggle defaults are INVERTED — HDS defaults true, CWC defaults false; add show-password-visibility-toggle explicitly for password fields; (3) Field.CharacterCount now has a direct CWC equivalent: enable-counter + max-count attributes; (4) @visibilityToggleAriaMessageText has no CWC equivalent — remove; (5) showPasswordLabel/hidePasswordLabel are JS-property-only (no HTML attribute) — must be set programmatically; (6) [E].Message (multiple error iteration) must be flattened to a single validity-message slot."
+        },
+        "Hds::Button": {
+            "cwcComponent": "cds-button",
+            "description": "Primary button component with various styles and sizes",
+            "attributes": {
+                "@text": {
+                    "target": "slot:default",
+                    "transform": "moveToSlot",
+                    "notes": "@text (required) becomes the default slot content of cds-button. If @isIconOnly is true, @text is used as the tooltip label (tooltip-text attribute) rather than visible text."
+                },
+                "@color": {
+                    "target": "kind",
+                    "transform": "rename",
+                    "valueMap": {
+                        "primary": "primary",
+                        "secondary": "secondary",
+                        "tertiary": "tertiary",
+                        "critical": "danger"
+                    },
+                    "notes": "HDS @color ('primary', 'secondary', 'tertiary', 'critical') maps to kind on cds-button. 'critical' → 'danger'. CWC also supports 'ghost', 'danger-tertiary', 'danger-ghost' which have no HDS equivalent."
+                },
+                "@size": {
+                    "target": "size",
+                    "transform": "rename",
+                    "valueMap": {
+                        "small": "sm",
+                        "medium": "lg",
+                        "large": "xl"
+                    },
+                    "notes": "CWC size values are xs, sm, md, lg (default), xl, 2xl. HDS 'medium' (default) maps to CWC 'lg' (default) — NOT 'md'. HDS 'small' → 'sm'. HDS 'large' → 'xl'. Note: CWC 'md' is a size smaller than 'lg' with no direct HDS equivalent."
+                },
+                "@isFullWidth": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "@isFullWidth renders the button filling its container width. cds-button has no fullwidth attribute — remove and apply width: 100% via CSS on the cds-button element. Do NOT use isExpressive — that controls button height, not width."
+                },
+                "@isInline": {
+                    "target": null,
+                    "transform": "remove",
+                    "notes": "@isInline renders the button as inline-block. cds-button renders inline by default — remove this attribute, no CWC equivalent needed."
+                },
+                "@icon": {
+                    "target": "slot:icon",
+                    "transform": "moveToSlot",
+                    "notes": "@icon is an HDS icon name string. Replace with a Carbon SVG element placed in slot='icon' on cds-button. No automatic string-to-SVG mapping exists — manual substitution required."
+                },
+                "@iconPosition": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "IMPORTANT: cds-button in v2.60.0 has NO icon-position attribute. The shadow DOM template always renders <slot></slot><slot name='icon'></slot> — the icon is always trailing (after text). If @iconPosition='trailing' (the HDS default), no action needed — that is the natural CWC layout. If @iconPosition='leading', there is no direct CWC attribute equivalent, remove this attribute. Note: a tertiary button requires an icon per HDS WCAG guidance — ensure the icon slot is populated."
+                },
+                "@isIconOnly": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "When @isIconOnly is true, prefer Carbon's dedicated cds-icon-button rather than treating it as a normal cds-button. Use @text as the accessible label / tooltip content, substitute the HDS icon with a Carbon SVG, and map visual kind carefully because icon-only buttons do not support danger variants."
+                },
+                "@href": {
+                    "target": "href",
+                    "transform": "direct",
+                    "notes": "When @href is present, HDS Button renders as an <a>. cds-button also renders as <a> when href is set. CWC also supports download, hreflang, ping, rel, and target on the anchor."
+                },
+                "@isHrefExternal": {
+                    "target": "target",
+                    "transform": "manual",
+                    "notes": "@isHrefExternal={{true}} sets target='_blank' AND rel='noopener noreferrer' on HDS. On cds-button, set both target='_blank' and rel='noopener noreferrer' explicitly — CWC does not add rel automatically."
+                },
+                "@route": {
+                    "target": null,
+                    "transform": "manual",
+                    "notes": "@route (and related args: @models, @model, @query, @current-when, @replace, @isRouteExternal) are Ember LinkTo routing args. cds-button has no routing — replace with href pointing to the resolved URL."
+                }
+            },
+            "events": {},
+            "slots": {
+                "icon": {
+                    "target": "slot:icon",
+                    "transform": "direct",
+                    "notes": "Carbon SVG placed in slot='icon' renders inside the button. Required when @isIconOnly is true. Optional alongside text content when @icon is set."
+                },
+                "default": {
+                    "target": "default",
+                    "transform": "direct",
+                    "notes": "Visible button text. Omit when using icon-only mode (use tooltip-text for the accessible label instead)."
+                }
+            },
+            "confidence": 0.88,
+            "riskFlags": [],
+            "notes": "Confidence adjusted to 0.88 for general migrations; standard text-button cases remain high-confidence in practice. Manual cases (noted here, not blocking): @icon requires a manual HDS icon name → Carbon SVG substitution (no automatic mapping); @isIconOnly should prefer cds-icon-button with tooltip/accessible label wiring; @isHrefExternal must set both target='_blank' AND rel='noopener noreferrer' explicitly; @route/routing args must be resolved to a plain href; @isFullWidth → CSS only. Key corrections from API review: (1) @color='critical' maps to kind='danger' for standard buttons; icon-only buttons do not support danger variants and need manual review; (2) @size HDS 'medium' → CWC 'lg' (NOT 'md'); (3) cds-button has NO icon-position attribute — icon always renders trailing."
+        },
+        "Hds::ButtonSet": {
+            "cwcComponent": "cds-button-set",
+            "description": "Button grouping layout wrapper. HDS has no args. CWC adds one: stacked (boolean, vertical arrangement).",
+            "attributes": {
+                "stacked": {
+                    "target": "stacked",
+                    "transform": "direct",
+                    "notes": "CWC-only attribute — no HDS equivalent. cds-button-set is horizontal by default. Add stacked to arrange buttons vertically. Only add this if the design calls for a vertical stack."
+                }
+            },
+            "events": {},
+            "slots": {
+                "default": {
+                    "target": "default",
+                    "transform": "direct",
+                    "notes": "cds-button children are placed directly inside cds-button-set. IMPORTANT: cds-button-set auto-overrides the kind attribute on child cds-button elements on slotchange — first button is forced to 'secondary', all remaining buttons are forced to 'primary'. Do NOT rely on explicit kind values on the buttons to survive; the set overrides them. Use cds-modal-footer-button instead of cds-button when the set is inside a cds-modal-footer."
+                }
+            },
+            "confidence": 0.92,
+            "riskFlags": [],
+            "notes": "High confidence — near-direct tag rename. HdsButtonSet has no args. CWC adds stacked (boolean, vertical layout) which has no HDS equivalent — omit unless vertical stacking is needed. IMPORTANT behavioral difference: cds-button-set forces kind on child buttons (first → secondary, rest → primary) — any explicit kind values on children will be overridden. Example: <cds-button-set><cds-button>Cancel</cds-button><cds-button>Save</cds-button></cds-button-set> — kind is auto-applied."
+        }
+    }
+}
