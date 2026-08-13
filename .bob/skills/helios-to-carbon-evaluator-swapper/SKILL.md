@@ -21,10 +21,10 @@ Evaluate Helios component usage in target files and execute approved direct Carb
 Received from orchestrator:
 
 - `scopePaths`: Array of file paths or glob patterns to analyze
-- `mappingTablePath`: Path to Helios-to-CWC component mapping data (default: `.ai/migration/helios-to-carbon-component-map.json`)
+- `mappingTablePath`: Path to Helios-to-CWC component mapping data (default: `.bob/migration/helios-to-carbon-component-map.json`)
 - `allowedOperations`: List of permitted transformation operations
 - `prohibitedOperations`: List of forbidden operations
-- `outputSchemaPath`: Path to JSON schema for candidate validation (default: `.ai/migration/schemas/migration-candidate.schema.json`)
+- `outputSchemaPath`: Path to JSON schema for candidate validation (default: `.bob/migration/schemas/migration-candidate.schema.json`)
 - `stopConditions`: Conditions that halt execution immediately
 
 ## Hard Rules
@@ -84,10 +84,7 @@ Received from orchestrator:
    - Update imports (remove Helios, add CWC)
    - Transform component usage (tag name, attributes, events, slots)
    - Preserve comments and formatting where possible
-3. **UI Shell detection:** After all transformations are applied, check whether the migrated output contains `cds-header` or `cds-side-nav`:
-   - **UI Shell NOT present** → write CWC directly into `component-sandbox.gts`, replacing the file content with the migrated CWC template. Do not touch `sandbox-standalone.html`.
-   - **UI Shell present** → write CWC output to `showcase/public/sandbox-standalone.html` only. Do NOT modify `component-sandbox.gts` or `index.gts` — they permanently render the iframe via `ShwFrame`.
-   - Include `uiShellDetected: true|false` in the execution summary so the orchestrator can act on it.
+3. Write migrated CWC output to the target file(s).
 
 4. **Post-swap class check:** After all transformations are applied to a file, inspect the backing class:
    - If the class body is empty (no `@tracked` properties, no methods, no constructor, no other class members) — remove the class wrapper entirely and convert to a template-only component:

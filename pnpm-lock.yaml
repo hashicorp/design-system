@@ -502,6 +502,7 @@ importers:
 
   packages/tokens:
 <<<<<<< HEAD
+<<<<<<< HEAD
     devDependencies:
       '@carbon/colors':
         specifier: ^11.55.0
@@ -548,6 +549,30 @@ importers:
       specifier: ^1.0.4
       version: 1.0.4
 >>>>>>> 690ba7c5f3 (update component migration mappings and cwc to updated verison .60)
+=======
+    devDependencies:
+      '@carbon/colors':
+        specifier: ^11.55.0
+        version: 11.55.0
+      '@carbon/grid':
+        specifier: ^11.59.0
+        version: 11.59.0
+      '@carbon/layout':
+        specifier: ^11.56.0
+        version: 11.56.0
+      '@carbon/motion':
+        specifier: ^11.49.0
+        version: 11.49.0
+      '@carbon/themes':
+        specifier: ^11.78.0
+        version: 11.78.0
+      '@carbon/type':
+        specifier: ^11.64.0
+        version: 11.64.0
+      '@cnakazawa/watch':
+        specifier: ^1.0.4
+        version: 1.0.4
+>>>>>>> 985478d6e6 (complete reverting changes, and sorting files)
       '@eslint/js':
         specifier: ^9.27.0
         version: 9.32.0
@@ -607,13 +632,22 @@ importers:
         version: 8.38.0(eslint@9.32.0)(typescript@5.9.2)
 
   showcase:
-    dependencies:
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.27.1
+        version: 7.28.0
+      '@babel/eslint-parser':
+        specifier: ^7.27.1
+        version: 7.28.0(@babel/core@7.28.0)(eslint@9.32.0)
+      '@babel/plugin-proposal-decorators':
+        specifier: ^7.27.1
+        version: 7.28.0(@babel/core@7.28.0)
       '@carbon/grid':
         specifier: ^11.45.0
         version: 11.59.0
       '@carbon/icons':
         specifier: ^11.76.0
-        version: 11.76.0
+        version: 11.84.0
       '@carbon/layout':
         specifier: ^11.43.0
         version: 11.56.0
@@ -626,16 +660,6 @@ importers:
       '@carbon/type':
         specifier: ^11.49.0
         version: 11.64.0
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.27.1
-        version: 7.28.0
-      '@babel/eslint-parser':
-        specifier: ^7.27.1
-        version: 7.28.0(@babel/core@7.28.0)(eslint@9.32.0)
-      '@babel/plugin-proposal-decorators':
-        specifier: ^7.27.1
-        version: 7.28.0(@babel/core@7.28.0)
       '@carbon/web-components':
         specifier: 2.60.0
         version: 2.60.0(sass@1.98.0)
@@ -3067,8 +3091,8 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
-  '@ibm/plex-mono@1.1.0':
-    resolution: {integrity: sha512-hpsdRxR3BRJkC6wGM4MZcUFD6C8M+mmK76RtAy/hlsfPro9FzpXVdIWC+G3jeQOXof109dxlUvmeKxpeKUG68A==}
+  '@ibm/plex-mono@2.5.0':
+    resolution: {integrity: sha512-STBJIPxPomOYPmBMO7z5TKPJUotAF9u3gAUumTqVgwgrAO+K4FRNh0MlhsoJjKhJKsMbBJR10/bk4inkj/wc1w==}
 
   '@ibm/plex-sans-arabic@1.1.0':
     resolution: {integrity: sha512-u8wIS6szLAOFvlBjCFZmtpKIqbhuIuniG2N0J+sio8vV6INH58hP0t0QNYrSl9SZtCv2Fwb4oQGuZJY3kJ4+QA==}
@@ -13976,6 +14000,12 @@ snapshots:
       '@carbon/layout': 11.56.0
       '@ibm/telemetry-js': 1.10.1
 
+  '@carbon/type@11.65.0':
+    dependencies:
+      '@carbon/grid': 11.60.0
+      '@carbon/layout': 11.57.0
+      '@ibm/telemetry-js': 1.11.0
+
   '@carbon/utilities@0.17.0':
     dependencies:
       '@ibm/telemetry-js': 1.11.0
@@ -13983,13 +14013,13 @@ snapshots:
 
   '@carbon/utils-position@1.3.0':
     dependencies:
-      '@ibm/telemetry-js': 1.11.0
+      '@ibm/telemetry-js': 1.10.1
 
   '@carbon/web-components@2.60.0(sass@1.98.0)':
     dependencies:
       '@carbon/icon-helpers': 10.47.0
-      '@carbon/icons': 11.85.0
-      '@carbon/styles': 1.112.0(sass@1.98.0)
+      '@carbon/icons': 11.86.0
+      '@carbon/styles': 1.113.0(sass@1.98.0)
       '@carbon/utilities': 0.17.0
       '@floating-ui/dom': 1.7.3
       '@ibm/telemetry-js': 1.11.0
@@ -15413,7 +15443,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@ibm/plex-mono@1.1.0':
+  '@ibm/plex-mono@2.5.0':
     dependencies:
       '@ibm/telemetry-js': 1.11.0
 

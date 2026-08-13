@@ -112,8 +112,8 @@ The following candidates require manual review and migration:
 
 - **Migration plan:** `migration-plan.json`
 - **Migration report:** `migration-report.md` (this file)
-- **Mapping table:** `.ai/migration/helios-to-carbon-component-map.json`
-- **Candidate schema:** `.ai/migration/schemas/migration-candidate.schema.json`
+- **Mapping table:** `.bob/migration/helios-to-carbon-component-map.json`
+- **Candidate schema:** `.bob/migration/schemas/migration-candidate.schema.json`
 
 ---
 
