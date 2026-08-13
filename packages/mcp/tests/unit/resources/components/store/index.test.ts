@@ -202,3 +202,69 @@ describe("class-name lookup", () => {
     );
   });
 });
+
+describe("named blocks", () => {
+  const store = createComponentCatalogStore(
+    parseComponentCatalog({
+      components: [
+        buildComponentCatalogEntry({
+          name: "Hds::AdvancedTable",
+          modulePath: "hds/advanced-table",
+          args: [],
+          blocks: [
+            {
+              name: "body",
+              yields: [
+                {
+                  name: "Td",
+                  type: "WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>",
+                },
+                { name: "data", type: "T" },
+                { name: "isOpen", type: "boolean | undefined" },
+              ],
+            },
+            { name: "emptyState", yields: [] },
+            {
+              name: "actions",
+              yields: [
+                {
+                  name: "Button",
+                  type: "WithBoundArgs<typeof HdsButton, 'size'>",
+                },
+              ],
+            },
+          ],
+        }),
+      ],
+    }),
+  );
+
+  it("keeps every named block, including one that yields nothing", () => {
+    const blocks = store.getComponentByName("Hds::AdvancedTable")?.blocks ?? [];
+
+    expect(blocks.map((block) => block.name)).toEqual([
+      "body",
+      "emptyState",
+      "actions",
+    ]);
+    expect(blocks.find((block) => block.name === "emptyState")?.yields).toEqual(
+      [],
+    );
+  });
+
+  it("preserves each yield's name and type, in the order declared", () => {
+    const body = store
+      .getComponentByName("Hds::AdvancedTable")
+      ?.blocks.find((block) => block.name === "body");
+
+    expect(body?.yields.map((entry) => entry.name)).toEqual([
+      "Td",
+      "data",
+      "isOpen",
+    ]);
+    expect(body?.yields[0]?.type).toBe(
+      "WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>",
+    );
+    expect(body?.yields[2]?.type).toBe("boolean | undefined");
+  });
+});
