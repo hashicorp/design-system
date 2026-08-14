@@ -2,6 +2,8 @@
 
 ## 6.5.0
 
+[6.5.0 documentation](https://hds-website-6-5-0.vercel.app/)
+
 ### Minor Changes
 
 <!-- START components/segmented-group -->
