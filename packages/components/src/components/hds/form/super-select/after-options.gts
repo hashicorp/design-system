@@ -12,6 +12,7 @@ import HdsTextBody from '../../text/body.gts';
 import HdsButton from '../../button/index.gts';
 
 export interface HdsFormSuperSelectAfterOptionsSignature {
+  Element: HTMLElement;
   Args: {
     clearSelected: () => void;
     content?: string;

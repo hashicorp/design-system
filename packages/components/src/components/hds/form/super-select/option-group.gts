@@ -9,6 +9,7 @@ import { guidFor } from '@ember/object/internals';
 import HdsTextBody from '../../text/body.gts';
 
 export interface HdsFormSuperSelectOptionGroupSignature {
+  Element: HTMLLIElement;
   Args: {
     group: {
       groupName?: string;

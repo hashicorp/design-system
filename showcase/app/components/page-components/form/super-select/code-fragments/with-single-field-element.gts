@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { fn, hash } from '@ember/helper';
+import { hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 import { eq } from 'ember-truth-helpers';
 import type Owner from '@ember/owner';
@@ -17,6 +17,12 @@ import type { HdsFormSuperSelectSingleFieldSignature } from '@hashicorp/design-s
 interface GroupedOption {
   groupName: string;
   options: (string | GroupedOption)[];
+}
+
+export interface ClusterSizeOption {
+  size: string;
+  description: string;
+  price: string;
 }
 
 const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
@@ -92,7 +98,7 @@ export interface CodeFragmentWithSingleFieldElementSignature {
 }
 
 export default class CodeFragmentWithSingleFieldElement extends Component<CodeFragmentWithSingleFieldElementSignature> {
-  @tracked selectedOption;
+  @tracked selectedOption: string | ClusterSizeOption | GroupedOption | undefined;
 
   constructor(
     owner: Owner,
@@ -109,7 +115,7 @@ export default class CodeFragmentWithSingleFieldElement extends Component<CodeFr
     }
   }
 
-  get options() {
+  get options(): (string | ClusterSizeOption | GroupedOption)[] {
     const { options } = this.args;
 
     if (options === 'cluster-size') {
@@ -121,11 +127,17 @@ export default class CodeFragmentWithSingleFieldElement extends Component<CodeFr
     }
   }
 
+  onSelectionChange = (selected: unknown) => {
+    this.selectedOption = selected as string | ClusterSizeOption | GroupedOption;
+  };
+
   <template>
+    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
     <HdsFormSuperSelectSingleField
-      @onChange={{fn (mut this.selectedOption)}}
+      @onChange={{this.onSelectionChange}}
       @options={{this.options}}
       @selected={{this.selectedOption}}
+      {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
       @selectedItemComponent={{if
         @hasSelectedItemComponent
         CodeFragmentWithSelectedComponent

@@ -10,7 +10,7 @@ import style from 'ember-style-modifier';
 import PowerSelect from 'ember-power-select/components/power-select';
 
 import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
-import type { Select } from 'ember-power-select/components/power-select';
+import type { Select } from 'ember-power-select/types';
 import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
 
 import {
@@ -28,23 +28,28 @@ export const DEFAULT_HORIZONTAL_POSITION: string =
 export const HORIZONTAL_POSITION_MAPPING =
   HdsFormSuperSelectHorizontalPositionToPlacementValues;
 
-export interface HdsFormSuperSelectMultipleBaseSignature {
-  Args: Omit<PowerSelectSignature['Args'], 'resultCountMessage'> & {
+export interface HdsFormSuperSelectMultipleBaseSignature<T = unknown> {
+  Args: Omit<
+    PowerSelectSignature<T, true, unknown>['Args'],
+    'resultCountMessage'
+  > & {
     showAfterOptions?: boolean;
     afterOptionsContent?: string;
     resultCountMessage?:
       | string
-      | PowerSelectSignature['Args']['resultCountMessage'];
+      | PowerSelectSignature<T, true, unknown>['Args']['resultCountMessage'];
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
   };
-  Blocks: PowerSelectSignature['Blocks'];
-  Element: PowerSelectSignature['Element'];
+  Blocks: PowerSelectSignature<T, true, unknown>['Blocks'];
+  Element: PowerSelectSignature<T, true, unknown>['Element'];
 }
 
-export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSuperSelectMultipleBaseSignature> {
-  @tracked private _powerSelectAPI?: Select;
+export default class HdsFormSuperSelectMultipleBase<
+  T = unknown,
+> extends Component<HdsFormSuperSelectMultipleBaseSignature<T>> {
+  @tracked private _powerSelectAPI?: Select<T, true>;
   @tracked private _showOnlySelected = false;
   @tracked private _showNoSelectedMessage = false;
 
@@ -54,8 +59,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
   }
 
   get selectedCount(): string {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
-    return this._powerSelectAPI?.selected?.length || '0';
+    return String(this._powerSelectAPI?.selected?.length || 0);
   }
 
   get optionsCount(): string {
@@ -70,7 +74,11 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     return `${this.optionsCount} total`;
   }
 
-  get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
+  get resultCountMessageFunction(): PowerSelectSignature<
+    T,
+    true,
+    unknown
+  >['Args']['resultCountMessage'] {
     if (typeof this.args.resultCountMessage === 'function') {
       return this.args.resultCountMessage;
     }
@@ -83,7 +91,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     content: HTMLElement
   ): CalculatePositionResult => {
     // use `hds-anchored-position` to calculate and set position
-    // @ts-expect-error: known issue with type of invocation
+    // @ts-expect-error -- known issue with type of invocation
     anchoredPositionModifier(content, [trigger], {
       placement: HORIZONTAL_POSITION_MAPPING[this.horizontalPosition],
       offsetOptions: 4,
@@ -108,7 +116,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
    *
    * The `powerSelectAPI` is also stored on the component instance and used in `clearSelected`
    */
-  setPowerSelectAPI = (powerSelectAPI: Select): void => {
+  setPowerSelectAPI = (powerSelectAPI: Select<T, true>): void => {
     if (typeof this.args.registerAPI === 'function') {
       this.args.registerAPI(powerSelectAPI);
     }
@@ -126,7 +134,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
   };
 
   clearSelected = (): void => {
-    this._powerSelectAPI?.actions.select(null);
+    this._powerSelectAPI?.actions.select([]);
     // show all options after clearing all selection
     this._showNoSelectedMessage = false;
     this._showOnlySelected = false;
@@ -187,6 +195,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     <div class={{this.classNames}} {{style this.styles}}>
       <PowerSelect
         tabindex="0"
+        {{! @glint-expect-error: HdsFormSuperSelectAfterOptions has additional args (clearSelected, showAll, showSelected, etc.) provided at runtime by ember-power-select }}
         @afterOptionsComponent={{if
           this.showAfterOptions
           (or

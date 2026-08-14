@@ -8,6 +8,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import HdsTextBody from '../../text/body.gts';
 
 export interface HdsFormSuperSelectPlaceholderSignature {
+  Element: HTMLSpanElement;
   Args: {
     placeholder?: string;
   };

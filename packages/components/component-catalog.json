@@ -7835,6 +7835,7 @@
       "name": "Hds::Form::SuperSelect::AfterOptions",
       "modulePath": "hds/form/super-select/after-options",
       "docsPath": "components/form/super-select",
+      "element": "HTMLElement",
       "args": [
         {
           "name": "clearSelected",
@@ -7883,11 +7884,11 @@
       "name": "Hds::Form::SuperSelect::Multiple::Base",
       "modulePath": "hds/form/super-select/multiple/base",
       "docsPath": "components/form/super-select",
-      "element": "HTMLElement",
+      "element": "Element",
       "args": [
         {
           "name": "afterOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectAfterOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectAfterOptionsSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -7927,12 +7928,12 @@
         },
         {
           "name": "beforeOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectBeforeOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectBeforeOptionsSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
           "name": "buildSelection",
-          "type": "(selected: any, select: Select) => any",
+          "type": "(selected: Option<T>, select: Select<T, true>) => Option<T>[]",
           "required": false
         },
         {
@@ -7947,7 +7948,7 @@
         },
         {
           "name": "defaultHighlighted",
-          "type": "any",
+          "type": "((params: DefaultHighlightedParams<T>) => Option<T> | undefined) | NonNullable<Option<T>>",
           "required": false
         },
         {
@@ -7977,27 +7978,28 @@
         },
         {
           "name": "ebdContentComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownContentSignature<\"div\">>",
           "required": false
         },
         {
           "name": "ebdTriggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownTriggerSignature<\"div\">>",
           "required": false
         },
         {
           "name": "eventType",
-          "type": "string",
-          "required": false
+          "type": "\"click\" | \"mousedown\"",
+          "required": false,
+          "values": ["click", "mousedown"]
         },
         {
           "name": "extra",
-          "type": "any",
+          "type": "unknown",
           "required": false
         },
         {
           "name": "groupComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPowerSelectGroupSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPowerSelectGroupSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8007,8 +8009,16 @@
         },
         {
           "name": "horizontalPosition",
-          "type": "string",
-          "required": false
+          "type": "HorizontalPosition",
+          "required": false,
+          "values": [
+            "auto",
+            "auto-right",
+            "auto-left",
+            "left",
+            "right",
+            "center"
+          ]
         },
         {
           "name": "initiallyOpened",
@@ -8033,7 +8043,7 @@
         },
         {
           "name": "labelComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectLabelSignature<unknown, unknown, false>> | ComponentLike<PowerSelectLabelSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8048,18 +8058,13 @@
           "required": false
         },
         {
-          "name": "legacyMultiple",
-          "type": "boolean",
-          "required": false
-        },
-        {
           "name": "loadingMessage",
           "type": "string",
           "required": false
         },
         {
           "name": "matcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
@@ -8069,7 +8074,7 @@
         },
         {
           "name": "multiple",
-          "type": "boolean",
+          "type": "true",
           "required": false
         },
         {
@@ -8079,52 +8084,52 @@
         },
         {
           "name": "noMatchesMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectNoMatchesMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectNoMatchesMessageSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
           "name": "onBlur",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, true>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onChange",
-          "type": "(selection: any, select: Select, event?: Event | undefined) => void",
+          "type": "(selection: Option<T>[], select: Select<T, true>, event?: Event | undefined) => void",
           "required": true
         },
         {
           "name": "onClose",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onFocus",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, true>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onInput",
-          "type": "(term: string, select: Select, e: Event) => string | boolean | void",
+          "type": "(term: string, select: Select<T, true>, e: Event) => string | false | void | PromiseLike<void>",
           "required": false
         },
         {
           "name": "onKeydown",
-          "type": "(select: Select, e: KeyboardEvent) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: KeyboardEvent) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onOpen",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "options",
-          "type": "readonly any[] | Promise<readonly any[]>",
+          "type": "readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
           "name": "optionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectOptionsSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8134,7 +8139,7 @@
         },
         {
           "name": "placeholderComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPlaceholderSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPlaceholderSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8144,7 +8149,7 @@
         },
         {
           "name": "registerAPI",
-          "type": "(select: Select) => void",
+          "type": "(select: Select<T, true>) => void",
           "required": false
         },
         {
@@ -8170,12 +8175,12 @@
         },
         {
           "name": "scrollTo",
-          "type": "(option: any, select: Select) => void",
+          "type": "(option: Option<T> | undefined, select: Select<T, true>) => void",
           "required": false
         },
         {
           "name": "search",
-          "type": "(term: string, select: Select) => readonly any[] | Promise<readonly any[]>",
+          "type": "(term: string, select: Select<T, true>) => void | Promise<void> | readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
@@ -8201,7 +8206,7 @@
         },
         {
           "name": "searchMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSearchMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSearchMessageSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8211,12 +8216,12 @@
         },
         {
           "name": "selected",
-          "type": "any",
+          "type": "Option<T>[] | Promise<Option<T>[]>",
           "required": false
         },
         {
           "name": "selectedItemComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSelectedItemSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSelectedItemSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8241,7 +8246,7 @@
         },
         {
           "name": "triggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectTriggerSignature<unknown, unknown, false>> | ComponentLike<PowerSelectTriggerSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8256,13 +8261,14 @@
         },
         {
           "name": "typeAheadOptionMatcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "verticalPosition",
-          "type": "string",
-          "required": false
+          "type": "VerticalPosition",
+          "required": false,
+          "values": ["auto", "above", "below"]
         }
       ],
       "blocks": [
@@ -8271,11 +8277,11 @@
           "yields": [
             {
               "name": "option",
-              "type": "any"
+              "type": "Option<T>"
             },
             {
               "name": "select",
-              "type": "Select"
+              "type": "Select<T, true>"
             }
           ]
         }
@@ -8285,11 +8291,11 @@
       "name": "Hds::Form::SuperSelect::Multiple::Field",
       "modulePath": "hds/form/super-select/multiple/field",
       "docsPath": "components/form/super-select",
-      "element": "HTMLElement",
+      "element": "Element",
       "args": [
         {
           "name": "afterOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectAfterOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectAfterOptionsSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8330,12 +8336,12 @@
         },
         {
           "name": "beforeOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectBeforeOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectBeforeOptionsSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
           "name": "buildSelection",
-          "type": "(selected: any, select: Select) => any",
+          "type": "(selected: Option<T>, select: Select<T, true>) => Option<T>[]",
           "required": false
         },
         {
@@ -8356,7 +8362,7 @@
         },
         {
           "name": "defaultHighlighted",
-          "type": "any",
+          "type": "((params: DefaultHighlightedParams<T>) => Option<T> | undefined) | NonNullable<Option<T>>",
           "required": false
         },
         {
@@ -8387,22 +8393,23 @@
         },
         {
           "name": "ebdContentComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownContentSignature<\"div\">>",
           "required": false
         },
         {
           "name": "ebdTriggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownTriggerSignature<\"div\">>",
           "required": false
         },
         {
           "name": "eventType",
-          "type": "string",
-          "required": false
+          "type": "\"click\" | \"mousedown\"",
+          "required": false,
+          "values": ["click", "mousedown"]
         },
         {
           "name": "extra",
-          "type": "any",
+          "type": "unknown",
           "required": false
         },
         {
@@ -8413,7 +8420,7 @@
         },
         {
           "name": "groupComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPowerSelectGroupSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPowerSelectGroupSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8423,8 +8430,16 @@
         },
         {
           "name": "horizontalPosition",
-          "type": "string",
-          "required": false
+          "type": "HorizontalPosition",
+          "required": false,
+          "values": [
+            "auto",
+            "auto-right",
+            "auto-left",
+            "left",
+            "right",
+            "center"
+          ]
         },
         {
           "name": "id",
@@ -8468,7 +8483,7 @@
         },
         {
           "name": "labelComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectLabelSignature<unknown, unknown, false>> | ComponentLike<PowerSelectLabelSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8490,18 +8505,13 @@
           "inheritedFrom": "hds/form/field"
         },
         {
-          "name": "legacyMultiple",
-          "type": "boolean",
-          "required": false
-        },
-        {
           "name": "loadingMessage",
           "type": "string",
           "required": false
         },
         {
           "name": "matcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
@@ -8512,7 +8522,7 @@
         },
         {
           "name": "multiple",
-          "type": "boolean",
+          "type": "true",
           "required": false
         },
         {
@@ -8522,52 +8532,52 @@
         },
         {
           "name": "noMatchesMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectNoMatchesMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectNoMatchesMessageSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
           "name": "onBlur",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, true>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onChange",
-          "type": "(selection: any, select: Select, event?: Event | undefined) => void",
+          "type": "(selection: Option<T>[], select: Select<T, true>, event?: Event | undefined) => void",
           "required": true
         },
         {
           "name": "onClose",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onFocus",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, true>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onInput",
-          "type": "(term: string, select: Select, e: Event) => string | boolean | void",
+          "type": "(term: string, select: Select<T, true>, e: Event) => string | false | void | PromiseLike<void>",
           "required": false
         },
         {
           "name": "onKeydown",
-          "type": "(select: Select, e: KeyboardEvent) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: KeyboardEvent) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onOpen",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, true>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "options",
-          "type": "readonly any[] | Promise<readonly any[]>",
+          "type": "readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
           "name": "optionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectOptionsSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8577,7 +8587,7 @@
         },
         {
           "name": "placeholderComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPlaceholderSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPlaceholderSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8587,7 +8597,7 @@
         },
         {
           "name": "registerAPI",
-          "type": "(select: Select) => void",
+          "type": "(select: Select<T, true>) => void",
           "required": false
         },
         {
@@ -8614,12 +8624,12 @@
         },
         {
           "name": "scrollTo",
-          "type": "(option: any, select: Select) => void",
+          "type": "(option: Option<T> | undefined, select: Select<T, true>) => void",
           "required": false
         },
         {
           "name": "search",
-          "type": "(term: string, select: Select) => readonly any[] | Promise<readonly any[]>",
+          "type": "(term: string, select: Select<T, true>) => void | Promise<void> | readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
@@ -8645,7 +8655,7 @@
         },
         {
           "name": "searchMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSearchMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSearchMessageSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8655,12 +8665,12 @@
         },
         {
           "name": "selected",
-          "type": "any",
+          "type": "Option<T>[] | Promise<Option<T>[]>",
           "required": false
         },
         {
           "name": "selectedItemComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSelectedItemSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSelectedItemSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8686,7 +8696,7 @@
         },
         {
           "name": "triggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectTriggerSignature<unknown, unknown, false>> | ComponentLike<PowerSelectTriggerSignature<NoInfer<T>, unknown, true>>",
           "required": false
         },
         {
@@ -8701,13 +8711,14 @@
         },
         {
           "name": "typeAheadOptionMatcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "verticalPosition",
-          "type": "string",
-          "required": false
+          "type": "VerticalPosition",
+          "required": false,
+          "values": ["auto", "above", "below"]
         }
       ],
       "blocks": [
@@ -8736,7 +8747,7 @@
             },
             {
               "name": "select",
-              "type": "Select"
+              "type": "Select<T, true>"
             }
           ]
         }
@@ -8746,6 +8757,7 @@
       "name": "Hds::Form::SuperSelect::OptionGroup",
       "modulePath": "hds/form/super-select/option-group",
       "docsPath": "components/form/super-select",
+      "element": "HTMLLIElement",
       "args": [
         {
           "name": "group",
@@ -8764,6 +8776,7 @@
       "name": "Hds::Form::SuperSelect::Placeholder",
       "modulePath": "hds/form/super-select/placeholder",
       "docsPath": "components/form/super-select",
+      "element": "HTMLSpanElement",
       "args": [
         {
           "name": "placeholder",
@@ -8777,11 +8790,11 @@
       "name": "Hds::Form::SuperSelect::Single::Base",
       "modulePath": "hds/form/super-select/single/base",
       "docsPath": "components/form/super-select",
-      "element": "HTMLElement",
+      "element": "Element",
       "args": [
         {
           "name": "afterOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectAfterOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectAfterOptionsSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -8821,12 +8834,12 @@
         },
         {
           "name": "beforeOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectBeforeOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectBeforeOptionsSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
           "name": "buildSelection",
-          "type": "(selected: any, select: Select) => any",
+          "type": "(selected: Option<T>, select: Select<T, false>) => Option<T> | undefined",
           "required": false
         },
         {
@@ -8841,7 +8854,7 @@
         },
         {
           "name": "defaultHighlighted",
-          "type": "any",
+          "type": "NonNullable<Option<T>> | ((params: DefaultHighlightedParams<T>) => Option<T> | undefined)",
           "required": false
         },
         {
@@ -8871,27 +8884,28 @@
         },
         {
           "name": "ebdContentComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownContentSignature<\"div\">>",
           "required": false
         },
         {
           "name": "ebdTriggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownTriggerSignature<\"div\">>",
           "required": false
         },
         {
           "name": "eventType",
-          "type": "string",
-          "required": false
+          "type": "\"click\" | \"mousedown\"",
+          "required": false,
+          "values": ["click", "mousedown"]
         },
         {
           "name": "extra",
-          "type": "any",
+          "type": "unknown",
           "required": false
         },
         {
           "name": "groupComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPowerSelectGroupSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPowerSelectGroupSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -8901,8 +8915,16 @@
         },
         {
           "name": "horizontalPosition",
-          "type": "string",
-          "required": false
+          "type": "HorizontalPosition",
+          "required": false,
+          "values": [
+            "auto",
+            "auto-right",
+            "auto-left",
+            "left",
+            "right",
+            "center"
+          ]
         },
         {
           "name": "initiallyOpened",
@@ -8927,7 +8949,7 @@
         },
         {
           "name": "labelComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectLabelSignature<unknown, unknown, false>> | ComponentLike<PowerSelectLabelSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -8942,18 +8964,13 @@
           "required": false
         },
         {
-          "name": "legacyMultiple",
-          "type": "boolean",
-          "required": false
-        },
-        {
           "name": "loadingMessage",
           "type": "string",
           "required": false
         },
         {
           "name": "matcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
@@ -8963,7 +8980,7 @@
         },
         {
           "name": "multiple",
-          "type": "boolean",
+          "type": "false",
           "required": false
         },
         {
@@ -8973,52 +8990,52 @@
         },
         {
           "name": "noMatchesMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectNoMatchesMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectNoMatchesMessageSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
           "name": "onBlur",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, false>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onChange",
-          "type": "(selection: any, select: Select, event?: Event | undefined) => void",
+          "type": "(selection: Option<T> | undefined, select: Select<T, false>, event?: Event | undefined) => void",
           "required": true
         },
         {
           "name": "onClose",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onFocus",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, false>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onInput",
-          "type": "(term: string, select: Select, e: Event) => string | boolean | void",
+          "type": "(term: string, select: Select<T, false>, e: Event) => string | false | void | PromiseLike<void>",
           "required": false
         },
         {
           "name": "onKeydown",
-          "type": "(select: Select, e: KeyboardEvent) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: KeyboardEvent) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onOpen",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "options",
-          "type": "readonly any[] | Promise<readonly any[]>",
+          "type": "readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
           "name": "optionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectOptionsSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9028,7 +9045,7 @@
         },
         {
           "name": "placeholderComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPlaceholderSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPlaceholderSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9038,7 +9055,7 @@
         },
         {
           "name": "registerAPI",
-          "type": "(select: Select) => void",
+          "type": "(select: Select<T, false>) => void",
           "required": false
         },
         {
@@ -9064,12 +9081,12 @@
         },
         {
           "name": "scrollTo",
-          "type": "(option: any, select: Select) => void",
+          "type": "(option: Option<T> | undefined, select: Select<T, false>) => void",
           "required": false
         },
         {
           "name": "search",
-          "type": "(term: string, select: Select) => readonly any[] | Promise<readonly any[]>",
+          "type": "(term: string, select: Select<T, false>) => void | Promise<void> | readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
@@ -9095,7 +9112,7 @@
         },
         {
           "name": "searchMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSearchMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSearchMessageSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9105,12 +9122,12 @@
         },
         {
           "name": "selected",
-          "type": "any",
+          "type": "Promise<Option<T> | undefined> | NonNullable<Option<T>>",
           "required": false
         },
         {
           "name": "selectedItemComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSelectedItemSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSelectedItemSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9135,7 +9152,7 @@
         },
         {
           "name": "triggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectTriggerSignature<unknown, unknown, false>> | ComponentLike<PowerSelectTriggerSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9150,13 +9167,14 @@
         },
         {
           "name": "typeAheadOptionMatcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "verticalPosition",
-          "type": "string",
-          "required": false
+          "type": "VerticalPosition",
+          "required": false,
+          "values": ["auto", "above", "below"]
         }
       ],
       "blocks": [
@@ -9165,11 +9183,11 @@
           "yields": [
             {
               "name": "option",
-              "type": "any"
+              "type": "Option<T>"
             },
             {
               "name": "select",
-              "type": "Select"
+              "type": "Select<T, false>"
             }
           ]
         }
@@ -9179,11 +9197,11 @@
       "name": "Hds::Form::SuperSelect::Single::Field",
       "modulePath": "hds/form/super-select/single/field",
       "docsPath": "components/form/super-select",
-      "element": "HTMLElement",
+      "element": "Element",
       "args": [
         {
           "name": "afterOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectAfterOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectAfterOptionsSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9224,12 +9242,12 @@
         },
         {
           "name": "beforeOptionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectBeforeOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectBeforeOptionsSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
           "name": "buildSelection",
-          "type": "(selected: any, select: Select) => any",
+          "type": "(selected: Option<T>, select: Select<T, false>) => Option<T> | undefined",
           "required": false
         },
         {
@@ -9250,7 +9268,7 @@
         },
         {
           "name": "defaultHighlighted",
-          "type": "any",
+          "type": "NonNullable<Option<T>> | ((params: DefaultHighlightedParams<T>) => Option<T> | undefined)",
           "required": false
         },
         {
@@ -9281,22 +9299,23 @@
         },
         {
           "name": "ebdContentComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownContentSignature<\"div\">>",
           "required": false
         },
         {
           "name": "ebdTriggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<BasicDropdownTriggerSignature<\"div\">>",
           "required": false
         },
         {
           "name": "eventType",
-          "type": "string",
-          "required": false
+          "type": "\"click\" | \"mousedown\"",
+          "required": false,
+          "values": ["click", "mousedown"]
         },
         {
           "name": "extra",
-          "type": "any",
+          "type": "unknown",
           "required": false
         },
         {
@@ -9307,7 +9326,7 @@
         },
         {
           "name": "groupComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPowerSelectGroupSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPowerSelectGroupSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9317,8 +9336,16 @@
         },
         {
           "name": "horizontalPosition",
-          "type": "string",
-          "required": false
+          "type": "HorizontalPosition",
+          "required": false,
+          "values": [
+            "auto",
+            "auto-right",
+            "auto-left",
+            "left",
+            "right",
+            "center"
+          ]
         },
         {
           "name": "id",
@@ -9362,7 +9389,7 @@
         },
         {
           "name": "labelComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectLabelSignature<unknown, unknown, false>> | ComponentLike<PowerSelectLabelSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9384,18 +9411,13 @@
           "inheritedFrom": "hds/form/field"
         },
         {
-          "name": "legacyMultiple",
-          "type": "boolean",
-          "required": false
-        },
-        {
           "name": "loadingMessage",
           "type": "string",
           "required": false
         },
         {
           "name": "matcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
@@ -9406,7 +9428,7 @@
         },
         {
           "name": "multiple",
-          "type": "boolean",
+          "type": "false",
           "required": false
         },
         {
@@ -9416,52 +9438,52 @@
         },
         {
           "name": "noMatchesMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectNoMatchesMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectNoMatchesMessageSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
           "name": "onBlur",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, false>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onChange",
-          "type": "(selection: any, select: Select, event?: Event | undefined) => void",
+          "type": "(selection: Option<T> | undefined, select: Select<T, false>, event?: Event | undefined) => void",
           "required": true
         },
         {
           "name": "onClose",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onFocus",
-          "type": "(select: Select, event: FocusEvent) => void",
+          "type": "(select: Select<T, false>, event: FocusEvent) => void",
           "required": false
         },
         {
           "name": "onInput",
-          "type": "(term: string, select: Select, e: Event) => string | boolean | void",
+          "type": "(term: string, select: Select<T, false>, e: Event) => string | false | void | PromiseLike<void>",
           "required": false
         },
         {
           "name": "onKeydown",
-          "type": "(select: Select, e: KeyboardEvent) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: KeyboardEvent) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "onOpen",
-          "type": "(select: Select, e: Event) => boolean | void | undefined",
+          "type": "(select: Select<T, false>, e: Event | undefined) => boolean | void | undefined",
           "required": false
         },
         {
           "name": "options",
-          "type": "readonly any[] | Promise<readonly any[]>",
+          "type": "readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
           "name": "optionsComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectOptionsSignature<unknown, unknown, false>> | ComponentLike<PowerSelectOptionsSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9471,7 +9493,7 @@
         },
         {
           "name": "placeholderComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectPlaceholderSignature<unknown, unknown, false>> | ComponentLike<PowerSelectPlaceholderSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9481,7 +9503,7 @@
         },
         {
           "name": "registerAPI",
-          "type": "(select: Select) => void",
+          "type": "(select: Select<T, false>) => void",
           "required": false
         },
         {
@@ -9508,12 +9530,12 @@
         },
         {
           "name": "scrollTo",
-          "type": "(option: any, select: Select) => void",
+          "type": "(option: Option<T> | undefined, select: Select<T, false>) => void",
           "required": false
         },
         {
           "name": "search",
-          "type": "(term: string, select: Select) => readonly any[] | Promise<readonly any[]>",
+          "type": "(term: string, select: Select<T, false>) => void | Promise<void> | readonly T[] | Promise<readonly T[]>",
           "required": false
         },
         {
@@ -9539,7 +9561,7 @@
         },
         {
           "name": "searchMessageComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSearchMessageSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSearchMessageSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9549,12 +9571,12 @@
         },
         {
           "name": "selected",
-          "type": "any",
+          "type": "Promise<Option<T> | undefined> | NonNullable<Option<T>>",
           "required": false
         },
         {
           "name": "selectedItemComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectSelectedItemSignature<unknown, unknown, false>> | ComponentLike<PowerSelectSelectedItemSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9580,7 +9602,7 @@
         },
         {
           "name": "triggerComponent",
-          "type": "string | ComponentLike<any>",
+          "type": "ComponentLike<PowerSelectTriggerSignature<unknown, unknown, false>> | ComponentLike<PowerSelectTriggerSignature<NoInfer<T>, unknown, false>>",
           "required": false
         },
         {
@@ -9595,13 +9617,14 @@
         },
         {
           "name": "typeAheadOptionMatcher",
-          "type": "MatcherFn",
+          "type": "MatcherFn<T>",
           "required": false
         },
         {
           "name": "verticalPosition",
-          "type": "string",
-          "required": false
+          "type": "VerticalPosition",
+          "required": false,
+          "values": ["auto", "above", "below"]
         }
       ],
       "blocks": [
@@ -9630,7 +9653,7 @@
             },
             {
               "name": "select",
-              "type": "Select"
+              "type": "Select<T, false>"
             }
           ]
         }

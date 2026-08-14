@@ -10,7 +10,7 @@ import style from 'ember-style-modifier';
 import PowerSelect from 'ember-power-select/components/power-select';
 
 import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
-import type { Select } from 'ember-power-select/components/power-select';
+import type { Select } from 'ember-power-select/types';
 import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
 
 import {
@@ -30,23 +30,26 @@ export const DEFAULT_HORIZONTAL_POSITION: string =
 export const HORIZONTAL_POSITION_MAPPING =
   HdsFormSuperSelectHorizontalPositionToPlacementValues;
 
-export interface HdsFormSuperSelectSingleBaseSignature {
-  Args: Omit<PowerSelectSignature['Args'], 'resultCountMessage'> & {
+export interface HdsFormSuperSelectSingleBaseSignature<T = unknown> {
+  Args: Omit<
+    PowerSelectSignature<T, false, unknown>['Args'],
+    'resultCountMessage'
+  > & {
     showAfterOptions?: boolean;
     afterOptionsContent?: string;
     resultCountMessage?:
       | string
-      | PowerSelectSignature['Args']['resultCountMessage'];
+      | PowerSelectSignature<T, false, unknown>['Args']['resultCountMessage'];
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
   };
-  Blocks: PowerSelectSignature['Blocks'];
-  Element: PowerSelectSignature['Element'];
+  Blocks: PowerSelectSignature<T, false, unknown>['Blocks'];
+  Element: PowerSelectSignature<T, false, unknown>['Element'];
 }
 
-export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuperSelectSingleBaseSignature> {
-  @tracked powerSelectAPI?: Select;
+export default class HdsFormSuperSelectSingleBase<T = unknown> extends Component<HdsFormSuperSelectSingleBaseSignature<T>> {
+  @tracked powerSelectAPI?: Select<T>;
 
   get horizontalPosition(): HdsFormSuperSelectHorizontalPositions {
     const { horizontalPosition = DEFAULT_HORIZONTAL_POSITION } = this.args;
@@ -61,7 +64,11 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     return `${this.powerSelectAPI?.resultsCount || 0} total`;
   }
 
-  get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
+  get resultCountMessageFunction(): PowerSelectSignature<
+    T,
+    false,
+    unknown
+  >['Args']['resultCountMessage'] {
     if (typeof this.args.resultCountMessage === 'function') {
       return this.args.resultCountMessage;
     }
@@ -80,7 +87,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
    *
    * The `powerSelectAPI` is also stored on the component instance and used in `clearSelected`
    */
-  setPowerSelectAPI = (powerSelectAPI: Select): void => {
+  setPowerSelectAPI = (powerSelectAPI: Select<T>): void => {
     if (typeof this.args.registerAPI === 'function') {
       this.args.registerAPI(powerSelectAPI);
     }
@@ -143,6 +150,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
     <div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
       <PowerSelect
+        {{! @glint-expect-error: HdsFormSuperSelectAfterOptions has additional args (clearSelected, showAll, showSelected) provided at runtime by ember-power-select }}
         @afterOptionsComponent={{if
           this.showAfterOptions
           (or

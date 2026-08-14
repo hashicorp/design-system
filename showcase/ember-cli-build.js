@@ -36,7 +36,7 @@ module.exports = function (defaults) {
         ...(hasSrcStyles
           ? [componentsSrcStylesFolder]
           : [componentsDistStylesFolder]),
-        'node_modules/ember-power-select/vendor',
+        'node_modules/ember-power-select',
       ],
     },
     // we need to add this or Ember Sass compilation will mess up the generated CSS
