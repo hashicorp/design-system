@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-mcp",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "description": "Helios Design System MCP server",
   "keywords": [
