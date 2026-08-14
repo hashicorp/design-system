@@ -504,9 +504,10 @@
   --hds-form-super-select-option-background-image-size: 12px;
   --hds-form-super-select-option-border-color: #e0e0e0;
   --hds-form-super-select-option-margin-top: 0px;
-  --hds-form-super-select-option-surface-color-action-hover: #e8e8e8;
   --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
   --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
+  --hds-form-super-select-option-surface-color-default: #ffffff;
+  --hds-form-super-select-option-surface-color-hover: #e8e8e8;
   --hds-form-super-select-padding-left: var(--hds-form-control-padding-horizontal);
   --hds-form-super-select-search-margin-bottom: 0px;
   --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);

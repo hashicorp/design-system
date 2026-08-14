@@ -730,8 +730,10 @@
   --hds-form-super-select-padding-left: 11px;
   --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
   --hds-form-super-select-option-background-image-size: 16px;
-  --hds-form-super-select-option-foreground-color-action-hover: #0c56e9;
-  --hds-form-super-select-option-surface-color-action-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-foreground-color-hover: #0c56e9;
+  --hds-form-super-select-option-foreground-color-active: #0046d1;
+  --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
@@ -8261,7 +8263,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option {
   position: relative;
-  min-height: var(--hds-form-super-select-height);
+  min-height: var(--hds-form-control-height);
   padding: 7px 7px 7px 39px;
   color: var(--hds-foreground-color-primary);
   font-size: var(--hds-typography-body-200-font-size);
@@ -8287,13 +8289,13 @@ button.hds-button[href]::after {
 
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true] {
   color: var(--hds-form-control-base-foreground-color);
-  background-color: var(--hds-form-control-base-surface-color-default);
+  background-color: var(--hds-form-super-select-option-surface-color-default);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-selected=true] {
   background: var(--hds-form-super-select-option-surface-color-checked-default);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover {
-  background-color: var(--hds-form-super-select-option-surface-color-action-hover);
+  background-color: var(--hds-form-super-select-option-surface-color-hover);
   border: none;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover[aria-selected=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover[aria-selected=true] {
@@ -8354,7 +8356,6 @@ button.hds-button[href]::after {
 }
 
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search {
-  margin-bottom: 3px;
   margin-bottom: var(--hds-form-super-select-search-margin-bottom);
   padding: 11px 11px 0 11px;
   border-radius: var(--hds-form-control-border-radius);
@@ -8367,7 +8368,7 @@ button.hds-button[href]::after {
 
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-search-input {
   width: 100%;
-  min-height: var(--hds-form-super-select-height);
+  min-height: var(--hds-form-control-height);
   padding: var(--hds-form-control-padding-vertical) var(--hds-form-control-padding-horizontal);
   color: var(--hds-form-control-base-foreground-color);
   font-size: var(--hds-typography-body-200-font-size);
@@ -8517,22 +8518,22 @@ button.hds-button[href]::after {
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]).mock-hover {
-  color: var(--hds-form-super-select-option-foreground-color-action-hover);
+  color: var(--hds-form-super-select-option-foreground-color-hover);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]).mock-active {
-  color: var(--hds-form-super-select-option-foreground-color-action-active);
+  color: var(--hds-form-super-select-option-foreground-color-active);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message).mock-hover {
-  color: var(--hds-form-super-select-option-foreground-color-action-hover);
+  color: var(--hds-form-super-select-option-foreground-color-hover);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message).mock-active {
-  color: var(--hds-form-super-select-option-foreground-color-action-active);
+  color: var(--hds-form-super-select-option-foreground-color-active);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
 .ember-power-select-option--loading-message)[aria-selected=true][aria-disabled=true] {
@@ -8639,7 +8640,7 @@ button.hds-button[href]::after {
 }
 
 .hds-form-super-select__no-options-selected {
-  min-height: var(--hds-form-super-select-height);
+  min-height: var(--hds-form-control-height);
   padding: 4px 15px 10px;
 }
 

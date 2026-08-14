@@ -23577,15 +23577,15 @@
     ]
   },
   {
-    "key": "{form.super-select.option.foreground.color.action.hover}",
+    "key": "{form.super-select.option.foreground.color.hover}",
     "$type": "color",
     "$value": "#161616",
     "original": {
       "$type": "color",
       "$value": "{dropdown.list-item.foreground.color.action.hover}",
-      "key": "{form.super-select.option.foreground.color.action.hover}"
+      "key": "{form.super-select.option.foreground.color.hover}"
     },
-    "name": "hds-form-super-select-option-foreground-color-action-hover",
+    "name": "hds-form-super-select-option-foreground-color-hover",
     "attributes": {
       "category": "form"
     },
@@ -23595,12 +23595,69 @@
       "option",
       "foreground",
       "color",
-      "action",
       "hover"
     ]
   },
   {
-    "key": "{form.super-select.option.surface.color.action.hover}",
+    "key": "{form.super-select.option.foreground.color.active}",
+    "$type": "color",
+    "$value": "#525252",
+    "original": {
+      "$type": "color",
+      "$value": "{dropdown.list-item.foreground.color.action.active}",
+      "key": "{form.super-select.option.foreground.color.active}"
+    },
+    "name": "hds-form-super-select-option-foreground-color-active",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "super-select",
+      "option",
+      "foreground",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{form.super-select.option.surface.color.default}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "#f4f4f4",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#393939",
+      "cds-g100": "#262626"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.layer01}",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.themes.white.layer01}",
+        "cds-g10": "{carbon.themes.g10.layer01}",
+        "cds-g90": "{carbon.themes.g90.layer01}",
+        "cds-g100": "{carbon.themes.g100.layer01}"
+      },
+      "key": "{form.super-select.option.surface.color.default}"
+    },
+    "name": "hds-form-super-select-option-surface-color-default",
+    "attributes": {
+      "category": "form"
+    },
+    "path": [
+      "form",
+      "super-select",
+      "option",
+      "surface",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{form.super-select.option.surface.color.hover}",
     "$type": "color",
     "$value": "#e8e8e8",
     "$modes": {
@@ -23620,9 +23677,9 @@
         "cds-g90": "{carbon.themes.g90.layerHover01}",
         "cds-g100": "{carbon.themes.g100.layerHover01}"
       },
-      "key": "{form.super-select.option.surface.color.action.hover}"
+      "key": "{form.super-select.option.surface.color.hover}"
     },
-    "name": "hds-form-super-select-option-surface-color-action-hover",
+    "name": "hds-form-super-select-option-surface-color-hover",
     "attributes": {
       "category": "form"
     },
@@ -23632,7 +23689,6 @@
       "option",
       "surface",
       "color",
-      "action",
       "hover"
     ]
   },

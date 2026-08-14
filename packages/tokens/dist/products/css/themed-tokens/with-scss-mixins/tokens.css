@@ -905,7 +905,6 @@
     );
     --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
     --hds-form-super-select-option-margin-top: 8px;
-    --hds-form-super-select-option-surface-color-action-hover: rgba(0, 0, 0, 0);
     --hds-form-super-select-option-surface-color-checked-default: rgba(
       0,
       0,
@@ -918,6 +917,8 @@
       0,
       0
     );
+    --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
+    --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
     --hds-form-super-select-padding-left: 11px;
     --hds-form-super-select-search-margin-bottom: 3px;
     --hds-form-super-select-tag-border-color: var(--hds-border-color-strong);
@@ -1990,9 +1991,10 @@
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #c6c6c6;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-action-hover: #e8e8e8;
     --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
+    --hds-form-super-select-option-surface-color-default: #f4f4f4;
+    --hds-form-super-select-option-surface-color-hover: #e8e8e8;
     --hds-form-super-select-padding-left: var(
       --hds-form-control-padding-horizontal
     );
@@ -2893,9 +2895,10 @@
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #525252;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-action-hover: #333333;
     --hds-form-super-select-option-surface-color-checked-default: #393939;
     --hds-form-super-select-option-surface-color-checked-hover: #474747;
+    --hds-form-super-select-option-surface-color-default: #262626;
+    --hds-form-super-select-option-surface-color-hover: #333333;
     --hds-form-super-select-padding-left: var(
       --hds-form-control-padding-horizontal
     );
@@ -3766,9 +3769,10 @@
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #c6c6c6;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-action-hover: #e8e8e8;
     --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
+    --hds-form-super-select-option-surface-color-default: #f4f4f4;
+    --hds-form-super-select-option-surface-color-hover: #e8e8e8;
     --hds-form-super-select-padding-left: var(
       --hds-form-control-padding-horizontal
     );
@@ -4639,9 +4643,10 @@
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #e0e0e0;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-action-hover: #e8e8e8;
     --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
+    --hds-form-super-select-option-surface-color-default: #ffffff;
+    --hds-form-super-select-option-surface-color-hover: #e8e8e8;
     --hds-form-super-select-padding-left: var(
       --hds-form-control-padding-horizontal
     );
@@ -5542,9 +5547,10 @@
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #6f6f6f;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-action-hover: #474747;
     --hds-form-super-select-option-surface-color-checked-default: #525252;
     --hds-form-super-select-option-surface-color-checked-hover: #636363;
+    --hds-form-super-select-option-surface-color-default: #393939;
+    --hds-form-super-select-option-surface-color-hover: #474747;
     --hds-form-super-select-padding-left: var(
       --hds-form-control-padding-horizontal
     );
@@ -6445,9 +6451,10 @@
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #525252;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-action-hover: #333333;
     --hds-form-super-select-option-surface-color-checked-default: #393939;
     --hds-form-super-select-option-surface-color-checked-hover: #474747;
+    --hds-form-super-select-option-surface-color-default: #262626;
+    --hds-form-super-select-option-surface-color-hover: #333333;
     --hds-form-super-select-padding-left: var(
       --hds-form-control-padding-horizontal
     );
@@ -6973,7 +6980,10 @@
       --hds-form-control-padding-horizontal
     );
     --hds-form-select-background-image-size: 16px;
-    --hds-form-super-select-option-foreground-color-action-hover: var(
+    --hds-form-super-select-option-foreground-color-active: var(
+      --hds-dropdown-list-item-foreground-color-action-active
+    );
+    --hds-form-super-select-option-foreground-color-hover: var(
       --hds-dropdown-list-item-foreground-color-action-hover
     );
     --hds-form-text-input-background-image-data-url-date: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e");

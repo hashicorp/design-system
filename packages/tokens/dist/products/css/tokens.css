@@ -726,8 +726,10 @@
   --hds-form-super-select-padding-left: 11px;
   --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
   --hds-form-super-select-option-background-image-size: 16px;
-  --hds-form-super-select-option-foreground-color-action-hover: #0c56e9;
-  --hds-form-super-select-option-surface-color-action-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-foreground-color-hover: #0c56e9;
+  --hds-form-super-select-option-foreground-color-active: #0046d1;
+  --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
