@@ -1,3 +1,8 @@
+## 6.5.0
+
+Added scren reader text for step number
+
+
 ## 6.2.1
 
 Refactored classes for step to removed unneeded interactive classes

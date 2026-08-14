@@ -22,6 +22,8 @@ navigation:
     - grid
     - list
   order: 101
+status:
+  updated: 6.5.0
 ---
 
 <section data-tab="Guidelines">
