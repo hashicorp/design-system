@@ -43,27 +43,38 @@
         },
         "foreground": {
           "color": {
-            "action": {
-              "hover": {
-                "$type": "color",
-                "$value": "{dropdown.list-item.foreground.color.action.hover}"
-              }
+            "hover": {
+              "$type": "color",
+              "$value": "{dropdown.list-item.foreground.color.action.hover}"
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{dropdown.list-item.foreground.color.action.active}"
             }
           }
         },
         "surface": {
           "color": {
-            "action": {
-              "hover": {
-                "$type": "color",
-                "$value": "transparent",
-                "$modes": {
-                  "default": "transparent",
-                  "cds-g0": "{carbon.themes.white.layerHover01}",
-                  "cds-g10": "{carbon.themes.g10.layerHover01}",
-                  "cds-g90": "{carbon.themes.g90.layerHover01}",
-                  "cds-g100": "{carbon.themes.g100.layerHover01}"
-                }
+            "default": {
+              "$type": "color",
+              "$value": "transparent",
+              "$modes": {
+                "default": "transparent",
+                "cds-g0": "{carbon.themes.white.layer01}",
+                "cds-g10": "{carbon.themes.g10.layer01}",
+                "cds-g90": "{carbon.themes.g90.layer01}",
+                "cds-g100": "{carbon.themes.g100.layer01}"
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "transparent",
+              "$modes": {
+                "default": "transparent",
+                "cds-g0": "{carbon.themes.white.layerHover01}",
+                "cds-g10": "{carbon.themes.g10.layerHover01}",
+                "cds-g90": "{carbon.themes.g90.layerHover01}",
+                "cds-g100": "{carbon.themes.g100.layerHover01}"
               }
             },
             "checked": {
