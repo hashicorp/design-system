@@ -65,11 +65,11 @@
 <div class="doc-whats-new-changelog-separator"></div>
 
 
-`StepperNav` - Added scren reader text for step number
+`StepperNav` - Added screen reader text for step number
 
 
 
-`StepperList` - Added scren reader text for step number
+`StepperList` - Added screen reader text for step number
 
 
 <small class="doc-whats-new-changelog-metadata">[#3993](https://github.com/hashicorp/design-system/pull/3993)</small>

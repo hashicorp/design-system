@@ -1,6 +1,6 @@
 ## 6.5.0
 
-Added scren reader text for step number
+Added screen reader text for step number
 
 
 ## 6.3.0
