@@ -241,10 +241,13 @@ The `FilterBar::FiltersDropdown` is yielded as the `[F].FiltersDropdown` context
 The `FilterBar::FilterGroup` is yielded as the `[D].FilterGroup` contextual component in the `FilterBar::FiltersDropdown`.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[F].Checkbox>" @type="yielded component">
+  <C.Property @name="<[FG].Checkbox>" @type="yielded component">
     `FilterBar::FilterGroup::Checkbox` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[F].Radio>" @type="yielded component">
+  <C.Property @name="<[FG].Generic>" @type="yielded component">
+    `FilterBar::FilterGroup::Generic` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[FG].Radio>" @type="yielded component">
     `FilterBar::FilterGroup::Radio` yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="key" @type="string" @required={{true}}>
@@ -261,22 +264,9 @@ The `FilterBar::FilterGroup` is yielded as the `[D].FilterGroup` contextual comp
   </C.Property>
 </Doc::ComponentApi>
 
-#### FilterBar::FilterGroup::Radio
-
-The `FilterBar::FilterGroup::Radio` is yielded as the `[F].Radio` contextual component in the `FilterBar::FilterGroup`.
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="value" @type="string" @required={{true}}>
-    The value of the radio button.
-  </C.Property>
-  <C.Property @name="label" @type="string" @required={{true}}>
-    The label of the radio button. It is also passed to the applied filter object on filter change.
-  </C.Property>
-</Doc::ComponentApi>
-
 #### FilterBar::FilterGroup::Checkbox
 
-The `FilterBar::FilterGroup::Checkbox` is yielded as the `[F].Checkbox` contextual component in the `FilterBar::FilterGroup`.
+The `FilterBar::FilterGroup::Checkbox` is yielded as the `[FG].Checkbox` contextual component in the `FilterBar::FilterGroup`.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="value" @type="string" @required={{true}}>
@@ -284,6 +274,29 @@ The `FilterBar::FilterGroup::Checkbox` is yielded as the `[F].Checkbox` contextu
   </C.Property>
   <C.Property @name="label" @type="string" @required={{true}}>
     The label of the checkbox button. It is also passed to the applied filter object on filter change.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### FilterBar::FilterGroup::Generic
+
+The `FilterBar::FilterGroup::Generic` is yielded as the `[FG].Generic` contextual component in the `FilterBar::FilterGroup`.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="[G].updateFilter" @type="function">
+    Function to programmatically trigger updates to the filter inside the `FiltersDropdown`. Requires to be passed a filters object of the [generic filter type](#generic).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### FilterBar::FilterGroup::Radio
+
+The `FilterBar::FilterGroup::Radio` is yielded as the `[FG].Radio` contextual component in the `FilterBar::FilterGroup`.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="value" @type="string" @required={{true}}>
+    The value of the radio button.
+  </C.Property>
+  <C.Property @name="label" @type="string" @required={{true}}>
+    The label of the radio button. It is also passed to the applied filter object on filter change.
   </C.Property>
 </Doc::ComponentApi>
 
