@@ -1,3 +1,8 @@
+## 6.5.0
+
+Added support for `ActionsGeneric` wrapping to new line
+
+
 ## 6.4.0
 
 Added a `searchAriaLabel` feature to expose the value of the search input aria-label, allowing the value to be customized
