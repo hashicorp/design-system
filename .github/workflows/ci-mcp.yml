@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0
       - name: Get changed files
         id: read-files
-        run: ./.github/scripts/filter_changed_files.sh "packages/mcp" "packages/flight-icons/catalog.json" ".github/workflows/ci-mcp.yml"
+        run: ./.github/scripts/filter_changed_files.sh "packages/mcp" "packages/flight-icons/catalog.json" "showcase/app/components" "showcase/app/router.ts" ".github/workflows/ci-mcp.yml"
 
   test:
     name: Typecheck, lint, and test
@@ -46,6 +46,9 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install
+      - name: Verify MCP code examples catalog
+        run: pnpm catalog:code-examples:check
+        working-directory: packages/mcp
       - name: Typecheck MCP
         run: pnpm typecheck
         working-directory: packages/mcp
