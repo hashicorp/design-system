@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { toJsonResourceResponse } from "../utils.js";
+import { toJsonResourceResponse } from "../shared/responses.js";
 import { COMPONENTS_URI } from "./constants.js";
 import { getOrLoadComponentStore } from "./store/index.js";
 import { toSerializableComponentSummary } from "./utils.js";
@@ -12,12 +12,15 @@ import type { McpResource } from "../types.js";
 import type { ComponentCatalogStore } from "./store/index.js";
 
 export const readComponentsResource = (store: ComponentCatalogStore) => {
+  const meta = store.getMeta();
   const payload = {
-    totalComponentCount: store.getMeta().totalComponentCount,
+    totalComponentCount: meta.totalComponentCount,
+    source: meta.source,
     components: store
       .listComponents()
       .map((component) => toSerializableComponentSummary(component)),
   };
+
   return toJsonResourceResponse(COMPONENTS_URI, payload);
 };
 
