@@ -402,7 +402,8 @@
       "types": "./declarations/re-exports/codemirror.d.ts",
       "default": "./dist/re-exports/codemirror.js"
     },
-    "./component-catalog.json": "./component-catalog.json"
+    "./component-catalog.json": "./component-catalog.json",
+    "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
