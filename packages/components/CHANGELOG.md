@@ -1,14 +1,136 @@
 # @hashicorp/design-system-components
 
+## 6.5.0
+
+### Minor Changes
+
+<!-- START components/segmented-group -->
+
+`SegmentedGroup` - Added `SuperSelect` and `SuperSelectMultiple` as yielded contextual components.
+
+<!-- END -->
+
+<!-- START components/segmented-group -->
+
+`SegmentedGroup` - Added `isFullWidth` and `maxWidth` arguments.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4008](https://github.com/hashicorp/design-system/pull/4008)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Updated the resize column behavior to support cascading resizes while guaranteeing that columns will never inadvertently shrink below the size of their container.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4020](https://github.com/hashicorp/design-system/pull/4020)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/table -->
+
+`Table` - Added `.hds-table__tr--is-selected` class to table rows when they are selected.
+
+<!-- END -->
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Added `.hds-advanced-table__tr--is-selected` class to table rows when they are selected.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4021](https://github.com/hashicorp/design-system/pull/4021)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+<!-- START components/filter-bar -->
+
+`FilterBar` - Added support for `ActionsGeneric` wrapping to new line
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4034](https://github.com/hashicorp/design-system/pull/4034)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed bug where the bottom scroll indicator was always present if reordering was enabled.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4042](https://github.com/hashicorp/design-system/pull/4042)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed issue where keyboard order did not match visual order after sorting the table.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4044](https://github.com/hashicorp/design-system/pull/4044)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/stepper/nav -->
+
+`StepperNav` - Added scren reader text for step number
+
+<!-- END -->
+
+<!-- START components/stepper/list -->
+
+`StepperList` - Added scren reader text for step number
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3993](https://github.com/hashicorp/design-system/pull/3993)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed an issue where clicking a cell scrolled the page to center that cell
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4017](https://github.com/hashicorp/design-system/pull/4017)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Updated reorder handle to not be visible on resize handle hover / focus
+
+<!-- END -->
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed an issue where the table header tooltip was not visible with the table empty state
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4038](https://github.com/hashicorp/design-system/pull/4038)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@5.1.0
+
 ## 6.4.0
 
 [6.4.0 documentation](https://hds-website-6-4-0.vercel.app/)
 
 ### Minor Changes
 
-
 `FilterBar` - Added a `searchAriaLabel` feature to expose the value of the search input aria-label, allowing the value to be customized
-
 
 <small class="doc-whats-new-changelog-metadata">[#3980](https://github.com/hashicorp/design-system/pull/3980)</small>
 

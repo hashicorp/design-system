@@ -12,15 +12,137 @@
   </a>
 </p>
 
+## 6.5.0
+
+**Minor changes**
+
+<!-- START components/segmented-group -->
+
+`SegmentedGroup` - Added `SuperSelect` and `SuperSelectMultiple` as yielded contextual components.
+
+<!-- END -->
+
+<!-- START components/segmented-group -->
+
+`SegmentedGroup` - Added `isFullWidth` and `maxWidth` arguments.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4008](https://github.com/hashicorp/design-system/pull/4008)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Updated the resize column behavior to support cascading resizes while guaranteeing that columns will never inadvertently shrink below the size of their container.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4020](https://github.com/hashicorp/design-system/pull/4020)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/table -->
+
+`Table` - Added `.hds-table__tr--is-selected` class to table rows when they are selected.
+
+<!-- END -->
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Added `.hds-advanced-table__tr--is-selected` class to table rows when they are selected.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4021](https://github.com/hashicorp/design-system/pull/4021)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+<!-- START components/filter-bar -->
+
+`FilterBar` - Added support for `ActionsGeneric` wrapping to new line
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4034](https://github.com/hashicorp/design-system/pull/4034)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed bug where the bottom scroll indicator was always present if reordering was enabled.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4042](https://github.com/hashicorp/design-system/pull/4042)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed issue where keyboard order did not match visual order after sorting the table.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4044](https://github.com/hashicorp/design-system/pull/4044)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/stepper/nav -->
+
+`StepperNav` - Added scren reader text for step number
+
+<!-- END -->
+
+<!-- START components/stepper/list -->
+
+`StepperList` - Added scren reader text for step number
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3993](https://github.com/hashicorp/design-system/pull/3993)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed an issue where clicking a cell scrolled the page to center that cell
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4017](https://github.com/hashicorp/design-system/pull/4017)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Updated reorder handle to not be visible on resize handle hover / focus
+
+<!-- END -->
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed an issue where the table header tooltip was not visible with the table empty state
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#4038](https://github.com/hashicorp/design-system/pull/4038)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@5.1.0
+
 ## 6.4.0
 
 [6.4.0 documentation](https://hds-website-6-4-0.vercel.app/)
 
 **Minor changes**
 
-
 `FilterBar` - Added a `searchAriaLabel` feature to expose the value of the search input aria-label, allowing the value to be customized
-
 
 <small class="doc-whats-new-changelog-metadata">[#3980](https://github.com/hashicorp/design-system/pull/3980)</small>
 
@@ -1569,40 +1691,6 @@ Upgraded the following dependencies:
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@3.11.1
-
-## 4.20.1
-
-[4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
-
-**Patch changes**
-
-`AdvancedTable` - Fixed a bug that prevented the `model` from updating when the argument changes
-
-<small class="doc-whats-new-changelog-metadata">[#2919](https://github.com/hashicorp/design-system/pull/2919)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Stepper::Nav` - Updated signature to use `WithBoundArgs` instead of `ComponentLike` for contextual components to resolve linting issues
-
-<small class="doc-whats-new-changelog-metadata">[#2936](https://github.com/hashicorp/design-system/pull/2936)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Accordion` - Set `aria-controls` of `Accordion::Item::Button` to `contentId` from `DisclosurePrimitive` for a11y improvements with toggled content
-
-`DisclosurePrimitive` - Changed DOM structure of content section and exposed `contentId` for a11y improvements with toggled content
-
-`Reveal` - Set `aria-controls` of `Reveal::Toggle` to `contentId` from `DisclosurePrimitive` for a11y improvements with toggled content
-
-<small class="doc-whats-new-changelog-metadata">[#2643](https://github.com/hashicorp/design-system/pull/2643)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Form::Field` - Fixed focus order a11y issue for helper text links with `@layout` of `flag`
-
-<small class="doc-whats-new-changelog-metadata">[#2915](https://github.com/hashicorp/design-system/pull/2915)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---
