@@ -6689,12 +6689,6 @@ button.hds-button[href]::after {
   outline: var(--hds-focus-ring-width-external) solid var(--hds-focus-color-action-external);
   outline-offset: 1px;
 }
-.hds-theme-light .hds-form-radio:focus-visible, .hds-theme-light .hds-form-radio.mock-focus,
-.hds-theme-dark .hds-form-radio:focus-visible, .hds-theme-dark .hds-form-radio.mock-focus,
-.hds-theme-system .hds-form-radio:focus-visible, .hds-theme-system .hds-form-radio.mock-focus {
-  outline-offset: 0;
-}
-
 .hds-form-radio:disabled:not(:checked) {
   background-color: var(--hds-form-control-surface-color-unchecked-disabled);
   border-color: var(--hds-form-control-border-color-unchecked-disabled);
@@ -7026,9 +7020,48 @@ button.hds-button[href]::after {
 .hds-form-select[multiple]:hover, .hds-form-select[multiple].mock-hover, .hds-form-select[size]:hover, .hds-form-select[size].mock-hover {
   border-color: var(--hds-form-control-base-border-color-hover);
 }
+.hds-theme-light .hds-form-select[multiple]:hover, .hds-theme-light .hds-form-select[multiple].mock-hover, .hds-theme-light .hds-form-select[size]:hover, .hds-theme-light .hds-form-select[size].mock-hover,
+.hds-theme-dark .hds-form-select[multiple]:hover, .hds-theme-dark .hds-form-select[multiple].mock-hover, .hds-theme-dark .hds-form-select[size]:hover, .hds-theme-dark .hds-form-select[size].mock-hover,
+.hds-theme-system .hds-form-select[multiple]:hover, .hds-theme-system .hds-form-select[multiple].mock-hover, .hds-theme-system .hds-form-select[size]:hover, .hds-theme-system .hds-form-select[size].mock-hover {
+  border-color: var(--hds-form-control-base-border-color-hover);
+}
+
 .hds-form-select[multiple]:disabled, .hds-form-select[size]:disabled {
   border-color: var(--hds-form-control-disabled-border-color);
 }
+.hds-theme-light .hds-form-select[multiple]:disabled, .hds-theme-light .hds-form-select[size]:disabled,
+.hds-theme-dark .hds-form-select[multiple]:disabled, .hds-theme-dark .hds-form-select[size]:disabled,
+.hds-theme-system .hds-form-select[multiple]:disabled, .hds-theme-system .hds-form-select[size]:disabled {
+  border-color: var(--hds-form-control-disabled-border-color);
+}
+
+.hds-form-select[multiple].hds-form-select--is-invalid, .hds-form-select[size].hds-form-select--is-invalid {
+  border-color: var(--hds-form-control-invalid-border-color-default);
+}
+.hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid,
+.hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid,
+.hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid {
+  border-color: var(--hds-form-control-invalid-border-color-default);
+}
+
+.hds-form-select[multiple].hds-form-select--is-invalid:hover, .hds-form-select[multiple].hds-form-select--is-invalid.mock-hover, .hds-form-select[size].hds-form-select--is-invalid:hover, .hds-form-select[size].hds-form-select--is-invalid.mock-hover {
+  border-color: var(--hds-form-control-invalid-border-color-hover);
+}
+.hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid:hover, .hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid.mock-hover, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid:hover, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid.mock-hover,
+.hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid:hover, .hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid.mock-hover, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid:hover, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid.mock-hover,
+.hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid:hover, .hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid.mock-hover, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid:hover, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid.mock-hover {
+  border-color: var(--hds-form-control-invalid-border-color-hover);
+}
+
+.hds-form-select[multiple].hds-form-select--is-invalid:focus-visible, .hds-form-select[multiple].hds-form-select--is-invalid.mock-focus, .hds-form-select[size].hds-form-select--is-invalid:focus-visible, .hds-form-select[size].hds-form-select--is-invalid.mock-focus {
+  border-color: var(--hds-focus-color-critical-internal);
+}
+.hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid:focus-visible, .hds-theme-light .hds-form-select[multiple].hds-form-select--is-invalid.mock-focus, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid:focus-visible, .hds-theme-light .hds-form-select[size].hds-form-select--is-invalid.mock-focus,
+.hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid:focus-visible, .hds-theme-dark .hds-form-select[multiple].hds-form-select--is-invalid.mock-focus, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid:focus-visible, .hds-theme-dark .hds-form-select[size].hds-form-select--is-invalid.mock-focus,
+.hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid:focus-visible, .hds-theme-system .hds-form-select[multiple].hds-form-select--is-invalid.mock-focus, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid:focus-visible, .hds-theme-system .hds-form-select[size].hds-form-select--is-invalid.mock-focus {
+  border-color: var(--hds-focus-color-critical-internal);
+}
+
 .hds-form-select[multiple] option, .hds-form-select[size] option {
   margin: 2px auto;
   border-radius: var(--hds-border-radius-x-small);
