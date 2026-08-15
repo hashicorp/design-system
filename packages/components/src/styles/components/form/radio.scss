@@ -58,7 +58,11 @@
 
   &:focus-visible,
   &.mock-focus {
-    @include hds-focus-ring-basic($external-outline-offset-hds: 1px, $has-internal-border: false);
+    @include hds-focus-ring-basic(
+      $external-outline-offset-hds: 1px,
+      $external-outline-offset-cds: 1px,
+      $has-internal-border: false
+    );
   }
 
   // DISABLED

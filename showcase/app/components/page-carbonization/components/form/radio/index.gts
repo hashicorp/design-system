@@ -46,10 +46,10 @@ const FormRadioCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference>
         <ShwFlex @gap="1rem" as |SF|>
-          <SF.Item @label="Unchecked">
+          <SF.Item>
             <cds-radio-button></cds-radio-button>
           </SF.Item>
-          <SF.Item @label="Checked">
+          <SF.Item>
             <cds-radio-button checked></cds-radio-button>
           </SF.Item>
         </ShwFlex>

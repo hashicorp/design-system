@@ -91,16 +91,57 @@
   &[multiple],
   &[size] {
     background: none;
-    // Note: Select multiple/size has borders on all sides unlike the single select
+    // Note: The multiple/size Select has borders on all sides unlike the single Select
     border: var(--hds-form-control-border-width) solid var(--hds-form-control-base-border-color-default);
 
     &:hover,
     &.mock-hover {
       border-color: var(--hds-form-control-base-border-color-hover);
+
+      // Override default transparent carbon border-color
+      @include hds-apply-only-if-carbon() {
+        border-color: var(--hds-form-control-base-border-color-hover);
+      }
     }
 
     &:disabled {
       border-color: var(--hds-form-control-disabled-border-color);
+
+      // Override default transparent carbon border-color
+      @include hds-apply-only-if-carbon() {
+        border-color: var(--hds-form-control-disabled-border-color);
+      }
+    }
+
+    // INVALID
+
+    &.hds-form-select--is-invalid {
+      border-color: var(--hds-form-control-invalid-border-color-default);
+
+      // Override default transparent carbon border-color
+      @include hds-apply-only-if-carbon() {
+        border-color: var(--hds-form-control-invalid-border-color-default);
+      }
+
+      &:hover,
+      &.mock-hover {
+        border-color: var(--hds-form-control-invalid-border-color-hover);
+
+        // Override default transparent carbon border-color
+        @include hds-apply-only-if-carbon() {
+          border-color: var(--hds-form-control-invalid-border-color-hover);
+        }
+      }
+
+      &:focus-visible,
+      &.mock-focus {
+        border-color: var(--hds-focus-color-critical-internal);
+
+        // Override default transparent carbon border-color
+        @include hds-apply-only-if-carbon() {
+          border-color: var(--hds-focus-color-critical-internal);
+        }
+      }
     }
 
     option {
