@@ -35,7 +35,9 @@ module('Integration | Component | hds/form/indicator/index', function (hooks) {
       <template><HdsFormIndicator @isRequired={{true}} /></template>,
     );
     assert.dom('.hds-form-indicator').exists();
-    assert.dom('.hds-form-indicator').doesNotHaveClass('hds-form-indicator--optional');
+    assert
+      .dom('.hds-form-indicator')
+      .doesNotHaveClass('hds-form-indicator--optional');
     assert.dom('.hds-form-indicator').hasText('Required');
   });
 });
