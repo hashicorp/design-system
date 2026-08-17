@@ -69,13 +69,13 @@ const FormSelectCarbonizationIndex: TemplateOnlyComponent = <template>
         </cds-select>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Multiple" @layout="column-stacked">
+    <ShwCarbonizationComparisonGrid @label="Multiple">
       <:theming>
         <HdsFormSelectBase aria-label="multiple select" multiple as |C|>
           <C.Options>
             <option selected>Lorem ipsum dolor</option>
             <option>Sine qua non est</option>
-            <option>Consectetur adipiscing</option>
+            <option>Consectetur adiping</option>
           </C.Options>
         </HdsFormSelectBase>
       </:theming>
