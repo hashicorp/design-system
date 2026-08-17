@@ -12,6 +12,23 @@
   </a>
 </p>
 
+## 5.1.0
+
+**Minor changes**
+
+Added icons `delay` and `user-minus`
+Added Carbon icon references to contributed icons
+
+<small class="doc-whats-new-changelog-metadata">[#3995](https://github.com/hashicorp/design-system/pull/3995)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `incomplete-normal`, `circle-dash`, and `error-filled` icons.
+
+<small class="doc-whats-new-changelog-metadata">[#4002](https://github.com/hashicorp/design-system/pull/4002)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.0.0
 
 **Major changes**
@@ -241,22 +258,6 @@ mongodb and twilio icons have been added.
 `vagrant`, `vagrant-color`, `vagrant-fill`, `vagrant-fill-color`, `vagrant-square`, `vagrant-square-color` icons were updated per brand changes.
 
 <small class="doc-whats-new-changelog-metadata">[#2144](https://github.com/hashicorp/design-system/pull/2144)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 3.2.0
-
-**Minor changes**
-
-Added two icon logos: `minio` and `git`.
-
-<small class="doc-whats-new-changelog-metadata">[#2058](https://github.com/hashicorp/design-system/pull/2058)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`sparkle` icon added
-
-<small class="doc-whats-new-changelog-metadata">[#2081](https://github.com/hashicorp/design-system/pull/2081)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 

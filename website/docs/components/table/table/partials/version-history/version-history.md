@@ -1,3 +1,8 @@
+## 6.5.0
+
+Added `.hds-table__tr--is-selected` class to table rows when they are selected.
+
+
 ## 6.2.0
 
 Fixed element typing to `HTMLTableCellElement` to reflect the actual rendered table-cell element.

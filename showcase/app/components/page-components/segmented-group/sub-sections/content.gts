@@ -8,6 +8,7 @@ import { concat } from '@ember/helper';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
@@ -20,6 +21,8 @@ import {
   HdsFormField,
 } from '@hashicorp/design-system-components/components';
 import type { HdsFormTextInputTypes } from '@hashicorp/design-system-components/components/hds/form/text-input/types';
+
+import CodeFragmentWithSuperSelect from 'showcase/components/page-components/segmented-group/code-fragments/with-super-select';
 
 const TEXT_INPUT_TYPES: HdsFormTextInputTypes[] = [
   'text',
@@ -335,6 +338,83 @@ const SubSectionContent: TemplateOnlyComponent = <template>
           />
         </SGR.Generic>
       </HdsSegmentedGroup>
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>SuperSelect</ShwTextH3>
+
+  <ShwTextH4>No set width</ShwTextH4>
+
+  <ShwGrid @columns={{3}} as |SG|>
+    <SG.Item @label="SuperSelect trailing">
+      <CodeFragmentWithSuperSelect @type="single" @position="trailing" />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelect leading">
+      <CodeFragmentWithSuperSelect @type="single" @position="leading" />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple trailing">
+      <CodeFragmentWithSuperSelect @type="multiple" @position="trailing" />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple leading">
+      <CodeFragmentWithSuperSelect @type="multiple" @position="leading" />
+    </SG.Item>
+
+    <SG.Item @label="Input, SuperSelectMultiple, Button">
+      <CodeFragmentWithSuperSelect @type="multiple" @position="middle" />
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwTextH4>isFullWidth and maxWidth on the SegmentedGroup</ShwTextH4>
+
+  <ShwGrid @columns={{2}} as |SG|>
+    <SG.Item @label="SuperSelect trailing">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="single"
+        @position="trailing"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelect leading">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="single"
+        @position="leading"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple trailing">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="multiple"
+        @position="trailing"
+      />
+    </SG.Item>
+
+    <SG.Item @label="SuperSelectMultiple leading">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="multiple"
+        @position="leading"
+      />
+    </SG.Item>
+
+    <SG.Item @label="Input, SuperSelectMultiple, Button">
+      <CodeFragmentWithSuperSelect
+        @isFullWidth={{true}}
+        @maxWidth="500px"
+        @type="multiple"
+        @position="middle"
+      />
     </SG.Item>
   </ShwGrid>
 
