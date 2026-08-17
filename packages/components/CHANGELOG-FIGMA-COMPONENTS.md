@@ -1,5 +1,9 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## August 11th, 2026
+
+`FilterBar` - Added wrapping to the "main" auto-layout container to ensure generic content wraps as expected.
+
 ## February 4th, 2026
 
 `FilterBar` - New component added.
