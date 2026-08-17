@@ -241,6 +241,9 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
     // Hover
 
+    // Note: Including &[aria-current="true"] makes the left pseudo element border work for keyboard users but has side effect of "hover"
+    // state showing when mouse leaves the dropdown
+    &[aria-current="true"], // TEST: Was here originaly then removed from feedback
     &:hover,
     &.mock-hover {
       background-color: var(--hds-form-super-select-option-surface-color-hover);
@@ -531,6 +534,9 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       }
     }
 
+    // Note: Including &[aria-current="true"] makes the color change work for keyboard only uses but has side effect of "hover"
+    // state showing when mouse leaves the dropdown
+    &[aria-current="true"],
     &:hover,
     &.mock-hover {
       color: var(--hds-form-super-select-option-foreground-color-hover);
