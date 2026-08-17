@@ -91,6 +91,9 @@ module('Acceptance | Percy test', function (hooks) {
     await waitFor('.hds-code-editor__loader', { count: 0 });
     await percySnapshot('CodeEditor');
 
+    await visit('/components/copy/button');
+    await percySnapshot('CopyButton');
+
     await visit('/components/copy/snippet');
     await percySnapshot('CopySnippet');
 

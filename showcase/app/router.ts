@@ -119,6 +119,7 @@ Router.map(function () {
     this.route('tabs');
     this.route('tooltip');
     this.route('copy', function () {
+      this.route('button');
       this.route('snippet');
     });
   });
