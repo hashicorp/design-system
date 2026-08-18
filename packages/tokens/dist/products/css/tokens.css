@@ -8,188 +8,95 @@
   --hds-border-radius-medium: 6px;
   --hds-border-radius-large: 8px;
   --hds-border-radius-rounded: 1000000000px;
-  --hds-color-palette-blue-500: #1c345f;
-  --hds-color-palette-blue-400: #0046d1;
-  --hds-color-palette-blue-300: #0c56e9;
-  --hds-color-palette-blue-200: #1060ff;
-  --hds-color-palette-blue-100: #cce3fe;
-  --hds-color-palette-blue-50: #f2f8ff;
-  --hds-color-palette-purple-500: #42215b;
-  --hds-color-palette-purple-400: #7b00db;
-  --hds-color-palette-purple-300: #911ced;
-  --hds-color-palette-purple-200: #a737ff;
-  --hds-color-palette-purple-100: #ead2fe;
-  --hds-color-palette-purple-50: #f9f2ff;
-  --hds-color-palette-green-500: #054220;
-  --hds-color-palette-green-400: #006619;
-  --hds-color-palette-green-300: #00781e;
-  --hds-color-palette-green-200: #008a22;
-  --hds-color-palette-green-100: #cceeda;
-  --hds-color-palette-green-50: #f2fbf6;
-  --hds-color-palette-amber-500: #542800;
-  --hds-color-palette-amber-400: #803d00;
-  --hds-color-palette-amber-300: #9e4b00;
-  --hds-color-palette-amber-200: #bb5a00;
-  --hds-color-palette-amber-100: #fbeabf;
-  --hds-color-palette-amber-50: #fff9e8;
-  --hds-color-palette-red-500: #51130a;
-  --hds-color-palette-red-400: #940004;
-  --hds-color-palette-red-300: #c00005;
-  --hds-color-palette-red-200: #e52228;
-  --hds-color-palette-red-100: #fbd4d4;
-  --hds-color-palette-red-50: #fff5f5;
-  --hds-color-palette-neutral-700: #0c0c0e;
-  --hds-color-palette-neutral-600: #3b3d45;
-  --hds-color-palette-neutral-500: #656a76;
-  --hds-color-palette-neutral-400: #8c909c;
-  --hds-color-palette-neutral-300: #c2c5cb;
-  --hds-color-palette-neutral-200: #dedfe3;
-  --hds-color-palette-neutral-100: #f1f2f3;
-  --hds-color-palette-neutral-50: #fafafa;
-  --hds-color-palette-neutral-0: #ffffff;
-  --hds-color-palette-alpha-300: #3b3d4566;
-  --hds-color-palette-alpha-200: #656a7633;
-  --hds-color-palette-alpha-100: #656a761a;
-  --hds-color-border-primary: #656a7633;
-  --hds-color-border-faint: #656a761a;
-  --hds-color-border-strong: #3b3d4566;
-  --hds-color-border-action: #cce3fe;
-  --hds-color-border-highlight: #ead2fe;
-  --hds-color-border-success: #cceeda;
-  --hds-color-border-warning: #fbeabf;
-  --hds-color-border-critical: #fbd4d4;
-  --hds-color-focus-action-internal: #0c56e9;
-  --hds-color-focus-action-external: #5990ff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-focus-critical-internal: #c00005;
-  --hds-color-focus-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --hds-color-foreground-strong: #0c0c0e;
-  --hds-color-foreground-primary: #3b3d45;
-  --hds-color-foreground-faint: #656a76;
-  --hds-color-foreground-high-contrast: #ffffff;
-  --hds-color-foreground-disabled: #8c909c;
-  --hds-color-foreground-action: #1060ff;
-  --hds-color-foreground-action-hover: #0c56e9;
-  --hds-color-foreground-action-active: #0046d1;
-  --hds-color-foreground-highlight: #a737ff;
-  --hds-color-foreground-highlight-on-surface: #911ced;
-  --hds-color-foreground-highlight-high-contrast: #42215b;
-  --hds-color-foreground-success: #008a22;
-  --hds-color-foreground-success-on-surface: #00781e;
-  --hds-color-foreground-success-high-contrast: #054220;
-  --hds-color-foreground-warning: #bb5a00;
-  --hds-color-foreground-warning-on-surface: #9e4b00;
-  --hds-color-foreground-warning-high-contrast: #542800;
-  --hds-color-foreground-critical: #e52228;
-  --hds-color-foreground-critical-on-surface: #c00005;
-  --hds-color-foreground-critical-high-contrast: #51130a;
-  --hds-color-page-primary: #ffffff;
-  --hds-color-page-faint: #fafafa;
-  --hds-color-surface-primary: #ffffff;
-  --hds-color-surface-faint: #fafafa;
-  --hds-color-surface-strong: #f1f2f3;
-  --hds-color-surface-high-contrast: #0c0c0e;
-  --hds-color-surface-interactive: #ffffff;
-  --hds-color-surface-interactive-hover: #f1f2f3;
-  --hds-color-surface-interactive-active: #dedfe3;
-  --hds-color-surface-interactive-disabled: #fafafa;
-  --hds-color-surface-action: #f2f8ff;
-  --hds-color-surface-highlight: #f9f2ff;
-  --hds-color-surface-success: #f2fbf6;
-  --hds-color-surface-warning: #fff9e8;
-  --hds-color-surface-critical: #fff5f5;
-  --hds-color-hashicorp-brand: #000000;
-  --hds-color-boundary-brand: #f24c53;
-  --hds-color-boundary-foreground: #cf2d32;
-  --hds-color-boundary-surface: #ffecec;
-  --hds-color-boundary-border: #fbd7d8;
-  --hds-color-boundary-gradient-primary-start: #f97076;
-  --hds-color-boundary-gradient-primary-stop: #db363b;
-  --hds-color-boundary-gradient-faint-start: #fffafa; /** this is the 'boundary-50' value at 25% opacity on white */
-  --hds-color-boundary-gradient-faint-stop: #ffecec;
-  --hds-color-consul-brand: #e03875;
-  --hds-color-consul-foreground: #d01c5b;
-  --hds-color-consul-surface: #ffe9f1;
-  --hds-color-consul-border: #ffcede;
-  --hds-color-consul-gradient-primary-start: #ff99be;
-  --hds-color-consul-gradient-primary-stop: #da306e;
-  --hds-color-consul-gradient-faint-start: #fff9fb; /** this is the 'consul-50' value at 25% opacity on white */
-  --hds-color-consul-gradient-faint-stop: #ffe9f1;
-  --hds-color-hcp-brand: #000000;
-  --hds-color-nomad-brand: #06d092;
-  --hds-color-nomad-foreground: #008661;
-  --hds-color-nomad-surface: #d3fdeb;
-  --hds-color-nomad-border: #bff3dd;
-  --hds-color-nomad-gradient-primary-start: #bff3dd;
-  --hds-color-nomad-gradient-primary-stop: #60dea9;
-  --hds-color-nomad-gradient-faint-start: #f3fff9; /** this is the 'nomad-50' value at 25% opacity on white */
-  --hds-color-nomad-gradient-faint-stop: #d3fdeb;
-  --hds-color-packer-brand: #02a8ef;
-  --hds-color-packer-foreground: #007eb4;
-  --hds-color-packer-surface: #d4f2ff;
-  --hds-color-packer-border: #b4e4ff;
-  --hds-color-packer-gradient-primary-start: #b4e4ff;
-  --hds-color-packer-gradient-primary-stop: #63d0ff;
-  --hds-color-packer-gradient-faint-start: #f3fcff; /** this is the 'packer-50' value at 25% opacity on white */
-  --hds-color-packer-gradient-faint-stop: #d4f2ff;
-  --hds-color-terraform-brand: #7b42bc;
-  --hds-color-terraform-brand-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
-  --hds-color-terraform-foreground: #773cb4;
-  --hds-color-terraform-surface: #f4ecff;
-  --hds-color-terraform-border: #ebdbfc;
-  --hds-color-terraform-gradient-primary-start: #bb8deb;
-  --hds-color-terraform-gradient-primary-stop: #844fba;
-  --hds-color-terraform-gradient-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
-  --hds-color-terraform-gradient-faint-stop: #f4ecff;
-  --hds-color-vagrant-brand: #1868f2;
-  --hds-color-vagrant-foreground: #1c61d8;
-  --hds-color-vagrant-surface: #d6ebff;
-  --hds-color-vagrant-border: #c7dbfc;
-  --hds-color-vagrant-gradient-primary-start: #639cff;
-  --hds-color-vagrant-gradient-primary-stop: #2e71e5;
-  --hds-color-vagrant-gradient-faint-start: #f4faff; /** this is the 'vagrant-50' value at 25% opacity on white */
-  --hds-color-vagrant-gradient-faint-stop: #d6ebff;
-  --hds-color-vault-radar-brand: #ffcf25;
-  --hds-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
-  --hds-color-vault-radar-foreground: #9a6f00;
-  --hds-color-vault-radar-surface: #fff9cf;
-  --hds-color-vault-radar-border: #feec7b;
-  --hds-color-vault-radar-gradient-primary-start: #feec7b;
-  --hds-color-vault-radar-gradient-primary-stop: #ffe543;
-  --hds-color-vault-radar-gradient-faint-start: #fffdf2; /** this is the 'vault-radar-50' value at 25% opacity on white */
-  --hds-color-vault-radar-gradient-faint-stop: #fff9cf;
-  --hds-color-vault-secrets-brand: #ffcf25;
-  --hds-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-  --hds-color-vault-secrets-foreground: #9a6f00;
-  --hds-color-vault-secrets-surface: #fff9cf;
-  --hds-color-vault-secrets-border: #feec7b;
-  --hds-color-vault-secrets-gradient-primary-start: #feec7b;
-  --hds-color-vault-secrets-gradient-primary-stop: #ffe543;
-  --hds-color-vault-secrets-gradient-faint-start: #fffdf2; /** this is the 'vault-secrets-50' value at 25% opacity on white */
-  --hds-color-vault-secrets-gradient-faint-stop: #fff9cf;
-  --hds-color-vault-brand: #ffcf25;
-  --hds-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
-  --hds-color-vault-foreground: #9a6f00;
-  --hds-color-vault-surface: #fff9cf;
-  --hds-color-vault-border: #feec7b;
-  --hds-color-vault-gradient-primary-start: #feec7b;
-  --hds-color-vault-gradient-primary-stop: #ffe543;
-  --hds-color-vault-gradient-faint-start: #fffdf2; /** this is the 'vault-50' value at 25% opacity on white */
-  --hds-color-vault-gradient-faint-stop: #fff9cf;
-  --hds-color-waypoint-brand: #14c6cb;
-  --hds-color-waypoint-foreground: #008196;
-  --hds-color-waypoint-surface: #e0fcff;
-  --hds-color-waypoint-border: #cbf1f3;
-  --hds-color-waypoint-gradient-primary-start: #cbf1f3;
-  --hds-color-waypoint-gradient-primary-stop: #62d4dc;
-  --hds-color-waypoint-gradient-faint-start: #f6feff; /** this is the 'waypoint-50' value at 25% opacity on white */
-  --hds-color-waypoint-gradient-faint-stop: #e0fcff;
-  --hds-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
-  --hds-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
-  --hds-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
-  --hds-elevation-mid-box-shadow: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
-  --hds-elevation-high-box-shadow: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
-  --hds-elevation-higher-box-shadow: 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
-  --hds-elevation-overlay-box-shadow: 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --hds-border-color-primary: #656a7633;
+  --hds-border-color-faint: #656a761a;
+  --hds-border-color-strong: #3b3d4566;
+  --hds-border-color-action: #cce3fe;
+  --hds-border-color-highlight: #ead2fe;
+  --hds-border-color-success: #cceeda;
+  --hds-border-color-warning: #fbeabf;
+  --hds-border-color-critical: #fbd4d4;
+  --hds-core-color-blue-500: #1c345f;
+  --hds-core-color-blue-400: #0046d1;
+  --hds-core-color-blue-300: #0c56e9;
+  --hds-core-color-blue-200: #1060ff;
+  --hds-core-color-blue-100: #cce3fe;
+  --hds-core-color-blue-50: #f2f8ff;
+  --hds-core-color-purple-500: #42215b;
+  --hds-core-color-purple-400: #7b00db;
+  --hds-core-color-purple-300: #911ced;
+  --hds-core-color-purple-200: #a737ff;
+  --hds-core-color-purple-100: #ead2fe;
+  --hds-core-color-purple-50: #f9f2ff;
+  --hds-core-color-green-500: #054220;
+  --hds-core-color-green-400: #006619;
+  --hds-core-color-green-300: #00781e;
+  --hds-core-color-green-200: #008a22;
+  --hds-core-color-green-100: #cceeda;
+  --hds-core-color-green-50: #f2fbf6;
+  --hds-core-color-amber-500: #542800;
+  --hds-core-color-amber-400: #803d00;
+  --hds-core-color-amber-300: #9e4b00;
+  --hds-core-color-amber-200: #bb5a00;
+  --hds-core-color-amber-100: #fbeabf;
+  --hds-core-color-amber-50: #fff9e8;
+  --hds-core-color-red-500: #51130a;
+  --hds-core-color-red-400: #940004;
+  --hds-core-color-red-300: #c00005;
+  --hds-core-color-red-200: #e52228;
+  --hds-core-color-red-100: #fbd4d4;
+  --hds-core-color-red-50: #fff5f5;
+  --hds-core-color-neutral-700: #0c0c0e;
+  --hds-core-color-neutral-600: #3b3d45;
+  --hds-core-color-neutral-500: #656a76;
+  --hds-core-color-neutral-400: #8c909c;
+  --hds-core-color-neutral-300: #c2c5cb;
+  --hds-core-color-neutral-200: #dedfe3;
+  --hds-core-color-neutral-100: #f1f2f3;
+  --hds-core-color-neutral-50: #fafafa;
+  --hds-core-color-neutral-0: #ffffff;
+  --hds-core-color-alpha-300: #3b3d4566;
+  --hds-core-color-alpha-200: #656a7633;
+  --hds-core-color-alpha-100: #656a761a;
+  --hds-focus-color-action-internal: #0c56e9;
+  --hds-focus-color-action-external: #5990ff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-critical-internal: #c00005;
+  --hds-focus-color-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-foreground-color-strong: #0c0c0e;
+  --hds-foreground-color-primary: #3b3d45;
+  --hds-foreground-color-faint: #656a76;
+  --hds-foreground-color-high-contrast: #ffffff;
+  --hds-foreground-color-disabled: #8c909c;
+  --hds-foreground-color-action: #1060ff;
+  --hds-foreground-color-action-hover: #0c56e9;
+  --hds-foreground-color-action-active: #0046d1;
+  --hds-foreground-color-highlight: #a737ff;
+  --hds-foreground-color-highlight-on-surface: #911ced;
+  --hds-foreground-color-highlight-high-contrast: #42215b;
+  --hds-foreground-color-success: #008a22;
+  --hds-foreground-color-success-on-surface: #00781e;
+  --hds-foreground-color-success-high-contrast: #054220;
+  --hds-foreground-color-warning: #bb5a00;
+  --hds-foreground-color-warning-on-surface: #9e4b00;
+  --hds-foreground-color-warning-high-contrast: #542800;
+  --hds-foreground-color-critical: #e52228;
+  --hds-foreground-color-critical-on-surface: #c00005;
+  --hds-foreground-color-critical-high-contrast: #51130a;
+  --hds-page-color-primary: #ffffff;
+  --hds-page-color-faint: #fafafa;
+  --hds-surface-color-primary: #ffffff;
+  --hds-surface-color-faint: #fafafa;
+  --hds-surface-color-strong: #f1f2f3;
+  --hds-surface-color-high-contrast: #0c0c0e;
+  --hds-surface-color-interactive: #ffffff;
+  --hds-surface-color-interactive-hover: #f1f2f3;
+  --hds-surface-color-interactive-active: #dedfe3;
+  --hds-surface-color-interactive-disabled: #fafafa;
+  --hds-surface-color-action: #f2f8ff;
+  --hds-surface-color-highlight: #f9f2ff;
+  --hds-surface-color-success: #f2fbf6;
+  --hds-surface-color-warning: #fff9e8;
+  --hds-surface-color-critical: #fff5f5;
   --hds-surface-inset-box-shadow: inset 0 0 0 1px #656a764d, inset 0px 1px 2px 1px #656a761a;
   --hds-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --hds-surface-low-box-shadow: 0 0 0 1px #656a7626, 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
@@ -197,10 +104,17 @@
   --hds-surface-high-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --hds-surface-higher-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --hds-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --hds-css-color-transform-direction: 1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
+  --hds-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
+  --hds-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
+  --hds-elevation-mid-box-shadow: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
+  --hds-elevation-high-box-shadow: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
+  --hds-elevation-higher-box-shadow: 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
+  --hds-elevation-overlay-box-shadow: 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --hds-focus-ring-width-external: 3px;
   --hds-focus-ring-width-internal: 1px;
-  --hds-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
-  --hds-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --hds-focus-ring-box-shadow-action: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
+  --hds-focus-ring-box-shadow-critical: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
   --hds-accordion-card-gap-small: 4px;
   --hds-accordion-card-gap-medium: 8px;
   --hds-accordion-card-gap-large: 12px;
@@ -224,7 +138,7 @@
   --hds-accordion-item-toggle-icon-size-medium: 20px;
   --hds-accordion-item-toggle-icon-size-large: 24px;
   --hds-accordion-item-toggle-icon-transform-rotate: -180deg;
-  --hds-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --hds-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); /** the values correspond to the `ease` timing function, the browser's default */
   --hds-accordion-item-toggle-icon-transition-duration: 0.3s;
   --hds-accordion-item-content-padding-top-small: 4px;
   --hds-accordion-item-content-padding-top-medium: 4px;
@@ -238,6 +152,65 @@
   --hds-accordion-item-content-padding-left-small: 12px;
   --hds-accordion-item-content-padding-left-medium: 12px;
   --hds-accordion-item-content-padding-left-large: 16px;
+  --hds-advanced-table-header-surface-color: rgba(0, 0, 0, 0);
+  --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
+  --hds-advanced-table-header-cell-border-offset: 1px;
+  --hds-advanced-table-header-cell-padding-horizontal: 16px;
+  --hds-advanced-table-header-cell-padding-vertical: 14px;
+  --hds-advanced-table-header-button-size: 24px;
+  --hds-advanced-table-header-button-foreground-color-default: #656a76;
+  --hds-advanced-table-header-button-foreground-color-hover: #3b3d45;
+  --hds-advanced-table-header-button-foreground-color-active: #3b3d45;
+  --hds-advanced-table-header-button-foreground-color-sorted-default: #1060ff;
+  --hds-advanced-table-header-button-foreground-color-sorted-hover: #0c56e9;
+  --hds-advanced-table-header-button-foreground-color-sorted-active: #0046d1;
+  --hds-advanced-table-header-button-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-advanced-table-header-button-surface-color-hover: #ffffff;
+  --hds-advanced-table-header-button-surface-color-active: #dedfe3;
+  --hds-advanced-table-header-button-border-color-default: rgba(0, 0, 0, 0);
+  --hds-advanced-table-header-button-border-color-hover: #3b3d4566;
+  --hds-advanced-table-header-button-border-color-active: #3b3d4566;
+  --hds-advanced-table-body-surface-color: rgba(0, 0, 0, 0);
+  --hds-advanced-table-row-border-width: 0px;
+  --hds-advanced-table-row-border-color-default: rgba(0, 0, 0, 0);
+  --hds-advanced-table-row-border-color-hover: #656a7633;
+  --hds-advanced-table-row-border-color-striped-default: rgba(0, 0, 0, 0);
+  --hds-advanced-table-row-border-color-selected-default: rgba(0, 0, 0, 0);
+  --hds-advanced-table-row-border-color-selected-hover: rgba(0, 0, 0, 0);
+  --hds-advanced-table-cell-line-height: 1.4286;
+  --hds-advanced-table-cell-height-short: auto;
+  --hds-advanced-table-cell-height-medium: auto;
+  --hds-advanced-table-cell-height-tall: auto;
+  --hds-advanced-table-cell-padding-horizontal: 16px;
+  --hds-advanced-table-cell-padding-vertical-short: 6px;
+  --hds-advanced-table-cell-padding-vertical-medium: 14px;
+  --hds-advanced-table-cell-padding-vertical-tall: 22px;
+  --hds-advanced-table-cell-foreground-color-default: #3b3d45;
+  --hds-advanced-table-cell-foreground-color-hover: #3b3d45;
+  --hds-advanced-table-cell-foreground-color-selected: #3b3d45;
+  --hds-advanced-table-cell-surface-color-default: #ffffff;
+  --hds-advanced-table-cell-surface-color-hover: #ffffff;
+  --hds-advanced-table-cell-surface-color-striped-default: #fafafa;
+  --hds-advanced-table-cell-surface-color-striped-hover: #fafafa;
+  --hds-advanced-table-cell-surface-color-selected-default: #ffffff;
+  --hds-advanced-table-cell-surface-color-selected-hover: #ffffff;
+  --hds-advanced-table-cell-surface-color-parent-hover: #ffffff;
+  --hds-advanced-table-cell-surface-color-nested-default: #fafafa;
+  --hds-advanced-table-cell-surface-color-nested-hover: #fafafa;
+  --hds-advanced-table-cell-border-color-default: #656a7633;
+  --hds-advanced-table-cell-border-color-pinned: #656a7633;
+  --hds-advanced-table-cell-border-width-default: 0.5px;
+  --hds-advanced-table-cell-border-width-pinned: 3px;
+  --hds-advanced-table-cell-pinned-left: -1px;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #3b3d4500;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #3b3d4514;
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
+  --hds-advanced-table-resize-handle-surface-color-hover: #3b3d4566;
+  --hds-advanced-table-resize-handle-surface-color-active: #0c56e9;
+  --hds-advanced-table-resize-handle-surface-color-focus: #0c56e9;
+  --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
+  --hds-advanced-table-drop-preview-surface-color: #0c56e9;
+  --hds-advanced-table-empty-state-border-width: 1px;
   --hds-alert-border-color-neutral: #3b3d4566;
   --hds-alert-border-color-highlight: #ead2fe;
   --hds-alert-border-color-success: #cceeda;
@@ -358,7 +331,7 @@
   --hds-badge-foreground-color-success-filled: #006619; /** we don't use `success-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-success-inverted: #ffffff;
   --hds-badge-foreground-color-success-outlined: #008a22;
-  --hds-badge-foreground-color-warning-filled: #803d00;
+  --hds-badge-foreground-color-warning-filled: #803d00; /** we don't use `warning-on-surface` for accessibility (better contrast) */
   --hds-badge-foreground-color-warning-inverted: #ffffff;
   --hds-badge-foreground-color-warning-outlined: #bb5a00;
   --hds-badge-foreground-color-critical-filled: #940004; /** we don't use `critical-on-surface` for accessibility (better contrast) */
@@ -410,9 +383,9 @@
   --hds-button-typography-font-size-small: 0.8125rem;
   --hds-button-typography-font-size-medium: 0.875rem;
   --hds-button-typography-font-size-large: 1rem;
-  --hds-button-typography-line-height-small: 0.9286;
-  --hds-button-typography-line-height-medium: 1.1429;
-  --hds-button-typography-line-height-large: 1.5;
+  --hds-button-typography-line-height-small: 0.9286; /** 14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --hds-button-typography-line-height-medium: 1.1429; /** 16px/14px ~ 1.1429 */
+  --hds-button-typography-line-height-large: 1.5; /** 24px/16px = 1.5 */
   --hds-button-foreground-color-primary-default: #ffffff;
   --hds-button-foreground-color-primary-hover: #ffffff;
   --hds-button-foreground-color-primary-focus: #ffffff;
@@ -487,6 +460,7 @@
   --hds-code-block-syntax-highlight-color-purple: #c76cff;
   --hds-code-block-syntax-highlight-color-red: #ff3b20;
   --hds-code-block-syntax-highlight-color-yellow: #ffeb3b;
+  --hds-code-block-syntax-highlight-color-white: #efeff1;
   --hds-code-block-foreground-color-primary: #d5d7db;
   --hds-code-block-foreground-color-faint: #b2b6bd;
   --hds-code-block-foreground-color-action: #2b89ff;
@@ -505,6 +479,92 @@
   --hds-code-block-button-surface-color-active: #2b303c;
   --hds-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
   --hds-code-block-line-highlight-border-color: #1555d4;
+  --hds-product-hashicorp-brand-color: #000000;
+  --hds-product-boundary-brand-color: #f24c53;
+  --hds-product-boundary-foreground-color: #cf2d32;
+  --hds-product-boundary-surface-color: #ffecec;
+  --hds-product-boundary-border-color: #fbd7d8;
+  --hds-product-boundary-gradient-color-primary-start: #f97076;
+  --hds-product-boundary-gradient-color-primary-stop: #db363b;
+  --hds-product-boundary-gradient-color-faint-start: #fffafa; /** this is the 'boundary-50' value at 25% opacity on white */
+  --hds-product-boundary-gradient-color-faint-stop: #ffecec;
+  --hds-product-consul-brand-color: #e03875;
+  --hds-product-consul-foreground-color: #d01c5b;
+  --hds-product-consul-surface-color: #ffe9f1;
+  --hds-product-consul-border-color: #ffcede;
+  --hds-product-consul-gradient-color-primary-start: #ff99be;
+  --hds-product-consul-gradient-color-primary-stop: #da306e;
+  --hds-product-consul-gradient-color-faint-start: #fff9fb; /** this is the 'consul-50' value at 25% opacity on white */
+  --hds-product-consul-gradient-color-faint-stop: #ffe9f1;
+  --hds-product-hcp-brand-color: #000000;
+  --hds-product-nomad-brand-color: #06d092;
+  --hds-product-nomad-foreground-color: #008661;
+  --hds-product-nomad-surface-color: #d3fdeb;
+  --hds-product-nomad-border-color: #bff3dd;
+  --hds-product-nomad-gradient-color-primary-start: #bff3dd;
+  --hds-product-nomad-gradient-color-primary-stop: #60dea9;
+  --hds-product-nomad-gradient-color-faint-start: #f3fff9; /** this is the 'nomad-50' value at 25% opacity on white */
+  --hds-product-nomad-gradient-color-faint-stop: #d3fdeb;
+  --hds-product-packer-brand-color: #02a8ef;
+  --hds-product-packer-foreground-color: #007eb4;
+  --hds-product-packer-surface-color: #d4f2ff;
+  --hds-product-packer-border-color: #b4e4ff;
+  --hds-product-packer-gradient-color-primary-start: #b4e4ff;
+  --hds-product-packer-gradient-color-primary-stop: #63d0ff;
+  --hds-product-packer-gradient-color-faint-start: #f3fcff; /** this is the 'packer-50' value at 25% opacity on white */
+  --hds-product-packer-gradient-color-faint-stop: #d4f2ff;
+  --hds-product-terraform-brand-color: #7b42bc;
+  --hds-product-terraform-brand-color-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
+  --hds-product-terraform-foreground-color: #773cb4;
+  --hds-product-terraform-surface-color: #f4ecff;
+  --hds-product-terraform-border-color: #ebdbfc;
+  --hds-product-terraform-gradient-color-primary-start: #bb8deb;
+  --hds-product-terraform-gradient-color-primary-stop: #844fba;
+  --hds-product-terraform-gradient-color-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
+  --hds-product-terraform-gradient-color-faint-stop: #f4ecff;
+  --hds-product-vagrant-brand-color: #1868f2;
+  --hds-product-vagrant-foreground-color: #1c61d8;
+  --hds-product-vagrant-surface-color: #d6ebff;
+  --hds-product-vagrant-border-color: #c7dbfc;
+  --hds-product-vagrant-gradient-color-primary-start: #639cff;
+  --hds-product-vagrant-gradient-color-primary-stop: #2e71e5;
+  --hds-product-vagrant-gradient-color-faint-start: #f4faff; /** this is the 'vagrant-50' value at 25% opacity on white */
+  --hds-product-vagrant-gradient-color-faint-stop: #d6ebff;
+  --hds-product-vault-radar-brand-color: #ffcf25;
+  --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-radar-foreground-color: #9a6f00;
+  --hds-product-vault-radar-surface-color: #fff9cf;
+  --hds-product-vault-radar-border-color: #feec7b;
+  --hds-product-vault-radar-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-radar-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-radar-gradient-color-faint-start: #fffdf2; /** this is the 'vault-radar-50' value at 25% opacity on white */
+  --hds-product-vault-radar-gradient-color-faint-stop: #fff9cf;
+  --hds-product-vault-secrets-brand-color: #ffcf25;
+  --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --hds-product-vault-secrets-foreground-color: #9a6f00;
+  --hds-product-vault-secrets-surface-color: #fff9cf;
+  --hds-product-vault-secrets-border-color: #feec7b;
+  --hds-product-vault-secrets-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-secrets-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-secrets-gradient-color-faint-start: #fffdf2; /** this is the 'vault-secrets-50' value at 25% opacity on white */
+  --hds-product-vault-secrets-gradient-color-faint-stop: #fff9cf;
+  --hds-product-vault-brand-color: #ffcf25;
+  --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-foreground-color: #9a6f00;
+  --hds-product-vault-surface-color: #fff9cf;
+  --hds-product-vault-border-color: #feec7b;
+  --hds-product-vault-gradient-color-primary-start: #feec7b;
+  --hds-product-vault-gradient-color-primary-stop: #ffe543;
+  --hds-product-vault-gradient-color-faint-start: #fffdf2; /** this is the 'vault-50' value at 25% opacity on white */
+  --hds-product-vault-gradient-color-faint-stop: #fff9cf;
+  --hds-product-waypoint-brand-color: #14c6cb;
+  --hds-product-waypoint-foreground-color: #008196;
+  --hds-product-waypoint-surface-color: #e0fcff;
+  --hds-product-waypoint-border-color: #cbf1f3;
+  --hds-product-waypoint-gradient-color-primary-start: #cbf1f3;
+  --hds-product-waypoint-gradient-color-primary-stop: #62d4dc;
+  --hds-product-waypoint-gradient-color-faint-start: #f6feff; /** this is the 'waypoint-50' value at 25% opacity on white */
+  --hds-product-waypoint-gradient-color-faint-stop: #e0fcff;
   --hds-copy-button-foreground-color: #3b3d45;
   --hds-copy-button-surface-color-default: #fafafa;
   --hds-copy-button-surface-color-hover: #ffffff;
@@ -516,9 +576,9 @@
   --hds-dialog-primitive-padding-horizontal: 24px;
   --hds-dialog-primitive-padding-vertical: 16px;
   --hds-dialog-primitive-border-color: rgba(0, 0, 0, 0);
-  --hds-dialog-primitive-header-tagline-typography-font-size: 0.8125rem;
-  --hds-dialog-primitive-header-tagline-typography-line-height: 1.3846;
-  --hds-dialog-primitive-header-title-typography-font-weight: 600;
+  --hds-dialog-primitive-header-tagline-typography-font-size: 0.8125rem; /** we need a component-level token for this, to account for the difference in font-size between HDS and CDS for the tagline */
+  --hds-dialog-primitive-header-tagline-typography-line-height: 1.3846; /** we need a component-level token for this, to account for the difference in line-height between HDS and CDS for the tagline */
+  --hds-dialog-primitive-header-title-typography-font-weight: 600; /** we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title */
   --hds-dismiss-button-size: 24px;
   --hds-dismiss-button-foreground-color-default: #656a76;
   --hds-dismiss-button-foreground-color-active: #0c0c0e;
@@ -552,11 +612,13 @@
   --hds-form-character-count-foreground-color: #656a76;
   --hds-form-character-count-typography-font-size: 0.8125rem;
   --hds-form-character-count-typography-line-height: 1.3846; /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-group-control-field-margin-top: 12px;
   --hds-form-label-color: #0c0c0e; /** deprecated: use `hds-form-label-foreground-color` instead */
   --hds-form-label-foreground-color: #0c0c0e;
   --hds-form-label-typography-font-size: 0.875rem;
   --hds-form-label-typography-font-weight: 600;
   --hds-form-label-typography-line-height: 1.4286;
+  --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-legend-color: #0c0c0e; /** deprecated: use `hds-form-legend-foreground-color` instead */
   --hds-form-legend-foreground-color: #0c0c0e;
   --hds-form-legend-typography-font-size: 0.875rem;
@@ -574,8 +636,11 @@
   --hds-form-error-foreground-color: #c00005;
   --hds-form-error-typography-font-size: 0.8125rem;
   --hds-form-error-typography-line-height: 1.3846;
+  --hds-form-error-icon-color: #c00005;
   --hds-form-error-icon-size: 14px;
+  --hds-form-visibility-toggle-size: 24px;
   --hds-form-checkbox-size: 16px;
+  --hds-form-checkbox-border-color-checked-disabled: #656a7633;
   --hds-form-checkbox-border-radius: 3px;
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-background-image-size: 12px;
@@ -585,27 +650,30 @@
   --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' /%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
   --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233b3d45' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
   --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238c909c' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-button-border-color: #3b3d4566;
+  --hds-form-file-input-button-height: 36px;
+  --hds-form-control-border-color-unchecked-default: #8c909c;
+  --hds-form-control-border-color-unchecked-disabled: #656a7633;
+  --hds-form-control-border-color-unchecked-hover: #656a76;
+  --hds-form-control-border-color-checked-default: #0c56e9;
+  --hds-form-control-border-color-checked-disabled: #656a7633;
+  --hds-form-control-border-color-checked-hover: #0046d1;
+  --hds-form-control-border-radius: 5px;
+  --hds-form-control-border-width: 1px;
+  --hds-form-control-surface-color-unchecked-default: #ffffff;
+  --hds-form-control-surface-color-unchecked-disabled: #fafafa;
+  --hds-form-control-surface-color-unchecked-hover: #f1f2f3;
+  --hds-form-control-surface-color-checked-default: #1060ff;
+  --hds-form-control-surface-color-checked-disabled: #fafafa;
+  --hds-form-control-surface-color-checked-hover: #0c56e9;
+  --hds-form-control-foreground-color-checked: #ffffff;
   --hds-form-control-base-foreground-color: #0c0c0e;
   --hds-form-control-base-surface-color-default: #ffffff;
   --hds-form-control-base-surface-color-hover: #f1f2f3;
-  --hds-form-control-base-surface-color-selected: #ffffff;
   --hds-form-control-base-border-color-default: #8c909c;
   --hds-form-control-base-border-color-hover: #656a76;
   --hds-form-control-base-placeholder-foreground-color-default: #656a76;
-  --hds-form-control-base-placeholder-foreground-color-disabled: #656a76;
-  --hds-form-control-checked-foreground-color: #ffffff;
-  --hds-form-control-checked-surface-color-default: #1060ff;
-  --hds-form-control-checked-surface-color-disabled: #fafafa;
-  --hds-form-control-checked-surface-color-hover: #0c56e9;
-  --hds-form-control-checked-border-color-default: #0c56e9;
-  --hds-form-control-checked-border-color-disabled: #656a7633;
-  --hds-form-control-checked-border-color-hover: #0046d1;
-  --hds-form-control-unchecked-border-color-default: #8c909c;
-  --hds-form-control-unchecked-border-color-disabled: #656a7633;
-  --hds-form-control-unchecked-border-color-hover: #656a76;
-  --hds-form-control-unchecked-surface-color-default: #ffffff;
-  --hds-form-control-unchecked-surface-color-disabled: #fafafa;
-  --hds-form-control-unchecked-surface-color-hover: #f1f2f3;
+  --hds-form-control-base-placeholder-foreground-color-disabled: #8c909c;
   --hds-form-control-invalid-border-color-default: #c00005;
   --hds-form-control-invalid-border-color-hover: #940004;
   --hds-form-control-readonly-foreground-color: #3b3d45;
@@ -614,53 +682,78 @@
   --hds-form-control-disabled-foreground-color: #8c909c;
   --hds-form-control-disabled-surface-color: #fafafa;
   --hds-form-control-disabled-border-color: #656a7633;
-  --hds-form-control-padding-vertical: 7px;
-  --hds-form-control-padding-horizontal: 7px;
-  --hds-form-control-border-radius: 5px;
-  --hds-form-control-border-width: 1px;
+  --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
+  --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
   --hds-form-control-height: 36px;
+  --hds-form-radio-card-group-gap: 16px;
+  --hds-form-radio-card-surface-color-hover: #ffffff;
+  --hds-form-radio-card-surface-color-disabled: #fafafa;
+  --hds-form-radio-card-border-width: 1px;
+  --hds-form-radio-card-border-radius: 6px;
+  --hds-form-radio-card-border-color-default: #656a7633;
+  --hds-form-radio-card-border-color-checked-default: #0c56e9;
+  --hds-form-radio-card-border-color-checked-hover: #0046d1;
+  --hds-form-radio-card-border-color-disabled: #656a7633;
+  --hds-form-radio-card-content-padding: 24px;
+  --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
+  --hds-form-radio-card-control-wrapper-surface-color-default: #fafafa;
+  --hds-form-radio-card-control-wrapper-surface-color-checked: #f2f8ff;
+  --hds-form-radio-card-control-wrapper-surface-color-disabled: #fafafa;
+  --hds-form-radio-card-control-wrapper-border-color-default: #656a7633;
+  --hds-form-radio-card-control-wrapper-border-color-checked: #cce3fe;
+  --hds-form-radio-card-control-wrapper-border-color-disabled: #656a7633;
+  --hds-form-radio-card-control-wrapper-padding: 8px;
+  --hds-form-radio-card-description-typography-font-size: 0.8125rem;
+  --hds-form-radio-card-label-foreground-color: #0c0c0e; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+  --hds-form-radio-card-label-typography-font-size: 1.125rem;
+  --hds-form-radio-card-label-typography-font-weight: 700;
+  --hds-form-radio-card-label-typography-line-height: 1.3333; /** 24px */
+  --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-radio-size: 16px;
   --hds-form-radio-border-width: 1px;
   --hds-form-radio-background-image-size: 16px;
   --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
   --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%238C909C' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
-  --hds-form-radio-surface-color-checked: #1060ff;
+  --hds-form-radio-surface-color-checked-default: #1060ff;
   --hds-form-radio-surface-color-checked-hover: #0c56e9;
   --hds-form-radio-surface-color-checked-disabled: #fafafa;
-  --hds-form-radiocard-group-gap: 16px;
-  --hds-form-radiocard-border-width: 1px;
-  --hds-form-radiocard-border-radius: 6px;
-  --hds-form-radiocard-border-color-default: #ffffff;
-  --hds-form-radiocard-border-color-focus: #0c56e9;
-  --hds-form-radiocard-border-color-default-checked: #0c56e9;
-  --hds-form-radiocard-content-padding: 24px;
-  --hds-form-radiocard-control-padding: 8px;
-  --hds-form-radiocard-transition-duration: 0.2s;
   --hds-form-select-background-image-size: 16px;
   --hds-form-select-background-image-position-right-x: 7px;
-  --hds-form-select-background-image-position-top-y: 9px;
   --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23656A76' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%238C909C' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
   --hds-form-select-surface-color-hover: #ffffff;
-  --hds-form-super-select-option-foreground-color-action-hover: #0c56e9;
-  --hds-form-super-select-option-surface-color-action-hover: rgba(0, 0, 0, 0);
+  --hds-form-select-multiple-option-color-checked: #ffffff;
+  --hds-form-super-select-padding-left: 11px;
+  --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+  --hds-form-super-select-option-background-image-size: 16px;
+  --hds-form-super-select-option-foreground-color-hover: #0c56e9;
+  --hds-form-super-select-option-foreground-color-active: #0046d1;
+  --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-checked-default: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-margin-top: 8px;
+  --hds-form-super-select-search-margin-bottom: 3px;
+  --hds-form-super-select-tag-border-color: #3b3d4566;
+  --hds-form-super-select-tag-foreground-color: #0c0c0e;
+  --hds-form-super-select-tag-surface-color: #ffffff;
   --hds-form-text-input-background-image-size: 16px;
   --hds-form-text-input-background-image-position-x: 7px;
-  --hds-form-text-input-background-image-data-url-date-default: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! Also note: We use the browser default icon for Carbon theme */
-  --hds-form-text-input-background-image-data-url-date-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-time: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! Also note: We use the browser default icon for Carbon theme */
-  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search-loading: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' %3e%3cg fill='%23656A76' fill-rule='evenodd' clip-rule='evenodd'%3e%3canimateTransform attributeName='transform' type='rotate' dur='0.9s' from='0 8 8' to='360 8 8' repeatCount='indefinite'/%3e%3cpath d='M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z' opacity='.2'/%3e%3cpath d='M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color and animation are hardcoded here! */
-  --hds-form-text-input-date-time-width: initial;
+  --hds-form-text-input-background-image-data-url-date: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e");
+  --hds-form-text-input-background-image-data-url-time: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded here */
+  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76' %3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded. The HDS theme does not use a different search image for the disabled state */
+  --hds-form-text-input-background-image-data-url-search-loading: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' %3e%3cg fill='%23656A76' fill-rule='evenodd' clip-rule='evenodd'%3e%3canimateTransform attributeName='transform' type='rotate' dur='0.9s' from='0 8 8' to='360 8 8' repeatCount='indefinite'/%3e%3cpath d='M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z' opacity='.2'/%3e%3cpath d='M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color and animation are hardcoded here */
+  --hds-form-text-input-search-cancel-button-width: 16px;
   --hds-form-textarea-padding-vertical: 7px;
   --hds-form-toggle-width: 32px;
   --hds-form-toggle-height: 16px;
   --hds-form-toggle-base-surface-color-default: #f1f2f3; /** the toggle has a different base surface color, compared to the other controls */
   --hds-form-toggle-base-surface-color-disabled: #fafafa;
-  --hds-form-toggle-base-surface-color-checked: #1060ff;
+  --hds-form-toggle-base-surface-color-checked-default: #1060ff;
   --hds-form-toggle-base-surface-color-checked-hover: #0c56e9;
   --hds-form-toggle-border-radius: 3px;
   --hds-form-toggle-border-width: 1px;
@@ -731,6 +824,99 @@
   --hds-rich-tooltip-toggle-icon-size: 1em;
   --hds-segmented-group-gap: 0px;
   --hds-segmented-group-margin-left: -1px;
+  --hds-stepper-list-step-title-typography-font-weight: 600;
+  --hds-stepper-list-step-description-margin-top: 4px;
+  --hds-stepper-list-step-description-typography-font-size: 0.8125rem;
+  --hds-stepper-list-step-description-foreground-color: #3b3d45;
+  --hds-stepper-list-progress-bar-top: 1px;
+  --hds-stepper-list-progress-bar-left: 11px;
+  --hds-stepper-list-progress-bar-border-color-incomplete: #f1f2f3;
+  --hds-stepper-list-progress-bar-border-color-complete: #0c0c0e;
+  --hds-stepper-nav-step-title-typography-font-weight: 600;
+  --hds-stepper-nav-step-title-foreground-color-complete-default: #0c0c0e;
+  --hds-stepper-nav-step-title-foreground-color-complete-interactive: #1060ff;
+  --hds-stepper-nav-step-title-foreground-color-active-default: #0c0c0e;
+  --hds-stepper-nav-step-title-foreground-color-active-interactive: #1060ff;
+  --hds-stepper-nav-step-title-foreground-color-incomplete: #656a76;
+  --hds-stepper-nav-step-description-margin-top: 4px;
+  --hds-stepper-nav-step-description-typography-font-size: 0.8125rem;
+  --hds-stepper-nav-step-description-foreground-color-complete: #3b3d45;
+  --hds-stepper-nav-step-description-foreground-color-active: #3b3d45;
+  --hds-stepper-nav-step-description-foreground-color-incomplete: #656a76;
+  --hds-stepper-nav-step-surface-color-complete-interactive-hover: #f1f2f3;
+  --hds-stepper-nav-step-surface-color-complete-interactive-active: #dedfe3;
+  --hds-stepper-nav-progress-bar-top: -4px;
+  --hds-stepper-nav-progress-bar-border-width: 4px;
+  --hds-stepper-nav-progress-bar-border-color-incomplete: #dedfe3;
+  --hds-stepper-nav-progress-bar-border-color-complete-default: #0c0c0e;
+  --hds-stepper-nav-progress-bar-border-color-complete-interactive: #1060ff;
+  --hds-stepper-step-indicator-size: 24px;
+  --hds-stepper-step-indicator-foreground-color-incomplete-default: #3b3d45;
+  --hds-stepper-step-indicator-foreground-color-incomplete-interactive: #3b3d45;
+  --hds-stepper-step-indicator-foreground-color-progress-default: #ffffff;
+  --hds-stepper-step-indicator-foreground-color-progress-interactive: #ffffff;
+  --hds-stepper-step-indicator-foreground-color-processing-default: #ffffff;
+  --hds-stepper-step-indicator-foreground-color-processing-interactive: #ffffff;
+  --hds-stepper-step-indicator-foreground-color-complete-default: #ffffff;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-default: #1060ff;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-hover: #0c56e9;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-active: #0046d1;
+  --hds-stepper-step-indicator-icon-size: 12px;
+  --hds-stepper-task-indicator-size: 16px;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-default: #c2c5cb;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover: #0c56e9;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-active: #0046d1;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-default: #1060ff;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-hover: #0c56e9;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-active: #0046d1;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-default: #1060ff;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-hover: #0c56e9;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-active: #0046d1;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-default: #008a22;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-hover: #00781e;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-active: #006619;
+  --hds-stepper-task-indicator-icon-size: 12px;
+  --hds-table-header-surface-color: rgba(0, 0, 0, 0);
+  --hds-table-header-cell-border-offset: 1px;
+  --hds-table-header-cell-padding-horizontal: 16px;
+  --hds-table-header-cell-padding-vertical: 14px;
+  --hds-table-header-button-foreground-color-default: #656a76;
+  --hds-table-header-button-foreground-color-hover: #3b3d45;
+  --hds-table-header-button-foreground-color-active: #3b3d45;
+  --hds-table-header-button-foreground-color-sorted-default: #1060ff;
+  --hds-table-header-button-foreground-color-sorted-hover: #0c56e9;
+  --hds-table-header-button-foreground-color-sorted-active: #0046d1;
+  --hds-table-header-button-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-table-header-button-surface-color-hover: #ffffff;
+  --hds-table-header-button-surface-color-active: #dedfe3;
+  --hds-table-header-button-border-color-default: rgba(0, 0, 0, 0);
+  --hds-table-header-button-border-color-hover: #3b3d4566;
+  --hds-table-header-button-border-color-active: #3b3d4566;
+  --hds-table-body-surface-color: rgba(0, 0, 0, 0);
+  --hds-table-row-border-width: 0px;
+  --hds-table-row-border-color-default: rgba(0, 0, 0, 0);
+  --hds-table-row-border-color-hover: #656a7633;
+  --hds-table-row-border-color-striped-default: rgba(0, 0, 0, 0);
+  --hds-table-row-border-color-selected-default: rgba(0, 0, 0, 0);
+  --hds-table-row-border-color-selected-hover: rgba(0, 0, 0, 0);
+  --hds-table-cell-line-height: 1.4286;
+  --hds-table-cell-height-short: auto;
+  --hds-table-cell-height-medium: auto;
+  --hds-table-cell-height-tall: auto;
+  --hds-table-cell-padding-horizontal: 16px;
+  --hds-table-cell-padding-vertical-short: 6px;
+  --hds-table-cell-padding-vertical-medium: 14px;
+  --hds-table-cell-padding-vertical-tall: 22px;
+  --hds-table-cell-foreground-color-default: #3b3d45;
+  --hds-table-cell-foreground-color-hover: #3b3d45;
+  --hds-table-cell-foreground-color-selected: #3b3d45;
+  --hds-table-cell-surface-color-hover: #ffffff;
+  --hds-table-cell-surface-color-striped-default: #fafafa;
+  --hds-table-cell-surface-color-striped-hover: #fafafa;
+  --hds-table-cell-surface-color-selected-default: #ffffff;
+  --hds-table-cell-surface-color-selected-hover: #ffffff;
+  --hds-table-cell-border-color: #656a7633;
+  --hds-table-cell-border-width: 0.5px;
   --hds-tabs-tab-border-color-default: rgba(0, 0, 0, 0);
   --hds-tabs-tab-border-color-hover: rgba(0, 0, 0, 0);
   --hds-tabs-tab-border-radius: 5px;
