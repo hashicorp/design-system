@@ -96,8 +96,11 @@
     &:focus-visible,
     &.mock-focus,
     .hds-dropdown-toggle-button:focus,
+    .hds-dropdown-toggle-button.mock-focus,
     .hds-dropdown-toggle-icon:focus,
-    .ember-power-select-trigger:focus {
+    .hds-dropdown-toggle-icon.mock-focus,
+    .ember-power-select-trigger:focus,
+    .ember-power-select-trigger.mock-focus {
       z-index: 1;
     }
   }
