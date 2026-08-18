@@ -12,6 +12,10 @@
 </p>
 
 
+### August 18, 2026
+
+Resolved an issue that was causing icon instances to either revert to the "dynamic" color, or fail to persist colors applied to them in component instances.
+
 ### August 11th, 2026
 
 `FilterBar` - Added wrapping to the "main" auto-layout container to ensure generic content wraps as expected.
@@ -79,20 +83,6 @@ This changelog corresponds with the [4.21](/whats-new/release-notes#4210) releas
 `AppHeader` - Added `text` property to the home link.
 
 `AdvancedTable` - Added support for resizing columns, restructured the component to support functions within a context menu.
-
-### June 4th, 2025
-
-This changelog corresponds with the [4.20](/whats-new/release-notes#4200) release.
-
-`CodeBlock` - Added height toggle for overflowing code.
-
-#### Breaking changes
-
-`AppHeader` - Multiple changes include:
-
-- Refactored the component to support a list coupled with the context switcher
-- Reorganized the local component dependencies
-- Updated the focus ring to use dark variables
 
 
 ---
