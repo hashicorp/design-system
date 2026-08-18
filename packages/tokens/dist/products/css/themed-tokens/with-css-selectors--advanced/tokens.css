@@ -686,6 +686,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 4px;
   --hds-filter-bar-filter-group-values-list-gap: 4px;
   --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 8px;
+  --hds-filter-bar-search-height: 28px;
   --hds-filter-bar-tabs-list-gap: 4px;
   --hds-filter-bar-tabs-list-padding: 8px;
   --hds-filter-bar-tabs-panel-gap: 8px;
@@ -1859,6 +1860,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
     --hds-filter-bar-filter-group-values-list-gap: 0px;
     --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+    --hds-filter-bar-search-height: 32px;
     --hds-filter-bar-tabs-list-gap: 0px;
     --hds-filter-bar-tabs-list-padding: 0px;
     --hds-filter-bar-tabs-panel-gap: 16px;
@@ -2766,6 +2768,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
     --hds-filter-bar-filter-group-values-list-gap: 0px;
     --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+    --hds-filter-bar-search-height: 32px;
     --hds-filter-bar-tabs-list-gap: 0px;
     --hds-filter-bar-tabs-list-padding: 0px;
     --hds-filter-bar-tabs-panel-gap: 16px;
@@ -3663,6 +3666,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
   --hds-filter-bar-filter-group-values-list-gap: 0px;
   --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
   --hds-filter-bar-tabs-list-gap: 0px;
   --hds-filter-bar-tabs-list-padding: 0px;
   --hds-filter-bar-tabs-panel-gap: 16px;
@@ -4558,6 +4562,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
   --hds-filter-bar-filter-group-values-list-gap: 0px;
   --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
   --hds-filter-bar-tabs-list-gap: 0px;
   --hds-filter-bar-tabs-list-padding: 0px;
   --hds-filter-bar-tabs-panel-gap: 16px;
@@ -5432,6 +5437,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
   --hds-filter-bar-filter-group-values-list-gap: 0px;
   --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
   --hds-filter-bar-tabs-list-gap: 0px;
   --hds-filter-bar-tabs-list-padding: 0px;
   --hds-filter-bar-tabs-panel-gap: 16px;
@@ -6326,6 +6332,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
   --hds-filter-bar-filter-group-values-list-gap: 0px;
   --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
   --hds-filter-bar-tabs-list-gap: 0px;
   --hds-filter-bar-tabs-list-padding: 0px;
   --hds-filter-bar-tabs-panel-gap: 16px;

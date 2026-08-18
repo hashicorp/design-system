@@ -5721,7 +5721,8 @@ button.hds-button[href]::after {
 
 .hds-filter-bar__search.hds-form-text-input {
   --hds-form-control-padding-horizontal: 3px;
-  --hds-form-control-padding-vertical: 3px;
+  --hds-form-control-padding-vertical: 0px;
+  --hds-form-control-height: var(--hds-filter-bar-search-height);
   max-width: 320px;
   font-size: var(--hds-typography-body-100-font-size);
 }

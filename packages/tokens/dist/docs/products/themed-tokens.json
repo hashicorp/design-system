@@ -19715,6 +19715,41 @@
         "padding"
       ]
     },
+    "hds-filter-bar-search-height": {
+      "key": "{filter-bar.search.height}",
+      "$type": "dimension",
+      "$value": "28px",
+      "unit": "px",
+      "$modes": {
+        "default": "28",
+        "cds-g0": "32",
+        "cds-g10": "32",
+        "cds-g90": "32",
+        "cds-g100": "32"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "28",
+        "unit": "px",
+        "$modes": {
+          "default": "28",
+          "cds-g0": "32",
+          "cds-g10": "32",
+          "cds-g90": "32",
+          "cds-g100": "32"
+        },
+        "key": "{filter-bar.search.height}"
+      },
+      "name": "hds-filter-bar-search-height",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "search",
+        "height"
+      ]
+    },
     "hds-filter-bar-tabs-list-padding": {
       "key": "{filter-bar.tabs.list.padding}",
       "$type": "dimension",
@@ -53872,6 +53907,41 @@
         "dropdown",
         "toggle-icon",
         "padding"
+      ]
+    },
+    "hds-filter-bar-search-height": {
+      "key": "{filter-bar.search.height}",
+      "$type": "dimension",
+      "$value": "32px",
+      "unit": "px",
+      "$modes": {
+        "default": "28",
+        "cds-g0": "32",
+        "cds-g10": "32",
+        "cds-g90": "32",
+        "cds-g100": "32"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "32",
+        "unit": "px",
+        "$modes": {
+          "default": "28",
+          "cds-g0": "32",
+          "cds-g10": "32",
+          "cds-g90": "32",
+          "cds-g100": "32"
+        },
+        "key": "{filter-bar.search.height}"
+      },
+      "name": "hds-filter-bar-search-height",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "search",
+        "height"
       ]
     },
     "hds-filter-bar-tabs-list-padding": {
@@ -88049,6 +88119,41 @@
         "padding"
       ]
     },
+    "hds-filter-bar-search-height": {
+      "key": "{filter-bar.search.height}",
+      "$type": "dimension",
+      "$value": "32px",
+      "unit": "px",
+      "$modes": {
+        "default": "28",
+        "cds-g0": "32",
+        "cds-g10": "32",
+        "cds-g90": "32",
+        "cds-g100": "32"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "32",
+        "unit": "px",
+        "$modes": {
+          "default": "28",
+          "cds-g0": "32",
+          "cds-g10": "32",
+          "cds-g90": "32",
+          "cds-g100": "32"
+        },
+        "key": "{filter-bar.search.height}"
+      },
+      "name": "hds-filter-bar-search-height",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "search",
+        "height"
+      ]
+    },
     "hds-filter-bar-tabs-list-padding": {
       "key": "{filter-bar.tabs.list.padding}",
       "$type": "dimension",
@@ -122224,6 +122329,41 @@
         "padding"
       ]
     },
+    "hds-filter-bar-search-height": {
+      "key": "{filter-bar.search.height}",
+      "$type": "dimension",
+      "$value": "32px",
+      "unit": "px",
+      "$modes": {
+        "default": "28",
+        "cds-g0": "32",
+        "cds-g10": "32",
+        "cds-g90": "32",
+        "cds-g100": "32"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "32",
+        "unit": "px",
+        "$modes": {
+          "default": "28",
+          "cds-g0": "32",
+          "cds-g10": "32",
+          "cds-g90": "32",
+          "cds-g100": "32"
+        },
+        "key": "{filter-bar.search.height}"
+      },
+      "name": "hds-filter-bar-search-height",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "search",
+        "height"
+      ]
+    },
     "hds-filter-bar-tabs-list-padding": {
       "key": "{filter-bar.tabs.list.padding}",
       "$type": "dimension",
@@ -156397,6 +156537,41 @@
         "dropdown",
         "toggle-icon",
         "padding"
+      ]
+    },
+    "hds-filter-bar-search-height": {
+      "key": "{filter-bar.search.height}",
+      "$type": "dimension",
+      "$value": "32px",
+      "unit": "px",
+      "$modes": {
+        "default": "28",
+        "cds-g0": "32",
+        "cds-g10": "32",
+        "cds-g90": "32",
+        "cds-g100": "32"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "32",
+        "unit": "px",
+        "$modes": {
+          "default": "28",
+          "cds-g0": "32",
+          "cds-g10": "32",
+          "cds-g90": "32",
+          "cds-g100": "32"
+        },
+        "key": "{filter-bar.search.height}"
+      },
+      "name": "hds-filter-bar-search-height",
+      "attributes": {
+        "category": "filter-bar"
+      },
+      "path": [
+        "filter-bar",
+        "search",
+        "height"
       ]
     },
     "hds-filter-bar-tabs-list-padding": {

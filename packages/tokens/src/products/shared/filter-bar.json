@@ -1,5 +1,19 @@
 {
   "filter-bar": {
+    "search": {
+      "height": {
+        "$type": "dimension",
+        "$value": "28",
+        "unit": "px",
+        "$modes": {
+          "default": "28",
+          "cds-g0": "32",
+          "cds-g10": "32",
+          "cds-g90": "32",
+          "cds-g100": "32"
+        }
+      }
+    },
     "tabs": {
       "list": {
         "padding": {

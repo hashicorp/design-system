@@ -124,7 +124,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <HdsFilterBar @filters={{EMPTY_FILTERS}} @hasSearch={{true}} as |F|>
           <F.ActionsGeneric>
-            <ShwPlaceholder @text="generic content" @height="24" />
+            <ShwPlaceholder @text="generic content" @height="24" @width="150" />
           </F.ActionsGeneric>
           <F.ActionsDropdown @width="100px" @height="200px" as |D|>
             <D.Title @text="Title Text" />
