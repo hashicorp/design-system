@@ -10,6 +10,7 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
+import NOOP from 'showcase/utils/noop';
 
 import {
   HdsSegmentedGroup,
@@ -23,6 +24,15 @@ const TEXT_INPUT_TYPES: HdsFormTextInputTypes[] = [
   'date',
   'time',
   'password',
+];
+
+const SUPER_SELECT_OPTIONS = [
+  'Boundary',
+  'Consul',
+  'Packer',
+  'Terraform',
+  'Vault',
+  'Waypoint',
 ];
 
 const STATES = ['focus', 'disabled'];
@@ -327,6 +337,64 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="SuperSelectSingle"
+    >
+      <:theming>
+        <HdsSegmentedGroup as |SGR|>
+          <SGR.SuperSelectSingle
+            @options={{SUPER_SELECT_OPTIONS}}
+            @onChange={{NOOP}}
+            @placeholder="Select service"
+            as |option|
+          >
+            {{option}}
+          </SGR.SuperSelectSingle>
+          <SGR.Button @color="secondary-muted" @text="Button" />
+        </HdsSegmentedGroup>
+      </:theming>
+      <:reference>
+        <div class="shw-component-segmented-group-carbonization-mock-flex">
+          <cds-multi-select>
+            <cds-multi-select-item value="option-1">Option 1</cds-multi-select-item>
+            <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
+            <cds-multi-select-item value="option-3">Option 3</cds-multi-select-item>
+          </cds-multi-select>
+          <cds-button size="md" kind="secondary">Button</cds-button>
+        </div>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="SuperSelectMultiple"
+    >
+      <:theming>
+        <HdsSegmentedGroup as |SGR|>
+          <SGR.SuperSelectMultiple
+            @options={{SUPER_SELECT_OPTIONS}}
+            @onChange={{NOOP}}
+            @placeholder="Select services"
+            as |option|
+          >
+            {{option}}
+          </SGR.SuperSelectMultiple>
+          <SGR.Button @color="secondary-muted" @text="Button" />
+        </HdsSegmentedGroup>
+      </:theming>
+      <:reference>
+        <div class="shw-component-segmented-group-carbonization-mock-flex">
+          <cds-multi-select>
+            <cds-multi-select-item value="option-1">Option 1</cds-multi-select-item>
+            <cds-multi-select-item value="option-2">Option 2</cds-multi-select-item>
+            <cds-multi-select-item value="option-3">Option 3</cds-multi-select-item>
+          </cds-multi-select>
+          <cds-button size="md" kind="secondary">Button</cds-button>
+        </div>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
     <ShwDivider @level={{2}} />
 
     <ShwTextH3>Multiple segments</ShwTextH3>
@@ -409,6 +477,20 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
                 <D.Title @text="Signed In" />
                 <D.Description @text="email@domain.com" />
               </SGR.Dropdown>
+              <SGR.Button @color="secondary-muted" @text="Button" />
+            </HdsSegmentedGroup>
+          </SF.Item>
+          <SF.Item>
+            <HdsSegmentedGroup as |SGR|>
+              <SGR.TextInput aria-label="segmented-text-input-button" />
+              <SGR.SuperSelectSingle
+                @options={{SUPER_SELECT_OPTIONS}}
+                @onChange={{NOOP}}
+                @placeholder="Select service"
+                as |option|
+              >
+                {{option}}
+              </SGR.SuperSelectSingle>
               <SGR.Button @color="secondary-muted" @text="Button" />
             </HdsSegmentedGroup>
           </SF.Item>
@@ -668,6 +750,100 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
                     <option>Option 2</option>
                   </SEL.Options>
                 </SGR.Select>
+              </HdsSegmentedGroup>
+            </SF.Item>
+          </ShwFlex>
+        </:theming>
+        <:reference>
+          <pre>TODO: static image here</pre>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
+
+    <ShwTextH3>SuperSelectSingle</ShwTextH3>
+
+    {{#each STATES as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @layout="side-by-side"
+        @label={{capitalize state}}
+      >
+        <:theming>
+          <ShwFlex @direction="column" @gap="0.75rem" as |SF|>
+            <SF.Item>
+              <HdsSegmentedGroup as |SGR|>
+                <SGR.SuperSelectSingle
+                  @options={{SUPER_SELECT_OPTIONS}}
+                  @onChange={{NOOP}}
+                  @placeholder="Select service"
+                  @disabled={{eq state "disabled"}}
+                  class="mock-{{state}}"
+                  as |option|
+                >
+                  {{option}}
+                </SGR.SuperSelectSingle>
+                <SGR.Button @color="secondary-muted" @text="Button" />
+              </HdsSegmentedGroup>
+            </SF.Item>
+            <SF.Item>
+              <HdsSegmentedGroup as |SGR|>
+                <SGR.Button @color="secondary-muted" @text="Button" />
+                <SGR.SuperSelectSingle
+                  @options={{SUPER_SELECT_OPTIONS}}
+                  @onChange={{NOOP}}
+                  @placeholder="Select service"
+                  @disabled={{eq state "disabled"}}
+                  class="mock-{{state}}"
+                  as |option|
+                >
+                  {{option}}
+                </SGR.SuperSelectSingle>
+              </HdsSegmentedGroup>
+            </SF.Item>
+          </ShwFlex>
+        </:theming>
+        <:reference>
+          <pre>TODO: static image here</pre>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
+
+    <ShwTextH3>SuperSelectMultiple</ShwTextH3>
+
+    {{#each STATES as |state|}}
+      <ShwCarbonizationComparisonGrid
+        @layout="side-by-side"
+        @label={{capitalize state}}
+      >
+        <:theming>
+          <ShwFlex @direction="column" @gap="0.75rem" as |SF|>
+            <SF.Item>
+              <HdsSegmentedGroup as |SGR|>
+                <SGR.SuperSelectMultiple
+                  @options={{SUPER_SELECT_OPTIONS}}
+                  @onChange={{NOOP}}
+                  @placeholder="Select service"
+                  @disabled={{eq state "disabled"}}
+                  class="mock-{{state}}"
+                  as |option|
+                >
+                  {{option}}
+                </SGR.SuperSelectMultiple>
+                <SGR.Button @color="secondary-muted" @text="Button" />
+              </HdsSegmentedGroup>
+            </SF.Item>
+            <SF.Item>
+              <HdsSegmentedGroup as |SGR|>
+                <SGR.Button @color="secondary-muted" @text="Button" />
+                <SGR.SuperSelectMultiple
+                  @options={{SUPER_SELECT_OPTIONS}}
+                  @onChange={{NOOP}}
+                  @placeholder="Select service"
+                  @disabled={{eq state "disabled"}}
+                  class="mock-{{state}}"
+                  as |option|
+                >
+                  {{option}}
+                </SGR.SuperSelectMultiple>
               </HdsSegmentedGroup>
             </SF.Item>
           </ShwFlex>
