@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { toJsonResourceResponse } from "../utils.js";
+import { toJsonResourceResponse } from "../shared/responses.js";
 import { ICONS_URI } from "./constants.js";
 import { getOrLoadIconStore } from "./store/index.js";
 import { toSerializableIconSummary } from "./utils.js";
@@ -17,6 +17,7 @@ export const readIconsResource = (store: IconCatalogStore) => {
     totalIconCount: meta.totalIconCount,
     totalAssetCount: meta.totalAssetCount,
     categories: meta.categories,
+    source: meta.source,
     icons: store.listIcons().map((icon) => toSerializableIconSummary(icon)),
   };
 

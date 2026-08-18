@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { readFileSync } from "node:fs";
-import { createRequire } from "node:module";
+import {
+  DEFAULT_CATALOG_SOURCE,
+  createCatalogLoader,
+} from "../../shared/catalog.js";
 import {
   getIconLookupKeys,
   normalizeLookupValue,
@@ -12,6 +14,7 @@ import {
 } from "./lookup.js";
 import { iconCatalogSchema } from "./schema.js";
 
+import type { CatalogSource } from "../../shared/catalog.js";
 import type { IconRecord, IconSummary } from "./lookup.js";
 import type { IconCatalog } from "./schema.js";
 
@@ -23,22 +26,23 @@ interface SearchIconsInput {
   hasMapping?: boolean;
 }
 
+export interface IconAlias {
+  iconName: string;
+  fileNames: string[];
+}
+
 export interface IconCatalogStore {
   getMeta: () => {
     totalIconCount: number;
     totalAssetCount: number;
     categories: string[];
+    source: CatalogSource;
   };
   listIcons: () => IconSummary[];
+  listIconAliases: () => IconAlias[];
   getIconByName: (nameOrFileName: string) => IconRecord | null;
   searchIcons: (input: SearchIconsInput) => IconSummary[];
 }
-
-const require = createRequire(import.meta.url);
-
-const getIconCatalogPath = (): string => {
-  return require.resolve("@hashicorp/flight-icons/catalog.json");
-};
 
 const toIconSummary = (icon: IconRecord): IconSummary => {
   return {
@@ -67,6 +71,7 @@ export const parseIconCatalog = (value: unknown): IconCatalog => {
 
 export const createIconCatalogStore = (
   catalog: IconCatalog,
+  source: CatalogSource = DEFAULT_CATALOG_SOURCE,
 ): IconCatalogStore => {
   const assetsByIconName = new Map<string, IconCatalog["assets"]>();
 
@@ -88,16 +93,23 @@ export const createIconCatalogStore = (
     }
   }
 
-  const categories = [...new Set(iconRecords.map((icon) => icon.category))]
-    .sort((left, right) => left.localeCompare(right));
+  const categories = [
+    ...new Set(iconRecords.map((icon) => icon.category)),
+  ].sort((left, right) => left.localeCompare(right));
 
   return {
     getMeta: () => ({
       totalIconCount: iconRecords.length,
       totalAssetCount: catalog.assets.length,
       categories,
+      source,
     }),
     listIcons: () => iconRecords.map((icon) => toIconSummary(icon)),
+    listIconAliases: () =>
+      iconRecords.map((icon) => ({
+        iconName: icon.iconName,
+        fileNames: icon.variants.map((variant) => variant.fileName),
+      })),
     getIconByName: (nameOrFileName: string) => {
       return iconLookup.get(normalizeLookupValue(nameOrFileName)) ?? null;
     },
@@ -137,20 +149,17 @@ export const createIconCatalogStore = (
   };
 };
 
-export const loadIconCatalog = (): IconCatalogStore => {
-  const iconCatalogPath = getIconCatalogPath();
-  const rawCatalog = readFileSync(iconCatalogPath, "utf8");
-  const parsedCatalog = JSON.parse(rawCatalog) as unknown;
+const iconCatalogLoader = createCatalogLoader<IconCatalogStore>({
+  specifier: "@hashicorp/flight-icons/catalog.json",
+  anchors: ["project-root", "components", "default"],
+  create: (value, source) =>
+    createIconCatalogStore(parseIconCatalog(value), source),
+});
 
-  return createIconCatalogStore(parseIconCatalog(parsedCatalog));
+export const loadIconCatalog = (): IconCatalogStore => {
+  return iconCatalogLoader.load();
 };
 
-let iconStore: IconCatalogStore | null = null;
-
 export const getOrLoadIconStore = (): IconCatalogStore => {
-  if (iconStore === null) {
-    iconStore = loadIconCatalog();
-  }
-
-  return iconStore;
+  return iconCatalogLoader.getOrLoad();
 };
