@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { readFileSync } from "node:fs";
-import { createRequire } from "node:module";
+import {
+  DEFAULT_CATALOG_SOURCE,
+  createCatalogLoader,
+} from "../../shared/catalog.js";
 import {
   getTokenLookupKeys,
   normalizeLookupValue,
@@ -13,6 +15,7 @@ import {
 } from "./lookup.js";
 import { tokenCatalogSchema } from "./schema.js";
 
+import type { CatalogSource } from "../../shared/catalog.js";
 import type { TokenRecord, TokenSummary } from "./lookup.js";
 import type { TokenCatalogRow, TokenType } from "./schema.js";
 
@@ -26,16 +29,11 @@ type SearchTokensInput = {
 export type TokenCatalogStore = {
   getMeta: () => {
     totalTokenCount: number;
+    source: CatalogSource;
   };
   listTokens: () => TokenSummary[];
   getTokenByKey: (key: string) => TokenRecord | null;
   searchTokens: (input: SearchTokensInput) => TokenSummary[];
-};
-
-const require = createRequire(import.meta.url);
-
-const getTokensPath = (): string => {
-  return require.resolve("@hashicorp/design-system-tokens/dist/docs/products/tokens.json");
 };
 
 const toSearchBlob = (token: TokenSummary): string => {
@@ -52,6 +50,7 @@ export const parseTokenCatalog = (value: unknown): TokenCatalogRow[] => {
 
 export const createTokenCatalogStore = (
   rows: TokenCatalogRow[],
+  source: CatalogSource = DEFAULT_CATALOG_SOURCE,
 ): TokenCatalogStore => {
   const tokenRecords = rows.map((row) => toTokenRecord(row));
   const tokenLookup = new Map<string, TokenRecord>();
@@ -71,6 +70,7 @@ export const createTokenCatalogStore = (
   return {
     getMeta: () => ({
       totalTokenCount: tokenRecords.length,
+      source,
     }),
     listTokens: () =>
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -107,20 +107,17 @@ export const createTokenCatalogStore = (
   };
 };
 
-export const loadTokenCatalog = (): TokenCatalogStore => {
-  const tokensPath = getTokensPath();
-  const rawTokens = readFileSync(tokensPath, "utf8");
-  const parsedTokens = JSON.parse(rawTokens) as unknown;
+const tokenCatalogLoader = createCatalogLoader<TokenCatalogStore>({
+  specifier: "@hashicorp/design-system-tokens/dist/docs/products/tokens.json",
+  anchors: ["project-root", "components", "default"],
+  create: (value, source) =>
+    createTokenCatalogStore(parseTokenCatalog(value), source),
+});
 
-  return createTokenCatalogStore(parseTokenCatalog(parsedTokens));
+export const loadTokenCatalog = (): TokenCatalogStore => {
+  return tokenCatalogLoader.load();
 };
 
-let tokenStore: TokenCatalogStore | null = null;
-
 export const getOrLoadTokenStore = (): TokenCatalogStore => {
-  if (tokenStore === null) {
-    tokenStore = loadTokenCatalog();
-  }
-
-  return tokenStore;
+  return tokenCatalogLoader.getOrLoad();
 };
