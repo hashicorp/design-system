@@ -62,6 +62,11 @@ const DocPageHeader: TemplateOnlyComponent<DocPageHeaderSignature> = <template>
           @route="patterns"
           @currentTopRoute={{@currentTopRoute}}
         />
+        <DocPageHeaderNavItem
+          @label="Tooling"
+          @route="tooling"
+          @currentTopRoute={{@currentTopRoute}}
+        />
         <li
           class="doc-page-header__nav-item-generic doc-page-header__nav-item--split"
         >
