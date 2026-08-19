@@ -13,6 +13,7 @@ import style from 'ember-style-modifier';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
@@ -529,7 +530,7 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Base elements</ShwTextH2>
 
-    <ShwTextH3>List</ShwTextH3>
+    <ShwTextH3>Options list</ShwTextH3>
 
     <ShwCarbonizationComparisonGrid
       @label="Single selection"
@@ -674,6 +675,220 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                     <div class="hds-form-super-select__option-text">Option 4</div>
                   </li>
                 </HdsFormSuperSelectOptionGroup>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </:theming>
+      <:reference>
+        <pre>TODO: static image here</pre>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>Option item states</ShwTextH3>
+
+    <ShwTextH4>Single selection</ShwTextH4>
+
+    <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <:theming>
+        <div class="hds-form-super-select hds-form-super-select-single">
+          <div class="ember-basic-dropdown">
+            <div
+              class="ember-basic-dropdown-content"
+              {{style position="static"}}
+            >
+              <ul
+                class="ember-power-select-options page-carbonization-components-form-super-select-options-no-max-height"
+                role="listbox"
+                aria-label="Label"
+              >
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  mock-state-value="default"
+                >
+                  <div class="hds-form-super-select__option-text">default</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  mock-state-value="default"
+                >
+                  <div class="hds-form-super-select__option-text">default
+                    (selected)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  mock-state-value="hover"
+                >
+                  <div class="hds-form-super-select__option-text">hover</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  mock-state-value="hover"
+                >
+                  <div class="hds-form-super-select__option-text">hover
+                    (selected)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-current="true"
+                >
+                  <div class="hds-form-super-select__option-text">focus</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  aria-current="true"
+                >
+                  <div class="hds-form-super-select__option-text">focus
+                    (selected)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  mock-state-value="active"
+                >
+                  <div class="hds-form-super-select__option-text">active</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  mock-state-value="active"
+                >
+                  <div class="hds-form-super-select__option-text">active
+                    (selected)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-disabled="true"
+                >
+                  <div class="hds-form-super-select__option-text">disabled</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  aria-disabled="true"
+                >
+                  <div class="hds-form-super-select__option-text">disabled
+                    (selected)</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </:theming>
+      <:reference>
+        <pre>TODO: static image here</pre>
+      </:reference>
+    </ShwCarbonizationComparisonGrid>
+
+    <ShwTextH4>Multiple selection</ShwTextH4>
+
+    <ShwCarbonizationComparisonGrid @layout="side-by-side">
+      <:theming>
+        <div class="hds-form-super-select hds-form-super-select-multiple">
+          <div class="ember-basic-dropdown">
+            <div
+              class="ember-basic-dropdown-content"
+              {{style position="static"}}
+            >
+              <ul
+                class="ember-power-select-options page-carbonization-components-form-super-select-options-no-max-height"
+                role="listbox"
+                aria-label="Label"
+              >
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  mock-state-value="default"
+                >
+                  <div class="hds-form-super-select__option-text">default</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  mock-state-value="default"
+                >
+                  <div class="hds-form-super-select__option-text">default
+                    (selected)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  mock-state-value="hover"
+                >
+                  <div class="hds-form-super-select__option-text">hover</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  mock-state-value="hover"
+                >
+                  <div class="hds-form-super-select__option-text">hover
+                    (selected)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-current="true"
+                >
+                  <div class="hds-form-super-select__option-text">focus</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  aria-current="true"
+                >
+                  <div class="hds-form-super-select__option-text">focus
+                    (selected)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  mock-state-value="active"
+                >
+                  <div class="hds-form-super-select__option-text">active</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  mock-state-value="active"
+                >
+                  <div class="hds-form-super-select__option-text">active
+                    (selected)</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-disabled="true"
+                >
+                  <div class="hds-form-super-select__option-text">disabled</div>
+                </li>
+                <li
+                  class="ember-power-select-option"
+                  role="option"
+                  aria-selected="true"
+                  aria-disabled="true"
+                >
+                  <div class="hds-form-super-select__option-text">disabled
+                    (selected)</div>
+                </li>
               </ul>
             </div>
           </div>
