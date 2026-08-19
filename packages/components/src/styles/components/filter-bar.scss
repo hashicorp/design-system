@@ -65,7 +65,7 @@
 // FILTER BAR > FILTERS DROPDOWN
 
 .hds-filter-bar__filters-dropdown {
-  --filter-bar-filters-dropdown-footer-height: 45px;
+  --hds-var-filter-bar-filters-dropdown-footer-height: 45px;
 }
 
 .hds-filter-bar__filters-dropdown .hds-dropdown__list,
@@ -84,7 +84,9 @@
   flex-direction: column;
   gap: var(--hds-filter-bar-tabs-list-gap);
   width: 50%;
-  max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
+  max-height: calc(
+    var(--hds-var-filter-bar-filters-dropdown-height) - var(--hds-var-filter-bar-filters-dropdown-footer-height)
+  );
   margin: 0;
   padding: var(--hds-filter-bar-tabs-list-padding);
   overflow-y: auto;
@@ -182,7 +184,9 @@
   flex-direction: column;
   gap: var(--hds-filter-bar-tabs-panel-gap);
   width: 50%;
-  max-height: calc(var(--filter-bar-filters-dropdown-height) - var(--filter-bar-filters-dropdown-footer-height));
+  max-height: calc(
+    var(--hds-var-filter-bar-filters-dropdown-height) - var(--hds-var-filter-bar-filters-dropdown-footer-height)
+  );
   padding: 16px 0;
   overflow-y: auto;
   background-color: var(--hds-surface-color-primary);

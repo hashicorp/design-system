@@ -64,7 +64,7 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
 
   get dropdownHeightStyle(): Record<string, string> {
     const heightStyle: { [key: string]: string } = {};
-    heightStyle['--filter-bar-filters-dropdown-height'] =
+    heightStyle['--hds-var-filter-bar-filters-dropdown-height'] =
       this.args.height ?? DEFAULT_DROPDOWN_HEIGHT;
     return heightStyle;
   }
