@@ -46,6 +46,18 @@ $hds-advanced-table-inner-border-radius: calc(
   isolation: isolate;
 }
 
+.hds-advanced-table__th,
+.hds-advanced-table__td {
+  font-weight: var(--hds-typography-font-weight-regular);
+  font-size: var(--hds-typography-body-200-font-size);
+  font-family: var(--hds-typography-body-200-font-family);
+  line-height: var(--hds-advanced-table-cell-line-height);
+}
+
+.hds-advanced-table__th-content-text {
+  font-weight: var(--hds-typography-font-weight-semibold);
+}
+
 // table border
 .hds-advanced-table__th,
 .hds-advanced-table__td {
@@ -689,10 +701,6 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
     height: 100%;
     padding: var(--hds-var-advanced-table-cell-padding-top) var(--hds-advanced-table-cell-padding-horizontal)
       var(--hds-var-advanced-table-cell-padding-bottom);
-    font-weight: var(--hds-typography-font-weight-regular);
-    font-size: var(--hds-typography-body-200-font-size);
-    font-family: var(--hds-typography-body-200-font-family);
-    line-height: var(--hds-advanced-table-cell-line-height);
     text-align: left;
     background-color: var(--hds-advanced-table-cell-surface-color-default);
 
