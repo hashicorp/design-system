@@ -61,6 +61,10 @@ describe("components resource", () => {
     expect(mimeType).toBe("application/json");
     expect(payload).toStrictEqual({
       totalComponentCount: 1,
+      source: {
+        resolvedVia: "default",
+        version: "6.4.0",
+      },
       components: [
         {
           name: component.name,
