@@ -32,14 +32,18 @@ const store = createIconCatalogStore({
 });
 
 describe("completeIconNames", () => {
-  it("matches names and filenames and respects the limit", () => {
-    expect(completeIconNames(store, "triangle-16")).toStrictEqual([
+  const icons = store.listIconAliases();
+
+  it("matches names and filenames and returns every icon for a blank query", () => {
+    expect(completeIconNames(icons, "triangle-16")).toStrictEqual([
       "alert-triangle",
     ]);
-    expect(completeIconNames(store, "", 1)).toStrictEqual([
-      "alert-triangle",
-    ]);
-    expect(completeIconNames(store, "warning")).toStrictEqual([]);
+
+    expect(completeIconNames(icons, "")).toStrictEqual(
+      icons.map((icon) => icon.iconName),
+    );
+
+    expect(completeIconNames(icons, "warning")).toStrictEqual([]);
   });
 });
 
