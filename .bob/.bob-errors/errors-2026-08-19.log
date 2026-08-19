@@ -1,0 +1,30 @@
+
+================================================================================
+ERROR LOGGED: 2026-08-19T20:08:48.771Z
+================================================================================
+Error Name: Error
+Error Message: Connection failed for 'figma-mcp': fetch failed
+
+Stack Trace:
+Error: Connection failed for 'figma-mcp': fetch failed
+    at Lcr (file:///Users/zack.moore/Library/pnpm/global/5/.pnpm/bobshell@https+++s3.us-south.cloud-object-storage.appdomain.cloud+bob-shell+bobshell-1.0.6.tgz/node_modules/bobshell/bundle/bob.js:3480:10291)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Ixe.connect (file:///Users/zack.moore/Library/pnpm/global/5/.pnpm/bobshell@https+++s3.us-south.cloud-object-storage.appdomain.cloud+bob-shell+bobshell-1.0.6.tgz/node_modules/bobshell/bundle/bob.js:3480:13137)
+    at async file:///Users/zack.moore/Library/pnpm/global/5/.pnpm/bobshell@https+++s3.us-south.cloud-object-storage.appdomain.cloud+bob-shell+bobshell-1.0.6.tgz/node_modules/bobshell/bundle/bob.js:3480:17293
+================================================================================
+
+
+================================================================================
+ERROR LOGGED: 2026-08-19T20:08:48.932Z
+================================================================================
+Error Name: Error
+Error Message: Cannot connect to 'product-knowledge' - server may be down or URL incorrect
+
+Stack Trace:
+Error: Cannot connect to 'product-knowledge' - server may be down or URL incorrect
+    at Lcr (file:///Users/zack.moore/Library/pnpm/global/5/.pnpm/bobshell@https+++s3.us-south.cloud-object-storage.appdomain.cloud+bob-shell+bobshell-1.0.6.tgz/node_modules/bobshell/bundle/bob.js:3480:10291)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Ixe.connect (file:///Users/zack.moore/Library/pnpm/global/5/.pnpm/bobshell@https+++s3.us-south.cloud-object-storage.appdomain.cloud+bob-shell+bobshell-1.0.6.tgz/node_modules/bobshell/bundle/bob.js:3480:13137)
+    at async file:///Users/zack.moore/Library/pnpm/global/5/.pnpm/bobshell@https+++s3.us-south.cloud-object-storage.appdomain.cloud+bob-shell+bobshell-1.0.6.tgz/node_modules/bobshell/bundle/bob.js:3480:17293
+================================================================================
+
