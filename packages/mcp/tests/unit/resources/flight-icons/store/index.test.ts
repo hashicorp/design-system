@@ -60,7 +60,7 @@ describe("createIconCatalogStore", () => {
       totalIconCount: 2,
       totalAssetCount: 3,
       categories: ["Alerts", "Navigation"],
-      source: { version: null, resolvedValue: "default" },
+      source: { version: null, resolvedVia: "default" },
     });
     expect(store.listIcons()).toHaveLength(2);
     expect(store.listIcons()[0]).not.toHaveProperty("variants");
