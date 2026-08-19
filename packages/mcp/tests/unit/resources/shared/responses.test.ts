@@ -7,12 +7,12 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   toJsonResourceResponse,
   withSafeResourceHandler,
-} from "../../../src/resources/utils.js";
+} from "../../../../src/resources/shared/responses.js";
 import {
   getTextContent,
   parseResourceJson,
-} from "../../support/resource-content.js";
-import { buildRequestHandlerExtra } from "../../support/request-handler.js";
+} from "../../../support/resource-content.js";
+import { buildRequestHandlerExtra } from "../../../support/request-handler.js";
 
 describe("toJsonResourceResponse", () => {
   it("returns a single content entry with the correct uri, mimeType, and serialized payload", () => {
