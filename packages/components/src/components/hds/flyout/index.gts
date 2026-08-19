@@ -9,8 +9,7 @@ import { assert } from '@ember/debug';
 import { buildWaiter } from '@ember/test-waiters';
 import { modifier } from 'ember-modifier';
 import { hash } from '@ember/helper';
-// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
-import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { focusTrap } from 'ember-focus-trap';
 
 import type { WithBoundArgs } from '@glint/template';
 

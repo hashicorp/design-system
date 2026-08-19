@@ -9,8 +9,7 @@ import { registerDestructor } from '@ember/destroyable';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
-// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
-import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { focusTrap } from 'ember-focus-trap';
 
 import type Owner from '@ember/owner';
 
