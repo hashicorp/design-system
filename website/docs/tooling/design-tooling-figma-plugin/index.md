@@ -5,7 +5,7 @@ description: >-
 caption: A Figma plugin to help designers work efficiently with HDS assets.
 previewImage: assets/testing/big_cat.png
 navigation:
-  hidden: false
+  hidden: true
   order: 2
   keywords:
     - figma
