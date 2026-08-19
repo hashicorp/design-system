@@ -17,6 +17,12 @@ import type {
   TokenRecord,
   TokenSummary,
 } from "../../../src/resources/tokens/store/lookup.js";
+import type { CatalogSource } from "../../../src/resources/shared/catalog.js";
+
+const STORE_SOURCE: CatalogSource = {
+  version: "5.1.0",
+  resolvedVia: "project-root",
+};
 
 const buildStore = ({
   tokens,
@@ -28,6 +34,7 @@ const buildStore = ({
   return {
     getMeta: () => ({
       totalTokenCount: tokens.length,
+      source: STORE_SOURCE,
     }),
     listTokens: () => tokens,
     getTokenByKey: () => tokenByKey,
@@ -59,6 +66,7 @@ describe("tokens resource", () => {
     expect(mimeType).toBe("application/json");
     expect(payload).toStrictEqual({
       totalTokenCount: 1,
+      source: STORE_SOURCE,
       tokens: [
         {
           key: token.key,
