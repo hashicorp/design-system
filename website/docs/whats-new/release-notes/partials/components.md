@@ -101,7 +101,7 @@
 
 
 
-`AdvancedTable` - Fixed an issue where the table header tooltip was not visible with the table empty state
+`AdvancedTable` - FIxed a bug where tooltips in the table header would be cut off behind the empty state message.
 
 
 <small class="doc-whats-new-changelog-metadata">[#4038](https://github.com/hashicorp/design-system/pull/4038)</small>
