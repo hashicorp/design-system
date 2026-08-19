@@ -1029,7 +1029,7 @@
   height: 16px;
   color: var(--hds-advanced-table-header-button-foreground-color-default);
   background-color: var(--hds-surface-color-interactive);
-  border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
+  border: 1px solid var(--hds-border-color-primary);
   border-radius: var(--hds-border-radius-small);
   box-shadow: var(--hds-elevation-low-box-shadow);
 }

@@ -437,7 +437,7 @@ $hds-advanced-table-densities: ("short", "medium", "tall");
     color: var(--hds-advanced-table-header-button-foreground-color-default);
     // We don't use the existing `hds-advanced-table-header-button-foreground-color-default` token here because it is transparent. since the reorder handle sits halfway between the header and body, transparent background makes the button look split
     background-color: var(--hds-surface-color-interactive);
-    border: 1px solid var(--hds-advanced-table-header-button-border-color-default);
+    border: 1px solid var(--hds-border-color-primary);
     border-radius: var(--hds-border-radius-small);
     box-shadow: var(--hds-elevation-low-box-shadow);
   }
