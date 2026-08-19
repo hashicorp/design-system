@@ -17,6 +17,12 @@ import type {
   ComponentRecord,
   ComponentSummary,
 } from "../../../src/resources/components/store/lookup.js";
+import type { CatalogSource } from "../../../src/resources/shared/catalog.js";
+
+const STORE_SOURCE: CatalogSource = {
+  version: "6.4.0",
+  resolvedVia: "default",
+};
 
 const buildStore = ({
   components,
@@ -28,6 +34,7 @@ const buildStore = ({
   return {
     getMeta: () => ({
       totalComponentCount: components.length,
+      source: STORE_SOURCE,
     }),
     listComponents: () => components,
     getComponentByName: () => componentByName,
