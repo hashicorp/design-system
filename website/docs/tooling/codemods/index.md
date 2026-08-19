@@ -5,7 +5,7 @@ description: >-
 caption: Codemods to help adopt HDS breaking changes and assist with major version bumps.
 previewImage: assets/testing/big_cat.png
 navigation:
-  hidden: false
+  hidden: true
   order: 3
   keywords:
     - version
