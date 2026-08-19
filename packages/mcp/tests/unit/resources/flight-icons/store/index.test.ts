@@ -25,7 +25,9 @@ describe("parseIconCatalog", () => {
   });
 
   it("rejects an invalid catalog asset", () => {
-    expect(() => parseIconCatalog({ assets: [{ id: "incomplete" }] })).toThrow();
+    expect(() =>
+      parseIconCatalog({ assets: [{ id: "incomplete" }] }),
+    ).toThrow();
   });
 });
 
@@ -58,6 +60,7 @@ describe("createIconCatalogStore", () => {
       totalIconCount: 2,
       totalAssetCount: 3,
       categories: ["Alerts", "Navigation"],
+      source: { version: null, resolvedValue: "default" },
     });
     expect(store.listIcons()).toHaveLength(2);
     expect(store.listIcons()[0]).not.toHaveProperty("variants");
@@ -78,7 +81,9 @@ describe("createIconCatalogStore", () => {
   it("searches aliases and filters icons", () => {
     const store = createIconCatalogStore(catalog);
 
-    expect(store.searchIcons({ query: "triangle-24", limit: 10 })).toHaveLength(1);
+    expect(store.searchIcons({ query: "triangle-24", limit: 10 })).toHaveLength(
+      1,
+    );
     expect(
       store.searchIcons({
         query: "warning",

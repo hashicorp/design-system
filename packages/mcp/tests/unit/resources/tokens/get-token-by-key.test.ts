@@ -39,10 +39,10 @@ describe("completeTokenKeys", () => {
     ]);
   });
 
-  it("returns catalog order and respects the limit", () => {
-    expect(completeTokenKeys(tokens, "", 1)).toStrictEqual([
-      "{border.radius.x-small}",
-    ]);
+  it("returns every token in catalog order for a blank query", () => {
+    expect(completeTokenKeys(tokens, "")).toStrictEqual(
+      tokens.map((token) => token.key),
+    );
   });
 });
 
