@@ -34,18 +34,19 @@ module('Integration | Component | hds/component-name/index', function (hooks) {
 
 ## What to test for
 
-For a given test, the test should have assertions for the following kinds of items given on how the component template changes based on the test conditions.
+For a given test, the test should include assertions for the following kinds of items depending on how the component template changes based on the test conditions.
+
 - Proper class names are applied
-- Textual content, or values for HTML attributes are set as expected
+- Text content or values for HTML attributes are set as expected
 - HTML elements are added or removed as expected
 
 Only test for these items if they differ from the default template and functionality for a component.
 
-Example: If setting a `@color="secondary"` argument changes the CSS classes applied and the textual content of the template. Test that the correct class was applied and the text content is what it should be.
+Example: If setting the `@color="secondary"` argument changes the CSS classes applied and the text content of the template, test to ensure the correct class is applied and the text content is what it should be.
 
 ## Test cases
 
-For a given component the following tests should be added. Tests should be added in the order they are listed below.
+For a given component, the following tests should be added in the order listed below.
 
 ### Component rendering
 
