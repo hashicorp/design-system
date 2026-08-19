@@ -126,7 +126,7 @@ const FilterBarCarbonizationIndex: TemplateOnlyComponent = <template>
           <F.ActionsGeneric>
             <ShwPlaceholder @text="generic content" @height="24" @width="150" />
           </F.ActionsGeneric>
-          <F.ActionsDropdown @width="100px" @height="200px" as |D|>
+          <F.ActionsDropdown @height="200px" as |D|>
             <D.Title @text="Title Text" />
             <D.Description @text="Descriptive text goes here." />
             <D.Interactive @href="#">Add</D.Interactive>
