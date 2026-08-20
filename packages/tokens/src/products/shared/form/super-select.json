@@ -118,6 +118,21 @@
         },
         "indicator": {
           "comment": "left side border is used to indicate an option which is hovered/active",
+          "border-radius": {
+            "$type": "dimension",
+            "$value": "500",
+            "unit": "px",
+            "$modes": {
+              "default": "500",
+              "cds-g0": "0",
+              "cds-g10": "0",
+              "cds-g90": "0",
+              "cds-g100": "0",
+              "comments": {
+                "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+              }
+            }
+          },
           "position": {
             "top": {
               "$type": "dimension",
@@ -129,21 +144,6 @@
                 "cds-g10": "0",
                 "cds-g90": "0",
                 "cds-g100": "0"
-              }
-            },
-            "border-radius": {
-              "$type": "dimension",
-              "$value": "500",
-              "unit": "px",
-              "$modes": {
-                "default": "500",
-                "cds-g0": "0",
-                "cds-g10": "0",
-                "cds-g90": "0",
-                "cds-g100": "0",
-                "comments": {
-                  "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-                }
               }
             },
             "bottom": {
@@ -160,10 +160,10 @@
             },
             "left": {
               "$type": "dimension",
-              "$value": "2",
+              "$value": "3",
               "unit": "px",
               "$modes": {
-                "default": "2",
+                "default": "3",
                 "cds-g0": "0",
                 "cds-g10": "0",
                 "cds-g90": "0",
