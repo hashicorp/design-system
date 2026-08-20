@@ -48,6 +48,9 @@ jobs:
       - name: Build Components
         run: pnpm build
         working-directory: packages/components
+      - name: Check Component Catalog
+        run: pnpm test:component-catalog
+        working-directory: packages/components
       - name: Lint Showcase
         run: pnpm lint
         working-directory: showcase
