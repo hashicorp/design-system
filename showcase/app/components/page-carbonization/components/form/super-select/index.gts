@@ -739,22 +739,6 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                 <li
                   class="ember-power-select-option"
                   role="option"
-                  aria-current="true"
-                >
-                  <div class="hds-form-super-select__option-text">focus</div>
-                </li>
-                <li
-                  class="ember-power-select-option"
-                  role="option"
-                  aria-selected="true"
-                  aria-current="true"
-                >
-                  <div class="hds-form-super-select__option-text">focus
-                    (selected)</div>
-                </li>
-                <li
-                  class="ember-power-select-option"
-                  role="option"
                   mock-state-value="active"
                 >
                   <div class="hds-form-super-select__option-text">active</div>
@@ -839,22 +823,6 @@ const FormSuperSelectCarbonizationIndex: TemplateOnlyComponent = <template>
                   mock-state-value="hover"
                 >
                   <div class="hds-form-super-select__option-text">hover
-                    (selected)</div>
-                </li>
-                <li
-                  class="ember-power-select-option"
-                  role="option"
-                  aria-current="true"
-                >
-                  <div class="hds-form-super-select__option-text">focus</div>
-                </li>
-                <li
-                  class="ember-power-select-option"
-                  role="option"
-                  aria-selected="true"
-                  aria-current="true"
-                >
-                  <div class="hds-form-super-select__option-text">focus
                     (selected)</div>
                 </li>
                 <li

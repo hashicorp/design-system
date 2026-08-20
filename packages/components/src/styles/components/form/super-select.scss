@@ -253,20 +253,16 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
         background-color: var(--hds-form-super-select-option-surface-color-checked-hover);
       }
 
-      // left border
+      // left border (option indicator)
       &::after {
         position: absolute;
-        top: 6px;
-        bottom: 6px;
-        left: 3px;
-        width: 2px;
+        top: var(--hds-form-super-select-option-indicator-position-top);
+        bottom: var(--hds-form-super-select-option-indicator-position-bottom);
+        left: var(--hds-form-super-select-option-indicator-position-left);
+        width: var(--hds-form-super-select-option-indicator-width);
         background-color: var(--hds-foreground-color-action-hover);
-        border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
+        border-radius: var(--hds-form-super-select-option-indicator-border-radius);
         content: "";
-
-        @include hds-apply-only-if-carbon() {
-          display: none; // remove left border indicator
-        }
       }
     }
 

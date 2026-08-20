@@ -116,6 +116,74 @@
             }
           }
         },
+        "indicator": {
+          "comment": "left side border is used to indicate an option which is hovered/active",
+          "position": {
+            "top": {
+              "$type": "dimension",
+              "$value": "6",
+              "unit": "px",
+              "$modes": {
+                "default": "6",
+                "cds-g0": "0",
+                "cds-g10": "0",
+                "cds-g90": "0",
+                "cds-g100": "0"
+              }
+            },
+            "border-radius": {
+              "$type": "dimension",
+              "$value": "500",
+              "unit": "px",
+              "$modes": {
+                "default": "500",
+                "cds-g0": "0",
+                "cds-g10": "0",
+                "cds-g90": "0",
+                "cds-g100": "0",
+                "comments": {
+                  "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+                }
+              }
+            },
+            "bottom": {
+              "$type": "dimension",
+              "$value": "6",
+              "unit": "px",
+              "$modes": {
+                "default": "6",
+                "cds-g0": "0",
+                "cds-g10": "0",
+                "cds-g90": "0",
+                "cds-g100": "0"
+              }
+            },
+            "left": {
+              "$type": "dimension",
+              "$value": "2",
+              "unit": "px",
+              "$modes": {
+                "default": "2",
+                "cds-g0": "0",
+                "cds-g10": "0",
+                "cds-g90": "0",
+                "cds-g100": "0"
+              }
+            }
+          },
+          "width": {
+            "$type": "dimension",
+            "$value": "2",
+            "unit": "px",
+            "$modes": {
+              "default": "2",
+              "cds-g0": "4",
+              "cds-g10": "4",
+              "cds-g90": "4",
+              "cds-g100": "4"
+            }
+          }
+        },
         "margin": {
           "top": {
             "$type": "dimension",
