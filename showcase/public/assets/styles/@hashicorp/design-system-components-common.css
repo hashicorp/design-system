@@ -5794,7 +5794,7 @@ button.hds-button[href]::after {
 .hds-theme-light .hds-filter-bar__tabs__tab__button:focus-visible::before, .hds-theme-light .hds-filter-bar__tabs__tab__button.mock-focus::before,
 .hds-theme-dark .hds-filter-bar__tabs__tab__button:focus-visible::before, .hds-theme-dark .hds-filter-bar__tabs__tab__button.mock-focus::before,
 .hds-theme-system .hds-filter-bar__tabs__tab__button:focus-visible::before, .hds-theme-system .hds-filter-bar__tabs__tab__button.mock-focus::before {
-  inset: 1px;
+  inset: 2px;
 }
 
 .hds-filter-bar__tabs__tab__button:active, .hds-filter-bar__tabs__tab__button.mock-active {

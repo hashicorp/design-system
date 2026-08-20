@@ -120,7 +120,7 @@
 
   &:focus-visible,
   &.mock-focus {
-    @include hds-focus-ring-advanced();
+    @include hds-focus-ring-advanced($pseudo-element-inset-cds: 2px);
   }
 
   &:active,
