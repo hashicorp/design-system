@@ -23786,6 +23786,49 @@
         "color"
       ]
     },
+    "hds-form-super-select-option-indicator-border-radius": {
+      "key": "{form.super-select.option.indicator.border-radius}",
+      "$type": "dimension",
+      "$value": "500px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "500",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "border-radius"
+      ]
+    },
     "hds-form-super-select-option-indicator-position-top": {
       "key": "{form.super-select.option.indicator.position.top}",
       "$type": "dimension",
@@ -23822,50 +23865,6 @@
         "indicator",
         "position",
         "top"
-      ]
-    },
-    "hds-form-super-select-option-indicator-position-border-radius": {
-      "key": "{form.super-select.option.indicator.position.border-radius}",
-      "$type": "dimension",
-      "$value": "500px",
-      "unit": "px",
-      "$modes": {
-        "default": "500",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0",
-        "comments": {
-          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-        }
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "500",
-        "unit": "px",
-        "$modes": {
-          "default": "500",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0",
-          "comments": {
-            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-          }
-        },
-        "key": "{form.super-select.option.indicator.position.border-radius}"
-      },
-      "name": "hds-form-super-select-option-indicator-position-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "super-select",
-        "option",
-        "indicator",
-        "position",
-        "border-radius"
       ]
     },
     "hds-form-super-select-option-indicator-position-bottom": {
@@ -23909,10 +23908,10 @@
     "hds-form-super-select-option-indicator-position-left": {
       "key": "{form.super-select.option.indicator.position.left}",
       "$type": "dimension",
-      "$value": "2px",
+      "$value": "3px",
       "unit": "px",
       "$modes": {
-        "default": "2",
+        "default": "3",
         "cds-g0": "0",
         "cds-g10": "0",
         "cds-g90": "0",
@@ -23920,10 +23919,10 @@
       },
       "original": {
         "$type": "dimension",
-        "$value": "2",
+        "$value": "3",
         "unit": "px",
         "$modes": {
-          "default": "2",
+          "default": "3",
           "cds-g0": "0",
           "cds-g10": "0",
           "cds-g90": "0",
@@ -57565,6 +57564,49 @@
         "color"
       ]
     },
+    "hds-form-super-select-option-indicator-border-radius": {
+      "key": "{form.super-select.option.indicator.border-radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "border-radius"
+      ]
+    },
     "hds-form-super-select-option-indicator-position-top": {
       "key": "{form.super-select.option.indicator.position.top}",
       "$type": "dimension",
@@ -57601,50 +57643,6 @@
         "indicator",
         "position",
         "top"
-      ]
-    },
-    "hds-form-super-select-option-indicator-position-border-radius": {
-      "key": "{form.super-select.option.indicator.position.border-radius}",
-      "$type": "dimension",
-      "$value": "0px",
-      "unit": "px",
-      "$modes": {
-        "default": "500",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0",
-        "comments": {
-          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-        }
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "0",
-        "unit": "px",
-        "$modes": {
-          "default": "500",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0",
-          "comments": {
-            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-          }
-        },
-        "key": "{form.super-select.option.indicator.position.border-radius}"
-      },
-      "name": "hds-form-super-select-option-indicator-position-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "super-select",
-        "option",
-        "indicator",
-        "position",
-        "border-radius"
       ]
     },
     "hds-form-super-select-option-indicator-position-bottom": {
@@ -57691,7 +57689,7 @@
       "$value": "0px",
       "unit": "px",
       "$modes": {
-        "default": "2",
+        "default": "3",
         "cds-g0": "0",
         "cds-g10": "0",
         "cds-g90": "0",
@@ -57702,7 +57700,7 @@
         "$value": "0",
         "unit": "px",
         "$modes": {
-          "default": "2",
+          "default": "3",
           "cds-g0": "0",
           "cds-g10": "0",
           "cds-g90": "0",
@@ -91360,6 +91358,49 @@
         "color"
       ]
     },
+    "hds-form-super-select-option-indicator-border-radius": {
+      "key": "{form.super-select.option.indicator.border-radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "border-radius"
+      ]
+    },
     "hds-form-super-select-option-indicator-position-top": {
       "key": "{form.super-select.option.indicator.position.top}",
       "$type": "dimension",
@@ -91396,50 +91437,6 @@
         "indicator",
         "position",
         "top"
-      ]
-    },
-    "hds-form-super-select-option-indicator-position-border-radius": {
-      "key": "{form.super-select.option.indicator.position.border-radius}",
-      "$type": "dimension",
-      "$value": "0px",
-      "unit": "px",
-      "$modes": {
-        "default": "500",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0",
-        "comments": {
-          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-        }
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "0",
-        "unit": "px",
-        "$modes": {
-          "default": "500",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0",
-          "comments": {
-            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-          }
-        },
-        "key": "{form.super-select.option.indicator.position.border-radius}"
-      },
-      "name": "hds-form-super-select-option-indicator-position-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "super-select",
-        "option",
-        "indicator",
-        "position",
-        "border-radius"
       ]
     },
     "hds-form-super-select-option-indicator-position-bottom": {
@@ -91486,7 +91483,7 @@
       "$value": "0px",
       "unit": "px",
       "$modes": {
-        "default": "2",
+        "default": "3",
         "cds-g0": "0",
         "cds-g10": "0",
         "cds-g90": "0",
@@ -91497,7 +91494,7 @@
         "$value": "0",
         "unit": "px",
         "$modes": {
-          "default": "2",
+          "default": "3",
           "cds-g0": "0",
           "cds-g10": "0",
           "cds-g90": "0",
@@ -125155,6 +125152,49 @@
         "color"
       ]
     },
+    "hds-form-super-select-option-indicator-border-radius": {
+      "key": "{form.super-select.option.indicator.border-radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "border-radius"
+      ]
+    },
     "hds-form-super-select-option-indicator-position-top": {
       "key": "{form.super-select.option.indicator.position.top}",
       "$type": "dimension",
@@ -125191,50 +125231,6 @@
         "indicator",
         "position",
         "top"
-      ]
-    },
-    "hds-form-super-select-option-indicator-position-border-radius": {
-      "key": "{form.super-select.option.indicator.position.border-radius}",
-      "$type": "dimension",
-      "$value": "0px",
-      "unit": "px",
-      "$modes": {
-        "default": "500",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0",
-        "comments": {
-          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-        }
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "0",
-        "unit": "px",
-        "$modes": {
-          "default": "500",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0",
-          "comments": {
-            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-          }
-        },
-        "key": "{form.super-select.option.indicator.position.border-radius}"
-      },
-      "name": "hds-form-super-select-option-indicator-position-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "super-select",
-        "option",
-        "indicator",
-        "position",
-        "border-radius"
       ]
     },
     "hds-form-super-select-option-indicator-position-bottom": {
@@ -125281,7 +125277,7 @@
       "$value": "0px",
       "unit": "px",
       "$modes": {
-        "default": "2",
+        "default": "3",
         "cds-g0": "0",
         "cds-g10": "0",
         "cds-g90": "0",
@@ -125292,7 +125288,7 @@
         "$value": "0",
         "unit": "px",
         "$modes": {
-          "default": "2",
+          "default": "3",
           "cds-g0": "0",
           "cds-g10": "0",
           "cds-g90": "0",
@@ -158950,6 +158946,49 @@
         "color"
       ]
     },
+    "hds-form-super-select-option-indicator-border-radius": {
+      "key": "{form.super-select.option.indicator.border-radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "border-radius"
+      ]
+    },
     "hds-form-super-select-option-indicator-position-top": {
       "key": "{form.super-select.option.indicator.position.top}",
       "$type": "dimension",
@@ -158986,50 +159025,6 @@
         "indicator",
         "position",
         "top"
-      ]
-    },
-    "hds-form-super-select-option-indicator-position-border-radius": {
-      "key": "{form.super-select.option.indicator.position.border-radius}",
-      "$type": "dimension",
-      "$value": "0px",
-      "unit": "px",
-      "$modes": {
-        "default": "500",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0",
-        "comments": {
-          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-        }
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "0",
-        "unit": "px",
-        "$modes": {
-          "default": "500",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0",
-          "comments": {
-            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-          }
-        },
-        "key": "{form.super-select.option.indicator.position.border-radius}"
-      },
-      "name": "hds-form-super-select-option-indicator-position-border-radius",
-      "attributes": {
-        "category": "form"
-      },
-      "path": [
-        "form",
-        "super-select",
-        "option",
-        "indicator",
-        "position",
-        "border-radius"
       ]
     },
     "hds-form-super-select-option-indicator-position-bottom": {
@@ -159076,7 +159071,7 @@
       "$value": "0px",
       "unit": "px",
       "$modes": {
-        "default": "2",
+        "default": "3",
         "cds-g0": "0",
         "cds-g10": "0",
         "cds-g90": "0",
@@ -159087,7 +159082,7 @@
         "$value": "0",
         "unit": "px",
         "$modes": {
-          "default": "2",
+          "default": "3",
           "cds-g0": "0",
           "cds-g10": "0",
           "cds-g90": "0",
