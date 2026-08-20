@@ -7307,20 +7307,14 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
   position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 3px;
-  width: 2px;
+  top: var(--hds-form-super-select-option-indicator-position-top);
+  bottom: var(--hds-form-super-select-option-indicator-position-bottom);
+  left: var(--hds-form-super-select-option-indicator-position-left);
+  width: var(--hds-form-super-select-option-indicator-width);
   background-color: var(--hds-foreground-color-action-hover);
-  border-radius: 500px;
+  border-radius: var(--hds-form-super-select-option-indicator-border-radius);
   content: "";
 }
-.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after,
-.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after,
-.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
-  display: none;
-}
-
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:active::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-active::after {
   background-color: var(--hds-foreground-color-action-active);
 }

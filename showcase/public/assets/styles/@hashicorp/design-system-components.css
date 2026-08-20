@@ -737,6 +737,11 @@
   --hds-form-super-select-option-surface-color-checked-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-indicator-position-top: 6px;
+  --hds-form-super-select-option-indicator-position-border-radius: 500px;
+  --hds-form-super-select-option-indicator-position-bottom: 6px;
+  --hds-form-super-select-option-indicator-position-left: 2px;
+  --hds-form-super-select-option-indicator-width: 2px;
   --hds-form-super-select-option-margin-top: 8px;
   --hds-form-super-select-search-margin-bottom: 3px;
   --hds-form-super-select-tag-border-color: #3b3d4566;
@@ -8333,20 +8338,14 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
   position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 3px;
-  width: 2px;
+  top: var(--hds-form-super-select-option-indicator-position-top);
+  bottom: var(--hds-form-super-select-option-indicator-position-bottom);
+  left: var(--hds-form-super-select-option-indicator-position-left);
+  width: var(--hds-form-super-select-option-indicator-width);
   background-color: var(--hds-foreground-color-action-hover);
-  border-radius: 500px;
+  border-radius: var(--hds-form-super-select-option-indicator-border-radius);
   content: "";
 }
-.hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-light .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after,
-.hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-dark .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after,
-.hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-theme-system .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
-  display: none;
-}
-
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:active::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-active::after {
   background-color: var(--hds-foreground-color-action-active);
 }

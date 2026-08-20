@@ -733,6 +733,11 @@
   --hds-form-super-select-option-surface-color-checked-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-indicator-position-top: 6px;
+  --hds-form-super-select-option-indicator-position-border-radius: 500px;
+  --hds-form-super-select-option-indicator-position-bottom: 6px;
+  --hds-form-super-select-option-indicator-position-left: 2px;
+  --hds-form-super-select-option-indicator-width: 2px;
   --hds-form-super-select-option-margin-top: 8px;
   --hds-form-super-select-search-margin-bottom: 3px;
   --hds-form-super-select-tag-border-color: #3b3d4566;

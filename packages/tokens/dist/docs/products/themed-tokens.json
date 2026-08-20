@@ -23786,6 +23786,201 @@
         "color"
       ]
     },
+    "hds-form-super-select-option-indicator-position-top": {
+      "key": "{form.super-select.option.indicator.position.top}",
+      "$type": "dimension",
+      "$value": "6px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.top}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-top",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "top"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-border-radius": {
+      "key": "{form.super-select.option.indicator.position.border-radius}",
+      "$type": "dimension",
+      "$value": "500px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "500",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.position.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "border-radius"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-bottom": {
+      "key": "{form.super-select.option.indicator.position.bottom}",
+      "$type": "dimension",
+      "$value": "6px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.bottom}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "bottom"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-left": {
+      "key": "{form.super-select.option.indicator.position.left}",
+      "$type": "dimension",
+      "$value": "2px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "2",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.left}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-left",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "left"
+      ]
+    },
+    "hds-form-super-select-option-indicator-width": {
+      "key": "{form.super-select.option.indicator.width}",
+      "$type": "dimension",
+      "$value": "2px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "4",
+        "cds-g10": "4",
+        "cds-g90": "4",
+        "cds-g100": "4"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "2",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        },
+        "key": "{form.super-select.option.indicator.width}"
+      },
+      "name": "hds-form-super-select-option-indicator-width",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "width"
+      ]
+    },
     "hds-form-super-select-option-margin-top": {
       "key": "{form.super-select.option.margin.top}",
       "$type": "dimension",
@@ -57368,6 +57563,201 @@
         "option",
         "border",
         "color"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-top": {
+      "key": "{form.super-select.option.indicator.position.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.top}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-top",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "top"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-border-radius": {
+      "key": "{form.super-select.option.indicator.position.border-radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.position.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "border-radius"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-bottom": {
+      "key": "{form.super-select.option.indicator.position.bottom}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.bottom}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "bottom"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-left": {
+      "key": "{form.super-select.option.indicator.position.left}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.left}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-left",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "left"
+      ]
+    },
+    "hds-form-super-select-option-indicator-width": {
+      "key": "{form.super-select.option.indicator.width}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "4",
+        "cds-g10": "4",
+        "cds-g90": "4",
+        "cds-g100": "4"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        },
+        "key": "{form.super-select.option.indicator.width}"
+      },
+      "name": "hds-form-super-select-option-indicator-width",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "width"
       ]
     },
     "hds-form-super-select-option-margin-top": {
@@ -90970,6 +91360,201 @@
         "color"
       ]
     },
+    "hds-form-super-select-option-indicator-position-top": {
+      "key": "{form.super-select.option.indicator.position.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.top}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-top",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "top"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-border-radius": {
+      "key": "{form.super-select.option.indicator.position.border-radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.position.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "border-radius"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-bottom": {
+      "key": "{form.super-select.option.indicator.position.bottom}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.bottom}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "bottom"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-left": {
+      "key": "{form.super-select.option.indicator.position.left}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.left}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-left",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "left"
+      ]
+    },
+    "hds-form-super-select-option-indicator-width": {
+      "key": "{form.super-select.option.indicator.width}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "4",
+        "cds-g10": "4",
+        "cds-g90": "4",
+        "cds-g100": "4"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        },
+        "key": "{form.super-select.option.indicator.width}"
+      },
+      "name": "hds-form-super-select-option-indicator-width",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "width"
+      ]
+    },
     "hds-form-super-select-option-margin-top": {
       "key": "{form.super-select.option.margin.top}",
       "$type": "dimension",
@@ -124570,6 +125155,201 @@
         "color"
       ]
     },
+    "hds-form-super-select-option-indicator-position-top": {
+      "key": "{form.super-select.option.indicator.position.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.top}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-top",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "top"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-border-radius": {
+      "key": "{form.super-select.option.indicator.position.border-radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.position.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "border-radius"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-bottom": {
+      "key": "{form.super-select.option.indicator.position.bottom}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.bottom}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "bottom"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-left": {
+      "key": "{form.super-select.option.indicator.position.left}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.left}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-left",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "left"
+      ]
+    },
+    "hds-form-super-select-option-indicator-width": {
+      "key": "{form.super-select.option.indicator.width}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "4",
+        "cds-g10": "4",
+        "cds-g90": "4",
+        "cds-g100": "4"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        },
+        "key": "{form.super-select.option.indicator.width}"
+      },
+      "name": "hds-form-super-select-option-indicator-width",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "width"
+      ]
+    },
     "hds-form-super-select-option-margin-top": {
       "key": "{form.super-select.option.margin.top}",
       "$type": "dimension",
@@ -158168,6 +158948,201 @@
         "option",
         "border",
         "color"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-top": {
+      "key": "{form.super-select.option.indicator.position.top}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.top}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-top",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "top"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-border-radius": {
+      "key": "{form.super-select.option.indicator.position.border-radius}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "500",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0",
+        "comments": {
+          "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+        }
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0",
+          "comments": {
+            "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
+          }
+        },
+        "key": "{form.super-select.option.indicator.position.border-radius}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-border-radius",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "border-radius"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-bottom": {
+      "key": "{form.super-select.option.indicator.position.bottom}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "6",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "6",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.bottom}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "bottom"
+      ]
+    },
+    "hds-form-super-select-option-indicator-position-left": {
+      "key": "{form.super-select.option.indicator.position.left}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{form.super-select.option.indicator.position.left}"
+      },
+      "name": "hds-form-super-select-option-indicator-position-left",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "position",
+        "left"
+      ]
+    },
+    "hds-form-super-select-option-indicator-width": {
+      "key": "{form.super-select.option.indicator.width}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "4",
+        "cds-g10": "4",
+        "cds-g90": "4",
+        "cds-g100": "4"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "2",
+          "cds-g0": "4",
+          "cds-g10": "4",
+          "cds-g90": "4",
+          "cds-g100": "4"
+        },
+        "key": "{form.super-select.option.indicator.width}"
+      },
+      "name": "hds-form-super-select-option-indicator-width",
+      "attributes": {
+        "category": "form"
+      },
+      "path": [
+        "form",
+        "super-select",
+        "option",
+        "indicator",
+        "width"
       ]
     },
     "hds-form-super-select-option-margin-top": {

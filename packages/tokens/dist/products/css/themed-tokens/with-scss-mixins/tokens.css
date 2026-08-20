@@ -904,6 +904,11 @@
       --hds-form-select-background-image-size
     );
     --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
+    --hds-form-super-select-option-indicator-position-border-radius: 500px;
+    --hds-form-super-select-option-indicator-position-bottom: 6px;
+    --hds-form-super-select-option-indicator-position-left: 2px;
+    --hds-form-super-select-option-indicator-position-top: 6px;
+    --hds-form-super-select-option-indicator-width: 2px;
     --hds-form-super-select-option-margin-top: 8px;
     --hds-form-super-select-option-surface-color-checked-default: rgba(
       0,
@@ -1990,6 +1995,11 @@
     --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #c6c6c6;
+    --hds-form-super-select-option-indicator-position-border-radius: 0px;
+    --hds-form-super-select-option-indicator-position-bottom: 0px;
+    --hds-form-super-select-option-indicator-position-left: 0px;
+    --hds-form-super-select-option-indicator-position-top: 0px;
+    --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
     --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
@@ -2894,6 +2904,11 @@
     --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #525252;
+    --hds-form-super-select-option-indicator-position-border-radius: 0px;
+    --hds-form-super-select-option-indicator-position-bottom: 0px;
+    --hds-form-super-select-option-indicator-position-left: 0px;
+    --hds-form-super-select-option-indicator-position-top: 0px;
+    --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
     --hds-form-super-select-option-surface-color-checked-default: #393939;
     --hds-form-super-select-option-surface-color-checked-hover: #474747;
@@ -3768,6 +3783,11 @@
     --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #c6c6c6;
+    --hds-form-super-select-option-indicator-position-border-radius: 0px;
+    --hds-form-super-select-option-indicator-position-bottom: 0px;
+    --hds-form-super-select-option-indicator-position-left: 0px;
+    --hds-form-super-select-option-indicator-position-top: 0px;
+    --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
     --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
@@ -4642,6 +4662,11 @@
     --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #e0e0e0;
+    --hds-form-super-select-option-indicator-position-border-radius: 0px;
+    --hds-form-super-select-option-indicator-position-bottom: 0px;
+    --hds-form-super-select-option-indicator-position-left: 0px;
+    --hds-form-super-select-option-indicator-position-top: 0px;
+    --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
     --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
@@ -5546,6 +5571,11 @@
     --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #6f6f6f;
+    --hds-form-super-select-option-indicator-position-border-radius: 0px;
+    --hds-form-super-select-option-indicator-position-bottom: 0px;
+    --hds-form-super-select-option-indicator-position-left: 0px;
+    --hds-form-super-select-option-indicator-position-top: 0px;
+    --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
     --hds-form-super-select-option-surface-color-checked-default: #525252;
     --hds-form-super-select-option-surface-color-checked-hover: #636363;
@@ -6450,6 +6480,11 @@
     --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #525252;
+    --hds-form-super-select-option-indicator-position-border-radius: 0px;
+    --hds-form-super-select-option-indicator-position-bottom: 0px;
+    --hds-form-super-select-option-indicator-position-left: 0px;
+    --hds-form-super-select-option-indicator-position-top: 0px;
+    --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
     --hds-form-super-select-option-surface-color-checked-default: #393939;
     --hds-form-super-select-option-surface-color-checked-hover: #474747;
