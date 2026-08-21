@@ -113,7 +113,11 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
         <D.FilterGroup @key="date" @text="Date" @type="date" />
         <D.FilterGroup @key="datetime" @text="Datetime" @type="datetime" />
         <D.FilterGroup @key="time" @text="Time" @type="time" />
-        <D.FilterGroup @key="generic" @text="Generic" @type="generic" />
+        <D.FilterGroup @key="generic" @text="Generic" @type="generic" as |F|>
+          <F.Generic>
+            <ShwPlaceholder @text="Generic content" @height="50" />
+          </F.Generic>
+        </D.FilterGroup>
       </F.FiltersDropdown>
     </HdsFilterBar>
   </template>

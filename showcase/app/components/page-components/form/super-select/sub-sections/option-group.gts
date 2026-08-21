@@ -60,10 +60,10 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
                     role="option"
                     mock-state-value="hover"
                   >
-                    Option 1
+                    <div class="hds-form-super-select__option-text">Option 1</div>
                   </li>
                   <li class="ember-power-select-option" role="option">
-                    Option 2
+                    <div class="hds-form-super-select__option-text">Option 2</div>
                   </li>
                 </HdsFormSuperSelectOptionGroup>
               </ul>
@@ -93,7 +93,8 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
                     role="option"
                     mock-state-value="hover"
                   >
-                    Level 1 - Option 1A
+                    <div class="hds-form-super-select__option-text">Level 1 -
+                      Option 1A</div>
                   </li>
                   <HdsFormSuperSelectOptionGroup
                     @group={{hash groupName="Title for second level"}}
@@ -104,10 +105,12 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
                       role="option"
                       mock-state-value="hover"
                     >
-                      Level 2 - Option 2A
+                      <div class="hds-form-super-select__option-text">Level 2 -
+                        Option 2A</div>
                     </li>
                     <li class="ember-power-select-option" role="option">
-                      Level 2 - Option 2B
+                      <div class="hds-form-super-select__option-text">Level 2 -
+                        Option 2B</div>
                     </li>
                     <HdsFormSuperSelectOptionGroup
                       @group={{hash groupName="Title for third level"}}
@@ -118,10 +121,12 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
                         role="option"
                         mock-state-value="hover"
                       >
-                        Level 3 - Option 3A
+                        <div class="hds-form-super-select__option-text">Level 3
+                          - Option 3A</div>
                       </li>
                       <li class="ember-power-select-option" role="option">
-                        Level 3 - Option 3B
+                        <div class="hds-form-super-select__option-text">Level 3
+                          - Option 3B</div>
                       </li>
                     </HdsFormSuperSelectOptionGroup>
                   </HdsFormSuperSelectOptionGroup>
@@ -136,7 +141,8 @@ const SubSectionOptionGroup: TemplateOnlyComponent = <template>
                     />
                   </HdsFormSuperSelectOptionGroup>
                   <li class="ember-power-select-option" role="option">
-                    Level 1 - Option 1B
+                    <div class="hds-form-super-select__option-text">Level 1 -
+                      Option 1B</div>
                   </li>
                 </HdsFormSuperSelectOptionGroup>
               </ul>
