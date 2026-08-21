@@ -44,10 +44,12 @@ import {
   HdsDropdown,
   HdsDropdownToggleButton,
   HdsDropdownToggleIcon,
+  HdsDropdownHeader,
   HdsDropdownListItemInteractive,
   HdsDropdownListItemCheckmark,
   HdsDropdownListItemCheckbox,
   HdsDropdownListItemRadio,
+  HdsDropdownFooter,
   HdsFilterBarTabs,
   HdsFormCheckboxBase,
   HdsFormFileInputBase,
@@ -290,7 +292,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
   <ShwDivider @level={{2}} />
 
   <ShwTextH4 @tag="h3">Button</ShwTextH4>
-  <ShwGrid @columns={{4}} @gap="1rem" as |SG|>
+  <ShwGrid @columns={{5}} @gap="1rem" as |SG|>
     {{#each BUTTON_COLORS as |color|}}
       <SG.Item @label={{capitalize color}}>
         <ShwFlex @direction="column" @gap="1rem" as |SF|>
@@ -562,6 +564,110 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
             Lorem ipsum
           </HdsDropdownListItemRadio>
         </ul>
+      </div>
+    </SF.Item>
+  </ShwFlex>
+
+  <ShwTextBody>Header/Footer</ShwTextBody>
+  <ShwFlex @direction="column" as |SF|>
+    <SF.Item @label="Single button">
+      <div class="hds-dropdown__content">
+        <HdsDropdownHeader
+          @hasDivider={{true}}
+          mock-state-value="focus"
+          mock-state-selector="button"
+        >
+          <HdsButton
+            @text="Apply filters"
+            @isFullWidth={{true}}
+            @size="small"
+          />
+        </HdsDropdownHeader>
+        <ul class="hds-dropdown__list">
+          <HdsDropdownListItemInteractive>Lorem</HdsDropdownListItemInteractive>
+          <HdsDropdownListItemInteractive>Ipsum</HdsDropdownListItemInteractive>
+        </ul>
+        <HdsDropdownFooter
+          @hasDivider={{true}}
+          mock-state-value="focus"
+          mock-state-selector="button"
+        >
+          <HdsButton
+            @text="Apply filters"
+            @isFullWidth={{true}}
+            @size="small"
+          />
+        </HdsDropdownFooter>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Button group">
+      <div class="hds-dropdown__content">
+        <HdsDropdownHeader
+          @hasDivider={{true}}
+          mock-state-value="focus"
+          mock-state-selector="button"
+        >
+          <HdsButtonSet>
+            <HdsButton @text="Apply" @isFullWidth={{true}} @size="small" />
+            <HdsButton
+              @text="Cancel"
+              @color="secondary"
+              @isFullWidth={{true}}
+              @size="small"
+            />
+          </HdsButtonSet>
+        </HdsDropdownHeader>
+        <ul class="hds-dropdown__list">
+          <HdsDropdownListItemInteractive>Lorem</HdsDropdownListItemInteractive>
+          <HdsDropdownListItemInteractive>Ipsum</HdsDropdownListItemInteractive>
+        </ul>
+        <HdsDropdownFooter
+          @hasDivider={{true}}
+          mock-state-value="focus"
+          mock-state-selector="button"
+        >
+          <HdsButtonSet>
+            <HdsButton @text="Apply" @isFullWidth={{true}} @size="small" />
+            <HdsButton
+              @text="Cancel"
+              @color="secondary"
+              @isFullWidth={{true}}
+              @size="small"
+            />
+          </HdsButtonSet>
+        </HdsDropdownFooter>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Link secondary">
+      <div class="hds-dropdown__content">
+        <HdsDropdownHeader
+          @hasDivider={{true}}
+          mock-state-value="focus"
+          mock-state-selector="a"
+        >
+          <HdsLinkStandalone
+            @icon="list"
+            @text="Organizations"
+            @color="secondary"
+            @href="#"
+          />
+        </HdsDropdownHeader>
+        <ul class="hds-dropdown__list">
+          <HdsDropdownListItemInteractive>Lorem</HdsDropdownListItemInteractive>
+          <HdsDropdownListItemInteractive>Ipsum</HdsDropdownListItemInteractive>
+        </ul>
+        <HdsDropdownFooter
+          @hasDivider={{true}}
+          mock-state-value="focus"
+          mock-state-selector="a"
+        >
+          <HdsLinkStandalone
+            @icon="list"
+            @text="Organizations"
+            @color="secondary"
+            @href="#"
+          />
+        </HdsDropdownFooter>
       </div>
     </SF.Item>
   </ShwFlex>
