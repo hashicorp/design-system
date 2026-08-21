@@ -68,7 +68,11 @@ export default class HdsPaginationControlNumber extends Component<HdsPaginationN
       ...attributes
       aria-current={{if @isSelected "page" null}}
     >
-      <HdsTextBody @tag="span" @size="100" @weight="medium">
+      <HdsTextBody
+        @tag="span"
+        @size="100"
+        class="hds-pagination-nav__number-content"
+      >
         <span class="sr-only">{{hdsT
             "hds.components.pagination.nav.number.screen-reader-label"
             default="page"
