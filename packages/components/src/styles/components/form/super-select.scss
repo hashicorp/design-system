@@ -236,7 +236,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     // Selected
 
     &[aria-selected="true"] {
-      background: var(--hds-form-super-select-option-surface-color-checked-default);
+      background: transparent;
     }
 
     // Hover
