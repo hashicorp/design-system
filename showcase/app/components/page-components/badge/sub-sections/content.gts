@@ -6,8 +6,8 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
 
-import ShwFlex from 'showcase/components/shw/flex';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwFlex from 'showcase/components/shw/flex';
 
 import { HdsBadge } from '@hashicorp/design-system-components/components';
 
