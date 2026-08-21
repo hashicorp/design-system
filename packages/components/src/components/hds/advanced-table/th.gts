@@ -443,7 +443,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
           <div class="hds-advanced-table__th-content">
             <span
               id={{this._labelId}}
-              class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
+              class="hds-advanced-table__th-content-text"
             >
               {{yield}}
             </span>

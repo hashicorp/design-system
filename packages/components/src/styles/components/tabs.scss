@@ -11,6 +11,7 @@ $hds-tabs-sizes: ("medium", "large");
 
 @use "sass:map";
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 // Sub-components:
 .hds-tabs__tablist-wrapper {
@@ -20,11 +21,15 @@ $hds-tabs-sizes: ("medium", "large");
   &::before {
     position: absolute;
     right: 0;
-    bottom: calc((var(--token-tabs-indicator-height) - var(--token-tabs-divider-height)) / 2);
+    bottom: calc((var(--hds-tabs-indicator-height) - var(--hds-tabs-divider-height)) / 2);
     left: 0;
     display: block;
-    border-top: var(--token-tabs-divider-height) solid var(--token-color-border-primary);
+    border-top: var(--hds-tabs-divider-height) solid var(--hds-border-color-primary);
     content: "";
+
+    @include hds-apply-only-if-carbon() {
+      display: none;
+    }
   }
 }
 
@@ -36,6 +41,10 @@ $hds-tabs-sizes: ("medium", "large");
   overflow-x: auto;
   isolation: isolate;
   -webkit-overflow-scrolling: touch;
+
+  @include hds-apply-only-if-carbon() {
+    gap: 1px;
+  }
 }
 
 .hds-tabs__tab {
@@ -43,47 +52,55 @@ $hds-tabs-sizes: ("medium", "large");
   display: flex;
   align-items: center;
   margin: 0;
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-tabs-tab-foreground-color-default);
   white-space: nowrap;
   text-decoration: none;
   list-style: none;
 
+  @include hds-apply-only-if-carbon() {
+    border-bottom: var(--hds-tabs-indicator-height) solid var(--hds-tabs-tab-border-color-default);
+    transition:
+      border 70ms cubic-bezier(0.2, 0, 0.38, 0.9),
+      outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  }
+
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action);
+    color: var(--hds-tabs-tab-foreground-color-hover);
+    border-color: var(--hds-tabs-tab-border-color-hover);
   }
 
   &.hds-tabs__tab--is-selected {
-    color: var(--token-color-foreground-action);
+    color: var(--hds-tabs-tab-selected-foreground-color-default);
+
+    @include hds-apply-only-if-carbon() {
+      border-color: var(--hds-tabs-tab-selected-border-color-default);
+    }
 
     &:hover {
-      color: var(--token-color-foreground-action-hover);
+      color: var(--hds-tabs-tab-selected-foreground-color-hover);
+    }
 
-      & ~ .hds-tabs__tab-indicator {
-        background: var(--token-color-foreground-action-hover);
+    .hds-tabs__tab-button {
+      @include hds-apply-only-if-carbon() {
+        font-weight: var(--hds-typography-font-weight-semibold);
       }
     }
   }
 }
 
 .hds-tabs__tab-button {
-  @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-tabs-tab-focus-inset),
-    $right: var(--token-tabs-tab-focus-inset),
-    $bottom: var(--token-tabs-tab-focus-inset),
-    $left: var(--token-tabs-tab-focus-inset)
-  );
   position: static;
   display: flex;
-  gap: var(--token-tabs-tab-gutter);
+  gap: var(--hds-tabs-tab-gutter);
   align-items: center;
   padding: 0;
   color: inherit;
-  font-weight: var(--token-typography-font-weight-medium);
-  font-family: var(--token-typography-body-200-font-family);
+  font-weight: var(--hds-typography-font-weight-medium);
+  font-family: var(--hds-typography-body-200-font-family);
   background-color: transparent;
   border: none;
-  border-radius: var(--token-tabs-tab-border-radius);
+  border-radius: var(--hds-tabs-tab-border-radius);
   cursor: pointer;
 
   // Expand click target area
@@ -92,8 +109,23 @@ $hds-tabs-sizes: ("medium", "large");
     content: "";
     inset: 0;
   }
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced(
+      // the `position` is already set above
+      $element-position: false,
+      // we want the focus ring to appear above the indicator, in `cds-g90/cds-g100`
+      $pseudo-element-z-index: 1,
+      // by design
+      $pseudo-element-inset-hds: 6px,
+      // 2px = focus-ring's external width; 0px only at the bottom so it overlaps with the indicator
+      $pseudo-element-inset-cds: 2px 2px 0 2px
+    );
+  }
 }
 
+// the underline under the current selected Tab
 .hds-tabs__tab-indicator {
   position: absolute;
   right: 0;
@@ -104,13 +136,19 @@ $hds-tabs-sizes: ("medium", "large");
   display: block;
   // notice: this custom prop is set dynamically via JavaScript
   width: var(--indicator-width, 0);
-  height: var(--token-tabs-indicator-height);
-  background-color: var(--token-color-foreground-action);
-  border-radius: var(--token-tabs-indicator-height);
+  height: var(--hds-tabs-indicator-height);
+  background-color: var(--hds-tabs-tab-selected-foreground-color-default);
+  border-radius: var(--hds-tabs-indicator-height);
+
+  // Note: HDS default theme uses an li element for the indicator to make animating its position possible
+  // Carbon themes instead change the color of a border on the Tab to indicate it's selected
+  @include hds-apply-only-if-carbon() {
+    display: none;
+  }
 
   @media screen and (prefers-reduced-motion: no-preference) {
-    transition-timing-function: var(--token-tabs-indicator-transition-function);
-    transition-duration: var(--token-tabs-indicator-transition-duration);
+    transition-timing-function: var(--hds-tabs-indicator-transition-timing-function);
+    transition-duration: var(--hds-tabs-indicator-transition-duration);
     transition-property: left, width;
   }
 }
@@ -127,14 +165,14 @@ $hds-tabs-sizes: ("medium", "large");
 
 $hds-tabs-size-props: (
   "medium": (
-    "tab-height": var(--token-tabs-tab-height-medium),
-    "tab-padding-horizontal": var(--token-tabs-tab-padding-horizontal-medium),
-    "tab-font-size": var(--token-typography-body-200-font-size),
+    "tab-height": var(--hds-tabs-tab-height-medium),
+    "tab-padding-horizontal": var(--hds-tabs-tab-padding-horizontal-medium),
+    "tab-font-size": var(--hds-typography-body-200-font-size),
   ),
   "large": (
-    "tab-height": var(--token-tabs-tab-height-large),
-    "tab-padding-horizontal": var(--token-tabs-tab-padding-horizontal-large),
-    "tab-font-size": var(--token-typography-body-300-font-size),
+    "tab-height": var(--hds-tabs-tab-height-large),
+    "tab-padding-horizontal": var(--hds-tabs-tab-padding-horizontal-large),
+    "tab-font-size": var(--hds-typography-body-300-font-size),
   ),
 );
 
@@ -142,7 +180,7 @@ $hds-tabs-size-props: (
   .hds-tabs--size-#{$size} {
     .hds-tabs__tab {
       height: map.get($hds-tabs-size-props, $size, "tab-height");
-      padding: var(--token-tabs-tab-padding-vertical) map.get($hds-tabs-size-props, $size, "tab-padding-horizontal");
+      padding: var(--hds-tabs-tab-padding-vertical) map.get($hds-tabs-size-props, $size, "tab-padding-horizontal");
     }
 
     .hds-tabs__tab-button {
