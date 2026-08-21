@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { normalizeLookupValue } from "../../../shared/normalize.js";
 import {
   DEFAULT_CATALOG_SOURCE,
   createCatalogLoader,
 } from "../../shared/catalog.js";
 import {
   getComponentLookupKeys,
-  normalizeLookupValue,
   toComponentRecord,
   toComponentSummary,
 } from "./lookup.js";
