@@ -6,10 +6,9 @@
 //
 // BUTTON COMPONENT
 //
-// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
-//
 
 @use "../mixins/button" as *;
+@use "../mixins/carbonization" as *;
 
 .hds-button {
   @include hds-button();
@@ -51,14 +50,13 @@
     width: 100%;
     max-width: 100%;
 
+    @include hds-apply-only-if-carbon() {
+      justify-content: space-between;
+    }
+
     .hds-button__text {
       flex: 0 0 auto;
     }
-  }
-
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
   }
 }
 
@@ -82,6 +80,10 @@
 
 .hds-button--color-secondary {
   @include hds-button-color-secondary();
+}
+
+.hds-button--color-secondary-muted {
+  @include hds-button-color-secondary-muted();
 }
 
 .hds-button--color-tertiary {
