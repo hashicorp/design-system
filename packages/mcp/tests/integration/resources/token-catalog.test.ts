@@ -19,7 +19,7 @@ describe("generated token catalog", () => {
     expect(store.getTokenByKey("border.radius.x-small")?.key).toBe(
       "{border.radius.x-small}",
     );
-    expect(store.getTokenByKey("token-border-radius-x-small")?.key).toBe(
+    expect(store.getTokenByKey("hds-border-radius-x-small")?.key).toBe(
       "{border.radius.x-small}",
     );
   });
