@@ -1,6 +1,16 @@
-import { ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import {
+  completeFromAliases,
+  withSafeCompletion,
+} from "../shared/completions.js";
+import { defineDetailResource } from "../shared/define-resource.js";
 import { getOrLoadTokenStore } from "./store/index.js";
-import { toJsonResourceResponse } from "../utils.js";
+import { toJsonResourceResponse } from "../shared/responses.js";
+import { buildDetailUri } from "../shared/uri.js";
 import { TOKENS_URI, TOKEN_BY_KEY_URI_TEMPLATE } from "./constants.js";
 import { toSerializableTokenSummary } from "./utils.js";
 
@@ -8,42 +18,16 @@ import type { McpResource } from "../types.js";
 import type { TokenCatalogStore } from "./store/index.js";
 import type { TokenSummary } from "./store/lookup.js";
 
-const getTokenByKeyUri = (tokenKey: string): string => {
-  return `${TOKENS_URI}/${encodeURIComponent(tokenKey)}`;
-};
-
-const decodeTokenKey = (tokenKey: string): string => {
-  try {
-    return decodeURIComponent(tokenKey);
-  } catch {
-    return tokenKey;
-  }
-};
-
 export const completeTokenKeys = (
   tokens: TokenSummary[],
   value: string,
-  limit = 100,
 ): string[] => {
-  const query = value.trim().toLowerCase();
-  const matches: string[] = [];
-
-  for (const token of tokens) {
-    const aliases = [token.key, token.name, token.path.join(".")];
-    const isMatch =
-      query.length === 0 ||
-      aliases.some((alias) => alias.toLowerCase().includes(query));
-
-    if (isMatch) {
-      matches.push(token.key);
-    }
-
-    if (matches.length >= limit) {
-      break;
-    }
-  }
-
-  return matches;
+  return completeFromAliases({
+    items: tokens,
+    getAliases: (token) => [token.key, token.name, token.path.join(".")],
+    getValue: (token) => token.key,
+    value,
+  });
 };
 
 export const readTokenByKeyResource = (
@@ -51,16 +35,17 @@ export const readTokenByKeyResource = (
   tokenKey: string,
 ) => {
   const token = store.getTokenByKey(tokenKey);
+  const uri = buildDetailUri(TOKENS_URI, tokenKey);
 
   if (token === null) {
-    return toJsonResourceResponse(getTokenByKeyUri(tokenKey), {
+    return toJsonResourceResponse(uri, {
       found: false,
       requestedTokenKey: tokenKey,
       message: "Token not found for provided tokenKey.",
     });
   }
 
-  return toJsonResourceResponse(getTokenByKeyUri(tokenKey), {
+  return toJsonResourceResponse(uri, {
     found: true,
     requestedTokenKey: tokenKey,
     token: {
@@ -73,35 +58,17 @@ export const readTokenByKeyResource = (
 export const createGetTokenByKeyResource = (
   getStore: () => TokenCatalogStore,
 ): McpResource => {
-  return {
+  return defineDetailResource({
     name: "get_hds_token",
-    template: new ResourceTemplate(TOKEN_BY_KEY_URI_TEMPLATE, {
-      list: undefined,
-      complete: {
-        tokenKey: (value) => completeTokenKeys(getStore().listTokens(), value),
-      },
-    }),
-    config: {
-      title: "HDS token detail",
-      description: "Detailed token record for a specific token key",
-      mimeType: "application/json",
-    },
-    readCallback: async (
-      uri: URL,
-      variables: Record<string, string | string[]>,
-    ) => {
-      const tokenKey = variables.tokenKey;
-
-      if (typeof tokenKey !== "string" || tokenKey.trim().length === 0) {
-        return toJsonResourceResponse(uri.toString(), {
-          found: false,
-          message: "Missing tokenKey variable.",
-        });
-      }
-
-      return readTokenByKeyResource(getStore(), decodeTokenKey(tokenKey));
-    },
-  };
+    uriTemplate: TOKEN_BY_KEY_URI_TEMPLATE,
+    title: "HDS token detail",
+    description: "Detailed token record for a specific token key",
+    variableName: "tokenKey",
+    complete: withSafeCompletion("get_hds_token", (value) =>
+      completeTokenKeys(getStore().listTokens(), value),
+    ),
+    read: (tokenKey) => readTokenByKeyResource(getStore(), tokenKey),
+  });
 };
 
 const getTokenByKeyResource = createGetTokenByKeyResource(getOrLoadTokenStore);

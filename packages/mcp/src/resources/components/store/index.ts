@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { readFileSync } from "node:fs";
-import { createRequire } from "node:module";
+import {
+  DEFAULT_CATALOG_SOURCE,
+  createCatalogLoader,
+} from "../../shared/catalog.js";
 import {
   getComponentLookupKeys,
   normalizeLookupValue,
@@ -13,22 +15,18 @@ import {
 } from "./lookup.js";
 import { componentCatalogSchema } from "./schema.js";
 
+import type { CatalogSource } from "../../shared/catalog.js";
 import type { ComponentRecord, ComponentSummary } from "./lookup.js";
 import type { ComponentCatalog } from "./schema.js";
 
 export interface ComponentCatalogStore {
   getMeta: () => {
     totalComponentCount: number;
+    source: CatalogSource;
   };
   listComponents: () => ComponentSummary[];
   getComponentByName: (componentName: string) => ComponentRecord | null;
 }
-
-const require = createRequire(import.meta.url);
-
-const getComponentCatalogPath = (): string => {
-  return require.resolve("@hashicorp/design-system-components/component-catalog.json");
-};
 
 export const parseComponentCatalog = (value: unknown): ComponentCatalog => {
   return componentCatalogSchema.parse(value);
@@ -36,6 +34,7 @@ export const parseComponentCatalog = (value: unknown): ComponentCatalog => {
 
 export const createComponentCatalogStore = (
   catalog: ComponentCatalog,
+  source: CatalogSource = DEFAULT_CATALOG_SOURCE,
 ): ComponentCatalogStore => {
   const componentRecords = catalog.components.map((entry) =>
     toComponentRecord(entry, catalog.valueSets ?? {}),
@@ -59,6 +58,7 @@ export const createComponentCatalogStore = (
   return {
     getMeta: () => ({
       totalComponentCount: componentRecords.length,
+      source,
     }),
     listComponents: () =>
       componentRecords.map((component) => toComponentSummary(component)),
@@ -68,20 +68,17 @@ export const createComponentCatalogStore = (
   };
 };
 
-export const loadComponentCatalog = (): ComponentCatalogStore => {
-  const componentCatalogPath = getComponentCatalogPath();
-  const rawCatalog = readFileSync(componentCatalogPath, "utf8");
-  const parsedCatalog = JSON.parse(rawCatalog) as unknown;
+const componentCatalogLoader = createCatalogLoader<ComponentCatalogStore>({
+  specifier: "@hashicorp/design-system-components/component-catalog.json",
+  anchors: ["project-root", "default"],
+  create: (value, source) =>
+    createComponentCatalogStore(parseComponentCatalog(value), source),
+});
 
-  return createComponentCatalogStore(parseComponentCatalog(parsedCatalog));
+export const loadComponentCatalog = (): ComponentCatalogStore => {
+  return componentCatalogLoader.load();
 };
 
-let componentStore: ComponentCatalogStore | null = null;
-
 export const getOrLoadComponentStore = (): ComponentCatalogStore => {
-  if (componentStore === null) {
-    componentStore = loadComponentCatalog();
-  }
-
-  return componentStore;
+  return componentCatalogLoader.getOrLoad();
 };
