@@ -44,7 +44,7 @@ The home link supports an optional `text` property to more explicitly title an a
 This element only exists in Figma. For implementation in code, use the HDS [Dropdown](/components/dropdown) or, if necessary, create your own custom component styled after the Dropdown.
 !!!
 
-The context switcher allows users to switch between different global contexts within the product or application, such as navigating between different organizations or projects. 
+The context switcher allows users to switch between different global contexts within the product or application, such as navigating between different organizations or projects.
 
 ![Context switcher within the App Header](/assets/components/app-header/app-header-context-switcher.png)
 
@@ -71,6 +71,12 @@ Avoid placing links to unrelated pages within the user dropdown menu.
 For guidance on adding language selection to the App Header, refer to the [language selection pattern](/patterns/language-selection).
 
 ![An example of language selection via a dedicated dropdown menu in the App Header](/assets/patterns/language-selection/language-selection.png)
+
+### Theme selection
+
+For guidance on adding theme selection to the User dropdown, refer to the [theme selection pattern](/patterns/theme-selection).
+
+![An example of theme selection in the user dropdown menu](/assets/patterns/theme-selection/theme-selection.png)
 
 ### Search
 
