@@ -19,6 +19,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
 
   test('it should render the component with the appropriate CSS class', async function (assert) {
     await render(<template><HdsFormCheckboxField /></template>);
+    assert.dom('.hds-form-field--checkbox').exists();
     assert.dom('.hds-form-field__control').exists();
   });
 
