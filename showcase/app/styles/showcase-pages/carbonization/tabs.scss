@@ -1,0 +1,29 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > TABS
+
+body.page-carbonization-components-tabs {
+  .shw-component-tabs-sample-ul-wrapper {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .shw-component-tabs-selector-example {
+    position: relative;
+
+    .hds-tabs__tab-indicator {width: 100%;}
+  }
+
+  // Add spacing between examples
+  .shw-component-tabs-sample-ul-wrapper,
+  .shw-component-tabs-selector-example {
+    + .shw-component-tabs-sample-ul-wrapper,
+    + .shw-component-tabs-selector-example {
+      margin-top: 8px;
+    }
+  }
+}
