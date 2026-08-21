@@ -102,3 +102,35 @@ At smaller viewports, the menu containing the `AppHeader` controls will occupy 1
 The `AppHeader` is intended to be used within the [`AppFrame`](/layouts/app-frame) component (only supported in code), where a location is reserved for the component out of the box.
 
 If you intend to use the `AppHeader` without the `AppFrame`, contact the HDS team for assistance and guidance on implementation.
+
+## Theme selection
+
+The theme selection pattern allows users to switch the application's visual theme between supported options. Theme selection is accessed through the existing User dropdown in the AppHeader's `utilityActions` and does not require a new top-level utility control.
+
+![An example of the open User settings menu in the AppHeader with available theme selection options.](/assets/components/app-header/app-header-theme-selection.png)
+
+In Ember applications, a [theme service](#) is provided (insert a link at some point) to handle switching the theme based on the selected option.
+
+### Placement
+
+Place theme options as a new section within the User dropdown or settings menu after the existing account-level actions (Account settings, Sign out).
+
+### Components
+
+Assemble the theme section from the following HDS components:
+
+- `Separator`: adds visual differentiation between the theme selection and the account actions and settings.
+- `Title`: section label; set the text to "Theme"
+- `Checkmark`: one instance per theme option; includes a leading icon and accounts for the selected state
+
+### Options
+
+Each theme option uses a `Checkmark` with a leading icon that best corresponds with the visual appearance of the theme. The supported options are:
+
+| Option          | Leading icon | Notes                                                            |
+| --------------- | ------------ | ---------------------------------------------------------------- |
+| HashiCorp theme | `hashicorp`  | Sets the theme to the HashiCorp Helios theme                     |
+| System theme    | `monitor`    | Reflects the operating system's current light or dark preference |
+| Light theme     | `sun`        | Sets light mode regardless of OS setting                         |
+| Dark theme      | `moon`       | Sets dark mode regardless of OS setting                          |
+
