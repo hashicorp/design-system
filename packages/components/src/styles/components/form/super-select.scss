@@ -254,11 +254,12 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       }
 
       // left border (option indicator)
+      // used to indicate an option which is hovered/active
       &::after {
         position: absolute;
-        top: var(--hds-form-super-select-option-indicator-position-top);
-        bottom: var(--hds-form-super-select-option-indicator-position-bottom);
-        left: var(--hds-form-super-select-option-indicator-position-left);
+        top: var(--hds-form-super-select-option-indicator-top);
+        bottom: var(--hds-form-super-select-option-indicator-bottom);
+        left: var(--hds-form-super-select-option-indicator-left);
         width: var(--hds-form-super-select-option-indicator-width);
         background-color: var(--hds-foreground-color-action-hover);
         border-radius: var(--hds-form-super-select-option-indicator-border-radius);
