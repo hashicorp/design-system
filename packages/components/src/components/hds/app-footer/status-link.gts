@@ -78,7 +78,7 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
   get itemStyle(): Record<string, string> {
     if (this.args.statusIconColor) {
       return {
-        '--hds-app-footer-status-icon-color': this.args.statusIconColor,
+        '--hds-var-app-footer-status-icon-color': this.args.statusIconColor,
       };
     } else {
       return {};
