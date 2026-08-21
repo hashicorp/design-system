@@ -3,12 +3,15 @@
 ---
 
 Added `HdsTheming` service for theming
+
 Added `HdsIconRegistry` service for async icons loading
 
 Added `@ibm/plex-[mono|sans]` packages as dependencies
 
 Added `design-system-plex-fonts.scss` to the `packages/components` styles
 Included subset of IBM Plex fonts to the `dist/public` folder of the addon
+
+Added a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon themes
 
 <!-- START theming/theme-context -->
 `ThemeContext` - Added headless component
