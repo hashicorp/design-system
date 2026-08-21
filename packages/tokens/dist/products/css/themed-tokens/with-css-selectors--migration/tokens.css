@@ -904,9 +904,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-indicator-border-radius: 500px;
-  --hds-form-super-select-option-indicator-position-bottom: 6px;
-  --hds-form-super-select-option-indicator-position-left: 3px;
-  --hds-form-super-select-option-indicator-position-top: 6px;
+  --hds-form-super-select-option-indicator-bottom: 6px;
+  --hds-form-super-select-option-indicator-left: 3px;
+  --hds-form-super-select-option-indicator-top: 6px;
   --hds-form-super-select-option-indicator-width: 2px;
   --hds-form-super-select-option-margin-top: 8px;
   --hds-form-super-select-option-surface-color-checked-default: rgba(
@@ -1972,9 +1972,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #c6c6c6;
     --hds-form-super-select-option-indicator-border-radius: 0px;
-    --hds-form-super-select-option-indicator-position-bottom: 0px;
-    --hds-form-super-select-option-indicator-position-left: 0px;
-    --hds-form-super-select-option-indicator-position-top: 0px;
+    --hds-form-super-select-option-indicator-bottom: 0px;
+    --hds-form-super-select-option-indicator-left: 0px;
+    --hds-form-super-select-option-indicator-top: 0px;
     --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
     --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
@@ -2879,9 +2879,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-super-select-option-background-image-size: 12px;
     --hds-form-super-select-option-border-color: #525252;
     --hds-form-super-select-option-indicator-border-radius: 0px;
-    --hds-form-super-select-option-indicator-position-bottom: 0px;
-    --hds-form-super-select-option-indicator-position-left: 0px;
-    --hds-form-super-select-option-indicator-position-top: 0px;
+    --hds-form-super-select-option-indicator-bottom: 0px;
+    --hds-form-super-select-option-indicator-left: 0px;
+    --hds-form-super-select-option-indicator-top: 0px;
     --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
     --hds-form-super-select-option-surface-color-checked-default: #393939;
@@ -3744,9 +3744,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-background-image-size: 12px;
   --hds-form-super-select-option-border-color: #c6c6c6;
   --hds-form-super-select-option-indicator-border-radius: 0px;
-  --hds-form-super-select-option-indicator-position-bottom: 0px;
-  --hds-form-super-select-option-indicator-position-left: 0px;
-  --hds-form-super-select-option-indicator-position-top: 0px;
+  --hds-form-super-select-option-indicator-bottom: 0px;
+  --hds-form-super-select-option-indicator-left: 0px;
+  --hds-form-super-select-option-indicator-top: 0px;
   --hds-form-super-select-option-indicator-width: 4px;
   --hds-form-super-select-option-margin-top: 0px;
   --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
@@ -4628,9 +4628,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-background-image-size: 12px;
   --hds-form-super-select-option-border-color: #525252;
   --hds-form-super-select-option-indicator-border-radius: 0px;
-  --hds-form-super-select-option-indicator-position-bottom: 0px;
-  --hds-form-super-select-option-indicator-position-left: 0px;
-  --hds-form-super-select-option-indicator-position-top: 0px;
+  --hds-form-super-select-option-indicator-bottom: 0px;
+  --hds-form-super-select-option-indicator-left: 0px;
+  --hds-form-super-select-option-indicator-top: 0px;
   --hds-form-super-select-option-indicator-width: 4px;
   --hds-form-super-select-option-margin-top: 0px;
   --hds-form-super-select-option-surface-color-checked-default: #393939;

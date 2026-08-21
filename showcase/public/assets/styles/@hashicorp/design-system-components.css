@@ -738,9 +738,9 @@
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-indicator-border-radius: 500px;
-  --hds-form-super-select-option-indicator-position-top: 6px;
-  --hds-form-super-select-option-indicator-position-bottom: 6px;
-  --hds-form-super-select-option-indicator-position-left: 3px;
+  --hds-form-super-select-option-indicator-top: 6px;
+  --hds-form-super-select-option-indicator-bottom: 6px;
+  --hds-form-super-select-option-indicator-left: 3px;
   --hds-form-super-select-option-indicator-width: 2px;
   --hds-form-super-select-option-margin-top: 8px;
   --hds-form-super-select-search-margin-bottom: 3px;
@@ -8338,9 +8338,9 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
   position: absolute;
-  top: var(--hds-form-super-select-option-indicator-position-top);
-  bottom: var(--hds-form-super-select-option-indicator-position-bottom);
-  left: var(--hds-form-super-select-option-indicator-position-left);
+  top: var(--hds-form-super-select-option-indicator-top);
+  bottom: var(--hds-form-super-select-option-indicator-bottom);
+  left: var(--hds-form-super-select-option-indicator-left);
   width: var(--hds-form-super-select-option-indicator-width);
   background-color: var(--hds-foreground-color-action-hover);
   border-radius: var(--hds-form-super-select-option-indicator-border-radius);

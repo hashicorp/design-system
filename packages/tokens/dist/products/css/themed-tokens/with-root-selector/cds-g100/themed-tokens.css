@@ -504,9 +504,9 @@
   --hds-form-super-select-option-background-image-size: 12px;
   --hds-form-super-select-option-border-color: #525252;
   --hds-form-super-select-option-indicator-border-radius: 0px;
-  --hds-form-super-select-option-indicator-position-bottom: 0px;
-  --hds-form-super-select-option-indicator-position-left: 0px;
-  --hds-form-super-select-option-indicator-position-top: 0px;
+  --hds-form-super-select-option-indicator-bottom: 0px;
+  --hds-form-super-select-option-indicator-left: 0px;
+  --hds-form-super-select-option-indicator-top: 0px;
   --hds-form-super-select-option-indicator-width: 4px;
   --hds-form-super-select-option-margin-top: 0px;
   --hds-form-super-select-option-surface-color-checked-default: #393939;

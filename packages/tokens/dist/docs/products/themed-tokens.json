@@ -23829,8 +23829,8 @@
         "border-radius"
       ]
     },
-    "hds-form-super-select-option-indicator-position-top": {
-      "key": "{form.super-select.option.indicator.position.top}",
+    "hds-form-super-select-option-indicator-top": {
+      "key": "{form.super-select.option.indicator.top}",
       "$type": "dimension",
       "$value": "6px",
       "unit": "px",
@@ -23852,9 +23852,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.top}"
+        "key": "{form.super-select.option.indicator.top}"
       },
-      "name": "hds-form-super-select-option-indicator-position-top",
+      "name": "hds-form-super-select-option-indicator-top",
       "attributes": {
         "category": "form"
       },
@@ -23863,12 +23863,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "top"
       ]
     },
-    "hds-form-super-select-option-indicator-position-bottom": {
-      "key": "{form.super-select.option.indicator.position.bottom}",
+    "hds-form-super-select-option-indicator-bottom": {
+      "key": "{form.super-select.option.indicator.bottom}",
       "$type": "dimension",
       "$value": "6px",
       "unit": "px",
@@ -23890,9 +23889,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.bottom}"
+        "key": "{form.super-select.option.indicator.bottom}"
       },
-      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "name": "hds-form-super-select-option-indicator-bottom",
       "attributes": {
         "category": "form"
       },
@@ -23901,12 +23900,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "bottom"
       ]
     },
-    "hds-form-super-select-option-indicator-position-left": {
-      "key": "{form.super-select.option.indicator.position.left}",
+    "hds-form-super-select-option-indicator-left": {
+      "key": "{form.super-select.option.indicator.left}",
       "$type": "dimension",
       "$value": "3px",
       "unit": "px",
@@ -23928,9 +23926,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.left}"
+        "key": "{form.super-select.option.indicator.left}"
       },
-      "name": "hds-form-super-select-option-indicator-position-left",
+      "name": "hds-form-super-select-option-indicator-left",
       "attributes": {
         "category": "form"
       },
@@ -23939,7 +23937,6 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "left"
       ]
     },
@@ -57607,8 +57604,8 @@
         "border-radius"
       ]
     },
-    "hds-form-super-select-option-indicator-position-top": {
-      "key": "{form.super-select.option.indicator.position.top}",
+    "hds-form-super-select-option-indicator-top": {
+      "key": "{form.super-select.option.indicator.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -57630,9 +57627,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.top}"
+        "key": "{form.super-select.option.indicator.top}"
       },
-      "name": "hds-form-super-select-option-indicator-position-top",
+      "name": "hds-form-super-select-option-indicator-top",
       "attributes": {
         "category": "form"
       },
@@ -57641,12 +57638,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "top"
       ]
     },
-    "hds-form-super-select-option-indicator-position-bottom": {
-      "key": "{form.super-select.option.indicator.position.bottom}",
+    "hds-form-super-select-option-indicator-bottom": {
+      "key": "{form.super-select.option.indicator.bottom}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -57668,9 +57664,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.bottom}"
+        "key": "{form.super-select.option.indicator.bottom}"
       },
-      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "name": "hds-form-super-select-option-indicator-bottom",
       "attributes": {
         "category": "form"
       },
@@ -57679,12 +57675,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "bottom"
       ]
     },
-    "hds-form-super-select-option-indicator-position-left": {
-      "key": "{form.super-select.option.indicator.position.left}",
+    "hds-form-super-select-option-indicator-left": {
+      "key": "{form.super-select.option.indicator.left}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -57706,9 +57701,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.left}"
+        "key": "{form.super-select.option.indicator.left}"
       },
-      "name": "hds-form-super-select-option-indicator-position-left",
+      "name": "hds-form-super-select-option-indicator-left",
       "attributes": {
         "category": "form"
       },
@@ -57717,7 +57712,6 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "left"
       ]
     },
@@ -91401,8 +91395,8 @@
         "border-radius"
       ]
     },
-    "hds-form-super-select-option-indicator-position-top": {
-      "key": "{form.super-select.option.indicator.position.top}",
+    "hds-form-super-select-option-indicator-top": {
+      "key": "{form.super-select.option.indicator.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -91424,9 +91418,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.top}"
+        "key": "{form.super-select.option.indicator.top}"
       },
-      "name": "hds-form-super-select-option-indicator-position-top",
+      "name": "hds-form-super-select-option-indicator-top",
       "attributes": {
         "category": "form"
       },
@@ -91435,12 +91429,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "top"
       ]
     },
-    "hds-form-super-select-option-indicator-position-bottom": {
-      "key": "{form.super-select.option.indicator.position.bottom}",
+    "hds-form-super-select-option-indicator-bottom": {
+      "key": "{form.super-select.option.indicator.bottom}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -91462,9 +91455,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.bottom}"
+        "key": "{form.super-select.option.indicator.bottom}"
       },
-      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "name": "hds-form-super-select-option-indicator-bottom",
       "attributes": {
         "category": "form"
       },
@@ -91473,12 +91466,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "bottom"
       ]
     },
-    "hds-form-super-select-option-indicator-position-left": {
-      "key": "{form.super-select.option.indicator.position.left}",
+    "hds-form-super-select-option-indicator-left": {
+      "key": "{form.super-select.option.indicator.left}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -91500,9 +91492,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.left}"
+        "key": "{form.super-select.option.indicator.left}"
       },
-      "name": "hds-form-super-select-option-indicator-position-left",
+      "name": "hds-form-super-select-option-indicator-left",
       "attributes": {
         "category": "form"
       },
@@ -91511,7 +91503,6 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "left"
       ]
     },
@@ -125195,8 +125186,8 @@
         "border-radius"
       ]
     },
-    "hds-form-super-select-option-indicator-position-top": {
-      "key": "{form.super-select.option.indicator.position.top}",
+    "hds-form-super-select-option-indicator-top": {
+      "key": "{form.super-select.option.indicator.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -125218,9 +125209,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.top}"
+        "key": "{form.super-select.option.indicator.top}"
       },
-      "name": "hds-form-super-select-option-indicator-position-top",
+      "name": "hds-form-super-select-option-indicator-top",
       "attributes": {
         "category": "form"
       },
@@ -125229,12 +125220,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "top"
       ]
     },
-    "hds-form-super-select-option-indicator-position-bottom": {
-      "key": "{form.super-select.option.indicator.position.bottom}",
+    "hds-form-super-select-option-indicator-bottom": {
+      "key": "{form.super-select.option.indicator.bottom}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -125256,9 +125246,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.bottom}"
+        "key": "{form.super-select.option.indicator.bottom}"
       },
-      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "name": "hds-form-super-select-option-indicator-bottom",
       "attributes": {
         "category": "form"
       },
@@ -125267,12 +125257,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "bottom"
       ]
     },
-    "hds-form-super-select-option-indicator-position-left": {
-      "key": "{form.super-select.option.indicator.position.left}",
+    "hds-form-super-select-option-indicator-left": {
+      "key": "{form.super-select.option.indicator.left}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -125294,9 +125283,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.left}"
+        "key": "{form.super-select.option.indicator.left}"
       },
-      "name": "hds-form-super-select-option-indicator-position-left",
+      "name": "hds-form-super-select-option-indicator-left",
       "attributes": {
         "category": "form"
       },
@@ -125305,7 +125294,6 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "left"
       ]
     },
@@ -158989,8 +158977,8 @@
         "border-radius"
       ]
     },
-    "hds-form-super-select-option-indicator-position-top": {
-      "key": "{form.super-select.option.indicator.position.top}",
+    "hds-form-super-select-option-indicator-top": {
+      "key": "{form.super-select.option.indicator.top}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -159012,9 +159000,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.top}"
+        "key": "{form.super-select.option.indicator.top}"
       },
-      "name": "hds-form-super-select-option-indicator-position-top",
+      "name": "hds-form-super-select-option-indicator-top",
       "attributes": {
         "category": "form"
       },
@@ -159023,12 +159011,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "top"
       ]
     },
-    "hds-form-super-select-option-indicator-position-bottom": {
-      "key": "{form.super-select.option.indicator.position.bottom}",
+    "hds-form-super-select-option-indicator-bottom": {
+      "key": "{form.super-select.option.indicator.bottom}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -159050,9 +159037,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.bottom}"
+        "key": "{form.super-select.option.indicator.bottom}"
       },
-      "name": "hds-form-super-select-option-indicator-position-bottom",
+      "name": "hds-form-super-select-option-indicator-bottom",
       "attributes": {
         "category": "form"
       },
@@ -159061,12 +159048,11 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "bottom"
       ]
     },
-    "hds-form-super-select-option-indicator-position-left": {
-      "key": "{form.super-select.option.indicator.position.left}",
+    "hds-form-super-select-option-indicator-left": {
+      "key": "{form.super-select.option.indicator.left}",
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
@@ -159088,9 +159074,9 @@
           "cds-g90": "0",
           "cds-g100": "0"
         },
-        "key": "{form.super-select.option.indicator.position.left}"
+        "key": "{form.super-select.option.indicator.left}"
       },
-      "name": "hds-form-super-select-option-indicator-position-left",
+      "name": "hds-form-super-select-option-indicator-left",
       "attributes": {
         "category": "form"
       },
@@ -159099,7 +159085,6 @@
         "super-select",
         "option",
         "indicator",
-        "position",
         "left"
       ]
     },
