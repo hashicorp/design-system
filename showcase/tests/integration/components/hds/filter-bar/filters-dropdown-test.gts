@@ -93,7 +93,7 @@ module(
       await click('.hds-dropdown-toggle-button');
       assert
         .dom('.hds-dropdown__content')
-        .hasStyle({ '--filter-bar-filters-dropdown-height': '600px' });
+        .hasStyle({ '--hds-var-filter-bar-filters-dropdown-height': '600px' });
     });
 
     test('it should set the height of the dropdown content to the value provided by the @height argument', async function (assert) {
@@ -108,7 +108,7 @@ module(
       await click('.hds-dropdown-toggle-button');
       assert
         .dom('.hds-dropdown__content')
-        .hasStyle({ '--filter-bar-filters-dropdown-height': '400px' });
+        .hasStyle({ '--hds-var-filter-bar-filters-dropdown-height': '400px' });
     });
 
     // CONTEXTUAL COMPONENTS
