@@ -20,6 +20,7 @@ module('Integration | Component | hds/form/radio/field', function (hooks) {
 
   test('it should render the component with a specific CSS class', async function (assert) {
     await render(<template><HdsFormRadioField /></template>);
+    assert.dom('.hds-form-field--radio').exists();
     assert.dom('.hds-form-field__control').exists();
   });
 
