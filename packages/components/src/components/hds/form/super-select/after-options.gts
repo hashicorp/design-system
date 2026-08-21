@@ -52,7 +52,7 @@ const HdsFormSuperSelectAfterOptions: TemplateOnlyComponent<HdsFormSuperSelectAf
                 default="Show all"
               }}
               @size="small"
-              @color="secondary"
+              @color="secondary-muted"
               {{on "click" @showAll}}
             />
           {{else}}
@@ -62,7 +62,7 @@ const HdsFormSuperSelectAfterOptions: TemplateOnlyComponent<HdsFormSuperSelectAf
                 default="Show selected"
               }}
               @size="small"
-              @color="secondary"
+              @color="secondary-muted"
               {{on "click" @showSelected}}
             />
           {{/if}}
@@ -73,7 +73,7 @@ const HdsFormSuperSelectAfterOptions: TemplateOnlyComponent<HdsFormSuperSelectAf
                 default="Clear selected"
               }}
               @size="small"
-              @color="secondary"
+              @color="secondary-muted"
               {{on "click" @clearSelected}}
             />
           {{/if}}

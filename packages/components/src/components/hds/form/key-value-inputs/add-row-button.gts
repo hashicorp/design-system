@@ -59,7 +59,7 @@ export default class HdsFormKeyValueInputsAddRowButton extends Component<HdsForm
     <HdsButton
       @text={{this.text}}
       @size="medium"
-      @color="secondary"
+      @color="secondary-muted"
       @icon="plus"
       @iconPosition="leading"
       class="hds-form-key-value-inputs__add-row-button"

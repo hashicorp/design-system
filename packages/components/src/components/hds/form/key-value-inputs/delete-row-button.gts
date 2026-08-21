@@ -76,7 +76,7 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
       <HdsButton
         @text={{this.text}}
         @size="medium"
-        @color="secondary"
+        @color="secondary-muted"
         @icon="trash"
         @isIconOnly={{true}}
         class="hds-form-key-value-inputs__delete-row-button"

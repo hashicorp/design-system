@@ -28,6 +28,11 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
       classes.push('hds-form-indicator--optional');
     }
 
+    if (this.args.isRequired) {
+      // add speficic class for "required" indicator
+      classes.push('hds-form-indicator--required');
+    }
+
     return classes.join(' ');
   }
 
@@ -41,7 +46,7 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
       </span>
     {{/if}}
     {{#if @isRequired}}
-      &nbsp;<HdsBadge
+      <span class="hds-form-indicator-space">&nbsp;</span><HdsBadge
         aria-hidden="true"
         class={{this.classNames}}
         @size="small"
