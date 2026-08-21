@@ -249,10 +249,6 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       background-color: var(--hds-form-super-select-option-surface-color-hover);
       border: none; // guard against border in default theme
 
-      &[aria-selected="true"] {
-        background-color: var(--hds-form-super-select-option-surface-color-checked-hover);
-      }
-
       // left border (option indicator)
       // used to indicate an option which is hovered/active
       &::after {
