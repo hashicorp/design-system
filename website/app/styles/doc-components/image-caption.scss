@@ -7,6 +7,12 @@
 
 .doc-image-caption {
   margin-top: 4px;
+  margin-bottom: 32px;
   color: var(--doc-color-gray-300);
   font-style: italic;
+
+  // Reduce spacing when preceeded by a paragraph
+  .doc-markdown-p + & {
+    margin-top: -4px;
+  }
 }
