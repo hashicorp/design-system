@@ -168,10 +168,10 @@ const SubSectionAfterOptions: TemplateOnlyComponent = <template>
                   role="option"
                   aria-selected="true"
                 >
-                  Option 1
+                  <div class="hds-form-super-select__option-text">Option 1</div>
                 </li>
                 <li class="ember-power-select-option" role="option">
-                  Option 2
+                  <div class="hds-form-super-select__option-text">Option 2</div>
                 </li>
               </HdsFormSuperSelectOptionGroup>
             </ul>
