@@ -135,7 +135,6 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
           class="hds-stepper-list__step-title"
           @tag={{this.titleTag}}
           @size="200"
-          @weight="semibold"
           @color="strong"
         >
           <span class="sr-only">

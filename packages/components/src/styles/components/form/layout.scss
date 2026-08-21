@@ -12,7 +12,7 @@
 // FORM
 
 .hds-form {
-  --hds-form-section-max-width: 672px; // default max-width used by FormSection, etc.
+  --hds-var-form-section-max-width: 672px; // default max-width used by FormSection, etc.
 
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@
 
 // MULTI FIELD GROUP ITEM
 .hds-form__section-multi-field-group-item {
-  width: var(--hds-form-section-multi-field-group-item-width, auto);
+  width: var(--hds-var-form-section-multi-field-group-item-width, auto);
 }
 
 // OPTIONS
@@ -71,7 +71,7 @@
 .hds-form__section,
 .hds-form__separator,
 .hds-form__footer {
-  max-width: var(--hds-form-section-max-width);
+  max-width: var(--hds-var-form-section-max-width);
 }
 
 // isFullWidth = true
