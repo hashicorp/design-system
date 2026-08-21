@@ -408,7 +408,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
                 default="Show more code"
               )
             }}
-            @color="secondary"
+            @color="secondary-muted"
             @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
             @size="small"
             {{on "click" this.toggleExpanded}}
