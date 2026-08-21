@@ -62,7 +62,7 @@ export default class HdsFilterBarActionsDropdown extends Component<HdsFilterBarA
       <D.ToggleButton
         @icon={{@toggleButtonIcon}}
         @text={{this.toggleButtonText}}
-        @color="secondary"
+        @color="secondary-muted"
         @size="small"
       />
       {{yield D}}

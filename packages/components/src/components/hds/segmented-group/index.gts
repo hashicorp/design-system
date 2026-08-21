@@ -50,7 +50,7 @@ export default class HdsSegmentedGroup extends Component<HdsSegmentedGroupSignat
   get styles(): Record<string, string> {
     const styles: { [key: string]: string } = {};
     if (this.args.maxWidth) {
-      styles['--hds-segmented-group-max-width'] = this.args.maxWidth;
+      styles['--hds-var-segmented-group-max-width'] = this.args.maxWidth;
     }
 
     return styles;

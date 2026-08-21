@@ -9,9 +9,9 @@
 
 .hds-form-helper-text {
   display: block;
-  color: var(--token-form-helper-text-foreground-color);
-  font-weight: var(--token-typography-font-weight-regular);
-  font-size: var(--token-form-helper-text-typography-font-size);
-  font-family: var(--token-typography-font-stack-text);
-  line-height: var(--token-form-helper-text-typography-line-height);
+  color: var(--hds-form-helper-text-foreground-color);
+  font-weight: var(--hds-typography-font-weight-regular);
+  font-size: var(--hds-form-helper-text-typography-font-size);
+  font-family: var(--hds-typography-font-stack-text);
+  line-height: var(--hds-form-helper-text-typography-line-height);
 }

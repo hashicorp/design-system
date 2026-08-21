@@ -91,7 +91,7 @@ export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
       <div class="hds-table__th-content">
         <span
           id={{this._labelId}}
-          class="hds-typography-body-200 hds-font-weight-semibold"
+          class="hds-table__th-content-text"
         >{{yield}}</span>
         {{#if @tooltip}}
           <HdsTableThButtonTooltip

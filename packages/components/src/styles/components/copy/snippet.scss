@@ -7,28 +7,27 @@
 // COPY > SNIPPET
 //
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 @mixin hds-copy-snippet-success-error() {
   &.hds-copy-snippet--status-success {
-    background-color: var(--token-color-surface-interactive);
+    background-color: var(--hds-surface-color-interactive);
 
     .hds-copy-snippet__icon {
-      color: var(--token-color-foreground-success);
+      color: var(--hds-foreground-color-success);
     }
   }
 
   &.hds-copy-snippet--status-error {
-    background-color: var(--token-color-surface-interactive);
+    background-color: var(--hds-surface-color-interactive);
 
     .hds-copy-snippet__icon {
-      color: var(--token-color-foreground-critical);
+      color: var(--hds-foreground-color-critical);
     }
   }
 }
 
 .hds-copy-snippet {
-  @include hds-focus-ring-with-pseudo-element();
-
   display: flex;
   gap: 8px;
   align-items: center;
@@ -36,56 +35,77 @@
   padding: 6px 4px;
   text-align: left;
   border: 1px solid transparent;
-  border-radius: var(--token-border-radius-small);
+  border-radius: var(--hds-border-radius-small);
   cursor: pointer;
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-advanced();
+  }
+
+  @include hds-apply-only-if-carbon() {
+    border: none;
+  }
 }
 
 .hds-copy-snippet--color-primary {
-  color: var(--token-color-foreground-action);
+  color: var(--hds-foreground-color-action);
   background-color: transparent;
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
-    background-color: var(--token-color-surface-interactive);
-    border-color: var(--token-color-border-strong);
+    color: var(--hds-foreground-color-action-hover);
+    background-color: var(--hds-surface-color-interactive);
+    border-color: var(--hds-border-color-strong);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
+    color: var(--hds-foreground-color-action-active);
+    background-color: var(--hds-surface-color-interactive-active);
+    border-color: var(--hds-border-color-strong);
+
+    // For Carbon themes there is a color contrast issue with foreground-action-active so foreground-primary is used instead
+    @include hds-apply-only-if-carbon() {
+      color: var(--hds-foreground-color-primary);
+    }
   }
 
   @include hds-copy-snippet-success-error();
 }
 
 .hds-copy-snippet--color-secondary {
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
   background-color: transparent;
 
+  // For Carbon themes the color should always be foreground-primary except for the success or error status
+  @include hds-apply-only-if-carbon() {
+    &:not(.hds-copy-snippet--status-success, .hds-copy-snippet--status-error) .hds-copy-snippet__icon {
+      color: var(--hds-foreground-color-primary);
+    }
+  }
+
   .hds-copy-snippet__icon {
-    color: var(--token-color-foreground-action);
+    color: var(--hds-foreground-color-action);
   }
 
   &:hover,
   &.mock-hover {
-    background-color: var(--token-color-surface-interactive);
-    border-color: var(--token-color-border-strong);
+    background-color: var(--hds-surface-color-interactive);
+    border-color: var(--hds-border-color-strong);
 
     .hds-copy-snippet__icon {
-      color: var(--token-color-foreground-action-hover);
+      color: var(--hds-foreground-color-action-hover);
     }
   }
 
   &:active,
   &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
+    background-color: var(--hds-surface-color-interactive-active);
+    border-color: var(--hds-border-color-strong);
 
     .hds-copy-snippet__icon {
-      color: var(--token-color-foreground-action-active);
+      color: var(--hds-foreground-color-action-active);
     }
   }
 
@@ -93,18 +113,18 @@
 }
 
 .hds-copy-snippet--status-success {
-  background-color: var(--token-color-surface-interactive);
+  background-color: var(--hds-surface-color-interactive);
 
   .hds-copy-snippet__icon {
-    color: var(--token-color-foreground-success);
+    color: var(--hds-foreground-color-success);
   }
 }
 
 .hds-copy-snippet--status-error {
-  background-color: var(--token-color-surface-interactive);
+  background-color: var(--hds-surface-color-interactive);
 
   .hds-copy-snippet__icon {
-    color: var(--token-color-foreground-critical);
+    color: var(--hds-foreground-color-critical);
   }
 }
 
