@@ -213,6 +213,19 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       padding: 0 16px;
     }
 
+    // left border (option indicator)
+    // (only visible in hover/active states)
+    &::after {
+      position: absolute;
+      top: var(--hds-form-super-select-option-indicator-top);
+      bottom: var(--hds-form-super-select-option-indicator-bottom);
+      left: var(--hds-form-super-select-option-indicator-left);
+      width: var(--hds-form-super-select-option-indicator-width);
+      border-radius: var(--hds-form-super-select-option-indicator-border-radius);
+      content: "";
+      pointer-events: none;
+    }
+
     + .ember-power-select-option {
       margin-top: var(--hds-form-super-select-option-margin-top);
 
@@ -236,6 +249,7 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
     // Selected
 
     &[aria-selected="true"] {
+      // overrides default component styles
       background: transparent;
     }
 
@@ -250,16 +264,8 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
       border: none; // guard against border in default theme
 
       // left border (option indicator)
-      // used to indicate an option which is hovered/active
       &::after {
-        position: absolute;
-        top: var(--hds-form-super-select-option-indicator-top);
-        bottom: var(--hds-form-super-select-option-indicator-bottom);
-        left: var(--hds-form-super-select-option-indicator-left);
-        width: var(--hds-form-super-select-option-indicator-width);
         background-color: var(--hds-foreground-color-action-hover);
-        border-radius: var(--hds-form-super-select-option-indicator-border-radius);
-        content: "";
       }
     }
 
@@ -267,7 +273,10 @@ $hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 
     &:active,
     &.mock-active {
-      // left border
+      // Uses same background-color as hover state
+      background-color: var(--hds-form-super-select-option-surface-color-hover);
+
+      // left border (option indicator)
       &::after {
         background-color: var(--hds-foreground-color-action-active);
       }
