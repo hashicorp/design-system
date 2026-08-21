@@ -23802,7 +23802,7 @@
     ]
   },
   {
-    "key": "{form.super-select.option.indicator.border-radius}",
+    "key": "{form.super-select.option.indicator.border.radius}",
     "$type": "dimension",
     "$value": "0px",
     "unit": "px",
@@ -23830,7 +23830,7 @@
           "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
         }
       },
-      "key": "{form.super-select.option.indicator.border-radius}"
+      "key": "{form.super-select.option.indicator.border.radius}"
     },
     "name": "hds-form-super-select-option-indicator-border-radius",
     "attributes": {
@@ -23841,7 +23841,8 @@
       "super-select",
       "option",
       "indicator",
-      "border-radius"
+      "border",
+      "radius"
     ]
   },
   {
