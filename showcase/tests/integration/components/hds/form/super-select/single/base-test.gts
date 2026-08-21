@@ -46,7 +46,7 @@ module(
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.ember-power-select-options').exists();
-      assert.dom('.ember-power-select-option').hasText('Option 1');
+      assert.dom('.hds-form-super-select__option-text').hasText('Option 1');
     });
 
     // AFTER OPTIONS

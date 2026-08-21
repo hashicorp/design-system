@@ -67,6 +67,18 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('#test-button').hasClass('hds-button--color-critical');
   });
+  test('it should render the secondary-muted color class if @color is set to secondary-muted', async function (assert) {
+    await render(
+      <template>
+        <HdsButton
+          @text="Copy to clipboard"
+          @color="secondary-muted"
+          id="test-button"
+        />
+      </template>,
+    );
+    assert.dom('#test-button').hasClass('hds-button--color-secondary-muted');
+  });
 
   // ICON
 
@@ -233,7 +245,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
     const errorMessage =
-      '@color for "Hds::Button" must be one of the following: primary, secondary, tertiary, critical; received: foo';
+      '@color for "Hds::Button" must be one of the following: primary, secondary, secondary-muted, tertiary, critical; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
