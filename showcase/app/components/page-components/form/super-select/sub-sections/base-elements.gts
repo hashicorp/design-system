@@ -87,7 +87,9 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                   role="option"
                   mock-state-value={{state}}
                 >
-                  {{state}}
+                  <div
+                    class="hds-form-super-select__option-text"
+                  >{{state}}</div>
                 </li>
               {{/each}}
               <li
@@ -95,7 +97,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                 role="option"
                 aria-disabled="true"
               >
-                disabled
+                <div class="hds-form-super-select__option-text">disabled</div>
               </li>
             </ul>
           </div>
@@ -119,7 +121,9 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                   role="option"
                   mock-state-value={{state}}
                 >
-                  {{state}}
+                  <div
+                    class="hds-form-super-select__option-text"
+                  >{{state}}</div>
                 </li>
               {{/each}}
               <li
@@ -128,7 +132,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                 aria-selected="true"
                 aria-disabled="true"
               >
-                disabled
+                <div class="hds-form-super-select__option-text">disabled</div>
               </li>
             </ul>
           </div>
@@ -153,8 +157,10 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                   role="option"
                   mock-state-value={{state}}
                 >
-                  {{state}}
-                  - this is a long text that should wrap on multiple lines
+                  <div class="hds-form-super-select__option-text">
+                    {{state}}
+                    - this is a long text that should wrap on multiple lines
+                  </div>
                 </li>
               {{/each}}
             </ul>
@@ -183,7 +189,9 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                   role="option"
                   mock-state-value={{state}}
                 >
-                  {{state}}
+                  <div
+                    class="hds-form-super-select__option-text"
+                  >{{state}}</div>
                 </li>
               {{/each}}
               <li
@@ -191,7 +199,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                 role="option"
                 aria-disabled="true"
               >
-                disabled
+                <div class="hds-form-super-select__option-text">disabled</div>
               </li>
             </ul>
           </div>
@@ -215,7 +223,9 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                   aria-selected="true"
                   mock-state-value={{state}}
                 >
-                  {{state}}
+                  <div
+                    class="hds-form-super-select__option-text"
+                  >{{state}}</div>
                 </li>
               {{/each}}
               <li
@@ -224,7 +234,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                 aria-selected="true"
                 aria-disabled="true"
               >
-                disabled
+                <div class="hds-form-super-select__option-text">disabled</div>
               </li>
             </ul>
           </div>
@@ -249,8 +259,10 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                   role="option"
                   mock-state-value={{state}}
                 >
-                  {{state}}
-                  - this is a long text that should wrap on multiple lines
+                  <div class="hds-form-super-select__option-text">
+                    {{state}}
+                    - this is a long text that should wrap on multiple lines
+                  </div>
                 </li>
               {{/each}}
             </ul>
