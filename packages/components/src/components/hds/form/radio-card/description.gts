@@ -5,8 +5,6 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import HdsTextBody from '../../text/body.gts';
-
 import type { HdsTextBodySignature } from '../../text/body.gts';
 
 export interface HdsFormRadioCardDescriptionSignature {
@@ -18,12 +16,10 @@ export interface HdsFormRadioCardDescriptionSignature {
 
 const HdsFormRadioCardDescription: TemplateOnlyComponent<HdsFormRadioCardDescriptionSignature> =
   <template>
-    <HdsTextBody
+    <span
       class="hds-form-radio-card__description"
-      @tag="span"
-      @size="100"
       ...attributes
-    >{{yield}}</HdsTextBody>
+    >{{yield}}</span>
   </template>;
 
 export default HdsFormRadioCardDescription;
