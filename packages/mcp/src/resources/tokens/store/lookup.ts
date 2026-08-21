@@ -4,6 +4,7 @@
  */
 
 import { TOKEN_TYPES } from "./schema.js";
+import { normalizeLookupValue } from "../../../shared/normalize.js";
 
 import type {
   TokenAttributes,
@@ -29,10 +30,6 @@ export type TokenRecord = TokenSummary & {
 };
 
 const KNOWN_TOKEN_TYPE_LOOKUP = new Set<string>(TOKEN_TYPES);
-
-export const normalizeLookupValue = (value: string): string => {
-  return value.trim().toLowerCase();
-};
 
 const trimTokenBraces = (value: string): string => {
   return value.replace(/^\{/u, "").replace(/\}$/u, "");
