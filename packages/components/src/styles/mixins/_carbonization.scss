@@ -1,0 +1,43 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "sass:selector";
+
+@mixin hds-apply-only-if-carbon() {
+  @at-root #{selector.nest(".hds-theme-light", &)},
+    #{selector.nest(".hds-theme-dark", &)},
+    #{selector.nest(".hds-theme-system", &)} {
+    @content;
+  }
+}
+
+// NOTE: we don't expect this mixin to be used, but we're leaving it in place for now in case we need it later
+//
+// @mixin hds-apply-only-if-carbon-mode($mode: false) {
+//   @if $mode == "cds-g0" {
+//     @at-root #{selector.nest(".hds-mode-cds-g0", &)} {
+//       @content;
+//     }
+//   } @else if $mode == "cds-g10" {
+//     @at-root #{selector.nest(".hds-mode-cds-g10", &)} {
+//       @content;
+//     }
+//   } @else if $mode == "cds-g90" {
+//     @at-root #{selector.nest(".hds-mode-cds-g90", &)} {
+//       @content;
+//     }
+//   } @else if $mode == "cds-g100" {
+//     @at-root #{selector.nest(".hds-mode-cds-g100", &)} {
+//       @content;
+//     }
+//   } @else {
+//     @at-root #{selector.nest(".hds-mode-cds-g0", &)},
+//       #{selector.nest(".hds-mode-cds-g10", &)},
+//       #{selector.nest(".hds-mode-cds-g90", &)},
+//       #{selector.nest(".hds-mode-cds-g100", &)} {
+//       @content;
+//     }
+//   }
+// }
