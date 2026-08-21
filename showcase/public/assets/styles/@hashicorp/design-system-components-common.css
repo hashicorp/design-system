@@ -7296,7 +7296,7 @@ button.hds-button[href]::after {
   background-color: var(--hds-form-super-select-option-surface-color-default);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-selected=true] {
-  background: var(--hds-form-super-select-option-surface-color-checked-default);
+  background: transparent;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover {
   background-color: var(--hds-form-super-select-option-surface-color-hover);

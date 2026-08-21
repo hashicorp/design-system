@@ -23693,43 +23693,6 @@
     ]
   },
   {
-    "key": "{form.super-select.option.surface.color.checked.default}",
-    "$type": "color",
-    "$value": "#525252",
-    "$modes": {
-      "default": "transparent",
-      "cds-g0": "#e0e0e0",
-      "cds-g10": "#e0e0e0",
-      "cds-g90": "#525252",
-      "cds-g100": "#393939"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{carbon.themes.g90.layerSelected01}",
-      "$modes": {
-        "default": "transparent",
-        "cds-g0": "{carbon.themes.white.layerSelected01}",
-        "cds-g10": "{carbon.themes.g10.layerSelected01}",
-        "cds-g90": "{carbon.themes.g90.layerSelected01}",
-        "cds-g100": "{carbon.themes.g100.layerSelected01}"
-      },
-      "key": "{form.super-select.option.surface.color.checked.default}"
-    },
-    "name": "hds-form-super-select-option-surface-color-checked-default",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "super-select",
-      "option",
-      "surface",
-      "color",
-      "checked",
-      "default"
-    ]
-  },
-  {
     "key": "{form.super-select.option.surface.color.checked.hover}",
     "$type": "color",
     "$value": "#636363",

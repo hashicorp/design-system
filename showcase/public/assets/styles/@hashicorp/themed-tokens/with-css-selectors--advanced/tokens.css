@@ -921,12 +921,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-indicator-top: 6px;
   --hds-form-super-select-option-indicator-width: 2px;
   --hds-form-super-select-option-margin-top: 8px;
-  --hds-form-super-select-option-surface-color-checked-default: rgba(
-    0,
-    0,
-    0,
-    0
-  );
   --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
   --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
@@ -1989,7 +1983,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-super-select-option-indicator-top: 0px;
     --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
     --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
     --hds-form-super-select-option-surface-color-default: #f4f4f4;
     --hds-form-super-select-option-surface-color-hover: #e8e8e8;
@@ -2896,7 +2889,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-super-select-option-indicator-top: 0px;
     --hds-form-super-select-option-indicator-width: 4px;
     --hds-form-super-select-option-margin-top: 0px;
-    --hds-form-super-select-option-surface-color-checked-default: #393939;
     --hds-form-super-select-option-surface-color-checked-hover: #474747;
     --hds-form-super-select-option-surface-color-default: #262626;
     --hds-form-super-select-option-surface-color-hover: #333333;
@@ -3762,7 +3754,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-indicator-top: 0px;
   --hds-form-super-select-option-indicator-width: 4px;
   --hds-form-super-select-option-margin-top: 0px;
-  --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
   --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
   --hds-form-super-select-option-surface-color-default: #f4f4f4;
   --hds-form-super-select-option-surface-color-hover: #e8e8e8;
@@ -4647,7 +4638,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-indicator-top: 0px;
   --hds-form-super-select-option-indicator-width: 4px;
   --hds-form-super-select-option-margin-top: 0px;
-  --hds-form-super-select-option-surface-color-checked-default: #393939;
   --hds-form-super-select-option-surface-color-checked-hover: #474747;
   --hds-form-super-select-option-surface-color-default: #262626;
   --hds-form-super-select-option-surface-color-hover: #333333;
@@ -5511,7 +5501,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-indicator-top: 0px;
   --hds-form-super-select-option-indicator-width: 4px;
   --hds-form-super-select-option-margin-top: 0px;
-  --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
   --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
   --hds-form-super-select-option-surface-color-default: #ffffff;
   --hds-form-super-select-option-surface-color-hover: #e8e8e8;
@@ -6395,7 +6384,6 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-super-select-option-indicator-top: 0px;
   --hds-form-super-select-option-indicator-width: 4px;
   --hds-form-super-select-option-margin-top: 0px;
-  --hds-form-super-select-option-surface-color-checked-default: #525252;
   --hds-form-super-select-option-surface-color-checked-hover: #636363;
   --hds-form-super-select-option-surface-color-default: #393939;
   --hds-form-super-select-option-surface-color-hover: #474747;
