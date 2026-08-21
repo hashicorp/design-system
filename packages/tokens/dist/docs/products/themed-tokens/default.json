@@ -24333,43 +24333,6 @@
     ]
   },
   {
-    "key": "{form.super-select.option.surface.color.checked.hover}",
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$modes": {
-      "default": "transparent",
-      "cds-g0": "#d1d1d1",
-      "cds-g10": "#d1d1d1",
-      "cds-g90": "#636363",
-      "cds-g100": "#474747"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "transparent",
-      "$modes": {
-        "default": "transparent",
-        "cds-g0": "{carbon.themes.white.layerSelectedHover01}",
-        "cds-g10": "{carbon.themes.g10.layerSelectedHover01}",
-        "cds-g90": "{carbon.themes.g90.layerSelectedHover01}",
-        "cds-g100": "{carbon.themes.g100.layerSelectedHover01}"
-      },
-      "key": "{form.super-select.option.surface.color.checked.hover}"
-    },
-    "name": "hds-form-super-select-option-surface-color-checked-hover",
-    "attributes": {
-      "category": "form"
-    },
-    "path": [
-      "form",
-      "super-select",
-      "option",
-      "surface",
-      "color",
-      "checked",
-      "hover"
-    ]
-  },
-  {
     "key": "{form.super-select.option.border.color}",
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",

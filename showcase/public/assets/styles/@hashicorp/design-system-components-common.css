@@ -7333,9 +7333,6 @@ button.hds-button[href]::after {
   background-color: var(--hds-form-super-select-option-surface-color-hover);
   border: none;
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true][aria-selected=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover[aria-selected=true], .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover[aria-selected=true] {
-  background-color: var(--hds-form-super-select-option-surface-color-checked-hover);
-}
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
   position: absolute;
   top: var(--hds-form-super-select-option-indicator-top);
