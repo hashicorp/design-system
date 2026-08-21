@@ -92,6 +92,47 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-large: 16px;
   --hds-accordion-item-toggle-padding-top-medium: 12px;
   --hds-accordion-item-toggle-padding-top-small: 8px;
+  --hds-advanced-table-cell-border-color-pinned: var(
+    --hds-border-color-primary
+  );
+  --hds-advanced-table-cell-border-width-pinned: 3px;
+  --hds-advanced-table-cell-pinned-left: -1px;
+  --hds-advanced-table-cell-surface-color-hover: var(
+    --hds-table-cell-surface-color-hover
+  );
+  --hds-advanced-table-cell-surface-color-nested-default: var(
+    --hds-surface-color-faint
+  );
+  --hds-advanced-table-cell-surface-color-nested-hover: var(
+    --hds-surface-color-faint
+  );
+  --hds-advanced-table-cell-surface-color-parent-hover: var(
+    --hds-surface-color-primary
+  );
+  --hds-advanced-table-cell-surface-color-striped-hover: var(
+    --hds-table-cell-surface-color-striped-hover
+  );
+  --hds-advanced-table-drag-preview-border-color: var(
+    --hds-core-color-blue-200
+  );
+  --hds-advanced-table-drag-preview-surface-color: #cce3fe80;
+  --hds-advanced-table-drop-preview-surface-color: var(
+    --hds-core-color-blue-300
+  );
+  --hds-advanced-table-empty-state-border-width: 1px;
+  --hds-advanced-table-header-border-width-pinned: 1.5px; /** Value is 1.5 to offset the -1px from the top position. */
+  --hds-advanced-table-resize-handle-surface-color-active: var(
+    --hds-core-color-blue-300
+  );
+  --hds-advanced-table-resize-handle-surface-color-focus: var(
+    --hds-core-color-blue-300
+  );
+  --hds-advanced-table-resize-handle-surface-color-hover: var(
+    --hds-core-color-neutral-400
+  );
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #3b3d4500;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #3b3d4514;
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -11px;
   --hds-alert-actions-margin-top: 16px;
   --hds-alert-border-color-critical: var(--hds-border-color-critical);
   --hds-alert-border-color-highlight: var(--hds-border-color-highlight);
@@ -644,6 +685,34 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --hds-elevation-overlay-box-shadow:
     0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --hds-filter-bar-filter-group-generic-clear-button-margin-top: 8px;
+  --hds-filter-bar-filter-group-search-border-width: 1px;
+  --hds-filter-bar-filter-group-search-padding: 16px;
+  --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 4px;
+  --hds-filter-bar-filter-group-values-list-gap: 4px;
+  --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 8px;
+  --hds-filter-bar-search-height: 28px;
+  --hds-filter-bar-tabs-list-gap: 4px;
+  --hds-filter-bar-tabs-list-padding: 8px;
+  --hds-filter-bar-tabs-panel-gap: 8px;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-active: var(
+    --hds-core-color-blue-500
+  );
+  --hds-filter-bar-tabs-tab-foreground-color-selected-default: var(
+    --hds-foreground-color-action
+  );
+  --hds-filter-bar-tabs-tab-foreground-color-selected-hover: var(
+    --hds-core-color-blue-400
+  );
+  --hds-filter-bar-tabs-tab-foreground-color-unselected: var(
+    --hds-foreground-color-primary
+  );
+  --hds-filter-bar-tabs-tab-surface-color-selected-active: var(
+    --hds-core-color-neutral-300
+  );
+  --hds-filter-bar-tabs-tab-surface-color-selected-hover: var(
+    --hds-core-color-neutral-200
+  );
   --hds-focus-color-action-external: #5990ff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-action-internal: var(--hds-core-color-blue-300);
   --hds-focus-color-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -689,13 +758,92 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-character-count-typography-line-height: var(
     --hds-typography-body-100-line-height
   ); /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' /%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' /%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-size: 12px;
+  --hds-form-checkbox-border-color-checked-disabled: var(
+    --hds-border-color-primary
+  );
+  --hds-form-checkbox-border-radius: var(--hds-border-radius-x-small);
+  --hds-form-control-base-border-color-default: var(
+    --hds-core-color-neutral-400
+  );
+  --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
+  --hds-form-control-base-placeholder-foreground-color-default: var(
+    --hds-foreground-color-faint
+  );
+  --hds-form-control-base-placeholder-foreground-color-disabled: var(
+    --hds-foreground-color-disabled
+  );
+  --hds-form-control-base-surface-color-hover: var(
+    --hds-surface-color-interactive-hover
+  );
+  --hds-form-control-border-color-checked-default: var(
+    --hds-core-color-blue-300
+  );
+  --hds-form-control-border-color-checked-disabled: var(
+    --hds-border-color-primary
+  );
+  --hds-form-control-border-color-checked-hover: var(--hds-core-color-blue-400);
+  --hds-form-control-border-color-unchecked-default: var(
+    --hds-core-color-neutral-400
+  );
+  --hds-form-control-border-color-unchecked-disabled: var(
+    --hds-border-color-primary
+  );
+  --hds-form-control-border-color-unchecked-hover: var(
+    --hds-core-color-neutral-500
+  );
+  --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
+  --hds-form-control-disabled-surface-color: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-control-foreground-color-checked: var(
+    --hds-foreground-color-high-contrast
+  );
+  --hds-form-control-height: 36px;
+  --hds-form-control-invalid-border-color-default: var(
+    --hds-core-color-red-300
+  );
+  --hds-form-control-invalid-border-color-hover: var(--hds-core-color-red-400);
+  --hds-form-control-padding-horizontal: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
+  --hds-form-control-padding-vertical: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma */
+  --hds-form-control-readonly-surface-color: var(--hds-surface-color-strong);
+  --hds-form-control-surface-color-checked-default: var(
+    --hds-core-color-blue-200
+  );
+  --hds-form-control-surface-color-checked-disabled: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-control-surface-color-checked-hover: var(
+    --hds-core-color-blue-300
+  );
+  --hds-form-control-surface-color-unchecked-default: var(
+    --hds-surface-color-interactive
+  );
+  --hds-form-control-surface-color-unchecked-disabled: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-control-surface-color-unchecked-hover: var(
+    --hds-surface-color-interactive-hover
+  );
   --hds-form-error-foreground-color: var(--hds-core-color-red-300);
+  --hds-form-error-icon-color: var(--hds-core-color-red-300);
   --hds-form-error-typography-font-size: var(
     --hds-typography-body-100-font-size
   );
   --hds-form-error-typography-line-height: var(
     --hds-typography-body-100-line-height
   );
+  --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233b3d45' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238c909c' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-button-border-color: var(
+    --hds-button-border-color-secondary-default
+  );
+  --hds-form-file-input-button-height: 36px;
+  --hds-form-group-control-field-margin-top: 12px;
   --hds-form-helper-text-foreground-color: #656a76;
   --hds-form-helper-text-typography-font-size: var(
     --hds-typography-body-100-font-size
@@ -711,6 +859,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-typography-body-100-line-height
   );
   --hds-form-label-foreground-color: #0c0c0e;
+  --hds-form-label-inline-typography-font-size: var(
+    --hds-typography-body-200-font-size
+  );
   --hds-form-label-typography-font-size: var(
     --hds-typography-body-200-font-size
   );
@@ -730,13 +881,125 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-line-height: var(
     --hds-typography-body-200-line-height
   );
-  --hds-form-radiocard-border-color-default-checked: var(
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%238C909C' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='2.5' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-card-border-color-checked-default: var(
     --hds-core-color-blue-300
   );
-  --hds-form-radiocard-border-color-default: var(--hds-surface-color-primary);
-  --hds-form-radiocard-border-color-focus: var(
-    --hds-focus-color-action-internal
+  --hds-form-radio-card-border-color-checked-hover: var(
+    --hds-core-color-blue-400
   );
+  --hds-form-radio-card-border-color-default: var(--hds-border-color-primary);
+  --hds-form-radio-card-border-color-disabled: var(--hds-border-color-primary);
+  --hds-form-radio-card-content-padding: 24px;
+  --hds-form-radio-card-control-wrapper-border-color-checked: var(
+    --hds-border-color-action
+  );
+  --hds-form-radio-card-control-wrapper-border-color-default: var(
+    --hds-border-color-primary
+  );
+  --hds-form-radio-card-control-wrapper-border-color-disabled: var(
+    --hds-border-color-primary
+  );
+  --hds-form-radio-card-control-wrapper-surface-color-checked: var(
+    --hds-surface-color-action
+  );
+  --hds-form-radio-card-control-wrapper-surface-color-default: var(
+    --hds-surface-color-faint
+  );
+  --hds-form-radio-card-control-wrapper-surface-color-disabled: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-radio-card-description-typography-font-size: var(
+    --hds-typography-body-100-font-size
+  );
+  --hds-form-radio-card-label-foreground-color: var(
+    --hds-form-label-foreground-color
+  ); /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+  --hds-form-radio-card-label-typography-font-size: var(
+    --hds-typography-display-300-font-size
+  );
+  --hds-form-radio-card-label-typography-font-weight: var(
+    --hds-typography-font-weight-bold
+  );
+  --hds-form-radio-card-label-typography-line-height: 1.3333; /** 24px */
+  --hds-form-radio-card-surface-color-disabled: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-radio-card-surface-color-hover: var(--hds-surface-color-primary);
+  --hds-form-radio-size: 16px;
+  --hds-form-radio-surface-color-checked-default: var(
+    --hds-core-color-blue-200
+  );
+  --hds-form-radio-surface-color-checked-disabled: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-radio-surface-color-checked-hover: var(--hds-core-color-blue-300);
+  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%238C909C' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23656A76' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-multiple-option-color-checked: var(
+    --hds-foreground-color-high-contrast
+  );
+  --hds-form-select-surface-color-hover: var(
+    --hds-form-control-base-surface-color-default
+  );
+  --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+  --hds-form-super-select-option-background-image-size: var(
+    --hds-form-select-background-image-size
+  );
+  --hds-form-super-select-option-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-margin-top: 8px;
+  --hds-form-super-select-option-surface-color-checked-default: rgba(
+    0,
+    0,
+    0,
+    0
+  );
+  --hds-form-super-select-option-surface-color-checked-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-super-select-option-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-form-super-select-padding-left: 11px;
+  --hds-form-super-select-search-margin-bottom: 3px;
+  --hds-form-super-select-tag-border-color: var(--hds-border-color-strong);
+  --hds-form-super-select-tag-foreground-color: var(
+    --hds-form-control-base-foreground-color
+  );
+  --hds-form-super-select-tag-surface-color: var(
+    --hds-surface-color-interactive
+  );
+  --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded. The HDS theme does not use a different search image for the disabled state */
+  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76' %3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+  --hds-form-text-input-background-image-position-x: var(
+    --hds-form-control-padding-horizontal
+  );
+  --hds-form-text-input-search-cancel-button-width: var(
+    --hds-form-text-input-background-image-size
+  );
+  --hds-form-textarea-padding-vertical: 7px;
+  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%238C909C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' fill='%23FFF' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' /%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-base-surface-color-checked-default: var(
+    --hds-core-color-blue-200
+  );
+  --hds-form-toggle-base-surface-color-checked-hover: var(
+    --hds-core-color-blue-300
+  );
+  --hds-form-toggle-base-surface-color-default: var(
+    --hds-surface-color-strong
+  ); /** the toggle has a different base surface color, compared to the other controls */
+  --hds-form-toggle-base-surface-color-disabled: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-toggle-handle-surface-color-default: var(
+    --hds-surface-color-interactive
+  );
+  --hds-form-toggle-handle-surface-color-disabled: var(
+    --hds-surface-color-interactive-disabled
+  );
+  --hds-form-toggle-thumb-size: var(--hds-form-toggle-height);
+  --hds-form-visibility-toggle-size: 24px;
   --hds-icon-tile-border-color-logo: var(--hds-border-color-primary);
   --hds-icon-tile-border-color-overlay: var(--hds-border-color-primary);
   --hds-icon-tile-surface-color-overlay: var(--hds-surface-color-primary);
@@ -826,6 +1089,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-rich-tooltip-toggle-gap-horizontal: 4px;
   --hds-rich-tooltip-toggle-icon-size: 1em;
+  --hds-segmented-group-gap: 0px;
+  --hds-segmented-group-margin-left: -1px;
   --hds-stepper-list-progress-bar-border-color-complete: var(
     --hds-core-color-neutral-700
   );
@@ -987,6 +1252,58 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     0 0 0 1px #656a7626, 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --hds-surface-overlay-box-shadow:
     0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --hds-table-body-surface-color: rgba(0, 0, 0, 0);
+  --hds-table-cell-border-color: var(--hds-border-color-primary);
+  --hds-table-cell-border-width: 0.5px;
+  --hds-table-cell-foreground-color-default: var(
+    --hds-foreground-color-primary
+  );
+  --hds-table-cell-height-medium: auto;
+  --hds-table-cell-height-short: auto;
+  --hds-table-cell-height-tall: auto;
+  --hds-table-cell-line-height: var(--hds-typography-body-200-line-height);
+  --hds-table-cell-padding-vertical-medium: 14px;
+  --hds-table-cell-padding-vertical-short: 6px;
+  --hds-table-cell-padding-vertical-tall: 22px;
+  --hds-table-cell-surface-color-hover: var(--hds-surface-color-primary);
+  --hds-table-cell-surface-color-selected-default: var(
+    --hds-surface-color-primary
+  );
+  --hds-table-cell-surface-color-selected-hover: var(
+    --hds-surface-color-primary
+  );
+  --hds-table-cell-surface-color-striped-default: var(
+    --hds-surface-color-faint
+  );
+  --hds-table-cell-surface-color-striped-hover: var(--hds-surface-color-faint);
+  --hds-table-header-button-border-color-active: var(--hds-border-color-strong);
+  --hds-table-header-button-border-color-hover: var(--hds-border-color-strong);
+  --hds-table-header-button-foreground-color-default: var(
+    --hds-foreground-color-faint
+  );
+  --hds-table-header-button-foreground-color-sorted-active: var(
+    --hds-foreground-color-action-active
+  );
+  --hds-table-header-button-foreground-color-sorted-default: var(
+    --hds-foreground-color-action
+  );
+  --hds-table-header-button-foreground-color-sorted-hover: var(
+    --hds-foreground-color-action-hover
+  );
+  --hds-table-header-button-surface-color-active: var(
+    --hds-surface-color-interactive-active
+  );
+  --hds-table-header-button-surface-color-hover: var(
+    --hds-surface-color-interactive
+  );
+  --hds-table-header-cell-border-offset: 1px;
+  --hds-table-header-cell-padding-vertical: 14px;
+  --hds-table-header-surface-color: rgba(0, 0, 0, 0);
+  --hds-table-row-border-color-default: rgba(0, 0, 0, 0);
+  --hds-table-row-border-color-hover: var(--hds-border-color-primary);
+  --hds-table-row-border-color-selected-default: rgba(0, 0, 0, 0);
+  --hds-table-row-border-color-selected-hover: rgba(0, 0, 0, 0);
+  --hds-table-row-border-width: 0px;
   --hds-tabs-indicator-height: 3px;
   --hds-tabs-tab-border-color-default: rgba(0, 0, 0, 0);
   --hds-tabs-tab-border-color-hover: rgba(0, 0, 0, 0);
@@ -1155,6 +1472,35 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-accordion-item-toggle-padding-top-large: 14px;
     --hds-accordion-item-toggle-padding-top-medium: 10px;
     --hds-accordion-item-toggle-padding-top-small: 6px;
+    --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
+    --hds-advanced-table-cell-border-width-pinned: 2px;
+    --hds-advanced-table-cell-pinned-left: 0px;
+    --hds-advanced-table-cell-surface-color-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
+    --hds-advanced-table-cell-surface-color-nested-hover: rgba(
+      141,
+      141,
+      141,
+      0.12
+    );
+    --hds-advanced-table-cell-surface-color-parent-hover: rgba(
+      141,
+      141,
+      141,
+      0.12
+    );
+    --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-drag-preview-border-color: #0f62fe;
+    --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
+    --hds-advanced-table-drop-preview-surface-color: #0f62fe;
+    --hds-advanced-table-empty-state-border-width: 0px;
+    --hds-advanced-table-header-border-width-pinned: 0px;
+    --hds-advanced-table-resize-handle-surface-color-active: #0f62fe;
+    --hds-advanced-table-resize-handle-surface-color-focus: #0f62fe;
+    --hds-advanced-table-resize-handle-surface-color-hover: #a8a8a8;
+    --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
+    --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
+    --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
     --hds-alert-border-color-highlight: #0043ce66;
@@ -1510,6 +1856,22 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-elevation-low-box-shadow: none;
     --hds-elevation-mid-box-shadow: none;
     --hds-elevation-overlay-box-shadow: none;
+    --hds-filter-bar-filter-group-generic-clear-button-margin-top: 0px;
+    --hds-filter-bar-filter-group-search-border-width: 0px;
+    --hds-filter-bar-filter-group-search-padding: 0px;
+    --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
+    --hds-filter-bar-filter-group-values-list-gap: 0px;
+    --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+    --hds-filter-bar-search-height: 32px;
+    --hds-filter-bar-tabs-list-gap: 0px;
+    --hds-filter-bar-tabs-list-padding: 0px;
+    --hds-filter-bar-tabs-panel-gap: 16px;
+    --hds-filter-bar-tabs-tab-foreground-color-selected-active: #525252;
+    --hds-filter-bar-tabs-tab-foreground-color-selected-default: #525252;
+    --hds-filter-bar-tabs-tab-foreground-color-selected-hover: #525252;
+    --hds-filter-bar-tabs-tab-foreground-color-unselected: #525252;
+    --hds-filter-bar-tabs-tab-surface-color-selected-active: #a8a8a8;
+    --hds-filter-bar-tabs-tab-surface-color-selected-hover: #c6c6c6;
     --hds-focus-color-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --hds-focus-color-action-internal: #ffffff;
     --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -1545,9 +1907,60 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-character-count-foreground-color: #6f6f6f;
     --hds-form-character-count-typography-font-size: 0.75rem;
     --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+    --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 8 2'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+    --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23fff' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+    --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+    --hds-form-checkbox-background-image-size: 8px;
+    --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
+    --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+    --hds-form-control-base-border-color-default: #8d8d8d;
+    --hds-form-control-base-border-color-hover: #8d8d8d;
+    --hds-form-control-base-placeholder-foreground-color-default: rgba(
+      22,
+      22,
+      22,
+      0.4
+    );
+    --hds-form-control-base-placeholder-foreground-color-disabled: rgba(
+      22,
+      22,
+      22,
+      0.25
+    );
+    --hds-form-control-base-surface-color-hover: #f4f4f4;
+    --hds-form-control-border-color-checked-default: #161616;
+    --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
+    --hds-form-control-border-color-checked-hover: #161616;
+    --hds-form-control-border-color-unchecked-default: #161616;
+    --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
+    --hds-form-control-border-color-unchecked-hover: #161616;
+    --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --hds-form-control-disabled-surface-color: #f4f4f4;
+    --hds-form-control-foreground-color-checked: #161616;
+    --hds-form-control-height: 40px;
+    --hds-form-control-invalid-border-color-default: #da1e28;
+    --hds-form-control-invalid-border-color-hover: #da1e28;
+    --hds-form-control-padding-horizontal: 16px;
+    --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
+    --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-checked-default: #161616;
+    --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
+    --hds-form-control-surface-color-checked-hover: #161616;
+    --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
     --hds-form-error-foreground-color: #da1e28;
+    --hds-form-error-icon-color: #da1e28;
     --hds-form-error-typography-font-size: 0.75rem;
     --hds-form-error-typography-line-height: 1.33333;
+    --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+    --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238d8d8d' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+    --hds-form-file-input-button-border-color: var(
+      --hds-button-border-color-primary-default
+    );
+    --hds-form-file-input-button-height: 40px;
+    --hds-form-group-control-field-margin-top: 8px;
     --hds-form-helper-text-foreground-color: #6f6f6f;
     --hds-form-helper-text-typography-font-size: 0.75rem;
     --hds-form-helper-text-typography-line-height: 1.33333;
@@ -1557,6 +1970,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-indicator-optional-typography-font-size: 0.75rem;
     --hds-form-indicator-optional-typography-line-height: 1.33333;
     --hds-form-label-foreground-color: #525252;
+    --hds-form-label-inline-typography-font-size: 0.875rem;
     --hds-form-label-typography-font-size: 0.75rem;
     --hds-form-label-typography-font-weight: 400;
     --hds-form-label-typography-line-height: 1.33333;
@@ -1564,9 +1978,81 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-legend-typography-font-size: 0.75rem;
     --hds-form-legend-typography-font-weight: 400;
     --hds-form-legend-typography-line-height: 1.33333;
-    --hds-form-radiocard-border-color-default-checked: #ffc0cb;
-    --hds-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
-    --hds-form-radiocard-border-color-focus: #ffc0cb;
+    --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+    --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+    --hds-form-radio-card-border-color-checked-default: #161616;
+    --hds-form-radio-card-border-color-checked-hover: #161616;
+    --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
+    --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
+    --hds-form-radio-card-content-padding: 16px;
+    --hds-form-radio-card-control-wrapper-border-color-checked: #c6c6c6;
+    --hds-form-radio-card-control-wrapper-border-color-default: #e0e0e0;
+    --hds-form-radio-card-control-wrapper-border-color-disabled: #c6c6c6;
+    --hds-form-radio-card-control-wrapper-surface-color-checked: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-form-radio-card-control-wrapper-surface-color-default: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-form-radio-card-control-wrapper-surface-color-disabled: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-form-radio-card-description-typography-font-size: 0.875rem;
+    --hds-form-radio-card-label-foreground-color: #525252; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+    --hds-form-radio-card-label-typography-font-size: 0.875rem;
+    --hds-form-radio-card-label-typography-font-weight: 400;
+    --hds-form-radio-card-label-typography-line-height: 1.2857; /** 18px */
+    --hds-form-radio-card-surface-color-disabled: #f4f4f4;
+    --hds-form-radio-card-surface-color-hover: #e8e8e8;
+    --hds-form-radio-size: 18px;
+    --hds-form-radio-surface-color-checked-default: transparent;
+    --hds-form-radio-surface-color-checked-disabled: transparent;
+    --hds-form-radio-surface-color-checked-hover: transparent;
+    --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+    --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+    --hds-form-select-multiple-option-color-checked: #ffffff;
+    --hds-form-select-surface-color-hover: #e8e8e8;
+    --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+    --hds-form-super-select-option-background-image-size: 12px;
+    --hds-form-super-select-option-border-color: #c6c6c6;
+    --hds-form-super-select-option-margin-top: 0px;
+    --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
+    --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
+    --hds-form-super-select-option-surface-color-default: #f4f4f4;
+    --hds-form-super-select-option-surface-color-hover: #e8e8e8;
+    --hds-form-super-select-padding-left: var(
+      --hds-form-control-padding-horizontal
+    );
+    --hds-form-super-select-search-margin-bottom: 0px;
+    --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);
+    --hds-form-super-select-tag-foreground-color: #ffffff;
+    --hds-form-super-select-tag-surface-color: #393939;
+    --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+    --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+    --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded */
+    --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+    --hds-form-text-input-background-image-position-x: 10px;
+    --hds-form-text-input-search-cancel-button-width: 40px;
+    --hds-form-textarea-padding-vertical: 11px;
+    --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+    --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+    --hds-form-toggle-base-surface-color-checked-default: #24a148;
+    --hds-form-toggle-base-surface-color-checked-hover: #24a148;
+    --hds-form-toggle-base-surface-color-default: #8d8d8d; /** the toggle has a different base surface color, compared to the other controls */
+    --hds-form-toggle-base-surface-color-disabled: #c6c6c6;
+    --hds-form-toggle-handle-surface-color-default: #ffffff;
+    --hds-form-toggle-handle-surface-color-disabled: #8d8d8d;
+    --hds-form-toggle-thumb-size: 10px;
+    --hds-form-visibility-toggle-size: 40px;
     --hds-icon-tile-border-color-logo: #c6c6c6;
     --hds-icon-tile-border-color-overlay: #e0e0e0;
     --hds-icon-tile-surface-color-overlay: #ffffff;
@@ -1620,6 +2106,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-rich-tooltip-toggle-foreground-color-default: #525252;
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
+    --hds-segmented-group-gap: 1px;
+    --hds-segmented-group-margin-left: 0px;
     --hds-stepper-list-progress-bar-border-color-complete: var(
       --hds-core-color-neutral-700
     );
@@ -1704,6 +2192,38 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-surface-low-box-shadow: none;
     --hds-surface-mid-box-shadow: none;
     --hds-surface-overlay-box-shadow: none;
+    --hds-table-body-surface-color: #f4f4f4;
+    --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+    --hds-table-cell-border-width: 0px;
+    --hds-table-cell-foreground-color-default: #525252;
+    --hds-table-cell-height-medium: 2.5rem;
+    --hds-table-cell-height-short: 2rem;
+    --hds-table-cell-height-tall: 3rem;
+    --hds-table-cell-line-height: 1.28572;
+    --hds-table-cell-padding-vertical-medium: 7px;
+    --hds-table-cell-padding-vertical-short: 7px;
+    --hds-table-cell-padding-vertical-tall: 7px;
+    --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.12);
+    --hds-table-cell-surface-color-selected-default: #e0e0e0;
+    --hds-table-cell-surface-color-selected-hover: #d1d1d1;
+    --hds-table-cell-surface-color-striped-default: #e0e0e0;
+    --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.12);
+    --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+    --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+    --hds-table-header-button-foreground-color-default: #161616;
+    --hds-table-header-button-foreground-color-sorted-active: #161616;
+    --hds-table-header-button-foreground-color-sorted-default: #161616;
+    --hds-table-header-button-foreground-color-sorted-hover: #161616;
+    --hds-table-header-button-surface-color-active: #a8a8a8;
+    --hds-table-header-button-surface-color-hover: #d1d1d1;
+    --hds-table-header-cell-border-offset: 0px;
+    --hds-table-header-cell-padding-vertical: 7px;
+    --hds-table-header-surface-color: #e0e0e0;
+    --hds-table-row-border-color-default: #e0e0e0;
+    --hds-table-row-border-color-hover: #e8e8e8;
+    --hds-table-row-border-color-selected-default: #c6c6c6;
+    --hds-table-row-border-color-selected-hover: #d1d1d1;
+    --hds-table-row-border-width: 1px;
     --hds-tabs-indicator-height: 2px;
     --hds-tabs-tab-border-color-default: #e0e0e0;
     --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
@@ -1837,6 +2357,35 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-accordion-item-toggle-padding-top-large: 14px;
     --hds-accordion-item-toggle-padding-top-medium: 10px;
     --hds-accordion-item-toggle-padding-top-small: 6px;
+    --hds-advanced-table-cell-border-color-pinned: #525252;
+    --hds-advanced-table-cell-border-width-pinned: 2px;
+    --hds-advanced-table-cell-pinned-left: 0px;
+    --hds-advanced-table-cell-surface-color-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-cell-surface-color-nested-default: #393939;
+    --hds-advanced-table-cell-surface-color-nested-hover: rgba(
+      141,
+      141,
+      141,
+      0.16
+    );
+    --hds-advanced-table-cell-surface-color-parent-hover: rgba(
+      141,
+      141,
+      141,
+      0.16
+    );
+    --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+    --hds-advanced-table-drag-preview-border-color: #ffffff;
+    --hds-advanced-table-drag-preview-surface-color: #ffffff33;
+    --hds-advanced-table-drop-preview-surface-color: #ffffff;
+    --hds-advanced-table-empty-state-border-width: 0px;
+    --hds-advanced-table-header-border-width-pinned: 0px;
+    --hds-advanced-table-resize-handle-surface-color-active: #ffffff;
+    --hds-advanced-table-resize-handle-surface-color-focus: #ffffff;
+    --hds-advanced-table-resize-handle-surface-color-hover: #e0e0e0;
+    --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
+    --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
+    --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
     --hds-alert-actions-margin-top: 15px;
     --hds-alert-border-color-critical: #da1e2866;
     --hds-alert-border-color-highlight: #0043ce66;
@@ -2212,6 +2761,22 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-elevation-low-box-shadow: none;
     --hds-elevation-mid-box-shadow: none;
     --hds-elevation-overlay-box-shadow: none;
+    --hds-filter-bar-filter-group-generic-clear-button-margin-top: 0px;
+    --hds-filter-bar-filter-group-search-border-width: 0px;
+    --hds-filter-bar-filter-group-search-padding: 0px;
+    --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
+    --hds-filter-bar-filter-group-values-list-gap: 0px;
+    --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+    --hds-filter-bar-search-height: 32px;
+    --hds-filter-bar-tabs-list-gap: 0px;
+    --hds-filter-bar-tabs-list-padding: 0px;
+    --hds-filter-bar-tabs-panel-gap: 16px;
+    --hds-filter-bar-tabs-tab-foreground-color-selected-active: #c6c6c6;
+    --hds-filter-bar-tabs-tab-foreground-color-selected-default: #c6c6c6;
+    --hds-filter-bar-tabs-tab-foreground-color-selected-hover: #c6c6c6;
+    --hds-filter-bar-tabs-tab-foreground-color-unselected: #c6c6c6;
+    --hds-filter-bar-tabs-tab-surface-color-selected-active: #8d8d8d;
+    --hds-filter-bar-tabs-tab-surface-color-selected-hover: #6f6f6f;
     --hds-focus-color-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --hds-focus-color-action-internal: #161616;
     --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -2247,9 +2812,70 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-character-count-foreground-color: #a8a8a8;
     --hds-form-character-count-typography-font-size: 0.75rem;
     --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+    --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+    --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 2'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+    --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+    --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+    --hds-form-checkbox-background-image-size: 8px;
+    --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
+    --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+    --hds-form-control-base-border-color-default: #6f6f6f;
+    --hds-form-control-base-border-color-hover: #6f6f6f;
+    --hds-form-control-base-placeholder-foreground-color-default: rgba(
+      244,
+      244,
+      244,
+      0.4
+    );
+    --hds-form-control-base-placeholder-foreground-color-disabled: rgba(
+      244,
+      244,
+      244,
+      0.25
+    );
+    --hds-form-control-base-surface-color-hover: #262626;
+    --hds-form-control-border-color-checked-default: #f4f4f4;
+    --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
+    --hds-form-control-border-color-checked-hover: #f4f4f4;
+    --hds-form-control-border-color-unchecked-default: #f4f4f4;
+    --hds-form-control-border-color-unchecked-disabled: rgba(
+      244,
+      244,
+      244,
+      0.25
+    );
+    --hds-form-control-border-color-unchecked-hover: #f4f4f4;
+    --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+    --hds-form-control-disabled-surface-color: #262626;
+    --hds-form-control-foreground-color-checked: #f4f4f4;
+    --hds-form-control-height: 40px;
+    --hds-form-control-invalid-border-color-default: #fa4d56;
+    --hds-form-control-invalid-border-color-hover: #fa4d56;
+    --hds-form-control-padding-horizontal: 16px;
+    --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
+    --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-checked-default: #f4f4f4;
+    --hds-form-control-surface-color-checked-disabled: rgba(
+      244,
+      244,
+      244,
+      0.25
+    );
+    --hds-form-control-surface-color-checked-hover: #f4f4f4;
+    --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+    --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
     --hds-form-error-foreground-color: #ff8389;
+    --hds-form-error-icon-color: #fa4d56;
     --hds-form-error-typography-font-size: 0.75rem;
     --hds-form-error-typography-line-height: 1.33333;
+    --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+    --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238d8d8d' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+    --hds-form-file-input-button-border-color: var(
+      --hds-button-border-color-primary-default
+    );
+    --hds-form-file-input-button-height: 40px;
+    --hds-form-group-control-field-margin-top: 8px;
     --hds-form-helper-text-foreground-color: #a8a8a8;
     --hds-form-helper-text-typography-font-size: 0.75rem;
     --hds-form-helper-text-typography-line-height: 1.33333;
@@ -2259,6 +2885,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-indicator-optional-typography-font-size: 0.75rem;
     --hds-form-indicator-optional-typography-line-height: 1.33333;
     --hds-form-label-foreground-color: #c6c6c6;
+    --hds-form-label-inline-typography-font-size: 0.875rem;
     --hds-form-label-typography-font-size: 0.75rem;
     --hds-form-label-typography-font-weight: 400;
     --hds-form-label-typography-line-height: 1.33333;
@@ -2266,9 +2893,81 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-form-legend-typography-font-size: 0.75rem;
     --hds-form-legend-typography-font-weight: 400;
     --hds-form-legend-typography-line-height: 1.33333;
-    --hds-form-radiocard-border-color-default-checked: #ffc0cb;
-    --hds-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
-    --hds-form-radiocard-border-color-focus: #ffc0cb;
+    --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+    --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+    --hds-form-radio-card-border-color-checked-default: #f4f4f4;
+    --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
+    --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
+    --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
+    --hds-form-radio-card-content-padding: 16px;
+    --hds-form-radio-card-control-wrapper-border-color-checked: #525252;
+    --hds-form-radio-card-control-wrapper-border-color-default: #6f6f6f;
+    --hds-form-radio-card-control-wrapper-border-color-disabled: #525252;
+    --hds-form-radio-card-control-wrapper-surface-color-checked: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-form-radio-card-control-wrapper-surface-color-default: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-form-radio-card-control-wrapper-surface-color-disabled: rgba(
+      0,
+      0,
+      0,
+      0
+    );
+    --hds-form-radio-card-description-typography-font-size: 0.875rem;
+    --hds-form-radio-card-label-foreground-color: #c6c6c6; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+    --hds-form-radio-card-label-typography-font-size: 0.875rem;
+    --hds-form-radio-card-label-typography-font-weight: 400;
+    --hds-form-radio-card-label-typography-line-height: 1.2857; /** 18px */
+    --hds-form-radio-card-surface-color-disabled: #262626;
+    --hds-form-radio-card-surface-color-hover: #333333;
+    --hds-form-radio-size: 18px;
+    --hds-form-radio-surface-color-checked-default: transparent;
+    --hds-form-radio-surface-color-checked-disabled: transparent;
+    --hds-form-radio-surface-color-checked-hover: transparent;
+    --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+    --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+    --hds-form-select-multiple-option-color-checked: #ffffff;
+    --hds-form-select-surface-color-hover: #333333;
+    --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+    --hds-form-super-select-option-background-image-size: 12px;
+    --hds-form-super-select-option-border-color: #525252;
+    --hds-form-super-select-option-margin-top: 0px;
+    --hds-form-super-select-option-surface-color-checked-default: #393939;
+    --hds-form-super-select-option-surface-color-checked-hover: #474747;
+    --hds-form-super-select-option-surface-color-default: #262626;
+    --hds-form-super-select-option-surface-color-hover: #333333;
+    --hds-form-super-select-padding-left: var(
+      --hds-form-control-padding-horizontal
+    );
+    --hds-form-super-select-search-margin-bottom: 0px;
+    --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);
+    --hds-form-super-select-tag-foreground-color: #161616;
+    --hds-form-super-select-tag-surface-color: #f4f4f4;
+    --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+    --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+    --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded */
+    --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+    --hds-form-text-input-background-image-position-x: 10px;
+    --hds-form-text-input-search-cancel-button-width: 40px;
+    --hds-form-textarea-padding-vertical: 11px;
+    --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+    --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+    --hds-form-toggle-base-surface-color-checked-default: #42be65;
+    --hds-form-toggle-base-surface-color-checked-hover: #42be65;
+    --hds-form-toggle-base-surface-color-default: #6f6f6f; /** the toggle has a different base surface color, compared to the other controls */
+    --hds-form-toggle-base-surface-color-disabled: rgba(141, 141, 141, 0.3);
+    --hds-form-toggle-handle-surface-color-default: #ffffff;
+    --hds-form-toggle-handle-surface-color-disabled: rgba(255, 255, 255, 0.25);
+    --hds-form-toggle-thumb-size: 10px;
+    --hds-form-visibility-toggle-size: 40px;
     --hds-icon-tile-border-color-logo: #525252;
     --hds-icon-tile-border-color-overlay: #6f6f6f;
     --hds-icon-tile-surface-color-overlay: #393939;
@@ -2322,6 +3021,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
     --hds-rich-tooltip-toggle-gap-horizontal: 8px;
     --hds-rich-tooltip-toggle-icon-size: 14px;
+    --hds-segmented-group-gap: 1px;
+    --hds-segmented-group-margin-left: 0px;
     --hds-stepper-list-progress-bar-border-color-complete: var(
       --hds-core-color-neutral-100
     );
@@ -2406,6 +3107,38 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-surface-low-box-shadow: none;
     --hds-surface-mid-box-shadow: none;
     --hds-surface-overlay-box-shadow: none;
+    --hds-table-body-surface-color: #262626;
+    --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+    --hds-table-cell-border-width: 0px;
+    --hds-table-cell-foreground-color-default: #c6c6c6;
+    --hds-table-cell-height-medium: 2.5rem;
+    --hds-table-cell-height-short: 2rem;
+    --hds-table-cell-height-tall: 3rem;
+    --hds-table-cell-line-height: 1.28572;
+    --hds-table-cell-padding-vertical-medium: 7px;
+    --hds-table-cell-padding-vertical-short: 7px;
+    --hds-table-cell-padding-vertical-tall: 7px;
+    --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.16);
+    --hds-table-cell-surface-color-selected-default: #393939;
+    --hds-table-cell-surface-color-selected-hover: #474747;
+    --hds-table-cell-surface-color-striped-default: #393939;
+    --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.16);
+    --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+    --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+    --hds-table-header-button-foreground-color-default: #f4f4f4;
+    --hds-table-header-button-foreground-color-sorted-active: #f4f4f4;
+    --hds-table-header-button-foreground-color-sorted-default: #f4f4f4;
+    --hds-table-header-button-foreground-color-sorted-hover: #f4f4f4;
+    --hds-table-header-button-surface-color-active: #6f6f6f;
+    --hds-table-header-button-surface-color-hover: #474747;
+    --hds-table-header-cell-border-offset: 0px;
+    --hds-table-header-cell-padding-vertical: 7px;
+    --hds-table-header-surface-color: #393939;
+    --hds-table-row-border-color-default: #393939;
+    --hds-table-row-border-color-hover: #333333;
+    --hds-table-row-border-color-selected-default: #525252;
+    --hds-table-row-border-color-selected-hover: #474747;
+    --hds-table-row-border-width: 1px;
     --hds-tabs-indicator-height: 2px;
     --hds-tabs-tab-border-color-default: #393939;
     --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
@@ -2539,6 +3272,35 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-large: 14px;
   --hds-accordion-item-toggle-padding-top-medium: 10px;
   --hds-accordion-item-toggle-padding-top-small: 6px;
+  --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
+  --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
+  --hds-advanced-table-cell-surface-color-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
+  --hds-advanced-table-cell-surface-color-nested-hover: rgba(
+    141,
+    141,
+    141,
+    0.12
+  );
+  --hds-advanced-table-cell-surface-color-parent-hover: rgba(
+    141,
+    141,
+    141,
+    0.12
+  );
+  --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-border-color: #0f62fe;
+  --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
+  --hds-advanced-table-drop-preview-surface-color: #0f62fe;
+  --hds-advanced-table-empty-state-border-width: 0px;
+  --hds-advanced-table-header-border-width-pinned: 0px;
+  --hds-advanced-table-resize-handle-surface-color-active: #0f62fe;
+  --hds-advanced-table-resize-handle-surface-color-focus: #0f62fe;
+  --hds-advanced-table-resize-handle-surface-color-hover: #a8a8a8;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
   --hds-alert-border-color-highlight: #0043ce66;
@@ -2894,6 +3656,22 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
+  --hds-filter-bar-filter-group-generic-clear-button-margin-top: 0px;
+  --hds-filter-bar-filter-group-search-border-width: 0px;
+  --hds-filter-bar-filter-group-search-padding: 0px;
+  --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
+  --hds-filter-bar-filter-group-values-list-gap: 0px;
+  --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
+  --hds-filter-bar-tabs-list-gap: 0px;
+  --hds-filter-bar-tabs-list-padding: 0px;
+  --hds-filter-bar-tabs-panel-gap: 16px;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-active: #525252;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-default: #525252;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-hover: #525252;
+  --hds-filter-bar-tabs-tab-foreground-color-unselected: #525252;
+  --hds-filter-bar-tabs-tab-surface-color-selected-active: #a8a8a8;
+  --hds-filter-bar-tabs-tab-surface-color-selected-hover: #c6c6c6;
   --hds-focus-color-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-action-internal: #ffffff;
   --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -2928,9 +3706,60 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-character-count-foreground-color: #6f6f6f;
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 8 2'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23fff' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-control-base-border-color-default: #8d8d8d;
+  --hds-form-control-base-border-color-hover: #8d8d8d;
+  --hds-form-control-base-placeholder-foreground-color-default: rgba(
+    22,
+    22,
+    22,
+    0.4
+  );
+  --hds-form-control-base-placeholder-foreground-color-disabled: rgba(
+    22,
+    22,
+    22,
+    0.25
+  );
+  --hds-form-control-base-surface-color-hover: #f4f4f4;
+  --hds-form-control-border-color-checked-default: #161616;
+  --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-border-color-checked-hover: #161616;
+  --hds-form-control-border-color-unchecked-default: #161616;
+  --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #161616;
+  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-surface-color: #f4f4f4;
+  --hds-form-control-foreground-color-checked: #161616;
+  --hds-form-control-height: 40px;
+  --hds-form-control-invalid-border-color-default: #da1e28;
+  --hds-form-control-invalid-border-color-hover: #da1e28;
+  --hds-form-control-padding-horizontal: 16px;
+  --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
+  --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #161616;
+  --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-surface-color-checked-hover: #161616;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #da1e28;
+  --hds-form-error-icon-color: #da1e28;
   --hds-form-error-typography-font-size: 0.75rem;
   --hds-form-error-typography-line-height: 1.33333;
+  --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238d8d8d' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-button-border-color: var(
+    --hds-button-border-color-primary-default
+  );
+  --hds-form-file-input-button-height: 40px;
+  --hds-form-group-control-field-margin-top: 8px;
   --hds-form-helper-text-foreground-color: #6f6f6f;
   --hds-form-helper-text-typography-font-size: 0.75rem;
   --hds-form-helper-text-typography-line-height: 1.33333;
@@ -2940,6 +3769,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-indicator-optional-typography-font-size: 0.75rem;
   --hds-form-indicator-optional-typography-line-height: 1.33333;
   --hds-form-label-foreground-color: #525252;
+  --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-typography-font-size: 0.75rem;
   --hds-form-label-typography-font-weight: 400;
   --hds-form-label-typography-line-height: 1.33333;
@@ -2947,9 +3777,71 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-font-size: 0.75rem;
   --hds-form-legend-typography-font-weight: 400;
   --hds-form-legend-typography-line-height: 1.33333;
-  --hds-form-radiocard-border-color-default-checked: #ffc0cb;
-  --hds-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
-  --hds-form-radiocard-border-color-focus: #ffc0cb;
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23C5C5C5' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-card-border-color-checked-default: #161616;
+  --hds-form-radio-card-border-color-checked-hover: #161616;
+  --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-content-padding: 16px;
+  --hds-form-radio-card-control-wrapper-border-color-checked: #c6c6c6;
+  --hds-form-radio-card-control-wrapper-border-color-default: #e0e0e0;
+  --hds-form-radio-card-control-wrapper-border-color-disabled: #c6c6c6;
+  --hds-form-radio-card-control-wrapper-surface-color-checked: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-disabled: rgba(
+    0,
+    0,
+    0,
+    0
+  );
+  --hds-form-radio-card-description-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-foreground-color: #525252; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+  --hds-form-radio-card-label-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-typography-font-weight: 400;
+  --hds-form-radio-card-label-typography-line-height: 1.2857; /** 18px */
+  --hds-form-radio-card-surface-color-disabled: #f4f4f4;
+  --hds-form-radio-card-surface-color-hover: #e8e8e8;
+  --hds-form-radio-size: 18px;
+  --hds-form-radio-surface-color-checked-default: transparent;
+  --hds-form-radio-surface-color-checked-disabled: transparent;
+  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-multiple-option-color-checked: #ffffff;
+  --hds-form-select-surface-color-hover: #e8e8e8;
+  --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+  --hds-form-super-select-option-background-image-size: 12px;
+  --hds-form-super-select-option-border-color: #c6c6c6;
+  --hds-form-super-select-option-margin-top: 0px;
+  --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
+  --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
+  --hds-form-super-select-option-surface-color-default: #f4f4f4;
+  --hds-form-super-select-option-surface-color-hover: #e8e8e8;
+  --hds-form-super-select-padding-left: var(
+    --hds-form-control-padding-horizontal
+  );
+  --hds-form-super-select-search-margin-bottom: 0px;
+  --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-tag-foreground-color: #ffffff;
+  --hds-form-super-select-tag-surface-color: #393939;
+  --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+  --hds-form-text-input-background-image-position-x: 10px;
+  --hds-form-text-input-search-cancel-button-width: 40px;
+  --hds-form-textarea-padding-vertical: 11px;
+  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-base-surface-color-checked-default: #24a148;
+  --hds-form-toggle-base-surface-color-checked-hover: #24a148;
+  --hds-form-toggle-base-surface-color-default: #8d8d8d; /** the toggle has a different base surface color, compared to the other controls */
+  --hds-form-toggle-base-surface-color-disabled: #c6c6c6;
+  --hds-form-toggle-handle-surface-color-default: #ffffff;
+  --hds-form-toggle-handle-surface-color-disabled: #8d8d8d;
+  --hds-form-toggle-thumb-size: 10px;
+  --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #c6c6c6;
   --hds-icon-tile-border-color-overlay: #e0e0e0;
   --hds-icon-tile-surface-color-overlay: #ffffff;
@@ -3003,6 +3895,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-rich-tooltip-toggle-foreground-color-default: #525252;
   --hds-rich-tooltip-toggle-gap-horizontal: 8px;
   --hds-rich-tooltip-toggle-icon-size: 14px;
+  --hds-segmented-group-gap: 1px;
+  --hds-segmented-group-margin-left: 0px;
   --hds-stepper-list-progress-bar-border-color-complete: var(
     --hds-core-color-neutral-700
   );
@@ -3087,6 +3981,38 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-surface-low-box-shadow: none;
   --hds-surface-mid-box-shadow: none;
   --hds-surface-overlay-box-shadow: none;
+  --hds-table-body-surface-color: #f4f4f4;
+  --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+  --hds-table-cell-border-width: 0px;
+  --hds-table-cell-foreground-color-default: #525252;
+  --hds-table-cell-height-medium: 2.5rem;
+  --hds-table-cell-height-short: 2rem;
+  --hds-table-cell-height-tall: 3rem;
+  --hds-table-cell-line-height: 1.28572;
+  --hds-table-cell-padding-vertical-medium: 7px;
+  --hds-table-cell-padding-vertical-short: 7px;
+  --hds-table-cell-padding-vertical-tall: 7px;
+  --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-table-cell-surface-color-selected-default: #e0e0e0;
+  --hds-table-cell-surface-color-selected-hover: #d1d1d1;
+  --hds-table-cell-surface-color-striped-default: #e0e0e0;
+  --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.12);
+  --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-default: #161616;
+  --hds-table-header-button-foreground-color-sorted-active: #161616;
+  --hds-table-header-button-foreground-color-sorted-default: #161616;
+  --hds-table-header-button-foreground-color-sorted-hover: #161616;
+  --hds-table-header-button-surface-color-active: #a8a8a8;
+  --hds-table-header-button-surface-color-hover: #d1d1d1;
+  --hds-table-header-cell-border-offset: 0px;
+  --hds-table-header-cell-padding-vertical: 7px;
+  --hds-table-header-surface-color: #e0e0e0;
+  --hds-table-row-border-color-default: #e0e0e0;
+  --hds-table-row-border-color-hover: #e8e8e8;
+  --hds-table-row-border-color-selected-default: #c6c6c6;
+  --hds-table-row-border-color-selected-hover: #d1d1d1;
+  --hds-table-row-border-width: 1px;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #e0e0e0;
   --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
@@ -3219,6 +4145,35 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-large: 14px;
   --hds-accordion-item-toggle-padding-top-medium: 10px;
   --hds-accordion-item-toggle-padding-top-small: 6px;
+  --hds-advanced-table-cell-border-color-pinned: #525252;
+  --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
+  --hds-advanced-table-cell-surface-color-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-cell-surface-color-nested-default: #393939;
+  --hds-advanced-table-cell-surface-color-nested-hover: rgba(
+    141,
+    141,
+    141,
+    0.16
+  );
+  --hds-advanced-table-cell-surface-color-parent-hover: rgba(
+    141,
+    141,
+    141,
+    0.16
+  );
+  --hds-advanced-table-cell-surface-color-striped-hover: #373737; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-border-color: #ffffff;
+  --hds-advanced-table-drag-preview-surface-color: #ffffff33;
+  --hds-advanced-table-drop-preview-surface-color: #ffffff;
+  --hds-advanced-table-empty-state-border-width: 0px;
+  --hds-advanced-table-header-border-width-pinned: 0px;
+  --hds-advanced-table-resize-handle-surface-color-active: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-focus: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-hover: #e0e0e0;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
   --hds-alert-border-color-highlight: #0043ce66;
@@ -3594,6 +4549,22 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
+  --hds-filter-bar-filter-group-generic-clear-button-margin-top: 0px;
+  --hds-filter-bar-filter-group-search-border-width: 0px;
+  --hds-filter-bar-filter-group-search-padding: 0px;
+  --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
+  --hds-filter-bar-filter-group-values-list-gap: 0px;
+  --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
+  --hds-filter-bar-tabs-list-gap: 0px;
+  --hds-filter-bar-tabs-list-padding: 0px;
+  --hds-filter-bar-tabs-panel-gap: 16px;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-active: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-default: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-hover: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-unselected: #c6c6c6;
+  --hds-filter-bar-tabs-tab-surface-color-selected-active: #8d8d8d;
+  --hds-filter-bar-tabs-tab-surface-color-selected-hover: #6f6f6f;
   --hds-focus-color-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-action-internal: #161616;
   --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -3628,9 +4599,60 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-character-count-foreground-color: #a8a8a8;
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 2'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-control-base-border-color-default: #6f6f6f;
+  --hds-form-control-base-border-color-hover: #6f6f6f;
+  --hds-form-control-base-placeholder-foreground-color-default: rgba(
+    244,
+    244,
+    244,
+    0.4
+  );
+  --hds-form-control-base-placeholder-foreground-color-disabled: rgba(
+    244,
+    244,
+    244,
+    0.25
+  );
+  --hds-form-control-base-surface-color-hover: #262626;
+  --hds-form-control-border-color-checked-default: #f4f4f4;
+  --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-checked-hover: #f4f4f4;
+  --hds-form-control-border-color-unchecked-default: #f4f4f4;
+  --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #f4f4f4;
+  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-surface-color: #262626;
+  --hds-form-control-foreground-color-checked: #f4f4f4;
+  --hds-form-control-height: 40px;
+  --hds-form-control-invalid-border-color-default: #fa4d56;
+  --hds-form-control-invalid-border-color-hover: #fa4d56;
+  --hds-form-control-padding-horizontal: 16px;
+  --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
+  --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #f4f4f4;
+  --hds-form-control-surface-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-surface-color-checked-hover: #f4f4f4;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #ff8389;
+  --hds-form-error-icon-color: #fa4d56;
   --hds-form-error-typography-font-size: 0.75rem;
   --hds-form-error-typography-line-height: 1.33333;
+  --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238d8d8d' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-button-border-color: var(
+    --hds-button-border-color-primary-default
+  );
+  --hds-form-file-input-button-height: 40px;
+  --hds-form-group-control-field-margin-top: 8px;
   --hds-form-helper-text-foreground-color: #a8a8a8;
   --hds-form-helper-text-typography-font-size: 0.75rem;
   --hds-form-helper-text-typography-line-height: 1.33333;
@@ -3640,6 +4662,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-indicator-optional-typography-font-size: 0.75rem;
   --hds-form-indicator-optional-typography-line-height: 1.33333;
   --hds-form-label-foreground-color: #c6c6c6;
+  --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-typography-font-size: 0.75rem;
   --hds-form-label-typography-font-weight: 400;
   --hds-form-label-typography-line-height: 1.33333;
@@ -3647,9 +4670,71 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-font-size: 0.75rem;
   --hds-form-legend-typography-font-weight: 400;
   --hds-form-legend-typography-line-height: 1.33333;
-  --hds-form-radiocard-border-color-default-checked: #ffc0cb;
-  --hds-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
-  --hds-form-radiocard-border-color-focus: #ffc0cb;
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%234d4d4d' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-card-border-color-checked-default: #f4f4f4;
+  --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
+  --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-content-padding: 16px;
+  --hds-form-radio-card-control-wrapper-border-color-checked: #525252;
+  --hds-form-radio-card-control-wrapper-border-color-default: #6f6f6f;
+  --hds-form-radio-card-control-wrapper-border-color-disabled: #525252;
+  --hds-form-radio-card-control-wrapper-surface-color-checked: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-disabled: rgba(
+    0,
+    0,
+    0,
+    0
+  );
+  --hds-form-radio-card-description-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-foreground-color: #c6c6c6; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+  --hds-form-radio-card-label-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-typography-font-weight: 400;
+  --hds-form-radio-card-label-typography-line-height: 1.2857; /** 18px */
+  --hds-form-radio-card-surface-color-disabled: #262626;
+  --hds-form-radio-card-surface-color-hover: #333333;
+  --hds-form-radio-size: 18px;
+  --hds-form-radio-surface-color-checked-default: transparent;
+  --hds-form-radio-surface-color-checked-disabled: transparent;
+  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-multiple-option-color-checked: #ffffff;
+  --hds-form-select-surface-color-hover: #333333;
+  --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+  --hds-form-super-select-option-background-image-size: 12px;
+  --hds-form-super-select-option-border-color: #525252;
+  --hds-form-super-select-option-margin-top: 0px;
+  --hds-form-super-select-option-surface-color-checked-default: #393939;
+  --hds-form-super-select-option-surface-color-checked-hover: #474747;
+  --hds-form-super-select-option-surface-color-default: #262626;
+  --hds-form-super-select-option-surface-color-hover: #333333;
+  --hds-form-super-select-padding-left: var(
+    --hds-form-control-padding-horizontal
+  );
+  --hds-form-super-select-search-margin-bottom: 0px;
+  --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-tag-foreground-color: #161616;
+  --hds-form-super-select-tag-surface-color: #f4f4f4;
+  --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+  --hds-form-text-input-background-image-position-x: 10px;
+  --hds-form-text-input-search-cancel-button-width: 40px;
+  --hds-form-textarea-padding-vertical: 11px;
+  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-base-surface-color-checked-default: #42be65;
+  --hds-form-toggle-base-surface-color-checked-hover: #42be65;
+  --hds-form-toggle-base-surface-color-default: #6f6f6f; /** the toggle has a different base surface color, compared to the other controls */
+  --hds-form-toggle-base-surface-color-disabled: rgba(141, 141, 141, 0.3);
+  --hds-form-toggle-handle-surface-color-default: #ffffff;
+  --hds-form-toggle-handle-surface-color-disabled: rgba(255, 255, 255, 0.25);
+  --hds-form-toggle-thumb-size: 10px;
+  --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #525252;
   --hds-icon-tile-border-color-overlay: #6f6f6f;
   --hds-icon-tile-surface-color-overlay: #393939;
@@ -3703,6 +4788,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
   --hds-rich-tooltip-toggle-gap-horizontal: 8px;
   --hds-rich-tooltip-toggle-icon-size: 14px;
+  --hds-segmented-group-gap: 1px;
+  --hds-segmented-group-margin-left: 0px;
   --hds-stepper-list-progress-bar-border-color-complete: var(
     --hds-core-color-neutral-100
   );
@@ -3787,6 +4874,38 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-surface-low-box-shadow: none;
   --hds-surface-mid-box-shadow: none;
   --hds-surface-overlay-box-shadow: none;
+  --hds-table-body-surface-color: #262626;
+  --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+  --hds-table-cell-border-width: 0px;
+  --hds-table-cell-foreground-color-default: #c6c6c6;
+  --hds-table-cell-height-medium: 2.5rem;
+  --hds-table-cell-height-short: 2rem;
+  --hds-table-cell-height-tall: 3rem;
+  --hds-table-cell-line-height: 1.28572;
+  --hds-table-cell-padding-vertical-medium: 7px;
+  --hds-table-cell-padding-vertical-short: 7px;
+  --hds-table-cell-padding-vertical-tall: 7px;
+  --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --hds-table-cell-surface-color-selected-default: #393939;
+  --hds-table-cell-surface-color-selected-hover: #474747;
+  --hds-table-cell-surface-color-striped-default: #393939;
+  --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.16);
+  --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-default: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-active: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-default: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-hover: #f4f4f4;
+  --hds-table-header-button-surface-color-active: #6f6f6f;
+  --hds-table-header-button-surface-color-hover: #474747;
+  --hds-table-header-cell-border-offset: 0px;
+  --hds-table-header-cell-padding-vertical: 7px;
+  --hds-table-header-surface-color: #393939;
+  --hds-table-row-border-color-default: #393939;
+  --hds-table-row-border-color-hover: #333333;
+  --hds-table-row-border-color-selected-default: #525252;
+  --hds-table-row-border-color-selected-hover: #474747;
+  --hds-table-row-border-width: 1px;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #393939;
   --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
@@ -3918,6 +5037,35 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-large: 14px;
   --hds-accordion-item-toggle-padding-top-medium: 10px;
   --hds-accordion-item-toggle-padding-top-small: 6px;
+  --hds-advanced-table-cell-border-color-pinned: #c6c6c6;
+  --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
+  --hds-advanced-table-cell-surface-color-hover: #f1f1f1; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-cell-surface-color-nested-default: #e0e0e0;
+  --hds-advanced-table-cell-surface-color-nested-hover: rgba(
+    141,
+    141,
+    141,
+    0.12
+  );
+  --hds-advanced-table-cell-surface-color-parent-hover: rgba(
+    141,
+    141,
+    141,
+    0.12
+  );
+  --hds-advanced-table-cell-surface-color-striped-hover: #e8e8e8; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-border-color: #0f62fe;
+  --hds-advanced-table-drag-preview-surface-color: #0f62fe33;
+  --hds-advanced-table-drop-preview-surface-color: #0f62fe;
+  --hds-advanced-table-empty-state-border-width: 0px;
+  --hds-advanced-table-header-border-width-pinned: 0px;
+  --hds-advanced-table-resize-handle-surface-color-active: #0f62fe;
+  --hds-advanced-table-resize-handle-surface-color-focus: #0f62fe;
+  --hds-advanced-table-resize-handle-surface-color-hover: #a8a8a8;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #16161600;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #16161614;
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
   --hds-alert-border-color-highlight: #0043ce66;
@@ -4273,6 +5421,22 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
+  --hds-filter-bar-filter-group-generic-clear-button-margin-top: 0px;
+  --hds-filter-bar-filter-group-search-border-width: 0px;
+  --hds-filter-bar-filter-group-search-padding: 0px;
+  --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
+  --hds-filter-bar-filter-group-values-list-gap: 0px;
+  --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
+  --hds-filter-bar-tabs-list-gap: 0px;
+  --hds-filter-bar-tabs-list-padding: 0px;
+  --hds-filter-bar-tabs-panel-gap: 16px;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-active: #525252;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-default: #525252;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-hover: #525252;
+  --hds-filter-bar-tabs-tab-foreground-color-unselected: #525252;
+  --hds-filter-bar-tabs-tab-surface-color-selected-active: #a8a8a8;
+  --hds-filter-bar-tabs-tab-surface-color-selected-hover: #c6c6c6;
   --hds-focus-color-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-action-internal: #ffffff;
   --hds-focus-color-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -4307,9 +5471,60 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-character-count-foreground-color: #6f6f6f;
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 8 2'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23fff' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-control-base-border-color-default: #8d8d8d;
+  --hds-form-control-base-border-color-hover: #8d8d8d;
+  --hds-form-control-base-placeholder-foreground-color-default: rgba(
+    22,
+    22,
+    22,
+    0.4
+  );
+  --hds-form-control-base-placeholder-foreground-color-disabled: rgba(
+    22,
+    22,
+    22,
+    0.25
+  );
+  --hds-form-control-base-surface-color-hover: #ffffff;
+  --hds-form-control-border-color-checked-default: #161616;
+  --hds-form-control-border-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-border-color-checked-hover: #161616;
+  --hds-form-control-border-color-unchecked-default: #161616;
+  --hds-form-control-border-color-unchecked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #161616;
+  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-surface-color: #ffffff;
+  --hds-form-control-foreground-color-checked: #161616;
+  --hds-form-control-height: 40px;
+  --hds-form-control-invalid-border-color-default: #da1e28;
+  --hds-form-control-invalid-border-color-hover: #da1e28;
+  --hds-form-control-padding-horizontal: 16px;
+  --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
+  --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #161616;
+  --hds-form-control-surface-color-checked-disabled: rgba(22, 22, 22, 0.25);
+  --hds-form-control-surface-color-checked-hover: #161616;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #da1e28;
+  --hds-form-error-icon-color: #da1e28;
   --hds-form-error-typography-font-size: 0.75rem;
   --hds-form-error-typography-line-height: 1.33333;
+  --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238d8d8d' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-button-border-color: var(
+    --hds-button-border-color-primary-default
+  );
+  --hds-form-file-input-button-height: 40px;
+  --hds-form-group-control-field-margin-top: 8px;
   --hds-form-helper-text-foreground-color: #6f6f6f;
   --hds-form-helper-text-typography-font-size: 0.75rem;
   --hds-form-helper-text-typography-line-height: 1.33333;
@@ -4319,6 +5534,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-indicator-optional-typography-font-size: 0.75rem;
   --hds-form-indicator-optional-typography-line-height: 1.33333;
   --hds-form-label-foreground-color: #525252;
+  --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-typography-font-size: 0.75rem;
   --hds-form-label-typography-font-weight: 400;
   --hds-form-label-typography-line-height: 1.33333;
@@ -4326,9 +5542,71 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-font-size: 0.75rem;
   --hds-form-legend-typography-font-weight: 400;
   --hds-form-legend-typography-line-height: 1.33333;
-  --hds-form-radiocard-border-color-default-checked: #ffc0cb;
-  --hds-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
-  --hds-form-radiocard-border-color-focus: #ffc0cb;
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23BDBDBD' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23161616' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-card-border-color-checked-default: #161616;
+  --hds-form-radio-card-border-color-checked-hover: #161616;
+  --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-content-padding: 16px;
+  --hds-form-radio-card-control-wrapper-border-color-checked: #e0e0e0;
+  --hds-form-radio-card-control-wrapper-border-color-default: #c6c6c6;
+  --hds-form-radio-card-control-wrapper-border-color-disabled: #e0e0e0;
+  --hds-form-radio-card-control-wrapper-surface-color-checked: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-disabled: rgba(
+    0,
+    0,
+    0,
+    0
+  );
+  --hds-form-radio-card-description-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-foreground-color: #525252; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+  --hds-form-radio-card-label-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-typography-font-weight: 400;
+  --hds-form-radio-card-label-typography-line-height: 1.2857; /** 18px */
+  --hds-form-radio-card-surface-color-disabled: #ffffff;
+  --hds-form-radio-card-surface-color-hover: #e8e8e8;
+  --hds-form-radio-size: 18px;
+  --hds-form-radio-surface-color-checked-default: transparent;
+  --hds-form-radio-surface-color-checked-disabled: transparent;
+  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(22%2C 22%2C 22%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23161616' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-multiple-option-color-checked: #ffffff;
+  --hds-form-select-surface-color-hover: #e8e8e8;
+  --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+  --hds-form-super-select-option-background-image-size: 12px;
+  --hds-form-super-select-option-border-color: #e0e0e0;
+  --hds-form-super-select-option-margin-top: 0px;
+  --hds-form-super-select-option-surface-color-checked-default: #e0e0e0;
+  --hds-form-super-select-option-surface-color-checked-hover: #d1d1d1;
+  --hds-form-super-select-option-surface-color-default: #ffffff;
+  --hds-form-super-select-option-surface-color-hover: #e8e8e8;
+  --hds-form-super-select-padding-left: var(
+    --hds-form-control-padding-horizontal
+  );
+  --hds-form-super-select-search-margin-bottom: 0px;
+  --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-tag-foreground-color: #ffffff;
+  --hds-form-super-select-tag-surface-color: #393939;
+  --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(22, 22, 22, 0.25)' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+  --hds-form-text-input-background-image-position-x: 10px;
+  --hds-form-text-input-search-cancel-button-width: 40px;
+  --hds-form-textarea-padding-vertical: 11px;
+  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-base-surface-color-checked-default: #24a148;
+  --hds-form-toggle-base-surface-color-checked-hover: #24a148;
+  --hds-form-toggle-base-surface-color-default: #8d8d8d; /** the toggle has a different base surface color, compared to the other controls */
+  --hds-form-toggle-base-surface-color-disabled: #c6c6c6;
+  --hds-form-toggle-handle-surface-color-default: #ffffff;
+  --hds-form-toggle-handle-surface-color-disabled: #8d8d8d;
+  --hds-form-toggle-thumb-size: 10px;
+  --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #e0e0e0;
   --hds-icon-tile-border-color-overlay: #c6c6c6;
   --hds-icon-tile-surface-color-overlay: #f4f4f4;
@@ -4382,6 +5660,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-rich-tooltip-toggle-foreground-color-default: #525252;
   --hds-rich-tooltip-toggle-gap-horizontal: 8px;
   --hds-rich-tooltip-toggle-icon-size: 14px;
+  --hds-segmented-group-gap: 1px;
+  --hds-segmented-group-margin-left: 0px;
   --hds-stepper-list-progress-bar-border-color-complete: var(
     --hds-core-color-neutral-700
   );
@@ -4466,6 +5746,38 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-surface-low-box-shadow: none;
   --hds-surface-mid-box-shadow: none;
   --hds-surface-overlay-box-shadow: none;
+  --hds-table-body-surface-color: #ffffff;
+  --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+  --hds-table-cell-border-width: 0px;
+  --hds-table-cell-foreground-color-default: #525252;
+  --hds-table-cell-height-medium: 2.5rem;
+  --hds-table-cell-height-short: 2rem;
+  --hds-table-cell-height-tall: 3rem;
+  --hds-table-cell-line-height: 1.28572;
+  --hds-table-cell-padding-vertical-medium: 7px;
+  --hds-table-cell-padding-vertical-short: 7px;
+  --hds-table-cell-padding-vertical-tall: 7px;
+  --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.12);
+  --hds-table-cell-surface-color-selected-default: #e0e0e0;
+  --hds-table-cell-surface-color-selected-hover: #d1d1d1;
+  --hds-table-cell-surface-color-striped-default: #e0e0e0;
+  --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.12);
+  --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-default: #161616;
+  --hds-table-header-button-foreground-color-sorted-active: #161616;
+  --hds-table-header-button-foreground-color-sorted-default: #161616;
+  --hds-table-header-button-foreground-color-sorted-hover: #161616;
+  --hds-table-header-button-surface-color-active: #a8a8a8;
+  --hds-table-header-button-surface-color-hover: #d1d1d1;
+  --hds-table-header-cell-border-offset: 0px;
+  --hds-table-header-cell-padding-vertical: 7px;
+  --hds-table-header-surface-color: #e0e0e0;
+  --hds-table-row-border-color-default: #c6c6c6;
+  --hds-table-row-border-color-hover: #e8e8e8;
+  --hds-table-row-border-color-selected-default: #c6c6c6;
+  --hds-table-row-border-color-selected-hover: #d1d1d1;
+  --hds-table-row-border-width: 1px;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #c6c6c6;
   --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
@@ -4597,6 +5909,35 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-accordion-item-toggle-padding-top-large: 14px;
   --hds-accordion-item-toggle-padding-top-medium: 10px;
   --hds-accordion-item-toggle-padding-top-small: 6px;
+  --hds-advanced-table-cell-border-color-pinned: #6f6f6f;
+  --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
+  --hds-advanced-table-cell-surface-color-hover: #474747; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-cell-surface-color-nested-default: #525252;
+  --hds-advanced-table-cell-surface-color-nested-hover: rgba(
+    141,
+    141,
+    141,
+    0.16
+  );
+  --hds-advanced-table-cell-surface-color-parent-hover: rgba(
+    141,
+    141,
+    141,
+    0.16
+  );
+  --hds-advanced-table-cell-surface-color-striped-hover: #474747; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-border-color: #ffffff;
+  --hds-advanced-table-drag-preview-surface-color: #ffffff33;
+  --hds-advanced-table-drop-preview-surface-color: #ffffff;
+  --hds-advanced-table-empty-state-border-width: 0px;
+  --hds-advanced-table-header-border-width-pinned: 0px;
+  --hds-advanced-table-resize-handle-surface-color-active: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-focus: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-hover: #e0e0e0;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
   --hds-alert-actions-margin-top: 15px;
   --hds-alert-border-color-critical: #da1e2866;
   --hds-alert-border-color-highlight: #0043ce66;
@@ -4972,6 +6313,22 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-elevation-low-box-shadow: none;
   --hds-elevation-mid-box-shadow: none;
   --hds-elevation-overlay-box-shadow: none;
+  --hds-filter-bar-filter-group-generic-clear-button-margin-top: 0px;
+  --hds-filter-bar-filter-group-search-border-width: 0px;
+  --hds-filter-bar-filter-group-search-padding: 0px;
+  --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
+  --hds-filter-bar-filter-group-values-list-gap: 0px;
+  --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
+  --hds-filter-bar-tabs-list-gap: 0px;
+  --hds-filter-bar-tabs-list-padding: 0px;
+  --hds-filter-bar-tabs-panel-gap: 16px;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-active: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-default: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-hover: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-unselected: #c6c6c6;
+  --hds-filter-bar-tabs-tab-surface-color-selected-active: #8d8d8d;
+  --hds-filter-bar-tabs-tab-surface-color-selected-hover: #6f6f6f;
   --hds-focus-color-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --hds-focus-color-action-internal: #161616;
   --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -5006,9 +6363,60 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-character-count-foreground-color: #c6c6c6;
   --hds-form-character-count-typography-font-size: 0.75rem;
   --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 2'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-control-base-border-color-default: #8d8d8d;
+  --hds-form-control-base-border-color-hover: #8d8d8d;
+  --hds-form-control-base-placeholder-foreground-color-default: rgba(
+    244,
+    244,
+    244,
+    0.4
+  );
+  --hds-form-control-base-placeholder-foreground-color-disabled: rgba(
+    244,
+    244,
+    244,
+    0.25
+  );
+  --hds-form-control-base-surface-color-hover: #393939;
+  --hds-form-control-border-color-checked-default: #f4f4f4;
+  --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-checked-hover: #f4f4f4;
+  --hds-form-control-border-color-unchecked-default: #f4f4f4;
+  --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #f4f4f4;
+  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-surface-color: #393939;
+  --hds-form-control-foreground-color-checked: #f4f4f4;
+  --hds-form-control-height: 40px;
+  --hds-form-control-invalid-border-color-default: #ff8389;
+  --hds-form-control-invalid-border-color-hover: #ff8389;
+  --hds-form-control-padding-horizontal: 16px;
+  --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
+  --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #f4f4f4;
+  --hds-form-control-surface-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-surface-color-checked-hover: #f4f4f4;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
   --hds-form-error-foreground-color: #ffb3b8;
+  --hds-form-error-icon-color: #ff8389;
   --hds-form-error-typography-font-size: 0.75rem;
   --hds-form-error-typography-line-height: 1.33333;
+  --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238d8d8d' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-button-border-color: var(
+    --hds-button-border-color-primary-default
+  );
+  --hds-form-file-input-button-height: 40px;
+  --hds-form-group-control-field-margin-top: 8px;
   --hds-form-helper-text-foreground-color: #c6c6c6;
   --hds-form-helper-text-typography-font-size: 0.75rem;
   --hds-form-helper-text-typography-line-height: 1.33333;
@@ -5018,6 +6426,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-indicator-optional-typography-font-size: 0.75rem;
   --hds-form-indicator-optional-typography-line-height: 1.33333;
   --hds-form-label-foreground-color: #c6c6c6;
+  --hds-form-label-inline-typography-font-size: 0.875rem;
   --hds-form-label-typography-font-size: 0.75rem;
   --hds-form-label-typography-font-weight: 400;
   --hds-form-label-typography-line-height: 1.33333;
@@ -5025,9 +6434,71 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-form-legend-typography-font-size: 0.75rem;
   --hds-form-legend-typography-font-weight: 400;
   --hds-form-legend-typography-line-height: 1.33333;
-  --hds-form-radiocard-border-color-default-checked: #ffc0cb;
-  --hds-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
-  --hds-form-radiocard-border-color-focus: #ffc0cb;
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23595959' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-card-border-color-checked-default: #f4f4f4;
+  --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
+  --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-content-padding: 16px;
+  --hds-form-radio-card-control-wrapper-border-color-checked: #6f6f6f;
+  --hds-form-radio-card-control-wrapper-border-color-default: #8d8d8d;
+  --hds-form-radio-card-control-wrapper-border-color-disabled: #6f6f6f;
+  --hds-form-radio-card-control-wrapper-surface-color-checked: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-disabled: rgba(
+    0,
+    0,
+    0,
+    0
+  );
+  --hds-form-radio-card-description-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-foreground-color: #c6c6c6; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+  --hds-form-radio-card-label-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-typography-font-weight: 400;
+  --hds-form-radio-card-label-typography-line-height: 1.2857; /** 18px */
+  --hds-form-radio-card-surface-color-disabled: #393939;
+  --hds-form-radio-card-surface-color-hover: #474747;
+  --hds-form-radio-size: 18px;
+  --hds-form-radio-surface-color-checked-default: transparent;
+  --hds-form-radio-surface-color-checked-disabled: transparent;
+  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-multiple-option-color-checked: #ffffff;
+  --hds-form-select-surface-color-hover: #474747;
+  --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+  --hds-form-super-select-option-background-image-size: 12px;
+  --hds-form-super-select-option-border-color: #6f6f6f;
+  --hds-form-super-select-option-margin-top: 0px;
+  --hds-form-super-select-option-surface-color-checked-default: #525252;
+  --hds-form-super-select-option-surface-color-checked-hover: #636363;
+  --hds-form-super-select-option-surface-color-default: #393939;
+  --hds-form-super-select-option-surface-color-hover: #474747;
+  --hds-form-super-select-padding-left: var(
+    --hds-form-control-padding-horizontal
+  );
+  --hds-form-super-select-search-margin-bottom: 0px;
+  --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-tag-foreground-color: #161616;
+  --hds-form-super-select-tag-surface-color: #f4f4f4;
+  --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+  --hds-form-text-input-background-image-position-x: 10px;
+  --hds-form-text-input-search-cancel-button-width: 40px;
+  --hds-form-textarea-padding-vertical: 11px;
+  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-base-surface-color-checked-default: #42be65;
+  --hds-form-toggle-base-surface-color-checked-hover: #42be65;
+  --hds-form-toggle-base-surface-color-default: #8d8d8d; /** the toggle has a different base surface color, compared to the other controls */
+  --hds-form-toggle-base-surface-color-disabled: rgba(141, 141, 141, 0.3);
+  --hds-form-toggle-handle-surface-color-default: #ffffff;
+  --hds-form-toggle-handle-surface-color-disabled: rgba(255, 255, 255, 0.25);
+  --hds-form-toggle-thumb-size: 10px;
+  --hds-form-visibility-toggle-size: 40px;
   --hds-icon-tile-border-color-logo: #6f6f6f;
   --hds-icon-tile-border-color-overlay: #8d8d8d;
   --hds-icon-tile-surface-color-overlay: #525252;
@@ -5081,6 +6552,8 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
   --hds-rich-tooltip-toggle-gap-horizontal: 8px;
   --hds-rich-tooltip-toggle-icon-size: 14px;
+  --hds-segmented-group-gap: 1px;
+  --hds-segmented-group-margin-left: 0px;
   --hds-stepper-list-progress-bar-border-color-complete: var(
     --hds-core-color-neutral-100
   );
@@ -5165,6 +6638,38 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-surface-low-box-shadow: none;
   --hds-surface-mid-box-shadow: none;
   --hds-surface-overlay-box-shadow: none;
+  --hds-table-body-surface-color: #393939;
+  --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+  --hds-table-cell-border-width: 0px;
+  --hds-table-cell-foreground-color-default: #c6c6c6;
+  --hds-table-cell-height-medium: 2.5rem;
+  --hds-table-cell-height-short: 2rem;
+  --hds-table-cell-height-tall: 3rem;
+  --hds-table-cell-line-height: 1.28572;
+  --hds-table-cell-padding-vertical-medium: 7px;
+  --hds-table-cell-padding-vertical-short: 7px;
+  --hds-table-cell-padding-vertical-tall: 7px;
+  --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --hds-table-cell-surface-color-selected-default: #525252;
+  --hds-table-cell-surface-color-selected-hover: #636363;
+  --hds-table-cell-surface-color-striped-default: #525252;
+  --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.16);
+  --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-default: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-active: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-default: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-hover: #f4f4f4;
+  --hds-table-header-button-surface-color-active: #8d8d8d;
+  --hds-table-header-button-surface-color-hover: #636363;
+  --hds-table-header-cell-border-offset: 0px;
+  --hds-table-header-cell-padding-vertical: 7px;
+  --hds-table-header-surface-color: #525252;
+  --hds-table-row-border-color-default: #525252;
+  --hds-table-row-border-color-hover: #474747;
+  --hds-table-row-border-color-selected-default: #6f6f6f;
+  --hds-table-row-border-color-selected-hover: #636363;
+  --hds-table-row-border-width: 1px;
   --hds-tabs-indicator-height: 2px;
   --hds-tabs-tab-border-color-default: #525252;
   --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
@@ -5287,6 +6792,115 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-accordion-item-content-padding-right-large: 16px;
   --hds-accordion-item-toggle-icon-size-small: 16px;
   --hds-accordion-item-toggle-padding-right-large: 16px;
+  --hds-advanced-table-body-surface-color: var(--hds-table-body-surface-color);
+  --hds-advanced-table-cell-border-color-default: var(
+    --hds-table-cell-border-color
+  );
+  --hds-advanced-table-cell-border-width-default: var(
+    --hds-table-cell-border-width
+  );
+  --hds-advanced-table-cell-foreground-color-default: var(
+    --hds-table-cell-foreground-color-default
+  );
+  --hds-advanced-table-cell-foreground-color-hover: var(
+    --hds-table-cell-foreground-color-hover
+  );
+  --hds-advanced-table-cell-foreground-color-selected: var(
+    --hds-table-cell-foreground-color-selected
+  );
+  --hds-advanced-table-cell-height-medium: var(--hds-table-cell-height-medium);
+  --hds-advanced-table-cell-height-short: var(--hds-table-cell-height-short);
+  --hds-advanced-table-cell-height-tall: var(--hds-table-cell-height-tall);
+  --hds-advanced-table-cell-line-height: var(--hds-table-cell-line-height);
+  --hds-advanced-table-cell-padding-horizontal: var(
+    --hds-table-cell-padding-horizontal
+  );
+  --hds-advanced-table-cell-padding-vertical-medium: var(
+    --hds-table-cell-padding-vertical-medium
+  );
+  --hds-advanced-table-cell-padding-vertical-short: var(
+    --hds-table-cell-padding-vertical-short
+  );
+  --hds-advanced-table-cell-padding-vertical-tall: var(
+    --hds-table-cell-padding-vertical-tall
+  );
+  --hds-advanced-table-cell-surface-color-default: var(
+    --hds-surface-color-primary
+  );
+  --hds-advanced-table-cell-surface-color-selected-default: var(
+    --hds-table-cell-surface-color-selected-default
+  );
+  --hds-advanced-table-cell-surface-color-selected-hover: var(
+    --hds-table-cell-surface-color-selected-hover
+  );
+  --hds-advanced-table-cell-surface-color-striped-default: var(
+    --hds-table-cell-surface-color-striped-default
+  );
+  --hds-advanced-table-header-button-border-color-active: var(
+    --hds-table-header-button-border-color-active
+  );
+  --hds-advanced-table-header-button-border-color-default: var(
+    --hds-table-header-button-border-color-default
+  );
+  --hds-advanced-table-header-button-border-color-hover: var(
+    --hds-table-header-button-border-color-hover
+  );
+  --hds-advanced-table-header-button-foreground-color-active: var(
+    --hds-table-header-button-foreground-color-active
+  );
+  --hds-advanced-table-header-button-foreground-color-default: var(
+    --hds-table-header-button-foreground-color-default
+  );
+  --hds-advanced-table-header-button-foreground-color-hover: var(
+    --hds-table-header-button-foreground-color-hover
+  );
+  --hds-advanced-table-header-button-foreground-color-sorted-active: var(
+    --hds-table-header-button-foreground-color-sorted-active
+  );
+  --hds-advanced-table-header-button-foreground-color-sorted-default: var(
+    --hds-table-header-button-foreground-color-sorted-default
+  );
+  --hds-advanced-table-header-button-foreground-color-sorted-hover: var(
+    --hds-table-header-button-foreground-color-sorted-hover
+  );
+  --hds-advanced-table-header-button-size: 24px;
+  --hds-advanced-table-header-button-surface-color-active: var(
+    --hds-table-header-button-surface-color-active
+  );
+  --hds-advanced-table-header-button-surface-color-default: var(
+    --hds-table-header-button-surface-color-default
+  );
+  --hds-advanced-table-header-button-surface-color-hover: var(
+    --hds-table-header-button-surface-color-hover
+  );
+  --hds-advanced-table-header-cell-border-offset: var(
+    --hds-table-header-cell-border-offset
+  );
+  --hds-advanced-table-header-cell-padding-horizontal: var(
+    --hds-table-header-cell-padding-horizontal
+  );
+  --hds-advanced-table-header-cell-padding-vertical: var(
+    --hds-table-header-cell-padding-vertical
+  );
+  --hds-advanced-table-header-surface-color: var(
+    --hds-table-header-surface-color
+  );
+  --hds-advanced-table-row-border-color-default: var(
+    --hds-table-row-border-color-default
+  );
+  --hds-advanced-table-row-border-color-hover: var(
+    --hds-table-row-border-color-hover
+  );
+  --hds-advanced-table-row-border-color-selected-default: var(
+    --hds-table-row-border-color-selected-default
+  );
+  --hds-advanced-table-row-border-color-selected-hover: var(
+    --hds-table-row-border-color-selected-hover
+  );
+  --hds-advanced-table-row-border-color-striped-default: var(
+    --hds-table-row-border-color-striped-default
+  );
+  --hds-advanced-table-row-border-width: var(--hds-table-row-border-width);
   --hds-alert-page-padding-horizontal: 48px;
   --hds-alert-surface-color-neutral: var(--hds-surface-color-faint);
   --hds-alert-title-foreground-color-neutral: var(
@@ -5364,60 +6978,24 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-code-block-foreground-color-selection: #0d0e12;
   --hds-code-block-surface-color-selection: #86ff13;
   --hds-dropdown-toggle-button-gap: 6px;
-  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
-  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
-  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'dash' color is hardcoded here! */
-  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
-  --hds-form-checkbox-background-image-size: 12px;
-  --hds-form-checkbox-border-radius: var(--hds-border-radius-x-small);
+  --hds-filter-bar-tabs-tab-surface-color-selected-default: var(
+    --hds-surface-color-strong
+  );
   --hds-form-checkbox-border-width: 1px;
   --hds-form-checkbox-size: 16px;
-  --hds-form-control-base-border-color-default: var(
-    --hds-core-color-neutral-400
-  );
-  --hds-form-control-base-border-color-hover: var(--hds-core-color-neutral-500);
   --hds-form-control-base-foreground-color: var(--hds-foreground-color-strong);
-  --hds-form-control-base-placeholder-foreground-color: var(
-    --hds-foreground-color-faint
-  );
   --hds-form-control-base-surface-color-default: var(
     --hds-surface-color-interactive
   );
-  --hds-form-control-base-surface-color-hover: var(
-    --hds-surface-color-interactive-hover
-  );
   --hds-form-control-border-radius: var(--hds-border-radius-small);
   --hds-form-control-border-width: 1px;
-  --hds-form-control-checked-border-color-default: var(
-    --hds-core-color-blue-300
-  );
-  --hds-form-control-checked-border-color-hover: var(--hds-core-color-blue-400);
-  --hds-form-control-checked-foreground-color: var(
-    --hds-foreground-color-high-contrast
-  );
-  --hds-form-control-checked-surface-color-default: var(
-    --hds-core-color-blue-200
-  );
-  --hds-form-control-checked-surface-color-hover: var(
-    --hds-core-color-blue-300
-  );
-  --hds-form-control-disabled-border-color: var(--hds-border-color-primary);
   --hds-form-control-disabled-foreground-color: var(
     --hds-foreground-color-disabled
   );
-  --hds-form-control-disabled-surface-color: var(
-    --hds-surface-color-interactive-disabled
-  );
-  --hds-form-control-invalid-border-color-default: var(
-    --hds-core-color-red-300
-  );
-  --hds-form-control-invalid-border-color-hover: var(--hds-core-color-red-400);
-  --hds-form-control-padding: 7px; /** Notice: we have to take in account the border, so it's 1px less than in Figma. */
   --hds-form-control-readonly-border-color: var(--hds-border-color-faint);
   --hds-form-control-readonly-foreground-color: var(
     --hds-foreground-color-primary
   );
-  --hds-form-control-readonly-surface-color: var(--hds-surface-color-strong);
   --hds-form-error-color: var(
     --hds-core-color-red-300
   ); /** deprecated: use `hds-form-error-foreground-color` instead */
@@ -5434,44 +7012,33 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-form-legend-color: var(
     --hds-form-label-color
   ); /** deprecated: use `hds-form-legend-foreground-color` instead */
-  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */
-  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! */
-  --hds-form-radio-background-image-size: 12px;
+  --hds-form-radio-background-image-size: var(--hds-form-radio-size);
   --hds-form-radio-border-width: 1px;
-  --hds-form-radio-size: 16px;
-  --hds-form-radiocard-border-radius: var(--hds-border-radius-medium);
-  --hds-form-radiocard-border-width: 1px;
-  --hds-form-radiocard-content-padding: 24px;
-  --hds-form-radiocard-control-padding: 8px;
-  --hds-form-radiocard-group-gap: 16px;
-  --hds-form-radiocard-transition-duration: 0.2s;
-  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%238C909C'/%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
-  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%23656A76'/%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-radio-card-border-radius: var(--hds-border-radius-medium);
+  --hds-form-radio-card-border-width: 1px;
+  --hds-form-radio-card-control-size: 16px; /** This is the actual radio button control */
+  --hds-form-radio-card-control-wrapper-padding: 8px;
+  --hds-form-radio-card-group-gap: 16px;
+  --hds-form-radio-card-transition-duration: 0.2s;
   --hds-form-select-background-image-position-right-x: var(
-    --hds-form-control-padding
+    --hds-form-control-padding-horizontal
   );
-  --hds-form-select-background-image-position-top-y: 9px;
   --hds-form-select-background-image-size: 16px;
-  --hds-form-text-input-background-image-data-url-date: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search-loading: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' %3e%3cg fill='%23656A76' fill-rule='evenodd' clip-rule='evenodd'%3e%3canimateTransform attributeName='transform' type='rotate' dur='0.9s' from='0 8 8' to='360 8 8' repeatCount='indefinite'/%3e%3cpath d='M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z' opacity='.2'/%3e%3cpath d='M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color and animation are hardcoded here! */
-  --hds-form-text-input-background-image-data-url-search: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-data-url-time: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** notice: the icon color is hardcoded here! */
-  --hds-form-text-input-background-image-position-x: var(
-    --hds-form-control-padding
+  --hds-form-super-select-option-foreground-color-active: var(
+    --hds-dropdown-list-item-foreground-color-action-active
   );
+  --hds-form-super-select-option-foreground-color-hover: var(
+    --hds-dropdown-list-item-foreground-color-action-hover
+  );
+  --hds-form-text-input-background-image-data-url-date: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e");
+  --hds-form-text-input-background-image-data-url-search-loading: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' %3e%3cg fill='%23656A76' fill-rule='evenodd' clip-rule='evenodd'%3e%3canimateTransform attributeName='transform' type='rotate' dur='0.9s' from='0 8 8' to='360 8 8' repeatCount='indefinite'/%3e%3cpath d='M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z' opacity='.2'/%3e%3cpath d='M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color and animation are hardcoded here */
+  --hds-form-text-input-background-image-data-url-time: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /** Notice: the icon color is hardcoded here */
   --hds-form-text-input-background-image-size: 16px;
-  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
-  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /** notice: the 'tick' color is hardcoded here! */
   --hds-form-toggle-background-image-position-x: 2px;
   --hds-form-toggle-background-image-size: 12px;
-  --hds-form-toggle-base-surface-color-default: var(
-    --hds-surface-color-strong
-  ); /** the toggle has a different base surface color, compared to the other controls */
   --hds-form-toggle-border-radius: var(--hds-border-radius-x-small);
   --hds-form-toggle-border-width: 1px;
   --hds-form-toggle-height: 16px;
-  --hds-form-toggle-thumb-size: var(--hds-form-toggle-height);
   --hds-form-toggle-transition-duration: 0.2s;
   --hds-form-toggle-transition-timing-function: cubic-bezier(
     0.68,
@@ -5577,6 +7144,21 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   );
   --hds-stepper-task-indicator-icon-size: 12px;
   --hds-stepper-task-indicator-size: 16px;
+  --hds-table-cell-foreground-color-hover: var(--hds-foreground-color-primary);
+  --hds-table-cell-foreground-color-selected: var(
+    --hds-foreground-color-primary
+  );
+  --hds-table-cell-padding-horizontal: 16px;
+  --hds-table-header-button-border-color-default: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-active: var(
+    --hds-foreground-color-primary
+  );
+  --hds-table-header-button-foreground-color-hover: var(
+    --hds-foreground-color-primary
+  );
+  --hds-table-header-button-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-table-header-cell-padding-horizontal: 16px;
+  --hds-table-row-border-color-striped-default: rgba(0, 0, 0, 0);
   --hds-tabs-divider-height: 1px;
   --hds-tabs-indicator-transition-duration: 0.6s;
   --hds-tabs-indicator-transition-timing-function: cubic-bezier(
