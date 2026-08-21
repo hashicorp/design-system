@@ -8362,6 +8362,16 @@ button.hds-button[href]::after {
   padding: 0 16px;
 }
 
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option::after {
+  position: absolute;
+  top: var(--hds-form-super-select-option-indicator-top);
+  bottom: var(--hds-form-super-select-option-indicator-bottom);
+  left: var(--hds-form-super-select-option-indicator-left);
+  width: var(--hds-form-super-select-option-indicator-width);
+  border-radius: var(--hds-form-super-select-option-indicator-border-radius);
+  content: "";
+  pointer-events: none;
+}
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option + .ember-power-select-option {
   margin-top: var(--hds-form-super-select-option-margin-top);
 }
@@ -8383,14 +8393,10 @@ button.hds-button[href]::after {
   border: none;
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option[aria-current=true]::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:hover::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-hover::after {
-  position: absolute;
-  top: var(--hds-form-super-select-option-indicator-top);
-  bottom: var(--hds-form-super-select-option-indicator-bottom);
-  left: var(--hds-form-super-select-option-indicator-left);
-  width: var(--hds-form-super-select-option-indicator-width);
   background-color: var(--hds-foreground-color-action-hover);
-  border-radius: var(--hds-form-super-select-option-indicator-border-radius);
-  content: "";
+}
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option:active, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-active {
+  background-color: var(--hds-form-super-select-option-surface-color-hover);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-option:active::after, .hds-form-super-select .ember-basic-dropdown .ember-power-select-option.mock-active::after {
   background-color: var(--hds-foreground-color-action-active);
