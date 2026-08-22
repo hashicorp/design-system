@@ -1,0 +1,193 @@
+{
+  "form": {
+    "super-select": {
+      "padding": {
+        "left": {
+          "$type": "dimension",
+          "$value": "11",
+          "unit": "px",
+          "$modes": {
+            "default": "11",
+            "cds-g0": "{form.control.padding.horizontal}",
+            "cds-g10": "{form.control.padding.horizontal}",
+            "cds-g90": "{form.control.padding.horizontal}",
+            "cds-g100": "{form.control.padding.horizontal}"
+          }
+        }
+      },
+      "option": {
+        "background-image": {
+          "data-url-checkmark": {
+            "$value": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E\")",
+            "comment": "notice: the 'checkmark' color is hardcoded here!",
+            "$modes": {
+              "default": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%231060ff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' /%3E%3C/svg%3E\")",
+              "cds-g0": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E\")",
+              "cds-g10": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23161616' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E\")",
+              "cds-g90": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E\")",
+              "cds-g100": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E\")"
+            }
+          },
+          "size": {
+            "$type": "dimension",
+            "$value": "{form.select.background-image.size}",
+            "unit": "px",
+            "$modes": {
+              "default": "{form.select.background-image.size}",
+              "cds-g0": "12",
+              "cds-g10": "12",
+              "cds-g90": "12",
+              "cds-g100": "12"
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "hover": {
+              "$type": "color",
+              "$value": "{dropdown.list-item.foreground.color.action.hover}"
+            },
+            "active": {
+              "$type": "color",
+              "$value": "{dropdown.list-item.foreground.color.action.active}"
+            }
+          }
+        },
+        "surface": {
+          "color": {
+            "default": {
+              "$type": "color",
+              "$value": "transparent",
+              "$modes": {
+                "default": "transparent",
+                "cds-g0": "{carbon.themes.white.layer01}",
+                "cds-g10": "{carbon.themes.g10.layer01}",
+                "cds-g90": "{carbon.themes.g90.layer01}",
+                "cds-g100": "{carbon.themes.g100.layer01}"
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "transparent",
+              "$modes": {
+                "default": "transparent",
+                "cds-g0": "{carbon.themes.white.layerHover01}",
+                "cds-g10": "{carbon.themes.g10.layerHover01}",
+                "cds-g90": "{carbon.themes.g90.layerHover01}",
+                "cds-g100": "{carbon.themes.g100.layerHover01}"
+              }
+            },
+            "checked": {
+              "default": {
+                "$type": "color",
+                "$value": "transparent",
+                "$modes": {
+                  "default": "transparent",
+                  "cds-g0": "{carbon.themes.white.layerSelected01}",
+                  "cds-g10": "{carbon.themes.g10.layerSelected01}",
+                  "cds-g90": "{carbon.themes.g90.layerSelected01}",
+                  "cds-g100": "{carbon.themes.g100.layerSelected01}"
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "transparent",
+                "$modes": {
+                  "default": "transparent",
+                  "cds-g0": "{carbon.themes.white.layerSelectedHover01}",
+                  "cds-g10": "{carbon.themes.g10.layerSelectedHover01}",
+                  "cds-g90": "{carbon.themes.g90.layerSelectedHover01}",
+                  "cds-g100": "{carbon.themes.g100.layerSelectedHover01}"
+                }
+              }
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "transparent",
+            "$modes": {
+              "default": "transparent",
+              "cds-g0": "{carbon.themes.white.borderSubtle01}",
+              "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+              "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+              "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+            }
+          }
+        },
+        "margin": {
+          "top": {
+            "$type": "dimension",
+            "$value": "8",
+            "unit": "px",
+            "$modes": {
+              "default": "8",
+              "cds-g0": "0",
+              "cds-g10": "0",
+              "cds-g90": "0",
+              "cds-g100": "0"
+            }
+          }
+        }
+      },
+      "search": {
+        "margin": {
+          "bottom": {
+            "$type": "dimension",
+            "$value": "3",
+            "unit": "px",
+            "$modes": {
+              "default": "3",
+              "cds-g0": "0",
+              "cds-g10": "0",
+              "cds-g90": "0",
+              "cds-g100": "0"
+            }
+          }
+        }
+      },
+      "tag": {
+        "border": {
+          "color": {
+            "$type": "color",
+            "$value": "{border.color.strong}",
+            "$modes": {
+              "default": "{border.color.strong}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "$type": "color",
+            "$value": "{form.control.base.foreground.color}",
+            "$modes": {
+              "default": "{form.control.base.foreground.color}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
+          }
+        },
+        "surface": {
+          "color": {
+            "$type": "color",
+            "$value": "{surface.color.interactive}",
+            "$modes": {
+              "default": "{surface.color.interactive}",
+              "cds-g0": "{carbon.themes.white.backgroundInverse}",
+              "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+              "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+              "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

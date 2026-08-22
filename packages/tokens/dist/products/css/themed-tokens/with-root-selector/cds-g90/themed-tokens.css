@@ -1,0 +1,790 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --hds-accordion-card-gap-large: 0px;
+  --hds-accordion-card-gap-medium: 0px;
+  --hds-accordion-card-gap-small: 0px;
+  --hds-accordion-item-border-color: #525252;
+  --hds-accordion-item-content-padding-bottom-large: 24px;
+  --hds-accordion-item-content-padding-bottom-medium: 24px;
+  --hds-accordion-item-content-padding-bottom-small: 24px;
+  --hds-accordion-item-content-padding-left-large: 48px;
+  --hds-accordion-item-content-padding-left-medium: 48px;
+  --hds-accordion-item-content-padding-left-small: 48px;
+  --hds-accordion-item-content-padding-right-medium: 16px;
+  --hds-accordion-item-content-padding-right-small: 16px;
+  --hds-accordion-item-content-padding-top-large: 8px;
+  --hds-accordion-item-content-padding-top-medium: 8px;
+  --hds-accordion-item-content-padding-top-small: 8px;
+  --hds-accordion-item-toggle-gap-large: 16px;
+  --hds-accordion-item-toggle-gap-medium: 16px;
+  --hds-accordion-item-toggle-gap-small: 16px;
+  --hds-accordion-item-toggle-icon-size-large: 16px;
+  --hds-accordion-item-toggle-icon-size-medium: 16px;
+  --hds-accordion-item-toggle-icon-transform-rotate: 180deg;
+  --hds-accordion-item-toggle-icon-transition-duration: 0.11s;
+  --hds-accordion-item-toggle-icon-transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
+  --hds-accordion-item-toggle-padding-bottom-large: 14px;
+  --hds-accordion-item-toggle-padding-bottom-medium: 10px;
+  --hds-accordion-item-toggle-padding-bottom-small: 6px;
+  --hds-accordion-item-toggle-padding-left-large: 16px;
+  --hds-accordion-item-toggle-padding-left-medium: 16px;
+  --hds-accordion-item-toggle-padding-left-small: 16px;
+  --hds-accordion-item-toggle-padding-right-medium: 16px;
+  --hds-accordion-item-toggle-padding-right-small: 16px;
+  --hds-accordion-item-toggle-padding-top-large: 14px;
+  --hds-accordion-item-toggle-padding-top-medium: 10px;
+  --hds-accordion-item-toggle-padding-top-small: 6px;
+  --hds-advanced-table-cell-border-color-pinned: #6f6f6f;
+  --hds-advanced-table-cell-border-width-pinned: 2px;
+  --hds-advanced-table-cell-pinned-left: 0px;
+  --hds-advanced-table-cell-surface-color-hover: #474747; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-cell-surface-color-nested-default: #525252;
+  --hds-advanced-table-cell-surface-color-nested-hover: rgba(141, 141, 141, 0.16);
+  --hds-advanced-table-cell-surface-color-parent-hover: rgba(141, 141, 141, 0.16);
+  --hds-advanced-table-cell-surface-color-striped-hover: #474747; /** the carbon hover colors have alpha values so when a column is pinned + hovered, you can see the content behind the pinned column. These are the closest match to the carbon hover colors without alpha values. */
+  --hds-advanced-table-drag-preview-border-color: #ffffff;
+  --hds-advanced-table-drag-preview-surface-color: #ffffff33;
+  --hds-advanced-table-drop-preview-surface-color: #ffffff;
+  --hds-advanced-table-empty-state-border-width: 0px;
+  --hds-advanced-table-header-border-width-pinned: 0px;
+  --hds-advanced-table-resize-handle-surface-color-active: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-focus: #ffffff;
+  --hds-advanced-table-resize-handle-surface-color-hover: #e0e0e0;
+  --hds-advanced-table-scroll-indicator-gradient-color-start: #f4f4f400;
+  --hds-advanced-table-scroll-indicator-gradient-color-stop: #f4f4f414;
+  --hds-advanced-table-scroll-indicator-top-offset-bottom: -8px;
+  --hds-alert-actions-margin-top: 15px;
+  --hds-alert-border-color-critical: #da1e2866;
+  --hds-alert-border-color-highlight: #0043ce66;
+  --hds-alert-border-color-neutral: #8d8d8d66;
+  --hds-alert-border-color-success: #24a14866;
+  --hds-alert-border-color-warning: #f1c21b66;
+  --hds-alert-content-gap: 0px;
+  --hds-alert-dismiss-margin-left: 14px;
+  --hds-alert-icon-color-critical: #ff8389;
+  --hds-alert-icon-color-highlight: #4589ff;
+  --hds-alert-icon-color-neutral: #8d8d8d;
+  --hds-alert-icon-color-success: #42be65;
+  --hds-alert-icon-color-warning: #f1c21b;
+  --hds-alert-icon-margin-right: 16px;
+  --hds-alert-inline-border-left-color-critical: #ff8389;
+  --hds-alert-inline-border-left-color-highlight: #4589ff;
+  --hds-alert-inline-border-left-color-neutral: #8d8d8d;
+  --hds-alert-inline-border-left-color-success: #42be65;
+  --hds-alert-inline-border-left-color-warning: #f1c21b;
+  --hds-alert-inline-border-left-width: 3px;
+  --hds-alert-inline-padding-horizontal: 13px;
+  --hds-alert-inline-padding-vertical: 15px;
+  --hds-alert-page-padding-vertical: 15px;
+  --hds-alert-surface-color-critical: #393939;
+  --hds-alert-surface-color-highlight: #393939;
+  --hds-alert-surface-color-success: #393939;
+  --hds-alert-surface-color-warning: #393939;
+  --hds-alert-title-foreground-color-critical: #f4f4f4;
+  --hds-alert-title-foreground-color-highlight: #f4f4f4;
+  --hds-alert-title-foreground-color-success: #f4f4f4;
+  --hds-alert-title-foreground-color-warning: #f4f4f4;
+  --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-link-focus-outline-color: #ffffff;
+  --hds-app-footer-link-focus-outline-width: 1px;
+  --hds-app-header-actions-gap: 0px;
+  --hds-app-header-border-color: #525252;
+  --hds-app-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-app-header-button-border-color-default: rgba(0, 0, 0, 0);
+  --hds-app-header-button-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --hds-app-header-button-focus-ring-color-action-internal: rgba(0, 0, 0, 0); /** TODO: Remove once global tokens for dark themes are implemented */
+  --hds-app-header-button-foreground-color-default: #c6c6c6;
+  --hds-app-header-button-foreground-color-hover: #f4f4f4;
+  --hds-app-header-button-surface-color-active: rgba(141, 141, 141, 0.4);
+  --hds-app-header-button-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-app-header-button-surface-color-disabled: #6f6f6f;
+  --hds-app-header-button-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --hds-app-header-foreground-color: #f4f4f4;
+  --hds-app-header-height: 48px;
+  --hds-app-header-home-link-foreground-color: #f4f4f4;
+  --hds-app-header-home-link-padding: 10px;
+  --hds-app-header-padding-bottom: 0px;
+  --hds-app-header-padding-left: 0px;
+  --hds-app-header-padding-right: 0px;
+  --hds-app-header-padding-top: 0px;
+  --hds-app-header-surface-color: var(--hds-page-color-primary);
+  --hds-app-side-nav-body-list-item-foreground-color-default: #c6c6c6;
+  --hds-app-side-nav-body-list-item-foreground-color-hover: #c6c6c6;
+  --hds-app-side-nav-body-list-item-foreground-color-selected: #c6c6c6;
+  --hds-app-side-nav-body-list-item-height: 32px;
+  --hds-app-side-nav-body-list-item-indicator-border-radius: 0px;
+  --hds-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
+  --hds-app-side-nav-body-list-item-margin-top: 0px;
+  --hds-app-side-nav-body-list-item-padding-horizontal: 16px;
+  --hds-app-side-nav-body-list-item-padding-vertical: 7px;
+  --hds-app-side-nav-body-list-item-surface-color-active: rgba(141, 141, 141, 0.4);
+  --hds-app-side-nav-body-list-item-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --hds-app-side-nav-body-list-item-surface-color-selected: rgba(141, 141, 141, 0.24);
+  --hds-app-side-nav-body-list-item-typography-font-weight: 600;
+  --hds-app-side-nav-body-list-title-foreground-color: #f4f4f4;
+  --hds-app-side-nav-body-list-title-padding-vertical: 7px;
+  --hds-app-side-nav-wrapper-padding-horizontal: 0px;
+  --hds-app-side-nav-wrapper-surface-color: #262626;
+  --hds-badge-border-radius: var(--hds-border-radius-rounded);
+  --hds-badge-count-padding-horizontal-large: 12px;
+  --hds-badge-count-padding-horizontal-medium: 8px;
+  --hds-badge-count-padding-horizontal-small: 8px;
+  --hds-badge-foreground-color-critical-filled: #ffd7d9; /** we don't use `critical-on-surface` for accessibility (better contrast) */
+  --hds-badge-foreground-color-critical-outlined: #ffd7d9;
+  --hds-badge-foreground-color-highlight-filled: #e8daff; /** we don't use `highlight-on-surface` for accessibility (better contrast) */
+  --hds-badge-foreground-color-highlight-outlined: #e8daff;
+  --hds-badge-foreground-color-neutral-dark-mode-inverted: #f4f4f4;
+  --hds-badge-foreground-color-neutral-filled: #f4f4f4;
+  --hds-badge-foreground-color-neutral-inverted: #161616;
+  --hds-badge-foreground-color-neutral-outlined: #f4f4f4;
+  --hds-badge-foreground-color-success-filled: #a7f0ba; /** we don't use `success-on-surface` for accessibility (better contrast) */
+  --hds-badge-foreground-color-success-outlined: #a7f0ba;
+  --hds-badge-foreground-color-warning-filled: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-foreground-color-warning-outlined: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-gap-large: 4px;
+  --hds-badge-gap-medium: 4px;
+  --hds-badge-gap-small: 4px;
+  --hds-badge-height-small: 18px;
+  --hds-badge-padding-horizontal-large: 12px;
+  --hds-badge-padding-horizontal-medium: 8px;
+  --hds-badge-padding-horizontal-small: 8px;
+  --hds-badge-padding-vertical-small: 1px;
+  --hds-badge-surface-color-critical-filled: #a2191f; /** we don't use `surface-critical` for accessibility (better contrast) */
+  --hds-badge-surface-color-critical-inverted: #ffd7d9;
+  --hds-badge-surface-color-highlight-filled: #6929c4; /** we don't use `surface-highlight` for accessibility (better contrast) */
+  --hds-badge-surface-color-highlight-inverted: #be95ff;
+  --hds-badge-surface-color-neutral-dark-mode-filled: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
+  --hds-badge-surface-color-neutral-dark-mode-inverted: #525252;
+  --hds-badge-surface-color-neutral-filled: #525252;
+  --hds-badge-surface-color-neutral-inverted: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-surface-color-success-filled: #0e6027; /** we don't use `surface-success` for accessibility (better contrast) */
+  --hds-badge-surface-color-success-inverted: #a7f0ba;
+  --hds-badge-surface-color-warning-filled: #8a3800; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-surface-color-warning-inverted: #ffd9be; /** in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead */
+  --hds-badge-typography-font-size-large: 0.75rem;
+  --hds-badge-typography-font-size-medium: 0.75rem;
+  --hds-badge-typography-font-size-small: 0.75rem;
+  --hds-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+  --hds-border-color-action: #4589ff;
+  --hds-border-color-critical: #fa4d56;
+  --hds-border-color-faint: #525252;
+  --hds-border-color-highlight: #a56eff;
+  --hds-border-color-primary: #8d8d8d;
+  --hds-border-color-strong: #8d8d8d;
+  --hds-border-color-success: #24a148;
+  --hds-border-color-warning: #b28600;
+  --hds-border-radius-large: 0px;
+  --hds-border-radius-medium: 0px;
+  --hds-border-radius-small: 0px;
+  --hds-border-radius-x-small: 0px;
+  --hds-breadcrumb-divider-color: #f4f4f4;
+  --hds-breadcrumb-link-foreground-color-default: #78a9ff;
+  --hds-breadcrumb-link-foreground-color-hover: #a6c8ff;
+  --hds-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  --hds-breadcrumb-truncation-toggle-border-color-active: rgba(0, 0, 0, 0);
+  --hds-breadcrumb-truncation-toggle-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
+  --hds-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
+  --hds-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
+  --hds-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
+  --hds-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+  --hds-breadcrumb-typography-font-size: 0.875rem;
+  --hds-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
+  --hds-button-border-color-critical-active: rgba(0, 0, 0, 0);
+  --hds-button-border-color-critical-default: rgba(0, 0, 0, 0);
+  --hds-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+  --hds-button-border-color-disabled: rgba(141, 141, 141, 0.3); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
+  --hds-button-border-color-primary-active: rgba(0, 0, 0, 0);
+  --hds-button-border-color-primary-default: rgba(0, 0, 0, 0);
+  --hds-button-border-color-primary-hover: rgba(0, 0, 0, 0);
+  --hds-button-border-color-secondary-active: rgba(0, 0, 0, 0);
+  --hds-button-border-color-secondary-default: rgba(0, 0, 0, 0);
+  --hds-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --hds-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
+  --hds-button-border-color-tertiary-default: #ffffff;
+  --hds-button-border-color-tertiary-disabled: rgba(141, 141, 141, 0.3); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
+  --hds-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
+  --hds-button-foreground-color-critical-active: #ffffff;
+  --hds-button-foreground-color-critical-default: #ffffff;
+  --hds-button-foreground-color-critical-focus: #ffffff;
+  --hds-button-foreground-color-critical-hover: #ffffff;
+  --hds-button-foreground-color-disabled: rgba(255, 255, 255, 0.25); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
+  --hds-button-foreground-color-primary-active: #ffffff;
+  --hds-button-foreground-color-primary-default: #ffffff;
+  --hds-button-foreground-color-primary-focus: #ffffff;
+  --hds-button-foreground-color-primary-hover: #ffffff;
+  --hds-button-foreground-color-secondary-active: #ffffff;
+  --hds-button-foreground-color-secondary-default: #ffffff;
+  --hds-button-foreground-color-secondary-focus: #ffffff;
+  --hds-button-foreground-color-secondary-hover: #ffffff;
+  --hds-button-foreground-color-secondary-muted-active: #f4f4f4;
+  --hds-button-foreground-color-secondary-muted-default: #f4f4f4;
+  --hds-button-foreground-color-secondary-muted-focus: #f4f4f4;
+  --hds-button-foreground-color-secondary-muted-hover: #f4f4f4;
+  --hds-button-foreground-color-tertiary-active: #161616;
+  --hds-button-foreground-color-tertiary-default: #ffffff;
+  --hds-button-foreground-color-tertiary-focus: #161616;
+  --hds-button-foreground-color-tertiary-hover: #161616;
+  --hds-button-gap: 32px;
+  --hds-button-height-large: 48px;
+  --hds-button-height-medium: 40px;
+  --hds-button-height-small: 32px;
+  --hds-button-icon-size-large: 16px;
+  --hds-button-icon-size-medium: 16px;
+  --hds-button-icon-size-small: 16px;
+  --hds-button-padding-horizontal-large: 15px; /** here we're taking into account the 1px border */
+  --hds-button-padding-horizontal-medium: 15px; /** here we're taking into account the 1px border */
+  --hds-button-padding-horizontal-small: 15px; /** here we're taking into account the 1px border */
+  --hds-button-padding-vertical-large: 14px; /** here we're taking into account the 1px border */
+  --hds-button-padding-vertical-medium: 10px; /** here we're taking into account the 1px border */
+  --hds-button-padding-vertical-small: 6px; /** here we're taking into account the 1px border */
+  --hds-button-surface-color-critical-active: #750e13;
+  --hds-button-surface-color-critical-default: #da1e28;
+  --hds-button-surface-color-critical-focus: #da1e28;
+  --hds-button-surface-color-critical-hover: #b81921;
+  --hds-button-surface-color-disabled: rgba(141, 141, 141, 0.3); /** This is different from Figma, but we prefer to align with the Carbon implementation in code for consistency across products */
+  --hds-button-surface-color-primary-active: #002d9c;
+  --hds-button-surface-color-primary-default: #0f62fe;
+  --hds-button-surface-color-primary-focus: #0f62fe;
+  --hds-button-surface-color-primary-hover: #0050e6;
+  --hds-button-surface-color-secondary-active: #393939;
+  --hds-button-surface-color-secondary-default: #6f6f6f;
+  --hds-button-surface-color-secondary-focus: #6f6f6f;
+  --hds-button-surface-color-secondary-hover: #5e5e5e;
+  --hds-button-surface-color-secondary-muted-active: #8d8d8d;
+  --hds-button-surface-color-secondary-muted-default: #525252;
+  --hds-button-surface-color-secondary-muted-focus: #525252;
+  --hds-button-surface-color-secondary-muted-hover: #636363;
+  --hds-button-surface-color-tertiary-active: #c6c6c6;
+  --hds-button-surface-color-tertiary-focus: #f4f4f4;
+  --hds-button-surface-color-tertiary-hover: #f4f4f4;
+  --hds-button-typography-font-size-large: 0.875rem;
+  --hds-button-typography-font-size-medium: 0.875rem;
+  --hds-button-typography-font-size-small: 0.875rem;
+  --hds-button-typography-line-height-large: 1.2858; /** 18px/14px ~ 1.2858 */
+  --hds-button-typography-line-height-medium: 1.2858; /** 18px/14px ~ 1.2858 */
+  --hds-button-typography-line-height-small: 1.2858; /** 18px/14px ~ 1.2858 */
+  --hds-card-surface-color-primary: #393939;
+  --hds-card-surface-color-secondary: #525252;
+  --hds-code-block-border-color-primary: #6f6f6f;
+  --hds-code-block-border-color-strong: rgba(0, 0, 0, 0);
+  --hds-code-block-button-surface-color-active: var(--hds-button-surface-color-secondary-muted-active);
+  --hds-code-block-button-surface-color-default: var(--hds-button-surface-color-secondary-muted-default);
+  --hds-code-block-button-surface-color-hover: var(--hds-button-surface-color-secondary-muted-hover);
+  --hds-code-block-focus-ring-color-action-external: #ffffff; /** TODO: Remove once global tokens for dark themes are implemented */
+  --hds-code-block-focus-ring-color-action-internal: #161616; /** TODO: Remove once global tokens for dark themes are implemented */
+  --hds-code-block-foreground-color-action: #78a9ff;
+  --hds-code-block-foreground-color-faint: #c6c6c6;
+  --hds-code-block-foreground-color-primary: #f4f4f4;
+  --hds-code-block-line-highlight-border-color: #f4f4f4;
+  --hds-code-block-line-highlight-surface-color: rgba(255, 255, 255, 0.1);
+  --hds-code-block-surface-color-faint: #393939;
+  --hds-code-block-surface-color-primary-with-alpha: #39393940;
+  --hds-code-block-surface-color-primary: #393939;
+  --hds-code-block-syntax-highlight-color-blue: #a6c8ff;
+  --hds-code-block-syntax-highlight-color-cyan: #82cfff;
+  --hds-code-block-syntax-highlight-color-green: #6fdc8c;
+  --hds-code-block-syntax-highlight-color-orange: #ff832b;
+  --hds-code-block-syntax-highlight-color-purple: #d4bbff;
+  --hds-code-block-syntax-highlight-color-red: #ffafd2;
+  --hds-code-block-syntax-highlight-color-white: #ffffff;
+  --hds-code-block-syntax-highlight-color-yellow: #f1c21b;
+  --hds-code-block-typography-font-size: 0.75rem;
+  --hds-copy-button-foreground-color: #f4f4f4;
+  --hds-copy-button-icon-color-active: #f4f4f4;
+  --hds-copy-button-icon-color-default: #f4f4f4;
+  --hds-copy-button-icon-color-focus: #f4f4f4;
+  --hds-copy-button-icon-color-hover: #f4f4f4;
+  --hds-copy-button-surface-color-active: #6f6f6f;
+  --hds-copy-button-surface-color-default: #393939;
+  --hds-copy-button-surface-color-hover: #474747;
+  --hds-core-color-alpha-100: #525252;
+  --hds-core-color-alpha-200: #6f6f6f;
+  --hds-core-color-alpha-300: #8d8d8d;
+  --hds-core-color-amber-100: #ffd9be;
+  --hds-core-color-amber-200: #ba4e00;
+  --hds-core-color-amber-300: #8a3800;
+  --hds-core-color-amber-400: #5e2900;
+  --hds-core-color-amber-500: #3e1a00;
+  --hds-core-color-amber-50: #fff2e8;
+  --hds-core-color-blue-100: #d0e2ff;
+  --hds-core-color-blue-200: #0f62fe;
+  --hds-core-color-blue-300: #0043ce;
+  --hds-core-color-blue-400: #002d9c;
+  --hds-core-color-blue-500: #001141;
+  --hds-core-color-blue-50: #edf5ff;
+  --hds-core-color-green-100: #a7f0ba;
+  --hds-core-color-green-200: #24a148;
+  --hds-core-color-green-300: #198038;
+  --hds-core-color-green-400: #0e6027;
+  --hds-core-color-green-500: #044317;
+  --hds-core-color-green-50: #defbe6;
+  --hds-core-color-neutral-0: #ffffff;
+  --hds-core-color-neutral-100: #e0e0e0;
+  --hds-core-color-neutral-200: #c6c6c6;
+  --hds-core-color-neutral-300: #a8a8a8;
+  --hds-core-color-neutral-400: #8d8d8d;
+  --hds-core-color-neutral-500: #525252;
+  --hds-core-color-neutral-50: #f4f4f4;
+  --hds-core-color-neutral-600: #393939;
+  --hds-core-color-neutral-700: #161616;
+  --hds-core-color-purple-100: #e8daff;
+  --hds-core-color-purple-200: #a56eff;
+  --hds-core-color-purple-300: #8a3ffc;
+  --hds-core-color-purple-400: #6929c4;
+  --hds-core-color-purple-500: #31135e;
+  --hds-core-color-purple-50: #f6f2ff;
+  --hds-core-color-red-100: #ffd7d9;
+  --hds-core-color-red-200: #da1e28;
+  --hds-core-color-red-300: #a2191f;
+  --hds-core-color-red-400: #750e13;
+  --hds-core-color-red-500: #520408;
+  --hds-core-color-red-50: #fff1f1;
+  --hds-css-color-transform-direction: -1; /** this is used in the CSS `color-transform` to control the direction of the lightness transformations */
+  --hds-dialog-primitive-border-color: #6f6f6f;
+  --hds-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
+  --hds-dialog-primitive-header-tagline-typography-line-height: 1.33333;
+  --hds-dialog-primitive-header-title-typography-font-weight: 400;
+  --hds-dialog-primitive-padding-horizontal: 16px;
+  --hds-dialog-primitive-padding-vertical: 16px;
+  --hds-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-dismiss-button-foreground-color-active: #f4f4f4;
+  --hds-dismiss-button-foreground-color-default: #f4f4f4;
+  --hds-dismiss-button-icon-size: 20px;
+  --hds-dismiss-button-size: 48px;
+  --hds-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
+  --hds-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --hds-dropdown-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  --hds-dropdown-list-item-foreground-color-action-active: #c6c6c6;
+  --hds-dropdown-list-item-foreground-color-action-default: #c6c6c6;
+  --hds-dropdown-list-item-foreground-color-action-focus: #c6c6c6;
+  --hds-dropdown-list-item-foreground-color-action-hover: #f4f4f4;
+  --hds-dropdown-list-item-foreground-color-critical-active: #ffffff;
+  --hds-dropdown-list-item-foreground-color-critical-default: #c6c6c6;
+  --hds-dropdown-list-item-foreground-color-critical-focus: #ffffff;
+  --hds-dropdown-list-item-foreground-color-critical-hover: #ffffff;
+  --hds-dropdown-list-item-surface-color-action-active: #393939;
+  --hds-dropdown-list-item-surface-color-action-default: #393939;
+  --hds-dropdown-list-item-surface-color-action-focus: #393939;
+  --hds-dropdown-list-item-surface-color-action-hover: #474747;
+  --hds-dropdown-list-item-surface-color-critical-active: #da1e28;
+  --hds-dropdown-list-item-surface-color-critical-default: #393939;
+  --hds-dropdown-list-item-surface-color-critical-focus: #da1e28;
+  --hds-dropdown-list-item-surface-color-critical-hover: #da1e28;
+  --hds-dropdown-separator-border-color: #525252;
+  --hds-dropdown-toggle-button-padding-right-medium: 12px;
+  --hds-dropdown-toggle-button-padding-right-small: 12px;
+  --hds-dropdown-toggle-icon-gap: 4px;
+  --hds-dropdown-toggle-icon-padding: 3px;
+  --hds-elevation-high-box-shadow: none;
+  --hds-elevation-higher-box-shadow: none;
+  --hds-elevation-inset-box-shadow: none;
+  --hds-elevation-low-box-shadow: none;
+  --hds-elevation-mid-box-shadow: none;
+  --hds-elevation-overlay-box-shadow: none;
+  --hds-filter-bar-filter-group-generic-clear-button-margin-top: 0px;
+  --hds-filter-bar-filter-group-search-border-width: 0px;
+  --hds-filter-bar-filter-group-search-padding: 0px;
+  --hds-filter-bar-filter-group-values-list-clear-button-margin-left: 16px;
+  --hds-filter-bar-filter-group-values-list-gap: 0px;
+  --hds-filter-bar-filter-group-values-list-selection-option-padding-vertical: 11px;
+  --hds-filter-bar-search-height: 32px;
+  --hds-filter-bar-tabs-list-gap: 0px;
+  --hds-filter-bar-tabs-list-padding: 0px;
+  --hds-filter-bar-tabs-panel-gap: 16px;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-active: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-default: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-selected-hover: #c6c6c6;
+  --hds-filter-bar-tabs-tab-foreground-color-unselected: #c6c6c6;
+  --hds-filter-bar-tabs-tab-surface-color-selected-active: #8d8d8d;
+  --hds-filter-bar-tabs-tab-surface-color-selected-hover: #6f6f6f;
+  --hds-focus-color-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-action-internal: #161616;
+  --hds-focus-color-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --hds-focus-color-critical-internal: #161616;
+  --hds-focus-ring-box-shadow-action: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-action-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+  --hds-focus-ring-box-shadow-critical: inset 0 0 0 var(--hds-focus-ring-width-external) var(--hds-focus-color-critical-external); /** this box shadow covers the most simple/common use cases, for more complex ones you have to use the `advanced` Sass mixin or a custom/local implementation */
+  --hds-focus-ring-width-external: 2px;
+  --hds-focus-ring-width-internal: 0px;
+  --hds-foreground-color-action-active: #78a9ff;
+  --hds-foreground-color-action-hover: #a6c8ff;
+  --hds-foreground-color-action: #78a9ff;
+  --hds-foreground-color-critical-high-contrast: #ffd7d9;
+  --hds-foreground-color-critical-on-surface: #ffb3b8;
+  --hds-foreground-color-critical: #ff8389;
+  --hds-foreground-color-disabled: rgba(244, 244, 244, 0.25);
+  --hds-foreground-color-faint: #c6c6c6;
+  --hds-foreground-color-high-contrast: #161616;
+  --hds-foreground-color-highlight-high-contrast: #e8daff;
+  --hds-foreground-color-highlight-on-surface: #d4bbff;
+  --hds-foreground-color-highlight: #be95ff;
+  --hds-foreground-color-primary: #f4f4f4;
+  --hds-foreground-color-strong: #f4f4f4;
+  --hds-foreground-color-success-high-contrast: #a7f0ba;
+  --hds-foreground-color-success-on-surface: #6fdc8c;
+  --hds-foreground-color-success: #42be65;
+  --hds-foreground-color-warning-high-contrast: #fddc69;
+  --hds-foreground-color-warning-on-surface: #f1c21b;
+  --hds-foreground-color-warning: #d2a106;
+  --hds-form-character-count-foreground-color: #c6c6c6;
+  --hds-form-character-count-typography-font-size: 0.75rem;
+  --hds-form-character-count-typography-line-height: 1.33333; /** The character-count line-height is the same as the helper-text as per design */
+  --hds-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 2'%3E%3Cpath d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 2'%3E%3Cpath fill='%23161616' d='M0 0.75C0 0.335786 0.335786 0 0.75 0H7.25C7.66421 0 8 0.335786 8 0.75C8 1.16421 7.66421 1.5 7.25 1.5H0.75C0.335786 1.5 0 1.16421 0 0.75Z' /%3E%3C/svg%3E"); /** notice: the 'dash' color is hardcoded here! */
+  --hds-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23161616' viewBox='0 0 8 6'%3E%3Cpath d='M7.53033 1.28033C7.82322 0.987437 7.82322 0.512563 7.53033 0.21967C7.23744 -0.0732233 6.76256 -0.0732233 6.46967 0.21967L2.75 3.93934L1.28033 2.46967C0.987437 2.17678 0.512563 2.17678 0.21967 2.46967C-0.0732233 2.76256 -0.0732233 3.23744 0.21967 3.53033L2.21967 5.53033C2.51256 5.82322 2.98744 5.82322 3.28033 5.53033L7.53033 1.28033Z' /%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-checkbox-background-image-size: 8px;
+  --hds-form-checkbox-border-color-checked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-checkbox-border-radius: 2px; /** Note: Carbon uses an SVG image, not a border radius but 2px is the closest equiv as per design */
+  --hds-form-control-base-border-color-default: #8d8d8d;
+  --hds-form-control-base-border-color-hover: #8d8d8d;
+  --hds-form-control-base-placeholder-foreground-color-default: rgba(244, 244, 244, 0.4);
+  --hds-form-control-base-placeholder-foreground-color-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-base-surface-color-hover: #393939;
+  --hds-form-control-border-color-checked-default: #f4f4f4;
+  --hds-form-control-border-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-checked-hover: #f4f4f4;
+  --hds-form-control-border-color-unchecked-default: #f4f4f4;
+  --hds-form-control-border-color-unchecked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-border-color-unchecked-hover: #f4f4f4;
+  --hds-form-control-disabled-border-color: rgba(0, 0, 0, 0);
+  --hds-form-control-disabled-surface-color: #393939;
+  --hds-form-control-foreground-color-checked: #f4f4f4;
+  --hds-form-control-height: 40px;
+  --hds-form-control-invalid-border-color-default: #ff8389;
+  --hds-form-control-invalid-border-color-hover: #ff8389;
+  --hds-form-control-padding-horizontal: 16px;
+  --hds-form-control-padding-vertical: 9px; /** Vertical padding is mainly needed by Select multiple/size as setting a min height doesn't work for these cases */
+  --hds-form-control-readonly-surface-color: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-checked-default: #f4f4f4;
+  --hds-form-control-surface-color-checked-disabled: rgba(244, 244, 244, 0.25);
+  --hds-form-control-surface-color-checked-hover: #f4f4f4;
+  --hds-form-control-surface-color-unchecked-default: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-disabled: rgba(0, 0, 0, 0);
+  --hds-form-control-surface-color-unchecked-hover: rgba(0, 0, 0, 0);
+  --hds-form-error-foreground-color: #ffb3b8;
+  --hds-form-error-icon-color: #ff8389;
+  --hds-form-error-typography-font-size: 0.75rem;
+  --hds-form-error-typography-line-height: 1.33333;
+  --hds-form-file-input-background-image-data-url-file-selector-button-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-background-image-data-url-file-selector-button-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238d8d8d' viewBox='0 0 16 16'%3E%3Cg %3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E"); /** notice: the icon colors are hardcoded here! */
+  --hds-form-file-input-button-border-color: var(--hds-button-border-color-primary-default);
+  --hds-form-file-input-button-height: 40px;
+  --hds-form-group-control-field-margin-top: 8px;
+  --hds-form-helper-text-foreground-color: #c6c6c6;
+  --hds-form-helper-text-typography-font-size: 0.75rem;
+  --hds-form-helper-text-typography-line-height: 1.33333;
+  --hds-form-indicator-optional-foreground-color: var(--hds-form-label-foreground-color);
+  --hds-form-indicator-optional-typography-font-size: 0.75rem;
+  --hds-form-indicator-optional-typography-line-height: 1.33333;
+  --hds-form-label-foreground-color: #c6c6c6;
+  --hds-form-label-inline-typography-font-size: 0.875rem;
+  --hds-form-label-typography-font-size: 0.75rem;
+  --hds-form-label-typography-font-weight: 400;
+  --hds-form-label-typography-line-height: 1.33333;
+  --hds-form-legend-foreground-color: #c6c6c6;
+  --hds-form-legend-typography-font-size: 0.75rem;
+  --hds-form-legend-typography-font-weight: 400;
+  --hds-form-legend-typography-line-height: 1.33333;
+  --hds-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg fill='%23595959' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg fill='%23ffffff' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='9' cy='9' r='4' /%3e%3c/svg%3e"); /** notice: the 'dot' color is hardcoded here! The viewBox matches background-image.size so SVG r = dot radius in CSS px. */
+  --hds-form-radio-card-border-color-checked-default: #f4f4f4;
+  --hds-form-radio-card-border-color-checked-hover: #f4f4f4;
+  --hds-form-radio-card-border-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-border-color-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-content-padding: 16px;
+  --hds-form-radio-card-control-wrapper-border-color-checked: #6f6f6f;
+  --hds-form-radio-card-control-wrapper-border-color-default: #8d8d8d;
+  --hds-form-radio-card-control-wrapper-border-color-disabled: #6f6f6f;
+  --hds-form-radio-card-control-wrapper-surface-color-checked: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-default: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-control-wrapper-surface-color-disabled: rgba(0, 0, 0, 0);
+  --hds-form-radio-card-description-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-foreground-color: #c6c6c6; /** Note: this is 'label' text within the RadioCard, not a form label in and of itself. */
+  --hds-form-radio-card-label-typography-font-size: 0.875rem;
+  --hds-form-radio-card-label-typography-font-weight: 400;
+  --hds-form-radio-card-label-typography-line-height: 1.2857; /** 18px */
+  --hds-form-radio-card-surface-color-disabled: #393939;
+  --hds-form-radio-card-surface-color-hover: #474747;
+  --hds-form-radio-size: 18px;
+  --hds-form-radio-surface-color-checked-default: transparent;
+  --hds-form-radio-surface-color-checked-disabled: transparent;
+  --hds-form-radio-surface-color-checked-hover: transparent;
+  --hds-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='rgba(244%2C 244%2C 244%2C 0.25)' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23f4f4f4' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' /%3E%3C/svg%3E"); /** notice: the 'caret' color is hardcoded here! */
+  --hds-form-select-multiple-option-color-checked: #ffffff;
+  --hds-form-select-surface-color-hover: #474747;
+  --hds-form-super-select-option-background-image-data-url-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath fill='%23f4f4f4' d='M4.5 8.207L0 3.707L0.707 3L4.5 6.7925L11.293 0L12 0.707L4.5 8.207Z' /%3E%3C/svg%3E"); /** notice: the 'checkmark' color is hardcoded here! */
+  --hds-form-super-select-option-background-image-size: 12px;
+  --hds-form-super-select-option-border-color: #6f6f6f;
+  --hds-form-super-select-option-margin-top: 0px;
+  --hds-form-super-select-option-surface-color-checked-default: #525252;
+  --hds-form-super-select-option-surface-color-checked-hover: #636363;
+  --hds-form-super-select-option-surface-color-default: #393939;
+  --hds-form-super-select-option-surface-color-hover: #474747;
+  --hds-form-super-select-padding-left: var(--hds-form-control-padding-horizontal);
+  --hds-form-super-select-search-margin-bottom: 0px;
+  --hds-form-super-select-tag-border-color: rgba(0, 0, 0, 0);
+  --hds-form-super-select-tag-foreground-color: #161616;
+  --hds-form-super-select-tag-surface-color: #f4f4f4;
+  --hds-form-text-input-background-image-data-url-search-cancel-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 32 32' %3E%3Cpath d='M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z'%3E%3C/path%3E%3C/svg%3E"); /** Icon colors are hard-coded as #161616 for cds-g0 and cds-g10; and #f4f4f4 for cds-g90 and cds-g100. */
+  --hds-form-text-input-background-image-data-url-search-default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f4f4f4' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded */
+  --hds-form-text-input-background-image-data-url-search-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(244, 244, 244, 0.25)' viewBox='0 0 16 16' %3E%3Cpath d='M15%2C14.3L10.7%2C10c1.9-2.3%2C1.6-5.8-0.7-7.7S4.2%2C0.7%2C2.3%2C3S0.7%2C8.8%2C3%2C10.7c2%2C1.7%2C5%2C1.7%2C7%2C0l4.3%2C4.3L15%2C14.3z M2%2C6.5%09C2%2C4%2C4%2C2%2C6.5%2C2S11%2C4%2C11%2C6.5S9%2C11%2C6.5%2C11S2%2C9%2C2%2C6.5z'%3E%3C/path%3E%3C/svg%3E"); /** Notice: the icon color is hardcoded. Color values follow --token-color-foreground-disabled */
+  --hds-form-text-input-background-image-position-x: 10px;
+  --hds-form-text-input-search-cancel-button-width: 40px;
+  --hds-form-textarea-padding-vertical: 11px;
+  --hds-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23c6c6c6' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-background-image-data-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2324a148' width='6px' height='5px' viewBox='0 0 6 5'%3E%3Cpath d='M2.2 2.7L5 0 6 1 2.2 5 0 2.7 1 1.5z'%3E%3C/path%3E%3C/svg%3E"); /** notice: the 'tick' color is hardcoded here! */
+  --hds-form-toggle-base-surface-color-checked-default: #42be65;
+  --hds-form-toggle-base-surface-color-checked-hover: #42be65;
+  --hds-form-toggle-base-surface-color-default: #8d8d8d; /** the toggle has a different base surface color, compared to the other controls */
+  --hds-form-toggle-base-surface-color-disabled: rgba(141, 141, 141, 0.3);
+  --hds-form-toggle-handle-surface-color-default: #ffffff;
+  --hds-form-toggle-handle-surface-color-disabled: rgba(255, 255, 255, 0.25);
+  --hds-form-toggle-thumb-size: 10px;
+  --hds-form-visibility-toggle-size: 40px;
+  --hds-icon-tile-border-color-logo: #6f6f6f;
+  --hds-icon-tile-border-color-overlay: #8d8d8d;
+  --hds-icon-tile-surface-color-overlay: #525252;
+  --hds-link-inline-icon-margin-horizontal: 0.5em;
+  --hds-link-inline-outline-color: #ffffff;
+  --hds-link-inline-outline-width: 1px;
+  --hds-link-standalone-gap: 0.5rem;
+  --hds-link-standalone-icon-size-large: 1.25rem;
+  --hds-link-standalone-icon-size-small: 1rem;
+  --hds-link-standalone-padding-vertical: 0px;
+  --hds-link-standalone-typography-font-size-small: 0.75rem;
+  --hds-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+  --hds-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+  --hds-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+  --hds-modal-header-border-color-critical: rgba(0, 0, 0, 0);
+  --hds-modal-header-border-color-warning: rgba(0, 0, 0, 0);
+  --hds-modal-header-foreground-color-critical: #f4f4f4;
+  --hds-modal-header-foreground-color-warning: #f4f4f4;
+  --hds-modal-header-surface-color-critical: var(--hds-surface-color-faint);
+  --hds-modal-header-surface-color-warning: var(--hds-surface-color-faint);
+  --hds-modal-header-tagline-color-critical: #c6c6c6;
+  --hds-modal-header-tagline-color-warning: #c6c6c6;
+  --hds-page-color-faint: #262626;
+  --hds-page-color-primary: #262626;
+  --hds-pagination-bar-border-color: #6f6f6f;
+  --hds-pagination-info-typography-font-size: 0.875rem;
+  --hds-pagination-nav-control-foreground-color-active: #f4f4f4;
+  --hds-pagination-nav-control-foreground-color-default: #f4f4f4;
+  --hds-pagination-nav-control-foreground-color-hover: #f4f4f4;
+  --hds-pagination-nav-control-height: 40px;
+  --hds-pagination-nav-control-typography-font-size: 0.875rem;
+  --hds-pagination-nav-control-typography-font-weight-active: 600;
+  --hds-pagination-nav-indicator-height: 4px;
+  --hds-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --hds-pagination-size-selector-typography-font-size: 0.875rem;
+  --hds-product-hashicorp-brand-color: #ffffff;
+  --hds-product-hcp-brand-color: #ffffff;
+  --hds-product-vault-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --hds-product-vault-radar-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
+  --hds-product-vault-secrets-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --hds-reveal-foreground-color-active: #a6c8ff;
+  --hds-reveal-foreground-color-default: #78a9ff;
+  --hds-reveal-foreground-color-hover: #a6c8ff;
+  --hds-reveal-surface-color-active: rgba(141, 141, 141, 0.4);
+  --hds-reveal-surface-color-focus: rgba(0, 0, 0, 0);
+  --hds-reveal-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --hds-rich-tooltip-bubble-arrow-size: 12px;
+  --hds-rich-tooltip-bubble-border-color: var(--hds-core-color-alpha-200);
+  --hds-rich-tooltip-bubble-border-radius: 2px;
+  --hds-rich-tooltip-bubble-max-width: 288px;
+  --hds-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
+  --hds-rich-tooltip-toggle-gap-horizontal: 8px;
+  --hds-rich-tooltip-toggle-icon-size: 14px;
+  --hds-segmented-group-gap: 1px;
+  --hds-segmented-group-margin-left: 0px;
+  --hds-stepper-list-progress-bar-border-color-complete: var(--hds-core-color-neutral-100);
+  --hds-stepper-list-progress-bar-border-color-incomplete: #525252;
+  --hds-stepper-list-progress-bar-left: 0px;
+  --hds-stepper-list-progress-bar-top: 0px;
+  --hds-stepper-list-step-description-foreground-color: #c6c6c6;
+  --hds-stepper-list-step-description-margin-top: 0px;
+  --hds-stepper-list-step-description-typography-font-size: 0.75rem;
+  --hds-stepper-list-step-title-typography-font-weight: 400;
+  --hds-stepper-nav-progress-bar-border-color-complete-default: var(--hds-core-color-neutral-100);
+  --hds-stepper-nav-progress-bar-border-color-complete-interactive: #4589ff;
+  --hds-stepper-nav-progress-bar-border-color-incomplete: #525252;
+  --hds-stepper-nav-progress-bar-border-width: 2px;
+  --hds-stepper-nav-progress-bar-top: 0px;
+  --hds-stepper-nav-step-description-foreground-color-active: #c6c6c6;
+  --hds-stepper-nav-step-description-foreground-color-complete: #c6c6c6;
+  --hds-stepper-nav-step-description-foreground-color-incomplete: #c6c6c6;
+  --hds-stepper-nav-step-description-margin-top: 0px;
+  --hds-stepper-nav-step-description-typography-font-size: 0.75rem;
+  --hds-stepper-nav-step-surface-color-complete-interactive-active: rgba(0, 0, 0, 0);
+  --hds-stepper-nav-step-surface-color-complete-interactive-hover: rgba(0, 0, 0, 0);
+  --hds-stepper-nav-step-title-foreground-color-active-default: #f4f4f4;
+  --hds-stepper-nav-step-title-foreground-color-active-interactive: #f4f4f4;
+  --hds-stepper-nav-step-title-foreground-color-complete-default: #f4f4f4;
+  --hds-stepper-nav-step-title-foreground-color-complete-interactive: #f4f4f4;
+  --hds-stepper-nav-step-title-foreground-color-incomplete: #f4f4f4;
+  --hds-stepper-nav-step-title-typography-font-weight: 400;
+  --hds-stepper-step-indicator-foreground-color-complete-default: #f4f4f4;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-active: #4589ff;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-default: #4589ff;
+  --hds-stepper-step-indicator-foreground-color-complete-interactive-hover: #4589ff;
+  --hds-stepper-step-indicator-foreground-color-incomplete-default: #f4f4f4;
+  --hds-stepper-step-indicator-foreground-color-incomplete-interactive: #f4f4f4;
+  --hds-stepper-step-indicator-foreground-color-processing-default: #f4f4f4;
+  --hds-stepper-step-indicator-foreground-color-processing-interactive: #4589ff;
+  --hds-stepper-step-indicator-foreground-color-progress-default: #f4f4f4;
+  --hds-stepper-step-indicator-foreground-color-progress-interactive: #4589ff;
+  --hds-stepper-step-indicator-icon-size: 16px;
+  --hds-stepper-step-indicator-size: 16px;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-active: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-default: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-complete-interactive-hover: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-active: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-default: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-active: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-default: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-processing-interactive-hover: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-active: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-default: #ffffff;
+  --hds-stepper-task-indicator-foreground-color-progress-interactive-hover: #ffffff;
+  --hds-surface-base-box-shadow: none;
+  --hds-surface-color-action: #0f62fe;
+  --hds-surface-color-critical: #a2191f;
+  --hds-surface-color-faint: #393939;
+  --hds-surface-color-high-contrast: #f4f4f4;
+  --hds-surface-color-highlight: #6929c4;
+  --hds-surface-color-interactive-active: #6f6f6f;
+  --hds-surface-color-interactive-disabled: #6f6f6f;
+  --hds-surface-color-interactive-hover: #474747;
+  --hds-surface-color-interactive: #393939;
+  --hds-surface-color-primary: #393939;
+  --hds-surface-color-strong: #525252;
+  --hds-surface-color-success: #0e6027;
+  --hds-surface-color-warning: #684e00;
+  --hds-surface-high-box-shadow: none;
+  --hds-surface-higher-box-shadow: none;
+  --hds-surface-inset-box-shadow: none;
+  --hds-surface-low-box-shadow: none;
+  --hds-surface-mid-box-shadow: none;
+  --hds-surface-overlay-box-shadow: none;
+  --hds-table-body-surface-color: #393939;
+  --hds-table-cell-border-color: rgba(0, 0, 0, 0);
+  --hds-table-cell-border-width: 0px;
+  --hds-table-cell-foreground-color-default: #c6c6c6;
+  --hds-table-cell-height-medium: 2.5rem;
+  --hds-table-cell-height-short: 2rem;
+  --hds-table-cell-height-tall: 3rem;
+  --hds-table-cell-line-height: 1.28572;
+  --hds-table-cell-padding-vertical-medium: 7px;
+  --hds-table-cell-padding-vertical-short: 7px;
+  --hds-table-cell-padding-vertical-tall: 7px;
+  --hds-table-cell-surface-color-hover: rgba(141, 141, 141, 0.16);
+  --hds-table-cell-surface-color-selected-default: #525252;
+  --hds-table-cell-surface-color-selected-hover: #636363;
+  --hds-table-cell-surface-color-striped-default: #525252;
+  --hds-table-cell-surface-color-striped-hover: rgba(141, 141, 141, 0.16);
+  --hds-table-header-button-border-color-active: rgba(0, 0, 0, 0);
+  --hds-table-header-button-border-color-hover: rgba(0, 0, 0, 0);
+  --hds-table-header-button-foreground-color-default: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-active: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-default: #f4f4f4;
+  --hds-table-header-button-foreground-color-sorted-hover: #f4f4f4;
+  --hds-table-header-button-surface-color-active: #8d8d8d;
+  --hds-table-header-button-surface-color-hover: #636363;
+  --hds-table-header-cell-border-offset: 0px;
+  --hds-table-header-cell-padding-vertical: 7px;
+  --hds-table-header-surface-color: #525252;
+  --hds-table-row-border-color-default: #525252;
+  --hds-table-row-border-color-hover: #474747;
+  --hds-table-row-border-color-selected-default: #6f6f6f;
+  --hds-table-row-border-color-selected-hover: #636363;
+  --hds-table-row-border-width: 1px;
+  --hds-tabs-indicator-height: 2px;
+  --hds-tabs-tab-border-color-default: #525252;
+  --hds-tabs-tab-border-color-hover: var(--hds-border-color-strong);
+  --hds-tabs-tab-foreground-color-default: #c6c6c6;
+  --hds-tabs-tab-foreground-color-hover: #f4f4f4;
+  --hds-tabs-tab-height-large: 48px;
+  --hds-tabs-tab-height-medium: 40px;
+  --hds-tabs-tab-padding-horizontal-large: 16px;
+  --hds-tabs-tab-padding-horizontal-medium: 16px;
+  --hds-tabs-tab-selected-border-color-default: #4589ff;
+  --hds-tabs-tab-selected-border-color-hover: #4589ff;
+  --hds-tabs-tab-selected-foreground-color-default: #f4f4f4;
+  --hds-tabs-tab-selected-foreground-color-hover: #f4f4f4;
+  --hds-tag-border-radius: 16px;
+  --hds-tag-dismissible-max-width: 204px;
+  --hds-tag-dismissible-padding-left: 4px;
+  --hds-tag-link-border-color-primary: #4589ff;
+  --hds-tag-link-border-color-secondary: #8d8d8d;
+  --hds-tag-link-foreground-color-primary-active: #d0e2ff;
+  --hds-tag-link-foreground-color-primary-default: #d0e2ff;
+  --hds-tag-link-foreground-color-primary-hover: #d0e2ff;
+  --hds-tag-link-foreground-color-secondary-default: #f4f4f4;
+  --hds-tag-link-icon-color-primary: #d0e2ff;
+  --hds-tag-link-icon-color-secondary: #f4f4f4;
+  --hds-tag-link-surface-color-primary-active: #0053ff;
+  --hds-tag-link-surface-color-primary-default: #0043ce;
+  --hds-tag-link-surface-color-primary-hover: #0053ff;
+  --hds-tag-link-surface-color-secondary-active: #636363;
+  --hds-tag-link-surface-color-secondary-default: #525252;
+  --hds-tag-link-surface-color-secondary-hover: #636363;
+  --hds-tag-max-width: 208px;
+  --hds-tag-padding-bottom: 3px;
+  --hds-tag-padding-left: 8px;
+  --hds-tag-padding-right: 8px;
+  --hds-tag-static-border-color: rgba(0, 0, 0, 0);
+  --hds-tag-static-foreground-color-default: #f4f4f4;
+  --hds-tag-static-icon-color: #f4f4f4;
+  --hds-tag-static-surface-color-active: #636363;
+  --hds-tag-static-surface-color-default: #525252;
+  --hds-tag-static-surface-color-hover: #636363;
+  --hds-tag-typography-font-size: 0.75rem;
+  --hds-tag-typography-font-weight: 400;
+  --hds-tag-typography-line-height: 1.33333;
+  --hds-tooltip-border-radius: 2px;
+  --hds-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  --hds-tooltip-caret-height: 6px;
+  --hds-tooltip-caret-width: 12px;
+  --hds-tooltip-max-width: 288px;
+  --hds-tooltip-padding-horizontal: 16px;
+  --hds-tooltip-padding-vertical: 16px;
+  --hds-typography-body-100-line-height: 1.28572; /** 18px */
+  --hds-typography-body-200-font-size: 0.875rem; /** 14px/0.875rem */
+  --hds-typography-body-200-line-height: 1.42857; /** 20px */
+  --hds-typography-body-300-font-size: 1rem; /** 16px/1rem */
+  --hds-typography-body-300-line-height: 1.5; /** 24px */
+  --hds-typography-code-100-font-size: 0.875rem; /** 13px/0.8125rem */
+  --hds-typography-code-100-line-height: 1.33333; /** 16px */
+  --hds-typography-code-200-font-size: 0.875rem; /** 14px/0.875rem */
+  --hds-typography-code-200-line-height: 1.42857; /** 18px */
+  --hds-typography-code-300-font-size: 0.875rem; /** 16px/1rem */
+  --hds-typography-code-300-line-height: 1.42857; /** 20px */
+  --hds-typography-display-100-font-size: 0.875rem; /** 13px/0.8125rem */
+  --hds-typography-display-100-letter-spacing: 0.16px;
+  --hds-typography-display-100-line-height: 1.42857; /** 18px */
+  --hds-typography-display-200-font-size: 1rem; /** 16px/1rem */
+  --hds-typography-display-200-letter-spacing: 0px;
+  --hds-typography-display-200-line-height: 1.5; /** 24px */
+  --hds-typography-display-300-font-size: 1.25rem; /** 18px/1.125rem */
+  --hds-typography-display-300-letter-spacing: 0px;
+  --hds-typography-display-300-line-height: 1.4; /** 24px */
+  --hds-typography-display-400-font-size: 1.75rem; /** 24px/1.5rem */
+  --hds-typography-display-400-letter-spacing: 0px;
+  --hds-typography-display-400-line-height: 1.28572; /** 32px */
+  --hds-typography-display-500-font-size: 2rem; /** 30px/1.875rem */
+  --hds-typography-display-500-letter-spacing: 0px;
+  --hds-typography-display-500-line-height: 1.25; /** 38px */
+  --hds-typography-font-stack-code: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  --hds-typography-font-stack-display: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --hds-typography-font-stack-text: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --hds-typography-font-weight-bold: 600;
+  --hds-typography-font-weight-medium: 400;
+  --hds-typography-font-weight-regular: 400;
+  --hds-typography-font-weight-semibold: 600;
+}
