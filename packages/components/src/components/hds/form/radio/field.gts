@@ -32,6 +32,7 @@ export interface HdsFormRadioFieldSignature {
 const HdsFormRadioField: TemplateOnlyComponent<HdsFormRadioFieldSignature> =
   <template>
     <HdsFormField
+      class="hds-form-field--radio"
       @layout="flag"
       @contextualClass={{@contextualClass}}
       @extraAriaDescribedBy={{@extraAriaDescribedBy}}

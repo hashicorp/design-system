@@ -228,7 +228,6 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
               class="hds-stepper-nav__step-title"
               @tag={{this.titleTag}}
               @size="200"
-              @weight="semibold"
             >
               <span class="sr-only">
                 {{hdsT

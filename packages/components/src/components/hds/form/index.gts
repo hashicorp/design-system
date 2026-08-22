@@ -70,7 +70,7 @@ export default class HdsForm extends Component<HdsFormSignature> {
     const sectionMaxWidthStyle: { [key: string]: string } = {};
 
     if (this.args.sectionMaxWidth) {
-      sectionMaxWidthStyle['--hds-form-section-max-width'] =
+      sectionMaxWidthStyle['--hds-var-form-section-max-width'] =
         this.args.sectionMaxWidth;
     }
     return sectionMaxWidthStyle;

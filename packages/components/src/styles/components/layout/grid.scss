@@ -30,12 +30,12 @@ $hds-layout-grid-gap-sizes: (
   // Note: Setting a column min-width of "0" allows grid tracks to shrink down to be as small as possible
   // (preventing column item content from stretching column width) which is key to making columns equal width by default
   // https://stackoverflow.com/questions/47601564/equal-width-columns-in-css-grid/61240964#61240964
-  --hds-layout-grid-column-min-width: 0px;
+  --hds-var-layout-grid-column-min-width: 0px;
 
   // Auto-fit vs Auto-fill:
   // - auto-fit = fluid layout, stretches child items to fill available space in a row (collapses any empty column tracks)
   // - auto-fill = fixed layout, preserves empty column tracks in a row (does not stretch child items to fill empty space)
-  --hds-layout-grid-column-fill-type: auto-fit; // (fluid layout by default)
+  --hds-var-layout-grid-column-fill-type: auto-fit; // (fluid layout by default)
 
   display: grid;
 
@@ -53,21 +53,21 @@ $hds-layout-grid-gap-sizes: (
   //  "Clamping is performed on computed values to the extent possible, and also on used values if computation was
   //  unable to sufficiently simplify the expression to allow range-checking."
   grid-template-columns: repeat(
-    var(--hds-layout-grid-column-fill-type),
-    minmax(calc(var(--hds-layout-grid-column-min-width) - var(--hds-layout-grid-column-gap)), 1fr)
+    var(--hds-var-layout-grid-column-fill-type),
+    minmax(calc(var(--hds-var-layout-grid-column-min-width) - var(--hds-var-layout-grid-column-gap)), 1fr)
   );
 
   // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
   // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
-  gap: var(--hds-layout-grid-row-gap) var(--hds-layout-grid-column-gap);
+  gap: var(--hds-var-layout-grid-row-gap) var(--hds-var-layout-grid-column-gap);
 }
 
 // ColumnWidth
 
 // Non-responsive column width
 .hds-layout-grid--column-width-non-responsive {
-  --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+  --hds-var-layout-grid-column-fill-type: auto-fill; // (fixed layout)
 }
 
 // Responsive column widths:
@@ -83,12 +83,12 @@ $hds-layout-grid-gap-sizes: (
 @each $view in $hds-layout-grid-views {
   .hds-layout-grid--column-width-#{$view} {
     @if $view == sm {
-      --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-      --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-#{$view});
+      --hds-var-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+      --hds-var-layout-grid-column-min-width: var(--hds-var-layout-grid-column-width-#{$view});
     } @else {
       @include hds-breakpoint-above($view) {
-        --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-        --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-#{$view});
+        --hds-var-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+        --hds-var-layout-grid-column-min-width: var(--hds-var-layout-grid-column-width-#{$view});
       }
     }
   }
@@ -119,12 +119,12 @@ $hds-layout-grid-gap-sizes: (
 @each $key, $size in $hds-layout-grid-gap-sizes {
   // row gap
   .hds-layout-grid--row-gap-#{$key} {
-    --hds-layout-grid-row-gap: #{$size};
+    --hds-var-layout-grid-row-gap: #{$size};
   }
 
   // column gap
   .hds-layout-grid--column-gap-#{$key} {
-    --hds-layout-grid-column-gap: #{$size};
+    --hds-var-layout-grid-column-gap: #{$size};
   }
 }
 
@@ -132,11 +132,11 @@ $hds-layout-grid-gap-sizes: (
 
 .hds-layout-grid-item {
   // We initialize the variables here to prevent inheritance issues in nested grids
-  --hds-layout-grid-row-span: 1;
-  --hds-layout-grid-column-span: 1;
+  --hds-var-layout-grid-row-span: 1;
+  --hds-var-layout-grid-column-span: 1;
 
-  grid-row-start: span var(--hds-layout-grid-row-span);
-  grid-column-start: span var(--hds-layout-grid-column-span);
+  grid-row-start: span var(--hds-var-layout-grid-row-span);
+  grid-column-start: span var(--hds-var-layout-grid-column-span);
 }
 
 // Responsive col-span & row-span
@@ -147,10 +147,10 @@ $hds-layout-grid-gap-sizes: (
   // col-span
   .hds-layout-grid--col-span-view-#{$view} {
     @if $view == sm {
-      --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-#{$view});
+      --hds-var-layout-grid-column-span: var(--hds-var-layout-grid-column-span-#{$view});
     } @else {
       @include hds-breakpoint-above($view) {
-        --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-#{$view});
+        --hds-var-layout-grid-column-span: var(--hds-var-layout-grid-column-span-#{$view});
       }
     }
   }
@@ -158,10 +158,10 @@ $hds-layout-grid-gap-sizes: (
   // row-span
   .hds-layout-grid--row-span-view-#{$view} {
     @if $view == sm {
-      --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-#{$view});
+      --hds-var-layout-grid-row-span: var(--hds-var-layout-grid-row-span-#{$view});
     } @else {
       @include hds-breakpoint-above($view) {
-        --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-#{$view});
+        --hds-var-layout-grid-row-span: var(--hds-var-layout-grid-row-span-#{$view});
       }
     }
   }
