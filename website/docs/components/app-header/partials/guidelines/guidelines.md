@@ -134,6 +134,16 @@ Use a Checkmark List Item with a leading icon that best corresponds with the vis
 | Light theme     | `sun`        | Sets light mode regardless of OS setting                         |
 | Dark theme      | `moon`       | Sets dark mode regardless of OS setting                          |
 
+### System theme detection
+
+When a user selects the System theme option, the application should automatically match the user's operating system light or dark preference. This means the theme will update without any additional interaction from the user — if they switch their OS appearance from light to dark while the application is open, the theme should reflect that change immediately.
+
+The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS media query is the standard mechanism for reading this preference and is what is used under the hood by the theme service provided by the design system.
+
+### Persistence
+
+When a user selects a theme, persisting that choice ensures they don't have to re-select it the next time they open the application. Storing the preference in `localStorage` or a user profile is the most common way to achieve this. Without persistence, the application will fall back to its default theme on every page load, which creates an inconsistent and potentially disruptive experience, particularly for users who rely on dark mode for accessibility or comfort reasons.
+
 ## Language selection
 
 !!! Warning
@@ -161,5 +171,20 @@ Compose the language selection pattern using these HDS components:
 
 ### Language list format
 
-Each list item displays the language in two forms (with the exception of English): the native language name first, followed by the English name in parentheses, e.g., "Español (Spanish)" or "日本語 (Japanese)".
+Each list item displays the language in two forms (with the exception of English): the native language name first, followed by the English name in parentheses, e.g., "Español (Spanish)" or "日本語 (Japanese)". English is listed simply as "English".
+
+### Default language
+
+Avoid making assumptions about user preference based on factors outside of the application and default to English even when other languages and translations are available. HashiCorp products are built and documented in English, making it a logical default and fallback choice.
+
+!!! Warning
+
+**Avoid inferring language from geographic location**
+
+Determining a user's language from their IP address or geographic region is unreliable. A user's location does not indicate their language preference. For example, a user in Germany may prefer English or Japanese.
+!!!
+
+### Persistence
+
+When a user selects a language, persisting that choice ensures they won't have to re-select it the next time they open the application which can be disruptive. Storing the selection so that it is restored on the next visit ensures a consistent experience and signals to the user that their preference has been respected.
 
