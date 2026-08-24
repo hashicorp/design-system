@@ -6,16 +6,9 @@
 import { describe, expect, it } from "vitest";
 import {
   getIconLookupKeys,
-  normalizeLookupValue,
   toIconRecord,
 } from "../../../../../src/resources/flight-icons/store/lookup.js";
 import { buildIconAsset } from "../../../../support/flight-icon-catalog.js";
-
-describe("normalizeLookupValue", () => {
-  it("trims and lowercases lookup values", () => {
-    expect(normalizeLookupValue(" Alert-Triangle ")).toBe("alert-triangle");
-  });
-});
 
 describe("toIconRecord", () => {
   it("groups and sorts variants while retaining optional mappings", () => {

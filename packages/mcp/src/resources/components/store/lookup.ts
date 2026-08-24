@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { normalizeLookupValue } from "../../flight-icons/store/lookup.js";
+import { normalizeLookupValue } from "../../../shared/normalize.js";
 
 import type {
   ComponentArg,
