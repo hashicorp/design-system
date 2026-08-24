@@ -6,11 +6,7 @@
 // assembles one page record: its frontmatter fields, and every chunk the page yields
 
 import { assemblePage } from "./assembly.mjs";
-import {
-  headingTrailFor,
-  splitHeadings,
-  splitTabs,
-} from "./chunks.mjs";
+import { headingTrailFor, splitHeadings, splitTabs } from "./chunks.mjs";
 import { readStringList, readText, readSubMap } from "./frontmatter.mjs";
 import { chunkIdFor, githubHeaderId, tabQuery } from "./identifiers.mjs";
 import { SITE_BASE_URL, byCodepoint, fail } from "./paths.mjs";
