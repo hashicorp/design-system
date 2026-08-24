@@ -28,7 +28,8 @@
     "serve:watch": "node --watch --watch-path=./dist --watch-preserve-output ./dist/index.js",
     "start": "pnpm build && concurrently --kill-others-on-fail --names build,server \"pnpm build:watch\" \"pnpm serve:watch\"",
     "inspect": "npx -y @modelcontextprotocol/inspector node --watch --watch-path=./dist --watch-preserve-output ./dist/index.js",
-    "start:dev": "pnpm build && concurrently --kill-others-on-fail --names build,inspector \"pnpm build:watch\" \"pnpm inspect\""
+    "start:dev": "pnpm build && concurrently --kill-others-on-fail --names build,inspector \"pnpm build:watch\" \"pnpm inspect\"",
+    "catalog:docs": "node ./scripts/build-docs-catalog/index.mjs"
   },
   "dependencies": {
     "@hashicorp/design-system-components": "workspace:^6.5.0",
@@ -45,6 +46,7 @@
     "globals": "^16.1.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
-    "vitest": "^4.0.4"
+    "vitest": "^4.0.4",
+    "yaml": "^2.8.3"
   }
 }
