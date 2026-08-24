@@ -95,21 +95,21 @@ In Figma, we publish a separate Menu component for UIs and prototypes for smalle
 
 By default (and if used within the App Frame), the App Header will occupy 100% of the viewport width. As the viewport width condenses, the components' controls will collapse into a menu that can be toggled open/closed with the menu button (shown conditionally based on the viewport width).
 
-At smaller viewports, the menu containing the `AppHeader` controls will occupy 100% of the viewport height and prevent scrolling content on the main page.
+At smaller viewports, the menu containing the App Header controls will occupy 100% of the viewport height and prevent scrolling content on the main page.
 
 ## Usage in the App Frame
 
-The `AppHeader` is intended to be used within the [`AppFrame`](/layouts/app-frame) component (only supported in code), where a location is reserved for the component out of the box.
+The App Header is intended to be used within the [App Frame](/layouts/app-frame) component (only supported in code), where a location is reserved for the component out of the box.
 
-If you intend to use the `AppHeader` without the `AppFrame`, contact the HDS team for assistance and guidance on implementation.
+If you intend to use the App Header without the App Frame, contact the HDS team for assistance and guidance on implementation.
 
 ## Theme selection
 
-The theme selection pattern allows users to switch the application's visual theme between supported options. Theme selection is accessed through the existing User dropdown in the AppHeader's `utilityActions` and does not require a new top-level utility control.
+Use the theme selection pattern to provide users with a method to switch the application's visual theme between supported options. Theme selection is accessed through the existing User dropdown in the AppHeader's `utilityActions` and does not require a new top-level utility control.
 
-![An example of the open User settings menu in the AppHeader with available theme selection options.](/assets/components/app-header/app-header-theme-selection.png)
+![An example of the open user settings menu in the AppHeader with available theme selection options.](/assets/components/app-header/app-header-theme-selection.png)
 
-In Ember applications, a [theme service](#) is provided (insert a link at some point) to handle switching the theme based on the selected option.
+In Ember applications, a [theme service (insert link here)](#) is provided to handle switching the theme based on the selected option.
 
 ### Placement
 
@@ -117,15 +117,15 @@ Place theme options as a new section within the User dropdown or settings menu a
 
 ### Components
 
-Assemble the theme section from the following HDS components:
+Compose the theme section within the settings menu with these HDS components List Item components:
 
-- `Separator`: adds visual differentiation between the theme selection and the account actions and settings.
-- `Title`: section label; set the text to "Theme"
-- `Checkmark`: one instance per theme option; includes a leading icon and accounts for the selected state
+- **Separator**: adds visual differentiation between the theme selection and the account actions and settings.
+- **Title**: section label; set the text to "Theme"
+- **Checkmark**: one instance per theme option; includes a leading icon and accounts for the selected state
 
 ### Options
 
-Each theme option uses a `Checkmark` with a leading icon that best corresponds with the visual appearance of the theme. The supported options are:
+Use a Checkmark List Item with a leading icon that best corresponds with the visual appearance of the theme for each theme option. Common examples include:
 
 | Option          | Leading icon | Notes                                                            |
 | --------------- | ------------ | ---------------------------------------------------------------- |
@@ -136,5 +136,30 @@ Each theme option uses a `Checkmark` with a leading icon that best corresponds w
 
 ## Language selection
 
+!!! Warning
 
+**Consumer responsibility**
+
+While HDS components support [internationalization](/getting-started/for-engineers#internationlization), the technical implementation and translations are a consumer responsibility.
+!!!
+
+Use the language selection pattern to provide users with a method to switch the application's language from anywhere within the product without leaving their current page or context.
+
+![An example of the open language selection menu in the App Header with a list of available language options](/assets/components/app-header/app-header-language-selection.png)
+
+### Placement
+
+Place the language selector in the App Header's utility actions section along with other similar application-level controls like user settings, help, and support, etc.
+
+### Components
+
+Compose the language selectin pattern using the se HDS components:
+
+- **Dropdown ToggleIcon:** entry point for selecting a language; use the `globe` icon to communicate internationalization.
+- **Title List Item:** used as a section label within the list with the text set to "Language".
+- **Checkmark List Item:** one instance per supported language; this variant renders a checkmark to communicate the current/active language within the application. Only one language can be active at a time.
+
+### Language list format
+
+Each list item displays the language in two forms (with the exception of English): the native language name first, followed by the English name in parentheses, e.g., "Español (Spanish)" or "日本語 (Japanese)".
 
