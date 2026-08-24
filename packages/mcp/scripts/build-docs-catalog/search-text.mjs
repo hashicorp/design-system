@@ -33,11 +33,7 @@ const SYMBOL_PATTERNS = [
   /<([A-Z][A-Za-z0-9:.]*)/g,
 ];
 
-const SYMBOL_DENY_LIST = new Set([
-  "@ember",
-  "@glimmer",
-  "@hashicorp",
-]);
+const SYMBOL_DENY_LIST = new Set(["@ember", "@glimmer", "@hashicorp"]);
 
 const HTML_ENTITIES = new Map([
   ["&amp;", "&"],
