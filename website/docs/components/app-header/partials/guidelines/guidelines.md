@@ -105,9 +105,9 @@ If you intend to use the App Header without the App Frame, contact the HDS team 
 
 ## Theme selection
 
-Use the theme selection pattern to provide users with a method to switch the application's visual theme between supported options. Theme selection is accessed through the existing User dropdown in the AppHeader's `utilityActions` and does not require a new top-level utility control.
+Use the theme selection pattern to provide users with a method to switch the application's visual theme between supported options. Theme selection is accessed from the existing User dropdown in the App Header's `utilityActions` and does not require a new top-level utility control.
 
-![An example of the open user settings menu in the AppHeader with available theme selection options.](/assets/components/app-header/app-header-theme-selection.png)
+![An example of the open user settings menu in the App Header with available theme selection options.](/assets/components/app-header/app-header-theme-selection.png)
 
 In Ember applications, a [theme service (insert link here)](#) is provided to handle switching the theme based on the selected option.
 
@@ -149,15 +149,15 @@ Use the language selection pattern to provide users with a method to switch the 
 
 ### Placement
 
-Place the language selector in the App Header's utility actions section along with other similar application-level controls like user settings, help, and support, etc.
+Place the language selector in the App Header's utility actions section along with other similar application-level controls like user settings, help, and support, and more.
 
 ### Components
 
-Compose the language selectin pattern using the se HDS components:
+Compose the language selection pattern using these HDS components:
 
-- **Dropdown ToggleIcon:** entry point for selecting a language; use the `globe` icon to communicate internationalization.
+- **Dropdown ToggleIcon (icon only):** entry point for selecting a language from a list of options; use the `globe` icon to communicate internationalization.
 - **Title List Item:** used as a section label within the list with the text set to "Language".
-- **Checkmark List Item:** one instance per supported language; this variant renders a checkmark to communicate the current/active language within the application. Only one language can be active at a time.
+- **Checkmark List Item:** used to display the list of available languages and highlight the current or active language. One instance per supported language. Only one language can be active at a time.
 
 ### Language list format
 
