@@ -134,3 +134,7 @@ Each theme option uses a `Checkmark` with a leading icon that best corresponds w
 | Light theme     | `sun`        | Sets light mode regardless of OS setting                         |
 | Dark theme      | `moon`       | Sets dark mode regardless of OS setting                          |
 
+## Language selection
+
+
+
