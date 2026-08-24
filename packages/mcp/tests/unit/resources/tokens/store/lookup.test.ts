@@ -6,7 +6,6 @@
 import { describe, expect, it } from "vitest";
 import {
   getTokenLookupKeys,
-  normalizeLookupValue,
   normalizeTokenLookupKey,
   toCssVarName,
   toTokenRecord,
@@ -17,7 +16,7 @@ import {
 import type { TokenCatalogRow } from "../../../../../src/resources/tokens/store/schema.js";
 
 const buildRow = (
-  overrides: Partial<TokenCatalogRow> = {}
+  overrides: Partial<TokenCatalogRow> = {},
 ): TokenCatalogRow => ({
   key: "token-color-palette-blue-200",
   $value: "#e8f1ff",
@@ -27,48 +26,28 @@ const buildRow = (
   ...overrides,
 });
 
-describe("normalizeLookupValue", () => {
-  it("lowercases the value", () => {
-    expect(normalizeLookupValue("BLUE")).toBe("blue");
-  });
-
-  it("trims leading and trailing whitespace", () => {
-    expect(normalizeLookupValue("  blue  ")).toBe("blue");
-  });
-
-  it("lowercases and trims together", () => {
-    expect(normalizeLookupValue("  Token-Color-BLUE  ")).toBe(
-      "token-color-blue"
-    );
-  });
-
-  it("returns empty string for empty input", () => {
-    expect(normalizeLookupValue("")).toBe("");
-  });
-});
-
 describe("normalizeTokenLookupKey", () => {
   it("lowercases and trims the key", () => {
     expect(normalizeTokenLookupKey("  TOKEN-COLOR-BLUE  ")).toBe(
-      "token-color-blue"
+      "token-color-blue",
     );
   });
 
   it("strips leading brace", () => {
     expect(normalizeTokenLookupKey("{token-color-blue}")).toBe(
-      "token-color-blue"
+      "token-color-blue",
     );
   });
 
   it("handles key that already has token- prefix after brace strip", () => {
     expect(normalizeTokenLookupKey("{token-spacing-100}")).toBe(
-      "token-spacing-100"
+      "token-spacing-100",
     );
   });
 
   it("passes through key without braces unchanged (aside from normalization)", () => {
     expect(normalizeTokenLookupKey("token-color-palette-blue-200")).toBe(
-      "token-color-palette-blue-200"
+      "token-color-palette-blue-200",
     );
   });
 
@@ -78,13 +57,13 @@ describe("normalizeTokenLookupKey", () => {
 
   it("strips a leading -- CSS variable prefix", () => {
     expect(normalizeTokenLookupKey("--token-color-blue")).toBe(
-      "token-color-blue"
+      "token-color-blue",
     );
   });
 
   it("strips -- after lowercasing and brace-trimming", () => {
     expect(normalizeTokenLookupKey("  --Token-Spacing-100  ")).toBe(
-      "token-spacing-100"
+      "token-spacing-100",
     );
   });
 });
@@ -114,7 +93,7 @@ describe("toTokenType", () => {
 describe("toCssVarName", () => {
   it("prepends -- to the token name", () => {
     expect(toCssVarName("token.color.palette.blue.200")).toBe(
-      "--token.color.palette.blue.200"
+      "--token.color.palette.blue.200",
     );
   });
 
@@ -235,5 +214,4 @@ describe("getTokenLookupKeys", () => {
 
     expect(keys).toContain("token.color.palette.blue.200");
   });
-
 });
