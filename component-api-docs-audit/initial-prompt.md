@@ -16,14 +16,14 @@ The website component API documentation we are checking lives in:
 
 ## Task requirements
 
-All checks apply to **every argument** in both source and docs. Documentation should reflect the **consumer experience**. Internal implementation details (where a default lives, how a type is represented in TypeScript, the translation service) are not themselves findings. Source code bugs (e.g. an arg declared but never used) are worth noting but are not documentation inconsistencies.
+All checks apply to **every argument** in both source and docs. Documentation should reflect the consumer experience. Internal implementation details (where a default lives, how a type is represented in TypeScript, the translation service) are not themselves findings. Source code bugs (e.g. an arg declared but never used) are worth noting but are not documentation inconsistencies.
 
 ### 1. Argument names
 - Arg in source `Args` absent from docs: **missing arg**
 - Arg in docs absent from source `Args`: **extra arg**
 - Name differs between source and docs (camelCase vs kebab-case, typo, abbreviation): **wrong arg name**
 - Never flag private fields, `@tracked` variables, or internal getters, as these are not consumer-facing
-- Exception: link-routing args (`route`, `model`, `models`, `query`, `current-when`, `replace`) are grouped into one docs entry, do not flag as missing
+- Exception: link-routing args (`route`, `model`, `models`, `query`, `current-when`, `replace`) are grouped into one docs entry, do not flag
 
 ### 2. Required/optional flag
 - `arg?:` in source = optional, `arg:` = required
@@ -38,14 +38,18 @@ All checks apply to **every argument** in both source and docs. Documentation sh
 ### 4. Defaults
 - Check in this order: 1. `DEFAULT_*` constant 2. getter (`this.args.foo ?? <value>`) 3. translation string (use the `default:` fallback passed to `hdsIntl.t`)
 - If a value references an enum member, resolve it to its string value
-- Documented `@default` that matches the effective source value: no issue, regardless of where in source it lives
+- Documented `@default` is ok as long as it matches the effective source value, regardless of where in source it lives
 - Documented `@default` that doesn't match source: **wrong default**
 - Documented `@default` with no corresponding source default: **default specified but none exists**
 - No `@default` in docs but a default exists in source: **undocumented default**
+- Exception: boolean args with no explicit source default may document `@default="false"`
 
 ### 5. Types
+- `@values` is a docs rendering utility only, never infer type from it
 - Args typed as `HdsFooBarTypes` (template-literal string union) or `HdsFooBarValues` (enum) are correctly documented as `@type="string"`, do not flag
-- Flag genuine mismatches: `number` as `@type="string"`, a function type as `@type="string"`, a `boolean` with string values `"true"`/`"false"`: **wrong type**
+- Flag genuine mismatches: `number` as `@type="string"`, a function type as `@type="string"`: **wrong type**
+- A `boolean` arg documented with `@values={{array "true" "false"}}` is not a type mismatch, do not flag.
+- An arg typed `number | string` in the source code is a leniency pattern and not a type mismatch, `@type="number"` in docs is correct, do not flag
 
 ### 6. Named blocks
 - Mismatch between `Blocks` interface in source and named block entries in docs: **wrong block**
@@ -75,7 +79,7 @@ At the top of the analysis document, maintain a summary section with the followi
 
 ### Findings
 
-For each component, report findings as a structured bulleted list. Only include a component or contextual component if it has at least one issue. Components with no issues should be omitted entirely. Mark uncertain findings "FLAG FOR REVIEW" in the issue type. Do not fix anything, report only
+For each component, report findings as a structured bulleted list. Only include a component or contextual component if it has at least one issue. Components with no issues should be omitted entirely. Mark uncertain findings "FLAG FOR REVIEW" in the issue type. Do not fix anything, report only in `final-analysis.md`.
 
 Each issue must follow this structure exactly:
 
