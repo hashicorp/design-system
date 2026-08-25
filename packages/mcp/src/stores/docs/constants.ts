@@ -45,6 +45,7 @@ export const VERSION_HISTORY_SCORE_MULTIPLIER = 0.6;
 
 // reduce results for partial matches
 export const PAGE_ONLY_CHUNK_LIMIT = 3;
+<<<<<<< HEAD
 
 export const STOPWORDS = new Set([
   "about",
@@ -175,3 +176,5 @@ export const STOPWORDS = new Set([
   "yourself",
   "yourselves",
 ]);
+=======
+>>>>>>> 493734432 (moved constants)
