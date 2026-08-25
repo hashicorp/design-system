@@ -3,7 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { ComponentRecord, ComponentSummary } from "./store/lookup.js";
+import type {
+  ComponentRecord,
+  ComponentSummary,
+} from "../../stores/components/lookup.js";
 import type { JsonObject } from "../../types.js";
 
 export const toSerializableComponentSummary = (

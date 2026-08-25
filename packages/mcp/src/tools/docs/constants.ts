@@ -6,10 +6,6 @@
 export const SEARCH_DOCS_TOOL_NAME = "search_hds_docs";
 export const READ_DOCS_TOOL_NAME = "read_hds_docs";
 
-export const DOCS_CATALOG_FILE_NAME = "docs-catalog.json";
-
-export const SITE_BASE_URL = "https://helios.hashicorp.design/";
-
 export const DEFAULT_SEARCH_LIMIT = 8;
 // cap keeps a search from ever approaching limits
 export const MAX_SEARCH_LIMIT = 25;
@@ -23,11 +19,6 @@ export const MAX_READ_MAX_BYTES = 60_000;
 
 export const SNIPPET_MAX_LENGTH = 300;
 export const NOT_FOUND_SUGGESTION_LIMIT = 5;
-
-// BM25 ranking tunables
-// https://lucene.apache.org/core/9_12_3/core/org/apache/lucene/search/similarities/BM25Similarity.html
-export const BM25_K1 = 1.6;
-export const BM25_B = 0.6;
 
 // a page match says "this page is about your query", a chunk match says "this passage is"
 export const PAGE_SCORE_WEIGHT = 1.5;
@@ -75,8 +66,3 @@ export const DOCS_TABS = [
   "Validation",
   VERSION_HISTORY_TAB,
 ] as const;
-
-export const VERSION_HISTORY_SCORE_MULTIPLIER = 0.6;
-
-// reduce results for partial matches
-export const PAGE_ONLY_CHUNK_LIMIT = 3;

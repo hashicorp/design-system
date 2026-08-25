@@ -4,10 +4,13 @@
  */
 
 import { MAX_FILTER_LENGTH } from "./constants.js";
-import { getHeadingPath } from "./store/lookup.js";
+import { getHeadingPath } from "../../stores/docs/lookup.js";
 
-import type { DocsChunkRecord, DocsPageRecord } from "./store/lookup.js";
-import type { DocsSearchHit } from "./store/index.js";
+import type {
+  DocsChunkRecord,
+  DocsPageRecord,
+} from "../../stores/docs/lookup.js";
+import type { DocsSearchHit } from "../../stores/docs/index.js";
 
 export interface SerializableSearchResult {
   id: string;

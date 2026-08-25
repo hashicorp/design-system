@@ -15,7 +15,7 @@ import {
   SEARCH_DOCS_TOOL_NAME,
   VERSION_HISTORY_TAB,
 } from "./constants.js";
-import { getOrLoadDocsStore } from "./store/index.js";
+import { getOrLoadDocsStore } from "../../stores/docs/index.js";
 import { clampFilterValue, toSerializableSearchResult } from "./utils.js";
 
 import type { ToolRegistration } from "../define-tool.js";

@@ -18,8 +18,8 @@ import {
   READ_DOCS_TOOL_NAME,
   SEARCH_DOCS_TOOL_NAME,
 } from "./constants.js";
-import { getOrLoadDocsStore } from "./store/index.js";
-import { getHeadingPath } from "./store/lookup.js";
+import { getOrLoadDocsStore } from "../../stores/docs/index.js";
+import { getHeadingPath } from "../../stores/docs/lookup.js";
 import {
   clampFilterValue,
   selectChunkContent,

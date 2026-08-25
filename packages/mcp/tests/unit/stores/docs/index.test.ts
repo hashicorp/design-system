@@ -23,7 +23,7 @@ import {
   buildDocsCatalog,
   buildDocsChunk,
   buildDocsPage,
-} from "../../../../support/docs-catalog.js";
+} from "../../../support/docs-catalog.js";
 
 const buildStore = () => createDocsCatalogStore(buildDocsCatalog());
 

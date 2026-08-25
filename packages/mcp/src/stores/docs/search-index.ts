@@ -6,7 +6,7 @@
 // a local BM25 index; scoring never leaves this process
 // https://lucene.apache.org/core/9_12_3/core/org/apache/lucene/search/similarities/BM25Similarity.html
 
-import { BM25_B, BM25_K1 } from "../constants.js";
+import { BM25_B, BM25_K1 } from "./constants.js";
 import { tokenize } from "./tokenize.js";
 
 export interface WeightedField {

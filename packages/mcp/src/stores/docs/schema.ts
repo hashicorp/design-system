@@ -4,7 +4,7 @@
  */
 
 import { z } from "zod";
-import { SITE_BASE_URL } from "../constants.js";
+import { SITE_BASE_URL } from "./constants.js";
 
 const siteUrlSchema = z
   .string()
