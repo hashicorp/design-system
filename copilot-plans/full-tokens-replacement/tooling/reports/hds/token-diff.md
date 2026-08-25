@@ -1,38 +1,40 @@
 # Token Diff — Phase A (carbonization mapping proposal)
 
-- Generated: 2026-07-17T12:05:57.912Z
+- Generated: 2026-08-25T17:14:13.094Z
 - Pre ref: `main` (prefix `--token-`) — 442 tokens
-- Post: working tree (prefix `--hds-`) — 801 tokens
+- Post: working tree (prefix `--hds-`) — 1039 tokens
 
 ## Summary — by category
 
 | Category | Count |
 | --- | ---: |
-| `prefix-only` | 242 |
+| `prefix-only` | 228 |
 | `prefix-plus-renaming__palette-colors` | 42 |
 | `prefix-plus-renaming__product-colors` | 86 |
 | `prefix-plus-renaming__semantic-colors` | 46 |
 | `prefix-plus-renaming__focus-ring` | 2 |
 | `prefix-plus-renaming__transition-function` | 2 |
-| `prefix-plus-renaming__other` | 6 |
-| `removed` | 16 |
-| `added` | 377 |
+| `prefix-plus-renaming__form-radio-card` | 5 |
+| `prefix-plus-renaming__form-control-checked` | 5 |
+| `prefix-plus-renaming__other` | 8 |
+| `removed` | 18 |
+| `added` | 619 |
 
 ## Summary — by signal / confidence
 
 | Metric | Count |
 | --- | ---: |
-| Resolved (high confidence) | 419 |
-| Resolved (low / fuzzy — review) | 7 |
-| Unresolved (removed / after: null) | 16 |
-| S0 prefix-swap only | 242 |
-| S1 changeset-resolved | 176 |
-| S2 structural (source JSON) | 1 |
-| S3 fuzzy | 7 |
-| Changeset pairs parsed | 177 |
+| Resolved (high confidence) | 416 |
+| Resolved (low / fuzzy — review) | 8 |
+| Unresolved (removed / after: null) | 18 |
+| S0 prefix-swap only | 228 |
+| S1 changeset-resolved | 183 |
+| S2 structural (source JSON) | 5 |
+| S3 fuzzy | 8 |
+| Changeset pairs parsed | 426 |
 | Changeset conflicts | 0 |
 
-## `prefix-only` — 242
+## `prefix-only` — 228
 
 Only the namespace prefix changed (`--token-` → `--hds-`); structure identical.
 
@@ -136,17 +138,11 @@ Only the namespace prefix changed (`--token-` → `--hds-`); structure identical
 | `--token-form-control-base-surface-color-hover` | `--hds-form-control-base-surface-color-hover` | S0 |
 | `--token-form-control-border-radius` | `--hds-form-control-border-radius` | S0 |
 | `--token-form-control-border-width` | `--hds-form-control-border-width` | S0 |
-| `--token-form-control-checked-border-color-default` | `--hds-form-control-checked-border-color-default` | S0 |
-| `--token-form-control-checked-border-color-hover` | `--hds-form-control-checked-border-color-hover` | S0 |
-| `--token-form-control-checked-foreground-color` | `--hds-form-control-checked-foreground-color` | S0 |
-| `--token-form-control-checked-surface-color-default` | `--hds-form-control-checked-surface-color-default` | S0 |
-| `--token-form-control-checked-surface-color-hover` | `--hds-form-control-checked-surface-color-hover` | S0 |
 | `--token-form-control-disabled-border-color` | `--hds-form-control-disabled-border-color` | S0 |
 | `--token-form-control-disabled-foreground-color` | `--hds-form-control-disabled-foreground-color` | S0 |
 | `--token-form-control-disabled-surface-color` | `--hds-form-control-disabled-surface-color` | S0 |
 | `--token-form-control-invalid-border-color-default` | `--hds-form-control-invalid-border-color-default` | S0 |
 | `--token-form-control-invalid-border-color-hover` | `--hds-form-control-invalid-border-color-hover` | S0 |
-| `--token-form-control-padding` | `--hds-form-control-padding` | S0 |
 | `--token-form-control-readonly-border-color` | `--hds-form-control-readonly-border-color` | S0 |
 | `--token-form-control-readonly-foreground-color` | `--hds-form-control-readonly-foreground-color` | S0 |
 | `--token-form-control-readonly-surface-color` | `--hds-form-control-readonly-surface-color` | S0 |
@@ -178,19 +174,11 @@ Only the namespace prefix changed (`--token-` → `--hds-`); structure identical
 | `--token-form-radio-background-image-size` | `--hds-form-radio-background-image-size` | S0 |
 | `--token-form-radio-border-width` | `--hds-form-radio-border-width` | S0 |
 | `--token-form-radio-size` | `--hds-form-radio-size` | S0 |
-| `--token-form-radiocard-border-radius` | `--hds-form-radio-card-border-radius` | S0 |
-| `--token-form-radiocard-border-width` | `--hds-form-radio-card-border-width` | S0 |
-| `--token-form-radiocard-content-padding` | `--hds-form-radio-card-content-padding` | S0 |
-| `--token-form-radiocard-control-padding` | `--hds-form-radio-card-control-padding` | S0 |
-| `--token-form-radiocard-group-gap` | `--hds-form-radio-card-group-gap` | S0 |
-| `--token-form-radiocard-transition-duration` | `--hds-form-radio-card-transition-duration` | S0 |
 | `--token-form-select-background-image-data-url` | `--hds-form-select-background-image-data-url` | S0 |
 | `--token-form-select-background-image-data-url-disabled` | `--hds-form-select-background-image-data-url-disabled` | S0 |
 | `--token-form-select-background-image-position-right-x` | `--hds-form-select-background-image-position-right-x` | S0 |
-| `--token-form-select-background-image-position-top-y` | `--hds-form-select-background-image-position-top-y` | S0 |
 | `--token-form-select-background-image-size` | `--hds-form-select-background-image-size` | S0 |
 | `--token-form-text-input-background-image-data-url-date` | `--hds-form-text-input-background-image-data-url-date` | S0 |
-| `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search` | S0 |
 | `--token-form-text-input-background-image-data-url-search-cancel` | `--hds-form-text-input-background-image-data-url-search-cancel` | S0 |
 | `--token-form-text-input-background-image-data-url-search-loading` | `--hds-form-text-input-background-image-data-url-search-loading` | S0 |
 | `--token-form-text-input-background-image-data-url-time` | `--hds-form-text-input-background-image-data-url-time` | S0 |
@@ -287,48 +275,48 @@ Rule: `color-palette-{hue}-{step}` → `core-color-{hue}-{step}`.
 
 | Before (`--token-*`) | After (`--hds-*`) | Signals |
 | --- | --- | --- |
-| `--token-color-palette-alpha-100` | `--hds-core-color-alpha-100` | S0, S1 |
-| `--token-color-palette-alpha-200` | `--hds-core-color-alpha-200` | S0, S1 |
-| `--token-color-palette-alpha-300` | `--hds-core-color-alpha-300` | S0, S1 |
-| `--token-color-palette-amber-100` | `--hds-core-color-amber-100` | S0, S1 |
-| `--token-color-palette-amber-200` | `--hds-core-color-amber-200` | S0, S1 |
-| `--token-color-palette-amber-300` | `--hds-core-color-amber-300` | S0, S1 |
-| `--token-color-palette-amber-400` | `--hds-core-color-amber-400` | S0, S1 |
-| `--token-color-palette-amber-50` | `--hds-core-color-amber-50` | S0, S1 |
-| `--token-color-palette-amber-500` | `--hds-core-color-amber-500` | S0, S1 |
-| `--token-color-palette-blue-100` | `--hds-core-color-blue-100` | S0, S1 |
-| `--token-color-palette-blue-200` | `--hds-core-color-blue-200` | S0, S1 |
-| `--token-color-palette-blue-300` | `--hds-core-color-blue-300` | S0, S1 |
-| `--token-color-palette-blue-400` | `--hds-core-color-blue-400` | S0, S1 |
-| `--token-color-palette-blue-50` | `--hds-core-color-blue-50` | S0, S1 |
-| `--token-color-palette-blue-500` | `--hds-core-color-blue-500` | S0, S1 |
-| `--token-color-palette-green-100` | `--hds-core-color-green-100` | S0, S1 |
-| `--token-color-palette-green-200` | `--hds-core-color-green-200` | S0, S1 |
-| `--token-color-palette-green-300` | `--hds-core-color-green-300` | S0, S1 |
-| `--token-color-palette-green-400` | `--hds-core-color-green-400` | S0, S1 |
-| `--token-color-palette-green-50` | `--hds-core-color-green-50` | S0, S1 |
-| `--token-color-palette-green-500` | `--hds-core-color-green-500` | S0, S1 |
-| `--token-color-palette-neutral-0` | `--hds-core-color-neutral-0` | S0, S1 |
-| `--token-color-palette-neutral-100` | `--hds-core-color-neutral-100` | S0, S1 |
-| `--token-color-palette-neutral-200` | `--hds-core-color-neutral-200` | S0, S1 |
-| `--token-color-palette-neutral-300` | `--hds-core-color-neutral-300` | S0, S1 |
-| `--token-color-palette-neutral-400` | `--hds-core-color-neutral-400` | S0, S1 |
-| `--token-color-palette-neutral-50` | `--hds-core-color-neutral-50` | S0, S1 |
-| `--token-color-palette-neutral-500` | `--hds-core-color-neutral-500` | S0, S1 |
-| `--token-color-palette-neutral-600` | `--hds-core-color-neutral-600` | S0, S1 |
-| `--token-color-palette-neutral-700` | `--hds-core-color-neutral-700` | S0, S1 |
-| `--token-color-palette-purple-100` | `--hds-core-color-purple-100` | S0, S1 |
-| `--token-color-palette-purple-200` | `--hds-core-color-purple-200` | S0, S1 |
-| `--token-color-palette-purple-300` | `--hds-core-color-purple-300` | S0, S1 |
-| `--token-color-palette-purple-400` | `--hds-core-color-purple-400` | S0, S1 |
-| `--token-color-palette-purple-50` | `--hds-core-color-purple-50` | S0, S1 |
-| `--token-color-palette-purple-500` | `--hds-core-color-purple-500` | S0, S1 |
-| `--token-color-palette-red-100` | `--hds-core-color-red-100` | S0, S1 |
-| `--token-color-palette-red-200` | `--hds-core-color-red-200` | S0, S1 |
-| `--token-color-palette-red-300` | `--hds-core-color-red-300` | S0, S1 |
-| `--token-color-palette-red-400` | `--hds-core-color-red-400` | S0, S1 |
-| `--token-color-palette-red-50` | `--hds-core-color-red-50` | S0, S1 |
-| `--token-color-palette-red-500` | `--hds-core-color-red-500` | S0, S1 |
+| `--token-color-palette-alpha-100` | `--hds-core-color-alpha-100` | S1 |
+| `--token-color-palette-alpha-200` | `--hds-core-color-alpha-200` | S1 |
+| `--token-color-palette-alpha-300` | `--hds-core-color-alpha-300` | S1 |
+| `--token-color-palette-amber-100` | `--hds-core-color-amber-100` | S1 |
+| `--token-color-palette-amber-200` | `--hds-core-color-amber-200` | S1 |
+| `--token-color-palette-amber-300` | `--hds-core-color-amber-300` | S1 |
+| `--token-color-palette-amber-400` | `--hds-core-color-amber-400` | S1 |
+| `--token-color-palette-amber-50` | `--hds-core-color-amber-50` | S1 |
+| `--token-color-palette-amber-500` | `--hds-core-color-amber-500` | S1 |
+| `--token-color-palette-blue-100` | `--hds-core-color-blue-100` | S1 |
+| `--token-color-palette-blue-200` | `--hds-core-color-blue-200` | S1 |
+| `--token-color-palette-blue-300` | `--hds-core-color-blue-300` | S1 |
+| `--token-color-palette-blue-400` | `--hds-core-color-blue-400` | S1 |
+| `--token-color-palette-blue-50` | `--hds-core-color-blue-50` | S1 |
+| `--token-color-palette-blue-500` | `--hds-core-color-blue-500` | S1 |
+| `--token-color-palette-green-100` | `--hds-core-color-green-100` | S1 |
+| `--token-color-palette-green-200` | `--hds-core-color-green-200` | S1 |
+| `--token-color-palette-green-300` | `--hds-core-color-green-300` | S1 |
+| `--token-color-palette-green-400` | `--hds-core-color-green-400` | S1 |
+| `--token-color-palette-green-50` | `--hds-core-color-green-50` | S1 |
+| `--token-color-palette-green-500` | `--hds-core-color-green-500` | S1 |
+| `--token-color-palette-neutral-0` | `--hds-core-color-neutral-0` | S1 |
+| `--token-color-palette-neutral-100` | `--hds-core-color-neutral-100` | S1 |
+| `--token-color-palette-neutral-200` | `--hds-core-color-neutral-200` | S1 |
+| `--token-color-palette-neutral-300` | `--hds-core-color-neutral-300` | S1 |
+| `--token-color-palette-neutral-400` | `--hds-core-color-neutral-400` | S1 |
+| `--token-color-palette-neutral-50` | `--hds-core-color-neutral-50` | S1 |
+| `--token-color-palette-neutral-500` | `--hds-core-color-neutral-500` | S1 |
+| `--token-color-palette-neutral-600` | `--hds-core-color-neutral-600` | S1 |
+| `--token-color-palette-neutral-700` | `--hds-core-color-neutral-700` | S1 |
+| `--token-color-palette-purple-100` | `--hds-core-color-purple-100` | S1 |
+| `--token-color-palette-purple-200` | `--hds-core-color-purple-200` | S1 |
+| `--token-color-palette-purple-300` | `--hds-core-color-purple-300` | S1 |
+| `--token-color-palette-purple-400` | `--hds-core-color-purple-400` | S1 |
+| `--token-color-palette-purple-50` | `--hds-core-color-purple-50` | S1 |
+| `--token-color-palette-purple-500` | `--hds-core-color-purple-500` | S1 |
+| `--token-color-palette-red-100` | `--hds-core-color-red-100` | S1 |
+| `--token-color-palette-red-200` | `--hds-core-color-red-200` | S1 |
+| `--token-color-palette-red-300` | `--hds-core-color-red-300` | S1 |
+| `--token-color-palette-red-400` | `--hds-core-color-red-400` | S1 |
+| `--token-color-palette-red-50` | `--hds-core-color-red-50` | S1 |
+| `--token-color-palette-red-500` | `--hds-core-color-red-500` | S1 |
 
 ## `prefix-plus-renaming__product-colors` — 86
 
@@ -336,92 +324,92 @@ Rule: `color-{product}-…` → `product-{product}-…-color`.
 
 | Before (`--token-*`) | After (`--hds-*`) | Signals |
 | --- | --- | --- |
-| `--token-color-boundary-border` | `--hds-product-boundary-border-color` | S0, S1 |
-| `--token-color-boundary-brand` | `--hds-product-boundary-brand-color` | S0, S1 |
-| `--token-color-boundary-foreground` | `--hds-product-boundary-foreground-color` | S0, S1 |
-| `--token-color-boundary-gradient-faint-start` | `--hds-product-boundary-gradient-color-faint-start` | S0, S1 |
-| `--token-color-boundary-gradient-faint-stop` | `--hds-product-boundary-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-boundary-gradient-primary-start` | `--hds-product-boundary-gradient-color-primary-start` | S0, S1 |
-| `--token-color-boundary-gradient-primary-stop` | `--hds-product-boundary-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-boundary-surface` | `--hds-product-boundary-surface-color` | S0, S1 |
-| `--token-color-consul-border` | `--hds-product-consul-border-color` | S0, S1 |
-| `--token-color-consul-brand` | `--hds-product-consul-brand-color` | S0, S1 |
-| `--token-color-consul-foreground` | `--hds-product-consul-foreground-color` | S0, S1 |
-| `--token-color-consul-gradient-faint-start` | `--hds-product-consul-gradient-color-faint-start` | S0, S1 |
-| `--token-color-consul-gradient-faint-stop` | `--hds-product-consul-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-consul-gradient-primary-start` | `--hds-product-consul-gradient-color-primary-start` | S0, S1 |
-| `--token-color-consul-gradient-primary-stop` | `--hds-product-consul-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-consul-surface` | `--hds-product-consul-surface-color` | S0, S1 |
-| `--token-color-hashicorp-brand` | `--hds-product-hashicorp-brand-color` | S0, S1 |
-| `--token-color-hcp-brand` | `--hds-product-hcp-brand-color` | S0, S1 |
-| `--token-color-nomad-border` | `--hds-product-nomad-border-color` | S0, S1 |
-| `--token-color-nomad-brand` | `--hds-product-nomad-brand-color` | S0, S1 |
-| `--token-color-nomad-foreground` | `--hds-product-nomad-foreground-color` | S0, S1 |
-| `--token-color-nomad-gradient-faint-start` | `--hds-product-nomad-gradient-color-faint-start` | S0, S1 |
-| `--token-color-nomad-gradient-faint-stop` | `--hds-product-nomad-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-nomad-gradient-primary-start` | `--hds-product-nomad-gradient-color-primary-start` | S0, S1 |
-| `--token-color-nomad-gradient-primary-stop` | `--hds-product-nomad-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-nomad-surface` | `--hds-product-nomad-surface-color` | S0, S1 |
-| `--token-color-packer-border` | `--hds-product-packer-border-color` | S0, S1 |
-| `--token-color-packer-brand` | `--hds-product-packer-brand-color` | S0, S1 |
-| `--token-color-packer-foreground` | `--hds-product-packer-foreground-color` | S0, S1 |
-| `--token-color-packer-gradient-faint-start` | `--hds-product-packer-gradient-color-faint-start` | S0, S1 |
-| `--token-color-packer-gradient-faint-stop` | `--hds-product-packer-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-packer-gradient-primary-start` | `--hds-product-packer-gradient-color-primary-start` | S0, S1 |
-| `--token-color-packer-gradient-primary-stop` | `--hds-product-packer-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-packer-surface` | `--hds-product-packer-surface-color` | S0, S1 |
-| `--token-color-terraform-border` | `--hds-product-terraform-border-color` | S0, S1 |
-| `--token-color-terraform-brand` | `--hds-product-terraform-brand-color` | S0, S1 |
-| `--token-color-terraform-brand-on-dark` | `--hds-product-terraform-brand-color-on-dark` | S0, S1 |
-| `--token-color-terraform-foreground` | `--hds-product-terraform-foreground-color` | S0, S1 |
-| `--token-color-terraform-gradient-faint-start` | `--hds-product-terraform-gradient-color-faint-start` | S0, S1 |
-| `--token-color-terraform-gradient-faint-stop` | `--hds-product-terraform-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-terraform-gradient-primary-start` | `--hds-product-terraform-gradient-color-primary-start` | S0, S1 |
-| `--token-color-terraform-gradient-primary-stop` | `--hds-product-terraform-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-terraform-surface` | `--hds-product-terraform-surface-color` | S0, S1 |
-| `--token-color-vagrant-border` | `--hds-product-vagrant-border-color` | S0, S1 |
-| `--token-color-vagrant-brand` | `--hds-product-vagrant-brand-color` | S0, S1 |
-| `--token-color-vagrant-foreground` | `--hds-product-vagrant-foreground-color` | S0, S1 |
-| `--token-color-vagrant-gradient-faint-start` | `--hds-product-vagrant-gradient-color-faint-start` | S0, S1 |
-| `--token-color-vagrant-gradient-faint-stop` | `--hds-product-vagrant-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-vagrant-gradient-primary-start` | `--hds-product-vagrant-gradient-color-primary-start` | S0, S1 |
-| `--token-color-vagrant-gradient-primary-stop` | `--hds-product-vagrant-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-vagrant-surface` | `--hds-product-vagrant-surface-color` | S0, S1 |
-| `--token-color-vault-border` | `--hds-product-vault-border-color` | S0, S1 |
-| `--token-color-vault-brand` | `--hds-product-vault-brand-color` | S0, S1 |
-| `--token-color-vault-brand-alt` | `--hds-product-vault-brand-color-alt` | S0, S1 |
-| `--token-color-vault-foreground` | `--hds-product-vault-foreground-color` | S0, S1 |
-| `--token-color-vault-gradient-faint-start` | `--hds-product-vault-gradient-color-faint-start` | S0, S1 |
-| `--token-color-vault-gradient-faint-stop` | `--hds-product-vault-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-vault-gradient-primary-start` | `--hds-product-vault-gradient-color-primary-start` | S0, S1 |
-| `--token-color-vault-gradient-primary-stop` | `--hds-product-vault-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-vault-radar-border` | `--hds-product-vault-radar-border-color` | S0, S1 |
-| `--token-color-vault-radar-brand` | `--hds-product-vault-radar-brand-color` | S0, S1 |
-| `--token-color-vault-radar-brand-alt` | `--hds-product-vault-radar-brand-color-alt` | S0, S1 |
-| `--token-color-vault-radar-foreground` | `--hds-product-vault-radar-foreground-color` | S0, S1 |
-| `--token-color-vault-radar-gradient-faint-start` | `--hds-product-vault-radar-gradient-color-faint-start` | S0, S1 |
-| `--token-color-vault-radar-gradient-faint-stop` | `--hds-product-vault-radar-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-vault-radar-gradient-primary-start` | `--hds-product-vault-radar-gradient-color-primary-start` | S0, S1 |
-| `--token-color-vault-radar-gradient-primary-stop` | `--hds-product-vault-radar-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-vault-radar-surface` | `--hds-product-vault-radar-surface-color` | S0, S1 |
-| `--token-color-vault-secrets-border` | `--hds-product-vault-secrets-border-color` | S0, S1 |
-| `--token-color-vault-secrets-brand` | `--hds-product-vault-secrets-brand-color` | S0, S1 |
-| `--token-color-vault-secrets-brand-alt` | `--hds-product-vault-secrets-brand-color-alt` | S0, S1 |
-| `--token-color-vault-secrets-foreground` | `--hds-product-vault-secrets-foreground-color` | S0, S1 |
-| `--token-color-vault-secrets-gradient-faint-start` | `--hds-product-vault-secrets-gradient-color-faint-start` | S0, S1 |
-| `--token-color-vault-secrets-gradient-faint-stop` | `--hds-product-vault-secrets-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-vault-secrets-gradient-primary-start` | `--hds-product-vault-secrets-gradient-color-primary-start` | S0, S1 |
-| `--token-color-vault-secrets-gradient-primary-stop` | `--hds-product-vault-secrets-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-vault-secrets-surface` | `--hds-product-vault-secrets-surface-color` | S0, S1 |
-| `--token-color-vault-surface` | `--hds-product-vault-surface-color` | S0, S1 |
-| `--token-color-waypoint-border` | `--hds-product-waypoint-border-color` | S0, S1 |
-| `--token-color-waypoint-brand` | `--hds-product-waypoint-brand-color` | S0, S1 |
-| `--token-color-waypoint-foreground` | `--hds-product-waypoint-foreground-color` | S0, S1 |
-| `--token-color-waypoint-gradient-faint-start` | `--hds-product-waypoint-gradient-color-faint-start` | S0, S1 |
-| `--token-color-waypoint-gradient-faint-stop` | `--hds-product-waypoint-gradient-color-faint-stop` | S0, S1 |
-| `--token-color-waypoint-gradient-primary-start` | `--hds-product-waypoint-gradient-color-primary-start` | S0, S1 |
-| `--token-color-waypoint-gradient-primary-stop` | `--hds-product-waypoint-gradient-color-primary-stop` | S0, S1 |
-| `--token-color-waypoint-surface` | `--hds-product-waypoint-surface-color` | S0, S1 |
+| `--token-color-boundary-border` | `--hds-product-boundary-border-color` | S1 |
+| `--token-color-boundary-brand` | `--hds-product-boundary-brand-color` | S1 |
+| `--token-color-boundary-foreground` | `--hds-product-boundary-foreground-color` | S1 |
+| `--token-color-boundary-gradient-faint-start` | `--hds-product-boundary-gradient-color-faint-start` | S1 |
+| `--token-color-boundary-gradient-faint-stop` | `--hds-product-boundary-gradient-color-faint-stop` | S1 |
+| `--token-color-boundary-gradient-primary-start` | `--hds-product-boundary-gradient-color-primary-start` | S1 |
+| `--token-color-boundary-gradient-primary-stop` | `--hds-product-boundary-gradient-color-primary-stop` | S1 |
+| `--token-color-boundary-surface` | `--hds-product-boundary-surface-color` | S1 |
+| `--token-color-consul-border` | `--hds-product-consul-border-color` | S1 |
+| `--token-color-consul-brand` | `--hds-product-consul-brand-color` | S1 |
+| `--token-color-consul-foreground` | `--hds-product-consul-foreground-color` | S1 |
+| `--token-color-consul-gradient-faint-start` | `--hds-product-consul-gradient-color-faint-start` | S1 |
+| `--token-color-consul-gradient-faint-stop` | `--hds-product-consul-gradient-color-faint-stop` | S1 |
+| `--token-color-consul-gradient-primary-start` | `--hds-product-consul-gradient-color-primary-start` | S1 |
+| `--token-color-consul-gradient-primary-stop` | `--hds-product-consul-gradient-color-primary-stop` | S1 |
+| `--token-color-consul-surface` | `--hds-product-consul-surface-color` | S1 |
+| `--token-color-hashicorp-brand` | `--hds-product-hashicorp-brand-color` | S1 |
+| `--token-color-hcp-brand` | `--hds-product-hcp-brand-color` | S1 |
+| `--token-color-nomad-border` | `--hds-product-nomad-border-color` | S1 |
+| `--token-color-nomad-brand` | `--hds-product-nomad-brand-color` | S1 |
+| `--token-color-nomad-foreground` | `--hds-product-nomad-foreground-color` | S1 |
+| `--token-color-nomad-gradient-faint-start` | `--hds-product-nomad-gradient-color-faint-start` | S1 |
+| `--token-color-nomad-gradient-faint-stop` | `--hds-product-nomad-gradient-color-faint-stop` | S1 |
+| `--token-color-nomad-gradient-primary-start` | `--hds-product-nomad-gradient-color-primary-start` | S1 |
+| `--token-color-nomad-gradient-primary-stop` | `--hds-product-nomad-gradient-color-primary-stop` | S1 |
+| `--token-color-nomad-surface` | `--hds-product-nomad-surface-color` | S1 |
+| `--token-color-packer-border` | `--hds-product-packer-border-color` | S1 |
+| `--token-color-packer-brand` | `--hds-product-packer-brand-color` | S1 |
+| `--token-color-packer-foreground` | `--hds-product-packer-foreground-color` | S1 |
+| `--token-color-packer-gradient-faint-start` | `--hds-product-packer-gradient-color-faint-start` | S1 |
+| `--token-color-packer-gradient-faint-stop` | `--hds-product-packer-gradient-color-faint-stop` | S1 |
+| `--token-color-packer-gradient-primary-start` | `--hds-product-packer-gradient-color-primary-start` | S1 |
+| `--token-color-packer-gradient-primary-stop` | `--hds-product-packer-gradient-color-primary-stop` | S1 |
+| `--token-color-packer-surface` | `--hds-product-packer-surface-color` | S1 |
+| `--token-color-terraform-border` | `--hds-product-terraform-border-color` | S1 |
+| `--token-color-terraform-brand` | `--hds-product-terraform-brand-color` | S1 |
+| `--token-color-terraform-brand-on-dark` | `--hds-product-terraform-brand-color-on-dark` | S1 |
+| `--token-color-terraform-foreground` | `--hds-product-terraform-foreground-color` | S1 |
+| `--token-color-terraform-gradient-faint-start` | `--hds-product-terraform-gradient-color-faint-start` | S1 |
+| `--token-color-terraform-gradient-faint-stop` | `--hds-product-terraform-gradient-color-faint-stop` | S1 |
+| `--token-color-terraform-gradient-primary-start` | `--hds-product-terraform-gradient-color-primary-start` | S1 |
+| `--token-color-terraform-gradient-primary-stop` | `--hds-product-terraform-gradient-color-primary-stop` | S1 |
+| `--token-color-terraform-surface` | `--hds-product-terraform-surface-color` | S1 |
+| `--token-color-vagrant-border` | `--hds-product-vagrant-border-color` | S1 |
+| `--token-color-vagrant-brand` | `--hds-product-vagrant-brand-color` | S1 |
+| `--token-color-vagrant-foreground` | `--hds-product-vagrant-foreground-color` | S1 |
+| `--token-color-vagrant-gradient-faint-start` | `--hds-product-vagrant-gradient-color-faint-start` | S1 |
+| `--token-color-vagrant-gradient-faint-stop` | `--hds-product-vagrant-gradient-color-faint-stop` | S1 |
+| `--token-color-vagrant-gradient-primary-start` | `--hds-product-vagrant-gradient-color-primary-start` | S1 |
+| `--token-color-vagrant-gradient-primary-stop` | `--hds-product-vagrant-gradient-color-primary-stop` | S1 |
+| `--token-color-vagrant-surface` | `--hds-product-vagrant-surface-color` | S1 |
+| `--token-color-vault-border` | `--hds-product-vault-border-color` | S1 |
+| `--token-color-vault-brand` | `--hds-product-vault-brand-color` | S1 |
+| `--token-color-vault-brand-alt` | `--hds-product-vault-brand-color-alt` | S1 |
+| `--token-color-vault-foreground` | `--hds-product-vault-foreground-color` | S1 |
+| `--token-color-vault-gradient-faint-start` | `--hds-product-vault-gradient-color-faint-start` | S1 |
+| `--token-color-vault-gradient-faint-stop` | `--hds-product-vault-gradient-color-faint-stop` | S1 |
+| `--token-color-vault-gradient-primary-start` | `--hds-product-vault-gradient-color-primary-start` | S1 |
+| `--token-color-vault-gradient-primary-stop` | `--hds-product-vault-gradient-color-primary-stop` | S1 |
+| `--token-color-vault-radar-border` | `--hds-product-vault-radar-border-color` | S1 |
+| `--token-color-vault-radar-brand` | `--hds-product-vault-radar-brand-color` | S1 |
+| `--token-color-vault-radar-brand-alt` | `--hds-product-vault-radar-brand-color-alt` | S1 |
+| `--token-color-vault-radar-foreground` | `--hds-product-vault-radar-foreground-color` | S1 |
+| `--token-color-vault-radar-gradient-faint-start` | `--hds-product-vault-radar-gradient-color-faint-start` | S1 |
+| `--token-color-vault-radar-gradient-faint-stop` | `--hds-product-vault-radar-gradient-color-faint-stop` | S1 |
+| `--token-color-vault-radar-gradient-primary-start` | `--hds-product-vault-radar-gradient-color-primary-start` | S1 |
+| `--token-color-vault-radar-gradient-primary-stop` | `--hds-product-vault-radar-gradient-color-primary-stop` | S1 |
+| `--token-color-vault-radar-surface` | `--hds-product-vault-radar-surface-color` | S1 |
+| `--token-color-vault-secrets-border` | `--hds-product-vault-secrets-border-color` | S1 |
+| `--token-color-vault-secrets-brand` | `--hds-product-vault-secrets-brand-color` | S1 |
+| `--token-color-vault-secrets-brand-alt` | `--hds-product-vault-secrets-brand-color-alt` | S1 |
+| `--token-color-vault-secrets-foreground` | `--hds-product-vault-secrets-foreground-color` | S1 |
+| `--token-color-vault-secrets-gradient-faint-start` | `--hds-product-vault-secrets-gradient-color-faint-start` | S1 |
+| `--token-color-vault-secrets-gradient-faint-stop` | `--hds-product-vault-secrets-gradient-color-faint-stop` | S1 |
+| `--token-color-vault-secrets-gradient-primary-start` | `--hds-product-vault-secrets-gradient-color-primary-start` | S1 |
+| `--token-color-vault-secrets-gradient-primary-stop` | `--hds-product-vault-secrets-gradient-color-primary-stop` | S1 |
+| `--token-color-vault-secrets-surface` | `--hds-product-vault-secrets-surface-color` | S1 |
+| `--token-color-vault-surface` | `--hds-product-vault-surface-color` | S1 |
+| `--token-color-waypoint-border` | `--hds-product-waypoint-border-color` | S1 |
+| `--token-color-waypoint-brand` | `--hds-product-waypoint-brand-color` | S1 |
+| `--token-color-waypoint-foreground` | `--hds-product-waypoint-foreground-color` | S1 |
+| `--token-color-waypoint-gradient-faint-start` | `--hds-product-waypoint-gradient-color-faint-start` | S1 |
+| `--token-color-waypoint-gradient-faint-stop` | `--hds-product-waypoint-gradient-color-faint-stop` | S1 |
+| `--token-color-waypoint-gradient-primary-start` | `--hds-product-waypoint-gradient-color-primary-start` | S1 |
+| `--token-color-waypoint-gradient-primary-stop` | `--hds-product-waypoint-gradient-color-primary-stop` | S1 |
+| `--token-color-waypoint-surface` | `--hds-product-waypoint-surface-color` | S1 |
 
 ## `prefix-plus-renaming__semantic-colors` — 46
 
@@ -429,52 +417,52 @@ Rule: `color-{semantic}-{rest}` → `{semantic}-color-{rest}`.
 
 | Before (`--token-*`) | After (`--hds-*`) | Signals |
 | --- | --- | --- |
-| `--token-color-border-action` | `--hds-border-color-action` | S0, S1 |
-| `--token-color-border-critical` | `--hds-border-color-critical` | S0, S1 |
-| `--token-color-border-faint` | `--hds-border-color-faint` | S0, S1 |
-| `--token-color-border-highlight` | `--hds-border-color-highlight` | S0, S1 |
-| `--token-color-border-primary` | `--hds-border-color-primary` | S0, S1 |
-| `--token-color-border-strong` | `--hds-border-color-strong` | S0, S1 |
-| `--token-color-border-success` | `--hds-border-color-success` | S0, S1 |
-| `--token-color-border-warning` | `--hds-border-color-warning` | S0, S1 |
-| `--token-color-focus-action-external` | `--hds-focus-color-action-external` | S0, S1 |
-| `--token-color-focus-action-internal` | `--hds-focus-color-action-internal` | S0, S1 |
-| `--token-color-focus-critical-external` | `--hds-focus-color-critical-external` | S0, S1 |
-| `--token-color-focus-critical-internal` | `--hds-focus-color-critical-internal` | S0, S1 |
-| `--token-color-foreground-action` | `--hds-foreground-color-action` | S0, S1 |
-| `--token-color-foreground-action-active` | `--hds-foreground-color-action-active` | S0, S1 |
-| `--token-color-foreground-action-hover` | `--hds-foreground-color-action-hover` | S0, S1 |
-| `--token-color-foreground-critical` | `--hds-foreground-color-critical` | S0, S1 |
-| `--token-color-foreground-critical-high-contrast` | `--hds-foreground-color-critical-high-contrast` | S0, S1 |
-| `--token-color-foreground-critical-on-surface` | `--hds-foreground-color-critical-on-surface` | S0, S1 |
-| `--token-color-foreground-disabled` | `--hds-foreground-color-disabled` | S0, S1 |
-| `--token-color-foreground-faint` | `--hds-foreground-color-faint` | S0, S1 |
-| `--token-color-foreground-high-contrast` | `--hds-foreground-color-high-contrast` | S0, S1 |
-| `--token-color-foreground-highlight` | `--hds-foreground-color-highlight` | S0, S1 |
-| `--token-color-foreground-highlight-high-contrast` | `--hds-foreground-color-highlight-high-contrast` | S0, S1 |
-| `--token-color-foreground-highlight-on-surface` | `--hds-foreground-color-highlight-on-surface` | S0, S1 |
-| `--token-color-foreground-primary` | `--hds-foreground-color-primary` | S0, S1 |
-| `--token-color-foreground-strong` | `--hds-foreground-color-strong` | S0, S1 |
-| `--token-color-foreground-success` | `--hds-foreground-color-success` | S0, S1 |
-| `--token-color-foreground-success-high-contrast` | `--hds-foreground-color-success-high-contrast` | S0, S1 |
-| `--token-color-foreground-success-on-surface` | `--hds-foreground-color-success-on-surface` | S0, S1 |
-| `--token-color-foreground-warning` | `--hds-foreground-color-warning` | S0, S1 |
-| `--token-color-foreground-warning-high-contrast` | `--hds-foreground-color-warning-high-contrast` | S0, S1 |
-| `--token-color-foreground-warning-on-surface` | `--hds-foreground-color-warning-on-surface` | S0, S1 |
-| `--token-color-page-faint` | `--hds-page-color-faint` | S0, S1 |
-| `--token-color-page-primary` | `--hds-page-color-primary` | S0, S1 |
-| `--token-color-surface-action` | `--hds-surface-color-action` | S0, S1 |
-| `--token-color-surface-critical` | `--hds-surface-color-critical` | S0, S1 |
-| `--token-color-surface-faint` | `--hds-surface-color-faint` | S0, S1 |
-| `--token-color-surface-highlight` | `--hds-surface-color-highlight` | S0, S1 |
-| `--token-color-surface-interactive` | `--hds-surface-color-interactive` | S0, S1 |
-| `--token-color-surface-interactive-active` | `--hds-surface-color-interactive-active` | S0, S1 |
-| `--token-color-surface-interactive-disabled` | `--hds-surface-color-interactive-disabled` | S0, S1 |
-| `--token-color-surface-interactive-hover` | `--hds-surface-color-interactive-hover` | S0, S1 |
-| `--token-color-surface-primary` | `--hds-surface-color-primary` | S0, S1 |
-| `--token-color-surface-strong` | `--hds-surface-color-strong` | S0, S1 |
-| `--token-color-surface-success` | `--hds-surface-color-success` | S0, S1 |
-| `--token-color-surface-warning` | `--hds-surface-color-warning` | S0, S1 |
+| `--token-color-border-action` | `--hds-border-color-action` | S1 |
+| `--token-color-border-critical` | `--hds-border-color-critical` | S1 |
+| `--token-color-border-faint` | `--hds-border-color-faint` | S1 |
+| `--token-color-border-highlight` | `--hds-border-color-highlight` | S1 |
+| `--token-color-border-primary` | `--hds-border-color-primary` | S1 |
+| `--token-color-border-strong` | `--hds-border-color-strong` | S1 |
+| `--token-color-border-success` | `--hds-border-color-success` | S1 |
+| `--token-color-border-warning` | `--hds-border-color-warning` | S1 |
+| `--token-color-focus-action-external` | `--hds-focus-color-action-external` | S1 |
+| `--token-color-focus-action-internal` | `--hds-focus-color-action-internal` | S1 |
+| `--token-color-focus-critical-external` | `--hds-focus-color-critical-external` | S1 |
+| `--token-color-focus-critical-internal` | `--hds-focus-color-critical-internal` | S1 |
+| `--token-color-foreground-action` | `--hds-foreground-color-action` | S1 |
+| `--token-color-foreground-action-active` | `--hds-foreground-color-action-active` | S1 |
+| `--token-color-foreground-action-hover` | `--hds-foreground-color-action-hover` | S1 |
+| `--token-color-foreground-critical` | `--hds-foreground-color-critical` | S1 |
+| `--token-color-foreground-critical-high-contrast` | `--hds-foreground-color-critical-high-contrast` | S1 |
+| `--token-color-foreground-critical-on-surface` | `--hds-foreground-color-critical-on-surface` | S1 |
+| `--token-color-foreground-disabled` | `--hds-foreground-color-disabled` | S1 |
+| `--token-color-foreground-faint` | `--hds-foreground-color-faint` | S1 |
+| `--token-color-foreground-high-contrast` | `--hds-foreground-color-high-contrast` | S1 |
+| `--token-color-foreground-highlight` | `--hds-foreground-color-highlight` | S1 |
+| `--token-color-foreground-highlight-high-contrast` | `--hds-foreground-color-highlight-high-contrast` | S1 |
+| `--token-color-foreground-highlight-on-surface` | `--hds-foreground-color-highlight-on-surface` | S1 |
+| `--token-color-foreground-primary` | `--hds-foreground-color-primary` | S1 |
+| `--token-color-foreground-strong` | `--hds-foreground-color-strong` | S1 |
+| `--token-color-foreground-success` | `--hds-foreground-color-success` | S1 |
+| `--token-color-foreground-success-high-contrast` | `--hds-foreground-color-success-high-contrast` | S1 |
+| `--token-color-foreground-success-on-surface` | `--hds-foreground-color-success-on-surface` | S1 |
+| `--token-color-foreground-warning` | `--hds-foreground-color-warning` | S1 |
+| `--token-color-foreground-warning-high-contrast` | `--hds-foreground-color-warning-high-contrast` | S1 |
+| `--token-color-foreground-warning-on-surface` | `--hds-foreground-color-warning-on-surface` | S1 |
+| `--token-color-page-faint` | `--hds-page-color-faint` | S1 |
+| `--token-color-page-primary` | `--hds-page-color-primary` | S1 |
+| `--token-color-surface-action` | `--hds-surface-color-action` | S1 |
+| `--token-color-surface-critical` | `--hds-surface-color-critical` | S1 |
+| `--token-color-surface-faint` | `--hds-surface-color-faint` | S1 |
+| `--token-color-surface-highlight` | `--hds-surface-color-highlight` | S1 |
+| `--token-color-surface-interactive` | `--hds-surface-color-interactive` | S1 |
+| `--token-color-surface-interactive-active` | `--hds-surface-color-interactive-active` | S1 |
+| `--token-color-surface-interactive-disabled` | `--hds-surface-color-interactive-disabled` | S1 |
+| `--token-color-surface-interactive-hover` | `--hds-surface-color-interactive-hover` | S1 |
+| `--token-color-surface-primary` | `--hds-surface-color-primary` | S1 |
+| `--token-color-surface-strong` | `--hds-surface-color-strong` | S1 |
+| `--token-color-surface-success` | `--hds-surface-color-success` | S1 |
+| `--token-color-surface-warning` | `--hds-surface-color-warning` | S1 |
 
 ## `prefix-plus-renaming__focus-ring` — 2
 
@@ -482,8 +470,8 @@ Rule: `focus-ring-{variant}-box-shadow` → `focus-ring-box-shadow-{variant}`.
 
 | Before (`--token-*`) | After (`--hds-*`) | Signals |
 | --- | --- | --- |
-| `--token-focus-ring-action-box-shadow` | `--hds-focus-ring-box-shadow-action` | S0, S1 |
-| `--token-focus-ring-critical-box-shadow` | `--hds-focus-ring-box-shadow-critical` | S0, S1 |
+| `--token-focus-ring-action-box-shadow` | `--hds-focus-ring-box-shadow-action` | S1 |
+| `--token-focus-ring-critical-box-shadow` | `--hds-focus-ring-box-shadow-critical` | S1 |
 
 ## `prefix-plus-renaming__transition-function` — 2
 
@@ -491,23 +479,49 @@ Rule: `{rest}-transition-function` → `{rest}-transition-timing-function`.
 
 | Before (`--token-*`) | After (`--hds-*`) | Signals |
 | --- | --- | --- |
-| `--token-tabs-indicator-transition-function` | `--hds-tabs-indicator-transition-timing-function` | S3 |
-| `--token-tooltip-transition-function` | `--hds-tooltip-transition-timing-function` | S3 |
+| `--token-tabs-indicator-transition-function` | `--hds-tabs-indicator-transition-timing-function` | S1 |
+| `--token-tooltip-transition-function` | `--hds-tooltip-transition-timing-function` | S1 |
 
-## `prefix-plus-renaming__other` — 6
+## `prefix-plus-renaming__form-radio-card` — 5
+
+Rule: `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted).
+
+| Before (`--token-*`) | After (`--hds-*`) | Signals |
+| --- | --- | --- |
+| `--token-form-radiocard-border-radius` | `--hds-form-radio-card-border-radius` | S3 |
+| `--token-form-radiocard-border-width` | `--hds-form-radio-card-border-width` | S3 |
+| `--token-form-radiocard-content-padding` | `--hds-form-radio-card-content-padding` | S3 |
+| `--token-form-radiocard-group-gap` | `--hds-form-radio-card-group-gap` | S3 |
+| `--token-form-radiocard-transition-duration` | `--hds-form-radio-card-transition-duration` | S3 |
+
+## `prefix-plus-renaming__form-control-checked` — 5
+
+Rule: `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}` (segment reorder).
+
+| Before (`--token-*`) | After (`--hds-*`) | Signals |
+| --- | --- | --- |
+| `--token-form-control-checked-border-color-default` | `--hds-form-control-border-color-checked-default` | S2 |
+| `--token-form-control-checked-border-color-hover` | `--hds-form-control-border-color-checked-hover` | S2 |
+| `--token-form-control-checked-foreground-color` | `--hds-form-control-foreground-color-checked` | S2 |
+| `--token-form-control-checked-surface-color-default` | `--hds-form-control-surface-color-checked-default` | S2 |
+| `--token-form-control-checked-surface-color-hover` | `--hds-form-control-surface-color-checked-hover` | S2 |
+
+## `prefix-plus-renaming__other` — 8
 
 Structural renames that do not fit a systematic rule — review each.
 
 | Before (`--token-*`) | After (`--hds-*`) | Signals |
 | --- | --- | --- |
-| `--token-app-header-home-link-size` | `--hds-app-header-home-link-logo-size` | S3 |
-| `--token-app-side-nav-body-list-item-content-spacing-horizontal` | `--hds-app-side-nav-body-list-item-padding-horizontal` | S3 |
-| `--token-app-side-nav-body-list-item-spacing-vertical` | `--hds-app-side-nav-body-list-margin-vertical` | S3 |
-| `--token-app-side-nav-color-surface-primary` | `--hds-app-side-nav-wrapper-surface-color` | S3 |
-| `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-base-placeholder-foreground-color` | S2 |
-| `--token-form-control-base-foreground-value-color` | `--hds-form-control-base-foreground-color` | S3 |
+| `--token-app-header-home-link-size` | `--hds-app-header-home-link-logo-size` | S1 |
+| `--token-app-side-nav-body-list-item-content-spacing-horizontal` | `--hds-app-side-nav-body-list-item-padding-horizontal` | S1 |
+| `--token-app-side-nav-body-list-item-spacing-vertical` | `--hds-app-side-nav-body-list-margin-vertical` | S1 |
+| `--token-app-side-nav-color-surface-primary` | `--hds-app-side-nav-wrapper-surface-color` | S1 |
+| `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-base-foreground-color` | S3 |
+| `--token-form-control-base-foreground-value-color` | `--hds-form-control-base-foreground-color` | S1 |
+| `--token-form-control-padding` | `--hds-form-control-padding-vertical` | S3 |
+| `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search-cancel` | S3 |
 
-## `removed` — 16
+## `removed` — 18
 
 No successor token found (`after: null`) — decide: map manually or flag with a TODO.
 
@@ -523,6 +537,8 @@ No successor token found (`after: null`) — decide: map manually or flag with a
 | `--token-app-side-nav-header-home-link-logo-size` | — | — |
 | `--token-app-side-nav-header-home-link-logo-size-minimized` | — | — |
 | `--token-app-side-nav-header-home-link-padding` | — | — |
+| `--token-form-radiocard-control-padding` | — | — |
+| `--token-form-select-background-image-position-top-y` | — | — |
 | `--token-pagination-nav-control-focus-inset` | — | — |
 | `--token-pagination-nav-control-padding-horizontal` | — | — |
 | `--token-tabs-tab-focus-inset` | — | — |
@@ -530,7 +546,7 @@ No successor token found (`after: null`) — decide: map manually or flag with a
 | `--token-tooltip-color-surface-primary` | — | — |
 | `--token-tooltip-focus-offset` | — | — |
 
-## `added` — 377
+## `added` — 619
 
 Brand-new post tokens with no pre origin (informational; not applied by Phase B).
 
@@ -573,6 +589,66 @@ Brand-new post tokens with no pre origin (informational; not applied by Phase B)
 - `--hds-accordion-item-toggle-padding-top-large`
 - `--hds-accordion-item-toggle-padding-top-medium`
 - `--hds-accordion-item-toggle-padding-top-small`
+- `--hds-advanced-table-body-surface-color`
+- `--hds-advanced-table-cell-border-color-default`
+- `--hds-advanced-table-cell-border-color-pinned`
+- `--hds-advanced-table-cell-border-width-default`
+- `--hds-advanced-table-cell-border-width-pinned`
+- `--hds-advanced-table-cell-foreground-color-default`
+- `--hds-advanced-table-cell-foreground-color-hover`
+- `--hds-advanced-table-cell-foreground-color-selected`
+- `--hds-advanced-table-cell-height-medium`
+- `--hds-advanced-table-cell-height-short`
+- `--hds-advanced-table-cell-height-tall`
+- `--hds-advanced-table-cell-line-height`
+- `--hds-advanced-table-cell-padding-horizontal`
+- `--hds-advanced-table-cell-padding-vertical-medium`
+- `--hds-advanced-table-cell-padding-vertical-short`
+- `--hds-advanced-table-cell-padding-vertical-tall`
+- `--hds-advanced-table-cell-pinned-left`
+- `--hds-advanced-table-cell-surface-color-default`
+- `--hds-advanced-table-cell-surface-color-hover`
+- `--hds-advanced-table-cell-surface-color-nested-default`
+- `--hds-advanced-table-cell-surface-color-nested-hover`
+- `--hds-advanced-table-cell-surface-color-parent-hover`
+- `--hds-advanced-table-cell-surface-color-selected-default`
+- `--hds-advanced-table-cell-surface-color-selected-hover`
+- `--hds-advanced-table-cell-surface-color-striped-default`
+- `--hds-advanced-table-cell-surface-color-striped-hover`
+- `--hds-advanced-table-drag-preview-border-color`
+- `--hds-advanced-table-drag-preview-surface-color`
+- `--hds-advanced-table-drop-preview-surface-color`
+- `--hds-advanced-table-empty-state-border-width`
+- `--hds-advanced-table-header-border-width-pinned`
+- `--hds-advanced-table-header-button-border-color-active`
+- `--hds-advanced-table-header-button-border-color-default`
+- `--hds-advanced-table-header-button-border-color-hover`
+- `--hds-advanced-table-header-button-foreground-color-active`
+- `--hds-advanced-table-header-button-foreground-color-default`
+- `--hds-advanced-table-header-button-foreground-color-hover`
+- `--hds-advanced-table-header-button-foreground-color-sorted-active`
+- `--hds-advanced-table-header-button-foreground-color-sorted-default`
+- `--hds-advanced-table-header-button-foreground-color-sorted-hover`
+- `--hds-advanced-table-header-button-size`
+- `--hds-advanced-table-header-button-surface-color-active`
+- `--hds-advanced-table-header-button-surface-color-default`
+- `--hds-advanced-table-header-button-surface-color-hover`
+- `--hds-advanced-table-header-cell-border-offset`
+- `--hds-advanced-table-header-cell-padding-horizontal`
+- `--hds-advanced-table-header-cell-padding-vertical`
+- `--hds-advanced-table-header-surface-color`
+- `--hds-advanced-table-resize-handle-surface-color-active`
+- `--hds-advanced-table-resize-handle-surface-color-focus`
+- `--hds-advanced-table-resize-handle-surface-color-hover`
+- `--hds-advanced-table-row-border-color-default`
+- `--hds-advanced-table-row-border-color-hover`
+- `--hds-advanced-table-row-border-color-selected-default`
+- `--hds-advanced-table-row-border-color-selected-hover`
+- `--hds-advanced-table-row-border-color-striped-default`
+- `--hds-advanced-table-row-border-width`
+- `--hds-advanced-table-scroll-indicator-gradient-color-start`
+- `--hds-advanced-table-scroll-indicator-gradient-color-stop`
+- `--hds-advanced-table-scroll-indicator-top-offset-bottom`
 - `--hds-alert-actions-margin-top`
 - `--hds-alert-border-color-critical`
 - `--hds-alert-border-color-highlight`
@@ -814,11 +890,98 @@ Brand-new post tokens with no pre origin (informational; not applied by Phase B)
 - `--hds-dropdown-toggle-button-padding-right-small`
 - `--hds-dropdown-toggle-icon-gap`
 - `--hds-dropdown-toggle-icon-padding`
+- `--hds-filter-bar-filter-group-generic-clear-button-margin-top`
+- `--hds-filter-bar-filter-group-search-border-width`
+- `--hds-filter-bar-filter-group-search-padding`
+- `--hds-filter-bar-filter-group-values-list-clear-button-margin-left`
+- `--hds-filter-bar-filter-group-values-list-gap`
+- `--hds-filter-bar-filter-group-values-list-selection-option-padding-vertical`
+- `--hds-filter-bar-search-height`
+- `--hds-filter-bar-tabs-list-gap`
+- `--hds-filter-bar-tabs-list-padding`
+- `--hds-filter-bar-tabs-panel-gap`
+- `--hds-filter-bar-tabs-tab-foreground-color-selected-active`
+- `--hds-filter-bar-tabs-tab-foreground-color-selected-default`
+- `--hds-filter-bar-tabs-tab-foreground-color-selected-hover`
+- `--hds-filter-bar-tabs-tab-foreground-color-unselected`
+- `--hds-filter-bar-tabs-tab-surface-color-selected-active`
+- `--hds-filter-bar-tabs-tab-surface-color-selected-default`
+- `--hds-filter-bar-tabs-tab-surface-color-selected-hover`
 - `--hds-focus-ring-width-external`
 - `--hds-focus-ring-width-internal`
+- `--hds-form-checkbox-border-color-checked-disabled`
+- `--hds-form-control-base-placeholder-foreground-color-default`
+- `--hds-form-control-base-placeholder-foreground-color-disabled`
+- `--hds-form-control-border-color-checked-disabled`
+- `--hds-form-control-border-color-unchecked-default`
+- `--hds-form-control-border-color-unchecked-disabled`
+- `--hds-form-control-border-color-unchecked-hover`
+- `--hds-form-control-height`
+- `--hds-form-control-padding-horizontal`
+- `--hds-form-control-surface-color-checked-disabled`
+- `--hds-form-control-surface-color-unchecked-default`
+- `--hds-form-control-surface-color-unchecked-disabled`
+- `--hds-form-control-surface-color-unchecked-hover`
+- `--hds-form-error-icon-color`
+- `--hds-form-file-input-background-image-data-url-file-selector-button-default`
+- `--hds-form-file-input-background-image-data-url-file-selector-button-disabled`
+- `--hds-form-file-input-button-border-color`
+- `--hds-form-file-input-button-height`
+- `--hds-form-group-control-field-margin-top`
+- `--hds-form-label-inline-typography-font-size`
+- `--hds-form-radio-card-border-color-checked-default`
+- `--hds-form-radio-card-border-color-checked-hover`
 - `--hds-form-radio-card-border-color-default`
-- `--hds-form-radio-card-border-color-default-checked`
-- `--hds-form-radio-card-border-color-focus`
+- `--hds-form-radio-card-border-color-disabled`
+- `--hds-form-radio-card-control-size`
+- `--hds-form-radio-card-control-wrapper-border-color-checked`
+- `--hds-form-radio-card-control-wrapper-border-color-default`
+- `--hds-form-radio-card-control-wrapper-border-color-disabled`
+- `--hds-form-radio-card-control-wrapper-padding`
+- `--hds-form-radio-card-control-wrapper-surface-color-checked`
+- `--hds-form-radio-card-control-wrapper-surface-color-default`
+- `--hds-form-radio-card-control-wrapper-surface-color-disabled`
+- `--hds-form-radio-card-description-typography-font-size`
+- `--hds-form-radio-card-label-foreground-color`
+- `--hds-form-radio-card-label-typography-font-size`
+- `--hds-form-radio-card-label-typography-font-weight`
+- `--hds-form-radio-card-label-typography-line-height`
+- `--hds-form-radio-card-surface-color-disabled`
+- `--hds-form-radio-card-surface-color-hover`
+- `--hds-form-radio-surface-color-checked-default`
+- `--hds-form-radio-surface-color-checked-disabled`
+- `--hds-form-radio-surface-color-checked-hover`
+- `--hds-form-select-multiple-option-color-checked`
+- `--hds-form-select-surface-color-hover`
+- `--hds-form-super-select-option-background-image-data-url-checkmark`
+- `--hds-form-super-select-option-background-image-size`
+- `--hds-form-super-select-option-border-color`
+- `--hds-form-super-select-option-foreground-color-active`
+- `--hds-form-super-select-option-foreground-color-hover`
+- `--hds-form-super-select-option-indicator-border-radius`
+- `--hds-form-super-select-option-indicator-bottom`
+- `--hds-form-super-select-option-indicator-left`
+- `--hds-form-super-select-option-indicator-top`
+- `--hds-form-super-select-option-indicator-width`
+- `--hds-form-super-select-option-margin-top`
+- `--hds-form-super-select-option-surface-color-default`
+- `--hds-form-super-select-option-surface-color-hover`
+- `--hds-form-super-select-padding-left`
+- `--hds-form-super-select-search-margin-bottom`
+- `--hds-form-super-select-tag-border-color`
+- `--hds-form-super-select-tag-foreground-color`
+- `--hds-form-super-select-tag-surface-color`
+- `--hds-form-text-input-background-image-data-url-search-cancel-disabled`
+- `--hds-form-text-input-background-image-data-url-search-default`
+- `--hds-form-text-input-background-image-data-url-search-disabled`
+- `--hds-form-text-input-search-cancel-button-width`
+- `--hds-form-textarea-padding-vertical`
+- `--hds-form-toggle-base-surface-color-checked-default`
+- `--hds-form-toggle-base-surface-color-checked-hover`
+- `--hds-form-toggle-base-surface-color-disabled`
+- `--hds-form-toggle-handle-surface-color-default`
+- `--hds-form-toggle-handle-surface-color-disabled`
+- `--hds-form-visibility-toggle-size`
 - `--hds-link-inline-icon-margin-horizontal`
 - `--hds-link-inline-outline-color`
 - `--hds-link-inline-outline-width`
@@ -866,7 +1029,102 @@ Brand-new post tokens with no pre origin (informational; not applied by Phase B)
 - `--hds-rich-tooltip-toggle-foreground-color-hover`
 - `--hds-rich-tooltip-toggle-gap-horizontal`
 - `--hds-rich-tooltip-toggle-icon-size`
+- `--hds-segmented-group-gap`
+- `--hds-segmented-group-margin-left`
+- `--hds-stepper-list-progress-bar-border-color-complete`
+- `--hds-stepper-list-progress-bar-border-color-incomplete`
+- `--hds-stepper-list-progress-bar-left`
+- `--hds-stepper-list-progress-bar-top`
+- `--hds-stepper-list-step-description-foreground-color`
+- `--hds-stepper-list-step-description-margin-top`
+- `--hds-stepper-list-step-description-typography-font-size`
+- `--hds-stepper-list-step-title-typography-font-weight`
+- `--hds-stepper-nav-progress-bar-border-color-complete-default`
+- `--hds-stepper-nav-progress-bar-border-color-complete-interactive`
+- `--hds-stepper-nav-progress-bar-border-color-incomplete`
+- `--hds-stepper-nav-progress-bar-border-width`
+- `--hds-stepper-nav-progress-bar-top`
+- `--hds-stepper-nav-step-description-foreground-color-active`
+- `--hds-stepper-nav-step-description-foreground-color-complete`
+- `--hds-stepper-nav-step-description-foreground-color-incomplete`
+- `--hds-stepper-nav-step-description-margin-top`
+- `--hds-stepper-nav-step-description-typography-font-size`
+- `--hds-stepper-nav-step-surface-color-complete-interactive-active`
+- `--hds-stepper-nav-step-surface-color-complete-interactive-hover`
+- `--hds-stepper-nav-step-title-foreground-color-active-default`
+- `--hds-stepper-nav-step-title-foreground-color-active-interactive`
+- `--hds-stepper-nav-step-title-foreground-color-complete-default`
+- `--hds-stepper-nav-step-title-foreground-color-complete-interactive`
+- `--hds-stepper-nav-step-title-foreground-color-incomplete`
+- `--hds-stepper-nav-step-title-typography-font-weight`
+- `--hds-stepper-step-indicator-foreground-color-complete-default`
+- `--hds-stepper-step-indicator-foreground-color-complete-interactive-active`
+- `--hds-stepper-step-indicator-foreground-color-complete-interactive-default`
+- `--hds-stepper-step-indicator-foreground-color-complete-interactive-hover`
+- `--hds-stepper-step-indicator-foreground-color-incomplete-default`
+- `--hds-stepper-step-indicator-foreground-color-incomplete-interactive`
+- `--hds-stepper-step-indicator-foreground-color-processing-default`
+- `--hds-stepper-step-indicator-foreground-color-processing-interactive`
+- `--hds-stepper-step-indicator-foreground-color-progress-default`
+- `--hds-stepper-step-indicator-foreground-color-progress-interactive`
+- `--hds-stepper-step-indicator-icon-size`
+- `--hds-stepper-step-indicator-size`
+- `--hds-stepper-task-indicator-foreground-color-complete-interactive-active`
+- `--hds-stepper-task-indicator-foreground-color-complete-interactive-default`
+- `--hds-stepper-task-indicator-foreground-color-complete-interactive-hover`
+- `--hds-stepper-task-indicator-foreground-color-incomplete-interactive-active`
+- `--hds-stepper-task-indicator-foreground-color-incomplete-interactive-default`
+- `--hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover`
+- `--hds-stepper-task-indicator-foreground-color-processing-interactive-active`
+- `--hds-stepper-task-indicator-foreground-color-processing-interactive-default`
+- `--hds-stepper-task-indicator-foreground-color-processing-interactive-hover`
+- `--hds-stepper-task-indicator-foreground-color-progress-interactive-active`
+- `--hds-stepper-task-indicator-foreground-color-progress-interactive-default`
+- `--hds-stepper-task-indicator-foreground-color-progress-interactive-hover`
+- `--hds-stepper-task-indicator-icon-size`
+- `--hds-stepper-task-indicator-size`
 - `--hds-surface-color-high-contrast`
+- `--hds-table-body-surface-color`
+- `--hds-table-cell-border-color`
+- `--hds-table-cell-border-width`
+- `--hds-table-cell-foreground-color-default`
+- `--hds-table-cell-foreground-color-hover`
+- `--hds-table-cell-foreground-color-selected`
+- `--hds-table-cell-height-medium`
+- `--hds-table-cell-height-short`
+- `--hds-table-cell-height-tall`
+- `--hds-table-cell-line-height`
+- `--hds-table-cell-padding-horizontal`
+- `--hds-table-cell-padding-vertical-medium`
+- `--hds-table-cell-padding-vertical-short`
+- `--hds-table-cell-padding-vertical-tall`
+- `--hds-table-cell-surface-color-hover`
+- `--hds-table-cell-surface-color-selected-default`
+- `--hds-table-cell-surface-color-selected-hover`
+- `--hds-table-cell-surface-color-striped-default`
+- `--hds-table-cell-surface-color-striped-hover`
+- `--hds-table-header-button-border-color-active`
+- `--hds-table-header-button-border-color-default`
+- `--hds-table-header-button-border-color-hover`
+- `--hds-table-header-button-foreground-color-active`
+- `--hds-table-header-button-foreground-color-default`
+- `--hds-table-header-button-foreground-color-hover`
+- `--hds-table-header-button-foreground-color-sorted-active`
+- `--hds-table-header-button-foreground-color-sorted-default`
+- `--hds-table-header-button-foreground-color-sorted-hover`
+- `--hds-table-header-button-surface-color-active`
+- `--hds-table-header-button-surface-color-default`
+- `--hds-table-header-button-surface-color-hover`
+- `--hds-table-header-cell-border-offset`
+- `--hds-table-header-cell-padding-horizontal`
+- `--hds-table-header-cell-padding-vertical`
+- `--hds-table-header-surface-color`
+- `--hds-table-row-border-color-default`
+- `--hds-table-row-border-color-hover`
+- `--hds-table-row-border-color-selected-default`
+- `--hds-table-row-border-color-selected-hover`
+- `--hds-table-row-border-color-striped-default`
+- `--hds-table-row-border-width`
 - `--hds-tabs-tab-border-color-default`
 - `--hds-tabs-tab-border-color-hover`
 - `--hds-tabs-tab-foreground-color-default`
