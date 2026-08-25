@@ -1,7 +1,7 @@
 # HANDOVER — HDS Token "Carbonization" Full Replacement
 
 > Purpose: give a **fresh session** everything needed to continue this work without re-discovering context.
-> Last updated: 2026-07-21
+> Last updated: 2026-08-25
 
 ---
 
@@ -9,9 +9,10 @@
 
 - Two-phase, dependency-free, config-driven Node tooling migrates CSS design-token **names** from the
   **pre-carbonization** set (`--token-*`, 442 tokens on `main`) to the **post-carbonization** set
-  (`--hds-*`, 801 tokens on the feature branch).
+  (`--hds-*`, 1039 tokens on the feature branch).
 - **Phase A** (`diff-tokens.mjs`) generates the old→new **token map** (`token-map.generated.json`).
-  Runs **once**, only in this monorepo. Already built, run, and accepted.
+  Runs **once**, only in this monorepo. Already built, run, and accepted. **Re-run on 2026-08-25 against
+  100% post-carbonization state.**
 - **Phase B** (`migrate-tokens.mjs`) applies that map to consumer code + verifies. Reusable core +
   per-repo JSON config. Already built and **validated end-to-end**.
 - **Status:**
@@ -53,8 +54,8 @@ copilot-plans/full-tokens-replacement/
 ## 2. The big picture (verified facts)
 
 - **Pre = `main`**: 442 custom properties, ALL `--token-*`, zero `--hds-*`.
-- **Post = working tree** (feature branch `project-solar/00_phase-1-main-feature-branch`, and branches off it,
-  e.g. the dev branch `project-solar/phase-2/10/HDS-6504/full-tokens-replacement`): 801 props, ALL `--hds-*`.
+- **Post = working tree** (branch `project-solar/phase-1-stacked-cherry-picking/XX-Delta`, which contains
+  100% of the carbonization work): **1039 props**, ALL `--hds-*`.
 - The `--token-` → `--hds-` prefix swap is **universal** = "step 0" of carbonization; so **no token is
   literally unchanged**. The map therefore groups pre tokens by **how** they changed, not by identity.
 - Token names read directly from committed CSS — no build needed:
@@ -68,17 +69,19 @@ Flat object; mutually-exclusive **transformation categories** as top-level keys;
 
 | Category | Count | Rule |
 | --- | ---: | --- |
-| `prefix-only` | 242 | only prefix changed: `--token-X` → `--hds-X` |
+| `prefix-only` | 228 | only prefix changed: `--token-X` → `--hds-X` |
 | `prefix-plus-renaming__palette-colors` | 42 | `color-palette-{hue}-{step}` → `core-color-{hue}-{step}` |
 | `prefix-plus-renaming__product-colors` | 86 | `color-{product}-…` → `product-{product}-…-color` |
 | `prefix-plus-renaming__semantic-colors` | 46 | `color-{semantic}-{rest}` → `{semantic}-color-{rest}` |
 | `prefix-plus-renaming__focus-ring` | 2 | `focus-ring-{variant}-box-shadow` → `focus-ring-box-shadow-{variant}` |
 | `prefix-plus-renaming__transition-function` | 2 | `{rest}-transition-function` → `{rest}-transition-timing-function` |
-| `prefix-plus-renaming__other` | 6 | structural renames with no systematic rule (review each) |
-| `removed` | 16 | pre token with no successor → `after: null` |
-| `added` | 377 | brand-new post tokens (`before: null`) — reference only, Phase B ignores |
+| `prefix-plus-renaming__form-radio-card` | 5 | `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted) |
+| `prefix-plus-renaming__form-control-checked` | 5 | `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}` |
+| `prefix-plus-renaming__other` | 8 | structural renames with no systematic rule (review each) |
+| `removed` | 18 | pre token with no successor → `after: null` |
+| `added` | 619 | brand-new post tokens (`before: null`) — reference only, Phase B ignores |
 
-Check: 242+42+86+46+2+2+6+16 = 442 pre tokens ✓.
+Check: 228+42+86+46+2+2+5+5+8+18 = 442 pre tokens ✓.
 
 Phase B consumes **every** category uniformly: non-null `after` → rename; `after: null` → insert TODO marker;
 `before: null` → ignored. So category names are for human legibility only and never affect behavior — adding
@@ -92,20 +95,33 @@ it falls to `__other`. Key predicates in `diff-tokens.mjs`:
 - semantic (`colorReorderExpected`): strip `color-`, tail = `` `${tail[0]}-color-${rest}` ``
 - focus-ring (`focusRingReorderExpected`): `/^focus-ring-(.+)-box-shadow$/` → `focus-ring-box-shadow-$1`
 - transition-function (`transitionFunctionExpected`): `{rest}-transition-function` → `{rest}-transition-timing-function`
+- form-radio-card (`formRadioCardExpected`): `form-radiocard-{rest}` → `form-radio-card-{rest}`
+- form-control-checked (`formControlCheckedExpected`): `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}`
 
 ### Signal sources (Phase A inference, priority order)
-- **S0** mechanical prefix swap (`--token-`→`--hds-`) — applies to every pre token; 242 land verbatim in post.
-- **S1** changeset rename tables/arrows (`.changeset/*.md`) — **names are already in `--hds-` namespace**, so
-  compose ON TOP of S0 and chain across steps. 5 of 14 changesets carry tables: `cyan-boxes-add`,
-  `silent-birds-flash`, `tall-trains-bathe`, `twelve-mirrors-grab`, `twenty-ads-travel`.
+- **S0** mechanical prefix swap (`--token-`→`--hds-`) — applies to every pre token; 228 land verbatim in post.
+- **S1** changeset rename tables/arrows (`.changeset/*.md`) — supports **both** `--hds-*`→`--hds-*` chains
+  (old format) and `--token-*`→`--hds-*` direct pairs (e.g. `carbonization-design-tokens.md`). The resolver
+  tries the S0 endpoint first, then falls back to the raw pre-name as the chain start.
 - **S2** source-JSON provenance/structure (`packages/tokens/src/**/*.json`, excluding `carbon-extracted/**`).
 - **S3** fuzzy name similarity — fallback only, always flagged.
 - Deliberately **NOT** used: generated-CSS value matching (too weak).
-- Accepted Phase A run by signal: 419 high (242 S0, 176 S1, 1 S2), 7 S3 fuzzy, 16 unresolved, 0 conflicts.
+- 2026-08-25 Phase A run by signal: 416 high (228 S0, 183 S1, 5 S2), 8 S3 fuzzy, 18 unresolved, 0 conflicts.
 
 ---
 
 ## 3. What has been done & validated
+
+### Phase A map regenerated at 100% (✅ 2026-08-25)
+- Working tree on `project-solar/phase-1-stacked-cherry-picking/XX-Delta` confirmed at 1039 `--hds-*` tokens
+  (100% carbonization complete). `main` confirmed still at 442 `--token-*` tokens (pre unchanged).
+- `diff-tokens.mjs` re-run; map and diff report overwritten.
+- Script improved during this session:
+  - S1 resolver extended to also try `--token-*` as chain start (catches `carbonization-design-tokens.md`
+    which documents renames as `--token-*`→`--hds-*` directly, not `--hds-*`→`--hds-*`).
+  - Two new systematic categories added: `prefix-plus-renaming__form-radio-card` and
+    `prefix-plus-renaming__form-control-checked`.
+- `carbonization-design-tokens.md` changeset updated to reflect 100% state (424 renamed, 619 added, 18 removed).
 
 ### HDS `main` test harness (✅ complete)
 - Phase B run against a throwaway worktree of `main` (`git worktree add /tmp/hds-main main`).
