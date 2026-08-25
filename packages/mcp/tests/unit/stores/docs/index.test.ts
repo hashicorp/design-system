@@ -7,7 +7,11 @@ import { describe, expect, it } from "vitest";
 import {
   createDocsCatalogStore,
   parseDocsCatalog,
+<<<<<<< HEAD
 } from "../../../../src/stores/docs/index.js";
+=======
+} from "../../../../../src/tools/docs/store/index.js";
+>>>>>>> 493734432 (moved constants)
 import {
   BADGE_CHUNK_ID,
   BUNDLED_AT,
