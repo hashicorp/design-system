@@ -3,13 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-/**
- * The components resource reports a `docsPath` per component and the docs tool is keyed on the
- * same route string. That is the whole composition guarantee: an agent reads a component, then
- * passes its docsPath straight into search_hds_docs. This test is what keeps the two catalogs
- * from drifting apart in silence.
- */
-
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
