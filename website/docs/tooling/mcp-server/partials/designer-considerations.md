@@ -11,15 +11,15 @@ To get the most out of an AI agent, your Figma file or the input you are passing
 
 ### Connected HDS components
 
-Almost all HDS Figma components are linked to a counterpart in code. When you use a component from the HDS library, the AI agent can see not just what the component looks like, but what is _is_: its name, suported properties, accepted variants, the type of content it expresses, and how it should be used. When a component is detached, that link is severed. The AI agent will struggle to identify it as an HDS component, preventing access to the necessary context that would otherwise constrain and guide its output.
+Almost all HDS Figma components are linked to a counterpart in code. When you use a component from the HDS library, the AI agent can see not just what the component looks like, but what is _is_: its name, supported properties, accepted variants, the type of content it expresses, and how it should be used. When a component is detached, that link is severed. The AI agent will struggle to identify it as an HDS component, preventing access to the necessary context that would otherwise constrain and guide its output.
 
-A detached component is also no longer bound by the properties the component actually supports in code. It becomes a visual approximation that may represent something that doesn't exist or isnt' achievable within the system.
+A detached component is also no longer bound by the properties the component actually supports in code. It becomes a visual approximation that may represent something that doesn't exist or isn't achievable within the system.
 
 To ensure the best possible output from an AI agent:
 
 - Stick to assets from the Helios library in Figma; styles, variables, components, patterns, and icons.
 - Use properties that are exposed in the Figma component to customize it.
-- Check for detached assets using Figma's [Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma) feature and retached elements where necessary.
+- Check for detached assets using Figma's [Check Designs](https://help.figma.com/hc/en-us/articles/39592284074263-Check-designs-in-Figma) feature and re-attach elements where necessary.
 
 ### Use HDS styles, variables, and tokens
 
