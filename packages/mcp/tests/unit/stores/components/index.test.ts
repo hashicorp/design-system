@@ -7,8 +7,8 @@ import { describe, expect, it } from "vitest";
 import {
   createComponentCatalogStore,
   parseComponentCatalog,
-} from "../../../../../src/resources/components/store/index.js";
-import { buildComponentCatalogEntry } from "../../../../support/component-catalog.js";
+} from "../../../../src/stores/components/index.js";
+import { buildComponentCatalogEntry } from "../../../support/component-catalog.js";
 
 describe("parseComponentCatalog", () => {
   it("accepts entries with and without the optional keys", () => {

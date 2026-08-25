@@ -11,11 +11,14 @@ import { defineDetailResource } from "../shared/define-resource.js";
 import { toJsonResourceResponse } from "../shared/responses.js";
 import { buildDetailUri } from "../shared/uri.js";
 import { ICONS_URI, ICON_BY_NAME_URI_TEMPLATE } from "./constants.js";
-import { getOrLoadIconStore } from "./store/index.js";
+import { getOrLoadIconStore } from "../../stores/flight-icons/index.js";
 import { toSerializableIcon } from "./utils.js";
 
 import type { McpResource } from "../types.js";
-import type { IconAlias, IconCatalogStore } from "./store/index.js";
+import type {
+  IconAlias,
+  IconCatalogStore,
+} from "../../stores/flight-icons/index.js";
 
 export const completeIconNames = (
   icons: IconAlias[],

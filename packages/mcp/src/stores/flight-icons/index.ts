@@ -3,15 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { normalizeLookupValue } from "../../../shared/normalize.js";
+import { normalizeLookupValue } from "../../shared/normalize.js";
 import {
   DEFAULT_CATALOG_SOURCE,
   createCatalogLoader,
-} from "../../../shared/catalog.js";
+} from "../../shared/catalog.js";
 import { getIconLookupKeys, toIconRecord } from "./lookup.js";
 import { iconCatalogSchema } from "./schema.js";
 
-import type { CatalogSource } from "../../../shared/catalog.js";
+import type { CatalogSource } from "../../shared/catalog.js";
 import type { IconRecord, IconSummary } from "./lookup.js";
 import type { IconCatalog } from "./schema.js";
 

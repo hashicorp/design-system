@@ -7,8 +7,8 @@ import { describe, expect, it } from "vitest";
 import {
   createTokenCatalogStore,
   parseTokenCatalog,
-} from "../../../../../src/resources/tokens/store/index.js";
-import { buildTokenCatalogRow } from "../../../../support/token-catalog.js";
+} from "../../../../src/stores/tokens/index.js";
+import { buildTokenCatalogRow } from "../../../support/token-catalog.js";
 
 describe("parseTokenCatalog", () => {
   it("accepts JSON values used by the generated catalog", () => {
@@ -48,13 +48,13 @@ describe("createTokenCatalogStore", () => {
     const store = createTokenCatalogStore(rows);
 
     expect(store.getTokenByKey("{COLOR.FOREGROUND.ACTION}")?.key).toBe(
-      "{color.foreground.action}"
+      "{color.foreground.action}",
     );
     expect(store.getTokenByKey("color.foreground.action")?.key).toBe(
-      "{color.foreground.action}"
+      "{color.foreground.action}",
     );
     expect(store.getTokenByKey("token-color-foreground-action")?.key).toBe(
-      "{color.foreground.action}"
+      "{color.foreground.action}",
     );
     expect(store.getTokenByKey("not-a-token")).toBeNull();
   });
@@ -64,7 +64,7 @@ describe("createTokenCatalogStore", () => {
 
     // cssVar for token-color-foreground-action is --token-color-foreground-action
     expect(store.getTokenByKey("--token-color-foreground-action")?.key).toBe(
-      "{color.foreground.action}"
+      "{color.foreground.action}",
     );
   });
 
@@ -79,26 +79,24 @@ describe("createTokenCatalogStore", () => {
   it("searches and filters tokens", () => {
     const store = createTokenCatalogStore(rows);
 
-    expect(
-      store.searchTokens({ query: "foreground", limit: 10 })
-    ).toHaveLength(1);
+    expect(store.searchTokens({ query: "foreground", limit: 10 })).toHaveLength(
+      1,
+    );
     expect(
       store.searchTokens({
         query: "action",
         limit: 10,
         type: "color",
         category: " COLOR ",
-      })
+      }),
     ).toHaveLength(1);
-    expect(
-      store.searchTokens({ query: "token", limit: 1 })
-    ).toHaveLength(1);
+    expect(store.searchTokens({ query: "token", limit: 1 })).toHaveLength(1);
     expect(
       store.searchTokens({
         query: "action",
         limit: 10,
         type: "dimension",
-      })
+      }),
     ).toHaveLength(0);
   });
 });

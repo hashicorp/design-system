@@ -20,7 +20,7 @@ import {
   getOrLoadDocsStore,
   loadDocsCatalog,
   parseDocsCatalog,
-} from "../../../src/tools/docs/store/index.js";
+} from "../../../src/stores/docs/index.js";
 import {
   getToolTextContent,
   parseToolJson,

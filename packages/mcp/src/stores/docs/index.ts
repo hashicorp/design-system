@@ -5,9 +5,9 @@
 
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { memoizeCatalogLoader } from "../../../shared/catalog.js";
-import { getMcpPackageDirectory } from "../../../shared/project-root.js";
-import { normalizeLookupValue } from "../../../shared/normalize.js";
+import { memoizeCatalogLoader } from "../../shared/catalog.js";
+import { getMcpPackageDirectory } from "../../shared/project-root.js";
+import { normalizeLookupValue } from "../../shared/normalize.js";
 import {
   CHUNK_FIELD_WEIGHTS,
   CHUNK_SCORE_WEIGHT,
@@ -20,7 +20,7 @@ import {
   PAGE_SCORE_WEIGHT,
   VERSION_HISTORY_SCORE_MULTIPLIER,
   VERSION_HISTORY_TAB,
-} from "../constants.js";
+} from "./constants.js";
 import {
   buildSnippet,
   getAncestorHeadings,
@@ -202,10 +202,6 @@ export const createDocsCatalogStore = (
 
   let indexes: { page: Bm25Index; chunk: Bm25Index } | null = null;
 
-  /**
-   * Built on the first search rather than shipped in the catalog: it costs tens of
-   * milliseconds once per process, against doubling the size of a committed file.
-   */
   const getIndexes = (): { page: Bm25Index; chunk: Bm25Index } => {
     if (indexes !== null) {
       return indexes;

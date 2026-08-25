@@ -11,12 +11,12 @@ import { defineDetailResource } from "../shared/define-resource.js";
 import { toJsonResourceResponse } from "../shared/responses.js";
 import { buildDetailUri } from "../shared/uri.js";
 import { COMPONENTS_URI, COMPONENT_BY_NAME_URI_TEMPLATE } from "./constants.js";
-import { getOrLoadComponentStore } from "./store/index.js";
+import { getOrLoadComponentStore } from "../../stores/components/index.js";
 import { toSerializableComponent } from "./utils.js";
 
 import type { McpResource } from "../types.js";
-import type { ComponentCatalogStore } from "./store/index.js";
-import type { ComponentSummary } from "./store/lookup.js";
+import type { ComponentCatalogStore } from "../../stores/components/index.js";
+import type { ComponentSummary } from "../../stores/components/lookup.js";
 
 export const completeComponentNames = (
   components: ComponentSummary[],

@@ -18,8 +18,8 @@ import {
   READ_DOCS_TOOL_NAME,
   SEARCH_DOCS_TOOL_NAME,
 } from "./constants.js";
-import { getOrLoadDocsStore } from "./store/index.js";
-import { getHeadingPath } from "./store/lookup.js";
+import { getOrLoadDocsStore } from "../../stores/docs/index.js";
+import { getHeadingPath } from "../../stores/docs/lookup.js";
 import {
   clampFilterValue,
   selectChunkContent,
@@ -27,7 +27,7 @@ import {
 } from "./utils.js";
 
 import type { ToolRegistration } from "../shared/define-tool.js";
-import type { DocsCatalogStore } from "./store/index.js";
+import type { DocsCatalogStore } from "../../stores/docs/index.js";
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 

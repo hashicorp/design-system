@@ -5,11 +5,11 @@
 
 import { toJsonResourceResponse } from "../shared/responses.js";
 import { ICONS_URI } from "./constants.js";
-import { getOrLoadIconStore } from "./store/index.js";
+import { getOrLoadIconStore } from "../../stores/flight-icons/index.js";
 import { toSerializableIconSummary } from "./utils.js";
 
 import type { McpResource } from "../types.js";
-import type { IconCatalogStore } from "./store/index.js";
+import type { IconCatalogStore } from "../../stores/flight-icons/index.js";
 
 export const readIconsResource = (store: IconCatalogStore) => {
   const meta = store.getMeta();

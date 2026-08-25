@@ -5,8 +5,8 @@
 
 // record shapes the store hands out, plus the filter and snippet rules applied to them
 
-import { normalizeLookupValue } from "../../../shared/normalize.js";
-import { SNIPPET_MAX_LENGTH } from "../constants.js";
+import { normalizeLookupValue } from "../../shared/normalize.js";
+import { SNIPPET_MAX_LENGTH } from "./constants.js";
 import { tokenize } from "./tokenize.js";
 
 import type {

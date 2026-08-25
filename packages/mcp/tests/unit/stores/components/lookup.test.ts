@@ -8,8 +8,8 @@ import {
   normalizeComponentName,
   toComponentRecord,
   toComponentSummary,
-} from "../../../../../src/resources/components/store/lookup.js";
-import { buildComponentCatalogEntry } from "../../../../support/component-catalog.js";
+} from "../../../../src/stores/components/lookup.js";
+import { buildComponentCatalogEntry } from "../../../support/component-catalog.js";
 
 describe("normalizeComponentName", () => {
   it("strips the Hds:: namespace prefix", () => {

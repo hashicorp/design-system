@@ -4,7 +4,7 @@
  */
 
 import { TOKEN_TYPES } from "./schema.js";
-import { normalizeLookupValue } from "../../../shared/normalize.js";
+import { normalizeLookupValue } from "../../shared/normalize.js";
 
 import type {
   TokenAttributes,
@@ -12,7 +12,7 @@ import type {
   TokenOriginal,
   TokenType,
 } from "./schema.js";
-import type { JsonValue } from "../../../types.js";
+import type { JsonValue } from "../../types.js";
 
 export type TokenSummary = {
   key: string;

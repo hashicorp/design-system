@@ -18,11 +18,11 @@ import {
   SEARCH_DOCS_TOOL_NAME,
   VERSION_HISTORY_TAB,
 } from "./constants.js";
-import { getOrLoadDocsStore } from "./store/index.js";
+import { getOrLoadDocsStore } from "../../stores/docs/index.js";
 import { clampFilterValue, toSerializableSearchResult } from "./utils.js";
 
 import type { ToolRegistration } from "../shared/define-tool.js";
-import type { DocsCatalogStore } from "./store/index.js";
+import type { DocsCatalogStore } from "../../stores/docs/index.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 export const searchDocsInputShape = {

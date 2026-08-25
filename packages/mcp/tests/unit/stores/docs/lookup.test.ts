@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { SNIPPET_MAX_LENGTH } from "../../../../../src/tools/docs/constants.js";
+import { SNIPPET_MAX_LENGTH } from "../../../../src/tools/docs/constants.js";
 import {
   buildSnippet,
   getAncestorHeadings,
@@ -20,7 +20,7 @@ import {
 import {
   buildDocsChunk,
   buildDocsPage,
-} from "../../../../support/docs-catalog.js";
+} from "../../../support/docs-catalog.js";
 
 const buildRecord = () => toChunkRecord(buildDocsChunk(), buildDocsPage());
 
