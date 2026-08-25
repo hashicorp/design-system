@@ -393,26 +393,6 @@
       "after": "--hds-form-control-border-width"
     },
     {
-      "before": "--token-form-control-checked-border-color-default",
-      "after": "--hds-form-control-checked-border-color-default"
-    },
-    {
-      "before": "--token-form-control-checked-border-color-hover",
-      "after": "--hds-form-control-checked-border-color-hover"
-    },
-    {
-      "before": "--token-form-control-checked-foreground-color",
-      "after": "--hds-form-control-checked-foreground-color"
-    },
-    {
-      "before": "--token-form-control-checked-surface-color-default",
-      "after": "--hds-form-control-checked-surface-color-default"
-    },
-    {
-      "before": "--token-form-control-checked-surface-color-hover",
-      "after": "--hds-form-control-checked-surface-color-hover"
-    },
-    {
       "before": "--token-form-control-disabled-border-color",
       "after": "--hds-form-control-disabled-border-color"
     },
@@ -431,10 +411,6 @@
     {
       "before": "--token-form-control-invalid-border-color-hover",
       "after": "--hds-form-control-invalid-border-color-hover"
-    },
-    {
-      "before": "--token-form-control-padding",
-      "after": "--hds-form-control-padding"
     },
     {
       "before": "--token-form-control-readonly-border-color",
@@ -561,30 +537,6 @@
       "after": "--hds-form-radio-size"
     },
     {
-      "before": "--token-form-radiocard-border-radius",
-      "after": "--hds-form-radio-card-border-radius"
-    },
-    {
-      "before": "--token-form-radiocard-border-width",
-      "after": "--hds-form-radio-card-border-width"
-    },
-    {
-      "before": "--token-form-radiocard-content-padding",
-      "after": "--hds-form-radio-card-content-padding"
-    },
-    {
-      "before": "--token-form-radiocard-control-padding",
-      "after": "--hds-form-radio-card-control-padding"
-    },
-    {
-      "before": "--token-form-radiocard-group-gap",
-      "after": "--hds-form-radio-card-group-gap"
-    },
-    {
-      "before": "--token-form-radiocard-transition-duration",
-      "after": "--hds-form-radio-card-transition-duration"
-    },
-    {
       "before": "--token-form-select-background-image-data-url",
       "after": "--hds-form-select-background-image-data-url"
     },
@@ -597,20 +549,12 @@
       "after": "--hds-form-select-background-image-position-right-x"
     },
     {
-      "before": "--token-form-select-background-image-position-top-y",
-      "after": "--hds-form-select-background-image-position-top-y"
-    },
-    {
       "before": "--token-form-select-background-image-size",
       "after": "--hds-form-select-background-image-size"
     },
     {
       "before": "--token-form-text-input-background-image-data-url-date",
       "after": "--hds-form-text-input-background-image-data-url-date"
-    },
-    {
-      "before": "--token-form-text-input-background-image-data-url-search",
-      "after": "--hds-form-text-input-background-image-data-url-search"
     },
     {
       "before": "--token-form-text-input-background-image-data-url-search-cancel",
@@ -1691,6 +1635,50 @@
       "after": "--hds-tooltip-transition-timing-function"
     }
   ],
+  "prefix-plus-renaming__form-radio-card": [
+    {
+      "before": "--token-form-radiocard-border-radius",
+      "after": "--hds-form-radio-card-border-radius"
+    },
+    {
+      "before": "--token-form-radiocard-border-width",
+      "after": "--hds-form-radio-card-border-width"
+    },
+    {
+      "before": "--token-form-radiocard-content-padding",
+      "after": "--hds-form-radio-card-content-padding"
+    },
+    {
+      "before": "--token-form-radiocard-group-gap",
+      "after": "--hds-form-radio-card-group-gap"
+    },
+    {
+      "before": "--token-form-radiocard-transition-duration",
+      "after": "--hds-form-radio-card-transition-duration"
+    }
+  ],
+  "prefix-plus-renaming__form-control-checked": [
+    {
+      "before": "--token-form-control-checked-border-color-default",
+      "after": "--hds-form-control-border-color-checked-default"
+    },
+    {
+      "before": "--token-form-control-checked-border-color-hover",
+      "after": "--hds-form-control-border-color-checked-hover"
+    },
+    {
+      "before": "--token-form-control-checked-foreground-color",
+      "after": "--hds-form-control-foreground-color-checked"
+    },
+    {
+      "before": "--token-form-control-checked-surface-color-default",
+      "after": "--hds-form-control-surface-color-checked-default"
+    },
+    {
+      "before": "--token-form-control-checked-surface-color-hover",
+      "after": "--hds-form-control-surface-color-checked-hover"
+    }
+  ],
   "prefix-plus-renaming__other": [
     {
       "before": "--token-app-header-home-link-size",
@@ -1710,11 +1698,19 @@
     },
     {
       "before": "--token-form-control-base-foreground-placeholder-color",
-      "after": "--hds-form-control-base-placeholder-foreground-color"
+      "after": "--hds-form-control-base-foreground-color"
     },
     {
       "before": "--token-form-control-base-foreground-value-color",
       "after": "--hds-form-control-base-foreground-color"
+    },
+    {
+      "before": "--token-form-control-padding",
+      "after": "--hds-form-control-padding-vertical"
+    },
+    {
+      "before": "--token-form-text-input-background-image-data-url-search",
+      "after": "--hds-form-text-input-background-image-data-url-search-cancel"
     }
   ],
   "removed": [
@@ -1756,6 +1752,14 @@
     },
     {
       "before": "--token-app-side-nav-header-home-link-padding",
+      "after": null
+    },
+    {
+      "before": "--token-form-radiocard-control-padding",
+      "after": null
+    },
+    {
+      "before": "--token-form-select-background-image-position-top-y",
       "after": null
     },
     {
@@ -1931,6 +1935,246 @@
     {
       "before": null,
       "after": "--hds-accordion-item-toggle-padding-top-small"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-body-surface-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-border-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-border-color-pinned"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-border-width-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-border-width-pinned"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-foreground-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-foreground-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-foreground-color-selected"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-height-medium"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-height-short"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-height-tall"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-line-height"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-padding-horizontal"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-padding-vertical-medium"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-padding-vertical-short"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-padding-vertical-tall"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-pinned-left"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-nested-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-nested-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-parent-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-selected-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-selected-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-striped-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-cell-surface-color-striped-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-drag-preview-border-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-drag-preview-surface-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-drop-preview-surface-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-empty-state-border-width"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-border-width-pinned"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-border-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-border-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-border-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-foreground-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-foreground-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-foreground-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-foreground-color-sorted-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-foreground-color-sorted-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-foreground-color-sorted-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-surface-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-surface-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-button-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-cell-border-offset"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-cell-padding-horizontal"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-cell-padding-vertical"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-header-surface-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-resize-handle-surface-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-resize-handle-surface-color-focus"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-resize-handle-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-row-border-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-row-border-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-row-border-color-selected-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-row-border-color-selected-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-row-border-color-striped-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-row-border-width"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-scroll-indicator-gradient-color-start"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-scroll-indicator-gradient-color-stop"
+    },
+    {
+      "before": null,
+      "after": "--hds-advanced-table-scroll-indicator-top-offset-bottom"
     },
     {
       "before": null,
@@ -2898,6 +3142,74 @@
     },
     {
       "before": null,
+      "after": "--hds-filter-bar-filter-group-generic-clear-button-margin-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-filter-group-search-border-width"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-filter-group-search-padding"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-filter-group-values-list-clear-button-margin-left"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-filter-group-values-list-gap"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-filter-group-values-list-selection-option-padding-vertical"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-search-height"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-list-gap"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-list-padding"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-panel-gap"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-tab-foreground-color-selected-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-tab-foreground-color-selected-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-tab-foreground-color-selected-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-tab-foreground-color-unselected"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-tab-surface-color-selected-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-tab-surface-color-selected-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-filter-bar-tabs-tab-surface-color-selected-hover"
+    },
+    {
+      "before": null,
       "after": "--hds-focus-ring-width-external"
     },
     {
@@ -2906,15 +3218,295 @@
     },
     {
       "before": null,
+      "after": "--hds-form-checkbox-border-color-checked-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-base-placeholder-foreground-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-base-placeholder-foreground-color-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-border-color-checked-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-border-color-unchecked-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-border-color-unchecked-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-border-color-unchecked-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-height"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-padding-horizontal"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-surface-color-checked-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-surface-color-unchecked-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-surface-color-unchecked-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-control-surface-color-unchecked-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-error-icon-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-file-input-background-image-data-url-file-selector-button-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-file-input-background-image-data-url-file-selector-button-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-file-input-button-border-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-file-input-button-height"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-group-control-field-margin-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-label-inline-typography-font-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-border-color-checked-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-border-color-checked-hover"
+    },
+    {
+      "before": null,
       "after": "--hds-form-radio-card-border-color-default"
     },
     {
       "before": null,
-      "after": "--hds-form-radio-card-border-color-default-checked"
+      "after": "--hds-form-radio-card-border-color-disabled"
     },
     {
       "before": null,
-      "after": "--hds-form-radio-card-border-color-focus"
+      "after": "--hds-form-radio-card-control-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-control-wrapper-border-color-checked"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-control-wrapper-border-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-control-wrapper-border-color-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-control-wrapper-padding"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-control-wrapper-surface-color-checked"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-control-wrapper-surface-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-control-wrapper-surface-color-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-description-typography-font-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-label-foreground-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-label-typography-font-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-label-typography-font-weight"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-label-typography-line-height"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-surface-color-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-card-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-surface-color-checked-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-surface-color-checked-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-radio-surface-color-checked-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-select-multiple-option-color-checked"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-select-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-background-image-data-url-checkmark"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-background-image-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-border-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-foreground-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-foreground-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-indicator-border-radius"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-indicator-bottom"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-indicator-left"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-indicator-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-indicator-width"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-margin-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-surface-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-option-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-padding-left"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-search-margin-bottom"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-tag-border-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-tag-foreground-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-super-select-tag-surface-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-text-input-background-image-data-url-search-cancel-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-text-input-background-image-data-url-search-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-text-input-background-image-data-url-search-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-text-input-search-cancel-button-width"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-textarea-padding-vertical"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-toggle-base-surface-color-checked-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-toggle-base-surface-color-checked-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-toggle-base-surface-color-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-toggle-handle-surface-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-toggle-handle-surface-color-disabled"
+    },
+    {
+      "before": null,
+      "after": "--hds-form-visibility-toggle-size"
     },
     {
       "before": null,
@@ -3106,7 +3698,387 @@
     },
     {
       "before": null,
+      "after": "--hds-segmented-group-gap"
+    },
+    {
+      "before": null,
+      "after": "--hds-segmented-group-margin-left"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-list-progress-bar-border-color-complete"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-list-progress-bar-border-color-incomplete"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-list-progress-bar-left"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-list-progress-bar-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-list-step-description-foreground-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-list-step-description-margin-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-list-step-description-typography-font-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-list-step-title-typography-font-weight"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-progress-bar-border-color-complete-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-progress-bar-border-color-complete-interactive"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-progress-bar-border-color-incomplete"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-progress-bar-border-width"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-progress-bar-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-description-foreground-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-description-foreground-color-complete"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-description-foreground-color-incomplete"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-description-margin-top"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-description-typography-font-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-surface-color-complete-interactive-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-surface-color-complete-interactive-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-title-foreground-color-active-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-title-foreground-color-active-interactive"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-title-foreground-color-complete-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-title-foreground-color-complete-interactive"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-title-foreground-color-incomplete"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-nav-step-title-typography-font-weight"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-complete-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-complete-interactive-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-complete-interactive-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-complete-interactive-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-incomplete-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-incomplete-interactive"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-processing-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-processing-interactive"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-progress-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-foreground-color-progress-interactive"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-icon-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-step-indicator-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-complete-interactive-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-complete-interactive-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-complete-interactive-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-incomplete-interactive-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-incomplete-interactive-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-processing-interactive-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-processing-interactive-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-processing-interactive-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-progress-interactive-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-progress-interactive-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-foreground-color-progress-interactive-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-icon-size"
+    },
+    {
+      "before": null,
+      "after": "--hds-stepper-task-indicator-size"
+    },
+    {
+      "before": null,
       "after": "--hds-surface-color-high-contrast"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-body-surface-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-border-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-border-width"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-foreground-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-foreground-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-foreground-color-selected"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-height-medium"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-height-short"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-height-tall"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-line-height"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-padding-horizontal"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-padding-vertical-medium"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-padding-vertical-short"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-padding-vertical-tall"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-surface-color-selected-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-surface-color-selected-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-surface-color-striped-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-cell-surface-color-striped-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-border-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-border-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-border-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-foreground-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-foreground-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-foreground-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-foreground-color-sorted-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-foreground-color-sorted-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-foreground-color-sorted-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-surface-color-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-surface-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-button-surface-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-cell-border-offset"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-cell-padding-horizontal"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-cell-padding-vertical"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-header-surface-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-row-border-color-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-row-border-color-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-row-border-color-selected-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-row-border-color-selected-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-row-border-color-striped-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-table-row-border-width"
     },
     {
       "before": null,
