@@ -3,6 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+<<<<<<< HEAD
+=======
+import { MAX_FILTER_LENGTH } from "./constants.js";
+>>>>>>> e04073dbf (moved constants)
 import { getHeadingPath } from "../../stores/docs/lookup.js";
 
 import type {
