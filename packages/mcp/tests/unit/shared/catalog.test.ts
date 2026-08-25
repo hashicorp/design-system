@@ -5,15 +5,9 @@
 
 import { readFileSync } from "node:fs";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-<<<<<<<< HEAD:packages/mcp/tests/unit/catalog/loader.test.ts
-import { createCatalogLoader } from "../../../src/catalog/loader.js";
+import { createCatalogLoader } from "../../../src/shared/catalog.js";
 
-import type { CatalogAnchor } from "../../../src/catalog/loader.js";
-========
-import { createCatalogLoader } from "../../../../src/shared/catalog.js";
-
-import type { CatalogAnchor } from "../../../../src/shared/catalog.js";
->>>>>>>> 54d7144c7 (reorganizing catalog utilities to be shared by resources and tools):packages/mcp/tests/unit/shared/catalog.test.ts
+import type { CatalogAnchor } from "../../../src/shared/catalog.js";
 
 vi.mock("node:fs", () => ({
   readFileSync: vi.fn(),
