@@ -23,7 +23,7 @@ To ensure the best possible output from an AI agent:
 
 ### Use HDS styles, variables, and tokens
 
-HDS design tokens (variables and styles in Figma) are named values that map direclty to CSS custom properties in code. When you apply a style token like `page-primary` to a background color, an AI agent knows both the semantic intent and the exact code-level value that should be used. When you apply a raw hex value (e.g., `#ffffff`) to an agent, the agent sees a color but has no context about what role it plays in the system and cannot reliably determine whether it should be `page-primary`, `surface-primary`, or `neutral-0`, even if they all resolve to the same hex value.
+HDS design tokens (variables and styles in Figma) are named values that map directly to CSS custom properties in code. When you apply a style token like `page-primary` to a background color, an AI agent knows both the semantic intent and the exact code-level value that should be used. When you apply a raw hex value (e.g., `#ffffff`) to an agent, the agent sees a color but has no context about what role it plays in the system and cannot reliably determine whether it should be `page-primary`, `surface-primary`, or `neutral-0`, even if they all resolve to the same hex value.
 
 The same principle applies to typography: using a text style named `body-200` tells the agent exactly which typographic token to reference in code, or which properties to set when using the `<HdsText>` component.
 
