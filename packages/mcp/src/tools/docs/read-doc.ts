@@ -10,10 +10,7 @@ import {
   toJsonToolResponse,
   withSafeToolHandler,
 } from "../responses.js";
-import {
-  clampFilterValue,
-  MAX_FILTER_LENGTH,
-} from "../search.js";
+import { clampFilterValue, MAX_FILTER_LENGTH } from "../search.js";
 import {
   DEFAULT_READ_MAX_BYTES,
   MAX_READ_MAX_BYTES,
@@ -23,10 +20,7 @@ import {
 } from "./constants.js";
 import { getOrLoadDocsStore } from "../../stores/docs/index.js";
 import { getHeadingPath } from "../../stores/docs/lookup.js";
-import {
-  selectChunkContent,
-  toSerializablePageLinks,
-} from "./utils.js";
+import { selectChunkContent, toSerializablePageLinks } from "./utils.js";
 
 import type { ToolRegistration } from "../define-tool.js";
 import type { DocsCatalogStore } from "../../stores/docs/index.js";

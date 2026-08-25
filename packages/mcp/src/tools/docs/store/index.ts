@@ -6,7 +6,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { memoizeCatalogLoader } from "../../../resources/shared/catalog.js";
-import { getMcpPackageDirectory } from "../../../resources/shared/project-root.js";
+import { getMcpPackageDirectory } from "../../../shared/project-root.js";
 import { normalizeLookupValue } from "../../../shared/normalize.js";
 import {
   CHUNK_FIELD_WEIGHTS,
