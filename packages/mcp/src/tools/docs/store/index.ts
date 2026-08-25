@@ -5,7 +5,7 @@
 
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { memoizeCatalogLoader } from "../../../resources/shared/catalog.js";
+import { memoizeCatalogLoader } from "../../../shared/catalog.js";
 import { getMcpPackageDirectory } from "../../../shared/project-root.js";
 import { normalizeLookupValue } from "../../../shared/normalize.js";
 import {
