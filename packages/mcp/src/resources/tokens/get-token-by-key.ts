@@ -3,10 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import {
-  completeFromAliases,
-  withSafeCompletion,
-} from "../completions.js";
+import { completeFromAliases, withSafeCompletion } from "../completions.js";
 import { defineDetailResource } from "../define-resource.js";
 import { getOrLoadTokenStore } from "./store/index.js";
 import { toJsonResourceResponse } from "../responses.js";
@@ -15,8 +12,8 @@ import { TOKENS_URI, TOKEN_BY_KEY_URI_TEMPLATE } from "./constants.js";
 import { toSerializableTokenSummary } from "./utils.js";
 
 import type { McpResource } from "../types.js";
-import type { TokenCatalogStore } from "./store/index.js";
-import type { TokenSummary } from "./store/lookup.js";
+import type { TokenCatalogStore } from "../../stores/tokens/index.js";
+import type { TokenSummary } from "../../stores/tokens/lookup.js";
 
 export const completeTokenKeys = (
   tokens: TokenSummary[],

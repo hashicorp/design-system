@@ -14,7 +14,7 @@ import {
   readDoc,
   readDocInputShape,
 } from "../../../src/tools/docs/read-doc.js";
-import { createDocsCatalogStore } from "../../../src/tools/docs/store/index.js";
+import { createDocsCatalogStore } from "../../../src/stores/docs/index.js";
 import {
   BUNDLED_AT,
   BUTTON_ACCESSIBILITY_CHUNK_ID,

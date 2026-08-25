@@ -4,7 +4,11 @@
  */
 
 import { TOKEN_TYPES } from "./schema.js";
+<<<<<<< HEAD:packages/mcp/src/resources/tokens/store/lookup.ts
 import { normalizeLookupValue } from "../../../catalog/normalize.js";
+=======
+import { normalizeLookupValue } from "../../shared/normalize.js";
+>>>>>>> 493734432 (moved constants):packages/mcp/src/stores/tokens/lookup.ts
 
 import type {
   TokenAttributes,
@@ -12,7 +16,7 @@ import type {
   TokenOriginal,
   TokenType,
 } from "./schema.js";
-import type { JsonValue } from "../../../types.js";
+import type { JsonValue } from "../../types.js";
 
 export type TokenSummary = {
   key: string;

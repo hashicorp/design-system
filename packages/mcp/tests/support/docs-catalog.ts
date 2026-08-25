@@ -9,7 +9,7 @@ import type {
   DocsCatalog,
   DocsChunk,
   DocsPage,
-} from "../../src/tools/docs/store/schema.js";
+} from "../../src/stores/docs/schema.js";
 
 export const BUNDLED_AT = "2026-08-20T01:49:55.082Z";
 export const SITE_BASE_URL = "https://helios.hashicorp.design/";

@@ -11,7 +11,7 @@ import {
   parseComponentCatalog,
 } from "../../../src/resources/components/store/index.js";
 import { searchDocs } from "../../../src/tools/docs/search-docs.js";
-import { getOrLoadDocsStore } from "../../../src/tools/docs/store/index.js";
+import { getOrLoadDocsStore } from "../../../src/stores/docs/index.js";
 
 // the workspace source of truth, not the copy installed into node_modules
 const COMPONENT_CATALOG_PATH = fileURLToPath(

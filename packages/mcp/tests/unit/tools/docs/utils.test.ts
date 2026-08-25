@@ -7,7 +7,7 @@ import { describe, expect, it } from "vitest";
 import {
   toChunkRecord,
   toPageRecord,
-} from "../../../../src/tools/docs/store/lookup.js";
+} from "../../../../src/stores/docs/lookup.js";
 import {
   joinChunkContent,
   toSerializablePageLinks,
@@ -19,7 +19,7 @@ import {
   buildDocsPage,
 } from "../../../support/docs-catalog.js";
 
-import type { DocsSearchHit } from "../../../../src/tools/docs/store/index.js";
+import type { DocsSearchHit } from "../../../../src/stores/docs/index.js";
 
 const buildHit = (overrides: Partial<DocsSearchHit> = {}): DocsSearchHit => ({
   chunk: toChunkRecord(buildDocsChunk(), buildDocsPage()),

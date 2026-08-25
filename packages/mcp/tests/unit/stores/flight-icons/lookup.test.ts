@@ -7,8 +7,8 @@ import { describe, expect, it } from "vitest";
 import {
   getIconLookupKeys,
   toIconRecord,
-} from "../../../../../src/resources/flight-icons/store/lookup.js";
-import { buildIconAsset } from "../../../../support/flight-icon-catalog.js";
+} from "../../../../src/stores/flight-icons/lookup.js";
+import { buildIconAsset } from "../../../support/flight-icon-catalog.js";
 
 describe("toIconRecord", () => {
   it("groups and sorts variants while retaining optional mappings", () => {

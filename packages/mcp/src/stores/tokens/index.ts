@@ -3,11 +3,19 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+<<<<<<< HEAD:packages/mcp/src/resources/tokens/store/index.ts
 import { normalizeLookupValue } from "../../../catalog/normalize.js";
 import {
   DEFAULT_CATALOG_SOURCE,
   createCatalogLoader,
 } from "../../../catalog/loader.js";
+=======
+import { normalizeLookupValue } from "../../shared/normalize.js";
+import {
+  DEFAULT_CATALOG_SOURCE,
+  createCatalogLoader,
+} from "../../shared/catalog.js";
+>>>>>>> 493734432 (moved constants):packages/mcp/src/stores/tokens/index.ts
 import {
   getTokenLookupKeys,
   normalizeTokenLookupKey,
