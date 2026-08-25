@@ -312,6 +312,8 @@ const CATEGORY_ORDER = [
   'prefix-plus-renaming__semantic-colors',
   'prefix-plus-renaming__focus-ring',
   'prefix-plus-renaming__transition-function',
+  'prefix-plus-renaming__form-radio-card',
+  'prefix-plus-renaming__form-control-checked',
   'prefix-plus-renaming__other',
   'removed',
   'added',
@@ -336,6 +338,29 @@ function transitionFunctionExpected(preBare) {
   const suffix = '-transition-function';
   if (!preBare.endsWith(suffix)) return null;
   return `${preBare.slice(0, -suffix.length)}-transition-timing-function`;
+}
+
+/** Expected form-radio-card post name: `form-radiocard-{rest}` → `form-radio-card-{rest}`. */
+function formRadioCardExpected(preBare) {
+  const prefix = 'form-radiocard-';
+  if (!preBare.startsWith(prefix)) return null;
+  return `form-radio-card-${preBare.slice(prefix.length)}`;
+}
+
+/**
+ * Expected form-control-checked post name:
+ * `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}`
+ * where {type} is e.g. "border", "surface", "foreground".
+ */
+function formControlCheckedExpected(preBare) {
+  const prefix = 'form-control-checked-';
+  if (!preBare.startsWith(prefix)) return null;
+  const tail = preBare.slice(prefix.length); // e.g. "border-color-default"
+  const colorIdx = tail.indexOf('-color');
+  if (colorIdx === -1) return null;
+  const type = tail.slice(0, colorIdx + '-color'.length); // e.g. "border-color"
+  const rest = tail.slice(colorIdx + '-color'.length);    // e.g. "-default" or ""
+  return `form-control-${type}-checked${rest}`;
 }
 
 /**
@@ -363,6 +388,12 @@ function classify(before, after) {
   }
   if (postBare === transitionFunctionExpected(preBare)) {
     return 'prefix-plus-renaming__transition-function';
+  }
+  if (postBare === formRadioCardExpected(preBare)) {
+    return 'prefix-plus-renaming__form-radio-card';
+  }
+  if (postBare === formControlCheckedExpected(preBare)) {
+    return 'prefix-plus-renaming__form-control-checked';
   }
   return 'prefix-plus-renaming__other';
 }
@@ -408,12 +439,23 @@ function main() {
       confidence = 'high';
       signals.push('S0');
     } else {
-      // S1 — changeset chain composed on top of S0.
-      const { endpoint } = graph.resolve(s0);
-      if (endpoint !== s0 && postNames.has(endpoint)) {
+      // S1 — changeset chain. Try starting from s0 (--hds-<bare>) for
+      // changesets in the --hds-*→--hds-* format, and also from preName
+      // (--token-<bare>) for changesets that document --token-*→--hds-*
+      // directly (e.g. carbonization-design-tokens.md).
+      const fromS0 = graph.resolve(s0);
+      const fromPre = graph.resolve(preName);
+      // Prefer the s0-chain endpoint; fall back to the pre-chain endpoint.
+      const endpoint =
+        fromS0.endpoint !== s0 && postNames.has(fromS0.endpoint)
+          ? fromS0.endpoint
+          : fromPre.endpoint !== preName && postNames.has(fromPre.endpoint)
+            ? fromPre.endpoint
+            : null;
+      if (endpoint) {
         after = endpoint;
         confidence = 'high';
-        signals.push('S0', 'S1');
+        signals.push('S1');
       }
     }
 
@@ -566,6 +608,10 @@ function writeReports({ preNames, postNames, resolutions, added, changesetPairs,
       'Rule: `focus-ring-{variant}-box-shadow` → `focus-ring-box-shadow-{variant}`.',
     'prefix-plus-renaming__transition-function':
       'Rule: `{rest}-transition-function` → `{rest}-transition-timing-function`.',
+    'prefix-plus-renaming__form-radio-card':
+      'Rule: `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted).',
+    'prefix-plus-renaming__form-control-checked':
+      'Rule: `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}` (segment reorder).',
     'prefix-plus-renaming__other':
       'Structural renames that do not fit a systematic rule — review each.',
     removed:
