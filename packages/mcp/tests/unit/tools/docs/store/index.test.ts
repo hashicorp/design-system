@@ -380,6 +380,13 @@ describe("search", () => {
     expect(outcome.hits).toStrictEqual([]);
   });
 
+<<<<<<< HEAD
+=======
+  /**
+   * A filter that normalizes to nothing is reported and then dropped. Applied, it would match
+   * no chunk at all and the payload would name an empty string as the filter that did it.
+   */
+>>>>>>> 7c66edbc9 (added docs store/tests)
   it("reports a filter that normalizes to nothing without applying it", () => {
     const outcome = search("button", {
       docsPath: "/",
