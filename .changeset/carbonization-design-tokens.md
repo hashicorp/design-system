@@ -9,6 +9,7 @@ Renamed design tokens to align with the approved nomenclature.
 - Changed the "semantic" color token namespace from `color-[semantic]` to `[semantic]-color`.
 - Changed the "product" color token namespace from `color-<product>` to `product-<product>-…-color`.
 - Changed the "focus-ring" box-shadow token names from `focus-ring-[variant]-box-shadow` to `focus-ring-box-shadow-[variant]`.
+- Changed the `form-radiocard` token namespace to `form-radio-card`.
 - Changed "component-level" tokens' names to follow more closely new nomenclature
 
 Updated alias and group references to match the new structure. Updated build and post-processing scripts accordingly.
@@ -119,17 +120,11 @@ Renamed tokens:
 | `--token-form-control-base-surface-color-hover` | `--hds-form-control-base-surface-color-hover` |
 | `--token-form-control-border-radius` | `--hds-form-control-border-radius` |
 | `--token-form-control-border-width` | `--hds-form-control-border-width` |
-| `--token-form-control-checked-border-color-default` | `--hds-form-control-checked-border-color-default` |
-| `--token-form-control-checked-border-color-hover` | `--hds-form-control-checked-border-color-hover` |
-| `--token-form-control-checked-foreground-color` | `--hds-form-control-checked-foreground-color` |
-| `--token-form-control-checked-surface-color-default` | `--hds-form-control-checked-surface-color-default` |
-| `--token-form-control-checked-surface-color-hover` | `--hds-form-control-checked-surface-color-hover` |
 | `--token-form-control-disabled-border-color` | `--hds-form-control-disabled-border-color` |
 | `--token-form-control-disabled-foreground-color` | `--hds-form-control-disabled-foreground-color` |
 | `--token-form-control-disabled-surface-color` | `--hds-form-control-disabled-surface-color` |
 | `--token-form-control-invalid-border-color-default` | `--hds-form-control-invalid-border-color-default` |
 | `--token-form-control-invalid-border-color-hover` | `--hds-form-control-invalid-border-color-hover` |
-| `--token-form-control-padding` | `--hds-form-control-padding` |
 | `--token-form-control-readonly-border-color` | `--hds-form-control-readonly-border-color` |
 | `--token-form-control-readonly-foreground-color` | `--hds-form-control-readonly-foreground-color` |
 | `--token-form-control-readonly-surface-color` | `--hds-form-control-readonly-surface-color` |
@@ -161,19 +156,11 @@ Renamed tokens:
 | `--token-form-radio-background-image-size` | `--hds-form-radio-background-image-size` |
 | `--token-form-radio-border-width` | `--hds-form-radio-border-width` |
 | `--token-form-radio-size` | `--hds-form-radio-size` |
-| `--token-form-radiocard-border-radius` | `--hds-form-radiocard-border-radius` |
-| `--token-form-radiocard-border-width` | `--hds-form-radiocard-border-width` |
-| `--token-form-radiocard-content-padding` | `--hds-form-radiocard-content-padding` |
-| `--token-form-radiocard-control-padding` | `--hds-form-radiocard-control-padding` |
-| `--token-form-radiocard-group-gap` | `--hds-form-radiocard-group-gap` |
-| `--token-form-radiocard-transition-duration` | `--hds-form-radiocard-transition-duration` |
 | `--token-form-select-background-image-data-url` | `--hds-form-select-background-image-data-url` |
 | `--token-form-select-background-image-data-url-disabled` | `--hds-form-select-background-image-data-url-disabled` |
 | `--token-form-select-background-image-position-right-x` | `--hds-form-select-background-image-position-right-x` |
-| `--token-form-select-background-image-position-top-y` | `--hds-form-select-background-image-position-top-y` |
 | `--token-form-select-background-image-size` | `--hds-form-select-background-image-size` |
 | `--token-form-text-input-background-image-data-url-date` | `--hds-form-text-input-background-image-data-url-date` |
-| `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search` |
 | `--token-form-text-input-background-image-data-url-search-cancel` | `--hds-form-text-input-background-image-data-url-search-cancel` |
 | `--token-form-text-input-background-image-data-url-search-loading` | `--hds-form-text-input-background-image-data-url-search-loading` |
 | `--token-form-text-input-background-image-data-url-time` | `--hds-form-text-input-background-image-data-url-time` |
@@ -441,12 +428,24 @@ Renamed tokens:
 | `--token-focus-ring-critical-box-shadow` | `--hds-focus-ring-box-shadow-critical` |
 | `--token-tabs-indicator-transition-function` | `--hds-tabs-indicator-transition-timing-function` |
 | `--token-tooltip-transition-function` | `--hds-tooltip-transition-timing-function` |
+| `--token-form-radiocard-border-radius` | `--hds-form-radio-card-border-radius` |
+| `--token-form-radiocard-border-width` | `--hds-form-radio-card-border-width` |
+| `--token-form-radiocard-content-padding` | `--hds-form-radio-card-content-padding` |
+| `--token-form-radiocard-group-gap` | `--hds-form-radio-card-group-gap` |
+| `--token-form-radiocard-transition-duration` | `--hds-form-radio-card-transition-duration` |
+| `--token-form-control-checked-border-color-default` | `--hds-form-control-border-color-checked-default` |
+| `--token-form-control-checked-border-color-hover` | `--hds-form-control-border-color-checked-hover` |
+| `--token-form-control-checked-foreground-color` | `--hds-form-control-foreground-color-checked` |
+| `--token-form-control-checked-surface-color-default` | `--hds-form-control-surface-color-checked-default` |
+| `--token-form-control-checked-surface-color-hover` | `--hds-form-control-surface-color-checked-hover` |
 | `--token-app-header-home-link-size` | `--hds-app-header-home-link-logo-size` |
 | `--token-app-side-nav-body-list-item-content-spacing-horizontal` | `--hds-app-side-nav-body-list-item-padding-horizontal` |
 | `--token-app-side-nav-body-list-item-spacing-vertical` | `--hds-app-side-nav-body-list-margin-vertical` |
 | `--token-app-side-nav-color-surface-primary` | `--hds-app-side-nav-wrapper-surface-color` |
-| `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-base-placeholder-foreground-color` |
+| `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-base-foreground-color` |
 | `--token-form-control-base-foreground-value-color` | `--hds-form-control-base-foreground-color` |
+| `--token-form-control-padding` | `--hds-form-control-padding-vertical` |
+| `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search-cancel` |
 
 ---
 
@@ -491,6 +490,66 @@ Added tokens:
 | `--hds-accordion-item-toggle-padding-top-large` |
 | `--hds-accordion-item-toggle-padding-top-medium` |
 | `--hds-accordion-item-toggle-padding-top-small` |
+| `--hds-advanced-table-body-surface-color` |
+| `--hds-advanced-table-cell-border-color-default` |
+| `--hds-advanced-table-cell-border-color-pinned` |
+| `--hds-advanced-table-cell-border-width-default` |
+| `--hds-advanced-table-cell-border-width-pinned` |
+| `--hds-advanced-table-cell-foreground-color-default` |
+| `--hds-advanced-table-cell-foreground-color-hover` |
+| `--hds-advanced-table-cell-foreground-color-selected` |
+| `--hds-advanced-table-cell-height-medium` |
+| `--hds-advanced-table-cell-height-short` |
+| `--hds-advanced-table-cell-height-tall` |
+| `--hds-advanced-table-cell-line-height` |
+| `--hds-advanced-table-cell-padding-horizontal` |
+| `--hds-advanced-table-cell-padding-vertical-medium` |
+| `--hds-advanced-table-cell-padding-vertical-short` |
+| `--hds-advanced-table-cell-padding-vertical-tall` |
+| `--hds-advanced-table-cell-pinned-left` |
+| `--hds-advanced-table-cell-surface-color-default` |
+| `--hds-advanced-table-cell-surface-color-hover` |
+| `--hds-advanced-table-cell-surface-color-nested-default` |
+| `--hds-advanced-table-cell-surface-color-nested-hover` |
+| `--hds-advanced-table-cell-surface-color-parent-hover` |
+| `--hds-advanced-table-cell-surface-color-selected-default` |
+| `--hds-advanced-table-cell-surface-color-selected-hover` |
+| `--hds-advanced-table-cell-surface-color-striped-default` |
+| `--hds-advanced-table-cell-surface-color-striped-hover` |
+| `--hds-advanced-table-drag-preview-border-color` |
+| `--hds-advanced-table-drag-preview-surface-color` |
+| `--hds-advanced-table-drop-preview-surface-color` |
+| `--hds-advanced-table-empty-state-border-width` |
+| `--hds-advanced-table-header-border-width-pinned` |
+| `--hds-advanced-table-header-button-border-color-active` |
+| `--hds-advanced-table-header-button-border-color-default` |
+| `--hds-advanced-table-header-button-border-color-hover` |
+| `--hds-advanced-table-header-button-foreground-color-active` |
+| `--hds-advanced-table-header-button-foreground-color-default` |
+| `--hds-advanced-table-header-button-foreground-color-hover` |
+| `--hds-advanced-table-header-button-foreground-color-sorted-active` |
+| `--hds-advanced-table-header-button-foreground-color-sorted-default` |
+| `--hds-advanced-table-header-button-foreground-color-sorted-hover` |
+| `--hds-advanced-table-header-button-size` |
+| `--hds-advanced-table-header-button-surface-color-active` |
+| `--hds-advanced-table-header-button-surface-color-default` |
+| `--hds-advanced-table-header-button-surface-color-hover` |
+| `--hds-advanced-table-header-cell-border-offset` |
+| `--hds-advanced-table-header-cell-padding-horizontal` |
+| `--hds-advanced-table-header-cell-padding-vertical` |
+| `--hds-advanced-table-header-surface-color` |
+| `--hds-advanced-table-resize-handle-surface-color-active` |
+| `--hds-advanced-table-resize-handle-surface-color-focus` |
+| `--hds-advanced-table-resize-handle-surface-color-hover` |
+| `--hds-advanced-table-row-border-color-default` |
+| `--hds-advanced-table-row-border-color-hover` |
+| `--hds-advanced-table-row-border-color-selected-default` |
+| `--hds-advanced-table-row-border-color-selected-hover` |
+| `--hds-advanced-table-row-border-color-striped-default` |
+| `--hds-advanced-table-row-border-width` |
+| `--hds-advanced-table-scroll-indicator-gradient-color-start` |
+| `--hds-advanced-table-scroll-indicator-gradient-color-stop` |
+| `--hds-advanced-table-scroll-indicator-top-offset-bottom` |
 | `--hds-alert-actions-margin-top` |
 | `--hds-alert-border-color-critical` |
 | `--hds-alert-border-color-highlight` |
@@ -732,11 +791,98 @@ Added tokens:
 | `--hds-dropdown-toggle-button-padding-right-small` |
 | `--hds-dropdown-toggle-icon-gap` |
 | `--hds-dropdown-toggle-icon-padding` |
+| `--hds-filter-bar-filter-group-generic-clear-button-margin-top` |
+| `--hds-filter-bar-filter-group-search-border-width` |
+| `--hds-filter-bar-filter-group-search-padding` |
+| `--hds-filter-bar-filter-group-values-list-clear-button-margin-left` |
+| `--hds-filter-bar-filter-group-values-list-gap` |
+| `--hds-filter-bar-filter-group-values-list-selection-option-padding-vertical` |
+| `--hds-filter-bar-search-height` |
+| `--hds-filter-bar-tabs-list-gap` |
+| `--hds-filter-bar-tabs-list-padding` |
+| `--hds-filter-bar-tabs-panel-gap` |
+| `--hds-filter-bar-tabs-tab-foreground-color-selected-active` |
+| `--hds-filter-bar-tabs-tab-foreground-color-selected-default` |
+| `--hds-filter-bar-tabs-tab-foreground-color-selected-hover` |
+| `--hds-filter-bar-tabs-tab-foreground-color-unselected` |
+| `--hds-filter-bar-tabs-tab-surface-color-selected-active` |
+| `--hds-filter-bar-tabs-tab-surface-color-selected-default` |
+| `--hds-filter-bar-tabs-tab-surface-color-selected-hover` |
 | `--hds-focus-ring-width-external` |
 | `--hds-focus-ring-width-internal` |
-| `--hds-form-radiocard-border-color-default` |
-| `--hds-form-radiocard-border-color-default-checked` |
-| `--hds-form-radiocard-border-color-focus` |
+| `--hds-form-checkbox-border-color-checked-disabled` |
+| `--hds-form-control-base-placeholder-foreground-color-default` |
+| `--hds-form-control-base-placeholder-foreground-color-disabled` |
+| `--hds-form-control-border-color-checked-disabled` |
+| `--hds-form-control-border-color-unchecked-default` |
+| `--hds-form-control-border-color-unchecked-disabled` |
+| `--hds-form-control-border-color-unchecked-hover` |
+| `--hds-form-control-height` |
+| `--hds-form-control-padding-horizontal` |
+| `--hds-form-control-surface-color-checked-disabled` |
+| `--hds-form-control-surface-color-unchecked-default` |
+| `--hds-form-control-surface-color-unchecked-disabled` |
+| `--hds-form-control-surface-color-unchecked-hover` |
+| `--hds-form-error-icon-color` |
+| `--hds-form-file-input-background-image-data-url-file-selector-button-default` |
+| `--hds-form-file-input-background-image-data-url-file-selector-button-disabled` |
+| `--hds-form-file-input-button-border-color` |
+| `--hds-form-file-input-button-height` |
+| `--hds-form-group-control-field-margin-top` |
+| `--hds-form-label-inline-typography-font-size` |
+| `--hds-form-radio-card-border-color-checked-default` |
+| `--hds-form-radio-card-border-color-checked-hover` |
+| `--hds-form-radio-card-border-color-default` |
+| `--hds-form-radio-card-border-color-disabled` |
+| `--hds-form-radio-card-control-size` |
+| `--hds-form-radio-card-control-wrapper-border-color-checked` |
+| `--hds-form-radio-card-control-wrapper-border-color-default` |
+| `--hds-form-radio-card-control-wrapper-border-color-disabled` |
+| `--hds-form-radio-card-control-wrapper-padding` |
+| `--hds-form-radio-card-control-wrapper-surface-color-checked` |
+| `--hds-form-radio-card-control-wrapper-surface-color-default` |
+| `--hds-form-radio-card-control-wrapper-surface-color-disabled` |
+| `--hds-form-radio-card-description-typography-font-size` |
+| `--hds-form-radio-card-label-foreground-color` |
+| `--hds-form-radio-card-label-typography-font-size` |
+| `--hds-form-radio-card-label-typography-font-weight` |
+| `--hds-form-radio-card-label-typography-line-height` |
+| `--hds-form-radio-card-surface-color-disabled` |
+| `--hds-form-radio-card-surface-color-hover` |
+| `--hds-form-radio-surface-color-checked-default` |
+| `--hds-form-radio-surface-color-checked-disabled` |
+| `--hds-form-radio-surface-color-checked-hover` |
+| `--hds-form-select-multiple-option-color-checked` |
+| `--hds-form-select-surface-color-hover` |
+| `--hds-form-super-select-option-background-image-data-url-checkmark` |
+| `--hds-form-super-select-option-background-image-size` |
+| `--hds-form-super-select-option-border-color` |
+| `--hds-form-super-select-option-foreground-color-active` |
+| `--hds-form-super-select-option-foreground-color-hover` |
+| `--hds-form-super-select-option-indicator-border-radius` |
+| `--hds-form-super-select-option-indicator-bottom` |
+| `--hds-form-super-select-option-indicator-left` |
+| `--hds-form-super-select-option-indicator-top` |
+| `--hds-form-super-select-option-indicator-width` |
+| `--hds-form-super-select-option-margin-top` |
+| `--hds-form-super-select-option-surface-color-default` |
+| `--hds-form-super-select-option-surface-color-hover` |
+| `--hds-form-super-select-padding-left` |
+| `--hds-form-super-select-search-margin-bottom` |
+| `--hds-form-super-select-tag-border-color` |
+| `--hds-form-super-select-tag-foreground-color` |
+| `--hds-form-super-select-tag-surface-color` |
+| `--hds-form-text-input-background-image-data-url-search-cancel-disabled` |
+| `--hds-form-text-input-background-image-data-url-search-default` |
+| `--hds-form-text-input-background-image-data-url-search-disabled` |
+| `--hds-form-text-input-search-cancel-button-width` |
+| `--hds-form-textarea-padding-vertical` |
+| `--hds-form-toggle-base-surface-color-checked-default` |
+| `--hds-form-toggle-base-surface-color-checked-hover` |
+| `--hds-form-toggle-base-surface-color-disabled` |
+| `--hds-form-toggle-handle-surface-color-default` |
+| `--hds-form-toggle-handle-surface-color-disabled` |
+| `--hds-form-visibility-toggle-size` |
 | `--hds-link-inline-icon-margin-horizontal` |
 | `--hds-link-inline-outline-color` |
 | `--hds-link-inline-outline-width` |
@@ -784,7 +930,102 @@ Added tokens:
 | `--hds-rich-tooltip-toggle-foreground-color-hover` |
 | `--hds-rich-tooltip-toggle-gap-horizontal` |
 | `--hds-rich-tooltip-toggle-icon-size` |
+| `--hds-segmented-group-gap` |
+| `--hds-segmented-group-margin-left` |
+| `--hds-stepper-list-progress-bar-border-color-complete` |
+| `--hds-stepper-list-progress-bar-border-color-incomplete` |
+| `--hds-stepper-list-progress-bar-left` |
+| `--hds-stepper-list-progress-bar-top` |
+| `--hds-stepper-list-step-description-foreground-color` |
+| `--hds-stepper-list-step-description-margin-top` |
+| `--hds-stepper-list-step-description-typography-font-size` |
+| `--hds-stepper-list-step-title-typography-font-weight` |
+| `--hds-stepper-nav-progress-bar-border-color-complete-default` |
+| `--hds-stepper-nav-progress-bar-border-color-complete-interactive` |
+| `--hds-stepper-nav-progress-bar-border-color-incomplete` |
+| `--hds-stepper-nav-progress-bar-border-width` |
+| `--hds-stepper-nav-progress-bar-top` |
+| `--hds-stepper-nav-step-description-foreground-color-active` |
+| `--hds-stepper-nav-step-description-foreground-color-complete` |
+| `--hds-stepper-nav-step-description-foreground-color-incomplete` |
+| `--hds-stepper-nav-step-description-margin-top` |
+| `--hds-stepper-nav-step-description-typography-font-size` |
+| `--hds-stepper-nav-step-surface-color-complete-interactive-active` |
+| `--hds-stepper-nav-step-surface-color-complete-interactive-hover` |
+| `--hds-stepper-nav-step-title-foreground-color-active-default` |
+| `--hds-stepper-nav-step-title-foreground-color-active-interactive` |
+| `--hds-stepper-nav-step-title-foreground-color-complete-default` |
+| `--hds-stepper-nav-step-title-foreground-color-complete-interactive` |
+| `--hds-stepper-nav-step-title-foreground-color-incomplete` |
+| `--hds-stepper-nav-step-title-typography-font-weight` |
+| `--hds-stepper-step-indicator-foreground-color-complete-default` |
+| `--hds-stepper-step-indicator-foreground-color-complete-interactive-active` |
+| `--hds-stepper-step-indicator-foreground-color-complete-interactive-default` |
+| `--hds-stepper-step-indicator-foreground-color-complete-interactive-hover` |
+| `--hds-stepper-step-indicator-foreground-color-incomplete-default` |
+| `--hds-stepper-step-indicator-foreground-color-incomplete-interactive` |
+| `--hds-stepper-step-indicator-foreground-color-processing-default` |
+| `--hds-stepper-step-indicator-foreground-color-processing-interactive` |
+| `--hds-stepper-step-indicator-foreground-color-progress-default` |
+| `--hds-stepper-step-indicator-foreground-color-progress-interactive` |
+| `--hds-stepper-step-indicator-icon-size` |
+| `--hds-stepper-step-indicator-size` |
+| `--hds-stepper-task-indicator-foreground-color-complete-interactive-active` |
+| `--hds-stepper-task-indicator-foreground-color-complete-interactive-default` |
+| `--hds-stepper-task-indicator-foreground-color-complete-interactive-hover` |
+| `--hds-stepper-task-indicator-foreground-color-incomplete-interactive-active` |
+| `--hds-stepper-task-indicator-foreground-color-incomplete-interactive-default` |
+| `--hds-stepper-task-indicator-foreground-color-incomplete-interactive-hover` |
+| `--hds-stepper-task-indicator-foreground-color-processing-interactive-active` |
+| `--hds-stepper-task-indicator-foreground-color-processing-interactive-default` |
+| `--hds-stepper-task-indicator-foreground-color-processing-interactive-hover` |
+| `--hds-stepper-task-indicator-foreground-color-progress-interactive-active` |
+| `--hds-stepper-task-indicator-foreground-color-progress-interactive-default` |
+| `--hds-stepper-task-indicator-foreground-color-progress-interactive-hover` |
+| `--hds-stepper-task-indicator-icon-size` |
+| `--hds-stepper-task-indicator-size` |
 | `--hds-surface-color-high-contrast` |
+| `--hds-table-body-surface-color` |
+| `--hds-table-cell-border-color` |
+| `--hds-table-cell-border-width` |
+| `--hds-table-cell-foreground-color-default` |
+| `--hds-table-cell-foreground-color-hover` |
+| `--hds-table-cell-foreground-color-selected` |
+| `--hds-table-cell-height-medium` |
+| `--hds-table-cell-height-short` |
+| `--hds-table-cell-height-tall` |
+| `--hds-table-cell-line-height` |
+| `--hds-table-cell-padding-horizontal` |
+| `--hds-table-cell-padding-vertical-medium` |
+| `--hds-table-cell-padding-vertical-short` |
+| `--hds-table-cell-padding-vertical-tall` |
+| `--hds-table-cell-surface-color-hover` |
+| `--hds-table-cell-surface-color-selected-default` |
+| `--hds-table-cell-surface-color-selected-hover` |
+| `--hds-table-cell-surface-color-striped-default` |
+| `--hds-table-cell-surface-color-striped-hover` |
+| `--hds-table-header-button-border-color-active` |
+| `--hds-table-header-button-border-color-default` |
+| `--hds-table-header-button-border-color-hover` |
+| `--hds-table-header-button-foreground-color-active` |
+| `--hds-table-header-button-foreground-color-default` |
+| `--hds-table-header-button-foreground-color-hover` |
+| `--hds-table-header-button-foreground-color-sorted-active` |
+| `--hds-table-header-button-foreground-color-sorted-default` |
+| `--hds-table-header-button-foreground-color-sorted-hover` |
+| `--hds-table-header-button-surface-color-active` |
+| `--hds-table-header-button-surface-color-default` |
+| `--hds-table-header-button-surface-color-hover` |
+| `--hds-table-header-cell-border-offset` |
+| `--hds-table-header-cell-padding-horizontal` |
+| `--hds-table-header-cell-padding-vertical` |
+| `--hds-table-header-surface-color` |
+| `--hds-table-row-border-color-default` |
+| `--hds-table-row-border-color-hover` |
+| `--hds-table-row-border-color-selected-default` |
+| `--hds-table-row-border-color-selected-hover` |
+| `--hds-table-row-border-color-striped-default` |
+| `--hds-table-row-border-width` |
 | `--hds-tabs-tab-border-color-default` |
 | `--hds-tabs-tab-border-color-hover` |
 | `--hds-tabs-tab-foreground-color-default` |
@@ -848,6 +1089,8 @@ Removed tokens:
 | `--token-app-side-nav-header-home-link-logo-size` |
 | `--token-app-side-nav-header-home-link-logo-size-minimized` |
 | `--token-app-side-nav-header-home-link-padding` |
+| `--token-form-radiocard-control-padding` |
+| `--token-form-select-background-image-position-top-y` |
 | `--token-pagination-nav-control-focus-inset` |
 | `--token-pagination-nav-control-padding-horizontal` |
 | `--token-tabs-tab-focus-inset` |
