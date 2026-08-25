@@ -5,10 +5,7 @@
 
 import { z } from "zod";
 import { defineTool } from "../define-tool.js";
-import {
-  toJsonToolResponse,
-  withSafeToolHandler,
-} from "../responses.js";
+import { toJsonToolResponse, withSafeToolHandler } from "../responses.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   DOCS_TABS,
