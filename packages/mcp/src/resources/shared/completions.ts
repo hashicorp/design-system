@@ -5,6 +5,8 @@
 
 // shared matching loop for resource template completion callback
 
+import { normalizeLookupValue } from "../../shared/normalize.js";
+
 export interface CompleteFromAliasesInput<Item> {
   items: Item[];
   getAliases: (item: Item) => string[];
@@ -18,7 +20,7 @@ export const completeFromAliases = <Item>({
   getValue,
   value,
 }: CompleteFromAliasesInput<Item>): string[] => {
-  const query = value.trim().toLowerCase();
+  const query = normalizeLookupValue(value);
   const matches: string[] = [];
 
   for (const item of items) {

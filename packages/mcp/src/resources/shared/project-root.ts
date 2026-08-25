@@ -6,6 +6,7 @@
 // locates the consumer project directory that catalog resolution anchors against
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 export const PROJECT_ROOT_ENV_VAR = "HDS_MCP_PROJECT_ROOT";
 
@@ -31,6 +32,20 @@ export const findPackageDirectory = (startDirectory: string): string | null => {
 
     directory = parent;
   }
+};
+
+export const getMcpPackageDirectory = (): string => {
+  const packageDirectory = findPackageDirectory(
+    dirname(fileURLToPath(import.meta.url)),
+  );
+
+  if (packageDirectory === null) {
+    throw new Error(
+      "Unable to locate the MCP package directory: no package.json found above this module.",
+    );
+  }
+
+  return packageDirectory;
 };
 
 export const resolveProjectRoot = ({
