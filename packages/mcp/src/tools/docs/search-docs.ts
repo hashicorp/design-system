@@ -72,6 +72,7 @@ const searchDocsResultShape = z.object({
   score: z.number(),
   relScore: z.number(),
   title: z.string(),
+  pageDescription: z.string().optional(),
   route: z.string(),
   docsPath: z.string(),
   section: z.string(),

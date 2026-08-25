@@ -57,6 +57,8 @@ describe("toSerializableSearchResult", () => {
       ],
       url: "https://helios.hashicorp.design/components/button?tab=code#full-width",
       pageAnchored: true,
+      pageDescription:
+        "An interactive element that initiates an action or event, such as a form submission.",
       pageMatchedTerms: ["button"],
       snippet: "Full-width This indicates that the Button should take up…",
     });

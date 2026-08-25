@@ -14,6 +14,7 @@ export interface SerializableSearchResult {
   score: number;
   relScore: number;
   title: string;
+  pageDescription?: string;
   route: string;
   docsPath: string;
   section: string;
@@ -53,6 +54,9 @@ export const toSerializableSearchResult = (
     score: hit.score,
     relScore: hit.relScore,
     title: hit.page.title,
+    ...(hit.page.description === undefined
+      ? {}
+      : { pageDescription: hit.page.description }),
     route: hit.chunk.route,
     docsPath: hit.chunk.route,
     section: hit.chunk.section,
