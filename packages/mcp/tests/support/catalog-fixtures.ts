@@ -19,10 +19,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PROJECT_ROOT_ENV_VAR } from "../../src/resources/shared/project-root.js";
 
-import type {
-  CatalogAnchor,
-  CatalogSource,
-} from "../../src/resources/shared/catalog.js";
+import type { CatalogAnchor, CatalogSource } from "../../src/shared/catalog.js";
 
 export type InstalledPackage = {
   name: string;
