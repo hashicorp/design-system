@@ -130,11 +130,6 @@ describe("parseDocsCatalog", () => {
     expect(() => parseDocsCatalog(null)).toThrow();
   });
 
-  /**
-   * The whole safety story is delegation: the server never fetches, it hands the client a url
-   * and tells it to. That instruction is only as trustworthy as the url in it, so the origin
-   * is pinned here — at the boundary where an unknown catalog becomes trusted data.
-   */
   it("rejects a catalog whose siteBaseUrl is not the documented site", () => {
     expect(() =>
       parseDocsCatalog({
@@ -385,10 +380,6 @@ describe("search", () => {
     expect(outcome.hits).toStrictEqual([]);
   });
 
-  /**
-   * A filter that normalizes to nothing is reported and then dropped. Applied, it would match
-   * no chunk at all and the payload would name an empty string as the filter that did it.
-   */
   it("reports a filter that normalizes to nothing without applying it", () => {
     const outcome = search("button", {
       docsPath: "/",

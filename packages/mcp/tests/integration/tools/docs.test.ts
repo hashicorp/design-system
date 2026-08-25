@@ -161,10 +161,6 @@ describe("read_hds_docs hit", () => {
     ]);
   });
 
-  /**
-   * The id list used to be built before the byte cap ran, so a truncated read named passages
-   * the markdown did not hold. It now names what survived the cut, and what did not.
-   */
   it("names only the passages the byte cap left in the markdown", () => {
     const wordy = "word ".repeat(200);
     const childStore = createDocsCatalogStore(
@@ -277,18 +273,12 @@ describe("read_hds_docs miss", () => {
     }
   });
 
-  /**
-   * The id is echoed twice on a miss — as `requestedId` and inside `message` — and the result
-   * ships as both a content block and structuredContent, so an unbounded id came back
-   * amplified four times over. The schema refuses one; the payload clamps it regardless.
-   */
   it("refuses an id longer than any the corpus holds", () => {
     const inputSchema = z.object(readDocInputShape);
 
     expect(() =>
       inputSchema.parse({ id: "x".repeat(MAX_FILTER_LENGTH + 1) }),
     ).toThrow();
-    // the longest id the corpus actually holds is 168 characters
     expect(() => inputSchema.parse({ id: "x".repeat(200) })).not.toThrow();
   });
 

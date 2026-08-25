@@ -72,9 +72,6 @@ describe("toPageRecord", () => {
     });
   });
 
-  // the schema's catchall accepts a catalog carrying fields this version does not know about,
-  // so the record is built from a named list rather than spread — an unknown field must not
-  // reach a consumer as though the server meant to publish it
   it("drops a field the catalog carries but this version does not publish", () => {
     const page = buildDocsPage({ previewImage: "assets/button.jpg" } as object);
 
@@ -255,11 +252,6 @@ describe("buildSnippet", () => {
     expect(snippet.length).toBeLessThanOrEqual(41);
   });
 
-  /**
-   * The window grows outward only while the budget allows, so the seed is the one part that
-   * can overrun it: adopted whole, a single long sentence used to carry the budget away with
-   * it. Everything past the seed was already bounded.
-   */
   it("cuts a seed sentence that overruns the budget on its own", () => {
     const seed = `A ${"very ".repeat(100)}sticky header explanation.`;
     const snippet = buildSnippet(
