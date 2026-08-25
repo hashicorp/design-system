@@ -1,10 +1,10 @@
 # Component API Audit Summary
 
-**Total issues: 34** (+ 8 potential source bugs noted separately, + 2 minor docs formatting inconsistencies noted but excluded from count)
+**Total issues: 37**
 
 | Issue type                          | Count |
 |-------------------------------------|-------|
-| Wrong default                       | 6     |
+| Wrong default                       | 9     |
 | Wrong type                          | 7     |
 | Missing arg                         | 8     |
 | Wrong required flag                 | 4     |
@@ -14,10 +14,12 @@
 | Wrong values                        | 2     |
 | Wrong arg name                      | 1     |
 | Wrong content                       | 1     |
-| Potential source bug                | 8     |
-| Minor docs formatting inconsistency | 2     |
 
-**Components with issues: 27 / 66 audited**
+Noted separately from total count:
+- 8 potential source bugs
+- 2 minor docs formatting inconsistencies
+
+**Components with issues: 28 / 66 audited**
 
 ---
 
@@ -32,13 +34,15 @@ Docs: `website/docs/components/accordion/partials/code/component-api.md`
 ### [A].Item
 
 - **`ariaLabel`: default specified but none exists**
-  - Description: The docs claim a hardcoded string default that does not exist in source; the actual fallback is a completely different accessibility mechanism.
+  - Description: The docs claim a hardcoded string default of `Toggle display` that does not exist in source. The actual fallback is a different accessibility mechanism.
   - Source (`item/index.gts:42`):
     - `ariaLabel?: string`, optional, no default value
   - Source (`item/index.gts:68-71`):
     - When `ariaLabel` is absent, `ariaLabelledBy` is set to `_titleId`, pointing to the element wrapping the toggle block content; the accessible name is derived from whatever the consumer puts in the toggle block
   - Docs (`component-api.md:50`):
-    - `@default='"Toggle display"'`, the string `"Toggle display"` does not exist anywhere in the source
+    - `@default='"Toggle display"'`
+  - Docs (`how-to-use.md:45`):
+    - `The default value is "Toggle display" but you can set a custom value useful for translated text for example.`
 
 ---
 
@@ -62,6 +66,20 @@ Docs: `website/docs/components/table/advanced-table/partials/code/component-api.
     - `model: T[]`, no `?`, required
   - Docs (`component-api.md:39`):
     - Not marked `@required`
+
+- **`reorderedMessageText`: wrong default**
+  - Description: The docs default omits the word "position" that appears in the actual default string.
+  - Source (`index.gts:753`):
+    - Default: `` `Moved ${column.label} column to position ${newPosition}` ``
+  - Docs (`component-api.md:101`):
+    - `@default="Moved (label) column to (position)"` — missing "position" before the placeholder
+
+- **`sortedMessageText`: wrong default**
+  - Description: The docs default includes a comma after `(label)` that is not present in the actual default string.
+  - Source (`index.gts:554`):
+    - Default: `` `Sorted by ${this.currentSortBy} ${this.currentSortOrder}ending` ``
+  - Docs (`component-api.md:174`):
+    - `@default="Sorted by (label), (asc/desc)ending"` — spurious comma after `(label)`
 
 ### AdvancedTable::Th
 
@@ -368,6 +386,22 @@ Docs: `website/docs/components/rich-tooltip/partials/code/component-api.md`
 
 ---
 
+## Table
+
+Source: `packages/components/src/components/hds/table/index.gts`, `th-sort.gts`, `types.ts`
+Docs: `website/docs/components/table/table/partials/code/component-api.md`
+
+### Table (root)
+
+- **`sortedMessageText`: wrong default**
+  - Description: The docs default includes a comma after `(label)` that is not present in the actual default string.
+  - Source (`index.gts:181`):
+    - Default: `` `Sorted by ${this.sortBy} ${lowerCaseTranslatedSortOrder}` ``
+  - Docs (`component-api.md:112`):
+    - `@default="Sorted by (label), (asc/desc)ending"` — spurious comma after `(label)`
+
+---
+
 ## Time
 
 Source: `packages/components/src/components/hds/time/index.gts`, `single.gts`, `range.gts`
@@ -419,7 +453,7 @@ Docs: `website/docs/components/form/layout/partials/code/component-api.md`
   - Docs (`component-api.md:42`):
     - `@valueNote="any valid CSS width (px, rem, etc)" @default="672px"`, `@default` is dead markup here; `672px` never appears on the rendered page
   - Note:
-    - Have it match the pattern used for documenting `Dropdown` `@width`.
+    - Should maybe match pattern used for documenting `Dropdown` `@width`
 
 ### Form::Header::Title
 
@@ -454,6 +488,8 @@ Docs: `website/docs/components/form/primitives/partials/code/component-api.md`
     - `id` absent from `Args`
   - Docs (`component-api.md:176`):
     - Correctly documented as `<C.Property @name="id" @type="string">`
+  - Note:
+    - Should match the pattern of `Form::Field` with `id` in `Args`
 
 ---
 
