@@ -5,10 +5,7 @@
 
 import { z } from "zod";
 import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../define-tool.js";
-import {
-  toJsonToolResponse,
-  withSafeToolHandler,
-} from "../responses.js";
+import { toJsonToolResponse, withSafeToolHandler } from "../responses.js";
 import {
   clampSearchLimit,
   searchCountsOutputShape,
