@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import dictionary from "./dictionary.json" with { type: "json" };
+import { STOPWORDS } from "./constants.js";
 
 // the single tokenizer both the index and every query run through
 
@@ -15,8 +15,6 @@ const VERSION_PATTERN = /\d+\.\d+(?:\.\d+)?/g;
 const NON_ALPHANUMERIC_PATTERN = /[^A-Za-z0-9]+/;
 const CAMEL_BOUNDARY_PATTERN = /[a-z0-9][A-Z]/;
 const CAMEL_SPLIT_PATTERN = /(?<=[a-z0-9])(?=[A-Z])/;
-
-const STOPWORDS = new Set(dictionary.stopWords);
 
 const NAMESPACE_TOKEN = "hds";
 const NAMESPACE_PREFIX_PATTERN = /\bhds(?:::|[-_])(?=[A-Za-z0-9])/gi;
