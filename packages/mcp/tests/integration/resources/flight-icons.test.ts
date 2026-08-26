@@ -14,7 +14,17 @@ import {
   parseResourceJson,
 } from "../../support/resource-content.js";
 
-const store = createIconCatalogStore({ assets: [buildIconAsset()] });
+import type { CatalogSource } from "../../../src/resources/shared/catalog.js";
+
+const STORE_SOURCE: CatalogSource = {
+  version: "5.0.0",
+  resolvedVia: "components",
+};
+
+const store = createIconCatalogStore(
+  { assets: [buildIconAsset()] },
+  STORE_SOURCE,
+);
 
 describe("Flight icons resources", () => {
   it("returns the icon index payload", () => {
@@ -27,6 +37,7 @@ describe("Flight icons resources", () => {
       totalIconCount: 1,
       totalAssetCount: 1,
       categories: ["Alerts"],
+      source: STORE_SOURCE,
       icons: [
         {
           iconName: "alert-triangle",
