@@ -97,6 +97,105 @@ describe("createComponentCatalogStore", () => {
   });
 });
 
+describe("searchComponents", () => {
+  const store = createComponentCatalogStore(
+    parseComponentCatalog({
+      components: [
+        buildComponentCatalogEntry(),
+        buildComponentCatalogEntry({
+          name: "Hds::AdvancedTable::Th",
+          modulePath: "hds/advanced-table/th",
+          docsPath: "components/table/advanced-table",
+          args: [],
+          blocks: [],
+        }),
+        buildComponentCatalogEntry({
+          name: "Hds::CopyButton",
+          modulePath: "hds/copy/button",
+          docsPath: "components/copy/button",
+          args: [],
+          blocks: [],
+        }),
+      ],
+    }),
+  );
+
+  it("matches the invocation name, the module path, and the docs route", () => {
+    expect(
+      store.searchComponents({ query: "Hds::Button", limit: 10 }).hits,
+    ).toStrictEqual([expect.objectContaining({ name: "Hds::Button" })]);
+    expect(
+      store
+        .searchComponents({ query: "hds/advanced-table", limit: 10 })
+        .hits.map((component) => component.name),
+    ).toStrictEqual(["Hds::AdvancedTable::Th"]);
+    expect(
+      store
+        .searchComponents({ query: "components/copy", limit: 10 })
+        .hits.map((component) => component.name),
+    ).toStrictEqual(["Hds::CopyButton"]);
+  });
+
+  it("reaches a PascalCase name through the words in its module path", () => {
+    expect(
+      store
+        .searchComponents({ query: "advanced table", limit: 10 })
+        .hits.map((component) => component.name),
+    ).toStrictEqual(["Hds::AdvancedTable::Th"]);
+  });
+
+  it("finds the class name the detail lookup already resolves", () => {
+    expect(
+      store
+        .searchComponents({ query: "HdsAdvancedTableTh", limit: 10 })
+        .hits.map((component) => component.name),
+    ).toStrictEqual(["Hds::AdvancedTable::Th"]);
+    expect(
+      store
+        .searchComponents({ query: "AdvancedTableTh", limit: 10 })
+        .hits.map((component) => component.name),
+    ).toStrictEqual(["Hds::AdvancedTable::Th"]);
+  });
+
+  it("is case- and whitespace-insensitive, like every other catalog lookup", () => {
+    expect(
+      store.searchComponents({ query: "  ADVANCED-TABLE  ", limit: 10 }).hits,
+    ).toHaveLength(1);
+  });
+
+  it("returns nothing for a query that names nothing", () => {
+    expect(
+      store.searchComponents({ query: "datepicker", limit: 10 }),
+    ).toStrictEqual({
+      totalMatches: 0,
+      hits: [],
+    });
+  });
+
+  it("counts every match, not just the ones the limit left room for", () => {
+    const outcome = store.searchComponents({ query: "button", limit: 1 });
+
+    // Hds::Button and Hds::CopyButton both match; only one fits the window
+    expect(outcome.totalMatches).toBe(2);
+    expect(outcome.hits).toHaveLength(1);
+  });
+
+  it("returns thin summaries, never the full arg and block lists", () => {
+    const [component] = store.searchComponents({
+      query: "button",
+      limit: 1,
+    }).hits;
+
+    expect(component).toStrictEqual({
+      name: "Hds::Button",
+      modulePath: "hds/button",
+      docsPath: "components/button",
+      argCount: 1,
+      blockCount: 1,
+    });
+  });
+});
+
 describe("shared value sets", () => {
   const catalog = {
     valueSets: { "hds/icon#name": ["search", "plus", "minus"] },
