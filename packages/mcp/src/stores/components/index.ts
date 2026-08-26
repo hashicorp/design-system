@@ -19,6 +19,11 @@ import type { CatalogSource } from "../../../catalog/loader.js";
 import type { ComponentRecord, ComponentSummary } from "./lookup.js";
 import type { ComponentCatalog } from "./schema.js";
 
+interface SearchComponentsInput {
+  query: string;
+  limit: number;
+}
+
 export interface ComponentCatalogStore {
   getMeta: () => {
     totalComponentCount: number;
@@ -26,7 +31,22 @@ export interface ComponentCatalogStore {
   };
   listComponents: () => ComponentSummary[];
   getComponentByName: (componentName: string) => ComponentRecord | null;
+  searchComponents: (
+    input: SearchComponentsInput,
+  ) => CatalogSearchOutcome<ComponentSummary>;
 }
+
+const toSearchBlob = (component: ComponentRecord): string => {
+  return [
+    component.name,
+    component.name.replaceAll("::", ""),
+    component.modulePath,
+    component.modulePath.replaceAll(/[/-]/gu, " "),
+    component.docsPath ?? "",
+  ]
+    .join(" ")
+    .toLowerCase();
+};
 
 export const parseComponentCatalog = (value: unknown): ComponentCatalog => {
   return componentCatalogSchema.parse(value);
@@ -64,6 +84,19 @@ export const createComponentCatalogStore = (
       componentRecords.map((component) => toComponentSummary(component)),
     getComponentByName: (componentName: string) => {
       return componentLookup.get(normalizeLookupValue(componentName)) ?? null;
+    },
+    searchComponents: ({ query, limit }: SearchComponentsInput) => {
+      const normalizedQuery = normalizeLookupValue(query);
+      const matches = componentRecords.filter((component) =>
+        toSearchBlob(component).includes(normalizedQuery),
+      );
+
+      return {
+        totalMatches: matches.length,
+        hits: matches
+          .slice(0, limit)
+          .map((component) => toComponentSummary(component)),
+      };
     },
   };
 };
