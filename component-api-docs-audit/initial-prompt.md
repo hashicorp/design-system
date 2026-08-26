@@ -2,7 +2,7 @@
 
 ## Overview
 
-The goal is to audit every HDS component and check the type definitions of component arguments in `packages/components/src/components/hds/` with its corresponding API documentation in `website/docs/components/`. The goal is to identify any inconsistencies in the documentation so they can be corrected to more accurately reflect our components to better serve our consumers and ongoing initiatives like the MCP server.
+The objective is to audit all HDS components in `packages/components/src/components/hds/` and verify that their argument type definitions match the API documentation in `website/docs/components/`. The results of the audit will be used to identify and correct any inconsistencies in the documentation.
 
 ## Relevant Files
 
