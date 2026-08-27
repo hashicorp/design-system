@@ -93,8 +93,8 @@ Received from orchestrator:
      - Promote the `<template>` block to the top level as a standalone export
    - This avoids the `ember/no-empty-glimmer-component-classes` ESLint error
    - If the class has any remaining members, leave it unchanged
-4. Track changed files and any skipped candidates.
-5. Return execution summary.
+5. Track changed files and any skipped candidates.
+6. Return execution summary.
 
 **Output:** Execution summary (see schema below).
 
