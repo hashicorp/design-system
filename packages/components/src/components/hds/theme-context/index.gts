@@ -23,7 +23,7 @@ export interface HdsThemeContextSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HTMLDivElement;
 }
 
 export const CONTEXTUAL_THEMES: HdsThemes[] = Object.values(
