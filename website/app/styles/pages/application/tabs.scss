@@ -85,4 +85,28 @@
       color: var(--doc-color-black);
     }
   }
+
+  // special treatment for the "carbonization" tab
+  button#tab-carbonization {
+    padding-left: 24px;
+    color: #4589ff;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M13.5 30.815a1 1 0 0 1-.493-.13l-8.5-4.815A1 1 0 0 1 4 25V15a1 1 0 0 1 .507-.87l8.5-4.815a1 1 0 0 1 .986 0l8.5 4.815A1 1 0 0 1 23 15v10a1 1 0 0 1-.507.87l-8.5 4.815a1 1 0 0 1-.493.13M6 24.417l7.5 4.249 7.5-4.249v-8.834l-7.5-4.248L6 15.583Z"/><path d="M28 17h-2V7.583l-7.5-4.248-8.007 4.535-.986-1.74 8.5-4.815a1 1 0 0 1 .986 0l8.5 4.815A1 1 0 0 1 28 7Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 4px 50%;
+    background-size: 16px 16px;
+
+    &:hover {
+      color: #0f62fe;
+    }
+  }
+
+  &.doc-page-tabs__tab--is-current:has(button#tab-carbonization) {
+    &::after {
+      background-color: #0f62fe;
+    }
+
+    button#tab-carbonization {
+      color: #0f62fe;
+    }
+  }
 }
