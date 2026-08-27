@@ -29,7 +29,7 @@
  *   - token-diff.md              detailed human report (by category + signals)
  *
  * Usage:
- *   node copilot-plans/full-tokens-replacement/tooling/diff-tokens.mjs
+ *   node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/diff-tokens.mjs
  */
 
 import {
@@ -46,7 +46,7 @@ import { dirname, join, resolve, relative, extname } from 'node:path';
 /* --------------------------------------------------------------- config --- */
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = resolve(SCRIPT_DIR, '../../..');
+const REPO_ROOT = resolve(SCRIPT_DIR, '../../../..');
 
 const PRE_REF = 'main';
 const PRE_PREFIX = '--token-';

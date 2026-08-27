@@ -26,7 +26,7 @@
 ## 1. Where things live
 
 ```
-copilot-plans/full-tokens-replacement/
+ai-plans/project-solar-carbonization/full-tokens-replacement/
 ├── generated-plan.md                       # THE durable plan — read this first for full detail
 ├── HANDOVER-full-tokens-replacement.md     # this file
 └── tooling/
@@ -45,9 +45,9 @@ copilot-plans/full-tokens-replacement/
             └── token-migration.md / .json   # Atlas Phase B dry-run reports
 ```
 
-- **Related sibling efforts** (separate, do not conflate): `copilot-plans/hds-tokens-replacement/`
-  (`--token-`→`--hds-` prefix swap), `copilot-plans/hds-var-renaming/` (`--hds-`→`--hds-var-`),
-  `copilot-plans/hds-tokens-verify/` (auditor `verify-tokens.mjs`, the architectural template reused here).
+- **Related sibling efforts** (separate, do not conflate): `ai-plans/project-solar-carbonization/hds-tokens-replacement/`
+  (`--token-`→`--hds-` prefix swap), `ai-plans/project-solar-carbonization/hds-var-renaming/` (`--hds-`→`--hds-var-`),
+  `ai-plans/project-solar-carbonization/hds-tokens-verify/` (auditor `verify-tokens.mjs`, the architectural template reused here).
 
 ---
 
@@ -149,7 +149,7 @@ it falls to `__other`. Key predicates in `diff-tokens.mjs`:
 
 ### Phase A (regenerate the map — only inside this monorepo)
 ```bash
-node copilot-plans/full-tokens-replacement/tooling/diff-tokens.mjs
+node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/diff-tokens.mjs
 ```
 No args/config. Reads pre from `main` (via `git show`) and post from the working tree. Overwrites
 `reports/hds/token-map.generated.json` + `token-diff.md`. Safe to re-run.
@@ -158,14 +158,14 @@ No args/config. Reads pre from `main` (via `git show`) and post from the working
 ```bash
 # HDS test harness (needs a `main` worktree because the working tree is already post-carbonization):
 git worktree add /tmp/hds-main main
-node copilot-plans/full-tokens-replacement/tooling/migrate-tokens.mjs \
-  --config copilot-plans/full-tokens-replacement/tooling/config/migrate.hds.config.json \
+node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/migrate-tokens.mjs \
+  --config ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/config/migrate.hds.config.json \
   --root /tmp/hds-main
 git worktree remove /tmp/hds-main --force
 
 # Atlas (real downstream consumer):
-node copilot-plans/full-tokens-replacement/tooling/migrate-tokens.mjs \
-  --config copilot-plans/full-tokens-replacement/tooling/config/migrate.atlas.config.json \
+node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/migrate-tokens.mjs \
+  --config ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/config/migrate.atlas.config.json \
   --root /Users/cristianorastelli/src/hashicorp/atlas/frontend
 ```
 - CLI flags: `--config <path>` (required), `--root <dir>` (defaults to cwd).
@@ -230,9 +230,9 @@ Fields from the user's example **audit** config that DO NOT transfer to Phase B:
 
 ## 7. Key references
 
-- Full plan & rationale: `copilot-plans/full-tokens-replacement/generated-plan.md`
-- Tooling usage: `copilot-plans/full-tokens-replacement/tooling/README.md`
-- Accepted map: `copilot-plans/full-tokens-replacement/tooling/reports/hds/token-map.generated.json`
+- Full plan & rationale: `ai-plans/project-solar-carbonization/full-tokens-replacement/generated-plan.md`
+- Tooling usage: `ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/README.md`
+- Accepted map: `ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/reports/hds/token-map.generated.json`
 - Phase A report: `.../reports/hds/token-diff.md`
 - HDS Phase B report: `.../reports/hds/token-migration.md`
 - Atlas Phase B dry-run report: `.../reports/atlas/token-migration.md`
