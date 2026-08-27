@@ -137,7 +137,7 @@ must be kept in sync or the auditor will (correctly) flag it.
 ### 3.1 Artifact locations
 
 ```
-copilot-plans/hds-tokens-verify/
+ai-plans/project-solar-carbonization/hds-tokens-verify/
   generated-plan.md                    ← this file (portable plan + fenced pilot facts)
   tooling/
     verify-tokens.mjs                  ← reusable, dependency-free auditor (core; never edit per repo)
@@ -271,8 +271,8 @@ Portable ordering (build tokens → audit → review → fix upstream → re-aud
 Standard pilot invocation (from repo root):
 
 ```bash
-node copilot-plans/hds-tokens-verify/tooling/verify-tokens.mjs \
-  --config copilot-plans/hds-tokens-verify/tooling/config/hds-pilot.config.json \
+node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-tokens.mjs \
+  --config ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/config/hds-pilot.config.json \
   --root /path/to/design-system
 ```
 
@@ -286,8 +286,8 @@ For a rename branch being repeatedly rebased/validated, use the two opt-in flags
 runs are cheap and low-noise:
 
 ```bash
-node copilot-plans/hds-tokens-verify/tooling/verify-tokens.mjs \
-  --tokens-cache copilot-plans/hds-tokens-verify/tooling/.tokens-cache.json \
+node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-tokens.mjs \
+  --tokens-cache ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/.tokens-cache.json \
   --skip-clean-report
 ```
 
