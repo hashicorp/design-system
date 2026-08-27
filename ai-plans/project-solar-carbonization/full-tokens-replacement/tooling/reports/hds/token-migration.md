@@ -1,7 +1,7 @@
 # Token Migration — Phase B
 
 - Generated: 2026-07-17T13:16:54.135Z
-- Map: `copilot-plans/full-tokens-replacement/tooling/reports/hds/token-map.generated.json`
+- Map: `ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/reports/hds/token-map.generated.json`
 - Prefix scanned: `--token-`
 - Roots: `packages/components/src`, `showcase/app`, `showcase/tests`, `website/app`, `website/docs`
 - Dry run: no
