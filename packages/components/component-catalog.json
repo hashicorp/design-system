@@ -12906,6 +12906,34 @@
       ]
     },
     {
+      "name": "Hds::ThemeContext",
+      "modulePath": "hds/theme-context",
+      "element": "HTMLDivElement",
+      "args": [
+        {
+          "name": "context",
+          "type": "HdsThemeContexts",
+          "required": true,
+          "values": [
+            "default",
+            "system",
+            "light",
+            "dark",
+            "cds-g0",
+            "cds-g10",
+            "cds-g90",
+            "cds-g100"
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "name": "default",
+          "yields": []
+        }
+      ]
+    },
+    {
       "name": "Hds::Time",
       "modulePath": "hds/time",
       "docsPath": "components/time",
