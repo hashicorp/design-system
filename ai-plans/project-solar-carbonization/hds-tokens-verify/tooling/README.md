@@ -44,13 +44,13 @@ relative to the script; pass `--config` to override.
 
 ```bash
 # Run the audit (writes reports, exit 0)
-node copilot-plans/hds-tokens-verify/tooling/verify-tokens.mjs
+node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-tokens.mjs
 
 # Print machine-readable summary to stdout as well
-node copilot-plans/hds-tokens-verify/tooling/verify-tokens.mjs --json
+node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-tokens.mjs --json
 
 # Point at a different repo root / token file / output dir
-node copilot-plans/hds-tokens-verify/tooling/verify-tokens.mjs \
+node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-tokens.mjs \
   --root /path/to/other-repo \
   --tokens-css node_modules/@hashicorp/design-system-tokens/dist/products/css/tokens.css \
   --out reports
