@@ -33,6 +33,12 @@ const SYMBOL_PATTERNS = [
   /<([A-Z][A-Za-z0-9:.]*)/g,
 ];
 
+const SYMBOL_DENY_LIST = new Set([
+  "@ember",
+  "@glimmer",
+  "@hashicorp",
+]);
+
 const HTML_ENTITIES = new Map([
   ["&amp;", "&"],
   ["&lt;", "<"],
@@ -42,7 +48,13 @@ const HTML_ENTITIES = new Map([
 
 function harvestSymbols(code, into) {
   for (const pattern of SYMBOL_PATTERNS) {
-    for (const match of code.matchAll(pattern)) into.add(match[1] ?? match[0]);
+    for (const match of code.matchAll(pattern)) {
+      const symbol = match[1] ?? match[0];
+
+      if (!SYMBOL_DENY_LIST.has(symbol)) {
+        into.add(symbol);
+      }
+    }
   }
 }
 
