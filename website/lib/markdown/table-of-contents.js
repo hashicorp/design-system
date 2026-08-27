@@ -15,6 +15,7 @@ const CATEGORIES = [
   'foundations',
   'components',
   'layouts',
+  'theming',
   'overrides',
   'utilities',
   'patterns',

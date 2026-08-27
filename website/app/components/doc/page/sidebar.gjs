@@ -20,7 +20,7 @@ const DEBOUNCE_MS = 250;
 const getTocSectionsBundle = (section) => {
   const ABOUT = ['about', 'whats-new', 'getting-started', 'carbonization'];
   const FOUNDATIONS = ['foundations', 'icons'];
-  const COMPONENTS = ['components', 'layouts', 'overrides', 'utilities'];
+  const COMPONENTS = ['components', 'layouts', 'theming', 'overrides', 'utilities'];
   const CONTENT = ['content'];
   const PATTERNS = ['patterns'];
   // this will be removed later
