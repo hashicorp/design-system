@@ -15,7 +15,8 @@ body.page-foundations-theming {
 
   .shw-foundation-theming-dark-background {
     padding: 8px;
-    background: var(--shw-color-black);
+    // this dark background is fixed, not theme-aware, because we force the AppFooter to "dark" theme in these examples
+    background: #000;
   }
 
   .shw-foundation-theming-basic-container {
