@@ -1,7 +1,7 @@
 # Handover — HDS Token-Usage Auditor Tooling
 
 > Context handover for the deterministic token-usage auditor built under
-> `copilot-plans/hds-tokens-verify/`. Read this top-to-bottom before continuing
+> `ai-plans/project-solar-carbonization/hds-tokens-verify/`. Read this top-to-bottom before continuing
 > the work in a fresh session.
 
 Last updated: 2026-07-14
@@ -32,7 +32,7 @@ audit outcomes; exit 3 only for tool/IO/config/resolution errors).
 ## 2. Where everything lives
 
 ```
-copilot-plans/hds-tokens-verify/tooling/
+ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/
 ├── verify-tokens.mjs                 # THE REUSABLE CORE (~677 lines). Never edit per-repo.
 ├── README.md                         # User-facing docs (options, config, rebase workflow)
 ├── .gitignore                        # Ignores *.tokens-cache.json
@@ -134,8 +134,8 @@ Both are **opt-in**; defaults preserve original behavior.
 Recommended combo during a rebase (run at each step):
 
 ```bash
-node copilot-plans/hds-tokens-verify/tooling/verify-tokens.mjs \
-  --tokens-cache copilot-plans/hds-tokens-verify/tooling/.tokens-cache.json \
+node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-tokens.mjs \
+  --tokens-cache ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/.tokens-cache.json \
   --skip-clean-report
 ```
 
@@ -222,12 +222,12 @@ respect them.
 
 ```bash
 # Standard pilot run (writes reports/hds/*)
-node copilot-plans/hds-tokens-verify/tooling/verify-tokens.mjs \
-  --config copilot-plans/hds-tokens-verify/tooling/config/hds-pilot.config.json \
+node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-tokens.mjs \
+  --config ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/config/hds-pilot.config.json \
   --root /Users/<you>/src/hashicorp/design-system
 
 # From inside the tooling dir, --config defaults to config/hds-pilot.config.json:
-cd copilot-plans/hds-tokens-verify/tooling
+cd ai-plans/project-solar-carbonization/hds-tokens-verify/tooling
 node verify-tokens.mjs --root /abs/path/to/design-system
 ```
 
