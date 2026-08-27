@@ -6,7 +6,12 @@
 // assembles one page record: its frontmatter fields, and every chunk the page yields
 
 import { assemblePage } from "./assembly.mjs";
-import { headingTrailFor, splitHeadings, splitTabs } from "./chunks.mjs";
+import {
+  headingTrailFor,
+  splitHeadings,
+  splitTabs,
+  EXCLUDED_TABS,
+} from "./chunks.mjs";
 import { readStringList, readText, readSubMap } from "./frontmatter.mjs";
 import { chunkIdFor, githubHeaderId, tabQuery } from "./identifiers.mjs";
 import { SITE_BASE_URL, byCodepoint, fail } from "./paths.mjs";
@@ -87,7 +92,9 @@ export function buildPage(file, route, data, body) {
     fail(`${route} has no \`title\` in its frontmatter`);
   }
 
-  const units = splitTabs(route, assemblePage(file, body));
+  const units = splitTabs(route, assemblePage(file, body)).filter(
+    (unit) => unit.tab === undefined || !EXCLUDED_TABS.has(unit.tab),
+  );
   const pageUrl = `${SITE_BASE_URL}${route}`;
 
   const page = { route, section: route.split("/")[0], title };
