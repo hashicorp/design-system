@@ -110,8 +110,8 @@ The following candidates require manual review and migration:
 
 ## Artifacts
 
-- **Migration plan:** `migration-plan.json`
-- **Migration report:** `migration-report.md` (this file)
+- **Migration plan:** `migration-plan-{generatedAt}.json`
+- **Migration report:** `migration-report-{generatedAt}.md` (this file)
 - **Mapping table:** `.bob/migration/helios-to-carbon-component-map.json`
 - **Candidate schema:** `.bob/migration/schemas/migration-candidate.schema.json`
 

@@ -1,5 +1,4 @@
 {
-    "$schema": "./schemas/component-mapping.schema.json",
     "version": "1.7.0",
     "meta": {
         "description": "Helios Design System → Carbon Web Components migration mapping table. Each entry defines how a Helios component maps to its CWC equivalent, including attribute renames, slot transforms, event rewiring, confidence scores, and risk flags.",

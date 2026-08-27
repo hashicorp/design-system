@@ -7,7 +7,7 @@
 declare module '@carbon/icons/es/*';
 
 // Carbon Web Components — custom element type declarations
-// Covers all components in .ai/migration/helios-to-carbon-component-map.json
+// Covers all components in .bob/migration/helios-to-carbon-component-map.json
 declare module '@glint/template/globals' {
   interface HTMLElementTagNameMap {
     // Hds::Button
