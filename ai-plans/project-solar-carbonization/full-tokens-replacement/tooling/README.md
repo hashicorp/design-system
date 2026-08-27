@@ -20,7 +20,7 @@ from the **pre-carbonization** token set (`--token-*`, as on `main`) to the
 ## Phase A — generate the map
 
 ```bash
-node copilot-plans/full-tokens-replacement/tooling/diff-tokens.mjs
+node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/diff-tokens.mjs
 ```
 
 Reads (fixed HDS paths, hardcoded as constants):
@@ -65,8 +65,8 @@ surfaces something questionable (e.g. in the **`prefix-plus-renaming__other`** o
 ## Phase B — apply the map
 
 ```bash
-node copilot-plans/full-tokens-replacement/tooling/migrate-tokens.mjs \
-  --config copilot-plans/full-tokens-replacement/tooling/config/migrate.hds.config.json
+node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/migrate-tokens.mjs \
+  --config ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/config/migrate.hds.config.json
 ```
 
 Consumes every category array of the generated map uniformly (the key names do
@@ -103,8 +103,8 @@ a throwaway worktree of `main`:
 
 ```bash
 git worktree add /tmp/hds-main main
-node copilot-plans/full-tokens-replacement/tooling/migrate-tokens.mjs \
-  --config copilot-plans/full-tokens-replacement/tooling/config/migrate.hds.config.json \
+node ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/migrate-tokens.mjs \
+  --config ai-plans/project-solar-carbonization/full-tokens-replacement/tooling/config/migrate.hds.config.json \
   --root /tmp/hds-main
 # inspect reports, then:
 git worktree remove /tmp/hds-main --force
