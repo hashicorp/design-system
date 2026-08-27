@@ -20,11 +20,11 @@ const readVersionFromPackageJson = (filePath) => {
 
 const getComponentPaths = async () => {
   const componentPaths = await glob(
-    './docs/{components,layouts,overrides,utilities}/**/partials/',
+    './docs/{components,layouts,theming,overrides,utilities}/**/partials/',
     { onlyDirectories: true },
   );
   const regex = new RegExp(
-    `(components|layouts|overrides|utilities)\/((?!\/partials).)*`,
+    `(components|layouts|theming|overrides|utilities)\/((?!\/partials).)*`,
   );
   const cleanedComponentPaths = componentPaths.map((path) => {
     return path.match(regex)[0];
