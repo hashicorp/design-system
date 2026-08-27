@@ -25,28 +25,40 @@ export default class SubSectionComponents extends Component {
 
     <ShwTextH4 @tag="h3">AppFooter</ShwTextH4>
 
-    {{#if (eq this.shwTheming.currentStylesheet "standard")}}
-      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied,
-          please select a theme in the selector at the top of the page</ShwTextBody>
-      </div>
-    {{else}}
-      <ShwFlex @direction="column" as |SF|>
-        <SF.Item as |SFI|>
-          <SFI.Label>&lt;AppFooter @theme=light&gt;</SFI.Label>
-          <div class="shw-foundation-theming-light-background">
-            <HdsAppFooter @theme="light" as |AF|>
-              <AF.StatusLink @status="operational" />
-              <AF.Link
-                @href="https://cloud.hashicorp.com/docs/changelog"
-              >Changelog</AF.Link>
-              <AF.LegalLinks />
-            </HdsAppFooter>
+    <ShwFlex @direction="column" as |SF|>
+      <SF.Item as |SFI|>
+        <SFI.Label>&lt;AppFooter @theme=light&gt;</SFI.Label>
+        <div class="shw-foundation-theming-light-background">
+          <HdsAppFooter @theme="light" as |AF|>
+            <AF.StatusLink @status="operational" />
+            <AF.Link
+              @href="https://cloud.hashicorp.com/docs/changelog"
+            >Changelog</AF.Link>
+            <AF.LegalLinks />
+          </HdsAppFooter>
+        </div>
+      </SF.Item>
+      <SF.Item as |SFI|>
+        <SFI.Label>&lt;AppFooter @theme=dark&gt;</SFI.Label>
+        <div class="shw-foundation-theming-dark-background">
+          <HdsAppFooter @theme="dark" as |AF|>
+            <AF.StatusLink @status="operational" />
+            <AF.Link
+              @href="https://cloud.hashicorp.com/docs/changelog"
+            >Changelog</AF.Link>
+            <AF.LegalLinks />
+          </HdsAppFooter>
+        </div>
+      </SF.Item>
+      <SF.Item as |SFI|>
+        <SFI.Label>&lt;AppFooter @theme=light&gt; / with &lt;HdsThemeContext
+          @context=dark&gt; wrapper</SFI.Label>
+        {{#if (eq this.shwTheming.currentStylesheet "standard")}}
+          <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
+            <ShwTextBody>This example is visible only if theming is applied,
+              please select a theme in the selector at the top of the page</ShwTextBody>
           </div>
-        </SF.Item>
-        <SF.Item as |SFI|>
-          <SFI.Label>&lt;AppFooter @theme=light&gt; / with &lt;HdsThemeContext
-            @context=dark&gt; wrapper</SFI.Label>
+        {{else}}
           <div class="shw-foundation-theming-dark-background">
             <HdsThemeContext @context="dark">
               <HdsAppFooter as |AF|>
@@ -58,9 +70,9 @@ export default class SubSectionComponents extends Component {
               </HdsAppFooter>
             </HdsThemeContext>
           </div>
-        </SF.Item>
-      </ShwFlex>
-    {{/if}}
+        {{/if}}
+      </SF.Item>
+    </ShwFlex>
 
     <ShwDivider @level={{2}} />
 
