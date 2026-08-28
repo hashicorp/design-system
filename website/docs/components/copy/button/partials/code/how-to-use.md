@@ -1,6 +1,6 @@
 ## How to use this component
 
-The basic invocation requires `text` and `targetToCopy` to be passed:
+The basic invocation requires `@text` and `@targetToCopy` to be passed:
 
 [[code-snippets/copy-button-basic]]
 

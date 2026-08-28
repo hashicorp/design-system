@@ -34,19 +34,19 @@ The default `@tag` is `"div"` because the correct value is dependent on the indi
 
 ### Language
 
-The `language` argument sets the syntax highlighting used. We only support the following languages: `bash`, `go`, `hcl`, `json`, `log`, `ruby`, `shell-session`, and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
+The `@language` argument sets the syntax highlighting used. We only support the following languages: `bash`, `go`, `hcl`, `json`, `log`, `ruby`, `shell-session`, and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
 
 [[code-snippets/code-block-language]]
 
 ### Copy button
 
-Set `hasCopyButton` to `true` to display a button for users to copy `CodeBlock` content to their computer clipboard. Use `copyButtonText` to provide a meaningful and unique label for the copy button. Set `onCopy` to a callback function that is invoked when the "copy" action succeeds.
+Set `@hasCopyButton` to `true` to display a button for users to copy `CodeBlock` content to their computer clipboard. Use `@copyButtonText` to provide a meaningful and unique label for the copy button.  Set `@onCopy` to a callback function that is invoked when the "copy" action succeeds. Use `@copySuccessMessageText` to provide a meaningful `aria-live` message when the "copy" action succeeds.
 
 [[code-snippets/code-block-copy-button]]
 
 ### Line numbers
 
-Line numbers are displayed by default. Set `hasLineNumbers` to `false` to hide them.
+Line numbers are displayed by default. Set `@hasLineNumbers` to `false` to hide them.
 
 [[code-snippets/code-block-no-line-numbers]]
 
@@ -59,7 +59,7 @@ Due to technical limitations, if the `@value` changes dynamically the line numbe
 
 ### Line wrapping
 
-By default, long lines of code will overflow the `CodeBlock` container requiring users to scroll to view the full content. Setting `hasLineWrapping` to `true` will wrap long lines of code instead.
+By default, long lines of code will overflow the `CodeBlock` container requiring users to scroll to view the full content. Setting `@hasLineWrapping` to `true` will wrap long lines of code instead.
 
 [[code-snippets/code-block-line-wrap]]
 
@@ -71,6 +71,6 @@ Highlight either individual code lines or a range of code lines. (Examples: `2, 
 
 ### Limit height
 
-Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. If the content height exceeds the set max height, vertical scrolling is enabled to view the overflowing content and a toggle button is displayed to expand the height and show the Code Block content in its entirety.
+Code content uses `auto` height by default but you can opt to set a `@maxHeight` value to save space. If the content height exceeds the set max height, vertical scrolling is enabled to view the overflowing content and a toggle button is displayed to expand the height and show the Code Block content in its entirety.
 
 [[code-snippets/code-block-max-height]]

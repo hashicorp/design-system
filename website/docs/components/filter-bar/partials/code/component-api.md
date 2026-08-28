@@ -42,7 +42,7 @@
 The shape of the object for the `@filters` argument. The shape differs depending on the `type` provided.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="type" @type="enum" @values={{array "single-select" "multi-select" "numerical" "date" "time" "datetime" "generic"}} @required="true">
+  <C.Property @name="type" @type="enum" @values={{array "single-select" "multi-select" "numerical" "date" "time" "datetime" "generic"}} @required={{true}}>
     The type of data being filtered.
   </C.Property>
   <C.Property @name="text" @type="string">

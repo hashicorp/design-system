@@ -1,18 +1,18 @@
 ## How to use this component
 
-The most basic invocation requires the `type` argument to be passed, along with the `title` and/or `description` content. By default, a `neutral` Alert is generated.
+The most basic invocation requires the `@type` argument to be passed, along with the `Title` and/or `Description` content. By default, a `neutral` Alert is generated.
 
 [[code-snippets/alert-basic]]
 
 ### Type
 
-A different type of Alert can be invoked using the `type` argument.
+A different type of Alert can be invoked using the `@type` argument.
 
 [[code-snippets/alert-types]]
 
 ### Title and description
 
-Optionally, you can pass only `title` or only `description`.
+Optionally, you can pass only `Title` or only `Description`.
 
 [[code-snippets/alert-title-desc]]
 
@@ -33,7 +33,7 @@ The `@tag` argument changes the HTML element that wraps the title content of `[A
 
 The available color values are `neutral` (the default), `highlight`, `success`, `warning`, and `critical`. Setting a color value will also determine the default icon used in the Alert, although it is customizable. 
 
-The color value will also determine some accessibility features of the component, so this should be taken into consideration when choosing which Alert `color` value to use.
+The color value will also determine some accessibility features of the component, so this should be taken into consideration when choosing which Alert `@color` value to use.
 
 
 If the alert is being used in an informational or promotional way, `neutral` or `highlight` colors should be chosen. 
@@ -44,17 +44,17 @@ The other color values map to accessibility-related roles, and will ensure that 
 
 ### Icons
 
-A different icon can be used in the Alert using the `icon` argument. This accepts any [icon](/icons/library) name.
+A different icon can be used in the Alert using the `@icon` argument. This accepts any [icon](/icons/library) name.
 
 [[code-snippets/alert-icon]]
 
-If you need to hide the icon, pass `false` to the `icon` argument. This is only an option on page and inline Alerts as compact Alerts require an icon.
+If you need to hide the icon, pass `false` to the `@icon` argument. This is only an option on page and inline Alerts as compact Alerts require an icon.
 
 [[code-snippets/alert-no-icon]]
 
 ### Dismissal
 
-To enable dismissibility, pass a callback function to the `onDismiss` argument. This will add a dismiss button to the Alert. When that button is clicked, the callback function will be executed. 
+To enable dismissibility, pass a callback function to the `@onDismiss` argument. This will add a dismiss button to the Alert. When that button is clicked, the callback function will be executed. 
 
 Given the variety of use cases and contexts in which alerts are used across products, application teams will need to implement the callback function.
 
