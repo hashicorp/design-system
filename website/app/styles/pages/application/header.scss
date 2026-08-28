@@ -82,6 +82,31 @@
   }
 }
 
+// VERSION
+
+.doc-page-header__version {
+  @include doc-font-family("mono"); // custom font styling
+  display: block;
+  flex: none;
+  margin-top: 3px; // visually align with the logo's baseline
+  margin-left: -20px;
+  color: var(--doc-color-link-on-black);
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: underline;
+
+  &:hover,
+  &:active,
+  &:visited {
+    color: var(--doc-color-link-on-black);
+  }
+
+  &:focus-visible {
+    border-radius: 1px;
+    outline: 2px solid var(--doc-focus-ring-color);
+  }
+}
+
 // NAV MENU (PRIMARY)
 
 .doc-page-header__nav-menu {
