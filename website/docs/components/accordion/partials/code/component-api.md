@@ -47,8 +47,8 @@ The `Accordion::Item` component, yielded as contextual component.
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @default="&quot;Toggle display&quot;">
-    Accepts a string. The `ariaLabel` value is applied to the HTML button which controls visibility of the content block content.
+  <C.Property @name="ariaLabel" @type="string">
+    Accepts a string. The `ariaLabel` value is applied to the HTML button which controls visibility of the content block content. If not provided, the accessible name is taken from the toggle block content via `aria-labelledby`.
   </C.Property>
   <C.Property @name="isOpen" @default="false" @type="boolean">
     Toggles the visibility of the content. To display content on page load, set the value to `true`.

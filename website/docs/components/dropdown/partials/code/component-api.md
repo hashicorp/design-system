@@ -119,6 +119,9 @@ The `Dropdown::Toggle::Button` component, yielded as contextual component.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
   <C.Property @name="size" @type="enum" @values={{array "medium" "small" }} @default="medium"/>
+  <C.Property @name="isFullWidth" @type="boolean" @default="false">
+    Indicates that a button should take up the full width of the parent container.
+  </C.Property>
   <C.Property @name="icon" @type="string">
     Acceptable value: any [icon](/icons/library) name.
   </C.Property>
