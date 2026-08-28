@@ -7,6 +7,10 @@ import { schedule } from '@ember/runloop';
 import { service } from '@ember/service';
 
 import { showdownConfig } from '../shared/showdown-config';
+import {
+  extractCustomBlocks,
+  restoreCustomBlocks,
+} from '../shared/preprocess-custom-blocks';
 
 const getAnchoredHeadings = (container) => {
   let headings = [];
@@ -146,8 +150,12 @@ export default class ShowController extends Controller {
         this.didInsertContent();
       });
     }
+    const { processedMarkdown, blockMap } = extractCustomBlocks(
+      this.model.content,
+    );
     const converter = new showdown.Converter(showdownConfig);
-    return converter.makeHtml(this.model.content);
+    const html = converter.makeHtml(processedMarkdown);
+    return restoreCustomBlocks(html, blockMap);
   }
 
   get hasTabs() {
