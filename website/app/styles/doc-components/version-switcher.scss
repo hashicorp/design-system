@@ -1,0 +1,106 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// DOC VERSION SWITCHER
+
+@use "../breakpoints" as breakpoint;
+@use "../typography/mixins" as *;
+
+.doc-version-switcher {
+  display: block;
+  flex: none;
+  margin-top: 3px; // visually align with the logo's baseline
+  margin-left: -20px;
+
+  @include breakpoint.with-mobile-sidebar() {
+    margin-left: -10px;
+  }
+}
+
+.doc-version-switcher__toggle {
+  @include doc-font-family("mono"); // custom font styling
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: var(--doc-color-link-on-black);
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: underline;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  isolation: isolate;
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    inset: -6px;
+    border-radius: 4px;
+    content: "";
+  }
+
+  &:hover {
+    color: var(--doc-color-white);
+
+    &::after {
+      background-color: #4294ff66; // this is --doc-color-link-on-black with some opacity
+      outline: 2px solid var(--doc-focus-ring-color);
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    &::after {
+      outline: 2px solid var(--doc-focus-ring-color);
+    }
+  }
+}
+
+.doc-version-switcher__popover {
+  min-width: 200px;
+  max-height: calc(100vh - var(--doc-page-header-height) - 24px);
+  margin: 0;
+  padding: 12px 16px 16px 16px;
+  overflow-y: auto;
+  color: var(--doc-color-gray-100);
+  background-color: var(--doc-color-white);
+  border: 1px solid var(--doc-color-gray-500);
+  border-radius: 4px;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 10%);
+}
+
+.doc-version-switcher__popover-title {
+  @include doc-font-style-body-small();
+  margin: 0 0 8px;
+  color: var(--doc-color-gray-300);
+  font-weight: 600;
+}
+
+.doc-version-switcher__popover-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-version-switcher__popover-version-link {
+  @include doc-font-family("mono");
+  color: var(--doc-color-link-on-white);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.doc-version-switcher__popover-other-versions {
+  @include doc-font-style-body-small();
+  display: block;
+  margin-top: 12px;
+  padding-top: 12px;
+  color: var(--doc-color-link-on-white);
+  border-top: 1px solid var(--doc-color-gray-500);
+}
