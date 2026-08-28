@@ -127,7 +127,7 @@ The `AppSideNav::List::BackLink` component, yielded as contextual component.
 It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @type="string">
+  <C.Property @name="text" @type="string" @required={{true}}>
     The text content for the `AppSideNav::List::BackLink` component.
   </C.Property>
   <C.Property @name="href">
@@ -184,7 +184,7 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   <C.Property @name="hasSubItems" @type="boolean" @default="false">
     Indicates the existence of sub-item links. If set to `true`, displays a right aligned `chevron-right` icon.
   </C.Property>
-  <C.Property @name="isActive" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isActive" @type="boolean" @default="false">
     If set to `true`, adds the class name of “active” to the rendered interactive element. Used to indicate the currently active page Link.
   </C.Property>
   <C.Property @name="href">
