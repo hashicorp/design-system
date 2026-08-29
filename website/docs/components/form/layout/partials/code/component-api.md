@@ -39,8 +39,8 @@
   <C.Property @name="tag" @type="enum" @values={{array "form" "div"}} @default="form">
     The HTML tag that wraps the `Form` content.
   </C.Property>
-  <C.Property @name="sectionMaxWidth" @type="string" @valueNote="any valid CSS width (px, rem, etc)" @default="672px">
-    The max-width value for `Form Section` components and other direct `Form` child components which include the `FormHeader`, `FormSeparator`, and `FormFooter`.
+  <C.Property @name="sectionMaxWidth" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
+    The max-width value for `Form Section` components and other direct `Form` child components which include the `FormHeader`, `FormSeparator`, and `FormFooter`. By default, the max-width value is `672px`.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of the element.
@@ -76,7 +76,7 @@
   <C.Property @name="tag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}} @default="div">
     A valid HTML tag name to be used to render the `Title` element.
   </C.Property>
-  <C.Property @name="size" @type="string" @values={{array "500" "400" "300" "200" "100" }} @default="200">
+  <C.Property @name="size" @type="string" @values={{array "500" "400" "300" "200" "100" }} @default="400">
     The size of the `Display` text style.
   </C.Property>
   <C.Property @name="yield">

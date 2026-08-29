@@ -32,7 +32,7 @@ To display an error for the entire fieldset (the whole group of inputs), use the
 
 [[code-snippets/key-value-inputs-validation]]
 
-To display an error on a single field, set the `isInvalid` argument on the `[R].Field` yielded component, and use the `[F].Error` yielded component.
+To display an error on a single field, set the `@isInvalid` argument on the `[R].Field` yielded component, and use the `[F].Error` yielded component.
 
 [[code-snippets/key-value-inputs-field-validation]]
 
@@ -50,7 +50,7 @@ If there is additional content needed in the header or a need for an unsupported
 
 ### Field width
 
-Fields are equal width by default. Use the Field’s `width` argument to customize field widths.
+Fields are equal width by default. Use the Field’s `@width` argument to customize field widths.
 
 [[code-snippets/key-value-inputs-field-width]]
 
@@ -66,7 +66,7 @@ Below we showcase a couple of examples of common patterns. They should be used a
 
 ### Updating the rows
 
-Consumers are responsible for handling the logic to add or remove a row. To do this, use the `onClick` argument to pass a callback function on the yielded `[F].AddRowButton` in the `:footer` named block or the yielded `[R].DeleteRowButton` in the `:row` named block.
+Consumers are responsible for handling the logic to add or remove a row. To do this, use the `@onClick` argument to pass a callback function on the yielded `[F].AddRowButton` in the `:footer` named block or the yielded `[R].DeleteRowButton` in the `:row` named block.
 
 [[code-snippets/key-value-inputs-update-rows]]
 

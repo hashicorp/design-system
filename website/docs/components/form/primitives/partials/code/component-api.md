@@ -12,6 +12,9 @@
   <C.Property @name="isOptional" @type="boolean" @default="false">
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
+  <C.Property @name="hiddenText" @type="string">
+    Accepts a string. The `hiddenText` value is rendered as visually hidden accessible text.
+  </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of a `<label>` HTML element.
   </C.Property>
