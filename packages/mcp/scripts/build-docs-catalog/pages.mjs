@@ -91,9 +91,7 @@ export function buildPage(file, route, data, body) {
     fail(`${route} has no \`title\` in its frontmatter`);
   }
 
-  const units = splitTabs(route, assemblePage(file, body)).filter(
-    (unit) => unit.tab === undefined,
-  );
+  const units = splitTabs(route, assemblePage(file, body));
   const pageUrl = `${SITE_BASE_URL}${route}`;
 
   const page = { route, section: route.split("/")[0], title };
