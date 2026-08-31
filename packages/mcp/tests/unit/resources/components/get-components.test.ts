@@ -5,7 +5,7 @@
 
 import { describe, expect, it, vi } from "vitest";
 import { createGetComponentsResource } from "../../../../src/resources/components/get-components.js";
-import { createComponentCatalogStore } from "../../../../src/resources/components/store/index.js";
+import { createComponentCatalogStore } from "../../../../src/stores/components/index.js";
 import {
   getTextContent,
   parseResourceJson,

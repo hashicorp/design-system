@@ -9,11 +9,13 @@ import { describe, expect, it } from "vitest";
 import { getMcpPackageDirectory } from "../../../src/shared/project-root.js";
 import {
   DEFAULT_READ_MAX_BYTES,
-  DOCS_CATALOG_FILE_NAME,
   DOCS_TABS,
+} from "../../../src/tools/docs/constants.js";
+import {
+  DOCS_CATALOG_FILE_NAME,
   SITE_BASE_URL,
   SNIPPET_MAX_LENGTH,
-} from "../../../src/tools/docs/constants.js";
+} from "../../../src/stores/docs/constants.js";
 import { readDoc } from "../../../src/tools/docs/read-doc.js";
 import { searchDocs } from "../../../src/tools/docs/search-docs.js";
 import {
