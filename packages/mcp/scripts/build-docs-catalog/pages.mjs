@@ -10,7 +10,6 @@ import {
   headingTrailFor,
   splitHeadings,
   splitTabs,
-  EXCLUDED_TABS,
 } from "./chunks.mjs";
 import { readStringList, readText, readSubMap } from "./frontmatter.mjs";
 import { chunkIdFor, githubHeaderId, tabQuery } from "./identifiers.mjs";
@@ -93,7 +92,7 @@ export function buildPage(file, route, data, body) {
   }
 
   const units = splitTabs(route, assemblePage(file, body)).filter(
-    (unit) => unit.tab === undefined || !EXCLUDED_TABS.has(unit.tab),
+    (unit) => unit.tab === undefined,
   );
   const pageUrl = `${SITE_BASE_URL}${route}`;
 
