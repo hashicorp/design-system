@@ -69,7 +69,7 @@ Reset the column to its original width by choosing the "Reset column width" opti
 
 [[code-snippets/advanced-table-resize]]
 
-By default, the minimum and maximum width of each column are set to `150px` and `800px` respectively. This can be overridden if necessary by passing either a `minWidth` or `maxWidth` argument to the `columns` array.
+By default, the minimum and maximum width of each column are set to `150px` and `800px` respectively. This can be overridden if necessary by passing either a `@minWidth` or `@maxWidth` argument to the `@columns` array.
 
 [[code-snippets/advanced-table-resize-customized]]
 
@@ -109,7 +109,7 @@ By default, the sort order is set to ascending. To indicate that the column defi
 To implement a custom sort callback on a column:
 
 1. add a custom function as the value for `sortingFunction` in the column hash.
-2. include a custom `onSort` action in your Table invocation to track the sorting order and use it in the custom sorting function.
+2. include a custom `@onSort` action in your Table invocation to track the sorting order and use it in the custom sorting function.
 
 This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model.
 
@@ -151,9 +151,9 @@ We recommend using functionalities like [pagination](/components/pagination), [s
 
 #### Vertical scrolling
 
-For situations where the default number of rows visible may be high, it can be difficult for users to track which column is which once they scroll. In this case, the `maxHeight` argument can be used to set the maximum height of the Advanced Table which will also add a sticky header. This will make the column headers persist as the user scrolls.
+For situations where the default number of rows visible may be high, it can be difficult for users to track which column is which once they scroll. In this case, the `@maxHeight` argument can be used to set the maximum height of the Advanced Table which will also add a sticky header. This will make the column headers persist as the user scrolls.
 
-If you want to set the `maxHeight` but not have a sticky header, set `hasStickyHeader` to false.
+If you want to set the `@maxHeight` but not have a sticky header, set `@hasStickyHeader` to false.
 
 [[code-snippets/advanced-table-vertical-scroll]]
 
@@ -193,7 +193,7 @@ At this time, the Advanced Table does not support multi-select nested rows. If t
 
 A multi-select Advanced Table includes checkboxes enabling users to select multiple rows for purposes of performing bulk operations. Checking or unchecking the checkbox in the Advanced Table header either selects or deselects the checkboxes on each row in the body. Individual checkboxes in the rows can also be selected or deselected.
 
-Add `isSelectable=true` to create a multi-select Advanced Table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the Advanced Table to an item in your data model.
+Add `@isSelectable=true` to create a multi-select Advanced Table. The `@onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected rows change. You must also pass a `@selectionKey` to each row which gets passed back through the `@onSelectionChange` callback which maps the row selection on the Advanced Table to an item in your data model.
 
 #### Simple multi-select
 
@@ -210,7 +210,7 @@ This is a simple example of an Advanced Table with multi-selection. Notice the `
 
 **Code consideration**
 
-If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
+If you want the state of the checkboxes to persist after the model updates, you will need to provide an `@identityKey` value.
 !!!
 
 [[code-snippets/advanced-table-multi-select]]
@@ -265,7 +265,7 @@ At a bare minimum we recommend clearly communicating to the user if they have se
 
 Labels within the header cells are intended to provide contextual information about the column’s content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown).
 
-In this example we’re visually hiding the label in the last column by passing `isVisuallyHidden=true` to it:
+In this example we’re visually hiding the label in the last column by passing `@isVisuallyHidden=true` to it:
 
 [[code-snippets/advanced-table-hidden-header]]
 
