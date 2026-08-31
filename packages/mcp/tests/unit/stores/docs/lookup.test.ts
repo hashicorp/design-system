@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { SNIPPET_MAX_LENGTH } from "../../../../src/tools/docs/constants.js";
+import { SNIPPET_MAX_LENGTH } from "../../../../src/stores/docs/constants.js";
 import {
   buildSnippet,
   getAncestorHeadings,
@@ -16,7 +16,7 @@ import {
   normalizeRoute,
   toChunkRecord,
   toPageRecord,
-} from "../../../../../src/tools/docs/store/lookup.js";
+} from "../../../../src/stores/docs/lookup.js";
 import {
   buildDocsChunk,
   buildDocsPage,

@@ -5,7 +5,7 @@
 
 import { describe, expect, it, vi } from "vitest";
 import { createGetIconsResource } from "../../../../src/resources/flight-icons/get-icons.js";
-import { createIconCatalogStore } from "../../../../src/resources/flight-icons/store/index.js";
+import { createIconCatalogStore } from "../../../../src/stores/flight-icons/index.js";
 import { buildIconAsset } from "../../../support/flight-icon-catalog.js";
 import { buildRequestHandlerExtra } from "../../../support/request-handler.js";
 

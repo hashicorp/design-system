@@ -9,9 +9,9 @@ import {
   getNameMatchRatio,
   hasTerm,
   scoreBm25,
-} from "../../../../../src/tools/docs/store/search-index.js";
+} from "../../../../src/stores/docs/search-index.js";
 
-import type { WeightedField } from "../../../../../src/tools/docs/store/search-index.js";
+import type { WeightedField } from "../../../../src/stores/docs/search-index.js";
 
 const buildIndex = (documents: WeightedField[][]) => buildBm25Index(documents);
 

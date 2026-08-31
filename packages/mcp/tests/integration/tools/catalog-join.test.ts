@@ -9,7 +9,7 @@ import { describe, expect, it } from "vitest";
 import {
   getOrLoadComponentStore,
   parseComponentCatalog,
-} from "../../../src/resources/components/store/index.js";
+} from "../../../src/stores/components/index.js";
 import { searchDocs } from "../../../src/tools/docs/search-docs.js";
 import { getOrLoadDocsStore } from "../../../src/stores/docs/index.js";
 

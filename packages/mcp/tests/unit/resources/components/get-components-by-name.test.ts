@@ -8,7 +8,7 @@ import {
   completeComponentNames,
   createGetComponentByNameResource,
 } from "../../../../src/resources/components/get-component-by-name.js";
-import { createComponentCatalogStore } from "../../../../src/resources/components/store/index.js";
+import { createComponentCatalogStore } from "../../../../src/stores/components/index.js";
 import {
   getTextContent,
   parseResourceJson,
