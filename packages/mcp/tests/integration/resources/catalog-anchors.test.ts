@@ -9,7 +9,7 @@ import {
   runCatalogCascade,
 } from "../../support/catalog-fixtures.js";
 
-import type { CatalogAnchor } from "../../../src/resources/shared/catalog.js";
+import type { CatalogAnchor } from "../../../src/shared/catalog.js";
 import type {
   InstalledPackage,
   ProjectFixture,
