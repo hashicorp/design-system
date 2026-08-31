@@ -10,8 +10,6 @@ import { fail } from "./paths.mjs";
 
 const TAB_SECTION = /<section data-tab="(.*?)">([\s\S]*?)<\/section>/g;
 
-export const EXCLUDED_TABS = new Set(["Version history"]);
-
 export function splitTabs(route, content) {
   const units = [];
 
