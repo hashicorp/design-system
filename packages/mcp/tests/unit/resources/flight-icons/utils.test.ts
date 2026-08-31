@@ -8,7 +8,7 @@ import {
   toSerializableIcon,
   toSerializableIconSummary,
 } from "../../../../src/resources/flight-icons/utils.js";
-import { toIconRecord } from "../../../../src/resources/flight-icons/store/lookup.js";
+import { toIconRecord } from "../../../../src/stores/flight-icons/lookup.js";
 import { buildIconAsset } from "../../../support/flight-icon-catalog.js";
 
 describe("Flight icon serialization", () => {

@@ -24,7 +24,7 @@ import {
 } from "../../support/tool-content.js";
 import { captureToolRegistrations } from "../../support/tool-registration.js";
 
-import type { SearchComponentsPayload } from "../../../src/tools/catalog/search-components.js";
+import type { SearchComponentsPayload } from "../../../src/tools/components/search-components.js";
 import type { RegisteredToolCallback } from "../../support/tool-registration.js";
 
 const buildEntry = (name: string, modulePath: string, docsPath: string) =>
@@ -75,8 +75,6 @@ describe("search_hds_components payload", () => {
           name: "Hds::Flyout",
           modulePath: "hds/flyout",
           docsPath: "components/flyout",
-          argCount: 0,
-          blockCount: 0,
         },
       ],
       source: { version: null, resolvedVia: "default" },

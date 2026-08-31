@@ -7,7 +7,7 @@ import { describe, expect, it } from "vitest";
 import {
   createDocsCatalogStore,
   parseDocsCatalog,
-} from "../../../../../src/tools/docs/store/index.js";
+} from "../../../../src/stores/docs/index.js";
 import {
   BADGE_CHUNK_ID,
   BUNDLED_AT,

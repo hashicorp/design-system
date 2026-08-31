@@ -7,7 +7,7 @@ import { describe, expect, it } from "vitest";
 import {
   tokenize,
   tokenizeQuery,
-} from "../../../../../src/tools/docs/store/tokenize.js";
+} from "../../../../src/stores/docs/tokenize.js";
 
 describe("tokenize", () => {
   it("lowercases and splits on non-alphanumeric characters", () => {

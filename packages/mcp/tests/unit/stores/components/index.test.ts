@@ -190,8 +190,6 @@ describe("searchComponents", () => {
       name: "Hds::Button",
       modulePath: "hds/button",
       docsPath: "components/button",
-      argCount: 1,
-      blockCount: 1,
     });
   });
 });

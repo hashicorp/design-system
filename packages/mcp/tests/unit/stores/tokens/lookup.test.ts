@@ -11,9 +11,9 @@ import {
   toTokenRecord,
   toTokenSummary,
   toTokenType,
-} from "../../../../../src/resources/tokens/store/lookup.js";
+} from "../../../../src/stores/tokens/lookup.js";
 
-import type { TokenCatalogRow } from "../../../../../src/resources/tokens/store/schema.js";
+import type { TokenCatalogRow } from "../../../../src/stores/tokens/schema.js";
 
 const buildRow = (
   overrides: Partial<TokenCatalogRow> = {},
