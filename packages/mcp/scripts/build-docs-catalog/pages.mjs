@@ -10,7 +10,6 @@ import {
   headingTrailFor,
   splitHeadings,
   splitTabs,
-  EXCLUDED_TABS,
 } from "./chunks.mjs";
 import { readStringList, readText, readSubMap } from "./frontmatter.mjs";
 import { chunkIdFor, githubHeaderId, tabQuery } from "./identifiers.mjs";
