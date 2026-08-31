@@ -265,7 +265,7 @@ At a bare minimum we recommend clearly communicating to the user if they have se
 
 Labels within the header cells are intended to provide contextual information about the column’s content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown).
 
-In this example we’re visually hiding the label in the last column by passing `@isVisuallyHidden=true` to it:
+In this example we’re visually hiding the label in the last column by passing `@isVisuallyHidden={{true}}` to it:
 
 [[code-snippets/advanced-table-hidden-header]]
 
