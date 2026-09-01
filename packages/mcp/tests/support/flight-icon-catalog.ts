@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { IconAsset } from "../../src/resources/flight-icons/store/schema.js";
+import type { IconAsset } from "../../src/stores/flight-icons/schema.js";
 
 export const buildIconAsset = (
   overrides: Partial<IconAsset> = {},

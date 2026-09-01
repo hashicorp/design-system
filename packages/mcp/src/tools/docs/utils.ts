@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { MAX_FILTER_LENGTH } from "./constants.js";
 import { getHeadingPath } from "../../stores/docs/lookup.js";
 
 import type {
@@ -44,10 +43,6 @@ export interface ChunkSelection {
 const TRUNCATION_NOTE = "\n\n[truncated: raise maxBytes to read the rest]";
 const REPLACEMENT_CHARACTER = "�";
 const CHUNK_SEPARATOR = "\n\n";
-
-export const clampFilterValue = (value: string): string => {
-  return value.slice(0, MAX_FILTER_LENGTH);
-};
 
 export const toSerializableSearchResult = (
   hit: DocsSearchHit,

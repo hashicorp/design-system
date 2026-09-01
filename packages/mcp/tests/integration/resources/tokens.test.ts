@@ -12,7 +12,7 @@ import {
   parseResourceJson,
 } from "../../support/resource-content.js";
 
-import type { TokenCatalogStore } from "../../../src/resources/tokens/store/index.js";
+import type { TokenCatalogStore } from "../../../src/stores/tokens/index.js";
 import type {
   TokenRecord,
   TokenSummary,
