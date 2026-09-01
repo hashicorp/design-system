@@ -13,7 +13,7 @@ The `Layout::Flex` and optional `Layout::Flex::Item` components provide a way to
 
 ### Basic usage
 
-!!! Info 
+!!! Info
 
 **Code consideration**
 
@@ -86,7 +86,7 @@ If you need to provide custom spacing values, see below how you can use a specia
 
 #### Non-standard gap values
 
-If you absolutely have to use non-standard spacing value(s) for the flex `gap`, you can use the internal `--hds-layout-flex-row-gap` and `--hds-layout-flex-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS class or an inline style).
+If you absolutely have to use non-standard spacing value(s) for the flex `gap`, you can use the internal `--hds-var-layout-flex-row-gap` and `--hds-var-layout-flex-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS class or an inline style).
 
 [[code-snippets/flex-custom-gap execute=false]]
 
