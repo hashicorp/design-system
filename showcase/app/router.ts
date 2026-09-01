@@ -12,7 +12,6 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('sandbox');
   this.route('page-foundations', { path: 'foundations' }, function () {
     this.route('typography');
     this.route('elevation');
