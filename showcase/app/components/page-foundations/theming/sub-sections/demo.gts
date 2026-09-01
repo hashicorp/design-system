@@ -8,7 +8,7 @@ const SubSectionDemo: TemplateOnlyComponent = <template>
   <ShwTextH2>Demo</ShwTextH2>
 
   <ShwLabel>Demo application with theme switcher</ShwLabel>
-  {{! NOTE: we don't use directly the `ShwFrame` frameless wrapper because changing theme in the iframe interferes with the stylesheed in the parent page, and it may create confusion }}
+  {{! NOTE: we don't use the `ShwFrame` frameless wrapper directly because changing theme in the iframe interferes with the stylesheet in the parent page, and it may create confusion }}
   <ShwBodyLinkToRoute
     @route="page-foundations.theming.frameless.demo-application-with-theme-switcher"
     @isRouteExternal={{true}}
