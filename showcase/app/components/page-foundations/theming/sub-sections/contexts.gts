@@ -96,7 +96,7 @@ export default class SubSectionContexts extends Component {
 
     <ShwTextH3>Page-level theming</ShwTextH3>
 
-    <ShwTextBody>This example below should update when changing theme</ShwTextBody>
+    <ShwTextBody>The example below should update when theme is changed</ShwTextBody>
 
     <ShwFlex as |SF|>
       <SF.Item as |SFI|>
@@ -114,8 +114,8 @@ export default class SubSectionContexts extends Component {
 
     <ShwTextH3>Local theming via ThemeContext</ShwTextH3>
 
-    <ShwTextBody>These examples below should remain the same even when changing
-      theme</ShwTextBody>
+    <ShwTextBody>The examples below should remain the same when theme is changed
+      </ShwTextBody>
 
     <ShwTextH4>Parent container</ShwTextH4>
 
