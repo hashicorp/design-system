@@ -3,4 +3,4 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export const SEARCH_COMPONENTS_TOOL_NAME = "search_hds_components";
+export const SEARCH_ICONS_TOOL_NAME = "search_hds_icons";
