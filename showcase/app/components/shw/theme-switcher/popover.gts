@@ -59,10 +59,10 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
 
   syncStates = (): void => {
     // we use this to initialize the values when the popover opens (instead of a constructor)
-    // and reset them on close (in case the user dismiss without clicking "apply")
+    // and reset them on close (in case the user dismisses without clicking "apply")
     // the reason for this is that the popover element is never removed from the DOM
-    // so if a user selects an options and closes the popover without applying,
-    // when it opens it back it would see the previous state, which not in sync with what
+    // so if a user selects an option and closes the popover without applying,
+    // when it opens again it would see the previous state, which not in sync with what
     // is actually stored in the components/services/localstorage
     this._selectedLightTheme = this.hdsTheming.currentLightTheme;
     this._selectedDarkTheme = this.hdsTheming.currentDarkTheme;
