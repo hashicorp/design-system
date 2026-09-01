@@ -12,6 +12,11 @@ import {
   MAX_FILTER_LENGTH,
 } from "../search.js";
 import {
+  clampFilterValue,
+  clampSearchLimit,
+  MAX_FILTER_LENGTH,
+} from "../shared/search.js";
+import {
   DEFAULT_SEARCH_LIMIT,
   DOCS_TABS,
   MAX_QUERY_LENGTH,
