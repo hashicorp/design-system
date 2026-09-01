@@ -5,6 +5,7 @@
 
 import { z } from "zod";
 import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../shared/define-tool.js";
+import catalogSourceOutputSchema from "../shared/output-schema.js";
 import {
   toJsonToolResponse,
   withSafeToolHandler,
@@ -18,10 +19,9 @@ import {
   DEFAULT_SEARCH_LIMIT,
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
-  SEARCH_COMPONENTS_TOOL_NAME,
-} from "./constants.js";
+} from "../shared/constants.js";
+import { SEARCH_COMPONENTS_TOOL_NAME } from "./constants.js";
 import { SEARCH_DOCS_TOOL_NAME } from "../docs/constants.js";
-import { catalogSourceOutputSchema } from "./utils.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
 
 import type { ToolRegistration } from "../shared/define-tool.js";

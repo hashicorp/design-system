@@ -14,12 +14,12 @@ import { iconCatalogSchema } from "./schema.js";
 import type { CatalogSource } from "../../shared/catalog.js";
 import type { IconRecord, IconSummary } from "./lookup.js";
 import type { IconCatalog } from "./schema.js";
+import { CatalogSearchOutcome } from "../types.js";
 
 interface SearchIconsInput {
   query: string;
   limit: number;
   category?: string;
-  size?: string;
   hasMapping?: boolean;
 }
 
@@ -38,7 +38,7 @@ export interface IconCatalogStore {
   listIcons: () => IconSummary[];
   listIconAliases: () => IconAlias[];
   getIconByName: (nameOrFileName: string) => IconRecord | null;
-  searchIcons: (input: SearchIconsInput) => IconSummary[];
+  searchIcons: (input: SearchIconsInput) => CatalogSearchOutcome<IconSummary>;
 }
 
 const toIconSummary = (icon: IconRecord): IconSummary => {
@@ -114,34 +114,32 @@ export const createIconCatalogStore = (
       query,
       limit,
       category,
-      size,
       hasMapping,
     }: SearchIconsInput) => {
       const normalizedQuery = normalizeLookupValue(query);
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
 
-      return iconRecords
-        .filter((icon) => {
-          if (
-            normalizedCategory !== null &&
-            normalizeLookupValue(icon.category) !== normalizedCategory
-          ) {
-            return false;
-          }
+      const matches = iconRecords.filter((icon) => {
+        if (
+          normalizedCategory !== null &&
+          normalizeLookupValue(icon.category) !== normalizedCategory
+        ) {
+          return false;
+        }
 
-          if (size !== undefined && !icon.sizes.includes(size)) {
-            return false;
-          }
 
-          if (hasMapping !== undefined && icon.hasMapping !== hasMapping) {
-            return false;
-          }
+        if (hasMapping !== undefined && icon.hasMapping !== hasMapping) {
+          return false;
+        }
 
-          return toSearchBlob(icon).includes(normalizedQuery);
-        })
-        .slice(0, limit)
-        .map((icon) => toIconSummary(icon));
+        return toSearchBlob(icon).includes(normalizedQuery);
+      });
+
+      return {
+        totalMatches: matches.length,
+        hits: matches.slice(0, limit).map((icon) => toIconSummary(icon)),
+      };
     },
   };
 };

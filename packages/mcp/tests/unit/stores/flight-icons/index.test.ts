@@ -25,9 +25,7 @@ describe("parseIconCatalog", () => {
   });
 
   it("rejects an invalid catalog asset", () => {
-    expect(() =>
-      parseIconCatalog({ assets: [{ id: "incomplete" }] }),
-    ).toThrow();
+    expect(() => parseIconCatalog({ assets: [{ id: "incomplete" }] })).toThrow();
   });
 });
 
@@ -81,21 +79,34 @@ describe("createIconCatalogStore", () => {
   it("searches aliases and filters icons", () => {
     const store = createIconCatalogStore(catalog);
 
-    expect(store.searchIcons({ query: "triangle-24", limit: 10 })).toHaveLength(
-      1,
-    );
+    expect(store.searchIcons({ query: "triangle-24", limit: 10 }).hits).toHaveLength(1);
     expect(
       store.searchIcons({
         query: "warning",
         limit: 10,
         category: " ALERTS ",
-        size: "24",
         hasMapping: true,
-      }),
+      }).hits,
     ).toHaveLength(1);
     expect(
-      store.searchIcons({ query: "arrow", limit: 10, hasMapping: true }),
+      store.searchIcons({ query: "arrow", limit: 10, hasMapping: true }).hits,
     ).toHaveLength(0);
-    expect(store.searchIcons({ query: "", limit: 1 })).toHaveLength(1);
+    expect(store.searchIcons({ query: "", limit: 1 }).hits).toHaveLength(1);
+  });
+
+  it("counts every match, not just the ones the limit left room for", () => {
+    const store = createIconCatalogStore(catalog);
+    // an empty query matches the blob of both icons, so the count outruns the window
+    const outcome = store.searchIcons({ query: "", limit: 1 });
+
+    expect(outcome).toStrictEqual({
+      totalMatches: 2,
+      hits: [expect.objectContaining({ iconName: "alert-triangle" })],
+    });
+    // the filtered count is the filtered total, not the catalog total
+    expect(store.searchIcons({ query: "", limit: 10, category: "Navigation" })).toStrictEqual({
+      totalMatches: 1,
+      hits: [expect.objectContaining({ iconName: "arrow-right" })],
+    });
   });
 });
