@@ -12,7 +12,7 @@ import {
   parseResourceJson,
 } from "../../support/resource-content.js";
 
-import type { ComponentCatalogStore } from "../../../src/resources/components/store/index.js";
+import type { ComponentCatalogStore } from "../../../src/stores/components/index.js";
 import type {
   ComponentRecord,
   ComponentSummary,
@@ -38,6 +38,7 @@ const buildStore = ({
     }),
     listComponents: () => components,
     getComponentByName: () => componentByName,
+    searchComponents: () => ({ totalMatches: 0, hits: [] }),
   };
 };
 
