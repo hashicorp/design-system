@@ -22,7 +22,7 @@ const ThemingIndex: TemplateOnlyComponent = <template>
 
   <ShwDivider />
 
-  {{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}
+  {{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshot them in Percy }}
   <section>
     <SubSectionDemo />
   </section>
