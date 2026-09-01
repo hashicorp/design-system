@@ -32,6 +32,7 @@
     "lint:types": "ember-tsc --noEmit",
     "start": "rollup --config --watch --environment development",
     "test:dist-files": "node scripts/check-dist-files.mjs",
+    "test:component-catalog": "node scripts/check-component-catalog.mjs",
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {
