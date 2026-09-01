@@ -11,8 +11,6 @@ export const DEFAULT_SEARCH_LIMIT = 8;
 export const MAX_SEARCH_LIMIT = 25;
 export const MAX_QUERY_LENGTH = 2_000;
 
-export const MAX_FILTER_LENGTH = 256;
-
 export const DEFAULT_READ_MAX_BYTES = 16_000;
 export const MIN_READ_MAX_BYTES = 500;
 export const MAX_READ_MAX_BYTES = 60_000;

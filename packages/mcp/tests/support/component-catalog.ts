@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { ComponentCatalogEntry } from "../../src/resources/components/store/schema.js";
+import type { ComponentCatalogEntry } from "../../src/stores/components/schema.js";
 
 export const buildComponentCatalogEntry = (
   overrides: Partial<ComponentCatalogEntry> = {},

@@ -5,11 +5,11 @@
 
 import { toJsonResourceResponse } from "../shared/responses.js";
 import { COMPONENTS_URI } from "./constants.js";
-import { getOrLoadComponentStore } from "../../stores/components//index.js";
+import { getOrLoadComponentStore } from "../../stores/components/index.js";
 import { toSerializableComponentSummary } from "./utils.js";
 
 import type { McpResource } from "../types.js";
-import type { ComponentCatalogStore } from "../../stores/components//index.js";
+import type { ComponentCatalogStore } from "../../stores/components/index.js";
 
 export const readComponentsResource = (store: ComponentCatalogStore) => {
   const meta = store.getMeta();

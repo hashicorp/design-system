@@ -12,11 +12,11 @@ import {
   parseResourceJson,
 } from "../../support/resource-content.js";
 
-import type { ComponentCatalogStore } from "../../../src/resources/components/store/index.js";
+import type { ComponentCatalogStore } from "../../../src/stores/components/index.js";
 import type {
   ComponentRecord,
   ComponentSummary,
-} from "../../../src/resources/components/store/lookup.js";
+} from "../../../src/stores/components/lookup.js";
 import type { CatalogSource } from "../../../src/shared/catalog.js";
 
 const STORE_SOURCE: CatalogSource = {
@@ -38,6 +38,7 @@ const buildStore = ({
     }),
     listComponents: () => components,
     getComponentByName: () => componentByName,
+    searchComponents: () => ({ totalMatches: 0, hits: [] }),
   };
 };
 

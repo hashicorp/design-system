@@ -10,16 +10,20 @@ import {
   withSafeToolHandler,
 } from "../shared/responses.js";
 import {
+  clampFilterValue,
+  clampSearchLimit,
+  MAX_FILTER_LENGTH,
+} from "../shared/search.js";
+import {
   DEFAULT_SEARCH_LIMIT,
   DOCS_TABS,
-  MAX_FILTER_LENGTH,
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
   SEARCH_DOCS_TOOL_NAME,
   VERSION_HISTORY_TAB,
 } from "./constants.js";
 import { getOrLoadDocsStore } from "../../stores/docs/index.js";
-import { clampFilterValue, toSerializableSearchResult } from "./utils.js";
+import { toSerializableSearchResult } from "./utils.js";
 
 import type { ToolRegistration } from "../shared/define-tool.js";
 import type { DocsCatalogStore } from "../../stores/docs/index.js";
@@ -130,7 +134,7 @@ export const searchDocs = (
   input: SearchDocsInput,
 ): SearchDocsPayload => {
   const meta = store.getMeta();
-  const limit = Math.min(Math.max(input.limit, 1), MAX_SEARCH_LIMIT);
+  const limit = clampSearchLimit(input.limit, MAX_SEARCH_LIMIT);
   const query = input.query.slice(0, MAX_QUERY_LENGTH);
   const outcome = store.search({
     query,

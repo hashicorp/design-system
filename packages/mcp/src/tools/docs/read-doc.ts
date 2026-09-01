@@ -11,8 +11,11 @@ import {
   withSafeToolHandler,
 } from "../shared/responses.js";
 import {
-  DEFAULT_READ_MAX_BYTES,
+  clampFilterValue,
   MAX_FILTER_LENGTH,
+} from "../shared/search.js";
+import {
+  DEFAULT_READ_MAX_BYTES,
   MAX_READ_MAX_BYTES,
   MIN_READ_MAX_BYTES,
   READ_DOCS_TOOL_NAME,
@@ -21,7 +24,6 @@ import {
 import { getOrLoadDocsStore } from "../../stores/docs/index.js";
 import { getHeadingPath } from "../../stores/docs/lookup.js";
 import {
-  clampFilterValue,
   selectChunkContent,
   toSerializablePageLinks,
 } from "./utils.js";
