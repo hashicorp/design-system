@@ -2567,12 +2567,6 @@
       "element": "HTMLAnchorElement | HTMLButtonElement",
       "args": [
         {
-          "name": "color",
-          "type": "\"primary\" | \"secondary\"",
-          "required": false,
-          "values": ["primary", "secondary"]
-        },
-        {
           "name": "current-when",
           "type": "string | boolean",
           "required": false,
