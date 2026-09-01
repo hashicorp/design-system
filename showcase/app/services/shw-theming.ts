@@ -104,7 +104,7 @@ export default class ShwThemingService extends HdsThemingService {
     if (storedStylesheet && isSafeStylesheetData(storedStylesheet)) {
       this.setStylesheet(storedStylesheet);
     } else {
-      // if data is not safe or malformed, reset stylesheet to its default
+      // if data is not safe or is malformed, reset stylesheet to its default
       this.setStylesheet('standard');
     }
 
@@ -131,7 +131,7 @@ export default class ShwThemingService extends HdsThemingService {
           options: storedThemingData.options,
         });
       } else {
-        // if data is not safe or malformed, reset theming to its defaults
+        // if data is not safe or is malformed, reset theming to its defaults
         this.setAppTheme({
           theme: undefined,
           options: undefined,
@@ -149,7 +149,7 @@ export default class ShwThemingService extends HdsThemingService {
       ? currentStylesheet
       : 'standard';
 
-    // toggle the stylesheets `disabled` attribute depending on the current choice
+    // toggle the stylesheet's `disabled` attribute depending on the current choice
     ALL_STYLESHEETS_IDS.forEach((id) => {
       const stylesheetElement = document.getElementById(id);
       const activate = STYLESHEETS_MAPPING[styleSheetToActivate].includes(id);
