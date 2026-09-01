@@ -17,7 +17,7 @@ The `Layout::Flex` and optional `Layout::Flex::Item` components provide a way to
 
 **Code consideration**
 
-Note: there is no strict need to use the `Layout::Flex::Item` subcomponent; use it only when necessary to tweak the flex styles of an individual child item via the `@basis/@grow/@shrink` arguments. This avoids rendering extra Ember components.
+There is no strict need to use the `Layout::Flex::Item` subcomponent; use it only when necessary to tweak the flex styles of an individual child item via the `@basis/@grow/@shrink` arguments. This avoids rendering extra Ember components.
 !!!
 
 The simplest way to implement a flexbox layout is by using the `Layout::Flex` component to wrap some content.
@@ -30,7 +30,7 @@ Here is an example with four equally sized generic content placeholders:
 
 [[code-snippets/flex-basic-placeholders]]
 
-There are cases in which it is necessary to wrap one or more child elements in a specific `Layout::Flex::Item` (eg. to apply the `@basis/@grow/@shrink` arguments, see below for details).
+There are cases in which it is necessary to wrap one or more child elements in a specific `Layout::Flex::Item` (e.g. to apply the `@basis/@grow/@shrink` arguments, see below for details).
 
 [[code-snippets/flex-item execute=false]]
 
@@ -86,7 +86,7 @@ If you need to provide custom spacing values, see below how you can use a specia
 
 #### Non-standard gap values
 
-If you absolutely have to use non-standard spacing value(s) for the flex `gap`, you can use the internal `--hds-layout-flex-row-gap` and `--hds-layout-flex-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS class or an inline style).
+If you absolutely have to use non-standard spacing value(s) for the flex `@gap`, you can use the internal `--hds-layout-flex-row-gap` and `--hds-layout-flex-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS class or an inline style).
 
 [[code-snippets/flex-custom-gap execute=false]]
 
@@ -98,7 +98,7 @@ If the flex items are wrapping to multiple lines, you have to overwrite both the
 
 Using `flexbox` is one of the simplest ways to control how sets of items are aligned and spaced, and it's done via a set of `justify-*` and `align-*` properties.
 
-In the `Layout::Flex` component this is achieved using the `@justify` and `align` arguments.
+In the `Layout::Flex` component this is achieved using the `@justify` and `@align` arguments.
 
 [[code-snippets/flex-align execute=false]]
 
@@ -175,7 +175,7 @@ By default, flex items use only the space necessary to fit their content. If the
 
 [[code-snippets/flex-default-sizing]]
 
-If we want an item to to grow and occupy the available space, we have to use its `grow` property.
+If we want an item to grow and occupy the available space, we have to use its `@grow` property.
 
 [[code-snippets/flex-grow]]
 

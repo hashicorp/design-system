@@ -27,7 +27,7 @@ The simplest way to implement a grid layout is by using the `Layout::Grid` compo
 
 Every child of the **grid container** will be stretched to fit evenly within the underlying grid column tracks behaving as a **grid item** (for details on what this means, refer to the guide linked at the top of the page).
 
-In some cases, it may be necessary to wrap one or more content items within the optional `Layout::Grid::Item` component. i.e., to group content together within a column or row, prevent content from being stretched to fit the underlying grid column width, or to make use of `rowspan` and `colspan` options in order to create more complex layouts. (See below for more details and examples on these features.)
+In some cases, it may be necessary to wrap one or more content items within the optional `Layout::Grid::Item` component. i.e., to group content together within a column or row, prevent content from being stretched to fit the underlying grid column width, or to make use of `@rowspan` and `@colspan` options in order to create more complex layouts. (See below for more details and examples on these features.)
 
 ### Preventing content stretch
 
@@ -77,7 +77,7 @@ If you need to provide custom spacing values, see below how you can use a specia
 
 #### Non-standard gap values
 
-If you absolutely have to use non-standard spacing value(s) for the grid `gap`, you can use the internal `--hds-layout-grid-row-gap` and `--hds-layout-grid-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style).
+If you absolutely have to use non-standard spacing value(s) for the grid `@gap`, you can use the internal `--hds-layout-grid-row-gap` and `--hds-layout-grid-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style).
 
 [[code-snippets/grid-spacing-custom execute=false]]
 
@@ -91,15 +91,15 @@ If the grid items are wrapping on multiple lines, you have to overwrite both the
 
 There are two options for controlling `Grid` column widths: `@columnMinWidth` and `@columnWidth`.
 
-- `@columnMinWidth` creates a semi-fluid layout. If there are fewer items than fit in a row, columns will automatically adjust so that their combined widths add up to 100%.  If the combined widths of columns in a row add up to more than 100%, they will automatically wrap to the next row as needed to fit.
+- `@columnMinWidth` creates a semi-fluid layout. If there are fewer items than fit in a row, columns will automatically adjust so that their combined widths add up to 100%. If the combined widths of columns in a row add up to more than 100%, they will automatically wrap to the next row as needed to fit.
 
 - `@columnWidth` creates a more “fixed” layout. The column widths will remain consistent no matter how many items are in a row. It supports optional breakpoints to define responsive views.
 
 #### Column min width
 
-Specify a `columnMinWidth` to create a more fluid, “semi-responsive“ layout.
+Specify a `@columnMinWidth` to create a more fluid, “semi-responsive“ layout.
 
-Note: The `gap` size will be automatically subtracted from the `columnMinWidth`. Take this into account when specifying a min width value.
+_Note: The `@gap` size will be automatically subtracted from the `@columnMinWidth`. Take this into account when specifying a min width value._
 
 ##### Semi-fluid layout behavior using percentage values
 
@@ -109,7 +109,7 @@ The column widths in a single row automatically adjust to maintain a total width
 
 ##### Semi-responsive layout using fixed unit values
 
-Specifying column min-widths using fixed units such as pixels, allows you to create layouts which are “automatically” responsive. To create fully responsive layouts using defined break points, see [`columnWidth`](/layouts/grid#column-width).
+Specifying column min-widths using fixed units such as pixels, allows you to create layouts which are “automatically” responsive. To create fully responsive layouts using defined breakpoints, see [`@columnWidth`](/layouts/grid#column-width).
 
 ###### Grid within a wider view
 
@@ -125,9 +125,9 @@ At the specified column min width, columns are forced to stack in this narrower 
 
 #### Column width
 
-To create column layouts that are more “fixed” vs. fluid, use `columnWidth` to specify a width for the columns. Items will respect the defined width instead of stretching to fill out a single column row.
+To create column layouts that are more “fixed” vs. fluid, use `@columnWidth` to specify a width for the columns. Items will respect the defined width instead of stretching to fill out a single column row.
 
-Note: The `gap` size will be automatically subtracted from the `columnWidth`. Take this into account when specifying width values.
+_Note: The `@gap` size will be automatically subtracted from the `@columnWidth`. Take this into account when specifying width values._
 
 ##### Non-responsive columns
 
@@ -137,9 +137,9 @@ Pass in a single value specifying the column width to create a non-responsive co
 
 ##### Responsive columns
 
-Optionally, instead of a single value, you can pass in an object to the `columnWidth` argument to define responsive column widths for up to five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
+Optionally, instead of a single value, you can pass in an object to the `@columnWidth` argument to define responsive column widths for up to five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
 
-See the [“Responsive layouts” section](/layouts/grid#responsive-layouts) for more details on responsive layout break points and behavior.
+See the [“Responsive layouts” section](/layouts/grid#responsive-layouts) for more details on responsive layout breakpoints and behavior.
 
 ##### With all views defined
 
@@ -161,21 +161,21 @@ Values defined for smaller views are inherited by larger views so you do not nee
 
 Use the `@align` argument to align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
 
-Note: The `Grid` parent will need a height set for the effect to be visible.
+_Note: The `Grid` parent will need a height set for the effect to be visible._
 
 [[code-snippets/grid-align]]
 
 ### Colspan & rowspan
 
-Use the `colspan` and `rowspan` arguments of the `Grid::Item` component to set the number of columns or rows an item should occupy. They both support optional breakpoints to define responsive views.
+Use the `@colspan` and `@rowspan` arguments of the `Grid::Item` component to set the number of columns or rows an item should occupy. They both support optional breakpoints to define responsive views.
 
-Note: By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
+_Note: By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example._
 
 #### Non-responsive example
 
-Pass in a single value to specify the `colspan` or `rowspan` to create a non-responsive layout.
+Pass in a single value to specify the `@colspan` or `@rowspan` to create a non-responsive layout.
 
-In this example, an underlying 4-column grid is specified by setting a `columnMinWidth` of “25%”. `colspan` and `rowspan` are used to create a flexible layout roughly resembling a typical web page layout.
+In this example, an underlying 4-column grid is specified by setting a `@columnMinWidth` of “25%”. `@colspan` and `@rowspan` are used to create a flexible layout roughly resembling a typical web page layout.
 
 [[code-snippets/grid-span]]
 
@@ -187,9 +187,9 @@ See the [“Responsive layouts” section](/layouts/grid#responsive-layouts) for
 
 !!!
 
-Optionally, instead of a single value, you can pass in an object to the `colspan` or `rowspan` arguments to define values for up to five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
+Optionally, instead of a single value, you can pass in an object to the `@colspan` or `@rowspan` arguments to define values for up to five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
 
-In this example, both the `Grid` `columnWidth` and the `colspan` of 2 items use responsive values so the layout shifts when viewed in small screens. Narrow your browser window to see the responsive behavior.
+In this example, both the `Grid` `@columnWidth` and the `@colspan` of 2 items use responsive values so the layout shifts when viewed in small screens. Narrow your browser window to see the responsive behavior.
 
 [[code-snippets/grid-span-responsive]]
 
@@ -205,7 +205,7 @@ We use a mobile-first layout approach for the responsive views, so values define
 
 ### Responsive features
 
-Responsive layout options are supported by the [`Grid` `columnWidth`](/layouts/grid#column-width) and the [`GridItem` `colspan` and `rowspan`](/layouts/grid#colspan--rowspan) features. There are five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
+Responsive layout options are supported by the [`Grid` `@columnWidth`](/layouts/grid#column-width) and the [`GridItem` `@colspan` and `@rowspan`](/layouts/grid#colspan--rowspan) features. There are five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
 
 ### Supported breakpoints
 
@@ -245,7 +245,7 @@ Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
 
 #### How this layout works
 
-We first establish an underlying grid structure of three columns by setting the `columnWidth` of the `Grid` parent to `33.33%`. The `@colspan` option of the `GridItem` children is then used to make some of them span two of the underlying grid columns creating a more complex layout.
+We first establish an underlying grid structure of three columns by setting the `@columnWidth` of the `Grid` parent to `33.33%`. The `@colspan` option of the `GridItem` children is then used to make some of them span two of the underlying grid columns creating a more complex layout.
 
 It uses a responsive layout so the content items will stack in the smallest view.
 
