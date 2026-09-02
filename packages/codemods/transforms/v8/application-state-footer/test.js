@@ -8,5 +8,5 @@
 const { runTransformTest } = require('codemod-cli');
 
 runTransformTest({
-  name: 'v7/application-state-footer',
+  name: 'v8/application-state-footer',
 });
