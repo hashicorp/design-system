@@ -17,12 +17,9 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { PROJECT_ROOT_ENV_VAR } from "../../src/resources/shared/project-root.js";
+import { PROJECT_ROOT_ENV_VAR } from "../../src/shared/project-root.js";
 
-import type {
-  CatalogAnchor,
-  CatalogSource,
-} from "../../src/resources/shared/catalog.js";
+import type { CatalogAnchor, CatalogSource } from "../../src/shared/catalog.js";
 
 export type InstalledPackage = {
   name: string;
@@ -48,7 +45,7 @@ export type RunCascadeInput = {
 };
 
 const SHARED_SOURCE_DIRECTORY = fileURLToPath(
-  new URL("../../src/resources/shared/", import.meta.url),
+  new URL("../../src/shared/", import.meta.url),
 );
 
 const RUNNER_SOURCE = `import { createCatalogLoader } from "./catalog.ts";

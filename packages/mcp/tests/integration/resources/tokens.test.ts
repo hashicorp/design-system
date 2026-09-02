@@ -17,7 +17,7 @@ import type {
   TokenRecord,
   TokenSummary,
 } from "../../../src/resources/tokens/store/lookup.js";
-import type { CatalogSource } from "../../../src/resources/shared/catalog.js";
+import type { CatalogSource } from "../../../src/shared/catalog.js";
 
 const STORE_SOURCE: CatalogSource = {
   version: "5.1.0",
