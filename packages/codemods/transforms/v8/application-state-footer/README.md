@@ -1,11 +1,11 @@
-# v7/application-state-footer
+# v8/application-state-footer
 
 ## Usage
 
 To run this codemod in your project using `npx`, you would run the following:
 
 ```bash
-npx @hashicorp/design-system-codemods v7/application-state-footer path/to/some/glob/**/*.hbs
+npx @hashicorp/design-system-codemods v8/application-state-footer path/to/some/glob/**/*.hbs
 ```
 
 ## Local usage
@@ -13,7 +13,7 @@ npx @hashicorp/design-system-codemods v7/application-state-footer path/to/some/g
 To run this codemod in this repository (even before publishing it), you would run the following from the root directory of this repository:
 
 ```bash
-node ./packages/codemods/bin/cli.js v7/application-state-footer path/to/some/glob/**/*.hbs
+node ./packages/codemods/bin/cli.js v8/application-state-footer path/to/some/glob/**/*.hbs
 ```
 
 ## Input
