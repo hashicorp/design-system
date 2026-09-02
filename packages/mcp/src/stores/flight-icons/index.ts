@@ -14,7 +14,6 @@ import { iconCatalogSchema } from "./schema.js";
 import type { CatalogSource } from "../../catalog/loader.js";
 import type { IconRecord, IconSummary } from "./lookup.js";
 import type { IconCatalog } from "./schema.js";
-import { CatalogSearchOutcome } from "../types.js";
 
 interface SearchIconsInput {
   query: string;
@@ -32,6 +31,7 @@ export interface IconCatalogStore {
   getMeta: () => {
     totalIconCount: number;
     totalAssetCount: number;
+    // the filterable field, so a caller can be told which values actually exist
     categories: string[];
     source: CatalogSource;
   };
@@ -110,12 +110,7 @@ export const createIconCatalogStore = (
     getIconByName: (nameOrFileName: string) => {
       return iconLookup.get(normalizeLookupValue(nameOrFileName)) ?? null;
     },
-    searchIcons: ({
-      query,
-      limit,
-      category,
-      hasMapping,
-    }: SearchIconsInput) => {
+    searchIcons: ({ query, limit, category, hasMapping }: SearchIconsInput) => {
       const normalizedQuery = normalizeLookupValue(query);
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
@@ -127,7 +122,6 @@ export const createIconCatalogStore = (
         ) {
           return false;
         }
-
 
         if (hasMapping !== undefined && icon.hasMapping !== hasMapping) {
           return false;
@@ -146,6 +140,7 @@ export const createIconCatalogStore = (
 
 const iconCatalogLoader = createCatalogLoader<IconCatalogStore>({
   specifier: "@hashicorp/flight-icons/catalog.json",
+  // icons reach most consumers through the components package they installed
   anchors: ["project-root", "components", "default"],
   create: (value, source) =>
     createIconCatalogStore(parseIconCatalog(value), source),
