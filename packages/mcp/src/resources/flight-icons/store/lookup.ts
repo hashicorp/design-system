@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { normalizeLookupValue } from "../../../shared/normalize.js";
+
 import type { IconAsset } from "./schema.js";
 
 export interface IconVariant {
@@ -26,16 +28,10 @@ export interface IconRecord extends IconSummary {
   variants: IconVariant[];
 }
 
-export const normalizeLookupValue = (value: string): string => {
-  return value.trim().toLowerCase();
-};
-
 export const getIconLookupKeys = (icon: IconRecord): string[] => {
   return [
     normalizeLookupValue(icon.iconName),
-    ...icon.variants.map((variant) =>
-      normalizeLookupValue(variant.fileName),
-    ),
+    ...icon.variants.map((variant) => normalizeLookupValue(variant.fileName)),
   ];
 };
 
