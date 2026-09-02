@@ -6477,6 +6477,11 @@
       "element": "HTMLElement",
       "args": [
         {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
           "name": "extraAriaDescribedBy",
           "type": "string",
           "required": false
