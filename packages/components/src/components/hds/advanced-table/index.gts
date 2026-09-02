@@ -15,7 +15,7 @@ import { fn, hash } from '@ember/helper';
 import { and, eq, not, notEq } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 import { on } from '@ember/modifier';
-import { sortBy } from '@nullvoxpopuli/ember-composable-helpers';
+import { sortBy } from '@nullvoxpopuli/ember-composable-helpers/helpers/sort-by';
 
 import { HdsAdvancedTableThSortOrderValues } from './types.ts';
 import {
@@ -501,7 +501,14 @@ export default class HdsAdvancedTable<
     return this.expandableRowIds.every((id) => this.expandedRowIds.has(id));
   }
 
-  get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
+  get sortCriteria():
+    | string
+    | HdsAdvancedTableSortingFunction<unknown>
+    | undefined {
+    if (!this.currentSortBy) {
+      return undefined;
+    }
+
     const { columns } = this.args;
 
     const currentColumn = columns.find(
@@ -516,6 +523,16 @@ export default class HdsAdvancedTable<
     } else {
       return `${this.currentSortBy}:${this.currentSortOrder}`;
     }
+  }
+
+  get sortedModel(): T[] {
+    const { model } = this.args;
+    const criteria = this.sortCriteria;
+    if (!criteria) {
+      return model;
+    }
+    // @ts-expect-error: sortBy's type only accepts string[] keys but we also pass HdsAdvancedTableSortingFunction [HDS-4380]
+    return sortBy([criteria, model]);
   }
 
   get isEmpty(): boolean {
@@ -1144,7 +1161,7 @@ export default class HdsAdvancedTable<
                 @childrenKey={{this.childrenKey}}
                 @expandedRowIds={{this.expandedRowIds}}
                 {{! @glint-expect-error: [HDS-4380](https://hashicorp.atlassian.net/browse/HDS-4380) }}
-                @sortedModel={{sortBy this.sortCriteria @model}}
+                @sortedModel={{this.sortedModel}}
                 as |B|
               >
                 {{#each B.rows key="id" as |row index|}}

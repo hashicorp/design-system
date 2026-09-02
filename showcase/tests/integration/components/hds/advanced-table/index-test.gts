@@ -487,4 +487,30 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       )
       .doesNotExist('bottom scroll indicator hidden when table is empty');
   });
+
+  test('it should render the model rows in original order when @model and @columns are used without @sortBy', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTable
+          @model={{DEFAULT_BASIC_MODEL}}
+          @columns={{DEFAULT_BASIC_COLUMNS}}
+          id="data-test-advanced-table"
+        >
+          <:body as |B|>
+            <B.Tr @selectionKey={{get B.data "id"}}>
+              <B.Th>{{get B.data "name"}}</B.Th>
+              <B.Td>{{get B.data "age"}}</B.Td>
+              <B.Td>{{get B.data "country"}}</B.Td>
+            </B.Tr>
+          </:body>
+        </HdsAdvancedTable>
+      </template>,
+    );
+
+    // model should be rendered in original insertion order (no sort applied)
+    const rows = getBodyContent();
+    assert.deepEqual(rows[0]?.[0], 'Bob');
+    assert.deepEqual(rows[1]?.[0], 'Alice');
+    assert.deepEqual(rows[2]?.[0], 'Charlie');
+  });
 });
