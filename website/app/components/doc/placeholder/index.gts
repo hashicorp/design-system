@@ -50,6 +50,10 @@ export default class DocPlaceholder extends Component<DocPlaceholderSignature> {
     }
     if (this.args.background) {
       styles.push(`background: ${this.args.background}`);
+
+      if (this.args.background === 'transparent') {
+        styles.push('text-shadow: none');
+      }
     }
 
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
