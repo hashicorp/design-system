@@ -8,13 +8,16 @@ import {
   DEFAULT_CATALOG_SOURCE,
   createCatalogLoader,
 } from "../../shared/catalog.js";
-import { getIconLookupKeys, toIconRecord } from "./lookup.js";
+import {
+  getIconLookupKeys,
+  toIconRecord,
+} from "./lookup.js";
 import { iconCatalogSchema } from "./schema.js";
 
 import type { CatalogSource } from "../../shared/catalog.js";
+import type { CatalogSearchOutcome } from "../types.js";
 import type { IconRecord, IconSummary } from "./lookup.js";
 import type { IconCatalog } from "./schema.js";
-import { CatalogSearchOutcome } from "../types.js";
 
 interface SearchIconsInput {
   query: string;
@@ -32,6 +35,7 @@ export interface IconCatalogStore {
   getMeta: () => {
     totalIconCount: number;
     totalAssetCount: number;
+    // the filterable field, so a caller can be told which values actually exist
     categories: string[];
     source: CatalogSource;
   };
@@ -90,9 +94,8 @@ export const createIconCatalogStore = (
     }
   }
 
-  const categories = [
-    ...new Set(iconRecords.map((icon) => icon.category)),
-  ].sort((left, right) => left.localeCompare(right));
+  const categories = [...new Set(iconRecords.map((icon) => icon.category))]
+    .sort((left, right) => left.localeCompare(right));
 
   return {
     getMeta: () => ({
@@ -146,6 +149,7 @@ export const createIconCatalogStore = (
 
 const iconCatalogLoader = createCatalogLoader<IconCatalogStore>({
   specifier: "@hashicorp/flight-icons/catalog.json",
+  // icons reach most consumers through the components package they installed
   anchors: ["project-root", "components", "default"],
   create: (value, source) =>
     createIconCatalogStore(parseIconCatalog(value), source),
