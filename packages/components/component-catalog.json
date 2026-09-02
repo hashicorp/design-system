@@ -6290,6 +6290,12 @@
       "element": "HTMLElement",
       "args": [
         {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/fieldset"
+        },
+        {
           "name": "extraAriaDescribedBy",
           "type": "string",
           "required": false,
@@ -7377,6 +7383,12 @@
       "element": "HTMLElement",
       "args": [
         {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/fieldset"
+        },
+        {
           "name": "extraAriaDescribedBy",
           "type": "string",
           "required": false,
@@ -7538,6 +7550,12 @@
           "type": "\"left\" | \"bottom\"",
           "required": false,
           "values": ["bottom", "left"]
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/fieldset"
         },
         {
           "name": "extraAriaDescribedBy",
@@ -10030,6 +10048,12 @@
       "docsPath": "components/form/toggle",
       "element": "HTMLElement",
       "args": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/fieldset"
+        },
         {
           "name": "extraAriaDescribedBy",
           "type": "string",
