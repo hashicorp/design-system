@@ -6290,13 +6290,13 @@
       "element": "HTMLElement",
       "args": [
         {
-          "name": "id",
+          "name": "extraAriaDescribedBy",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
         },
         {
-          "name": "extraAriaDescribedBy",
+          "name": "id",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
@@ -6483,12 +6483,12 @@
       "element": "HTMLElement",
       "args": [
         {
-          "name": "id",
+          "name": "extraAriaDescribedBy",
           "type": "string",
           "required": false
         },
         {
-          "name": "extraAriaDescribedBy",
+          "name": "id",
           "type": "string",
           "required": false
         },
@@ -7383,13 +7383,13 @@
       "element": "HTMLElement",
       "args": [
         {
-          "name": "id",
+          "name": "extraAriaDescribedBy",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
         },
         {
-          "name": "extraAriaDescribedBy",
+          "name": "id",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
@@ -7552,13 +7552,13 @@
           "values": ["bottom", "left"]
         },
         {
-          "name": "id",
+          "name": "extraAriaDescribedBy",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
         },
         {
-          "name": "extraAriaDescribedBy",
+          "name": "id",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
@@ -10049,13 +10049,13 @@
       "element": "HTMLElement",
       "args": [
         {
-          "name": "id",
+          "name": "extraAriaDescribedBy",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
         },
         {
-          "name": "extraAriaDescribedBy",
+          "name": "id",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/fieldset"
