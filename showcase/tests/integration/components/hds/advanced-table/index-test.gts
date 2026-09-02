@@ -498,7 +498,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         >
           <:body as |B|>
             <B.Tr @selectionKey={{get B.data "id"}}>
-              <B.Th>{{get B.data "name"}}</B.Th>
+              <B.Td>{{get B.data "name"}}</B.Td>
               <B.Td>{{get B.data "age"}}</B.Td>
               <B.Td>{{get B.data "country"}}</B.Td>
             </B.Tr>
