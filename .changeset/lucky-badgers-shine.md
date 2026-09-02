@@ -1,6 +1,5 @@
 ---
-"@hashicorp/design-system-components": patch
-"@hashicorp/design-system-codemods": patch
+"@hashicorp/design-system-components": major
 ---
 
 `ApplicationState` - Removed unused `@hasDivider` property from `[A].Footer` contextual component
