@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { loadIconCatalog } from "../../../src/resources/flight-icons/store/index.js";
+import { loadIconCatalog } from "../../../src/stores/flight-icons/index.js";
 
 describe("Flight icon catalog", () => {
   it("loads the generated package catalog and resolves lookup aliases", () => {

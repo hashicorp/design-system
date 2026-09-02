@@ -12,7 +12,7 @@ import {
 import type {
   ComponentRecord,
   ComponentSummary,
-} from "../../../../src/resources/components/store/lookup.js";
+} from "../../../../src/stores/components/lookup.js";
 
 describe("toSerializableComponentSummary", () => {
   it("maps field values correctly", () => {

@@ -4,12 +4,12 @@
  */
 
 import { toJsonResourceResponse } from "../shared/responses.js";
-import { getOrLoadTokenStore } from "./store/index.js";
+import { getOrLoadTokenStore } from "../../stores/tokens/index.js";
 import { toSerializableTokenSummary } from "./utils.js";
 import { TOKENS_URI } from "./constants.js";
 
 import type { McpResource } from "../types.js";
-import type { TokenCatalogStore } from "./store/index.js";
+import type { TokenCatalogStore } from "../../stores/tokens/index.js";
 
 export const readTokensResource = (store: TokenCatalogStore) => {
   const meta = store.getMeta();

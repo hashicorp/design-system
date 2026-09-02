@@ -8,7 +8,7 @@ import {
   completeTokenKeys,
   createGetTokenByKeyResource,
 } from "../../../../src/resources/tokens/get-token-by-key.js";
-import { createTokenCatalogStore } from "../../../../src/resources/tokens/store/index.js";
+import { createTokenCatalogStore } from "../../../../src/stores/tokens/index.js";
 import {
   getTextContent,
   parseResourceJson,

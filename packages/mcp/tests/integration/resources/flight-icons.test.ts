@@ -7,7 +7,7 @@ import { describe, expect, it } from "vitest";
 import { ICONS_URI } from "../../../src/resources/flight-icons/constants.js";
 import { readIconByNameResource } from "../../../src/resources/flight-icons/get-icon-by-name.js";
 import { readIconsResource } from "../../../src/resources/flight-icons/get-icons.js";
-import { createIconCatalogStore } from "../../../src/resources/flight-icons/store/index.js";
+import { createIconCatalogStore } from "../../../src/stores/flight-icons/index.js";
 import { buildIconAsset } from "../../support/flight-icon-catalog.js";
 import {
   getTextContent,

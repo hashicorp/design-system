@@ -8,15 +8,15 @@ import {
   withSafeCompletion,
 } from "../shared/completions.js";
 import { defineDetailResource } from "../shared/define-resource.js";
-import { getOrLoadTokenStore } from "./store/index.js";
+import { getOrLoadTokenStore } from "../../stores/tokens/index.js";
 import { toJsonResourceResponse } from "../shared/responses.js";
 import { buildDetailUri } from "../shared/uri.js";
 import { TOKENS_URI, TOKEN_BY_KEY_URI_TEMPLATE } from "./constants.js";
 import { toSerializableTokenSummary } from "./utils.js";
 
 import type { McpResource } from "../types.js";
-import type { TokenCatalogStore } from "./store/index.js";
-import type { TokenSummary } from "./store/lookup.js";
+import type { TokenCatalogStore } from "../../stores/tokens/index.js";
+import type { TokenSummary } from "../../stores/tokens/lookup.js";
 
 export const completeTokenKeys = (
   tokens: TokenSummary[],

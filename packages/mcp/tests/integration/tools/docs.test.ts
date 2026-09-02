@@ -5,16 +5,16 @@
 
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
+import { MAX_FILTER_LENGTH } from "../../../src/tools/shared/search.js";
 import {
   DEFAULT_READ_MAX_BYTES,
-  MAX_FILTER_LENGTH,
   MIN_READ_MAX_BYTES,
 } from "../../../src/tools/docs/constants.js";
 import {
   readDoc,
   readDocInputShape,
 } from "../../../src/tools/docs/read-doc.js";
-import { createDocsCatalogStore } from "../../../src/tools/docs/store/index.js";
+import { createDocsCatalogStore } from "../../../src/stores/docs/index.js";
 import {
   BUNDLED_AT,
   BUTTON_ACCESSIBILITY_CHUNK_ID,

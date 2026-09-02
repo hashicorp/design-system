@@ -30,3 +30,9 @@ export const defineTool = <
     },
   };
 };
+
+export const CATALOG_TOOL_ANNOTATIONS = {
+  readOnlyHint: true,
+  idempotentHint: true,
+  openWorldHint: false,
+} as const;

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { TokenSummary } from "./store/lookup.js";
+import type { TokenSummary } from "../../stores/tokens/lookup.js";
 import type { JsonObject } from "../../types.js";
 
 export const toSerializableTokenSummary = (token: TokenSummary): JsonObject => {

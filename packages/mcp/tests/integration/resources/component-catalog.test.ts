@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { loadComponentCatalog } from "../../../src/resources/components/store/index.js";
+import { loadComponentCatalog } from "../../../src/stores/components/index.js";
 
 describe("generated component catalog", () => {
   it("loads the package artifact and resolves its public aliases", () => {
