@@ -324,6 +324,37 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.dom('.tippy-content').hasText('More info.');
   });
 
+  test('it should render the model rows in original order when @model and @columns are used without @sortBy', async function (assert) {
+    await render(
+      <template>
+        <HdsTable
+          @model={{DEFAULT_SORTABLE_MODEL}}
+          @columns={{DEFAULT_SORTABLE_COLUMNS}}
+          id="data-test-table"
+        >
+          <:body as |B|>
+            <B.Tr>
+              <B.Td>{{B.data.artist}}</B.Td>
+              <B.Td>{{B.data.album}}</B.Td>
+              <B.Td>{{B.data.year}}</B.Td>
+            </B.Tr>
+          </:body>
+        </HdsTable>
+      </template>,
+    );
+
+    // model should be rendered in original insertion order (no sort applied)
+    assert
+      .dom('#data-test-table tbody tr:nth-child(1) td:nth-child(1)')
+      .hasText('Nick Drake');
+    assert
+      .dom('#data-test-table tbody tr:nth-child(2) td:nth-child(1)')
+      .hasText('The Beatles');
+    assert
+      .dom('#data-test-table tbody tr:nth-child(3) td:nth-child(1)')
+      .hasText('Melanie');
+  });
+
   test('it should render a sortable table with an empty caption if no caption is provided and table is unsorted', async function (assert) {
     await createSortableTable({});
 
