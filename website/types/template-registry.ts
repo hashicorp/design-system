@@ -7,6 +7,8 @@ import DocA11ySupport from '../app/components/doc/a11y-support';
 import DocBadge from '../app/components/doc/badge';
 import DocBadgeGroup from '../app/components/doc/badge-group';
 import DocBanner from '../app/components/doc/banner';
+import DocCarbonizationComparisonGroup from '../app/components/doc/carbonization/comparison-group';
+import DocCarbonizationComparisonGroupItem from '../app/components/doc/carbonization/comparison-group/item';
 import DocCardsCard from '../app/components/doc/cards/card';
 import DocCardsDeck from '../app/components/doc/cards/deck';
 import DocCodeGroup from '../app/components/doc/code-group';
@@ -71,6 +73,12 @@ export default interface WebsiteTemplateRegistry {
 
   'Doc::Banner': typeof DocBanner;
   'doc/banner': typeof DocBanner;
+
+  'Doc::Carbonization::ComparisonGroup': typeof DocCarbonizationComparisonGroup;
+  'doc/Carbonization/comparison-group': typeof DocCarbonizationComparisonGroup;
+
+  'Doc::Carbonization::ComparisonGroup::Item': typeof DocCarbonizationComparisonGroupItem;
+  'doc/Carbonization/comparison-group/item': typeof DocCarbonizationComparisonGroupItem;
 
   'Doc::Cards::Card': typeof DocCardsCard;
   'doc/cards/card': typeof DocCardsCard;
