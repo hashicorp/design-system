@@ -1,7 +1,0 @@
-{
-  "files": [],
-  "references": [
-    { "path": "./showcase" },
-    { "path": "./packages/components" }
-  ]
-}
