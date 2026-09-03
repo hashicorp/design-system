@@ -39,7 +39,6 @@
     "@babel/core": "^7.27.1",
     "@babel/eslint-parser": "^7.27.1",
     "@babel/plugin-proposal-decorators": "^7.27.1",
-    "@carbon/web-components": "2.60.0",
     "@codemirror/lint": "^6.8.4",
     "@codemirror/state": "^6.5.0",
     "@codemirror/view": "^6.36.2",
@@ -127,12 +126,6 @@
     "tracked-built-ins": "^4.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
-    "@carbon/grid": "^11.45.0",
-    "@carbon/icons": "^11.76.0",
-    "@carbon/layout": "^11.43.0",
-    "@carbon/motion": "^11.37.0",
-    "@carbon/themes": "^11.62.0",
-    "@carbon/type": "^11.49.0",
     "webpack": "^5.104.1"
   },
   "engines": {

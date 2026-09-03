@@ -5,8 +5,6 @@
 
 @use "@hashicorp/design-system-components";
 @use "@hashicorp/design-system-power-select-overrides";
-// Carbon type classes (cds--type-*) for HdsText → native HTML migration
-@use "@carbon/type/scss/classes" as carbon-type;
 
 // global declarations
 
@@ -28,6 +26,7 @@
 @use "./showcase-components/placeholder";
 @use "./mock-components/app";
 @use "./mock-components/demo/breakpoints";
+
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENT PAGES IMPORTS
@@ -87,6 +86,3 @@
 @use "./showcase-pages/tooltip" as showcase-tooltip;
 @use "./showcase-pages/typography" as showcase-typography;
 // END COMPONENT PAGES IMPORTS
-
-// Carbon type-classes output — must come after all @use rules
-@include carbon-type.type-classes();
