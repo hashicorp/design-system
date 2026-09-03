@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { normalizeLookupValue } from "../../../shared/normalize.js";
+
 import type {
   ComponentArg,
   ComponentBlock,
@@ -25,10 +27,6 @@ export interface ComponentRecord {
 }
 
 const HDS_NAMESPACE_PREFIX = "hds::";
-
-export const normalizeLookupValue = (value: string): string => {
-  return value.trim().toLowerCase();
-};
 
 export const normalizeComponentName = (value: string): string => {
   const normalized = normalizeLookupValue(value);

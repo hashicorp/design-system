@@ -6,21 +6,10 @@
 import { describe, expect, it } from "vitest";
 import {
   normalizeComponentName,
-  normalizeLookupValue,
   toComponentRecord,
   toComponentSummary,
 } from "../../../../../src/resources/components/store/lookup.js";
 import { buildComponentCatalogEntry } from "../../../../support/component-catalog.js";
-
-describe("normalizeLookupValue", () => {
-  it("lowercases and trims the value", () => {
-    expect(normalizeLookupValue("  Hds::Button  ")).toBe("hds::button");
-  });
-
-  it("returns empty string for empty input", () => {
-    expect(normalizeLookupValue("")).toBe("");
-  });
-});
 
 describe("normalizeComponentName", () => {
   it("strips the Hds:: namespace prefix", () => {
