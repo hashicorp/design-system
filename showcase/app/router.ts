@@ -24,7 +24,6 @@ Router.map(function () {
       });
     });
   });
-
   this.route('page-components', { path: 'components' }, function () {
     this.route('accordion');
     this.route('advanced-table', function () {
