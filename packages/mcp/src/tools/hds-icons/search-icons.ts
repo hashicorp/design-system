@@ -24,10 +24,10 @@ import {
   MAX_SEARCH_LIMIT,
 } from "../shared/constants.js";
 import { SEARCH_ICONS_TOOL_NAME } from './constants.js'
-import { getOrLoadIconStore } from "../../stores/flight-icons/index.js";
+import { getOrLoadIconStore } from "../../stores/hds-icons/index.js";
 
 import type { ToolRegistration } from "../shared/define-tool.js";
-import type { IconCatalogStore } from "../../stores/flight-icons/index.js";
+import type { IconCatalogStore } from "../../stores/hds-icons/index.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 export const searchIconsInputShape = {

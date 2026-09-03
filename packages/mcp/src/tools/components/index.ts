@@ -7,6 +7,6 @@ import searchComponentsTool from "./search-components.js";
 
 import type { ToolRegistration } from "../shared/define-tool.js";
 
-const DOCS_TOOLS: ToolRegistration[] = [searchComponentsTool];
+const COMPONENTS_TOOLS: ToolRegistration[] = [searchComponentsTool];
 
-export default DOCS_TOOLS;
+export default COMPONENTS_TOOLS;

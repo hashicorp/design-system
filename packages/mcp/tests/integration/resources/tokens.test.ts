@@ -34,11 +34,18 @@ const buildStore = ({
   return {
     getMeta: () => ({
       totalTokenCount: tokens.length,
+      categories: [
+        ...new Set(
+          tokens
+            .map((token) => token.category)
+            .filter((category): category is string => category !== undefined)
+        ),
+      ].sort(),
       source: STORE_SOURCE,
     }),
     listTokens: () => tokens,
     getTokenByKey: () => tokenByKey,
-    searchTokens: () => [],
+    searchTokens: () => ({ totalMatches: 0, hits: [] }),
   };
 };
 

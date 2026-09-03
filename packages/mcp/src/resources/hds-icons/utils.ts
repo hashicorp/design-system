@@ -6,7 +6,7 @@
 import type {
   IconRecord,
   IconSummary,
-} from "../../stores/flight-icons/lookup.js";
+} from "../../stores/hds-icons/lookup.js";
 import type { JsonObject } from "../../types.js";
 
 export const toSerializableIconSummary = (icon: IconSummary): JsonObject => {

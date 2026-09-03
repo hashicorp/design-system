@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import searchIconsTool from "./search-icons.js";
+
 import type { ToolRegistration } from "../shared/define-tool.js";
 
-const DOCS_TOOLS: ToolRegistration[] = [];
+const HDS_ICONS_TOOLS: ToolRegistration[] = [searchIconsTool];
 
-export default DOCS_TOOLS;
+export default HDS_ICONS_TOOLS;
