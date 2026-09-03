@@ -35,7 +35,7 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
     Use to show an icon. Any [icon](/icons/library) name is acceptable.
   </C.Property>
   <C.Property @name="href">
-    Pass a custom href for the link. (URL parameter that’s passed down to the `<a>` element.)
+    Pass a custom href for the link. (URL parameter that's passed down to the `&lt;a&gt;` element.)
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
