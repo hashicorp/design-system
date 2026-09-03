@@ -47,3 +47,18 @@
   flex-direction: column;
   flex-wrap: nowrap;
 }
+
+// compact
+
+.doc-meta-row--compact {
+  min-height: auto;
+
+  .doc-meta-row__label {
+    min-width: 40px;
+    margin-top: 2px;
+  }
+
+  .doc-meta-row__value-not-copyable {
+    padding-top: 0;
+  }
+}
