@@ -277,10 +277,10 @@
                 "cds-g0": "{carbon.themes.white.supportError}",
                 "cds-g10": "{carbon.themes.g10.supportError}",
                 "cds-g90": "{carbon.themes.g90.supportError}",
-                "cds-g100": "{carbon.themes.g100.supportError}",
-                "comments": {
-                  "cds": "Carbon uses outline instead of a border color change"
-                }
+                "cds-g100": "{carbon.themes.g100.supportError}"
+              },
+              "comments": {
+                "cds": "Carbon uses outline instead of a border color change"
               }
             },
             "hover": {
