@@ -3,19 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-<<<<<<< HEAD
 import { normalizeLookupValue } from "../../catalog/normalize.js";
 import {
   DEFAULT_CATALOG_SOURCE,
   createCatalogLoader,
 } from "../../catalog/loader.js";
-=======
-import { normalizeLookupValue } from "../../shared/normalize.js";
-import {
-  DEFAULT_CATALOG_SOURCE,
-  createCatalogLoader,
-} from "../../shared/catalog.js";
->>>>>>> 493734432 (moved constants)
 import {
   getTokenLookupKeys,
   normalizeTokenLookupKey,
@@ -37,11 +29,14 @@ type SearchTokensInput = {
 export type TokenCatalogStore = {
   getMeta: () => {
     totalTokenCount: number;
+    categories: string[];
     source: CatalogSource;
   };
   listTokens: () => TokenSummary[];
   getTokenByKey: (key: string) => TokenRecord | null;
-  searchTokens: (input: SearchTokensInput) => TokenSummary[];
+  searchTokens: (
+    input: SearchTokensInput,
+  ) => CatalogSearchOutcome<TokenSummary>;
 };
 
 const toSearchBlob = (token: TokenSummary): string => {
@@ -49,7 +44,9 @@ const toSearchBlob = (token: TokenSummary): string => {
   const category = token.category ?? "";
   const value = typeof token.value === "string" ? token.value : "";
 
-  return [token.key, token.name, path, category, value].join(" ").toLowerCase();
+  return [token.key, token.name, token.cssVar ?? "", path, category, value]
+    .join(" ")
+    .toLowerCase();
 };
 
 export const parseTokenCatalog = (value: unknown): TokenCatalogRow[] => {
@@ -75,9 +72,14 @@ export const createTokenCatalogStore = (
     }
   }
 
+  const categories = [
+    ...new Set(tokenRecords.map((token) => token.category)),
+  ].sort((left, right) => left.localeCompare(right));
+
   return {
     getMeta: () => ({
       totalTokenCount: tokenRecords.length,
+      categories,
       source,
     }),
     listTokens: () =>
@@ -91,26 +93,28 @@ export const createTokenCatalogStore = (
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
 
-      return (
-        tokenRecords
-          .filter((token) => {
-            if (type !== undefined && token.type !== type) {
-              return false;
-            }
+      const matches = tokenRecords.filter((token) => {
+        if (type !== undefined && token.type !== type) {
+          return false;
+        }
 
-            if (
-              normalizedCategory !== null &&
-              normalizeLookupValue(token.category ?? "") !== normalizedCategory
-            ) {
-              return false;
-            }
+        if (
+          normalizedCategory !== null &&
+          normalizeLookupValue(token.category ?? "") !== normalizedCategory
+        ) {
+          return false;
+        }
 
-            return toSearchBlob(token).includes(normalizedQuery);
-          })
+        return toSearchBlob(token).includes(normalizedQuery);
+      });
+
+      return {
+        totalMatches: matches.length,
+        hits: matches
           .slice(0, limit)
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          .map(({ original: _original, ...summary }) => summary)
-      );
+          .map(({ original: _original, ...summary }) => summary),
+      };
     },
   };
 };
