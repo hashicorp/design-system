@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of the Language Selection pattern in the App Header](/assets/components/app-header/app-header-anatomy-language-selection.png)
+![Anatomy of the Language Selection pattern in the App Header](/assets/patterns/language-selection/language-selection-anatomy.png)
 
 | Element | Usage |
 |---------|-------|
