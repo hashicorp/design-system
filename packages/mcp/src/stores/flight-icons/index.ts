@@ -8,10 +8,7 @@ import {
   DEFAULT_CATALOG_SOURCE,
   createCatalogLoader,
 } from "../../shared/catalog.js";
-import {
-  getIconLookupKeys,
-  toIconRecord,
-} from "./lookup.js";
+import { getIconLookupKeys, toIconRecord } from "./lookup.js";
 import { iconCatalogSchema } from "./schema.js";
 
 import type { CatalogSource } from "../../shared/catalog.js";
@@ -94,8 +91,9 @@ export const createIconCatalogStore = (
     }
   }
 
-  const categories = [...new Set(iconRecords.map((icon) => icon.category))]
-    .sort((left, right) => left.localeCompare(right));
+  const categories = [
+    ...new Set(iconRecords.map((icon) => icon.category)),
+  ].sort((left, right) => left.localeCompare(right));
 
   return {
     getMeta: () => ({
@@ -113,12 +111,7 @@ export const createIconCatalogStore = (
     getIconByName: (nameOrFileName: string) => {
       return iconLookup.get(normalizeLookupValue(nameOrFileName)) ?? null;
     },
-    searchIcons: ({
-      query,
-      limit,
-      category,
-      hasMapping,
-    }: SearchIconsInput) => {
+    searchIcons: ({ query, limit, category, hasMapping }: SearchIconsInput) => {
       const normalizedQuery = normalizeLookupValue(query);
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
@@ -130,7 +123,6 @@ export const createIconCatalogStore = (
         ) {
           return false;
         }
-
 
         if (hasMapping !== undefined && icon.hasMapping !== hasMapping) {
           return false;
