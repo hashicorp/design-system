@@ -93,7 +93,7 @@ const DESCRIPTION = [
   "Each icon's searchable text includes its description keywords, so 'warning' reaches alert-triangle even though the two share no characters.",
   "Use it to pick the @name value for <Hds::Icon> or <Hds::Button @icon=>, and to confirm an icon exists before writing a name that would render nothing.",
   "Every icon in the catalog is published at both 16 and 24, so pick the size at the call site rather than here.",
-  "The catalog is read from disk and never fetched. Matching is an unranked substring test, so check `truncated`: if it is true, narrow the query or filter by category rather than assuming the window holds the best matches.",
+  "The catalog is read from disk and never fetched. Exact and prefix matches on the icon name rank first, so an icon you named by hand comes back at the top; keyword-only matches rank last. If `truncated` is true, narrow the query or filter by category.",
 ].join(" ");
 
 export const searchIcons = (
