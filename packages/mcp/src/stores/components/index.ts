@@ -10,10 +10,14 @@ import {
 } from "../../shared/catalog.js";
 import {
   getComponentLookupKeys,
+  normalizeComponentName,
   toComponentRecord,
   toComponentSummary,
 } from "./lookup.js";
 import { componentCatalogSchema } from "./schema.js";
+import { searchRanked, getCommonPrefixLength } from "../shared/rank.js";
+
+import type { RankableEntry } from "../shared/rank.js";
 
 import type { CatalogSearchOutcome } from "../types.js";
 import type { CatalogSource } from "../../shared/catalog.js";
@@ -35,6 +39,7 @@ export interface ComponentCatalogStore {
   searchComponents: (
     input: SearchComponentsInput,
   ) => CatalogSearchOutcome<ComponentSummary>;
+  suggestComponentNames: (componentName: string, limit: number) => string[];
 }
 
 const toSearchBlob = (component: ComponentRecord): string => {
@@ -47,6 +52,20 @@ const toSearchBlob = (component: ComponentRecord): string => {
   ]
     .join(" ")
     .toLowerCase();
+};
+
+// the four ways a caller writes a component: template invocation, bare name, imported class
+// and module path
+const toRankable = (component: ComponentRecord): RankableEntry => {
+  return {
+    identities: [
+      normalizeLookupValue(component.name),
+      normalizeComponentName(component.name),
+      normalizeLookupValue(component.name.replaceAll("::", "")),
+      normalizeLookupValue(component.modulePath),
+    ],
+    blob: toSearchBlob(component),
+  };
 };
 
 export const parseComponentCatalog = (value: unknown): ComponentCatalog => {
@@ -76,6 +95,55 @@ export const createComponentCatalogStore = (
     }
   }
 
+  const searchComponents = ({ query, limit }: SearchComponentsInput) => {
+    const { totalMatches, hits } = searchRanked({
+      records: componentRecords,
+      query,
+      limit,
+      toRankable,
+    });
+
+    return {
+      totalMatches,
+      hits: hits.map((component) => toComponentSummary(component)),
+    };
+  };
+
+  /**
+   * A name that resolves to nothing is usually a typo or a half-remembered nesting, not a
+   * different concept, so the ranked search comes first and prefix overlap is the fallback
+   * that survives a wrong tail: `Hds::Buton` still reaches `Hds::Button`.
+   */
+  const suggestComponentNames = (
+    componentName: string,
+    limit: number,
+  ): string[] => {
+    const { hits } = searchComponents({ query: componentName, limit });
+
+    if (hits.length > 0) {
+      return hits.map((hit) => hit.name);
+    }
+
+    const requested = normalizeComponentName(componentName);
+
+    return componentRecords
+      .map((component) => ({
+        name: component.name,
+        overlap: getCommonPrefixLength(
+          normalizeComponentName(component.name),
+          requested,
+        ),
+      }))
+      .filter((candidate) => candidate.overlap > 0)
+      .sort((left, right) =>
+        right.overlap === left.overlap
+          ? left.name.localeCompare(right.name)
+          : right.overlap - left.overlap,
+      )
+      .slice(0, limit)
+      .map((candidate) => candidate.name);
+  };
+
   return {
     getMeta: () => ({
       totalComponentCount: componentRecords.length,
@@ -86,19 +154,8 @@ export const createComponentCatalogStore = (
     getComponentByName: (componentName: string) => {
       return componentLookup.get(normalizeLookupValue(componentName)) ?? null;
     },
-    searchComponents: ({ query, limit }: SearchComponentsInput) => {
-      const normalizedQuery = normalizeLookupValue(query);
-      const matches = componentRecords.filter((component) =>
-        toSearchBlob(component).includes(normalizedQuery),
-      );
-
-      return {
-        totalMatches: matches.length,
-        hits: matches
-          .slice(0, limit)
-          .map((component) => toComponentSummary(component)),
-      };
-    },
+    searchComponents,
+    suggestComponentNames,
   };
 };
 

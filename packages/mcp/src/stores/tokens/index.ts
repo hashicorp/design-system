@@ -14,6 +14,9 @@ import {
   toTokenRecord,
 } from "./lookup.js";
 import { tokenCatalogSchema } from "./schema.js";
+import { searchRanked } from "../shared/rank.js";
+
+import type { RankableEntry } from "../shared/rank.js";
 
 import type { CatalogSource } from "../../shared/catalog.js";
 import type { CatalogSearchOutcome } from "../../stores/types.js";
@@ -48,6 +51,20 @@ const toSearchBlob = (token: TokenSummary): string => {
   return [token.key, token.name, token.cssVar ?? "", path, category, value]
     .join(" ")
     .toLowerCase();
+};
+
+// the catalog key, the generated name and the CSS variable, all of which a caller may paste;
+// the value stays in the blob so searching a hex code still finds the token that defines it
+const toRankable = (token: TokenSummary): RankableEntry => {
+  return {
+    identities: [
+      normalizeTokenLookupKey(token.key),
+      normalizeLookupValue(token.name),
+      normalizeLookupValue(token.cssVar ?? ""),
+      normalizeLookupValue(token.path.join(".")),
+    ],
+    blob: toSearchBlob(token),
+  };
 };
 
 export const parseTokenCatalog = (value: unknown): TokenCatalogRow[] => {
@@ -90,31 +107,30 @@ export const createTokenCatalogStore = (
       return tokenLookup.get(normalizeTokenLookupKey(key)) ?? null;
     },
     searchTokens: ({ query, limit, type, category }: SearchTokensInput) => {
-      const normalizedQuery = normalizeLookupValue(query);
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
 
-      const matches = tokenRecords.filter((token) => {
-        if (type !== undefined && token.type !== type) {
-          return false;
-        }
+      const { totalMatches, hits } = searchRanked({
+        records: tokenRecords,
+        query,
+        limit,
+        toRankable,
+        matches: (token) => {
+          if (type !== undefined && token.type !== type) {
+            return false;
+          }
 
-        if (
-          normalizedCategory !== null &&
-          normalizeLookupValue(token.category ?? "") !== normalizedCategory
-        ) {
-          return false;
-        }
-
-        return toSearchBlob(token).includes(normalizedQuery);
+          return (
+            normalizedCategory === null ||
+            normalizeLookupValue(token.category ?? "") === normalizedCategory
+          );
+        },
       });
 
       return {
-        totalMatches: matches.length,
-        hits: matches
-          .slice(0, limit)
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          .map(({ original: _original, ...summary }) => summary),
+        totalMatches,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        hits: hits.map(({ original: _original, ...summary }) => summary),
       };
     },
   };

@@ -10,6 +10,9 @@ import {
 } from "../../shared/catalog.js";
 import { getIconLookupKeys, toIconRecord } from "./lookup.js";
 import { iconCatalogSchema } from "./schema.js";
+import { searchRanked } from "../shared/rank.js";
+
+import type { RankableEntry } from "../shared/rank.js";
 
 import type { CatalogSource } from "../../shared/catalog.js";
 import type { CatalogSearchOutcome } from "../types.js";
@@ -63,6 +66,18 @@ const toSearchBlob = (icon: IconRecord): string => {
     .toLowerCase();
 };
 
+// the `@name` value and the per-size file names; the description keywords stay in the blob so
+// `warning` still reaches `alert-triangle` without outranking an icon actually named for it
+const toRankable = (icon: IconRecord): RankableEntry => {
+  return {
+    identities: [
+      normalizeLookupValue(icon.iconName),
+      ...icon.variants.map((variant) => normalizeLookupValue(variant.fileName)),
+    ],
+    blob: toSearchBlob(icon),
+  };
+};
+
 export const parseIconCatalog = (value: unknown): IconCatalog => {
   return iconCatalogSchema.parse(value);
 };
@@ -112,28 +127,29 @@ export const createIconCatalogStore = (
       return iconLookup.get(normalizeLookupValue(nameOrFileName)) ?? null;
     },
     searchIcons: ({ query, limit, category, hasMapping }: SearchIconsInput) => {
-      const normalizedQuery = normalizeLookupValue(query);
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
 
-      const matches = iconRecords.filter((icon) => {
-        if (
-          normalizedCategory !== null &&
-          normalizeLookupValue(icon.category) !== normalizedCategory
-        ) {
-          return false;
-        }
+      const { totalMatches, hits } = searchRanked({
+        records: iconRecords,
+        query,
+        limit,
+        toRankable,
+        matches: (icon) => {
+          if (
+            normalizedCategory !== null &&
+            normalizeLookupValue(icon.category) !== normalizedCategory
+          ) {
+            return false;
+          }
 
-        if (hasMapping !== undefined && icon.hasMapping !== hasMapping) {
-          return false;
-        }
-
-        return toSearchBlob(icon).includes(normalizedQuery);
+          return hasMapping === undefined || icon.hasMapping === hasMapping;
+        },
       });
 
       return {
-        totalMatches: matches.length,
-        hits: matches.slice(0, limit).map((icon) => toIconSummary(icon)),
+        totalMatches,
+        hits: hits.map((icon) => toIconSummary(icon)),
       };
     },
   };
