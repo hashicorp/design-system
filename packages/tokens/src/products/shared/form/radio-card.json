@@ -42,7 +42,7 @@
         },
         "radius": {
           "$type": "dimension",
-          "$value": "{border.radius.medium}",
+          "$value": "{border.radius.medium}"
         },
         "color": {
           "default": {
