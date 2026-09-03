@@ -1,6 +1,6 @@
 Use the theme selection pattern to provide users with a method to switch the application's visual theme between supported options. Theme selection is accessed from the existing User dropdown in the App Header's `utilityActions` and does not require a new top-level utility control.
 
-![An example of the open user settings menu in the App Header with available theme selection options.](/assets/components/app-header/app-header-theme-selection.png)
+![An example of the open user settings menu in the App Header with available theme selection options.](/assets/patterns/theme-selection/theme-selection.png)
 
 In Ember applications, a [theme service (insert link here)](#) is provided to handle switching the theme based on the selected option.
 
