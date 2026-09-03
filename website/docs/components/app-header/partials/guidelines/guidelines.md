@@ -50,6 +50,8 @@ The context switcher allows users to switch between different global contexts wi
 
 ## Utility navigation
 
+For guidance on adding a language selector to the App Header, refer to the [language selection pattern](/patterns/language-selection).
+
 ### Help dropdown
 
 Use the help dropdown to provide users with access to support and helpful resources that can be easily accessible from anywhere within the application, e.g., links to the help center, documentation, or tutorials.
@@ -63,6 +65,8 @@ Avoid placing non-help-related links within the help dropdown menu.
 The user dropdown gives users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences.
 
 Avoid placing links to unrelated pages within the user dropdown menu.
+
+For guidance on adding theme options to the User dropdown, refer to the [theme selection pattern](/patterns/theme-selection).
 
 ![User dropdown in the App Header](/assets/components/app-header/app-header-user-dropdown.png)
 
@@ -95,10 +99,10 @@ In Figma, we publish a separate Menu component for UIs and prototypes for smalle
 
 By default (and if used within the App Frame), the App Header will occupy 100% of the viewport width. As the viewport width condenses, the components' controls will collapse into a menu that can be toggled open/closed with the menu button (shown conditionally based on the viewport width).
 
-At smaller viewports, the menu containing the `AppHeader` controls will occupy 100% of the viewport height and prevent scrolling content on the main page.
+At smaller viewports, the menu containing the App Header controls will occupy 100% of the viewport height and prevent scrolling content on the main page.
 
 ## Usage in the App Frame
 
-The `AppHeader` is intended to be used within the [`AppFrame`](/layouts/app-frame) component (only supported in code), where a location is reserved for the component out of the box.
+The App Header is intended to be used within the [App Frame](/layouts/app-frame) component (only supported in code), where a location is reserved for the component out of the box.
 
-If you intend to use the `AppHeader` without the `AppFrame`, contact the HDS team for assistance and guidance on implementation.
+If you intend to use the App Header without the App Frame, contact the HDS team for assistance and guidance on implementation.
