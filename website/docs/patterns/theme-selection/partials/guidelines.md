@@ -1,4 +1,4 @@
-Use the theme selection pattern to provide users with a method to switch the application's visual theme between supported options. Theme selection is accessed from the existing User dropdown in the App Header's `utilityActions` and does not require a new top-level utility control.
+Use the theme selection pattern to provide users with a method to switch the application's visual theme between supported options. Theme selection is accessed from the existing User dropdown in the [App Header](/components/app-header)'s `utilityActions` and does not require a new top-level utility control.
 
 ![An example of the open user settings menu in the App Header with available theme selection options.](/assets/patterns/theme-selection/theme-selection.png)
 
@@ -6,11 +6,11 @@ In Ember applications, a [theme service (insert link here)](#) is provided to ha
 
 ## Placement
 
-Place theme options as a new section within the User dropdown or settings menu in the App Header after the existing account-level actions (Account settings, Sign out).
+Place theme options as a new section within the User dropdown or settings menu in the [App Header](/components/app-header) after the existing account-level actions (Account settings, Sign out).
 
 ## Components
 
-Compose the theme section within the settings menu with these HDS components List Item components:
+Compose the theme section within the settings menu with these [Dropdown](/components/dropdown) List Item components:
 
 - **Separator**: adds visual differentiation between the theme selection and the account actions and settings.
 - **Title**: section label; set the text to "Theme"
@@ -18,7 +18,7 @@ Compose the theme section within the settings menu with these HDS components Lis
 
 ## Options
 
-Use a Checkmark List Item with a leading icon that best corresponds with the visual appearance of the theme for each theme option. Common examples include:
+Use a [Checkmark List Item](/components/dropdown#selection-listitems) with a leading icon that best corresponds with the visual appearance of the theme for each theme option. Common examples include:
 
 | Option          | Leading icon | Notes                                                            |
 | --------------- | ------------ | ---------------------------------------------------------------- |
