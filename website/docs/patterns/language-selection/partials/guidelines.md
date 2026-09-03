@@ -27,14 +27,14 @@ Each list item displays the language in two forms (with the exception of English
 
 ## Default language
 
-Avoid making assumptions about user preference based on factors outside of the application and default to English even when other languages and translations are available. HashiCorp products are built and documented in English, making it a logical default and fallback choice.
-
 !!! Warning
 
 **Avoid inferring language from geographic location**
 
 Determining a user's language from their IP address or geographic region is unreliable. A user's location does not indicate their language preference. For example, a user in Germany may prefer English or Japanese.
 !!!
+
+Avoid making assumptions about user preference based on factors outside of the application and default to English even when other languages and translations are available. HashiCorp products are built and documented in English, making it a logical default and fallback choice.
 
 ## Persistence
 
