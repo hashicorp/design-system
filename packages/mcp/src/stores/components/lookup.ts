@@ -47,6 +47,9 @@ export const getComponentLookupKeys = (
     withoutNamespace,
     invocation.replaceAll("::", ""),
     withoutNamespace.replaceAll("::", ""),
+    // the specifier an import uses, which is the one form a caller can copy out of a
+    // stack trace or an Embroider error rather than retype
+    normalizeLookupValue(entry.modulePath),
   ];
 };
 

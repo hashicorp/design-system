@@ -192,6 +192,65 @@ describe("searchComponents", () => {
       docsPath: "components/button",
     });
   });
+
+  it("ranks the component that IS the query above the ones containing it", () => {
+    // `Hds::CopyButton` sorts first alphabetically; an unranked window would lead with it
+    expect(
+      store
+        .searchComponents({ query: "button", limit: 10 })
+        .hits.map((component) => component.name),
+    ).toStrictEqual(["Hds::Button", "Hds::CopyButton"]);
+  });
+
+  it("keeps an exact match in a window too small to hold every match", () => {
+    expect(
+      store.searchComponents({ query: "button", limit: 1 }).hits[0]?.name,
+    ).toBe("Hds::Button");
+  });
+});
+
+describe("suggestComponentNames", () => {
+  const store = createComponentCatalogStore(
+    parseComponentCatalog({
+      components: [
+        buildComponentCatalogEntry(),
+        buildComponentCatalogEntry({
+          name: "Hds::ButtonSet",
+          modulePath: "hds/button-set",
+          docsPath: "components/button-set",
+          args: [],
+          blocks: [],
+        }),
+        buildComponentCatalogEntry({
+          name: "Hds::Flyout",
+          modulePath: "hds/flyout",
+          docsPath: "components/flyout",
+          args: [],
+          blocks: [],
+        }),
+      ],
+    }),
+  );
+
+  it("prefers real matches when the name merely lacks its namespace", () => {
+    expect(store.suggestComponentNames("button", 5)).toStrictEqual([
+      "Hds::Button",
+      "Hds::ButtonSet",
+    ]);
+  });
+
+  it("falls back to prefix overlap, which survives a typo a substring match cannot", () => {
+    expect(store.suggestComponentNames("Hds::Buton", 5)[0]).toBe("Hds::Button");
+    expect(store.suggestComponentNames("flyoutt", 5)[0]).toBe("Hds::Flyout");
+  });
+
+  it("suggests nothing for a name that shares no opening characters", () => {
+    expect(store.suggestComponentNames("zzzzz", 5)).toStrictEqual([]);
+  });
+
+  it("honours the limit it is given", () => {
+    expect(store.suggestComponentNames("button", 1)).toHaveLength(1);
+  });
 });
 
 describe("shared value sets", () => {

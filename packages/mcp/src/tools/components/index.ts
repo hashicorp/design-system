@@ -3,10 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import getComponentTool from "./get-component.js";
 import searchComponentsTool from "./search-components.js";
 
 import type { ToolRegistration } from "../shared/define-tool.js";
 
-const DOCS_TOOLS: ToolRegistration[] = [searchComponentsTool];
+const COMPONENTS_TOOLS: ToolRegistration[] = [
+  searchComponentsTool,
+  getComponentTool,
+];
 
-export default DOCS_TOOLS;
+export default COMPONENTS_TOOLS;

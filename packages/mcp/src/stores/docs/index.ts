@@ -40,6 +40,7 @@ import {
   scoreBm25,
 } from "./search-index.js";
 import { tokenize, tokenizeQuery } from "./tokenize.js";
+import { getCommonPrefixLength } from "../shared/rank.js";
 
 import type {
   DocsChunkRecord,
@@ -112,17 +113,6 @@ const QUERY_WORD_PATTERN = /[A-Za-z0-9][A-Za-z0-9.:@_-]*/g;
 
 const roundScore = (value: number): number => {
   return Math.round(value * 10_000) / 10_000;
-};
-
-const getCommonPrefixLength = (left: string, right: string): number => {
-  const limit = Math.min(left.length, right.length);
-  let index = 0;
-
-  while (index < limit && left[index] === right[index]) {
-    index += 1;
-  }
-
-  return index;
 };
 
 export const parseDocsCatalog = (value: unknown): DocsCatalog => {

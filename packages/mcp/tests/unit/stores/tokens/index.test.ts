@@ -44,17 +44,86 @@ describe("createTokenCatalogStore", () => {
     }),
   ];
 
+  describe("search ranking", () => {
+    const rankingRows = [
+      // sorts first in the catalog, and merely contains the query
+      buildTokenCatalogRow({
+        key: "{tooltip.border-radius}",
+        name: "token-tooltip-border-radius",
+        attributes: { category: "tooltip" },
+        path: ["tooltip", "border-radius"],
+      }),
+      buildTokenCatalogRow({
+        key: "{border.radius.small}",
+        name: "token-border-radius-small",
+        attributes: { category: "border" },
+        path: ["border", "radius", "small"],
+      }),
+    ];
+
+    const search = (query: string): string[] =>
+      createTokenCatalogStore(rankingRows)
+        .searchTokens({ query, limit: 10 })
+        .hits.map((token) => token.name);
+
+    it("puts the token the query names above one that merely contains it", () => {
+      expect(search("border-radius")[0]).toBe("token-border-radius-small");
+    });
+
+    it("does not care which delimiter the caller typed", () => {
+      // the key uses dots, the CSS variable a caller copies uses hyphens
+      for (const query of ["border-radius", "border radius", "border.radius"]) {
+        expect(search(query)[0], query).toBe("token-border-radius-small");
+      }
+    });
+
+    it("ranks a value-only match below a name match", () => {
+      const rows = [
+        buildTokenCatalogRow({
+          key: "{color.surface.faint}",
+          $type: "color",
+          $value: "#1060ff",
+          name: "token-color-surface-faint",
+          attributes: { category: "color" },
+          path: ["color", "surface", "faint"],
+        }),
+        buildTokenCatalogRow({
+          key: "{color.foreground.action}",
+          $type: "color",
+          $value: "#f0f0f0",
+          name: "token-color-foreground-action",
+          attributes: { category: "color" },
+          path: ["color", "foreground", "action"],
+        }),
+      ];
+      const hits = createTokenCatalogStore(rows)
+        .searchTokens({ query: "foreground", limit: 10 })
+        .hits.map((token) => token.name);
+
+      expect(hits[0]).toBe("token-color-foreground-action");
+    });
+
+    it("keeps the best match when the window is too small to hold every match", () => {
+      expect(
+        createTokenCatalogStore(rankingRows).searchTokens({
+          query: "border-radius",
+          limit: 1,
+        }).hits[0]?.name
+      ).toBe("token-border-radius-small");
+    });
+  });
+
   it("resolves a token by key, dot path, and name", () => {
     const store = createTokenCatalogStore(rows);
 
     expect(store.getTokenByKey("{COLOR.FOREGROUND.ACTION}")?.key).toBe(
-      "{color.foreground.action}",
+      "{color.foreground.action}"
     );
     expect(store.getTokenByKey("color.foreground.action")?.key).toBe(
-      "{color.foreground.action}",
+      "{color.foreground.action}"
     );
     expect(store.getTokenByKey("token-color-foreground-action")?.key).toBe(
-      "{color.foreground.action}",
+      "{color.foreground.action}"
     );
     expect(store.getTokenByKey("not-a-token")).toBeNull();
   });
@@ -64,7 +133,7 @@ describe("createTokenCatalogStore", () => {
 
     // cssVar for token-color-foreground-action is --token-color-foreground-action
     expect(store.getTokenByKey("--token-color-foreground-action")?.key).toBe(
-      "{color.foreground.action}",
+      "{color.foreground.action}"
     );
   });
 
@@ -72,6 +141,7 @@ describe("createTokenCatalogStore", () => {
     const store = createTokenCatalogStore(rows);
 
     expect(store.getMeta().totalTokenCount).toBe(2);
+    expect(store.getMeta().categories).toStrictEqual(["border", "color"]);
     expect(store.listTokens()).toHaveLength(2);
     expect(store.listTokens()[0]).not.toHaveProperty("original");
   });
@@ -79,24 +149,41 @@ describe("createTokenCatalogStore", () => {
   it("searches and filters tokens", () => {
     const store = createTokenCatalogStore(rows);
 
-    expect(store.searchTokens({ query: "foreground", limit: 10 })).toHaveLength(
-      1,
-    );
+    expect(
+      store.searchTokens({ query: "foreground", limit: 10 }).hits
+    ).toHaveLength(1);
     expect(
       store.searchTokens({
         query: "action",
         limit: 10,
         type: "color",
         category: " COLOR ",
-      }),
+      }).hits
     ).toHaveLength(1);
-    expect(store.searchTokens({ query: "token", limit: 1 })).toHaveLength(1);
+    expect(store.searchTokens({ query: "token", limit: 1 }).hits).toHaveLength(
+      1
+    );
     expect(
       store.searchTokens({
         query: "action",
         limit: 10,
         type: "dimension",
-      }),
+      }).hits
     ).toHaveLength(0);
+  });
+
+  it("counts every match, not just the ones the limit left room for", () => {
+    const store = createTokenCatalogStore(rows);
+    // both token names start with "token-", so the count outruns the one-result window
+    const outcome = store.searchTokens({ query: "token", limit: 1 });
+
+    expect(outcome.totalMatches).toBe(2);
+    expect(outcome.hits).toHaveLength(1);
+    expect(
+      store.searchTokens({ query: "token", limit: 10, type: "color" })
+    ).toStrictEqual({
+      totalMatches: 1,
+      hits: [expect.objectContaining({ key: "{color.foreground.action}" })],
+    });
   });
 });

@@ -5,7 +5,7 @@
 
 import { withSafeResourceHandler } from "./shared/responses.js";
 
-import flightIconsResources from "./flight-icons/index.js";
+import hdsIconsResources from "./hds-icons/index.js";
 import tokensResources from "./tokens/index.js";
 import componentsResources from "./components/index.js";
 
@@ -14,7 +14,7 @@ import type { McpResource } from "./types.js";
 
 const RESOURCES: McpResource[] = [
   ...componentsResources,
-  ...flightIconsResources,
+  ...hdsIconsResources,
   ...tokensResources,
 ];
 

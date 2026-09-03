@@ -14,8 +14,12 @@ import {
   toTokenRecord,
 } from "./lookup.js";
 import { tokenCatalogSchema } from "./schema.js";
+import { searchRanked } from "../shared/rank.js";
+
+import type { RankableEntry } from "../shared/rank.js";
 
 import type { CatalogSource } from "../../shared/catalog.js";
+import type { CatalogSearchOutcome } from "../../stores/types.js";
 import type { TokenRecord, TokenSummary } from "./lookup.js";
 import type { TokenCatalogRow, TokenType } from "./schema.js";
 
@@ -29,11 +33,14 @@ type SearchTokensInput = {
 export type TokenCatalogStore = {
   getMeta: () => {
     totalTokenCount: number;
+    categories: string[];
     source: CatalogSource;
   };
   listTokens: () => TokenSummary[];
   getTokenByKey: (key: string) => TokenRecord | null;
-  searchTokens: (input: SearchTokensInput) => TokenSummary[];
+  searchTokens: (
+    input: SearchTokensInput,
+  ) => CatalogSearchOutcome<TokenSummary>;
 };
 
 const toSearchBlob = (token: TokenSummary): string => {
@@ -41,7 +48,23 @@ const toSearchBlob = (token: TokenSummary): string => {
   const category = token.category ?? "";
   const value = typeof token.value === "string" ? token.value : "";
 
-  return [token.key, token.name, path, category, value].join(" ").toLowerCase();
+  return [token.key, token.name, token.cssVar ?? "", path, category, value]
+    .join(" ")
+    .toLowerCase();
+};
+
+// the catalog key, the generated name and the CSS variable, all of which a caller may paste;
+// the value stays in the blob so searching a hex code still finds the token that defines it
+const toRankable = (token: TokenSummary): RankableEntry => {
+  return {
+    identities: [
+      normalizeTokenLookupKey(token.key),
+      normalizeLookupValue(token.name),
+      normalizeLookupValue(token.cssVar ?? ""),
+      normalizeLookupValue(token.path.join(".")),
+    ],
+    blob: toSearchBlob(token),
+  };
 };
 
 export const parseTokenCatalog = (value: unknown): TokenCatalogRow[] => {
@@ -67,9 +90,14 @@ export const createTokenCatalogStore = (
     }
   }
 
+  const categories = [
+    ...new Set(tokenRecords.map((token) => token.category)),
+  ].sort((left, right) => left.localeCompare(right));
+
   return {
     getMeta: () => ({
       totalTokenCount: tokenRecords.length,
+      categories,
       source,
     }),
     listTokens: () =>
@@ -79,30 +107,31 @@ export const createTokenCatalogStore = (
       return tokenLookup.get(normalizeTokenLookupKey(key)) ?? null;
     },
     searchTokens: ({ query, limit, type, category }: SearchTokensInput) => {
-      const normalizedQuery = normalizeLookupValue(query);
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
 
-      return (
-        tokenRecords
-          .filter((token) => {
-            if (type !== undefined && token.type !== type) {
-              return false;
-            }
+      const { totalMatches, hits } = searchRanked({
+        records: tokenRecords,
+        query,
+        limit,
+        toRankable,
+        matches: (token) => {
+          if (type !== undefined && token.type !== type) {
+            return false;
+          }
 
-            if (
-              normalizedCategory !== null &&
-              normalizeLookupValue(token.category ?? "") !== normalizedCategory
-            ) {
-              return false;
-            }
+          return (
+            normalizedCategory === null ||
+            normalizeLookupValue(token.category ?? "") === normalizedCategory
+          );
+        },
+      });
 
-            return toSearchBlob(token).includes(normalizedQuery);
-          })
-          .slice(0, limit)
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          .map(({ original: _original, ...summary }) => summary)
-      );
+      return {
+        totalMatches,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        hits: hits.map(({ original: _original, ...summary }) => summary),
+      };
     },
   };
 };
