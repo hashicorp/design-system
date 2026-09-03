@@ -39,6 +39,7 @@ const buildStore = ({
     listComponents: () => components,
     getComponentByName: () => componentByName,
     searchComponents: () => ({ totalMatches: 0, hits: [] }),
+    suggestComponentNames: () => [],
   };
 };
 

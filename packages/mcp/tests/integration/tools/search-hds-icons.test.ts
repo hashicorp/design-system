@@ -118,9 +118,10 @@ describe("search_hds_icons payload", () => {
 
     expect(payload.filters).toStrictEqual({ category: " NAVIGATION " });
     expect(payload.unknownFilters).toStrictEqual([]);
+    // both are prefix matches on "arrow", so the shorter name breaks the tie
     expect(payload.results.map((icon) => icon.iconName)).toStrictEqual([
-      "arrow-right",
       "arrow-left",
+      "arrow-right",
     ]);
     expect(search({ query: "alert", hasMapping: true }).totalMatches).toBe(1);
     expect(search({ query: "arrow", hasMapping: true }).totalMatches).toBe(0);

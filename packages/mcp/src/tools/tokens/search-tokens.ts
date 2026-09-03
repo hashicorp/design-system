@@ -100,7 +100,7 @@ const DESCRIPTION = [
   "Find Helios design tokens by name or value, from the token catalog inside the installed @hashicorp/design-system-tokens package.",
   "Every result carries the cssVar to write in a stylesheet — var(--token-color-foreground-action) — so use this to replace a hard-coded colour, spacing or radius with the token that holds it.",
   "The query matches the token value too, so searching a hex code finds which token already defines it.",
-  "The catalog is read from disk and never fetched. Matching is an unranked substring test, so check `truncated`: if it is true, narrow the query or filter by type rather than assuming the window holds the best matches.",
+  "The catalog is read from disk and never fetched. Exact and prefix matches on the token key, name or CSS variable rank first, so a token you named by hand comes back at the top; value-only matches rank last. If `truncated` is true, narrow the query or filter by type.",
 ].join(" ");
 
 export const searchTokens = (

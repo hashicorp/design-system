@@ -5,7 +5,10 @@
 
 import { describe, expect, it } from "vitest";
 import { registerTools } from "../../../src/tools/index.js";
-import { SEARCH_COMPONENTS_TOOL_NAME } from "../../../src/tools/components/constants.js";
+import {
+  GET_COMPONENT_TOOL_NAME,
+  SEARCH_COMPONENTS_TOOL_NAME,
+} from "../../../src/tools/components/constants.js";
 import {
   READ_DOCS_TOOL_NAME,
   SEARCH_DOCS_TOOL_NAME,
@@ -18,6 +21,7 @@ import { captureToolRegistrations } from "../../support/tool-registration.js";
 // left out of src/tools/index.ts fails silently: the tool keeps passing its own tests while
 // no client can call it. this pins the exposed surface so that gap is a failure, not a shrug.
 const EXPECTED_TOOL_NAMES = [
+  GET_COMPONENT_TOOL_NAME,
   READ_DOCS_TOOL_NAME,
   SEARCH_COMPONENTS_TOOL_NAME,
   SEARCH_DOCS_TOOL_NAME,
