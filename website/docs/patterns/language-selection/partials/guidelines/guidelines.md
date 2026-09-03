@@ -7,7 +7,7 @@ While HDS components support [internationalization](/getting-started/for-enginee
 
 Use the language selection pattern to provide users with a method to switch the application's language from anywhere within the product without leaving their current page or context.
 
-![An example of the open language selection menu in the App Header with a list of available language options](/assets/components/app-header/app-header-language-selection.png)
+![An example of the open language selection menu in the App Header with a list of available language options](/assets/patterns/language-selection/language-selection.png)
 
 ## Placement
 
