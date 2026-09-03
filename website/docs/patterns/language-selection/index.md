@@ -2,7 +2,7 @@
 title: Language selection
 description: Guidelines for allowing users to select an application's language.
 caption: Guidelines for allowing users to select an application's language.
-related: ['components/app-header', 'components/dropdown', 'components/list-item']
+related: ['components/app-header', 'components/dropdown']
 navigation:
   keywords: ['language', 'internationalization', 'localization', 'translation']
 ---
