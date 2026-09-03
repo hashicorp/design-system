@@ -103,10 +103,10 @@
                 "cds-g0": "0",
                 "cds-g10": "0",
                 "cds-g90": "0",
-                "cds-g100": "0",
-                "comments": {
-                  "cds": "High 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
-                }
+                "cds-g100": "0"
+              },
+              "comments": {
+                "hds": "The 500px value makes it look slightly rounded on the ends (doesn't match Figma exactly)"
               }
             }
           },
