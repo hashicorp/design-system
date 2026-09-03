@@ -7,9 +7,9 @@ import { describe, expect, it } from "vitest";
 import {
   completeIconNames,
   createGetIconByNameResource,
-} from "../../../../src/resources/flight-icons/get-icon-by-name.js";
-import { createIconCatalogStore } from "../../../../src/stores/flight-icons/index.js";
-import { buildIconAsset } from "../../../support/flight-icon-catalog.js";
+} from "../../../../src/resources/hds-icons/get-icon-by-name.js";
+import { createIconCatalogStore } from "../../../../src/stores/hds-icons/index.js";
+import { buildIconAsset } from "../../../support/hds-icon-catalog.js";
 import {
   getTextContent,
   parseResourceJson,

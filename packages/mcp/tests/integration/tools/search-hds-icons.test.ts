@@ -10,18 +10,18 @@ import {
   MAX_SEARCH_LIMIT,
 } from "../../../src/tools/shared/constants.js";
 
-import { SEARCH_ICONS_TOOL_NAME } from "../../../src/tools/icons/constants.js"
+import { SEARCH_ICONS_TOOL_NAME } from "../../../src/tools/hds-icons/constants.js";
 import {
   createSearchIconsTool,
   searchIcons,
   searchIconsInputShape,
-} from "../../../src/tools/icons/search-icons.js";
+} from "../../../src/tools/hds-icons/search-icons.js";
 import {
   createIconCatalogStore,
   parseIconCatalog,
-} from "../../../src/stores/flight-icons/index.js";
+} from "../../../src/stores/hds-icons/index.js";
 import { MAX_FILTER_LENGTH } from "../../../src/tools/shared/search.js";
-import { buildIconAsset } from "../../support/flight-icon-catalog.js";
+import { buildIconAsset } from "../../support/hds-icon-catalog.js";
 import { buildRequestHandlerExtra } from "../../support/request-handler.js";
 import {
   getToolTextContent,
@@ -29,7 +29,7 @@ import {
 } from "../../support/tool-content.js";
 import { captureToolRegistrations } from "../../support/tool-registration.js";
 
-import type { SearchIconsPayload } from "../../../src/tools/icons/search-icons.js";
+import type { SearchIconsPayload } from "../../../src/tools/hds-icons/search-icons.js";
 import type { RegisteredToolCallback } from "../../support/tool-registration.js";
 
 const store = createIconCatalogStore(
@@ -135,9 +135,9 @@ describe("search_hds_icons payload", () => {
   });
 
   it("leaves the valid-value list out when the filter landed", () => {
-    expect(search({ query: "arrow", category: "Navigation" })).not.toHaveProperty(
-      "availableCategories",
-    );
+    expect(
+      search({ query: "arrow", category: "Navigation" }),
+    ).not.toHaveProperty("availableCategories");
   });
 
   it("counts every match, not just the ones it returned", () => {
@@ -182,7 +182,10 @@ describe("search_hds_icons schema", () => {
       inputSchema.parse({ query: "arrow", limit: MAX_SEARCH_LIMIT + 1 }),
     ).toThrow();
     expect(() =>
-      inputSchema.parse({ query: "arrow", category: "x".repeat(MAX_FILTER_LENGTH + 1) }),
+      inputSchema.parse({
+        query: "arrow",
+        category: "x".repeat(MAX_FILTER_LENGTH + 1),
+      }),
     ).toThrow();
   });
 });
