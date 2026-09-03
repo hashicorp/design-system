@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of the Theme Selection pattern in the App Header](/assets/components/app-header/app-header-anatomy-theme-selection.png)
+![Anatomy of the Theme Selection pattern in the App Header](/assets/patterns/theme-selection/theme-selection-anatomy.png)
 
 | Element | Usage |
 |---------|-------|
