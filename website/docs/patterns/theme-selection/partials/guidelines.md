@@ -6,7 +6,7 @@ In Ember applications, a [theme service (insert link here)](#) is provided to ha
 
 ## Placement
 
-Place theme options as a new section within the User dropdown or settings menu after the existing account-level actions (Account settings, Sign out).
+Place theme options as a new section within the User dropdown or settings menu in the App Header after the existing account-level actions (Account settings, Sign out).
 
 ## Components
 

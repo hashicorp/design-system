@@ -8,9 +8,9 @@ navigation:
 ---
 
 <section data-tab="Guidelines">
-  @include "partials/guidelines/guidelines.md"
+  @include "partials/guidelines.md"
 </section>
 
 <section data-tab="Specifications">
-  @include "partials/specifications/anatomy.md"
+  @include "partials/anatomy.md"
 </section>
