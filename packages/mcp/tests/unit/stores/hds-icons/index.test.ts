@@ -7,8 +7,8 @@ import { describe, expect, it } from "vitest";
 import {
   createIconCatalogStore,
   parseIconCatalog,
-} from "../../../../src/stores/flight-icons/index.js";
-import { buildIconAsset } from "../../../support/flight-icon-catalog.js";
+} from "../../../../src/stores/hds-icons/index.js";
+import { buildIconAsset } from "../../../support/hds-icon-catalog.js";
 
 describe("parseIconCatalog", () => {
   it("accepts the generated catalog shape", () => {

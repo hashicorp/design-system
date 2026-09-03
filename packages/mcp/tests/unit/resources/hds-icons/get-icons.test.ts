@@ -4,9 +4,9 @@
  */
 
 import { describe, expect, it, vi } from "vitest";
-import { createGetIconsResource } from "../../../../src/resources/flight-icons/get-icons.js";
-import { createIconCatalogStore } from "../../../../src/stores/flight-icons/index.js";
-import { buildIconAsset } from "../../../support/flight-icon-catalog.js";
+import { createGetIconsResource } from "../../../../src/resources/hds-icons/get-icons.js";
+import { createIconCatalogStore } from "../../../../src/stores/hds-icons/index.js";
+import { buildIconAsset } from "../../../support/hds-icon-catalog.js";
 import { buildRequestHandlerExtra } from "../../../support/request-handler.js";
 
 describe("createGetIconsResource", () => {

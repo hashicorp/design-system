@@ -4,11 +4,11 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { ICONS_URI } from "../../../src/resources/flight-icons/constants.js";
-import { readIconByNameResource } from "../../../src/resources/flight-icons/get-icon-by-name.js";
-import { readIconsResource } from "../../../src/resources/flight-icons/get-icons.js";
-import { createIconCatalogStore } from "../../../src/stores/flight-icons/index.js";
-import { buildIconAsset } from "../../support/flight-icon-catalog.js";
+import { ICONS_URI } from "../../../src/resources/hds-icons/constants.js";
+import { readIconByNameResource } from "../../../src/resources/hds-icons/get-icon-by-name.js";
+import { readIconsResource } from "../../../src/resources/hds-icons/get-icons.js";
+import { createIconCatalogStore } from "../../../src/stores/hds-icons/index.js";
+import { buildIconAsset } from "../../support/hds-icon-catalog.js";
 import {
   getTextContent,
   parseResourceJson,
