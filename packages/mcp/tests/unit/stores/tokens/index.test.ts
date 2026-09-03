@@ -72,6 +72,7 @@ describe("createTokenCatalogStore", () => {
     const store = createTokenCatalogStore(rows);
 
     expect(store.getMeta().totalTokenCount).toBe(2);
+    expect(store.getMeta().categories).toStrictEqual(["border", "color"]);
     expect(store.listTokens()).toHaveLength(2);
     expect(store.listTokens()[0]).not.toHaveProperty("original");
   });
@@ -79,24 +80,41 @@ describe("createTokenCatalogStore", () => {
   it("searches and filters tokens", () => {
     const store = createTokenCatalogStore(rows);
 
-    expect(store.searchTokens({ query: "foreground", limit: 10 })).toHaveLength(
-      1,
-    );
+    expect(
+      store.searchTokens({ query: "foreground", limit: 10 }).hits,
+    ).toHaveLength(1);
     expect(
       store.searchTokens({
         query: "action",
         limit: 10,
         type: "color",
         category: " COLOR ",
-      }),
+      }).hits,
     ).toHaveLength(1);
-    expect(store.searchTokens({ query: "token", limit: 1 })).toHaveLength(1);
+    expect(store.searchTokens({ query: "token", limit: 1 }).hits).toHaveLength(
+      1,
+    );
     expect(
       store.searchTokens({
         query: "action",
         limit: 10,
         type: "dimension",
-      }),
+      }).hits,
     ).toHaveLength(0);
+  });
+
+  it("counts every match, not just the ones the limit left room for", () => {
+    const store = createTokenCatalogStore(rows);
+    // both token names start with "token-", so the count outruns the one-result window
+    const outcome = store.searchTokens({ query: "token", limit: 1 });
+
+    expect(outcome.totalMatches).toBe(2);
+    expect(outcome.hits).toHaveLength(1);
+    expect(
+      store.searchTokens({ query: "token", limit: 10, type: "color" }),
+    ).toStrictEqual({
+      totalMatches: 1,
+      hits: [expect.objectContaining({ key: "{color.foreground.action}" })],
+    });
   });
 });

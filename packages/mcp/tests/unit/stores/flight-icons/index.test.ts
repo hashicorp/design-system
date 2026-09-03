@@ -25,7 +25,9 @@ describe("parseIconCatalog", () => {
   });
 
   it("rejects an invalid catalog asset", () => {
-    expect(() => parseIconCatalog({ assets: [{ id: "incomplete" }] })).toThrow();
+    expect(() =>
+      parseIconCatalog({ assets: [{ id: "incomplete" }] }),
+    ).toThrow();
   });
 });
 
@@ -79,7 +81,9 @@ describe("createIconCatalogStore", () => {
   it("searches aliases and filters icons", () => {
     const store = createIconCatalogStore(catalog);
 
-    expect(store.searchIcons({ query: "triangle-24", limit: 10 }).hits).toHaveLength(1);
+    expect(
+      store.searchIcons({ query: "triangle-24", limit: 10 }).hits,
+    ).toHaveLength(1);
     expect(
       store.searchIcons({
         query: "warning",
@@ -104,7 +108,9 @@ describe("createIconCatalogStore", () => {
       hits: [expect.objectContaining({ iconName: "alert-triangle" })],
     });
     // the filtered count is the filtered total, not the catalog total
-    expect(store.searchIcons({ query: "", limit: 10, category: "Navigation" })).toStrictEqual({
+    expect(
+      store.searchIcons({ query: "", limit: 10, category: "Navigation" }),
+    ).toStrictEqual({
       totalMatches: 1,
       hits: [expect.objectContaining({ iconName: "arrow-right" })],
     });
