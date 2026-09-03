@@ -11,15 +11,15 @@ Use the language selection pattern to provide users with a method to switch the 
 
 ## Placement
 
-Place the language selector in the App Header's utility actions section along with other similar application-level controls like user settings, help, and support, and more.
+Place the language selector in the [App Header](/components/app-header)'s utility actions section along with other similar application-level controls like user settings, help, and support, and more.
 
 ## Components
 
-Compose the language selection pattern using these HDS components:
+Compose the language selection pattern using these [Dropdown](/components/dropdown) components:
 
-- **Dropdown ToggleIcon (icon only):** entry point for selecting a language from a list of options; use the `globe` icon to communicate internationalization.
-- **Title List Item:** used as a section label within the list with the text set to "Language".
-- **Checkmark List Item:** used to display the list of available languages and highlight the current or active language. One instance per supported language. Only one language can be active at a time.
+- **[Dropdown ToggleIcon](/components/dropdown#toggle-types) (icon only):** entry point for selecting a language from a list of options; use the `globe` icon to communicate internationalization.
+- **[Title List Item](/components/dropdown#non-interactive-listitems):** used as a section label within the list with the text set to "Language".
+- **[Checkmark List Item](/components/dropdown#selection-listitems):** used to display the list of available languages and highlight the current or active language. One instance per supported language. Only one language can be active at a time.
 
 ## Language list format
 
