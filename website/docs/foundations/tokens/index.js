@@ -20,6 +20,22 @@ const getAliases = (token, TOKENS_RAW) => {
   ).map((alias) => `{${alias.path.join('.')}}`);
 };
 
+// collect all the searchable text associated with a token
+const getSearchableValues = (token) => {
+  // note: we prefix `value` with `$` because we're using the DTCG format
+  const values = [token.name, token.$value, token.comment];
+
+  if (token.$modes) {
+    values.push(...Object.values(token.$modes));
+  }
+  if (token.original?.comments) {
+    values.push(...Object.values(token.original.comments));
+  }
+
+  // note: we convert the values to string, because in some cases they're numbers
+  return values.filter((value) => value != null).map((value) => String(value));
+};
+
 export default class Index extends Component {
   @service router;
 
@@ -49,12 +65,10 @@ export default class Index extends Component {
     let filteredGroupedTokens = {};
     if (this.searchQuery) {
       Object.keys(this.groupedTokens).forEach((category) => {
-        const filteredTokens = this.groupedTokens[category].filter(
-          (t) =>
-            t.name.indexOf(this.searchQuery) !== -1 ||
-            // note: we prefix `value` with `$` because we're using the DTCG format
-            // we also convert it to string, because in some cases it's a number
-            String(t.$value).indexOf(this.searchQuery) !== -1,
+        const filteredTokens = this.groupedTokens[category].filter((t) =>
+          getSearchableValues(t).some(
+            (value) => value.indexOf(this.searchQuery) !== -1,
+          ),
         );
 
         if (filteredTokens.length > 0) {
