@@ -13,18 +13,14 @@ import { HdsIcon } from '@hashicorp/design-system-components/components';
 
 import DocMetaRow from 'website/components/doc/meta-row';
 import DocTokenPreview from 'website/components/doc/token-preview';
+import DocBadge from 'website/components/doc/badge';
 
 type NormalizedToken = {
   name: string;
   $type: string;
   $value: string;
-  aliases?: string[];
-  category: string;
   original_value: string;
   deprecated?: boolean;
-  documentation?: {
-    comment?: string;
-  };
   comment?: string;
 };
 
@@ -34,17 +30,10 @@ export interface DocTokensListItemSignature {
       name: string;
       $type: string;
       $value: string;
-      aliases?: string[];
-      attributes: {
-        category: string;
-      };
       original: {
         $value: string;
       };
       deprecated?: boolean;
-      documentation?: {
-        comment?: string;
-      };
       comment?: string;
     };
   };
@@ -61,12 +50,10 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
       // note: we prefix `type` and `value` with `$` because we're using the DTCG format
       $type: token.$type,
       $value: token.$value,
-      aliases: token.aliases,
-      category: token.attributes.category,
       // note: also the original value is prefixed with `$`
       original_value: token.original.$value,
       deprecated: token.deprecated,
-      comment: token?.documentation?.comment ?? token?.comment ?? undefined,
+      comment: token?.comment ?? undefined,
     };
   }
 
@@ -75,10 +62,6 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
       this.token.original_value !== this.token.$value &&
       this.token.original_value.includes('{')
     );
-  }
-
-  get isDeprecated() {
-    return this.token.deprecated;
   }
 
   toggle = () => {
@@ -102,10 +85,7 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
           <HdsIcon @name={{if this.isExpanded "chevron-up" "chevron-down"}} />
         </button>
         {{#if this.token.deprecated}}
-          <DocMetaRow
-            @label="Don't use"
-            @valueToShow="This token is now deprecated"
-          />
+          <DocBadge @type="warning" @size="medium">Deprecated</DocBadge>
           <DocMetaRow
             class="doc-tokens-list__item--is-deprecated"
             @label="CSS var"
@@ -132,12 +112,6 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
             <DocMetaRow
               @label="Alias of"
               @valueToShow={{this.token.original_value}}
-            />
-          {{/if}}
-          {{#if this.token.aliases}}
-            <DocMetaRow
-              @label="Aliased as"
-              @multipleValuesToShow={{this.token.aliases}}
             />
           {{/if}}
           {{#if this.token.comment}}
