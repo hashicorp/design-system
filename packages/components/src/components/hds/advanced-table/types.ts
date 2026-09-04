@@ -127,7 +127,7 @@ export type HdsAdvancedTableModel = Array<HdsAdvancedTableModelItem>;
 
 export type HdsAdvancedTableColumnResizeCallback = (
   columnKey: string,
-  newWidth?: string
+  newWidth?: HdsAdvancedTablePixelString
 ) => void;
 
 export type HdsAdvancedTableColumnReorderCallback = ({

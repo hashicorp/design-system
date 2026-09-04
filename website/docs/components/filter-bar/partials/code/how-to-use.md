@@ -14,7 +14,7 @@ All filtering options are available via a dropdown in the Filter Bar. Inside the
 
 Filtering options are passed to the Filter Bar through the `FiltersDropdown` and `FilterGroup` contextual components. In the `FilterGroup`, the `@key`, `@text`, and `@type` arguments are required.
 
-- The `@key` argument sets the key for that filter group in the data object of the `onFilter` callback.
+- The `@key` argument sets the key for that filter group in the data object of the `@onFilter` callback.
 - The `@text` argument sets the text for tab label.
 - The `@type` argument specifies the type of filtering available for the group.
 
@@ -28,7 +28,7 @@ A user can apply, update, or clear filters within the dropdown. The `@onFilter` 
 
 The callback provides a data object of applied filters which come from a user's filter selections. This object can be used to run any filtering operations on a data set, and then be passed back into the `@filters` argument of the Filter Bar to show the applied filters.
 
-Based on the applied filters passed to the `@filters` argument, dismissible [Tags](/components/tab) will be shown for each applied filter. When a Tag is dismissed, the `@onFilter` callback will be triggered, and that filter will be removed from the object.
+Based on the applied filters passed to the `@filters` argument, dismissible [Tags](/components/tag) will be shown for each applied filter. When a Tag is dismissed, the `@onFilter` callback will be triggered, and that filter will be removed from the object.
 
 [[code-snippets/filter-bar-basic]]
 
@@ -85,7 +85,7 @@ The accessibility compliance of any content used for a custom filter is the resp
 
 For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the Generic contextual component inside the `FilterGroup`. The Generic contextual component provides an `updateFilter` argument function that can be used to trigger updates to the filter inside the dropdown.
 
-The dismissible filter tag can be customized by setting `dismissTagText` on the filter. If this is not provided, the dismissible filter tag's text will function similarly to the `single-select` and `multi-select` filter types, where the `value` or `label` is displayed.
+The dismissible filter tag can be customized by setting `@dismissTagText` on the filter. If this is not provided, the dismissible filter tag's text will function similarly to the `single-select` and `multi-select` filter types, where the `value` or `label` is displayed.
 
 The `@onClear` callback can be used to listen to the `FilterGroup` "Clear filter" button, and reset any content inside your filter such as clearing a form input.
 
@@ -95,7 +95,7 @@ The `@onClear` callback can be used to listen to the `FilterGroup` "Clear filter
 
 A `generic` filter can also contain multiple filters, similar to a `multi-select` filter. By passing an array of data to the `data` object each item in the array will be displayed as a distinct filter.
 
-The dismissible filter tag will display the `label` for a given filter, and if the `label` is not provided it will display the `value`. The text can be customized by adding a `dismissTagText` value.
+The dismissible filter tag will display the `label` for a given filter, and if the `label` is not provided it will display the `value`. The text can be customized by adding a `@dismissTagText` value.
 
 [[code-snippets/filter-bar-type-generic-array]]
 

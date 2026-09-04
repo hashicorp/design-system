@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 
@@ -39,8 +39,6 @@ const buildServer = (): McpServer => {
     name: "helios-design-system-mcp",
     version: getServerVersion(),
   });
-
-  registerTools(server);
 
   return server;
 };

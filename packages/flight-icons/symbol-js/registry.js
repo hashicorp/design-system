@@ -1,3 +1,8 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export const IconRegistry = {
     loading: {
         flight: {
@@ -1825,7 +1830,7 @@ export const IconRegistry = {
             16: () => import('./flight/user-minus-16.js'),
             24: () => import('./flight/user-minus-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/user-minus.js')
     },
     'user-plus': {
         flight: {
@@ -1882,6 +1887,13 @@ export const IconRegistry = {
             24: () => import('./flight/circle-24.js')
         },
         carbon: () => import('./carbon/circle.js')
+    },
+    'circle-dash': {
+        flight: {
+            16: () => import('./flight/circle-dash-16.js'),
+            24: () => import('./flight/circle-dash-24.js')
+        },
+        carbon: () => import('./carbon/circle-dash.js')
     },
     'circle-dot': {
         flight: {
@@ -1994,6 +2006,13 @@ export const IconRegistry = {
             24: () => import('./flight/hexagon-fill-24.js')
         },
         carbon: () => import('./carbon/hexagon-fill.js')
+    },
+    'incomplete-normal': {
+        flight: {
+            16: () => import('./flight/incomplete-normal-16.js'),
+            24: () => import('./flight/incomplete-normal-24.js')
+        },
+        carbon: () => import('./carbon/incomplete-normal.js')
     },
     labyrinth: {
         flight: {
@@ -2217,7 +2236,7 @@ export const IconRegistry = {
             16: () => import('./flight/alert-diamond-fill-16.js'),
             24: () => import('./flight/alert-diamond-fill-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/alert-diamond-fill.js')
     },
     'alert-octagon': {
         flight: {
@@ -2267,6 +2286,13 @@ export const IconRegistry = {
             24: () => import('./flight/check-circle-fill-24.js')
         },
         carbon: () => import('./carbon/check-circle-fill.js')
+    },
+    'error-filled': {
+        flight: {
+            16: () => import('./flight/error-filled-16.js'),
+            24: () => import('./flight/error-filled-24.js')
+        },
+        carbon: () => import('./carbon/error-filled.js')
     },
     'check-diamond': {
         flight: {
@@ -2427,7 +2453,7 @@ export const IconRegistry = {
             16: () => import('./flight/keychain-16.js'),
             24: () => import('./flight/keychain-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/keychain.js')
     },
     lock: {
         flight: {
@@ -2462,7 +2488,7 @@ export const IconRegistry = {
             16: () => import('./flight/shield-alert-16.js'),
             24: () => import('./flight/shield-alert-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/shield-alert.js')
     },
     'shield-check': {
         flight: {
@@ -2539,7 +2565,7 @@ export const IconRegistry = {
             16: () => import('./flight/minus-plus-16.js'),
             24: () => import('./flight/minus-plus-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/minus-plus.js')
     },
     'minus-plus-circle': {
         flight: {
@@ -3274,7 +3300,7 @@ export const IconRegistry = {
             16: () => import('./flight/slash-square-16.js'),
             24: () => import('./flight/slash-square-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/slash-square.js')
     },
     'sort-asc': {
         flight: {
@@ -3463,7 +3489,7 @@ export const IconRegistry = {
             16: () => import('./flight/file-change-16.js'),
             24: () => import('./flight/file-change-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/file-change.js')
     },
     'file-check': {
         flight: {
@@ -3477,7 +3503,7 @@ export const IconRegistry = {
             16: () => import('./flight/file-diff-16.js'),
             24: () => import('./flight/file-diff-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/file-diff.js')
     },
     'file-minus': {
         flight: {
@@ -3512,7 +3538,7 @@ export const IconRegistry = {
             16: () => import('./flight/file-x-16.js'),
             24: () => import('./flight/file-x-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/file-x.js')
     },
     files: {
         flight: {
@@ -3610,7 +3636,7 @@ export const IconRegistry = {
             16: () => import('./flight/change-circle-16.js'),
             24: () => import('./flight/change-circle-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/change-circle.js')
     },
     'change-square': {
         flight: {
@@ -3757,7 +3783,7 @@ export const IconRegistry = {
             16: () => import('./flight/git-repo-16.js'),
             24: () => import('./flight/git-repo-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/git-repo.js')
     },
     hammer: {
         flight: {
@@ -3771,7 +3797,7 @@ export const IconRegistry = {
             16: () => import('./flight/key-values-16.js'),
             24: () => import('./flight/key-values-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/key-values.js')
     },
     mainframe: {
         flight: {
@@ -3918,7 +3944,7 @@ export const IconRegistry = {
             16: () => import('./flight/socket-16.js'),
             24: () => import('./flight/socket-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/socket.js')
     },
     step: {
         flight: {
@@ -4016,7 +4042,7 @@ export const IconRegistry = {
             16: () => import('./flight/delay-16.js'),
             24: () => import('./flight/delay-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/delay.js')
     },
     event: {
         flight: {
@@ -4387,7 +4413,7 @@ export const IconRegistry = {
             16: () => import('./flight/bank-vault-16.js'),
             24: () => import('./flight/bank-vault-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/bank-vault.js')
     },
     briefcase: {
         flight: {
@@ -4429,7 +4455,7 @@ export const IconRegistry = {
             16: () => import('./flight/globe-private-16.js'),
             24: () => import('./flight/globe-private-24.js')
         },
-        carbon: null
+        carbon: () => import('./carbon/globe-private.js')
     },
     org: {
         flight: {

@@ -24,7 +24,7 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
     const classes = ['hds-form-indicator'];
 
     if (this.args.isOptional) {
-      // add speficic class for "optional" indicator
+      // add specific class for "optional" indicator
       classes.push('hds-form-indicator--optional');
     }
 

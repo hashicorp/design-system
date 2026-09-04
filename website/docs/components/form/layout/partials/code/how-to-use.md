@@ -6,7 +6,7 @@ Use the `Form` to contain other Form layout components and form content. This es
 
 [[code-snippets/form-layout-basic execute=false]]
 
-The `Form` renders as an HTML `form` element by default. Use the `tag` argument to optionally use an HTML `div` instead.
+The `Form` renders as an HTML `form` element by default. Use the `@tag` argument to optionally use an HTML `div` instead.
 
 [[code-snippets/form-layout-tag execute=false]]
 
@@ -44,7 +44,7 @@ While the `FormSection` is typically used to contain Form Fields, it can also be
 
 [[code-snippets/form-layout-section]]
 
-Pass an `isFullWidth` argument to override the default max-width of an individual `FormSection` if needed.
+Pass an `@isFullWidth` argument to override the default max-width of an individual `FormSection` if needed.
 
 [[code-snippets/form-layout-section-full-width]]
 
@@ -74,7 +74,7 @@ To lay out related Form Fields or controls in a row, use the `SectionMultiFieldG
 
 [[code-snippets/form-layout-multi-field]]
 
-To control the widths of individual elements within a `SectionMultiFieldGroup`, you can wrap the element with an `Item` and pass in a `width` value. Fields not wrapped with an `Item` will take up the remaining available width.
+To control the widths of individual elements within a `SectionMultiFieldGroup`, you can wrap the element with an `Item` and pass in a `@width` value. Fields not wrapped with an `Item` will take up the remaining available width.
 
 [[code-snippets/form-layout-multi-field-width]]
 

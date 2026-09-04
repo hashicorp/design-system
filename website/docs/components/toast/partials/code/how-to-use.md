@@ -10,29 +10,29 @@ When displaying a Toast in reaction to an action or event that has occurred with
 
 !!!
 
-The basic invocation requires the `type` argument, an `onDismiss` callback function, and the `title` and/or `description` content. By default a `neutral` Toast is generated.
+The basic invocation requires the `@type` argument, an `@onDismiss` callback function, and the `Title` and/or `Description` content. By default a `neutral` Toast is generated.
 
 [[code-snippets/toast-basic]]
 
 ### Title and description
 
-Optionally, you can pass only `title` or only `description`.
+Optionally, you can pass only `Title` or only `Description`.
 
 [[code-snippets/toast-optional-blocks]]
 
 ### Color
 
-A different color can be applied to the Toast using the `color` argument. This will determine the default icon used in the Toast, unless overwritten.
+A different color can be applied to the Toast using the `@color` argument. This will determine the default icon used in the Toast, unless overwritten.
 
 [[code-snippets/toast-color]]
 
 ### Icon
 
-A different icon can be used in the Toast using the `icon` argument. This accepts any [icon](/icons/library) name.
+A different icon can be used in the Toast using the `@icon` argument. This accepts any [icon](/icons/library) name.
 
 [[code-snippets/toast-icon]]
 
-If you need to hide the icon, pass `false` to the `icon` argument.
+If you need to hide the icon, pass `false` to the `@icon` argument.
 
 [[code-snippets/toast-no-icon]]
 

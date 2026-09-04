@@ -16,7 +16,12 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 const DEFAULT_COLUMNS = [
-  { key: 'id', label: 'ID' },
+  {
+    key: 'id',
+    label: 'ID',
+    tooltip: 'Unique identifier for the user',
+    isSortable: true,
+  },
   { key: 'name', label: 'Name' },
   { key: 'email', label: 'Email' },
   { key: 'role', label: 'Role' },
@@ -32,6 +37,7 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
   <HdsAdvancedTable
     @model={{EMPTY_MODEL}}
     @columns={{DEFAULT_COLUMNS}}
+    @hasResizableColumns={{true}}
     @maxHeight="400px"
   />
 
@@ -42,6 +48,7 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
   <HdsAdvancedTable
     @model={{EMPTY_MODEL}}
     @columns={{DEFAULT_COLUMNS}}
+    @hasResizableColumns={{true}}
     @maxHeight="400px"
   >
     <:emptyState>
@@ -62,6 +69,7 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
   <HdsAdvancedTable
     @model={{EMPTY_MODEL}}
     @columns={{DEFAULT_COLUMNS}}
+    @hasResizableColumns={{true}}
     @maxHeight="400px"
   >
     <:emptyState>

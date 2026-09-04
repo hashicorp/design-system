@@ -1,5 +1,22 @@
 # @hashicorp/flight-icons
 
+## 5.1.0
+
+### Minor Changes
+
+Added icons `delay` and `user-minus`
+Added Carbon icon references to contributed icons
+
+<small class="doc-whats-new-changelog-metadata">[#3995](https://github.com/hashicorp/design-system/pull/3995)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `incomplete-normal`, `circle-dash`, and `error-filled` icons.
+
+<small class="doc-whats-new-changelog-metadata">[#4002](https://github.com/hashicorp/design-system/pull/4002)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.0.0
 
 ### Major Changes

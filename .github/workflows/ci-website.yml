@@ -72,6 +72,9 @@ jobs:
       - name: Build Components
         run: pnpm build
         working-directory: packages/components
+      - name: Check Component Catalog
+        run: pnpm test:component-catalog
+        working-directory: packages/components
       - name: Run Tests
         run: pnpm test:ember
         working-directory: website

@@ -5426,6 +5426,28 @@
       "height": 16
     },
     {
+      "id": "10811:518",
+      "fileName": "circle-dash-24",
+      "iconName": "circle-dash",
+      "description": "circle, ring, dash, progress",
+      "mapping": "circle-dash",
+      "category": "Symbols",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "10811:522",
+      "fileName": "circle-dash-16",
+      "iconName": "circle-dash",
+      "description": "circle, ring, dash, progress",
+      "mapping": "circle-dash",
+      "category": "Symbols",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:852",
       "fileName": "circle-dot-24",
       "iconName": "circle-dot",
@@ -5770,6 +5792,28 @@
       "iconName": "hexagon-fill",
       "description": "diamond, test",
       "mapping": "Hexagon--solid",
+      "category": "Symbols",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "10808:503",
+      "fileName": "incomplete-normal-24",
+      "iconName": "incomplete-normal",
+      "description": "circle, half, dash",
+      "mapping": "Incomplete",
+      "category": "Symbols",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "10808:507",
+      "fileName": "incomplete-normal-16",
+      "iconName": "incomplete-normal",
+      "description": "circle, half, dash",
+      "mapping": "Incomplete",
       "category": "Symbols",
       "size": "16",
       "width": 16,
@@ -6614,6 +6658,28 @@
       "iconName": "check-circle-fill",
       "description": "check, tick, success, circle, complete, done, test, accept, approve",
       "mapping": "Checkmark--filled",
+      "category": "Status",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "10811:534",
+      "fileName": "error-filled-24",
+      "iconName": "error-filled",
+      "description": "error, slash, fill",
+      "mapping": "error--filled",
+      "category": "Status",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "10811:538",
+      "fileName": "error-filled-16",
+      "iconName": "error-filled",
+      "description": "error, slash, fill",
+      "mapping": "error--filled",
       "category": "Status",
       "size": "16",
       "width": 16,

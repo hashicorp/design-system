@@ -58,7 +58,7 @@ Application State content, such as text, is left-aligned by default but you can 
 
 #### Left align content container
 
-To turn off centering of the Application State content container, set `isAutoCentered` to “false”.
+To turn off centering of the Application State content container, set `@isAutoCentered` to “false”.
 
 [[code-snippets/application-state-auto-center-false]]
 

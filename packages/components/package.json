@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "6.4.0",
+  "version": "6.5.0",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -17,7 +17,8 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "rollup --config",
+    "build": "rollup --config && pnpm catalog:components",
+    "catalog:components": "node ./scripts/build-component-catalog.mjs",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
@@ -31,6 +32,7 @@
     "lint:types": "ember-tsc --noEmit",
     "start": "rollup --config --watch --environment development",
     "test:dist-files": "node scripts/check-dist-files.mjs",
+    "test:component-catalog": "node scripts/check-component-catalog.mjs",
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {
@@ -54,7 +56,7 @@
     "@embroider/util": "^1.13.4",
     "@floating-ui/dom": "^1.6.12",
     "@hashicorp/design-system-tokens": "workspace:^5.1.0",
-    "@hashicorp/flight-icons": "workspace:^5.0.0",
+    "@hashicorp/flight-icons": "workspace:^5.1.0",
     "@lezer/highlight": "^1.2.1",
     "@nullvoxpopuli/ember-composable-helpers": "^5.2.11",
     "clipboard-polyfill": "^4.1.1",
@@ -400,7 +402,9 @@
     "./codemirror": {
       "types": "./declarations/re-exports/codemirror.d.ts",
       "default": "./dist/re-exports/codemirror.js"
-    }
+    },
+    "./component-catalog.json": "./component-catalog.json",
+    "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
@@ -411,6 +415,7 @@
   },
   "files": [
     "addon-main.cjs",
+    "component-catalog.json",
     "declarations",
     "dist",
     "translations"

@@ -27,9 +27,9 @@ In this case, you will have to take care of different things **yourself**
 
 ## Events handling and routing
 
-As described above, the main `Pagination::Numbered` and `Pagination::Compact` components expose an `onPageChange` callback function, invoked whenever a page change occurs. All the "navigation controls" in this cases are `<button>` elements that fire an `onClick` event that calls the `onPageChange` function.
+As described above, the main `Pagination::Numbered` and `Pagination::Compact` components expose an `@onPageChange` callback function, invoked whenever a page change occurs. All the "navigation controls" in this cases are `<button>` elements that fire an `onClick` event that calls the `@onPageChange` function.
 
-This means that if you need to update the URL when the user changes the "page" in the Pagination (eg. to add/remove/update some query parameters), you have to do it within the `onPageChange` callback you provide to the component.
+This means that if you need to update the URL when the user changes the "page" in the Pagination (eg. to add/remove/update some query parameters), you have to do it within the `@onPageChange` callback you provide to the component.
 
 If instead you need to update the URL directly when the user clicks on one of the "navigation control" elements, you have to provide routing parameters (`route/query/model/etc`) to the component; refer to the "Component API" section below for specifications about these parameters (the APIs are slightly different for the two components).
 
@@ -69,9 +69,9 @@ The component exposes two callback functions that can be used to respond to spec
 
 [[code-snippets/pagination-numbered-events]]
 
-The first `onPageChange` function is invoked when a user interacts with a navigation control ("prev/next" or "page number") and so can be used to respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).
+The first `@onPageChange` function is invoked when a user interacts with a navigation control ("prev/next" or "page number") and so can be used to respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).
 
-The second `onPageSizeChange` function is invoked when a user interacts with the "size selector" and so can be used to respond to a "page size" change (eg. updating the number of items listed in the page, updating the routing/URL, and/or updating other elements in the page).
+The second `@onPageSizeChange` function is invoked when a user interacts with the "size selector" and so can be used to respond to a "page size" change (eg. updating the number of items listed in the page, updating the routing/URL, and/or updating other elements in the page).
 
 ### Routing/URL updates
 
@@ -93,15 +93,13 @@ In this case, the component doesn’t update its internal "state" but the value 
 
 The reason for using a consumer-side function to determine the `query` argument is because it’s dynamic (it depends on the value of the `page` variable) and gives consumers the ability to specify their own query parameters (which will likely differ case by case).
 
-Even if the Pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users’ actions (eg. for logging, tracking, etc.).
+Even if the Pagination is based on routing, the `@onPageChange`/`@onPageSizeChange` callbacks are still available and can be used to respond to the users’ actions (eg. for logging, tracking, etc.).
 
 Below you can find an example of an integration between the sortable [`Table`](/components/table/table) component and the `Pagination::Numbered` component that uses query parameters in the URL to preserve the UI state:
 
 [[code-snippets/pagination-numbered-with-table]]
 
 ## How to use Compact Pagination
-
-By default, the basic use of the Pagination provides:
 
 The basic invocation of the Compact Pagination doesn’t require any arguments (apart from the event/routing handlers, see below):
 
@@ -134,7 +132,7 @@ The component exposes a callback function that can be used to respond to page ch
 
 [[code-snippets/pagination-compact-events]]
 
-The `onPageChange` function is invoked when a user interacts with a "prev" or "next" navigation control and so can be used to respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).
+The `@onPageChange` function is invoked when a user interacts with a "prev" or "next" navigation control and so can be used to respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).
 
 ### Routing/URL updates
 
@@ -148,7 +146,7 @@ In this case, the component doesn’t update its internal "state" but the value 
 
 The reason for using a consumer-side function to determine the `query` argument is because it’s dynamic (it depends on the value of the `page/cursor` variable) and gives consumers the ability to specify their own query parameters (which will likely differ case by case).
 
-Even if the Pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.).
+Even if the Pagination is based on routing, the `@onPageChange`/`@onPageSizeChange` callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.).
 
 Below you can find an example of an integration between the [`Table`](/components/table/table) component and the `Pagination::Compact` component that uses query parameters in the URL to preserve the UI state:
 

@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { render, click, setupOnerror } from '@ember/test-helpers';
-import { TrackedObject } from 'tracked-built-ins';
+import { tracked, TrackedObject } from 'tracked-built-ins';
 
 import { HdsAdvancedTableTr } from '@hashicorp/design-system-components/components';
 
@@ -85,6 +85,68 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
       </template>,
     );
     assert.dom(checkboxSelector).isChecked();
+  });
+
+  test('it should toggle the selected row class when the checkbox is clicked', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTableTr
+          id="data-test-advanced-table-tr"
+          @isSelectable={{true}}
+        />
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table-tr')
+      .doesNotHaveClass('hds-advanced-table__tr--is-selected');
+
+    await click(checkboxSelector);
+    assert
+      .dom('#data-test-advanced-table-tr')
+      .hasClass('hds-advanced-table__tr--is-selected');
+
+    await click(checkboxSelector);
+    assert
+      .dom('#data-test-advanced-table-tr')
+      .doesNotHaveClass('hds-advanced-table__tr--is-selected');
+  });
+
+  test('it should toggle the selected row class when @isSelected is provided', async function (assert) {
+    const context = tracked<{ selectionChangeCount: number }>({
+      selectionChangeCount: 0,
+    });
+
+    const onSelectionChange = () => {
+      context.selectionChangeCount += 1;
+    };
+
+    await render(
+      <template>
+        <HdsAdvancedTableTr
+          id="data-test-advanced-table-tr"
+          @isSelectable={{true}}
+          @isSelected={{false}}
+          @onSelectionChange={{onSelectionChange}}
+        />
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table-tr')
+      .doesNotHaveClass('hds-advanced-table__tr--is-selected');
+
+    await click(checkboxSelector);
+    assert.strictEqual(context.selectionChangeCount, 1);
+    assert
+      .dom('#data-test-advanced-table-tr')
+      .hasClass('hds-advanced-table__tr--is-selected');
+
+    await click(checkboxSelector);
+    assert.strictEqual(context.selectionChangeCount, 2);
+    assert
+      .dom('#data-test-advanced-table-tr')
+      .doesNotHaveClass('hds-advanced-table__tr--is-selected');
   });
 
   test('the checkbox contains the `@selectionAriaLabelSuffix` suffix', async function (assert) {

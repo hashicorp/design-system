@@ -35,7 +35,7 @@ Use `SuperSelect::Multiple` to allow users to select multiple options.
 
 ### Pre-selected options
 
-To pre-select an option, declare a value for the `selected` argument:
+To pre-select an option, declare a value for the `@selected` argument:
 
 [[code-snippets/super-select-single-pre-selected]]
 
@@ -78,21 +78,21 @@ By default, all content of selected options displays in the “trigger”. Visua
 
 To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
 
-An example of a custom `selectedItemComponent`:
+An example of a custom `@selectedItemComponent`:
 
 [[code-snippets/example-selected-item-component execute=false]]
 
-`SuperSelect::Multiple` invocation with `selectedItemComponent` specified:
+`SuperSelect::Multiple` invocation with `@selectedItemComponent` specified:
 
 [[code-snippets/super-select-multiple-selected-item-component]]
 
-`SuperSelect::Single` invocation with `selectedItemComponent` specified:
+`SuperSelect::Single` invocation with `@selectedItemComponent` specified:
 
 [[code-snippets/super-select-single-selected-item-component]]
 
 ### Limiting width
 
-If needed, you can use `dropdownMaxWidth` to limit the width of the dropdown content. Setting a value for `dropdownMaxWidth` automatically sets `matchTriggerWidth` to `false` meaning that the width of the dropdown content will not necessarily match the list of the toggle or trigger element as it does by default.
+If needed, you can use `@dropdownMaxWidth` to limit the width of the dropdown content. Setting a value for `@dropdownMaxWidth` automatically sets `@matchTriggerWidth` to `false` meaning that the width of the dropdown content will not necessarily match the list of the toggle or trigger element as it does by default.
 
 [[code-snippets/super-select-single-width]]
 

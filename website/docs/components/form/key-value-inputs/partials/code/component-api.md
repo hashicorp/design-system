@@ -132,7 +132,7 @@ The `Form::KeyValueInputs::Field` component, yielded as contextual component, in
   <C.Property @name="isInvalid" @type="boolean">
     Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
   </C.Property>
-  <C.Property @name="width" @type="string" @default="1f">
+  <C.Property @name="width" @type="string" @default="1fr">
     Sets the width of the Field. By default, the field is `1fr` of the CSS grid container.
   </C.Property>
   <C.Property @name="extraAriaDescribedBy" @type="string">

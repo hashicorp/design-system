@@ -5,7 +5,14 @@
 
 import { module, test } from 'qunit';
 import { array, hash, get } from '@ember/helper';
-import { click, focus, render, settled } from '@ember/test-helpers';
+import {
+  click,
+  focus,
+  render,
+  settled,
+  triggerKeyEvent,
+  find,
+} from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 import sinon from 'sinon';
 
@@ -534,6 +541,53 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         sortSpy.calledWith('isSelected', 'asc'),
         'it invokes the `onSort` callback with the `selectableColumnKey` when a sort is performed on the selectable column',
       );
+    });
+
+    test('it should navigate rows in sorted visual order after sorting', async function (assert) {
+      await createSortableTable({});
+
+      // check initial order
+      assert
+        .dom(
+          '.hds-advanced-table__tbody .hds-advanced-table__tr:nth-child(1) .hds-advanced-table__td:nth-child(1)',
+        )
+        .hasText('Nick Drake');
+      assert
+        .dom(
+          '.hds-advanced-table__tbody .hds-advanced-table__tr:nth-child(2) .hds-advanced-table__td:nth-child(1)',
+        )
+        .hasText('The Beatles');
+
+      const firstHeaderCell = find('.hds-advanced-table__th');
+
+      if (firstHeaderCell) {
+        await triggerKeyEvent(firstHeaderCell, 'keydown', 'ArrowDown');
+      }
+
+      // check that the first cell below header is correct
+      assert
+        .dom(
+          '.hds-advanced-table__tbody .hds-advanced-table__tr:nth-child(1) .hds-advanced-table__td:nth-child(1)',
+        )
+        .hasText('Nick Drake')
+        .isFocused();
+
+      // sort the table
+      await click(
+        '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
+      );
+
+      if (firstHeaderCell) {
+        await triggerKeyEvent(firstHeaderCell, 'keydown', 'ArrowDown');
+      }
+
+      // check that the first cell below header changed
+      assert
+        .dom(
+          '.hds-advanced-table__tbody .hds-advanced-table__tr:nth-child(1) .hds-advanced-table__td:nth-child(1)',
+        )
+        .isFocused()
+        .hasText('Melanie');
     });
   });
 });

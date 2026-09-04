@@ -36,18 +36,18 @@ The Advanced Table component itself is where most of the options will be applied
       It is recommended to use the [Application State](/components/application-state) component inside this block.
     </Doc::Banner>
   </C.Property>
-  <C.Property @name="model" @type="array">
+  <C.Property @name="model" @type="array" @required={{true}}>
     The data model to be used by the Advanced Table. **This array should be treated as immutable. Any updates must be made by passing a new array.** The model can have any shape, but for nested rows there are two expected keys.
     <Doc::ComponentApi as |C|>
       <C.Property @name="children" @type="array">
         If there are nested rows, the Advanced Table will use the `children` key in the model to render the child content. The key can be changed by setting `childrenKey` argument on the `Hds::AdvancedTable`.
       </C.Property>
-      <C.Property @name="isExpanded" @type="boolean">
-        If there are nested rows, the default state of the toggle can be set by adding `isExpanded` to the row in the model.
+      <C.Property @name="isOpen" @type="boolean">
+        If there are nested rows, the default state of the toggle can be set by adding `isOpen` to the row in the model.
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
-  <C.Property @name="columns" @type="array">
+  <C.Property @name="columns" @type="array" @required={{true}}>
     Array `hash` that defines each column with key-value properties that describe each column. Options:
     <Doc::ComponentApi as |C|>
       <C.Property @name="label" @type="string" @required={{true}}>
@@ -98,7 +98,7 @@ The Advanced Table component itself is where most of the options will be applied
   <C.Property @name="hasReorderableColumns" @type="boolean" @default="false">
     If set to `true`, allows users to reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys.
   </C.Property>
-  <C.Property @name="reorderedMessageText" @type="string" @default="Moved (label) column to (position)">
+  <C.Property @name="reorderedMessageText" @type="string" @default="Moved (label) column to position (position)">
     Customizable text added to `caption` element when a column reorder is performed.
   </C.Property>
   <C.Property @name="hasResizableColumns" @type="boolean" @default="false">
@@ -171,7 +171,7 @@ The Advanced Table component itself is where most of the options will be applied
   <C.Property @name="identityKey" @type="'@identity'|'none'|string" @default="@identity">
     Option to [specify a custom key](https://api.emberjs.com/ember/release/classes/Ember.Templates.helpers/methods/each?anchor=each#:~:text=%3C/ul%3E-,Specifying%20Keys,-In%20order%20to) to the `each` iterator. If `identityKey="none"`, this is interpreted as an `undefined` value for the `@identity` key option.
   </C.Property>
-  <C.Property @name="sortedMessageText" @type="string" @default="Sorted by (label), (asc/desc)ending">
+  <C.Property @name="sortedMessageText" @type="string" @default="Sorted by (label) (asc/desc)ending">
     Customizable text added to `caption` element when a sort is performed.
   </C.Property>
   <C.Property @name="childrenKey" @type="string" @default="children">
@@ -236,10 +236,10 @@ If the `Th` component is passed as the first cell of a body row, `role="rowheade
   <C.Property @name="tooltip" @type="string">
     Text string which will appear in the [`Tooltip`](/components/tooltip). May contain basic HTML tags for formatting text such as `strong` and `em` tags. Not intended for multi-paragraph text or other more complex content. May not contain interactive content such as links or buttons. The `placement` and `offset` are automatically set and can’t be overwritten.
   </C.Property>
-  <C.Property @name="colspan" @type="string">
+  <C.Property @name="colspan" @type="number">
     The number of columns the cell spans. Used to apply the correct grid styles and the aria-rowspan attribute for accessibility.
   </C.Property>
-  <C.Property @name="rowspan" @type="string">
+  <C.Property @name="rowspan" @type="number">
     The number of rows the cell spans. Used to apply the correct grid styles and the aria-rowspan attribute for accessibility.
   </C.Property>
   <C.Property @name="yield">
@@ -261,10 +261,10 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     Determines the horizontal content alignment (sometimes referred to as text alignment) for the cell (make sure it is also set for the column header).
   </C.Property>
-  <C.Property @name="colspan" @type="string">
+  <C.Property @name="colspan" @type="number">
     The number of columns the cell spans. Used to apply the correct grid styles and the aria-rowspan attribute for accessibility.
   </C.Property>
-  <C.Property @name="rowspan" @type="string">
+  <C.Property @name="rowspan" @type="number">
     The number of rows the cell spans. Used to apply the correct grid styles and the aria-rowspan attribute for accessibility.
   </C.Property>
   <C.Property @name="yield">

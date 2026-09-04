@@ -32,7 +32,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     Used to control whether a copy button for copying the code/text content will be displayed.
   </C.Property>
-    <C.Property @name="copyButtonText" @type="string" @default="'Copy'">
+  <C.Property @name="copyButtonText" @type="string" @default="'Copy'">
     Override this value to provide a meaningful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
   </C.Property>
   <C.Property @name="hasLineNumbers" @type="boolean" @default="true">
@@ -52,6 +52,9 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   </C.Property>
   <C.Property @name="onCopy" @type="function">
     Callback function invoked (if provided) when the "copy" action succeeds.
+  </C.Property>
+  <C.Property @name="copySuccessMessageText" @type="string" @default="'Copied to clipboard'">
+    Override this value to provide a meaningful `aria-live` message when the "copy" action succeeds.
   </C.Property>
 </Doc::ComponentApi>
 

@@ -1,1 +1,6 @@
+/**
+ * Copyright IBM Corp. 2021, 2026
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export default `<symbol id="hds-icon-flight-jira-color-24" viewBox="0 0 24 24"><path fill="#2684ff" d="M22.252 11.392 11.985 1 1.748 11.362c-.33.334-.33.881 0 1.246l6.424 6.502L11.985 23l10.267-10.392a.87.87 0 0 0 0-1.216m-10.267 3.86L8.773 12l3.212-3.251L15.197 12z"/><path fill="url(#jira-color-24__a)" d="M11.985 8.749c-2.102-2.127-2.101-5.591-.03-7.719L4.93 8.14 8.743 12z"/><path fill="url(#jira-color-24__b)" d="m15.197 12-3.212 3.251c2.101 2.127 2.101 5.592 0 7.749l7.055-7.14z"/><defs><linearGradient id="jira-color-24__a" x1="20.794" x2="12.316" y1="9.873" y2="22.304" gradientUnits="userSpaceOnUse"><stop offset=".176" stop-color="#0052cc"/><stop offset="1" stop-color="#2684ff"/></linearGradient><linearGradient id="jira-color-24__b" x1="12.6" x2="17.131" y1="18.498" y2="14.022" gradientUnits="userSpaceOnUse"><stop offset=".176" stop-color="#0052cc"/><stop offset="1" stop-color="#2684ff"/></linearGradient></defs></symbol>`;
