@@ -222,6 +222,10 @@
       --hds-foreground-color-faint
     );
     --hds-app-side-nav-body-list-title-padding-vertical: 9px;
+    --hds-app-side-nav-toggle-button-height: 36px;
+    --hds-app-side-nav-toggle-button-position-top: var(
+      --hds-app-side-nav-wrapper-padding-vertical
+    );
     --hds-app-side-nav-wrapper-padding-horizontal: 16px;
     --hds-app-side-nav-wrapper-surface-color: var(--hds-surface-color-faint);
     --hds-badge-border-radius: var(--hds-border-radius-small);
@@ -1574,7 +1578,7 @@
     --hds-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
     --hds-app-side-nav-body-list-item-margin-top: 0px;
     --hds-app-side-nav-body-list-item-padding-horizontal: 16px;
-    --hds-app-side-nav-body-list-item-padding-vertical: 7px;
+    --hds-app-side-nav-body-list-item-padding-vertical: 4px;
     --hds-app-side-nav-body-list-item-surface-color-active: rgba(
       141,
       141,
@@ -1596,6 +1600,8 @@
     --hds-app-side-nav-body-list-item-typography-font-weight: 600;
     --hds-app-side-nav-body-list-title-foreground-color: #161616;
     --hds-app-side-nav-body-list-title-padding-vertical: 7px;
+    --hds-app-side-nav-toggle-button-height: 34px;
+    --hds-app-side-nav-toggle-button-position-top: 15px;
     --hds-app-side-nav-wrapper-padding-horizontal: 0px;
     --hds-app-side-nav-wrapper-surface-color: #ffffff;
     --hds-badge-border-radius: var(--hds-border-radius-rounded);
@@ -2464,7 +2470,7 @@
     --hds-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
     --hds-app-side-nav-body-list-item-margin-top: 0px;
     --hds-app-side-nav-body-list-item-padding-horizontal: 16px;
-    --hds-app-side-nav-body-list-item-padding-vertical: 7px;
+    --hds-app-side-nav-body-list-item-padding-vertical: 4px;
     --hds-app-side-nav-body-list-item-surface-color-active: rgba(
       141,
       141,
@@ -2486,6 +2492,8 @@
     --hds-app-side-nav-body-list-item-typography-font-weight: 600;
     --hds-app-side-nav-body-list-title-foreground-color: #f4f4f4;
     --hds-app-side-nav-body-list-title-padding-vertical: 7px;
+    --hds-app-side-nav-toggle-button-height: 34px;
+    --hds-app-side-nav-toggle-button-position-top: 15px;
     --hds-app-side-nav-wrapper-padding-horizontal: 0px;
     --hds-app-side-nav-wrapper-surface-color: #161616;
     --hds-badge-border-radius: var(--hds-border-radius-rounded);
@@ -3384,7 +3392,7 @@
     --hds-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
     --hds-app-side-nav-body-list-item-margin-top: 0px;
     --hds-app-side-nav-body-list-item-padding-horizontal: 16px;
-    --hds-app-side-nav-body-list-item-padding-vertical: 7px;
+    --hds-app-side-nav-body-list-item-padding-vertical: 4px;
     --hds-app-side-nav-body-list-item-surface-color-active: rgba(
       141,
       141,
@@ -3406,6 +3414,8 @@
     --hds-app-side-nav-body-list-item-typography-font-weight: 600;
     --hds-app-side-nav-body-list-title-foreground-color: #161616;
     --hds-app-side-nav-body-list-title-padding-vertical: 7px;
+    --hds-app-side-nav-toggle-button-height: 34px;
+    --hds-app-side-nav-toggle-button-position-top: 15px;
     --hds-app-side-nav-wrapper-padding-horizontal: 0px;
     --hds-app-side-nav-wrapper-surface-color: #ffffff;
     --hds-badge-border-radius: var(--hds-border-radius-rounded);
@@ -4274,7 +4284,7 @@
     --hds-app-side-nav-body-list-item-indicator-surface-color: #0f62fe;
     --hds-app-side-nav-body-list-item-margin-top: 0px;
     --hds-app-side-nav-body-list-item-padding-horizontal: 16px;
-    --hds-app-side-nav-body-list-item-padding-vertical: 7px;
+    --hds-app-side-nav-body-list-item-padding-vertical: 4px;
     --hds-app-side-nav-body-list-item-surface-color-active: rgba(
       141,
       141,
@@ -4296,6 +4306,8 @@
     --hds-app-side-nav-body-list-item-typography-font-weight: 600;
     --hds-app-side-nav-body-list-title-foreground-color: #161616;
     --hds-app-side-nav-body-list-title-padding-vertical: 7px;
+    --hds-app-side-nav-toggle-button-height: 34px;
+    --hds-app-side-nav-toggle-button-position-top: 15px;
     --hds-app-side-nav-wrapper-padding-horizontal: 0px;
     --hds-app-side-nav-wrapper-surface-color: #f4f4f4;
     --hds-badge-border-radius: var(--hds-border-radius-rounded);
@@ -5164,7 +5176,7 @@
     --hds-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
     --hds-app-side-nav-body-list-item-margin-top: 0px;
     --hds-app-side-nav-body-list-item-padding-horizontal: 16px;
-    --hds-app-side-nav-body-list-item-padding-vertical: 7px;
+    --hds-app-side-nav-body-list-item-padding-vertical: 4px;
     --hds-app-side-nav-body-list-item-surface-color-active: rgba(
       141,
       141,
@@ -5186,6 +5198,8 @@
     --hds-app-side-nav-body-list-item-typography-font-weight: 600;
     --hds-app-side-nav-body-list-title-foreground-color: #f4f4f4;
     --hds-app-side-nav-body-list-title-padding-vertical: 7px;
+    --hds-app-side-nav-toggle-button-height: 34px;
+    --hds-app-side-nav-toggle-button-position-top: 15px;
     --hds-app-side-nav-wrapper-padding-horizontal: 0px;
     --hds-app-side-nav-wrapper-surface-color: #262626;
     --hds-badge-border-radius: var(--hds-border-radius-rounded);
@@ -6084,7 +6098,7 @@
     --hds-app-side-nav-body-list-item-indicator-surface-color: #4589ff;
     --hds-app-side-nav-body-list-item-margin-top: 0px;
     --hds-app-side-nav-body-list-item-padding-horizontal: 16px;
-    --hds-app-side-nav-body-list-item-padding-vertical: 7px;
+    --hds-app-side-nav-body-list-item-padding-vertical: 4px;
     --hds-app-side-nav-body-list-item-surface-color-active: rgba(
       141,
       141,
@@ -6106,6 +6120,8 @@
     --hds-app-side-nav-body-list-item-typography-font-weight: 600;
     --hds-app-side-nav-body-list-title-foreground-color: #f4f4f4;
     --hds-app-side-nav-body-list-title-padding-vertical: 7px;
+    --hds-app-side-nav-toggle-button-height: 34px;
+    --hds-app-side-nav-toggle-button-position-top: 15px;
     --hds-app-side-nav-wrapper-padding-horizontal: 0px;
     --hds-app-side-nav-wrapper-surface-color: #161616;
     --hds-badge-border-radius: var(--hds-border-radius-rounded);

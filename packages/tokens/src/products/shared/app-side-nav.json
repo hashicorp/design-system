@@ -62,6 +62,33 @@
           "$type": "dimension",
           "$value": "{border.radius.small}"
         }
+      },
+      "position": {
+        "top": {
+          "$type": "dimension",
+          "$value": "{app-side-nav.wrapper.padding.vertical}",
+          "unit": "px",
+          "$modes": {
+            "default": "{app-side-nav.wrapper.padding.vertical}",
+            "cds-g0": "15",
+            "cds-g10": "15",
+            "cds-g90": "15",
+            "cds-g100": "15"
+          }
+        }
+      },
+      "height": {
+        "$type": "dimension",
+        "$value": "36",
+        "unit": "px",
+        "$modes": {
+          "default": "36",
+          "cds-g0": "34",
+          "cds-g10": "34",
+          "cds-g90": "34",
+          "cds-g100": "34"
+        }
+
       }
     },
     "body": {
@@ -137,10 +164,10 @@
             "unit": "px",
             "$modes": {
               "default": "4",
-              "cds-g0": "7",
-              "cds-g10": "7",
-              "cds-g90": "7",
-              "cds-g100": "7"
+              "cds-g0": "4",
+              "cds-g10": "4",
+              "cds-g90": "4",
+              "cds-g100": "4"
             }
           }
         },

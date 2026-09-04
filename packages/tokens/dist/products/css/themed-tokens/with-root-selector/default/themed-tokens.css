@@ -126,6 +126,8 @@
   --hds-app-side-nav-body-list-item-typography-font-weight: var(--hds-typography-font-weight-medium);
   --hds-app-side-nav-body-list-title-foreground-color: var(--hds-foreground-color-faint);
   --hds-app-side-nav-body-list-title-padding-vertical: 9px;
+  --hds-app-side-nav-toggle-button-height: 36px;
+  --hds-app-side-nav-toggle-button-position-top: var(--hds-app-side-nav-wrapper-padding-vertical);
   --hds-app-side-nav-wrapper-padding-horizontal: 16px;
   --hds-app-side-nav-wrapper-surface-color: var(--hds-surface-color-faint);
   --hds-badge-border-radius: var(--hds-border-radius-small);

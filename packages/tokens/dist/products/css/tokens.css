@@ -280,6 +280,8 @@
   --hds-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
   --hds-app-side-nav-wrapper-padding-vertical-minimized: 22px;
   --hds-app-side-nav-toggle-button-border-radius: 5px;
+  --hds-app-side-nav-toggle-button-position-top: 16px;
+  --hds-app-side-nav-toggle-button-height: 36px;
   --hds-app-side-nav-body-list-margin-vertical: 16px;
   --hds-app-side-nav-body-list-title-padding-vertical: 9px;
   --hds-app-side-nav-body-list-title-padding-horizontal: 8px;
