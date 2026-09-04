@@ -115,7 +115,7 @@ export default class SubSectionContexts extends Component {
     <ShwTextH3>Local theming via ThemeContext</ShwTextH3>
 
     <ShwTextBody>The examples below should remain the same when theme is changed
-      </ShwTextBody>
+    </ShwTextBody>
 
     <ShwTextH4>Parent container</ShwTextH4>
 

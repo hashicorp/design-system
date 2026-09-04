@@ -12,14 +12,14 @@
 
 .hds-app-side-nav__toggle-button {
   position: absolute;
-  top: var(--hds-app-side-nav-wrapper-padding-vertical); // visually align with :header content
+  top: var(--hds-app-side-nav-toggle-button-position-top); // visually align with :header content
   left: calc(var(--hds-app-side-nav-wrapper-border-width) * -1);
   z-index: 1;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   width: var(--hds-var-app-side-nav-toggle-button-width);
-  height: 36px;
+  height: var(--hds-app-side-nav-toggle-button-height);
   padding: 0 4px;
   color: var(--hds-foreground-color-primary);
   background: none;
