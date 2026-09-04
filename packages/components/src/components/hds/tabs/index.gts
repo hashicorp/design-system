@@ -9,9 +9,7 @@ import { assert, warn } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
 import { hash } from '@ember/helper';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import { didInsert, didUpdate } from '@ember/render-modifiers';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
