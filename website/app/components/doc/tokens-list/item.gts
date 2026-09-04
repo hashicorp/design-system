@@ -6,26 +6,32 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-import { concat } from '@ember/helper';
-import { not } from 'ember-truth-helpers';
+import { concat, get } from '@ember/helper';
+import { and, eq } from 'ember-truth-helpers';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
+import { HdsThemeContext } from '@hashicorp/design-system-components/components';
 
 import DocMetaRow from 'website/components/doc/meta-row';
 import DocTokenPreview from 'website/components/doc/token-preview';
+import DocBadge from 'website/components/doc/badge';
+
+type NormalizedTokenMode = {
+  mode: string;
+  label: string;
+  value: string;
+  alias_of?: string;
+};
 
 type NormalizedToken = {
   name: string;
-  $type: string;
-  $value: string;
-  aliases?: string[];
-  category: string;
-  original_value: string;
+  type: string;
+  value: string;
+  modes?: NormalizedTokenMode[];
+  alias_of?: string;
   deprecated?: boolean;
-  documentation?: {
-    comment?: string;
-  };
   comment?: string;
+  comments?: Record<string, string>;
 };
 
 export interface DocTokensListItemSignature {
@@ -33,18 +39,17 @@ export interface DocTokensListItemSignature {
     token: {
       name: string;
       $type: string;
-      $value: string;
-      aliases?: string[];
-      attributes: {
-        category: string;
-      };
+      $value: string | number;
+      $modes?: Record<string, string | number>;
       original: {
-        $value: string;
+        $value: string | number;
+        // note: unlike the resolved `$modes` above, `original.$modes` is intentionally left un-resolved (raw) so we
+        // can still detect and display the underlying alias reference (see the `originalModeValue` handling below);
+        // a "property-override" mode entry (eg. `{ $value, unit }`/`{ $value, alpha }`) is therefore still an object here
+        $modes?: Record<string, string | number | Record<string, unknown>>;
+        comments?: Record<string, string>;
       };
       deprecated?: boolean;
-      documentation?: {
-        comment?: string;
-      };
       comment?: string;
     };
   };
@@ -56,29 +61,66 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
 
   get token(): NormalizedToken {
     const { token } = this.args;
-    return {
+    const normalizedToken: NormalizedToken = {
       name: token.name,
       // note: we prefix `type` and `value` with `$` because we're using the DTCG format
-      $type: token.$type,
-      $value: token.$value,
-      aliases: token.aliases,
-      category: token.attributes.category,
-      // note: also the original value is prefixed with `$`
-      original_value: token.original.$value,
+      type: token.$type,
+      value: token.$value.toString(),
       deprecated: token.deprecated,
-      comment: token?.documentation?.comment ?? token?.comment ?? undefined,
     };
+    // standard alias
+    if (
+      // note: also the original value is prefixed with `$`
+      token.original.$value &&
+      token.original.$value !== token.$value &&
+      token.original.$value.toString().includes('{')
+    ) {
+      normalizedToken.alias_of = token.original.$value.toString();
+    }
+    // "modes" values
+    if (token.$modes) {
+      const modes: NormalizedTokenMode[] = [];
+      Object.entries(token.$modes).forEach(([modeName, modeValue]) => {
+        const modeObj: NormalizedTokenMode = {
+          mode: modeName,
+          label: modeName.replace('cds', 'CDS'),
+          value: modeValue.toString(),
+        };
+        const originalModeValue = token.original.$modes?.[modeName];
+        if (
+          originalModeValue !== undefined &&
+          originalModeValue !== modeValue
+        ) {
+          if (
+            typeof originalModeValue === 'string' &&
+            originalModeValue.includes('{')
+          ) {
+            modeObj.alias_of = originalModeValue;
+          } else if (
+            typeof originalModeValue === 'object' &&
+            originalModeValue['$value'] &&
+            typeof originalModeValue['$value'] === 'string' &&
+            originalModeValue['$value'].includes('{')
+          ) {
+            modeObj.alias_of = originalModeValue['$value'];
+          }
+        }
+        modes.push(modeObj);
+      });
+      normalizedToken.modes = modes;
+    }
+    // comment(s)
+    if (token.comment) {
+      normalizedToken.comment = token.comment;
+    }
+    if (token.original?.comments) {
+      normalizedToken.comments = token.original.comments;
+    }
+    return normalizedToken;
   }
 
-  get isAlias() {
-    return (
-      this.token.original_value !== this.token.$value &&
-      this.token.original_value.includes('{')
-    );
-  }
-
-  get isDeprecated() {
-    return this.token.deprecated;
+  get dump() {
+    return JSON.stringify(this.token, null, 2);
   }
 
   toggle = () => {
@@ -89,7 +131,11 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
     {{! role="listitem" is needed here because the class sets display: contents and some browsers and assistive technologies will ignore the implied role }}
     <li class="doc-tokens-list__item" role="listitem">
       <div class="doc-tokens-list__preview">
-        <DocTokenPreview @token={{this.token}} />
+        <DocTokenPreview
+          @type={{this.token.type}}
+          @name={{this.token.name}}
+          @value={{this.token.value}}
+        />
       </div>
       <div class="doc-tokens-list__content">
         <button
@@ -102,10 +148,7 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
           <HdsIcon @name={{if this.isExpanded "chevron-up" "chevron-down"}} />
         </button>
         {{#if this.token.deprecated}}
-          <DocMetaRow
-            @label="Don't use"
-            @valueToShow="This token is now deprecated"
-          />
+          <DocBadge @type="warning" @size="medium">Deprecated</DocBadge>
           <DocMetaRow
             class="doc-tokens-list__item--is-deprecated"
             @label="CSS var"
@@ -120,29 +163,80 @@ export default class DocTokensListItem extends Component<DocTokensListItemSignat
           {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
           <DocMetaRow
             @label="Value"
-            @valueToShow={{this.token.$value}}
-            @isClipped={{not this.isExpanded}}
-          />
+            @valueToShow={{this.token.value}}
+            @isClipped={{true}}
+          >
+            <:extra>
+              {{#if this.token.modes}}
+                <DocBadge
+                  class="doc-tokens-list__item-row-carbonization-badge"
+                  @type="information-inverted"
+                  @size="medium"
+                >Carbonized</DocBadge>
+              {{/if}}
+            </:extra>
+          </DocMetaRow>
         {{/if}}
         {{#if this.isExpanded}}
-          {{#if this.token.$type}}
-            <DocMetaRow @label="Type" @valueToShow={{this.token.$type}} />
+          {{#if this.token.type}}
+            <DocMetaRow @label="Type" @valueToShow={{this.token.type}} />
           {{/if}}
-          {{#if this.isAlias}}
+          {{#if this.token.alias_of}}
             <DocMetaRow
               @label="Alias of"
-              @valueToShow={{this.token.original_value}}
-            />
-          {{/if}}
-          {{#if this.token.aliases}}
-            <DocMetaRow
-              @label="Aliased as"
-              @multipleValuesToShow={{this.token.aliases}}
+              @valueToShow={{this.token.alias_of}}
             />
           {{/if}}
           {{#if this.token.comment}}
             <DocMetaRow @label="Comment" @valueToShow={{this.token.comment}} />
           {{/if}}
+        {{/if}}
+        {{#if (and this.isExpanded this.token.modes)}}
+          <div class="doc-tokens-list__content-divider"></div>
+          <div class="doc-tokens-list__content-label">Carbonization</div>
+          <div class="doc-tokens-list__content-modes">
+            {{#each this.token.modes as |mode|}}
+              {{#unless (eq mode.mode "default")}}
+                <div class="doc-tokens-list__mode">
+                  <div class="doc-tokens-list__mode-label">{{mode.label}}</div>
+                  <div class="doc-tokens-list__mode-preview">
+                    <HdsThemeContext @context={{mode.mode}}>
+                      <DocTokenPreview
+                        @type={{this.token.type}}
+                        @name={{this.token.name}}
+                        @value={{mode.value}}
+                      />
+                    </HdsThemeContext>
+                  </div>
+                  <div class="doc-tokens-list__mode-content">
+                    <DocMetaRow
+                      @label="Value"
+                      @valueToShow={{mode.value}}
+                      @isClipped={{true}}
+                      @compact={{true}}
+                    />
+                    {{#if mode.alias_of}}
+                      <DocMetaRow
+                        @label="Alias of"
+                        @valueToShow={{mode.alias_of}}
+                        @compact={{true}}
+                      />
+                    {{/if}}
+                  </div>
+                </div>
+              {{/unless}}
+            {{/each}}
+          </div>
+          {{#let (get this.token.comments "cds") as |cdsComment|}}
+            {{#if cdsComment}}
+              <DocMetaRow
+                class="doc-tokens-list__modes-comment"
+                @label="Comment"
+                @valueToShow={{cdsComment}}
+                @compact={{true}}
+              />
+            {{/if}}
+          {{/let}}
         {{/if}}
       </div>
     </li>
