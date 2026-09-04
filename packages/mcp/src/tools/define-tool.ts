@@ -8,7 +8,7 @@ import type {
   AnySchema,
   ZodRawShapeCompat,
 } from "@modelcontextprotocol/sdk/server/zod-compat.js";
-import type { McpTool } from "../types.js";
+import type { McpTool } from "./types.js";
 
 export interface ToolRegistration {
   name: string;

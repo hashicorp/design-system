@@ -4,11 +4,11 @@
  */
 
 import { z } from "zod";
-import { defineTool } from "../shared/define-tool.js";
+import { defineTool } from "../define-tool.js";
 import {
   toJsonToolResponse,
   withSafeToolHandler,
-} from "../shared/responses.js";
+} from "../responses.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   DOCS_TABS,
@@ -21,7 +21,7 @@ import {
 import { getOrLoadDocsStore } from "./store/index.js";
 import { clampFilterValue, toSerializableSearchResult } from "./utils.js";
 
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 import type { DocsCatalogStore } from "./store/index.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 

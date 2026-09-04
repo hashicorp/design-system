@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { normalizeLookupValue } from "../../../shared/normalize.js";
+import { normalizeLookupValue } from "../../../catalog/normalize.js";
 
 import type { IconAsset } from "./schema.js";
 

@@ -4,12 +4,12 @@
  */
 
 import { z } from "zod";
-import { defineTool } from "../shared/define-tool.js";
+import { defineTool } from "../define-tool.js";
 import {
   toDocumentToolResponse,
   toJsonToolResponse,
   withSafeToolHandler,
-} from "../shared/responses.js";
+} from "../responses.js";
 import {
   DEFAULT_READ_MAX_BYTES,
   MAX_FILTER_LENGTH,
@@ -26,7 +26,7 @@ import {
   toSerializablePageLinks,
 } from "./utils.js";
 
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 import type { DocsCatalogStore } from "./store/index.js";
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";

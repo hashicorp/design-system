@@ -10,7 +10,7 @@ import {
   PROJECT_ROOT_ENV_VAR,
   findPackageDirectory,
   resolveProjectRoot,
-} from "../../../src/shared/project-root.js";
+} from "../../../src/catalog/project-root.js";
 import { createProjectFixture } from "../../support/catalog-fixtures.js";
 
 import type { ProjectFixture } from "../../support/catalog-fixtures.js";

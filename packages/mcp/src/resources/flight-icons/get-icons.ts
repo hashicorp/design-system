@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { toJsonResourceResponse } from "../shared/responses.js";
+import { toJsonResourceResponse } from "../responses.js";
 import { ICONS_URI } from "./constants.js";
 import { getOrLoadIconStore } from "./store/index.js";
 import { toSerializableIconSummary } from "./utils.js";

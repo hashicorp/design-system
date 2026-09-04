@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// shared tool result envelopes and the error guard every tool call goes through
+// tool result envelopes and the error guard every tool call goes through
 
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 

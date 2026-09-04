@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { normalizeLookupValue } from "../../../src/shared/normalize.js";
+import { normalizeLookupValue } from "../../../src/catalog/normalize.js";
 
 describe("normalizeLookupValue", () => {
   it("trims and lowercases, so a caller's casing and padding never matter", () => {

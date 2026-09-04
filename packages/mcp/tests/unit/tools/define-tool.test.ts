@@ -6,8 +6,8 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { describe, expect, it, vi } from "vitest";
-import { defineTool } from "../../../../src/tools/shared/define-tool.js";
-import { toJsonToolResponse } from "../../../../src/tools/shared/responses.js";
+import { defineTool } from "../../../src/tools/define-tool.js";
+import { toJsonToolResponse } from "../../../src/tools/responses.js";
 
 const inputShape = { query: z.string().min(1) };
 

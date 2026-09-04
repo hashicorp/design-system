@@ -4,13 +4,13 @@
  */
 
 import { describe, expect, it, vi } from "vitest";
-import { defineDetailResource } from "../../../../src/resources/shared/define-resource.js";
-import { toJsonResourceResponse } from "../../../../src/resources/shared/responses.js";
+import { defineDetailResource } from "../../../src/resources/define-resource.js";
+import { toJsonResourceResponse } from "../../../src/resources/responses.js";
 import {
   getTextContent,
   parseResourceJson,
-} from "../../../support/resource-content.js";
-import { buildRequestHandlerExtra } from "../../../support/request-handler.js";
+} from "../../support/resource-content.js";
+import { buildRequestHandlerExtra } from "../../support/request-handler.js";
 
 const detailPayload = toJsonResourceResponse("hds://widgets", { widgets: [] });
 

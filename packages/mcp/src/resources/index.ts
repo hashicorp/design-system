@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { withSafeResourceHandler } from "./shared/responses.js";
+import { withSafeResourceHandler } from "./responses.js";
 
 import flightIconsResources from "./flight-icons/index.js";
 import tokensResources from "./tokens/index.js";

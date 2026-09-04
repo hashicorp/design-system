@@ -6,7 +6,7 @@
 import readDocTool from "./read-doc.js";
 import searchDocsTool from "./search-docs.js";
 
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 
 const DOCS_TOOLS: ToolRegistration[] = [searchDocsTool, readDocTool];
 

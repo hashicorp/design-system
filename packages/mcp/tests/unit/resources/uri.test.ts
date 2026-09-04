@@ -7,7 +7,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildDetailUri,
   decodeUriSegment,
-} from "../../../../src/resources/shared/uri.js";
+} from "../../../src/resources/uri.js";
 
 describe("buildDetailUri", () => {
   it("appends the encoded key to the base uri", () => {

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { toJsonResourceResponse } from "../shared/responses.js";
+import { toJsonResourceResponse } from "../responses.js";
 import { COMPONENTS_URI } from "./constants.js";
 import { getOrLoadComponentStore } from "./store/index.js";
 import { toSerializableComponentSummary } from "./utils.js";

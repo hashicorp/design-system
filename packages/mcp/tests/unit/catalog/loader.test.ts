@@ -5,9 +5,9 @@
 
 import { readFileSync } from "node:fs";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { createCatalogLoader } from "../../../src/shared/catalog.js";
+import { createCatalogLoader } from "../../../src/catalog/loader.js";
 
-import type { CatalogAnchor } from "../../../src/shared/catalog.js";
+import type { CatalogAnchor } from "../../../src/catalog/loader.js";
 
 vi.mock("node:fs", () => ({
   readFileSync: vi.fn(),

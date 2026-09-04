@@ -6,7 +6,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { getMcpPackageDirectory } from "../../../src/shared/project-root.js";
+import { getMcpPackageDirectory } from "../../../src/catalog/project-root.js";
 import {
   DEFAULT_READ_MAX_BYTES,
   DOCS_CATALOG_FILE_NAME,

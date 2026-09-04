@@ -8,11 +8,11 @@ import {
   toDocumentToolResponse,
   toJsonToolResponse,
   withSafeToolHandler,
-} from "../../../../src/tools/shared/responses.js";
+} from "../../../src/tools/responses.js";
 import {
   getToolTextContent,
   parseToolJson,
-} from "../../../support/tool-content.js";
+} from "../../support/tool-content.js";
 
 afterEach(() => {
   vi.restoreAllMocks();

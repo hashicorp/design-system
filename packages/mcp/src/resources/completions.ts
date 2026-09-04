@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// shared matching loop for resource template completion callback
+// matching loop for resource template completion callback
 
-import { normalizeLookupValue } from "../../shared/normalize.js";
+import { normalizeLookupValue } from "../catalog/normalize.js";
 
 export interface CompleteFromAliasesInput<Item> {
   items: Item[];

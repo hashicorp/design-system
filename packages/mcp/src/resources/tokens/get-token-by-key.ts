@@ -6,11 +6,11 @@
 import {
   completeFromAliases,
   withSafeCompletion,
-} from "../shared/completions.js";
-import { defineDetailResource } from "../shared/define-resource.js";
+} from "../completions.js";
+import { defineDetailResource } from "../define-resource.js";
 import { getOrLoadTokenStore } from "./store/index.js";
-import { toJsonResourceResponse } from "../shared/responses.js";
-import { buildDetailUri } from "../shared/uri.js";
+import { toJsonResourceResponse } from "../responses.js";
+import { buildDetailUri } from "../uri.js";
 import { TOKENS_URI, TOKEN_BY_KEY_URI_TEMPLATE } from "./constants.js";
 import { toSerializableTokenSummary } from "./utils.js";
 

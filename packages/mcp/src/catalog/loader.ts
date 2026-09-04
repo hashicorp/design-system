@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// shared lazy, memoized loader for the generated catalogs backing each resource domain
+// lazy, memoized loader for the generated catalogs backing each resource domain
 
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";

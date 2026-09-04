@@ -17,9 +17,9 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { PROJECT_ROOT_ENV_VAR } from "../../src/shared/project-root.js";
+import { PROJECT_ROOT_ENV_VAR } from "../../src/catalog/project-root.js";
 
-import type { CatalogAnchor, CatalogSource } from "../../src/shared/catalog.js";
+import type { CatalogAnchor, CatalogSource } from "../../src/catalog/loader.js";
 
 export type InstalledPackage = {
   name: string;
@@ -44,11 +44,11 @@ export type RunCascadeInput = {
   installed?: InstalledPackage[];
 };
 
-const SHARED_SOURCE_DIRECTORY = fileURLToPath(
-  new URL("../../src/shared/", import.meta.url),
+const CATALOG_SOURCE_DIRECTORY = fileURLToPath(
+  new URL("../../src/catalog/", import.meta.url),
 );
 
-const RUNNER_SOURCE = `import { createCatalogLoader } from "./catalog.ts";
+const RUNNER_SOURCE = `import { createCatalogLoader } from "./loader.ts";
 
 const loader = createCatalogLoader({
   specifier: process.argv[2],
@@ -122,14 +122,14 @@ const createModuleDirectory = (installed: InstalledPackage[]): string => {
   );
 
   const catalogSource = readFileSync(
-    join(SHARED_SOURCE_DIRECTORY, "catalog.ts"),
+    join(CATALOG_SOURCE_DIRECTORY, "loader.ts"),
     "utf8",
   ).replace("./project-root.js", "./project-root.ts");
 
-  writeFileSync(join(moduleDirectory, "catalog.ts"), catalogSource);
+  writeFileSync(join(moduleDirectory, "loader.ts"), catalogSource);
 
   copyFileSync(
-    join(SHARED_SOURCE_DIRECTORY, "project-root.ts"),
+    join(CATALOG_SOURCE_DIRECTORY, "project-root.ts"),
     join(moduleDirectory, "project-root.ts"),
   );
 

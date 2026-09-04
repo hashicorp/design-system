@@ -6,10 +6,10 @@
 import {
   completeFromAliases,
   withSafeCompletion,
-} from "../shared/completions.js";
-import { defineDetailResource } from "../shared/define-resource.js";
-import { toJsonResourceResponse } from "../shared/responses.js";
-import { buildDetailUri } from "../shared/uri.js";
+} from "../completions.js";
+import { defineDetailResource } from "../define-resource.js";
+import { toJsonResourceResponse } from "../responses.js";
+import { buildDetailUri } from "../uri.js";
 import { COMPONENTS_URI, COMPONENT_BY_NAME_URI_TEMPLATE } from "./constants.js";
 import { getOrLoadComponentStore } from "./store/index.js";
 import { toSerializableComponent } from "./utils.js";
