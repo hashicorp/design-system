@@ -66,19 +66,6 @@
   }
 }
 
-.doc-tokens-grid-item__meta-row {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  min-height: 32px;
-}
-
-.doc-tokens-grid-item__meta-value-not-copyable {
-  padding-top: 2px; // optical alignment with the copyable one
-  padding-left: 8px;
-  color: var(--doc-color-black);
-}
-
 // TOGGLE
 
 .doc-tokens-list__toggle { // it's a button
