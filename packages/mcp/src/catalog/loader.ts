@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// shared lazy, memoized loader for the generated catalogs backing each resource domain
+// lazy, memoized loader for the generated catalogs backing each resource domain
 
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -124,22 +124,10 @@ const readCatalogVersion = (catalogPath: string): string | null => {
   }
 };
 
-export const createCatalogLoader = <Store>({
-  specifier,
-  anchors,
-  create,
-}: CatalogLoaderOptions<Store>): CatalogLoader<Store> => {
+export const memoizeCatalogLoader = <Store>(
+  load: () => Store,
+): CatalogLoader<Store> => {
   let store: Store | null = null;
-
-  const load = (): Store => {
-    const { catalogPath, resolvedVia } = resolveCatalog(specifier, anchors);
-    const rawCatalog = readFileSync(catalogPath, "utf8");
-
-    return create(JSON.parse(rawCatalog) as unknown, {
-      version: readCatalogVersion(catalogPath),
-      resolvedVia,
-    });
-  };
 
   return {
     load,
@@ -151,4 +139,20 @@ export const createCatalogLoader = <Store>({
       return store;
     },
   };
+};
+
+export const createCatalogLoader = <TStore>({
+  specifier,
+  anchors,
+  create,
+}: CatalogLoaderOptions<TStore>): CatalogLoader<TStore> => {
+  return memoizeCatalogLoader(() => {
+    const { catalogPath, resolvedVia } = resolveCatalog(specifier, anchors);
+    const rawCatalog = readFileSync(catalogPath, "utf8");
+
+    return create(JSON.parse(rawCatalog) as unknown, {
+      version: readCatalogVersion(catalogPath),
+      resolvedVia,
+    });
+  });
 };

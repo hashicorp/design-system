@@ -4,7 +4,7 @@
  */
 
 import { TOKEN_TYPES } from "./schema.js";
-import { normalizeLookupValue } from "../../../shared/normalize.js";
+import { normalizeLookupValue } from "../../../catalog/normalize.js";
 
 import type {
   TokenAttributes,

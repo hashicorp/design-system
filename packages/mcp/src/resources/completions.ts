@@ -3,7 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// shared matching loop for resource template completion callback
+// matching loop for resource template completion callback
+
+import { normalizeLookupValue } from "../catalog/normalize.js";
 
 export interface CompleteFromAliasesInput<Item> {
   items: Item[];
@@ -18,7 +20,7 @@ export const completeFromAliases = <Item>({
   getValue,
   value,
 }: CompleteFromAliasesInput<Item>): string[] => {
-  const query = value.trim().toLowerCase();
+  const query = normalizeLookupValue(value);
   const matches: string[] = [];
 
   for (const item of items) {

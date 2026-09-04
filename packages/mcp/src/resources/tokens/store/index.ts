@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { normalizeLookupValue } from "../../../shared/normalize.js";
+import { normalizeLookupValue } from "../../../catalog/normalize.js";
 import {
   DEFAULT_CATALOG_SOURCE,
   createCatalogLoader,
-} from "../../shared/catalog.js";
+} from "../../../catalog/loader.js";
 import {
   getTokenLookupKeys,
   normalizeTokenLookupKey,
@@ -15,7 +15,7 @@ import {
 } from "./lookup.js";
 import { tokenCatalogSchema } from "./schema.js";
 
-import type { CatalogSource } from "../../shared/catalog.js";
+import type { CatalogSource } from "../../../catalog/loader.js";
 import type { TokenRecord, TokenSummary } from "./lookup.js";
 import type { TokenCatalogRow, TokenType } from "./schema.js";
 

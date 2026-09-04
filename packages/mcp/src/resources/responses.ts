@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { JsonObject } from "../../types.js";
+import type { JsonObject } from "../types.js";
 import type {
   ReadResourceCallback,
   ReadResourceTemplateCallback,

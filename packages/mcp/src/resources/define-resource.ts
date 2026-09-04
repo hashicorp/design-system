@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// shared descriptor factory for the detail resource every domain registers
+// descriptor factory for the detail resource every domain registers
 
 import { ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { toJsonResourceResponse } from "./responses.js";
 import { decodeUriSegment } from "./uri.js";
 
-import type { McpResource } from "../types.js";
+import type { McpResource } from "./types.js";
 import type { ReadResourceResult } from "@modelcontextprotocol/sdk/types.js";
 
 const JSON_MIME_TYPE = "application/json";

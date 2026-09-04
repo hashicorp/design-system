@@ -7,7 +7,7 @@ import { describe, expect, it, vi } from "vitest";
 import {
   completeFromAliases,
   withSafeCompletion,
-} from "../../../../src/resources/shared/completions.js";
+} from "../../../src/resources/completions.js";
 
 interface TestItem {
   value: string;

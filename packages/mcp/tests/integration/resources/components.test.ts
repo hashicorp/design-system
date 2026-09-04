@@ -17,7 +17,7 @@ import type {
   ComponentRecord,
   ComponentSummary,
 } from "../../../src/resources/components/store/lookup.js";
-import type { CatalogSource } from "../../../src/resources/shared/catalog.js";
+import type { CatalogSource } from "../../../src/catalog/loader.js";
 
 const STORE_SOURCE: CatalogSource = {
   version: "6.4.0",
