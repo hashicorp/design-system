@@ -16,8 +16,7 @@ import { and, not } from 'ember-truth-helpers';
 
 import hdsScrollIntoViewOnFocus from '../../../modifiers/hds-scroll-into-view-on-focus.ts';
 import hdsAdvancedTableCell from '../../../modifiers/hds-advanced-table-cell.ts';
-// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
-import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { focusTrap } from 'ember-focus-trap';
 import { hash } from '@ember/helper';
 import HdsLayoutFlex from '../layout/flex/index.gts';
 import HdsAdvancedTableThButtonExpand from './th-button-expand.gts';
