@@ -1,3 +1,9 @@
+!!! Information
+
+**Note**: the tokens used in the code snippets below refer to the version 7.0 or above of the components package (version 6.0 or above of the tokens package). If you are using an older version, refer to the correct [documentation for your version](/whats-new/release-notes).
+
+!!!
+
 ## How to use tokens
 
 ### Use tokens in styles
