@@ -155,7 +155,7 @@ export default class ShowController extends Controller {
     );
     const converter = new showdown.Converter(showdownConfig);
     const html = converter.makeHtml(processedMarkdown);
-    return restoreCustomBlocks(html, blockMap);
+    return restoreCustomBlocks(html, blockMap, showdownConfig);
   }
 
   get hasTabs() {
