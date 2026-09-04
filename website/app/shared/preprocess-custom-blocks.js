@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import showdown from 'showdown';
+
 /**
  * Pre-processes a raw markdown string before it is passed to Showdown.
  *
@@ -79,6 +81,12 @@ const SELF_CLOSING_TAG_RE = /^[ \t]*<(?:Doc::|Hds::)[^\s/>][^>]*\/>/m;
 // Matches a closing Doc:: or Hds:: tag at line start.
 // Capture group 1: the full tag name.
 const CLOSE_TAG_RE = /^[ \t]*<\/((?:Doc::|Hds::)[^\s>]+)>/m;
+
+// Matches a closing Doc:: or Hds:: tag anywhere in the string (NOT anchored to
+// line start). Used only for the inner depth scanner to detect same-line close
+// tags (e.g. <Doc::Badge @type="success">text</Doc::Badge> on a single line).
+// The line-start anchor is intentionally omitted here.
+const INLINE_CLOSE_TAG_RE = /<\/((?:Doc::|Hds::)[^\s>]+)>/;
 
 /**
  * Returns a copy of `markdown` where fenced code blocks (``` ... ```) and
@@ -189,7 +197,32 @@ export function extractCustomBlocks(markdown) {
       result += placeholder + '\n';
       pos = token.end;
     } else if (token.type === 'open') {
-      // Opening tag — track depth to find the matching close
+      // Opening tag — track depth to find the matching close.
+      //
+      // Special case: if the opening tag and its matching close are on the
+      // same line (e.g. <Doc::Badge @type="x">text</Doc::Badge>), the
+      // CLOSE_TAG_RE (which requires line-start) won't find the close tag
+      // inside the inner scan loop. Detect this up front: look for a
+      // </TagName> on the same line as the open tag, before the first newline.
+      const lineEnd = markdown.indexOf('\n', token.end);
+      const restOfLine =
+        lineEnd === -1
+          ? markdown.slice(token.end)
+          : markdown.slice(token.end, lineEnd);
+      const sameLine = INLINE_CLOSE_TAG_RE.exec(restOfLine);
+      if (sameLine && sameLine[1] === token.tagName) {
+        // The open and close are on the same line — treat the whole thing
+        // (from the start of the open tag to the end of the close tag) as
+        // a single block with no depth tracking needed.
+        const closeEnd = token.end + sameLine.index + sameLine[0].length;
+        const block = markdown.slice(token.start, closeEnd);
+        const placeholder = `${PLACEHOLDER_PREFIX}${counter++}${PLACEHOLDER_SUFFIX}`;
+        blockMap[placeholder] = block;
+        result += placeholder + '\n';
+        pos = closeEnd;
+        continue;
+      }
+
       const stack = [token.tagName];
       let scanPos = token.end;
 
@@ -198,8 +231,25 @@ export function extractCustomBlocks(markdown) {
         if (!inner) break;
 
         if (inner.type === 'open') {
-          stack.push(inner.tagName);
-          scanPos = inner.end;
+          // Same-line detection: if the open tag and its matching close tag appear
+          // on the same line (e.g. <Hds::Link::Inline @href="#">text</Hds::Link::Inline>),
+          // CLOSE_TAG_RE (anchored to line start) will never find the close tag.
+          // Detect this here and skip the stack push entirely — the tag pair is
+          // self-contained on one line and does not affect block depth.
+          const innerLineEnd = markdown.indexOf('\n', inner.end);
+          const innerRestOfLine =
+            innerLineEnd === -1
+              ? markdown.slice(inner.end)
+              : markdown.slice(inner.end, innerLineEnd);
+          const innerSameLine = INLINE_CLOSE_TAG_RE.exec(innerRestOfLine);
+          if (innerSameLine && innerSameLine[1] === inner.tagName) {
+            // The open and close are on the same line — skip past the close tag
+            // without touching the stack.
+            scanPos = inner.end + innerSameLine.index + innerSameLine[0].length;
+          } else {
+            stack.push(inner.tagName);
+            scanPos = inner.end;
+          }
         } else if (inner.type === 'selfClosing') {
           scanPos = inner.end;
         } else if (inner.type === 'close') {
@@ -230,56 +280,121 @@ export function extractCustomBlocks(markdown) {
 }
 
 /**
- * Processes inline markdown inside a restored block before it is inserted into
- * the final HTML string.
+ * Processes markdown text content inside a restored block before it is
+ * inserted into the final HTML string.
  *
  * Blocks are extracted verbatim from the raw markdown and restored after
- * Showdown runs, so any markdown syntax *inside* them — in particular backtick
- * code spans (e.g. `<a>`) — is never converted by Showdown. If the raw text
- * inside those spans contains HTML tag names, Glimmer's template compiler will
- * try to parse them as real elements and throw a SyntaxError.
+ * Showdown runs, so any markdown syntax inside them is never converted.
+ * This function walks the block line by line, identifies runs of "text
+ * content" lines (lines that do not start an Ember/HTML tag), passes each
+ * run through Showdown for full markdown conversion, and splices the result
+ * back in place of the original lines.
  *
- * This function converts every backtick inline code span to a proper
- * <code>...</code> element with the inner content HTML-escaped, which is
- * exactly what Showdown would have produced had the span appeared outside the
- * extracted block.
+ * A line is considered an "Ember/HTML tag line" — and left verbatim — if
+ * its trimmed content starts with `<`. This covers:
+ *   • Opening/closing Doc::/Hds:: tags
+ *   • Contextual component tags  (<A.Title>, <C.Property …>, </C.Property>)
+ *   • Raw HTML tags used for spacing  (<br />, <div>, etc.)
+ *   • HTML comments  (<!-- ... -->)
+ *
+ * Consecutive non-tag lines are grouped into a single run and passed to
+ * Showdown together, so that multi-line constructs (lists, fenced code
+ * blocks, etc.) are handled correctly.
+ *
+ * After Showdown processes a run, the wrapping <p class="doc-markdown-p">
+ * is stripped if and only if the entire output is a single such paragraph
+ * (i.e. the run was a single inline sentence). Block-level output (lists,
+ * pre, headings, etc.) is kept as-is.
+ *
+ * @param {string} block - The raw extracted block text.
+ * @param {object} showdownConfig - The Showdown configuration object. A fresh
+ *   Converter instance is created for each text run so that Showdown's internal
+ *   state never leaks between calls and never contaminates the outer document's
+ *   converter instance.
  */
-function processInlineMarkdownInBlock(block) {
-  // Match backtick code spans: `...` (non-greedy, no newlines inside).
-  // The inner content is HTML-escaped so that e.g. `<a>` becomes
-  // <code class="doc-markdown-code">&lt;a&gt;</code> rather than <code><a></code>.
-  return block.replace(/`([^`\n]+)`/g, (_match, inner) => {
-    const escaped = inner
-      // & must come first to avoid double-escaping subsequent replacements
-      .replace(/&/g, '&amp;')
-      // HTML tag delimiters — prevent Glimmer parsing `<a>` as a real element
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      // Attribute value delimiters
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;')
-      // Mustache/Handlebars delimiters — Glimmer evaluates {{ }} as expressions.
-      // Note: Pass 0 in remove-auto-p-tags.js escapes {{ }} inside <code>/<pre>
-      // in Showdown's output, but restored blocks bypass that pass entirely since
-      // they are spliced in after the Showdown extension pipeline has already run.
-      .replace(/\{\{/g, '&#123;&#123;')
-      .replace(/\}\}/g, '&#125;&#125;');
-    return `<code class="doc-markdown-code">${escaped}</code>`;
-  });
+function processInlineMarkdownInBlock(block, showdownConfig) {
+  const lines = block.split('\n');
+  const output = [];
+  let textRun = [];
+
+  // Flush a pending text run through Showdown and push the result.
+  const flushTextRun = () => {
+    if (textRun.length === 0) return;
+
+    // Dedent: remove the common leading whitespace from all non-empty lines
+    // before passing the run to Showdown. Without this, lines indented 4+
+    // spaces (which is normal inside a <C.Property> body) would trigger
+    // Showdown's indented code block rule and be wrapped in <pre><code>.
+    const nonEmptyLines = textRun.filter((l) => l.trim().length > 0);
+    const minIndent =
+      nonEmptyLines.length > 0
+        ? Math.min(...nonEmptyLines.map((l) => l.match(/^(\s*)/)[1].length))
+        : 0;
+    const dedented = textRun.map((l) => l.slice(minIndent));
+
+    const markdown = dedented.join('\n');
+    textRun = [];
+
+    // Create a fresh converter for each text run so that Showdown's internal
+    // hash tables (populated by makeHtml) never contaminate the outer
+    // document's converter instance or each other.
+    let html = new showdown.Converter(showdownConfig).makeHtml(markdown);
+
+    // Strip a single wrapping <p class="doc-markdown-p">…</p> so that plain
+    // inline sentences don't introduce a block-level element inside an Ember
+    // component's attribute string or description slot. Block-level output
+    // (lists, pre, headings) produces tags other than <p> and is kept as-is.
+    html = html.replace(/^<p class="doc-markdown-p">([\s\S]*?)<\/p>\s*$/, '$1');
+
+    // Escape {{ }} inside <code>/<pre> so Glimmer doesn't evaluate them.
+    // (Pass 0 in remove-auto-p-tags.js does this for Showdown's main output,
+    // but restored blocks are spliced in after that pipeline has already run.)
+    html = html.replace(
+      /(<(?:code|pre)[^>]*>)([\s\S]*?)(<\/(?:code|pre)>)/g,
+      (_m, open, content, close) =>
+        open +
+        content
+          .replace(/\{\{/g, '&#123;&#123;')
+          .replace(/\}\}/g, '&#125;&#125;') +
+        close,
+    );
+
+    output.push(html);
+  };
+
+  for (const line of lines) {
+    // A line whose trimmed content starts with `<` is an Ember/HTML tag line
+    // and must be left verbatim.
+    if (line.trimStart().startsWith('<')) {
+      flushTextRun();
+      output.push(line);
+    } else {
+      textRun.push(line);
+    }
+  }
+  flushTextRun();
+
+  return output.join('\n');
 }
 
 /**
  * Restores the original custom blocks into the Showdown-processed HTML string,
  * replacing each placeholder with its original block text.
+ *
+ * @param {string} html - The Showdown-processed HTML string.
+ * @param {object} blockMap - Map of placeholder → original block text.
+ * @param {object} showdownConfig - The Showdown configuration object, passed
+ *   through to processInlineMarkdownInBlock so it can create fresh converter
+ *   instances without polluting any shared state.
  */
-export function restoreCustomBlocks(html, blockMap) {
+export function restoreCustomBlocks(html, blockMap, showdownConfig) {
   let result = html;
   for (const [placeholder, block] of Object.entries(blockMap)) {
     // PHP tags are passed through verbatim by Showdown (not wrapped in <p>),
     // so a simple string replacement is sufficient.
     // Process inline markdown within the block before restoring it so that
-    // backtick code spans are converted to safe <code>...</code> HTML.
-    const processedBlock = processInlineMarkdownInBlock(block);
+    // markdown links and backtick code spans are converted to safe HTML.
+    const processedBlock = processInlineMarkdownInBlock(block, showdownConfig);
     result = result.replace(
       new RegExp(escapeRegex(placeholder), 'g'),
       processedBlock,
