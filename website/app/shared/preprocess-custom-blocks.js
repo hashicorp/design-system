@@ -362,12 +362,47 @@ function processInlineMarkdownInBlock(block, showdownConfig) {
     output.push(html);
   };
 
+  // Track whether we are inside a multi-line opening tag (i.e. the opening
+  // tag has been seen on a previous line but has not yet been closed by a `>`
+  // or `/>`). Lines that are attribute continuations of an open tag must be
+  // kept verbatim — they must NOT be fed to Showdown as markdown.
+  let insideOpenTag = false;
+
   for (const line of lines) {
-    // A line whose trimmed content starts with `<` is an Ember/HTML tag line
-    // and must be left verbatim.
-    if (line.trimStart().startsWith('<')) {
+    const trimmed = line.trimStart();
+
+    if (insideOpenTag) {
+      // We are inside a multi-line tag. Keep this line verbatim and check
+      // if it closes the tag (contains `>` or `/>`).
       flushTextRun();
       output.push(line);
+      // A line that closes the tag ends with `>` or `/>` (ignoring trailing
+      // whitespace). The `{{...}}` Mustache expressions inside attribute
+      // values can also contain `>`, so we need a heuristic: the tag is
+      // closed when the line ends with `>` or `/>` after trimming, or
+      // contains a bare `>` or `/>` with no other `<` on the line (which
+      // would indicate a new tag opening rather than a closing `>`).
+      // Simplest safe heuristic: the tag is closed when the trimmed line
+      // ends with `>` or `/>`.
+      if (line.trimEnd().endsWith('>')) {
+        insideOpenTag = false;
+      }
+    } else if (trimmed.startsWith('<')) {
+      // A line whose trimmed content starts with `<` is an Ember/HTML tag
+      // line and must be left verbatim.
+      flushTextRun();
+      output.push(line);
+      // If the line starts an Ember/HTML tag but does NOT contain a closing
+      // `>` on the same line (i.e. the tag spans multiple lines), mark that
+      // we are now inside a multi-line opening tag so subsequent attribute
+      // lines are also kept verbatim.
+      // We detect this by checking whether the line itself ends with `>`.
+      // A tag that closes on its own line (e.g. `<Doc::Foo />` or
+      // `<C.Property @name="x">`) will end with `>` and does not set the
+      // insideOpenTag flag.
+      if (!line.trimEnd().endsWith('>')) {
+        insideOpenTag = true;
+      }
     } else {
       textRun.push(line);
     }
