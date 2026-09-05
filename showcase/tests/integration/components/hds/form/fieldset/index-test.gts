@@ -92,6 +92,35 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
       .dom('.hds-form-group__error')
       .hasAttribute('id', `error-${fieldsetId}`);
   });
+  test('it automatically provides all the ID relations between the elements with a custom @id', async function (assert) {
+    await render(
+      <template>
+        <HdsFormFieldset @layout="vertical" @id="my-custom-id" as |F|>
+          <F.Legend>This is the legend</F.Legend>
+          <F.HelperText>This is the group helper text</F.HelperText>
+          <F.Control><pre
+              id={{F.id}}
+              aria-describedby={{F.ariaDescribedBy}}
+            >This is a mock control</pre></F.Control>
+          <F.Error>This is the error</F.Error>
+        </HdsFormFieldset>
+      </template>,
+    );
+    const controlId = 'my-custom-id';
+    assert.dom('fieldset').hasAttribute('id', controlId);
+    assert
+      .dom('.hds-form-group__helper-text')
+      .hasAttribute('id', `helper-text-${controlId}`);
+    assert
+      .dom('.hds-form-group__control-fields-wrapper pre')
+      .hasAttribute(
+        'aria-describedby',
+        `helper-text-${controlId} error-${controlId}`,
+      );
+    assert
+      .dom('.hds-form-group__error')
+      .hasAttribute('id', `error-${controlId}`);
+  });
 
   // REQUIRED AND OPTIONAL
 

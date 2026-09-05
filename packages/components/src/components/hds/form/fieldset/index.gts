@@ -29,6 +29,7 @@ export const LAYOUT_TYPES: HdsFormFieldsetLayouts[] = Object.values(
 
 export interface HdsFormFieldsetSignature {
   Args: {
+    id?: string;
     extraAriaDescribedBy?: string;
     isOptional?: boolean;
     isRequired?: boolean;
