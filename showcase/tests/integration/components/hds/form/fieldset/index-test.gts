@@ -95,11 +95,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
   test('it automatically provides all the ID relations between the elements with a custom @id', async function (assert) {
     await render(
       <template>
-        <HdsFormFieldset
-          @layout="vertical"
-          @id="my-custom-id"
-          as |F|
-        >
+        <HdsFormFieldset @layout="vertical" @id="my-custom-id" as |F|>
           <F.Legend>This is the legend</F.Legend>
           <F.HelperText>This is the group helper text</F.HelperText>
           <F.Control><pre
