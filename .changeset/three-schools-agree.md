@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/time -->
-`Time` - Remove unused `isoUtcString` arg
+`Time` - Remove unused `@isoUtcString` arg
 <!-- END -->
