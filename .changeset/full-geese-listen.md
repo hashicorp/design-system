@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/form/fieldset -->
-`Form::Fieldset` - Add missing `@id` argument to support passing a custom ID
+`Form::Fieldset` - Add missing `@id` argument to the component signature.
 <!-- END -->
