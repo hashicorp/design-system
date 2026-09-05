@@ -97,7 +97,6 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
       <template>
         <HdsFormFieldset
           @layout="vertical"
-          id="test-form-fieldset"
           @id="my-custom-id"
           as |F|
         >
@@ -112,6 +111,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
       </template>,
     );
     const controlId = 'my-custom-id';
+    assert.dom('fieldset').hasAttribute('id', controlId);
     assert
       .dom('.hds-form-group__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
