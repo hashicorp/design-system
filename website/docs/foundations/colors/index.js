@@ -42,6 +42,7 @@ export default class Colors extends Component {
               cssVariable: `--${token.name}`,
               // note: we prefix `value` with `$` because we're using the DTCG format
               value: token.$value,
+              modes: token.$modes,
             });
           } else if (token.group === 'semantic') {
             const context = token.path[0];
@@ -53,6 +54,7 @@ export default class Colors extends Component {
               cssVariable: `--${token.name}`,
               // note: we prefix `value` with `$` because we're using the DTCG format
               value: token.$value,
+              modes: token.$modes,
             };
             if (['foreground', 'page', 'surface', 'border'].includes(context)) {
               tokenObj.cssHelper = token.name;
@@ -68,6 +70,7 @@ export default class Colors extends Component {
               cssVariable: `--${token.name}`,
               // note: we prefix `value` with `$` because we're using the DTCG format
               value: token.$value,
+              modes: token.$modes,
             });
           } else {
             console.log(
