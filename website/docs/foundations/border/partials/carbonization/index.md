@@ -1,6 +1,6 @@
 ## Border radius in Carbon
 
-In Carbon, most of the border radiuses used in the UI are squared, so these are the updated values:
+In Carbon, most border radiuses used in components are squared. Here are the differences in values compared to HDS:
 
-![Examples of Border Radius values, in HDS and Carbon](/assets/foundations/borders/foundations-borders_carbonization.png)
+![Examples of border radius values, in HDS and Carbon](/assets/foundations/borders/foundations-borders_carbonization.png)
 
