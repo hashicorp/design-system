@@ -25,5 +25,5 @@ Because Carbon's focus ring is inset, the `--hds-focus-ring-box-shadow-***` toke
 ---
 
 <!-- TODO update the URL once the new showcase has been released -->
-🎞️ Showcase for the "carbonized" focus ring: [Carbonization / Foundations / Focus ring](https://hds-showcase-git-project-solar-phase-1-main-fe-1ffc6c-hashicorp.vercel.app/carbonization/foundations/focus-ring)
+🎞️ To see more examples of the differences between the focus rings, see [the showcase for the "carbonized" focus ring](https://hds-showcase-git-project-solar-phase-1-main-fe-1ffc6c-hashicorp.vercel.app/carbonization/foundations/focus-ring).
 
