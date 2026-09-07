@@ -9,7 +9,7 @@ import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { fn, hash } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
-import { sortBy } from '@nullvoxpopuli/ember-composable-helpers';
+import { sortBy } from '@nullvoxpopuli/ember-composable-helpers/helpers/sort-by';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
@@ -132,7 +132,10 @@ export default class HdsTable<T = HdsTableModel> extends Component<
     this.sortOrder = this.args.sortOrder ?? HdsTableThSortOrderValues.Asc;
   }
 
-  get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
+  get getSortCriteria(): string | HdsTableSortingFunction<unknown> | undefined {
+    if (!this.sortBy) {
+      return undefined;
+    }
     // get the current column
     const currentColumn = this.args?.columns?.find(
       (column) => column.key === this.sortBy
@@ -147,6 +150,19 @@ export default class HdsTable<T = HdsTableModel> extends Component<
       // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this.sortBy}:${this.sortOrder}`;
     }
+  }
+
+  get sortedModel(): T[] {
+    const { model } = this.args;
+    if (!model) {
+      return [];
+    }
+    const criteria = this.getSortCriteria;
+    if (!criteria) {
+      return model;
+    }
+    // @ts-expect-error: sortBy's type only accepts string[] keys but we also pass HdsTableSortingFunction [HDS-4380]
+    return sortBy([criteria, model]);
   }
 
   get identityKey(): string | undefined {
@@ -460,29 +476,26 @@ export default class HdsTable<T = HdsTableModel> extends Component<
             we yield the Tr/Td/Th elements _and_ the record itself as data
             this means the consumer will *have to* use the data key to access it in their template
           ----------------------------------------------------------------- }}
-          {{! @glint-expect-error: [HDS-4380](https://hashicorp.atlassian.net/browse/HDS-4380) }}
-          {{#let (sortBy this.getSortCriteria @model) as |sortedModel|}}
-            {{#each sortedModel key=this.identityKey as |record index|}}
-              {{yield
-                (hash
-                  Tr=(component
-                    HdsTableTr
-                    selectionScope="row"
-                    isSelectable=@isSelectable
-                    onSelectionChange=this.onSelectionRowChange
-                    didInsert=this.didInsertRowCheckbox
-                    willDestroy=this.willDestroyRowCheckbox
-                    selectionAriaLabelSuffix=@selectionAriaLabelSuffix
-                  )
-                  Th=(component HdsTableTh scope="row")
-                  Td=(component HdsTableTd align=@align)
-                  data=record
-                  rowIndex=index
+          {{#each this.sortedModel key=this.identityKey as |record index|}}
+            {{yield
+              (hash
+                Tr=(component
+                  HdsTableTr
+                  selectionScope="row"
+                  isSelectable=@isSelectable
+                  onSelectionChange=this.onSelectionRowChange
+                  didInsert=this.didInsertRowCheckbox
+                  willDestroy=this.willDestroyRowCheckbox
+                  selectionAriaLabelSuffix=@selectionAriaLabelSuffix
                 )
-                to="body"
-              }}
-            {{/each}}
-          {{/let}}
+                Th=(component HdsTableTh scope="row")
+                Td=(component HdsTableTd align=@align)
+                data=record
+                rowIndex=index
+              )
+              to="body"
+            }}
+          {{/each}}
         {{else}}
           {{yield
             (hash
