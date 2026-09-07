@@ -18,6 +18,7 @@ const CATEGORIES = [
   'overrides',
   'utilities',
   'patterns',
+  'tooling',
   'testing',
 ];
 
