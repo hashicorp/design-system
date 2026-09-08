@@ -12,7 +12,7 @@ import {
   collectUnknownFilters,
   searchCountsOutputShape,
   searchLimitSchema,
-} from "../../../../src/tools/shared/search.js";
+} from "../../../src/tools/search.js";
 
 describe("clampFilterValue", () => {
   it("bounds a value that is echoed back, and leaves a short one alone", () => {

@@ -13,7 +13,7 @@ import {
 import {
   clampFilterValue,
   MAX_FILTER_LENGTH,
-} from "../shared/search.js";
+} from "../search.js";
 import {
   DEFAULT_READ_MAX_BYTES,
   MAX_READ_MAX_BYTES,

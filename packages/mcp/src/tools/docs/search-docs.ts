@@ -10,7 +10,7 @@ import {
   clampFilterValue,
   clampSearchLimit,
   MAX_FILTER_LENGTH,
-} from "../shared/search.js";
+} from "../search.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   DOCS_TABS,

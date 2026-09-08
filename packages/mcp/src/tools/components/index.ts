@@ -5,7 +5,7 @@
 
 import searchComponentsTool from "./search-components.js";
 
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 
 const COMPONENTS_TOOLS: ToolRegistration[] = [searchComponentsTool];
 
