@@ -69,11 +69,14 @@ The Text Input component has two different variants with their own APIs:
   <C.Property @name="hasVisibilityToggle" @type="boolean" @default="true">
     Adds a visibility toggle button if `@type` is set to `password`.
   </C.Property>
-  <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Show masked content">
-    Override this value to provide a meaningful `aria-label` for the visibility toggle button.
+  <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Show password">
+    Override this value to provide a meaningful `aria-label` for the visibility toggle button. The current pressed state of the toggle button is communicated through the `aria-pressed` attribute.
   </C.Property>
-  <C.Property @name="visibilityToggleAriaMessageText" @type="string" @default="Input content is hidden">
-    Override this value to provide a meaningful `aria-live` message when the visibility toggle button is pressed.
+  <C.Property @name="visibilityToggleAriaMessageText" @type="string" @default="Password is hidden">
+    Override this value to provide a meaningful `aria-live` message when the password is hidden. If `@visibilityToggleAriaMessageTextWhenVisible` is not provided, this text is also announced when the password is visible.
+  </C.Property>
+  <C.Property @name="visibilityToggleAriaMessageTextWhenVisible" @type="string" @default="Password is visible">
+    Override this value to provide a meaningful `aria-live` message when the password is visible.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
