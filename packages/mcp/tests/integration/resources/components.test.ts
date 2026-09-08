@@ -16,7 +16,7 @@ import type { ComponentCatalogStore } from "../../../src/stores/components/index
 import type {
   ComponentRecord,
   ComponentSummary,
-} from "../../../src/resources/components/store/lookup.js";
+} from "../../../src/stores/components/lookup.js";
 import type { CatalogSource } from "../../../src/catalog/loader.js";
 
 const STORE_SOURCE: CatalogSource = {

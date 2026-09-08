@@ -10,11 +10,7 @@ import {
   PROJECT_ROOT_ENV_VAR,
   findPackageDirectory,
   resolveProjectRoot,
-<<<<<<<< HEAD:packages/mcp/tests/unit/catalog/project-root.test.ts
-} from "../../../src/catalog/project-root.js";
-========
 } from "../../../src/shared/project-root.js";
->>>>>>>> df81e3aea (wip):packages/mcp/tests/unit/shared/project-root.test.ts
 import { createProjectFixture } from "../../support/catalog-fixtures.js";
 
 import type { ProjectFixture } from "../../support/catalog-fixtures.js";

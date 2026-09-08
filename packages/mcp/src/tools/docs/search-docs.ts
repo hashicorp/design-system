@@ -23,7 +23,7 @@ import { getOrLoadDocsStore } from "../../stores/docs/index.js";
 import { toSerializableSearchResult } from "./utils.js";
 
 import type { ToolRegistration } from "../define-tool.js";
-import type { DocsCatalogStore } from "./store/index.js";
+import type { DocsCatalogStore } from "../../stores/docs/index.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 export const searchDocsInputShape = {

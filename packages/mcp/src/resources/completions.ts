@@ -7,8 +7,6 @@
 
 import { normalizeLookupValue } from "../catalog/normalize.js";
 
-import { normalizeLookupValue } from "../../shared/normalize.js";
-
 export interface CompleteFromAliasesInput<Item> {
   items: Item[];
   getAliases: (item: Item) => string[];
