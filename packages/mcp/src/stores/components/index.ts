@@ -154,24 +154,8 @@ export const createComponentCatalogStore = (
     getComponentByName: (componentName: string) => {
       return componentLookup.get(normalizeLookupValue(componentName)) ?? null;
     },
-    searchComponents: ({ query, limit }: SearchComponentsInput) => {
-      const normalizedQuery = normalizeLookupValue(query);
-
-      if (normalizedQuery.length === 0) {
-        return { totalMatches: 0, hits: [] };
-      }
-
-      const matches = componentRecords.filter((component) =>
-        toSearchBlob(component).includes(normalizedQuery),
-      );
-
-      return {
-        totalMatches: matches.length,
-        hits: matches
-          .slice(0, limit)
-          .map((component) => toComponentSummary(component)),
-      };
-    },
+    searchComponents,
+    suggestComponentNames,
   };
 };
 

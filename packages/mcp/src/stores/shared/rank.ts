@@ -5,7 +5,7 @@
 
 // shared relevance ordering for the substring catalogs: components, tokens and icons
 
-import { normalizeLookupValue } from "../../shared/normalize.js";
+import { normalizeLookupValue } from "../../catalog/normalize.js";
 
 import type { CatalogSearchOutcome } from "../types.js";
 
