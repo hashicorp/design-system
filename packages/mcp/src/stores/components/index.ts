@@ -15,9 +15,9 @@ import {
   toComponentSummary,
 } from "./lookup.js";
 import { componentCatalogSchema } from "./schema.js";
-import { searchRanked, getCommonPrefixLength } from "../shared/rank.js";
+import { searchRanked, getCommonPrefixLength } from "../rank.js";
 
-import type { RankableEntry } from "../shared/rank.js";
+import type { RankableEntry } from "../rank.js";
 
 import type { CatalogSearchOutcome } from "../types.js";
 import type { CatalogSource } from "../../catalog/loader.js";

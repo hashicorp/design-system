@@ -15,9 +15,9 @@ import {
   scoreEntry,
   scoreIdentity,
   searchRanked,
-} from "../../../../src/stores/shared/rank.js";
+} from "../../../src/stores/rank.js";
 
-import type { RankableEntry } from "../../../../src/stores/shared/rank.js";
+import type { RankableEntry } from "../../../src/stores/rank.js";
 
 interface Row {
   id: string;

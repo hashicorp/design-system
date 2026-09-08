@@ -40,7 +40,7 @@ import {
   scoreBm25,
 } from "./search-index.js";
 import { tokenize, tokenizeQuery } from "./tokenize.js";
-import { getCommonPrefixLength } from "../shared/rank.js";
+import { getCommonPrefixLength } from "../rank.js";
 
 import type {
   DocsChunkRecord,

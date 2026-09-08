@@ -4,7 +4,7 @@
  */
 
 import { z } from "zod";
-import { CATALOG_ANCHORS } from "../../catalog/loader.js";
+import { CATALOG_ANCHORS } from "../catalog/loader.js";
 
 const catalogSourceOutputSchema = z.object({
   version: z.string().nullable(),

@@ -10,9 +10,9 @@ import {
 } from "../../catalog/loader.js";
 import { getIconLookupKeys, toIconRecord } from "./lookup.js";
 import { iconCatalogSchema } from "./schema.js";
-import { searchRanked } from "../shared/rank.js";
+import { searchRanked } from "../rank.js";
 
-import type { RankableEntry } from "../shared/rank.js";
+import type { RankableEntry } from "../rank.js";
 
 import type { CatalogSource } from "../../catalog/loader.js";
 import type { CatalogSearchOutcome } from "../types.js";

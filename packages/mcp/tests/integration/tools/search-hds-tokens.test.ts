@@ -8,7 +8,7 @@ import { z } from "zod";
 import {
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
-} from "../../../src/tools/shared/constants.js";
+} from "../../../src/tools/constants.js";
 import { SEARCH_TOKENS_TOOL_NAME } from "../../../src/tools/tokens/constants.js";
 import {
   createSearchTokensTool,
@@ -16,7 +16,7 @@ import {
   searchTokensInputShape,
 } from "../../../src/tools/tokens/search-tokens.js";
 import { createTokenCatalogStore } from "../../../src/stores/tokens/index.js";
-import { MAX_FILTER_LENGTH } from "../../../src/tools/shared/search.js";
+import { MAX_FILTER_LENGTH } from "../../../src/tools/search.js";
 import { buildTokenCatalogRow } from "../../support/token-catalog.js";
 import { buildRequestHandlerExtra } from "../../support/request-handler.js";
 import {

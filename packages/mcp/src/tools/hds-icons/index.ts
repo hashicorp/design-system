@@ -5,7 +5,7 @@
 
 import searchIconsTool from "./search-icons.js";
 
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 
 const HDS_ICONS_TOOLS: ToolRegistration[] = [searchIconsTool];
 
