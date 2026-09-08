@@ -9923,6 +9923,11 @@
           "required": false
         },
         {
+          "name": "visibilityToggleAriaMessageTextWhenVisible",
+          "type": "string",
+          "required": false
+        },
+        {
           "name": "width",
           "type": "string",
           "required": false,
