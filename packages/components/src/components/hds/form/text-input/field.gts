@@ -60,11 +60,13 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
   get visibilityToggleAriaLabel(): string | undefined {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
-    } else if (this._isPasswordMasked) {
-      return 'Show password';
     } else {
-      return 'Hide password';
+      return 'Show password';
     }
+  }
+
+  get visibilityToggleAriaPressed(): string {
+    return this._isPasswordMasked ? 'false' : 'true';
   }
 
   get visibilityToggleAriaMessageText(): string | undefined {
@@ -117,6 +119,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
               @ariaLabel={{this.visibilityToggleAriaLabel}}
               @ariaMessageText={{this.visibilityToggleAriaMessageText}}
               aria-controls={{F.id}}
+              aria-pressed={{this.visibilityToggleAriaPressed}}
               class="hds-form-text-input__visibility-toggle"
               {{on "click" this.onClickTogglePasswordReadability}}
             />
