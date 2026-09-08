@@ -5,10 +5,7 @@
 
 import { z } from "zod";
 import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../define-tool.js";
-import {
-  toJsonToolResponse,
-  withSafeToolHandler,
-} from "../responses.js";
+import { toJsonToolResponse, withSafeToolHandler } from "../responses.js";
 import {
   clampSearchLimit,
   searchCountsOutputShape,
@@ -24,11 +21,7 @@ import { SEARCH_DOCS_TOOL_NAME } from "../docs/constants.js";
 import { catalogSourceOutputSchema } from "./utils.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
 
-<<<<<<< HEAD
 import type { ToolRegistration } from "../define-tool.js";
-=======
-import type { ToolRegistration } from "../shared/define-tool.js";
->>>>>>> 9c1cce4a5 (added component search tool)
 import type { ComponentCatalogStore } from "../../stores/components/index.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 
