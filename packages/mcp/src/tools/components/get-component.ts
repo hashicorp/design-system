@@ -4,13 +4,13 @@
  */
 
 import { z } from "zod";
-import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../shared/define-tool.js";
-import catalogSourceOutputSchema from "../shared/output-schema.js";
+import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../define-tool.js";
+import catalogSourceOutputSchema from "../output-schema.js";
 import {
   toJsonToolResponse,
   withSafeToolHandler,
-} from "../shared/responses.js";
-import { MAX_FILTER_LENGTH, clampFilterValue } from "../shared/search.js";
+} from "../responses.js";
+import { MAX_FILTER_LENGTH, clampFilterValue } from "../search.js";
 import {
   GET_COMPONENT_TOOL_NAME,
   MAX_ARG_VALUES,
@@ -21,7 +21,7 @@ import { SEARCH_ICONS_TOOL_NAME } from "../hds-icons/constants.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
 import { toSerializableComponentApi } from "./utils.js";
 
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 import type { ComponentCatalogStore } from "../../stores/components/index.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 

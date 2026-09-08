@@ -11,12 +11,12 @@ import {
   searchCountsOutputShape,
   searchLimitSchema,
 } from "../search.js";
-import catalogSourceOutputSchema from "../shared/output-schema.js";
+import catalogSourceOutputSchema from "../output-schema.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
-} from "../shared/constants.js";
+} from "../constants.js";
 import {
   SEARCH_COMPONENTS_TOOL_NAME,
   GET_COMPONENT_TOOL_NAME,

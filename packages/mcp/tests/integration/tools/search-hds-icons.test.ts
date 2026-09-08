@@ -8,7 +8,7 @@ import { z } from "zod";
 import {
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
-} from "../../../src/tools/shared/constants.js";
+} from "../../../src/tools/constants.js";
 
 import { SEARCH_ICONS_TOOL_NAME } from "../../../src/tools/hds-icons/constants.js";
 import {
@@ -20,7 +20,7 @@ import {
   createIconCatalogStore,
   parseIconCatalog,
 } from "../../../src/stores/hds-icons/index.js";
-import { MAX_FILTER_LENGTH } from "../../../src/tools/shared/search.js";
+import { MAX_FILTER_LENGTH } from "../../../src/tools/search.js";
 import { buildIconAsset } from "../../support/hds-icon-catalog.js";
 import { buildRequestHandlerExtra } from "../../support/request-handler.js";
 import {

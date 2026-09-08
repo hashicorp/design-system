@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// shared relevance ordering for the substring catalogs: components, tokens and icons
+// relevance ordering for the substring catalogs: components, tokens and icons
 
-import { normalizeLookupValue } from "../../catalog/normalize.js";
+import { normalizeLookupValue } from "../catalog/normalize.js";
 
-import type { CatalogSearchOutcome } from "../types.js";
+import type { CatalogSearchOutcome } from "./types.js";
 
 /**
  * A match is scored by where the query lands in the entry's identity fields — the names a

@@ -5,7 +5,7 @@
 
 import searchTokensTool from "./search-tokens.js";
 
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 
 const TOKENS_TOOLS: ToolRegistration[] = [searchTokensTool];
 

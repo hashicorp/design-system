@@ -5,12 +5,12 @@
 
 import { z } from "zod";
 import { SEARCH_TOKENS_TOOL_NAME } from './constants.js';
-import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../shared/define-tool.js";
-import catalogSourceOutputSchema from "../shared/output-schema.js";
+import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../define-tool.js";
+import catalogSourceOutputSchema from "../output-schema.js";
 import {
   toJsonToolResponse,
   withSafeToolHandler,
-} from "../shared/responses.js";
+} from "../responses.js";
 import {
   MAX_FILTER_LENGTH,
   clampFilterValue,
@@ -18,17 +18,17 @@ import {
   collectUnknownFilters,
   searchCountsOutputShape,
   searchLimitSchema,
-} from "../shared/search.js";
+} from "../search.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
-} from "../shared/constants.js";
+} from "../constants.js";
 import { getOrLoadTokenStore } from "../../stores/tokens/index.js";
 import { TOKEN_TYPES } from "../../stores/tokens/schema.js";
 
 import type { JsonValue } from "../../types.js";
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 import type { TokenCatalogStore } from "../../stores/tokens/index.js";
 import type { TokenType } from "../../stores/tokens/schema.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";

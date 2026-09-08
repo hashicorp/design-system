@@ -8,7 +8,7 @@ import { z } from "zod";
 import {
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
-} from "../../../src/tools/shared/constants.js";
+} from "../../../src/tools/constants.js";
 import { SEARCH_COMPONENTS_TOOL_NAME } from "../../../src/tools/components/constants.js";
 import {
   createSearchComponentsTool,
