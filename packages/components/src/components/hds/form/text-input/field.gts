@@ -26,6 +26,7 @@ export interface HdsFormTextInputFieldSignature {
     HdsFormTextInputBaseSignature['Args'] & {
       visibilityToggleAriaLabel?: HdsFormVisibilityToggleSignature['Args']['ariaLabel'];
       visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
+      visibilityToggleAriaMessageTextWhenVisible?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
     };
   Blocks: {
     default: [
@@ -57,7 +58,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
     return this.args.type === 'password' && this.hasVisibilityToggle;
   }
 
-  get visibilityToggleAriaLabel(): string | undefined {
+  get visibilityToggleAriaLabel(): string {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
     } else {
@@ -69,13 +70,21 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
     return this._isPasswordMasked ? 'false' : 'true';
   }
 
-  get visibilityToggleAriaMessageText(): string | undefined {
-    if (this.args.visibilityToggleAriaMessageText) {
-      return this.args.visibilityToggleAriaMessageText;
-    } else if (this._isPasswordMasked) {
-      return 'Password is hidden';
+  get visibilityToggleAriaMessageText(): string {
+    if (this._isPasswordMasked) {
+      if (this.args.visibilityToggleAriaMessageText) {
+        return this.args.visibilityToggleAriaMessageText;
+      } else {
+        return 'Password is hidden';
+      }
     } else {
-      return 'Password is visible';
+      if (this.args.visibilityToggleAriaMessageTextWhenVisible) {
+        return this.args.visibilityToggleAriaMessageTextWhenVisible;
+      } else if (this.args.visibilityToggleAriaMessageText) {
+        return this.args.visibilityToggleAriaMessageText;
+      } else {
+        return 'Password is visible';
+      }
     }
   }
 

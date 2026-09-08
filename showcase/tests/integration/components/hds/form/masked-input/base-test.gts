@@ -167,7 +167,7 @@ module(
         .hasText('Input content is hidden');
     });
 
-    test('it renders the same custom `sr-only` message for both states if only @visibilityToggleAriaLabel is provided', async function (assert) {
+    test('it renders the same custom message for both states if only @visibilityToggleAriaMessageText is provided', async function (assert) {
       await render(
         <template>
           <HdsFormMaskedInputBase
@@ -186,9 +186,7 @@ module(
         .hasText('My input content is visible');
     });
 
-    // visibilityToggleAriaMessageTextWhenVisible
-
-    test('it renders a different custom `sr-only` message on toggle when @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
+    test('it renders a different custom message on toggle when @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
       await render(
         <template>
           <HdsFormMaskedInputBase
