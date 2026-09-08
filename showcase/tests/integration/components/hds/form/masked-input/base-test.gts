@@ -167,6 +167,47 @@ module(
         .hasText('Input content is hidden');
     });
 
+    test('it renders the same custom `sr-only` message for both states if only @visibilityToggleAriaLabel is provided', async function (assert) {
+      await render(
+        <template>
+          <HdsFormMaskedInputBase
+            @id="test-form-masked-input"
+            @visibilityToggleAriaMessageText="My input content is visible"
+          />
+        </template>,
+      );
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('My input content is visible');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('My input content is visible');
+    });
+
+    // visibilityToggleAriaMessageTextWhenVisible
+
+    test('it renders a different custom `sr-only` message on toggle when @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
+      await render(
+        <template>
+          <HdsFormMaskedInputBase
+            @id="test-form-masked-input"
+            @visibilityToggleAriaMessageText="My input content is hidden"
+            @visibilityToggleAriaMessageTextWhenVisible="My input content is visible"
+          />
+        </template>,
+      );
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('My input content is visible');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('My input content is hidden');
+    });
+
     // MULTILINE
 
     test('it should render an `<input>` element by default', async function (assert) {

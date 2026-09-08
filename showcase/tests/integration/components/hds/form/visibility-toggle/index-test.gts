@@ -26,7 +26,7 @@ module(
         .hasClass('hds-form-visibility-toggle');
     });
 
-    test('it should render the default icon, `aria-label` and `sr-live` message', async function (assert) {
+    test('it should render the default icon', async function (assert) {
       await render(
         <template>
           <HdsFormVisibilityToggle id="test-visibility-toggle" />
