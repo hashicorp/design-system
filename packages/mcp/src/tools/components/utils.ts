@@ -6,7 +6,7 @@
 // the one thing all three catalog search payloads carry that the docs one does not
 
 import { z } from "zod";
-import { CATALOG_ANCHORS } from "../../shared/catalog.js";
+import { CATALOG_ANCHORS } from "../../catalog/loader.js";
 
 export const catalogSourceOutputSchema = z.object({
   version: z.string().nullable(),

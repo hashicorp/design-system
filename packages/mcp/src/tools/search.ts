@@ -4,7 +4,7 @@
  */
 
 import { z } from "zod";
-import { normalizeLookupValue } from "../../shared/normalize.js";
+import { normalizeLookupValue } from "../catalog/normalize.js";
 
 export const MAX_FILTER_LENGTH = 256;
 

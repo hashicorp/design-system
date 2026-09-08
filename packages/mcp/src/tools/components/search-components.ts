@@ -4,16 +4,16 @@
  */
 
 import { z } from "zod";
-import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../shared/define-tool.js";
+import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../define-tool.js";
 import {
   toJsonToolResponse,
   withSafeToolHandler,
-} from "../shared/responses.js";
+} from "../responses.js";
 import {
   clampSearchLimit,
   searchCountsOutputShape,
   searchLimitSchema,
-} from "../shared/search.js";
+} from "../search.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   MAX_QUERY_LENGTH,
@@ -24,7 +24,7 @@ import { SEARCH_DOCS_TOOL_NAME } from "../docs/constants.js";
 import { catalogSourceOutputSchema } from "./utils.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
 
-import type { ToolRegistration } from "../shared/define-tool.js";
+import type { ToolRegistration } from "../define-tool.js";
 import type { ComponentCatalogStore } from "../../stores/components/index.js";
 import type { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
 

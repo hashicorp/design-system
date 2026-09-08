@@ -5,7 +5,7 @@
 
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
-import { MAX_FILTER_LENGTH } from "../../../src/tools/shared/search.js";
+import { MAX_FILTER_LENGTH } from "../../../src/tools/search.js";
 import {
   DEFAULT_READ_MAX_BYTES,
   MIN_READ_MAX_BYTES,
