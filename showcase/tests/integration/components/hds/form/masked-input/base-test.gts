@@ -104,7 +104,7 @@ module(
       );
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Show masked content');
+        .hasAttribute('aria-label', 'Toggle masked content');
     });
 
     test('it should support a custom aria-label', async function (assert) {
@@ -112,13 +112,13 @@ module(
         <template>
           <HdsFormMaskedInputBase
             @id="test-form-masked-input"
-            @visibilityToggleAriaLabel="Show my masked content"
+            @visibilityToggleAriaLabel="Toggle my masked content"
           />
         </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Show my masked content');
+        .hasAttribute('aria-label', 'Toggle my masked content');
     });
 
     test('it should render aria-pressed="false" by default', async function (assert) {

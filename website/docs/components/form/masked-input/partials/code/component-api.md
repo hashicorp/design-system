@@ -84,7 +84,7 @@ The Masked Input component has two different variants with their own APIs:
   <C.Property @name="isOptional" @type="boolean" @default="false">
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
-  <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Show masked content">
+  <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Toggle masked content">
     Override this value to provide a meaningful `aria-label` for the visibility toggle button. The current pressed state of the toggle button is communicated through the `aria-pressed` attribute.
   </C.Property>
   <C.Property @name="visibilityToggleAriaMessageText" @type="string" @default="Input content is hidden">

@@ -254,13 +254,13 @@ module(
         <template>
           <HdsFormMaskedInputField
             @id="test-form-masked-input"
-            @visibilityToggleAriaLabel="Show my masked content"
+            @visibilityToggleAriaLabel="Toggle my masked content"
           />
         </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Show my masked content');
+        .hasAttribute('aria-label', 'Toggle my masked content');
     });
 
     test('it informs the user about visibility change on toggle', async function (assert) {

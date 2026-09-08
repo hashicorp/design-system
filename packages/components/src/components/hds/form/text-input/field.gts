@@ -62,7 +62,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
     } else {
-      return 'Show password';
+      return 'Toggle password visibility';
     }
   }
 

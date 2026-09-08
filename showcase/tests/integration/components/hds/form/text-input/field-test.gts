@@ -286,7 +286,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     );
     assert
       .dom('.hds-form-visibility-toggle')
-      .hasAttribute('aria-label', 'Show password');
+      .hasAttribute('aria-label', 'Toggle password visibility');
   });
 
   test('it should support a custom aria-label on the visibility toggle button', async function (assert) {
@@ -294,13 +294,13 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
       <template>
         <HdsFormTextInputField
           @type="password"
-          @visibilityToggleAriaLabel="Show my password"
+          @visibilityToggleAriaLabel="Toggle my password visibility"
         />
       </template>,
     );
     assert
       .dom('.hds-form-visibility-toggle')
-      .hasAttribute('aria-label', 'Show my password');
+      .hasAttribute('aria-label', 'Toggle my password visibility');
   });
 
   test('it should render aria-pressed="false" by default on the visibility toggle button', async function (assert) {

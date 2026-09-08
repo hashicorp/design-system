@@ -69,7 +69,7 @@ The Text Input component has two different variants with their own APIs:
   <C.Property @name="hasVisibilityToggle" @type="boolean" @default="true">
     Adds a visibility toggle button if `@type` is set to `password`.
   </C.Property>
-  <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Show password">
+  <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Toggle password visibility">
     Override this value to provide a meaningful `aria-label` for the visibility toggle button. The current pressed state of the toggle button is communicated through the `aria-pressed` attribute.
   </C.Property>
   <C.Property @name="visibilityToggleAriaMessageText" @type="string" @default="Password is hidden">
