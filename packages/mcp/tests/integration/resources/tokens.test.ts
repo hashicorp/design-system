@@ -16,7 +16,7 @@ import type { TokenCatalogStore } from "../../../src/stores/tokens/index.js";
 import type {
   TokenRecord,
   TokenSummary,
-} from "../../../src/resources/tokens/store/lookup.js";
+} from "../../../src/stores/tokens/lookup.js";
 import type { CatalogSource } from "../../../src/catalog/loader.js";
 
 const STORE_SOURCE: CatalogSource = {

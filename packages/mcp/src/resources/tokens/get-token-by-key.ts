@@ -5,7 +5,7 @@
 
 import { completeFromAliases, withSafeCompletion } from "../completions.js";
 import { defineDetailResource } from "../define-resource.js";
-import { getOrLoadTokenStore } from "./store/index.js";
+import { getOrLoadTokenStore } from "../../stores/tokens/index.js";
 import { toJsonResourceResponse } from "../responses.js";
 import { buildDetailUri } from "../uri.js";
 import { TOKENS_URI, TOKEN_BY_KEY_URI_TEMPLATE } from "./constants.js";
