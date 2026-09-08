@@ -15,6 +15,7 @@ import { searchRanked } from "../shared/rank.js";
 import type { RankableEntry } from "../shared/rank.js";
 
 import type { CatalogSource } from "../../catalog/loader.js";
+import type { CatalogSearchOutcome } from "../types.js";
 import type { IconRecord, IconSummary } from "./lookup.js";
 import type { IconCatalog } from "./schema.js";
 

@@ -19,6 +19,7 @@ import { searchRanked } from "../shared/rank.js";
 import type { RankableEntry } from "../shared/rank.js";
 
 import type { CatalogSource } from "../../catalog/loader.js";
+import type { CatalogSearchOutcome } from "../types.js";
 import type { TokenRecord, TokenSummary } from "./lookup.js";
 import type { TokenCatalogRow, TokenType } from "./schema.js";
 

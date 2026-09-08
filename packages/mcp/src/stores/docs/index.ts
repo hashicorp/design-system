@@ -5,15 +5,9 @@
 
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-<<<<<<< HEAD
 import { memoizeCatalogLoader } from "../../catalog/loader.js";
 import { getMcpPackageDirectory } from "../../catalog/project-root.js";
 import { normalizeLookupValue } from "../../catalog/normalize.js";
-=======
-import { memoizeCatalogLoader } from "../../shared/catalog.js";
-import { getMcpPackageDirectory } from "../../shared/project-root.js";
-import { normalizeLookupValue } from "../../shared/normalize.js";
->>>>>>> 493734432 (moved constants)
 import {
   CHUNK_FIELD_WEIGHTS,
   CHUNK_SCORE_WEIGHT,

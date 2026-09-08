@@ -11,6 +11,7 @@ import {
   searchCountsOutputShape,
   searchLimitSchema,
 } from "../search.js";
+import catalogSourceOutputSchema from "../shared/output-schema.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   MAX_QUERY_LENGTH,
