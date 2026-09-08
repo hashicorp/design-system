@@ -83,21 +83,18 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
   get visibilityToggleAriaLabel(): string {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
-    } else if (this.isContentMasked) {
+    } else {
       return this.hdsIntl.t(
         'hds.components.form.masked-input.base.show-masked-content',
         {
           default: 'Show masked content',
         }
       );
-    } else {
-      return this.hdsIntl.t(
-        'hds.components.form.masked-input.base.hide-masked-content',
-        {
-          default: 'Hide masked content',
-        }
-      );
     }
+  }
+
+  get visibilityToggleAriaPressed(): string {
+    return this.isContentMasked ? 'false' : 'true';
   }
 
   get visibilityToggleAriaMessageText(): string {
@@ -172,6 +169,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
         @ariaLabel={{this.visibilityToggleAriaLabel}}
         @ariaMessageText={{this.visibilityToggleAriaMessageText}}
         aria-controls={{this.id}}
+        aria-pressed={{this.visibilityToggleAriaPressed}}
         class="hds-form-masked-input__toggle-button"
         {{on "click" this.onClickToggleMasking}}
       />

@@ -230,7 +230,7 @@ module(
         .hasAttribute('aria-controls', 'test-form-masked-input');
     });
 
-    test('it updates the button label on toggle', async function (assert) {
+    test('it should update the aria-pressed state on toggle', async function (assert) {
       await render(
         <template>
           <HdsFormMaskedInputField @id="test-form-masked-input" />
@@ -238,11 +238,15 @@ module(
       );
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Show masked content');
+        .hasAttribute('aria-pressed', 'false');
       await click('.hds-form-visibility-toggle');
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Hide masked content');
+        .hasAttribute('aria-pressed', 'true');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasAttribute('aria-pressed', 'false');
     });
 
     test('it renders a custom toggle button label', async function (assert) {
