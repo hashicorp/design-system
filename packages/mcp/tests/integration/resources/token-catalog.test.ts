@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { loadTokenCatalog } from "../../../src/resources/tokens/store/index.js";
+import { loadTokenCatalog } from "../../../src/stores/tokens/index.js";
 
 describe("generated token catalog", () => {
   it("loads the package artifact and resolves its public aliases", () => {

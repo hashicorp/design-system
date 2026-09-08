@@ -5,7 +5,7 @@
 
 import { describe, expect, it, vi } from "vitest";
 import { createGetTokensResource } from "../../../../src/resources/tokens/get-tokens.js";
-import { createTokenCatalogStore } from "../../../../src/resources/tokens/store/index.js";
+import { createTokenCatalogStore } from "../../../../src/stores/tokens/index.js";
 import {
   getTextContent,
   parseResourceJson,

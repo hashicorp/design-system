@@ -6,7 +6,7 @@
 import { describe, expect, it } from "vitest";
 import { toSerializableTokenSummary } from "../../../../src/resources/tokens/utils.js";
 
-import type { TokenSummary } from "../../../../src/resources/tokens/store/lookup.js";
+import type { TokenSummary } from "../../../../src/stores/tokens/lookup.js";
 
 describe("toSerializableTokenSummary", () => {
   it("maps field values correctly", () => {
