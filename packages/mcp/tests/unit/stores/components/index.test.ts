@@ -163,6 +163,13 @@ describe("searchComponents", () => {
     ).toHaveLength(1);
   });
 
+  it("returns nothing for a whitespace-only query", () => {
+    expect(store.searchComponents({ query: "   ", limit: 10 })).toStrictEqual({
+      totalMatches: 0,
+      hits: [],
+    });
+  });
+
   it("returns nothing for a query that names nothing", () => {
     expect(
       store.searchComponents({ query: "datepicker", limit: 10 }),
