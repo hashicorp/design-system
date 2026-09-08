@@ -29,7 +29,6 @@ export interface HdsTimeSignature {
       | 'friendly-relative';
     isOpen?: boolean;
     hasTooltip?: boolean;
-    isoUtcString?: string;
   };
   Element: HTMLElement;
 }
