@@ -5,7 +5,7 @@
 
 // TODO understand if it's possible to generalize this
 // import { getTocSectionsBundle } from '../app/components/doc/page/sidebar.js';
-const ABOUT = ['about', 'whats-new', 'getting-started'];
+const ABOUT = ['about', 'whats-new', 'getting-started', 'carbonization'];
 const FOUNDATIONS = ['foundations', 'icons'];
 const COMPONENTS = [
   'components',
