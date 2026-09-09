@@ -13,6 +13,7 @@ export interface CategoryIcon {
   iconName: HdsIconSignature['Args']['name'];
   name: string;
   description: string;
+  mapping?: string;
   size: HdsIconSignature['Args']['size'];
   isHidden?: boolean;
 }

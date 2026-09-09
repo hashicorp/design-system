@@ -20,17 +20,25 @@ export default class Index extends Component {
 
   allIcons = catalog.assets
     .filter(({ iconName }) => NAMES.includes(iconName))
-    .map(({ iconName, fileName, size, description, category }) => {
+    .map(({ iconName, fileName, size, description, mapping, category }) => {
       category = category.toLowerCase(); // category names in json begin with uppercase letter
 
-      return {
+      const data = {
         iconName: `${iconName}`,
         name: `${fileName}`,
         size: `${size}`,
         description: `${description}`,
         category: `${category}`,
-        searchable: `${iconName}, ${description}, ${category}`,
       };
+
+      if (mapping) {
+        data.mapping = `${mapping}`;
+        data.searchable = `${iconName}, ${description}, ${category}, ${mapping}`;
+      } else {
+        data.searchable = `${iconName}, ${description}, ${category}`;
+      }
+
+      return data;
     });
 
   get searchQuery() {
