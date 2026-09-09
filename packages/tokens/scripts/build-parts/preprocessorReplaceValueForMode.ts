@@ -53,11 +53,11 @@ export function preprocessorReplaceValueForMode(mode: Mode): Preprocessor['prepr
           throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${tokenPath.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${tokenPath.join('.')} - ${JSON.stringify(slice, null, 2)}`);
         }
       } else {
-          Object.entries(slice).forEach(([key, value]) => {
-            if (typeof value === 'object') {
-              replaceModes(value, [...tokenPath, key]);
-            }
-          });
+        Object.entries(slice).forEach(([key, value]) => {
+          if (typeof value === 'object') {
+            replaceModes(value, [...tokenPath, key]);
+          }
+        });
       }
       return slice;
     }
