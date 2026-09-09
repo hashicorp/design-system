@@ -5,23 +5,22 @@
 
 import { z } from "zod";
 import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../define-tool.js";
-import {
-  toJsonToolResponse,
-  withSafeToolHandler,
-} from "../responses.js";
+import { toJsonToolResponse, withSafeToolHandler } from "../responses.js";
 import {
   clampSearchLimit,
   searchCountsOutputShape,
   searchLimitSchema,
 } from "../search.js";
+import catalogSourceOutputSchema from "../output-schema.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
+} from "../constants.js";
+import {
   SEARCH_COMPONENTS_TOOL_NAME,
 } from "./constants.js";
 import { SEARCH_DOCS_TOOL_NAME } from "../docs/constants.js";
-import { catalogSourceOutputSchema } from "./utils.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
 
 import type { ToolRegistration } from "../define-tool.js";
