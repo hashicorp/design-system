@@ -120,7 +120,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
   }
 
   get iconSize(): HdsIconSignature['Args']['size'] {
-    // the Carbon Button component has a 16px icon also at large size (the 24px icon resized to 16px would have a smaller stroke width, which is not desireable)
+    // The Carbon Button component uses a consistent 16px SVG icon across all Button sizes. In contrast, the HDS Button uses a 24px SVG icon for the largest size and a 16px SVG icon for smaller sizes. (Using a single SVG resized via CSS, for example, would alter the stroke width at different sizes, which is undesirable.)
     if (this.args.size === 'large' && !this.hdsTheming.isCarbonThemeEnabled) {
       return '24';
     } else {

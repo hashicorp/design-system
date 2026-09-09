@@ -29,7 +29,7 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
     }
 
     if (this.args.isRequired) {
-      // add speficic class for "required" indicator
+      // add specific class for "required" indicator
       classes.push('hds-form-indicator--required');
     }
 

@@ -18,10 +18,8 @@ Added a `hds-apply-only-if-carbon` sass mixin to apply styles only for Carbon th
 <!-- END -->
 
 <!-- START components/icon -->
-`Icon` - Major structural changes to how icons are loaded
+`Icon` - Made major structural changes to how icons are loaded
 - Changed the way that icons are loaded (from SVG sprite to dynamic importing and generation at runtime)
 - Added support for loading Carbon icons when the user is using a Carbon theme
+- Consumers can safely remove the `flightIconsSpriteLazyEmbed` setting in their `config/environment.js` file.
 <!-- END -->
-
-
-Consumers can safely remove the `flightIconsSpriteLazyEmbed` setting in their `config/environment.js` file.
