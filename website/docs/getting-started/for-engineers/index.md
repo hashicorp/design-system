@@ -99,21 +99,22 @@ and then use the component in your code like this:
 
 For details about how this component should be used and its API, see [the component documentation page](/components/icon).
 
-#### Deferred loading
+#### Icon loading
 
-The SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `flightIconsSpriteLazyEmbed` flag to `true` in your app's `config/environment.js` file:
+Icons are loaded automatically and individually, on demand: only the icons actually rendered by your application are downloaded, and each one is fetched once and then reused. No configuration is required on your side.
 
-[[code-snippets/demo-flight-icons-env]]
+!!! Info
 
-#### Ember test selectors
+**Migrating from the SVG sprite**
 
-The `Hds::Icon` component exposes a `data-test-icon` helper. For this reason, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
+Before v7.0 icons were delivered as a single SVG sprite, injected either into your application’s `index.html` file or, when the `flightIconsSpriteLazyEmbed` flag was set to `true`, as part of your app bundle. The `Hds::Icon` component no longer relies on that sprite, so the `flightIconsSpriteLazyEmbed` setting is obsolete and can be safely removed from your app’s `config/environment.js` file.
+!!!
 
 #### Using the icons without importing the whole components package
 
 If you want to use the Flight icons without installing the whole `@hashicorp/design-system-components` package, you have to use the `@hashicorp/flight-icons` to import the SVG sprite, and then you will have to build your own Ember component that renders the icons as an `<svg>` HTML element.
 
-You can copy the code for the `Hds::Icon` into your codebase, or you can [take inspiration from this PR](https://github.com/hashicorp/design-system-metrics/pull/23) to build your own component.
+You can [take inspiration from this PR](https://github.com/hashicorp/design-system-metrics/pull/23) to build your own component. Note that the `Hds::Icon` component itself is not a good starting point to copy from, since it relies on internal services to resolve and load each icon.
 
 ### React applications
 
@@ -147,7 +148,7 @@ Then declare them the same way you would with any other icon.
 
 [[code-snippets/react-animated-icon]]
 
-If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
+If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static).
 
 ## Tokens
 
