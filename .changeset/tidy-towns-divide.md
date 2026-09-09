@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/form/key-value-inputs -->
-`Form::KeyValueInputs` - Remove unused `@ariaLabel` arg from `[F].AddRowButton` contextual component
+`Form::KeyValueInputs` - Removed unused `@ariaLabel` argument from `[F].AddRowButton` contextual component
 <!-- END -->
