@@ -95,6 +95,10 @@
   line-height: 1;
   text-decoration: underline;
 
+  @include breakpoint.with-mobile-sidebar() {
+    margin-left: -10px;
+  }
+
   &:hover,
   &:active,
   &:visited {
