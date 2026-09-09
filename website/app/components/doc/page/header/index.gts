@@ -35,7 +35,6 @@ const DocPageHeader: TemplateOnlyComponent<DocPageHeaderSignature> = <template>
       @route="show"
       @model="whats-new/release-notes"
       class="doc-page-header__version"
-      aria-label="current version"
     >
       {{! note: for now we use a static text/version, later we can understand if/how we can read the value directly from the `@hashicorp/design-system-components` package (dependency) }}
       v7.0.0
