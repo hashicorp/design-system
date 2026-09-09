@@ -218,17 +218,32 @@ module('Unit | Service | hds-theming', function (hooks) {
   });
 
   test('getters return correct values', function (assert) {
-    assert.expect(4);
+    assert.expect(8);
+    this.service.setTheme({ theme: HdsThemeValues.Default });
+    assert.strictEqual(
+      this.service.currentTheme,
+      HdsThemeValues.Default,
+      'currentTheme getter reflects the default theme',
+    );
+    assert.false(
+      this.service.isCarbonThemeEnabled,
+      'isCarbonThemeEnabled getter is false for the default theme',
+    );
+    assert.strictEqual(
+      this.service.currentMode,
+      undefined,
+      'currentMode getter is undefined for the default theme',
+    );
+
     this.service.setTheme({ theme: HdsThemeValues.Light });
     assert.strictEqual(
       this.service.currentTheme,
       HdsThemeValues.Light,
       'currentTheme getter is correct',
     );
-    assert.strictEqual(
-      this.service.currentMode,
-      DEFAULT_THEMING_OPTION_LIGHT_THEME,
-      'currentMode getter is correct',
+    assert.true(
+      this.service.isCarbonThemeEnabled,
+      'isCarbonThemeEnabled getter is correct',
     );
     assert.strictEqual(
       this.service.currentLightTheme,
@@ -239,6 +254,11 @@ module('Unit | Service | hds-theming', function (hooks) {
       this.service.currentDarkTheme,
       DEFAULT_THEMING_OPTION_DARK_THEME,
       'currentDarkTheme getter is correct',
+    );
+    assert.strictEqual(
+      this.service.currentMode,
+      DEFAULT_THEMING_OPTION_LIGHT_THEME,
+      'currentMode getter is correct',
     );
   });
 });
