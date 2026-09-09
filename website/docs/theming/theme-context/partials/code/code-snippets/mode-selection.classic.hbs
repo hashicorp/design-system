@@ -1,0 +1,39 @@
+{{! "light/cds-g10" mode }}
+<Hds::ThemeContext @context="cds-g10">
+  <div class="doc-theme-switcher-demo-block">
+    <Hds::Text::Display @size="300">Light "cds-g10" context</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @color="strong">
+      These components are rendered with a "light / cds-g10" theming mode applied to them
+    </Hds::Text::Body>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>Inline alert</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Alert>
+    <Hds::ButtonSet>
+      <Hds::Button @text="Primary" @icon="plus" @iconPosition="trailing" />
+      <Hds::Button @text="Secondary" @color="secondary" />
+      <Hds::Button @text="Critical" @color="critical" />
+    </Hds::ButtonSet>
+    <Hds::Badge @color="highlight" @icon="award" @text="Highlight badge" />
+  </div>
+</Hds::ThemeContext>
+
+{{! "dark/cds-g90" mode }}
+<Hds::ThemeContext @context="cds-g90">
+  <div class="doc-theme-switcher-demo-block">
+    <Hds::Text::Display @size="300">Dark "cds-g90" context</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @color="strong">
+      These components are rendered with a "dark / cds-g90" theming mode applied to them
+    </Hds::Text::Body>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>Inline alert</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Alert>
+    <Hds::ButtonSet>
+      <Hds::Button @text="Primary" @icon="plus" @iconPosition="trailing" />
+      <Hds::Button @text="Secondary" @color="secondary" />
+      <Hds::Button @text="Critical" @color="critical" />
+    </Hds::ButtonSet>
+    <Hds::Badge @color="highlight" @icon="award" @text="Highlight badge" />
+  </div>
+</Hds::ThemeContext>
