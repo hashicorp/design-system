@@ -2453,7 +2453,7 @@
  */
 .hds-app-side-nav__toggle-button {
   position: absolute;
-  top: var(--hds-app-side-nav-toggle-button-position-top);
+  top: var(--hds-app-side-nav-toggle-button-top);
   left: calc(var(--hds-app-side-nav-wrapper-border-width) * -1);
   z-index: 1;
   display: flex;
