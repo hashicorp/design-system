@@ -96,6 +96,10 @@ export const createComponentCatalogStore = (
   }
 
   const searchComponents = ({ query, limit }: SearchComponentsInput) => {
+    if (normalizeLookupValue(query).length === 0) {
+      return { totalMatches: 0, hits: [] };
+    }
+
     const { totalMatches, hits } = searchRanked({
       records: componentRecords,
       query,
