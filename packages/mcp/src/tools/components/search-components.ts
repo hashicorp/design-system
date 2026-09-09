@@ -19,7 +19,6 @@ import {
 } from "../constants.js";
 import {
   SEARCH_COMPONENTS_TOOL_NAME,
-  GET_COMPONENT_TOOL_NAME,
 } from "./constants.js";
 import { SEARCH_DOCS_TOOL_NAME } from "../docs/constants.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
