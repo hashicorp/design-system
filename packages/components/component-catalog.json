@@ -6835,11 +6835,6 @@
       "element": "HTMLAnchorElement | HTMLButtonElement",
       "args": [
         {
-          "name": "ariaLabel",
-          "type": "string",
-          "required": false
-        },
-        {
           "name": "onClick",
           "type": "() => void",
           "required": false
