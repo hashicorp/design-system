@@ -4,6 +4,8 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
@@ -17,6 +19,19 @@ import catalog from '@hashicorp/flight-icons/catalog.json';
 import type { IconName } from '@hashicorp/flight-icons/svg';
 
 export default class SubSectionIconLibrary extends Component {
+  @tracked filterBy = '';
+
+  setLibraryFilter = (event: Event) => {
+    const { value } = event.target as HTMLSelectElement;
+    this.filterBy = value;
+  };
+
+  get filterByClass() {
+    return this.filterBy !== ''
+      ? `shw-component-icon-library-filter-${this.filterBy}`
+      : '';
+  }
+
   get groupedIcons() {
     const groupedIcons: Record<string, IconName[]> = {}; // icons grouped by category
 
@@ -44,12 +59,27 @@ export default class SubSectionIconLibrary extends Component {
   <template>
     <div class="shw-component-icon-library-header">
       <ShwTextH2>Library</ShwTextH2>
+      <div class="shw-component-icon-library-filter">
+        <label
+          for="shw-component-icon-library-filter-control"
+          class="shw-component-icon-library-filter-label"
+        >Filter:</label>
+        <select
+          id="shw-component-icon-library-filter-control"
+          class="shw-component-icon-library-filter-control"
+          {{on "change" this.setLibraryFilter}}
+        >
+          <option value="">Show all</option>
+          <option value="carbonized">With mapping</option>
+          <option value="non-carbonized">Without mapping</option>
+        </select>
+      </div>
     </div>
 
     {{#each-in this.groupedIcons as |categoryName categoryIcons|}}
       <ShwTextH4 @tag="h3">{{categoryName}}</ShwTextH4>
 
-      <ShwGrid @columns={{8}} @gap="1rem" as |SG|>
+      <ShwGrid @columns={{8}} @gap="1rem" class={{this.filterByClass}} as |SG|>
         {{#each categoryIcons as |iconName|}}
           <SG.Item class="shw-component-icon-library-item">
             <HdsIcon @name={{iconName}} @size="24" />
