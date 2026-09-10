@@ -42,7 +42,7 @@ module(
       );
       assert.dom('#test-form-section-multi-field-group-item').hasStyle(
         {
-          '--hds-form-section-multi-field-group-item-width': '8em',
+          '--hds-var-form-section-multi-field-group-item-width': '8em',
         },
         'Inline style for width is set',
       );
