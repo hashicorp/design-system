@@ -10,13 +10,15 @@
 // notice: by design, for this button we don't apply a custom style for the focused state
 // but we rely on the standard outlined styling provided by the browser
 
-$hds-form-visibility-toggle-button-size: 24px;
-
 .hds-form-visibility-toggle {
-  width: $hds-form-visibility-toggle-button-size;
-  height: $hds-form-visibility-toggle-button-size;
+  // ensure icon is centered in button
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hds-form-visibility-toggle-size);
+  height: var(--hds-form-visibility-toggle-size);
   padding: 2px;
-  color: var(--token-color-foreground-primary);
+  color: var(--hds-foreground-color-primary);
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;

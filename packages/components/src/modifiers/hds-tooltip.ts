@@ -131,10 +131,7 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     containerElement.style.setProperty('position', 'absolute');
     // Note: If the popoverContent div extends outside the viewport it triggers overflow when the popover is open.
     // This is visible for users whose system settings have scrollbars set to always show.
-    containerElement.style.setProperty(
-      'width',
-      'var(--token-tooltip-max-width)'
-    );
+    containerElement.style.setProperty('width', 'var(--hds-tooltip-max-width)');
     element.setAttribute('aria-controls', this._containerId);
     element.setAttribute('aria-describedby', this._containerId);
     element.after(containerElement);
@@ -217,10 +214,7 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     return {
       theme: 'hds',
       triggerTarget: $trigger,
-      arrow: `
-        <svg class="hds-tooltip-pointer" width="16" height="7" viewBox="0 0 16 7" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z" />
-        </svg>`,
+      arrow: true,
       // keeps tooltip itself open on hover:
       interactive: true,
       appendTo: this._containerElement,
