@@ -1,10 +1,9 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import style from 'ember-style-modifier';
 
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -16,25 +15,19 @@ const SubSectionContent: TemplateOnlyComponent = <template>
 
   <ShwFlex as |SF|>
     <SF.Item>
-      <HdsBadge @text="Only text" />
+      <HdsBadge @text="Neutral badge" />
     </SF.Item>
     <SF.Item>
-      <HdsBadge @icon="activity" @text="Text + icon" />
+      <HdsBadge @text="Terraform" @icon="terraform" />
     </SF.Item>
     <SF.Item>
-      <HdsBadge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
-    </SF.Item>
-    <SF.Item {{style width="200px"}}>
-      <HdsBadge
-        @icon="activity"
-        @text="This is a very long text that should go on two lines"
-      />
+      <HdsBadge @text="Terraform" @icon="terraform" @isIconOnly={{true}} />
     </SF.Item>
   </ShwFlex>
+
   <ShwFlex as |SF|>
     <SF.Item>
-      <p>This is a paragraph:
-        <HdsBadge @icon="activity" @text="Lorem ipsum" /></p>
+      <p>This is a paragraph: <HdsBadge @text="Inline badge" /></p>
     </SF.Item>
   </ShwFlex>
 </template>;

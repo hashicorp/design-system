@@ -1,10 +1,11 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { capitalize } from '@ember/string';
+import style from 'ember-style-modifier';
 
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
@@ -23,7 +24,7 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     {{#each SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
-        <HdsBadge @icon="activity" @text="Lorem ipsum" @size={{size}} />
+        <HdsBadge @text="Lorem ipsum" @size={{size}} />
       </SF.Item>
     {{/each}}
   </ShwFlex>
@@ -33,7 +34,7 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     {{#each TYPES as |type|}}
       <SF.Item @label={{capitalize type}}>
-        <HdsBadge @icon="activity" @text="Lorem ipsum" @type={{type}} />
+        <HdsBadge @text="Lorem ipsum" @type={{type}} />
       </SF.Item>
     {{/each}}
   </ShwFlex>
@@ -41,30 +42,20 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwTextH2>Color</ShwTextH2>
 
   {{#each COLORS as |color|}}
-    <ShwGrid @label={{capitalize color}} @columns={{3}} as |SG|>
+    <ShwGrid
+      @label={{capitalize color}}
+      @columns={{3}}
+      {{style width="fit-content"}}
+      as |SG|
+    >
       {{#each SIZES as |size|}}
         {{#each TYPES as |type|}}
           <SG.Item class="shw-component-badge-sample-color--{{color}}">
             <HdsBadge
-              @icon="activity"
               @text="Lorem ipsum"
               @size={{size}}
               @type={{type}}
               @color={{color}}
-            />
-            <HdsBadge
-              @text="Lorem ipsum"
-              @size={{size}}
-              @type={{type}}
-              @color={{color}}
-            />
-            <HdsBadge
-              @icon="activity"
-              @text="Lorem Ipsum"
-              @size={{size}}
-              @type={{type}}
-              @color={{color}}
-              @isIconOnly={{true}}
             />
           </SG.Item>
         {{/each}}
