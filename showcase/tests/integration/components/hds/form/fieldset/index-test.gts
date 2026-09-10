@@ -84,7 +84,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     );
     // the fieldset ID is dynamically generated
     const fieldset = find('fieldset');
-    const fieldsetId = fieldset?.id;
+    const fieldsetId = fieldset?.id ?? '';
     assert
       .dom('.hds-form-group__helper-text')
       .hasAttribute('id', `helper-text-${fieldsetId}`);
