@@ -74,6 +74,7 @@
 .doc-icons-list-grid-item__frame {
   display: flex;
   flex: none;
+  gap: 12px;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
@@ -82,11 +83,13 @@
   border-bottom: 1px solid var(--doc-color-gray-500);
 
   @include breakpoint.medium () {
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
     width: 60px;
     height: 100%;
-    padding-top: 24px;
+    padding-top: 3px; // optical alignment
     padding-left: 0;
     border-right: 1px solid var(--doc-color-gray-500);
     border-bottom: none;
@@ -94,7 +97,32 @@
 }
 
 .doc-icons-list-grid-item__outline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
   outline: 1px dotted var(--doc-color-feedback-information-200);
+}
+
+.doc-icons-list-grid-item__icon-label {
+  @include doc-font-style-label();
+  flex: none;
+  color: var(--doc-color-gray-300);
+
+  @include breakpoint.medium () {
+    margin-top: 12px;
+  }
+}
+
+.doc-icons-list-grid-item__icon-no-mapping {
+  @include doc-font-style-label();
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 12px;
+  color: var(--doc-color-gray-300);
 }
 
 .doc-icons-list-grid-item__meta {
