@@ -20,10 +20,10 @@ node ./packages/codemods/bin/cli.js v8/application-state-footer path/to/some/glo
 
 ```hbs
 <Hds::ApplicationState as |A|>
-    <A.Footer @hasDivider={{true}} as |F|>
-        <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-        <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-    </A.Footer>
+  <A.Footer @hasDivider={{true}} as |F|>
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+  </A.Footer>
 </Hds::ApplicationState>
 ```
 
@@ -31,9 +31,9 @@ node ./packages/codemods/bin/cli.js v8/application-state-footer path/to/some/glo
 
 ```hbs
 <Hds::ApplicationState as |A|>
-    <A.Footer as |F|>
-        <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-        <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-    </A.Footer>
+  <A.Footer as |F|>
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+  </A.Footer>
 </Hds::ApplicationState>
 ```
