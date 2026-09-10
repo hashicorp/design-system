@@ -1,5 +1,64 @@
 {
   "app-footer": {
+    "border-color": {
+      "$type": "color",
+      "$value": "{core.color.neutral-on-dark-500}",
+      "$modes": {
+        "default": "{core.color.neutral-on-dark-500}",
+        "cds-g0": "{core.color.neutral-on-dark-500}",
+        "cds-g10": "{core.color.neutral-on-dark-500}",
+        "cds-g90": "{core.color.neutral-on-dark-500}",
+        "cds-g100": "{core.color.neutral-on-dark-500}"
+      }
+    },
+    "foreground-color": {
+      "default": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "$modes": {
+          "default": "{core.color.neutral-on-dark-600}",
+          "cds-g0": "{core.color.neutral-on-dark-600}",
+          "cds-g10": "{core.color.neutral-on-dark-600}",
+          "cds-g90": "{core.color.neutral-on-dark-600}",
+          "cds-g100": "{core.color.neutral-on-dark-600}"
+        }
+      },
+      "action": {
+        "default": {
+          "$type": "color",
+          "$value": "{core.color.neutral-on-dark-500}",
+          "$modes": {
+            "default": "{core.color.neutral-on-dark-500}",
+            "cds-g0": "{core.color.neutral-on-dark-500}",
+            "cds-g10": "{core.color.neutral-on-dark-500}",
+            "cds-g90": "{core.color.neutral-on-dark-500}",
+            "cds-g100": "{core.color.neutral-on-dark-500}"
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{core.color.neutral-on-dark-600}",
+          "$modes": {
+            "default": "{core.color.neutral-on-dark-600}",
+            "cds-g0": "{core.color.neutral-on-dark-600}",
+            "cds-g10": "{core.color.neutral-on-dark-600}",
+            "cds-g90": "{core.color.neutral-on-dark-600}",
+            "cds-g100": "{core.color.neutral-on-dark-600}"
+          }
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{core.color.neutral-on-dark-700}",
+          "$modes": {
+            "default": "{core.color.neutral-on-dark-700}",
+            "cds-g0": "{core.color.neutral-on-dark-700}",
+            "cds-g10": "{core.color.neutral-on-dark-700}",
+            "cds-g90": "{core.color.neutral-on-dark-700}",
+            "cds-g100": "{core.color.neutral-on-dark-700}"
+          }
+        }
+      }
+    },
     "link": {
       "focus": {
         "outline": {

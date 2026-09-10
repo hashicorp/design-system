@@ -1,0 +1,97 @@
+{
+  "core": {
+    "color": {
+      "neutral-on-dark-700": {
+        "$type": "color",
+        "$value": "#efeff1",
+        "group": "core",
+        "private": "true",
+        "$modes": {
+          "default": "#efeff1",
+          "cds-g0": "#efeff1",
+          "cds-g10": "#efeff1",
+          "cds-g90": "#efeff1",
+          "cds-g100": "#efeff1"
+        }
+      },
+      "neutral-on-dark-600": {
+        "$type": "color",
+        "$value": "#d5d7db",
+        "group": "core",
+        "private": "true",
+        "$modes": {
+          "default": "#d5d7db",
+          "cds-g0": "#d5d7db",
+          "cds-g10": "#d5d7db",
+          "cds-g90": "#d5d7db",
+          "cds-g100": "#d5d7db"
+        }
+      },
+      "neutral-on-dark-500": {
+        "$type": "color",
+        "$value": "#b2b6bd",
+        "group": "core",
+        "private": "true",
+        "$modes": {
+          "default": "#b2b6bd",
+          "cds-g0": "#b2b6bd",
+          "cds-g10": "#b2b6bd",
+          "cds-g90": "#b2b6bd",
+          "cds-g100": "#b2b6bd"
+        }
+      },
+      "neutral-on-dark-400": {
+        "$type": "color",
+        "$value": "#878a8f",
+        "group": "core",
+        "private": "true",
+        "$modes": {
+          "default": "#878a8f",
+          "cds-g0": "#878a8f",
+          "cds-g10": "#878a8f",
+          "cds-g90": "#878a8f",
+          "cds-g100": "#878a8f"
+        }
+      },
+      "neutral-on-dark-300": {
+        "$type": "color",
+        "$value": "#2b303c",
+        "group": "core",
+        "private": "true",
+        "$modes": {
+          "default": "#2b303c",
+          "cds-g0": "#2b303c",
+          "cds-g10": "#2b303c",
+          "cds-g90": "#2b303c",
+          "cds-g100": "#2b303c"
+        }
+      },
+      "neutral-on-dark-200": {
+        "$type": "color",
+        "$value": "#15181e",
+        "group": "core",
+        "private": "true",
+        "$modes": {
+          "default": "#15181e",
+          "cds-g0": "#15181e",
+          "cds-g10": "#15181e",
+          "cds-g90": "#15181e",
+          "cds-g100": "#15181e"
+        }
+      },
+      "neutral-on-dark-100": {
+        "$type": "color",
+        "$value": "#0d0e12",
+        "group": "core",
+        "private": "true",
+        "$modes": {
+          "default": "#0d0e12",
+          "cds-g0": "#0d0e12",
+          "cds-g10": "#0d0e12",
+          "cds-g90": "#0d0e12",
+          "cds-g100": "#0d0e12"
+        }
+      }
+    }
+  }
+}
