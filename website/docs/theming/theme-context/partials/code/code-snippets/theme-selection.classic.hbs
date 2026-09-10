@@ -1,0 +1,58 @@
+{{! No context }}
+<div class="doc-theme-switcher-demo-block">
+  <Hds::Text::Display @size="300">No context</Hds::Text::Display>
+  <Hds::Text::Body @tag="p" @color="strong">
+    These components are not inside a theming context and their visual appearance will change accordingly when the theme
+    is switched
+  </Hds::Text::Body>
+  <Hds::ButtonSet>
+    <Hds::Button @text="Primary" @icon="plus" @iconPosition="trailing" />
+    <Hds::Button @text="Secondary" @color="secondary" />
+    <Hds::Button @text="Critical" @color="critical" />
+  </Hds::ButtonSet>
+  <Hds::Alert @type="inline" @color="highlight" as |A|>
+    <A.Title>Inline alert</A.Title>
+    <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+  </Hds::Alert>
+  <Hds::Badge @color="highlight" @icon="award" @text="Highlight badge" />
+</div>
+
+{{! "Light" context }}
+<Hds::ThemeContext @context="light">
+  <div class="doc-theme-switcher-demo-block">
+    <Hds::Text::Display @size="300">"Light" context</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @color="strong">
+      These components are inside a "light" theming context and their visual appearance will NOT change
+    </Hds::Text::Body>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>Inline alert</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Alert>
+    <Hds::ButtonSet>
+      <Hds::Button @text="Primary" @icon="plus" @iconPosition="trailing" />
+      <Hds::Button @text="Secondary" @color="secondary" />
+      <Hds::Button @text="Critical" @color="critical" />
+    </Hds::ButtonSet>
+    <Hds::Badge @color="highlight" @icon="award" @text="Highlight badge" />
+  </div>
+</Hds::ThemeContext>
+
+{{! "Dark" context }}
+<Hds::ThemeContext @context="dark">
+  <div class="doc-theme-switcher-demo-block">
+    <Hds::Text::Display @size="300">"Dark" context</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @color="strong">
+      These components are inside a "dark" theming context and their visual appearance will NOT change
+    </Hds::Text::Body>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>Inline alert</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Alert>
+    <Hds::ButtonSet>
+      <Hds::Button @text="Primary" @icon="plus" @iconPosition="trailing" />
+      <Hds::Button @text="Secondary" @color="secondary" />
+      <Hds::Button @text="Critical" @color="critical" />
+    </Hds::ButtonSet>
+    <Hds::Badge @color="highlight" @icon="award" @text="Highlight badge" />
+  </div>
+</Hds::ThemeContext>
