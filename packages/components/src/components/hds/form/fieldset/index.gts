@@ -120,7 +120,11 @@ export default class HdsFormFieldset extends Component<HdsFormFieldsetSignature>
       }}
       <div class="hds-form-group__control-fields-wrapper">
         {{! @glint-expect-error }}
-        {{yield (hash Control=HdsYield id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
+        {{yield
+          (hash
+            Control=HdsYield id=this.id ariaDescribedBy=this.ariaDescribedBy
+          )
+        }}
       </div>
       {{yield
         (hash
