@@ -8,6 +8,11 @@ layout:
 ---
 
 <section data-tab="Library">
+
+  <Doc::Banner @type="information">
+    <p class="doc-markdown-p"><strong>Note</strong>: the tokens below refer to the version 7.0 or above of the components package (version 6.0 or above of the tokens package). If you are using an older version, refer to the correct <a href="/whats-new/release-notes">documentation for your version</a></p>
+  </Doc::Banner>
+
   <!-- algolia-ignore-start -->
   <Doc::TokensList
     @groupedTokens={{this.filteredGroupedTokens}}
