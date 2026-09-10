@@ -14,3 +14,7 @@ previewImage: assets/illustrations/foundations/border.jpg
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
 </section>
+
+<section data-tab="Carbonization">
+  @include "partials/carbonization/index.md"
+</section>
