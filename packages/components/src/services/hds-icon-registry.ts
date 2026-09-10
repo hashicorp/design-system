@@ -33,8 +33,12 @@ export interface HdsIconDefinition {
 // re-export the ROOT_ID for use in tests
 export { ROOT_ID };
 
+// notice: in non-browser environments (eg. server-side rendering via FastBoot) some or all
+// of these globals are missing, so all the DOM-related logic below has to be skipped
 const HAS_DOM =
-  typeof window !== 'undefined' && typeof document !== 'undefined';
+  typeof window !== 'undefined' &&
+  typeof document !== 'undefined' &&
+  typeof DOMParser !== 'undefined';
 
 // important: if you update this function, update the identical one in `packages/flight-icons/scripts/build-parts/generateBundleSymbolJS.ts` as well (and vice versa)
 export function makeDomSafeId(value: string): string {
@@ -56,7 +60,7 @@ const MAX_CONCURRENT_LOADS = Math.min(
   )
 );
 
-const PARSER = new DOMParser();
+const PARSER = HAS_DOM ? new DOMParser() : null;
 
 export default class HdsIconRegistryService extends Service {
   private _entries = new TrackedMap<string, HdsIconRegistryEntry>();
@@ -261,7 +265,7 @@ export default class HdsIconRegistryService extends Service {
 
       const root = this._getSpriteRoot();
 
-      if (root === null || this._pendingByKey.size === 0) {
+      if (root === null || PARSER === null || this._pendingByKey.size === 0) {
         return;
       }
 
