@@ -89,6 +89,9 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
       .dom('.hds-form-group__helper-text')
       .hasAttribute('id', `helper-text-${fieldsetId}`);
     assert
+      .dom('.hds-form-group__control-fields-wrapper pre')
+      .hasAttribute('id', fieldsetId);
+    assert
       .dom('.hds-form-group__error')
       .hasAttribute('id', `error-${fieldsetId}`);
   });
@@ -111,6 +114,9 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     assert
       .dom('.hds-form-group__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
+    assert
+      .dom('.hds-form-group__control-fields-wrapper pre')
+      .hasAttribute('id', controlId);
     assert
       .dom('.hds-form-group__control-fields-wrapper pre')
       .hasAttribute(

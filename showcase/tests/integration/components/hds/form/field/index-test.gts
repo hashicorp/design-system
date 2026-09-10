@@ -113,6 +113,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
+    assert.dom('.hds-form-field__control pre').hasAttribute('id', controlId);
     assert
       .dom('.hds-form-field__control pre')
       .hasAttribute(
@@ -154,6 +155,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
+    assert.dom('.hds-form-field__control pre').hasAttribute('id', controlId);
     assert
       .dom('.hds-form-field__control pre')
       .hasAttribute(
@@ -194,6 +196,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
+    assert.dom('.hds-form-field__control pre').hasAttribute('id', controlId);
     assert
       .dom('.hds-form-field__control pre')
       .hasAttribute(
