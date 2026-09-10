@@ -2,6 +2,5 @@
 "@hashicorp/design-system-codemods": minor
 ---
 
-<!-- START components/application-state -->
-`ApplicationState` - Added codemod that removes `@hasDivider` argument from `[A].Footer` instances
-<!-- END -->
+New codemod: `v8/application-state-footer`
+- Removes `@hasDivider` argument from `ApplicationState` `[A].Footer` yielded block.
