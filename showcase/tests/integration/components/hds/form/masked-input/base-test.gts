@@ -167,31 +167,29 @@ module(
         .hasText('Input content is hidden');
     });
 
-    test('it renders the same custom message for both states if only @visibilityToggleAriaMessageText is provided', async function (assert) {
-      await render(
-        <template>
-          <HdsFormMaskedInputBase
-            @id="test-form-masked-input"
-            @visibilityToggleAriaMessageText="My input content is visible"
-          />
-        </template>,
-      );
-      await click('.hds-form-visibility-toggle');
-      assert
-        .dom('.hds-form-visibility-toggle')
-        .hasText('My input content is visible');
-      await click('.hds-form-visibility-toggle');
-      assert
-        .dom('.hds-form-visibility-toggle')
-        .hasText('My input content is visible');
-    });
-
-    test('it renders a different custom message on toggle when @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
+    test('it renders a custom message for the hidden state when only @visibilityToggleAriaMessageText is provided', async function (assert) {
       await render(
         <template>
           <HdsFormMaskedInputBase
             @id="test-form-masked-input"
             @visibilityToggleAriaMessageText="My input content is hidden"
+          />
+        </template>,
+      );
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('My input content is hidden');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('Input content is visible');
+    });
+
+    test('it renders a custom message for the visible state when only @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
+      await render(
+        <template>
+          <HdsFormMaskedInputBase
+            @id="test-form-masked-input"
             @visibilityToggleAriaMessageTextWhenVisible="My input content is visible"
           />
         </template>,
@@ -203,7 +201,7 @@ module(
       await click('.hds-form-visibility-toggle');
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasText('My input content is hidden');
+        .hasText('Input content is hidden');
     });
 
     // MULTILINE

@@ -33,7 +33,7 @@ export interface HdsFormMaskedInputBaseSignature {
     value?: string;
     visibilityToggleAriaLabel?: HdsFormVisibilityToggleSignature['Args']['ariaLabel'];
     visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
-    visibilityToggleAriaMessageTextWhenVisible?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
+    visibilityToggleAriaMessageTextWhenVisible?: HdsFormVisibilityToggleSignature['Args']['ariaMessageTextWhenVisible'];
     width?: string;
     height?: string;
     ariaDescribedBy?: string;
@@ -86,7 +86,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
       return this.args.visibilityToggleAriaLabel;
     } else {
       return this.hdsIntl.t(
-        'hds.components.form.masked-input.base.show-masked-content',
+        'hds.components.form.masked-input.base.toggle-masked-content',
         {
           default: 'Toggle masked content',
         }
@@ -94,35 +94,29 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     }
   }
 
-  get visibilityToggleAriaPressed(): string {
-    return this.isContentMasked ? 'false' : 'true';
+  get visibilityToggleAriaMessageText(): string {
+    if (this.args.visibilityToggleAriaMessageText) {
+      return this.args.visibilityToggleAriaMessageText;
+    } else {
+      return this.hdsIntl.t(
+        'hds.components.form.masked-input.base.input-content-is-hidden',
+        {
+          default: 'Input content is hidden',
+        }
+      );
+    }
   }
 
-  get visibilityToggleAriaMessageText(): string {
-    if (this.isContentMasked) {
-      if (this.args.visibilityToggleAriaMessageText) {
-        return this.args.visibilityToggleAriaMessageText;
-      } else {
-        return this.hdsIntl.t(
-          'hds.components.form.masked-input.base.input-content-is-hidden',
-          {
-            default: 'Input content is hidden',
-          }
-        );
-      }
+  get visibilityToggleAriaMessageTextWhenVisible(): string {
+    if (this.args.visibilityToggleAriaMessageTextWhenVisible) {
+      return this.args.visibilityToggleAriaMessageTextWhenVisible;
     } else {
-      if (this.args.visibilityToggleAriaMessageTextWhenVisible) {
-        return this.args.visibilityToggleAriaMessageTextWhenVisible;
-      } else if (this.args.visibilityToggleAriaMessageText) {
-        return this.args.visibilityToggleAriaMessageText;
-      } else {
-        return this.hdsIntl.t(
-          'hds.components.form.masked-input.base.input-content-is-visible',
-          {
-            default: 'Input content is visible',
-          }
-        );
-      }
+      return this.hdsIntl.t(
+        'hds.components.form.masked-input.base.input-content-is-visible',
+        {
+          default: 'Input content is visible',
+        }
+      );
     }
   }
 
@@ -177,8 +171,9 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
         @isVisible={{this.isContentMasked}}
         @ariaLabel={{this.visibilityToggleAriaLabel}}
         @ariaMessageText={{this.visibilityToggleAriaMessageText}}
+        @ariaMessageTextWhenVisible={{this.visibilityToggleAriaMessageTextWhenVisible}}
         aria-controls={{this.id}}
-        aria-pressed={{this.visibilityToggleAriaPressed}}
+        aria-pressed={{if this.isContentMasked "false" "true"}}
         class="hds-form-masked-input__toggle-button"
         {{on "click" this.onClickToggleMasking}}
       />

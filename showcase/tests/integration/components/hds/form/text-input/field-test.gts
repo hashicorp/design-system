@@ -339,22 +339,36 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     assert.dom('.hds-form-visibility-toggle').hasText('Password is hidden');
   });
 
-  test('it renders the same custom message for both states if only @visibilityToggleAriaMessageText is provided', async function (assert) {
+  test('it renders a custom message for the hidden state when only @visibilityToggleAriaMessageText is provided', async function (assert) {
     await render(
       <template>
         <HdsFormTextInputField
           @type="password"
-          @visibilityToggleAriaMessageText="My password is visible"
+          @visibilityToggleAriaMessageText="My password is hidden"
+        />
+      </template>,
+    );
+    assert.dom('.hds-form-visibility-toggle').hasText('My password is hidden');
+    await click('.hds-form-visibility-toggle');
+    assert.dom('.hds-form-visibility-toggle').hasText('Password is visible');
+  });
+
+  test('it renders a custom message for the visible state when only @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
+    await render(
+      <template>
+        <HdsFormTextInputField
+          @type="password"
+          @visibilityToggleAriaMessageTextWhenVisible="My password is visible"
         />
       </template>,
     );
     await click('.hds-form-visibility-toggle');
     assert.dom('.hds-form-visibility-toggle').hasText('My password is visible');
     await click('.hds-form-visibility-toggle');
-    assert.dom('.hds-form-visibility-toggle').hasText('My password is visible');
+    assert.dom('.hds-form-visibility-toggle').hasText('Password is hidden');
   });
 
-  test('it renders a different custom message on toggle when @visibilityToggleAriaMessageTextWhenVisible is provided', async function (assert) {
+  test('it renders custom messages for both states on toggle', async function (assert) {
     await render(
       <template>
         <HdsFormTextInputField

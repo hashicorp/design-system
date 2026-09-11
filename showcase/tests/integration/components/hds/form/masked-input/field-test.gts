@@ -279,18 +279,24 @@ module(
         .hasText('Input content is hidden');
     });
 
-    test('it renders a custom message on toggle', async function (assert) {
+    test('it renders custom messages for both states on toggle', async function (assert) {
       await render(
         <template>
           <HdsFormMaskedInputField
             @id="test-form-masked-input"
-            @visibilityToggleAriaMessageText="My input content is visible"
+            @visibilityToggleAriaMessageText="My input content is hidden"
+            @visibilityToggleAriaMessageTextWhenVisible="My input content is visible"
           />
         </template>,
       );
+      await click('.hds-form-visibility-toggle');
       assert
         .dom('.hds-form-visibility-toggle')
         .hasText('My input content is visible');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('My input content is hidden');
     });
   },
 );
