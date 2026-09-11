@@ -17,8 +17,11 @@ project {
     "**/dist/**",
     # Type declarations
     "**/*.d.ts",
-    # SVG icons packed as `tsx` files
-    "packages/flight-icons/svg-react/*",
+    # Generated files for Flight Icons
+    "packages/flight-icons/svg-original/**",
+    "packages/flight-icons/svg-react/**",
+    "packages/flight-icons/svg-sprite/**",
+    "packages/flight-icons/symbol-js/**",
     # Handlebars components sensitive to white-space
     "packages/components/src/components/hds/interactive/*.hbs",
     "packages/components/src/components/hds/link/*.hbs",
