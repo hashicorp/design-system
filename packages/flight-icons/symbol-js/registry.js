@@ -1,4 +1,3 @@
-
 export const IconRegistry = {
     loading: {
         flight: {

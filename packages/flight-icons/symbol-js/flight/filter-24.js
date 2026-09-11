@@ -1,2 +1,1 @@
-
 export default `<symbol id="hds-icon-flight-filter-24" viewBox="0 0 24 24"><path d="M14.25 16a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5zm3-5a.75.75 0 0 1 0 1.5H6.75a.75.75 0 0 1 0-1.5zm3-5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1 0-1.5z"/></symbol>`;
