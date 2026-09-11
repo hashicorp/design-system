@@ -14,8 +14,8 @@ overrides:
   brace-expansion@1: 1.1.13
   brace-expansion@2: 2.0.3
   brace-expansion@5: 5.0.6
-  flatted: 3.4.2
   fast-uri: 3.1.2
+  flatted: 3.4.4
   follow-redirects: 1.16.0
   form-data: 4.0.6
   ember-composable-helpers: npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11
@@ -7703,8 +7703,8 @@ packages:
   flat-cache@6.1.12:
     resolution: {integrity: sha512-U+HqqpZPPXP5d24bWuRzjGqVqUcw64k4nZAbruniDwdRg0H10tvN7H6ku1tjhA4rg5B9GS3siEvwO2qjJJ6f8Q==}
 
-  flatted@3.4.2:
-    resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
+  flatted@3.4.4:
+    resolution: {integrity: sha512-5+ybhBZANEJxaH3X5evAFatUxLfEHSr7n6kYJ+1Qd0mUqr4eu9gIf6GDbWHf8RJijHrjjO8G+la14SlL2SeS1Q==}
 
   flow-parser@0.258.1:
     resolution: {integrity: sha512-Y8CrO98EcXVCiYE4s5z0LTMbeYjKyd3MAEUJqxA7B8yGRlmdrG5UDqq4pVrUAfAu2tMFgpQESvBhBu9Xg1tpow==}
@@ -22189,27 +22189,27 @@ snapshots:
 
   flat-cache@2.0.1:
     dependencies:
-      flatted: 3.4.2
+      flatted: 3.4.4
       rimraf: 2.6.3
       write: 1.0.3
 
   flat-cache@4.0.1:
     dependencies:
-      flatted: 3.4.2
+      flatted: 3.4.4
       keyv: 4.5.4
 
   flat-cache@5.0.0:
     dependencies:
-      flatted: 3.4.2
+      flatted: 3.4.4
       keyv: 4.5.4
 
   flat-cache@6.1.12:
     dependencies:
       cacheable: 1.10.3
-      flatted: 3.4.2
+      flatted: 3.4.4
       hookified: 1.11.0
 
-  flatted@3.4.2: {}
+  flatted@3.4.4: {}
 
   flow-parser@0.258.1: {}
 
