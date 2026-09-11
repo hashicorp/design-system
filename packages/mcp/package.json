@@ -34,7 +34,7 @@
   "dependencies": {
     "@hashicorp/design-system-components": "workspace:^6.5.0",
     "@hashicorp/design-system-tokens": "workspace:^5.1.0",
-    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "@hashicorp/flight-icons": "workspace:^5.1.0",
     "zod": "^4.4.3"
   },
