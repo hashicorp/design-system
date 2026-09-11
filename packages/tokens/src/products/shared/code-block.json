@@ -81,9 +81,9 @@
         },
         "white": {
           "$type": "color",
-          "$value": "#efeff1",
+          "$value": "{core.color.neutral-on-dark-700}",
           "$modes": {
-            "default": "#efeff1",
+            "default": "{core.color.neutral-on-dark-700}",
             "cds-g0": "{carbon.color.gray.70}",
             "cds-g10": "{carbon.color.gray.70}",
             "cds-g90": "{carbon.color.white.0}",
@@ -96,9 +96,9 @@
       "color": {
         "primary": {
           "$type": "color",
-          "$value": "#d5d7db",
+          "$value": "{core.color.neutral-on-dark-600}",
           "$modes": {
-            "default": "#d5d7db",
+            "default": "{core.color.neutral-on-dark-600}",
             "cds-g0": "{carbon.themes.white.textPrimary}",
             "cds-g10": "{carbon.themes.g10.textPrimary}",
             "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -107,9 +107,9 @@
         },
         "faint": {
           "$type": "color",
-          "$value": "#b2b6bd",
+          "$value": "{core.color.neutral-on-dark-400}",
           "$modes": {
-            "default": "#b2b6bd",
+            "default": "{core.color.neutral-on-dark-400}",
             "cds-g0": "{carbon.themes.white.textSecondary}",
             "cds-g10": "{carbon.themes.g10.textSecondary}",
             "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -137,9 +137,9 @@
       "color": {
         "primary": {
           "$type": "color",
-          "$value": "#0d0e12",
+          "$value": "{core.color.neutral-on-dark-100}",
           "$modes": {
-            "default": "#0d0e12",
+            "default": "{core.color.neutral-on-dark-100}",
             "cds-g0": "{carbon.themes.white.layer01}",
             "cds-g10": "{carbon.themes.g10.layer01}",
             "cds-g90": "{carbon.themes.g90.layer01}",
@@ -161,6 +161,7 @@
         "faint": {
           "$type": "color",
           "$value": "#15181e",
+          "comment": "Should this be updated to use {core.color.neutral-on-dark-200} like the other hds surface tokens?",
           "$modes": {
             "default": "#15181e",
             "cds-g0": "{carbon.themes.white.layer01}",
@@ -248,9 +249,9 @@
         "color": {
           "default": {
             "$type": "color",
-            "$value": "{code-block.surface.color.faint}",
+            "$value": "{core.color.neutral-on-dark-200}",
             "$modes": {
-              "default": "{code-block.surface.color.faint}",
+              "default": "{core.color.neutral-on-dark-200}",
               "cds-g0": "{button.surface.color.secondary-muted.default}",
               "cds-g10": "{button.surface.color.secondary-muted.default}",
               "cds-g90": "{button.surface.color.secondary-muted.default}",
@@ -270,9 +271,9 @@
           },
           "active": {
             "$type": "color",
-            "$value": "#2b303c",
+            "$value": "{core.color.neutral-on-dark-300}",
             "$modes": {
-              "default": "#2b303c",
+              "default": "{core.color.neutral-on-dark-300}",
               "cds-g0": "{button.surface.color.secondary-muted.active}",
               "cds-g10": "{button.surface.color.secondary-muted.active}",
               "cds-g90": "{button.surface.color.secondary-muted.active}",

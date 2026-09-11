@@ -8176,6 +8176,109 @@
         "critical"
       ]
     },
+    "hds-app-footer-border-color": {
+      "key": "{app-footer.border.color}",
+      "$type": "color",
+      "$value": "#b2b6bd66",
+      "alpha": "0.4",
+      "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "alpha": "0.4",
+        "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+        "key": "{app-footer.border.color}"
+      },
+      "name": "hds-app-footer-border-color",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "border",
+        "color"
+      ]
+    },
+    "hds-app-footer-foreground-color-default": {
+      "key": "{app-footer.foreground.color.default}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.color.default}"
+      },
+      "name": "hds-app-footer-foreground-color-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-default": {
+      "key": "{app-footer.foreground.action.default}",
+      "$type": "color",
+      "$value": "#b2b6bd",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "key": "{app-footer.foreground.action.default}"
+      },
+      "name": "hds-app-footer-foreground-action-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-hover": {
+      "key": "{app-footer.foreground.action.hover}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.action.hover}"
+      },
+      "name": "hds-app-footer-foreground-action-hover",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "hover"
+      ]
+    },
+    "hds-app-footer-foreground-action-active": {
+      "key": "{app-footer.foreground.action.active}",
+      "$type": "color",
+      "$value": "#efeff1",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-700}",
+        "key": "{app-footer.foreground.action.active}"
+      },
+      "name": "hds-app-footer-foreground-action-active",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "active"
+      ]
+    },
     "hds-app-footer-link-focus-outline-width": {
       "key": "{app-footer.link.focus.outline.width}",
       "$type": "dimension",
@@ -15325,9 +15428,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "#efeff1",
+        "$value": "{core.color.neutral-on-dark-700}",
         "$modes": {
-          "default": "#efeff1",
+          "default": "{core.color.neutral-on-dark-700}",
           "cds-g0": "{carbon.color.gray.70}",
           "cds-g10": "{carbon.color.gray.70}",
           "cds-g90": "{carbon.color.white.0}",
@@ -15359,9 +15462,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "#d5d7db",
+        "$value": "{core.color.neutral-on-dark-600}",
         "$modes": {
-          "default": "#d5d7db",
+          "default": "{core.color.neutral-on-dark-600}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -15383,9 +15486,9 @@
     "hds-code-block-foreground-color-faint": {
       "key": "{code-block.foreground.color.faint}",
       "$type": "color",
-      "$value": "#b2b6bd",
+      "$value": "#878a8f",
       "$modes": {
-        "default": "#b2b6bd",
+        "default": "#878a8f",
         "cds-g0": "#525252",
         "cds-g10": "#525252",
         "cds-g90": "#c6c6c6",
@@ -15393,9 +15496,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "#b2b6bd",
+        "$value": "{core.color.neutral-on-dark-400}",
         "$modes": {
-          "default": "#b2b6bd",
+          "default": "{core.color.neutral-on-dark-400}",
           "cds-g0": "{carbon.themes.white.textSecondary}",
           "cds-g10": "{carbon.themes.g10.textSecondary}",
           "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -15481,9 +15584,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "#0d0e12",
+        "$value": "{core.color.neutral-on-dark-100}",
         "$modes": {
-          "default": "#0d0e12",
+          "default": "{core.color.neutral-on-dark-100}",
           "cds-g0": "{carbon.themes.white.layer01}",
           "cds-g10": "{carbon.themes.g10.layer01}",
           "cds-g90": "{carbon.themes.g90.layer01}",
@@ -15542,6 +15645,7 @@
       "key": "{code-block.surface.color.faint}",
       "$type": "color",
       "$value": "#15181e",
+      "comment": "Should this be updated to use #15181e like the other hds surface tokens?",
       "$modes": {
         "default": "#15181e",
         "cds-g0": "#f4f4f4",
@@ -15552,6 +15656,7 @@
       "original": {
         "$type": "color",
         "$value": "#15181e",
+        "comment": "Should this be updated to use {core.color.neutral-on-dark-200} like the other hds surface tokens?",
         "$modes": {
           "default": "#15181e",
           "cds-g0": "{carbon.themes.white.layer01}",
@@ -15780,9 +15885,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{code-block.surface.color.faint}",
+        "$value": "{core.color.neutral-on-dark-200}",
         "$modes": {
-          "default": "{code-block.surface.color.faint}",
+          "default": "{core.color.neutral-on-dark-200}",
           "cds-g0": "{button.surface.color.secondary-muted.default}",
           "cds-g10": "{button.surface.color.secondary-muted.default}",
           "cds-g90": "{button.surface.color.secondary-muted.default}",
@@ -15850,9 +15955,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "#2b303c",
+        "$value": "{core.color.neutral-on-dark-300}",
         "$modes": {
-          "default": "#2b303c",
+          "default": "{core.color.neutral-on-dark-300}",
           "cds-g0": "{button.surface.color.secondary-muted.active}",
           "cds-g10": "{button.surface.color.secondary-muted.active}",
           "cds-g90": "{button.surface.color.secondary-muted.active}",
@@ -42214,6 +42319,109 @@
         "critical"
       ]
     },
+    "hds-app-footer-border-color": {
+      "key": "{app-footer.border.color}",
+      "$type": "color",
+      "$value": "#b2b6bd66",
+      "alpha": "0.4",
+      "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "alpha": "0.4",
+        "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+        "key": "{app-footer.border.color}"
+      },
+      "name": "hds-app-footer-border-color",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "border",
+        "color"
+      ]
+    },
+    "hds-app-footer-foreground-color-default": {
+      "key": "{app-footer.foreground.color.default}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.color.default}"
+      },
+      "name": "hds-app-footer-foreground-color-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-default": {
+      "key": "{app-footer.foreground.action.default}",
+      "$type": "color",
+      "$value": "#b2b6bd",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "key": "{app-footer.foreground.action.default}"
+      },
+      "name": "hds-app-footer-foreground-action-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-hover": {
+      "key": "{app-footer.foreground.action.hover}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.action.hover}"
+      },
+      "name": "hds-app-footer-foreground-action-hover",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "hover"
+      ]
+    },
+    "hds-app-footer-foreground-action-active": {
+      "key": "{app-footer.foreground.action.active}",
+      "$type": "color",
+      "$value": "#efeff1",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-700}",
+        "key": "{app-footer.foreground.action.active}"
+      },
+      "name": "hds-app-footer-foreground-action-active",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "active"
+      ]
+    },
     "hds-app-footer-link-focus-outline-width": {
       "key": "{app-footer.link.focus.outline.width}",
       "$type": "dimension",
@@ -49377,7 +49585,7 @@
         "$type": "color",
         "$value": "{carbon.color.gray.70}",
         "$modes": {
-          "default": "#efeff1",
+          "default": "{core.color.neutral-on-dark-700}",
           "cds-g0": "{carbon.color.gray.70}",
           "cds-g10": "{carbon.color.gray.70}",
           "cds-g90": "{carbon.color.white.0}",
@@ -49411,7 +49619,7 @@
         "$type": "color",
         "$value": "{carbon.themes.white.textPrimary}",
         "$modes": {
-          "default": "#d5d7db",
+          "default": "{core.color.neutral-on-dark-600}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -49435,7 +49643,7 @@
       "$type": "color",
       "$value": "#525252",
       "$modes": {
-        "default": "#b2b6bd",
+        "default": "#878a8f",
         "cds-g0": "#525252",
         "cds-g10": "#525252",
         "cds-g90": "#c6c6c6",
@@ -49445,7 +49653,7 @@
         "$type": "color",
         "$value": "{carbon.themes.white.textSecondary}",
         "$modes": {
-          "default": "#b2b6bd",
+          "default": "{core.color.neutral-on-dark-400}",
           "cds-g0": "{carbon.themes.white.textSecondary}",
           "cds-g10": "{carbon.themes.g10.textSecondary}",
           "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -49533,7 +49741,7 @@
         "$type": "color",
         "$value": "{carbon.themes.white.layer01}",
         "$modes": {
-          "default": "#0d0e12",
+          "default": "{core.color.neutral-on-dark-100}",
           "cds-g0": "{carbon.themes.white.layer01}",
           "cds-g10": "{carbon.themes.g10.layer01}",
           "cds-g90": "{carbon.themes.g90.layer01}",
@@ -49592,6 +49800,7 @@
       "key": "{code-block.surface.color.faint}",
       "$type": "color",
       "$value": "#f4f4f4",
+      "comment": "Should this be updated to use #15181e like the other hds surface tokens?",
       "$modes": {
         "default": "#15181e",
         "cds-g0": "#f4f4f4",
@@ -49602,6 +49811,7 @@
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.white.layer01}",
+        "comment": "Should this be updated to use {core.color.neutral-on-dark-200} like the other hds surface tokens?",
         "$modes": {
           "default": "#15181e",
           "cds-g0": "{carbon.themes.white.layer01}",
@@ -49822,7 +50032,7 @@
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
-        "default": "#f4f4f4",
+        "default": "#15181e",
         "cds-g0": "#e0e0e0",
         "cds-g10": "#e0e0e0",
         "cds-g90": "#e0e0e0",
@@ -49832,7 +50042,7 @@
         "$type": "color",
         "$value": "{button.surface.color.secondary-muted.default}",
         "$modes": {
-          "default": "{code-block.surface.color.faint}",
+          "default": "{core.color.neutral-on-dark-200}",
           "cds-g0": "{button.surface.color.secondary-muted.default}",
           "cds-g10": "{button.surface.color.secondary-muted.default}",
           "cds-g90": "{button.surface.color.secondary-muted.default}",
@@ -49902,7 +50112,7 @@
         "$type": "color",
         "$value": "{button.surface.color.secondary-muted.active}",
         "$modes": {
-          "default": "#2b303c",
+          "default": "{core.color.neutral-on-dark-300}",
           "cds-g0": "{button.surface.color.secondary-muted.active}",
           "cds-g10": "{button.surface.color.secondary-muted.active}",
           "cds-g90": "{button.surface.color.secondary-muted.active}",
@@ -76276,6 +76486,109 @@
         "critical"
       ]
     },
+    "hds-app-footer-border-color": {
+      "key": "{app-footer.border.color}",
+      "$type": "color",
+      "$value": "#b2b6bd66",
+      "alpha": "0.4",
+      "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "alpha": "0.4",
+        "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+        "key": "{app-footer.border.color}"
+      },
+      "name": "hds-app-footer-border-color",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "border",
+        "color"
+      ]
+    },
+    "hds-app-footer-foreground-color-default": {
+      "key": "{app-footer.foreground.color.default}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.color.default}"
+      },
+      "name": "hds-app-footer-foreground-color-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-default": {
+      "key": "{app-footer.foreground.action.default}",
+      "$type": "color",
+      "$value": "#b2b6bd",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "key": "{app-footer.foreground.action.default}"
+      },
+      "name": "hds-app-footer-foreground-action-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-hover": {
+      "key": "{app-footer.foreground.action.hover}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.action.hover}"
+      },
+      "name": "hds-app-footer-foreground-action-hover",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "hover"
+      ]
+    },
+    "hds-app-footer-foreground-action-active": {
+      "key": "{app-footer.foreground.action.active}",
+      "$type": "color",
+      "$value": "#efeff1",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-700}",
+        "key": "{app-footer.foreground.action.active}"
+      },
+      "name": "hds-app-footer-foreground-action-active",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "active"
+      ]
+    },
     "hds-app-footer-link-focus-outline-width": {
       "key": "{app-footer.link.focus.outline.width}",
       "$type": "dimension",
@@ -83439,7 +83752,7 @@
         "$type": "color",
         "$value": "{carbon.color.gray.70}",
         "$modes": {
-          "default": "#efeff1",
+          "default": "{core.color.neutral-on-dark-700}",
           "cds-g0": "{carbon.color.gray.70}",
           "cds-g10": "{carbon.color.gray.70}",
           "cds-g90": "{carbon.color.white.0}",
@@ -83473,7 +83786,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.textPrimary}",
         "$modes": {
-          "default": "#d5d7db",
+          "default": "{core.color.neutral-on-dark-600}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -83497,7 +83810,7 @@
       "$type": "color",
       "$value": "#525252",
       "$modes": {
-        "default": "#b2b6bd",
+        "default": "#878a8f",
         "cds-g0": "#525252",
         "cds-g10": "#525252",
         "cds-g90": "#c6c6c6",
@@ -83507,7 +83820,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.textSecondary}",
         "$modes": {
-          "default": "#b2b6bd",
+          "default": "{core.color.neutral-on-dark-400}",
           "cds-g0": "{carbon.themes.white.textSecondary}",
           "cds-g10": "{carbon.themes.g10.textSecondary}",
           "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -83595,7 +83908,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.layer01}",
         "$modes": {
-          "default": "#0d0e12",
+          "default": "{core.color.neutral-on-dark-100}",
           "cds-g0": "{carbon.themes.white.layer01}",
           "cds-g10": "{carbon.themes.g10.layer01}",
           "cds-g90": "{carbon.themes.g90.layer01}",
@@ -83654,6 +83967,7 @@
       "key": "{code-block.surface.color.faint}",
       "$type": "color",
       "$value": "#ffffff",
+      "comment": "Should this be updated to use #15181e like the other hds surface tokens?",
       "$modes": {
         "default": "#15181e",
         "cds-g0": "#f4f4f4",
@@ -83664,6 +83978,7 @@
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.g10.layer01}",
+        "comment": "Should this be updated to use {core.color.neutral-on-dark-200} like the other hds surface tokens?",
         "$modes": {
           "default": "#15181e",
           "cds-g0": "{carbon.themes.white.layer01}",
@@ -83884,7 +84199,7 @@
       "$type": "color",
       "$value": "#e0e0e0",
       "$modes": {
-        "default": "#ffffff",
+        "default": "#15181e",
         "cds-g0": "#e0e0e0",
         "cds-g10": "#e0e0e0",
         "cds-g90": "#e0e0e0",
@@ -83894,7 +84209,7 @@
         "$type": "color",
         "$value": "{button.surface.color.secondary-muted.default}",
         "$modes": {
-          "default": "{code-block.surface.color.faint}",
+          "default": "{core.color.neutral-on-dark-200}",
           "cds-g0": "{button.surface.color.secondary-muted.default}",
           "cds-g10": "{button.surface.color.secondary-muted.default}",
           "cds-g90": "{button.surface.color.secondary-muted.default}",
@@ -83964,7 +84279,7 @@
         "$type": "color",
         "$value": "{button.surface.color.secondary-muted.active}",
         "$modes": {
-          "default": "#2b303c",
+          "default": "{core.color.neutral-on-dark-300}",
           "cds-g0": "{button.surface.color.secondary-muted.active}",
           "cds-g10": "{button.surface.color.secondary-muted.active}",
           "cds-g90": "{button.surface.color.secondary-muted.active}",
@@ -110338,6 +110653,109 @@
         "critical"
       ]
     },
+    "hds-app-footer-border-color": {
+      "key": "{app-footer.border.color}",
+      "$type": "color",
+      "$value": "#b2b6bd66",
+      "alpha": "0.4",
+      "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "alpha": "0.4",
+        "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+        "key": "{app-footer.border.color}"
+      },
+      "name": "hds-app-footer-border-color",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "border",
+        "color"
+      ]
+    },
+    "hds-app-footer-foreground-color-default": {
+      "key": "{app-footer.foreground.color.default}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.color.default}"
+      },
+      "name": "hds-app-footer-foreground-color-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-default": {
+      "key": "{app-footer.foreground.action.default}",
+      "$type": "color",
+      "$value": "#b2b6bd",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "key": "{app-footer.foreground.action.default}"
+      },
+      "name": "hds-app-footer-foreground-action-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-hover": {
+      "key": "{app-footer.foreground.action.hover}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.action.hover}"
+      },
+      "name": "hds-app-footer-foreground-action-hover",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "hover"
+      ]
+    },
+    "hds-app-footer-foreground-action-active": {
+      "key": "{app-footer.foreground.action.active}",
+      "$type": "color",
+      "$value": "#efeff1",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-700}",
+        "key": "{app-footer.foreground.action.active}"
+      },
+      "name": "hds-app-footer-foreground-action-active",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "active"
+      ]
+    },
     "hds-app-footer-link-focus-outline-width": {
       "key": "{app-footer.link.focus.outline.width}",
       "$type": "dimension",
@@ -117501,7 +117919,7 @@
         "$type": "color",
         "$value": "{carbon.color.white.0}",
         "$modes": {
-          "default": "#efeff1",
+          "default": "{core.color.neutral-on-dark-700}",
           "cds-g0": "{carbon.color.gray.70}",
           "cds-g10": "{carbon.color.gray.70}",
           "cds-g90": "{carbon.color.white.0}",
@@ -117535,7 +117953,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.textPrimary}",
         "$modes": {
-          "default": "#d5d7db",
+          "default": "{core.color.neutral-on-dark-600}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -117559,7 +117977,7 @@
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
-        "default": "#b2b6bd",
+        "default": "#878a8f",
         "cds-g0": "#525252",
         "cds-g10": "#525252",
         "cds-g90": "#c6c6c6",
@@ -117569,7 +117987,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.textSecondary}",
         "$modes": {
-          "default": "#b2b6bd",
+          "default": "{core.color.neutral-on-dark-400}",
           "cds-g0": "{carbon.themes.white.textSecondary}",
           "cds-g10": "{carbon.themes.g10.textSecondary}",
           "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -117657,7 +118075,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.layer01}",
         "$modes": {
-          "default": "#0d0e12",
+          "default": "{core.color.neutral-on-dark-100}",
           "cds-g0": "{carbon.themes.white.layer01}",
           "cds-g10": "{carbon.themes.g10.layer01}",
           "cds-g90": "{carbon.themes.g90.layer01}",
@@ -117716,6 +118134,7 @@
       "key": "{code-block.surface.color.faint}",
       "$type": "color",
       "$value": "#393939",
+      "comment": "Should this be updated to use #15181e like the other hds surface tokens?",
       "$modes": {
         "default": "#15181e",
         "cds-g0": "#f4f4f4",
@@ -117726,6 +118145,7 @@
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.g90.layer01}",
+        "comment": "Should this be updated to use {core.color.neutral-on-dark-200} like the other hds surface tokens?",
         "$modes": {
           "default": "#15181e",
           "cds-g0": "{carbon.themes.white.layer01}",
@@ -117946,7 +118366,7 @@
       "$type": "color",
       "$value": "#525252",
       "$modes": {
-        "default": "#393939",
+        "default": "#15181e",
         "cds-g0": "#525252",
         "cds-g10": "#525252",
         "cds-g90": "#525252",
@@ -117956,7 +118376,7 @@
         "$type": "color",
         "$value": "{button.surface.color.secondary-muted.default}",
         "$modes": {
-          "default": "{code-block.surface.color.faint}",
+          "default": "{core.color.neutral-on-dark-200}",
           "cds-g0": "{button.surface.color.secondary-muted.default}",
           "cds-g10": "{button.surface.color.secondary-muted.default}",
           "cds-g90": "{button.surface.color.secondary-muted.default}",
@@ -118026,7 +118446,7 @@
         "$type": "color",
         "$value": "{button.surface.color.secondary-muted.active}",
         "$modes": {
-          "default": "#2b303c",
+          "default": "{core.color.neutral-on-dark-300}",
           "cds-g0": "{button.surface.color.secondary-muted.active}",
           "cds-g10": "{button.surface.color.secondary-muted.active}",
           "cds-g90": "{button.surface.color.secondary-muted.active}",
@@ -144400,6 +144820,109 @@
         "critical"
       ]
     },
+    "hds-app-footer-border-color": {
+      "key": "{app-footer.border.color}",
+      "$type": "color",
+      "$value": "#b2b6bd66",
+      "alpha": "0.4",
+      "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "alpha": "0.4",
+        "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+        "key": "{app-footer.border.color}"
+      },
+      "name": "hds-app-footer-border-color",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "border",
+        "color"
+      ]
+    },
+    "hds-app-footer-foreground-color-default": {
+      "key": "{app-footer.foreground.color.default}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.color.default}"
+      },
+      "name": "hds-app-footer-foreground-color-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "color",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-default": {
+      "key": "{app-footer.foreground.action.default}",
+      "$type": "color",
+      "$value": "#b2b6bd",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "key": "{app-footer.foreground.action.default}"
+      },
+      "name": "hds-app-footer-foreground-action-default",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "default"
+      ]
+    },
+    "hds-app-footer-foreground-action-hover": {
+      "key": "{app-footer.foreground.action.hover}",
+      "$type": "color",
+      "$value": "#d5d7db",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-600}",
+        "key": "{app-footer.foreground.action.hover}"
+      },
+      "name": "hds-app-footer-foreground-action-hover",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "hover"
+      ]
+    },
+    "hds-app-footer-foreground-action-active": {
+      "key": "{app-footer.foreground.action.active}",
+      "$type": "color",
+      "$value": "#efeff1",
+      "original": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-700}",
+        "key": "{app-footer.foreground.action.active}"
+      },
+      "name": "hds-app-footer-foreground-action-active",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "foreground",
+        "action",
+        "active"
+      ]
+    },
     "hds-app-footer-link-focus-outline-width": {
       "key": "{app-footer.link.focus.outline.width}",
       "$type": "dimension",
@@ -151563,7 +152086,7 @@
         "$type": "color",
         "$value": "{carbon.color.white.0}",
         "$modes": {
-          "default": "#efeff1",
+          "default": "{core.color.neutral-on-dark-700}",
           "cds-g0": "{carbon.color.gray.70}",
           "cds-g10": "{carbon.color.gray.70}",
           "cds-g90": "{carbon.color.white.0}",
@@ -151597,7 +152120,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.textPrimary}",
         "$modes": {
-          "default": "#d5d7db",
+          "default": "{core.color.neutral-on-dark-600}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -151621,7 +152144,7 @@
       "$type": "color",
       "$value": "#c6c6c6",
       "$modes": {
-        "default": "#b2b6bd",
+        "default": "#878a8f",
         "cds-g0": "#525252",
         "cds-g10": "#525252",
         "cds-g90": "#c6c6c6",
@@ -151631,7 +152154,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.textSecondary}",
         "$modes": {
-          "default": "#b2b6bd",
+          "default": "{core.color.neutral-on-dark-400}",
           "cds-g0": "{carbon.themes.white.textSecondary}",
           "cds-g10": "{carbon.themes.g10.textSecondary}",
           "cds-g90": "{carbon.themes.g90.textSecondary}",
@@ -151719,7 +152242,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.layer01}",
         "$modes": {
-          "default": "#0d0e12",
+          "default": "{core.color.neutral-on-dark-100}",
           "cds-g0": "{carbon.themes.white.layer01}",
           "cds-g10": "{carbon.themes.g10.layer01}",
           "cds-g90": "{carbon.themes.g90.layer01}",
@@ -151778,6 +152301,7 @@
       "key": "{code-block.surface.color.faint}",
       "$type": "color",
       "$value": "#262626",
+      "comment": "Should this be updated to use #15181e like the other hds surface tokens?",
       "$modes": {
         "default": "#15181e",
         "cds-g0": "#f4f4f4",
@@ -151788,6 +152312,7 @@
       "original": {
         "$type": "color",
         "$value": "{carbon.themes.g100.layer01}",
+        "comment": "Should this be updated to use {core.color.neutral-on-dark-200} like the other hds surface tokens?",
         "$modes": {
           "default": "#15181e",
           "cds-g0": "{carbon.themes.white.layer01}",
@@ -152008,7 +152533,7 @@
       "$type": "color",
       "$value": "#393939",
       "$modes": {
-        "default": "#262626",
+        "default": "#15181e",
         "cds-g0": "#393939",
         "cds-g10": "#393939",
         "cds-g90": "#393939",
@@ -152018,7 +152543,7 @@
         "$type": "color",
         "$value": "{button.surface.color.secondary-muted.default}",
         "$modes": {
-          "default": "{code-block.surface.color.faint}",
+          "default": "{core.color.neutral-on-dark-200}",
           "cds-g0": "{button.surface.color.secondary-muted.default}",
           "cds-g10": "{button.surface.color.secondary-muted.default}",
           "cds-g90": "{button.surface.color.secondary-muted.default}",
@@ -152088,7 +152613,7 @@
         "$type": "color",
         "$value": "{button.surface.color.secondary-muted.active}",
         "$modes": {
-          "default": "#2b303c",
+          "default": "{core.color.neutral-on-dark-300}",
           "cds-g0": "{button.surface.color.secondary-muted.active}",
           "cds-g10": "{button.surface.color.secondary-muted.active}",
           "cds-g90": "{button.surface.color.secondary-muted.active}",
