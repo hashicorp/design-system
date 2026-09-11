@@ -88,6 +88,11 @@
   --hds-alert-title-foreground-color-success: var(--hds-foreground-color-success-on-surface);
   --hds-alert-title-foreground-color-warning: var(--hds-foreground-color-warning-on-surface);
   --hds-alert-typography-line-height: var(--hds-typography-body-200-line-height);
+  --hds-app-footer-border-color: #b2b6bd66; /** Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps? */
+  --hds-app-footer-foreground-action-active: #efeff1;
+  --hds-app-footer-foreground-action-default: #b2b6bd;
+  --hds-app-footer-foreground-action-hover: #d5d7db;
+  --hds-app-footer-foreground-color-default: #d5d7db;
   --hds-app-footer-link-focus-outline-color: var(--hds-focus-color-action-internal);
   --hds-app-footer-link-focus-outline-width: 2px;
   --hds-app-header-actions-gap: 12px;
@@ -273,16 +278,16 @@
   --hds-code-block-border-color-primary: rgba(178, 182, 189, 0.2);
   --hds-code-block-border-color-strong: rgba(178, 182, 189, 0.4);
   --hds-code-block-button-surface-color-active: #2b303c;
-  --hds-code-block-button-surface-color-default: var(--hds-code-block-surface-color-faint);
+  --hds-code-block-button-surface-color-default: #15181e;
   --hds-code-block-button-surface-color-hover: var(--hds-code-block-surface-color-primary);
   --hds-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --hds-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
   --hds-code-block-foreground-color-action: #2b89ff;
-  --hds-code-block-foreground-color-faint: #b2b6bd;
+  --hds-code-block-foreground-color-faint: #878a8f;
   --hds-code-block-foreground-color-primary: #d5d7db;
   --hds-code-block-line-highlight-border-color: #1555d4;
   --hds-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
-  --hds-code-block-surface-color-faint: #15181e;
+  --hds-code-block-surface-color-faint: #15181e; /** Should this be updated to use #15181e like the other hds surface tokens? */
   --hds-code-block-surface-color-primary-with-alpha: #0d0e1240;
   --hds-code-block-surface-color-primary: #0d0e12;
   --hds-code-block-syntax-highlight-color-blue: #2d8eff;

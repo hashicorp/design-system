@@ -247,6 +247,11 @@
   --hds-alert-inline-border-left-color-success: #cceeda;
   --hds-alert-inline-border-left-color-warning: #fbeabf;
   --hds-alert-inline-border-left-color-critical: #fbd4d4;
+  --hds-app-footer-border-color: #b2b6bd66; /** Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps? */
+  --hds-app-footer-foreground-color-default: #d5d7db;
+  --hds-app-footer-foreground-action-default: #b2b6bd;
+  --hds-app-footer-foreground-action-hover: #d5d7db;
+  --hds-app-footer-foreground-action-active: #efeff1;
   --hds-app-footer-link-focus-outline-width: 2px;
   --hds-app-footer-link-focus-outline-color: #0c56e9;
   --hds-app-header-padding-top: 12px;
@@ -465,12 +470,12 @@
   --hds-code-block-syntax-highlight-color-yellow: #ffeb3b;
   --hds-code-block-syntax-highlight-color-white: #efeff1;
   --hds-code-block-foreground-color-primary: #d5d7db;
-  --hds-code-block-foreground-color-faint: #b2b6bd;
+  --hds-code-block-foreground-color-faint: #878a8f;
   --hds-code-block-foreground-color-action: #2b89ff;
   --hds-code-block-foreground-color-selection: #0d0e12;
   --hds-code-block-surface-color-primary: #0d0e12;
   --hds-code-block-surface-color-primary-with-alpha: #0d0e1240;
-  --hds-code-block-surface-color-faint: #15181e;
+  --hds-code-block-surface-color-faint: #15181e; /** Should this be updated to use #15181e like the other hds surface tokens? */
   --hds-code-block-surface-color-selection: #86ff13;
   --hds-code-block-border-color-strong: rgba(178, 182, 189, 0.4);
   --hds-code-block-border-color-primary: rgba(178, 182, 189, 0.2);
