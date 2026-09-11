@@ -35,7 +35,6 @@ overrides:
   socket.io-parser: 4.2.6
   systeminformation: 5.31.6
   tmp: 0.2.7
-  undici: 6.27.0
   underscore: 1.13.8
   ws: 8.21.0
   yaml@1: 1.10.3
@@ -356,11 +355,11 @@ importers:
         specifier: ^9.27.0
         version: 9.32.0
       '@figma-export/cli':
-        specifier: ^6.0.2
-        version: 6.2.2
+        specifier: ^6.4.1
+        version: 6.4.1
       '@figma-export/core':
-        specifier: ^6.3.0
-        version: 6.3.0
+        specifier: ^6.4.1
+        version: 6.4.1
       '@figma-export/output-components-as-svg':
         specifier: ^6.0.1
         version: 6.2.2
@@ -2767,13 +2766,13 @@ packages:
     resolution: {integrity: sha512-Ul5l+lHEcw3L5+k8POx6r74mxEYKG5kOb6Xpy2gCRW6zweT6TEhAf8vhxGgjhqrd/VO/Dirhsb+1hNpD1ue9hw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@figma-export/cli@6.2.2':
-    resolution: {integrity: sha512-5oIjv8qb8zf4nu03Gd4F8euZypz9NfCRUOAeLAZuKOsHiQzCMQiPWvMAXGhE1nndEZ4k6VpnfhA8Wj0v+Tu/Ww==}
+  '@figma-export/cli@6.4.1':
+    resolution: {integrity: sha512-zWDIV0MyDq4pyH2WLGWqBQSFVJNcjT0L1+XWTuVi4F5xo2dHjYJOI0AvZYCHAhEbG2fZn0i76fYjSDZTfp0QAA==}
     engines: {node: '>= 18.18'}
     hasBin: true
 
-  '@figma-export/core@6.3.0':
-    resolution: {integrity: sha512-zcwUp5kX99w/Cs0wE4mlb6h8h7fvMj0O9LKrKaOXPShEY7GxHoZ+NnzN0QCxa8tvKQ5jZ+umWr0ZjQbrMSkpLQ==}
+  '@figma-export/core@6.4.1':
+    resolution: {integrity: sha512-VPkKqZaxGhKGxxwS9AKjGffUoRnbgc8okz3Z5Nq+HuQr3RdqTdvqgQ4ASOHeSyB7BEfqgOV+OvTrS4lsHDFbXA==}
     engines: {node: '>= 18.18'}
 
   '@figma-export/output-components-as-svg@6.2.2':
@@ -2788,11 +2787,18 @@ packages:
     resolution: {integrity: sha512-lpamT+DcidQ+YpSnKCV6KT9fxpAS/XkUxhyRZ8dt1IKxHOnZJMfwBxN2j1PjgiwCijzy9k794E/5NeFvdd1x3g==}
     engines: {node: '>= 18.18'}
 
+  '@figma-export/types@6.4.1':
+    resolution: {integrity: sha512-SOPFKIRzz67difSEASjU/2qmq0CAr90tMfrwKdeYoWosrIACsUFrBhKBAlxQUCIvPNS/Jz+3xAgOl1Mg47kDoQ==}
+    engines: {node: '>= 18.18'}
+
   '@figma/rest-api-spec@0.34.0':
     resolution: {integrity: sha512-eyKqo1S1e2dzpfF6WGNgMT1XPciUwH6MeZDi3qfrSAp4kqNauHwuGHOMTnZFTydF93FYpdg0T6Hp9lsJu8bDcg==}
 
   '@figma/rest-api-spec@0.37.0':
     resolution: {integrity: sha512-KKeCgSRiO2gajT/sKCAsn48ubl8NRbYqyIvfkk5+NPK2ar+DVuLKg3fl3/cR1WharC5Dg4V5a9JzDsYv04k50g==}
+
+  '@figma/rest-api-spec@0.40.0':
+    resolution: {integrity: sha512-Rg2tPsUWF/TPIDYYvo1ya6q3WU+5chI3MM8yMFZS+ti7NWbVne67oSRIgy5EDUKXc2BdMgEQMB4Sp1Cvya/HOw==}
 
   '@floating-ui/core@1.7.3':
     resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
@@ -10057,8 +10063,8 @@ packages:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
     engines: {node: '>=10'}
 
-  p-limit@7.2.0:
-    resolution: {integrity: sha512-ATHLtwoTNDloHRFFxFJdHnG6n2WUeFjaR8XQMFdKIv0xkXjrER8/iG9iu265jOM95zXHAfv9oTkqhrfbIzosrQ==}
+  p-limit@7.3.2:
+    resolution: {integrity: sha512-Ll0w3fU24vYpXoZmjjZIee6bJQDgG0oAyo1PdmFYI8UDwJJddaHAypxIH9avUu+t+lSsAwKVsb1jDCMIIChliw==}
     engines: {node: '>=20'}
 
   p-locate@2.0.0:
@@ -14760,18 +14766,18 @@ snapshots:
       '@eslint/core': 0.15.1
       levn: 0.4.1
 
-  '@figma-export/cli@6.2.2':
+  '@figma-export/cli@6.4.1':
     dependencies:
-      '@figma-export/core': 6.3.0
-      '@figma-export/types': 6.4.0
+      '@figma-export/core': 6.4.1
+      '@figma-export/types': 6.4.1
       ora: 8.2.0
       sade: 1.8.1
 
-  '@figma-export/core@6.3.0':
+  '@figma-export/core@6.4.1':
     dependencies:
-      '@figma-export/types': 6.4.0
-      '@figma/rest-api-spec': 0.34.0
-      p-limit: 7.2.0
+      '@figma-export/types': 6.4.1
+      '@figma/rest-api-spec': 0.40.0
+      p-limit: 7.3.2
       p-retry: 7.1.1
       undici: 6.27.0
 
@@ -14788,9 +14794,15 @@ snapshots:
     dependencies:
       '@figma/rest-api-spec': 0.34.0
 
+  '@figma-export/types@6.4.1':
+    dependencies:
+      '@figma/rest-api-spec': 0.40.0
+
   '@figma/rest-api-spec@0.34.0': {}
 
   '@figma/rest-api-spec@0.37.0': {}
+
+  '@figma/rest-api-spec@0.40.0': {}
 
   '@floating-ui/core@1.7.3':
     dependencies:
@@ -25095,7 +25107,7 @@ snapshots:
     dependencies:
       yocto-queue: 0.1.0
 
-  p-limit@7.2.0:
+  p-limit@7.3.2:
     dependencies:
       yocto-queue: 1.2.2
 

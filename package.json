@@ -54,7 +54,6 @@
       "socket.io-parser": "4.2.6",
       "systeminformation": "5.31.6",
       "tmp": "0.2.7",
-      "undici": "6.27.0",
       "underscore": "1.13.8",
       "ws": "8.21.0",
       "yaml@1": "1.10.3",

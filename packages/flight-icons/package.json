@@ -24,8 +24,8 @@
   "devDependencies": {
     "@eslint/js": "^9.27.0",
     "@carbon/icons": "^11.84.0",
-    "@figma-export/cli": "^6.0.2",
-    "@figma-export/core": "^6.3.0",
+    "@figma-export/cli": "^6.4.1",
+    "@figma-export/core": "^6.4.1",
     "@figma-export/output-components-as-svg": "^6.0.1",
     "@figma-export/transform-svg-with-svgo": "^6.4.0",
     "@figma-export/types": "^6.0.0",
