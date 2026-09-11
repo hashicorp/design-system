@@ -1,6 +1,1 @@
-/**
- * Copyright IBM Corp. 2021, 2026
- * SPDX-License-Identifier: MPL-2.0
- */
-
 export default `<symbol id="hds-icon-flight-ansible-community-color-16" viewBox="0 0 16 16"><path fill="#000" d="M14.15 13.8 9 1.5c-.15-.35-.45-.55-.8-.55s-.65.2-.8.55L1.75 14.95H3.7L5.95 9.4l6.65 5.35c.25.2.45.3.7.3.5 0 .95-.35.95-.9 0-.1-.05-.2-.1-.35M8.2 3.7l3.35 8.2L6.5 7.95z"/></symbol>`;

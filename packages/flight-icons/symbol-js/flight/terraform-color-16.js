@@ -1,6 +1,1 @@
-/**
- * Copyright IBM Corp. 2021, 2026
- * SPDX-License-Identifier: MPL-2.0
- */
-
 export default `<symbol id="hds-icon-flight-terraform-color-16" viewBox="0 0 16 16"><g fill="#7b42bc" fill-rule="evenodd" clip-rule="evenodd"><path d="m5.825 2.82 4.35 2.524v5.052L5.825 7.87zM10.651 5.344v5.052L15 7.87V2.82zM1 0v5.05l4.349 2.527V2.526zM5.825 13.474 10.174 16v-5.05L5.825 8.422z"/></g></symbol>`;
