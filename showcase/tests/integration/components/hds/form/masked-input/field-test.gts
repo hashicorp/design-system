@@ -230,7 +230,7 @@ module(
         .hasAttribute('aria-controls', 'test-form-masked-input');
     });
 
-    test('it updates the button label on toggle', async function (assert) {
+    test('it should update the aria-pressed state on toggle', async function (assert) {
       await render(
         <template>
           <HdsFormMaskedInputField @id="test-form-masked-input" />
@@ -238,11 +238,15 @@ module(
       );
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Show masked content');
+        .hasAttribute('aria-pressed', 'false');
       await click('.hds-form-visibility-toggle');
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Hide masked content');
+        .hasAttribute('aria-pressed', 'true');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasAttribute('aria-pressed', 'false');
     });
 
     test('it renders a custom toggle button label', async function (assert) {
@@ -250,13 +254,13 @@ module(
         <template>
           <HdsFormMaskedInputField
             @id="test-form-masked-input"
-            @visibilityToggleAriaLabel="Show my masked content"
+            @visibilityToggleAriaLabel="Toggle my masked content"
           />
         </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasAttribute('aria-label', 'Show my masked content');
+        .hasAttribute('aria-label', 'Toggle my masked content');
     });
 
     test('it informs the user about visibility change on toggle', async function (assert) {
@@ -275,18 +279,24 @@ module(
         .hasText('Input content is hidden');
     });
 
-    test('it renders a custom message on toggle', async function (assert) {
+    test('it renders custom messages for both states on toggle', async function (assert) {
       await render(
         <template>
           <HdsFormMaskedInputField
             @id="test-form-masked-input"
-            @visibilityToggleAriaMessageText="My input content is visible"
+            @visibilityToggleAriaMessageText="My input content is hidden"
+            @visibilityToggleAriaMessageTextWhenVisible="My input content is visible"
           />
         </template>,
       );
+      await click('.hds-form-visibility-toggle');
       assert
         .dom('.hds-form-visibility-toggle')
         .hasText('My input content is visible');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('My input content is hidden');
     });
   },
 );

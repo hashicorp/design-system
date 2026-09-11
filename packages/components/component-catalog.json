@@ -7155,6 +7155,11 @@
           "required": false
         },
         {
+          "name": "visibilityToggleAriaMessageTextWhenVisible",
+          "type": "string",
+          "required": false
+        },
+        {
           "name": "width",
           "type": "string",
           "required": false
@@ -7248,6 +7253,12 @@
         },
         {
           "name": "visibilityToggleAriaMessageText",
+          "type": "string",
+          "required": false,
+          "inheritedFrom": "hds/form/masked-input/base"
+        },
+        {
+          "name": "visibilityToggleAriaMessageTextWhenVisible",
           "type": "string",
           "required": false,
           "inheritedFrom": "hds/form/masked-input/base"
@@ -9912,6 +9923,11 @@
           "required": false
         },
         {
+          "name": "visibilityToggleAriaMessageTextWhenVisible",
+          "type": "string",
+          "required": false
+        },
+        {
           "name": "width",
           "type": "string",
           "required": false,
@@ -10093,6 +10109,11 @@
         },
         {
           "name": "ariaMessageText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ariaMessageTextWhenVisible",
           "type": "string",
           "required": false
         },
