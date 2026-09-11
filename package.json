@@ -48,7 +48,6 @@
       "path-to-regexp@0": "0.1.13",
       "path-to-regexp@8": "8.4.2",
       "qs": "6.15.2",
-      "socket.io-parser": "4.2.6",
       "systeminformation": "5.31.6",
       "tmp": "0.2.7",
       "underscore": "1.13.8",
