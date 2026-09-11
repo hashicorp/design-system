@@ -137,6 +137,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-alert-title-foreground-color-success: #161616;
   --hds-alert-title-foreground-color-warning: #161616;
   --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-border-color: #b2b6bd66;
   --hds-app-footer-link-focus-outline-color: #0f62fe;
   --hds-app-footer-link-focus-outline-width: 1px;
   --hds-app-header-actions-gap: 0px;
@@ -1014,6 +1015,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-alert-title-foreground-color-success: #161616;
     --hds-alert-title-foreground-color-warning: #161616;
     --hds-alert-typography-line-height: 1.28572;
+    --hds-app-footer-border-color: #b2b6bd66;
     --hds-app-footer-link-focus-outline-color: #0f62fe;
     --hds-app-footer-link-focus-outline-width: 1px;
     --hds-app-header-actions-gap: 0px;
@@ -1903,6 +1905,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-alert-title-foreground-color-success: #f4f4f4;
     --hds-alert-title-foreground-color-warning: #f4f4f4;
     --hds-alert-typography-line-height: 1.28572;
+    --hds-app-footer-border-color: #b2b6bd66;
     --hds-app-footer-link-focus-outline-color: #ffffff;
     --hds-app-footer-link-focus-outline-width: 1px;
     --hds-app-header-actions-gap: 0px;
@@ -2821,6 +2824,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-alert-title-foreground-color-success: #161616;
   --hds-alert-title-foreground-color-warning: #161616;
   --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-border-color: #b2b6bd66;
   --hds-app-footer-link-focus-outline-color: #0f62fe;
   --hds-app-footer-link-focus-outline-width: 1px;
   --hds-app-header-actions-gap: 0px;
@@ -3697,6 +3701,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-alert-title-foreground-color-success: #f4f4f4;
   --hds-alert-title-foreground-color-warning: #f4f4f4;
   --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-border-color: #b2b6bd66;
   --hds-app-footer-link-focus-outline-color: #ffffff;
   --hds-app-footer-link-focus-outline-width: 1px;
   --hds-app-header-actions-gap: 0px;
@@ -4632,6 +4637,10 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-alert-title-foreground-color-neutral: var(
     --hds-foreground-color-primary
   );
+  --hds-app-footer-foreground-action-active: #efeff1;
+  --hds-app-footer-foreground-action-default: #b2b6bd;
+  --hds-app-footer-foreground-action-hover: #d5d7db;
+  --hds-app-footer-foreground-color-default: #d5d7db;
   --hds-app-header-button-foreground-color-disabled: var(
     --hds-foreground-color-disabled
   );

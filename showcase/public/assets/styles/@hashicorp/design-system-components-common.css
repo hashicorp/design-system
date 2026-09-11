@@ -1838,14 +1838,14 @@
 }
 
 .hds-app-footer--theme-dark {
-  --app-footer-foreground-color: #b2b6bd;
-  --app-footer-border-top-color: #b2b6bd66;
-  --app-footer-link-foreground-color-default: #b2b6bd;
-  --app-footer-link-foreground-color-hover: #d5d7db;
-  --app-footer-link-foreground-color-active: #efeff1;
-  --app-footer-link-foreground-color-focus: #b2b6bd;
+  --app-footer-foreground-color: var(--hds-app-footer-foreground-color-default);
+  --app-footer-border-top-color: var(--hds-app-footer-border-color);
+  --app-footer-link-foreground-color-default: var(--hds-app-footer-foreground-color-action-default);
+  --app-footer-link-foreground-color-hover: var(--hds-app-footer-foreground-color-action-hover);
+  --app-footer-link-foreground-color-active: var(--hds-app-footer-foreground-color-action-active);
+  --app-footer-link-foreground-color-focus: var(--hds-app-footer-foreground-color-action-default);
   --app-footer-link-outline-color: #389aff;
-  --app-footer-copyright-text-color: #b2b6bd;
+  --app-footer-copyright-text-color: var(--hds-app-footer-foreground-color-default);
   --app-footer-copyright-icon-color: #fff;
   --app-footer-status-link-icon-operational-color: #009241;
   --app-footer-status-link-icon-degraded-color: #e88c03;

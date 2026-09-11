@@ -50,6 +50,10 @@
   --hds-alert-page-padding-horizontal: 48px;
   --hds-alert-surface-color-neutral: var(--hds-surface-color-faint);
   --hds-alert-title-foreground-color-neutral: var(--hds-foreground-color-primary);
+  --hds-app-footer-foreground-action-active: #efeff1;
+  --hds-app-footer-foreground-action-default: #b2b6bd;
+  --hds-app-footer-foreground-action-hover: #d5d7db;
+  --hds-app-footer-foreground-color-default: #d5d7db;
   --hds-app-header-button-foreground-color-disabled: var(--hds-foreground-color-disabled);
   --hds-app-header-home-link-logo-size: 28px;
   --hds-app-side-nav-body-list-item-border-radius: var(--hds-border-radius-small);

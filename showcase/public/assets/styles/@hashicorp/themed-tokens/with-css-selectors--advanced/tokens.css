@@ -187,6 +187,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-alert-typography-line-height: var(
     --hds-typography-body-200-line-height
   );
+  --hds-app-footer-border-color: #b2b6bd66;
   --hds-app-footer-link-focus-outline-color: var(
     --hds-focus-color-action-internal
   );
@@ -530,16 +531,14 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-code-block-border-color-primary: rgba(178, 182, 189, 0.2);
   --hds-code-block-border-color-strong: rgba(178, 182, 189, 0.4);
   --hds-code-block-button-surface-color-active: #2b303c;
-  --hds-code-block-button-surface-color-default: var(
-    --hds-code-block-surface-color-faint
-  );
+  --hds-code-block-button-surface-color-default: #15181e;
   --hds-code-block-button-surface-color-hover: var(
     --hds-code-block-surface-color-primary
   );
   --hds-code-block-focus-ring-color-action-external: #0d69f2; /** TODO: Remove once global tokens for dark themes are implemented */
   --hds-code-block-focus-ring-color-action-internal: #9bc7fd; /** TODO: Remove once global tokens for dark themes are implemented */
   --hds-code-block-foreground-color-action: #2b89ff;
-  --hds-code-block-foreground-color-faint: #b2b6bd;
+  --hds-code-block-foreground-color-faint: #878a8f;
   --hds-code-block-foreground-color-primary: #d5d7db;
   --hds-code-block-line-highlight-border-color: #1555d4;
   --hds-code-block-line-highlight-surface-color: rgba(0, 74, 222, 0.2);
@@ -1534,6 +1533,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-alert-title-foreground-color-success: #161616;
     --hds-alert-title-foreground-color-warning: #161616;
     --hds-alert-typography-line-height: 1.28572;
+    --hds-app-footer-border-color: #b2b6bd66;
     --hds-app-footer-link-focus-outline-color: #0f62fe;
     --hds-app-footer-link-focus-outline-width: 1px;
     --hds-app-header-actions-gap: 0px;
@@ -2423,6 +2423,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-alert-title-foreground-color-success: #f4f4f4;
     --hds-alert-title-foreground-color-warning: #f4f4f4;
     --hds-alert-typography-line-height: 1.28572;
+    --hds-app-footer-border-color: #b2b6bd66;
     --hds-app-footer-link-focus-outline-color: #ffffff;
     --hds-app-footer-link-focus-outline-width: 1px;
     --hds-app-header-actions-gap: 0px;
@@ -3342,6 +3343,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-alert-title-foreground-color-success: #161616;
   --hds-alert-title-foreground-color-warning: #161616;
   --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-border-color: #b2b6bd66;
   --hds-app-footer-link-focus-outline-color: #0f62fe;
   --hds-app-footer-link-focus-outline-width: 1px;
   --hds-app-header-actions-gap: 0px;
@@ -4219,6 +4221,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-alert-title-foreground-color-success: #f4f4f4;
   --hds-alert-title-foreground-color-warning: #f4f4f4;
   --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-border-color: #b2b6bd66;
   --hds-app-footer-link-focus-outline-color: #ffffff;
   --hds-app-footer-link-focus-outline-width: 1px;
   --hds-app-header-actions-gap: 0px;
@@ -5115,6 +5118,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-alert-title-foreground-color-success: #161616;
   --hds-alert-title-foreground-color-warning: #161616;
   --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-border-color: #b2b6bd66;
   --hds-app-footer-link-focus-outline-color: #0f62fe;
   --hds-app-footer-link-focus-outline-width: 1px;
   --hds-app-header-actions-gap: 0px;
@@ -5991,6 +5995,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-alert-title-foreground-color-success: #f4f4f4;
   --hds-alert-title-foreground-color-warning: #f4f4f4;
   --hds-alert-typography-line-height: 1.28572;
+  --hds-app-footer-border-color: #b2b6bd66;
   --hds-app-footer-link-focus-outline-color: #ffffff;
   --hds-app-footer-link-focus-outline-width: 1px;
   --hds-app-header-actions-gap: 0px;
@@ -6931,6 +6936,10 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-alert-title-foreground-color-neutral: var(
     --hds-foreground-color-primary
   );
+  --hds-app-footer-foreground-action-active: #efeff1;
+  --hds-app-footer-foreground-action-default: #b2b6bd;
+  --hds-app-footer-foreground-action-hover: #d5d7db;
+  --hds-app-footer-foreground-color-default: #d5d7db;
   --hds-app-header-button-foreground-color-disabled: var(
     --hds-foreground-color-disabled
   );
