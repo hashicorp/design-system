@@ -10113,6 +10113,11 @@
           "required": false
         },
         {
+          "name": "ariaMessageTextWhenVisible",
+          "type": "string",
+          "required": false
+        },
+        {
           "name": "isVisible",
           "type": "boolean",
           "required": false
