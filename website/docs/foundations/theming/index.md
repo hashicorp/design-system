@@ -8,7 +8,6 @@ related:
   - patterns/theme-switcher-pattern
 previewImage: assets/illustrations/foundations/theming.jpg
 navigation:
-  order: 101
   keywords: ['theming', 'theme', 'mode', 'light', 'dark', 'carbon']
 ---
 
