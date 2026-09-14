@@ -57,7 +57,7 @@ export default class Colors extends Component {
               modes: token.$modes,
             };
             if (['foreground', 'page', 'surface', 'border'].includes(context)) {
-              tokenObj.cssHelper = token.name;
+              tokenObj.cssHelper = token.name.replace('-color', '');
             }
             colors['semantic'][context].push(tokenObj);
           } else if (token.group === 'branding') {
