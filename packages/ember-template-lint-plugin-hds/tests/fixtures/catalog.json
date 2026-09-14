@@ -1,0 +1,23 @@
+{
+  "valueSets": {
+    "Hds::Icon#name": ["search", "settings"]
+  },
+  "components": [
+    {
+      "name": "Hds::Button",
+      "args": [
+        {
+          "name": "color",
+          "values": ["primary", "secondary", "tertiary"]
+        },
+        {
+          "name": "icon",
+          "valuesRef": "Hds::Icon#name"
+        },
+        {
+          "name": "isFullWidth"
+        }
+      ]
+    }
+  ]
+}

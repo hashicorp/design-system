@@ -1,0 +1,13 @@
+{
+  "id": "tertiary-policy-gjs",
+  "prompt": "Satisfy the HDS tertiary Button icon policy in the embedded template.",
+  "file": "app/components/example.gjs",
+  "tags": ["valid-argument-combinations", "gjs"],
+  "baseline": "const Example = <template><Hds::Button @color=\"tertiary\" /></template>;",
+  "expectedCorrection": "const Example = <template><Hds::Button @color=\"tertiary\" @icon=\"search\" /></template>;",
+  "expectedBaselineRules": ["valid-argument-combinations"],
+  "assertions": {
+    "includes": ["<Hds::Button", "@color=\"tertiary\"", "@icon=\"search\""],
+    "excludes": []
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "@hashicorp/ember-template-lint-plugin-hds",
+  "version": "0.0.0",
+  "description": "HDS-aware rules for ember-template-lint",
+  "keywords": [
+    "ember",
+    "ember-template-lint",
+    "hashicorp",
+    "helios",
+    "design-system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashicorp/design-system.git",
+    "directory": "packages/ember-template-lint-plugin-hds"
+  },
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "type": "module",
+  "exports": "./index.js",
+  "files": [
+    "index.js",
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "format": "prettier . --cache --write",
+    "lint": "eslint . && prettier . --cache --check",
+    "lint:fix": "eslint . --fix && pnpm format",
+    "test": "node --test",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@hashicorp/design-system-components": ">=6.5.0",
+    "ember-template-lint": "^7.0.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@hashicorp/design-system-components": "workspace:^6.5.0",
+    "@types/node": "^22.10.2",
+    "ember-template-lint": "^7.7.0",
+    "eslint": "^9.27.0",
+    "globals": "^16.1.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

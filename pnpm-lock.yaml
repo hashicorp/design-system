@@ -349,6 +349,64 @@ importers:
         specifier: ^5.104.1
         version: 5.107.2(postcss@8.5.16)
 
+  packages/ember-template-lint-plugin-hds:
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.27.0
+        version: 9.32.0
+      '@hashicorp/design-system-components':
+        specifier: workspace:^6.5.0
+        version: file:packages/components(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.17.0
+      ember-template-lint:
+        specifier: ^7.7.0
+        version: 7.9.1
+      eslint:
+        specifier: ^9.27.0
+        version: 9.32.0
+      globals:
+        specifier: ^16.1.0
+        version: 16.3.0
+      prettier:
+        specifier: ^3.5.3
+        version: 3.6.2
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.2
+
+  packages/ember-template-lint-plugin-hds-evals:
+    dependencies:
+      '@hashicorp/ember-template-lint-plugin-hds':
+        specifier: workspace:*
+        version: link:../ember-template-lint-plugin-hds
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.27.0
+        version: 9.32.0
+      '@hashicorp/design-system-components':
+        specifier: workspace:^6.5.0
+        version: file:packages/components(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(@glimmer/component@2.0.0)(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@ember/test-helpers@5.4.0(@glint/template@1.7.7))(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.17.0
+      ember-template-lint:
+        specifier: ^7.7.0
+        version: 7.9.1
+      eslint:
+        specifier: ^9.27.0
+        version: 9.32.0
+      globals:
+        specifier: ^16.1.0
+        version: 16.3.0
+      prettier:
+        specifier: ^3.5.3
+        version: 3.6.2
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.2
+
   packages/flight-icons:
     devDependencies:
       '@carbon/icons':
@@ -7324,6 +7382,7 @@ packages:
   eslint@9.32.0:
     resolution: {integrity: sha512-LSehfdpgMeWcTZkWZVIJl+tkZ2nuSkyyB9C27MZqFWXuph7DvaowgcTvKqxvpLW1JZIk8PN7hFY3Rj9LQ7m7lg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'

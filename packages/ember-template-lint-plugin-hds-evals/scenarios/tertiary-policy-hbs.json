@@ -1,0 +1,13 @@
+{
+  "id": "tertiary-policy-hbs",
+  "prompt": "Satisfy the HDS tertiary Button icon policy.",
+  "file": "app/templates/application.hbs",
+  "tags": ["valid-argument-combinations", "hbs"],
+  "baseline": "<Hds::Button @color=\"tertiary\" />",
+  "expectedCorrection": "<Hds::Button @color=\"tertiary\" @icon=\"search\" />",
+  "expectedBaselineRules": ["valid-argument-combinations"],
+  "assertions": {
+    "includes": ["<Hds::Button", "@color=\"tertiary\"", "@icon=\"search\""],
+    "excludes": []
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "invalid-icon-values-ref-gts",
+  "prompt": "Correct the invalid HDS icon name in the embedded template.",
+  "file": "app/components/example.gts",
+  "tags": ["valid-static-argument-values", "values-ref", "gts"],
+  "baseline": "const Example = <template><Hds::Button @icon=\"serch\" /></template>;",
+  "expectedCorrection": "const Example = <template><Hds::Button @icon=\"search\" /></template>;",
+  "expectedBaselineRules": ["valid-static-argument-values"],
+  "assertions": {
+    "includes": ["<Hds::Button", "@icon=\"search\""],
+    "excludes": ["@icon=\"serch\""]
+  }
+}

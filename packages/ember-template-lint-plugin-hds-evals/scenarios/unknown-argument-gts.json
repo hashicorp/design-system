@@ -1,0 +1,13 @@
+{
+  "id": "unknown-argument-gts",
+  "prompt": "Fix the misspelled HDS Button argument in the embedded template.",
+  "file": "app/components/example.gts",
+  "tags": ["no-unknown-arguments", "gts"],
+  "baseline": "const Example = <template><Hds::Button @isFullWidht={{true}} /></template>;",
+  "expectedCorrection": "const Example = <template><Hds::Button @isFullWidth={{true}} /></template>;",
+  "expectedBaselineRules": ["no-unknown-arguments"],
+  "assertions": {
+    "includes": ["<Hds::Button", "@isFullWidth={{true}}"],
+    "excludes": ["@isFullWidht"]
+  }
+}
