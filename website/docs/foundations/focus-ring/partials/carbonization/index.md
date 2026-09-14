@@ -21,9 +21,3 @@ Below you can see how the `hds-focus-ring-box-shadow` CSS helpers are rendered i
 </Doc::Carbonization::ComparisonGroup>
 
 Because Carbon's focus ring is inset, the `--hds-focus-ring-box-shadow-***` tokens and the `.hds-focus-ring-box-shadow-***` CSS helpers must be applied directly to an element when the element has a background color, and not to a parent, otherwise the box shadow that renders the focus ring will be hidden behind the element's background.
-
----
-
-<!-- TODO update the URL once the new showcase has been released -->
-🎞️ To see more examples of the differences between the focus rings, see [the showcase for the "carbonized" focus ring](https://hds-showcase-git-project-solar-phase-1-main-fe-1ffc6c-hashicorp.vercel.app/carbonization/foundations/focus-ring).
-
