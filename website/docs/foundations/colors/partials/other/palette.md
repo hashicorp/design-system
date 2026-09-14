@@ -1,3 +1,9 @@
+!!! Information
+
+**Note**: the color names and tokens used here refer to the version 7.0 or above of the components package (version 6.0 or above of the tokens package). If you are using an older version, refer to the correct [documentation for your version](/whats-new/release-notes).
+
+!!!
+
 ## Semantic tokens
 
 ### Foreground
