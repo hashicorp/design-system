@@ -160,10 +160,9 @@
         },
         "faint": {
           "$type": "color",
-          "$value": "#15181e",
-          "comment": "Should this be updated to use {core.color.neutral-on-dark-200} like the other hds surface tokens?",
+          "$value": "{core.color.neutral-on-dark-200}",
           "$modes": {
-            "default": "#15181e",
+            "default": "{core.color.neutral-on-dark-200}",
             "cds-g0": "{carbon.themes.white.layer01}",
             "cds-g10": "{carbon.themes.g10.layer01}",
             "cds-g90": "{carbon.themes.g90.layer01}",
