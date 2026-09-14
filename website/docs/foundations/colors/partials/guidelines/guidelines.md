@@ -104,3 +104,11 @@ It is important to note that we [do not recommend the usage of disabled elements
 If Semantic tokens do not meet your needs, the Core Palette is published for general use. These values are usage-agnostic, which can introduce challenges in consistently scaling designs but also allow more freedom and flexibility in color pairing.
 
 When pairing colors from the Core Palette, check that adjacent colors meet accessible contrast ratios. To validate your color combinations, use free tools like the [WebAIM contrast checker](https://webaim.org/resources/contrastchecker/) or [Stark’s Figma plugin](https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-checker).
+
+!!! Warning
+
+Core palette colors don't respond to theming changes. If you need to use them in an application that supports theming, make sure you check how the color behaves in different theme contexts, especially in terms of contrast and accessibility.
+
+Whenever possible, prefer semantic color tokens, which automatically resolve to the correct value for the active theme.
+
+!!!
