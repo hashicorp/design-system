@@ -4,8 +4,7 @@
       "color": {
         "$type": "color",
         "$value": "{core.color.neutral-on-dark-500}",
-        "alpha": "0.4",
-        "comment": "Note: Original AppFooter border-color was semi-transparent so I added an alpha value. Q: Is this ok? Should the token name be changed to border-color-with-alpha perhaps?",
+        "alpha": "0.4"
       }
     },
     "foreground": {
