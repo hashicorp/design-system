@@ -46,7 +46,10 @@ export type TokenCatalogStore = {
 const toSearchBlob = (token: TokenSummary): string => {
   const path = token.path.join(" ");
   const category = token.category ?? "";
-  const value = typeof token.value === "string" ? token.value : "";
+  const value =
+    typeof token.value === "string"
+      ? token.value
+      : (JSON.stringify(token.value) ?? "");
 
   return [token.key, token.name, token.cssVar ?? "", path, category, value]
     .join(" ")

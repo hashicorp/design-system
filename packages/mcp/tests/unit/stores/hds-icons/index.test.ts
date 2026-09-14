@@ -60,6 +60,7 @@ describe("createIconCatalogStore", () => {
       totalIconCount: 2,
       totalAssetCount: 3,
       categories: ["Alerts", "Navigation"],
+      sizes: ["16", "24"],
       source: { version: null, resolvedVia: "default" },
     });
     expect(store.listIcons()).toHaveLength(2);
@@ -133,6 +134,17 @@ describe("createIconCatalogStore", () => {
           limit: 1,
         }).hits[0]?.iconName
       ).toBe("arrow-right");
+    });
+
+    it("filters by size", () => {
+      const store = createIconCatalogStore(catalog);
+
+      expect(
+        store.searchIcons({ query: "arrow-right", limit: 10, size: "16" }).hits,
+      ).toHaveLength(1);
+      expect(
+        store.searchIcons({ query: "arrow-right", limit: 10, size: "24" }).hits,
+      ).toHaveLength(0);
     });
   });
 

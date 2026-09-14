@@ -70,7 +70,7 @@ const DESCRIPTION = [
   "This is a name lookup, not a question answerer: it matches a substring against each component's invocation name, class name, module path and docs route. Pass 'advanced table' or 'Hds::Flyout', not 'how do I make a table sortable'.",
   "Use it to confirm a component exists and to recover its exact invocation name and spelling before writing a template.",
   `Results are thin and omit argument and block details. A result's docsPath is what ${SEARCH_DOCS_TOOL_NAME} takes as its docsPath filter, so that is the way through to what a component's arguments are and how to use it. Every documented component carries one; Hds::Yield is the sole exception.`,
-  "The catalog is read from disk and never fetched. Matching is unranked, so check `truncated`: if it is true, narrow the query rather than assuming the window holds the best matches.",
+  "The catalog is read from disk and never fetched. Exact and prefix matches rank first, so if `truncated` is true, narrow the query or use the first results as the most relevant matches.",
 ].join(" ");
 
 export const searchComponents = (

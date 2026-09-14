@@ -14,6 +14,7 @@ import {
   createSearchComponentsTool,
   searchComponents,
   searchComponentsInputShape,
+  searchComponentsOutputSchema,
 } from "../../../src/tools/components/search-components.js";
 import { createComponentCatalogStore } from "../../../src/stores/components/index.js";
 import { buildComponentCatalogEntry } from "../../support/component-catalog.js";
@@ -158,6 +159,9 @@ describe("search_hds_components tool", () => {
 
     expect(result.isError).toBeUndefined();
     expect(parseToolJson(getToolTextContent(result))).toStrictEqual(
+      result.structuredContent,
+    );
+    expect(searchComponentsOutputSchema.parse(result.structuredContent)).toStrictEqual(
       result.structuredContent,
     );
     expect(result.structuredContent).toMatchObject({ totalMatches: 1 });

@@ -28,6 +28,11 @@ const EXPECTED_TOOL_NAMES = [
   SEARCH_ICONS_TOOL_NAME,
   SEARCH_TOKENS_TOOL_NAME,
 ];
+const TOOLS_WITH_OUTPUT_SCHEMAS = new Set([
+  SEARCH_COMPONENTS_TOOL_NAME,
+  SEARCH_ICONS_TOOL_NAME,
+  SEARCH_TOKENS_TOOL_NAME,
+]);
 
 describe("registerTools", () => {
   it("exposes every tool the package implements, one registration each", () => {
@@ -37,7 +42,7 @@ describe("registerTools", () => {
     expect(names).toStrictEqual([...EXPECTED_TOOL_NAMES].sort());
   });
 
-  it("gives each registered tool a callback and a described input schema", () => {
+  it("gives each registered tool a callback and complete schemas", () => {
     const registrations = captureToolRegistrations(registerTools);
 
     for (const { name, config, callback } of registrations) {
@@ -46,6 +51,12 @@ describe("registerTools", () => {
         config.inputSchema,
         `${name} is missing an inputSchema`
       ).toBeDefined();
+      if (TOOLS_WITH_OUTPUT_SCHEMAS.has(name)) {
+        expect(
+          config.outputSchema,
+          `${name} is missing an outputSchema`,
+        ).toBeDefined();
+      }
       expect(config.description, `${name} is missing a description`).toBeTypeOf(
         "string"
       );

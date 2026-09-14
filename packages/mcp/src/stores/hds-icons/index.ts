@@ -23,6 +23,7 @@ interface SearchIconsInput {
   query: string;
   limit: number;
   category?: string;
+  size?: string;
   hasMapping?: boolean;
 }
 
@@ -37,6 +38,7 @@ export interface IconCatalogStore {
     totalAssetCount: number;
     // the filterable field, so a caller can be told which values actually exist
     categories: string[];
+    sizes: string[];
     source: CatalogSource;
   };
   listIcons: () => IconSummary[];
@@ -109,12 +111,16 @@ export const createIconCatalogStore = (
   const categories = [
     ...new Set(iconRecords.map((icon) => icon.category)),
   ].sort((left, right) => left.localeCompare(right));
+  const sizes = [
+    ...new Set(iconRecords.flatMap((icon) => icon.sizes)),
+  ].sort((left, right) => left.localeCompare(right));
 
   return {
     getMeta: () => ({
       totalIconCount: iconRecords.length,
       totalAssetCount: catalog.assets.length,
       categories,
+      sizes,
       source,
     }),
     listIcons: () => iconRecords.map((icon) => toIconSummary(icon)),
@@ -126,9 +132,10 @@ export const createIconCatalogStore = (
     getIconByName: (nameOrFileName: string) => {
       return iconLookup.get(normalizeLookupValue(nameOrFileName)) ?? null;
     },
-    searchIcons: ({ query, limit, category, hasMapping }: SearchIconsInput) => {
+    searchIcons: ({ query, limit, category, size, hasMapping }: SearchIconsInput) => {
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
+      const normalizedSize = size === undefined ? null : normalizeLookupValue(size);
 
       const { totalMatches, hits } = searchRanked({
         records: iconRecords,
@@ -140,6 +147,10 @@ export const createIconCatalogStore = (
             normalizedCategory !== null &&
             normalizeLookupValue(icon.category) !== normalizedCategory
           ) {
+            return false;
+          }
+
+          if (normalizedSize !== null && !icon.sizes.includes(normalizedSize)) {
             return false;
           }
 

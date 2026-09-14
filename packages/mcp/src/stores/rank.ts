@@ -34,7 +34,11 @@ const SEGMENT_DELIMITER = /[\s:./_-]+/u;
  * `border.radius.small` rather than losing to a token that merely contains the words.
  */
 const canonicalize = (value: string): string => {
-  return value.split(SEGMENT_DELIMITER).filter(Boolean).join(" ");
+  return value
+    .replace(/[{}]/gu, "")
+    .split(SEGMENT_DELIMITER)
+    .filter(Boolean)
+    .join(" ");
 };
 
 export interface RankableEntry {
@@ -63,12 +67,16 @@ export interface RankedSearchInput<TRecord> {
 }
 
 export const scoreIdentity = (identity: string, query: string): number => {
+  const canonicalIdentity = canonicalize(identity);
+  const canonicalQuery = canonicalize(query);
+
+  if (canonicalQuery.length === 0) {
+    return RANK_NONE;
+  }
+
   if (identity === query) {
     return RANK_EXACT;
   }
-
-  const canonicalIdentity = canonicalize(identity);
-  const canonicalQuery = canonicalize(query);
 
   if (canonicalIdentity === canonicalQuery) {
     return RANK_EXACT;
@@ -156,6 +164,10 @@ export const searchRanked = <TRecord>({
       totalMatches: filtered.length,
       hits: filtered.slice(0, limit),
     };
+  }
+
+  if (canonicalize(normalizedQuery).length === 0) {
+    return { totalMatches: 0, hits: [] };
   }
 
   const scored: ScoredEntry<TRecord>[] = [];

@@ -14,6 +14,7 @@ import {
   createSearchTokensTool,
   searchTokens,
   searchTokensInputShape,
+  searchTokensOutputSchema,
 } from "../../../src/tools/tokens/search-tokens.js";
 import { createTokenCatalogStore } from "../../../src/stores/tokens/index.js";
 import { MAX_FILTER_LENGTH } from "../../../src/tools/search.js";
@@ -96,6 +97,13 @@ describe("search_hds_tokens payload", () => {
     expect(
       search({ query: "#1060ff" }).results.map((token) => token.key),
     ).toStrictEqual(["{color.foreground.action}"]);
+  });
+
+  it("does not turn delimiter-only queries into a catalog browse", () => {
+    const payload = search({ query: "-" });
+
+    expect(payload.totalMatches).toBe(0);
+    expect(payload.results).toStrictEqual([]);
   });
 
   it("answers a miss with an empty result set rather than an error", () => {
@@ -194,6 +202,9 @@ describe("search_hds_tokens tool", () => {
 
     expect(result.isError).toBeUndefined();
     expect(parseToolJson(getToolTextContent(result))).toStrictEqual(
+      result.structuredContent,
+    );
+    expect(searchTokensOutputSchema.parse(result.structuredContent)).toStrictEqual(
       result.structuredContent,
     );
     expect(result.structuredContent).toMatchObject({ totalMatches: 2 });

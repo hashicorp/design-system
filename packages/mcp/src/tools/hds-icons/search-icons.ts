@@ -46,6 +46,14 @@ export const searchIconsInputShape = {
     .describe(
       "Restrict to one icon category, e.g. 'Status', 'Arrows', 'Interface' or 'Products'. A value the catalog does not use comes back in unknownFilters alongside the categories that exist.",
     ),
+  size: z
+    .string()
+    .min(1)
+    .max(MAX_FILTER_LENGTH)
+    .optional()
+    .describe(
+      "Restrict to icons available at one size, such as '16' or '24'. A value the catalog does not use comes back in unknownFilters alongside the sizes that exist.",
+    ),
   hasMapping: z
     .boolean()
     .optional()
@@ -69,10 +77,12 @@ export const searchIconsOutputShape = {
   totalIconCount: z.number().int(),
   filters: z.object({
     category: z.string().optional(),
+    size: z.string().optional(),
     hasMapping: z.boolean().optional(),
   }),
   unknownFilters: z.array(z.string()),
   availableCategories: z.array(z.string()).optional(),
+  availableSizes: z.array(z.string()).optional(),
   results: z.array(searchIconsResultShape),
   source: catalogSourceOutputSchema,
 };
@@ -83,6 +93,7 @@ export interface SearchIconsInput {
   query: string;
   limit: number;
   category?: string;
+  size?: string;
   hasMapping?: boolean;
 }
 
@@ -92,7 +103,7 @@ const DESCRIPTION = [
   "Find Flight icons — the icon set Helios ships — by name or keyword, from the catalog inside the installed @hashicorp/flight-icons package.",
   "Each icon's searchable text includes its description keywords, so 'warning' reaches alert-triangle even though the two share no characters.",
   "Use it to pick the @name value for <Hds::Icon> or <Hds::Button @icon=>, and to confirm an icon exists before writing a name that would render nothing.",
-  "Every icon in the catalog is published at both 16 and 24, so pick the size at the call site rather than here.",
+  "Use the optional size filter when you need an icon available at a particular size; otherwise pick the size at the call site.",
   "The catalog is read from disk and never fetched. Exact and prefix matches on the icon name rank first, so an icon you named by hand comes back at the top; keyword-only matches rank last. If `truncated` is true, narrow the query or filter by category.",
 ].join(" ");
 
@@ -105,17 +116,26 @@ export const searchIcons = (
   const query = input.query.slice(0, MAX_QUERY_LENGTH);
   const category =
     input.category === undefined ? undefined : clampFilterValue(input.category);
+  const size = input.size === undefined ? undefined : clampFilterValue(input.size);
 
   const { totalMatches, hits } = store.searchIcons({
     query,
     limit,
     ...(category === undefined ? {} : { category }),
+    ...(size === undefined ? {} : { size }),
     ...(input.hasMapping === undefined ? {} : { hasMapping: input.hasMapping }),
   });
 
   const unknownFilters = collectUnknownFilters([
     { name: "category", value: category, known: meta.categories },
+    { name: "size", value: size, known: meta.sizes },
   ]);
+  const hasUnknownCategory = unknownFilters.some((filter) =>
+    filter.startsWith("category:"),
+  );
+  const hasUnknownSize = unknownFilters.some((filter) =>
+    filter.startsWith("size:"),
+  );
 
   return {
     query,
@@ -126,15 +146,15 @@ export const searchIcons = (
     totalIconCount: meta.totalIconCount,
     filters: {
       ...(category === undefined ? {} : { category }),
+      ...(size === undefined ? {} : { size }),
       ...(input.hasMapping === undefined
         ? {}
         : { hasMapping: input.hasMapping }),
     },
     unknownFilters,
     // only worth spending tokens on the valid values when the filter did not land
-    ...(unknownFilters.length === 0
-      ? {}
-      : { availableCategories: meta.categories }),
+    ...(hasUnknownCategory ? { availableCategories: meta.categories } : {}),
+    ...(hasUnknownSize ? { availableSizes: meta.sizes } : {}),
     results: hits,
     source: meta.source,
   };

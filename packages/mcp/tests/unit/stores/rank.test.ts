@@ -206,6 +206,14 @@ describe("searchRanked", () => {
 
     expect(rank(rows, "  HDS::Button  ")[0]).toBe("hds::button");
   });
+
+  it("does not treat a delimiter-only query as a match", () => {
+    const rows = buildRows("button", "arrow-right", "token.color");
+
+    for (const query of ["-", ".", "/", ":"]) {
+      expect(rank(rows, query), query).toStrictEqual([]);
+    }
+  });
 });
 
 describe("getCommonPrefixLength", () => {

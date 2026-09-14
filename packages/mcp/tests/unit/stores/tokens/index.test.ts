@@ -172,6 +172,34 @@ describe("createTokenCatalogStore", () => {
     ).toHaveLength(0);
   });
 
+  it("searches JSON token values, including numbers and arrays", () => {
+    const store = createTokenCatalogStore([
+      buildTokenCatalogRow({
+        key: "{typography.line-height.body}",
+        $type: "number",
+        $value: 1.2308,
+        name: "token-typography-line-height-body",
+        attributes: { category: "typography" },
+        path: ["typography", "line-height", "body"],
+      }),
+      buildTokenCatalogRow({
+        key: "{font.family.body}",
+        $type: "font-family",
+        $value: ["Inter", "sans-serif"],
+        name: "token-font-family-body",
+        attributes: { category: "typography" },
+        path: ["font", "family", "body"],
+      }),
+    ]);
+
+    expect(
+      store.searchTokens({ query: "1.2308", limit: 10 }).hits.map((token) => token.key),
+    ).toStrictEqual(["{typography.line-height.body}"]);
+    expect(
+      store.searchTokens({ query: "sans-serif", limit: 10 }).hits.map((token) => token.key),
+    ).toStrictEqual(["{font.family.body}"]);
+  });
+
   it("counts every match, not just the ones the limit left room for", () => {
     const store = createTokenCatalogStore(rows);
     // both token names start with "token-", so the count outruns the one-result window

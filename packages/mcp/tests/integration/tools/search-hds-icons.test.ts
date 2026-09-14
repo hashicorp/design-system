@@ -15,6 +15,7 @@ import {
   createSearchIconsTool,
   searchIcons,
   searchIconsInputShape,
+  searchIconsOutputSchema,
 } from "../../../src/tools/hds-icons/search-icons.js";
 import {
   createIconCatalogStore,
@@ -127,6 +128,19 @@ describe("search_hds_icons payload", () => {
     expect(search({ query: "arrow", hasMapping: true }).totalMatches).toBe(0);
   });
 
+  it("narrows by size and reports unknown sizes", () => {
+    const payload = search({ query: "alert", size: "24" });
+
+    expect(payload.filters.size).toBe("24");
+    expect(payload.totalMatches).toBe(1);
+    expect(
+      search({ query: "alert", size: "32" }).availableSizes,
+    ).toStrictEqual(["16", "24"]);
+    expect(search({ query: "alert", size: "32" }).unknownFilters).toStrictEqual([
+      "size: 32",
+    ]);
+  });
+
   it("names a filter value the catalog does not use, with the ones it does", () => {
     const payload = search({ query: "arrow", category: "Spaceships" });
 
@@ -200,6 +214,9 @@ describe("search_hds_icons tool", () => {
 
     expect(result.isError).toBeUndefined();
     expect(parseToolJson(getToolTextContent(result))).toStrictEqual(
+      result.structuredContent,
+    );
+    expect(searchIconsOutputSchema.parse(result.structuredContent)).toStrictEqual(
       result.structuredContent,
     );
     expect(result.structuredContent).toMatchObject({ totalMatches: 2 });
