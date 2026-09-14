@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { TokenCatalogRow } from "../../src/resources/tokens/store/schema.js";
+import type { TokenCatalogRow } from "../../src/stores/tokens/schema.js";
 
 export const buildTokenCatalogRow = (
   overrides: Partial<TokenCatalogRow> = {}
