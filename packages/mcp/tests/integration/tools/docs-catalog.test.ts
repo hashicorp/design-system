@@ -107,7 +107,7 @@ describe("generated docs catalog", () => {
   it("loads the committed corpus and reports its provenance", () => {
     const meta = store.getMeta();
 
-    expect(meta.totalPageCount).toBe(92);
+    expect(meta.totalPageCount).toBe(98);
     expect(meta.totalChunkCount).toBeGreaterThan(2_000);
     expect(meta.siteBaseUrl).toBe("https://helios.hashicorp.design/");
     expect(Number.isNaN(Date.parse(meta.bundledAt))).toBe(false);
@@ -125,6 +125,7 @@ describe("generated docs catalog", () => {
   it("keeps every route inside the documented sections", () => {
     expect(store.listSections()).toStrictEqual([
       "about",
+      "carbonization",
       "components",
       "content",
       "foundations",
@@ -133,6 +134,7 @@ describe("generated docs catalog", () => {
       "layouts",
       "overrides",
       "patterns",
+      "theming",
       "utilities",
       "whats-new",
     ]);
