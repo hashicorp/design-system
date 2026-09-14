@@ -2,7 +2,9 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
-  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" "tertiary" "critical" }} @default="primary"/>
+  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" "secondary-muted" "tertiary" "critical" }} @default="primary">
+    _Note: `secondary-muted` is visually identical to `secondary` for the HDS theme, but differs for Carbon themes._
+  </C.Property>
   <C.Property @name="text" @required={{true}} @type="string">
     Text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
   </C.Property>
