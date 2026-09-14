@@ -321,6 +321,32 @@ end"
     </SG.Item>
   </ShwGrid>
 
+  <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item
+      @label="hasCopyButton=true with long content"
+      @forceMinWidth={{true}}
+    >
+      <HdsCodeBlock
+        @language="ruby"
+        @hasCopyButton={{true}}
+        @ariaLabel="hasLineWrapping=false"
+        @value="codeLang='Lorem ipsum dolor sit a met, con sec tet ur a ip iscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
+      />
+    </SG.Item>
+    <SG.Item
+      @label="hasCopyButton=true with long content & hasLineWrapping=true"
+      @forceMinWidth={{true}}
+    >
+      <HdsCodeBlock
+        @language="ruby"
+        @hasLineWrapping={{true}}
+        @hasCopyButton={{true}}
+        @ariaLabel="hasLineWrapping=true"
+        @value="codeLang='Lorem ipsum dolor sit a met, con sec tet ur a dip iscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
+      />
+    </SG.Item>
+  </ShwGrid>
+
   <ShwDivider @level={{2}} />
 
   <ShwTextH3>Highlight lines</ShwTextH3>
