@@ -49,3 +49,7 @@ status:
 <section data-tab="Version history">
   @include "partials/version-history/version-history.md"
 </section>
+
+<section data-tab="Carbonization">
+  @include "partials/carbonization/index.md"
+</section>

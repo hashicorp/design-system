@@ -1,0 +1,20 @@
+<Hds::Layout::Flex @gap="24">
+  <Hds::Dropdown as |D|>
+    <D.ToggleButton @color="secondary" @text="Secondary" />
+    <D.Interactive @route="components">Item One</D.Interactive>
+    <D.Interactive @route="components">Item Two</D.Interactive>
+    <D.Interactive @route="components">Item Three</D.Interactive>
+    <D.Interactive {{on "click" D.close}}>Item Four (closes on click)</D.Interactive>
+    <D.Separator />
+    <D.Interactive @route="components" @color="critical" @icon="trash">Delete</D.Interactive>
+  </Hds::Dropdown>
+  <Hds::Dropdown as |D|>
+    <D.ToggleButton @color="secondary-muted" @text="Secondary muted" />
+    <D.Interactive @route="components">Item One</D.Interactive>
+    <D.Interactive @route="components">Item Two</D.Interactive>
+    <D.Interactive @route="components">Item Three</D.Interactive>
+    <D.Interactive {{on "click" D.close}}>Item Four (closes on click)</D.Interactive>
+    <D.Separator />
+    <D.Interactive @route="components" @color="critical" @icon="trash">Delete</D.Interactive>
+  </Hds::Dropdown>
+</Hds::Layout::Flex>
