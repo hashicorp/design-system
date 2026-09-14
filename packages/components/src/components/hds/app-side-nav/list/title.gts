@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import { didInsert } from '@ember/render-modifiers';
 
 import HdsAppSideNavListItem from './item.gts';
 

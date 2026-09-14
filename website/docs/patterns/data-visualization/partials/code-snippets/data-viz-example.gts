@@ -1,6 +1,6 @@
 /* eslint-disable ember/no-at-ember-render-modifiers */
 import Component from '@glimmer/component';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import { didInsert } from '@ember/render-modifiers';
 import { DonutChart } from '@carbon/charts';
 import '@carbon/charts/styles.css';
 

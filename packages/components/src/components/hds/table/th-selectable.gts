@@ -8,9 +8,7 @@ import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
+import { didInsert, willDestroy } from '@ember/render-modifiers';
 import { service } from '@ember/service';
 
 import type HdsIntlService from '../../../services/hds-intl';
