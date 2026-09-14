@@ -1,0 +1,13 @@
+{
+  "id": "time-display-alias-hbs",
+  "prompt": "Migrate the legacy friendly HDS Time display value.",
+  "file": "app/templates/time.hbs",
+  "tags": ["valid-static-argument-values", "value-alias", "hbs"],
+  "baseline": "<Hds::Time @display=\"Friendly\" />",
+  "expectedCorrection": "<Hds::Time @display=\"friendly-only\" />",
+  "expectedBaselineRules": ["valid-static-argument-values"],
+  "assertions": {
+    "includes": ["<Hds::Time", "@display=\"friendly-only\""],
+    "excludes": ["@display=\"Friendly\""]
+  }
+}

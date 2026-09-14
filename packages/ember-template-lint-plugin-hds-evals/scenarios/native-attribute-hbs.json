@@ -1,0 +1,17 @@
+{
+  "id": "native-attribute-hbs",
+  "prompt": "Migrate the HDS TextInput named values to native attributes.",
+  "file": "app/templates/form.hbs",
+  "tags": ["no-unknown-arguments", "native-attribute", "hbs"],
+  "baseline": "<Hds::Form::TextInput::Field @name=\"query\" @placeholder=\"Search\" />",
+  "expectedCorrection": "<Hds::Form::TextInput::Field name=\"query\" placeholder=\"Search\" />",
+  "expectedBaselineRules": ["no-unknown-arguments", "no-unknown-arguments"],
+  "assertions": {
+    "includes": [
+      "<Hds::Form::TextInput::Field",
+      "name=\"query\"",
+      "placeholder=\"Search\""
+    ],
+    "excludes": ["@name=", "@placeholder="]
+  }
+}

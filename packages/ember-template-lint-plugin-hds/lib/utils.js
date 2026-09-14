@@ -16,6 +16,13 @@ export function closestUniqueMatch(input, candidates) {
   return best.length === 1 && bestDistance <= threshold ? best[0] : undefined;
 }
 
+export function uniqueCaseInsensitiveMatch(input, candidates) {
+  const matches = candidates.filter(
+    (candidate) => candidate.toLowerCase() === input.toLowerCase(),
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+}
+
 export function staticStringValue(attribute) {
   const value = attribute?.value;
   if (value?.type === "TextNode") {

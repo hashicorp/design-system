@@ -1,5 +1,10 @@
 import CatalogRule from "../catalog-rule.js";
-import { closestUniqueMatch, staticStringValue } from "../utils.js";
+import { valueAliases } from "../policies.js";
+import {
+  closestUniqueMatch,
+  staticStringValue,
+  uniqueCaseInsensitiveMatch,
+} from "../utils.js";
 
 export default class ValidStaticArgumentValues extends CatalogRule {
   visitor() {
@@ -39,10 +44,19 @@ export default class ValidStaticArgumentValues extends CatalogRule {
             continue;
           }
 
-          const suggestion = closestUniqueMatch(
-            staticValue.value,
-            allowedValues,
-          );
+          const aliases = valueAliases.find(
+            (policy) =>
+              policy.component === component.name &&
+              policy.argument === argument.name,
+          )?.aliases;
+          const alias =
+            aliases && Object.hasOwn(aliases, staticValue.value)
+              ? aliases[staticValue.value]
+              : undefined;
+          const suggestion =
+            alias ??
+            uniqueCaseInsensitiveMatch(staticValue.value, allowedValues) ??
+            closestUniqueMatch(staticValue.value, allowedValues);
           const suggestionMessage = suggestion
             ? ` Did you mean "${suggestion}"?`
             : "";

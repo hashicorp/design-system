@@ -28,6 +28,28 @@ function linterFor(rule, ruleConfig = {}) {
   });
 }
 
+function installedCatalogLinterFor(rule) {
+  return new Linter({
+    workingDir: packageRoot,
+    config: {
+      plugins: [plugin],
+      rules: { [rule]: true },
+    },
+  });
+}
+
+async function fixWithInstalledCatalog(
+  rule,
+  source,
+  filePath = "template.hbs",
+) {
+  return installedCatalogLinterFor(rule).verifyAndFix({
+    source,
+    filePath,
+    workingDir: packageRoot,
+  });
+}
+
 async function verify(rule, source, filePath = "template.hbs") {
   return linterFor(rule).verify({
     source,
@@ -167,6 +189,195 @@ test("valid-static-argument-values skips dynamic values and fixes one close matc
     workingDir: packageRoot,
   });
   assert.equal(result.output, '<Hds::Button @color="primary" />');
+});
+
+test("valid-static-argument-values normalizes unique case matches in HBS and GTS", async () => {
+  for (const [source, expected, filePath] of [
+    [
+      '<Hds::Text::Body @tag="P">Text</Hds::Text::Body>',
+      '<Hds::Text::Body @tag="p">Text</Hds::Text::Body>',
+      "template.hbs",
+    ],
+    [
+      "<Hds::Text::Body @tag='P'>Text</Hds::Text::Body>",
+      "<Hds::Text::Body @tag='p'>Text</Hds::Text::Body>",
+      "template.hbs",
+    ],
+    [
+      'const Example = <template><Hds::Text::Body @tag={{"P"}}>Text</Hds::Text::Body></template>;',
+      'const Example = <template><Hds::Text::Body @tag={{"p"}}>Text</Hds::Text::Body></template>;',
+      "component.gts",
+    ],
+  ]) {
+    const result = await fixWithInstalledCatalog(
+      "valid-static-argument-values",
+      source,
+      filePath,
+    );
+    assert.equal(result.output, expected);
+    const idempotent = await fixWithInstalledCatalog(
+      "valid-static-argument-values",
+      result.output,
+      filePath,
+    );
+    assert.equal(idempotent.output, expected);
+    assert.equal(idempotent.isFixed, false);
+  }
+});
+
+test("valid-static-argument-values applies explicit value aliases before fuzzy matching", async () => {
+  for (const display of ["Friendly", "friendly"]) {
+    const result = await fixWithInstalledCatalog(
+      "valid-static-argument-values",
+      `<Hds::Time @display="${display}" />`,
+    );
+    assert.equal(result.output, '<Hds::Time @display="friendly-only" />');
+  }
+  const dynamic = "<Hds::Time @display={{this.display}} />";
+  const result = await fixWithInstalledCatalog(
+    "valid-static-argument-values",
+    dynamic,
+  );
+  assert.equal(result.output, dynamic);
+  assert.equal(result.messages.length, 0);
+});
+
+test("valid-static-argument-values ignores inherited alias properties", async () => {
+  for (const display of ["toString", "constructor", "__proto__"]) {
+    const source = `<Hds::Time @display="${display}" />`;
+    const result = await fixWithInstalledCatalog(
+      "valid-static-argument-values",
+      source,
+    );
+
+    assert.equal(result.output, source);
+    assert.equal(result.isFixed, false);
+    assert.equal(result.messages.length, 1);
+  }
+});
+
+test("no-unknown-arguments applies conditional Link aliases and preserves dynamic values", async () => {
+  for (const component of ["Inline", "Standalone"]) {
+    for (const [navigation, replacement] of [
+      ['@href="/docs"', "@isHrefExternal"],
+      ['@route="docs"', "@isRouteExternal"],
+    ]) {
+      const source = `<Hds::Link::${component} ${navigation} @isExternal={{this.external}} />`;
+      const result = await fixWithInstalledCatalog(
+        "no-unknown-arguments",
+        source,
+      );
+      assert.equal(
+        result.output,
+        `<Hds::Link::${component} ${navigation} ${replacement}={{this.external}} />`,
+      );
+    }
+  }
+});
+
+test("conditional Link aliases remain diagnostic-only when ambiguous or duplicated", async () => {
+  for (const source of [
+    "<Hds::Link::Inline @isExternal={{true}} />",
+    '<Hds::Link::Inline @href="/" @route="index" @isExternal={{true}} />',
+    '<Hds::Link::Inline @href="/" @isExternal={{true}} @isHrefExternal={{false}} />',
+  ]) {
+    const result = await fixWithInstalledCatalog(
+      "no-unknown-arguments",
+      source,
+    );
+    assert.equal(result.output, source);
+    assert.equal(result.isFixed, false);
+    assert.equal(result.messages[0].isFixable, false);
+    assert.match(
+      result.messages[0].message,
+      /@isHrefExternal.*@isRouteExternal|Replace @isExternal with @isHrefExternal/,
+    );
+  }
+});
+
+test("no-unknown-arguments applies allowlisted native attribute aliases", async () => {
+  const cases = [
+    [
+      "<Hds::Button @disabled={{this.disabled}} />",
+      "<Hds::Button disabled={{this.disabled}} />",
+    ],
+    [
+      '<Hds::Button @isDisabled={{true}} @ariaExpanded="false" />',
+      '<Hds::Button disabled={{true}} aria-expanded="false" />',
+    ],
+    [
+      '<Hds::Form::TextInput::Field @disabled={{true}} @name="query" @placeholder={{this.placeholder}} @ariaExpanded="false" @ariaLabelledBy="label" />',
+      '<Hds::Form::TextInput::Field disabled={{true}} name="query" placeholder={{this.placeholder}} aria-expanded="false" aria-labelledby="label" />',
+    ],
+    [
+      '<Hds::Form::Textarea::Field @disabled={{true}} @name="notes" @placeholder="Notes" />',
+      '<Hds::Form::Textarea::Field disabled={{true}} name="notes" placeholder="Notes" />',
+    ],
+    [
+      "<Hds::Form::Checkbox::Field @checked={{this.checked}} />",
+      "<Hds::Form::Checkbox::Field checked={{this.checked}} />",
+    ],
+  ];
+
+  for (const [source, expected] of cases) {
+    const result = await fixWithInstalledCatalog(
+      "no-unknown-arguments",
+      source,
+    );
+    assert.equal(result.output, expected);
+    const idempotent = await fixWithInstalledCatalog(
+      "no-unknown-arguments",
+      expected,
+    );
+    assert.equal(idempotent.output, expected);
+    assert.equal(idempotent.isFixed, false);
+  }
+});
+
+test("native aliases honor conditions and suppress duplicate destinations", async () => {
+  for (const source of [
+    '<Hds::Button @href="/" @disabled={{true}} />',
+    '<Hds::Button @route="index" @isDisabled={{true}} />',
+    "<Hds::Button @disabled={{true}} disabled={{false}} />",
+    "<Hds::Button @disabled={{true}} @isDisabled={{false}} />",
+    '<Hds::Form::TextInput::Field @name="query" name="existing" />',
+  ]) {
+    const result = await fixWithInstalledCatalog(
+      "no-unknown-arguments",
+      source,
+    );
+    if (source.includes("@disabled") && source.includes("@isDisabled")) {
+      assert.equal(
+        result.output,
+        "<Hds::Button disabled={{true}} @isDisabled={{false}} />",
+      );
+    } else {
+      assert.equal(result.output, source);
+    }
+    assert.equal(result.messages[0].isFixable, false);
+    assert.match(result.messages[0].message, /Replace|replace/);
+  }
+});
+
+test("non-allowlisted Atlas cases remain diagnostic-only", async () => {
+  for (const source of [
+    '<Hds::Form::Textarea::Field @type="text" />',
+    "<Hds::Button @isLoading={{true}} />",
+    '<Hds::CodeBlock @plaintext="content" />',
+    "<Hds::Form::RadioCard @fixed={{true}} />",
+    "<Hds::Pagination::Numbered @isComapct={{true}} />",
+    "<Hds::Table @colums={{this.columns}} />",
+    '<Hds::Form::SuperSelect::Single::Field @widht="200px" />',
+    "<Hds::TooltipButton @isDisabeld={{true}} />",
+  ]) {
+    const result = await fixWithInstalledCatalog(
+      "no-unknown-arguments",
+      source,
+    );
+    assert.equal(result.output, source);
+    assert.equal(result.isFixed, false);
+    assert.equal(result.messages[0].isFixable, false);
+  }
 });
 
 test("rules run on embedded gts and gjs templates", async () => {

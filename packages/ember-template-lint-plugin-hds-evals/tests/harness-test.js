@@ -13,12 +13,15 @@ const packageRoot = path.resolve(
 );
 const fixtureDirectory = path.join(packageRoot, "fixture");
 const scenarios = loadScenarios(path.join(packageRoot, "scenarios"));
+const primaryScenario = scenarios.find(
+  (scenario) => scenario.id === "unknown-argument-hbs",
+);
 const testRuns = path.join(packageRoot, "tests/.eval-runs");
 
 async function run(
   name,
   provider,
-  selectedScenarios = [scenarios[0]],
+  selectedScenarios = [primaryScenario],
   timeoutMs = 30_000,
 ) {
   const runDirectory = path.join(testRuns, name);
@@ -40,7 +43,7 @@ function providerFor(correct) {
   };
 }
 
-test("deterministic A/C suite records six corrected scenarios", async () => {
+test("deterministic A/C suite records all corrected scenarios", async () => {
   const checkpoints = [];
   const runDirectory = path.join(testRuns, "deterministic");
   fs.rmSync(runDirectory, { recursive: true, force: true });
@@ -55,17 +58,17 @@ test("deterministic A/C suite records six corrected scenarios", async () => {
   });
 
   assert.deepEqual(report.summary, {
-    scenarios: 6,
-    passed: 6,
+    scenarios: 10,
+    passed: 10,
     failed: 0,
-    baselineViolations: 6,
+    baselineViolations: 11,
     correctedViolations: 0,
   });
   assert.ok(report.results.every((result) => result.c.copiedFromBaseline));
   assert.ok(
     report.results.every(
       (result) =>
-        result.a.findings.length === 1 &&
+        result.a.findings.length >= 1 &&
         result.a.usage.inputTokens === 0 &&
         result.c.classification === "clean" &&
         result.c.rounds.length === 1,

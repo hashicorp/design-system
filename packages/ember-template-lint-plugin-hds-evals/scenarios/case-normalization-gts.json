@@ -1,0 +1,13 @@
+{
+  "id": "case-normalization-gts",
+  "prompt": "Normalize the static HDS Text tag value while preserving the embedded template.",
+  "file": "app/components/text-example.gts",
+  "tags": ["valid-static-argument-values", "case-normalization", "gts"],
+  "baseline": "const Example = <template><Hds::Text::Body @tag=\"P\">Text</Hds::Text::Body></template>;",
+  "expectedCorrection": "const Example = <template><Hds::Text::Body @tag=\"p\">Text</Hds::Text::Body></template>;",
+  "expectedBaselineRules": ["valid-static-argument-values"],
+  "assertions": {
+    "includes": ["<Hds::Text::Body", "@tag=\"p\"", "Text"],
+    "excludes": ["@tag=\"P\""]
+  }
+}

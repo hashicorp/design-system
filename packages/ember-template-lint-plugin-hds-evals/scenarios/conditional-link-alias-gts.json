@@ -1,0 +1,18 @@
+{
+  "id": "conditional-link-alias-gts",
+  "prompt": "Migrate the external flag for an href-based HDS Link.",
+  "file": "app/components/link-example.gts",
+  "tags": ["no-unknown-arguments", "conditional-alias", "gts"],
+  "baseline": "const Example = <template><Hds::Link::Inline @href=\"/docs\" @isExternal={{this.external}}>Docs</Hds::Link::Inline></template>;",
+  "expectedCorrection": "const Example = <template><Hds::Link::Inline @href=\"/docs\" @isHrefExternal={{this.external}}>Docs</Hds::Link::Inline></template>;",
+  "expectedBaselineRules": ["no-unknown-arguments"],
+  "assertions": {
+    "includes": [
+      "<Hds::Link::Inline",
+      "@href=\"/docs\"",
+      "@isHrefExternal={{this.external}}",
+      "Docs"
+    ],
+    "excludes": ["@isExternal="]
+  }
+}
