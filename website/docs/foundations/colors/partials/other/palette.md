@@ -94,6 +94,14 @@ Use for page backgrounds.
 
 Core palette colors should be used sparingly and only when the correct semantic mapping isn’t available for the use case.
 
+!!! Warning
+
+Core palette colors don't respond to changes across light and dark Carbon themes. If you need to use them in an application that supports these themes, make sure you check how the color behaves in different theme contexts, especially in terms of contrast and accessibility.
+
+Whenever possible, use semantic color tokens, which automatically resolve to the correct value for the active theme.
+
+!!!
+
 <!-- algolia-ignore-start -->
 <div>
   {{#each-in this.colors.palette as |tone colorsList|}}
