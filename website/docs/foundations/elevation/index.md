@@ -15,3 +15,6 @@ previewImage: assets/illustrations/foundations/elevation.jpg
   @include "partials/code/how-to-use.md"
 </section>
 
+<section data-tab="Carbonization">
+  @include "partials/carbonization/index.md"
+</section>
