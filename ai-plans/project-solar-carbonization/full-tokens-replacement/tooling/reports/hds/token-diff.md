@@ -1,8 +1,8 @@
 # Token Diff — Phase A (carbonization mapping proposal)
 
-- Generated: 2026-08-25T17:14:13.094Z
+- Generated: 2026-09-15T10:41:20.101Z
 - Pre ref: `main` (prefix `--token-`) — 442 tokens
-- Post: working tree (prefix `--hds-`) — 1041 tokens
+- Post: working tree (prefix `--hds-`) — 1046 tokens
 
 ## Summary — by category
 
@@ -18,20 +18,20 @@
 | `prefix-plus-renaming__form-control-checked` | 5 |
 | `prefix-plus-renaming__other` | 8 |
 | `removed` | 18 |
-| `added` | 621 |
+| `added` | 626 |
 
 ## Summary — by signal / confidence
 
 | Metric | Count |
 | --- | ---: |
-| Resolved (high confidence) | 416 |
-| Resolved (low / fuzzy — review) | 8 |
+| Resolved (high confidence) | 424 |
+| Resolved (low / fuzzy — review) | 0 |
 | Unresolved (removed / after: null) | 18 |
 | S0 prefix-swap only | 228 |
-| S1 changeset-resolved | 183 |
-| S2 structural (source JSON) | 5 |
-| S3 fuzzy | 8 |
-| Changeset pairs parsed | 426 |
+| S1 changeset-resolved | 196 |
+| S2 structural (source JSON) | 0 |
+| S3 fuzzy | 0 |
+| Changeset pairs parsed | 424 |
 | Changeset conflicts | 0 |
 
 ## `prefix-only` — 228
@@ -488,11 +488,11 @@ Rule: `form-radiocard-{rest}` → `form-radio-card-{rest}` (hyphen inserted).
 
 | Before (`--token-*`) | After (`--hds-*`) | Signals |
 | --- | --- | --- |
-| `--token-form-radiocard-border-radius` | `--hds-form-radio-card-border-radius` | S3 |
-| `--token-form-radiocard-border-width` | `--hds-form-radio-card-border-width` | S3 |
-| `--token-form-radiocard-content-padding` | `--hds-form-radio-card-content-padding` | S3 |
-| `--token-form-radiocard-group-gap` | `--hds-form-radio-card-group-gap` | S3 |
-| `--token-form-radiocard-transition-duration` | `--hds-form-radio-card-transition-duration` | S3 |
+| `--token-form-radiocard-border-radius` | `--hds-form-radio-card-border-radius` | S1 |
+| `--token-form-radiocard-border-width` | `--hds-form-radio-card-border-width` | S1 |
+| `--token-form-radiocard-content-padding` | `--hds-form-radio-card-content-padding` | S1 |
+| `--token-form-radiocard-group-gap` | `--hds-form-radio-card-group-gap` | S1 |
+| `--token-form-radiocard-transition-duration` | `--hds-form-radio-card-transition-duration` | S1 |
 
 ## `prefix-plus-renaming__form-control-checked` — 5
 
@@ -500,11 +500,11 @@ Rule: `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color
 
 | Before (`--token-*`) | After (`--hds-*`) | Signals |
 | --- | --- | --- |
-| `--token-form-control-checked-border-color-default` | `--hds-form-control-border-color-checked-default` | S2 |
-| `--token-form-control-checked-border-color-hover` | `--hds-form-control-border-color-checked-hover` | S2 |
-| `--token-form-control-checked-foreground-color` | `--hds-form-control-foreground-color-checked` | S2 |
-| `--token-form-control-checked-surface-color-default` | `--hds-form-control-surface-color-checked-default` | S2 |
-| `--token-form-control-checked-surface-color-hover` | `--hds-form-control-surface-color-checked-hover` | S2 |
+| `--token-form-control-checked-border-color-default` | `--hds-form-control-border-color-checked-default` | S1 |
+| `--token-form-control-checked-border-color-hover` | `--hds-form-control-border-color-checked-hover` | S1 |
+| `--token-form-control-checked-foreground-color` | `--hds-form-control-foreground-color-checked` | S1 |
+| `--token-form-control-checked-surface-color-default` | `--hds-form-control-surface-color-checked-default` | S1 |
+| `--token-form-control-checked-surface-color-hover` | `--hds-form-control-surface-color-checked-hover` | S1 |
 
 ## `prefix-plus-renaming__other` — 8
 
@@ -516,10 +516,10 @@ Structural renames that do not fit a systematic rule — review each.
 | `--token-app-side-nav-body-list-item-content-spacing-horizontal` | `--hds-app-side-nav-body-list-item-padding-horizontal` | S1 |
 | `--token-app-side-nav-body-list-item-spacing-vertical` | `--hds-app-side-nav-body-list-margin-vertical` | S1 |
 | `--token-app-side-nav-color-surface-primary` | `--hds-app-side-nav-wrapper-surface-color` | S1 |
-| `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-base-foreground-color` | S3 |
+| `--token-form-control-base-foreground-placeholder-color` | `--hds-form-control-base-foreground-color` | S1 |
 | `--token-form-control-base-foreground-value-color` | `--hds-form-control-base-foreground-color` | S1 |
-| `--token-form-control-padding` | `--hds-form-control-padding-vertical` | S3 |
-| `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search-cancel` | S3 |
+| `--token-form-control-padding` | `--hds-form-control-padding-vertical` | S1 |
+| `--token-form-text-input-background-image-data-url-search` | `--hds-form-text-input-background-image-data-url-search-cancel` | S1 |
 
 ## `removed` — 18
 
@@ -546,7 +546,7 @@ No successor token found (`after: null`) — decide: map manually or flag with a
 | `--token-tooltip-color-surface-primary` | — | — |
 | `--token-tooltip-focus-offset` | — | — |
 
-## `added` — 621
+## `added` — 626
 
 Brand-new post tokens with no pre origin (informational; not applied by Phase B).
 
@@ -684,6 +684,11 @@ Brand-new post tokens with no pre origin (informational; not applied by Phase B)
 - `--hds-alert-title-foreground-color-success`
 - `--hds-alert-title-foreground-color-warning`
 - `--hds-alert-typography-line-height`
+- `--hds-app-footer-border-color`
+- `--hds-app-footer-foreground-color-action-active`
+- `--hds-app-footer-foreground-color-action-default`
+- `--hds-app-footer-foreground-color-action-hover`
+- `--hds-app-footer-foreground-color-default`
 - `--hds-app-footer-link-focus-outline-color`
 - `--hds-app-footer-link-focus-outline-width`
 - `--hds-app-header-actions-gap`
