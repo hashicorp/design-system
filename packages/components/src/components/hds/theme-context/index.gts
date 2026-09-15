@@ -13,7 +13,13 @@ import {
 } from './types.ts';
 import type { HdsThemeContexts } from './types.ts';
 
-import type { HdsThemes, HdsModes } from '../../../services/hds-theming.ts';
+import { MODES_DARK, MODES_LIGHT } from '../../../services/hds-theming.ts';
+import type {
+  HdsThemes,
+  HdsModes,
+  HdsModesDark,
+  HdsModesLight,
+} from '../../../services/hds-theming.ts';
 
 export interface HdsThemeContextSignature {
   Args: {
@@ -61,6 +67,11 @@ export default class HdsThemeContext extends Component<HdsThemeContextSignature>
     if (CONTEXTUAL_THEMES.includes(context as HdsThemes)) {
       classes.push(`hds-theme-${context}`);
     } else if (CONTEXTUAL_MODES.includes(context as HdsModes)) {
+      if (MODES_DARK.includes(context as HdsModesDark)) {
+        classes.push('hds-theme-dark');
+      } else if (MODES_LIGHT.includes(context as HdsModesLight)) {
+        classes.push('hds-theme-light');
+      }
       classes.push(`hds-mode-${context}`);
     }
 
