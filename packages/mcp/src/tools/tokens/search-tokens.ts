@@ -67,6 +67,9 @@ const searchTokensResultShape = z.object({
   // a string for most tokens, an array for the font-family ones
   value: z.json(),
   category: z.string(),
+  comment: z.string().optional(),
+  // the unresolved semantic reference, e.g. {color.palette.blue-200}
+  alias: z.string().optional(),
 });
 
 export const searchTokensOutputShape = {
@@ -98,7 +101,7 @@ export type SearchTokensPayload = z.infer<typeof searchTokensOutputSchema>;
 
 const DESCRIPTION = [
   "Find Helios design tokens by name or value, from the token catalog inside the installed @hashicorp/design-system-tokens package.",
-  "Every result carries the cssVar to write in a stylesheet — var(--token-color-foreground-action) — so use this to replace a hard-coded colour, spacing or radius with the token that holds it.",
+  "Every result carries the cssVar to write in a stylesheet — var(--token-color-foreground-action) — so use this to replace a hard-coded color, spacing or radius with the token that holds it.",
   "The query matches the token value too, so searching a hex code finds which token already defines it.",
   "The catalog is read from disk and never fetched. Exact and prefix matches on the token key, name or CSS variable rank first, so a token you named by hand comes back at the top; value-only matches rank last. If `truncated` is true, narrow the query or filter by type.",
 ].join(" ");
@@ -155,6 +158,8 @@ export const searchTokens = (
       type: token.type,
       value: toResultValue(token.value),
       category: token.category,
+      ...(token.comment === undefined ? {} : { comment: token.comment }),
+      ...(token.alias === undefined ? {} : { alias: token.alias }),
     })),
     source: meta.source,
   };

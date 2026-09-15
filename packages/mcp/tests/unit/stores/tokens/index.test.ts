@@ -200,6 +200,24 @@ describe("createTokenCatalogStore", () => {
     ).toStrictEqual(["{font.family.body}"]);
   });
 
+  it("searches token comments and semantic aliases", () => {
+    const store = createTokenCatalogStore([
+      buildTokenCatalogRow({
+        key: "{color.foreground.action}",
+        comment: "Use for interactive text",
+        original: { $value: "{color.palette.blue-200}" },
+      }),
+    ]);
+
+    expect(
+      store.searchTokens({ query: "interactive text", limit: 10 }).hits[0]?.key,
+    ).toBe("{color.foreground.action}");
+    expect(
+      store.searchTokens({ query: "color.palette.blue-200", limit: 10 })
+        .hits[0]?.key,
+    ).toBe("{color.foreground.action}");
+  });
+
   it("counts every match, not just the ones the limit left room for", () => {
     const store = createTokenCatalogStore(rows);
     // both token names start with "token-", so the count outruns the one-result window

@@ -153,6 +153,9 @@ describe("search_hds_icons payload", () => {
     expect(
       search({ query: "arrow", category: "Navigation" }),
     ).not.toHaveProperty("availableCategories");
+    expect(search({ query: "alert", size: "24" })).not.toHaveProperty(
+      "availableSizes",
+    );
   });
 
   it("counts every match, not just the ones it returned", () => {

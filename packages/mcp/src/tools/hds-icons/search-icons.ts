@@ -100,7 +100,7 @@ export interface SearchIconsInput {
 export type SearchIconsPayload = z.infer<typeof searchIconsOutputSchema>;
 
 const DESCRIPTION = [
-  "Find Flight icons — the icon set Helios ships — by name or keyword, from the catalog inside the installed @hashicorp/flight-icons package.",
+  "Find HDS icons — the icon set Helios ships — by name or keyword, from the catalog inside the installed @hashicorp/flight-icons package.",
   "Each icon's searchable text includes its description keywords, so 'warning' reaches alert-triangle even though the two share no characters.",
   "Use it to pick the @name value for <Hds::Icon> or <Hds::Button @icon=>, and to confirm an icon exists before writing a name that would render nothing.",
   "Use the optional size filter when you need an icon available at a particular size; otherwise pick the size at the call site.",
@@ -174,7 +174,7 @@ export const createSearchIconsTool = (
   >({
     name: SEARCH_ICONS_TOOL_NAME,
     config: {
-      title: "Search Flight icons",
+      title: "Search HDS icons",
       description: DESCRIPTION,
       inputSchema: searchIconsInputShape,
       outputSchema: searchIconsOutputShape,

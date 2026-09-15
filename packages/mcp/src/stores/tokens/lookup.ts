@@ -23,6 +23,8 @@ export type TokenSummary = {
   cssVar: string;
   category: string;
   path: string[];
+  comment?: string;
+  alias?: string;
 };
 
 export type TokenRecord = TokenSummary & {
@@ -61,7 +63,21 @@ export const toCssVarName = (tokenName: string): string => {
   return `--${tokenName}`;
 };
 
+const TOKEN_ALIAS_PATTERN = /^\{[^{}]+\}$/u;
+
+export const toTokenAlias = (
+  original: TokenOriginal | undefined,
+): string | undefined => {
+  const value = original?.$value;
+
+  return typeof value === "string" && TOKEN_ALIAS_PATTERN.test(value)
+    ? value
+    : undefined;
+};
+
 export const toTokenSummary = (row: TokenCatalogRow): TokenSummary => {
+  const alias = toTokenAlias(row.original);
+
   return {
     key: row.key,
     name: row.name,
@@ -71,6 +87,8 @@ export const toTokenSummary = (row: TokenCatalogRow): TokenSummary => {
     cssVar: toCssVarName(row.name),
     category: row.attributes.category,
     path: row.path,
+    ...(row.comment === undefined ? {} : { comment: row.comment }),
+    ...(alias === undefined ? {} : { alias }),
   };
 };
 

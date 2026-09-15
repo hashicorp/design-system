@@ -44,8 +44,14 @@ const store = createTokenCatalogStore([
     $type: "color",
     $value: "#0c0c0e",
     name: "token-color-foreground-strong",
+    comment: "Use for high-emphasis text",
     attributes: { category: "color" },
     path: ["color", "foreground", "strong"],
+    original: {
+      $type: "color",
+      $value: "{color.palette.neutral-700}",
+      key: "{color.foreground.strong}",
+    },
   }),
 ]);
 
@@ -97,6 +103,21 @@ describe("search_hds_tokens payload", () => {
     expect(
       search({ query: "#1060ff" }).results.map((token) => token.key),
     ).toStrictEqual(["{color.foreground.action}"]);
+  });
+
+  it("returns and searches token comments and semantic aliases", () => {
+    const [token] = search({ query: "high-emphasis" }).results;
+
+    expect(token).toMatchObject({
+      key: "{color.foreground.strong}",
+      comment: "Use for high-emphasis text",
+      alias: "{color.palette.neutral-700}",
+    });
+    expect(
+      search({ query: "color.palette.neutral-700" }).results.map(
+        (result) => result.key,
+      ),
+    ).toStrictEqual(["{color.foreground.strong}"]);
   });
 
   it("does not turn delimiter-only queries into a catalog browse", () => {

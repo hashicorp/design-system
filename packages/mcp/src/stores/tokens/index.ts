@@ -51,7 +51,16 @@ const toSearchBlob = (token: TokenSummary): string => {
       ? token.value
       : (JSON.stringify(token.value) ?? "");
 
-  return [token.key, token.name, token.cssVar ?? "", path, category, value]
+  return [
+    token.key,
+    token.name,
+    token.cssVar ?? "",
+    path,
+    category,
+    value,
+    token.comment ?? "",
+    token.alias ?? "",
+  ]
     .join(" ")
     .toLowerCase();
 };
