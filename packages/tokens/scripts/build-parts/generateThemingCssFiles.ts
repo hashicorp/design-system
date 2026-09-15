@@ -28,6 +28,7 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
   for (const method of methods) {
 
     let outputContent = `${header}\n\n`;
+    let outputExtension = 'css';
 
     // CSS file for combined `system/light/dark` themes in the same file (using `.class` selectors)
     if (method.startsWith('css-selectors')) {
@@ -100,13 +101,16 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
 
       // this is the mixin that needs to be used to include the common tokens, shared across themes
       outputContent += `@mixin hds-theme-common() { ${commonSource} }\n\n`;
+
+      // we override the extension
+      outputExtension = 'scss';
     }
 
-    const outputTokensCss = await prettier.format(outputContent, { parser: 'scss', tabWidth: 2, });
+    const outputContentFormatted = await prettier.format(outputContent, { parser: outputExtension, tabWidth: 2, });
 
     const outputFolder = `${config.buildPath}themed-tokens/with-${method}/`;
     await fs.ensureDir(outputFolder);
-    await fs.writeFile(`${outputFolder}tokens.css`, outputTokensCss);
+    await fs.writeFile(`${outputFolder}tokens.${outputExtension}`, outputContentFormatted);
   }
 }
 
