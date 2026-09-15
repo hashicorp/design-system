@@ -11,9 +11,6 @@ import HdsDropdown from '../dropdown/index.gts';
 import HdsLinkStandalone from '../link/standalone.gts';
 
 export interface HdsApplicationStateFooterSignature {
-  Args: {
-    hasDivider?: boolean;
-  };
   Blocks: {
     default?: [
       {
