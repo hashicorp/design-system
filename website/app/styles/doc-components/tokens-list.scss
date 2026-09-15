@@ -6,6 +6,7 @@
 // TOKENS LIST
 
 @use "../breakpoints" as breakpoint;
+@use "../typography/mixins" as *;
 
 .doc-tokens-list-filter {
   margin-bottom: 24px;
@@ -66,18 +67,58 @@
   }
 }
 
-.doc-tokens-grid-item__meta-row {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  min-height: 32px;
+// CARBONIZATION & MODES
+
+.doc-tokens-list__item-row-carbonization-badge {
+  margin-top: 3px;
 }
 
-.doc-tokens-grid-item__meta-value-not-copyable {
-  padding-top: 2px; // optical alignment with the copyable one
-  padding-left: 8px;
-  color: var(--doc-color-black);
+.doc-tokens-list__content-divider {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-top: 1px dotted var(--doc-color-gray-500);
 }
+
+.doc-tokens-list__content-label {
+  @include doc-font-family("sans");
+  margin-bottom: 18px;
+  color: var(--doc-color-gray-200);
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.doc-tokens-list__mode {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+  justify-content: start;
+
+  & + & {
+    margin-top: 12px;
+  }
+
+  .doc-tokens-list__mode-preview {
+    padding-top: 4px; // for optical alignment with the content
+  }
+}
+
+.doc-tokens-list__mode-label {
+  @include doc-font-style-label();
+  min-width: 60px;
+  margin-top: 2px; // optical alignment
+  color: var(--doc-color-gray-300);
+}
+
+.doc-tokens-list__mode-content {
+  min-width: 0;
+  margin-left: 8px;
+}
+
+.doc-tokens-list__modes-comment {
+  margin-top: 16px;
+}
+
 
 // TOGGLE
 
