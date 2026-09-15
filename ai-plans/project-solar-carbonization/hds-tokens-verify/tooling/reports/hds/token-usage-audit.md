@@ -1,6 +1,6 @@
 # Token Usage Audit
 
-- Generated: 2026-07-09T15:58:36.576Z
+- Generated: 2026-09-15T13:12:44.924Z
 - Prefix audited: `--hds-`
 - Token source: `packages/tokens/dist/products/css/tokens.css` (dependency, parsed via postcss)
 - Roots scanned: `packages/components/src`, `showcase/app`, `showcase/tests`, `website/app`, `website/docs`
@@ -11,12 +11,12 @@
 
 | Metric | Count |
 | --- | ---: |
-| Official tokens | 801 |
-| Allowlist tokens | 97 |
-| Valid tokens (union) | 898 |
-| Files scanned | 3102 |
-| Total token usages | 1975 |
-| Interpolated usages (skipped) | 63 |
+| Official tokens | 1046 |
+| Allowlist tokens | 106 |
+| Valid tokens (union) | 1152 |
+| Files scanned | 3137 |
+| Total token usages | 2198 |
+| Interpolated usages (skipped) | 83 |
 | Distinct invalid tokens | 0 |
 | Total invalid occurrences | 0 |
 
