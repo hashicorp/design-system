@@ -4,7 +4,7 @@
 > `ai-plans/project-solar-carbonization/hds-tokens-verify/`. Read this top-to-bottom before continuing
 > the work in a fresh session.
 
-Last updated: 2026-07-14
+Last updated: 2026-09-15
 
 ---
 
@@ -157,7 +157,7 @@ node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-token
 | `excludeGlobs` | Globs to skip | incl. `showcase/public/assets/**` |
 | `reportSubdir` | Subfolder under `reports/` | `hds` |
 | `reportGroups` | Per-path tables in the MD report | `packages/tokens`, `packages/components`, `packages/flight-icons`, `showcase`, `website` |
-| `allowlist` | Extra valid tokens not in the package | **97 entries** (all `--hds-var-*`) |
+| `allowlist` | Extra valid tokens not in the package | **106 entries** (all `--hds-var-*`) |
 | `ignoreComments` | Skip tokens that appear only in comments | (default is `false`) |
 
 **Important semantics of `allowlist`:** `--hds-var-*` names also start with
@@ -202,19 +202,49 @@ respect them.
    **only** if it's official or in `allowlist` — NOT just because it's declared in
    the scanned SCSS. When source is cleaned up (e.g. a correctly-named var added),
    the allowlist can drift and must be updated (this happened with
-   `--hds-var-code-block-color-attr-name`).
+   `--hds-var-code-block-color-attr-name`, and again on 2026-09-15 with the 8
+   variables from `ea3c0fcd38` — see §8). **Expect drift after any commit that adds
+   component-internal variables**, and re-audit after each rebase that pulls one in.
+9. **`private` tokens are not official.** Source tokens marked `"private": "true"`
+   in `packages/tokens/src/**` are emitted only to `dist/docs/**`, **never** to
+   `dist/products/css/tokens.css` — e.g. the 7 `core.color.neutral-on-dark-*`
+   colors added by commit `a044bbb`. The auditor therefore treats
+   `--hds-core-color-neutral-on-dark-*` as invalid if it ever shows up in source
+   (0 usages as of 2026-09-15). Per §7.7, **fix the usage, do not allowlist the
+   family**.
+10. **New official tokens need no tooling change.** The official set is resolved at
+    runtime from the built `tokens.css`, so tokens added upstream (e.g. the 5
+    `--hds-app-footer-*` tokens from `a044bbb`) become valid automatically — no
+    config, allowlist, or core edit. Only the *committed reports* age.
 
 ---
 
 ## 8. Current state
 
-- Latest run on branch `project-solar/phase-1/shleewhite/table-carbonization`
-  was **clean: 0 invalid tokens / 0 occurrences** across 3104 files
-  (809 official + 97 allowlist, source: postcss).
-- `reports/hds/token-usage-audit.{md,json}` currently reflect that clean state.
-- Note: official token count varies by branch (seen 800 / 809 / 818) because
-  different branches build different `tokens.css`. `filesScanned` also varies
-  (~3102–3116).
+- Latest run (2026-09-15) on branch
+  `project-solar/phase-1-stacked-cherry-picking/11-showcase-carbonization-pages`
+  is **clean: 0 invalid tokens / 0 occurrences** across 3137 files
+  (1046 official + 106 allowlist, source: postcss). `reports/hds/token-usage-audit.{md,json}`
+  reflect this run.
+- Getting there required an **allowlist top-up, 98 → 106 entries**: commit
+  `ea3c0fcd38` ("Updated HDS components to support Carbon theming", 21 Aug) added 8
+  new component-internal variables that the list had never picked up —
+  `--hds-var-advanced-table-cell-{height,padding-top,padding-bottom}`,
+  `--hds-var-table-cell-{height,padding-top,padding-bottom}`, and
+  `--hds-var-filter-bar-filters-dropdown-{height,footer-height}`. All 8 are
+  legitimately declared in source (7 in SCSS; the filter-bar dropdown height is set
+  as an inline style from `filters-dropdown.gts` and read back in SCSS), so this was
+  textbook §7.8 drift, not an orphan. Tracing the origin needed `git log -S` scoped
+  to **HEAD** — an `--all` search misattributes them to squashed rollups on other
+  branches (`20c357c318`, `1498ebe5d9`).
+- Do **not** refresh the committed reports from the tokens-only stacked branches
+  (`…/0X-*`): they carry the new token set but not the component updates, so an
+  audit there flags a large expected set of component-internal variables — on
+  `…/02-tokens-tooling` (2026-09-15): **133 invalid / 472 occurrences**,
+  official=1046, allowlist=98. That is branch state, not a regression.
+- Note: official token count varies by branch because different branches build
+  different `tokens.css` (seen 800 / 809 / 818, and **1046** on the current tokens
+  branches). `filesScanned` also varies (~2974–3137).
 
 ---
 

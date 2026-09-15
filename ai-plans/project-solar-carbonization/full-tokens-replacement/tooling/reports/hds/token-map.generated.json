@@ -2318,6 +2318,26 @@
     },
     {
       "before": null,
+      "after": "--hds-app-footer-border-color"
+    },
+    {
+      "before": null,
+      "after": "--hds-app-footer-foreground-color-action-active"
+    },
+    {
+      "before": null,
+      "after": "--hds-app-footer-foreground-color-action-default"
+    },
+    {
+      "before": null,
+      "after": "--hds-app-footer-foreground-color-action-hover"
+    },
+    {
+      "before": null,
+      "after": "--hds-app-footer-foreground-color-default"
+    },
+    {
+      "before": null,
       "after": "--hds-app-footer-link-focus-outline-color"
     },
     {
