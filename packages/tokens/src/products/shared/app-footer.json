@@ -1,5 +1,34 @@
 {
   "app-footer": {
+    "border": {
+      "color": {
+        "$type": "color",
+        "$value": "{core.color.neutral-on-dark-500}",
+        "alpha": "0.4"
+      }
+    },
+    "foreground": {
+      "color": {
+        "default": {
+          "$type": "color",
+          "$value": "{core.color.neutral-on-dark-600}"
+        },
+        "action": {
+          "default": {
+            "$type": "color",
+            "$value": "{core.color.neutral-on-dark-500}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{core.color.neutral-on-dark-600}"
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{core.color.neutral-on-dark-700}"
+          }
+        }
+      }
+    },
     "link": {
       "focus": {
         "outline": {
