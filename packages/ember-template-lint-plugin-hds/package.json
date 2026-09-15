@@ -1,7 +1,7 @@
 {
   "name": "@hashicorp/ember-template-lint-plugin-hds",
   "version": "0.0.0",
-  "description": "HDS-aware rules for ember-template-lint",
+  "description": "HDS migrations, semantic policies, and template API validation for ember-template-lint",
   "keywords": [
     "ember",
     "ember-template-lint",

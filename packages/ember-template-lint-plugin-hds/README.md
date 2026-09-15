@@ -1,8 +1,13 @@
 # `@hashicorp/ember-template-lint-plugin-hds`
 
-Catalog-backed `ember-template-lint` rules for direct Helios Design System
-component invocations in `.hbs`, `.gts`, and `.gjs` files. In Glimmer Script
-files, named component imports from
+HDS migration and semantic-policy rules for `ember-template-lint`, with
+catalog-backed API validation for classic `.hbs` templates. The rules also run
+on `.gts` and `.gjs` files so they can provide migration autofixes and enforce
+HDS policies that component type signatures cannot express.
+
+Glint remains the source of truth for argument and value type checking in
+`.gts`. This plugin does not aim to replace or duplicate TypeScript checking.
+Named component imports from
 `@hashicorp/design-system-components/components` are recognized, including
 local aliases.
 
@@ -37,6 +42,17 @@ export default {
 
 Missing or malformed configured catalogs fail linting explicitly.
 
+## Where it helps
+
+- Migrates deprecated or removed HDS APIs with conservative autofixes.
+- Enforces cross-argument and design-system policies beyond type correctness.
+- Validates HDS arguments and static values in classic `.hbs` templates.
+- Supplies actionable migration diagnostics and fixes in `.gts` and `.gjs`.
+
+For `.gts`, Glint generally catches unknown arguments and invalid literal
+values earlier and more precisely. The overlapping checks here exist to support
+consistent diagnostics and autofixes, not as an alternative type system.
+
 ## Rules
 
 - `no-unknown-arguments` checks named arguments and safely fixes an
@@ -69,8 +85,7 @@ the rule tracks the lexical block parameter of an enclosing
 `<Hds::Dropdown>` or its statically resolved imported equivalent and handles
 nested scopes and shadowing. Dynamic component names, other yielded/contextual
 components, curly invocations, dynamic argument values outside this migration,
-required arguments in general, and type checking remain out of scope. Glint
-remains the source of truth for TypeScript-level checking.
+required arguments in general, and type checking remain out of scope.
 
 Autofixes are deliberately conservative and suppressed when a destination
 attribute already exists or a conditional migration is ambiguous. Unlisted
