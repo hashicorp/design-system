@@ -1,5 +1,22 @@
 // for product applications (Ember apps)
+
+// "classic" HDS
 @use "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
 
+// "carbonized" HDS with support for "light/dark/system" (g0/g100 modes)
+@use "@hashicorp/design-system-tokens/dist/products/css/hds-tokens-with-css-selectors.css";
+
+// "classic" HDS + "carbonized" HDS with support for "light/dark/system" (g0/g100 modes)
+// useful during the migration from "classic" to "carbonized" HDS, when both visual languages must co-exist in the same UI application
+@use "@hashicorp/design-system-tokens/dist/products/css/hds-tokens-with-css-selectors--migration.css";
+
+// "classic" HDS + "carbonized" HDS with support for "light/dark/system" (g0/g10/g90/g100 modes)
+// useful if all the IBM Carbon modes need to be available in the application, alongside the "classic" HDS
+@use "@hashicorp/design-system-tokens/dist/products/css/hds-tokens-with-css-selectors--advanced.css";
+
+// ---
+
 // for Cloud UI email templating
+
+// "classic" HDS
 @use "@hashicorp/design-system-tokens/dist/cloud-email/tokens.css";
