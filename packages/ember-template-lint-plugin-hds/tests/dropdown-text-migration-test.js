@@ -134,6 +134,13 @@ test("preserves comments in an otherwise empty block", async () => {
   }
 });
 
+test("replaces whitespace-only block content", async () => {
+  await assertFix(
+    '<Hds::Dropdown as |dd|><dd.Interactive @text="Edit"> \n </dd.Interactive></Hds::Dropdown>',
+    "<Hds::Dropdown as |dd|><dd.Interactive>Edit</dd.Interactive></Hds::Dropdown>",
+  );
+});
+
 test("migrates direct invocations without generic argument processing", async () => {
   const source =
     '<Hds::Dropdown::ListItem::Interactive @text="Edit" @href="#" />';

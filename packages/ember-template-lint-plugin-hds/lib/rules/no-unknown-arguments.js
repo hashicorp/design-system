@@ -92,6 +92,12 @@ export default class NoUnknownArguments extends CatalogRule {
     });
   }
 
+  commentsInEmptyContent(node) {
+    return node.children.filter((child) =>
+      ["CommentStatement", "MustacheCommentStatement"].includes(child.type),
+    );
+  }
+
   childrenForTextValue(value) {
     if (value.type === "TextNode") {
       return [value];
@@ -133,7 +139,7 @@ export default class NoUnknownArguments extends CatalogRule {
     if (this.mode === "fix" && canFix) {
       const children = hasContent
         ? node.children
-        : [...node.children, ...replacementChildren];
+        : [...this.commentsInEmptyContent(node), ...replacementChildren];
       const replacement = builders.element(
         { name: node.tag, selfClosing: false },
         {
