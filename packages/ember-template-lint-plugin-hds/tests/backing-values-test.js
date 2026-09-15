@@ -63,6 +63,10 @@ test("resolves a same-file GTS class field without modifying the file", async ()
 export default class Example extends Component {
   tag = "P";
 
+  constructor(owner, args) {
+    super(owner, args);
+  }
+
   <template>
     <Hds::Text::Body @tag={{this.tag}}>Text</Hds::Text::Body>
   </template>

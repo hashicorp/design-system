@@ -105,7 +105,9 @@ function hasModifier(member, kind) {
 }
 
 function memberName(member) {
-  return ts.isIdentifier(member.name) ? member.name.text : undefined;
+  return member.name && ts.isIdentifier(member.name)
+    ? member.name.text
+    : undefined;
 }
 
 function literalValue(expression) {

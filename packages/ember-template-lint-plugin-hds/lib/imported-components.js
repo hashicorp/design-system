@@ -7,6 +7,8 @@ import ts from "typescript";
 import { maskEmbeddedTemplates, templateRanges } from "./backing-values.js";
 
 const HDS_COMPONENTS_MODULE = "@hashicorp/design-system-components/components";
+const HDS_CATALOG_MODULE =
+  "@hashicorp/design-system-components/component-catalog.json";
 const exportCache = new Map();
 
 function containedFile(workingDir, filePath) {
@@ -50,11 +52,7 @@ function exportedComponentModules(workingDir) {
     const requireFromConsumer = createRequire(
       path.join(path.resolve(workingDir), "package.json"),
     );
-    packageRoot = path.dirname(
-      requireFromConsumer.resolve(
-        "@hashicorp/design-system-components/package.json",
-      ),
-    );
+    packageRoot = path.dirname(requireFromConsumer.resolve(HDS_CATALOG_MODULE));
   } catch {
     return new Map();
   }
