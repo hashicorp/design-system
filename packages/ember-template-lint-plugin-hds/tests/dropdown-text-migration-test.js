@@ -105,6 +105,15 @@ test("handles nested Dropdown scopes and block-param shadowing", async () => {
   await assertFix(source, expected);
 });
 
+test("scopes main and inverse block params independently", async () => {
+  const source =
+    '<Hds::Dropdown as |dd|>{{#each this.items as |dd|}}<dd.Interactive @text="Other" />{{else}}<dd.Interactive @text="Outer" />{{/each}}</Hds::Dropdown>';
+  const expected =
+    '<Hds::Dropdown as |dd|>{{#each this.items as |dd|}}<dd.Interactive @text="Other" />{{else}}<dd.Interactive>Outer</dd.Interactive>{{/each}}</Hds::Dropdown>';
+
+  await assertFix(source, expected);
+});
+
 test("ignores unrelated contextual Interactive components, including shadowed names", async () => {
   for (const source of [
     '<Other as |item|><item.Interactive @text="Other" /></Other><Hds::Dropdown as |dd|><Other as |dd|><dd.Interactive @text="Shadowed" /></Other></Hds::Dropdown>',
@@ -118,10 +127,18 @@ test("ignores unrelated contextual Interactive components, including shadowed na
   }
 });
 
-test("removes @text without duplicating substantive block content", async () => {
-  await assertFix(
-    '<Hds::Dropdown as |dd|><dd.Interactive @href="#" @text="Ignored">{{! keep }}Existing {{this.label}}</dd.Interactive></Hds::Dropdown>',
-    '<Hds::Dropdown as |dd|><dd.Interactive @href="#">{{! keep }}Existing {{this.label}}</dd.Interactive></Hds::Dropdown>',
+test("does not migrate @text when substantive block content exists", async () => {
+  const source =
+    '<Hds::Dropdown as |dd|><dd.Interactive @href="#" @text="Rendered before 5.0">{{! keep }}Ignored before 5.0</dd.Interactive></Hds::Dropdown>';
+  const result = await verifyAndFix(source);
+
+  assert.equal(result.output, source);
+  assert.equal(result.isFixed, false);
+  assert.equal(result.messages.length, 1);
+  assert.equal(result.messages[0].isFixable, false);
+  assert.match(
+    result.messages[0].message,
+    /@hashicorp\/design-system-codemods v4\/dropdown-list-item-interactive/,
   );
 });
 
@@ -132,6 +149,13 @@ test("preserves comments in an otherwise empty block", async () => {
       `<Hds::Dropdown as |dd|><dd.Interactive>${comment}Edit</dd.Interactive></Hds::Dropdown>`,
     );
   }
+});
+
+test("preserves comments in the opening tag", async () => {
+  await assertFix(
+    '<Hds::Dropdown as |dd|><dd.Interactive {{! before }} @text="Edit" {{! after }} /></Hds::Dropdown>',
+    "<Hds::Dropdown as |dd|><dd.Interactive {{! before }} {{! after }}>Edit</dd.Interactive></Hds::Dropdown>",
+  );
 });
 
 test("replaces whitespace-only block content", async () => {
@@ -172,17 +196,20 @@ test("runs on embedded GTS and GJS templates", async () => {
 });
 
 test("reports the removed API and codemod for ambiguous duplicate values", async () => {
-  const source =
-    '<Hds::Dropdown as |dd|><dd.Interactive @text="One" @text="Two" /></Hds::Dropdown>';
-  const result = await verifyAndFix(source);
+  for (const source of [
+    '<Hds::Dropdown as |dd|><dd.Interactive @text="One" @text="Two" /></Hds::Dropdown>',
+    '<Hds::Dropdown as |dd|><dd.Interactive @text="One" @text="Two">Existing</dd.Interactive></Hds::Dropdown>',
+  ]) {
+    const result = await verifyAndFix(source);
 
-  assert.equal(result.output, source);
-  assert.equal(result.isFixed, false);
-  assert.equal(result.messages.length, 1);
-  assert.equal(result.messages[0].isFixable, false);
-  assert.match(result.messages[0].message, /removed.*5\.0\.0/);
-  assert.match(
-    result.messages[0].message,
-    /@hashicorp\/design-system-codemods v4\/dropdown-list-item-interactive/,
-  );
+    assert.equal(result.output, source);
+    assert.equal(result.isFixed, false);
+    assert.equal(result.messages.length, 1);
+    assert.equal(result.messages[0].isFixable, false);
+    assert.match(result.messages[0].message, /removed.*5\.0\.0/);
+    assert.match(
+      result.messages[0].message,
+      /@hashicorp\/design-system-codemods v4\/dropdown-list-item-interactive/,
+    );
+  }
 });

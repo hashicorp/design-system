@@ -1,7 +1,10 @@
 # `@hashicorp/ember-template-lint-plugin-hds`
 
 Catalog-backed `ember-template-lint` rules for direct Helios Design System
-component invocations in `.hbs`, `.gts`, and `.gjs` files.
+component invocations in `.hbs`, `.gts`, and `.gjs` files. In Glimmer Script
+files, named component imports from
+`@hashicorp/design-system-components/components` are recognized, including
+local aliases.
 
 ## Install and configure
 
@@ -46,24 +49,28 @@ Missing or malformed configured catalogs fail linting explicitly.
   contextual invocations yielded from `<Hds::Dropdown>`.
 - `valid-static-argument-values` checks text and string literals against
   catalog `values` and `valuesRef` metadata. It reports allowed values and
-  safely fixes explicit value aliases, unique case-only matches, and then a
-  single close fuzzy match, in that precedence order. The initial explicit
-  alias migrates `Hds::Time @display="Friendly"` (or `"friendly"`) to
-  `"friendly-only"`.
+  safely fixes unique case-only matches and then a single close fuzzy match,
+  in that precedence order. Ambiguous values remain diagnostics; for example,
+  `Hds::Time @display="Friendly"` and `"friendly"` are not changed because
+  the documented values include `friendly-relative`, `friendly-local`, and
+  `friendly-only`.
 - `valid-argument-combinations` applies a small extensible policy list. The
   MVP enforces the component runtime constraint that
   `<Hds::Button @color="tertiary">` requires `@icon`.
 
 ## MVP scope
 
-Only direct angle-bracket `Hds::*` invocations are generally analyzed. The
+Only direct angle-bracket `Hds::*` invocations and statically resolved named
+imports from `@hashicorp/design-system-components/components` are generally
+analyzed. Default, namespace, dynamic, type-only, and unrelated imports are
+not treated as HDS components. The
 removed Dropdown Interactive `@text` API is the sole contextual exception:
 the rule tracks the lexical block parameter of an enclosing
-`<Hds::Dropdown>` and handles nested scopes and shadowing. Dynamic component
-names, other yielded/contextual components, curly invocations, dynamic
-argument values outside this migration, required arguments in general, and
-type checking remain out of scope. Glint remains the source of truth for
-TypeScript-level checking.
+`<Hds::Dropdown>` or its statically resolved imported equivalent and handles
+nested scopes and shadowing. Dynamic component names, other yielded/contextual
+components, curly invocations, dynamic argument values outside this migration,
+required arguments in general, and type checking remain out of scope. Glint
+remains the source of truth for TypeScript-level checking.
 
 Autofixes are deliberately conservative and suppressed when a destination
 attribute already exists or a conditional migration is ambiguous. Unlisted
@@ -86,9 +93,9 @@ default exports, and arbitrary module traversal remain out of scope.
 Unknown arguments are renamed or converted only by the explicit policies
 listed above (or by a uniquely safe typo correction). The Dropdown Interactive
 `@text` migration preserves text, paths, helpers and hashes, conditionals,
-literal mustaches, and concatenated values as block content. If substantive
-block content already exists, the removed no-op argument is deleted without
-duplicating content. Ambiguous or unsupported shapes remain unchanged and
-direct users to
+literal mustaches, and concatenated values as block content. It only autofixes
+exactly one supported `@text` value when no substantive block content exists.
+Invocations with substantive block content, duplicate `@text` arguments, or
+unsupported shapes remain unchanged and direct users to
 `@hashicorp/design-system-codemods v4/dropdown-list-item-interactive`.
 No other unknown argument is deleted.

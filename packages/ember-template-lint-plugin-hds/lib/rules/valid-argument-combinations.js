@@ -5,7 +5,8 @@ export default class ValidArgumentCombinations extends CatalogRule {
   visitor() {
     return {
       ElementNode(node) {
-        if (!this.hdsComponent(node)) {
+        const component = this.hdsComponent(node);
+        if (!component) {
           return;
         }
 
@@ -16,7 +17,7 @@ export default class ValidArgumentCombinations extends CatalogRule {
         );
 
         for (const policy of policies) {
-          if (policy.component !== node.tag) {
+          if (policy.component !== component.name) {
             continue;
           }
 

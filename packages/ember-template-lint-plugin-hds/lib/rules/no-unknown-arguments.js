@@ -45,7 +45,10 @@ export default class NoUnknownArguments extends CatalogRule {
     const bindings = new Map(
       blockParams.map((blockParam) => [blockParam, "other"]),
     );
-    if (node.tag === "Hds::Dropdown" && blockParams.length > 0) {
+    if (
+      this.hdsComponent(node)?.name === "Hds::Dropdown" &&
+      blockParams.length > 0
+    ) {
       bindings.set(blockParams[0], "dropdown");
     }
     this.blockParamScopes.push(bindings);
@@ -54,16 +57,13 @@ export default class NoUnknownArguments extends CatalogRule {
   pushBlockScope(node) {
     this.blockParamScopes.push(
       new Map(
-        (node.program?.blockParams ?? []).map((blockParam) => [
-          blockParam,
-          "other",
-        ]),
+        (node.blockParams ?? []).map((blockParam) => [blockParam, "other"]),
       ),
     );
   }
 
   isDropdownInteractive(node) {
-    if (node.tag === DIRECT_DROPDOWN_INTERACTIVE) {
+    if (this.hdsComponent(node)?.name === DIRECT_DROPDOWN_INTERACTIVE) {
       return true;
     }
 
@@ -134,12 +134,13 @@ export default class NoUnknownArguments extends CatalogRule {
       textAttributes.length === 1
         ? this.childrenForTextValue(textAttributes[0].value)
         : undefined;
-    const canFix = hasContent || replacementChildren !== undefined;
+    const canFix = !hasContent && replacementChildren !== undefined;
 
     if (this.mode === "fix" && canFix) {
-      const children = hasContent
-        ? node.children
-        : [...this.commentsInEmptyContent(node), ...replacementChildren];
+      const children = [
+        ...this.commentsInEmptyContent(node),
+        ...replacementChildren,
+      ];
       const replacement = builders.element(
         { name: node.tag, selfClosing: false },
         {
@@ -148,6 +149,7 @@ export default class NoUnknownArguments extends CatalogRule {
           ),
           blockParams: node.blockParams,
           children,
+          comments: node.comments,
           modifiers: node.modifiers,
         },
       );
@@ -164,7 +166,7 @@ export default class NoUnknownArguments extends CatalogRule {
 
   visitor() {
     return {
-      BlockStatement: {
+      Block: {
         enter(node) {
           this.pushBlockScope(node);
         },

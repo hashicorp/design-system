@@ -28,7 +28,7 @@ function maskRange(source, start, end) {
   );
 }
 
-function templateRanges(source) {
+export function templateRanges(source) {
   const ranges = [];
   let state = "code";
   let escaped = false;

@@ -5,6 +5,7 @@ import {
   resolveBackingValues,
 } from "./backing-values.js";
 import { loadCatalog } from "./catalog.js";
+import { importedHdsComponents } from "./imported-components.js";
 import { staticStringValue } from "./utils.js";
 
 export default class CatalogRule extends Rule {
@@ -37,13 +38,23 @@ export default class CatalogRule extends Rule {
       this.catalog.components.map((component) => [component.name, component]),
     );
     this.backingValues = undefined;
+    this.importedComponents = undefined;
   }
 
   hdsComponent(node) {
-    if (typeof node.tag !== "string" || !node.tag.startsWith("Hds::")) {
+    if (typeof node.tag !== "string") {
       return undefined;
     }
-    return this.components.get(node.tag);
+    if (node.tag.startsWith("Hds::")) {
+      return this.components.get(node.tag);
+    }
+    this.importedComponents ??= importedHdsComponents(
+      this.workingDir,
+      this.filePath,
+      this.source.join(""),
+      this.catalog.components,
+    );
+    return this.importedComponents.get(node.tag);
   }
 
   resolvedArgumentValue(attribute) {

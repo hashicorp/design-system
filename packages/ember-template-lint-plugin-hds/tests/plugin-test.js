@@ -225,13 +225,18 @@ test("valid-static-argument-values normalizes unique case matches in HBS and GTS
   }
 });
 
-test("valid-static-argument-values applies explicit value aliases before fuzzy matching", async () => {
+test("valid-static-argument-values does not fix ambiguous Time display values", async () => {
   for (const display of ["Friendly", "friendly"]) {
+    const source = `<Hds::Time @display="${display}" />`;
     const result = await fixWithInstalledCatalog(
       "valid-static-argument-values",
-      `<Hds::Time @display="${display}" />`,
+      source,
     );
-    assert.equal(result.output, '<Hds::Time @display="friendly-only" />');
+    assert.equal(result.output, source);
+    assert.equal(result.isFixed, false);
+    assert.equal(result.messages.length, 1);
+    assert.equal(result.messages[0].isFixable, false);
+    assert.doesNotMatch(result.messages[0].message, /Did you mean/);
   }
   const dynamic = "<Hds::Time @display={{this.display}} />";
   const result = await fixWithInstalledCatalog(

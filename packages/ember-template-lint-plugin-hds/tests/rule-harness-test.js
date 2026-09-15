@@ -121,11 +121,6 @@ generateRuleTests({
         workingDir: packageRoot,
       },
     },
-    {
-      name: "fixes an explicit value alias",
-      template: '<Hds::Time @display="Friendly" />',
-      fixedTemplate: '<Hds::Time @display="friendly-only" />',
-    },
   ],
 });
 

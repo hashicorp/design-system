@@ -11,18 +11,6 @@ export default [
   },
 ];
 
-export const valueAliases = [
-  {
-    component: "Hds::Time",
-    argument: "display",
-    aliases: {
-      Friendly: "friendly-only",
-      friendly: "friendly-only",
-    },
-    source: "website/docs/components/time/partials/code/how-to-use.md",
-  },
-];
-
 export const attributeAliases = [
   {
     components: ["Hds::Link::Inline", "Hds::Link::Standalone"],

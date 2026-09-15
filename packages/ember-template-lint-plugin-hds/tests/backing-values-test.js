@@ -89,7 +89,7 @@ export default class Example extends Component {
   assert.equal(fs.readFileSync(filePath, "utf8"), source);
 });
 
-test("resolves a same-file GJS literal getter and value alias", async () => {
+test("resolves an ambiguous same-file GJS literal getter", async () => {
   const source = `import Component from "@glimmer/component";
 
 export default class Example extends Component {
@@ -112,7 +112,11 @@ export default class Example extends Component {
   assert.equal(messages.length, 1);
   assert.equal(messages[0].isFixable, false);
   assert.match(messages[0].message, /this\.display to "Friendly"/);
-  assert.match(messages[0].message, /friendly-only/);
+  assert.match(
+    messages[0].message,
+    /friendly-only, friendly-local, friendly-relative/,
+  );
+  assert.doesNotMatch(messages[0].message, /Did you mean/);
 });
 
 test("combination rule resolves same-file backing color", async () => {
@@ -182,7 +186,7 @@ class Example extends Component {
 }
 export default Example;
 `,
-      expected: /friendly-only/,
+      expected: /friendly-only, friendly-local, friendly-relative/,
       extension: "ts",
     },
     {
