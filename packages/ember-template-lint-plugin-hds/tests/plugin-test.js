@@ -66,7 +66,6 @@ test("plugin exports a recommended config with all MVP rules", () => {
     "no-unknown-arguments": true,
     "require-accessible-name": true,
     "require-hds-arguments": true,
-    "require-text-tag": true,
     "valid-argument-combinations": true,
     "valid-navigation-mode": true,
     "valid-static-argument-values": true,

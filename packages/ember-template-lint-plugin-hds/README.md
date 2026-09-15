@@ -72,8 +72,10 @@ consistent diagnostics and autofixes, not as an alternative type system.
 - `require-hds-arguments` validates catalog-required arguments in `.hbs` and
   `.gjs`. It deliberately skips `.gts`, where Glint provides more precise
   component-signature checking.
-- `require-text-tag` requires Text Body, Code, and Display components to
-  declare an explicit semantic `@tag`.
+- `require-text-tag` is an opt-in semantic-markup policy that asks Text Body,
+  Code, and Display components to declare an explicit `@tag`. HDS defaults
+  these components to `<span>`, so this rule is not part of
+  `hds:recommended`.
 - `valid-static-argument-values` checks text and string literals against
   catalog `values` and `valuesRef` metadata. It reports allowed values and
   safely fixes unique case-only matches and then a single close fuzzy match,
