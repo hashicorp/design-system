@@ -13,6 +13,10 @@ import {
   CONTEXTUAL_THEMES,
   CONTEXTUAL_MODES,
 } from '@hashicorp/design-system-components/components/hds/theme-context/index';
+import {
+  MODES_LIGHT,
+  MODES_DARK,
+} from '@hashicorp/design-system-components/services/hds-theming';
 
 module('Integration | Component | hds/theme-context/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -53,6 +57,30 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
         </template>,
       );
       assert.dom('#test-theme-context').hasClass(`hds-mode-${context}`);
+    });
+  });
+
+  MODES_LIGHT.forEach((context) => {
+    test(`it should render the "light" CSS "theme" class for "${context}" context`, async function (assert) {
+      await render(
+        <template>
+          <HdsThemeContext @context={{context}} id="test-theme-context" />
+        </template>,
+      );
+      assert.dom('#test-theme-context').hasClass('hds-theme-light');
+      assert.dom('#test-theme-context').doesNotHaveClass('hds-theme-dark');
+    });
+  });
+
+  MODES_DARK.forEach((context) => {
+    test(`it should render the "dark" CSS "theme" class for "${context}" context`, async function (assert) {
+      await render(
+        <template>
+          <HdsThemeContext @context={{context}} id="test-theme-context" />
+        </template>,
+      );
+      assert.dom('#test-theme-context').hasClass('hds-theme-dark');
+      assert.dom('#test-theme-context').doesNotHaveClass('hds-theme-light');
     });
   });
 
