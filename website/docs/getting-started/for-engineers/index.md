@@ -17,7 +17,22 @@ We provide components as an [Ember](https://emberjs.com/) addon with associated 
 
 ### Import component styles
 
-You can chose between importing styles as Sass or CSS.
+You can chose between importing styles as CSS (preferred) or Sass.
+
+!!! Warning
+
+**Consumer responsibility**
+
+Our component library assumes that a box-sizing reset is applied globally in your application. To ensure components render properly, include the following reset:
+
+`*, *::before, *::after { box-sizing: border-box; }`
+!!!
+
+#### CSS
+
+Import the CSS by adding this configuration in `ember-cli-build.js`. Depending
+
+[[code-snippets/css-import-in-cli-build]]
 
 #### Sass
 
@@ -28,7 +43,6 @@ You can chose between importing styles as Sass or CSS.
 Our internal Sass files for mixins, component styles, etc. are not considered a part of our public API. However, we do ensure that any existing paths to these files will not change outside of a major release.
 
 !!!
-
 
 1. Install and configure Sass to preprocess styles, handle source maps, and include paths in your application.
 
@@ -47,22 +61,6 @@ Our internal Sass files for mixins, component styles, etc. are not considered a 
 5. Add the following line to the main Sass file in your application (for example, in `app.scss`):
 
 [[code-snippets/use-helios-styles]]
-
-#### CSS
-
-!!! Warning
-
-**Consumer responsibility**
-
-Our component library assumes that a box-sizing reset is applied globally in your application. To ensure components render properly, include the following reset:
-
-`*, *::before, *::after { box-sizing: border-box; }`
-!!!
-
-
-Import the CSS by adding this configuration in `ember-cli-build.js`.
-
-[[code-snippets/css-import-in-cli-build]]
 
 ### Single file components
 
