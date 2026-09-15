@@ -314,6 +314,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 .hds-dropdown-list-item--variant-description {
   padding: 2px 16px 4px;
   color: var(--token-color-foreground-faint);
+  text-align: left;
 }
 
 // HDS::DROPDOWN::LIST-ITEM::GENERIC
@@ -529,6 +530,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 .hds-dropdown-list-item--variant-title {
   padding: 10px 16px 4px;
   color: var(--token-color-foreground-strong);
+  text-align: left;
 }
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKMARK
