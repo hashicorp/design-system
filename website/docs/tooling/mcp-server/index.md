@@ -1,8 +1,8 @@
 ---
 title: Helios MCP Server
 description: >-
-  An MCP server that provides an LLM with the context necessary to work with HDS assets.
-caption: An MCP server that provides an LLM with the context necessary to work with HDS assets.
+  Connect AI assistants to Helios component APIs, documentation, design tokens, and Flight icons.
+caption: Connect AI assistants to Helios components, documentation, design tokens, and Flight icons.
 previewImage: assets/testing/small_cat.png
 navigation:
   hidden: false
@@ -11,6 +11,10 @@ navigation:
     - mcp
     - llm
     - ai
+    - components
+    - tokens
+    - icons
+    - documentation
 ---
 
 <section data-tab="Overview">
