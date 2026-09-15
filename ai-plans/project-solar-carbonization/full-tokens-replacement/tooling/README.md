@@ -48,6 +48,8 @@ Writes to `reports/hds/`:
   - `prefix-plus-renaming__semantic-colors` — `color-{semantic}-{rest}` → `{semantic}-color-{rest}`.
   - `prefix-plus-renaming__focus-ring` — `focus-ring-{variant}-box-shadow` → `focus-ring-box-shadow-{variant}`.
   - `prefix-plus-renaming__transition-function` — `{rest}-transition-function` → `{rest}-transition-timing-function`.
+  - `prefix-plus-renaming__form-radio-card` — `form-radiocard-{rest}` → `form-radio-card-{rest}`.
+  - `prefix-plus-renaming__form-control-checked` — `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}`.
   - `prefix-plus-renaming__other` — structural renames with no systematic rule (review each).
   - `removed` — no successor found (`after: null`); decide manually or flag with a TODO.
   - `added` — brand-new post tokens (`before: null`); informational, not applied by Phase B.
@@ -61,6 +63,20 @@ separate confirmation step**. Phase A (re)writes it on every run (safe to
 overwrite), and `token-diff.md` is the detailed audit companion. If a run ever
 surfaces something questionable (e.g. in the **`prefix-plus-renaming__other`** or
 **`removed`** buckets), edit the generated JSON in place before running Phase B.
+
+### Re-run Phase A after any `packages/tokens` change
+
+The map is a snapshot of the post token set, so it goes stale as soon as tokens
+are added, renamed, or removed upstream. **Always re-run Phase A before a Phase B
+apply.** Two things to keep in mind:
+
+- Source tokens marked `"private": "true"` are **not** emitted to
+  `dist/products/css/tokens.css` (only to `dist/docs/**`), so they never appear in
+  the map — that is by design, the products CSS is the canonical inventory.
+- Newly added tokens only ever grow the `added` category (`before: null`), which
+  Phase B ignores, so a refresh that adds tokens cannot change a migration result.
+  A refresh that changes `before`→`after` pairs, however, does — review the diff of
+  `token-map.generated.json` after every re-run.
 
 ## Phase B — apply the map
 

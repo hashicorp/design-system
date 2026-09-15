@@ -1,7 +1,7 @@
 # HANDOVER — HDS Token "Carbonization" Full Replacement
 
 > Purpose: give a **fresh session** everything needed to continue this work without re-discovering context.
-> Last updated: 2026-08-25
+> Last updated: 2026-09-15
 
 ---
 
@@ -9,10 +9,10 @@
 
 - Two-phase, dependency-free, config-driven Node tooling migrates CSS design-token **names** from the
   **pre-carbonization** set (`--token-*`, 442 tokens on `main`) to the **post-carbonization** set
-  (`--hds-*`, 1039 tokens on the feature branch).
+  (`--hds-*`, 1046 tokens on the feature branch).
 - **Phase A** (`diff-tokens.mjs`) generates the old→new **token map** (`token-map.generated.json`).
-  Runs **once**, only in this monorepo. Already built, run, and accepted. **Re-run on 2026-08-25 against
-  100% post-carbonization state.**
+  Runs **once**, only in this monorepo. Already built, run, and accepted. **Re-run on 2026-09-15 to pick up
+  tokens added after the tooling was first implemented** (see §3).
 - **Phase B** (`migrate-tokens.mjs`) applies that map to consumer code + verifies. Reusable core +
   per-repo JSON config. Already built and **validated end-to-end**.
 - **Status:**
@@ -55,7 +55,7 @@ ai-plans/project-solar-carbonization/full-tokens-replacement/
 
 - **Pre = `main`**: 442 custom properties, ALL `--token-*`, zero `--hds-*`.
 - **Post = working tree** (branch `project-solar/phase-1-stacked-cherry-picking/XX-Delta`, which contains
-  100% of the carbonization work): **1039 props**, ALL `--hds-*`.
+  100% of the carbonization work): **1046 props**, ALL `--hds-*`.
 - The `--token-` → `--hds-` prefix swap is **universal** = "step 0" of carbonization; so **no token is
   literally unchanged**. The map therefore groups pre tokens by **how** they changed, not by identity.
 - Token names read directly from committed CSS — no build needed:
@@ -79,7 +79,7 @@ Flat object; mutually-exclusive **transformation categories** as top-level keys;
 | `prefix-plus-renaming__form-control-checked` | 5 | `form-control-checked-{type}-color-{rest?}` → `form-control-{type}-color-checked-{rest?}` |
 | `prefix-plus-renaming__other` | 8 | structural renames with no systematic rule (review each) |
 | `removed` | 18 | pre token with no successor → `after: null` |
-| `added` | 619 | brand-new post tokens (`before: null`) — reference only, Phase B ignores |
+| `added` | 626 | brand-new post tokens (`before: null`) — reference only, Phase B ignores |
 
 Check: 228+42+86+46+2+2+5+5+8+18 = 442 pre tokens ✓.
 
@@ -106,14 +106,17 @@ it falls to `__other`. Key predicates in `diff-tokens.mjs`:
 - **S2** source-JSON provenance/structure (`packages/tokens/src/**/*.json`, excluding `carbon-extracted/**`).
 - **S3** fuzzy name similarity — fallback only, always flagged.
 - Deliberately **NOT** used: generated-CSS value matching (too weak).
-- 2026-08-25 Phase A run by signal: 416 high (228 S0, 183 S1, 5 S2), 8 S3 fuzzy, 18 unresolved, 0 conflicts.
+- 2026-09-15 Phase A run by signal: 424 high (228 S0, 196 S1, 0 S2), 0 S3 fuzzy, 18 unresolved, 0 conflicts.
+  (The 2026-08-25 run resolved the same pairs as 416 high / 5 S2 / 8 S3 — the shift to S1 is purely better
+  provenance, because `carbonization-design-tokens.md` now documents the `form-radiocard` and
+  `form-control-checked` renames that previously had to be inferred structurally/fuzzily.)
 
 ---
 
 ## 3. What has been done & validated
 
 ### Phase A map regenerated at 100% (✅ 2026-08-25)
-- Working tree on `project-solar/phase-1-stacked-cherry-picking/XX-Delta` confirmed at 1039 `--hds-*` tokens
+- Working tree on `project-solar/phase-1-stacked-cherry-picking/XX-Delta` confirmed at 1041 `--hds-*` tokens
   (100% carbonization complete). `main` confirmed still at 442 `--token-*` tokens (pre unchanged).
 - `diff-tokens.mjs` re-run; map and diff report overwritten.
 - Script improved during this session:
@@ -121,7 +124,26 @@ it falls to `__other`. Key predicates in `diff-tokens.mjs`:
     which documents renames as `--token-*`→`--hds-*` directly, not `--hds-*`→`--hds-*`).
   - Two new systematic categories added: `prefix-plus-renaming__form-radio-card` and
     `prefix-plus-renaming__form-control-checked`.
-- `carbonization-design-tokens.md` changeset updated to reflect 100% state (424 renamed, 619 added, 18 removed).
+- `carbonization-design-tokens.md` changeset updated to reflect 100% state (424 renamed, 621 added, 18 removed).
+
+### Phase A map refreshed for late-added tokens (✅ 2026-09-15)
+- Commit `a044bbb` ("added design tokens for `neutral-on-dark` core colors") landed on a **parent branch
+  after** the tooling was first implemented, so the committed map had gone stale. It adds:
+  - 7 `core.color.neutral-on-dark-*` colors that are **`private: true`** and therefore **NOT** emitted to
+    `dist/products/css/tokens.css` (they only appear under `dist/docs/**`) — invisible to this tooling;
+  - 5 genuinely new canonical tokens: `--hds-app-footer-border-color`,
+    `--hds-app-footer-foreground-color-default`, `--hds-app-footer-foreground-color-action-{default,hover,active}`.
+- Post token count therefore moved **1041 → 1046**; `diff-tokens.mjs` re-run and artifacts overwritten.
+- **No script change was needed** — the 5 tokens are brand-new post names, so they simply land in `added`
+  (**621 → 626**). Every rename category is unchanged (228/42/86/46/2/2/5/5/8, `removed` 18) and the
+  `before`→`after` pairs are byte-identical, so **Phase B is unaffected** and its `token-migration.{md,json}`
+  reports remain valid (entries with `before: null` are ignored by Phase B).
+- Only other delta: the signal attribution in `token-diff.md` (see §2) — same pairs, stronger provenance.
+- `carbonization-design-tokens.md` already lists the 5 new tokens (updated in `a650cf6f`), so the changeset
+  needed no edit; only its implied counts are now **424 renamed, 626 added, 18 removed**.
+
+**Lesson:** whenever `packages/tokens` changes upstream, re-run Phase A before using the map, and remember
+that `private` tokens never reach `dist/products/css/tokens.css`.
 
 ### HDS `main` test harness (✅ complete)
 - Phase B run against a throwaway worktree of `main` (`git worktree add /tmp/hds-main main`).
@@ -202,7 +224,9 @@ Fields from the user's example **audit** config that DO NOT transfer to Phase B:
    - Clean up the throwaway branch/config afterwards.
 2. **Onboard additional downstream consumer repos**: copy `migrate-tokens.mjs` unchanged, author a new
    `config/migrate.<repo>.config.json`, dry-run first, then preview-branch apply.
-3. Fold any new learnings back into `generated-plan.md` and `tooling/README.md`.
+3. **Re-run Phase A whenever `packages/tokens` changes upstream** (and before any Phase B apply), so the map
+   reflects the current post set — this is exactly what went stale in §3's 2026-09-15 refresh.
+4. Fold any new learnings back into `generated-plan.md` and `tooling/README.md`.
 
 ---
 
@@ -211,6 +235,11 @@ Fields from the user's example **audit** config that DO NOT transfer to Phase B:
 - **Config paths resolve relative to the CONFIG FILE**, not the scanned `--root`. Config lives in
   `tooling/config/`, reports in `tooling/reports/`, so configs use `../reports/<repo>/...`.
   (An initial `reports/hds/...` value wrongly resolved to `tooling/config/reports/...` and failed.)
+- **`private: true` tokens never reach `dist/products/css/tokens.css`** — they are emitted only to
+  `dist/docs/**`. So a tokens commit can add source tokens that this tooling legitimately never sees
+  (e.g. the 7 `core.color.neutral-on-dark-*` colors from `a044bbb`). Only the canonical products CSS counts.
+- **The map goes stale when `packages/tokens` changes** — Phase A must be re-run after any upstream token
+  commit; a stale map silently omits new post tokens from `added` (see §3, 2026-09-15).
 - **TODO-marker insertion is idempotent** — it skips if the previous line already has the marker; otherwise
   re-runs stack duplicate comments.
 - **HDS working tree is already post-carbonization**, so Phase B here MUST target a `main` worktree to see real

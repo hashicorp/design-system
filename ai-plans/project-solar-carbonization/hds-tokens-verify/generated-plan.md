@@ -107,8 +107,16 @@ Pilot facts:
 - `{{TOKENS_CSS_PATH}}` = `dist/products/css/tokens.css`
 - Resolved from `packages/components` (the tokens package is symlinked there under
   pnpm); `config.tokensResolveFrom = ["packages/components"]` makes resolution work.
-- Official token count seen across branches: ~800 / 809 / 818 (varies by branch).
-  Rebuild `packages/tokens` if the count looks stale.
+- Official token count seen across branches: ~800 / 809 / 818 on the earlier branches,
+  **1046** on the current tokens branch (`packages/tokens` keeps evolving). The count
+  legitimately varies per branch — rebuild `packages/tokens` if it looks stale.
+- **`private` tokens are not part of the official set.** Source tokens marked
+  `"private": "true"` in `packages/tokens/src/**` are emitted only to `dist/docs/**`,
+  **not** to `dist/products/css/tokens.css` — e.g. the 7 `core.color.neutral-on-dark-*`
+  colors added in commit `a044bbb`. Any source usage of `--hds-core-color-neutral-on-dark-*`
+  will therefore be (correctly) reported as invalid. Fix the usage rather than
+  allowlisting the family — see the deliberate non-feature note in §2.2. As of
+  2026-09-15 there are **0** such usages in the scanned roots.
 <!-- END REPO-SPECIFIC (hds-pilot) -->
 
 ### 2.2 Understand the validity model (important)
@@ -121,14 +129,19 @@ for internal runtime variables:
 `--hds-var-*` names also start with `--hds-`, so the scan matches them, but they are
 component-internal runtime variables **not** defined in `tokens.css`. They must be
 enumerated in the `allowlist` to count as valid. The pilot `allowlist` currently has
-**97 entries**, collected from `--hds-var-*` declarations/usages in
+**106 entries**, collected from `--hds-var-*` declarations/usages in
 `packages/components/src`. When source adds/renames such a variable, the allowlist
-must be kept in sync or the auditor will (correctly) flag it.
+must be kept in sync or the auditor will (correctly) flag it — this happened on
+2026-09-15, when commit `ea3c0fcd38` ("Updated HDS components to support Carbon
+theming", 21 Aug) added 8 new internal variables to `advanced-table`, `table`, and
+`filter-bar` that the list had never picked up (98 → 106 entries).
 <!-- END REPO-SPECIFIC (hds-pilot) -->
 
 > **Deliberate non-feature:** an `allowlistPatterns` (regex-family) capability was
 > built and then **removed**. A blanket `^--hds-var-` pattern would *hide* future
-> typos (e.g. `--hds-var-…-punctuatione`). Enumerate names explicitly instead.
+> typos (e.g. `--hds-var-…-punctuatione`). Enumerate names explicitly instead. The
+> same reasoning applies to `private` tokens (see [§2.1](#21-confirm-the-official-token-source-is-present-and-built)):
+> do not pre-emptively allowlist a family that the products CSS does not export.
 
 ---
 
@@ -187,7 +200,7 @@ Pilot config highlights:
 - `excludeGlobs` include `showcase/public/assets/**`
 - `reportGroups` = `packages/tokens`, `packages/components`, `packages/flight-icons`,
   `showcase`, `website`
-- `allowlist` = 97 `--hds-var-*` names
+- `allowlist` = 106 `--hds-var-*` names
 - `ignoreComments` not set → uses the default (`false` = comment tokens are flagged)
 <!-- END REPO-SPECIFIC (hds-pilot) -->
 
@@ -276,8 +289,16 @@ node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-token
   --root /path/to/design-system
 ```
 
-Latest clean baseline: **0 invalid / 0 occurrences** across ~3.1k files
-(809 official + 97 allowlist, source: postcss).
+Latest clean baseline: **0 invalid / 0 occurrences** across 3137 files
+(1046 official + 106 allowlist, source: postcss) — recorded on
+`project-solar/phase-1-stacked-cherry-picking/11-showcase-carbonization-pages`
+(2026-09-15), the first stacked branch carrying **both** the new token set and the
+component-side `--hds-var-*` work. The committed `reports/hds/*` files reflect this
+run. Do **not** regenerate them from the tokens-only stacked branches (`…/0X-*`):
+those have the new tokens but not the component updates, so an audit there reports
+a large expected set of component-internal variables as invalid (133 tokens / 472
+occurrences on `…/02-tokens-tooling`) and would only add noise. Always audit from a
+branch carrying the full carbonization state.
 <!-- END REPO-SPECIFIC (hds-pilot) -->
 
 ### 5.1 Repeated runs during a rebase (minimal footprint)
