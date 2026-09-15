@@ -107,10 +107,6 @@ Tools let an MCP client search and read HDS information. All tools are read-only
 | `search_hds_docs` | Searches a bundled snapshot of the HDS documentation and returns ranked passages, snippets, and canonical URLs. | `query`; optional `limit`, `section`, `tab`, and `docsPath` filters |
 | `read_hds_docs` | Reads the complete Markdown for a passage returned by `search_hds_docs`, including usage examples and code snippets. | `id`; optional `includeChildren` and `maxBytes` |
 
-Search results can be truncated. Narrow the query or add a filter when a response reports `truncated: true`.
-
-Documentation search results are ranked for relevance. A result doesn't confirm that HDS supports the requested feature. Review the result's matched terms and snippet, then read the complete passage before applying its guidance.
-
 ## Available resources
 
 Resources expose structured catalogs to clients that support MCP resources.
@@ -150,10 +146,6 @@ Because the documentation is a bundled snapshot, it may differ from the live web
 ### Tools or resources return catalog errors
 
 Run `pnpm install` from the repository root, then rebuild the server. The server reads catalogs from the HDS workspace packages and reports an error when it can't resolve them.
-
-### Documentation results are too broad
-
-Use a component's `docsPath` to restrict `search_hds_docs`, or provide a `section` or `tab` filter. For version and changelog questions, use the `Version history` tab.
 
 ### Inspect the server directly
 
