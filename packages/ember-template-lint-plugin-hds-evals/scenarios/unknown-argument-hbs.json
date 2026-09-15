@@ -3,11 +3,11 @@
   "prompt": "Fix the misspelled HDS Button argument without suppressing lint.",
   "file": "app/templates/application.hbs",
   "tags": ["no-unknown-arguments", "hbs"],
-  "baseline": "<Hds::Button @colro=\"primary\" />",
-  "expectedCorrection": "<Hds::Button @color=\"primary\" />",
+  "baseline": "<Hds::Button @text=\"Save\" @colro=\"primary\" />",
+  "expectedCorrection": "<Hds::Button @text=\"Save\" @color=\"primary\" />",
   "expectedBaselineRules": ["no-unknown-arguments"],
   "assertions": {
-    "includes": ["<Hds::Button", "@color=\"primary\""],
+    "includes": ["<Hds::Button", "@text=\"Save\"", "@color=\"primary\""],
     "excludes": ["@colro"]
   }
 }

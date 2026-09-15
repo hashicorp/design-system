@@ -1,0 +1,13 @@
+{
+  "id": "code-block-accessible-name-hbs",
+  "prompt": "Provide an accessible name for the HDS CodeBlock.",
+  "file": "app/templates/code.hbs",
+  "tags": ["require-accessible-name", "accessibility", "hbs"],
+  "baseline": "<Hds::CodeBlock @value=\"const answer = 42;\" />",
+  "expectedCorrection": "<Hds::CodeBlock @value=\"const answer = 42;\" @ariaLabel=\"Example code\" />",
+  "expectedBaselineRules": ["require-accessible-name"],
+  "assertions": {
+    "includes": ["<Hds::CodeBlock", "@ariaLabel=\"Example code\""],
+    "excludes": []
+  }
+}

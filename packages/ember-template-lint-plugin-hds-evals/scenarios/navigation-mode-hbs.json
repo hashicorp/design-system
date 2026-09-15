@@ -1,0 +1,13 @@
+{
+  "id": "navigation-mode-hbs",
+  "prompt": "Use one navigation target for the HDS Inline Link.",
+  "file": "app/templates/link.hbs",
+  "tags": ["valid-navigation-mode", "hbs"],
+  "baseline": "<Hds::Link::Inline @href=\"/docs\" @route=\"docs\">Docs</Hds::Link::Inline>",
+  "expectedCorrection": "<Hds::Link::Inline @route=\"docs\">Docs</Hds::Link::Inline>",
+  "expectedBaselineRules": ["valid-navigation-mode"],
+  "assertions": {
+    "includes": ["<Hds::Link::Inline", "@route=\"docs\"", "Docs"],
+    "excludes": ["@href="]
+  }
+}

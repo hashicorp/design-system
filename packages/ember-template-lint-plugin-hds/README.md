@@ -55,6 +55,10 @@ consistent diagnostics and autofixes, not as an alternative type system.
 
 ## Rules
 
+- `no-deprecated-hds-api` uses HDS migration policies to report removed APIs
+  supported by this package's HDS 6+ peer range. It safely renames removed
+  direct Modal and Flyout subcomponents to their DialogPrimitive replacements
+  and provides migration guidance for Advanced Table `@isVisuallyHidden`.
 - `no-unknown-arguments` checks named arguments and safely fixes an
   unambiguous close typo such as `@colro` to `@color`. It also applies a
   small allowlist of component-aware migrations from obsolete named
@@ -63,6 +67,13 @@ consistent diagnostics and autofixes, not as an alternative type system.
   of `@href` and `@route` is present. It also migrates the removed Dropdown
   Interactive `@text` argument to block content for direct invocations and
   contextual invocations yielded from `<Hds::Dropdown>`.
+- `require-accessible-name` requires CodeBlock and CodeEditor to provide
+  `@ariaLabel`, `@ariaLabelledBy`, or a substantive yielded Title.
+- `require-hds-arguments` validates catalog-required arguments in `.hbs` and
+  `.gjs`. It deliberately skips `.gts`, where Glint provides more precise
+  component-signature checking.
+- `require-text-tag` requires Text Body, Code, and Display components to
+  declare an explicit semantic `@tag`.
 - `valid-static-argument-values` checks text and string literals against
   catalog `values` and `valuesRef` metadata. It reports allowed values and
   safely fixes unique case-only matches and then a single close fuzzy match,
@@ -73,6 +84,9 @@ consistent diagnostics and autofixes, not as an alternative type system.
 - `valid-argument-combinations` applies a small extensible policy list. The
   MVP enforces the component runtime constraint that
   `<Hds::Button @color="tertiary">` requires `@icon`.
+- `valid-navigation-mode` rejects conflicting `@href`/`@route` targets,
+  external flags without their matching target, and Link components without a
+  navigation target.
 
 ## MVP scope
 

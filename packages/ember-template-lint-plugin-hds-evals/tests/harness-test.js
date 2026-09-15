@@ -58,10 +58,10 @@ test("deterministic A/C suite records all corrected scenarios", async () => {
   });
 
   assert.deepEqual(report.summary, {
-    scenarios: 11,
-    passed: 11,
+    scenarios: 16,
+    passed: 16,
     failed: 0,
-    baselineViolations: 12,
+    baselineViolations: 17,
     correctedViolations: 0,
   });
   assert.ok(report.results.every((result) => result.c.copiedFromBaseline));
@@ -170,7 +170,10 @@ test("rejects unsafe scenario paths before writing or deleting", async () => {
 });
 
 test("lint-clean task drift cannot score green", async () => {
-  for (const source of ["<Hds::Button />", '<Hds::Icon @name="search" />']) {
+  for (const source of [
+    '<Hds::Button @text="Save" />',
+    '<Hds::Icon @name="search" />',
+  ]) {
     const report = await run(
       `task-drift-${source.length}`,
       providerFor(async () => ({ source })),

@@ -1,0 +1,13 @@
+{
+  "id": "deprecated-modal-header-hbs",
+  "prompt": "Migrate the removed HDS Modal Header subcomponent.",
+  "file": "app/templates/modal.hbs",
+  "tags": ["no-deprecated-hds-api", "migration", "hbs"],
+  "baseline": "<Hds::Modal::Header>Title</Hds::Modal::Header>",
+  "expectedCorrection": "<Hds::DialogPrimitive::Header>Title</Hds::DialogPrimitive::Header>",
+  "expectedBaselineRules": ["no-deprecated-hds-api"],
+  "assertions": {
+    "includes": ["<Hds::DialogPrimitive::Header>", "Title"],
+    "excludes": ["Hds::Modal::Header"]
+  }
+}

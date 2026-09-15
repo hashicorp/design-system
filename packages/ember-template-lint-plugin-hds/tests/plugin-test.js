@@ -62,8 +62,13 @@ async function verify(rule, source, filePath = "template.hbs") {
 test("plugin exports a recommended config with all MVP rules", () => {
   assert.equal(plugin.name, "hds");
   assert.deepEqual(plugin.configurations.recommended.rules, {
+    "no-deprecated-hds-api": true,
     "no-unknown-arguments": true,
+    "require-accessible-name": true,
+    "require-hds-arguments": true,
+    "require-text-tag": true,
     "valid-argument-combinations": true,
+    "valid-navigation-mode": true,
     "valid-static-argument-values": true,
   });
 });
@@ -77,7 +82,7 @@ test("recommended config resolves through the hds plugin namespace", async () =>
     },
   });
   const messages = await linter.verify({
-    source: '<Hds::Button @colro="primary" />',
+    source: '<Hds::Button @text="Save" @colro="primary" />',
     filePath: "template.hbs",
     workingDir: packageRoot,
   });

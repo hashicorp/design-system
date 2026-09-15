@@ -1,0 +1,42 @@
+{
+  "valueSets": {},
+  "components": [
+    {
+      "name": "Hds::Button",
+      "modulePath": "hds/button",
+      "args": [
+        {
+          "name": "text",
+          "required": true
+        },
+        {
+          "name": "color",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "Hds::Link::Standalone",
+      "modulePath": "hds/link/standalone",
+      "args": [
+        {
+          "name": "text",
+          "required": true
+        },
+        {
+          "name": "icon",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Hds::CatalogFixture",
+      "args": [
+        {
+          "name": "configured",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

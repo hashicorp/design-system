@@ -3,11 +3,11 @@
   "prompt": "Correct the invalid static HDS Button color.",
   "file": "app/templates/application.hbs",
   "tags": ["valid-static-argument-values", "hbs"],
-  "baseline": "<Hds::Button @color=\"primry\" />",
-  "expectedCorrection": "<Hds::Button @color=\"primary\" />",
+  "baseline": "<Hds::Button @text=\"Save\" @color=\"primry\" />",
+  "expectedCorrection": "<Hds::Button @text=\"Save\" @color=\"primary\" />",
   "expectedBaselineRules": ["valid-static-argument-values"],
   "assertions": {
-    "includes": ["<Hds::Button", "@color=\"primary\""],
+    "includes": ["<Hds::Button", "@text=\"Save\"", "@color=\"primary\""],
     "excludes": ["@color=\"primry\""]
   }
 }

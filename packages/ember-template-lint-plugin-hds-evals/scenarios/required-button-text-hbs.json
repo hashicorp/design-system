@@ -1,0 +1,13 @@
+{
+  "id": "required-button-text-hbs",
+  "prompt": "Add the required accessible text to the HDS Button.",
+  "file": "app/templates/button.hbs",
+  "tags": ["require-hds-arguments", "hbs"],
+  "baseline": "<Hds::Button />",
+  "expectedCorrection": "<Hds::Button @text=\"Save\" />",
+  "expectedBaselineRules": ["require-hds-arguments"],
+  "assertions": {
+    "includes": ["<Hds::Button", "@text=\"Save\""],
+    "excludes": []
+  }
+}
