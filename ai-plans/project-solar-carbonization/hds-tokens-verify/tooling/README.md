@@ -63,8 +63,11 @@ node ai-plans/project-solar-carbonization/hds-tokens-verify/tooling/verify-token
 | `--config <path>` | Config file (default: `./config/hds-pilot.config.json` next to the script). |
 | `--root <path>` | Repo root to scan (default: current working directory). |
 | `--tokens-css <path>` | Explicit path to the official `tokens.css` (overrides dependency resolution). |
+| `--tokens-cache <path>` | Cache the resolved official tokens to this file and reuse them on later runs. |
+| `--refresh-cache` | Ignore an existing `--tokens-cache` file and rebuild it. |
 | `--out <dir>` | Output directory for report files (default: `../reports/<reportSubdir>` next to the script). |
 | `--json` | Also print the machine-readable summary to stdout. |
+| `--skip-clean-report` | Do **not** write report files when 0 invalid tokens are found. |
 
 ## Exit codes
 
@@ -89,7 +92,7 @@ process. Wrap the JSON output in your own check if you want a CI gate.
 | `excludeGlobs` | Glob patterns to skip. |
 | `reportSubdir` | Optional subfolder under `reports/` for the output files (the pilot uses `hds`). |
 | `allowlist` | Extra known tokens (same prefix) that are valid but not in the package. |
-| `ignoreComments` | When `true` (default), tokens that appear only inside comments (`/* */`, `//`, `{{! }}`) are not counted as usages. Positions of real usages are preserved. Set to `false` to include comment content. |
+| `ignoreComments` | When `true`, tokens that appear only inside comments (`/* */`, `//`, `{{! }}`) are not counted as usages (positions of real usages are preserved). **Default is `false`** — comment content is scanned, because tokens in comments need fixing too. |
 
 ## Retargeting to another repo
 
@@ -104,3 +107,11 @@ process. Wrap the JSON output in your own check if you want a CI gate.
   and must be present in the `allowlist` to be considered valid.
 - The pilot `allowlist` was collected from `--hds-var-*` declarations and usages
   in `packages/components/src`.
+- Tokens marked `"private": "true"` in `packages/tokens/src/**` are emitted only to
+  `dist/docs/**`, **not** to `dist/products/css/tokens.css` (e.g.
+  `core.color.neutral-on-dark-*`). They are therefore **not** part of the official
+  set, and any source usage of them is reported as invalid — fix the usage rather
+  than allowlisting the family.
+- New official tokens require no change here: the official set is resolved at run
+  time from the built `tokens.css`, so anything added upstream is picked up
+  automatically (pass `--refresh-cache` if you use `--tokens-cache`).

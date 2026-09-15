@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-09T15:58:36.576Z",
+  "generatedAt": "2026-09-15T13:12:44.924Z",
   "prefix": "--hds-",
   "tokenSource": {
     "path": "packages/tokens/dist/products/css/tokens.css",
@@ -30,12 +30,12 @@
     "website"
   ],
   "summary": {
-    "officialTokens": 801,
-    "allowlistTokens": 97,
-    "validTokens": 898,
-    "filesScanned": 3102,
-    "totalTokenUsages": 1975,
-    "interpolatedUsages": 63,
+    "officialTokens": 1046,
+    "allowlistTokens": 106,
+    "validTokens": 1152,
+    "filesScanned": 3137,
+    "totalTokenUsages": 2198,
+    "interpolatedUsages": 83,
     "commentedUsages": 0,
     "distinctInvalidTokens": 0,
     "totalInvalidOccurrences": 0
