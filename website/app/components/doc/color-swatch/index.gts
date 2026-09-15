@@ -5,6 +5,9 @@
 
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
+import { eq } from 'ember-truth-helpers';
+
+import { HdsThemeContext } from '@hashicorp/design-system-components/components';
 
 import DocCopyButton from 'website/components/doc/copy-button';
 
@@ -15,6 +18,7 @@ interface DocColorSwatchSignature {
       cssVariable: string;
       cssHelper?: string;
       value: string;
+      modes: Record<string, string> | undefined;
     };
   };
   Blocks: {
@@ -40,17 +44,27 @@ export default class DocColorSwatch extends Component<DocColorSwatchSignature> {
     return this.args.color.value;
   }
 
-  get cardStyle() {
+  get cdsModes() {
+    return this.args.color.modes;
+  }
+
+  get staticBackgroundColorStyle() {
     let style = '';
     style += `background-color: ${this.hexValue};`;
+    return htmlSafe(style);
+  }
+
+  get themedBackgroundColorStyle() {
+    let style = '';
+    style += `background-color: var(${this.cssVariable});`;
     return htmlSafe(style);
   }
 
   <template>
     <div class="doc-color-swatch">
       <div
-        class="doc-color-swatch__preview doc-color-swatch__preview-{{this.cssHelper}}"
-        style={{this.cardStyle}}
+        class="doc-color-swatch__color-preview"
+        style={{this.staticBackgroundColorStyle}}
       ></div>
       <div class="doc-color-swatch__info">
         <h3 class="doc-color-swatch__name">{{this.colorName}}</h3>
@@ -74,6 +88,28 @@ export default class DocColorSwatch extends Component<DocColorSwatchSignature> {
             <span class="doc-color-swatch__listitem--context">HEX</span>
             <DocCopyButton @type="code" @textToCopy={{this.hexValue}} />
           </li>
+          {{#if this.cdsModes}}
+            <li class="doc-color-swatch__listitem">
+              <span class="doc-color-swatch__listitem--context">Modes</span>
+              <div class="doc-color-swatch__modes">
+                {{#each-in this.cdsModes as |mode value|}}
+                  {{#unless (eq mode "default")}}
+                    <div class="doc-color-swatch__mode">
+                      {{! @glint-expect-error }}
+                      <HdsThemeContext @context={{mode}}>
+                        <div
+                          class="doc-color-swatch__mode-preview"
+                          style={{this.themedBackgroundColorStyle}}
+                        ></div>
+                      </HdsThemeContext>
+                      <div class="doc-color-swatch__mode-name">{{mode}}</div>
+                      <DocCopyButton @type="code" @textToCopy={{value}} />
+                    </div>
+                  {{/unless}}
+                {{/each-in}}
+              </div>
+            </li>
+          {{/if}}
         </ul>
       </div>
     </div>
