@@ -23,6 +23,9 @@
     "lib",
     "README.md"
   ],
+  "dependencies": {
+    "typescript": "^5.8.3"
+  },
   "scripts": {
     "format": "prettier . --cache --write",
     "lint": "eslint . && prettier . --cache --check",
@@ -41,8 +44,7 @@
     "ember-template-lint": "^7.7.0",
     "eslint": "^9.27.0",
     "globals": "^16.1.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
+    "prettier": "^3.5.3"
   },
   "engines": {
     "node": ">=20.9.0"

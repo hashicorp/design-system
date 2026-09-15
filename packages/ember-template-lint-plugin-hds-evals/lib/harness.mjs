@@ -115,12 +115,12 @@ export function validateScenario(scenario, source = scenario?.id ?? "unknown") {
   return scenario;
 }
 
-function normalizeFinding(message) {
+function normalizeFinding(message, file) {
   return {
     check: message.fatal ? "parse" : "hds-lint",
     rule: message.fatal ? "parse-error" : message.rule,
     message: message.message,
-    file: message.filePath,
+    file,
     line: message.line ?? null,
     column: message.column ?? null,
     severity: message.severity ?? 2,
@@ -158,13 +158,14 @@ async function findingsFor(workdir, scenario) {
     workingDir: packageRoot,
     config: { plugins: [plugin], rules },
   });
+  const lintFilePath = path.relative(packageRoot, outputPath);
   const messages = await linter.verify({
     source,
-    filePath: scenario.file,
+    filePath: lintFilePath,
     workingDir: packageRoot,
     checkHbsTemplateLiterals: true,
   });
-  return messages.map(normalizeFinding);
+  return messages.map((message) => normalizeFinding(message, scenario.file));
 }
 
 function filesIn(directory, prefix = "") {

@@ -1,0 +1,17 @@
+{
+  "id": "dropdown-text-contextual-hbs",
+  "prompt": "Migrate the removed HDS Dropdown Interactive @text API to block content.",
+  "file": "app/templates/menu.hbs",
+  "tags": ["no-unknown-arguments", "structural-migration", "hbs"],
+  "baseline": "<Hds::Dropdown as |dd|><dd.Interactive @href=\"#\" @text={{t \"actions.edit\"}} /></Hds::Dropdown>",
+  "expectedCorrection": "<Hds::Dropdown as |dd|><dd.Interactive @href=\"#\">{{t \"actions.edit\"}}</dd.Interactive></Hds::Dropdown>",
+  "expectedBaselineRules": ["no-unknown-arguments"],
+  "assertions": {
+    "includes": [
+      "<Hds::Dropdown as |dd|>",
+      "<dd.Interactive @href=\"#\">",
+      "{{t \"actions.edit\"}}"
+    ],
+    "excludes": ["@text="]
+  }
+}

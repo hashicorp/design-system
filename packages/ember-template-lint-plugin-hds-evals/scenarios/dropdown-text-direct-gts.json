@@ -1,0 +1,16 @@
+{
+  "id": "dropdown-text-direct-gts",
+  "prompt": "Migrate the removed direct HDS Dropdown Interactive @text API to block content.",
+  "file": "app/components/menu.gts",
+  "tags": ["no-unknown-arguments", "structural-migration", "gts"],
+  "baseline": "const Menu = <template><Hds::Dropdown::ListItem::Interactive @text=\"Edit {{this.name}}\" /></template>;",
+  "expectedCorrection": "const Menu = <template><Hds::Dropdown::ListItem::Interactive>Edit {{this.name}}</Hds::Dropdown::ListItem::Interactive></template>;",
+  "expectedBaselineRules": ["no-unknown-arguments"],
+  "assertions": {
+    "includes": [
+      "<Hds::Dropdown::ListItem::Interactive>",
+      "Edit {{this.name}}"
+    ],
+    "excludes": ["@text="]
+  }
+}

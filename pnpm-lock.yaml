@@ -350,6 +350,10 @@ importers:
         version: 5.107.2(postcss@8.5.16)
 
   packages/ember-template-lint-plugin-hds:
+    dependencies:
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.2
     devDependencies:
       '@eslint/js':
         specifier: ^9.27.0
@@ -372,9 +376,6 @@ importers:
       prettier:
         specifier: ^3.5.3
         version: 3.6.2
-      typescript:
-        specifier: ^5.8.3
-        version: 5.9.2
 
   packages/ember-template-lint-plugin-hds-evals:
     dependencies:

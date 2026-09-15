@@ -1,10 +1,6 @@
 import CatalogRule from "../catalog-rule.js";
 import { valueAliases } from "../policies.js";
-import {
-  closestUniqueMatch,
-  staticStringValue,
-  uniqueCaseInsensitiveMatch,
-} from "../utils.js";
+import { closestUniqueMatch, uniqueCaseInsensitiveMatch } from "../utils.js";
 
 export default class ValidStaticArgumentValues extends CatalogRule {
   visitor() {
@@ -21,8 +17,8 @@ export default class ValidStaticArgumentValues extends CatalogRule {
 
         for (const attribute of node.attributes) {
           const argument = argumentsByName.get(attribute.name.slice(1));
-          const staticValue = staticStringValue(attribute);
-          if (!argument || !staticValue) {
+          const resolvedValue = this.resolvedArgumentValue(attribute);
+          if (!argument || !resolvedValue) {
             continue;
           }
 
@@ -40,7 +36,7 @@ export default class ValidStaticArgumentValues extends CatalogRule {
             continue;
           }
 
-          if (allowedValues.includes(staticValue.value)) {
+          if (allowedValues.includes(resolvedValue.value)) {
             continue;
           }
 
@@ -50,24 +46,32 @@ export default class ValidStaticArgumentValues extends CatalogRule {
               policy.argument === argument.name,
           )?.aliases;
           const alias =
-            aliases && Object.hasOwn(aliases, staticValue.value)
-              ? aliases[staticValue.value]
+            aliases && Object.hasOwn(aliases, resolvedValue.value)
+              ? aliases[resolvedValue.value]
               : undefined;
           const suggestion =
             alias ??
-            uniqueCaseInsensitiveMatch(staticValue.value, allowedValues) ??
-            closestUniqueMatch(staticValue.value, allowedValues);
+            uniqueCaseInsensitiveMatch(resolvedValue.value, allowedValues) ??
+            closestUniqueMatch(resolvedValue.value, allowedValues);
           const suggestionMessage = suggestion
             ? ` Did you mean "${suggestion}"?`
             : "";
+          const backingMessage =
+            resolvedValue.source === "backing"
+              ? ` Resolved backing member this.${resolvedValue.member} to "${resolvedValue.value}".`
+              : "";
+          const canFix =
+            resolvedValue.source === "inline" &&
+            typeof resolvedValue.replace === "function" &&
+            suggestion !== undefined;
 
-          if (this.mode === "fix" && suggestion) {
-            staticValue.replace(suggestion);
+          if (this.mode === "fix" && canFix) {
+            resolvedValue.replace(suggestion);
           } else {
             this.log({
-              message: `Invalid value "${staticValue.value}" for <${node.tag}> @${argument.name}. Allowed values: ${allowedValues.join(", ")}.${suggestionMessage}`,
+              message: `Invalid value "${resolvedValue.value}" for <${node.tag}> @${argument.name}.${backingMessage} Allowed values: ${allowedValues.join(", ")}.${suggestionMessage}`,
               node: attribute,
-              isFixable: Boolean(suggestion),
+              isFixable: canFix,
             });
           }
         }

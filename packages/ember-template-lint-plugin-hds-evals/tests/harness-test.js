@@ -58,10 +58,10 @@ test("deterministic A/C suite records all corrected scenarios", async () => {
   });
 
   assert.deepEqual(report.summary, {
-    scenarios: 10,
-    passed: 10,
+    scenarios: 12,
+    passed: 12,
     failed: 0,
-    baselineViolations: 11,
+    baselineViolations: 13,
     correctedViolations: 0,
   });
   assert.ok(report.results.every((result) => result.c.copiedFromBaseline));

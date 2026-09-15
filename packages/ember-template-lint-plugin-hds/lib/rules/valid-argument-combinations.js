@@ -1,6 +1,5 @@
 import CatalogRule from "../catalog-rule.js";
 import policies from "../policies.js";
-import { staticStringValue } from "../utils.js";
 
 export default class ValidArgumentCombinations extends CatalogRule {
   visitor() {
@@ -22,7 +21,8 @@ export default class ValidArgumentCombinations extends CatalogRule {
           }
 
           const trigger = attributes.get(policy.when.argument);
-          if (staticStringValue(trigger)?.value !== policy.when.equals) {
+          const resolvedValue = this.resolvedArgumentValue(trigger);
+          if (resolvedValue?.value !== policy.when.equals) {
             continue;
           }
 
@@ -30,8 +30,12 @@ export default class ValidArgumentCombinations extends CatalogRule {
             (argument) => !attributes.has(argument),
           );
           if (missing.length > 0) {
+            const backingMessage =
+              resolvedValue.source === "backing"
+                ? ` Resolved backing member this.${resolvedValue.member} to "${resolvedValue.value}".`
+                : "";
             this.log({
-              message: `${policy.message} Missing: ${missing.map((argument) => `@${argument}`).join(", ")}`,
+              message: `${policy.message}${backingMessage} Missing: ${missing.map((argument) => `@${argument}`).join(", ")}`,
               node: trigger,
             });
           }
