@@ -4,7 +4,12 @@ const COMPONENTS_REQUIRING_NAMES = new Set([
   "Hds::CodeBlock",
   "Hds::CodeEditor",
 ]);
-const ACCESSIBLE_NAME_ARGUMENTS = new Set(["@ariaLabel", "@ariaLabelledBy"]);
+const ACCESSIBLE_NAME_ARGUMENTS = new Set([
+  "@ariaLabel",
+  "@ariaLabelledBy",
+  "aria-label",
+  "aria-labelledby",
+]);
 
 function hasAccessibleNameArgument(node) {
   return node.attributes.some(
@@ -105,7 +110,7 @@ export default class RequireAccessibleName extends CatalogRule {
           const target = this.targets.get(node);
           if (target && !target.hasArgument && !target.hasContextualTitle) {
             this.log({
-              message: `<${node.tag}> requires an accessible name. Provide @ariaLabel, @ariaLabelledBy, or its yielded contextual Title with content.`,
+              message: `<${node.tag}> requires an accessible name. Provide @ariaLabel, @ariaLabelledBy, a native aria-label/aria-labelledby attribute, or its yielded contextual Title with content.`,
               node,
             });
           }

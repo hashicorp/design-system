@@ -61,6 +61,10 @@ test("accepts every documented accessible-name mechanism in HBS", async () => {
     '<Hds::CodeEditor @value="code" @ariaLabelledBy={{this.headingId}} />',
     '<Hds::CodeBlock @value="code" as |CB|><CB.Title>Example</CB.Title></Hds::CodeBlock>',
     '<Hds::CodeEditor @value="code" as |CE|><CE.Title>{{this.title}}</CE.Title></Hds::CodeEditor>',
+    '<Hds::CodeBlock @value="code" aria-label="Example" />',
+    '<Hds::CodeEditor @value="code" aria-label={{this.label}} />',
+    '<Hds::CodeBlock @value="code" aria-labelledby="heading" />',
+    '<Hds::CodeEditor @value="code" aria-labelledby={{this.headingId}} />',
   ]) {
     assert.deepEqual(await lintHbs(template), []);
   }
@@ -68,12 +72,13 @@ test("accepts every documented accessible-name mechanism in HBS", async () => {
 
 test("reports unnamed CodeBlock and CodeEditor invocations", async () => {
   const messages = await lintHbs(
-    '<Hds::CodeBlock @value="code" /><Hds::CodeEditor @value="code" @ariaLabel=" " />',
+    '<Hds::CodeBlock @value="code" /><Hds::CodeEditor @value="code" @ariaLabel=" " /><Hds::CodeBlock @value="code" aria-label=" " />',
   );
 
-  assert.equal(messages.length, 2);
+  assert.equal(messages.length, 3);
   assert.match(messages[0].message, /requires an accessible name/);
   assert.match(messages[1].message, /requires an accessible name/);
+  assert.match(messages[2].message, /requires an accessible name/);
 });
 
 test("only accepts a substantive Title yielded by the same component", async () => {

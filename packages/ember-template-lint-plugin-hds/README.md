@@ -68,7 +68,8 @@ consistent diagnostics and autofixes, not as an alternative type system.
   Interactive `@text` argument to block content for direct invocations and
   contextual invocations yielded from `<Hds::Dropdown>`.
 - `require-accessible-name` requires CodeBlock and CodeEditor to provide
-  `@ariaLabel`, `@ariaLabelledBy`, or a substantive yielded Title.
+  `@ariaLabel`, `@ariaLabelledBy`, a native `aria-label`/`aria-labelledby`
+  attribute, or a substantive yielded Title.
 - `require-hds-arguments` validates catalog-required arguments in `.hbs` and
   `.gjs`. It deliberately skips `.gts`, where Glint provides more precise
   component-signature checking.
