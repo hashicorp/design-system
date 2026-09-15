@@ -8,9 +8,9 @@ import getIconsResource from "./get-icons.js";
 
 import type { McpResource } from "../types.js";
 
-const FLIGHT_ICONS_RESOURCES: McpResource[] = [
+const HDS_ICONS_RESOURCES: McpResource[] = [
   getIconsResource,
   getIconByNameResource,
 ];
 
-export default FLIGHT_ICONS_RESOURCES;
+export default HDS_ICONS_RESOURCES;

@@ -5,23 +5,23 @@
 
 import { z } from "zod";
 import { CATALOG_TOOL_ANNOTATIONS, defineTool } from "../define-tool.js";
-import {
-  toJsonToolResponse,
-  withSafeToolHandler,
-} from "../responses.js";
+import { toJsonToolResponse, withSafeToolHandler } from "../responses.js";
 import {
   clampSearchLimit,
   searchCountsOutputShape,
   searchLimitSchema,
 } from "../search.js";
+import catalogSourceOutputSchema from "../output-schema.js";
 import {
   DEFAULT_SEARCH_LIMIT,
   MAX_QUERY_LENGTH,
   MAX_SEARCH_LIMIT,
+} from "../constants.js";
+import {
+  GET_COMPONENT_TOOL_NAME,
   SEARCH_COMPONENTS_TOOL_NAME,
 } from "./constants.js";
 import { SEARCH_DOCS_TOOL_NAME } from "../docs/constants.js";
-import { catalogSourceOutputSchema } from "./utils.js";
 import { getOrLoadComponentStore } from "../../stores/components/index.js";
 
 import type { ToolRegistration } from "../define-tool.js";
@@ -70,8 +70,8 @@ const DESCRIPTION = [
   "Find Helios Design System components by name, from the component catalog shipped inside the installed @hashicorp/design-system-components package.",
   "This is a name lookup, not a question answerer: it matches a substring against each component's invocation name, class name, module path and docs route. Pass 'advanced table' or 'Hds::Flyout', not 'how do I make a table sortable'.",
   "Use it to confirm a component exists and to recover its exact invocation name and spelling before writing a template.",
-  `Results are thin and omit argument and block details. A result's docsPath is what ${SEARCH_DOCS_TOOL_NAME} takes as its docsPath filter, so that is the way through to what a component's arguments are and how to use it. Every documented component carries one; Hds::Yield is the sole exception.`,
-  "The catalog is read from disk and never fetched. Matching is unranked, so check `truncated`: if it is true, narrow the query rather than assuming the window holds the best matches.",
+  `Results are intentionally concise. Follow up with ${GET_COMPONENT_TOOL_NAME} for a component's arguments, accepted values, blocks and yielded contextual components. Use ${SEARCH_DOCS_TOOL_NAME} with the result's docsPath for usage guidance, examples, accessibility guidance and design recommendations. Every documented component carries a docsPath; Hds::Yield is the sole exception.`,
+  "The catalog is read from disk and never fetched. Exact and prefix matches rank first, so if `truncated` is true, narrow the query or use the first results as the most relevant matches.",
 ].join(" ");
 
 export const searchComponents = (

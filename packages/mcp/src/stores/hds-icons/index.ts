@@ -10,8 +10,12 @@ import {
 } from "../../catalog/loader.js";
 import { getIconLookupKeys, toIconRecord } from "./lookup.js";
 import { iconCatalogSchema } from "./schema.js";
+import { searchRanked } from "../rank.js";
+
+import type { RankableEntry } from "../rank.js";
 
 import type { CatalogSource } from "../../catalog/loader.js";
+import type { CatalogSearchOutcome } from "../types.js";
 import type { IconRecord, IconSummary } from "./lookup.js";
 import type { IconCatalog } from "./schema.js";
 
@@ -32,13 +36,15 @@ export interface IconCatalogStore {
   getMeta: () => {
     totalIconCount: number;
     totalAssetCount: number;
+    // the filterable field, so a caller can be told which values actually exist
     categories: string[];
+    sizes: string[];
     source: CatalogSource;
   };
   listIcons: () => IconSummary[];
   listIconAliases: () => IconAlias[];
   getIconByName: (nameOrFileName: string) => IconRecord | null;
-  searchIcons: (input: SearchIconsInput) => IconSummary[];
+  searchIcons: (input: SearchIconsInput) => CatalogSearchOutcome<IconSummary>;
 }
 
 const toIconSummary = (icon: IconRecord): IconSummary => {
@@ -60,6 +66,18 @@ const toSearchBlob = (icon: IconRecord): string => {
   return [icon.iconName, icon.description, icon.category, mappings, fileNames]
     .join(" ")
     .toLowerCase();
+};
+
+// the `@name` value and the per-size file names; the description keywords stay in the blob so
+// `warning` still reaches `alert-triangle` without outranking an icon actually named for it
+const toRankable = (icon: IconRecord): RankableEntry => {
+  return {
+    identities: [
+      normalizeLookupValue(icon.iconName),
+      ...icon.variants.map((variant) => normalizeLookupValue(variant.fileName)),
+    ],
+    blob: toSearchBlob(icon),
+  };
 };
 
 export const parseIconCatalog = (value: unknown): IconCatalog => {
@@ -93,12 +111,16 @@ export const createIconCatalogStore = (
   const categories = [
     ...new Set(iconRecords.map((icon) => icon.category)),
   ].sort((left, right) => left.localeCompare(right));
+  const sizes = [
+    ...new Set(iconRecords.flatMap((icon) => icon.sizes)),
+  ].sort((left, right) => left.localeCompare(right));
 
   return {
     getMeta: () => ({
       totalIconCount: iconRecords.length,
       totalAssetCount: catalog.assets.length,
       categories,
+      sizes,
       source,
     }),
     listIcons: () => iconRecords.map((icon) => toIconSummary(icon)),
@@ -110,19 +132,17 @@ export const createIconCatalogStore = (
     getIconByName: (nameOrFileName: string) => {
       return iconLookup.get(normalizeLookupValue(nameOrFileName)) ?? null;
     },
-    searchIcons: ({
-      query,
-      limit,
-      category,
-      size,
-      hasMapping,
-    }: SearchIconsInput) => {
-      const normalizedQuery = normalizeLookupValue(query);
+    searchIcons: ({ query, limit, category, size, hasMapping }: SearchIconsInput) => {
       const normalizedCategory =
         category === undefined ? null : normalizeLookupValue(category);
+      const normalizedSize = size === undefined ? null : normalizeLookupValue(size);
 
-      return iconRecords
-        .filter((icon) => {
+      const { totalMatches, hits } = searchRanked({
+        records: iconRecords,
+        query,
+        limit,
+        toRankable,
+        matches: (icon) => {
           if (
             normalizedCategory !== null &&
             normalizeLookupValue(icon.category) !== normalizedCategory
@@ -130,24 +150,25 @@ export const createIconCatalogStore = (
             return false;
           }
 
-          if (size !== undefined && !icon.sizes.includes(size)) {
+          if (normalizedSize !== null && !icon.sizes.includes(normalizedSize)) {
             return false;
           }
 
-          if (hasMapping !== undefined && icon.hasMapping !== hasMapping) {
-            return false;
-          }
+          return hasMapping === undefined || icon.hasMapping === hasMapping;
+        },
+      });
 
-          return toSearchBlob(icon).includes(normalizedQuery);
-        })
-        .slice(0, limit)
-        .map((icon) => toIconSummary(icon));
+      return {
+        totalMatches,
+        hits: hits.map((icon) => toIconSummary(icon)),
+      };
     },
   };
 };
 
 const iconCatalogLoader = createCatalogLoader<IconCatalogStore>({
   specifier: "@hashicorp/flight-icons/catalog.json",
+  // icons reach most consumers through the components package they installed
   anchors: ["project-root", "components", "default"],
   create: (value, source) =>
     createIconCatalogStore(parseIconCatalog(value), source),

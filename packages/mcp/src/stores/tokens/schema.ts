@@ -44,6 +44,7 @@ export const tokenCatalogRowSchema = z
     $type: z.string().min(1).optional(),
     $value: z.json(),
     name: z.string().min(1),
+    comment: z.string().min(1).optional(),
     attributes: tokenAttributesSchema,
     path: z.array(z.string().min(1)),
     original: tokenOriginalSchema.optional(),
