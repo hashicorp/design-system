@@ -1,0 +1,48 @@
+{
+  "core": {
+    "color": {
+      "neutral-on-dark-700": {
+        "$type": "color",
+        "$value": "#efeff1",
+        "group": "core",
+        "private": "true"
+      },
+      "neutral-on-dark-600": {
+        "$type": "color",
+        "$value": "#d5d7db",
+        "group": "core",
+        "private": "true"
+      },
+      "neutral-on-dark-500": {
+        "$type": "color",
+        "$value": "#b2b6bd",
+        "group": "core",
+        "private": "true"
+      },
+      "neutral-on-dark-400": {
+        "$type": "color",
+        "$value": "#878a8f",
+        "group": "core",
+        "private": "true"
+      },
+      "neutral-on-dark-300": {
+        "$type": "color",
+        "$value": "#2b303c",
+        "group": "core",
+        "private": "true"
+      },
+      "neutral-on-dark-200": {
+        "$type": "color",
+        "$value": "#15181e",
+        "group": "core",
+        "private": "true"
+      },
+      "neutral-on-dark-100": {
+        "$type": "color",
+        "$value": "#0d0e12",
+        "group": "core",
+        "private": "true"
+      }
+    }
+  }
+}
