@@ -26,13 +26,11 @@ export async function generateCssHelpers(dictionary: Dictionary, config: Platfor
   // and depending on it output CSS variables or not (they're not supported in emails)
   const outputCssVars = config.transformGroup !== 'products/email';
 
-  if (dictionary.tokens.color) {
-    // notice: the "color" tokens have different structure depending on the type
-    // so it's simpler to process all the tokens (flat structure) and filter them
-    const helpers = generateColorHelpers(dictionary.allTokens, outputCssVars);
-    const content = `${header}${helpers.join('\n')}\n`;
-    await fs.writeFile(`${config.buildPath}helpers/color.css`, content);
-  }
+  // notice: the "color" tokens have different structure depending on the type
+  // so it's simpler to process all the tokens (flat structure) and filter them
+  const helpers = generateColorHelpers(dictionary.allTokens, outputCssVars);
+  const content = `${header}${helpers.join('\n')}\n`;
+  await fs.writeFile(`${config.buildPath}helpers/color.css`, content);
 
   if (dictionary.tokens.typography) {
     const helpers = generateTypographyHelpers(dictionary.tokens.typography, outputCssVars);
