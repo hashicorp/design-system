@@ -2,11 +2,9 @@
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for the Helios Design System. It gives MCP clients local access to Helios component APIs, documentation, design tokens, and Flight icons over a stdio transport.
 
-This is a private package in the design-system monorepo. It is intended to be built and run from a checkout of this repository rather than installed from npm.
-
 ## Capabilities
 
-The server currently exposes these tools:
+The server exposes these tools:
 
 | Tool | Purpose |
 | --- | --- |
