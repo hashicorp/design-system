@@ -1,7 +1,6 @@
 {
   "name": "@hashicorp/design-system-mcp",
   "version": "0.0.0",
-  "private": true,
   "description": "Helios Design System MCP server",
   "keywords": [
     "hashicorp",
@@ -17,12 +16,29 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "type": "module",
+  "bin": {
+    "helios-design-system-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "docs-catalog.json",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "typecheck": "pnpm tsc",
     "lint": "pnpm eslint --quiet .",
     "test": "pnpm vitest run --dir tests",
     "test:watch": "pnpm vitest --dir tests",
-    "build": "pnpm tsc --project tsconfig.build.json",
+    "build": "node --input-type=module -e \"import { rmSync } from 'node:fs'; rmSync('dist', { recursive: true, force: true });\" && pnpm tsc --project tsconfig.build.json",
+    "prepack": "pnpm build",
+    "test:package": "node scripts/check-package.mjs",
     "build:watch": "pnpm tsc --project tsconfig.build.json --watch --preserveWatchOutput",
     "serve": "node ./dist/index.js",
     "serve:watch": "node --watch --watch-path=./dist --watch-preserve-output ./dist/index.js",
