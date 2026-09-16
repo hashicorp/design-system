@@ -1,5 +1,25 @@
-// for product applications (Ember apps)
+// For product applications (Ember apps)
+
+// "classic" HDS
 @use "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
 
-// for Cloud UI email templating
+// "carbonized" HDS with support for "light/dark/system" (g0/g100 modes)
+@use "@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-css-selectors/tokens.css";
+
+// "classic" HDS + "carbonized" HDS with support for "light/dark/system" (g0/g100 modes)
+// useful during the migration from "classic" to "carbonized" HDS, when both visual languages must co-exist in the same UI application
+@use "@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-css-selectors--migration/tokens.css";
+
+// "classic" HDS + "carbonized" HDS with support for "light/dark/system" (g0/g10/g90/g100 modes)
+// useful if all the IBM Carbon modes need to be available in the application, alongside the "classic" HDS
+@use "@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-css-selectors--advanced/hds-tokens.css";
+
+// Sass mixins `hds-theme-[theme]`/`hds-mode-[mode]` to build custom theming combinations
+@use "@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-scss-mixins/tokens.scss";
+
+// ---
+
+// For Cloud UI email templating
+
+// "classic" HDS
 @use "@hashicorp/design-system-tokens/dist/cloud-email/tokens.css";

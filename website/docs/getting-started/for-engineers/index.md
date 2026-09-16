@@ -17,7 +17,7 @@ We provide components as an [Ember](https://emberjs.com/) addon with associated 
 
 ### Import component styles
 
-You can chose between importing styles as CSS (preferred) or Sass.
+You can choose between importing styles as CSS (preferred) or Sass.
 
 !!! Warning
 
@@ -30,9 +30,19 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 #### CSS
 
-Import the CSS by adding this configuration in `ember-cli-build.js`. Depending
+Import one of the following line(s) to the `ember-cli-build.js` configuration file. Pick the line(s) that match your application's stage in the migration to the "carbonized" HDS.
 
 [[code-snippets/css-import-in-cli-build]]
+
+Note: the `design-system-plex-fonts.css` file assumes that the application serves fonts from `/assets`; if that's not the case you will need to follow the [Sass-based approach](#sass).
+
+If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and the `ember-power-select` styles are imported:
+
+[[code-snippets/css-import-ember-power-select-in-cli-build]]
+
+If your application uses directly the Ember `PowerSelect` component, import also the HDS style overrides for it:
+
+[[code-snippets/css-import-power-select-overrides-in-cli-build]]
 
 #### Sass
 
@@ -54,13 +64,25 @@ Our internal Sass files for mixins, component styles, etc. are not considered a 
 
 [[code-snippets/ember-build-sass-config]]
 
-1. We also suggest adding this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
+4. We also suggest adding this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
 
 [[code-snippets/ember-build-recommended-config]]
 
-5. Add the following line to the main Sass file in your application (for example, in `app.scss`):
+5. Add one of the following line(s) to the main Sass file in your application (for example, in `app.scss`). Pick the line(s) that match your application's stage in the migration to the "carbonized" HDS.
 
 [[code-snippets/use-helios-styles]]
+
+If your application serves fonts from a path other than `/assets` (e.g. `/app/assets`) configure the `$hds-ibm-plex-fonts-assets-path` Sass variable.
+
+[[code-snippets/use-plex-fonts-custom-assets-path]]
+
+If your application uses [`SuperSelect`](/components/form/super-select), make sure `ember-basic-dropdown` is installed and the `ember-power-select` styles are imported:
+
+[[code-snippets/use-ember-power-select]]
+
+If your application uses directly the Ember `PowerSelect` component, import also the HDS style overrides for it:
+
+[[code-snippets/use-power-select-overrides]]
 
 ### Single file components
 
@@ -157,7 +179,7 @@ If the Ember components are not an option for your project, you can still use th
 
 ### Import styles as CSS variables
 
-Import design tokens as CSS variables by adding one of the following lines to the main Sass file in your application (for example, in `app.scss`):
+Import design tokens as CSS variables by adding one of the following line(s) to the main Sass file in your application (for example, in `app.scss`). Pick the line(s) that match your application's stage in the migration to the "carbonized" HDS.
 
 [[code-snippets/use-helios-product-tokens]]
 

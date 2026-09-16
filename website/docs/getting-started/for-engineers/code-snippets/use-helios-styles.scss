@@ -1,1 +1,19 @@
+// "classic" HDS
 @use "@hashicorp/design-system-components";
+
+// "carbonized" HDS with support for "light/dark/system" (g0/g100 modes)
+@use "@hashicorp/design-system-components-common";
+@use "@hashicorp/themed-tokens/with-css-selectors/tokens";
+@use '@hashicorp/design-system-plex-fonts';
+
+// "classic" HDS + "carbonized" HDS with support for "light/dark/system" (g0/g100 modes)
+// useful during the migration from "classic" to "carbonized" HDS, when both visual languages must co-exist in the same UI application
+@use "@hashicorp/design-system-components-common";
+@use "@hashicorp/themed-tokens/with-css-selectors--migration/tokens";
+@use '@hashicorp/design-system-plex-fonts';
+
+// "classic" HDS + "carbonized" HDS with support for "light/dark/system" (g0/g10/g90/g100 modes)
+// useful if all the IBM Carbon modes need to be available in the application, alongside the "classic" HDS
+@use "@hashicorp/design-system-components-common";
+@use "@hashicorp/themed-tokens/with-css-selectors--advanced/tokens";
+@use '@hashicorp/design-system-plex-fonts';
