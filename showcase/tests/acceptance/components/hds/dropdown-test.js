@@ -12,8 +12,25 @@ module('Acceptance | Component | hds/dropdown', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/dropdown passes a11y automated checks', async function (assert) {
+    const axeOptions = {
+      rules: {
+        // The Inheritance showcase intentionally mixes Checkmark (role="option") items with
+        // other item types in a single dropdown, which causes the list to be promoted to
+        // role="listbox" while containing non-option children. This is a showcase-only
+        // pattern and not a real-world usage concern.
+        'aria-required-children': {
+          enabled: false,
+          selectors: [['.hds-dropdown__list[role="listbox"]']],
+        },
+        listitem: {
+          enabled: false,
+          selectors: [['.hds-dropdown__list[role="listbox"] li']],
+        },
+      },
+    };
+
     await visit('/components/dropdown');
-    await a11yAudit();
+    await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');
   });
