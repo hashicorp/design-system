@@ -7,9 +7,9 @@ import { describe, expect, it } from "vitest";
 import {
   toSerializableIcon,
   toSerializableIconSummary,
-} from "../../../../src/resources/flight-icons/utils.js";
-import { toIconRecord } from "../../../../src/stores/flight-icons/lookup.js";
-import { buildIconAsset } from "../../../support/flight-icon-catalog.js";
+} from "../../../../src/resources/hds-icons/utils.js";
+import { toIconRecord } from "../../../../src/stores/hds-icons/lookup.js";
+import { buildIconAsset } from "../../../support/hds-icon-catalog.js";
 
 describe("Flight icon serialization", () => {
   const icon = toIconRecord([buildIconAsset()]);

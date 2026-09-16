@@ -8,6 +8,7 @@ import {
   getTokenLookupKeys,
   normalizeTokenLookupKey,
   toCssVarName,
+  toTokenAlias,
   toTokenRecord,
   toTokenSummary,
   toTokenType,
@@ -102,6 +103,19 @@ describe("toCssVarName", () => {
   });
 });
 
+describe("toTokenAlias", () => {
+  it("returns an unresolved token reference", () => {
+    expect(toTokenAlias({ $value: "{color.palette.blue-200}" })).toBe(
+      "{color.palette.blue-200}",
+    );
+  });
+
+  it("ignores resolved values", () => {
+    expect(toTokenAlias({ $value: "#1060ff" })).toBeUndefined();
+    expect(toTokenAlias(undefined)).toBeUndefined();
+  });
+});
+
 describe("toTokenSummary", () => {
   it("maps all fields from a full catalog row", () => {
     const row = buildRow({ $type: "color" });
@@ -147,6 +161,18 @@ describe("toTokenSummary", () => {
     const summary = toTokenSummary(row);
 
     expect(summary.cssVar).toBe("--token.spacing.100");
+  });
+
+  it("includes optional comments and semantic aliases", () => {
+    const summary = toTokenSummary(
+      buildRow({
+        comment: "Use for interactive text",
+        original: { $value: "{color.palette.blue-200}" },
+      }),
+    );
+
+    expect(summary.comment).toBe("Use for interactive text");
+    expect(summary.alias).toBe("{color.palette.blue-200}");
   });
 });
 
