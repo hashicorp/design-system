@@ -191,6 +191,28 @@ Import CSS helper classes by adding any of the following lines to the main Sass 
 
 For more examples and guidelines read [the tokens documentation](/foundations/tokens).
 
+## Theming
+
+Theming was introduced in version 7.0 of the design system, and is available only in the ["carbonized" HDS](/carbonization/introduction). The "classic" HDS has a single, light-only visual language, and doesn't respond to theming.
+
+### Basic implementation
+
+To use theming in your application you need to:
+
+1. install the IBM Plex fonts (`@ibm/plex-mono` and `@ibm/plex-sans`) as dependencies of your application
+
+2. import the "themed" CSS/Sass files, as described in the [Import component styles](#import-component-styles) section. The "classic" files don't contain the themed design tokens, so no theme can be applied to them
+
+3. add a theme switcher to your application and implement the logic associated with it (integration with the `hdsTheming` service and user's choice persistence)
+
+For more technical details about how theming is implemented in HDS, see [Foundations/Theming](/foundations/theming).
+
+For details about theme switching in general, see [Patterns/Theme Switching](/patterns/theme-switcher-pattern).
+
+### Complex configurations
+
+The steps above describe a basic setup. Depending on your application, you may need to adapt them to your codebase's folder structure, your front-end infrastructure and build system, and the theming experience you want to offer to your users. For guidance about these more advanced scenarios, see [Foundations/Theming](/foundations/theming).
+
 ## Internationalization
 
 We use [`ember-intl`](https://github.com/ember-intl/ember-intl) to handle internationalization in HDS components.
