@@ -191,17 +191,6 @@ Import CSS helper classes by adding any of the following lines to the main Sass 
 
 For more examples and guidelines read [the tokens documentation](/foundations/tokens).
 
-## Browser support
-
-Our styles, components and icons are supported by the following browsers:
-
-| Browser        | Version         |
-|----------------|-----------------|
-| Chrome         | last 2 versions |
-| Safari         | last 2 versions |
-| Firefox        | last 2 versions |
-| Microsoft Edge | last 2 versions |
-
 ## Internationalization
 
 We use [`ember-intl`](https://github.com/ember-intl/ember-intl) to handle internationalization in HDS components.
@@ -244,6 +233,17 @@ For example, to translate the "Error" text used in components:
 [[code-snippets/custom-translations]]
 
 When your application uses the `fr-fr` locale, components will display "Erreur" instead of the default English "Error".
+
+## Browser support
+
+Our styles, components and icons are supported by the following browsers:
+
+| Browser        | Version         |
+|----------------|-----------------|
+| Chrome         | last 2 versions |
+| Safari         | last 2 versions |
+| Firefox        | last 2 versions |
+| Microsoft Edge | last 2 versions |
 
 ## Ember engines
 
