@@ -10,14 +10,12 @@ overrides:
   '@glimmer/component': ^2.0.0
   '@xmldom/xmldom': 0.9.10
   ajv@6: 6.14.0
-  basic-ftp: 5.3.1
   brace-expansion@1: 1.1.13
   brace-expansion@2: 2.0.3
   brace-expansion@5: 5.0.6
   fast-uri: 3.1.2
   flatted: 3.4.4
   follow-redirects: 1.16.0
-  form-data: 4.0.6
   ember-composable-helpers: npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11
   handlebars: 4.7.9
   js-yaml@3: 3.14.2
@@ -27,7 +25,8 @@ overrides:
   minimatch@<3.0.5: 3.1.2
   path-to-regexp@0: 0.1.13
   qs: 6.16.0
-  systeminformation: 5.31.6
+  path-to-regexp@8: 8.4.2
+  systeminformation: 5.31.7
   tmp: 0.2.7
   underscore: 1.13.8
 
@@ -11678,8 +11677,8 @@ packages:
     resolution: {integrity: sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  systeminformation@5.31.6:
-    resolution: {integrity: sha512-Uv2b2uGGM6ns+26czgW2cYRabYdnswM0ddSOOlryHOaelzsmDSet1iM/NT7VOYxW8x/BW+HkY+b1Ve2pLTSGSA==}
+  systeminformation@5.31.7:
+    resolution: {integrity: sha512-/8NC53e5nP9nmhn42/ncdOkyJnOoue/Vy+tJOyUGd1Yv66G069wK4rrziwhrqDETgk78CudTQupw5z19S5uoZw==}
     engines: {node: '>=8.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
@@ -15900,7 +15899,7 @@ snapshots:
       '@percy/config': 1.31.1(typescript@5.9.2)
       '@percy/logger': 1.31.1
       '@percy/sdk-utils': 1.31.1
-      systeminformation: 5.31.6
+      systeminformation: 5.31.7
     transitivePeerDependencies:
       - typescript
 
@@ -27119,7 +27118,7 @@ snapshots:
     dependencies:
       '@pkgr/core': 0.2.9
 
-  systeminformation@5.31.6: {}
+  systeminformation@5.31.7: {}
 
   tabbable@5.3.3: {}
 
