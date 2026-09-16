@@ -12,6 +12,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import SubSectionPositions from 'showcase/components/page-components/dropdown/sub-sections/positions';
 import SubSectionWidth from 'showcase/components/page-components/dropdown/sub-sections/width';
 import SubSectionDisplay from 'showcase/components/page-components/dropdown/sub-sections/display';
+import SubSectionInheritance from 'showcase/components/page-components/dropdown/sub-sections/inheritance';
 import SubSectionCollisionDetection from 'showcase/components/page-components/dropdown/sub-sections/collision-detection';
 import SubSectionToggles from 'showcase/components/page-components/dropdown/sub-sections/toggles';
 import SubSectionListItems from 'showcase/components/page-components/dropdown/sub-sections/list-items/index';
@@ -31,6 +32,7 @@ const DropdownIndex: TemplateOnlyComponent = <template>
     <SubSectionToggles />
     <SubSectionListItems />
     <SubSectionHeaderAndFooter />
+    <SubSectionInheritance />
   </section>
 
   <ShwDivider />
