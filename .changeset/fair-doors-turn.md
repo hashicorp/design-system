@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/code-block -->
-`CodeBlock` - Add extra right-side padding around code when copy button is enabled preventing overlap when text-wrapping is enabled and allowing users to scroll farther to the right to view all code
+`CodeBlock` - Added extra right-side padding around code when copy button is enabled preventing overlap when text-wrapping is enabled and allowing users to scroll farther to the right to view all code
 <!-- END -->

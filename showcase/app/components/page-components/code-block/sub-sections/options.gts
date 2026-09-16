@@ -330,7 +330,7 @@ end"
         @language="ruby"
         @hasCopyButton={{true}}
         @ariaLabel="hasLineWrapping=false"
-        @value="codeLang='Lorem ipsum dolor sit a met, con sec tet ur a ip iscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
+        @value="codeLang='Lorem ipsum dolor sit a met, con sec tet ur a ip iscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua.';"
       />
     </SG.Item>
     <SG.Item
@@ -342,7 +342,7 @@ end"
         @hasLineWrapping={{true}}
         @hasCopyButton={{true}}
         @ariaLabel="hasLineWrapping=true"
-        @value="codeLang='Lorem ipsum dolor sit a met, con sec tet ur a dip iscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
+        @value="codeLang='Lorem ipsum dolor sit a met, con sec tet ur a dip iscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua.';"
       />
     </SG.Item>
   </ShwGrid>
