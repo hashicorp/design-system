@@ -17,7 +17,15 @@ We provide components as an [Ember](https://emberjs.com/) addon with associated 
 
 ### Import component styles
 
-You can chose between importing styles as Sass or CSS.
+You can choose between importing styles as Sass or CSS.
+
+!!! Info
+
+**Third-party component styles**
+
+Some components, such as `SuperSelect`, are built on top of third-party Ember addons and require importing their respective addon styles separately in your application. Check the individual component’s documentation for any additional style requirements.
+
+!!!
 
 #### Sass
 
