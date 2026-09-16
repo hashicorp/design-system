@@ -3107,13 +3107,7 @@
       "modulePath": "hds/application-state/footer",
       "docsPath": "components/application-state",
       "element": "HTMLDivElement",
-      "args": [
-        {
-          "name": "hasDivider",
-          "type": "boolean",
-          "required": false
-        }
-      ],
+      "args": [],
       "blocks": [
         {
           "name": "default",
