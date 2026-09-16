@@ -25,9 +25,7 @@ export const IconHexagonFill16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
                     d="M6.834.33a2.25 2.25 0 0 1 2.332 0l5.25 3.182A2.25 2.25 0 0 1 15.5 5.436v5.129c0 .785-.412 1.516-1.084 1.923l-5.25 3.182a2.25 2.25 0 0 1-2.332 0l-5.25-3.182A2.25 2.25 0 0 1 .5 10.565v-5.13c0-.785.412-1.516 1.084-1.923z"
-                    clipRule="evenodd"
                 />
             </svg>
         );
