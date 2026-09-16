@@ -20,11 +20,19 @@ module('Acceptance | Component | hds/dropdown', function (hooks) {
         // pattern and not a real-world usage concern.
         'aria-required-children': {
           enabled: false,
-          selectors: [['.hds-dropdown__list[role="listbox"]']],
+          selectors: [
+            [
+              '.shw-component-dropdown-inheritance-container .hds-dropdown__list',
+            ],
+          ],
         },
         listitem: {
           enabled: false,
-          selectors: [['.hds-dropdown__list[role="listbox"] li']],
+          selectors: [
+            [
+              '.shw-component-dropdown-inheritance-container .hds-dropdown__list li',
+            ],
+          ],
         },
       },
     };
