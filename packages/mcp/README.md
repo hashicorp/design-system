@@ -56,7 +56,7 @@ Documentation comes from the `docs-catalog.json` snapshot shipped with the MCP p
 - `pnpm typecheck`
 - `pnpm build`
 - `pnpm test`
-- `pnpm test:package`
+- `pnpm test:dist-files`
 - `pnpm start`
 
 ## Local usage
@@ -80,7 +80,7 @@ The Inspector should connect successfully and show an MCP server.
 
 ## Publishing
 
-This package uses the repository's Changesets release and release-candidate workflows. Add a Changeset for consumer-facing changes; do not publish it separately. `prepack` creates a clean build for both local tarballs and releases. `pnpm test:package` checks the tarball contents and exercises the packed server over stdio.
+This package uses the repository's Changesets release and release-candidate workflows. Add a Changeset for consumer-facing changes. Like the components package, `prepublishOnly` builds and checks the required files before publishing. For local tarball testing, run `pnpm build` before `pnpm pack`.
 
 The documentation catalog is a committed generated asset. After relevant website documentation changes, regenerate it with `pnpm catalog:docs`, review the output, and include it with a Changeset. It is not regenerated when consumers install the package.
 
