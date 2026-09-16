@@ -34,7 +34,7 @@
   "dependencies": {
     "@hashicorp/design-system-components": "workspace:^6.5.0",
     "@hashicorp/design-system-tokens": "workspace:^5.1.0",
-    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "@hashicorp/flight-icons": "workspace:^5.1.0",
     "zod": "^4.4.3"
   },
@@ -47,6 +47,6 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
     "vitest": "^4.0.4",
-    "yaml": "^2.8.3"
+    "yaml": "^2.9.0"
   }
 }
