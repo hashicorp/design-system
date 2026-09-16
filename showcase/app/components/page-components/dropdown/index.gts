@@ -28,11 +28,11 @@ const DropdownIndex: TemplateOnlyComponent = <template>
     <SubSectionPositions />
     <SubSectionWidth />
     <SubSectionDisplay />
-    <SubSectionInheritance />
     <SubSectionCollisionDetection />
     <SubSectionToggles />
     <SubSectionListItems />
     <SubSectionHeaderAndFooter />
+    <SubSectionInheritance />
   </section>
 
   <ShwDivider />
