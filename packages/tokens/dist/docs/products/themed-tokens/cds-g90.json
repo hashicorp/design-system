@@ -16854,12 +16854,31 @@
   {
     "key": "{product.terraform.brand.color}",
     "$type": "color",
-    "$value": "#7b42bc",
+    "$value": "#a067da",
     "group": "branding",
+    "$modes": {
+      "default": "#7b42bc",
+      "cds-g0": "#7b42bc",
+      "cds-g10": "#7b42bc",
+      "cds-g90": "#a067da",
+      "cds-g100": "#a067da"
+    },
+    "comment": "for dark `cds` modes, we use the `color-on-dark` color",
     "original": {
       "$type": "color",
-      "$value": "{core.color.terraform-brand}",
+      "$value": "{product.terraform.brand.color-on-dark}",
       "group": "branding",
+      "$modes": {
+        "default": "{core.color.terraform-brand}",
+        "cds-g0": "{core.color.terraform-brand}",
+        "cds-g10": "{core.color.terraform-brand}",
+        "cds-g90": "{product.terraform.brand.color-on-dark}",
+        "cds-g100": "{product.terraform.brand.color-on-dark}"
+      },
+      "comments": {
+        "cds": "for dark `cds` modes, we use the `color-on-dark` color"
+      },
+      "comment": "for dark `cds` modes, we use the `color-on-dark` color",
       "key": "{product.terraform.brand.color}"
     },
     "name": "hds-product-terraform-brand-color",
