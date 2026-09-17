@@ -44,8 +44,8 @@ export const DEFAULT_CATALOG_SOURCE: CatalogSource = {
   resolvedVia: "default",
 };
 
-const COMPONENTS_MANIFEST_SPECIFIER =
-  "@hashicorp/design-system-components/package.json";
+const COMPONENTS_ENTRY_SPECIFIER =
+  "@hashicorp/design-system-components/addon-main.js";
 
 const MCP_PACKAGE_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 
@@ -65,7 +65,11 @@ const getAnchorDirectory = (anchor: CatalogAnchor): string | null => {
 
   // the only anchor that can be missing outright, since it depends on the consumer's own install
   try {
-    return dirname(require.resolve(COMPONENTS_MANIFEST_SPECIFIER));
+    return dirname(
+      require.resolve(COMPONENTS_ENTRY_SPECIFIER, {
+        paths: [getProjectRoot()],
+      }),
+    );
   } catch {
     return null;
   }
