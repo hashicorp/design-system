@@ -19,7 +19,7 @@ Configure your MCP client to launch the locally installed binary from your appli
 ```json
 {
   "mcpServers": {
-    "helios": {
+    "helios-design-system": {
       "command": "pnpm",
       "args": ["exec", "helios-design-system-mcp"]
     }
@@ -32,7 +32,7 @@ If your client does not start in the application directory, use pnpm's `--dir` o
 ```json
 {
   "mcpServers": {
-    "helios": {
+    "helios-design-system": {
       "command": "pnpm",
       "args": ["--dir", "/absolute/path/to/application", "exec", "helios-design-system-mcp"]
     }
@@ -78,12 +78,6 @@ npx -y @modelcontextprotocol/inspector node packages/mcp/dist/index.js
 
 The Inspector should connect successfully and show an MCP server.
 
-## Publishing
-
-This package uses the repository's Changesets release and release-candidate workflows. Add a Changeset for consumer-facing changes. Like the components package, `prepublishOnly` builds and checks the required files before publishing. For local tarball testing, run `pnpm build` before `pnpm pack`.
-
-The documentation catalog is a committed generated asset. After relevant website documentation changes, regenerate it with `pnpm catalog:docs`, review the output, and include it with a Changeset. It is not regenerated when consumers install the package.
-
 ## License
 
-Licensed under the [Mozilla Public License 2.0](LICENSE.md). Source code is available in the [Helios Design System repository](https://github.com/hashicorp/design-system/tree/main/packages/mcp).
+This project is licensed under the [Mozilla Public License 2.0](https://github.com/hashicorp/design-system/blob/main/LICENSE).

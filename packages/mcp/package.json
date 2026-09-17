@@ -21,9 +21,7 @@
   },
   "files": [
     "dist",
-    "docs-catalog.json",
-    "LICENSE.md",
-    "README.md"
+    "docs-catalog.json"
   ],
   "engines": {
     "node": ">=24"

@@ -46,6 +46,9 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install
+      - name: Build and check MCP files
+        run: pnpm build && pnpm test:dist-files
+        working-directory: packages/mcp
       - name: Typecheck MCP
         run: pnpm typecheck
         working-directory: packages/mcp
@@ -54,7 +57,4 @@ jobs:
         working-directory: packages/mcp
       - name: Test MCP
         run: pnpm test
-        working-directory: packages/mcp
-      - name: Build and check MCP files
-        run: pnpm build && pnpm test:dist-files
         working-directory: packages/mcp

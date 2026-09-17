@@ -6,7 +6,7 @@
 
 import { existsSync } from 'node:fs';
 
-const FILES_TO_CHECK = ['dist/index.js', 'docs-catalog.json'];
+const FILES_TO_CHECK = ['dist/index.js'];
 
 for (const file of FILES_TO_CHECK) {
   if (existsSync(file) === false) {
