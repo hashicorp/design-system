@@ -35,3 +35,18 @@ overrides:
 patchedDependencies:
   broccoli-asset-rewrite: patches/broccoli-asset-rewrite.patch
   'ember-app-scheduler@7.0.1': patches/ember-app-scheduler@7.0.1.patch
+
+onlyBuiltDependencies:
+  - '@carbon/charts'
+  - '@carbon/colors'
+  - '@carbon/grid'
+  - '@carbon/icons'
+  - '@carbon/layout'
+  - '@carbon/motion'
+  - '@carbon/themes'
+  - '@carbon/type'
+  - '@carbon/utils-position'
+  - '@parcel/watcher'
+  - '@percy/core'
+  - core-js
+  - esbuild
