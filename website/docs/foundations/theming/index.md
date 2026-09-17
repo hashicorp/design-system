@@ -17,7 +17,7 @@ navigation:
 </section>
 
 <section data-tab="Code">
-  @include "partials/code/todo.md"
+  @include "partials/code/index.md"
 </section>
 
 <section data-tab="Accessibility">
