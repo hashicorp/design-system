@@ -1,5 +1,5 @@
 ---
-"@hashicorp/design-system-components": minor
+"@hashicorp/design-system-components": major
 ---
 
 _Conducted a one-off mechanical rename in `@hashicorp/design-system-components` of internal component CSS variables. Consumers consuming or overriding HDS CSS variables will need to update `--hds-*` references to `--hds-var-*`._
