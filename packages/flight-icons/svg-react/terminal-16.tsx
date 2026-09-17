@@ -25,9 +25,7 @@ export const IconTerminal16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
                     d="M13.25 12a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5zM2.174 3.27a.75.75 0 0 1 1.056-.096l4.5 3.75a.75.75 0 0 1 0 1.152l-4.5 3.75a.75.75 0 0 1-.96-1.152L6.078 7.5 2.27 4.326a.75.75 0 0 1-.096-1.056"
-                    clipRule="evenodd"
                 />
             </svg>
         );

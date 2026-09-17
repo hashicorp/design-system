@@ -25,6 +25,18 @@ const CARBON_ICON_OVERRIDES: Record<string, string> = {
     'status--resolved': '32/watson-health/status--resolved',
 }
 
+// Categories whose "-color" icons fall back to their monochrome counterpart in the Carbon theme.
+// These icons have no IBM Carbon equivalent, but the Carbon theme supports dark mode and the
+// colored glyphs don't always work against dark backgrounds, so we render the monochrome glyph
+// instead (its dynamic color is emitted as `currentColor`, so it adapts to the theme).
+// By convention the fallback for `{name}-color` is always `{name}`.
+const CDS_MONOCHROME_FALLBACK_CATEGORIES = ['Services'];
+
+// the monochrome glyph is the same artwork at both sizes (these icons have no strokes, so there is
+// no size-specific optical adjustment), and the registry holds a single size-agnostic Carbon entry,
+// so we source the larger one and let `<use>` scale it down when needed
+const CDS_MONOCHROME_FALLBACK_SIZE = '24';
+
 // important: if you update this function, update the identical one in `packages/components/src/services/hds-icon-registry.ts` as well (and vice versa)
 function makeDomSafeId(value: string): string {
     return value.replace(/[^a-zA-Z0-9_-]/g, '-');
@@ -64,8 +76,22 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
 
     const registry: Record<string, { flight: Record<string, string>, carbon: string | null }> = {};
 
+    // writes a Carbon symbol module for `baseName` and registers its loader
+    // (the symbol id must match the one the `hds-icon-registry` service derives at runtime)
+    const writeCarbonSymbol = async (baseName: string, source: string): Promise<void> => {
+        const symbolId = makeSymbolIdFromKey(`carbon-${baseName}`);
+        const content = await prettier.format(
+            getSymbolModule(source, symbolId),
+            { ...prettierConfig, parser: 'typescript' }
+        );
+
+        await fs.writeFile(`${carbonFolder}/${baseName}.js`, content);
+
+        registry[baseName].carbon = `() => import('./carbon/${baseName}.js')`;
+    };
+
     for (const asset of catalog.assets) {
-        const { fileName, mapping } = asset;
+        const { fileName, mapping, category } = asset;
         const match = fileName.match(/^(.*)-(16|24)$/);
 
         if (match) {
@@ -110,22 +136,29 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
                 }                    
 
                 if (fs.existsSync(carbonPath)) {
-                    const key = `carbon-${baseName}`;
-                    const symbolId = makeSymbolIdFromKey(key);
-
                     const carbonSource = await fs.readFile(carbonPath, 'utf8');
-                    const carbonContent = await prettier.format(
-                        getSymbolModule(carbonSource, symbolId), 
-                        { ...prettierConfig, parser: 'typescript' }
-                    );
 
-                    await fs.writeFile(`${carbonFolder}/${baseName}.js`, carbonContent);
-
-                    registry[baseName].carbon = `() => import('./carbon/${baseName}.js')`;
+                    await writeCarbonSymbol(baseName, carbonSource);
                 } else {
                     console.warn(`⚠️ Carbon icon missing: ${carbonName} (size 32) - Found in mapping for ${fileName}`);
                 }
-            }   
+            } else if (
+                CDS_MONOCHROME_FALLBACK_CATEGORIES.includes(category) &&
+                baseName.endsWith('-color') &&
+                !registry[baseName].carbon
+            ) {
+                // no IBM Carbon equivalent exists for these icons, so fall back to the monochrome glyph
+                const monochromeFileName = `${baseName.replace(/-color$/, '')}-${CDS_MONOCHROME_FALLBACK_SIZE}`;
+                const monochromePath = `${tempSVGFolderPath}/${monochromeFileName}.svg`;
+
+                if (fs.existsSync(monochromePath)) {
+                    const monochromeSource = await fs.readFile(monochromePath, 'utf8');
+
+                    await writeCarbonSymbol(baseName, monochromeSource);
+                } else {
+                    console.warn(`⚠️ Monochrome fallback missing: ${monochromeFileName} - Expected by "${fileName}" (category "${category}")`);
+                }
+            }
         }
     }
 
