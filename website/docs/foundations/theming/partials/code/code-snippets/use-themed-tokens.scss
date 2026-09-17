@@ -1,0 +1,11 @@
+// "system"/"light"/"dark" themes only (cds-g0/cds-g100 modes)
+@use "@hashicorp/design-system-components/dist/styles/@hashicorp/themed-tokens/with-css-selectors/tokens.css";
+
+// adds the "default" (classic) theme, so it can co-exist with the carbonized themes during a migration
+@use "@hashicorp/design-system-components/dist/styles/@hashicorp/themed-tokens/with-css-selectors--migration/tokens.css";
+
+// exposes all four Carbon gray modes (cds-g0/cds-g10/cds-g90/cds-g100)
+@use "@hashicorp/design-system-components/dist/styles/@hashicorp/themed-tokens/with-css-selectors--advanced/tokens.css";
+
+// import only ONE of the files above, then always import the component styles too
+@use "@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components-common.css";
