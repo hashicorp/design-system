@@ -37,6 +37,12 @@ patchedDependencies:
   'ember-app-scheduler@7.0.1': patches/ember-app-scheduler@7.0.1.patch
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@percy/core'
+  - core-js
+  - esbuild
+
+ignoredBuiltDependencies:
   - '@carbon/charts'
   - '@carbon/colors'
   - '@carbon/grid'
@@ -46,7 +52,3 @@ onlyBuiltDependencies:
   - '@carbon/themes'
   - '@carbon/type'
   - '@carbon/utils-position'
-  - '@parcel/watcher'
-  - '@percy/core'
-  - core-js
-  - esbuild
