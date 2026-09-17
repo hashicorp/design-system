@@ -179,7 +179,6 @@
   --hds-product-packer-surface-color: #d4f2ff;
   --hds-product-terraform-border-color: #ebdbfc;
   --hds-product-terraform-brand-color-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
-  --hds-product-terraform-brand-color: #7b42bc;
   --hds-product-terraform-foreground-color: #773cb4;
   --hds-product-terraform-gradient-color-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
   --hds-product-terraform-gradient-color-faint-stop: #f4ecff;

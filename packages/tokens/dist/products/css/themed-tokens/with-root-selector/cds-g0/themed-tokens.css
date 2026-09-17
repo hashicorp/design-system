@@ -589,6 +589,7 @@
   --hds-pagination-size-selector-typography-font-size: 0.875rem;
   --hds-product-hashicorp-brand-color: #000000;
   --hds-product-hcp-brand-color: #000000;
+  --hds-product-terraform-brand-color: #7b42bc; /** for dark `cds` modes, we use the `color-on-dark` color */
   --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */

@@ -3842,17 +3842,27 @@
 }
 
 /**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+/**
  * Copyright IBM Corp. 2021, 2026
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-badge-count {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
   font-weight: var(--hds-typography-font-weight-medium);
   font-family: var(--hds-typography-font-stack-text);
   border-style: solid;
   border-width: 1px;
+}
+.hds-theme-light .hds-badge-count,
+.hds-theme-dark .hds-badge-count,
+.hds-theme-system .hds-badge-count {
+  min-width: 32px;
 }
 
 .hds-badge-count--size-small {
