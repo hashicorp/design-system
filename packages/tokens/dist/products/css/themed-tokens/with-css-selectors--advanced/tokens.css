@@ -1059,6 +1059,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   );
   --hds-product-hashicorp-brand-color: #000000;
   --hds-product-hcp-brand-color: #000000;
+  --hds-product-terraform-brand-color: #7b42bc;
   --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
@@ -2095,6 +2096,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-pagination-size-selector-typography-font-size: 0.875rem;
     --hds-product-hashicorp-brand-color: #000000;
     --hds-product-hcp-brand-color: #000000;
+    --hds-product-terraform-brand-color: #7b42bc; /** for dark `cds` modes, we use the `color-on-dark` color */
     --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
@@ -3015,6 +3017,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
     --hds-pagination-size-selector-typography-font-size: 0.875rem;
     --hds-product-hashicorp-brand-color: #ffffff;
     --hds-product-hcp-brand-color: #ffffff;
+    --hds-product-terraform-brand-color: var(
+      --hds-product-terraform-brand-color-on-dark
+    ); /** for dark `cds` modes, we use the `color-on-dark` color */
     --hds-product-vault-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --hds-product-vault-radar-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --hds-product-vault-secrets-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
@@ -3894,6 +3899,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-pagination-size-selector-typography-font-size: 0.875rem;
   --hds-product-hashicorp-brand-color: #000000;
   --hds-product-hcp-brand-color: #000000;
+  --hds-product-terraform-brand-color: #7b42bc; /** for dark `cds` modes, we use the `color-on-dark` color */
   --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
@@ -4792,6 +4798,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-pagination-size-selector-typography-font-size: 0.875rem;
   --hds-product-hashicorp-brand-color: #ffffff;
   --hds-product-hcp-brand-color: #ffffff;
+  --hds-product-terraform-brand-color: var(
+    --hds-product-terraform-brand-color-on-dark
+  ); /** for dark `cds` modes, we use the `color-on-dark` color */
   --hds-product-vault-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --hds-product-vault-radar-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --hds-product-vault-secrets-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
@@ -5669,6 +5678,7 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-pagination-size-selector-typography-font-size: 0.875rem;
   --hds-product-hashicorp-brand-color: #000000;
   --hds-product-hcp-brand-color: #000000;
+  --hds-product-terraform-brand-color: #7b42bc; /** for dark `cds` modes, we use the `color-on-dark` color */
   --hds-product-vault-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --hds-product-vault-radar-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --hds-product-vault-secrets-brand-color-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
@@ -6566,6 +6576,9 @@ scoped to its corresponding `:root`/`.hds-theme-*`/`.hds-mode-*` selector.
   --hds-pagination-size-selector-typography-font-size: 0.875rem;
   --hds-product-hashicorp-brand-color: #ffffff;
   --hds-product-hcp-brand-color: #ffffff;
+  --hds-product-terraform-brand-color: var(
+    --hds-product-terraform-brand-color-on-dark
+  ); /** for dark `cds` modes, we use the `color-on-dark` color */
   --hds-product-vault-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --hds-product-vault-radar-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --hds-product-vault-secrets-brand-color-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
@@ -7124,7 +7137,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --hds-product-packer-surface-color: #d4f2ff;
   --hds-product-terraform-border-color: #ebdbfc;
   --hds-product-terraform-brand-color-on-dark: #a067da; /** this is an alternative brand color meant to be used on dark backgrounds */
-  --hds-product-terraform-brand-color: #7b42bc;
   --hds-product-terraform-foreground-color: #773cb4;
   --hds-product-terraform-gradient-color-faint-start: #fcfaff; /** this is the 'terraform-50' value at 25% opacity on white */
   --hds-product-terraform-gradient-color-faint-stop: #f4ecff;

@@ -7,6 +7,8 @@
 // BADGE-COUNT COMPONENT
 //
 
+@use "../mixins/carbonization" as *;
+
 $hds-badge-count-sizes: ("small", "medium", "large");
 $hds-badge-count-colors: ("neutral", "neutral-dark-mode");
 $hds-badge-count-types: ("filled", "inverted", "outlined");
@@ -14,11 +16,16 @@ $hds-badge-count-types: ("filled", "inverted", "outlined");
 .hds-badge-count {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
   font-weight: var(--hds-typography-font-weight-medium);
   font-family: var(--hds-typography-font-stack-text);
   border-style: solid;
   border-width: 1px;
+
+  @include hds-apply-only-if-carbon() {
+    min-width: 32px;
+  }
 }
 
 // SIZE
