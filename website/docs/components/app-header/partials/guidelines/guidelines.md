@@ -66,9 +66,19 @@ The user dropdown gives users quick and easy access to their settings and prefer
 
 Avoid placing links to unrelated pages within the user dropdown menu.
 
-For guidance on adding theme options to the User dropdown, refer to the [theme selection pattern](/patterns/theme-selection).
-
 ![User dropdown in the App Header](/assets/components/app-header/app-header-user-dropdown.png)
+
+### Language sselection
+
+For guidance on adding language selection to the App Header, refer to the [language selection pattern](/patterns/language-selection.png).
+
+![An example of language selection via a dedicated dropdown menu in the App Header](/assets/patterns/language-selection/language-selection.png)
+
+### Theme selection
+
+For guidance on adding theme selection to the User dropdown, refer to the [theme selection pattern](/patterns/theme-selection).
+
+![An example of theme selection in the user dropdown menu](/assets/patterns/theme-selection/theme-selection.png)
 
 ### Search
 
