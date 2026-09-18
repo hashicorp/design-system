@@ -4,15 +4,31 @@
  */
 
 import { module, test } from 'qunit';
-import { render, setupOnerror } from '@ember/test-helpers';
+import { render, setupOnerror, settled } from '@ember/test-helpers';
+import { tracked } from '@glimmer/tracking';
 import style from 'ember-style-modifier';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
-
+import { HdsThemeValues } from '@hashicorp/design-system-components/services/hds-theming';
 import { setupRenderingTest } from 'showcase/tests/helpers';
+
+import type { IconName } from '@hashicorp/flight-icons/svg';
+import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
+
+// notice: "activity" has a Carbon equivalent in the icon registry, "apple" doesn't
+const ICON_WITH_CARBON_EQUIVALENT = 'activity';
+const ICON_WITHOUT_CARBON_EQUIVALENT = 'apple';
 
 module('Integration | Component | hds-icon', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.afterEach(function () {
+    // reset the theming (it applies CSS classes to the root `<html>` element)
+    const hdsTheming = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    hdsTheming.setTheme({ theme: undefined });
+  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(<template><HdsIcon @name="activity" /></template>);
@@ -106,6 +122,104 @@ module('Integration | Component | hds-icon', function (hooks) {
     });
   });
 
+  // DATA ATTRIBUTES
+
+  test('it sets the "data-test-icon" attribute to the icon name', async function (assert) {
+    await render(<template><HdsIcon @name="activity" /></template>);
+    assert.dom('svg.hds-icon').hasAttribute('data-test-icon', 'activity');
+  });
+
+  // notice: the "data-has-carbon-equivalent" and "data-is-carbon" attributes are
+  // rendered only when their value is `true` (the attribute is omitted otherwise)
+
+  test('it has the "data-has-carbon-equivalent" attribute if the icon has a Carbon equivalent', async function (assert) {
+    await render(
+      <template><HdsIcon @name={{ICON_WITH_CARBON_EQUIVALENT}} /></template>,
+    );
+    assert.dom('svg.hds-icon').hasAttribute('data-has-carbon-equivalent');
+  });
+
+  test('it does not have the "data-has-carbon-equivalent" attribute if the icon does not have a Carbon equivalent', async function (assert) {
+    await render(
+      <template><HdsIcon @name={{ICON_WITHOUT_CARBON_EQUIVALENT}} /></template>,
+    );
+    assert
+      .dom('svg.hds-icon')
+      .doesNotHaveAttribute('data-has-carbon-equivalent');
+  });
+
+  test('it does not have the "data-is-carbon" attribute if the Carbon theme is not enabled', async function (assert) {
+    await render(
+      <template><HdsIcon @name={{ICON_WITH_CARBON_EQUIVALENT}} /></template>,
+    );
+    assert.dom('svg.hds-icon').doesNotHaveAttribute('data-is-carbon');
+  });
+
+  test('it has the "data-is-carbon" attribute if the Carbon theme is enabled and the icon has a Carbon equivalent', async function (assert) {
+    const hdsTheming = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    hdsTheming.setTheme({ theme: HdsThemeValues.Light });
+
+    await render(
+      <template><HdsIcon @name={{ICON_WITH_CARBON_EQUIVALENT}} /></template>,
+    );
+    assert.dom('svg.hds-icon').hasAttribute('data-is-carbon');
+  });
+
+  test('it does not have the "data-is-carbon" attribute if the Carbon theme is enabled but the icon does not have a Carbon equivalent', async function (assert) {
+    const hdsTheming = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    hdsTheming.setTheme({ theme: HdsThemeValues.Light });
+
+    await render(
+      <template><HdsIcon @name={{ICON_WITHOUT_CARBON_EQUIVALENT}} /></template>,
+    );
+    assert
+      .dom('svg.hds-icon')
+      .doesNotHaveAttribute('data-has-carbon-equivalent');
+    assert.dom('svg.hds-icon').doesNotHaveAttribute('data-is-carbon');
+  });
+
+  test('it updates the "data-is-carbon" attribute when the theme changes', async function (assert) {
+    const hdsTheming = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+
+    await render(
+      <template><HdsIcon @name={{ICON_WITH_CARBON_EQUIVALENT}} /></template>,
+    );
+    assert.dom('svg.hds-icon').doesNotHaveAttribute('data-is-carbon');
+
+    hdsTheming.setTheme({ theme: HdsThemeValues.Dark });
+    await settled();
+
+    assert.dom('svg.hds-icon').hasAttribute('data-is-carbon');
+
+    hdsTheming.setTheme({ theme: HdsThemeValues.Default });
+    await settled();
+
+    assert.dom('svg.hds-icon').doesNotHaveAttribute('data-is-carbon');
+  });
+
+  // REACTIVITY
+
+  test('it updates the icon when @name argument changes', async function (assert) {
+    class State {
+      @tracked name: IconName = 'activity';
+    }
+    const state = new State();
+
+    await render(<template><HdsIcon @name={{state.name}} /></template>);
+    assert.dom('svg.hds-icon').hasClass('hds-icon-activity');
+
+    state.name = 'alert-circle';
+    await settled(); // Wait for the service to fetch, buffer, and flush RAF
+
+    assert.dom('svg.hds-icon').hasClass('hds-icon-alert-circle');
+  });
+
   // A11Y
 
   test('it renders the title if one is defined', async function (assert) {
@@ -114,7 +228,7 @@ module('Integration | Component | hds-icon', function (hooks) {
     );
     assert.dom('title').containsText('try to avoid');
   });
-  test('it has aria-hidden set to true', async function (assert) {
+  test('it has aria-hidden set to true by default', async function (assert) {
     await render(<template><HdsIcon @name="activity" /></template>);
     assert.dom('svg.hds-icon.hds-icon-activity').hasAria('hidden', 'true');
   });
@@ -147,20 +261,15 @@ module('Integration | Component | hds-icon', function (hooks) {
     assert.dom('svg > g').hasAttribute('role');
   });
 
-  // ATTRIBUTES
-
-  test('additional classes can be added when component is invoked', async function (assert) {
-    await render(<template><HdsIcon @name="meh" class="demo" /></template>);
-    assert.dom(`svg.hds-icon`).hasClass('demo');
-  });
-
   // ASSERTIONS
 
   test('it should throw an assertion if @name is not provided', async function (assert) {
-    const errorMessage = `Please provide to <Hds::Icon> a value for @name`;
-    assert.expect(2);
+    const errorMessage = `Assertion Failed: Please provide to <Hds::Icon> a value for @name`;
+
+    assert.expect(1);
+
     setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      assert.strictEqual(error.message, errorMessage);
     });
     await render(
       <template>
@@ -168,24 +277,39 @@ module('Integration | Component | hds-icon', function (hooks) {
         <HdsIcon />
       </template>,
     );
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
   });
   test('it should throw an assertion if the icon @name does not exist', async function (assert) {
-    const errorMessage = `The icon @name "abc" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
-    assert.expect(2);
+    // This tests the `registryEntry` getter assertion
+    const errorMessage = `Assertion Failed: The icon @name "abc" or @size "16" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
+
+    assert.expect(1);
+
     setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      assert.strictEqual(error.message, errorMessage);
     });
+
     await render(
       <template>
         {{! @glint-expect-error - testing invalid component usage }}
-        <HdsIcon @name="abc" />
+        <HdsIcon @name="abc" @size="16" />
       </template>,
     );
-    assert.throws(function () {
-      throw new Error(errorMessage);
+  });
+
+  test('it should throw an assertion if the icon @size does not exist for a valid name', async function (assert) {
+    const errorMessage = `Assertion Failed: Flight icon not available for "activity" with size "48".`;
+
+    assert.expect(1);
+
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, errorMessage);
     });
+
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsIcon @name="activity" @size="48" />
+      </template>,
+    );
   });
 });
