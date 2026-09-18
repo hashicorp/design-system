@@ -1,0 +1,158 @@
+{
+  "stepper": {
+    "step": {
+      "indicator": {
+        "size": {
+          "$type": "dimension",
+          "$value": "24",
+          "unit": "px",
+          "$modes": {
+            "default": "24",
+            "cds-g0": "16",
+            "cds-g10": "16",
+            "cds-g90": "16",
+            "cds-g100": "16"
+          }
+        },
+        "foreground": {
+          "color": {
+            "incomplete": {
+              "default": {
+                "$type": "color",
+                "$value": "{foreground.color.primary}",
+                "$modes": {
+                  "default": "{foreground.color.primary}",
+                  "cds-g0": "{carbon.themes.white.iconPrimary}",
+                  "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                  "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                  "cds-g100": "{carbon.themes.g100.iconPrimary}"
+                }
+              },
+              "interactive": {
+                "$type": "color",
+                "$value": "{foreground.color.primary}",
+                "$modes": {
+                  "default": "{foreground.color.primary}",
+                  "cds-g0": "{carbon.themes.white.iconPrimary}",
+                  "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                  "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                  "cds-g100": "{carbon.themes.g100.iconPrimary}"
+                }
+              }
+            },
+            "progress": {
+              "default": {
+                "$type": "color",
+                "$value": "{foreground.color.high-contrast}",
+                "$modes": {
+                  "default": "{foreground.color.high-contrast}",
+                  "cds-g0": "{carbon.themes.white.iconPrimary}",
+                  "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                  "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                  "cds-g100": "{carbon.themes.g100.iconPrimary}"
+                }
+              },
+              "interactive": {
+                "$type": "color",
+                "$value": "{foreground.color.high-contrast}",
+                "$modes": {
+                  "default": "{foreground.color.high-contrast}",
+                  "cds-g0": "{carbon.themes.white.interactive}",
+                  "cds-g10": "{carbon.themes.g10.interactive}",
+                  "cds-g90": "{carbon.themes.g90.interactive}",
+                  "cds-g100": "{carbon.themes.g100.interactive}"
+                }
+              }
+            },
+            "processing": {
+              "default": {
+                "$type": "color",
+                "$value": "{foreground.color.high-contrast}",
+                "$modes": {
+                  "default": "{foreground.color.high-contrast}",
+                  "cds-g0": "{carbon.themes.white.iconPrimary}",
+                  "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                  "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                  "cds-g100": "{carbon.themes.g100.iconPrimary}"
+                }
+              },
+              "interactive": {
+                "$type": "color",
+                "$value": "{foreground.color.high-contrast}",
+                "$modes": {
+                  "default": "{foreground.color.high-contrast}",
+                  "cds-g0": "{carbon.themes.white.interactive}",
+                  "cds-g10": "{carbon.themes.g10.interactive}",
+                  "cds-g90": "{carbon.themes.g90.interactive}",
+                  "cds-g100": "{carbon.themes.g100.interactive}"
+                }
+              }
+            },
+            "complete": {
+              "default": {
+                "$type": "color",
+                "$value": "{foreground.color.high-contrast}",
+                "$modes": {
+                  "default": "{foreground.color.high-contrast}",
+                  "cds-g0": "{carbon.themes.white.iconPrimary}",
+                  "cds-g10": "{carbon.themes.g10.iconPrimary}",
+                  "cds-g90": "{carbon.themes.g90.iconPrimary}",
+                  "cds-g100": "{carbon.themes.g100.iconPrimary}"
+                }
+              },
+              "interactive": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{core.color.blue-200}",
+                  "$modes": {
+                    "default": "{core.color.blue-200}",
+                    "cds-g0": "{carbon.themes.white.interactive}",
+                    "cds-g10": "{carbon.themes.g10.interactive}",
+                    "cds-g90": "{carbon.themes.g90.interactive}",
+                    "cds-g100": "{carbon.themes.g100.interactive}"
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{core.color.blue-300}",
+                  "$modes": {
+                    "default": "{core.color.blue-300}",
+                    "cds-g0": "{carbon.themes.white.interactive}",
+                    "cds-g10": "{carbon.themes.g10.interactive}",
+                    "cds-g90": "{carbon.themes.g90.interactive}",
+                    "cds-g100": "{carbon.themes.g100.interactive}"
+                  }
+                },
+                "active": {
+                  "$type": "color",
+                  "$value": "{core.color.blue-400}",
+                  "$modes": {
+                    "default": "{core.color.blue-400}",
+                    "cds-g0": "{carbon.themes.white.interactive}",
+                    "cds-g10": "{carbon.themes.g10.interactive}",
+                    "cds-g90": "{carbon.themes.g90.interactive}",
+                    "cds-g100": "{carbon.themes.g100.interactive}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "icon": {
+          "size": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px",
+            "$modes": {
+              "default": "12",
+              "cds-g0": "16",
+              "cds-g10": "16",
+              "cds-g90": "16",
+              "cds-g100": "16"
+            }
+          }
+        }
+      }
+    }
+  }
+}
