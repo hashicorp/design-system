@@ -1,18 +1,18 @@
-Use the theme selection pattern to provide users with a method to switch the application's visual theme between supported options. Theme selection is accessed from the existing User dropdown in the [App Header](/components/app-header)'s `utilityActions` and does not require a new top-level utility control.
+The theme selector provides users with a way to switch the application's visual theme between supported options. A user can change the theme via the existing User dropdown in the [App Header](/components/app-header)'s `utilityActions`.
 
-![An example of the open user settings menu in the App Header with available theme selection options.](/assets/patterns/theme-selection/theme-selection.png)
-
-In Ember applications, a [theme service (insert link here)](#) is provided to handle switching the theme based on the selected option.
+For more details about how theming is implemented in HDS, and how to use it for theme selection in an Ember application, see [Foundations/Theming](/foundations/theming?tab=code).
 
 ## Placement
 
 Place theme options as a new section within the User dropdown or settings menu in the [App Header](/components/app-header) after the existing account-level actions (Account settings, Sign out).
 
+![An example of the open user settings menu in the App Header with available theme selection options.](/assets/patterns/theme-selection/theme-selection.png)
+
 ## Components
 
-Compose the theme section within the settings menu with these [Dropdown](/components/dropdown) List Item components:
+The theme section should be composed using the [Dropdown](/components/dropdown) contextual components:
 
-- **Separator**: adds visual differentiation between the theme selection and the account actions and settings.
+- **Separator**: adds visual differentiation between the theme selection, the account actions, and settings.
 - **Title**: section label; set the text to "Theme"
 - **Checkmark**: one instance per theme option; includes a leading icon and accounts for the selected state
 
