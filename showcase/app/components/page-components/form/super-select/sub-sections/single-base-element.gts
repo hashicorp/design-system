@@ -183,7 +183,8 @@ const SubSectionSingleBaseElement: TemplateOnlyComponent = <template>
             <ul class="ember-power-select-options">
               <li
                 class="ember-power-select-option ember-power-select-option--loading-message"
-              >Loading options...</li>
+              ><div class="hds-form-super-select__option-text">Loading
+                  options...</div></li>
             </ul>
           </div>
         </div>
@@ -197,7 +198,7 @@ const SubSectionSingleBaseElement: TemplateOnlyComponent = <template>
               <li
                 class="ember-power-select-option ember-power-select-option--no-matches-message"
               >
-                No results found
+                <div class="hds-form-super-select__option-text">No results found</div>
               </li>
             </ul>
           </div>
