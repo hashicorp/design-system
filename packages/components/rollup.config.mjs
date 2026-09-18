@@ -96,6 +96,13 @@ const plugins = [
         ],
       },
       {
+        inputFile: 'design-system-components-common.scss',
+        outputFile: 'design-system-components-common.css',
+        loadPaths: [
+          'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        ],
+      },
+      {
         inputFile: 'design-system-power-select-overrides.scss',
         outputFile: 'design-system-power-select-overrides.css',
       },
