@@ -16,12 +16,23 @@ import {
 import type { McpPrompt } from "./types.js";
 
 const argsSchema = {
-  requirements: z.string().trim().min(1).max(4_000).describe(
-    "The user interaction to support, including constraints and any candidate components.",
-  ),
-  context: z.string().trim().min(1).max(4_000).optional().describe(
-    "Optional application context, such as placement, data size, accessibility needs, or HDS version.",
-  ),
+  requirements: z
+    .string()
+    .trim()
+    .min(1)
+    .max(4_000)
+    .describe(
+      "The user interaction to support, including constraints and any candidate components.",
+    ),
+  context: z
+    .string()
+    .trim()
+    .min(1)
+    .max(4_000)
+    .optional()
+    .describe(
+      "Optional application context, such as placement, data size, or accessibility needs.",
+    ),
 };
 
 const chooseComponentPrompt: McpPrompt<typeof argsSchema> = {
