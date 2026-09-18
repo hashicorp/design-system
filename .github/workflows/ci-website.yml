@@ -46,6 +46,9 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install
+      - name: Build Components
+        run: pnpm build
+        working-directory: packages/components
       - name: Lint
         run: pnpm lint
         working-directory: website
