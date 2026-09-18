@@ -34,7 +34,12 @@ If your client does not start in the application directory, use pnpm's `--dir` o
   "mcpServers": {
     "helios-design-system": {
       "command": "pnpm",
-      "args": ["--dir", "/absolute/path/to/application", "exec", "helios-design-system-mcp"]
+      "args": [
+        "--dir",
+        "/absolute/path/to/application",
+        "exec",
+        "helios-design-system-mcp"
+      ]
     }
   }
 }
