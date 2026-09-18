@@ -3,6 +3,45 @@ packages:
   - showcase
   - website
 
+####################
+# super strict mode
+####################
+autoInstallPeers: false
+# NOTE: the equivalent .npmrc key was actually a typo
+# ("strict-peer-dependents", not a real pnpm setting) and was silently
+# ignored, so peer-dependency issues were never enforced. Keeping that
+# effective behavior here (rather than newly enabling enforcement) to avoid
+# surfacing unrelated peer-dependency breaks as a side effect of this
+# migration.
+strictPeerDependencies: false
+resolvePeersFromWorkspaceRoot: false
+
+################
+# Optimizations
+################
+# Less strict, but required for tooling to not barf on duplicate peer trees.
+# (many libraries declare the same peers, which resolve to the same
+#  versions)
+dedupeInjectedDeps: true
+dedupePeerDependents: true
+injectWorkspacePackages: true
+syncInjectedDepsAfterScripts:
+  - build
+publicHoistPattern:
+  - ember-source
+
+################
+# Compatibility
+################
+# highest is what everyone is used to, but
+# not ensuring folks are actually compatible with declared ranges.
+resolutionMode: highest
+
+################
+# Misc
+################
+verifyDepsBeforeRun: install # always verify deps before running any scripts
+
 overrides:
   '@babel/plugin-transform-modules-systemjs': '7.29.4'
   '@glimmer/component': '^2.0.0'

@@ -159,8 +159,9 @@ snapshots:
 lockfileVersion: '9.0'
 
 settings:
-  autoInstallPeers: true
+  autoInstallPeers: false
   excludeLinksFromLockfile: false
+  injectWorkspacePackages: true
 
 overrides:
   '@babel/plugin-transform-modules-systemjs': 7.29.4
@@ -3115,6 +3116,23 @@ packages:
   '@handlebars/parser@2.2.2':
     resolution: {integrity: sha512-n/SZW+12rwikx/f8YcSv9JCi5p9vn1Bnts9ZtVvfErG4h0gbjHI1H1ZMhVUnaOC7yzFc6PtsCKIK8XeTnL90Gw==}
     engines: {node: ^18 || ^20 || ^22 || >=24}
+
+  '@hashicorp/design-system-components@file:packages/components':
+    resolution: {directory: packages/components, type: directory}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@ember/string': ^3.1.1 || ^4.0.0
+      ember-basic-dropdown: ^7.3.0 || ^8.6.1
+      ember-intl: ^8.0.0 || ^7.3.0
+    peerDependenciesMeta:
+      ember-intl:
+        optional: true
+
+  '@hashicorp/design-system-tokens@file:packages/tokens':
+    resolution: {directory: packages/tokens, type: directory}
+
+  '@hashicorp/flight-icons@file:packages/flight-icons':
+    resolution: {directory: packages/flight-icons, type: directory}
 
   '@hono/node-server@1.19.14':
     resolution: {integrity: sha512-GwtvgtXxnWsucXvbQXkRgqksiH2Qed37H9xHZocE5sA3N8O8O8/8FA3uclQXxXVzc9XBZuEOMK7+r02FmSpHtw==}
@@ -15307,6 +15325,175 @@ snapshots:
 
   '@handlebars/parser@2.2.2': {}
 
+  ? '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-intl@8.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2))(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)'
+  : dependencies:
+      '@codemirror/autocomplete': 6.20.0
+      '@codemirror/commands': 6.8.1
+      '@codemirror/lang-go': 6.0.1
+      '@codemirror/lang-javascript': 6.2.4
+      '@codemirror/lang-json': 6.0.2
+      '@codemirror/lang-markdown': 6.3.3
+      '@codemirror/lang-sql': 6.9.1
+      '@codemirror/lang-yaml': 6.1.2
+      '@codemirror/language': 6.11.2
+      '@codemirror/legacy-modes': 6.5.1
+      '@codemirror/lint': 6.8.5
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.38.1
+      '@ember/render-modifiers': 3.0.0(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      '@ember/string': 4.0.1
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)(supports-color@8.1.1)
+      '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
+      '@embroider/macros': 1.19.6(@glint/template@1.7.7)(supports-color@8.1.1)
+      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      '@floating-ui/dom': 1.7.3
+      '@hashicorp/design-system-tokens': file:packages/tokens
+      '@hashicorp/flight-icons': file:packages/flight-icons
+      '@lezer/highlight': 1.2.1
+      '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0(supports-color@8.1.1))(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      clipboard-polyfill: 4.1.1
+      codemirror-lang-hcl: 0.0.0-beta.2
+      decorator-transforms: 2.3.1(@babel/core@7.28.0(supports-color@8.1.1))
+      ember-a11y-refocus: 5.1.0(@babel/core@7.28.0(supports-color@8.1.1))(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-basic-dropdown: 8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-concurrency: 4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
+      ember-element-helper: 0.8.8(supports-color@8.1.1)
+      ember-focus-trap: 1.1.1(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-modifier: 4.2.2(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-power-select: 8.12.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-concurrency@4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-stargate: 1.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
+      ember-style-modifier: 4.5.1(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(supports-color@8.1.1)
+      ember-truth-helpers: 5.0.0(supports-color@8.1.1)
+      luxon: 3.7.1
+      prismjs: 1.30.0
+      tabbable: 6.2.0
+      tippy.js: 6.3.7
+      tracked-built-ins: 4.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
+    optionalDependencies:
+      ember-intl: 8.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@ember/test-helpers'
+      - '@glimmer/component'
+      - '@glint/environment-ember-loose'
+      - '@glint/template'
+      - ember-source
+      - supports-color
+
+  '@hashicorp/design-system-components@file:packages/components(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-intl@8.0.2(@ember/test-helpers@5.4.0(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)':
+    dependencies:
+      '@codemirror/autocomplete': 6.20.0
+      '@codemirror/commands': 6.8.1
+      '@codemirror/lang-go': 6.0.1
+      '@codemirror/lang-javascript': 6.2.4
+      '@codemirror/lang-json': 6.0.2
+      '@codemirror/lang-markdown': 6.3.3
+      '@codemirror/lang-sql': 6.9.1
+      '@codemirror/lang-yaml': 6.1.2
+      '@codemirror/language': 6.11.2
+      '@codemirror/legacy-modes': 6.5.1
+      '@codemirror/lint': 6.8.5
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.38.1
+      '@ember/render-modifiers': 3.0.0(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      '@ember/string': 4.0.1
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)(supports-color@8.1.1)
+      '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
+      '@embroider/macros': 1.19.6(@glint/template@1.7.7)(supports-color@8.1.1)
+      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      '@floating-ui/dom': 1.7.3
+      '@hashicorp/design-system-tokens': file:packages/tokens
+      '@hashicorp/flight-icons': file:packages/flight-icons
+      '@lezer/highlight': 1.2.1
+      '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0(supports-color@8.1.1))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      clipboard-polyfill: 4.1.1
+      codemirror-lang-hcl: 0.0.0-beta.2
+      decorator-transforms: 2.3.1(@babel/core@7.28.0(supports-color@8.1.1))
+      ember-a11y-refocus: 5.1.0(@babel/core@7.28.0(supports-color@8.1.1))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-basic-dropdown: 8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-concurrency: 4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
+      ember-element-helper: 0.8.8(supports-color@8.1.1)
+      ember-focus-trap: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-modifier: 4.2.2(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-power-select: 8.12.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-concurrency@4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-stargate: 1.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
+      ember-style-modifier: 4.5.1(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(supports-color@8.1.1)
+      ember-truth-helpers: 5.0.0(supports-color@8.1.1)
+      luxon: 3.7.1
+      prismjs: 1.30.0
+      tabbable: 6.2.0
+      tippy.js: 6.3.7
+      tracked-built-ins: 4.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
+    optionalDependencies:
+      ember-intl: 8.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@ember/test-helpers'
+      - '@glimmer/component'
+      - '@glint/environment-ember-loose'
+      - '@glint/template'
+      - ember-source
+      - supports-color
+
+  '@hashicorp/design-system-components@file:packages/components(c2ab6f18c38a6bda4d50c077d5010023)':
+    dependencies:
+      '@codemirror/autocomplete': 6.20.0
+      '@codemirror/commands': 6.8.1
+      '@codemirror/lang-go': 6.0.1
+      '@codemirror/lang-javascript': 6.2.4
+      '@codemirror/lang-json': 6.0.2
+      '@codemirror/lang-markdown': 6.3.3
+      '@codemirror/lang-sql': 6.9.1
+      '@codemirror/lang-yaml': 6.1.2
+      '@codemirror/language': 6.11.2
+      '@codemirror/legacy-modes': 6.5.1
+      '@codemirror/lint': 6.8.5
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.38.1
+      '@ember/render-modifiers': 3.0.0(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      '@ember/string': 4.0.1
+      '@ember/test-waiters': 4.1.1(@glint/template@1.7.7)(supports-color@8.1.1)
+      '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
+      '@embroider/macros': 1.19.6(@glint/template@1.7.7)(supports-color@8.1.1)
+      '@embroider/util': 1.13.4(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      '@floating-ui/dom': 1.7.3
+      '@hashicorp/design-system-tokens': file:packages/tokens
+      '@hashicorp/flight-icons': file:packages/flight-icons
+      '@lezer/highlight': 1.2.1
+      '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0(supports-color@8.1.1))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      clipboard-polyfill: 4.1.1
+      codemirror-lang-hcl: 0.0.0-beta.2
+      decorator-transforms: 2.3.1(@babel/core@7.28.0(supports-color@8.1.1))
+      ember-a11y-refocus: 5.1.0(@babel/core@7.28.0(supports-color@8.1.1))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-basic-dropdown: 8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-concurrency: 4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
+      ember-element-helper: 0.8.8(supports-color@8.1.1)
+      ember-focus-trap: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-modifier: 4.2.2(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-power-select: 8.12.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-concurrency@4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-stargate: 1.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
+      ember-style-modifier: 4.5.1(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(supports-color@8.1.1)
+      ember-truth-helpers: 5.0.0(supports-color@8.1.1)
+      luxon: 3.7.1
+      prismjs: 1.30.0
+      tabbable: 6.2.0
+      tippy.js: 6.3.7
+      tracked-built-ins: 4.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
+    optionalDependencies:
+      ember-intl: 7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)(typescript@5.9.2)(webpack@5.107.2(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.25.8)(lightningcss@1.32.0)(postcss@8.5.16)(uglify-js@3.19.3))
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@ember/test-helpers'
+      - '@glimmer/component'
+      - '@glint/environment-ember-loose'
+      - '@glint/template'
+      - ember-source
+      - supports-color
+
+  '@hashicorp/design-system-tokens@file:packages/tokens': {}
+
+  '@hashicorp/flight-icons@file:packages/flight-icons': {}
+
   '@hono/node-server@1.19.14(hono@4.12.25)':
     dependencies:
       hono: 4.12.25
@@ -20763,6 +20950,14 @@ snapshots:
       - encoding
       - supports-color
 
+  ember-focus-trap@1.1.1(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1):
+    dependencies:
+      '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
+      ember-source: 6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1)
+      focus-trap: 6.9.4
+    transitivePeerDependencies:
+      - supports-color
+
   ember-focus-trap@1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1):
     dependencies:
       '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
@@ -20843,6 +21038,19 @@ snapshots:
       - '@babel/core'
       - supports-color
       - typescript
+
+  ember-intl@8.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.2):
+    dependencies:
+      '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
+      '@formatjs/intl': 4.0.9(typescript@5.9.2)
+      decorator-transforms: 2.3.1(@babel/core@7.28.0(supports-color@8.1.1))
+    optionalDependencies:
+      '@ember/test-helpers': 5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+      - typescript
+    optional: true
 
   ember-load-initializers@3.0.1(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1)):
     dependencies:
